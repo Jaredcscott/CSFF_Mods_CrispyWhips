@@ -1,0 +1,36 @@
+{
+  "target": "HawkCompanion.png",
+  "sourceCard": [
+    "CardData/Item/HawkCompanion.json"
+  ],
+  "subject": "the same hawk as WildHawk, tame and calm: standing on a short thick upright wooden perch post with a leather-wrapped top, a thin leather jess tied round one leg hanging loose, feathers settled, looking toward the viewer",
+  "model": "nano-banana-2",
+  "mode": "image2image (subject reference + vanilla style)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: /create-image-refs item-variant template, reference image 1 = the same subject changed only as stated, + vanilla flat posterized style + white paper + Avoid list)",
+  "refs": [
+    {
+      "label": "WildHawk (subject)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WildHawk_1791797984750_155e3530.png"
+    }
+  ],
+  "historyId": "aD7uXWiPZCExB4ATFkFZ",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798049617_20f16662_1791798049661_a4954485.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: wrong image needs a unique image. The sample kept the wild hawk's pose, so it was mirrored left-right locally (free) to face the other way from WildHawk; 3 enclosed paper pockets between the legs and jess keyed with key_enclosed.py.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798049617_20f16662_1791798049661_a4954485.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

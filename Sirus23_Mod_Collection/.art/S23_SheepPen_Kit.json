@@ -1,0 +1,46 @@
+{
+  "target": "S23_SheepPen_Kit.png",
+  "sourceCard": [
+    "CardData/Item/SheepPen_Portable.json"
+  ],
+  "subject": "",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are existing kit icons: copy their format exactly, a slightly tilted cardboard kit box with the finished structure painted on its front face and the kit name in bold letters, the same painted style and box shape. Draw the same kind of kit box for a sheep pen: the front shows a wooden rail fence enclosure with a small shelter and a few sheep, the title reads SHEEP PEN KIT.\nsingle object only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no watermark, no signature, no frame around the picture.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, watermark, signature, logo.",
+  "historyId": "CgUT1HhJW7fzDy5xgWX2",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791091823229_4ddb898c_1791091823771_2a64bb86.png",
+  "credits": 150,
+  "generated": "2026-10-03",
+  "note": "Round 4 of the 2026-10-03 batch (regenerated from the owner's notes on rounds 1 and 2); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791091823346_23c14e5e_1791091823971_57c335c1.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791091823229_4ddb898c_1791091823771_2a64bb86.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791091824392_a9d48fe1_1791091825015_2bd6f054.png"
+    }
+  ],
+  "picked": "B",
+  "references": [
+    {
+      "label": "SawmillKit.png",
+      "role": "style"
+    },
+    {
+      "label": "FishpondKit.png",
+      "role": "style"
+    }
+  ]
+}

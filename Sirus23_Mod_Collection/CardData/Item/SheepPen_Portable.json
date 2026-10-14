@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_sheep_pen_portable",
         "LocalizationKey": "sh_sheep_pen_portable_CardDescription",
-        "DefaultText": "A fenced sheep pen, packed for transport. Use Place to set it up."
+        "DefaultText": "A fenced sheep pen, packed for transport. Use Place to set it up. It keeps its Fence Condition while packed: packing and placing the pen does not mend it."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -30,7 +30,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Enclosure_Door",
+    "CardImageWarpData": "S23_SheepPen_Kit",
     "CardImageWarpType": 3,
     "ShowImageAboveTitle": false,
     "CardType": 0,
@@ -58,7 +58,16 @@
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 1920.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_sheep_pen",
+            "LocalizationKey": "sh_sheep_pen_SpoilageTime_CardStatName",
+            "DefaultText": "Fence Condition"
+        },
+        "MaxValue": 1920.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0
     },
     "UsageDurability": {
         "Active": false
@@ -112,7 +121,8 @@
                 },
                 "TransformIntoWarpData": "sh_sheep_pen",
                 "TransformIntoWarpType": 3,
-                "SpawnTransformAtSource": true
+                "SpawnTransformAtSource": true,
+                "TransferSpoilage": true
             }
         }
     ],

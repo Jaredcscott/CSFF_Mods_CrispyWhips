@@ -23,7 +23,7 @@
       "source": "Sirus23_Mod_Collection/Resource/Picture/sh_male_sheep.png"
     }
   ],
-  "note": "Revamp of a card that already had its own art. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed).",
+  "note": "owner gallery rework pass 2 2026-10-12: alter, \"has white near ears\". Re-keyed, no generation: the four enclosed paper pockets beside the ears (the crescent above each ear and the gap below each ear, inside the horn curls) keyed to transparent with key_enclosed.py confined by --box to each ear area (145,35-195,95 and 250,35-300,100 on the 347x405 trimmed sprite), against this sidecar's raw resource_url aligned to the trimmed sprite (offset 105,288 in the 512x768 cover crop), then defringe.py and re-saved as a trimmed palette PNG. Fleece and face untouched. Earlier pass: owner gallery rework 2026-10-12: has white to remove Re-keyed, no generation: the enclosed paper gap between the left horn and the back keyed to transparent, then defringe.py on the outer edge; fleece left alone. Earlier note: Revamp of a card that already had its own art. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed).",
   "candidates": [
     {
       "n": "A",
@@ -42,5 +42,6 @@
     }
   ],
   "picked": "B",
-  "predicted": "B"
+  "predicted": "B",
+  "reworked": "2026-10-12"
 }

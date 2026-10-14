@@ -11,7 +11,194 @@
         "DefaultText": "A sleeveless felt vest that adds an extra layer of warmth over the torso."
     },
     "CanBeRenamed": false,
-    "AlternateNames": [],
+    "AlternateNames": [
+        {
+            "Conditions": {
+                "SpoilageRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "UsageRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "FuelRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ProgressRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special2Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special3Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Range": {
+                    "x": 2.0,
+                    "y": 2.0
+                },
+                "LiquidQuantityRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "Name": {
+                "ParentObjectID": "sh_felt_vest",
+                "LocalizationKey": "sh_felt_vest_AlternateNames[0].Name",
+                "DefaultText": "Green Felt Vest"
+            },
+            "Description": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "Art": {
+                "SeasonID": "",
+                "CardImage": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "CardBackground": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "ShowImageAboveTitle": false
+            }
+        },
+        {
+            "Conditions": {
+                "SpoilageRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "UsageRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "FuelRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ProgressRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special2Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special3Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Range": {
+                    "x": 3.0,
+                    "y": 3.0
+                },
+                "LiquidQuantityRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "Name": {
+                "ParentObjectID": "sh_felt_vest",
+                "LocalizationKey": "sh_felt_vest_AlternateNames[1].Name",
+                "DefaultText": "Red Felt Vest"
+            },
+            "Description": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "Art": {
+                "SeasonID": "",
+                "CardImage": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "CardBackground": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "ShowImageAboveTitle": false
+            }
+        },
+        {
+            "Conditions": {
+                "SpoilageRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "UsageRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "FuelRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ProgressRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special2Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special3Range": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Range": {
+                    "x": 100.0,
+                    "y": 100.0
+                },
+                "LiquidQuantityRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "Name": {
+                "ParentObjectID": "sh_felt_vest",
+                "LocalizationKey": "sh_felt_vest_AlternateNames[2].Name",
+                "DefaultText": "Brown Felt Vest"
+            },
+            "Description": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "Art": {
+                "SeasonID": "",
+                "CardImage": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "CardBackground": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "ShowImageAboveTitle": false
+            }
+        }
+    ],
     "LiquidSuffixName": {
         "ParentObjectID": "",
         "LocalizationKey": "",
@@ -41,7 +228,8 @@
     "CardTags": [],
     "CardTagsWarpData": [
         "tag_Clothing",
-        "tag_Warmth"
+        "tag_Warmth",
+        "tag_DyeableClothing"
     ],
     "CardTagsWarpType": 3,
     "EquipmentTags": [],
@@ -55,7 +243,7 @@
     "AlwaysUpdate": false,
     "CannotBeTrashed": false,
     "DoesNotPile": false,
-    "ToggleablePiling": false,
+    "ToggleablePiling": true,
     "DoesNotPinAutomatically": false,
     "WhenCreatedSounds": [],
     "WhenCreatedSoundsWarpData": [
@@ -72,7 +260,914 @@
         "Active": false
     },
     "Progress": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_felt_vest",
+            "LocalizationKey": "sh_felt_vest_Progress_CardStatName",
+            "DefaultText": "Colour Intensity"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 23040.0,
+        "RestrictToSpecificValues": false,
+        "ValidValues": [],
+        "RatePerDaytimePoint": -1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "MinRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "MaxRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "HidingOptions": 3,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "OverrideIconWarpData": "Urine",
+        "OverrideIconWarpType": 3,
+        "SortInverted": false,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": true,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 2,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "MinDaytimeCost": {
+                "Active": false,
+                "IntValue": 0
+            },
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "CompatibleNPCDuties": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredPresentNPCS": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "RequiredActiveHidingGroups": [],
+            "HideIfConditionsNotMet": false,
+            "NotBaseAction": false,
+            "Cancellable": false,
+            "InstantStatModifications": false,
+            "LocksCardsForUse": false,
+            "DontDoStatModificationsOnCancel": false,
+            "InstantDurabilityModifications": false,
+            "ReceivingCardFlavourBonus": false,
+            "GivenCardFlavourBonus": false,
+            "ResetWhenDone": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatInterruptions": [],
+            "StartDialog": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "InterpolatedStatModifications": [],
+            "NPCStatModifications": [],
+            "NPCSetDuties": [],
+            "TemporaryStatModifications": [],
+            "MovePlayer": {
+                "MoveOption": 0,
+                "ToEnv": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Direction": 0
+            },
+            "MoveReceivingCard": {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "UseCardinalDirection": false,
+                "MoveInDirection": 0,
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "SpawnNPCS": [],
+            "DeleteNPCS": [],
+            "MoveNPC": [],
+            "SetNPCHome": [],
+            "SetNPCSpecialLocation": [],
+            "ExtraDurabilityModifications": [],
+            "BlueprintsFullUnlock": [],
+            "AddedCardsInOtherEnvs": [],
+            "CompletedImprovements": [],
+            "AddedInRunPerks": [],
+            "DontShowDestroyMessage": false,
+            "CustomDestroyMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoCardsAffectedMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": -100000.0,
+                    "y": -100000.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CustomWindowPrefab": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OpenQuestLog": false,
+            "OpenMap": false,
+            "UpdateMap": false,
+            "EditDescription": false,
+            "FadeToBlack": 0,
+            "FadeMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "FadeTips": false,
+            "TravelToPreviousEnv": false,
+            "TravelToOtherRoom": false,
+            "RoomDirection": 0,
+            "ExitDirection": 0
+        },
+        "HasActionOnFull": false,
+        "RepeatActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 0,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "MinDaytimeCost": {
+                "Active": false,
+                "IntValue": 0
+            },
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "CompatibleNPCDuties": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredPresentNPCS": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "RequiredActiveHidingGroups": [],
+            "HideIfConditionsNotMet": false,
+            "NotBaseAction": false,
+            "Cancellable": false,
+            "InstantStatModifications": false,
+            "LocksCardsForUse": false,
+            "DontDoStatModificationsOnCancel": false,
+            "InstantDurabilityModifications": false,
+            "ReceivingCardFlavourBonus": false,
+            "GivenCardFlavourBonus": false,
+            "ResetWhenDone": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatInterruptions": [],
+            "StartDialog": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "InterpolatedStatModifications": [],
+            "NPCStatModifications": [],
+            "NPCSetDuties": [],
+            "TemporaryStatModifications": [],
+            "MovePlayer": {
+                "MoveOption": 0,
+                "ToEnv": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Direction": 0
+            },
+            "MoveReceivingCard": {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "UseCardinalDirection": false,
+                "MoveInDirection": 0,
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "SpawnNPCS": [],
+            "DeleteNPCS": [],
+            "MoveNPC": [],
+            "SetNPCHome": [],
+            "SetNPCSpecialLocation": [],
+            "ExtraDurabilityModifications": [],
+            "BlueprintsFullUnlock": [],
+            "AddedCardsInOtherEnvs": [],
+            "CompletedImprovements": [],
+            "AddedInRunPerks": [],
+            "DontShowDestroyMessage": false,
+            "CustomDestroyMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoCardsAffectedMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CustomWindowPrefab": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OpenQuestLog": false,
+            "OpenMap": false,
+            "UpdateMap": false,
+            "EditDescription": false,
+            "FadeToBlack": 0,
+            "FadeMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "FadeTips": false,
+            "TravelToPreviousEnv": false,
+            "TravelToOtherRoom": false,
+            "RoomDirection": 0,
+            "ExitDirection": 0
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": []
     },
     "SpecialDurability1": {
         "Active": false
@@ -84,7 +1179,912 @@
         "Active": false
     },
     "SpecialDurability4": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_felt_vest",
+            "LocalizationKey": "sh_felt_vest_SpecialDurability4_CardStatName",
+            "DefaultText": "Colour"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 100.0,
+        "RestrictToSpecificValues": false,
+        "ValidValues": [],
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "MinRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "MaxRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "HidingOptions": 2,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "SortInverted": false,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "MinDaytimeCost": {
+                "Active": false,
+                "IntValue": 0
+            },
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "CompatibleNPCDuties": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredPresentNPCS": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "RequiredActiveHidingGroups": [],
+            "HideIfConditionsNotMet": false,
+            "NotBaseAction": false,
+            "Cancellable": false,
+            "InstantStatModifications": false,
+            "LocksCardsForUse": false,
+            "DontDoStatModificationsOnCancel": false,
+            "InstantDurabilityModifications": false,
+            "ReceivingCardFlavourBonus": false,
+            "GivenCardFlavourBonus": false,
+            "ResetWhenDone": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatInterruptions": [],
+            "StartDialog": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "InterpolatedStatModifications": [],
+            "NPCStatModifications": [],
+            "NPCSetDuties": [],
+            "TemporaryStatModifications": [],
+            "MovePlayer": {
+                "MoveOption": 0,
+                "ToEnv": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Direction": 0
+            },
+            "MoveReceivingCard": {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "UseCardinalDirection": false,
+                "MoveInDirection": 0,
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "SpawnNPCS": [],
+            "DeleteNPCS": [],
+            "MoveNPC": [],
+            "SetNPCHome": [],
+            "SetNPCSpecialLocation": [],
+            "ExtraDurabilityModifications": [],
+            "BlueprintsFullUnlock": [],
+            "AddedCardsInOtherEnvs": [],
+            "CompletedImprovements": [],
+            "AddedInRunPerks": [],
+            "DontShowDestroyMessage": false,
+            "CustomDestroyMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoCardsAffectedMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CustomWindowPrefab": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OpenQuestLog": false,
+            "OpenMap": false,
+            "UpdateMap": false,
+            "EditDescription": false,
+            "FadeToBlack": 0,
+            "FadeMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "FadeTips": false,
+            "TravelToPreviousEnv": false,
+            "TravelToOtherRoom": false,
+            "RoomDirection": 0,
+            "ExitDirection": 0
+        },
+        "HasActionOnFull": false,
+        "RepeatActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 0,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "MinDaytimeCost": {
+                "Active": false,
+                "IntValue": 0
+            },
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "CompatibleNPCDuties": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredPresentNPCS": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "RequiredActiveHidingGroups": [],
+            "HideIfConditionsNotMet": false,
+            "NotBaseAction": false,
+            "Cancellable": false,
+            "InstantStatModifications": false,
+            "LocksCardsForUse": false,
+            "DontDoStatModificationsOnCancel": false,
+            "InstantDurabilityModifications": false,
+            "ReceivingCardFlavourBonus": false,
+            "GivenCardFlavourBonus": false,
+            "ResetWhenDone": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatInterruptions": [],
+            "StartDialog": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "InterpolatedStatModifications": [],
+            "NPCStatModifications": [],
+            "NPCSetDuties": [],
+            "TemporaryStatModifications": [],
+            "MovePlayer": {
+                "MoveOption": 0,
+                "ToEnv": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Direction": 0
+            },
+            "MoveReceivingCard": {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "UseCardinalDirection": false,
+                "MoveInDirection": 0,
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "SpawnNPCS": [],
+            "DeleteNPCS": [],
+            "MoveNPC": [],
+            "SetNPCHome": [],
+            "SetNPCSpecialLocation": [],
+            "ExtraDurabilityModifications": [],
+            "BlueprintsFullUnlock": [],
+            "AddedCardsInOtherEnvs": [],
+            "CompletedImprovements": [],
+            "AddedInRunPerks": [],
+            "DontShowDestroyMessage": false,
+            "CustomDestroyMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoCardsAffectedMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CustomWindowPrefab": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OpenQuestLog": false,
+            "OpenMap": false,
+            "UpdateMap": false,
+            "EditDescription": false,
+            "FadeToBlack": 0,
+            "FadeMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "FadeTips": false,
+            "TravelToPreviousEnv": false,
+            "TravelToOtherRoom": false,
+            "RoomDirection": 0,
+            "ExitDirection": 0
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": []
     },
     "CardInteractions": [],
     "DismantleActions": [],
@@ -105,7 +2105,35 @@
             "IsInverse": false
         }
     ],
-    "PassiveEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Felt Outfit Piece",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "sh_felt_outfit_pieces",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 1.0, "y": 1.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectScalesWithDurabilities": {
+                "Active": false,
+                "Inputs": [ { "Durability": 64, "Range": { "x": 0.0, "y": 100.0 } } ],
+                "EffectScalingOutput": { "x": 1.0, "y": 1.0 }
+            }
+        }
+    ],
     "MaxLiquidCapacity": 0.0,
     "InventorySlots": [],
     "InventorySlotsWarpData": [],

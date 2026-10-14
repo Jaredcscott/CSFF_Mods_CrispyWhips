@@ -18,6 +18,7 @@
     "CardTags": [],
     "CardTagsWarpData": [
         "tag_Food",
+        "tag_HumanFood",
         "tag_Plateable"
     ],
     "CardTagsWarpType": 3,
@@ -39,8 +40,19 @@
                 "LocalizationKey": "sh_ricotta_rye_round_DismantleActions[0].ActionName",
                 "DefaultText": "Eat"
             },
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
+            "ReceivingCardFlavourBonus": true,
             "ActionTagsWarpData": [
                 "VegetarianAction",
                 "EatingAction"

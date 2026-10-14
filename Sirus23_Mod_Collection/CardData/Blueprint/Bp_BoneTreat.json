@@ -26,13 +26,15 @@
     "BuildingStatConditions": [],
     "CardsOnBoard": [
         {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
             "Card": {
                 "m_FileID": 0,
                 "m_PathID": 0
             },
             "CardWarpData": "674b640f46671f1418af4559b259b442",
             "CardWarpType": 3,
-            "Amount": 1,
+            "Quantity": 1,
             "ConstantlyChecking": false
         }
     ],

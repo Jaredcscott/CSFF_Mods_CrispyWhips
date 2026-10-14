@@ -1,0 +1,51 @@
+{
+  "target": "sh_recall_whistle.png",
+  "sourceCard": [
+    "CardData/Item/RecallWhistle.json",
+    "CardData/Blueprint/Bp_RecallWhistle.json"
+  ],
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "composition": {
+    "style": [
+      "vanilla Knife_Flint",
+      "vanilla Axe_Stone"
+    ],
+    "change": "a short hollow pale ivory-tan bone tube whistle with one squared notch and one finger hole, a thin brown leather cord loop through the far end",
+    "finish": "keyed"
+  },
+  "references": [
+    {
+      "role": "style",
+      "fragment": "vanilla Knife_Flint (reference_library refs tool)",
+      "id": "srLsfbRhzXdoz1JBwH7G",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Knife_Flint_1791745027495_99236535.png"
+    },
+    {
+      "role": "style",
+      "fragment": "vanilla Axe_Stone (reference_library refs tool)",
+      "id": "ebT0Y8iL0opmjcDS78lT",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Axe_Stone_1791744833851_a9858d24.png"
+    }
+  ],
+  "historyId": "r7V8fQI3DxixByHAOBEX",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791793299743_0a00fd4c_1791793299771_b5e0cf4d.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Sirus23 plan feature 34 (pack Prompt 37). Finished with process_card_art (headless GIMP 3, keyed, trimmed to 344x512). The paper INSIDE the closed cord loop is not border-connected, so the keyer left it opaque white; it was keyed afterwards with a PIL flood fill of that one enclosed region (13,849 px, fringe faded on the 200 to 250 ramp) and re-quantized to a 256-colour palette. One sample, Claude-reviewed; awaits the owner's gallery review.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791793299743_0a00fd4c_1791793299771_b5e0cf4d.png",
+      "verdict": "on-model: one plain bone tube, squared notch, one finger hole, brown cord loop, no decoration (Claude-reviewed, no owner pick)",
+      "shipped": true
+    }
+  ],
+  "shipped": "2026-10-12"
+}

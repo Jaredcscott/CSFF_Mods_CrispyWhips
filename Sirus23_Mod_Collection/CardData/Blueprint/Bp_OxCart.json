@@ -1,0 +1,157 @@
+{
+    "UniqueID": "sh_bp_ox_cart",
+    "CardName": {
+        "ParentObjectID": "sh_bp_ox_cart",
+        "LocalizationKey": "sh_bp_ox_cart_CardName",
+        "DefaultText": "Ox Cart Blueprint"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_bp_ox_cart",
+        "LocalizationKey": "sh_bp_ox_cart_CardDescription",
+        "DefaultText": "Build a plank cart that a Bull can draw."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "sh_ox_cart",
+    "CardImageWarpType": 3,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "sh_bp_ox_cart",
+        "LocalizationKey": "sh_bp_ox_cart_UnlockConditionsDesc",
+        "DefaultText": "Requires: Bull"
+    },
+    "StartUnlocked": false,
+    "BuildingStatConditions": [],
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "CardWarpData": "8afae8650c0818e4eaea6194c099ecdb",
+            "CardWarpType": 3,
+            "Quantity": 1,
+            "ConstantlyChecking": false
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 8,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3,
+            "BuildingDaytimeCost": 8
+        }
+    ],
+    "BuildingDaytimeCost": 8,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintUnlockTicksCost": 16,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "sh_ox_cart",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "FinishUnlocking": false,
+            "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 0,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+            },
+            "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+            },
+            "DropsDurabilityMultipliers": [],
+            "DropsStatMultipliers": []
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3
+}

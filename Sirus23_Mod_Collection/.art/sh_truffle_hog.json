@@ -1,0 +1,20 @@
+{
+  "target": "sh_truffle_hog.png",
+  "sourceCard": ["CardData/Item/TruffleHog.json"],
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {"imageCount": 1, "aspectRatio": "2:3", "resolution": "1K", "autoEnhancePrompt": false},
+  "composition": {
+    "style": ["vanilla Bear_Wild"],
+    "change": "a small pink-tan young pig with floppy ears and a snout lifted and sniffing, standing in profile, a single muddy brown smudge on its snout; no collar, rope, saddle or basket",
+    "finish": "keyed"
+  },
+  "references": [
+    {"role": "style", "fragment": "vanilla Bear_Wild (reference_library refs tool)", "id": "s56iVlmySbUqnAXE0W15",
+     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652734929_38bf6561.png"}
+  ],
+  "historyId": "BQ6OO9dT4pHrUWveZE7R",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791795205284_a4bb6d56_1791795205320_f801757e.png",
+  "credits": 20,
+  "generated": "2026-10-12"
+}

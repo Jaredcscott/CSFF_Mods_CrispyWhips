@@ -1,0 +1,124 @@
+{
+    "UniqueID": "sh_recall_whistle",
+    "CardName": {
+        "ParentObjectID": "sh_recall_whistle",
+        "LocalizationKey": "sh_recall_whistle_CardName",
+        "DefaultText": "Recall Whistle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_recall_whistle",
+        "LocalizationKey": "sh_recall_whistle_CardDescription",
+        "DefaultText": "A short whistle cut from a bone splinter, with one shrill note. Blow it and every companion you left behind in another place (told to Stay Here, or left where it could not follow) comes back to you, as hungry and as hurt as it was. The owl answers only at night and never comes into a cave or building."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "sh_recall_whistle",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 100.0,
+    "TradingValue": 30,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "EquipmentTagsWarpData": [],
+    "EquipmentTagsWarpType": 3,
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "WhenCreatedSoundsWarpData": [
+        "SmallObject_A"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_recall_whistle",
+                "LocalizationKey": "sh_recall_whistle_DA0_ActionName",
+                "DefaultText": "Blow the Whistle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_recall_whistle",
+                "LocalizationKey": "sh_recall_whistle_DA0_ActionDescription",
+                "DefaultText": "Call back every companion you left in another place. It comes to you here."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "AlwaysShow": true,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": []
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

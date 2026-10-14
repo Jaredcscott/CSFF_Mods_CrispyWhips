@@ -1,0 +1,36 @@
+{
+  "target": "HawkCarcass.png",
+  "sourceCard": [
+    "CardData/Item/HawkCarcass.json"
+  ],
+  "subject": "the same hawk as WildHawk, dead: lying on its side stretched out about twice as wide as tall, eyes closed, head limp, one wing half open and slack, yellow legs curled, tail fanned, one loose brown feather beside it, no branch, no blood",
+  "model": "nano-banana-2",
+  "mode": "image2image (subject reference + vanilla style)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: /create-image-refs item-variant template, reference image 1 = the same subject changed only as stated, + vanilla flat posterized style + white paper + Avoid list)",
+  "refs": [
+    {
+      "label": "WildHawk (subject)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WildHawk_1791797984750_155e3530.png"
+    }
+  ],
+  "historyId": "ozCB5zP2ACz5wBfL0nvo",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798052904_8c21fffe_1791798052963_ab4ba0a1.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: wrong image needs a unique image. Generated at 3:2 and padded to 2:3 with white before /process-card-art.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798052904_8c21fffe_1791798052963_ab4ba0a1.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

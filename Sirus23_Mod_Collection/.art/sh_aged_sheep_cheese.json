@@ -1,0 +1,40 @@
+{
+  "target": "sh_aged_sheep_cheese.png",
+  "sourceCard": [
+    "CardData/Item/AgedSheepCheese.json"
+  ],
+  "subject": "one round aged sheep's cheese, whole and uncut, drawn bare: a squat drum about twice as wide as tall with straight firm sides, a hard dry deep amber-brown rind darker at the edges, fine dry cracks across the top, a few small grey-blue mould spots",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template, \"Use the attached reference images, each for one purpose\" + Subject + flat posterized style + white paper + Avoid list incl. footprints)",
+  "refs": [
+    {
+      "label": "vanilla Cheese_Soft (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cheese_Soft_1791744902529_5ed68bd4.png"
+    },
+    {
+      "label": "vanilla RoundBread_Wheat (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/RoundBread_Wheat_1791745170421_63aaf9aa.png"
+    }
+  ],
+  "historyId": "IynRFYZnVkdtAxotdpHH",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797831632_efc20ed5_1791797831670_647d830d.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated. Food drawn bare, following vanilla Cheese_Aged (a whole cracked wheel).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797831632_efc20ed5_1791797831670_647d830d.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

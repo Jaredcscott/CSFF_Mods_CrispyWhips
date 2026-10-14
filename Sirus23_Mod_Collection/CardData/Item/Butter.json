@@ -962,7 +962,45 @@
         "Active": false
     },
     "SpecialDurability1": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_butter",
+            "LocalizationKey": "sh_butter_SpecialDurability1_CardStatName",
+            "DefaultText": "Liquidity"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 2,
+        "OnFull": {
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "52e5adf6c6c0ce0418117da0179c4464",
+                "TransformIntoWarpType": 3,
+                "TransformToLiquidQuantity": 25.0,
+                "DurabilityChangesSetTheValueOfTransformResult": true,
+                "TransferSpoilage": true,
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "TransferSpecial1": true,
+                "Special1Change": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "TransferSpecial2": true,
+                "Special2Change": {
+                    "x": 48.0,
+                    "y": 48.0
+                }
+            }
+        }
     },
     "SpecialDurability2": {
         "Active": false
@@ -1527,6 +1565,7 @@
             },
             "GivenCardChanges": {
                 "ModType": 2,
+                "AddFlavoursFromTargetCard": true,
                 "TransformIntoWarpData": "sh_buttered_roots",
                 "TransformIntoWarpType": 3
             },
@@ -1599,6 +1638,172 @@
                     ]
                 }
             ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[3].ActionName",
+                "DefaultText": "Add Garlic"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[3].ActionDescription",
+                "DefaultText": "Stir wild garlic into this for a pungent flavour."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "ecff0e5482448a54e9e54c4f788286ef",
+                    "faed37abeaeec544b9c8f770b5fadafb",
+                    "b941f67e79be03a4f9e300a0e2e9116d"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[4].ActionName",
+                "DefaultText": "Add Wood Sorrel"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[4].ActionDescription",
+                "DefaultText": "Stir wood sorrel into this for a sour, herbal flavour."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "793ecd50760e3b447b94c11f47c2c6de"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[5].ActionName",
+                "DefaultText": "Add Clover"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[5].ActionDescription",
+                "DefaultText": "Stir clover into this for a mild grassy flavour."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "c0aea99dbe20ca8428866d2c20ddf9b8"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[6].ActionName",
+                "DefaultText": "Add Nettle Leaves"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[6].ActionDescription",
+                "DefaultText": "Stir nettle leaves into this for a grassy flavour."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "e1525031058fbf34e81a4b825bbe68a0",
+                    "c0f1eabb07ab5064bbebd151ae6b9a94"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[7].ActionName",
+                "DefaultText": "Add Frostleaf"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[7].ActionDescription",
+                "DefaultText": "Stir frostleaf into this for a floral flavour."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "860429848124aae4984a270ae57cb382"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[8].ActionName",
+                "DefaultText": "Add Juniper Berries"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[8].ActionDescription",
+                "DefaultText": "Stir juniper berries into this for a pungent, smoky flavour."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "4b15494036b7cb74d8eebfde424f9889",
+                    "4568ba3bab979cf43b79b828c331b514"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true
+            }
         }
     ],
     "DismantleActions": [
@@ -1635,6 +1840,7 @@
             "StackCompatible": false,
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
+            "ReceivingCardFlavourBonus": true,
             "ActionSounds": [],
             "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,

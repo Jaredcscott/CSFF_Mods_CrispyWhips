@@ -1,24 +1,51 @@
 {
   "target": "sh_bone_treat.png",
-  "sourceCard": "CardData/Item/BoneTreat.json",
-  "subject": "a single short marrow bone with knobbly pale ends, its shaft rubbed and wrapped with strips of dark dried meat",
+  "sourceCard": [
+    "CardData/Item/BoneTreat.json",
+    "CardData/Blueprint/Bp_BoneTreat.json"
+  ],
+  "subject": "one single thick bone drawn the way vanilla Bones are drawn, lying diagonally, with long narrow strips of dark red-brown dried meat wound tightly round and round its shaft in a spiral like a dog chew, three or four overlapping turns covering the middle of the shaft, both knobbly joint ends bare",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
   "params": {
-    "imageCount": 3,
+    "imageCount": 1,
     "aspectRatio": "2:3",
-    "resolution": "2K",
+    "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of a single short marrow bone with knobbly pale ends, its shaft rubbed and wrapped with strips of dark dried meat, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
-  "historyId": "u7JsBh68bPHxNfYozZK1",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760347212_cf0f9d52_1789760347295_4876f7e4.png",
-  "credits": 60,
-  "generated": "2026-09-18",
-  "note": "Owner picked option A of a 2-up batch (not picked: B=sh_bone_treat__v2.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: white placeholder.",
-  "candidates": [
-    {"n": "A", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760347212_cf0f9d52_1789760347295_4876f7e4.png"},
-    {"n": "B", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760348367_a8ac97cf_1789760348846_b05a159d.png"}
+  "prompt": "Use the attached reference images, each for one purpose. Both are from the game Card Survival: Fantasy Forest. Reference image 1 shows how the game draws a bone: draw the bone exactly this way (pale ochre-tan, brown shading, knobbly rounded joint ends). Reference image 2 is a STYLE reference for meat only: match its linework, flat shading and palette, not its shape.\nSubject: one single thick bone lying diagonally, with long narrow strips of dark red-brown dried meat wound tightly round and round its shaft in a spiral, like a dog chew treat: three or four overlapping turns of meat strip that wrap the whole middle of the shaft and hug it closely, each turn clearly going around the bone and over the previous one, the strip ends tucked in; both knobbly joint ends of the bone bare and showing.\nStyle: the look of the game Card Survival: Fantasy Forest, flat posterized colour fills in a few tonal steps, thin dark ink outlines and small ink hatch marks, a continuous dark outline around the whole object, a muted naturalistic palette, realistic proportions; not watercolour, not glossy.\nSingle subject, centred, filling most of the frame with a white margin on every side, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: loose flapping strips, meat laid along the bone, strips stuck flat on one side, string, cord, twine, leather straps, a bow, fresh bright red raw meat, more than one bone, a plate, a bowl, photo, photorealistic, 3D render, watercolour bleed, paper texture, soft airbrush gradients, neon colours, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, drop shadow, text, watermark, signature, border, frame, footprints, tracks.",
+  "refs": [
+    {
+      "label": "vanilla Bones (style, the bone)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bones_1791652738076_35951b3e.png"
+    },
+    {
+      "label": "vanilla Meat (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Meat_1791745030962_f4f36d39.png"
+    }
   ],
-  "picked": "A"
+  "historyId": "kE8OJiNQPHQOHQnx1rSv",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804747074_94295c6a_1791804747119_c8181781.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework pass 2 2026-10-12: regenerate, \"the meat should be wrapped around the bone as a treat\". The meat strips now wind tightly round the shaft in overlapping turns like a dog chew (the previous picture had strips stuck along one side); no string or straps. Vanilla Bones kept as the bone reference.",
+  "candidates": [
+    {
+      "n": "A",
+      "historyId": "kE8OJiNQPHQOHQnx1rSv",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804747074_94295c6a_1791804747119_c8181781.png",
+      "verdict": "shipped: meat clearly wrapped round the shaft, both joint ends bare"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797834931_1b5f21ce_1791797834990_e63524fc.png",
+    "historyId": "og0XsZtXwV69t8o1bLkZ",
+    "generated": "2026-10-12",
+    "subject": "one single thick marrow bone lying diagonally, drawn the way vanilla Bones are drawn (pale ochre-tan, brown shading, knobbly rounded joint ends), with two or three ragged flat strips of dark red-brown dried meat stuck along the shaft and no binding of any kind",
+    "note": "the picture this pass 2 rework replaced",
+    "earlier": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760347212_cf0f9d52_1789760347295_4876f7e4.png"
+  }
 }

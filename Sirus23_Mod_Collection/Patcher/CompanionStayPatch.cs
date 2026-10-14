@@ -38,6 +38,7 @@ internal static class CompanionStayPatch
         WolfTickPatch.WolfId,
         WolfTickPatch.FoxId,
         WolfTickPatch.OwlId,
+        WolfTickPatch.HawkId,
     };
 
     private static FieldInfo _nextEnvironmentField;
@@ -77,9 +78,17 @@ internal static class CompanionStayPatch
                 return;
             }
 
-            if (uid == WolfTickPatch.OwlId && DestinationIsIndoorOrCave())
+            if (uid == WolfTickPatch.OwlId)
             {
-                __result = false;
+                // The owl follows only at night (the wild owl's own 20:00-06:00 window): in daylight it stays at
+                // the place it is, like a companion told to Stay Here, and an owl left behind is on the board of
+                // that place when the player returns. It also never follows into a cave or structure.
+                if (!IsNight())
+                {
+                    __result = false;
+                    return;
+                }
+                if (DestinationIsIndoorOrCave()) __result = false;
             }
         }
         catch (Exception ex)
@@ -88,11 +97,30 @@ internal static class CompanionStayPatch
         }
     }
 
+    private const float NightStartHour = 20f;
+    private const float NightEndHour = 6f;
+
+    /// <summary>True from 20:00 to 06:00. An unreadable clock counts as night, so a failed read never strands the
+    /// owl in daylight forever (the owl then follows as it did before this rule).</summary>
+    internal static bool IsNight()
+    {
+        try
+        {
+            float hour = CSFFModFramework.Api.GameQuery.HourOfDay;
+            return hour >= NightStartHour || hour < NightEndHour;
+        }
+        catch (Exception ex)
+        {
+            Plugin.Logger?.LogDebug($"[CompanionStay] night check failed, treating it as night: {ex.Message}");
+            return true;
+        }
+    }
+
     /// <summary>
     /// True when GameManager.NextEnvironment's destination CardData is a known cave/mine/tunnel
     /// or man-made structure — see <see cref="IndoorOrCaveEnv"/> for the UID/tag check itself.
-    /// Reflection-only (this mod's Assembly-CSharp reference is the nstrip build — see
-    /// WildOwlLifecyclePatch's class doc comment for why direct typed access is avoided here).
+    /// Reflection-only: typed access is avoided here because this patch resolves the game's
+    /// card and environment types (InGameCardBase, NextEnvironment, EnvCard) by reflection.
     /// Field/property lookups are cached per CLAUDE.md performance rules.
     /// Logs at Info (not the usual per-transition Debug level) while this fix is still being
     /// verified in-game — demote to Debug once confirmed working across a real cave + a real

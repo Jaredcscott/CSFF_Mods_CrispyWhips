@@ -1,243 +1,110 @@
 # Roadmap: Sirus23 Mod Collection
-Version at time of writing: 1.20.5
-Date: 2026-09-05
-Audit score: 9/10 - PASS (0 CRITICAL; 1 open Design Gap - D1 OwlTied art; 3 Warnings - W3/W4/W5; 4 Minor)
+Version at time of writing: 1.22.0
+Date: 2026-10-11
+Audit score: 9/10 - PASS (0 CRITICAL)
 
 ## Current State
 
-**Theme**: Animal companions (Wolf / Fox / Owl) plus a full sheep-husbandry, dairy and wool/felt
-production chain - a mid-game survival-and-livestock mod for players who want a managed flock and a
-working animal partner.
+**Theme**: Animal companions (Wolf, Fox, Owl) and full sheep husbandry - milking, wool, dairy, felt-working, pen-or-perish predation, and a draft-animal farmstead - a mid-game survival/husbandry loop that layers onto vanilla livestock.
 
-**Content**: 46 items / 17 blueprints / 4 structures (CT2) / 1 liquid / 9 perks (8 selectable + the
-runtime-granted Pack Bond) / 46 custom images / 2 spawn triggers. Declarative layer: `Animals/`
-(Owl.json only - the test-only `TestHare.json` was stripped in v1.20.6, closing M4),
-`NPCAgent/Agent_WildOwl.json`, `EncounterGuards/`
-(**all 3 present again** - Wolf 100%, Owl 35%, Fox 35%), `GameSourceModify/VanillaFox_Agent{1,2}.json`
-(the vanilla-agent fox tame path), `CardData/Trigger/` (wild sheep + ram spawn). 9 C# patch classes.
+**Content**: 65 items / 28 blueprints / 7 structures / 9 perks / 72 custom images / 2 triggers / 1 Animals manifest (Owl) / 4 GameSourceModify patches / 3 EncounterGuards.
 
-**Since 1.20.3**: **v1.20.4 (`ead6e0f55`, 2026-09-02) closed W1** - `EncounterGuards/FoxGuard.json`
-was restored verbatim after the 1.20.3 fox rework deleted it as collateral, with a CHANGELOG
-regression-window disclosure and a README parity line. **v1.20.5 (`7e29c94cb`)** added
-`AlwaysUpdate: true` to the Sheep Milk CT9 liquid so it keeps spoiling while the player is away,
-matching the EA 0.67e vanilla fix. The only later commits (`7e8f66ab0`, `fc7f3db63`) touched nothing
-but `lib/Assembly-CSharp.dll` for the EA 0.67g/0.67h game-data refreshes.
+**Stability**: 9/10 - 0 CRITICAL, 0 design gaps, 6 warnings (one code-quality reliability gap + harness/tracker verification debt). critical-analysis (2026-10-11) is SOLID; code-quality (2026-10-11) is 10/10.
 
-**Stability**: 9/10 - 0 CRITICAL, 0 broken loops, 0 broken promises. One open Design Gap (**D1** -
-`OwlCompanion.png` and `OwlTied.png` are byte-identical, MD5-reconfirmed 2026-09-05, so the tamed and
-snared states are indistinguishable and both break the white-background convention) and three
-Warnings: **W3** the Fox rework is built-not-verified in-game, **W4** `CompanionStayPatch` still emits
-2 `LogInfo` diagnostics per Owl transition **even though their blocking precondition is now met**, and
-**W5 (new)** the shared nstrip DLL this mod compiles against is 70 days stale.
+**Open work**: No open or pending retrospectives for this mod - both Sirus23 retros are archived. The active work is the round-2 content plan (`Documentation/Plans/Sirus23_Mod_Collection/MASTER_PLAN.md`), whose Phase G is mostly built and awaiting in-game checks, plus four unbuilt Phase F/G features.
 
-**Open work**: **None in `Documentation/Retrospectives/INDEX.md`** - no open or pending row names this
-mod, its `SH`/`Sirus` shorthand, or its plugin GUID. (One row mentions a *player* named Sirus23
-reporting a Community_Mod_Chest bug - unrelated. The `sh-wild-sheep-spawn` and
-`owl-taming-it-is-still-trade` retros are graduated/archived.) The real backlog is verification, not
-bugs: **11 of 25 playthrough items are pending**, including `T2.99` (fox tame), `T2.154` (FoxGuard
-load-log), `T2.150` (card-removal primitive), `T2.111` (wild owl M6 tame), `T2.101` (sheep pen) and
-`T2.112` (Tend Flock). 13 are PASS, 1 skipped.
-
-**Framework compliance**: **Tier 2 - strong, no gaps.** `ContentModPlugin` base; `Api.ActionRouter`
-(12 call sites), `Api.SpawnService` (11), `Api.TickEvents` (5), `CardUtil` (61), declarative
-`EncounterGuards/*.json`, declarative `Animals/*.json` + `AnimalLifecycleTicker` (Owl), and
-`GameSourceModify/` for the fox. Scan for deprecated patterns returns **clean**: no
-`DropCollectionGuardPatch`, no `ModLoaderVerison`/`ModEditorVersion`, no transpilers, no unfiltered
-hot-path prefixes. Only tame-flow glue remains as mod C#, by design - the Fox and Wolf still run the
-older `WolfTickPatch` upkeep model rather than the framework Animals agents (G8, deliberately held).
+**Framework compliance**: Tier 2, fully adopted. `Plugin.cs` extends `ContentModPlugin`; patchers use `ActionRouter`, `SpawnService`, `TickEvents`, `CompanionService` and declarative `EncounterGuards`. Declarative content (BlueprintTabs, GameSourceModify, Animals manifest, EncounterGuards) is used throughout. No deprecated patterns (`DropCollectionGuardPatch`, unfiltered hot-path prefixes, `ModLoaderVerison`) present.
 
 ---
 
-## Phase 0: Stabilize  *(light - no CRITICALs, no open retrospectives; one real runtime risk)*
+## Phase 0: Close out 1.22.0
 
-> Fix before the next public release.
+> The code for 1.22.0 is effectively done; what remains is recording verified results and one reliability fix. (Full audit score ≥ 8 with no open retros, so this is a close-out, not a stabilization.)
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **W5 - regenerate the shared `Assembly-CSharp-nstrip.dll`.** `Sirus23_Mod_Collection.csproj:33-35` binds `Assembly-CSharp` to `..\HerbsAndFungi\lib\Assembly-CSharp-nstrip.dll`, dated **2026-06-27** while the game is on **EA 0.67h**. An nstrip variant cannot be fixed by copy - it must be regenerated with the user external NStrip tool, then every dependent mod rebuilt so a changed signature fails at compile time instead of throwing `MissingMethodException` at runtime. Fleet-level: 7 of 9 content mods share this DLL; Sirus23 has no local copy. | Game-version hygiene | **P0** | Medium (needs the user NStrip tool) |
-| **W4 - demote the 2 `CompanionStayPatch` `LogInfo` diagnostics** (`:117`, `:122`) to `LogDebug`. **The block is gone**: the Owl biome-gated follow was confirmed in-game (`T2.75` = PASS), and no retrospective names these lines as a confirmation signal, so the CLAUDE.md demotion guard does not apply. | Log hygiene | P0 | Quick |
-| **D1 - distinct art for `OwlTied.png`** (owl caught in a snare, one leg bound), white-background house style; ideally re-do `OwlCompanion.png` to match. Prompts staged in `.audit/ideas.md`. Precedent: the Wild Fox placeholder-to-real-art swap (v1.20.1). | Art | P0 | Quick |
-| ~~M4 - `Animals/TestHare.json` disposition~~ | Housekeeping / feature honesty | - | **RESOLVED v1.20.6** (stripped; operator hit it in a live game. Its `Approach` button was also silently falling through to the vanilla `Combat_EncounterDuck`) |
-| ~~W1 - Fox Companion encounter suppression~~ | Feature honesty | - | **RESOLVED v1.20.4** |
-| ~~W2 - spinning-wheel dead references~~ | Dead-ref fix | - | **RESOLVED v1.20.0/1.20.2** |
+| Record the rig-verified companion-tame passes (T2.99, T2.551, T2.552) - Prompt 49 passed them on rig 4 (2026-10-10) but the tracker still reads `fail`/`pending` | Verification debt | P0 | Quick |
+| Record the rig-verified sheep Nourishment-rate passes (T2.553, T2.554) - fixed by `SheepGrazingGuardPatch` (2026-10-10), tracker still `pending` | Verification debt | P0 | Quick |
+| Commit the G5 breadcrumb fix: `FindPassiveEffectByPrefix` / `PatchSheepReproduction` must warn on a null breeding-passive read instead of logging "cattle-style delayed pregnancy" success unconditionally (`GameLoadPatch.cs:770,708,959`) | Reliability (code-quality W1) | P1 | Quick |
+| Skeptic-read the passing harness rows and update README caveats (T2.543 Wolf Den/Owl Perch, T2.558 Enclosure-as-pen, T2.559 distant-flock roll) | Verification debt | P1 | Quick |
+| Confirm the resolved `Bp_SHYarn` unlock in-game (its tracker row), then ship 1.22.0 (framework → Sirus23 → repackage suite → MUM last) after Sirus reviews the CHANGELOG 1.22.0 section | Release | P1 | Medium |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes health. Most are GREEN - listed for the maintenance record.
+> Table-stakes health. All currently satisfied - listed so a future drift is visible.
 
-| Item | Type | Status | Complexity |
-|------|------|--------|------------|
-| Versions synced across ModInfo / Plugin.cs / README (all **1.20.5**) | Version hygiene | DONE | - |
-| Chinese localization (`SimpCn.csv`, 324/324 keys, parity CLEAN) | Localization | DONE | - |
-| Bin/Release sync (0 missing / out-of-date / orphaned) | Build hygiene | DONE | - |
-| Framework Tier 2 (ActionRouter / SpawnService / TickEvents / CardUtil / Animals / EncounterGuards / GameSourceModify) | Framework | DONE | - |
-| No deprecated patterns (no `DropCollectionGuardPatch`, no `ModLoaderVerison`/`ModEditorVersion`, no transpilers) | Framework | DONE | - |
-| **Domain sub-audit refresh** - `items`/`blueprints`/`structures`/`images`/`perks` reports are all dated **2026-07-27** (v1.5.3-v1.13.x) and predate the Sheep Pen, Felt line, dairy dishes and Fox rework entirely. Run `/full-mod-audit-chain Sirus23_Mod_Collection`. | Audit coverage | **TODO** | Medium |
-| **W3 - in-game verify the Fox rework** (`T2.99`): tame from both `Agent_Fox1` and `Agent_Fox2`; confirm `fc_fox_companion` spawns at full stats, the wild instance retires (`AgentExists`->0) to the Spirit World with no interactivity gap, and no duplicate fox remains. Plus `T2.154`: confirm the load log registers **3** encounter guards. | Verification | P1 | Quick |
-| **`T2.150` - re-test every card-removal-dependent behavior.** `CardUtil.TryRemoveCard` was a silent no-op (bare `Invoke` on the `IEnumerator DestroyCard` coroutine) until framework **2.25.22**. `SheepPenPatch` (predation/escape) and `WolfTickPatch` (starvation death, morale departure) are 2 of the 4 fleet-wide dead call sites. Nothing that depends on a card actually leaving the board has been observed working since the fix - this is the single highest-leverage verification item for the mod. | Verification | **P1** | Medium |
-| **Clear the pending-verification backlog** - 11 of 25 playthrough items are pending, several for shipped headline features (`T2.111` wild owl M6 tame, `T2.101` sheep pen, `T2.112` Tend Flock, `T2.102` felt products, `T2.133` owl cave suppression, `T3.40` sheep-milk spoilage). Batch them into one husbandry-focused play session. | Verification | P1 | Complex |
-| M1/M2/M3 polish - the `LanolinSalve` dead `SpoilageTime` config, the dead `WolfTickPatch.HasOwlCompanion()` + 2 stale `WildOwlLifecyclePatch` doc references, cosmetic perk-field gaps | Cleanup | TODO | Quick |
+| Item | Type | Status |
+|------|------|--------|
+| Versions synced across ModInfo/Plugin.cs/README (1.22.0 ×3) | Version hygiene | ✓ done |
+| Framework Tier 2 (ActionRouter/SpawnService/TickEvents/CompanionService/EncounterGuards) | Framework | ✓ done |
+| Chinese localization `SimpCn.csv` with full parity | Localization | ✓ done |
+| Refresh the five stale category sub-reports (items/blueprints/structures/perks/images, all 2026-07-27) on the next `/full-mod-audit-chain` | Audit hygiene | open (Quick) |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The most impactful content additions that extend the mod core loop. All three close a real
-> dead-end or an asymmetry the audit can already see, so they pay for themselves twice.
+> The mod's remaining content scope lives in `Documentation/Plans/Sirus23_Mod_Collection/MASTER_PLAN.md` (section 0.2 Selected). These are the genuinely unbuilt features - build only after Sirus's sign-off or the owner's go-ahead. Do not restate the plan here.
 
-### ~~Close the byproduct dead-ends (H1 Salvage + NEW3 Feather sink)~~ - **DONE v1.21.0**
-**Shipped 2026-09-07.** "Salvage Remains" CI on `sh_sheep_remains` (2x Wool + Fresh Hide +
-2x Raw Meat + Bones) and the Feather Pillow (12 Feathers + 1 Woven Cloth + 4 Twine, +10
-Comfort). Acceptance `T2.201` / `T2.205`. Original entry below for the record:
+### Feature 28 - A hunting hawk (falconry)
+**What**: A new wild companion via an `Animals/` manifest plus C#.
+**Why**: Extends the companion roster (community-requested); the only Phase F raptor not yet built.
+**Requires**: Sirus sign-off; Wave-0 W0-19.
+**Complexity**: Medium.
 
-### Close the byproduct dead-ends (H1 Salvage + NEW3 Feather sink)
-**What**: A "Salvage" interaction on `sh_sheep_remains` (scrap wool + hide + raw meat/bone), and a
-down-bedding item consuming the 6x Feathers the owl carcass yields.
-**Why**: Both are confirmed-open dead-ends on disk - `SheepRemains.json` has **0 CardInteractions, 0
-DismantleActions, `TradingValue: 0`** and rots in ~5 days, and Feathers have **zero in-mod consumers**
-(referenced only by `OwlTracks.json`, which produces them). Every loss the mod inflicts currently ends
-in a card the player can do nothing with. Salvaging turns pen-or-perish from a flat tax into a
-setback, which is the difference between a punishing system and a fair one.
-**Requires**: none. Copy `OwlCarcass.json` self-consuming "Process Carcass" CI (`tag_Cutter` ->
-`ModType: 3` -> `ProducedCards`) and `WoolBlanket.json`/`FeltBedroll.json` for the bedding stats.
-**Complexity**: Quick (pure JSON + CSV, plus one sprite for the bedding item)
+### Feature 29 - A ferret for hare burrows
+**What**: A small companion via JSON + a `GameSourceModify` hook onto vanilla hares.
+**Why**: A light, thematic companion with a distinct scouting role.
+**Requires**: Sirus sign-off; W0-20.
+**Complexity**: Quick–Medium.
 
-### ~~Finish the dairy chain payoff (NEW1 cultured dishes + preservation branch)~~ - **DONE v1.21.0**
-**Shipped 2026-09-07.** All four cultured dishes plus Salted Butter / Smoked Cheese;
-the cheese-cloth "Strain Curds" second use landed in the same pass. The dairy
-chain's payoff now covers 11 of 11 items. Acceptance `T2.202` / `T2.203` / `T2.204`.
-Original entry below for the record:
-
-### Finish the dairy chain payoff (NEW1 cultured dishes + preservation branch)
-**What**: Extend the shipped drag-onto-a-vanilla-dish `CardInteraction` pattern to the four cultured
-products (`sh_yogurt`, `sh_sour_cream`, `sh_ricotta`, `sh_buttermilk`), and add a separate
-preservation branch (drag Salt onto Butter -> Salted Butter; a fire/smoke source onto Sheep Cheese ->
-Smoked Cheese) yielding longer-`SpoilageTime` variants.
-**Why**: The v1.17.0 Prepared Dairy Dishes gave a second use to **3 of 11** dairy items. A grep
-confirms the four cultured products are each referenced only by their own file and their producer -
-they are eat-raw terminals. And the whole chain still has no preservation step, so every dairy
-product is a race against the clock. These are the two halves of "the dairy chain has depth."
-**Requires**: none. `Butter.json` "Butter the Roots" CI is the verbatim template.
-**Complexity**: Medium (8-10 new CIs + 2-6 new cards, JSON + CSV)
-
-### H2 - Wild Wolf tame path (the last missing companion acquisition) - **BLOCKED on `T2.99`, and now on `T2.207`**
-**Not built 2026-09-07, deliberately.** The prerequisite below is unmet: `T2.99` is a
-recorded FAIL. `T2.207` was filed as the cheap vanilla-only discriminator that decides
-whether the cause is our data or the NPC drag-and-drop mechanism itself. See the Plan
-Reconciliation Log at the end of this file. The hard constraint is unchanged:
-
-### H2 - Wild Wolf tame path (the last missing companion acquisition)
-**What**: Let a player tame a wild wolf without the Wolf Friend perk, by offering raw meat.
-**Why**: Owl and Fox are both tameable in the wild; the Wolf is still perk-only and the README says so
-explicitly. This closes the mod own stated "every companion obtainable without its perk" goal.
-**Requires**: **A HARD CONSTRAINT, not a preference** - this MUST extend the real vanilla wolf agents
-(`Agent_Wolf`, `Agent_WolfPack`, `Agent_PrimevalWolf`) via `GameSourceModify`, exactly as v1.20.3 did
-for the fox. The v1.15.0 fox shipped a *separate* `sirus_fox` species and put two foxes in the world
-doing the same job; the user rejected it outright and it cost a full rework. `GameSourceModify/`
-currently holds only the two fox files. Do this after `T2.99` proves the fox pattern in-game.
-**Complexity**: Medium
+### Features 34 & 37 - Recall Whistle; Truffle hog
+**What**: A companion-recall item (feature 34), and a truffle-foraging hog that is a no-op without Herbs & Fungi (feature 37).
+**Why**: Companion QoL and a cross-mod foraging payoff.
+**Requires**: Sirus sign-off; W0-24 (whistle), W0-27 + W0-20 (hog).
+**Complexity**: Medium each.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Systems that make existing content matter more, plus cross-mod hooks. All opt-in soft deps - the
-> mod works standalone.
+> Cross-mod hooks. Most are already built (features 30/31/39/40/41) and awaiting in-game checks; the open frontier is partner-side.
 
-### G4 - Make the Sheep Feeder matter (feeding -> yield)
-**What**: A clamped Condition/Nourishment `SpecialDurability` on sheep that drains over time, refills
-on feeding, and gates or scales wool/milk output.
-**Why**: Today `sh_lactating_sheep` produces milk and `sh_tame_sheep` grows wool whether or not the
-player ever feeds them - the feeder is cosmetic storage with a batch-harvest button bolted on. This is
-the difference between owning livestock and owning a wool dispenser.
-**Requires**: A **clamped marker, never an accumulator** (CLAUDE.md errand antipattern - an unclamped
-counter inflates past its own gate and silently hides the action forever). Decide binary gate vs.
-scaled multiplier first.
-**Complexity**: Medium (Complex if scaled - needs a runtime hook)
+### Built, awaiting verification (rows T2.561–T2.569)
+**What**: Wool-washing (30), fox travel bonus (31), Dry Fodder (32), owlet (33), companion synergy (35), owl pellets (38), Treat-Wounds animal remedies (39), Lanolin Salve H&F herb (40), Partner-NPC food (41).
+**Why**: These complete the cross-mod and companion-depth layer.
+**Requires**: In-game verification; then Sirus's review before publish.
+**Complexity**: verification only.
 
-### H4 - Pen upkeep: Fence Condition + repair
-**What**: A draining "Fence Condition" on the Sheep Pen; a worn pen lapses (contents fall back under
-the nightly roll or a predator breaches it) until repaired with Plank + Rope via a "Mend the Fence" DA.
-**Why**: The pen is permanent at zero cost, so pen-or-perish is *solved forever* the moment one pen
-exists. Upkeep keeps the mod central tension alive past the early game. Revives the Pen Integrity
-half of `SHEEP_PEN.md`.
-**Requires**: Decide the weathering rate, the repair cost, and whether a lapsed pen reverts contents
-to the roll or spills them out.
-**Complexity**: Medium
-
-### Cross-mod hooks (producer half already priced)
-**What**: CM1 - WDI Fiber Mill wool-washing producing `sh_clean_wool` for higher yarn yield.
-CM3/CM10 - ACT copper/iron Shears tier and copper dairy tooling, gated on `Special4` metal type
-(already proven on `Bp_Shears`). CM2 - H&F herbs as the reagent for a companion "Treat Wounds" (CS5).
-CM5/H7 - CMC village trading of wool/cheese/dairy and a butcher errand accepting salvaged
-`sh_sheep_remains`.
-**Why**: 30 items already carry NPC trading values (v1.5.3) - the producer half of the CMC hook is
-done and idle. H7 depends on H1 shipping first.
-**Requires**: Coordination with each partner mod version; consume by UID **with a vanilla-GUID
-fallback**, as the shipped Lanolin Salve does with Frostleaf Powder.
-**Complexity**: Medium per hook
-
-### H3 - Felt outfit set bonus
-**What**: An extra Cold Resistance / Warmth bonus while 3+ `sh_felt_*` pieces are equipped.
-**Why**: The felt line is a complete six-garment set, but wearing it whole is just the flat per-piece
-sum - there is no reward for committing to it.
-**Requires**: No pure-JSON path; needs a `ChangeStatValue` C# hook counting equipped felt pieces
-(CLAUDE.md Runtime Stat Change Hook). **Coordinate one shared counting hook with CMC apparel-set
-idea rather than building two.** Note the single-composition-point rule: a new bonus must be added to
-the early-out guard as well as the composition body, or it is silently dead when it is the only one on.
-**Complexity**: Complex
+### Feature 42 - Wool joins a vanilla fibre tag
+**What**: Tag `sh_wool` with a vanilla fibre tag.
+**Status**: RULED OUT (MASTER_PLAN 0.3, W0-31 measured): the vanilla fibre tags are livestock-diet tags with no textile reader. Re-open only when a mod textile consumer (WDI fibre mill, CMC apparel) reads the tag.
 
 ---
 
 ## Phase 4: Polish
 
+> Art and text that make the mod feel finished.
+
 | Item | What | Complexity |
 |------|------|------------|
-| **`OwlTied.png` (D1)** | Distinct snared-owl art; currently byte-identical to `OwlCompanion.png` | Quick |
-| `OwlCompanion.png` | Re-do to the white-background house style (currently an off-house forest scene) | Quick |
-| Dairy sprite pass | Three dairy items still wear vanilla sprites: Buttermilk = `ClayBowl`, Whey = `Milk_Old`, Lanolin = `Fat` | Medium |
-| SR3 - sheep art restyle | Restyle the 6 sheep/ram/lamb sprites to match vanilla animal cards (`sh_wild_sheep`, `sh_wild_male_sheep`, `sh_tame_sheep`, `sh_male_sheep`, `sh_lactating_sheep`, `sh_lamb`). Batch with the dairy pass. | Medium |
-| `Animals/Owl.json` balance pass | 6+ inline "TUNABLE, NOT PLAYTESTED" markers on the tracks reveal curve, trap wariness/catch-split, aggression duty weight and tame success curve - resolve them after `T2.111` | Medium |
-| Balance-placeholder pass | README explicitly flags the pen escape/predation rates, the dairy-dish nutrition values, and Felt Mittens/Vest/Bedroll stats as "initial guesses, not final-tuned" - close these out once the pending playtests land | Medium |
+| Borrowed-sprite replacements | Sheep Bell, Predator Tracks, Ox Cart and Wolf Pup still borrow existing sprites (CopperNecklace, OwlTracks, sh_ox_plough, WolfCompanion) - pack Prompt 47 generates distinct art | Medium |
+| OwlTied art | DECLINED by the owner 2026-09-28 (`.art/RUN_LOG.md`). Do not re-promote. | n/a |
+| Description accuracy pass | Keep README/CHANGELOG/Description in sync with each shipped Phase G feature (docs-honesty both directions) | Quick |
 
 ---
 
 ## Long-term Vision
 
-At v2.0 this should be the definitive livestock-and-companion mod for CSFF: a flock you actively
-manage rather than harvest, and three companions with real personalities and upkeep. The pieces are
-almost all shipped - what is missing is *consequence*. Feeding should change yield (G4), pens should
-wear out (H4), losses should leave something salvageable (H1), and the wolf should be obtainable the
-way the fox and owl already are (H2). Get those four in and the mod stops being a content pack and
-starts being a system.
+> Where this mod should be at v1.3.
 
-The nearer-term discipline problem is verification, not features: 11 pending playthrough items across
-shipped headline content, and a framework card-removal bug (`T2.150`) that may have silently disabled
-predation, escape and companion death for an unknown period. **Prefer one husbandry playtest session
-over one more content phase.**
+By v1.3 the companion roster rounds out beyond the original three (hawk, ferret, hog) with recall and multi-companion synergy, and the sheep loop closes its last cross-mod seams (wool washing, herb-infused dairy, partner feeding). The mod's natural endpoint is a self-contained husbandry-and-companions package that reads vanilla and sibling-mod content opt-in and never hard-depends on it. Once Phase F/G drains and its tracker rows clear, the mod is feature-complete and moves to `Stable/` (`Stable/README.md`).
 
-**Potential major additions** (not yet justified - revisit after Phase 3):
-- **SR1 - Animal traction (cattle line + ploughing)** - the owner-requested direction. Needs a cattle
-  line first (copy sheep husbandry ~1:1), then a "Plough" DA gated on a draft bull. Bull must be a
-  bonus, never a gate on vanilla farming.
-- **NEW7 - Predator counterplay** - have a predation kill also drop a track card leading to a
-  generated encounter with the culprit, turning a loss into a revenge hunt (feeds N6 wolf-pelt cloak).
-  Reuses the Tracks + Encounter plumbing the Wild Owl already proves. Makes predation read as a
-  two-way threat rather than a silent tax.
-- **G7 - Companion combat assist instead of full suppression** - the Wolf currently *removes* wildlife
-  encounters entirely (100%), which reads as an off-switch. A combat advantage in fired encounters
-  would make the companion a defender instead.
-- **H5/H6 - Distant-flock pen-or-perish and the wolf as an active sheepdog** - the nightly roll only
-  evaluates the player current environment, so parking a flock somewhere unvisited is the safest
-  play. Needs per-env flock tracking latched into a hidden GameStat (`reference_allcards_env_scoped`).
-
-Specs live in `Documentation/Ideas/Sirus23_Mod_Collection/` (`IDEAS.md`, `SHEEP_PEN.md`, `LANOLIN.md`).
-
-> **Guardrail**: this is a third-party author mod (Sirus, with Jared assisting). **Sirus has final
-> say on direction - everything in Phases 2-4 is additive and none of it is required.** Phase 0 and
-> the verification items in Phase 1 are the only rows that are genuinely owed.
+**Potential major additions** (not yet justified - revisit after Phase 3; any worth building go into the MASTER_PLAN, never a new Ideas stub):
+- Wool-quality stat - would unlock the ruled-out lanolin wool-conditioning and a cloth-quality display, but needs a new stat the mod deliberately avoids today.
+- Sheep/Wolf/Fox as framework Animals agents (G8) - an architecture migration held until the Owl `CompanionService` conversion has real soak time.
 
 ---
 
@@ -246,10 +113,9 @@ Specs live in `Documentation/Ideas/Sirus23_Mod_Collection/` (`IDEAS.md`, `SHEEP_
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod Sirus23_Mod_Collection` and update this roadmap |
-| **Game version update** | Run `/update-mod-version`; **regenerate `Assembly-CSharp-nstrip.dll` with NStrip and rebuild** (W5 - a stale nstrip compiles clean and throws at runtime); re-run `/diagnose-log` |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis Sirus23_Mod_Collection` to verify the fix |
-| After Phase 2 complete | Run `/export-to-repo Sirus23_Mod_Collection` and bump the minor version |
-| After any in-game session | Record outcomes with `/playthrough-test-plan record` - 11 items are pending and only a human can advance them |
+| After a content phase completes | Run `/export-to-repo Sirus23_Mod_Collection` and bump the version |
 
 ---
 
@@ -257,12 +123,11 @@ Specs live in `Documentation/Ideas/Sirus23_Mod_Collection/` (`IDEAS.md`, `SHEEP_
 
 ```
 /audit-mod Sirus23_Mod_Collection         - full health check, updates .audit/
-/full-mod-audit-chain Sirus23_Mod_Collection - refresh the 5 stale domain sub-audits (P1)
 /critical-analysis Sirus23_Mod_Collection - adversarial review
 /repair-items Sirus23_Mod_Collection      - auto-fix item JSON issues
+/repair-blueprints Sirus23_Mod_Collection - auto-fix blueprint JSON issues
 /build-mod Sirus23_Mod_Collection         - build Release DLL
 /deploy-mods Sirus23_Mod_Collection       - build + deploy to game
-/playthrough-test-plan record             - advance the 11 pending verification items
 /update-mod-version Sirus23_Mod_Collection <ver> - bump version in all 3 files
 /export-to-repo Sirus23_Mod_Collection    - push to public repo
 ```
@@ -440,3 +305,115 @@ re-promote any of the six shipped rows.
 - **Pruned:** Prompt 1 from the pack before the pack was folded into the archive and deleted; nothing else. The plan left `Documentation/Plans/Fleet/` whole.
 - **Evidence:** Prompt 1: `dotnet build -c Release` 0 warnings 0 errors; the built `bin/Release/Community_Mod_Chest.dll` holds `TraitDiagnostics` (UTF-8) 0 times and `[TRAITDIAG]` (UTF-16-LE) 0 times, against controls `RiverSwimPatch` 1 and `[RiverSwimPatch]` 9; `grep -rn TraitDiagnostics --include=*.cs Community_Mod_Chest` 0 lines (control `RiverSwimPatch` 15); no file under `Documentation/Retrospectives/` cites `TRAITDIAG` or `EnableTraitDiagnostics`. Plan rows against code: `Community_Mod_Chest/GameStat/` holds all nine `CMC_Trait*.json` (eight trait stats plus `CMC_TraitSkinShelter.json`); `TraitsTickHandler.cs`, `TraitsActionHandler.cs` and `TraitDiagnostics.cs` absent from `Patcher/`; gates (a)-(e) plus the extended river swim test present as `TraitStat-CompositeBands`, `Perk-HeldTestNotAllPerks`, `PerkAidRate-HoldsTier`, `PerkStatClamp-Reachability`, `StatBase-NoVanillaSource` and `CMC-RiverSwim` `.Tests.ps1`; `CSFFModFramework/Patching/PerkOriginTagPatch.cs` and `Discovery/ModTag.cs` present, `[Perks] ShowModOriginTag` bound at `CSFFModFramework/Plugin.cs` and documented in its README config table; 12 `ModInfo.json` files carry `ShortName`; 21 Sirus23 JSON files reference `SaturationDairy` (by name or its UID `f4b08d0250e6099419e010a83578b9db`); `ModInfo.json` versions CMC 1.68.30, HerbsAndFungi 1.13.2, Sirus23 1.21.3, CSFFModFramework 2.26.0. Section 3.6 check: a JSON walk of 29,435 files (the vanilla EA 0.67i UniqueID and ScriptableObject exports plus every mod folder, 0 unparseable) found 0 `TriggerRange` objects whose `StatWarpData` is Infection_Gastrointestinal `1a8d37787d69c9b4aa05d332921f3763`, Infection_UpperRespiratory `3407bfc804966194e9e369a7cce6d07d`, Infection_Systemic `dc3cae53109fd5945b5279ec6291caae` or Infection_LowerRespiratory `fa47d156a14dac842bcdcbdbf8504e35` (by UID or name), with the same walk finding the control, vanilla `Tgr_Anxiety` on Stress at 240; `.decomp/` (949 `.cs`) names no infection stat (controls `HourOfTheDayValue` 4 files, `StatValueTrigger` 13), and no mod `.cs` references the four UIDs. Section 3.2: vanilla `CharacterPerk` SunsCost is only ever 0, 15 or 30 (71/38/20 of 129), and Swimmer's 5 matches the six other five-Sun CMC perks (CMC's SunsCost counts: 0 x20, 1 x21, 5 x7, 15 x5, and 10, 20, 25, 30, 100 once each), which include Abundant Growth's +1.2 Aid rate and Wide Hands' +15 skill offset; Swimmer now delivers what its price was set for. Section 3.1: `madness`, `insan` and `mania` absent from `Pk_Lunacy.json`, `CMC_TraitLunacy.json` and its CSV rows. Tracker: T2.239 and T1.84-T1.114 all present in `.claude/playthrough-test-status.json`, all `pending`, so lifecycle gate 2 holds; the 33 plan and pack path citations in it and the one in `Playthrough_Test/Playthrough_Checklist.html` were repointed at the archive in the same commit.
 - **Verification debt:** T2.239 (Nyctophobia and the tracer's log lines), T1.84-T1.88 (P1b), T1.89-T1.97 (P1c), T1.98-T1.101 (P7 medicine), T1.102-T1.109 (P2 condition traits), T1.110-T1.111 (P3 swim and Aid), T1.112 (P4 Sirus23 dairy), T1.113-T1.114 (P5 origin tag and clock hour), all `pending`. T2.239 part (5), T1.114 part (4) and the optional evidence in T1.102-T1.108 read `[TRAITDIAG]` lines that CMC 1.68.30 on the dev install still prints until the next CMC deploy and no later build prints; each of those rows carries a dated 2026-09-17 note saying so.
+
+### 2026-09-28 - `Documentation/Plans/Sirus23_Mod_Collection/MASTER_PLAN.md` BUILT and CLEARED
+- **Verdict:** 5 features. 4 shipped whole in 1.22.0 (Ox Plough, sheep manure, Wool Yarn at the vanilla loom
+  with the rename, twin lambs); feature 5 shipped half: new art for the wild ewe and ram, while the owner kept
+  both owl pictures after seeing three samples of each. 0 rows remain dispatchable.
+- **Disposition:** ARCHIVE, then remove from `Documentation/Plans/`: the plan now lives at
+  `Documentation/Design/Sirus23_Content_Update_1_22_0_As_Built.md`, body verbatim, only the title and status
+  block replaced by an as-built header naming where the build departed from the text.
+- **Pruned:** the whole plan (Wave 0 answers, five features, release tail). The owl half is not dropped: its
+  decline, with both OpenArt history ids, is on `Documentation/Ideas/Sirus23_Mod_Collection/IDEAS.md` W3.
+- **Evidence:** `dotnet build -c Release` 0 warnings / 0 errors, and a `-v:d` build showed every reference
+  resolving into this mod's own `lib/` (which is why `lib/CSFFModFramework.dll` was refreshed: the stale 2.10.0
+  copy lacked `Api.BlueprintAlternates`; recorded in the root CLAUDE.md game-update paragraph). Full
+  `Development_Tools/Tests` suite 2012 passed / 4 failed, none of the four from this work: a WDI suite ZIP
+  embed and a HomesteadPerks T1.127 citation (peers' in-flight releases), and the checklist-mirror pair, which
+  then went green for T2.400-T2.404 once those rows were added to both checklist pages (the remaining misses
+  are peers' rows). After the art was applied, `CardArt-ShippedForm`, `CardArt-PickRecord`,
+  `PlaythroughRow-Citations`, `CardData-Integrity`, `Preflight-LocalizationParity`, `Csproj-ContentIncludes`,
+  `Mod-Regression` and `Plans-Policy` passed (168 of 170, the 2 being that peer-row mirror). Art: every sample
+  was finished by `/process-card-art`, then `key_enclosed.py` and `fill_holes.py --skip-paper 250`, because the
+  paper key had eaten pale subject in 7 of 15 samples (a ram's horn pockets, the ewe's back, the plough's yoke
+  tip, a snared owl's thigh; one owl companion sample was beyond repair). Owner picks: plough C, ram A, ewe A;
+  Claude's predictions matched 1 of the 3 picked cards (the ewe).
+- **Tracker rows holding the verification debt:** T2.400 (plough), T2.401 (manure), T2.402 (loom), T2.403
+  (twins and the birth text), T2.404 (the new art).
+
+### 2026-10-04 - `Documentation/Plans/Sirus23_Mod_Collection/` thirteen built features removed (plan KEPT, 32 prompts open)
+- **Verdict:** 13 features of the round-2 plan are built and awaiting an in-game check, and were removed
+  from the plan and its pack at the owner's request ("remove completed work from the plan and prompts").
+  None is verified in game: all 15 of their tracker rows read `pending` on 2026-10-04, none `fail`, so none
+  returns to code work. The plan keeps features 2, 3, 10, 11, 16, 17, 21 to 35 and 37 to 42 (32 open
+  prompts, 0 awaiting verification).
+- **Disposition:** DELETE from the plan and pack, no archive. Every removed section had already been
+  collapsed to a one-line "BUILT, awaiting verification" pointer (the 2026-10-03 `/audit-plan` pass and the
+  builds since), and every removed pack bullet's check is carried whole by its tracker row's VERIFY,
+  EXPECTED and FAIL text. The last text of both files is at `869aa973b`. Section and prompt numbers are not
+  reused.
+- **Pruned (feature, pack prompt, build commit, tracker rows):**
+  - 4 shear the ram, Prompt 3, `4398efb78` with the Shears wear-out fix `234f52dba`: T2.530, T2.532
+  - 5 sheep cheese and dairy flavours, Prompt 4, `d4d05ea3c`: T2.531
+  - 6 preserved butters keep butter's cooking uses, Prompt 5, `40e55c15c`: T2.533
+  - 7 sheep butter at vanilla's butter hooks, Prompt 6, raw-filling half `490ef329a`, melt half `481988a7f`: T2.534, T2.541
+  - 8 lanolin stands in for Fat, Prompt 28, `d8f4b5e0`: T2.538
+  - 9 the animal trader sells sheep, Prompt 7, `51c3de2b6`: T2.535
+  - 12 fleece-on sheepskin as Fresh Fur, Prompt 8, `590cc56c6`: T2.536
+  - 13 felt garments take dye, Prompt 9, `f6e5df87d`: T2.537
+  - 14 Felt Rug, Prompt 10, `c8fa8283`: T2.539
+  - 15 felt outfit set bonus, Prompt 11, `39efab7c`: T2.540
+  - 18 Fox and Owl Health with Treat Wounds, Prompt 12, inside `50d3fdb91` ("Wide work"): T2.544, filed
+    in this pass because it had no row
+  - 19 Wolf Den and Owl Perch, Prompt 13, `b420599e3`: T2.543
+  - 20 Ox Cart, Prompt 14, `e5852f8d0`: T2.542
+- **Evidence:** measured in this pass: the status of every row above read from
+  `.claude/playthrough-test-status.json` (15 `pending`); feature 18's JSON re-read before filing T2.544
+  (both companions carry SpecialDurability1 480 with OnZero "Fox Has Died" / "Owl Has Flown Away!", the
+  PassiveEffects "Starving Health Drain" and "Parched Health Drain" at Special1 -2, and a Treat Wounds CI);
+  feature 19's gates at its build (Release build 0 warnings; Preflight-MechChecks, CardData-Integrity,
+  CardArt-ShippedForm, Csproj-ContentIncludes, Localization-DuplicateKeys, Localization-EnglishColumnCjk
+  green; parity 479/479). The other features' presence in the source rests on the 2026-10-03 `/audit-plan`
+  pass recorded in the plan's header (each re-read from source, JSON, CSVs and tracker) and on their own
+  build commits; this pass did not re-read them. One known defect is open and is not this plan's work: a
+  harness run on T2.542 found the Ox Cart's Bull gate completing with no Bull, because 22 of the 24 Sirus23
+  blueprints wrote `CardsOnBoard` `Amount`, which binds to nothing (the real field is
+  `CardOnBoardSubObjective.Quantity`); another session's sweep fixing all 22 was uncommitted when this entry
+  was written.
+- **Tracker rows holding the verification debt:** T2.530 to T2.544 (all `pending`). Six of them (T2.538,
+  T2.539, T2.540, T2.541, T2.542, T2.543) cited a removed plan section as their source and now cite this
+  entry instead.
+
+### 2026-10-04 - MASTER_PLAN (second pass)
+- **Verdict:** counts: 32 pack prompts and 27 plan features checked (2, 3, 10, 11, 16, 17, 21 to 35, 37 to 42, plus the Release tail and open questions); 0 verified done, 0 built-awaiting, 27 open (32 open pack prompts, 0 awaiting verification). One STALE-CLAIM class corrected: three source line citations. Two history paragraphs deleted.
+- **Disposition:** KEEP IN PLACE (open work remains; Prompt 1, game lane, is still the first dispatchable entry).
+- **Pruned:** plan header: the two "Progress 2026-10-03" paragraphs (features 7 and 20, built and pruned earlier today, their checks live on T2.541 and T2.542). No section and no pack prompt removed, because nothing left in either is done. Corrections: `GameLoadPatch.cs` `SetCollection` citation 537 to 623, README "unvisited environment" 145 to 154, README "does not herd" 143 to 152; a new Audit status paragraph appended.
+- **Evidence:** `git grep -F` over `Sirus23_Mod_Collection/` (excluding bin and obj) for 26 identifiers of the open features (Nourishment, VanillaWolf_Agent, WolfTameInit, fc_wolf_pup, Fence Condition, SheepBell, sh_predator_tracks, hw_event_blackbear, hw_event_eagle, Hawk, sir_ferret, sh_washed_wool, fc_owlet, RecallWhistle, tag_x_AnimalRemedy, sh_truffle_hog, Pick Through, PartnerDuty, tag_FibersMedium and others): zero hits in source for every one except Nourishment and Fence Condition, which hit only `ROADMAP.md` and `.audit/ideas.md` prose; control: `AddAlternateIngredientIn` hit `Patcher/GameLoadPatch.cs` (a built feature). `ls TestHarness/client/scenarios/SIR`: 18 files, none for T2.400 to T2.403 or T2.454 (T2.541 and T2.542 scenarios exist). Tracker script: every T-id in the plan (22) and the pack (11) resolves in `.claude/playthrough-test-status.json`, zero missing; T2.99 and T2.101 `fail`, T2.207 and T2.400 to T2.404 and T2.454 `pending`. `git log` since the 16:43 prune (`ece6f1e3e`): `0545edd00` (22 blueprints, `CardsOnBoard` `Quantity`, which closes the Ox Cart defect named in the first entry) and doc-only commits; no open feature touched. Not verified: whether the deployed DLL matches source (no game run), and the W0 research verdicts (read as written, not re-derived).
+- **Verification debt:** T2.99 (fail), T2.101 (fail), T2.207, T2.400, T2.401, T2.402, T2.403, T2.404, T2.454 (pending) gate the open work; T2.530 to T2.544 (pending) are the checks for the pruned built features.
+
+### 2026-10-07 - MASTER_PLAN (cleanup-plans fleet sweep)
+- **Verdict:** 19 open plan features (3, 22, 23, 25, 27, 28 to 35, 37 to 42), the four built-but-pruned features 10, 11, 16 and 17, and all 22 pack prompts re-checked against source and the newest harness reports. Verified done and pruned: 16 plan claims (section 0.2 rows 21, 24 and 26; ten answered Wave-0 rows for built features; three Risk rows for built features) plus the Execution Status history and pack Prompt 29's done step 5. Obsolete: 0. Awaiting verification: 3 pack entries (feature 3's T2.400 review; features 10, 11, 16 and 17; the felt pile toggle). FAILED: 1, feature 19 (T2.543's rerun, 2026-10-07 02:24, step 93: wolf Morale -1.40625 in another place, expected -1; not yet written on the row), re-opened as plan section 19. Stale claims corrected: 7 (the W0-13 row's Morale multiply, open questions 5, 7 and 8, two README line citations, the Release tail's feature 16 sentence). Open: 22 prompts (18 plan features plus probes and closeouts), none built.
+- **Disposition:** KEEP IN PLACE - 22 open prompts of code work remain (Prompt 47 art, the W0-15/18/21/31 probes, features 23 and 27, the two release closeouts, and Phases F and G, which wait on Sirus's sign-off).
+- **Pruned:** plan: Execution Status section; the five dated history paragraphs of the status block, condensed into one History paragraph; section 0.2 rows 21, 24, 26; section 0.4 rows W0-2 to W0-7, W0-11, W0-14, W0-16, W0-17 (their DECISION lines stay in the research files); Risk rows for features 10/11 (SetCollection, merged in `a3180d17a`), 20 (Bull travel, held by T2.542) and 26 (raid UIDs, T2.549 confirmed). Pack: Prompt 29 step 5; the recorded-PASS clauses of the Awaiting list; Prompt 46's twin-lamb rerun clause (T2.403 confirmed). Added: plan section 19 (FAILED), a Risk row for the vanilla multiplier cancel flaw, the pack's Failed list; Prompt 47 widened to the Wolf Pup's borrowed sprite and moved first (no game needed).
+- **Evidence:** `git log ea241d274..HEAD -- Sirus23_Mod_Collection` (excluding bin and obj): one commit, `a3180d17a` (features 10, 11, 16, 17 and Prompt 46), spot-checked (`ConfigureBirthReceivingChanges` sets Transform; `PatchSheepReproduction` merges by EffectName prefix; `WolfPup.json`, `VanillaWolf_Agent.json`, `VanillaWolfPack_Agent.json` present). Grep over the mod source for 20 open-feature identifiers (hawk, ferret, washed_wool, owlet, recall_whistle, truffle_hog, tag_x_AnimalRemedy, tag_Fibers, PartnerDuty, DryFodder, Pick Through, the three Enclosure UIDs and others): hits only in `Patcher/IndoorOrCaveEnv.cs` (Enclosure UIDs, the companion stay list, not the night roll) and `GameLoadPatch.cs` (`AddAlternateIngredientIn`, built feature 8; the control that the probe hits). `CardImageWarpData` of SheepBell, Bp_SheepBell, PredatorTracks, OxCart, Bp_OxCart and WolfPup still read CopperNecklace, OwlTracks, sh_ox_plough and WolfCompanion. No "MEASURED (harness" section in any of the seven research files; no "Sirus sign-off" line in the plan. Harness reports on disk (`TestHarness/client/reports/`, gitignored): T2.543 20261007-022417 FAIL at step 93 (-1.40625 = (-1 - 2 x 0.75) x 0.5625, matching `.decomp/InGameCardBase.cs` `CancelPassiveEffectDurabilities`, which checks a Multiply flag for Spoilage only); T2.550 20261007-044540 PASS; T2.400 20261006-211039 PASS with steps 7 and 56 allowed failures and no `review.json`. Deployed `Sirus23_Mod_Collection.dll` md5 equals `bin/Release` (92389128...). A JSON scan of every Sirus23 card found non-Spoilage Multiply flags on 9 effects: the Wolf Den, the Owl Perch, and the Well Fed, Spring Growth and Winter Chill effects on TameSheep, MaleSheep and LactatingSheep. The fix is another session's uncommitted `CSFFModFramework/Patching/BugFixes/PassiveMultiplierCancelFix.cs` (gate `Framework-PassiveMultiplierCancel.Tests.ps1`). PartnerOverhaul W0.5 still unanswered.
+- **Verification debt:** T2.543 (FAILED run, row still pending; rerun after the framework fix), T2.553 and T2.554 (need scenarios and the framework fix), T2.550 (PASS awaiting record), T2.551, T2.552, T2.400 (review), T2.404, T2.555, T2.556, T2.542, T2.99 (fail; person's live tame), T2.207.
+
+### 2026-10-09 - MASTER_PLAN
+- **Verdict:** 19 open plan features (3, 19, 22, 23, 25, 27, 28 to 35, 37 to 42) and all 22 prior pack prompts re-checked against source, the tracker after `aa60ef1b0`, `9191af9f9`, `8ba267cb3` and `51641ef64`, and the 2026-10-09 six-rig harness reports. Verified done: 3 pack Awaiting entries' rows (T2.550, T2.555, T2.556 confirmed). Obsolete: 0. Awaiting verification: 1 (feature 3's T2.400, three unrecorded harness passes needing the allowed-failure review). FAILED: 4 items, all in harness runs not yet on the rows: T2.543 (feature 19, now step 101), T2.553 and T2.554 (features 10, 11: milk rate 1.51365), T2.551 and T2.552 (features 16, 17: the mod's own AgentExists retire error, no pup). Stale claims corrected: 2 (section 19 and the Risk row called the framework multiplier-cancel fix uncommitted; it landed in `e57d44cfc`). Open: 23 prompts (the new fix pass Prompt 48, art Prompt 47, four probes, features 23 and 27, two closeouts, Prompt 30, Phases F and G on Sirus's sign-off), none built.
+- **Disposition:** KEEP IN PLACE - 23 open prompts of code work remain; Prompt 48 (fix pass) is first, then Prompt 47.
+- **Pruned:** pack: the Awaiting entries "Features 10, 11, 16 and 17" (T2.550 confirmed; T2.551 to T2.554 moved to the Failed list) and "Felt pile toggle" (T2.555 now in confirmedItems); the old Failed entry's "uncommitted fix" text. Added: pack Prompt 48 and a four-item Failed list; Prompt 29 now depends on Prompt 48. Plan: Next up rewritten for 2026-10-09; section 19 corrected and its failure updated; two Risk rows updated; one dated Status paragraph appended. No plan section deleted, so no citation sweep was needed.
+- **Evidence:** `git log 189f8b99e..HEAD -- Sirus23_Mod_Collection` and the plan and research folders: no Sirus23 source commit (only scenario commits `48b0a0c1c`, `e57d44cfc`, `2652a05af`, `a47b5b8e3`, `dcb8d6cc7` under `TestHarness/client/scenarios/SIR/`, and the 2026-10-07 plan sweep `56ef680ed`). `grep -c "MEASURED (harness"` over the seven research files: 0 each; `grep "Sirus sign-off:"` in the plan: only the 2026-10-07 status prose (control: the probe hits that line). `grep PassiveMultiplierCancel CSFFModFramework` hits `Plugin.cs` (wired) and the built `CSFFModFramework.dll` (1 hit). `TestHarness/client/reports/walkthrough-20261009-041821/build.json`: Sirus23 sha256 `00ab225c...` and framework `934166b0...`, both equal to `bin/Release`. Reports read: T2.543 20261009-075304 FAIL step 101 (Hunger -0.5625, expected -0.75; steps 92 to 95 incl. Morale -1 PASS); T2.553 20261009-072410 FAIL steps 34, 73 to 75; T2.554 20261009-080235 FAIL steps 28, 54, 68 (Usage rate 1.51365); T2.551 20261009-063532 FAIL step 26 and T2.552 20261009-080431 FAIL steps 20, 23, 25, 33 (log error from `Patcher/CompanionHuntPatch.cs` `TrySetStatValue`, whose two null exits carry no cause); T2.542 20261009-075338 FAIL step 67 (travel hidden by stats); T2.99 20261009-061625 FAIL step 31 (fresh berry drop does nothing); T2.400 20261009-074618 PASS. The tracker owner's 2026-10-09 skeptic list rejects T2.404's pass; T2.400 is in neither the confirmed nor the rejected list. PartnerOverhaul MASTER_PLAN W0.5 still has no answer.
+- **Verification debt:** T2.400 (pending, review), T2.404 (pending, person), T2.543, T2.551, T2.552, T2.553, T2.554 (pending, harness FAILs awaiting Prompt 48), T2.542 (pending, harness FAIL), T2.99 (fail; live tame), T2.207 (pending).
+
+### 2026-10-09 (later) - MASTER_PLAN, second /cleanup-plans pass
+- **Verdict:** NOT drained. 23 open prompts (48, 47, 15, 16, 23, 27, 29, 30, 31-45), 1 awaiting verification (T2.400), 4 failed (Prompt 48). Prompt 48 narrowed: T2.543, T2.542 and T2.99 are scenario defects fixed offline in 618ef7c78 (rerun only); code remains for the wolf tame retire and the milk rate.
+- **Disposition:** KEEP IN PLACE - code work remains.
+- **Pruned:** nothing. Corrected: section 19 (T2.543 scenario defect); risk register row 1 (cause is CompanionHuntPatch.TrySetStatValue looking up a public SetStatValue that does not exist; .decomp/InGameNPCStat.cs has only a private IEnumerator SetStatValue and a public SetStatValueFromEditor); section 0.3 water trough (companions drink only water since 31034e212).
+- **Evidence:** audited against 1d9cbf121. Commits since e5b8406d2: 31034e212 and 287d0a88c (not plan work), 618ef7c78 (scenario rework), 7219cd11d. Four sprites still borrowed; no research file has a MEASURED (harness section; no "Sirus sign-off:" line; PartnerOverhaul W0.5 unanswered in its own plan. PlaythroughRow-Citations 13/13.
+- **Verification debt:** T2.400 (record owed); T2.99, T2.542, T2.543 (reruns); T2.551, T2.552, T2.553, T2.554 (Prompt 48 code); T2.102 may need reopening after 287d0a88c.
+
+### 2026-10-11 - Fleet MASTER_PLAN (cross-mod decoupling), /cleanup-plans Fleet apply
+- Scope: Fleet (cross-mod plan; the same entry is recorded in the ROADMAP of every mod it names: Community_Mod_Chest, AdvancedCopperTools, WaterDrivenInfrastructure, HomesteadPerks, HerbsAndFungi, Sirus23_Mod_Collection, CSFFModFramework).
+- **Verdict:** DRAINED. Features 1-13 all built (1-3, 6, 7, 9, 12 in the commits `33ab18fe9`, `a3f965d43`, `76aac3d8a`, `cc0115b9e`, `fed7f7d0a`, `c6b2bad35`, `31034e212`, `e7b558ead`, `7219cd11d`), 0 open pack prompts, 0 unbuilt rows; every acceptance row recorded CONFIRMED (T2.789, T2.632, T2.997, T2.999, T2.998, T2.549, T2.557, T2.560, T2.1236 to T2.1242). Open question 4 settled by measurement, not by an owner choice.
+- **Disposition:** ARCHIVE - the plan moved to `Documentation/Design/Fleet_Cross_Mod_Decoupling_As_Built.md` with its Considered table and its drained prompt pack appended; the pack was deleted.
+- **Pruned:** plan sections 1, 2, 3, 6, 7, 9 and 12 (each BUILT and confirmed), the stale "awaiting verification" pointers, open question 4's default text (replaced by its measured outcome); pack Prompts 9 and 10 (Prompt 10 had already been built in `e7b558ead`, the pack was stale on that point).
+- **Evidence:** on dev lane rig 6 at HEAD (H&F, Harsh Wilds and Sirus23 deployed from the working tree, the rest synced from the real install), harness PASS for T2.557, T2.560, T2.632, T2.997 (both variants), T2.999 and T2.1236 to T2.1242; two independent skeptic reviews of all twelve rows (`.claude/handoffs/skeptic-review-2026-10-11-fleet/r-a.md`, `r-b.md`): 11 RECORD-PASS, and T2.560 FIX-SCENARIO (its brine leg dragged the non-draggable Liquid sub-card, so it passed on any build; fixed in the scenario and rerun PASS with a real refusal, "Dropping 'Pickle Brine' onto 'Wolf Companion' does nothing", beside the same container type with water running Give Water once). Three of the seven absent-partner pins had drifted since 2026-10-09 and were re-measured from real alone-boots (CMC 48 entries, five sprites now resolve; H&F plus twelve of its own map-node forward references; Harsh Wilds plus the Forest Lore `fl_mud_volcano` weight row; WDI now 0 lines), each entry checked against `Documentation/Interop_Registry.md`. End state: `grep BepInDependency(` over every `Plugin.cs` finds 13 files and none names anything but CSFFModFramework (the 13 matches are the control that the scan can hit). Open question 4 probe: with Sirus23 set aside the Wool-Quilted Cap and Vest each keep four requirement slots and the Wool one is null (measured), and a researched blueprint is left alone by `AcademyCourseService.HideWoolQuiltedIfNoWool` (read from code).
+- **Verification debt:** none open. One unplayed fact, deliberately without a row: what a craft of an already-researched Wool-Quilted recipe asks for after Sirus23 is removed (the game reads a null slot as no requirement, the fleet audit's reading of the code); CMC's README states it as unplayed. Releases still owed per mod under its own version rules (`.claude/nexus-publish-status.json` against `ModInfo.json`, read 2026-10-11): framework 2.28.0 (Nexus holds 2.26.12), CMC 1.69.6 (1.68.45), ACT 1.18.1 (1.16.10), WDI 1.12.2 (1.11.3), HSP 1.3.1 (1.2.4), H&F 1.14.1 (1.13.7) and Sirus23 1.22.0 (1.21.6); MUM not repacked for this change.
+
+### 2026-10-12 - MASTER_PLAN (round 2), /cleanup-plans archive after the closeout
+- Scope: `Documentation/Plans/Sirus23_Mod_Collection/` (the round 2 plan, features 28 to 42 and the audit remediation R1 to R10, with its pack).
+- **Verdict:** DRAINED of code. Every feature is built or ruled out (feature 42 is ruled out, plan section 0.3); the pack declared 0 open prompts; the audit remediation R1 to R10 landed in `01c8a43a8`. The plan's own closeout (pack Prompt 45) and its "Next up" list say what remains: verification and release, none of it code.
+- **Disposition:** ARCHIVE - the plan moved to `Documentation/Design/Sirus23_Mod_Collection_As_Built.md` with its Considered table (section 0.3, the rejection reasons) and the drained pack appended verbatim; both files were removed from `Documentation/Plans/`, which no longer has a Sirus23 folder. Inbound paths in the tracker (23 `source` strings), four As_Built records, `Documentation/Ideas/IDEAS_OVERVIEW.md`, the Harsh Wilds plan and the seven research files were repointed; the Ideas-era log entries above, the `.audit/` files and the spent `Development_Tools/Sirus23/` one-shot scripts keep the old path as history. The mod stays at the repo root; its move to `Stable/` is a separate step (`Move-ModFolder.ps1` refuses while the folder has uncommitted changes, and `.art/review/verdicts.json` was uncommitted when this was filed).
+- **Pruned:** nothing was deleted from the content of either file; only the plan's stale exemption marker (`PLANS-POLICY-EXEMPT`, which waited for this archive) was replaced by a one-line note and an as-built banner was added. The banner corrects one stale line: the version triple is 1.22.1 since the release prep `61af5c011`, not 1.22.0.
+- **Evidence:** read this pass, not believed from the plan: all 32 tracker ids the pack and plan name (T2.99, T2.102, T2.133, T2.176, T2.178, T2.404, T2.530, T2.535, T2.541, T2.542, T2.543, T2.551 to T2.554, T2.561 to T2.575, T2.1382, T2.1383) exist as rows in `.claude/playthrough-test-status.json`; source for the hawk (`Animals/Hawk.json`, `CardData/Item/HawkCompanion.json`), ferret (`Patcher/FerretTrapPatch.cs`), Recall Whistle (`Patcher/RecallWhistlePatch.cs`) and truffle hog (`Patcher/TruffleHogPatch.cs`) is on disk; `dotnet build -c Release` of the mod (to a temp folder) 0 warnings, 0 errors; `ModInfo.json` reads 1.22.1. Not re-run this pass: the harness and the Pester suite beyond the plan-policy gates named in the commit.
+- **Verification debt:** every item sits on its own tracker row: person checks T2.404 (art for the ox plough, wild sheep, Sheep Bell and Predator Tracks), T2.1382 (Feather Pillow balance), T2.1383 (Felt Rug art), T2.133 (the wild owl duty guard, no scenario); harness-passed rows held for a person (T2.569, T2.571, T2.572, T2.573, T2.574); earlier rows still pending (T2.102, T2.530, T2.535, T2.541, T2.176, T2.178). Owed outside the tracker: Sirus's review of the CHANGELOG's Phase F and G group before anything is exported, uploaded or published (a decline moves that feature to section 0.3 of the As_Built and takes its JSON, code and docs out of the mod), and the deploy line (framework first, Sirus23, repackage the suite, Mod Update Manager last).

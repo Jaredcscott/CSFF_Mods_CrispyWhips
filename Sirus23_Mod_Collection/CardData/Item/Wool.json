@@ -84,7 +84,87 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_wool",
+                "LocalizationKey": "sh_wool_CardInteractions[0].ActionName",
+                "DefaultText": "Wash"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_wool",
+                "LocalizationKey": "sh_wool_CardInteractions[0].ActionDescription",
+                "DefaultText": "Rinse the wool with water from a container. Washed wool spins into twice the yarn."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "2ae9292d2b80ccb41a0840ca736e0d12",
+                    "1cecbd7141fa89a4c90686dcd2d92155",
+                    "536f722edbb5e9e4b959b1f3ad25f648"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_WaterContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "RequiredGivenLiquidContent": {
+                "IsActive": true,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroupWarpData": "GpTag_WaterAny",
+                "RequiredGroupWarpType": 3,
+                "RequiredQuantity": {
+                    "x": 100.0,
+                    "y": 99999.0
+                }
+            },
+            "RequiredGivenDurabilities": {
+                "RequiredLiquidQuantity": 100.0,
+                "HideActionIfNotMet": true
+            },
+            "GivenCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -100.0,
+                    "y": -100.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "sh_washed_wool",
+                "TransformIntoWarpType": 3
+            },
+            "StatModifications": []
+        }
+    ],
     "DismantleActions": [],
     "PassiveStatEffects": [],
     "PassiveEffects": [],

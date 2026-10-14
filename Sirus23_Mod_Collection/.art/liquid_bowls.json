@@ -1,0 +1,11 @@
+{
+ "_note": "Liquid card pictures: vanilla Bowl_Clay_Water with the liquid recoloured. Owner 2026-10-11. Build with Development_Tools/CardArt/liquid_bowl.py make Sirus23_Mod_Collection --source <Bowl_Clay_Water.png> --link",
+ "bowls": [
+  {
+   "image": "S23_LQ_SheepMilk",
+   "card": "CardData/Liquid/SheepMilk.json",
+   "colour": "#ebe8de",
+   "looks": "milk white"
+  }
+ ]
+}

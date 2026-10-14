@@ -1,0 +1,46 @@
+{
+  "target": "sh_ox_cart.png",
+  "sourceCard": [
+    "CardData/Item/OxCart.json",
+    "CardData/Blueprint/Bp_OxCart.json"
+  ],
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "composition": {
+    "style": [
+      "sh_ox_plough"
+    ],
+    "change": "an empty two-wheeled plank cart with solid iron-rimmed plank wheels, two shafts and a yoke bar, built of the plough's weathered planks and rope lashings",
+    "finish": "keyed"
+  },
+  "references": [
+    {
+      "role": "style",
+      "fragment": "sh_ox_plough",
+      "image": "Resource/Picture/sh_ox_plough.png",
+      "sha256": "d4471b723155e3287618cb00b15adc21bde3bfaf248e81d74ba14d80c07bb4e4",
+      "id": "jK22geyhD6VnsSAxhJUD",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/sh_ox_plough_1791595062549_af906543.png"
+    }
+  ],
+  "historyId": "OLowCe64I6IDLcA37N7E",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791595175603_4493eff4_1791595176365_bd2dad38.png",
+  "credits": 30,
+  "generated": "2026-10-09",
+  "note": "Sirus23 plan Prompt 47. Finished 2026-10-10 with process_card_art (headless GIMP 3) into Resource/Picture/sh_ox_cart.png (keyed); the raw generation was deleted with .art/pending. Cards point at it. Look not yet confirmed by a person (T2.404/T2.542/T2.552).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791595175603_4493eff4_1791595176365_bd2dad38.png",
+      "verdict": "on-model: plough's grey planks and rope lashings, two solid wheels, shafts and yoke bar, empty, no animal (Claude-reviewed, no owner pick)",
+      "shipped": false
+    }
+  ],
+  "shipped": "2026-10-10"
+}

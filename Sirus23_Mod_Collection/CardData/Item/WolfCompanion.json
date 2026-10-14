@@ -129,6 +129,14 @@
             "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
             "WorksInverted": false,
             "WorksBothWays": false,
+            "RequiredGivenLiquidContent": {
+              "IsActive": true,
+              "RequiredLiquid": {"m_FileID": 0, "m_PathID": 0},
+              "RequiredGroup": {"m_FileID": 0, "m_PathID": 0},
+              "RequiredGroupWarpData": "GpTag_WaterAny",
+              "RequiredGroupWarpType": 3,
+              "RequiredQuantity": {"x": 100.0, "y": 99999.0}
+            },
             "RequiredGivenDurabilities": {
                 "RequiredLiquidQuantity": 100.0,
                 "HideActionIfNotMet": true
@@ -178,7 +186,9 @@
                     "aa9bd5a17e9e8434cbd5ca6b90e6da39"
                 ],
                 "TriggerCardsWarpType": 3,
-                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpData": [
+                    "tag_x_AnimalRemedy"
+                ],
                 "TriggerTagsWarpType": 3
             },
             "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
@@ -691,6 +701,40 @@
         }
     ],
     "OnInteractActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Companionship (fc_fox_companion)",
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "fc_fox_companion"
+                ],
+                "RequiredCardsOnBoardWarpType": 3
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": 0.25
+            },
+            "MultiplyConsumableChargesRate": false
+        },
+        {
+            "EffectName": "Companionship (fc_owl_companion)",
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "fc_owl_companion"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredCardsNOTOnBoardWarpData": [
+                    "fc_fox_companion"
+                ],
+                "RequiredCardsNOTOnBoardWarpType": 3
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": 0.25
+            },
+            "MultiplyConsumableChargesRate": false
+        }
+    ],
     "SpoilageTime": {
         "Active": true,
         "MaxValue": 672.0,
@@ -738,6 +782,11 @@
         "MaxValue": 480.0,
         "FloatValue": 480.0,
         "RatePerDaytimePoint": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_wolf_companion",
+            "LocalizationKey": "FC_WolfCompanion_SpecialDurability1_CardStatName",
+            "DefaultText": "Health"
+        },
         "OverrideIconWarpData": "Health",
         "OverrideIconWarpType": 3
     },

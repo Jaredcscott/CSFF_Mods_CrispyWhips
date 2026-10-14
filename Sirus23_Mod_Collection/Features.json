@@ -69,6 +69,7 @@
     {
       "name": "Sheep Lifecycle",
       "status": "Implemented",
+      "_note": "1.22.0 (2026-09-28): tame, lactating and male sheep carry the cow's Progress block (Poop, 384 at 1 per daytime point, OnFull drops vanilla Manure; pending T2.401); births roll 17:3 single:twins weighted collections with the Bad Pregancy weight modifier cleared, and the birth text and pregnancy bar name now reach the sheep instead of the cow's copy (pending T2.403). Before publish the ram also carries the ewe's Wool bar and Shear interaction, and Tend Flock shears it (pending T2.530).",
       "cards": [
         "sh_wild_sheep",
         "sh_wild_male_sheep",
@@ -143,9 +144,31 @@
       "evidence": "T2.101 (2026-08-16) explicitly unverified; predation/escape removal depends on the TryRemoveCard primitive flagged dead-until-2.25.22 by T2.150 (2026-08-31), no retest recorded."
     },
     {
+      "name": "Ox Plough",
+      "status": "Implemented",
+      "_note": "NEW group (1.22.0, 2026-09-28). A vanilla Till copy on the plough (WorksInverted, the field is the given card), gated on a vanilla Bull (CowFreeMale) on the board, draining one Bull's Spoilage by 8 per use.",
+      "cards": [
+        "sh_ox_plough",
+        "sh_bp_ox_plough"
+      ],
+      "confidence": "LOW",
+      "evidence": "Built 2026-09-28; no in-game or harness pass yet (T2.400 pending)."
+    },
+    {
+      "name": "Ox Cart",
+      "status": "Implemented",
+      "_note": "NEW group (1.22.0, 2026-10-03). A hand-held container modelled on the vanilla Travois at twice its capacity, with the Travois's Movement Penalty gated off while a Bull (CowFreeMale) is on the board (W0-14 branch (a)); blueprint gated on a Bull. Borrows the Ox Plough's picture (ART PARTIAL).",
+      "cards": [
+        "sh_ox_cart",
+        "sh_bp_ox_cart"
+      ],
+      "confidence": "LOW",
+      "evidence": "Built 2026-10-03; no in-game or harness pass yet (T2.542 pending)."
+    },
+    {
       "name": "Yarn",
       "status": "Tested",
-      "_note": "sh_bp_yarn has StartUnlocked:true - blueprint available without research. Verify this is intentional.",
+      "_note": "sh_bp_yarn: StartUnlocked is read by nothing, so with all five unlock lists empty the blueprint never unlocked; since 2026-10-11 (folded into 1.22.0) it carries a CardsOnBoard gate on sh_wool (ConstantlyChecking false, 'Requires: Wool'), in-game check pending. 1.22.0 (2026-09-28): renamed Wool Yarn, and GameLoadPatch.PatchWoolYarnAtLoom adds sh_yarn as an alternate ingredient wherever a vanilla blueprint requires vanilla Yarn (Api.BlueprintAlternates); pending T2.402.",
       "cards": [
         "sh_yarn",
         "sh_bp_yarn"
@@ -225,6 +248,32 @@
       "evidence": "T2.102 (2026-08-16) explicitly unverified: ingredients/output/equip effects not yet confirmed in-game."
     },
     {
+      "name": "Felt Dyeing",
+      "status": "Implemented",
+      "_note": "1.22.0 (2026-10-02): the four felt wearables carry tag_DyeableClothing (inferred runtime name of the export token the Clay Basin, Rain Cistern and Tanning Pit dye recipes test), Progress as Colour Intensity and SpecialDurability4 as Colour copied whole from ClothShirt.json, and three name-only AlternateNames on Special4Range 2, 3 and 100; no C#, no colour PassiveEffects.",
+      "cards": [
+        "sh_felt_hat",
+        "sh_felt_mittens",
+        "sh_felt_vest",
+        "sh_felt_boots"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.537 pending (filed 2026-10-02): read from the export, the decompile and a clean build, not yet seen in a running game; the tag name is the part the in-game row proves."
+    },
+    {
+      "name": "Felt Set Bonus",
+      "status": "Implemented",
+      "_note": "1.22.0 (2026-10-03): a hidden runtime counter GameStat (sh_felt_outfit_pieces, 0 to 4) that each worn felt wearable raises by 1 through one PassiveEffect (OnlyWhenEquipped, EquippedOnBodyOnly), with one status at 3 to 4 adding +4 (a tunable placeholder) to vanilla Cold Resistance; one status on one stat is what makes the bonus apply once. No tag, no C#; the csproj gained a GameStat include.",
+      "cards": [
+        "sh_felt_hat",
+        "sh_felt_mittens",
+        "sh_felt_vest",
+        "sh_felt_boots"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.540 pending (filed 2026-10-03): read from the base game's Skis pattern, the decompile and a clean build, not yet seen in a running game; whether the counter reads back after a cold load is the part the in-game row proves."
+    },
+    {
       "name": "Milk & Dairy",
       "status": "Implemented",
       "cards": [
@@ -269,7 +318,11 @@
       "cards": [
         "sh_buttered_roots",
         "sh_cheese_stuffed_flatbread",
-        "sh_creamy_mash"
+        "sh_creamy_mash",
+        "sh_berry_yogurt",
+        "sh_buttermilk_hardtack",
+        "sh_ricotta_rye_round",
+        "sh_soured_turnroot"
       ],
       "confidence": "LOW",
       "evidence": "T2.125 (2026-08-22) explicitly unverified, distinct from the already-passing sirus_dairy_chain item."
@@ -319,6 +372,155 @@
       ],
       "confidence": "LOW",
       "evidence": "summary.md Sub-Audit Index: gap-plan.md P3 (wild-sheep spawn smoke test) remains pending in-game, never closed by later evidence."
+    },
+    {
+      "name": "Wolf Taming and Wolf Pup",
+      "status": "Implemented",
+      "_note": "1.22.0 features 16, 17: GSM tame on vanilla Agent_Wolf and Agent_WolfPack; CompanionHuntPatch WolfTameInit/WolfPackTameInit, with the off-board re-home (Prompt 49).",
+      "cards": [
+        "fc_wolf_pup"
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.550 confirmed; T2.551 and T2.552 PASS by harness 2026-10-10 on the Prompt 49 build, unrecorded."
+    },
+    {
+      "name": "Hunting Hawk",
+      "status": "Implemented",
+      "_note": "Plan feature 28 (2026-10-12, owner go-ahead): Animals/Hawk.json, HawkHunt in CompanionHuntPatch, the Eyas collection in OwletNestPatch. Borrows the owl's art.",
+      "cards": [
+        "fc_hawk_companion",
+        "fc_eyas",
+        "fc_hawk_carcass"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.571 pending; scenario authored, not run."
+    },
+    {
+      "name": "Ferret",
+      "status": "Implemented",
+      "_note": "Plan feature 29 (2026-10-12, owner go-ahead): CardData/Item/Ferret.json, Patcher/FerretTrapPatch.cs appends one card modifier to the vanilla Snare and Log Trap at GameDataReady, trader stock in GameLoadPatch.PatchAnimalTraderStock.",
+      "cards": [
+        "sir_ferret"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.572 pending; scenario authored, not run."
+    },
+    {
+      "name": "Recall Whistle",
+      "status": "Implemented",
+      "_note": "Plan feature 34 (2026-10-12, owner go-ahead): CardData/Item/RecallWhistle.json and CardData/Blueprint/Bp_RecallWhistle.json (one Bone Pieces), Patcher/RecallWhistlePatch.cs removes each left-behind companion's saved record from GameManager.EnvironmentsData and spawns it on the current board (W0-24 route).",
+      "cards": [
+        "sh_recall_whistle",
+        "sh_bp_recall_whistle"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.573 pending; scenario authored, not run."
+    },
+    {
+      "name": "Truffle Hog",
+      "status": "Implemented",
+      "_note": "Plan feature 37 (2026-10-12, owner go-ahead): CardData/Item/TruffleHog.json, Patcher/TruffleHogPatch.cs: a run-start pass on GameManager.OnGMInitialized (W0-27), only when herbs_fungi_truffle resolves, appends one card modifier to each truffle drop and adds Train to Root to the vanilla piglet (the HIDE).",
+      "cards": [
+        "sh_truffle_hog"
+      ],
+      "confidence": "LOW",
+      "evidence": "Tracker check pending; scenario authored, not run."
+    },
+    {
+      "name": "Companion Treats",
+      "status": "Implemented",
+      "_note": "1.21.0 plan row N13.",
+      "cards": [
+        "sh_bone_treat",
+        "sh_owl_treat",
+        "sh_berry_mix",
+        "sh_bp_bone_treat",
+        "sh_bp_owl_treat",
+        "sh_bp_berry_mix"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.206 pending."
+    },
+    {
+      "name": "Wolf Den and Owl Perch",
+      "status": "Implemented",
+      "_note": "1.22.0 feature 19: RemotePassiveEffects x0.75 on the companion's Hunger and Morale.",
+      "cards": [
+        "sh_wolf_den_portable",
+        "sh_wolf_den",
+        "sh_bp_wolf_den",
+        "sh_owl_perch_portable",
+        "sh_owl_perch",
+        "sh_bp_owl_perch"
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.543 PASS by harness 2026-10-09 18:28, unrecorded."
+    },
+    {
+      "name": "Sheep Bell",
+      "status": "Implemented",
+      "_note": "Round-2 feature 22: SheepPenPatch halves escape with a bell in the same environment.",
+      "cards": [
+        "sh_sheep_bell",
+        "sh_bp_sheep_bell"
+      ],
+      "confidence": "LOW",
+      "evidence": "No check of the bell itself yet."
+    },
+    {
+      "name": "Predator Tracks",
+      "status": "Implemented",
+      "_note": "Round-2 feature 25: spawned by SheepPenPatch on a predation night; Follow the Tracks starts the vanilla wolf fight.",
+      "cards": [
+        "sh_predator_tracks"
+      ],
+      "confidence": "LOW",
+      "evidence": "Not yet checked in a running game."
+    },
+    {
+      "name": "Felt Rug and Feather Pillow",
+      "status": "Implemented",
+      "_note": "Felt Rug 1.22.0 feature 14; Feather Pillow 1.21.0 N12.",
+      "cards": [
+        "sh_felt_rug",
+        "sh_bp_felt_rug",
+        "sh_feather_pillow",
+        "sh_bp_feather_pillow"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.539 and T2.205 pending."
+    },
+    {
+      "name": "Preserved Dairy",
+      "status": "Implemented",
+      "_note": "Salt the Butter, Smoke the Cheese.",
+      "cards": [
+        "sh_salted_butter",
+        "sh_smoked_cheese"
+      ],
+      "confidence": "HIGH",
+      "evidence": "Declarative CIs on proven paths; no dedicated row."
+    },
+    {
+      "name": "Wool Washing",
+      "status": "Implemented",
+      "_note": "Plan feature 30 (2026-10-10, owner go-ahead): Wash a Wool with a filled water container makes Washed Wool; sh_bp_yarn_washed spins it into two Wool Yarn. Washed Wool borrows Wool's picture.",
+      "cards": [
+        "sh_washed_wool",
+        "sh_bp_yarn_washed"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.565 pending; not played in game."
+    },
+    {
+      "name": "Owlet",
+      "status": "Implemented",
+      "_note": "Plan feature 33 (2026-10-10, owner go-ahead): Patcher/OwletNestPatch.cs gives an Owlet from a bird's-nest Climb (about 1 in 20, never while an owl or owlet is on the board); it grows into the Owl Companion. Own art.",
+      "cards": [
+        "fc_owlet"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.568 pending; not played in game."
     }
   ]
 }

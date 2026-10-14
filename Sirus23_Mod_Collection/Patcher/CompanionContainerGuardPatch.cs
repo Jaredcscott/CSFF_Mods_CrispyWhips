@@ -28,6 +28,7 @@ internal static class CompanionContainerGuardPatch
         WolfTickPatch.WolfId,
         WolfTickPatch.FoxId,
         WolfTickPatch.OwlId,
+        WolfTickPatch.HawkId,
     };
 
     public static void ApplyPatch(Harmony harmony)

@@ -1,0 +1,186 @@
+{
+    "UniqueID": "sh_truffle_hog",
+    "CardName": {
+        "ParentObjectID": "sh_truffle_hog",
+        "LocalizationKey": "SIR_TruffleHog_CardName",
+        "DefaultText": "Truffle Hog"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_truffle_hog",
+        "LocalizationKey": "SIR_TruffleHog_CardDescription",
+        "DefaultText": "A young pig trained to root. Carry it and, when you dig with Herbs and Fungi installed, you are more likely to turn up a truffle, as long as it is fed. Feed it acorns or roots; a hungry hog helps less."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "sh_truffle_hog",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 1500.0,
+    "TradingValue": 400,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "EquipmentTagsWarpData": [],
+    "EquipmentTagsWarpType": 3,
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "WhenCreatedSoundsWarpData": [
+        "SmallObject_A"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 480.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_truffle_hog",
+            "LocalizationKey": "SIR_TruffleHog_SpecialDurability1_CardStatName",
+            "DefaultText": "Hunger"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 480.0,
+        "RestrictToSpecificValues": false,
+        "ValidValues": [],
+        "RatePerDaytimePoint": -0.5,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "MinRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "MaxRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "OverrideIconWarpData": "",
+        "OverrideIconWarpType": 3,
+        "SortInverted": false,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_truffle_hog",
+                "LocalizationKey": "SIR_TruffleHog_CI0_ActionName",
+                "DefaultText": "Feed Truffle Hog"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_truffle_hog",
+                "LocalizationKey": "SIR_TruffleHog_CI0_ActionDescription",
+                "DefaultText": "Feed the hog an acorn or a root to fill its Hunger bar."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "92de21bc827f1c74e8dbf8c72a51aa5a",
+                    "640732a090b08814f8f14310d4f4ee77",
+                    "df76ce5a1fa669742b2eeaa656c56495",
+                    "1081a6a982382714781f035228e795ed",
+                    "ac174c399999d14489fb3788c8931e93",
+                    "5ad63f32ed767c64190a64d79841d023"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {
+                    "x": 240.0,
+                    "y": 240.0
+                }
+            },
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

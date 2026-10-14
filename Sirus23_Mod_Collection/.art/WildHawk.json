@@ -1,0 +1,40 @@
+{
+  "target": "WildHawk.png",
+  "sourceCard": [
+    "Animals/Hawk.json (Sprite)"
+  ],
+  "subject": "one wild hawk perched upright on a short broken dead branch, body three-quarters to the viewer, head in profile: warm dark brown back and wings with pale buff feather edges, pale cream breast with a band of dark brown streaks, rusty red-brown tail, hooked dark grey beak with a yellow base, fierce yellow eye, yellow feet; clearly a hawk, no ear tufts, no facial disc",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template, \"Use the attached reference images, each for one purpose\" + Subject + flat posterized style + white paper + Avoid list incl. footprints)",
+  "refs": [
+    {
+      "label": "vanilla Partridge_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Partridge_Wild_1791700793800_94eec01f.png"
+    },
+    {
+      "label": "vanilla Wolf_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791652877763_612cd0f5.png"
+    }
+  ],
+  "historyId": "uIML8sDE5T2fDgc001pV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797701533_e0880fa8_1791797701622_22673151.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed --no-trim (agent sprite)",
+  "note": "owner gallery rework 2026-10-12: wrong image needs a unique image. Defines the hawk for its three cards (WildHawk, HawkCompanion, HawkCarcass); its raw was uploaded as the subject reference for the other two. Agent sprite (Animals/Hawk.json Sprite), so it keeps the 512x768 canvas. One enclosed paper pocket between the legs keyed with key_enclosed.py against the raw.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797701533_e0880fa8_1791797701622_22673151.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

@@ -1,0 +1,151 @@
+{
+    "UniqueID": "sh_fox_scout_pace",
+    "GameName": {
+        "ParentObjectID": "sh_fox_scout_pace",
+        "LocalizationKey": "sh_fox_scout_pace_GameName",
+        "DefaultText": "Fox Scouting"
+    },
+    "Description": {
+        "ParentObjectID": "sh_fox_scout_pace",
+        "LocalizationKey": "sh_fox_scout_pace_Description",
+        "DefaultText": "Always on and never shown: while the Fox Companion shares your board, each leg of a journey takes one tick less (a leg that cost one tick becomes a moment). It does nothing without the fox."
+    },
+    "IsRuntimeOnly": true,
+    "BaseValue": 1.0,
+    "MinMaxValue": {
+        "x": 1.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Cold",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "sh_fox_scout_pace",
+                "LocalizationKey": "sh_fox_scout_pace_Status_Name",
+                "DefaultText": "Fox Scouting"
+            },
+            "Description": {
+                "ParentObjectID": "sh_fox_scout_pace",
+                "LocalizationKey": "sh_fox_scout_pace_Status_Description",
+                "DefaultText": "The fox scouts the way, so travel takes a little less time."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Cold",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 1,
+                "y": 1
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [
+                {
+                    "//": "A fox told to Stay Here is still on the board when the player sets off, so RequiredCardsOnBoard alone gave the departure leg the bonus too (harness T2.566, 2026-10-12). The complex condition also requires the fox's stay flag (SpecialDurability2) to be 0: Special2Range -1..0.5 (a zero range means unset, so 0..0 cannot be written).",
+                    "Conditions": {
+                        "RequiredCardsOnBoardWarpData": [
+                            "fc_fox_companion"
+                        ],
+                        "RequiredCardsOnBoardWarpType": 3,
+                        "RequiredComplexCardConditions": [
+                            {
+                                "Scope": 0,
+                                "ExcludeInventories": false,
+                                "CardWarpData": "fc_fox_companion",
+                                "CardWarpType": 3,
+                                "IgnoreLiquid": true,
+                                "IgnoreContainer": true,
+                                "UseDurabilities": true,
+                                "CardDurabilities": {
+                                    "SpoilageRange": { "x": 0.0, "y": 0.0 },
+                                    "UsageRange": { "x": 0.0, "y": 0.0 },
+                                    "FuelRange": { "x": 0.0, "y": 0.0 },
+                                    "ProgressRange": { "x": 0.0, "y": 0.0 },
+                                    "Special1Range": { "x": 0.0, "y": 0.0 },
+                                    "Special2Range": { "x": -1.0, "y": 0.5 },
+                                    "Special3Range": { "x": 0.0, "y": 0.0 },
+                                    "Special4Range": { "x": 0.0, "y": 0.0 },
+                                    "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+                                }
+                            }
+                        ]
+                    },
+                    "AppliesToWarpData": [
+                        "TravelAction"
+                    ],
+                    "AppliesToWarpType": 3,
+                    "DurationModifier": -1
+                }
+            ],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

@@ -112,7 +112,7 @@
       "OnFail": { "Flee": true, "AttackChance": 20 }
     }
   ],
-  "//Companion": "M6. fc_owl_companion spawns via native ProducedCards resolution at ZERO durability stats (GameManager.GiveCard is void in this game version, so no spawn-time override can apply). CompanionService inits Hunger/Thirst/Morale to full the instant the tame succeeds -- before OwlCompanion.json's own SpoilageTime.HasActionOnZero ('flew away, neglected') can fire on the next daytime-point spend -- and retires+relocates the wild owl in the same action (Attempt-12 interactivity-gap fix).",
+  "//Companion": "M6. fc_owl_companion spawns via native ProducedCards resolution at ZERO durability stats (GameManager.GiveCard is void in this game version, so no spawn-time override can apply). CompanionService inits Hunger/Thirst/Morale to full the instant the tame succeeds -- before OwlCompanion.json's own SpecialDurability1 (Health) HasActionOnZero ('flew away, starved or parched') can fire on the next daytime-point spend -- and retires+relocates the wild owl in the same action (Attempt-12 interactivity-gap fix).",
   "Companion": {
     "Card": "fc_owl_companion",
     "InitStatsOnSpawn": true

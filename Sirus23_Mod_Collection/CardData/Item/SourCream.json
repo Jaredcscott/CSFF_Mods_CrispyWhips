@@ -1010,6 +1010,7 @@
             "WorksBothWays": false,
             "GivenCardChanges": {
                 "ModType": 2,
+                "AddFlavoursFromTargetCard": true,
                 "TransformIntoWarpData": "sh_soured_turnroot",
                 "TransformIntoWarpType": 3
             },
@@ -1052,6 +1053,7 @@
             "StackCompatible": false,
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
+            "ReceivingCardFlavourBonus": true,
             "ActionSounds": [],
             "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,

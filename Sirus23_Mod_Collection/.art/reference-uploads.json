@@ -1,10 +1,24 @@
 {
+  "023832fc87b83700c1e0b8f6b7f8a0fa5ea39f06ec1c7f6015857051e6230712": {
+    "id": "RLzYqIqOC5p1Sn8SX82d",
+    "label": "sh_felt_bedroll (style)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/sh_felt_bedroll.png",
+    "uploaded": "2026-10-03",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/sh_felt_bedroll_1791036466100_397a05a2.png"
+  },
   "026ee07dfcd00d9d512cdab8e957ca5720825a2f0aa79a133e3c5b47e2cb2f36": {
     "id": "jgQjtYHzQXATZ0B4oZxq",
     "label": "sh_tame_sheep (subject)",
     "source": "Sirus23_Mod_Collection/Resource/Picture/sh_tame_sheep.png",
     "uploaded": "2026-09-18",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_tame_sheep_1789783963201_d697d696.png"
+  },
+  "07aa002aba44efd80668138da6d63316b22b6e7716fb5ef0836f46bcc3261e13": {
+    "id": "oY62pnqOz07b5W98aVQI",
+    "label": "WolfCompanion (subject)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/WolfCompanion.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WolfCompanion_1791595063277_29436ade.png"
   },
   "09f0afb2096c2f5f50dd14bf4a6b6ebeb9546db34850ec3eb3d828fbad42ed39": {
     "id": "RpMGD3eTUwm461jOp0Fb",
@@ -13,6 +27,13 @@
     "uploaded": "2026-09-18",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/WildOwl_1789783965129_467003bc.png"
   },
+  "1014c963cb4af84d1f1de1206cb4abb5fe8d129ca023bbdfb8379f2c23b34deb": {
+    "id": "ZuTwJRrFQ7WDfkH8ReDm",
+    "label": "sh_male_sheep (subject)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/sh_male_sheep.png",
+    "uploaded": "2026-09-28",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_male_sheep_1790591052317_52284e8c.png"
+  },
   "179b56ae44d54183564747ffd0ca6501d418f3476bc23dd58700d2c80b5b7c2b": {
     "id": "QCpRxRfsDOmudBqYBiN2",
     "label": "sh_lamb (subject)",
@@ -20,11 +41,123 @@
     "uploaded": "2026-09-18",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_lamb_1789783958651_d6af1ef8.png"
   },
+  "20af446083eb27cfa8754a64e2b2ba948d7a1b3f3ca499a9e8a8198c89619052": {
+    "id": "0kX9G061VhTrPZPhfvXV",
+    "label": "S23_SheepPen (style)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/S23_SheepPen.png",
+    "uploaded": "2026-10-04",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/S23_SheepPen_1791151989433_a434e3ea.png"
+  },
+  "335efbea0fd96877352eba783d9f95a9fdea492bf728a1f3faa6dcb249b44699": {
+    "id": "XczJG6km8vuJDPpVWBdv",
+    "label": "BearCave_Entrance (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/BearCave_Entrance.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BearCave_Entrance_1791652880747_2f0a24f1.png"
+  },
+  "3f32b0cc8b7ad96f96efc52b64bdd328d1e788aef660c26b726d3c5858b2014a": {
+    "id": "camnuNotsJcgr6ZVI3aJ",
+    "label": "sh_felted_wool (subject material)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/sh_felted_wool.png",
+    "uploaded": "2026-10-03",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/sh_felted_wool_1791036465339_5e25949c.png"
+  },
+  "465d87867741b682d681425c161e834a462dd4b355b625ab634ccfe31476efc6": {
+    "id": "f620JK0v7ssAKOPZcg9h",
+    "label": "sh_wild_sheep (current)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/sh_wild_sheep.png",
+    "uploaded": "2026-09-28",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_wild_sheep_1790591053485_2b7fed2a.png"
+  },
+  "53e775953693341064285243266246c5743304f5734372016b628936e63403ce": {
+    "id": "lJHzelJfKcWBqd1rKtF3",
+    "label": "Bear_Wild (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Bear_Wild.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652871562_fdb75618.png"
+  },
+  "5f6fe2c0bda902220840a66b7c6fa1ab4bedb5c05fe507b4870e3c54f8c761c7": {
+    "id": "KcGKtV0TyRZ1xgmzcE45",
+    "label": "S23_OwlPerch (composition)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/S23_OwlPerch.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/S23_OwlPerch_1791652881460_58b66778.png"
+  },
+  "6d2a12279ff219d382c825005694fa4037d914c527f5d52418d06815d6a8c536": {
+    "id": "eYgb8WYqriGLkUyY1OjU",
+    "label": "S23_WolfDen (composition)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/S23_WolfDen.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/S23_WolfDen_1791652882416_82b1b526.png"
+  },
+  "8920b983d15441a50cc2fd797bf06c7aeefdedab457ff29a73211eb4bf6607b6": {
+    "id": "8eSW57UrqgXlJlBTB7ha",
+    "label": "Wolf_Wild (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Wolf_Wild.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791652877763_612cd0f5.png"
+  },
+  "8fb7e3f1b5504897d3392449aacd2905e3f15a7bd7a710b2d8268d2f98ef21ca": {
+    "id": "VgA1FPiIFcnOXp9GXZ9O",
+    "label": "Enclosure (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Enclosure.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Enclosure_1791652879435_f0cbbf1e.png"
+  },
+  "98367e9cdc287cf2e5c45993e8abe70c31f1cff2aba855ee99df856bec9c0cfb": {
+    "id": "LADUpfmD2KzAiT8b0Scf",
+    "label": "vanilla Partridge (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/2af4e41e-f7b2-49ea-8b8a-f48ab32d2b2f/scratchpad/p2/vsprites/Partridge.png",
+    "uploaded": "2026-10-12",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Partridge_1791804513333_c3abe8f8.png"
+  },
+  "9e5982abdd2bff3d08aa94343cb8e9da01f78256dd66a327ae7730a0c7f10e78": {
+    "id": "QNk4XHQrgK07KQ1IFhvP",
+    "label": "WildHawk (subject)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/2af4e41e-f7b2-49ea-8b8a-f48ab32d2b2f/scratchpad/ft/raw/WildHawk.png",
+    "uploaded": "2026-10-12",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WildHawk_1791797984750_155e3530.png"
+  },
+  "a77ba818a2d62a980f3fea88f92dd3a4eec5ac04e8ed2aa21aa546846a15e6cf": {
+    "id": "xJDJoGu2FGCIZ6SZt652",
+    "label": "sh_shears (style)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/sh_shears.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/sh_shears_1791595061293_4982d749.png"
+  },
   "b0c33cbc85af5522bd64dbdf51c09623d16afc37abad848e188a6d058820f941": {
     "id": "r9IpOPOPvEI8J5kbPGwG",
     "label": "sh_male_sheep (subject)",
     "source": "Sirus23_Mod_Collection/Resource/Picture/sh_male_sheep.png",
     "uploaded": "2026-09-18",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_male_sheep_1789783960893_23169385.png"
+  },
+  "c413e90491a18576532a472fc12477c5745909fa1a8ff216b7a17516da5781dd": {
+    "id": "y3cSrhJ33QmwUe7Btqgu",
+    "label": "sh_tame_sheep (subject)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/sh_tame_sheep.png",
+    "uploaded": "2026-09-28",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_tame_sheep_1790591052912_1dc712cf.png"
+  },
+  "d4471b723155e3287618cb00b15adc21bde3bfaf248e81d74ba14d80c07bb4e4": {
+    "id": "jK22geyhD6VnsSAxhJUD",
+    "label": "sh_ox_plough (style)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/sh_ox_plough.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/sh_ox_plough_1791595062549_af906543.png"
+  },
+  "e95d5a4e0e32f51232fec28efe8117e5167a73b203da55205ba9358d740308bb": {
+    "id": "6Bto3zmX8VcMf1VEnrEk",
+    "label": "OwlTracks (style)",
+    "source": "Sirus23_Mod_Collection/Resource/Picture/OwlTracks.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/OwlTracks_1791595061926_2bc8e8a7.png"
+  },
+  "fc94e22f1288e7bf617187031cdcb9e863121208c53316fd99b472e2c43d932b": {
+    "id": "ZWLc9z4uWpsfoIbsPydh",
+    "label": "Fences (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Fences.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fences_1791652880079_93b6a41e.png"
   }
 }

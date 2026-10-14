@@ -42,6 +42,7 @@
     "CardTagsWarpData": [
         "tag_Dairy",
         "tag_Food",
+        "tag_HumanFood",
         "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
@@ -1009,6 +1010,7 @@
             "WorksBothWays": false,
             "GivenCardChanges": {
                 "ModType": 2,
+                "AddFlavoursFromTargetCard": true,
                 "TransformIntoWarpData": "sh_ricotta_rye_round",
                 "TransformIntoWarpType": 3
             },
@@ -1024,6 +1026,16 @@
                 "LocalizationKey": "sh_ricotta_DismantleActions[0].ActionName",
                 "DefaultText": "Eat"
             },
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionDescription": {
                 "ParentObjectID": "",
                 "LocalizationKey": "",

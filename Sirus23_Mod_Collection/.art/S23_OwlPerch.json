@@ -1,0 +1,26 @@
+{
+  "target": "S23_OwlPerch.png",
+  "sourceCard": "CardData/Blueprint/Bp_OwlPerch.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a style reference only: match its rendering exactly (flat posterized colour fills in a few hard-edged tonal steps like cel shading, no soft gradients, no watercolour bleed, no paper texture, thin dark ink outlines, small ink tick and hatch marks on foliage, bark and grass) and its muted naturalistic palette of moss greens, earth browns and grey; do not copy its subject (no bear).\nReference image 2 is the SUBJECT and COMPOSITION: keep this same structure, viewpoint and layout, redrawn in reference image 1's style. A tall owl perch standing alone in a small grassy forest clearing: one tall straight peeled wooden pole set upright in the centre, a horizontal crossbar pole lashed near its top with wrapped cord, and three short slanted poles braced around its base. A line of dark spruce and fir trees behind, an overcast pale grey-blue sky with a few soft-edged flat cloud shapes, green and brown meadow grass in the foreground.\nNo owl, no animals, no people. The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, watercolour, soft airbrushed gradients, paper texture, cartoon, storybook, sunset glow, orange sky, purple sky, glossy, neon colours, lens flare, owl, birds, plain white background, vignette, white border, text, watermark, signature, logo, frame.",
+  "refs": [
+    {
+      "label": "Bear_Wild",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652871562_fdb75618.png"
+    },
+    {
+      "label": "S23_OwlPerch (current)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/S23_OwlPerch_1791652881460_58b66778.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653189508_6b2404cd_1791653189827_c9b9e36c.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art --full-bleed."
+}

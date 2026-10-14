@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_shears",
         "LocalizationKey": "sh_shears_CardDescription",
-        "DefaultText": "Metal shears for shearing sheep. Lasts for many uses."
+        "DefaultText": "Metal shears for shearing sheep. Lasts 50 uses, then the blades are worn out and the shears are gone."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -71,13 +71,36 @@
         "HidingOptions": 0,
         "TextDisplay": 0,
         "NumberPrecision": 0,
-        "HasActionOnZero": false,
+        "HasActionOnZero": true,
+        "OnZeroNotification": 1,
         "HasActionOnFull": false,
         "CountsForTradingValue": false,
         "CardStatName": {
             "ParentObjectID": "sh_shears",
             "LocalizationKey": "sh_shears_UsageDurability_CardStatName",
             "DefaultText": "Durability"
+        },
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "sh_shears",
+                "LocalizationKey": "sh_shears_UsageDurability_OnZero_ActionName",
+                "DefaultText": "Shears Worn Out"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_shears",
+                "LocalizationKey": "sh_shears_UsageDurability_OnZero_ActionDescription",
+                "DefaultText": "The shears' blades have worn too thin to cut and are no longer usable."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
         }
     },
     "FuelCapacity": {

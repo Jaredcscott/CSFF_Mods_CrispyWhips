@@ -1,0 +1,52 @@
+{
+  "target": "OwlTied.png",
+  "sourceCard": [
+    "CardData/Item/OwlTied.json"
+  ],
+  "subject": "a pale great horned owl lying flat on its side, body horizontal, head resting at the left, wings folded and bound with three plain turns of rough brown cord, one leg stretched behind in a tight cord snare loop with the cord trailing off, beak closed, eye half open with a blank look, feathers neat; plain and unsentimental, the way vanilla draws a tied partridge",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 is a STYLE reference (art from the game Card Survival: Fantasy Forest, the picture the game uses for a caught bird): match its ink linework, flat shading and palette, and its plain, matter-of-fact way of drawing a bird as a game item. Do not copy the partridge itself.\nSubject: a pale great horned owl lying flat on its side on the ground, its body horizontal across the picture, about twice as long as it is tall: head at the left end resting on the ground, small ear tufts lying flat, cream and pale grey-brown barred plumage, tail at the right end; both wings folded tight against its body and bound with three plain turns of rough brown cord round its middle; one yellow-scaled leg with dark talons stretched out behind, caught in a tight cord snare loop whose cord trails off a short way; beak closed, eye half open with a dull, blank look, feathers lying neat and smooth. A plain, unsentimental picture of a snared bird, nothing comic or cute.\nStyle: the look of the game Card Survival: Fantasy Forest, flat posterized colour fills in a few tonal steps, thin dark ink outlines and small ink hatch marks, a continuous dark outline around the whole bird, a muted naturalistic palette, realistic proportions; not watercolour, not cartoon.\nSingle subject, centred, filling most of the frame with a white margin on every side, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: standing, sitting upright, perched, facing the viewer, an expression, glaring eyes, wide round staring eyes, an open beak, hissing, ruffled feathers, a comical or cute pose, cartoon, a wooden peg, a stake, blood, wounds, a partridge, more than one bird, photo, photorealistic, 3D render, watercolour bleed, paper texture, soft airbrush gradients, neon colours, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, border, frame, footprints, tracks.",
+  "refs": [
+    {
+      "label": "vanilla Partridge (style and presentation: the sprite vanilla draws for PartridgeTiedFemale/Male)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Partridge_1791804513333_c3abe8f8.png"
+    }
+  ],
+  "historyId": "Bxqt4r05NXiiBtTvF59n",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791805574955_6d722f36_1791805574992_e8688180.png",
+  "credits": 40,
+  "generated": "2026-10-12",
+  "finish": "keyed by process_card_art.py, trimmed palette PNG (generated 3:2, padded to 2:3 with white first)",
+  "note": "owner gallery rework pass 2 2026-10-12: regenerate, \"too cheesy, maybe eliminate this altogether\". Redrawn plain: the owl lies still on its side, wings bound with cord, a leg in a snare loop, no expression, no comic pose, after vanilla's tied partridge (the Partridge carcass sprite, exported and uploaded this pass). Sample A also passed WildOwl as a plumage reference and copied its upright standing pose, so B used the Partridge reference alone with the owl described in words. Removing the card stays the owner's call.",
+  "candidates": [
+    {
+      "n": "A",
+      "historyId": "hPCpPi6XvIYbdqHlfnUu",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804743295_9418aa9d_1791804743608_ee30b5f0.png",
+      "verdict": "rejected: standing upright like the WildOwl reference, staring eyes; plain but not lying still"
+    },
+    {
+      "n": "B",
+      "historyId": "Bxqt4r05NXiiBtTvF59n",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791805574955_6d722f36_1791805574992_e8688180.png",
+      "verdict": "shipped: lying still, cord-bound wings, leg in a snare loop, blank face"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797703180_170ad33c_1791797703235_de4916a7.png",
+    "historyId": "fQcCyGlhrsyJWzJOlo1B",
+    "generated": "2026-10-12",
+    "subject": "the same pale great horned owl as WildOwl, caught in a snare: hunched low, wings pinned by turns of rough brown cord round its middle, a cord snare loop tight round one leg tied to a short sharpened wooden peg, feathers ruffled, beak open hissing, eyes wide and furious",
+    "note": "the picture this pass 2 rework replaced",
+    "earlier": null
+  }
+}

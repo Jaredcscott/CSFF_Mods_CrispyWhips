@@ -94,7 +94,61 @@
         "HidingOptions": 2
     },
     "CardInteractions": [],
-    "DismantleActions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "wildowl_tracks",
+                "LocalizationKey": "wildowl_tracks_DismantleActions[0].ActionName",
+                "DefaultText": "Pick Through the Pellets"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "wildowl_tracks",
+                "LocalizationKey": "wildowl_tracks_DismantleActions[0].ActionDescription",
+                "DefaultText": "Sift the owl's pellet for a feather or two and a few small bones. The track is used up."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "Pellet",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 2
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "ccb5e7b33b7b66f4793ef3b62ba3b70b",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DroppedOnDestroy": [],
     "EquipSlotType": 0
 }

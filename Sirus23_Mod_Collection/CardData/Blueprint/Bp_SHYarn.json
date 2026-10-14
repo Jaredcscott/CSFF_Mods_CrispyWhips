@@ -3,7 +3,7 @@
     "CardName": {
         "ParentObjectID": "sh_bp_yarn",
         "LocalizationKey": "sh_bp_yarn_CardName",
-        "DefaultText": "Yarn Blueprint"
+        "DefaultText": "Wool Yarn"
     },
     "CardDescription": {
         "ParentObjectID": "sh_bp_yarn",
@@ -18,13 +18,26 @@
     "CardImageWarpType": 3,
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "",
-        "LocalizationKey": "",
-        "DefaultText": ""
+        "ParentObjectID": "sh_bp_yarn",
+        "LocalizationKey": "sh_bp_yarn_UnlockConditionsDesc",
+        "DefaultText": "Requires: Wool"
     },
     "StartUnlocked": true,
     "BuildingStatConditions": [],
-    "CardsOnBoard": [],
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "CardWarpData": "sh_wool",
+            "CardWarpType": 3,
+            "Quantity": 1,
+            "ConstantlyChecking": false
+        }
+    ],
     "TagsOnBoard": [],
     "StatValues": [],
     "BlueprintStages": [

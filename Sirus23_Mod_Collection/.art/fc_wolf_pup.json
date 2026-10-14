@@ -1,0 +1,41 @@
+{
+  "target": "fc_wolf_pup.png",
+  "sourceCard": [
+    "CardData/Item/WolfPup.json"
+  ],
+  "subject": "one young grey wolf pup about three months old sitting on its haunches, three-quarters to the viewer: oversized paws and big upright ears, short blunt muzzle, fluffy grey-brown coat with pale cream chest and muzzle, dark saddle, curious blue-grey eyes, head tilted, tail curled round its feet",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template, \"Use the attached reference images, each for one purpose\" + Subject + flat posterized style + white paper + Avoid list incl. footprints)",
+  "refs": [
+    {
+      "label": "vanilla Wolf_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791652877763_612cd0f5.png"
+    },
+    {
+      "label": "vanilla Partridge_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Partridge_Wild_1791700793800_94eec01f.png"
+    }
+  ],
+  "historyId": "nFZDQc38asfIaUjklw67",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797868123_f68b3df4_1791797868163_6fa4b6ea.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: (regenerate, no note). The old pup sat by the same campfire in the same composition as WolfCompanion; now a keyed vanilla-style animal. One enclosed paper pocket between the legs keyed with key_enclosed.py.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797868123_f68b3df4_1791797868163_6fa4b6ea.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791595179202_e2f571cb_1791595180342_5170bc73.png"
+}

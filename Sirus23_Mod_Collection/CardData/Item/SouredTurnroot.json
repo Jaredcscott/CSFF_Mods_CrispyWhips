@@ -41,6 +41,7 @@
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
+            "ReceivingCardFlavourBonus": true,
             "ActionTagsWarpData": [
                 "VegetarianAction",
                 "EatingAction"

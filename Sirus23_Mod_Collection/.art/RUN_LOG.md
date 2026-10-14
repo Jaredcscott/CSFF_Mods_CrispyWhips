@@ -69,3 +69,51 @@
 | 2026-09-18 | OwlCarcass (revamp, two 3-up batches WzuY6gertyhOwD4c1NeQ + xuCFYM9hxG4a5feJWaIw, 5 candidates; option E picked by Claude, owner may override) | nano-banana-2 image2image | 2K | 150 | xuCFYM9hxG4a5feJWaIw | OK |
 | 2026-09-18 | sh_bp_cheese_cloth (was a byte copy of the old sh_woven_cloth; now a copy of sh_cheese_cloth) | copy | 512x768 | 0 | - | OK |
 | 2026-09-22 | sh_cheese_cloth + sh_bp_cheese_cloth (13837 px), sh_felt_mittens (37896 px), sh_male_sheep (2799 px, --box 130,360,260,455): the border key had cut into each pale subject and the board showed through in game. Restored from each sidecar's raw resource_url by fill_holes.py. The 2026-09-18 revamp ran that fill on wool/felted_wool/wool_blanket/lamb/tame_sheep/lactating_sheep and missed these three | fill_holes | 512x768 | 0 | - | REPAIRED |
+| 2026-09-28 | sh_ox_plough (1.22.0 batch, 3 samples; option C picked by the owner, Claude predicted A; enclosed paper keyed and key holes filled from the raw sample) | nano-banana-2 text2image | 2K | 90 | y0rIaeuBGbzEbo89XTIo | OK |
+| 2026-09-28 | sh_wild_male_sheep (1.22.0 batch, 3 samples; option A picked by the owner, Claude predicted B; enclosed paper keyed and key holes filled from the raw sample) | nano-banana-2 image2image | 2K | 90 | 2ufcdeBRdwjp05br1pDH | OK |
+| 2026-09-28 | sh_wild_sheep (1.22.0 batch, 3 samples; option A picked by the owner; enclosed paper keyed and key holes filled from the raw sample) | nano-banana-2 image2image | 2K | 90 | s3CM2xcFGXXxnAY0wTgu | OK |
+| 2026-09-28 | OwlCompanion (1.22.0 batch, 3 samples; owner kept the current art) | nano-banana-2 image2image | 2K | 90 | kIHHTZzwAhA0Y1tZbacl | DECLINED |
+| 2026-09-28 | OwlTied (1.22.0 batch, 3 samples; owner kept the current art) | nano-banana-2 image2image | 2K | 90 | h2IMMH53Mf5HP77VYWUF | DECLINED |
+| 2026-10-03 | sh_felt_rug (refs: sh_felted_wool subject, sh_felt_bedroll style; single sample, Claude-reviewed, no owner pick) | nano-banana-2 image2image | 2K | 30 | ZxOrGDkr0D9z5lwnOM9v | OK |
+| 2026-10-03 | S23_LanolinSalve (3 samples, owner picked B) | nano-banana-2 | 2K | 90 | kzvfPUVtKRpnS1lwNilK | OK |
+| 2026-10-03 | S23_SheepPen (3 samples, owner picked C) | nano-banana-2 | 2K | 90 | Tz2r6vi1llYELuKjJMuB | OK |
+| 2026-10-03 | S23_SheepMilk (round 2, 3 samples, owner picked B) | nano-banana-2 text2image | 2K | 90 | nfqTgBNbBdDII8d4Ktp3 | OK |
+| 2026-10-03 | S23_SheepPen_Kit (round 4, 3 samples, owner picked B) | nano-banana-2 image2image | 2K | 150 | CgUT1HhJW7fzDy5xgWX2 | OK |
+| 2026-10-04 | S23_WolfDen (refs: S23_SheepPen style) | nano-banana-2 image2image | 2K | 30 | zaoo3O13KIiyLejWp7OS | OK |
+| 2026-10-04 | S23_OwlPerch (refs: S23_SheepPen style) | nano-banana-2 image2image | 2K | 30 | 0MpULiYpoPQhlhPVWZTa | FAIL |
+| 2026-10-04 | S23_OwlPerch (refs: S23_SheepPen style) | nano-banana-2 image2image | 2K | 30 | BgMcPO6xZjX6AlgtAqun | OK |
+| 2026-10-09 | fc_wolf_pup (refs: WolfCompanion subject; finished 2026-10-10 into Resource/Picture) | nano-banana-2 image2image | 2K | 30 | vctq5eKEvUaNrepp8HEW | SHIPPED |
+| 2026-10-09 | sh_ox_cart (refs: sh_ox_plough style; finished 2026-10-10 into Resource/Picture) | nano-banana-2 image2image | 2K | 30 | OLowCe64I6IDLcA37N7E | SHIPPED |
+| 2026-10-09 | sh_predator_tracks (refs: OwlTracks style; finished 2026-10-10 into Resource/Picture) | nano-banana-2 image2image | 2K | 30 | XGfmFCmojKFTtGGaf0zu | SHIPPED |
+| 2026-10-09 | sh_sheep_bell (refs: sh_shears style; finished 2026-10-10 into Resource/Picture) | nano-banana-2 image2image | 1K | 20 | ihzdpCKH7MuzPHPJ6Er4 | SHIPPED |
+| 2026-10-10 | fc_owlet (refs: OwlCompanion subject, full-bleed) | wan2-7-image image2image standard | 2K | 6 | bSor8xZhwsEdrh4fNuYc | OK (1 candidate, shipped) |
+| 2026-10-12 | sh_recall_whistle (refs: vanilla Knife_Flint, Axe_Stone style; cord-loop interior keyed by PIL) | nano-banana-2 image2image | 1K | 20 | r7V8fQI3DxixByHAOBEX | SHIPPED |
+| 2026-10-12 | sh_truffle_hog (refs: vanilla Bear_Wild style; keyed, trimmed to 405x374) | nano-banana-2 image2image | 1K | 20 | BQ6OO9dT4pHrUWveZE7R | SHIPPED (a person's look check) |
+| 2026-10-12 | WildHawk (owner gallery rework: wrong image needs a unique image; keyed --no-trim (agent sprite)) | nano-banana-2 image2image | 1K | 20 | uIML8sDE5T2fDgc001pV | OK |
+| 2026-10-12 | HawkCompanion (owner gallery rework: wrong image needs a unique image; keyed) | nano-banana-2 image2image | 1K | 20 | aD7uXWiPZCExB4ATFkFZ | OK |
+| 2026-10-12 | HawkCarcass (owner gallery rework: wrong image needs a unique image; keyed) | nano-banana-2 image2image | 1K | 20 | ozCB5zP2ACz5wBfL0nvo | OK |
+| 2026-10-12 | OwlTied (owner gallery rework: wrong image needs a unique image; keyed) | nano-banana-2 image2image | 1K | 20 | fQcCyGlhrsyJWzJOlo1B | OK |
+| 2026-10-12 | fc_wolf_pup (owner gallery rework: (regenerate, no note); keyed) | nano-banana-2 image2image | 1K | 20 | nFZDQc38asfIaUjklw67 | OK |
+| 2026-10-12 | S23_SheepPen (owner gallery rework: (regenerate, no note); full-bleed) | nano-banana-2 image2image | 1K | 20 | 9uO1YPM5P12ShH7mL21V | OK |
+| 2026-10-12 | S23_WolfDen (owner gallery rework: tacky needs to be regenerated; keyed) | nano-banana-2 image2image | 1K | 20 | GvuJKYVVLEFG8p2kf98W | OK |
+| 2026-10-12 | sh_sheep_cheese (owner gallery rework: tacky needs to be regenerated; keyed) | nano-banana-2 image2image | 1K | 20 | BtuSRJXQO5jbMYJ4YRA2 | OK |
+| 2026-10-12 | sh_aged_sheep_cheese (owner gallery rework: tacky needs to be regenerated; keyed) | nano-banana-2 image2image | 1K | 20 | IynRFYZnVkdtAxotdpHH | OK |
+| 2026-10-12 | sh_buttermilk_hardtack (owner gallery rework: tacky needs to be regenerated; keyed) | nano-banana-2 image2image | 1K | 20 | OVs1PbFbX8D8RaJjj7a0 | OK |
+| 2026-10-12 | sh_bone_treat (owner gallery rework: follow vanilla; keyed) | nano-banana-2 image2image | 1K | 20 | og0XsZtXwV69t8o1bLkZ | OK |
+| 2026-10-12 | sh_felt_mittens (owner gallery rework, local: has white to remove) | none (local edit) | - | 0 | - | OK |
+| 2026-10-12 | sh_male_sheep (owner gallery rework, local: has white to remove) | none (local edit) | - | 0 | - | OK |
+| 2026-10-12 | sh_wool (owner gallery rework, local: has white to remove) | none (local edit) | - | 0 | - | OK |
+| 2026-10-12 | sir_ferret (owner gallery rework, local: has white to remove) | none (local edit) | - | 0 | - | OK |
+| 2026-10-12 | sh_predator_tracks (owner gallery rework: use vanilla; card repointed to vanilla Tracks, PNG deleted) | none | - | 0 | - | OK |
+| 2026-10-12 | OwlTied (owner gallery rework pass 2: regenerate, sample A standing upright) | nano-banana-2 image2image | 1K | 20 | hPCpPi6XvIYbdqHlfnUu | REJECTED |
+| 2026-10-12 | OwlTied (owner gallery rework pass 2: regenerate, sample B lying still, after vanilla tied partridge) | nano-banana-2 image2image | 1K | 20 | Bxqt4r05NXiiBtTvF59n | OK |
+| 2026-10-12 | sh_bone_treat (owner gallery rework pass 2: regenerate, meat wound round the bone) | nano-banana-2 image2image | 1K | 20 | kE8OJiNQPHQOHQnx1rSv | OK |
+| 2026-10-12 | sh_male_sheep (owner gallery rework pass 2: alter, ear-area paper keyed, no generation) | local key_enclosed/defringe | - | 0 | - | OK |
+| 2026-10-12 | sh_buttered_roots (owner gallery rework: regenerated toward vanilla, score 99) | nano-banana-2 image2image | 1K | 20 | A5LohdBsdYNeympKbES4 | OK |
+| 2026-10-12 | sh_felt_hat (owner gallery rework: regenerated toward vanilla, score 80) | nano-banana-2 image2image | 1K | 20 | ut6rSQdFqdgTwYgPG8qO | OK |
+| 2026-10-12 | sh_felt_rug (owner gallery rework: regenerated toward vanilla, score 74) | nano-banana-2 image2image | 1K | 20 | YgmMcbUUO9XwDBdovwdj | OK |
+| 2026-10-12 | sh_felt_vest (owner gallery rework: regenerated toward vanilla, score 79) | nano-banana-2 image2image | 1K | 20 | UVgmhoUM2MkbMtL9WUvq | OK |
+| 2026-10-12 | sh_ricotta (owner gallery rework: regenerated toward vanilla, score 71) | nano-banana-2 image2image | 1K | 20 | 4ZulusfafPYt1NTghT5W | OK |
+| 2026-10-12 | sh_soured_turnroot (owner gallery rework: regenerated toward vanilla, score 72) | nano-banana-2 image2image | 1K | 20 | RymbP8YVgWlvcF0CGODi | OK |
+| 2026-10-12 | WolfCompanion (owner gallery round 3: regenerate, new content; score 100) | nano-banana-2 image2image | 1K | 20 | 7kCrE1TFnEZXoBKkHAwj | OK |
+| 2026-10-12 | sh_yogurt (owner gallery round 4: vanilla Bowl_Clay as content reference, thick yogurt with a swirl; score 74) | nano-banana-2 image2image | 1K | 20 | SaiTN1I6ADB6i5OqpAjJ | OK |

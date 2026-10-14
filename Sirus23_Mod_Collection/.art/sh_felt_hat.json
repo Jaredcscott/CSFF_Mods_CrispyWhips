@@ -1,0 +1,37 @@
+{
+  "target": "sh_felt_hat.png",
+  "sourceCard": null,
+  "subject": "one thick felt hat of pressed grey-white wool: a rounded dome crown with a narrow turned-up brim, smooth matte felt in flat tones with only a few hatch marks",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of one thick felt hat of pressed grey-white wool: a rounded dome crown with a narrow turned-up brim, smooth matte felt in flat tones with only a few hatch marks. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, feathers, hat band, fur, fuzzy hair texture.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Shirt (style)",
+      "id": "kFEFn1TDSAf2jNbgf24Y",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Shirt_1791745176094_cba1e0d0.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Mittens (style)",
+      "id": "EI19sj1wnbNSBW3iNHUr",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Mittens_1791745033082_5b293db6.png"
+    }
+  ],
+  "historyId": "ut6rSQdFqdgTwYgPG8qO",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828072946_d85a491c_1791828072999_8314930d.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)"
+  ],
+  "vanilla_score": 80
+}

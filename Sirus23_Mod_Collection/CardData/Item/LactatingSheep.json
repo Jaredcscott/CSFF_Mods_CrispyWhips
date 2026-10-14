@@ -61,7 +61,19 @@
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 288.0,
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": -1.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_lactating_sheep",
+            "LocalizationKey": "sh_lactating_sheep_SpoilageTime_CardStatName",
+            "DefaultText": "Nourishment"
+        },
+        "HasActionOnZero": false,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Hunger_Old",
+        "OverrideIconWarpType": 3
     },
     "UsageDurability": {
         "Active": true,
@@ -78,6 +90,7 @@
                     "m_FileID": 0,
                     "m_PathID": 0
                 },
+                "TransferSpoilage": true,
                 "TransformIntoWarpData": "sh_tame_sheep",
                 "TransformIntoWarpType": 3
             }
@@ -87,7 +100,1173 @@
         "Active": false
     },
     "Progress": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_lactating_sheep",
+            "LocalizationKey": "sh_lactating_sheep_Progress_CardStatName",
+            "DefaultText": "Poop"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 384.0,
+        "RestrictToSpecificValues": false,
+        "ValidValues": [],
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "MinRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "MaxRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "HidingOptions": 2,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "OverrideIconWarpData": "Content_Old",
+        "OverrideIconWarpType": 3,
+        "SortInverted": false,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "MinDaytimeCost": {
+                "Active": false,
+                "IntValue": 0
+            },
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "CompatibleNPCDuties": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredPresentNPCS": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "RequiredActiveHidingGroups": [],
+            "HideIfConditionsNotMet": false,
+            "NotBaseAction": false,
+            "Cancellable": false,
+            "InstantStatModifications": false,
+            "LocksCardsForUse": false,
+            "DontDoStatModificationsOnCancel": false,
+            "InstantDurabilityModifications": false,
+            "ReceivingCardFlavourBonus": false,
+            "GivenCardFlavourBonus": false,
+            "ResetWhenDone": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatInterruptions": [],
+            "StartDialog": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "InterpolatedStatModifications": [],
+            "NPCStatModifications": [],
+            "NPCSetDuties": [],
+            "TemporaryStatModifications": [],
+            "MovePlayer": {
+                "MoveOption": 0,
+                "ToEnv": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Direction": 0
+            },
+            "MoveReceivingCard": {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "UseCardinalDirection": false,
+                "MoveInDirection": 0,
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "SpawnNPCS": [],
+            "DeleteNPCS": [],
+            "MoveNPC": [],
+            "SetNPCHome": [],
+            "SetNPCSpecialLocation": [],
+            "ExtraDurabilityModifications": [],
+            "BlueprintsFullUnlock": [],
+            "AddedCardsInOtherEnvs": [],
+            "CompletedImprovements": [],
+            "AddedInRunPerks": [],
+            "DontShowDestroyMessage": false,
+            "CustomDestroyMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoCardsAffectedMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CustomWindowPrefab": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OpenQuestLog": false,
+            "OpenMap": false,
+            "UpdateMap": false,
+            "EditDescription": false,
+            "FadeToBlack": 0,
+            "FadeMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "FadeTips": false,
+            "TravelToPreviousEnv": false,
+            "TravelToOtherRoom": false,
+            "RoomDirection": 0,
+            "ExitDirection": 0
+        },
+        "HasActionOnFull": true,
+        "RepeatActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 2,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "MinDaytimeCost": {
+                "Active": false,
+                "IntValue": 0
+            },
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "CompatibleNPCDuties": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredPresentNPCS": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "RequiredActiveHidingGroups": [],
+            "HideIfConditionsNotMet": false,
+            "NotBaseAction": false,
+            "Cancellable": false,
+            "InstantStatModifications": false,
+            "LocksCardsForUse": false,
+            "DontDoStatModificationsOnCancel": false,
+            "InstantDurabilityModifications": false,
+            "ReceivingCardFlavourBonus": false,
+            "GivenCardFlavourBonus": false,
+            "ResetWhenDone": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatInterruptions": [],
+            "StartDialog": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Poop",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "StatsDropChanceModifiers": [],
+                    "NPCStatsDropChanceModifiers": [],
+                    "CardDropChanceModifiers": [],
+                    "DurabilitiesDropChanceModifier": {
+                        "Spoilage": {
+                            "Active": false,
+                            "DurabilityRange": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 0
+                        },
+                        "Usage": {
+                            "Active": false,
+                            "DurabilityRange": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 0
+                        },
+                        "Fuel": {
+                            "Active": false,
+                            "DurabilityRange": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 0
+                        },
+                        "Progress": {
+                            "Active": false,
+                            "DurabilityRange": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 0
+                        },
+                        "Special1": {
+                            "Active": false,
+                            "DurabilityRange": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 0
+                        },
+                        "Special2": {
+                            "Active": false,
+                            "DurabilityRange": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 0
+                        },
+                        "Special3": {
+                            "Active": false,
+                            "DurabilityRange": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 0
+                        },
+                        "Special4": {
+                            "Active": false,
+                            "DurabilityRange": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 0
+                        }
+                    },
+                    "CreatedLiquid": {
+                        "LiquidCard": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "Quantity": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Durabilities": {
+                            "Spoilage": 0,
+                            "Usage": 0,
+                            "Fuel": 0,
+                            "Progress": 0,
+                            "Special1": 0,
+                            "Special2": 0,
+                            "Special3": 0,
+                            "Special4": 0,
+                            "SpoilageValue": 0.0,
+                            "UsageValue": 0.0,
+                            "FuelValue": 0.0,
+                            "ProgressValue": 0.0,
+                            "Special1Value": 0.0,
+                            "Special2Value": 0.0,
+                            "Special3Value": 0.0,
+                            "Special4Value": 0.0,
+                            "SpoilageFrom": 0,
+                            "UsageFrom": 0,
+                            "FuelFrom": 0,
+                            "ProgressFrom": 0,
+                            "Special1From": 0,
+                            "Special2From": 0,
+                            "Special3From": 0,
+                            "Special4From": 0
+                        }
+                    },
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "13a8c87f287f39b45b3bfdde3d860cbe",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 0,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 0.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": [],
+                            "AddFlavoursFromTargetCard": false,
+                            "AddFlavoursFromOtherCard": false,
+                            "AddSpicesFromTargetCard": false,
+                            "AddSpicesFromOtherCard": false,
+                            "AddedFlavours": [],
+                            "AddedSpiceTags": []
+                        }
+                    ],
+                    "DropSavedBpIngredients": false,
+                    "DroppedIfNoBpIngredient": [],
+                    "DropCardsInsideInventory": false,
+                    "DropCardsInPlayerHand": false,
+                    "IgnoreEnvironmentQuantityLimits": false,
+                    "DroppedEncounter": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "EncounterNPC": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "SkipEncounterEvent": false,
+                    "StatModifications": [],
+                    "ReceivingCardDurabilityModifications": {
+                        "SpoilageChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "UsageChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "FuelChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "ChargesChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Special1Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Special2Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Special3Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Special4Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    },
+                    "BpDropDurabilityChangesReplaceStartingValue": {
+                        "MaskValue": 0
+                    },
+                    "DropsStatInterpolatedDurabilityChanges": []
+                }
+            ],
+            "StatModifications": [],
+            "InterpolatedStatModifications": [],
+            "NPCStatModifications": [],
+            "NPCSetDuties": [],
+            "TemporaryStatModifications": [],
+            "MovePlayer": {
+                "MoveOption": 0,
+                "ToEnv": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Direction": 0
+            },
+            "MoveReceivingCard": {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "UseCardinalDirection": false,
+                "MoveInDirection": 0,
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "SpawnNPCS": [],
+            "DeleteNPCS": [],
+            "MoveNPC": [],
+            "SetNPCHome": [],
+            "SetNPCSpecialLocation": [],
+            "ExtraDurabilityModifications": [],
+            "BlueprintsFullUnlock": [],
+            "AddedCardsInOtherEnvs": [],
+            "CompletedImprovements": [],
+            "AddedInRunPerks": [],
+            "DontShowDestroyMessage": false,
+            "CustomDestroyMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoCardsAffectedMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": -384.0,
+                    "y": -384.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CustomWindowPrefab": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OpenQuestLog": false,
+            "OpenMap": false,
+            "UpdateMap": false,
+            "EditDescription": false,
+            "FadeToBlack": 0,
+            "FadeMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "FadeTips": false,
+            "TravelToPreviousEnv": false,
+            "TravelToOtherRoom": false,
+            "RoomDirection": 0,
+            "ExitDirection": 0
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": []
     },
     "SpecialDurability1": {
         "Active": true,
@@ -679,8 +1858,8 @@
                 },
                 "HideActionIfNotMet": true,
                 "FailMessage": {
-                    "ParentObjectID": "",
-                    "LocalizationKey": "",
+                    "ParentObjectID": "sh_sheep",
+                    "LocalizationKey": "sh_sheep_Shear_FailMessage",
                     "DefaultText": "Not enough wool to shear"
                 }
             }
@@ -694,7 +1873,7 @@
             "ActionDescription": {
                 "ParentObjectID": "",
                 "LocalizationKey": "",
-                "DefaultText": "Slaughter the sheep for meat, hide and offal."
+                "DefaultText": "Slaughter the sheep for meat, hide and offal. A sheep whose Wool bar is at least half full gives a fleece-on pelt (Fresh Fur) in place of the hide."
             },
             "NoveltyShared": false,
             "VictorySettings": {
@@ -962,10 +2141,526 @@
             "WorksBothWays": false,
             "ProducedCards": [
                 {
-                    "CollectionName": "Slaughter",
+                    "CollectionName": "Full fleece",
                     "CollectionWeight": 1,
                     "MinCollectionCount": 1,
                     "MaxCollectionCount": 1,
+                    "DurabilitiesDropChanceModifier": {
+                        "Special1": {
+                            "Active": true,
+                            "DurabilityRange": {
+                                "x": 0.5,
+                                "y": 1.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 2
+                        }
+                    },
+                    "DropSavedBpIngredients": false,
+                    "DroppedIfNoBpIngredient": [],
+                    "DropCardsInsideInventory": false,
+                    "DropCardsInPlayerHand": false,
+                    "DroppedEncounter": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "EncounterNPC": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "SkipEncounterEvent": false,
+                    "StatModifications": [],
+                    "ReceivingCardDurabilityModifications": {
+                        "SpoilageChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "UsageChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "FuelChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "ChargesChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Special1Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Special2Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Special3Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Special4Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    },
+                    "BpDropDurabilityChangesReplaceStartingValue": {
+                        "MaskValue": 0
+                    },
+                    "DropsStatInterpolatedDurabilityChanges": [],
+                    "CreatedLiquid": {
+                        "LiquidCard": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "Quantity": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "Durabilities": {
+                            "Spoilage": 0,
+                            "Usage": 0,
+                            "Fuel": 0,
+                            "Progress": 0,
+                            "Special1": 0,
+                            "Special2": 0,
+                            "Special3": 0,
+                            "Special4": 0,
+                            "SpoilageValue": 0.0,
+                            "UsageValue": 0.0,
+                            "FuelValue": 0.0,
+                            "ProgressValue": 0.0,
+                            "Special1Value": 0.0,
+                            "Special2Value": 0.0,
+                            "Special3Value": 0.0,
+                            "Special4Value": 0.0,
+                            "SpoilageFrom": 0,
+                            "UsageFrom": 0,
+                            "FuelFrom": 0,
+                            "ProgressFrom": 0,
+                            "Special1From": 0,
+                            "Special2From": 0,
+                            "Special3From": 0,
+                            "Special4From": 0
+                        }
+                    },
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 3,
+                                "y": 3
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 3,
+                                "Special3": 0,
+                                "Special4": 0,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 96.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 0.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": []
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "39ec586d846bac14e96e7f8c2431945d",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 0,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 0.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": []
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "e1a72342438e5e24eb57c2382d81ecea",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 3,
+                                "Special2": 3,
+                                "Special3": 0,
+                                "Special4": 3,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 60.0,
+                                "Special2Value": 5.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 220.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": []
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "674b640f46671f1418af4559b259b442",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 3,
+                                "y": 3
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 0,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 0.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": []
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "c7316260c15f62d4388ac38f348e30ba",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 0,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 0.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": []
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "3f25c8648b35bb34daa5e7c869d5cfdd",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 0,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 0.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": []
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "d010ebfb0570e8a4d940710e79d5f653",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 10,
+                                "y": 10
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 0,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 0.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": []
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "051e70a1c15405c44b5923c0d5a5ebe0",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 0,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 0.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            },
+                            "DropsDurabilityMultipliers": [],
+                            "DropsStatMultipliers": []
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Shorn",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DurabilitiesDropChanceModifier": {
+                        "Special1": {
+                            "Active": true,
+                            "DurabilityRange": {
+                                "x": 0.5,
+                                "y": 1.0
+                            },
+                            "InterpWeightRange": {
+                                "x": -1000000,
+                                "y": -1000000
+                            },
+                            "WhenOutOfRange": 0
+                        }
+                    },
                     "DropSavedBpIngredients": false,
                     "DroppedIfNoBpIngredient": [],
                     "DropCardsInsideInventory": false,
@@ -1969,11 +3664,514 @@
                     "DefaultText": "Not ready to milk"
                 }
             }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_lactating_sheep",
+                "LocalizationKey": "sh_lactating_sheep_CardInteractions[3].ActionName",
+                "DefaultText": "Feed"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": "Feed the sheep grass or hay to keep it well fed: well-fed sheep regrow wool and milk faster."
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredGivenLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CreatedLiquidInGivenCard": {
+                "LiquidCard": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Quantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Durabilities": {
+                    "Spoilage": 0,
+                    "Usage": 0,
+                    "Fuel": 0,
+                    "Progress": 0,
+                    "Special1": 0,
+                    "Special2": 0,
+                    "Special3": 0,
+                    "Special4": 0,
+                    "SpoilageValue": 0.0,
+                    "UsageValue": 0.0,
+                    "FuelValue": 0.0,
+                    "ProgressValue": 0.0,
+                    "Special1Value": 0.0,
+                    "Special2Value": 0.0,
+                    "Special3Value": 0.0,
+                    "Special4Value": 0.0,
+                    "SpoilageFrom": 0,
+                    "UsageFrom": 0,
+                    "FuelFrom": 0,
+                    "ProgressFrom": 0,
+                    "Special1From": 0,
+                    "Special2From": 0,
+                    "Special3From": 0,
+                    "Special4From": 0
+                }
+            },
+            "CarryOverGivenCard": false,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_FeedHerbi"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "ProducedCards": [],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 144.0,
+                    "y": 144.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "sh_sheep",
+                    "LocalizationKey": "sh_sheep_Feed_FailMessage",
+                    "DefaultText": "This sheep is not hungry"
+                },
+                "RequiredSpoilagePercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.89
+                }
+            }
         }
     ],
     "DismantleActions": [],
     "PassiveStatEffects": [],
-    "PassiveEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Well Fed (Wool +50%, Milk +50%)",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 96.0,
+                        "y": 100000.0
+                    }
+                }
+            },
+            "Special1RateModifier": {
+                "Active": true,
+                "FloatValue": 1.5
+            },
+            "MultiplySpecial1Rate": true,
+            "UsageRateModifier": {
+                "Active": true,
+                "FloatValue": 1.5
+            },
+            "MultiplyUsageRate": true,
+            "StatModifiers": [],
+            "NPCStatModifiers": [],
+            "DroppedCards": [],
+            "GrantedPathfindingTags": []
+        },
+        {
+            "EffectName": "Spring Growth (Wool +25%)",
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 3,
+                        "SeasonValue": {
+                            "MaskValue": 1
+                        }
+                    }
+                ]
+            },
+            "Special1RateModifier": {
+                "Active": true,
+                "FloatValue": 1.25
+            },
+            "MultiplySpecial1Rate": true,
+            "StatModifiers": [],
+            "NPCStatModifiers": [],
+            "DroppedCards": [],
+            "GrantedPathfindingTags": []
+        },
+        {
+            "EffectName": "Winter Chill (Milk -25%)",
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 3,
+                        "SeasonValue": {
+                            "MaskValue": 8
+                        }
+                    }
+                ]
+            },
+            "UsageRateModifier": {
+                "Active": true,
+                "FloatValue": 0.75
+            },
+            "MultiplyUsageRate": true,
+            "StatModifiers": [],
+            "NPCStatModifiers": [],
+            "DroppedCards": [],
+            "GrantedPathfindingTags": []
+        },
+        {
+            "EffectName": "Winter Hunger (Nourishment drains twice as fast outside the pen)",
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 3,
+                        "SeasonValue": {
+                            "MaskValue": 8
+                        }
+                    }
+                ],
+                "RequiredNOTContainerWarpData": [
+                    "sh_sheep_pen"
+                ],
+                "RequiredNOTContainerWarpType": 3
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 2.0
+            },
+            "MultiplySpoilageRate": true,
+            "StatModifiers": [],
+            "NPCStatModifiers": [],
+            "DroppedCards": [],
+            "GrantedPathfindingTags": []
+        }
+    ],
     "MaxLiquidCapacity": 0.0,
     "InventorySlots": [],
     "InventorySlotsWarpData": [],

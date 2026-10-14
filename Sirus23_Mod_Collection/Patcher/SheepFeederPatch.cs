@@ -9,7 +9,7 @@ namespace Sirus23ModCollection.Patcher;
 
 /// <summary>
 /// "Tend Flock" — a herd QoL DismantleAction on the Sheep Feeder (see SheepFeeder.json
-/// DismantleActions[1]) that shears every ready tame/lactating sheep in the player's
+/// DismantleActions[1]) that shears every ready tame/lactating sheep and ram in the player's
 /// current environment in one click, instead of shearing each sheep by hand.
 ///
 /// The DA itself is a no-op button (ReceivingCardChanges.ModType: 0, AlwaysShow: true —
@@ -44,8 +44,19 @@ internal static class SheepFeederPatch
 
     private const string TameSheepUid = "sh_tame_sheep";
     private const string LactatingSheepUid = "sh_lactating_sheep";
+    private const string MaleSheepUid = "sh_male_sheep";
     private const string WoolUid = "sh_wool";
     private const string LanolinUid = "sh_lanolin";
+
+    private const string FeedTag = "tag_FeedHerbi";
+    // Feature 32: a vanilla Dry Fodder pile on the board also feeds the flock when the feeder runs out.
+    private const string DryFodderUid = "8f6be94d6c1eabd48bd75d80d76ba1a5";   // DryFodderPlaced
+    private const string FodderAmountStat = "UsageDurability";                  // the pile's "Amount"
+    private const float FodderAmountPerSheep = 1.0f;                            // W0-22: whole units, a pile under 1.0 is left to the cattle
+    private static readonly HashSet<string> _fodderWarned = new(StringComparer.Ordinal);
+    private const string NourishmentStat = "SpoilageTime";
+    private const float FeedRefillBelowPercent = 0.67f;  // top up a sheep below two thirds of the bar
+    private const float FeedNourishment = 144f;          // keep equal to the Feed CI's SpoilageChange
 
     private const string WoolStat = "SpecialDurability1";
     private const float ShearReadyPercent = 0.5f;   // matches Shear CI's RequiredSpecial1Percent
@@ -53,7 +64,7 @@ internal static class SheepFeederPatch
 
     private static readonly HashSet<string> ShearableUids = new(StringComparer.Ordinal)
     {
-        TameSheepUid, LactatingSheepUid,
+        TameSheepUid, LactatingSheepUid, MaleSheepUid,
     };
 
     private static ManualLogSource Logger => Plugin.Logger;
@@ -67,26 +78,46 @@ internal static class SheepFeederPatch
             ActionKeyPrefix = TendFlockKeyPrefix,
             ActionNamePrefix = TendFlockNamePrefix,
             Timing = ActionTiming.AfterWrapped,
-            After = _ => TendFlock(),
+            After = ctx => TendFlock(ctx.Card),
         });
     }
 
-    private static void TendFlock()
+    private static void TendFlock(object feeder)
     {
         try
         {
-            int sheared = 0, skipped = 0, lanolinDrops = 0;
+            int sheared = 0, skipped = 0, lanolinDrops = 0, fed = 0;
+            bool feederEmpty = false;
+            int fodderDrawn = 0;
 
-            foreach (var card in GameQuery.CardsInPlayerEnv())
+            // Dry Fodder piles in THIS environment (CardsInPlayerEnv is env-scoped, never the whole AllCards),
+            // each with its Amount tracked locally: ChangeCardDurability applies on the game's own coroutine,
+            // so a re-read inside this pass would still show the old value.
+            var piles = new List<object>();
+            var amounts = new Dictionary<object, float>();
+            var envCards = GameQuery.CardsInPlayerEnv();
+            foreach (var c in envCards)
+            {
+                if (CardUtil.GetCardUniqueId(c) != DryFodderUid) continue;
+                float amt = CardUtil.GetDurability(c, FodderAmountStat);
+                if (float.IsNaN(amt)) { WarnFodderOnce("amount-nan", "a Dry Fodder pile has no readable Amount (UsageDurability), so it cannot feed the flock."); continue; }
+                piles.Add(c);
+                amounts[c] = amt;
+            }
+
+            foreach (var card in envCards)
             {
                 string uid = CardUtil.GetCardUniqueId(card);
                 if (uid == null || !ShearableUids.Contains(uid)) continue;
+
+                // Feed first, so a sheep topped up this pass already earns its well-fed bonus.
+                fed += FeedFlock(feeder, card, ref feederEmpty, piles, amounts, ref fodderDrawn);
 
                 if (TryShear(card, uid, ref lanolinDrops)) sheared++;
                 else skipped++;
             }
 
-            Logger?.LogInfo($"[SheepFeeder] Tend Flock: sheared {sheared} sheep"
+            Logger?.LogInfo($"[SheepFeeder] Tend Flock: fed {fed}{(feederEmpty ? " (feeder empty)" : "")}{(fodderDrawn > 0 ? $" ({fodderDrawn} from Dry Fodder)" : "")}, sheared {sheared} sheep"
                 + (lanolinDrops > 0 ? $" (+{lanolinDrops} lanolin)" : "")
                 + (skipped > 0 ? $", {skipped} not ready yet." : "."));
         }
@@ -96,8 +127,78 @@ internal static class SheepFeederPatch
         }
     }
 
+    /// <summary>Tops one sheep's Nourishment up from the feeder's own inventory: one feed card per sheep
+    /// below two thirds of the bar, the same 144 the drag Feed CI gives. Stops for the pass once the
+    /// feeder runs dry. Returns 1 if a card was spent. A card with no Nourishment bar (an older save)
+    /// reads NaN or a zero max and is skipped.</summary>
+    private static int FeedFlock(object feeder, object sheep, ref bool feederEmpty,
+        List<object> piles, Dictionary<object, float> amounts, ref int fodderDrawn)
+    {
+        if (feeder == null) return 0;
+        if (feederEmpty && piles.Count == 0) return 0;
+        float cur = CardUtil.GetDurability(sheep, NourishmentStat);
+        float max = CardUtil.GetDurabilityMax(sheep, NourishmentStat);
+        if (float.IsNaN(cur) || float.IsNaN(max) || max <= 0f) return 0;
+        if (cur / max >= FeedRefillBelowPercent) return 0;
+
+        // The feeder's own stock first, then a Dry Fodder pile (the same flat 144 either way: no Nutrition scaling).
+        bool fed = false;
+        if (!feederEmpty)
+        {
+            if (Inventory.Consume(feeder, FeedTag, 1) >= 1) fed = true;
+            else feederEmpty = true;
+        }
+        if (!fed && TryDrawFodder(piles, amounts))
+        {
+            fed = true;
+            fodderDrawn++;
+        }
+        if (!fed) return 0;
+
+        if (!CardUtil.SetDurability(sheep, NourishmentStat, Math.Min(max, cur + FeedNourishment)))
+            Logger?.LogDebug("[SheepFeeder] SetDurability(Nourishment) failed after spending a feed card.");
+        return 1;
+    }
+
+    /// <summary>Takes FodderAmountPerSheep from the fullest Dry Fodder pile that still holds that much, through
+    /// the game's own ChangeCardDurability so the pile's OnZero (destroy) fires when it empties; the Amount is
+    /// never written directly (CardUtil.SetDurability does not run OnZero). Returns false, with the cause logged
+    /// once, when no pile can be drawn from.</summary>
+    private static bool TryDrawFodder(List<object> piles, Dictionary<object, float> amounts)
+    {
+        if (piles.Count == 0) return false;
+        object best = null;
+        float bestAmt = 0f;
+        foreach (var pile in piles)
+        {
+            if (amounts[pile] >= FodderAmountPerSheep && amounts[pile] > bestAmt) { best = pile; bestAmt = amounts[pile]; }
+        }
+        if (best == null) return false;   // every pile is under one unit: left to the cattle
+
+        var gm = CardUtil.GetGameManagerInstance() as GameManager;
+        if (gm == null) { WarnFodderOnce("no-gm", "no live GameManager, so Dry Fodder cannot feed the flock."); return false; }
+        if (best is not InGameCardBase pileCard) { WarnFodderOnce("pile-type", $"a Dry Fodder pile is a {best.GetType().Name}, not an InGameCardBase."); return false; }
+        try
+        {
+            gm.ChangeCardDurability(pileCard, -FodderAmountPerSheep, DurabilitiesTypes.Usage, InGameNPCOrPlayer.Null);
+        }
+        catch (Exception ex)
+        {
+            WarnFodderOnce("draw-threw:" + ex.GetType().Name, $"ChangeCardDurability threw {ex.GetType().Name}, so Dry Fodder did not feed the flock: {ex.InnerException?.ToString() ?? ex.Message}");
+            return false;
+        }
+        amounts[best] = bestAmt - FodderAmountPerSheep;
+        return true;
+    }
+
+    private static void WarnFodderOnce(string cause, string message)
+    {
+        if (_fodderWarned.Add(cause))
+            Logger?.LogWarning($"[SheepFeeder] Dry Fodder: {message} Logged once per cause.");
+    }
+
     /// <summary>Shears one sheep if its Wool stat is at/above the ready threshold. Mirrors
-    /// TameSheep.json/LactatingSheep.json's "Shear" CardInteraction: 2x Wool, 25% chance of
+    /// TameSheep.json/LactatingSheep.json/MaleSheep.json's "Shear" CardInteraction: 2x Wool, 25% chance of
     /// 1x Lanolin, Wool stat reset to 0. Returns false (no log spam) for a not-ready sheep —
     /// this is the expected common case, not an error.</summary>
     private static bool TryShear(object sheep, string uid, ref int lanolinDrops)

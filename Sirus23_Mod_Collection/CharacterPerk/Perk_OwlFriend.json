@@ -8,7 +8,7 @@
     "PerkDescription": {
         "ParentObjectID": "fc_perk_owl_friend",
         "LocalizationKey": "FC_Perk_OwlFriend_PerkDescription",
-        "DefaultText": "Start with a wise owl companion."
+        "DefaultText": "Start with a wise owl companion. By day it roosts in a nearby cave and rejoins you at night."
     },
     "ActionModifiers": [],
     "ActionObjectives": [],
@@ -23,8 +23,8 @@
     "DisplayPriority": 3002.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": ["fc_owl_companion"],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpData": ["fc_owl_companion"],
+    "AddedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
     "StartUnlocked": false,
     "MoonsCost": 0,
@@ -39,8 +39,6 @@
     "PerkIconWarpType": 3,
     "PointsCost": 0,
     "SunsCost": 1,
-    "AddedCardsWarpData": [],
-    "AddedCardsWarpType": 3,
     "StartingStatModifiers": [],
     "PassiveStatModifiers": [],
     "PerkUnlockConditions": {
@@ -55,7 +53,5 @@
     "TimeObjectives": [],
     "ResetLockInEditor": false,
     "TagRequirements": [],
-    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
-    "CharacterPerkPerkGroupWarpData": "72120cda8e1cef540b1b25118dd7edaa",
-    "CharacterPerkPerkGroupWarpType": 3
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
 }

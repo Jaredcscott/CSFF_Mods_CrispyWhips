@@ -1,0 +1,48 @@
+{
+  "target": "sh_wild_male_sheep.png",
+  "sourceCard": "CardData/Item/WildMaleSheep.json",
+  "subject": "a tame ram with large curled horns and a rope collar; change: it is now a WILD ram: no collar and no rope around its neck, a shaggier, scruffier, uneven fleece in warm grey-brown with loose wisps at the edges, a darker brown face and darker brown legs, standing alone with nothing under its hooves.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a tame ram with large curled horns and a rope collar: draw this same ram in the same pose, keeping its pose, proportions, large curled horns and ink-and-watercolor rendering identical, changed only as follows: it is now a WILD ram: no collar and no rope around its neck, a shaggier, scruffier, uneven fleece in warm grey-brown with loose wisps at the edges, a darker brown face and darker brown legs, standing alone with nothing under its hooves.\nHand-painted watercolor-and-ink game item illustration of a wild ram with large curled horns, a shaggy scruffy grey-brown fleece, a darker brown face and legs, and no collar, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, collar, rope, cord, leash, bell, ground, rock, boulder, grass, plants, shrubs, flowers, fence, second animal.",
+  "historyId": "2ufcdeBRdwjp05br1pDH",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591285520_76319dd0_1790591286342_f6b375c3.png",
+  "credits": 90,
+  "generated": "2026-09-28",
+  "note": "Sirus23 1.22.0 (Content Update plan feature 5). Every sample was finished by /process-card-art, then key_enclosed.py (paper enclosed by the subject) and fill_holes.py --skip-paper 250 (pale subject the border key had cut into) from the raw sample; The owner picked from a local picker page; predicted was written before the owner looked.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591285520_76319dd0_1790591286342_f6b375c3.png",
+      "verdict": "on-brief; beige fleece, less grey-brown than B"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591286302_e43b51d2_1790591286614_5d5a88e7.png",
+      "verdict": "greyest fleece of the three, closest to warm grey-brown; dark brown face and legs; no collar, nothing underfoot"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591285635_ee98b82d_1790591286878_22e66912.png",
+      "verdict": "on-brief; darkest face, warm beige fleece"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B",
+  "references": [
+    {
+      "role": "subject",
+      "id": "ZuTwJRrFQ7WDfkH8ReDm",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_male_sheep_1790591052317_52284e8c.png",
+      "label": "sh_male_sheep (subject)",
+      "source": "Sirus23_Mod_Collection/Resource/Picture/sh_male_sheep.png",
+      "sha256": "1014c963cb4af84d1f1de1206cb4abb5fe8d129ca023bbdfb8379f2c23b34deb"
+    }
+  ]
+}

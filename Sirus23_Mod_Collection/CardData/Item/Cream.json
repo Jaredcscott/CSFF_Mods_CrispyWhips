@@ -992,6 +992,7 @@
             },
             "GivenCardChanges": {
                 "ModType": 2,
+                "AddFlavoursFromTargetCard": true,
                 "TransformIntoWarpData": "sh_creamy_mash",
                 "TransformIntoWarpType": 3
             },

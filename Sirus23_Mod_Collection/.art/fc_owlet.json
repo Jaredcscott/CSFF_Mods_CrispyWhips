@@ -1,0 +1,16 @@
+{
+  "image": "fc_owlet",
+  "mode": "image2image",
+  "model": "wan2-7-image (standard, 2K)",
+  "historyId": "bSor8xZhwsEdrh4fNuYc",
+  "finish": "full-bleed",
+  "references": [
+    {
+      "role": "subject (style and species)",
+      "fragment": "OwlCompanion",
+      "sha256": "08bc37cf0739bb74805f8733c3643d1ba7312cf50162201d2bf1611f60b1657d"
+    }
+  ],
+  "verdict": "one candidate, on-model by eye (a grey owlet on a mossy branch in the Owl Companion's painted style, no footprints); shipped, awaiting the owner's look",
+  "note": "nano-banana-2 was affordable at 20 credits but the balance was 8, so the cheaper Wan 2.7 standard tier (6 credits) was used. Washed Wool art not generated for lack of credits."
+}

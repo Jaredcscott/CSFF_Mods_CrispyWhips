@@ -17,7 +17,7 @@
         "DefaultText": "Sheep Milk"
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "Milk_Old",
+    "CardImageWarpData": "S23_LQ_SheepMilk",
     "CardImageWarpType": 3,
     "CardBackground": {"m_FileID": 0, "m_PathID": 0},
     "ShowImageAboveTitle": false,

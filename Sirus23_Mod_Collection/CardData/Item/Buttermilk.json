@@ -1009,6 +1009,7 @@
             "WorksBothWays": false,
             "GivenCardChanges": {
                 "ModType": 2,
+                "AddFlavoursFromTargetCard": true,
                 "TransformIntoWarpData": "sh_buttermilk_hardtack",
                 "TransformIntoWarpType": 3
             },

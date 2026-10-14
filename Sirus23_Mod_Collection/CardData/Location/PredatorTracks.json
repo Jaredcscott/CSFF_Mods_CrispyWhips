@@ -1,0 +1,107 @@
+{
+    "UniqueID": "sh_predator_tracks",
+    "CardName": {
+        "ParentObjectID": "sh_predator_tracks",
+        "LocalizationKey": "sh_predator_tracks_CardName",
+        "DefaultText": "Predator Tracks"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_predator_tracks",
+        "LocalizationKey": "sh_predator_tracks_CardDescription",
+        "DefaultText": "Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. With your Wolf Companion here the predator keeps its distance and you cannot follow it; a fox or owl at your side may scare it off before you catch up. The trail goes cold in about a day."
+    },
+    "CardType": 2,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CanBeRenamed": false,
+    "AlwaysUpdate": true,
+    "DoesNotPile": true,
+    "CanBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Tracks",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 96.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_predator_tracks",
+            "LocalizationKey": "sh_predator_tracks_SpoilageTime_CardStatName",
+            "DefaultText": "Freshness"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": -1.0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "sh_predator_tracks",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "Tracks Faded"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_predator_tracks",
+                "LocalizationKey": "sh_predator_tracks_DismantleActions[0].ActionName",
+                "DefaultText": "Follow the Tracks"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_predator_tracks",
+                "LocalizationKey": "sh_predator_tracks_DismantleActions[0].ActionDescription",
+                "DefaultText": "Follow the trail away from the remains and face the predator. It takes half an hour."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "fc_wolf_companion",
+                    "TriggerCardWarpType": 3,
+                    "Inverted": true
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ProducedCards": [
+                {
+                    "CollectionName": "Encounter",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [],
+                    "DroppedEncounter": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "DroppedEncounterWarpData": "d47e145147d460a4c80d739af904fe8a",
+                    "DroppedEncounterWarpType": 3,
+                    "SkipEncounterEvent": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "DroppedOnDestroy": [],
+    "EquipSlotType": 0
+}

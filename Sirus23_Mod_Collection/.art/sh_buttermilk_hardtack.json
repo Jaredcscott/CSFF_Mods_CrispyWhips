@@ -1,25 +1,41 @@
 {
   "target": "sh_buttermilk_hardtack.png",
-  "sourceCard": "CardData/Item/ButtermilkHardtack.json",
-  "subject": "a thick square hardtack biscuit soaked soft in buttermilk, pale and swollen with darkened wet edges, resting in a shallow plain hand-formed unglazed reddish-orange terracotta clay dish with a little buttermilk pooled around it",
+  "sourceCard": [
+    "CardData/Item/ButtermilkHardtack.json"
+  ],
+  "subject": "one round flat hardtack cake drawn bare, as thick as a finger and four times as wide, pale cream-beige with rows of pricked docking holes, soaked soft in buttermilk: swollen sagging edges, damp darker patches, a thin glossy coat of pale buttermilk running over the top and dripping down one side",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
   "params": {
-    "imageCount": 3,
+    "imageCount": 1,
     "aspectRatio": "2:3",
-    "resolution": "2K",
+    "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of a thick square hardtack biscuit soaked soft in buttermilk, pale and swollen with darkened wet edges, resting in a shallow plain hand-formed unglazed reddish-orange terracotta clay dish with a little buttermilk pooled around it, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, wood, wooden bowl, wood grain.",
-  "historyId": "NAiQPZ7av7DTboMbmidM",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789761112106_c1f189e6_1789761112510_bc9d698f.png",
-  "credits": 90,
-  "generated": "2026-09-18",
-  "note": "Owner picked option B of a 3-up batch (not picked: A=sh_buttermilk_hardtack__v1.png, C=sh_buttermilk_hardtack__v3.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: white placeholder. Supersedes batch JC0zLaysFl0xk7JE9Kys (owner: wooden bowl must be clay).",
-  "candidates": [
-    {"n": "A", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789761112091_8b288b25_1789761112603_5a7df5a8.png"},
-    {"n": "B", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789761112106_c1f189e6_1789761112510_bc9d698f.png"},
-    {"n": "C", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789761113507_d0f30005_1789761113624_8b2959dd.png"}
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template, \"Use the attached reference images, each for one purpose\" + Subject + flat posterized style + white paper + Avoid list incl. footprints)",
+  "refs": [
+    {
+      "label": "vanilla Flatbread_Wheat (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flatbread_Wheat_1791744907270_dd06b3c7.png"
+    },
+    {
+      "label": "vanilla Butter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Butter_1791744900219_fb2ae1e7.png"
+    }
   ],
-  "picked": "B"
+  "historyId": "OVs1PbFbX8D8RaJjj7a0",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797834350_6501b468_1791797834400_1ba278d2.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated. Round like vanilla Hardtack_Wheat and drawn bare (the old one sat in a clay dish, superseded by the food-bare rule).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797834350_6501b468_1791797834400_1ba278d2.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789761112106_c1f189e6_1789761112510_bc9d698f.png"
 }

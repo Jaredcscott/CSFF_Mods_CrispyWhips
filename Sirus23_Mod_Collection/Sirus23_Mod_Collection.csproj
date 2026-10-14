@@ -98,6 +98,7 @@
         <Content Include="CharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="CharacterPerk\%(Filename)%(Extension)" />
 <Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" />
         <Content Include="NPCStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCStat\%(Filename)%(Extension)" Condition="Exists('NPCStat')" />
+        <Content Include="GameStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameStat\%(Filename)%(Extension)" Condition="Exists('GameStat')" />
         <Content Include="NPCDuty\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCDuty\%(Filename)%(Extension)" Condition="Exists('NPCDuty')" />
         <Content Include="NPCAgent\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCAgent\%(Filename)%(Extension)" Condition="Exists('NPCAgent')" />
         <Content Include="Encounter\*.json" CopyToOutputDirectory="PreserveNewest" Link="Encounter\%(Filename)%(Extension)" Condition="Exists('Encounter')" />

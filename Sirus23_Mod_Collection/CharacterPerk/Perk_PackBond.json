@@ -63,7 +63,5 @@
     "TimeObjectives": [],
     "ResetLockInEditor": false,
     "TagRequirements": [],
-    "CharacterPerkPerkGroup": "None",
-    "CharacterPerkPerkGroupWarpData": "None",
-    "CharacterPerkPerkGroupWarpType": 3
+    "CharacterPerkPerkGroup": "None"
 }

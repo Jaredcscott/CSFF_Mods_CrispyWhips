@@ -3,12 +3,12 @@
     "CardName": {
         "ParentObjectID": "sh_yarn",
         "LocalizationKey": "sh_yarn_CardName",
-        "DefaultText": "Yarn"
+        "DefaultText": "Wool Yarn"
     },
     "CardDescription": {
         "ParentObjectID": "sh_yarn",
         "LocalizationKey": "sh_yarn_CardDescription",
-        "DefaultText": "Spun wool yarn. Weave it into cloth."
+        "DefaultText": "Spun wool yarn. Weave it into cloth by hand, or use it in place of yarn on any loom."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],

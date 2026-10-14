@@ -1,0 +1,263 @@
+{
+  "about": "Images adjusted toward the vanilla style by Development_Tools/CardArt/vanillify.py instead of being regenerated. The original is in git history.",
+  "images": {
+    "Picture/S23_LanolinSalve.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 81,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/sh_bp_butter_churn.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 76,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/sh_bp_shears.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 48,
+      "score_after": 100,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_butter_churn.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 76,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/sh_buttermilk.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 55,
+      "score_after": 89,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_clarified_butter.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 45,
+      "score_after": 90,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_cream.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 52,
+      "score_after": 90,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_curdled_milk.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 55,
+      "score_after": 89,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_felt_bedroll.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 41,
+      "score_after": 92,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_felt_mittens.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 51,
+      "score_after": 99,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_lanolin.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 44,
+      "score_after": 99,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_ox_plough.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 49,
+      "score_after": 91,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_shears.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 48,
+      "score_after": 100,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_sheep_feeder.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 50,
+      "score_after": 100,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_sour_cream.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 56,
+      "score_after": 90,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_warm_milk.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 98,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/sh_whey.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 43,
+      "score_after": 92,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_wool_tunic.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 62,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/sh_yogurt.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 48,
+      "score_after": 92,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/WolfCompanion.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        2,
+        14,
+        50,
+        3,
+        90
+      ],
+      "score_before": 32,
+      "score_after": 84,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/sh_buttered_roots.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "raw finished generation (44ec70937, before its vanillify step)",
+      "score_after": 100,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    }
+  }
+}

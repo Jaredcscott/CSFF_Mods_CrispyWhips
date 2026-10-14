@@ -1,0 +1,41 @@
+{
+  "target": "S23_SheepPen.png",
+  "sourceCard": [
+    "CardData/Location/SheepPen.json"
+  ],
+  "subject": "a small square sheep pen in a forest clearing seen from a little above: a low fence of rough split rails lashed to crooked posts, a three-rail gate at the front, a low bark lean-to with straw in the back corner, three white woolly sheep on trampled grass, dark pine and birch forest behind under a grey sky",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style full-bleed scene template, style refs + Subject + \"The painted scene reaches every edge of the frame\" + Avoid list incl. footprints, tracks, plain white background)",
+  "refs": [
+    {
+      "label": "vanilla Enclosure (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Enclosure_1791652879435_f0cbbf1e.png"
+    },
+    {
+      "label": "vanilla Cabin_Outside (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cabin_Outside_1791652696629_82aef3a7.png"
+    }
+  ],
+  "historyId": "9uO1YPM5P12ShH7mL21V",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797871566_ad00aa0c_1791797871673_1923edfe.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "full-bleed",
+  "note": "owner gallery rework 2026-10-12: (regenerate, no note). Restyled toward vanilla with vanilla Enclosure and Cabin_Outside style references.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797871566_ad00aa0c_1791797871673_1923edfe.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653192170_6c261a18_1791653193019_16bd74be.png"
+}

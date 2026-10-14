@@ -1,0 +1,29 @@
+{
+  "_comment": "ImageName -> what the picture is built from, for /create-image-refs. An item entry has no character or scene fragment: subject names the shipped image of the parent object or material (a subject reference), style names up to two shipped images of the same finish (style references), change is the one thing only this picture shows.",
+  "sh_felt_rug": {
+    "subject": "sh_felted_wool",
+    "style": ["sh_felt_bedroll"],
+    "change": "one large flat thick rectangular rug lying open and flat at a slight three-quarter angle from above, a plain border band of darker undyed brown-grey felt stitched along all four edges with a few simple visible twine stitches, one corner turned back a little to show the felt's thickness; no fringe, no tassels, no pattern in the middle, nothing lying on top of it",
+    "framing": "single object, inset from every edge, 2:3",
+    "finish": "keyed",
+    "use": "CardImageWarpData of CardData/Item/FeltRug.json and CardData/Blueprint/Bp_FeltRug.json"
+  },
+  "S23_WolfDen": {
+    "style": [
+      "S23_SheepPen"
+    ],
+    "change": "a low sloping lean-to of overlapping planks on long poles, open at the front, over a hollow lined with pale cream raw wool, flat stones at its base, in a pine clearing; no animal",
+    "framing": "full-frame scene, 2:3",
+    "finish": "full-bleed",
+    "use": "CardImageWarpData of CardData/Location/WolfDen.json and CardData/Item/WolfDen_Portable.json and CardData/Blueprint/Bp_WolfDen.json"
+  },
+  "S23_OwlPerch": {
+    "style": [
+      "S23_SheepPen"
+    ],
+    "change": "a tall rough post steadied by short stakes at its foot, a short branch lashed across its very top like a letter T, empty, in a pine clearing at dusk; no bird",
+    "framing": "full-frame scene, 2:3",
+    "finish": "full-bleed",
+    "use": "CardImageWarpData of CardData/Location/OwlPerch.json and CardData/Item/OwlPerch_Portable.json and CardData/Blueprint/Bp_OwlPerch.json"
+  }
+}

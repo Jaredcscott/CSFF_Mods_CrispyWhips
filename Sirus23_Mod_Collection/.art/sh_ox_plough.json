@@ -1,0 +1,38 @@
+{
+  "target": "sh_ox_plough.png",
+  "sourceCard": "CardData/Item/OxPlough.json",
+  "subject": "a simple primitive wooden ard plough shown whole from the side: one long straight beam of pale warm-brown wood running from the lower left up to the upper right, a short wooden share at the lower end with a small dark iron tip pointing forward and down, one upright wooden handle rising from the share, and a plain wooden yoke crossbar fixed across the upper end of the beam with one rope lashing",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a simple primitive wooden ard plough shown whole from the side: one long straight beam of pale warm-brown wood running from the lower left up to the upper right, a short wooden share at the lower end with a small dark iron tip pointing forward and down, one upright wooden handle rising from the share, and a plain wooden yoke crossbar fixed across the upper end of the beam with one rope lashing, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, wheels, metal mouldboard, second handle, ox, cattle, animal, person, harness straps, field, soil, furrow, grass.",
+  "historyId": "y0rIaeuBGbzEbo89XTIo",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591281329_1f31ac9b_1790591281802_6e283917.png",
+  "credits": 90,
+  "generated": "2026-09-28",
+  "note": "Sirus23 1.22.0 (Content Update plan feature 1). Every sample was finished by /process-card-art, then key_enclosed.py (paper enclosed by the subject) and fill_holes.py --skip-paper 250 (pale subject the border key had cut into) from the raw sample; the plough's yoke tip needed a second, boxed fill (--box 390,220,480,295 --edge 3 --close 9). The owner picked from a local picker page; predicted was written before the owner looked.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591282498_edf5e450_1790591282966_535ca844.png",
+      "verdict": "beam, share with a small dark iron tip, one plain upright handle, yoke crossbar with a rope lashing; the paper key had eaten the yoke end's pale top face, restored"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591282185_56ff3051_1790591282850_c623633e.png",
+      "verdict": "on-brief and largest in frame; the handle has a bent grip nobody asked for"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591281329_1f31ac9b_1790591281802_6e283917.png",
+      "verdict": "on-brief; the iron tip thin and faint"
+    }
+  ],
+  "picked": "C",
+  "predicted": "A"
+}

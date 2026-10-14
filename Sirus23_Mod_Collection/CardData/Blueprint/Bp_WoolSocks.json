@@ -20,16 +20,18 @@
     "UnlockConditionsDesc": {
         "ParentObjectID": "",
         "LocalizationKey": "",
-        "DefaultText": "Requires: Yarn"
+        "DefaultText": "Requires: Wool Yarn"
     },
     "StartUnlocked": false,
     "BuildingStatConditions": [],
     "CardsOnBoard": [
         {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
             "Card": { "m_FileID": 0, "m_PathID": 0 },
             "CardWarpData": "sh_yarn",
             "CardWarpType": 3,
-            "Amount": 1,
+            "Quantity": 1,
             "ConstantlyChecking": false
         }
     ],

@@ -1,0 +1,46 @@
+{
+  "target": "sh_predator_tracks.png",
+  "sourceCard": [
+    "CardData/Location/PredatorTracks.json"
+  ],
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "composition": {
+    "style": [
+      "OwlTracks"
+    ],
+    "change": "an oval patch of churned mud with four wolf paw prints and a tuft of torn off-white wool",
+    "finish": "keyed"
+  },
+  "references": [
+    {
+      "role": "style",
+      "fragment": "OwlTracks",
+      "image": "Resource/Picture/OwlTracks.png",
+      "sha256": "e95d5a4e0e32f51232fec28efe8117e5167a73b203da55205ba9358d740308bb",
+      "id": "6Bto3zmX8VcMf1VEnrEk",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/OwlTracks_1791595061926_2bc8e8a7.png"
+    }
+  ],
+  "historyId": "XGfmFCmojKFTtGGaf0zu",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791595178699_0a4776a0_1791595178919_981b1a18.png",
+  "credits": 30,
+  "generated": "2026-10-09",
+  "note": "owner gallery rework 2026-10-12: \"use vanilla\". PredatorTracks.json now points CardImageWarpData at the vanilla sprite Tracks (what the base game DefaultTracksCard draws) and Resource/Picture/sh_predator_tracks.png was deleted (nothing else referenced it). This record is kept for history. Earlier note: Sirus23 plan Prompt 47. Finished 2026-10-10 with process_card_art (headless GIMP 3) into Resource/Picture/sh_predator_tracks.png (keyed); the raw generation was deleted with .art/pending. Cards point at it. Look not yet confirmed by a person (T2.404/T2.542/T2.552).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791595178699_0a4776a0_1791595178919_981b1a18.png",
+      "verdict": "on-model: four wolf prints with claws, torn wool tuft, OwlTracks patch style; no animal, no blood (Claude-reviewed, no owner pick)",
+      "shipped": false
+    }
+  ],
+  "shipped": "2026-10-10",
+  "retired": "2026-10-12"
+}

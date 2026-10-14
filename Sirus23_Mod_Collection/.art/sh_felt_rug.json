@@ -1,0 +1,92 @@
+{
+  "target": "sh_felt_rug.png",
+  "sourceCard": null,
+  "subject": "one thick rectangular rug of pressed off-white felt with a darker brown felt border stitched around its edge, one corner folded up, smooth matte felt in flat tones, seen from a slight angle",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of one thick rectangular rug of pressed off-white felt with a darker brown felt border stitched around its edge, one corner folded up, smooth matte felt in flat tones, seen from a slight angle. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, fringe, tassels, pattern, fur, fuzzy hair texture.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Shirt (style)",
+      "id": "kFEFn1TDSAf2jNbgf24Y",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Shirt_1791745176094_cba1e0d0.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Mittens (style)",
+      "id": "EI19sj1wnbNSBW3iNHUr",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Mittens_1791745033082_5b293db6.png"
+    }
+  ],
+  "historyId": "YgmMcbUUO9XwDBdovwdj",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828117266_0ca27289_1791828117424_3ce61cd6.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)"
+  ],
+  "vanilla_score": 74,
+  "previous": {
+    "target": "sh_felt_rug.png",
+    "sourceCard": "CardData/Item/FeltRug.json",
+    "subject": "a flat thick felted-wool rug made of the same grey-white felt as Felted Wool, with a darker brown-grey felt border stitched on with simple twine stitches and one corner turned back to show its thickness; change from the Felted Wool reference: one large open rug in place of a folded sheet",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a sheet of Felted Wool, the material the rug is made of: draw a rug of this same felt, keeping its matted grey-white colour, fine fibrous hand-felted texture and soft uneven edge identical, changed only as follows: the felt is one large, flat, thick rectangular rug lying open and flat, seen at a slight three-quarter angle from above, with a plain border band of darker undyed brown-grey felt stitched along all four edges with a few simple visible twine stitches, and one corner turned back a little to show how thick the felt is. No fringe, no tassels, no pattern in the middle, nothing lying on top of it.\nReference image 2 is a style reference only: match its ink linework, shading and palette; do not copy its subject or composition.\nHand-painted watercolor-and-ink game item illustration of a flat thick felted-wool rug with a darker brown-grey felt border, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, single object only, comfortably inset from every edge with generous white margin (object fills roughly the middle of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no floor, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, rolled up, folded in half, fringe, tassels, woven stripes, ornate pattern, floor, furniture, person, animal, cushion, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+    "historyId": "ZxOrGDkr0D9z5lwnOM9v",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791036513271_a4356b75_1791036513827_0fe13a16.png",
+    "credits": 30,
+    "generated": "2026-10-03",
+    "note": "Sirus23 1.22.0 (round-2 plan feature 14, Felt Rug). One sample, so no owner pick: the single candidate was read against both references and shipped as the on-model result; the owner may ask for a three-sample redo. Finished by /process-card-art (GIMP; alpha, 512x768, paper keyed, transparent_pct 62.6, opaque_white_border_pct 0.0). The dark preview showed no halo and no see-through subject.",
+    "composition": {
+      "subject": "sh_felted_wool",
+      "style": [
+        "sh_felt_bedroll"
+      ],
+      "finish": "keyed"
+    },
+    "references": [
+      {
+        "role": "subject",
+        "fragment": "sh_felted_wool",
+        "image": "Resource/Picture/sh_felted_wool.png",
+        "sha256": "3f32b0cc8b7ad96f96efc52b64bdd328d1e788aef660c26b726d3c5858b2014a",
+        "id": "camnuNotsJcgr6ZVI3aJ",
+        "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/sh_felted_wool_1791036465339_5e25949c.png",
+        "label": "sh_felted_wool (subject material)"
+      },
+      {
+        "role": "style",
+        "fragment": "sh_felt_bedroll",
+        "image": "Resource/Picture/sh_felt_bedroll.png",
+        "sha256": "023832fc87b83700c1e0b8f6b7f8a0fa5ea39f06ec1c7f6015857051e6230712",
+        "id": "RLzYqIqOC5p1Sn8SX82d",
+        "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/sh_felt_bedroll_1791036466100_397a05a2.png",
+        "label": "sh_felt_bedroll (style)"
+      }
+    ],
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791036513271_a4356b75_1791036513827_0fe13a16.png",
+        "verdict": "on-model: grey-white fibrous felt like the Felted Wool sheet, a darker brown-grey border with visible twine stitches on all four edges, one corner turned back to show thickness, ink linework and watercolour shading like the bedroll; no fringe, no tassels, no pattern, nothing on top, no floor; the three-quarter view skews the rectangle into a trapezoid but it still reads as a flat rug"
+      }
+    ],
+    "picked": "A",
+    "predicted": null
+  }
+}

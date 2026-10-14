@@ -1,0 +1,48 @@
+{
+  "target": "sh_wild_sheep.png",
+  "sourceCard": "CardData/Item/WildSheep.json",
+  "subject": "a tame white ewe with a leather collar; change: it is now a WILD ewe: no collar around its neck, a longer, shaggier, matted fleece in muted grey-beige with loose wisps at the edges, a slightly darker face and legs, standing alone with nothing under its hooves.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a tame white ewe with a leather collar: draw this same ewe in the same pose, keeping its pose, proportions, face and ink-and-watercolor rendering identical, changed only as follows: it is now a WILD ewe: no collar around its neck, a longer, shaggier, matted fleece in muted grey-beige with loose wisps at the edges, a slightly darker face and legs, standing alone with nothing under its hooves.\nHand-painted watercolor-and-ink game item illustration of a wild ewe with a long shaggy matted grey-beige fleece, a slightly darker face and legs, no horns and no collar, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, collar, rope, cord, leash, bell, horns, ground, rock, grass, plants, shrubs, flowers, fence, second animal, lamb.",
+  "historyId": "s3CM2xcFGXXxnAY0wTgu",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591286689_8ee1e65b_1790591287186_218ff6a9.png",
+  "credits": 90,
+  "generated": "2026-09-28",
+  "note": "Sirus23 1.22.0 (Content Update plan feature 5). Every sample was finished by /process-card-art, then key_enclosed.py (paper enclosed by the subject) and fill_holes.py --skip-paper 250 (pale subject the border key had cut into) from the raw sample; The owner picked from a local picker page; predicted was written before the owner looked.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591286689_8ee1e65b_1790591287186_218ff6a9.png",
+      "verdict": "darkest face of the three, long matted grey-beige fleece, no collar"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591288287_0c2836d8_1790591288950_42f9f989.png",
+      "verdict": "on-brief; grey face, paler fleece"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790591286602_91f20bd7_1790591286703_396ac3c4.png",
+      "verdict": "on-brief; mottled fleece"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "references": [
+    {
+      "role": "subject",
+      "id": "y3cSrhJ33QmwUe7Btqgu",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_tame_sheep_1790591052912_1dc712cf.png",
+      "label": "sh_tame_sheep (subject)",
+      "source": "Sirus23_Mod_Collection/Resource/Picture/sh_tame_sheep.png",
+      "sha256": "c413e90491a18576532a472fc12477c5745909fa1a8ff216b7a17516da5781dd"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "target": "S23_WolfDen.png",
+  "sourceCard": [
+    "CardData/Location/WolfDen.json",
+    "CardData/Item/WolfDen_Portable.json",
+    "CardData/Blueprint/Bp_WolfDen.json"
+  ],
+  "subject": "a wolf den under a fallen pine log: a shallow hollow dug into dark earth beneath the log, roofed with leaning branches and two slabs of grey bark, a dark rounded opening facing the viewer, the floor lined with a thick bed of creamy raw wool spilling a little out; empty",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template, \"Use the attached reference images, each for one purpose\" + Subject + flat posterized style + white paper + Avoid list incl. footprints)",
+  "refs": [
+    {
+      "label": "vanilla Campfire_Off (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Campfire_Off_1791744901006_8f14ed81.png"
+    },
+    {
+      "label": "vanilla LogPiece (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LogPiece_1791697573880_2de4c7fa.png"
+    }
+  ],
+  "historyId": "GvuJKYVVLEFG8p2kf98W",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797872657_6b75c689_1791797872772_efa3256e.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated. Padded 5 percent with white before finishing (the wool touched the frame edge).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797872657_6b75c689_1791797872772_efa3256e.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653198856_91833c70_1791653199525_c6bb5246.png"
+}

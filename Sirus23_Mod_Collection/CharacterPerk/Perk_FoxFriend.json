@@ -23,8 +23,8 @@
     "DisplayPriority": 3001.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": ["fc_fox_companion"],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpData": ["fc_fox_companion"],
+    "AddedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
     "StartUnlocked": false,
     "MoonsCost": 0,
@@ -39,8 +39,6 @@
     "PerkIconWarpType": 3,
     "PointsCost": 0,
     "SunsCost": 2,
-    "AddedCardsWarpData": [],
-    "AddedCardsWarpType": 3,
     "StartingStatModifiers": [],
     "PassiveStatModifiers": [],
     "PerkUnlockConditions": {
@@ -55,7 +53,5 @@
     "TimeObjectives": [],
     "ResetLockInEditor": false,
     "TagRequirements": [],
-    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
-    "CharacterPerkPerkGroupWarpData": "72120cda8e1cef540b1b25118dd7edaa",
-    "CharacterPerkPerkGroupWarpType": 3
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
 }

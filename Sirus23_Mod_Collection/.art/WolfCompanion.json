@@ -1,0 +1,20 @@
+{
+  "target": "WolfCompanion.png",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "7kCrE1TFnEZXoBKkHAwj",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791833254043_a8752943_1791833254110_1d41a707.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery round 3 (2026-10-12): regenerate = new content. Two vanilla exemplars as style references, flat-ink prompt. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py --full-bleed"
+  ],
+  "vanilla_score": 100
+}

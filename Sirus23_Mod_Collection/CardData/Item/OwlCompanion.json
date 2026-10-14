@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "fc_owl_companion",
         "LocalizationKey": "FC_OwlCompanion_CardDescription",
-        "DefaultText": "A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away."
+        "DefaultText": "A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night."
     },
     "CardType": 0,
     "ObjectWeight": 100,
@@ -149,6 +149,14 @@
             "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
             "WorksInverted": false,
             "WorksBothWays": false,
+            "RequiredGivenLiquidContent": {
+              "IsActive": true,
+              "RequiredLiquid": {"m_FileID": 0, "m_PathID": 0},
+              "RequiredGroup": {"m_FileID": 0, "m_PathID": 0},
+              "RequiredGroupWarpData": "GpTag_WaterAny",
+              "RequiredGroupWarpType": 3,
+              "RequiredQuantity": {"x": 100.0, "y": 99999.0}
+            },
             "RequiredGivenDurabilities": {
                 "RequiredLiquidQuantity": 100.0,
                 "HideActionIfNotMet": true
@@ -284,6 +292,62 @@
                         "y": -10.0
                     },
                     "InstantModifier": true
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI5_ActionName",
+                "DefaultText": "Treat Wounds"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI5_ActionDescription",
+                "DefaultText": "Apply the remedy to the owl's injuries. It sits still while you work."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "322e42ea161bf2e4bb94747882d1285a",
+                    "44e5ef28c3f047048850e7fd1f60dab6",
+                    "af4e73e4f877a6a4fa2bfe86741d56d8",
+                    "8486fa421f3930a428cc4d650dc55859",
+                    "17bcb4398f0aa9f40a351f45790c70aa",
+                    "6a819fcbe4e87a94cbb279f7bb5284f7",
+                    "9c66dd9251eb1e446b70958f82585af6",
+                    "aa9bd5a17e9e8434cbd5ca6b90e6da39"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_x_AnimalRemedy"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {"x": 192.0, "y": 192.0}
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 5.0, "y": 5.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
                 }
             ]
         }
@@ -441,6 +505,58 @@
         }
     ],
     "OnInteractActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Companionship (fc_wolf_companion)",
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "fc_wolf_companion"
+                ],
+                "RequiredCardsOnBoardWarpType": 3
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": 0.05
+            },
+            "MultiplyConsumableChargesRate": false
+        },
+        {
+            "EffectName": "Companionship (fc_fox_companion)",
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "fc_fox_companion"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredCardsNOTOnBoardWarpData": [
+                    "fc_wolf_companion"
+                ],
+                "RequiredCardsNOTOnBoardWarpType": 3
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": 0.05
+            },
+            "MultiplyConsumableChargesRate": false
+        },
+        {
+            "EffectName": "Starving Health Drain",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "SpoilageRange": {"x": 0.0, "y": 0.05}
+                }
+            },
+            "Special1RateModifier": {"Active": true, "FloatValue": -2.0}
+        },
+        {
+            "EffectName": "Parched Health Drain",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "UsageRange": {"x": 0.0, "y": 0.05}
+                }
+            },
+            "Special1RateModifier": {"Active": true, "FloatValue": -2.0}
+        }
+    ],
     "SpoilageTime": {
         "Active": true,
         "FloatValue": 480.0,
@@ -452,33 +568,7 @@
         "MaxValue": 480.0,
         "RatePerDaytimePoint": -0.5,
         "OverrideIconWarpData": "Hunger_Old",
-        "OverrideIconWarpType": 3,
-        "HasActionOnZero": true,
-        "RepeatActionOnZero": false,
-        "ShowPopupOnZero": true,
-        "OnZeroNotification": 1,
-        "OnZero": {
-            "ActionName": {
-                "ParentObjectID": "fc_owl_companion",
-                "LocalizationKey": "FC_OwlCompanion_SpoilageTime_OnZero_ActionName",
-                "DefaultText": "Owl Has Flown Away!"
-            },
-            "ActionDescription": {
-                "ParentObjectID": "fc_owl_companion",
-                "LocalizationKey": "FC_OwlCompanion_SpoilageTime_OnZero_ActionDescription",
-                "DefaultText": "Neglected and hungry, the owl has silently flown off into the night."
-            },
-            "DaytimeCost": 0,
-            "UseMiniTicks": 0,
-            "ActionSounds": [],
-            "ActionTags": [],
-            "ActionTagsWarpData": [],
-            "ActionTagsWarpType": 3,
-            "ProducedCards": [],
-            "ReceivingCardChanges": {
-                "ModType": 3
-            }
-        }
+        "OverrideIconWarpType": 3
     },
     "UsageDurability": {
         "Active": true,
@@ -510,7 +600,44 @@
         "OverrideIconWarpType": 3
     },
     "SpecialDurability1": {
-        "Active": false
+        "Active": true,
+        "MaxValue": 480.0,
+        "FloatValue": 480.0,
+        "RatePerDaytimePoint": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_owl_companion",
+            "LocalizationKey": "FC_OwlCompanion_SpecialDurability1_CardStatName",
+            "DefaultText": "Health"
+        },
+        "OverrideIconWarpData": "Health",
+        "OverrideIconWarpType": 3,
+        "ResetWhenLoadedAtZero": true,
+        "HasActionOnZero": true,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_SpecialDurability1_OnZero_ActionName",
+                "DefaultText": "Owl Has Flown Away!"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_SpecialDurability1_OnZero_ActionDescription",
+                "DefaultText": "Starved or parched too long, the owl has silently flown off into the night."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
     },
     "SpecialDurability2": {
         "Active": true,
@@ -530,6 +657,7 @@
         "SpoilageTime": 480.0,
         "UsageDurability": 288.0,
         "Progress": 480.0,
+        "SpecialDurability1": 480.0,
         "SpecialDurability2": 0.0
     }
 }

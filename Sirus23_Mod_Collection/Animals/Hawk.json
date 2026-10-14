@@ -1,0 +1,73 @@
+{
+  "//": "Feature 28 (Phase F, built on the owner's 2026-10-12 go-ahead, not Sirus's sign-off): a wild hawk of the oak and pine clearings, a daytime bird that wanders between them, never stalks the player and never attacks. A GENERATED agent (no Agent.Ref) on the Lynx manifest's shape (HarshWilds/Animals/Lynx.json), with the Owl's Spawn.SuppressWhileCardOnBoard, tame Interaction and Companion sections (Animals/Owl.json). The manifest has NO hunt field: the companion's catch is the 'Send Hawk Hunting' DismantleAction on CardData/Item/HawkCompanion.json, paid by Patcher/CompanionHuntPatch.cs (HawkHunt).",
+  "//Encounter": "Generated and Passive: the Approach button needs an Encounter or it falls through to the vanilla duck (Animals-ManifestHygiene check A). The hawk flees rather than fights, so there is no Aggression block and no Tame OnFail.AttackChance (that needs an Encounter.Ref).",
+  "//Tunable": "TUNABLE, NOT PLAYTESTED: Blood 30, the Tame weights (copied from the owl: 50 percent at Tracking 0, 75 percent at 150), the 672-tick death respawn and 288-tick post-companion respawn. Traps and Tracks are left out on purpose: the hawk is a companion, not a hunted animal, so no trap, bait duty or track card is shipped for it.",
+  "SchemaVersion": 1,
+  "SpeciesId": "sirus_hawk",
+  "DisplayName": "Hawk",
+  "LocalizationKey": "FC_Hawk_AgentName",
+  "Sprite": "WildHawk",
+  "WeightCategory": "Light",
+  "Agent": {
+    "Blood": { "Start": 30, "Max": 30, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 10, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "b791dfa6bad821e4e91d7c4210ec3ea3",
+    "DeathRespawnTicks": 672,
+    "SuppressWhileCardOnBoard": "fc_hawk_companion",
+    "SuppressedRespawnTicks": 288
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 7, "End": 19 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "60402000491626042b116556a55e84f5",
+      "69bfd218f65d27a4e80c9b8365091f93",
+      "ca60012d0c6a8394f9bc5cef2e1794ad",
+      "c5d869f30ddcd194f924042021d7df96",
+      "9dc0063ceb4a24f4c815d2efb49256c2",
+      "43f27aef15c15d04d9b24d700a73cfcd"
+    ],
+    "WanderWeight": 100
+  },
+  "Encounter": {
+    "BodyTemplate": "Combat_ BTDuck",
+    "Blood": 30,
+    "Size": 6,
+    "Awareness": [30, 70],
+    "Passive": true,
+    "ForceFight": false,
+    "ApproachButton": true
+  },
+  "Interactions": [
+    {
+      "Name": "Tame",
+      "LocalizationKey": "FC_Hawk_Tame_ActionName",
+      "ActionName": "Attempt to Tame",
+      "ActionDescription": "Offer a mouse, a squirrel, or a dead partridge to earn the hawk's trust.",
+      "DaytimeCost": 1,
+      "BaitCards": [
+        "cea21fa218c28ee49a49ba2ffc8eba7c",
+        "e32cb25589e676c49baa6c8f54637fa3",
+        "f72ca8f6249870d4b9306c2d779c93a9"
+      ],
+      "Skill": "Skill_Tracking",
+      "SuccessWeight": 10,
+      "SkillBonus": { "StatRange": [0, 150], "WeightRange": [0, 20] },
+      "FailWeight": 10,
+      "OnSuccess": { "GiveCard": "fc_hawk_companion", "DespawnAgent": true },
+      "OnFail": { "Flee": true }
+    }
+  ],
+  "Companion": {
+    "Card": "fc_hawk_companion",
+    "InitStatsOnSpawn": true
+  },
+  "Carcass": {
+    "Card": "fc_hawk_carcass"
+  }
+}

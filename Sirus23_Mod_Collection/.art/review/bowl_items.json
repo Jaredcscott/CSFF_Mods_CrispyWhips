@@ -1,0 +1,45 @@
+{
+  "about": "Item cards drawn as vanilla's clay bowl (owner gallery 2026-10-12: 'must match the HF_LQ_ images'). Rebuild with liquid_bowl.make_bowl(Bowl_Clay_Water, colour) then trim_card_art; kept out of liquid_bowls.json, which holds liquid cards only.",
+  "images": {
+    "Picture/sh_buttermilk.png": {
+      "source": "vanilla Bowl_Clay_Water",
+      "colour": "#e8e3cf",
+      "looks": "buttermilk, pale cream"
+    },
+    "Picture/sh_clarified_butter.png": {
+      "source": "vanilla Bowl_Clay_Water",
+      "colour": "#d9a441",
+      "looks": "clarified butter, golden amber"
+    },
+    "Picture/sh_curdled_milk.png": {
+      "source": "vanilla Bowl_Clay_Water",
+      "colour": "#e6dfc0",
+      "looks": "curdled milk, off-white curds"
+    },
+    "Picture/sh_lanolin.png": {
+      "source": "vanilla Bowl_Clay_Water",
+      "colour": "#d8c27a",
+      "looks": "lanolin, waxy pale yellow"
+    },
+    "Picture/sh_sour_cream.png": {
+      "source": "vanilla Bowl_Clay_Water",
+      "colour": "#efeadc",
+      "looks": "sour cream, white"
+    },
+    "Picture/sh_whey.png": {
+      "source": "vanilla Bowl_Clay_Water",
+      "colour": "#d6d39a",
+      "looks": "whey, pale yellow-green"
+    },
+    "Picture/sh_yogurt.png": {
+      "source": "vanilla Bowl_Clay_Water",
+      "colour": "#f2eee4",
+      "looks": "yogurt, white"
+    },
+    "Picture/sh_warm_milk.png": {
+      "source": "vanilla Bowl_Clay_Water",
+      "colour": "#efe3c8",
+      "looks": "warm milk, cream"
+    }
+  }
+}

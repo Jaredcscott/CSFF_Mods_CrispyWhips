@@ -1,0 +1,46 @@
+{
+  "target": "sh_sheep_bell.png",
+  "sourceCard": [
+    "CardData/Item/SheepBell.json",
+    "CardData/Blueprint/Bp_SheepBell.json"
+  ],
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "composition": {
+    "style": [
+      "sh_shears"
+    ],
+    "change": "a small plain dull bronze bell with its clapper showing, on a knotted loop of twisted hemp rope",
+    "finish": "keyed"
+  },
+  "references": [
+    {
+      "role": "style",
+      "fragment": "sh_shears",
+      "image": "Resource/Picture/sh_shears.png",
+      "sha256": "a77ba818a2d62a980f3fea88f92dd3a4eec5ac04e8ed2aa21aa546846a15e6cf",
+      "id": "xJDJoGu2FGCIZ6SZt652",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/sh_shears_1791595061293_4982d749.png"
+    }
+  ],
+  "historyId": "ihzdpCKH7MuzPHPJ6Er4",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791595174004_2ccbacea_1791595174047_2b9c5b41.png",
+  "credits": 20,
+  "generated": "2026-10-09",
+  "note": "Sirus23 plan Prompt 47. Finished 2026-10-10 with process_card_art (headless GIMP 3) into Resource/Picture/sh_sheep_bell.png (keyed); the raw generation was deleted with .art/pending. Cards point at it. Look not yet confirmed by a person (T2.404/T2.542/T2.552).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791595174004_2ccbacea_1791595174047_2b9c5b41.png",
+      "verdict": "on-model: plain bronze bell, clapper visible, knotted hemp rope loop; 1K (848x1264) to fit the credit balance (Claude-reviewed, no owner pick)",
+      "shipped": false
+    }
+  ],
+  "shipped": "2026-10-10"
+}

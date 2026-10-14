@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_sheep_pen",
         "LocalizationKey": "sh_sheep_pen_CardDescription",
-        "DefaultText": "A fenced enclosure for your tame sheep and rams. Sheep and rams left outside a pen overnight risk wandering off or falling to predators - a penned flock is safe."
+        "DefaultText": "A fenced enclosure for your tame sheep and rams. Sheep and rams left outside a pen overnight risk wandering off or falling to predators - a penned flock is safe while its fence holds. The fence wears down over about twenty days; once its Fence Condition reaches zero the pen protects nothing until you drag a Plank onto it to mend it."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -30,7 +30,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Enclosure_Door",
+    "CardImageWarpData": "S23_SheepPen",
     "CardImageWarpType": 3,
     "ShowImageAboveTitle": false,
     "CardType": 2,
@@ -60,7 +60,16 @@
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 1920.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_sheep_pen",
+            "LocalizationKey": "sh_sheep_pen_SpoilageTime_CardStatName",
+            "DefaultText": "Fence Condition"
+        },
+        "MaxValue": 1920.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0
     },
     "UsageDurability": {
         "Active": false
@@ -83,7 +92,46 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_pen",
+                "LocalizationKey": "sh_sheep_pen_CI_MendFence_ActionName",
+                "DefaultText": "Mend the Fence"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_sheep_pen",
+                "LocalizationKey": "sh_sheep_pen_CI_MendFence_ActionDescription",
+                "DefaultText": "Nail a plank across the worn rails to restore half of the pen's Fence Condition."
+            },
+            "DaytimeCost": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "57460207bbf77fa4fb6720aed5d84851"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": 960.0,
+                    "y": 960.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
@@ -102,14 +150,20 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpData": [
+                "Wood"
+            ],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {
                 "ModType": 2,
-                "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
                 "TransformIntoWarpData": "sh_sheep_pen_portable",
                 "TransformIntoWarpType": 3,
-                "SpawnTransformAtSource": true
+                "SpawnTransformAtSource": true,
+                "TransferSpoilage": true
             }
         }
     ],
@@ -118,10 +172,18 @@
     "MaxLiquidCapacity": 0.0,
     "SpillsInventoryOnDestroy": true,
     "InventorySlots": [
-        { "SlotWeight": 3000.0 },
-        { "SlotWeight": 3000.0 },
-        { "SlotWeight": 3000.0 },
-        { "SlotWeight": 3000.0 }
+        {
+            "SlotWeight": 3000.0
+        },
+        {
+            "SlotWeight": 3000.0
+        },
+        {
+            "SlotWeight": 3000.0
+        },
+        {
+            "SlotWeight": 3000.0
+        }
     ],
     "InventorySlotsWarpData": [],
     "InventorySlotsWarpType": 3,

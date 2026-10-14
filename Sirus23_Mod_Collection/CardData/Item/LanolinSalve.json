@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_lanolin_salve",
         "LocalizationKey": "sh_lanolin_salve_CardDescription",
-        "DefaultText": "A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort."
+        "DefaultText": "A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort. It does not spoil."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -30,7 +30,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Salve_Soothing",
+    "CardImageWarpData": "S23_LanolinSalve",
     "CardImageWarpType": 3,
     "ShowImageAboveTitle": false,
     "CardType": 0,
@@ -39,7 +39,9 @@
     "ObjectWeight": 25.0,
     "TradingValue": 60.0,
     "CardTags": [],
-    "CardTagsWarpData": [],
+    "CardTagsWarpData": [
+        "tag_x_AnimalRemedy"
+    ],
     "CardTagsWarpType": 3,
     "EquipmentTags": [],
     "EquipmentTagsWarpData": [],
@@ -63,13 +65,13 @@
         "CardStatName": {
             "ParentObjectID": "",
             "LocalizationKey": "",
-            "DefaultText": "Spoilage"
+            "DefaultText": ""
         },
         "RandomStartingOffset": 0.0,
-        "MaxValue": 384.0,
+        "MaxValue": 0.0,
         "RestrictToSpecificValues": false,
         "ValidValues": [],
-        "RatePerDaytimePoint": 1.0,
+        "RatePerDaytimePoint": 0.0,
         "ExtraRateWhenEquipped": 0.0,
         "PauseRateWhenEnvWeightIsFull": false,
         "PauseRateWhenInventoryIsFull": false,

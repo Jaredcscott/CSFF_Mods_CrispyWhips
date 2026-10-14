@@ -12,20 +12,26 @@ namespace Sirus23ModCollection.Patcher
     /// morale-departure check, evaluated once per in-game DTP tick.
     ///
     /// Handles wolf, fox, and owl companions. Auto-drink fires when a companion's
-    /// thirst drops below 20% and a water container (ClayBasin, WateringTrough,
-    /// RainCistern, ClayBowl, ClayJar, CopperBottle, CopperJar, WaterskinWaterProofed_)
-    /// is on the board — drains 100 liquid from the nearest container and restores
-    /// the companion's thirst to full. Auto-feed works identically for hunger using
-    /// the nearest available food item.
+    /// thirst drops below 20% and a container holding WATER is on the board: it drains
+    /// 100 liquid from the nearest one and restores the companion's thirst to full.
+    /// A container qualifies when it carries vanilla tag_WaterContainer (any mod's
+    /// container joins without a UID list) or is one of the vanilla water sources
+    /// (ClayBasin, WateringTrough, RainCistern, ...); its contained liquid must carry
+    /// vanilla tag_WaterAny, so a brine vat, a cauldron of medicine or a kettle of tea is
+    /// never drunk from (owner, 2026-10-09: "limit the Sirus animals to water"). Auto-feed
+    /// works identically for hunger using the nearest available food item.
     ///
-    /// Health management and morale-departure apply to all three companions; health
-    /// no-ops for fox/owl because SpecialDurability1 is inactive on those cards.
+    /// Morale-departure applies to all three companions. Health (SpecialDurability1) is
+    /// C#-managed for the wolf only: the fox and owl carry the same bar, but it drains from
+    /// JSON PassiveEffects while their Hunger or Thirst is empty and kills them through the
+    /// bar's own OnZero action (CardData/Item/FoxCompanion.json and OwlCompanion.json).
     /// </summary>
     public static class WolfTickPatch
     {
         public const string WolfId = "fc_wolf_companion";
         public const string FoxId  = "fc_fox_companion";
         public const string OwlId  = "fc_owl_companion";
+        public const string HawkId = "fc_hawk_companion";
 
         private const string WolfCarcassUid = "aad9634a9b5273844bbe2e7a119c5b23";
 
@@ -50,22 +56,11 @@ namespace Sirus23ModCollection.Patcher
             "3dda5e481d296c5409b05ac6e66a9221"
         };
 
-        // Mod-added water containers (always merged with VanillaIds.WaterSources).
-        private static readonly string[] ModWaterIds =
-        {
-            // AdvancedCopperTools
-            "advanced_copper_tools_bucket",              // Wheelbarrow Bucket
-            "advanced_copper_tools_wearable_metal_pan",  // Wearable Metal Pan
-            "advanced_copper_tools_copper_tea_kettle",   // Copper Tea Kettle
-            "advanced_copper_tools_copper_cauldron",     // Copper Cauldron
-            "advanced_copper_tools_copper_bathtub_empty",// Copper Bathtub Kit
-            // Community_Mod_Chest
-            "potterysculpturepaintedvase",               // Painted Clay Vase
-            "potterysculpturepaintedcup",                // Painted Clay Cup
-            "potterysculpturepaintedbowl",               // Painted Clay Bowl
-            // HerbsAndFungi
-            "herbs_fungi_pickling_vat",                  // Pickle Vat
-        };
+        // Vanilla tags (both in CardTag.txt): a container any mod ships joins by tagging
+        // itself, and only a liquid tagged as water is drunk (Interop Registry R8, V-TAG).
+        // Compared by name, never by instance (WarpResolver can mint a same-named tag SO).
+        private const string WaterContainerTag = "tag_WaterContainer";
+        private const string WaterLiquidTag = "tag_WaterAny";
 
         // Vanilla backstop: used when VanillaIds registry is empty (e.g. framework not installed).
         private static readonly string[] FallbackWaterIds =
@@ -82,6 +77,11 @@ namespace Sirus23ModCollection.Patcher
 
         private static HashSet<string> _foodIds;
         private static HashSet<string> _waterIds;
+        // Per CardData: does the model carry the tag? Cards share models, so this keeps the
+        // board scan to one CardTags walk per card type.
+        private static readonly Dictionary<UnityEngine.Object, bool> _containerModelCache = new();
+        private static readonly Dictionary<UnityEngine.Object, bool> _waterLiquidModelCache = new();
+        private static readonly HashSet<string> _warnedCauses = new(StringComparer.Ordinal);
 
         private static List<object> _cachedCompanions;
         private static List<object> _cachedFoods;
@@ -104,8 +104,6 @@ namespace Sirus23ModCollection.Patcher
                 foreach (var uid in registry) set.Add(uid);
             else
                 foreach (var uid in FallbackWaterIds) set.Add(uid);
-            // Mod-added containers always merged regardless of registry state.
-            foreach (var uid in ModWaterIds) set.Add(uid);
             return set;
         }
 
@@ -161,23 +159,11 @@ namespace Sirus23ModCollection.Patcher
             {
                 string uid = CardUtil.GetCardUniqueId(obj);
                 if (uid == null) continue;
-                if (uid == WolfId || uid == FoxId || uid == OwlId) _cachedCompanions.Add(obj);
+                if (uid == WolfId || uid == FoxId || uid == OwlId || uid == HawkId) _cachedCompanions.Add(obj);
                 else if (_foodIds.Contains(uid))  _cachedFoods.Add(obj);
-                else if (_waterIds.Contains(uid)) _cachedWaters.Add(obj);
+                else if (_waterIds.Contains(uid) || ModelHasTag(obj, WaterContainerTag, _containerModelCache))
+                    _cachedWaters.Add(obj);
             }
-        }
-
-        /// <summary>
-        /// Whether an owl companion is currently on the board, per this tick's cached
-        /// companion scan (used by WildOwlLifecyclePatch to gate the companion-death
-        /// respawn timer without a second FindObjectsOfType scan per tick).
-        /// </summary>
-        internal static bool HasOwlCompanion()
-        {
-            if (_cachedCompanions == null) return false;
-            foreach (var c in _cachedCompanions)
-                if (CardUtil.GetCardUniqueId(c) == OwlId) return true;
-            return false;
         }
 
         private static int GetAllCardsCount()
@@ -212,14 +198,24 @@ namespace Sirus23ModCollection.Patcher
             CardUtil.SetDurability(companion, "SpoilageTime", hungerMax);
             CardUtil.SetDurability(companion, "UsageDurability", thirstMax);
             CardUtil.SetDurability(companion, "Progress", moraleMax);
+            // The fox and owl's Health bar carries the death action (OnZero, ModType Destroy), which
+            // the engine fires on the first tick for a card that spawned at 0 even with no crossing
+            // (reference_onzero_destroy_races_dtp_tick), so it must be filled with the other three.
+            if (TryGetStat(companion, "SpecialDurability1", out float health, out float healthMax)
+                && healthMax > 0f && health <= 0f)
+                CardUtil.SetDurability(companion, "SpecialDurability1", healthMax);
             Logger?.LogDebug($"[CompanionTick] {CardUtil.GetCardUniqueId(companion) ?? "companion"} spawned with zeroed stats — initialized to full (hunger {hungerMax:F0}, thirst {thirstMax:F0}, morale {moraleMax:F0}).");
             return true;
         }
 
         private static void TryManageHealth(object companion)
         {
+            // Wolf only. The fox and owl have the same Health bar, but their drain is a JSON
+            // PassiveEffect and their death is the bar's OnZero action; this tick would also heal
+            // them above 60% hunger, drain them below 10%, and spawn a WOLF carcass if one died.
+            if (CardUtil.GetCardUniqueId(companion) != WolfId) return;
             if (!TryGetStat(companion, "SpecialDurability1", out float healthCur, out float healthMax)) return;
-            if (healthMax <= 0f) return;  // no-op for fox/owl which have SpecialDurability1 inactive
+            if (healthMax <= 0f) return;
 
             if (!TryGetStat(companion, "SpoilageTime", out float hungerCur, out float hungerMax)) return;
             float hungerRatio = hungerMax > 0f ? hungerCur / hungerMax : 0f;
@@ -290,6 +286,7 @@ namespace Sirus23ModCollection.Patcher
             float bestDist = float.MaxValue;
             foreach (var w in waters)
             {
+                if (!HoldsWater(w)) continue;
                 if (GetLiquidQuantity(w) <= 0f) continue;
                 float d = DistanceSquared(companion, w);
                 if (d < bestDist) { bestDist = d; source = w; }
@@ -340,6 +337,48 @@ namespace Sirus23ModCollection.Patcher
             var contained = Reflect.GetMember(card, "ContainedLiquid");
             if (contained is UnityEngine.Object uo && uo != null) return contained;
             return card;
+        }
+
+        /// <summary>
+        /// True when the container's contained liquid card carries tag_WaterAny. A container
+        /// with no contained liquid holds nothing drinkable. Read at drink time, because a
+        /// container's contents change without the board's card count changing.
+        /// </summary>
+        private static bool HoldsWater(object container)
+        {
+            var contained = Reflect.GetMember(container, "ContainedLiquid");
+            if (contained is not UnityEngine.Object uo || uo == null) return false;
+            return ModelHasTag(contained, WaterLiquidTag, _waterLiquidModelCache);
+        }
+
+        private static bool ModelHasTag(object card, string tagName, Dictionary<UnityEngine.Object, bool> cache)
+        {
+            if (CardUtil.GetCardData(card) is not UnityEngine.Object model || model == null)
+            {
+                WarnOnce("model-unreadable", $"[CompanionTick] a card's CardModel could not be read; it is not treated as {tagName}.");
+                return false;
+            }
+            if (cache.TryGetValue(model, out bool hit)) return hit;
+
+            hit = false;
+            if (Reflect.GetMember(model, "CardTags") is System.Collections.IEnumerable tags)
+            {
+                foreach (var tag in tags)
+                    if (tag is UnityEngine.Object t && t != null
+                        && string.Equals(t.name, tagName, StringComparison.Ordinal))
+                    { hit = true; break; }
+            }
+            else
+            {
+                WarnOnce("cardtags-unreadable", $"[CompanionTick] CardData.CardTags could not be read on '{model.name}'; companion water checks fall back to the vanilla source list.");
+            }
+            cache[model] = hit;
+            return hit;
+        }
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warnedCauses.Add(cause)) Logger?.LogWarning(message);
         }
 
         private static float GetLiquidQuantity(object card)

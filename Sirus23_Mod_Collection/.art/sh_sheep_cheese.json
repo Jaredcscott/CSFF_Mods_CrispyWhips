@@ -1,0 +1,40 @@
+{
+  "target": "sh_sheep_cheese.png",
+  "sourceCard": [
+    "CardData/Item/SheepCheese.json"
+  ],
+  "subject": "one small fresh round sheep's cheese, whole and uncut, drawn bare: a squat drum about twice as wide as tall with slightly bulging soft sides, a moist bright white surface with a faint creamy tinge, faint criss-cross basket marks on top and sides",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template, \"Use the attached reference images, each for one purpose\" + Subject + flat posterized style + white paper + Avoid list incl. footprints)",
+  "refs": [
+    {
+      "label": "vanilla Cheese_Soft (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cheese_Soft_1791744902529_5ed68bd4.png"
+    },
+    {
+      "label": "vanilla Butter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Butter_1791744900219_fb2ae1e7.png"
+    }
+  ],
+  "historyId": "BtuSRJXQO5jbMYJ4YRA2",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797827987_df42db57_1791797828024_caa1950d.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated. Food drawn bare (no board, herbs or knife), following vanilla Cheese_Soft.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797827987_df42db57_1791797828024_caa1950d.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

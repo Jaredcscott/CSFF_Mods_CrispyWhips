@@ -1,0 +1,242 @@
+{
+    "UniqueID": "sh_ox_cart",
+    "CardName": {
+        "ParentObjectID": "sh_ox_cart",
+        "LocalizationKey": "sh_ox_cart_CardName",
+        "DefaultText": "Ox Cart"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_ox_cart",
+        "LocalizationKey": "sh_ox_cart_CardDescription",
+        "DefaultText": "A plank cart with a yoke for a Bull. Hold it in your hand to haul far more than a travois. While a Bull is on the board with you it adds no travel penalty."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "sh_ox_cart",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 600.0,
+    "TradingValue": 400,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "EquipmentTagsWarpData": [],
+    "EquipmentTagsWarpType": 3,
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": true,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 4032.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_ox_cart",
+            "LocalizationKey": "sh_ox_cart_SpoilageTime_CardStatName",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 4032.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "wreck",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 3
+                            },
+                            "TransferRules": {
+                                "Special4": 3,
+                                "Special4Value": 1.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_ox_cart",
+                "LocalizationKey": "sh_ox_cart_CI_Repair_ActionName",
+                "DefaultText": "Repair"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_ox_cart",
+                "LocalizationKey": "sh_ox_cart_CI_Repair_ActionDescription",
+                "DefaultText": "Nail a plank into the cart's frame to restore some of its durability."
+            },
+            "DaytimeCost": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "57460207bbf77fa4fb6720aed5d84851"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": 672.0,
+                    "y": 672.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Durability Loss",
+            "OnlyWhenInHand": true,
+            "OnlyOnNOTBaseActions": true,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": -10.0
+            }
+        },
+        {
+            "EffectName": "Movement Penalty",
+            "OnlyWhenInHand": true,
+            "OnlyWhenNOTInBG": true,
+            "Conditions": {
+                "NotInBackground": true,
+                "RequiredCardsNOTOnBoardWarpData": [
+                    "8afae8650c0818e4eaea6194c099ecdb"
+                ],
+                "RequiredCardsNOTOnBoardWarpType": 3
+            },
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5326db2677ef1734c9298d881dcf0794",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "8612ed28995d13747b398b2c87ad81f1",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                }
+            ]
+        }
+    ],
+    "IsMiniInventory": false,
+    "MaxWeightCapacity": 8000.0,
+    "ContentWeightReduction": -2500.0,
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

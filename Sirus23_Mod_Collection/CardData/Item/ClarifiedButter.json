@@ -74,7 +74,45 @@
         "Active": false
     },
     "SpecialDurability1": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_clarified_butter",
+            "LocalizationKey": "sh_clarified_butter_SpecialDurability1_CardStatName",
+            "DefaultText": "Liquidity"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 2,
+        "OnFull": {
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "52e5adf6c6c0ce0418117da0179c4464",
+                "TransformIntoWarpType": 3,
+                "TransformToLiquidQuantity": 25.0,
+                "DurabilityChangesSetTheValueOfTransformResult": true,
+                "TransferSpoilage": true,
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "TransferSpecial1": true,
+                "Special1Change": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "TransferSpecial2": true,
+                "Special2Change": {
+                    "x": 48.0,
+                    "y": 48.0
+                }
+            }
+        }
     },
     "SpecialDurability2": {
         "Active": false
