@@ -108,10 +108,12 @@ namespace PartnerOverhaul.Patcher
         // at Debug and still be summarised in one Info line. Reset per pass: LoadMainGameData
         // runs again on every return to the main menu.
         private static int _dutyRefsAdded;
+        private static int _tagsAdded;
 
         private static void LoadMainGameData_Postfix()
         {
             _dutyRefsAdded = 0;
+            _tagsAdded = 0;
             try { FixStewBrothEating(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixStewBrothEating failed: {ex}"); }
             try { FixCleaningGap(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixCleaningGap failed: {ex}"); }
             try { FixGardenOverwatering(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixGardenOverwatering failed: {ex}"); }
@@ -127,8 +129,8 @@ namespace PartnerOverhaul.Patcher
             }
             try { FixPartnerStatVisibility(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixPartnerStatVisibility failed: {ex}"); }
 
-            if (_dutyRefsAdded > 0)
-                Logger.LogInfo($"[GameLoadPatch] attached {_dutyRefsAdded} duty ref(s) to vanilla actions (enable Debug logging for the per-target list).");
+            if (_dutyRefsAdded > 0 || _tagsAdded > 0)
+                Logger.LogInfo($"[GameLoadPatch] attached {_dutyRefsAdded} duty ref(s) to vanilla actions and {_tagsAdded} tag(s) to vanilla cards (enable Debug logging for the per-target list).");
         }
 
         // ── Fix 1: stew/broth "Drink" is invisible to the Eat duty engine ──────────────────
@@ -137,10 +139,31 @@ namespace PartnerOverhaul.Patcher
             var eatDuty = UniqueIDScriptable.GetFromID<NPCDuty>(PartnerDutyEatUid);
             var eatFreeDuty = UniqueIDScriptable.GetFromID<NPCDuty>(PartnerDutyEatFreeUid);
 
+            // The Eat duty's AffectItemsDutyAction selects from an item pool keyed on tag_HumanFood (plus
+            // LQ_Water). A duty ref on the Drink action alone is therefore not enough: the broth and
+            // stew carry only tag_Heatable, so the duty never picked them (T2.103 2026-10-13, 0 Drink
+            // action.done events). Giving just these two cards the tag is the narrowest widening: the
+            // duty asset and every other liquid stay untouched.
+            CardTag humanFood = null;
+            foreach (var t in Resources.FindObjectsOfTypeAll<CardTag>())
+                if (t != null && t.name == "tag_HumanFood") { humanFood = t; break; }
+            if (humanFood == null) Logger.LogWarning("[GameLoadPatch] tag_HumanFood not found - stew/broth stay outside the Eat duty's item pool.");
+
             foreach (var (uid, label) in new[] { (OldLqStewWaterUid, "OLD_LQ_StewWater"), (LqNightBrothUid, "LQ_NightBroth") })
             {
                 var card = UniqueIDScriptable.GetFromID<CardData>(uid);
                 if (card == null) { Logger.LogWarning($"[GameLoadPatch] {label} not resolvable — skipping stew/broth eat fix."); continue; }
+
+                if (humanFood != null)
+                {
+                    var tags = card.CardTags ?? Array.Empty<CardTag>();
+                    if (!tags.Contains(humanFood))
+                    {
+                        card.CardTags = tags.Concat(new[] { humanFood }).ToArray();
+                        _tagsAdded++;
+                        Logger.LogDebug($"[GameLoadPatch] {label}: added tag_HumanFood so the Eat duty's item pool selects it.");
+                    }
+                }
 
                 var drink = card.DismantleActions?.FirstOrDefault(a => a.ActionName != null && a.ActionName.DefaultText == "Drink");
                 if (drink == null) { Logger.LogWarning($"[GameLoadPatch] {label}: 'Drink' DismantleAction not found — skipping."); continue; }

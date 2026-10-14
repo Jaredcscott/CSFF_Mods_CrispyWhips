@@ -17,7 +17,7 @@ namespace PartnerOverhaul
     {
         private const string PluginGuid = "crispywhips.partner_overhaul";
         public const string PluginName = "PartnerOverhaul";
-        public const string PluginVersion = "1.1.0";
+        public const string PluginVersion = "1.1.2";
 
         internal new static BepInEx.Logging.ManualLogSource Logger;
         internal static Plugin Instance { get; private set; }
@@ -97,7 +97,7 @@ namespace PartnerOverhaul
                 "QoL (opt-in feature, not a bug fix)",
                 "Consolidate Duplicate Wounds",
                 false,
-                "Stops a combat round from applying a wound you already have equipped (e.g. accumulating 28 separate Minor Lacerations). Vanilla spawns a fresh, independently-healing wound card every round with no dedup — the count is accurate, not a display bug, so removing it is a combat design change, not a bug fix. Damage, stat changes, armor wear and the encounter log are unaffected. NOT yet confirmed in-game.");
+                "Stops a combat round from applying a wound you already have equipped (e.g. accumulating 28 separate Minor Lacerations). Vanilla spawns a fresh, independently-healing wound card every round with no dedup — the count is accurate, not a display bug, so removing it is a combat design change, not a bug fix. Damage, stat changes, armor wear and the encounter log are unaffected. Confirmed in-game (2026-09-07).");
 
             PartnersDrinkFromLakes = Config.Bind(
                 "QoL (opt-in feature, not a bug fix)",

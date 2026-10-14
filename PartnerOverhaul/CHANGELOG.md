@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.2 (2026-10-13)
+
+### Fixed
+- **Partners now eat Night Broth and Stew when starving.** The eating duties only pick items tagged Human Food, and these two lacked it, so the 1.1.0 fix never took effect. Both now carry the tag. A hungry (not starving) Partner still ignores broth in its own pack; the starving duty takes it from a bowl nobody owns.
+
+### Changed
+- The startup log line now also counts tags added to vanilla cards, and Cold Partner Asks For Warmth logs a warning once if a game update changes the request it widens.
+
+## 1.1.1 (2026-10-12)
+
+Version number only: nothing changed since 1.1.0, which has not been released on Nexus, so its notes below are what this release brings over the last published version.
+
 ## 1.1.0
 
 ### Added
@@ -198,27 +210,27 @@
   false, unlike the sibling need stats (Satiation/BodyTemperature/Thirst/Wakefulness), which show
   theirs. `Patcher/GameLoadPatch.cs` `FixPartnerEnergyVisibility` (since 1.1.0 `FixPartnerStatVisibility`, which also covers Comfort) flips both flags on each entry
   at boot (`GameLoad.LoadMainGameData` postfix), matching the pattern already used by their
-  siblings — no new text authored, nothing else about the stat's behavior changes.
+  siblings, no new text authored, nothing else about the stat's behavior changes.
 
 ## 1.0.2
 
-### Diagnostics (opt-in, default ON) — no behavior change
+### Diagnostics (opt-in, default ON): no behavior change
 - Added `[PouchTransferDiagnostics]` LogInfo logging on the generic engine liquid-transfer clamp
   (`InGameCardBase.ClampLiquidTransferQuantity`), scoped to fire only when Pouch or AcornFlourRaw
   is one of the two cards involved, for the reported pouch/acorn-flour stacking math bug. New
   independent config toggle: "Enable Pouch Transfer Diagnostics" (`Patcher/PouchTransferDiagnosticsPatch.cs`).
-  Diagnostic only — the underlying stacking bug is not fixed by this release.
+  Diagnostic only, the underlying stacking bug is not fixed by this release.
 
 ## 1.0.1
 
 ### Added (opt-in, default OFF)
-- "Consolidate Duplicate Wounds" config option — when enabled, a combat round will not apply a
+- "Consolidate Duplicate Wounds" config option, when enabled, a combat round will not apply a
   wound the player already has equipped (`Patcher/WoundStackingPatch.cs`, transpiler on
   `EncounterPopup.GenerateAndApplyPlayerWound`). Filters only the per-round wound-candidate list;
   damage resolution, stat changes, armor durability and the encounter log are unchanged.
   **Not yet verified in-game.**
 
-## 1.0.0 — Initial release
+## 1.0.0: Initial release
 
 ### Fixed
 - Partners can now eat stew/broth (Eat/EatFree duty wired onto `OLD_LQ_StewWater`/`LQ_NightBroth`
@@ -237,8 +249,8 @@
   ritual).
 
 ### Added (opt-in, default OFF)
-- "Reduce Partner Move Costs" config option — discounts inter-environment travel move-cost.
-- "Reserved Fuel/Wood UIDs" config option — exclude specific items from Partner auto-fuel-feeding.
+- "Reduce Partner Move Costs" config option, discounts inter-environment travel move-cost.
+- "Reserved Fuel/Wood UIDs" config option, exclude specific items from Partner auto-fuel-feeding.
 
 ### Diagnostics (opt-in, default ON)
 - LogInfo-level diagnostics for 4 still-unconfirmed bugs: fishing-line AI freeze, brain-tanning

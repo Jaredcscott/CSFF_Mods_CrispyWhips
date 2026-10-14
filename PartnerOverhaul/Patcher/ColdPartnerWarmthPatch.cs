@@ -38,6 +38,9 @@ namespace PartnerOverhaul.Patcher
         private static NPCStat _bodyTemperatureStat;
         private static bool _warnedStat;
         private static bool _warnedPatch;
+        private static bool _warnedLogPatch;
+        private static bool _warnedNoModifiers;
+        private static bool _warnedNoBodyTempModifier;
         private static bool _recalculating;
 
         public static void ApplyPatch(Harmony harmony)
@@ -88,7 +91,15 @@ namespace PartnerOverhaul.Patcher
                 // elements are structs, so editing the clone never reaches the shared data).
                 var weights = __instance.PreferenceWeights;
                 var mods = weights.AgentStatsWeightModifiers;
-                if (mods == null) return;
+                if (mods == null)
+                {
+                    if (!_warnedNoModifiers)
+                    {
+                        _warnedNoModifiers = true;
+                        Logger.LogWarning("[ColdPartnerWarmth] ExpressNeedWarmth has no stat weight modifiers - vanilla gate kept.");
+                    }
+                    return;
+                }
                 var widened = (NPCStatBasedDropChanceModifier[])mods.Clone();
                 bool found = false;
                 for (int i = 0; i < widened.Length; i++)
@@ -98,7 +109,15 @@ namespace PartnerOverhaul.Patcher
                     widened[i].StatRange = new Vector2(range.x, Mathf.Max(range.y, ColdBandMax));
                     found = true;
                 }
-                if (!found) return;
+                if (!found)
+                {
+                    if (!_warnedNoBodyTempModifier)
+                    {
+                        _warnedNoBodyTempModifier = true;
+                        Logger.LogWarning("[ColdPartnerWarmth] ExpressNeedWarmth has no Partner_BodyTemperature weight modifier - vanilla gate kept.");
+                    }
+                    return;
+                }
                 weights.AgentStatsWeightModifiers = widened;
 
                 _recalculating = true;
@@ -149,9 +168,9 @@ namespace PartnerOverhaul.Patcher
             }
             catch (Exception ex)
             {
-                if (!_warnedPatch)
+                if (!_warnedLogPatch)
                 {
-                    _warnedPatch = true;
+                    _warnedLogPatch = true;
                     Logger.LogWarning($"[ColdPartnerWarmth] logging the ask failed: {ex}");
                 }
             }

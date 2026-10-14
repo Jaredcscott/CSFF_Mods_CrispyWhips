@@ -1,14 +1,13 @@
 # Partner Overhaul Roadmap
 
-**Current version:** 1.1.0 (2026-09-28)
+**Current version:** 1.1.2 (2026-10-13)
 
 ## Next
 
 - No plan is open (2026-10-10). The round-2 plan is built and archived as
-  `Documentation/Design/PartnerOverhaul_As_Built.md`. The mod is ready for `Stable/` (the move script's
-  `-WhatIf` reports no refusal), but the move itself failed on 2026-10-10 with "Permission denied" on
-  the folder rename (an open handle); rerun `Development_Tools/Move-ModFolder.ps1 -ModFolder
-  PartnerOverhaul` once nothing holds the folder open.
+  `Documentation/Design/PartnerOverhaul_As_Built.md`. The mod stays at the repo root: since 2026-10-12 a mod
+  moves into `Stable/` only after the owner says it has been fully human tested (root CLAUDE.md, "Where a
+  mod lives").
 - Owed, none of it code: the skeptic review of T2.502, T2.503 and T3.39; the person checks T3.81 (lake
   drinking) and T3.82 (the cold warning's use and its Chinese config text); a real-install redeploy for
   the 2026-10-10 README/ModInfo corrections; the owner's push of the public export and a first Nexus
