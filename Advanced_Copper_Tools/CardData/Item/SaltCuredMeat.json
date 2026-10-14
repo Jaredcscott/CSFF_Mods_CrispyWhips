@@ -29,6 +29,8 @@
   "CardImageWarpData": "SaltCuredMeat",
   "CardImageWarpType": 3,
   "SpoilageTime": {
+    "OverrideIconWarpData": "Bacteria",
+    "OverrideIconWarpType": 3,
     "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
     "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_StatName",
     "Active": true,
@@ -57,6 +59,7 @@
   "CardInteractions": [],
   "DismantleActions": [
     {
+      "ReceivingCardFlavourBonus": true,
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
         "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_Eat",

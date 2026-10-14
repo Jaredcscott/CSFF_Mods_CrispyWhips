@@ -2,6 +2,12 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.7] - 2026-10-14
+
+### Fixed
+
+- **Salt-Cured Fish and Salt-Cured Meat show the bacteria spoilage icon** instead of the hourglass, as vanilla food does, and their Eat buttons now count their flavours.
+
 ## [1.18.6] - 2026-10-14
 
 ### Changed
