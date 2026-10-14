@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.4] - 2026-10-14
+
+### Changed
+
+- **The island's locations stay still again.** The slow drift on every location, path and shore (0.1.2) is off for now. The animals still breathe and the trees and plants still sway.
+
 ## [0.1.3] - 2026-10-14
 
 ### Changed
