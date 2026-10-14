@@ -33,7 +33,7 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="Assembly-CSharp">
-            <HintPath>lib\Assembly-CSharp-nstrip.dll</HintPath>
+            <HintPath>lib\Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="BepInEx">
@@ -101,6 +101,8 @@
         <!-- ScriptableObject removed: CardTabGroup JSONs override vanilla tabs and break things.
              Tab injection is handled by C# AddBlueprintsToTabs() instead. -->
         <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+        <!-- ScriptableObject/ActionTag only (plan feature 21): never ship ScriptableObject/CardTabGroup. -->
+        <Content Include="ScriptableObject\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="ModInfo.json" CopyToOutputDirectory="Always" Condition="Exists('ModInfo.json')" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
     </ItemGroup>

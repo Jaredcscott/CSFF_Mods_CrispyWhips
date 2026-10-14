@@ -1,0 +1,163 @@
+{
+  "UniqueID": "water_sawmill_mill_race_outlet_closed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_mill_race_outlet_closed",
+    "LocalizationKey": "Water_Sawmill_MillRaceOutletClosed_CardName",
+    "DefaultText": "Mill Race Outlet (Closed)"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_mill_race_outlet_closed",
+    "LocalizationKey": "Water_Sawmill_MillRaceOutletClosed_CardDescription",
+    "DefaultText": "The outlet's valve is shut and no water flows from it: nothing can be drawn, a Rain Cistern here is not fed, and stations that need this outlet's water stop. Open the valve to let the water run again."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_mill_race_outlet_closed",
+    "LocalizationKey": "Water_Sawmill_MillRaceOutletClosed_CardHelpSection",
+    "DefaultText": "<b>Closed:</b> The valve is shut, so no water can be drawn, a Rain Cistern here is not fed, and the stations here that run on this outlet stop and no new station can be built on it. A station at a river or lake, or beside another open outlet, keeps working. Heat does not count a closed outlet as running, the way it does a frozen one.\n\n<b>Open Valve:</b> Let the water run again (15 minutes). The outlet then draws, feeds its cistern and freezes in winter as before.\n\n<b>Seasons:</b> A closed outlet does not freeze or thaw.\n\n<b>Pack Up:</b> Recover the outlet as a portable item for relocation."
+  },
+  "CardType": 2,
+  "ObjectWeight": 500.0,
+  "TradingValue": 250.0,
+  "AlwaysUpdate": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Structure"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": true,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": true,
+  "CannotTakeItemsOut": true,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 0.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_closed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletClosed_OpenValve_ActionName",
+        "DefaultText": "Open Valve"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_closed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletClosed_OpenValve_ActionDescription",
+        "DefaultText": "Open the outlet's valve and let the water run again."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Water"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_mill_race_outlet_placed",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_closed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletClosed_PackUp_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_closed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletClosed_PackUp_ActionDescription",
+        "DefaultText": "Pack up the closed mill race outlet for relocation."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_mill_race_outlet_kit",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "OnStatsChangeActions": [],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "PreventInteractionsInContainer": false,
+  "IsIndoors": false,
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "EquipSlots": [],
+  "EquipSlotType": 0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "MillRace",
+  "CardImageWarpType": 3
+}

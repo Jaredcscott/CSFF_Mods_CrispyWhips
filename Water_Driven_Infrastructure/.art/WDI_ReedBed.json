@@ -1,0 +1,40 @@
+{
+  "target": "WDI_ReedBed.png",
+  "sourceCard": "CardData/Location/ReedBed_Placed.json",
+  "subject": "Draw this scene: a planted bed of common reeds at the water's edge. Tall thin green reed stems with long narrow leaves standing thick in shallow blue water, topped with feathery tan-gold plume heads, and along the front of the bed a short low row of driven wooden stakes with a woven edging, showing it was planted by hand; open water and a far shore of dark trees behind, a pale sky.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference images 1 and 2 are the game's own cards for a wild reed patch and a wild cattail patch. Match them exactly: the same flat posterized colour fills, thin dark ink outlines, the same plant colours, blue water and pale sky, and the same way the plants are drawn. Draw the reeds the way reference image 1 draws them.\nDraw this scene: a planted bed of common reeds at the water's edge. Tall thin green reed stems with long narrow leaves standing thick in shallow blue water, topped with feathery tan-gold plume heads, and along the front of the bed a short low row of driven wooden stakes with a woven edging, showing it was planted by hand; open water and a far shore of dark trees behind, a pale sky.\nFull-bleed survival card game scene in exactly that style, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, people, birds, boat, flowers, cattail seed heads.",
+  "historyId": "FEE8ql1ypzkkdfdB1TxV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798698900_491573cd_1791798698950_c9faf959.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "Reeds_Plant",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Reeds_Plant_1791653132206_eff1700a.png"
+    },
+    {
+      "role": "style",
+      "label": "Cattails",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cattails_1791653130907_fa99255b.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798698900_491573cd_1791798698950_c9faf959.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: match vanilla cattail; vanilla Reeds_Plant and Cattails sprites as style references, plus the same woven stake edging as the Cattail Bed"
+}

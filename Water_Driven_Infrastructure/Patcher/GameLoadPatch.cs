@@ -74,15 +74,18 @@ namespace WaterDrivenInfrastructure.Patcher
 
                 CopyKilnRecipesToForge(allData, Logger, "water_sawmill_forge_placed");
                 CopyKilnRecipesToForge(allData, Logger, "water_sawmill_workshop_placed");
+                CopyKilnRecipesToForge(allData, Logger, "water_sawmill_workshop_placed_expanded");
                 InjectGreenstonePowderSmeltRecipe(allData, Logger, "water_sawmill_forge_placed");
                 InjectGreenstonePowderSmeltRecipe(allData, Logger, "water_sawmill_workshop_placed");
+                InjectGreenstonePowderSmeltRecipe(allData, Logger, "water_sawmill_workshop_placed_expanded");
                 InjectSmeltingContainerIronTag(allData, Logger);
                 SuppressWaterDrivenReadyPopups(allData, Logger);
                 InjectMillRaceImprovements(allDataObj as IList, allData, Logger);
-                InjectActFastenerAlternates(allData, Logger);
+                DetectSharedMetalParts(allData, Logger);
+                InjectBronzeGearAlternates(allData, Logger);
                 InjectVanillaGrindablesIntoMillFilter(allData, Logger);
 
-                Logger?.LogDebug("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, smelting container tags, mill race improvements, ACT fastener alternates, mill grindables filter).");
+                Logger?.LogDebug("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, smelting container tags, mill race improvements, shared metal parts detection, bronze gear alternates, mill grindables filter).");
             }
             catch (Exception ex)
             {
@@ -90,50 +93,38 @@ namespace WaterDrivenInfrastructure.Patcher
             }
         }
 
-        // WDI has no hard dependency on AdvancedCopperTools (root CLAUDE.md §WDI/ACT
-        // Decoupling). This detects ACT once (cached on ActCompat.IsInstalled for
-        // ActionInterceptPatch's Workshop craft output) and, when present, makes the 12
-        // fastener slots repointed to WDI-native items also accept ACT's originals — a
-        // player with both mods installed can use whichever they already have.
-        //
-        // Iron Rivet is WDI-native (always craftable, no ACT needed) and is wired as an
-        // additional accepted alternate wherever WDI's own Copper Rivet is the primary — nails
-        // and rivets are a generic fastener commodity (root CLAUDE.md §CardInteractions —
-        // AdvancedCopperTools already treats copper/iron nails as interchangeable "in all
-        // constructions"), so all four fastener items (ACT Copper/Iron Nail, WDI Copper/Iron
-        // Rivet) end up accepted in every fastener slot regardless of which mod authored it.
-        // BlueprintAlternates.AddAlternateIngredient accumulates across repeated calls for the
-        // same primary instead of clobbering (framework 2.17.0+), so calling it multiple times
-        // here is safe.
-        static void InjectActFastenerAlternates(IEnumerable allData, ManualLogSource logger)
+        // WDI has no hard dependency on AdvancedCopperTools (root CLAUDE.md WDI/ACT Decoupling). This runs
+        // ActCompat.Detect once (cached for ActionInterceptPatch's Workshop craft output, InjectBronzeGearAlternates
+        // and BathtubPlumbingPatch). It no longer adds fastener alternates: since WDI 1.12.3 every WDI recipe names
+        // the shared Metal Nail, Metal Sheet and Tin Solder that CSFFModFramework 2.28.0 ships, and WDI's own Cast
+        // Copper and Iron Rivets, Alloy Solder and Cast Sheets are retired (they reforge themselves into the shared
+        // cards within a tick, so no slot needs to accept them). A nail slot takes a Metal Nail of any metal, as the
+        // rivet slots took either rivet before (Chiwei's Nexus report, 2026-10-05).
+        static void DetectSharedMetalParts(IEnumerable allData, ManualLogSource logger)
         {
-            const string WdiCopperRivetUid = "water_sawmill_copper_rivet";
-            const string WdiIronRivetUid = "water_sawmill_iron_rivet";
-            const string ActIronNailUid = "act_iron_nail";
-
-            // WDI-internal: Iron Rivet accepted anywhere Copper Rivet is required, and vice versa
-            // (cross-tier acceptance for rivets within WDI), independent of whether ACT is
-            // installed.
-            BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, WdiIronRivetUid, "WDI Copper Rivet / WDI Iron Rivet");
-            BlueprintAlternates.AddAlternateIngredient(allData, WdiIronRivetUid, WdiCopperRivetUid, "WDI Iron Rivet / Copper Rivet");
-
             ActCompat.Detect(allData);
+            if (!ActCompat.MetalPartsPresent)
+            {
+                logger?.LogWarning("[WDI] The shared Metal Nail (advanced_copper_tools_copper_nails) is not loaded, so CSFFModFramework is older than 2.28.0: WDI's recipes and Workshop crafts need its Metal Nail, Metal Sheet and Tin Solder. Update CSFFModFramework.");
+            }
+        }
+
+        // Bronze gears (plan feature 23, Open question 18's default: gears only, no stat bonus). With ACT loaded, a
+        // Bronze Gear stands in for the copper gear of the same size in every WDI recipe that takes one, the Water
+        // Wheel and the Overshot Wheel included (the copper gears appear in no other mod's blueprints). The check is
+        // IsInstalled, never MetalPartsPresent: the framework ships the Metal Nail, so MetalPartsPresent is true
+        // without ACT, and a bronze alternate there would offer a gear no journal entry can make. The tab entry for
+        // the two cast blueprints has its own IsInstalled gate in BronzeGearTabPatch. ActCompat.Detect has run in
+        // DetectSharedMetalParts before this is called.
+        static void InjectBronzeGearAlternates(IEnumerable allData, ManualLogSource logger)
+        {
             if (!ActCompat.IsInstalled)
             {
-                logger?.LogDebug("[WDI] ACT fastener alternates: AdvancedCopperTools not installed; WDI-native fasteners only.");
+                logger?.LogDebug("[WDI] Bronze gear alternates: Advanced Copper Tools is not loaded; copper gears only.");
                 return;
             }
-
-            // Copper Rivet slots accept ACT's nails.
-            BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, ActCompat.CopperNailsUid, "WDI Copper Rivet / ACT Copper Nail");
-            BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, ActIronNailUid, "WDI Copper Rivet / ACT Iron Nail");
-            
-            // Iron Rivet slots also accept ACT's nails.
-            BlueprintAlternates.AddAlternateIngredient(allData, WdiIronRivetUid, ActCompat.CopperNailsUid, "WDI Iron Rivet / ACT Copper Nail");
-            BlueprintAlternates.AddAlternateIngredient(allData, WdiIronRivetUid, ActIronNailUid, "WDI Iron Rivet / ACT Iron Nail");
-            
-            // Alloy Solder slots accept ACT's Tin Solder.
-            BlueprintAlternates.AddAlternateIngredient(allData, "water_sawmill_alloy_solder", "act_tin_solder", "WDI Alloy Solder / ACT Tin Solder");
+            BlueprintAlternates.AddAlternateIngredient(allData, "water_sawmill_copper_gear_large", "water_sawmill_bronze_gear_large", "WDI Large Copper Gear / Large Bronze Gear");
+            BlueprintAlternates.AddAlternateIngredient(allData, "water_sawmill_copper_gear_small", "water_sawmill_bronze_gear_small", "WDI Small Copper Gear / Small Bronze Gear");
         }
 
         static void CopyKilnRecipesToForge(IEnumerable allData, ManualLogSource logger, string targetForgeUid)
@@ -237,9 +228,11 @@ namespace WaterDrivenInfrastructure.Patcher
                 var targets = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
                 {
                     "water_sawmill_placed",
+                    "water_sawmill_placed_expanded",
                     "water_sawmill_grinding_mill_placed",
                     "water_sawmill_forge_placed",
-                    "water_sawmill_workshop_placed"
+                    "water_sawmill_workshop_placed",
+                    "water_sawmill_workshop_placed_expanded"
                 };
 
                 int cardsPatched = 0;
@@ -353,27 +346,37 @@ namespace WaterDrivenInfrastructure.Patcher
 
         // WarpResolver does not resolve CompatibleCards/DroppedCard inside CookingRecipes elements.
         // This method mirrors what SmeltingRecipeInjector does: set the fields directly on the recipe.
+        static readonly HashSet<string> _greenstoneWarned = new HashSet<string>();
+        static void WarnGreenstoneOnce(string cause, string msg)
+        {
+            if (_greenstoneWarned.Add(cause)) Plugin.Logger?.LogWarning(msg);
+        }
+
         static void InjectGreenstonePowderSmeltRecipe(IEnumerable allData, ManualLogSource logger, string stationUid)
         {
             try
             {
                 const string GREENSTONE_POWDER_UID = "492ba87119393c1448fb6d320e371b65";
+                // Vanilla's own powder smelt (GreenstonePowder Progress.OnFull, EA 0.68b): the powder TRANSFORMS into one
+                // Metal Nugget carrying its Quality as Metal Quality, and drops one Greenstone Slag. The recipe JSON mirrors
+                // that. It used to destroy the powder and drop 1-2 Unfinished Metal Bars (6-12 nuggets) whose Metal Quality
+                // read the destroyed powder and came out 0 (Nexus report 2026-09-18).
                 const string METAL_NUGGET_UID = "4b0f4937a5ecb90499428c8c10288afc";
                 const string GREENSTONE_SLAG_UID = "efde4db74f8cb194e9ad7cd014bfd7d6";
 
-                object stationCard = null, greenstonePowder = null, metalNugget = null, greenstoneSlag = null;
+                object stationCard = null, greenstonePowder = null, metalNugget = null, slag = null;
                 foreach (var entry in allData)
                 {
                     if (!(entry is UniqueIDScriptable s)) continue;
                     if (s.UniqueID == stationUid) stationCard = s;
                     else if (s.UniqueID == GREENSTONE_POWDER_UID) greenstonePowder = s;
                     else if (s.UniqueID == METAL_NUGGET_UID) metalNugget = s;
-                    else if (s.UniqueID == GREENSTONE_SLAG_UID) greenstoneSlag = s;
+                    else if (s.UniqueID == GREENSTONE_SLAG_UID) slag = s;
                 }
 
                 if (stationCard == null) { logger?.LogError($"[GreenstoneSmelt] {stationUid} not found"); return; }
-                if (greenstonePowder == null || metalNugget == null || greenstoneSlag == null)
-                { logger?.LogError("[GreenstoneSmelt] Required vanilla card(s) not found"); return; }
+                if (greenstonePowder == null || metalNugget == null || slag == null)
+                { logger?.LogError("[GreenstoneSmelt] Required card(s) not found (powder, Metal Nugget or Greenstone Slag)"); return; }
 
                 var recipesField = stationCard.GetType().GetField("CookingRecipes", InstanceFlags);
                 var recipes = recipesField?.GetValue(stationCard) as Array;
@@ -385,6 +388,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var ccField = recipeType.GetField("CompatibleCards", InstanceFlags);
                 var ctField = recipeType.GetField("CompatibleTags", InstanceFlags);
                 var dropsField = recipeType.GetField("Drops", InstanceFlags);
+                var ingredientChangesField = recipeType.GetField("IngredientChanges", InstanceFlags);
                 if (ccField == null) { logger?.LogError("[GreenstoneSmelt] CompatibleCards field not found"); return; }
 
                 for (int i = 0; i < recipes.Length; i++)
@@ -423,6 +427,24 @@ namespace WaterDrivenInfrastructure.Patcher
                         ccField.SetValue(recipe, cardArr);
                     }
 
+                    // The powder turns into the nugget in place (IngredientChanges is a Transform). CardStateChange is a
+                    // struct, so it is read, set and written back by value.
+                    if (ingredientChangesField != null)
+                    {
+                        object changes = ingredientChangesField.GetValue(recipe);
+                        var transformField = changes?.GetType().GetField("TransformInto", InstanceFlags);
+                        if (transformField != null)
+                        {
+                            if (!ReferenceEquals(transformField.GetValue(changes), metalNugget))
+                            {
+                                transformField.SetValue(changes, metalNugget);
+                                ingredientChangesField.SetValue(recipe, changes);
+                            }
+                        }
+                        else WarnGreenstoneOnce("transform-field", "[GreenstoneSmelt] CardStateChange.TransformInto not found; Smelt Greenstone may leave the powder unchanged");
+                    }
+                    else WarnGreenstoneOnce("ingredient-changes-field", "[GreenstoneSmelt] CookingRecipe.IngredientChanges field not found; Smelt Greenstone may leave the powder unchanged");
+
                     // Fix DroppedCard references in Drops (also unresolved by WarpResolver)
                     if (dropsField != null)
                     {
@@ -433,18 +455,20 @@ namespace WaterDrivenInfrastructure.Patcher
                             var dcField = dropType?.GetField("DroppedCard", InstanceFlags);
                             if (dcField != null)
                             {
-                                // Drop 0: Metal Nugget
+                                // Drop 0: the Greenstone Slag, the recipe's only drop (the nugget is the transformed powder).
                                 var d0 = drops.GetValue(0);
-                                if (d0 != null) { dcField.SetValue(d0, metalNugget); drops.SetValue(d0, 0); }
-                                // Drop 1: Greenstone Slag
-                                if (drops.Length >= 2)
+                                if (d0 != null)
                                 {
-                                    var d1 = drops.GetValue(1);
-                                    if (d1 != null) { dcField.SetValue(d1, greenstoneSlag); drops.SetValue(d1, 1); }
+                                    if (!ReferenceEquals(dcField.GetValue(d0), slag))
+                                    { dcField.SetValue(d0, slag); drops.SetValue(d0, 0); }
                                 }
+                                else WarnGreenstoneOnce("drop0-null", $"[GreenstoneSmelt] {stationUid} recipe[{i}] drop 0 is null; Smelt Greenstone drops no slag");
                             }
+                            else WarnGreenstoneOnce("dc-field", "[GreenstoneSmelt] CardDrop.DroppedCard field not found; Smelt Greenstone drop not set");
                         }
+                        else WarnGreenstoneOnce("no-drops", $"[GreenstoneSmelt] {stationUid} recipe[{i}] has no Drops; Smelt Greenstone drops no slag");
                     }
+                    else WarnGreenstoneOnce("drops-field", "[GreenstoneSmelt] CookingRecipe.Drops field not found; Smelt Greenstone drop not set");
 
                     if (recipeType.IsValueType) recipes.SetValue(recipe, i);
                     logger?.LogDebug($"[GreenstoneSmelt] Fixed Smelt Greenstone recipe[{i}] on {stationUid}");
@@ -509,6 +533,12 @@ namespace WaterDrivenInfrastructure.Patcher
             if (uidFieldInfo == null && uidPropInfo == null)
             { logger?.LogError("[MillRaceInject] UniqueID not found on UniqueIDScriptable"); return; }
 
+            // RegisterID is private on UniqueIDScriptable (EA 0.68b), so it is reached by reflection:
+            // WDI compiles against the plain game Assembly-CSharp, not a publicized (NStrip) copy.
+            var registerIdMethod = AccessTools.Method(typeof(UniqueIDScriptable), "RegisterID", Type.EmptyTypes);
+            if (registerIdMethod == null)
+            { logger?.LogError("[MillRaceInject] UniqueIDScriptable.RegisterID not found (reflection miss); mill race clones not injected"); return; }
+
             var wdiTemplates        = new Dictionary<int, CardData>();
             var explorableLocations = new Dictionary<string, CardData>(StringComparer.Ordinal);
             var environmentCards    = new Dictionary<string, CardData>(StringComparer.Ordinal);
@@ -560,6 +590,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 cardSlotCardField,
                 uidFieldInfo,
                 uidPropInfo,
+                registerIdMethod,
                 logger);
         }
 
@@ -575,6 +606,7 @@ namespace WaterDrivenInfrastructure.Patcher
             FieldInfo cardSlotCardField,
             FieldInfo uidFieldInfo,
             PropertyInfo uidPropInfo,
+            MethodInfo registerIdMethod,
             ManualLogSource logger)
         {
             try
@@ -643,7 +675,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (uidFieldInfo != null) uidFieldInfo.SetValue(clone, cloneUID);
                     else uidPropInfo?.GetSetMethod(nonPublic: true)?.Invoke(clone, new object[] { cloneUID });
                     oppositeRoadField?.SetValue(clone, null);
-                    clone.RegisterID();
+                    registerIdMethod.Invoke(clone, null);
 
                     allDataList.Add(clone);
                     allDataAdded++;
@@ -712,7 +744,7 @@ namespace WaterDrivenInfrastructure.Patcher
                         if (uidFieldInfo != null) uidFieldInfo.SetValue(clone, cloneUID);
                         else uidPropInfo?.GetSetMethod(nonPublic: true)?.Invoke(clone, new object[] { cloneUID });
                         oppositeRoadField?.SetValue(clone, null);
-                        clone.RegisterID();
+                        registerIdMethod.Invoke(clone, null);
 
                         allDataList.Add(clone);
                         allDataAdded++;
@@ -816,13 +848,15 @@ namespace WaterDrivenInfrastructure.Patcher
         // PE1 drains FuelCapacity at -300/DTP when the item is NOT in a container tagged with this SO.
         // Net heat balance without this fix: Kiln +200 - PE1 300 - PE3 100 = -200/tick → iron never heats.
         // Fix: extract the actual SO from MetalNugget's PE1 RequiredNOTContainerTags and inject it.
-        // The Grinding Mill's inventory filter accepts tag_Millable only — a tag no vanilla
-        // item carries (memory: feedback_grindall_no_millable_gate). Vanilla marks its
-        // grindables (wheat/rye grains, acorns, bone splinters, charcoal, ...) purely via a
-        // CardInteraction triggered by tag_GrindingTool / tag_HammeringToolGeneral — the same
-        // detection HandleGrindAllInner uses. Mirror that detection here and append every
-        // vanilla grindable to the mill filter's AcceptedCards so those items can enter the
-        // mill inventory and be picked up by Grind All (grain→flour, bone splinters→bonemeal).
+        // The Grinding Mill's inventory filter ships with AcceptedTags tag_Millable only. Vanilla DOES
+        // put that tag on some grindables (measured 2026-10-02: Greenstone, Greenstone Slag, the three Bog
+        // Irons, Rye Grains, Edible Acorns and Charcoal), but not on the rest, and it marks all of its
+        // grindables (wheat/rye grains, acorns, bone splinters, charcoal, ...) through a CardInteraction
+        // triggered by tag_GrindingTool / tag_HammeringToolGeneral with a milling action name — the same
+        // detection HandleGrindAllInner uses. Mirror that detection here and append every such grindable
+        // to the mill filter's AcceptedCards so those items can enter the mill inventory and be picked up
+        // by Grind All (grain→flour, bone splinters→bonemeal). The filter is a struct, so the changed copy
+        // must be stored back into the mill (plan defect B: until 2026-10 it never was).
         static void InjectVanillaGrindablesIntoMillFilter(IEnumerable allData, ManualLogSource logger)
         {
             try
@@ -872,7 +906,15 @@ namespace WaterDrivenInfrastructure.Patcher
                     acceptedField.SetValue(filter, arr);
                 }
 
-                logger?.LogDebug($"[MillFilter] accepted {added} grindable card(s) into the Grinding Mill inventory filter");
+                // CardFilter is a STRUCT: GetValue boxed a COPY, so every change above landed on the copy and the
+                // mill's own filter kept AcceptedCards [] (measured 2026-10-02, plan defect B). Store it back.
+                filterField.SetValue(mill, filter);
+
+                int accepted = acceptedField.GetValue(filterField.GetValue(mill)) is ICollection stored ? stored.Count : -1;
+                if (accepted < grindables.Count)
+                    logger?.LogWarning($"[MillFilter] the mill's filter holds {accepted} accepted card(s) after the write-back, fewer than the {grindables.Count} grindables found; the filter write did not take");
+                else
+                    logger?.LogInfo($"[MillFilter] accepted {added} grindable card(s) into the Grinding Mill inventory filter ({accepted} in all)");
             }
             catch (Exception ex)
             {
@@ -898,6 +940,9 @@ namespace WaterDrivenInfrastructure.Patcher
                     var compat = ci.GetType().GetField("CompatibleCards", InstanceFlags)?.GetValue(ci);
                     var tags = compat?.GetType().GetField("TriggerTags", InstanceFlags)?.GetValue(compat) as IList;
                     if (tags == null) continue;
+                    // The trigger tag is shared by every hammer job, so the action must also be a milling one
+                    // (ActionInterceptPatch.MillActionNames): a cast's "Break" is not a grindable.
+                    if (!ActionInterceptPatch.IsMillActionName(ActionInterceptPatch.ReadInteractionActionName(ci))) continue;
                     foreach (var t in tags)
                     {
                         var name = (t as UnityEngine.Object)?.name;
@@ -936,7 +981,8 @@ namespace WaterDrivenInfrastructure.Patcher
                 var wdiForgeUids = new HashSet<string>
                 {
                     "water_sawmill_forge_placed",
-                    "water_sawmill_workshop_placed"
+                    "water_sawmill_workshop_placed",
+                    "water_sawmill_workshop_placed_expanded"
                 };
 
                 object metalNugget = null;

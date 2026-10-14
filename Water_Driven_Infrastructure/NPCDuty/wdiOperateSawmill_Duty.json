@@ -5,6 +5,7 @@
     "LocalizationKey": "Water_Sawmill_Placed_Duty_DutyName",
     "DefaultText": "Operate the Sawmill"
   },
+  "RequiresMarkedCard": true,
   "MaxPerformPerDay": 0,
   "DutyExecutionOptions": 0,
   "GiveUpOptions": 0,

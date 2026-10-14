@@ -1,0 +1,8 @@
+{
+  "target": "CastSheet_Iron.png",
+  "sourceCard": "CardData/Item/WaterDrivenSawmill_CastIronSheet.json, Blueprint/Bp_CastIronSheet.json",
+  "source_art": "AdvancedCopperTools/Resource/Picture/ACT_MetalSheet_Iron.png (Chiwei's iron sheet, byte copy; same file ships in CSFFModFramework/Resource/Picture)",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: use the chiwei image; copied in so WDI does not need ACT installed"
+}

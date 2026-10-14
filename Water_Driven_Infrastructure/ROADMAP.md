@@ -1,197 +1,76 @@
-# Roadmap: Water Driven Infrastructure
-Version at time of writing: 1.11.2
-Date: 2026-09-22
-Audit score: 9/10 - PASS, 0 mod-breaking CRITICAL (consolidated 2026-09-22; see `.audit/summary.md`)
+# Roadmap: WaterDrivenInfrastructure
+Version at time of writing: 1.12.5
+Date: 2026-10-13
+Audit score: 9/10 (SHIPS WITH CAVEATS) - see `.audit/summary.md`
 
 ## Current State
 
-**Theme**: Late-game, water-powered manufacturing and automation. Build large-scale infrastructure
-(sawmill, forge, workshop, grinding mill, ore sluice, fishpond, fish funnel, mill race outlets) near
-rivers, powered by water wheels and mill races and fed by WDI's own copper/iron metalworking and
-fastener pipeline. For players past the early survival tier who want bulk processing. **Fully standalone
-since 1.8.0** - AdvancedCopperTools is a soft, optional enhancement and never a gate.
+**Theme**: Late-game water-powered industry - sawmills, forges, grinding/stamp mills, ore sluices, fishponds, fish funnels and mill race outlets built near rivers using water wheels and mill races. For a player past the early survival tier who wants large-scale manufacturing and a steady water supply at any outdoor location.
 
-**Content**: 24 items / 25 blueprints / 11 CT2 structures + 4 CT10 improvements / 7 perks /
-5 NPCDuty files / 30 custom images (all references resolve). 0 SelfTriggeredActions, 0 spawn Triggers,
-0 Liquid cards.
+**Content**: 28 items / 32 blueprints / 18 structures / 7 perks / 37 custom images
 
-**Stability**: **9/10 - release ready.** 0 mod-breaking CRITICAL, 0 DESIGN GAP. Critical Analysis
-verdict (2026-09-22): **SOLID** (0 critical / 0 mechanical / 0 design / 0 broken promises). Code-quality
-(2026-09-22) carries one category-rubric critical (B1, cosmetic Debug-only Invoke-catch) plus 3
-hardening warnings. Acquisition coverage fully closed (115 produced / 56 consumed, 0 unreachable,
-0 dead-end). Build clean (0 errors / 0 warnings), versions synced across ModInfo.json / Plugin.cs /
-README.md, Chinese parity CLEAN.
+**Stability**: 9/10 - 0 mod-breaking CRITICAL, 0 design gaps, 0 broken promises, 0 open retrospectives. Build clean (0/0), bin/Release in sync, versions agree at 1.12.5, Chinese parity 611/611. code-quality is 10/10 (reference-grade). Three open warnings are hygiene/process only (see below).
 
-**Resolved since the last roadmap** (re-verified against source, do not re-open):
-- The framework-level `CompatibleNPCDuties[].TargetWarpData` GUID-resolution gap (flagged CRITICAL in
-  `structures-report.md` 2026-08-14) - fixed in `CSFFModFramework/Data/WarpResolver.cs` (base-type
-  `GameRegistry.GetByUid` fallback), shipped framework 2.22.4, framework now at 2.25.32.
-- The `perks-report.md` DESIGN GAP (`Features.json` listed 3 of 7 perk UIDs) - all 7 now listed.
-- Missing "not yet confirmed in-game" caveats on the v1.10.16-1.10.18 CHANGELOG/README entries - the
-  current README carries the caveat on all three (prior W2).
-- The 2 em-dash characters in `ModInfo.json` Description - 0 em-dashes present now (prior W6).
-- The framework `T1.56` ActionRouter receiver/given index-order defect that rode WDI's `MillRaceGate`
-  handler - fixed in framework 2.25.29 (2026-09-08); in-game confirmation now tracked fleet-wide at
-  T1.81, not WDI-blocking.
+**Open work**: No open retrospectives - all 4 WDI-tagged retros are Graduated/archived (`wdi-mill-race-improvement-tab`, `wdi-mill-race-edges`, `wdi-fish-quality`, `wdi-iron-smelt-output`). Open warnings: T2.601 tracker record pending. (Resolved 2026-10-13: WDI now compiles against the plain game `lib/Assembly-CSharp.dll`, so the stale nstrip lib is gone; `GetCardCharges` caches its members.)
 
-**Open work**: no open or pending retrospective references this mod (all 4 WDI retros are archived as
-graduated). The real open work is **verification, not repair**: the Forge (T2.89) and Workshop (T2.90)
-Partner duties have never been observed becoming the current duty in-game, T2.113 (Cut Iron Rivets from
-Sheet) carries a recorded FAIL that two static re-checks could not reproduce, and the Fish Funnel rate
-(T2.198/T2.199) is an untuned placeholder. 3 of 5 station duties are now confirmed PASS (Grinding Mill,
-Ore Sluice, Sawmill).
-
-**Framework compliance**: **Tier 2, fully adopted.** `Api.ActionRouter` (19 references - all action
-interception; WDI no longer patches `ActionRoutine`/`PerformStackActionRoutine` directly),
-`Api.SpawnService` (10), `Api.TickEvents` (4), `Api.WorldMap` (4, dynamic mill-race node append), and
-`BlueprintAlternates` (the ACT fastener/sheet decoupling). Zero deprecated patterns: no
-`DropCollectionGuardPatch`, no `InitializeNullFields`, no `ModLoaderVerison`/`ModEditorVersion`, no
-manual perk or blueprint injection. Plugin.cs uses per-class `ApplyPatch(harmony)` (not `PatchAll`) and
-emits exactly one Info line at startup.
+**Framework compliance**: Tier 2, fully adopted. ActionRouter (27 call sites) for all action interception in place of direct coroutine patches, SpawnService (18) for all card spawning, TickEvents (5) for the Fishpond population refresh and day-rollover handlers. No deprecated patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`/`ModEditorVersion`.
 
 ---
 
 ## Phase 0: Stabilize
 
-> Score is 9/10 with 0 mod-breaking CRITICAL and no open retrospectives, so a full Phase 0 is not
-> warranted. One item is a genuine runtime-break risk that gates a fully clean release.
-
-| Item | Type | Priority | Complexity |
-|------|------|----------|------------|
-| **Regenerate `lib/Assembly-CSharp-nstrip.dll`** against the live game (EA 0.68a). Current copy is months stale. A stale publicized DLL compiles clean and throws `MissingMethodException` at runtime on any direct typed call into a changed game signature. WDI is one of only 6 mods whose built DLL carries *typed* game references (4, all resolving today), so this is a live risk here, unlike most nstrip binders. **Cannot be fixed by copy** - requires the operator's external NStrip tool, then a full rebuild. Fleet-wide gap, tracked as T1.71. | Runtime-break risk | P0 | Operator task (blocked on external tool) |
+> Skipped - audit score is 9/10 and there are no open retrospectives or CRITICAL issues. The two findings still printed in the 2026-10-13 sub-reports (code-quality F1, critical-analysis M4 README version history) were both fixed on disk the same day.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table stakes. Version, localization and build hygiene are already clean, so this phase is short:
-> two cheap code-hygiene fixes, one docs-currency fix, and the mod's single largest confidence hole
-> (Forge/Workshop duty verification).
+> Table-stakes hygiene. All table-stakes are already met; what remains is three low-urgency items.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **[B1] Unwrap `InnerException` in the two cosmetic Invoke catches** (`ActionInterceptPatch.cs:2074`, `:2609`) - change `ex.Message` to `ex.InnerException?.ToString() ?? ex.ToString()`. Closes the last unmet Invoke-catch rule; Debug-level cosmetic paths, so no behavior change. | Code hygiene | P1 | Quick |
-| **[G5] Add a WarnOnce breadcrumb** before the non-throwing null return in `GetCardData` (`ActionInterceptPatch.cs:810`) and the sibling structural field reads (`:746`, `:1925`). A future `CardModel`/`CardInteractions` rename would otherwise silently no-op every Grind/Hammer/quality gate with zero log (`reference_latch_blind_to_nonthrowing_null`). | Reliability | P1 | Quick |
-| **Verify the Forge (T2.89) and Workshop (T2.90) Partner duties in-game** in a save where the station is built, heated, and reachable - to separate a code bug from an untestable environment (the 2026-09-06 session had no reachable/heated station). This is the mod's single largest confidence hole. | Verification | P1 | Medium (play session) |
-| **Validate `StationDutyBaseWeight = 850`** (`Patcher/MillDutyPatch.cs`). Unvalidated tuning constant; confirm it does not starve vanilla survival duties. Rides the same play session. | Tuning | P1 | Quick |
-| **Update the stale EA-version string** (`ModInfo.json` Description "Tested with EA 0.66", `README.md:5` header, `README.md:267` Installation) to the true current-tested version. Live game data is EA 0.68a. Docs-currency only - do at the next version bump / migration; needs the owner's tested version, not a blind rewrite. Dated CHANGELOG entries (0.65/0.63f) are historical and left alone. | Docs currency | P1 | Quick |
-| **[F4/W4] Cache the per-click reflection + avoid the per-retry scene scan.** Prefer `EnumerateGameManagerAllCards()` in the lump/nugget/fish/iron retry loops as Grind All already does (up to ~60 `FindObjectsOfType` scans per Cast Metal Lump today); cache the `GraphicsManager` type in `RefreshOpenInventoryPopup`. Perf hygiene, correctness unaffected. | Framework hygiene | P2 | Quick |
-| **[I2-adjacent] Replace the `IndexOf` action gate** in `MillRaceNetwork.cs:396` (`IsDrawWaterAction("Draw")`, etc.) with exact matches or a documented per-card allow-list. Brittle over-match; low risk today (branches scoped to WDI card UIDs). | Brittleness hygiene | P2 | Quick |
-| **Re-run `/audit-blueprints WaterDrivenInfrastructure`** - the standing report scanned only 16 of the now-25 blueprints. Full set already covered by critical-analysis; this refreshes the domain report. | Audit coverage | P2 | Quick |
+| Record T2.601 (`wdi_partner_harvest_reeds_beds`) PASS via `/playthrough-test-plan record` - a 2026-10-09 harness PASS is logged but the row still reads `fail` | Tracker hygiene | P1 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> Two of the last cycle's three candidates shipped in 1.11.0 (Fish Funnel, Ore Sluice tailings) and one
-> (Fish Drying Rack) was ruled out. Most remaining ideas are gated behind the power-model decision in
-> Phase 3, so the least-blocked new content is a single infrastructure piece.
+> WDI's core loop is complete. The 1.12.x release already shipped the natural next additions (Fishpond feeding, Water Reservoir via the Mill-Race Cistern Feed, reed/cattail cultivation, station skill XP); they are pending human verification (T2.640-T2.647), not unbuilt. No new core content is justified by current scope.
 
-### Water Reservoir
-**What**: A large-scale CT2 water-storage structure, fillable during rainy seasons, acting as an offline
-buffer that keeps Mill Race Outlets producing when river access is seasonal.
-**Why**: Player-requested (Sirus23, Discord, 2026-08-08) and the natural next Infrastructure pick. It
-extends the outlet's existing water-supply role without needing the wheel power-model decision first.
-**Requires**: none blocking; decide storage capacity and refill rate.
-**Complexity**: Medium
-
-> **Fish Drying Rack is RULED OUT** (rejected 2026-08-16 by user decision): vanilla `DryingRack` +
-> `Smokehouse` already cover the raw-to-dried fish chain, so a WDI rack would be redundant. Re-promote
-> only with a genuinely differentiated angle (e.g. a passive WDI-side bonus to the vanilla stations).
-> Reason recorded in `.audit/ideas.md`, `Documentation/Ideas/.../IDEAS.md`, and
-> `Documentation/Design/WDI_Audit_Remediation_As_Built.md`.
+*No open Phase 2 content.* The only shelved content item is the owner-benched Cold-Water Cache (see Long-term Vision); re-promoting it is an owner decision, not roadmap-driven work.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-### Water Wheel power model (unblocks three downstream features)
-**What**: Decide whether to introduce an explicit load model (one wheel powers N stations, the N+1th
-needs a second wheel) or keep the current any-adjacent-race-works model. Needs a per-tick C# dispatcher
-either way.
-**Why**: This one decision is the bottleneck for the **Control Valve** (on/off toggle without
-dismantling), the **Overshot Wheel** (higher-throughput tier: shorter Cut/Hammer/Smelt timers or higher
-Blast gain), and the ACT bronze gear/bearing tier. The README's chain already implies one wheel feeds
-many machines, while every station in fact gates on mill-race adjacency alone.
-**Requires**: a design decision from the user before any code.
-**Complexity**: Complex
-
-### AdvancedCopperTools - bronze gear and bearing tier
-**What**: A bronze tier gated on ACT billets (SD4 metal types Tin=120, TinBronze=130, WhiteBronze=140),
-feeding a WDI Overshot Wheel upgrade.
-**Why**: The fastener/sheet interop is already live and proven both directions (`BlueprintAlternates`).
-A materials tier is the natural next rung, and WDI already hard-references ACT's SD4 scheme.
-**Requires**: the power-model decision above.
-**Complexity**: Medium
-
-### Community_Mod_Chest - iron fishing-rod fittings
-**What**: A WDI Workshop "Forge Iron Fittings" recipe producing the fittings CMC's fishing rod consumes.
-**Why**: WDI is the repo's only iron-forging station, and CMC's rod currently has no in-repo source for
-its metal parts. Tightest current cross-mod pairing.
-**Requires**: decide the UID owner first (memory `feedback_cross_mod_output_dependency`).
-**Complexity**: Medium
-
-### Powered Pond Aeration
-**What**: A wheel-driven aerator upgrade (or a "Water Mill nearby" gate) raising the pond's stocking cap
-in `FishpondPopulationPatch`.
-**Why**: The Fishpond gates on mill-race adjacency only - it never consumes the Water Wheel or Water
-Mill, so the flagship power source has no fisheries payoff. Distinct from feeding-for-growth (that speeds
-growth; this raises the ceiling).
-**Requires**: new cap values; decide gate-on-placed-Water-Mill vs. a consumable.
-**Complexity**: Medium
-
-### RepeatAction compatibility confirmation
-**What**: Confirm WDI's IEnumerator-wrapped Cut / Hammer All / Smelt are RepeatAction-queueable.
-**Why**: Verification task, not new content - WDI is the repo's bulk-processing mod and RA is the repo's
-repetition mod, so a silent incompatibility hits exactly the overlapping audience. Document either way.
-**Complexity**: Quick
+### AdvancedCopperTools interop (already wired - verification only)
+**What**: Confirm the Cast Iron Sheet (SD4 `Active:false`) is correctly rejected from an ACT copper-tier sheet slot, so the README "stays tier-locked (same-tier only)" claim holds for the iron sheet. No WDI blueprint is affected (the iron sheet is consumed by UID internally).
+**Why**: Honesty of a cross-mod claim; the bronze-gear tab and shared fasteners (Metal Nail / Tin Solder / Metal Sheet) are already framework-hosted and ACT is correctly declared optional.
+**Requires**: ACT installed; a new tracker row (none exists yet).
+**Complexity**: Quick (in-game check, not code)
 
 ---
 
 ## Phase 4: Polish
 
+> Art and localization are already complete (37 custom images, all CardImageWarpData resolve, Chinese parity 611/611, 0 em-dashes). No open polish items.
+
 | Item | What | Complexity |
 |------|------|------------|
-| Fish Funnel rate tuning | The +100% Common Fish Population boost is an untuned 1.11.0 placeholder. Once T2.198/T2.199 confirm it builds and doubles the rate, revisit the multiplier against realistic Funnel Trap fill times. | Quick |
-| Structure maintenance / wear loop | Water wheels and mill races never degrade. Add a `UsageDurability` drain plus a "Repair" DismantleAction consuming a few Planks. **Decision needed**: decay rate, and whether a fully-worn wheel stops powering downstream or only warns. Structure upkeep, distinct from the ruled-out tool-repair mechanic. | Complex |
-| Fishpond feeding for accelerated growth | A "Feed" DismantleAction consuming bugs or food scraps, boosting the growth already driven by `FishpondPopulationPatch`. Decision needed on feed types and acceleration. | Medium |
-| Sized storage station variants (QoL) | Sawmill (6 slots) and Workshop (14 slots) have fixed inventories. Decision: a separate log-yard / ingot-rack adjacent structure, vs. an in-place "Expand" upgrade swapping the station's CardModel for a higher-slot variant (in-place swap only - never `Destroy`). | Medium |
-| GIF animation candidates | The Water Wheel and Mill Race are the mod's identity cards and are static. See `Documentation/CSFF_GIF_Authoring.md`; framework ships native GIF support. | Medium |
+| (none open) | Images PASS, localization clean, descriptions accurate per critical-analysis | - |
 
 ---
 
 ## Long-term Vision
 
-At v2.0, WDI should be the repo's answer to "I have survived; now I want to industrialize." The
-infrastructure chain and the metalworking pipeline are both complete and standalone today, so the
-remaining growth is in two directions: **power that actually means something** (a load model, wheel
-tiers, and stations that consume the wheel rather than merely standing near it), and **automation the
-player can trust** (five Partner duties that are confirmed to fire, then extended - 3 of 5 confirmed so
-far). The Irrigation Mill Race Chain is the natural centerpiece: multi-environment plumbing where
-directional mill-race improvements carry flow across locations and a terminal race auto-tops
-`TilledField`/`GardenPlot` Hydration, turning WDI from a set of stations into a network the player routes.
+> Where this mod should be at v2.0.
 
-**Potential major additions** (not yet justified - revisit after Phase 3):
-- **Irrigation Mill Race Chain** - fully specced (6 JSON + 16 CSV + a multi-source BFS in
-  `IrrigationChainPatch.cs`); blocked on HerbsAndFungi crops for a meaningful flagship input.
-- **Water Reservoir** - promoted to Phase 2 above (player-requested).
-- **Stamp Mill / Ore Crusher** - a crushing step ahead of the Sluice, making ore processing a genuine
-  two-stage pipeline rather than one wide-input station.
-- **Aquatic plant cultivation** (watercress, reeds) - WDI owns every water structure in the repo and no
-  mod claims aquatic flora. Confirm vanilla ships no watercress/reed/cattail item first.
+WDI is already at its natural endpoint as a standalone late-game water-industry mod: a complete chain from raw river water and ore through mills, sluices, forges and fishponds, with Partner duties automating the stations and perks seeding kits at character creation. A v2.0 is a maturity milestone (full human verification of the 1.12.x features, the next NStrip regeneration, and a Stable/ move once owner-confirmed as human-tested), not a content expansion. The biggest addition that becomes natural only at larger scale is the benched Cold-Water Cache.
 
-**Explicitly ruled out - do not re-promote without an owner decision:**
-- **Water-powered Sharpening Wheel** (restoring `UsageDurability` on blades). Repo convention forbids
-  repair mechanics for crafted metal items (memory `feedback_no_repair_mechanics`); the sanctioned loop
-  is smelt-and-recraft. Requires an explicit carve-out from the user BEFORE any build.
-- **Fish Drying Rack** - see Phase 2 note.
-- **A bare index swap on `Api.ActionRouter`** to fix the T1.56 CardOnCardAction defect. Already attempted
-  and REVERTED - it double-fires every receiver-keyed drag handler across 6 mods. Framework-owned, fixed
-  in 2.25.29; do not attempt a WDI-local workaround.
+**Potential major additions** (not yet justified - revisit only on owner request):
+- Cold-Water Cache - owner-benched 2026-10-09 (built in 1.12.0, removed in 1.12.1). A spoilage-halving river cache kept strictly above vanilla's Ice Pit, needing no snow or ice. Recorded with its reason in "Considered, not selected" below; the full as-built spec and git-restore procedure are in `git show 09be321aa:Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`. Re-plan into a new `Documentation/Plans/WaterDrivenInfrastructure/MASTER_PLAN.md` when picked up.
 
-These live in `Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`. The promoted subset used to live
-in `Documentation/Plans/WaterDrivenInfrastructure/Audit_Remediation_Plan.md`; that plan drained on
-2026-09-07 and is archived at `Documentation/Design/WDI_Audit_Remediation_As_Built.md`.
+Any of these worth building belongs in the mod's plan under `Documentation/Plans/WaterDrivenInfrastructure/` when one is created; never a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
 ---
 
@@ -200,10 +79,10 @@ in `Documentation/Plans/WaterDrivenInfrastructure/Audit_Remediation_Plan.md`; th
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod WaterDrivenInfrastructure` and update this roadmap |
-| **Game version update** | Refresh `lib/Assembly-CSharp.dll` AND regenerate `lib/Assembly-CSharp-nstrip.dll` with NStrip, then rebuild. WDI carries its own nstrip copy and makes direct typed calls - a stale one is a silent `MissingMethodException`. Then `/update-mod-version`, `/diagnose-log`, and update the EA-version string in ModInfo/README. |
+| Game version update | Run `/update-mod-version`, refresh `lib/` DLLs (copy the game's `Assembly-CSharp.dll` into `lib/`, checked by `LibReference-Freshness.Tests.ps1`), re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis WaterDrivenInfrastructure` to verify the fix |
-| After any duty or `ActionRouter` change | Re-run the Partner duty playthrough items - this is the mod's least-verified subsystem |
-| After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump the minor version |
+| After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump minor version |
+| After human-testing the 1.12.x features | Record T2.640-T2.647 + T2.601; consider the Stable/ move |
 
 ---
 
@@ -212,14 +91,21 @@ in `Documentation/Plans/WaterDrivenInfrastructure/Audit_Remediation_Plan.md`; th
 ```
 /audit-mod WaterDrivenInfrastructure         - full health check, updates .audit/
 /critical-analysis WaterDrivenInfrastructure - adversarial review
-/audit-blueprints WaterDrivenInfrastructure  - close the 16-of-25 coverage gap (Phase 1)
 /repair-items WaterDrivenInfrastructure      - auto-fix item JSON issues
+/repair-blueprints WaterDrivenInfrastructure - auto-fix blueprint JSON issues
 /build-mod WaterDrivenInfrastructure         - build Release DLL
 /deploy-mods WaterDrivenInfrastructure       - build + deploy to game
 /update-mod-version WaterDrivenInfrastructure <ver> - bump version in all 3 files
 /export-to-repo WaterDrivenInfrastructure    - push to public repo
-/playthrough-test-plan record                - record the pending duty/quality verifications
 ```
+
+---
+
+## Considered, not selected
+
+| Option | Reason |
+|---|---|
+| Cold-Water Cache (was Round 2 plan feature 13; built in 1.12.0, removed in 1.12.1) | Benched by the owner 2026-10-09, not ruled out. Owner, verbatim: "Remove this as well bnch for later in ideas." Open when it comes back: whether it is wanted at all next to vanilla's Ice Pit, and whether its placeholder numbers (x0.5 spoilage, 2% daily flood loss, 4% in heavy rain) stay. Its blood-soaking quality penalty was never built: vanilla has no unbled-meat quality rule to anchor it. Full as-built spec, card-art brief and git-restore steps: `git show 09be321aa:Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md` (the last commit holding the feature is `fb10224c1`). |
 
 ---
 
@@ -358,3 +244,111 @@ conservation-checked line-by-line with a multiset compare against the HEAD blob.
   trim); T1.56 via T1.81 (framework card-on-card dispatch); T2.101 and T2.232 (Sheep Pen, without
   and with a wolf); plus the section 3 rows T2.89, T2.90, T2.212, T2.149, T2.137, T1.51, T2.113.
   All present in `.claude/playthrough-test-status.json`.
+
+### 2026-09-26 - Audit_Remediation_Plan (re-promoted 2026-09-22) drained and deleted
+- **Verdict:** 1 of 1 fix rows done and shipped; 0 feature rows (none were promoted). F1 (code-quality
+  B1: `ex.Message` in the two Debug-level Invoke catches `RefreshCardDurabilityVisuals` and
+  `RefreshOpenInventoryPopup` in `Patcher/ActionInterceptPatch.cs`) was fixed in source by `ac8406c65`
+  on 2026-09-22, the same commit that created the plan, with no version bump. It reached players in
+  1.11.3 (`9dddf47dd`, 2026-09-25). The plan stayed open only because it was waiting on that bump.
+- **Disposition:** DELETE. Nothing in it is the sole record of anything. The F1 fix and its reasoning
+  live in the `ac8406c65` commit message and this entry. The five Medium-Term candidates its Features
+  section named (Water Wheel power model, structure wear loop, Fishpond feeding, Fishpond Partner
+  fishing duty, Water Reservoir) stay in `Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`. The
+  Warnings its Promotion Log left unpromoted (G5, F4/W4, I2-adjacent, nstrip/T1.71, stale EA-version
+  string) are all Phase 0/1 rows above. No acceptance criterion needs a tracker row, because a Debug
+  log-text change has nothing a player can observe. There was no Implementation Prompts pack. Last
+  full text: `git show ac8406c65:Documentation/Plans/WaterDrivenInfrastructure/Audit_Remediation_Plan.md`.
+- **Pruned:** the whole plan (F1, the Features "none promoted" note, the Promotion Log). Phase 1's
+  [B1] row moved to "Resolved since the last roadmap" above, and the Stability line now says B1 shipped.
+- **Evidence:** `ActionInterceptPatch.cs:2083` and `:2618` read `ex.InnerException?.ToString() ??
+  ex.ToString()` on disk. `git merge-base --is-ancestor ac8406c65 9dddf47dd` is true. `ilspycmd` on the
+  committed 1.11.3 `bin/Release/WaterDrivenInfrastructure.dll` blob at `9dddf47dd` (the commit
+  `.claude/mod-publish-status.json` records as published; Nexus carries 1.11.3) shows both catches
+  unwrapping, while the same decompile of the pre-fix blob at `ac8406c65~1` shows `ex.Message` at both,
+  so the probe can tell the two apart. The row's scope claim ("every functional Invoke site in the
+  mod already unwraps correctly") was re-checked rather than inherited: a try/catch scan of all 10 WDI
+  `.cs` files found 47 `ex.Message` catches without an unwrap and 0 whose try body calls `.Invoke(`,
+  and the same scan over the pre-fix source found exactly the 2 F1 sites (control). Citation sweep:
+  the live pointers were this ROADMAP's Phase 1 row and the "not yet shipped" resolution lines in the
+  untracked `.audit/summary.md` and `.audit/code-quality.md` (a shipped line appended to each).
+  `Documentation/Fleet_Review_Queue.md` (42nd-pass narrative and row 307) and two memory files cite
+  the path as dated records and were left as written.
+- **Verification debt:** none from this plan.
+
+### 2026-09-28 - Content_Update_Plan (WDI 1.12.0 Waterside Homestead) built and archived
+- **Verdict:** 4 of 4 selected features built on the plan's defaults and versioned 1.12.0: Mill-Race
+  Cistern Feed, Fishpond Feeding, Reed and Cattail Beds, Millwright's Craft skill XP. 0 build rows open.
+  Open questions 1 (irrigation) and 2 (Partner fishing duty) were never in scope and stay in IDEAS.md.
+  12 acceptance checks await verification, all filed; 7 are harness work, 5 need a person.
+- **Disposition:** ARCHIVE. The plan moved verbatim, plus an "As built" section, to
+  `Documentation/Design/WaterDrivenInfrastructure_Content_Update_1_12_0_As_Built.md`;
+  `Documentation/Plans/WaterDrivenInfrastructure/` is empty and removed. The 12 tracker rows and their
+  checklist entries point at the archive; the IDEAS.md header names it beside its dated plan citation.
+- **Pruned:** nothing. The TestHarness scenarios its Acceptance blocks name were not written; they are
+  carried by the `[harness]` rows below ("needs a scenario written, then a run").
+- **Evidence:** `WaterDrivenInfrastructure.Tests.ps1` 11/11 with 6 new self-demonstrating contracts;
+  189/189 across the neighbouring card, blueprint, localization, art and stat gates;
+  `Check-LocalizationParity.ps1` CLEAN 472/472; `dotnet build -c Release` 0/0; `Audit-Mod-Preflight.ps1`
+  0 critical, 0 warning, versions 1.12.0 in all three places. Card census after the change: CT0 24, CT2 13,
+  CT7 27, CT10 4; `BlueprintTabs.json` 27 entries. Live `GameTechInfo.HotfixNumber` read as 2 (EA 0.68b).
+- **Verification debt:** T2.380-T2.383 (cistern feed), T2.384-T2.385 (feeding), T2.386-T2.389 (beds),
+  T2.390-T2.391 (skill XP), all in `.claude/playthrough-test-status.json`.
+
+### 2026-10-04 - MASTER_PLAN
+
+- **Verdict:** counts: 16 feature sections checked (3, 9, 10, 11, 12, 13, 16, 17, 18, 20, 21, 22, 23, 24, 25, 26) and 17 pack prompts. 0 features newly verified done; 3 built (feature 9 awaiting T2.606, feature 24 awaiting the person's look at the art in T2.609, feature 10 built but T2.608 LEG C failed twice); 13 open and still unbuilt. Prompts: 1 verified done and removed (Prompt 2, scenario repairs landed in a6bf2e1f8), 16 open (was 17). One stale claim corrected: WDI source moved after 5829060cc (cb8d632d7, the Reed Bed and Cattail Bed card art).
+- **Disposition:** KEEP IN PLACE (open work remains: 16 open prompts).
+- **Pruned:** pack Prompt 2 (cistern amounts T2.380-T2.383 and the T2.457 reload route), its "failed, fix pass open" bullet (moved to the Awaiting verification list), and the plan's "Remaining implementation" row for it; no plan feature section was deleted (none newly done). Plan and pack wording about Prompt 2, the game's deployed WDI commit and T2.609's record step was corrected, and a dated status paragraph appended to the plan.
+- **Evidence:** `git grep -il -E` over `WaterDrivenInfrastructure/` (excluding bin and obj) for the unbuilt features' markers returned 0 files each (Closed outlet or Close Valve, `tag_x_WaterSource`, `copper_bathtub_empty_placed`, `coldwater_cache`, `Spearfish`, `bronze_gear`, `stamp_mill` or `Stamp All`, `wdiHarvest`, `wdiFishPond`, `_Expanded`, `CardGif`; `overshot` and `wdi_action_batch` hit only `ROADMAP.md`), and the same probe form returned 10 files for `water_basin`, 3 for `HasHeatSourceAt`, 8 for the Workshop iron crafts, 7 for `Scatter Fish Food` and 2 for `WdiOutletFeedsCistern` (the control that the probe can hit); `ls-files` shows no `Resource/GIF`, `CardData/Gif` or `ScriptableObject` folder and five NPCDuty files (no sixth, no harvest or pond duty). Code claims re-read: `InvokeSpendDaytimePoints` 0 hits in `Patcher` (helper removed as the pack says; the same loop returned non-zero for 19 other symbols), `MillGrindAll` and `SluiceAll` still `ActionTiming.Cancel` in `ActionInterceptPatch.cs`, Sawmill 6 slots and 20000 weight, Workshop 14 slots, Grinding Mill 18 slots and 8000 weight, all non-mini. `git diff --stat 5829060cc HEAD -- WaterDrivenInfrastructure` (bin and obj excluded) lists 7 files, all the bed art; `bin/Release/WaterDrivenInfrastructure.dll` md5 starts 1863985e as the pack recorded. `git show a6bf2e1f8` read for T2.380-T2.383 and T2.457 (expectations netted for evaporation, `session/clone` slot 9 to 10); the scenarios were NOT re-validated by `--dry-run` here (no harness in this pass) and the evaporation figure was not re-derived from the export. Tracker: every T-id left in the plan (26) and pack (22 after the edit) resolves to a row in `.claude/playthrough-test-status.json` (892 rows scanned by script, 0 missing); T2.80, T2.87 and T2.88 sit in `confirmedItems`, the rest in `items`. T2.435's scenario file still scripts only the Sawmill Cut leg (its three open legs appear only in its `covers` text), so Prompt 3 stands.
+- **Verification debt:** T2.606 (feature 9 without ACT); T2.608 (feature 10, LEG C failed); T2.609 (art look); T2.380-T2.383 and T2.457 (repaired, rerun owed); T2.384-T2.391 (never run); T2.435 (three legs unscripted); T2.89 and T2.90 (fail, feature 3); T2.198 and T2.199 (feature 20); T2.601 (dated fail, re-armed by a new row in Prompt 14).
+
+### 2026-10-07 - MASTER_PLAN (cleanup-plans fleet sweep)
+- **Verdict:** 15 plan claims re-checked (features 3, 11, 12, 13, 16, 17, 18, 21, 23, 24, 25, release tail 14, the four-image art gap, and the 1.12.0 harness-lane rows) and 6 pack prompts. VERIFIED-DONE pruned: 0 new features (feature 16's long section collapsed, not deleted), plus already-done leftovers removed: Selected rows 9, 22 and 26, Wave 0 row FW3, the beds' Wave 0 findings bullet, 5 risk rows (features 9 and 22, the flood-stat roll after T2.618, the action-time lever after T2.620). BUILT awaiting verification: 7 features (3, 13, 16, 17, 21, 24, 25) plus the harness-lane rows, 9 pack items. OPEN: 6 prompts (19 art, 9 bronze gears, 15 pond duty, 16 Expand, 13 GIF, 17 closeout), unchanged. FAILED (harness, recorded or not): T2.384, T2.387, T2.388, T2.617, T2.619, T2.623, T2.624. OBSOLETE: 0. STALE-CLAIM corrected: 2 (the deployed WDI build is 06be9f74f, md5 be47ee3a, deployed 2026-10-06 12:39, not the 2026-10-05 merge build; feature 16 was built while its section still carried full Build prose). Pack reordered so Prompt 19 is first, matching the plan's dispatch order.
+- **Disposition:** KEEP IN PLACE - 6 open rows of code work remain.
+- **Pruned:** plan: feature 16's Player-facing/Grounding/Build/Rules/Acceptance/Risk/Done/Depends prose (collapsed to a BUILT pointer, text at `a11a1fd6f`), Selected rows 9, 22, 26, Wave 0 row FW3, the beds' Wave 0 findings bullet, five risk rows, Open question 6 to one line, and the four dated status paragraphs condensed into one history paragraph (they resolve at `a11a1fd6f`). Pack: no prompt removed; the Awaiting verification list moved under a real `## Awaiting verification` heading with one compact line per item, and the 2026-10-07 harness readings folded in.
+- **Evidence:** `Grep` over `WaterDrivenInfrastructure/` (bin and obj excluded): `tag_x_WaterSource` hits `Patcher/MillRaceNetwork.cs` line 425 and bathtub code sits in `Patcher/BathtubPlumbingPatch.cs` (TransformCardInPlace then SetDurability, ActCompat-gated), the control that the probe hits; `bronze_gear` 1 file (`ROADMAP.md` only); no `*.gif`, no `CardData/Gif`, no `*Expanded*` file; `NPCDuty/` holds 8 files, none a pond duty; `Resource/Picture/` has no ColdWaterCache, OvershotWheel, StampMill or StampMillKit PNG while 7 card JSONs name them. `git log 72f04b7eb..HEAD` on WDI source: no commits after 06be9f74f. Deployed `WaterDrivenInfrastructure.dll` md5 be47ee3a equals `bin/Release`. Tracker: all 30 plan and 26 pack T-ids resolve (1001 rows scanned). Harness reports dated 2026-10-07 under `TestHarness/client/reports/`: PASS for T2.90, T2.198, T2.609, T2.621, T2.622; FAIL for T2.384 (step 78), T2.387 (66), T2.388 (18 steps), T2.617 (20), T2.619 (24), T2.623 (36, only its cost "2" expectation: the Partner's Stamp All started at cost 0), T2.624 (35, 37: a Heated Copper Nugget, no Unfinished Metal Bar). None of these is recorded in the tracker yet.
+- **Verification debt:** T2.90, T2.609, T2.631 (scenario still to write), T2.617, T2.619, T2.621, T2.622, T2.623, T2.384, T2.387, T2.388, T2.390, T2.391, T2.198, T2.624.
+
+### 2026-10-09 - MASTER_PLAN
+- **Verdict:** 14 plan claims re-checked (features 3, 11, 12, 13, 16, 17, 18, 21, 23, 24, 25, release tail 14, the four-image art gap, and the 1.12.0 harness-lane rows) and 6 pack prompts. VERIFIED-DONE: 1 (feature 3, T2.89 and T2.90 CONFIRMED). BUILT awaiting verification: 4 features (13, 21, 24, 25) plus the harness-lane rows, 6 pack items. FAILED (harness, unrecorded, not yet triaged scenario vs code): 3 (feature 17 T2.619, feature 16 T2.631, T2.624). OPEN: 6 prompts (19 art, 9 bronze gears, 15 pond duty, 16 Expand, 13 GIF, 17 closeout), unchanged and still in that order; Prompt 19 is the next dispatch (no deps, art only, closes the Sprite-NameResolves gap). OBSOLETE: 0. STALE-CLAIM corrected: 2 (T2.631's scenario is written, 48b0a0c1c, and fails, where the plan said "scenario still to write"; T2.623 no longer fails on its cost expectation but its PASS was rejected by a skeptic).
+- **Disposition:** KEEP IN PLACE - 6 open prompts of code and art work remain.
+- **Pruned:** plan: section 3 (Forge and Workshop Partner duties; text at `cc21d71ee`), its Selected row, its risk-register row and its Phase A label; the one load-bearing fact (a Partner-performed DismantleAction reaches its `AfterWrapped` handler, T2.90 step 44) moved into section 12's Depends on. Pointers for features 13, 16, 17, 21, 24 and 25 re-worded to the 2026-10-09 tracker and harness state, and a dated status paragraph appended. Pack: the feature 3 Awaiting bullet removed (T2.90 CONFIRMED in 51641ef64); feature 16, feature 17 and T2.624 moved to a new "Failed - needs a fix pass" list; Prompt 17 steps 2 and 3 updated (README's Workshop-duty caveat can go now). No prompt removed. Nothing committed by this pass.
+- **Evidence:** `git log a11a1fd6f..HEAD -- WaterDrivenInfrastructure` returned 3 commits, none touching source: 850b3dc9d (ROADMAP), e57d44cfc (the committed `bin/Release` DLL) and 2d9e0cccc (`.art/reference-uploads.json`); `git log 06be9f74f..HEAD` likewise. Deployed `WaterDrivenInfrastructure.dll` md5 be47ee3a equals `bin/Release` (both 2026-10-06 12:39). Unbuilt features re-probed: `NPCDuty/` holds 8 files, none a pond duty; a grep for `bronze_gear`, `_Expanded` and `wdiFishPond` over WDI JSON and C# returned 0 files, and no `*.gif` under any `Resource/`; control: 7 `CardImageWarpData` lines name the four missing sprites while `Resource/Picture/` holds 0 of those PNGs. Tracker read by script (WDI rows across items, confirmedItems and droppedItems): T2.89, T2.90, T2.609, T2.618, T2.620 in `confirmedItems`; T2.198, T2.384, T2.387, T2.388, T2.390, T2.391, T2.617, T2.619, T2.621, T2.622, T2.623, T2.624, T2.631, T2.1384, T2.1385 pending. Harness `report.md` verdicts under `TestHarness/client/reports/`, newest per row: PASS on 2026-10-09 for T2.198, T2.384, T2.387 (after a FAIL the same morning), T2.388, T2.390, T2.391, T2.617, T2.621, T2.622, T2.623; FAIL for T2.619 (step 36, Sturgeon Quality 63 against 72), T2.624 (steps 35 and 37) and T2.631 (step 29). T2.621 and T2.623's PASSes are on the coordinator's list of 40 rejected by a skeptic in the 51641ef64 review, so they are not counted as done. Citation sweep for the deleted section 3 over `Documentation/`, the tracker, `Playthrough_Test/`, the WDI scenarios, the mod folder and the memory directory: only in-plan references, all rewritten.
+- **Verification debt:** T2.1385, T2.617, T2.621, T2.622, T2.623, T2.619, T2.631, T2.624, T2.198, T2.1384, T2.384, T2.387, T2.388, T2.390, T2.391.
+
+### 2026-10-09 - MASTER_PLAN feature 13 removed by owner decision (WDI 1.12.1)
+- **Verdict:** 1 feature removed from the plan and the mod (feature 13, the Cold-Water Cache), not done and not ruled out: the owner said "Remove this as well bnch for later in ideas." 0 other features changed.
+- **Disposition:** KEEP IN PLACE - the plan still holds open code and art prompts (pack Prompts 19, 9, 15, 16, 13, 17); feature 13 is benched in `Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`.
+- **Pruned:** plan: section 13 (reduced to a removal pointer), its Selected row, its art-table item, its risk row, Open question 12 (moot), its Wave 0 findings bullet and the Considered row for the undrained-blood loss (all moved to the Ideas file; text at `fb10224c1`). Pack: its Awaiting verification item, ColdWaterCache in Prompt 19, and its docs-list mention. Mod: both cache cards, `Patcher/ColdWaterCachePatch.cs`, its wiring, nine CSV rows per language, README section, Features.json group, WDI Pester contract, two harness scenarios.
+- **Evidence:** a case-insensitive grep for `coldwater`, `cold-water` and `ColdWaterCache` over `WaterDrivenInfrastructure/` (bin, obj excluded) leaves only CHANGELOG history and earlier entries of this log; a Release build of WDI succeeds; save behaviour read from `.decomp/GameManager.cs` (`LoadCard` returns false for an unresolved UniqueID, so the cache and its contents are not loaded).
+- **Verification debt:** none added; the cache's tracker rows are retired with it.
+
+### 2026-10-09 (later) - MASTER_PLAN, second /cleanup-plans pass
+- **Verdict:** NOT drained. 7 open prompts (19 art, 20 new T2.624 fix, 9, 15, 16, 13, 17); features 11, 12, 18, 23 unbuilt; 4 built awaiting verification (17, 21, 24, 25); feature 16 built but blocked on ACT (T2.631); feature 13 removed by the owner.
+- **Disposition:** KEEP IN PLACE - code work remains.
+- **Pruned:** no sections; 7 stale claims corrected (version 1.12.1, no ACT plugin dependency since e90668165, ActCompat MetalPartsPresent/IsInstalled split 76aac3d8a, act_tin_ore entries removed c6b2bad35, new Overshot Wheel recipe and withdrawn Partner time claim e0fd3ad36); the pack's Failed section replaced by "Blocked - on another mod"; new Prompt 20 for GameLoadPatch.InjectGreenstonePowderSmeltRecipe overwriting the Smelt Greenstone drop with a Metal Nugget.
+- **Evidence:** audited against 1d9cbf121. Grep finds no .gif/CardData/Gif, no pond duty among the eight NPCDuty files, no _Expanded card and no bronze_gear (four open features unbuilt); OvershotWheel, StampMill and StampMillKit PNGs absent; deployed DLL md5 equals bin/Release. Gates Plans-AwaitingRowIds 5/5, Plans-Policy 12/12, PlaythroughRow-Citations 13/13, PlanReconciliation-Record 13/13.
+- **Verification debt:** T2.619, T2.621, T2.623, T2.624 (reruns); T2.631 (blocked on the ACT T2.785 fix); T2.388 (PASS, FIX-SCENARIO at the 2026-10-09 second review); T2.391 (newest run FAIL); T2.198, T2.384, T2.387, T2.390 and T2.622 recorded CONFIRMED the same day. A tracker row for the rebuilt Overshot Wheel recipe is owed (pack Prompt 17).
+
+### 2026-10-10 - MASTER_PLAN drained and archived (/cleanup-plans apply)
+- **Verdict:** DRAINED. 0 open prompts (pack Prompts 1 to 22 all done; 21 was a scenario-fault triage, 17 the release closeout, 22 the empty-station duty gate). Every feature section is built: 11 (GIF), 12 (Partner pond duty), 16 (water-source tag and bathtub, blocked only on ACT's own `tag_WaterAny` data), 17 (rod and spear), 18 (Expand), 21 (Overshot Wheel), 23 (bronze gears), 24 (Water Basin), 25 (Stamp Mill); feature 13 removed by the owner; Open questions 2 and 3 are owner decisions with no code depending on them. The 2026-10-10 pass also fixed two WDI bugs the reruns exposed (pond catch gates at a hundredth of a fish; PondRodSpearCatch wiping FishCatchStats' shared ctx.Tag so no pond Catch stamped Quality 72; f1ba06d15) and an unquoted CSV comma (6cef1b325).
+- **Disposition:** ARCHIVE to `Documentation/Design/WaterDrivenInfrastructure_Round2_As_Built.md` (the Considered table with its rejection reasons, the Wave 0 findings and the open owner questions are design detail worth keeping); the pack is deleted, its final Awaiting verification, Blocked and Not-WDI sections folded into the archive as an appendix. WDI 1.12.2 is unpublished; the mod is now a `Stable/` candidate (`Stable/README.md`, move with `Development_Tools/Move-ModFolder.ps1`).
+- **Pruned:** the whole plan and pack left `Documentation/Plans/`; 61 inbound citations across 32 files repointed to the archive (dated records left as they were: earlier entries of this log and `Documentation/Reports/Plan_Review/plan-review.html`).
+- **Evidence:** existence probe over `WaterDrivenInfrastructure/` with a control (`CardData/Location/Fishpond_Filled.json`: 1 hit): GIF 2 files, pond duty references 4, `BathtubPlumbingPatch.cs` 1, PondRodSpear handlers 2, Expanded cards 2, Overshot cards 2, bronze gear cards 4, Water Basin cards 2, Stamp Mill cards 3, the Prompt 22 postfix 3 lines. Harness on WDI 1.12.2 (rigs 12 to 16, committed source): T2.388, T2.391, T2.619, T2.621, T2.623, T2.624, T2.633, T2.634, T2.635, T2.636, T2.637 and T2.638 PASS on 2026-10-10 (`autoplay.py audit` read all twelve FULL against 6cef1b325; the final rerun against 9f286d129 is cited in each row's note). WDI Release build 0 warnings; WDI Pester contracts green except 'Winter heat sources', red only after the non-WDI commits 409b61f25, d8db146f1 and 29dd4001b.
+- **Verification debt:** T2.388, T2.391, T2.619, T2.621, T2.623, T2.624, T2.633, T2.634, T2.635, T2.636, T2.637, T2.638 (harness PASS, awaiting `autoplay.py record --apply`, blocked on 2026-10-10 by other sessions' uncommitted tracker edits); T2.639, T2.1384, T2.1385 (a person's look at art); T2.631 (blocked on ACT's bathtub data, then rerun).
+
+### 2026-10-11 - Fleet MASTER_PLAN (cross-mod decoupling), /cleanup-plans Fleet apply
+- Scope: Fleet (cross-mod plan; the same entry is recorded in the ROADMAP of every mod it names: Community_Mod_Chest, AdvancedCopperTools, WaterDrivenInfrastructure, HomesteadPerks, HerbsAndFungi, Sirus23_Mod_Collection, CSFFModFramework).
+- **Verdict:** DRAINED. Features 1-13 all built (1-3, 6, 7, 9, 12 in the commits `33ab18fe9`, `a3f965d43`, `76aac3d8a`, `cc0115b9e`, `fed7f7d0a`, `c6b2bad35`, `31034e212`, `e7b558ead`, `7219cd11d`), 0 open pack prompts, 0 unbuilt rows; every acceptance row recorded CONFIRMED (T2.789, T2.632, T2.997, T2.999, T2.998, T2.549, T2.557, T2.560, T2.1236 to T2.1242). Open question 4 settled by measurement, not by an owner choice.
+- **Disposition:** ARCHIVE - the plan moved to `Documentation/Design/Fleet_Cross_Mod_Decoupling_As_Built.md` with its Considered table and its drained prompt pack appended; the pack was deleted.
+- **Pruned:** plan sections 1, 2, 3, 6, 7, 9 and 12 (each BUILT and confirmed), the stale "awaiting verification" pointers, open question 4's default text (replaced by its measured outcome); pack Prompts 9 and 10 (Prompt 10 had already been built in `e7b558ead`, the pack was stale on that point).
+- **Evidence:** on dev lane rig 6 at HEAD (H&F, Harsh Wilds and Sirus23 deployed from the working tree, the rest synced from the real install), harness PASS for T2.557, T2.560, T2.632, T2.997 (both variants), T2.999 and T2.1236 to T2.1242; two independent skeptic reviews of all twelve rows (`.claude/handoffs/skeptic-review-2026-10-11-fleet/r-a.md`, `r-b.md`): 11 RECORD-PASS, and T2.560 FIX-SCENARIO (its brine leg dragged the non-draggable Liquid sub-card, so it passed on any build; fixed in the scenario and rerun PASS with a real refusal, "Dropping 'Pickle Brine' onto 'Wolf Companion' does nothing", beside the same container type with water running Give Water once). Three of the seven absent-partner pins had drifted since 2026-10-09 and were re-measured from real alone-boots (CMC 48 entries, five sprites now resolve; H&F plus twelve of its own map-node forward references; Harsh Wilds plus the Forest Lore `fl_mud_volcano` weight row; WDI now 0 lines), each entry checked against `Documentation/Interop_Registry.md`. End state: `grep BepInDependency(` over every `Plugin.cs` finds 13 files and none names anything but CSFFModFramework (the 13 matches are the control that the scan can hit). Open question 4 probe: with Sirus23 set aside the Wool-Quilted Cap and Vest each keep four requirement slots and the Wool one is null (measured), and a researched blueprint is left alone by `AcademyCourseService.HideWoolQuiltedIfNoWool` (read from code).
+- **Verification debt:** none open. One unplayed fact, deliberately without a row: what a craft of an already-researched Wool-Quilted recipe asks for after Sirus23 is removed (the game reads a null slot as no requirement, the fleet audit's reading of the code); CMC's README states it as unplayed. Releases still owed per mod under its own version rules (`.claude/nexus-publish-status.json` against `ModInfo.json`, read 2026-10-11): framework 2.28.0 (Nexus holds 2.26.12), CMC 1.69.6 (1.68.45), ACT 1.18.1 (1.16.10), WDI 1.12.2 (1.11.3), HSP 1.3.1 (1.2.4), H&F 1.14.1 (1.13.7) and Sirus23 1.22.0 (1.21.6); MUM not repacked for this change.
+
+### 2026-10-13 - Ideas exception closed: Cold-Water Cache moved out of Documentation/Ideas
+- **Verdict:** 1 benched idea (the Cold-Water Cache, Round 2 plan feature 13, built in 1.12.0 and removed in 1.12.1) was the only entry in `Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`. It is benched, not ruled out: owner 2026-10-09, verbatim, "Remove this as well bnch for later in ideas." 0 code rows; WDI has no plan folder.
+- **Disposition:** DELETE the IDEAS.md (the folder held nothing else) and record the idea in this ROADMAP's "Considered, not selected" table with its reason, per root CLAUDE.md "Plans folder" (no backlog under `Documentation/Ideas/` since 2026-10-01). Re-plan it into a new `Documentation/Plans/WaterDrivenInfrastructure/MASTER_PLAN.md` when picked up.
+- **Pruned:** `Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md` (full spec, card-art brief and restore steps stay readable with `git show 09be321aa:Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`; the last commit holding the feature's code is `fb10224c1`).
+- **Evidence:** `ls Documentation/Ideas/WaterDrivenInfrastructure/` listed only IDEAS.md; its one entry read in full (quote above copied from it). `git grep -n "Ideas/WaterDrivenInfrastructure"` found live pointers in this ROADMAP's Long-term Vision (repointed here), `Documentation/Ideas/IDEAS_OVERVIEW.md` lines 37-39 and `.claude/playthrough-test-status.json` lines 3204-3205 (both outside this pass's write scope, left for their owners), and dated records (As_Built docs, earlier entries of this log, CHANGELOG 1.12.1) left as written.
+- **Verification debt:** none (no code changed; the feature is not in the mod).

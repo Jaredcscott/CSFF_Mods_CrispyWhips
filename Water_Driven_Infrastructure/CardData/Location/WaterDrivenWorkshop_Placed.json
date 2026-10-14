@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_workshop_placed",
     "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CardHelpSection",
-    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop when water is frozen in winter.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own — no Blast needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing — each strike also raises the item's Metal Quality by a small amount (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output; results appear on the ground beside the workshop.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.\n\n<b>Iron:</b> Iron nuggets and iron blooms heat more slowly than copper. All metal heats once the forge is lit."
+    "DefaultText": "<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The optional Winter Station Lock setting (off by default) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own — no Blast needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing — each strike also raises the item's Metal Quality by a small amount (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output. Six iron-grade nuggets (Metal Type 200, from the Ore Sluice or from smelting iron items) work the same way with Forge Iron Nails or Hammer Iron Sheet, and each craft takes only nuggets of its own grade. Results appear on the ground beside the workshop.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.\n\n<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the workshop to fit it (30 minutes): Hammer All then takes 15 minutes instead of 30; Blast and the crafts are unchanged. Pack Up (Overshot) packs the workshop and gives the wheel back.\n\n<b>Expand:</b> Press Expand (30 minutes) to rebuild the workshop larger in place: its capacity grows from 5000 to 7000 weight. Everything inside it, its temperature and any fitted Overshot Wheel are kept. It costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200), taken from your inventory or from cards lying at this location, never from the workshop's own slots; Expand does nothing until you hold them. Pack Up returns the plain kit, so the expansion is paid for again."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -101,9 +101,7 @@
   "SpecialDurability2": {
     "Active": false
   },
-  "SpecialDurability3": {
-    "Active": false
-  },
+  "SpecialDurability3": {"Active": true, "FloatValue": 0.0, "MaxValue": 1.0, "CardStatName": {"ParentObjectID": "water_sawmill_workshop_placed", "LocalizationKey": "Water_Sawmill_OvershotWheel_StatName", "DefaultText": "Overshot Wheel"}, "RatePerDaytimePoint": 0.0, "HidingOptions": 3},
   "SpecialDurability4": {
     "Active": false
   },
@@ -215,7 +213,6 @@
       "water_sawmill_iron_bearing",
       "water_sawmill_iron_axle",
       "water_sawmill_iron_wrench",
-      "act_tin_ore",
       "cef83c7cd50093b489f4f19615bb2ddc"
     ],
     "AcceptedCardsWarpType": 3,
@@ -246,7 +243,450 @@
   "ContainedBlueprintCardsWarpData": [],
   "ContainedBlueprintCardsWarpType": 3,
   "ContainedBlueprintsDontStartUnlocked": false,
+  "ActionModifiers": [
+    {
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredComplexCardConditions": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "RequiredInventoryWeight": {
+          "Active": false,
+          "Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsePercentage": false,
+          "Invert": false
+        },
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "ReceivingCardSpices": [],
+        "GivenCardSpices": [],
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredNPCActiveDuties": [],
+        "RequiredNPCAtHome": [],
+        "RequiredPresentNPCS": [],
+        "RequiredInGameTimes": [],
+        "RequiredAlreadyVisitedEnvironments": [],
+        "RequiredUnlockedBps": [],
+        "RequiredNOTUnlockedBps": [],
+        "NPCInventoryConditions": [],
+        "NPCExists": []
+      },
+      "WorksWithNPCs": true,
+      "AppliesTo": [],
+      "AppliesToWarpData": [
+        "wdi_action_batch"
+      ],
+      "AppliesToWarpType": 3,
+      "ExploreDirectionFilter": [],
+      "ActionAddedSuffix": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "BlocksAction": false,
+      "ActionBlockMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "DurationModifier": -1,
+      "AddedStatModifiers": [],
+      "ReceivingDurabilities": {
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "GivenDurabilities": {
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "DropsDurabilities": {
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "IgnoreStatConditions": [],
+      "AddedTemporaryStatModifiers": [],
+      "OverrideActionSounds": [],
+      "DisablePitchVariation": false,
+      "OverrideFadeToBlack": false,
+      "FadeToBlack": 0,
+      "OverrideFadeMessage": {
+        "Active": false,
+        "Text": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        }
+      }
+    }
+  ],
   "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_FitOvershotWheel_ActionName",
+        "DefaultText": "Fit Overshot Wheel"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_FitOvershotWheel_ActionDescription",
+        "DefaultText": "Fit the Overshot Wheel to this station: its batch action then takes less time."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [
+          "water_sawmill_overshot_wheel"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special3Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      }
+    },
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_workshop_placed",
@@ -867,7 +1307,8 @@
               "Quantity": {
                 "x": 1.0,
                 "y": 2.0
-              }
+              },
+              "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 2, "Special3": 0, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 100.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
             }
           ]
         }
@@ -884,13 +1325,38 @@
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_Expand_ActionName",
+        "DefaultText": "Expand"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_Expand_ActionDescription",
+        "DefaultText": "Rebuild this workshop larger in place: capacity grows from 5000 to 7000 weight. Costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200) from your inventory or this location, never from the workshop's own slots."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Metal"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
         "LocalizationKey": "Water_Sawmill_ForgePlaced_Blast_ActionName",
         "DefaultText": "Blast"
       },
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_placed",
         "LocalizationKey": "Water_Sawmill_ForgePlaced_Blast_ActionDescription",
-        "DefaultText": "Drive the water-powered bellows to push the forge to smelting heat, warming you in the process. Requires fuel, a lit fire, and flowing water."
+        "DefaultText": "Drive the water-powered bellows to push the forge to smelting heat. Requires fuel, a lit fire, and flowing water."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,
@@ -968,31 +1434,7 @@
         }
       },
       "ProducedCards": [],
-      "StatModifications": [
-        {
-          "Stat": {
-            "m_FileID": 0,
-            "m_PathID": 0
-          },
-          "StatWarpData": "d875c7e4eea52f54ca5076f256ccd16c",
-          "StatWarpType": 3,
-          "ValueModifier": {
-            "x": 160.0,
-            "y": 160.0
-          },
-          "TriggerStat": {
-            "m_FileID": 0,
-            "m_PathID": 0
-          },
-          "TriggerStatWarpData": "",
-          "TriggerStatWarpType": 3,
-          "TriggerValue": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "TriggerStatValueIsMax": false
-        }
-      ]
+      "StatModifications": []
     },
     {
       "ActionName": {
@@ -1009,7 +1451,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionTagsWarpData": [],
+      "ActionTagsWarpData": ["wdi_action_batch"],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
         "Metal"
@@ -1086,7 +1528,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_placed",
         "LocalizationKey": "Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionDescription",
-        "DefaultText": "Hammer six copper nuggets from the workshop inventory into a copper sheet."
+        "DefaultText": "Hammer six copper nuggets from the workshop inventory into a Copper Sheet (a Metal Sheet of copper)."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,
@@ -1163,7 +1605,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_placed",
         "LocalizationKey": "Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionDescription",
-        "DefaultText": "Forge six copper nuggets from the workshop inventory into six copper nails."
+        "DefaultText": "Forge six copper nuggets from the workshop inventory into six Copper Nails (Metal Nails of copper)."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,
@@ -1240,7 +1682,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_placed",
         "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionDescription",
-        "DefaultText": "Pour four copper nuggets from the workshop inventory into a mold to cast one unfinished metal lump."
+        "DefaultText": "Pour six copper nuggets from the workshop inventory into a mold to cast one unfinished metal lump at their average quality."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,
@@ -1311,6 +1753,160 @@
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_ForgeIronRivets_ActionName",
+        "DefaultText": "Forge Iron Nails"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_ForgeIronRivets_ActionDescription",
+        "DefaultText": "Forge six iron-grade nuggets from the workshop inventory into six Iron Nails (Metal Nails of Metal Type 200)."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.5,
+          "MaxValue": 1.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_FailMessage",
+          "DefaultText": "Forge must be at working heat. Use Blast first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_HammerIronSheet_ActionName",
+        "DefaultText": "Hammer Iron Sheet"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_HammerIronSheet_ActionDescription",
+        "DefaultText": "Hammer six iron-grade nuggets from the workshop inventory into an Iron Sheet (a Metal Sheet of Metal Type 200)."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.5,
+          "MaxValue": 1.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_FailMessage",
+          "DefaultText": "Forge must be at working heat. Use Blast first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+{
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
         "LocalizationKey": "Water_Sawmill_WorkshopPlaced_PickUp_ActionName",
         "DefaultText": "Pack Up"
       },
@@ -1339,7 +1935,160 @@
         "TransformIntoWarpType": 3,
         "TransferInventory": false,
         "SpawnTransformAtSource": true
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
       }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_PickUpOvershot_ActionName",
+        "DefaultText": "Pack Up (Overshot)"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_PickUpOvershot_ActionDescription",
+        "DefaultText": "Pack up the station for relocation; the fitted Overshot Wheel comes back with it."
+      },
+      "DaytimeCost": 5,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "water_sawmill_workshop_kit",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": true,
+          "FloatValue": 1.0,
+          "MaxValue": 1.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "water_sawmill_overshot_wheel",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "PassiveEffects": [
@@ -1352,7 +2101,7 @@
             "y": 780.0
           },
           "FuelRange": {
-            "x": 0.01,
+            "x": 0.1,
             "y": 1000000000.0
           }
         }
@@ -1371,7 +2120,7 @@
             "y": 950.0
           },
           "FuelRange": {
-            "x": 0.01,
+            "x": 0.1,
             "y": 1000000000.0
           }
         }
@@ -1390,7 +2139,7 @@
             "y": 1000000000.0
           },
           "FuelRange": {
-            "x": 0.01,
+            "x": 0.1,
             "y": 1000000000.0
           }
         }
@@ -1409,7 +2158,7 @@
             "y": 1000000000.0
           },
           "FuelRange": {
-            "x": 0.01,
+            "x": 0.1,
             "y": 1000000000.0
           }
         }
@@ -1717,7 +2466,19 @@
         "ModType": 0
       },
       "IngredientChanges": {
-        "ModType": 3
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+        "TransformIntoWarpType": 3,
+        "TransferSpecial2": true,
+        "ModifyDurability": true,
+        "Special4Change": {
+          "x": 100.0,
+          "y": 100.0
+        }
       },
       "FeedbackMode": 1,
       "ProgressBar": 3,
@@ -1748,11 +2509,11 @@
             "m_FileID": 0,
             "m_PathID": 0
           },
-          "DroppedCardWarpData": "b92071e54dac7e54db99b48794e737ad",
+          "DroppedCardWarpData": "efde4db74f8cb194e9ad7cd014bfd7d6",
           "DroppedCardWarpType": 3,
           "Quantity": {
             "x": 1,
-            "y": 2
+            "y": 1
           },
           "FinishUnlocking": false,
           "DropChance": {
@@ -1762,7 +2523,8 @@
             "StatsModifiers": [],
             "CardsModifiers": [],
             "NPCStatsModifiers": []
-          }
+          },
+          "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 1, "Special3": 0, "Special4": 0, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 0.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
         }
       ],
       "StatModifications": [],

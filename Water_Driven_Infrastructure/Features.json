@@ -22,10 +22,11 @@
         "water_sawmill_mill_race_outlet_kit",
         "water_sawmill_mill_race_outlet_placed",
         "water_sawmill_mill_race_outlet_frozen",
+        "water_sawmill_mill_race_outlet_closed",
         "water_sawmill_bp_mill_race_outlet"
       ],
-      "confidence": "VERIFIED",
-      "evidence": "T2.13 PASS 2026-07-21; MillRaceOutlet_Placed.json unchanged since 2026-05-16 (059caac24), well before the pass."
+      "confidence": "MEDIUM",
+      "evidence": "T2.13 PASS 2026-07-21 for the water draw. 1.12.0 (2026-09-28) added the Rain Cistern feed (a RemotePassiveEffects entry on MillRaceOutlet_Placed.json), so the card is no longer the one that passed; the feed is covered only by the Pester contract and PENDING T2.380-T2.383."
     },
     {
       "name": "Water-Driven Sawmill",
@@ -33,10 +34,11 @@
       "cards": [
         "water_sawmill_frame",
         "water_sawmill_placed",
+        "water_sawmill_placed_expanded",
         "water_sawmill_bp_water_driven_sawmill"
       ],
       "confidence": "MEDIUM",
-      "evidence": "T2.14 PASS 2026-07-21 for Cut; but Cut is a drag CardInteraction gated by MillRaceGate (card-unbounded CardPredicate=_=>true), exposed to the OPEN framework ActionRouter CardOnCardAction index defect (T1.56, unfixed as of framework 2.25.x) - MEDIUM at best per that risk."
+      "evidence": "T2.14 PASS 2026-07-21 for Cut; but Cut is a drag CardInteraction gated by MillRaceGate (card-unbounded CardPredicate=_=>true), exposed to the OPEN framework ActionRouter CardOnCardAction index defect (T1.56, unfixed as of framework 2.25.x) - MEDIUM at best per that risk. 1.12.0 added a Saw All button (DaytimeCost 4, an ActionRouter handler registered AfterWrapped) and a log inventory (the filter admits the Tree Log; capacity 20000); that part is covered by the Pester contract and PENDING T2.604, and the Cut it sits beside is unchanged."
     },
     {
       "name": "Water-Driven Grinding Mill",
@@ -66,10 +68,11 @@
       "cards": [
         "water_sawmill_workshop_kit",
         "water_sawmill_workshop_placed",
+        "water_sawmill_workshop_placed_expanded",
         "water_sawmill_bp_water_driven_workshop_kit"
       ],
       "confidence": "MEDIUM",
-      "evidence": "Same base evidence as Forge, plus Hammer All's dual-quality-stat fix (1.10.19, T2.132 PENDING) and the Cast Metal Lump -> Hammer All InventoryFilter fix (1.10.15, T2.116 PENDING) both explicitly unverified in-game per CHANGELOG."
+      "evidence": "Same base evidence as Forge, plus Hammer All's dual-quality-stat fix (1.10.19, T2.132 PENDING) and the Cast Metal Lump -> Hammer All InventoryFilter fix (1.10.15, T2.116 PENDING) both explicitly unverified in-game per CHANGELOG. 1.12.0 added Forge Iron Rivets and Hammer Iron Sheet (six iron-grade nuggets, Metal Type 200, into six rivets or one sheet; ACT's Iron Nail and Iron Sheet with ACT); that part is covered by the Pester contract and PENDING T2.605 and T2.606, and the three copper crafts it sits beside are unchanged."
     },
     {
       "name": "Copper Gear / Saw Blade",
@@ -83,7 +86,19 @@
         "water_sawmill_bp_cast_copper_saw_blade"
       ],
       "confidence": "MEDIUM",
-      "evidence": "T2.15 PASS 2026-07-21 for base craft/smelt; the copper self-smelt 0%-quality fix (1.10.16) is covered only by PENDING T2.131 (selfsmelt_quality_chain)."
+      "evidence": "T2.15 PASS 2026-07-21 for base craft/smelt; the copper self-smelt quality floor (1.10.16, 1.11.3) FAILED T2.131 on 2026-10-02 because its item discovery used CardUtil.FindCardsWhere, which never sees a JSON-loaded mod card; rebuilt on GameLoad.DataBase.AllData in 1.12.0, T2.131 re-run owed."
+    },
+    {
+      "name": "Bronze Gear (needs ACT)",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_bronze_gear_large",
+        "water_sawmill_bronze_gear_small",
+        "water_sawmill_bp_cast_bronze_gear_large",
+        "water_sawmill_bp_cast_bronze_gear_small"
+      ],
+      "confidence": "LOW",
+      "evidence": "1.12.2 (plan feature 23). The Pester contract covers the JSON, the IsInstalled gates and the absence from BlueprintTabs.json; the runtime tab path (BronzeGearTabPatch) was INFERRED and never built before, and the harness runs (cast a Metal Type 130 gear and build a Water Wheel with it, T2.634; research survives a reload and no journal entry without ACT, T2.635) PASSED on 2026-10-10 (walkthrough-20261010-1*; not yet recorded in the tracker, no person has confirmed it). Card art for both gears shipped in 37b8fbdc6 (the copper gears' art recast in bronze)."
     },
     {
       "name": "Iron Parts",
@@ -99,7 +114,7 @@
         "water_sawmill_bp_iron_wrench"
       ],
       "confidence": "MEDIUM",
-      "evidence": "T2.15/T2.12 PASS 2026-07-21 for base craft/smelt; the quality-retain self-smelt fix (1.10.17) and the general tag_SmeltingContainer injection (1.10.18) are covered only by PENDING T2.131."
+      "evidence": "T2.15/T2.12 PASS 2026-07-21 for base craft/smelt; the quality-retain self-smelt fix (1.10.17) and the general tag_SmeltingContainer injection (1.10.18) are covered only by T2.131, whose 2026-10-02 run failed on its copper half and did not exercise the iron half."
     },
     {
       "name": "Water Mill / Water Wheel",
@@ -137,7 +152,40 @@
         "water_sawmill_bp_fishpond"
       ],
       "confidence": "VERIFIED",
-      "evidence": "T2.16 + T2.33 PASS 2026-07-21 for Catch/Stock/Drain; FishpondPopulationPatch.cs unchanged since 2026-07-20. The background breeding/Filled<->Stocked threshold-swap timer has no explicit confirmed observation (MEDIUM nuance, see feature-map.md)."
+      "evidence": "T2.16 + T2.33 PASS 2026-07-21 for Catch/Stock/Drain; FishpondPopulationPatch.cs unchanged since 2026-07-20. The background breeding/Filled<->Stocked threshold-swap timer has no explicit confirmed observation (MEDIUM nuance, see feature-map.md). 1.12.0 added the Scatter Fish Food CI (PENDING T2.384-T2.385) and Fishing XP on the catch actions (PENDING T2.391), and the Eel (SpecialDurability4 count; Stock Eel, Catch Eel and Ice Fish Eel; carried by the Freeze and Thaw; PENDING T2.603) while retiring the legacy Catch Other Fish code; the other species' Catch/Stock are unchanged."
+    },
+    {
+      "name": "Reed and Cattail Beds",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_reed_bed",
+        "water_sawmill_cattail_bed",
+        "water_sawmill_bp_reed_bed",
+        "water_sawmill_bp_cattail_bed"
+      ],
+      "confidence": "LOW",
+      "evidence": "New in 1.12.0 (2026-09-28). Cloned from vanilla ReedPatch/CattailPatch; build gated by MillRaceNetwork.WdiStationBuildSourceIds; covered by the WaterDrivenInfrastructure.Tests.ps1 bed contract and PENDING T2.386-T2.389. Never observed in-game."
+    },
+    {
+      "name": "Water Basin",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_water_basin_placed",
+        "water_sawmill_bp_water_basin"
+      ],
+      "confidence": "LOW",
+      "evidence": "New in 1.12.0 (plan feature 24). The blueprint reuses the beds' build gate (MillRaceNetwork.WdiStationBuildSourceIds) and the placed card is deliberately in no station list; its Sanctuary entry is vanilla RusticTable's CardType 2 entry with the value 10 (a tunable placeholder). Covered by the WaterDrivenInfrastructure.Tests.ps1 Water Basin contract and PENDING T2.609. Never observed in-game."
+    },
+    {
+      "name": "Water-Driven Stamp Mill",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_stamp_mill_kit",
+        "water_sawmill_stamp_mill_placed",
+        "water_sawmill_bp_stamp_mill"
+      ],
+      "confidence": "LOW",
+      "evidence": "New in 1.12.0 (plan feature 25). Cloned from the Grinding Mill trio; an ore-only hopper (five vanilla GUIDs); Stamp All is an AfterWrapped ActionRouter handler that spawns each ore's hand-hammer crush result at its Quality plus the hammer bonus; a sixth Partner duty. Covered by the WDI Stamp Mill contract and PENDING T2.622 and T2.623. No card art yet. Never observed in-game."
     },
     {
       "name": "Fasteners & Cast Sheets",
@@ -147,16 +195,10 @@
         "water_sawmill_iron_rivet",
         "water_sawmill_alloy_solder",
         "water_sawmill_cast_metal_sheet",
-        "water_sawmill_cast_iron_sheet",
-        "water_sawmill_bp_copper_rivet",
-        "water_sawmill_bp_iron_rivet",
-        "water_sawmill_bp_alloy_solder",
-        "water_sawmill_bp_cast_metal_sheet",
-        "water_sawmill_bp_cast_iron_sheet",
-        "water_sawmill_bp_iron_rivets_from_sheet"
+        "water_sawmill_cast_iron_sheet"
       ],
-      "confidence": "MEDIUM",
-      "evidence": "T2.17 PASS 2026-07-21 (ACT alternates) covers 5 of 6 items; Cut Iron Rivets from Sheet (1.10.14) is explicitly 'Not verified in-game' per CHANGELOG, tracked PENDING as T2.113."
+      "confidence": "LOW",
+      "evidence": "RETIRED in 1.12.3 (Chiwei's Nexus report, 2026-10-05): every WDI recipe now takes the framework's shared Metal Nail, Tin Solder and Metal Sheet (the Stamp Mill Iron Sheets at Metal Type 200, the Water Basin any sheet but iron, Expand 4 Iron Nails). The five cards listed stay loadable as '(old)' and reforge themselves into the shared card of the same metal within a tick, or at once with a Reforge button; their six blueprints left BlueprintTabs.json with every unlock condition emptied. Static: the WDI retired-parts Pester contract. In-game: PENDING T2.646. The old T2.17 and T2.113 passes describe the retired behaviour."
     },
     {
       "name": "Starter Perks",

@@ -120,6 +120,9 @@
               "Quantity": {
                 "x": 12,
                 "y": 12
+              },
+              "TransferRules": {
+                "Special2": 1
               }
             }
           ]
@@ -131,7 +134,18 @@
     "Active": false
   },
   "SpecialDurability2": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_copper_saw_blade",
+      "LocalizationKey": "LumpOfMetalFinishedQWE_SpecialDurability2.CardStatName",
+      "DefaultText": "Metal Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability3": {
     "Active": false

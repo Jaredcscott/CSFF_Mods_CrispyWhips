@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_fishpond_stocked",
     "LocalizationKey": "Water_Sawmill_FishpondStocked_CardDescription",
-    "DefaultText": "A thriving fishpond. Pike, perch, and minnow populations are healthy and frogs have moved into the shallows. Trout, char, and sturgeon can also be stocked but do not breed. If the total fish population drops below ten, the pond regresses and the frogs depart."
+    "DefaultText": "A mature fishpond rich with pike, perch, and minnow. Trout, char, sturgeon, and eel can also be stocked but do not breed. The thriving ecosystem also attracts frogs to the water's edge."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_fishpond_stocked",
     "LocalizationKey": "Water_Sawmill_FishpondStocked_CardHelpSection",
-    "DefaultText": "<b>Catch fish:</b> Use Catch Pike / Catch Perch / Catch Minnow / Catch Trout / Catch Char / Catch Sturgeon with a spear nearby.\n\n<b>Catch frog:</b> Available only while the pond is stocked.\n\n<b>Fill bowl:</b> Drag an empty water container onto the pond to draw unsafe water.\n\n<b>Trout / Char / Sturgeon:</b> Each tracked separately (cap 10 each). They do not breed.\n\n<b>Regression:</b> If the total breeding population falls below ten, the pond reverts to its previous state and frogs leave.\n\n<b>Winter:</b> The pond freezes solid and only ice fishing remains."
+    "DefaultText": "<b>Populations:</b> Pike, perch, and minnow continue to grow at the same slow rate.\n\n<b>Trout / Char / Sturgeon / Eel:</b> Each tracked separately (cap 10 each). They do not breed.\n\n<b>Catch:</b> Use a spear to catch one fish at a time. Each catch reduces that species' population by 1.\n\n<b>Frogs:</b> The Catch Frog action is available while the pond is Stocked (no spear required).\n\n<b>Reverts:</b> If the breeding population (pike+perch+minnow) drops below 10 the pond reverts to its working Fishpond state and the frogs depart.\n\n<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. Each one adds a quarter of a fish to the pike, perch and minnow. Only a species with at least two fish breeds, so food does nothing for a species of one, and food for a species already at 10 is wasted.\n\n<b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).\n\n<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
   },
   "CardType": 2,
   "ObjectWeight": 1500.0,
@@ -300,7 +300,45 @@
     "CountsForTradingValue": false,
     "TradingValueCustomRanges": []
   },
-  "SpecialDurability4": {"Active": false},
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_stocked",
+      "LocalizationKey": "Water_Sawmill_FishpondStocked_SpecialDurability4_CardStatName",
+      "DefaultText": "Eel"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Eel",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
   "DurabilitySorting": {"SortingList": []},
   "InventoryIsHidden": true,
   "IsMiniInventory": false,
@@ -645,6 +683,48 @@
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_StockEel_ActionName",
+        "DefaultText": "Stock Eel"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_StockEel_ActionDescription",
+        "DefaultText": "Release a live eel into the pond. Increases the eel population by 1 (cap 10). Eels do not breed."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Water"],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": true,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": ["bb8a42f395c31894188ff3038d76128f"],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {"Active": true, "FloatValue": 0.0, "MaxValue": 0.999, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special4Change": {"x": 1.0, "y": 1.0}
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
         "LocalizationKey": "Water_Sawmill_FishpondStocked_StockCrayfish_ActionName",
         "DefaultText": "Stock Crayfish"
       },
@@ -683,6 +763,214 @@
         "ModType": 1,
         "ChargesChange": {"x": 1.0, "y": 1.0}
       }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_Feed_ActionName",
+        "DefaultText": "Scatter Fish Food"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_Feed_ActionDescription",
+        "DefaultText": "Scatter fish scraps, bugs or bait over the water. Adds a quarter of a fish to the pike, perch and minnow. Only a species with at least two fish breeds, so food does nothing for a species of one, and food scattered for a species already at 10 is wasted."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Water"],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": true,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": ["b25f1f9bfc2a0bc44a93079ed02cb43f", "64c4dd2e834526541935792cbbdd7f87", "e3a3984267c59214cbf0ab931a9e7f23", "585e25832914e6f43bfa3e86594a1454", "93b9f1458ce0c6d4eafb7a02a0a7129a"],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {"x": 0.25, "y": 0.25},
+        "Special2Change": {"x": 0.25, "y": 0.25},
+        "Special3Change": {"x": 0.25, "y": 0.25}
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_Fish_ActionName",
+        "DefaultText": "Fish"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_Fish_ActionDescription",
+        "DefaultText": "Fish the pond with a rod. The catch is one of the pond's own fish, likelier the more of that species it holds."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_FishingLine"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        },
+        "FuelChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_Spearfish_ActionName",
+        "DefaultText": "Spearfish"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_Spearfish_ActionDescription",
+        "DefaultText": "Spear a fish in the pond. The catch is one of the pond's own fish, likelier the more of that species it holds."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Spear"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        },
+        "FuelChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
     },
     {
       "ActionName": {
@@ -737,6 +1025,10 @@
       }
     }
   ],
+  "CompatibleDutiesWarpData": [
+    "wdiFishPondStocked_Duty"
+  ],
+  "CompatibleDutiesWarpType": 3,
   "DismantleActions": [
     {
       "ActionName": {
@@ -749,6 +1041,16 @@
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchPike_ActionDescription",
         "DefaultText": "Spear a pike from the pond. Requires a spear nearby. Reduces the pond's pike population by one."
       },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
       "ActionSounds": [],
@@ -770,10 +1072,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpecial1Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredSpecial1Percent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "Special1Change": {"x": -1.0, "y": -1.0}
@@ -804,6 +1141,16 @@
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchPerch_ActionDescription",
         "DefaultText": "Spear a perch from the pond. Requires a spear nearby. Reduces the pond's perch population by one."
       },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
       "ActionSounds": [],
@@ -825,10 +1172,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpecial2Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredSpecial2Percent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "Special2Change": {"x": -1.0, "y": -1.0}
@@ -859,6 +1241,16 @@
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchMinnow_ActionDescription",
         "DefaultText": "Spear a minnow from the pond. Requires a spear nearby. Reduces the pond's minnow population by one."
       },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
       "ActionSounds": [],
@@ -880,10 +1272,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpecial3Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredSpecial3Percent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "Special3Change": {"x": -1.0, "y": -1.0}
@@ -914,6 +1341,16 @@
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchSturgeon_ActionDescription",
         "DefaultText": "Spear a sturgeon from the pond. Requires a spear nearby. Reduces the pond's sturgeon population by one."
       },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
       "ActionSounds": [],
@@ -935,10 +1372,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpoilagePercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredSpoilagePercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "SpoilageChange": {"x": -1.0, "y": -1.0}
@@ -969,6 +1441,16 @@
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchTrout_ActionDescription",
         "DefaultText": "Spear a trout from the pond. Requires a spear nearby. Reduces the pond's trout population by one."
       },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
       "ActionSounds": [],
@@ -990,10 +1472,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredUsagePercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredUsagePercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "UsageChange": {"x": -1.0, "y": -1.0}
@@ -1024,6 +1541,16 @@
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchChar_ActionDescription",
         "DefaultText": "Spear a char from the pond. Requires a spear nearby. Reduces the pond's char population by one."
       },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
       "ActionSounds": [],
@@ -1045,10 +1572,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredFuelPercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredFuelPercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": {"x": -1.0, "y": -1.0}
@@ -1071,6 +1633,106 @@
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchEel_ActionName",
+        "DefaultText": "Catch Eel"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchEel_ActionDescription",
+        "DefaultText": "Spear an eel from the pond. Requires a spear nearby. Reduces the pond's eel population by one."
+      },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Water"],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_Spear",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special4Change": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "bb8a42f395c31894188ff3038d76128f",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchCrayfish_ActionName",
         "DefaultText": "Catch Crayfish"
       },
@@ -1079,6 +1741,16 @@
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchCrayfish_ActionDescription",
         "DefaultText": "Catch a crayfish from the pond by hand. Reduces the pond's crayfish population by one."
       },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
       "ActionSounds": [],
@@ -1088,10 +1760,45 @@
       "ActionSoundsWarpData": ["Water"],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
-        "RequiredProgressPercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredProgressPercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "ChargesChange": {"x": -1.0, "y": -1.0}
@@ -1122,6 +1829,16 @@
         "LocalizationKey": "Water_Sawmill_FishpondStocked_CatchFrog_ActionDescription",
         "DefaultText": "Snatch a frog from the shallows. Frogs only inhabit a stocked pond."
       },
+      "CompatibleNPCDuties": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "wdiFishPondStocked_Duty",
+          "TargetWarpType": 3
+        }
+      ],
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
       "ActionSounds": [],
@@ -1130,6 +1847,41 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["Water"],
       "ActionSoundsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 0
       },
@@ -1207,6 +1959,7 @@
         "TransferSpecial1": true,
         "TransferSpecial2": true,
         "TransferSpecial3": true,
+        "TransferSpecial4": true,
         "TransferSpoilage": true,
         "TransferUsage": true,
         "TransferFuel": true,

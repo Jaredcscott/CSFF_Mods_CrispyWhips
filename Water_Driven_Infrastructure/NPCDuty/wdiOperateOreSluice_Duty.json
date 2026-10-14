@@ -5,6 +5,7 @@
     "LocalizationKey": "Water_Sawmill_OreSluicePlaced_Duty_DutyName",
     "DefaultText": "Operate the Ore Sluice"
   },
+  "RequiresMarkedCard": true,
   "MaxPerformPerDay": 0,
   "DutyExecutionOptions": 0,
   "GiveUpOptions": 0,

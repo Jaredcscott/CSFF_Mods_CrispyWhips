@@ -1,0 +1,168 @@
+{
+  "UniqueID": "water_sawmill_bp_water_basin",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_bp_water_basin",
+    "LocalizationKey": "Water_Sawmill_Bp_WaterBasin_CardName",
+    "DefaultText": "Water Basin"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_bp_water_basin",
+    "LocalizationKey": "Water_Sawmill_Bp_WaterBasin_CardDescription",
+    "DefaultText": "Build a stone Water Basin from 8 Stone and 1 Metal Sheet of any metal but iron (1.5 hours) at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. While it stands at your location it raises your Sanctuary a little. One per location."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "water_sawmill_bp_water_basin",
+    "LocalizationKey": "Water_Sawmill_Bp_WaterBasin_UnlockConditionsDesc",
+    "DefaultText": "Mill Race Needed"
+  },
+  "StartUnlocked": false,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "WaterBasin",
+  "CardImageWarpType": 3,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasMillRace",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "CardWarpData": "water_sawmill_mill_race",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BuildingStatConditions": [],
+  "BuildingTagConditions": [
+    {
+      "TriggerTag": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyInHand": false,
+      "NotInHand": false,
+      "ExcludeInventories": false,
+      "Inverted": true,
+      "OnlyEquipped": false,
+      "TriggerTagWarpData": "tag_EnvIndoors",
+      "TriggerTagWarpType": 3
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 8,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "Special4": {
+            "Active": true,
+            "FloatValue": 0.0,
+            "MaxValue": 140.0
+          },
+          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 6,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "water_sawmill_water_basin_placed",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 1.0,
+        "y": 1.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "WhenCreatedSoundsWarpData": [
+    "Water"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTags": [],
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction",
+    "LegAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

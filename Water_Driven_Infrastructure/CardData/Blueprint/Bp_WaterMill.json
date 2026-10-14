@@ -88,7 +88,74 @@
     ],
     "TagsOnBoard": [],
     "StatValues": [],
-    "BlueprintStatModifications": [],
+    "BlueprintStatModifications": [
+      {
+        "Stat": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
+        "StatWarpType": 3,
+        "ValueModifier": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "RateModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "MinValueModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "MaxValueModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "CannotModifyBeyond": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+      },
+      {
+        "Stat": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "StatWarpData": "66d3ce9da7ddfca49a89e31143fe9e43",
+        "StatWarpType": 3,
+        "ValueModifier": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "RateModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "MinValueModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "MaxValueModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "CannotModifyBeyond": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+      }
+    ],
     "WhenCreatedSoundsWarpData": [
         "Wood"
     ],

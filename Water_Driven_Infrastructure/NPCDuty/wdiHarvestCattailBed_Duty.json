@@ -1,0 +1,13 @@
+{
+  "UniqueID": "wdiHarvestCattailBed_Duty",
+  "DutyName": {
+    "ParentObjectID": "wdiHarvestCattailBed_Duty",
+    "LocalizationKey": "Water_Sawmill_CattailBed_Duty_DutyName",
+    "DefaultText": "Harvest the Cattail Bed"
+  },
+  "RequiresMarkedCard": true,
+  "MaxPerformPerDay": 0,
+  "DutyExecutionOptions": 0,
+  "GiveUpOptions": 0,
+  "DutyConditions": {}
+}

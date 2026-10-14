@@ -1,0 +1,13 @@
+{
+  "UniqueID": "wdiOperateWorkshopExpanded_Duty",
+  "DutyName": {
+    "ParentObjectID": "wdiOperateWorkshopExpanded_Duty",
+    "LocalizationKey": "Water_Sawmill_WorkshopPlacedExpanded_Duty_DutyName",
+    "DefaultText": "Operate the Expanded Workshop"
+  },
+  "RequiresMarkedCard": true,
+  "MaxPerformPerDay": 0,
+  "DutyExecutionOptions": 0,
+  "GiveUpOptions": 0,
+  "DutyConditions": {}
+}

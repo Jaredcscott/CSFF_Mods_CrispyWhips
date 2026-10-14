@@ -14,7 +14,35 @@ namespace WaterDrivenInfrastructure.Patcher
         private const string OutletFrozenID = "water_sawmill_mill_race_outlet_frozen";
         private const string OutletKitID = "water_sawmill_mill_race_outlet_kit";
         private const string OutletBlueprintID = "water_sawmill_bp_mill_race_outlet";
-        private const string LitBrazierID = "advanced_copper_tools_copper_brazier_placed_lit";
+
+        // Winter heat sources (plan section 10, Open question 7's defaults): HasHeatSourceAt counts a card
+        // whose UniqueID is in this set, standing in the location's environment, as heat. Each vanilla fire
+        // below is a LIT card with a separate Extinguished card (read in the export), so presence means lit.
+        // The ACT brazier's lit UID lives in ActCompat; it never matches when ACT is absent. These are
+        // tunable placeholders, not balanced: delete a line to take a source away.
+        private static readonly HashSet<string> HeatSourceCardUids = new HashSet<string>(StringComparer.Ordinal)
+        {
+            ActCompat.CopperBrazierLitUid,
+            "63e4efe772bf6f649b30c893a0257ef0", // Campfire
+            "f16aa437d91e2434ab7a4b7a8827a826", // Fire Pit
+            "bbbd576f3cb8e434a85032487085cf57", // Forge
+            "984bad0c8931f3545bef58171f9bf252", // Furnace
+            "7c01ff23d5697e84d9fa149d1c9e1961", // Bloomery
+            "d7d2831f33ccf184e9b09f8411339948", // Kiln
+            "eeef909ec09637145a5ff38003b48d8c", // Oven
+            "e50543ef8a7e7d543a42e199adeee963"  // Fireplace
+        };
+
+        // A WDI Forge or Workshop is a heat source while its Temperature (SpoilageTime, max 1800 on both) is at
+        // least this fraction of its maximum. Tunable placeholder (Open question 7), not balanced.
+        private static readonly HashSet<string> HeatSourceStationIds = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "water_sawmill_forge_placed",
+            "water_sawmill_workshop_placed",
+            "water_sawmill_workshop_placed_expanded"
+        };
+        private const float HeatSourceMinTemperatureFraction = 0.5f;
+        private const string TemperatureStat = "SpoilageTime";
 
         private static readonly BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
         private static readonly Dictionary<string, LocationRecord> LocationsByUid = new Dictionary<string, LocationRecord>(StringComparer.Ordinal);
@@ -26,9 +54,12 @@ namespace WaterDrivenInfrastructure.Patcher
         private static readonly HashSet<string> WdiStationIds = new HashSet<string>(StringComparer.Ordinal)
         {
             "water_sawmill_placed",
+            "water_sawmill_placed_expanded",
             "water_sawmill_grinding_mill_placed",
+            "water_sawmill_stamp_mill_placed",
             "water_sawmill_forge_placed",
             "water_sawmill_workshop_placed",
+            "water_sawmill_workshop_placed_expanded",
             "water_sawmill_ore_sluice_placed",
             "water_sawmill_fishpond_filled",
             "water_sawmill_fishpond_stocked"
@@ -42,17 +73,22 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             "water_sawmill_frame",
             "water_sawmill_grinding_mill_kit",
+            "water_sawmill_stamp_mill_kit",
             "water_sawmill_forge_kit",
             "water_sawmill_workshop_kit",
             "water_sawmill_ore_sluice_kit",
             "water_sawmill_fishpond_kit",
             "water_sawmill_bp_water_driven_sawmill",
             "water_sawmill_bp_grinding_mill",
+            "water_sawmill_bp_stamp_mill",
             "water_sawmill_bp_water_driven_forge",
             "water_sawmill_bp_water_driven_workshop_kit",
             "water_sawmill_bp_ore_sluice_empty",
             "water_sawmill_bp_ore_sluice",
-            "water_sawmill_bp_fishpond"
+            "water_sawmill_bp_fishpond",
+            "water_sawmill_bp_reed_bed",
+            "water_sawmill_bp_cattail_bed",
+            "water_sawmill_bp_water_basin"
         };
 
         private enum MillRaceGateResult
@@ -234,7 +270,7 @@ namespace WaterDrivenInfrastructure.Patcher
             if (string.Equals(cardId, OutletFrozenID, StringComparison.Ordinal) && IsDrawWaterAction(actionName))
             {
                 locationUid = GetCardLocationUid(cardInstance);
-                if (!string.IsNullOrEmpty(locationUid) && HasLitBrazierAt(locationUid))
+                if (!string.IsNullOrEmpty(locationUid) && HasHeatSourceAt(locationUid))
                     return MillRaceGateResult.Allowed;
                 return MillRaceGateResult.FrozenOutlet;
             }
@@ -275,7 +311,12 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (string.IsNullOrEmpty(locationUid))
                     return MillRaceGateResult.UnknownLocation;
 
-                if (IsWinter() && !HasLitBrazierAt(locationUid))
+                // Optional winter lock: the "Winter Station Lock" setting (default false) must be on
+                // before the season is even read, so a default install never takes this branch.
+                // A station's own seasonal transform (the fishpond's "Freeze") is never cancelled
+                // by the lock, or the pond could not freeze. A heat source at the location exempts it.
+                if (WinterStationLockEnabled() && !IsSeasonalTransformAction(actionName)
+                    && IsWinter() && !HasHeatSourceAt(locationUid))
                     return MillRaceGateResult.FrozenOutlet;
 
                 return GetStationWaterAccessResult(locationUid);
@@ -374,7 +415,33 @@ namespace WaterDrivenInfrastructure.Patcher
         private static bool HasDirectWater(string locationUid)
         {
             locationUid = ToLocationUid(locationUid);
-            return !string.IsNullOrEmpty(locationUid) && WaterSourceLocationUids.Contains(locationUid);
+            if (string.IsNullOrEmpty(locationUid))
+                return false;
+            return WaterSourceLocationUids.Contains(locationUid) || HasTaggedWaterSourceCardAt(locationUid);
+        }
+
+        // Interop tag (plan feature 16a): any mod's card whose tag runtime .name is WaterSourceInteropTag, standing in
+        // the location's environment, makes it a placement-only water source. Compared by NAME, never by SO instance
+        // (each mod's WarpResolver mints its own tag object), and the AllCards scan is paired with the environment
+        // test (ChangeEnvironment keeps carried cards in AllCards). Draw and cistern feed stay outlet-only.
+        public const string WaterSourceInteropTag = "tag_x_WaterSource";
+
+        private static bool HasTaggedWaterSourceCardAt(string locationUid)
+        {
+            if (!EnvironmentUidByLocationUid.TryGetValue(locationUid, out var targetEnvUid) || string.IsNullOrEmpty(targetEnvUid))
+                return false;
+            foreach (var card in GetGameCards("AllCards"))
+            {
+                if (IsDestroyed(card))
+                    continue;
+                if (!(GetMemberValue(card, "CardModel") is CardData model))
+                    continue;
+                if (!HasTagName(model, WaterSourceInteropTag))
+                    continue;
+                if (string.Equals(GetCardEnvironmentUid(card), targetEnvUid, StringComparison.Ordinal))
+                    return true;
+            }
+            return false;
         }
 
         private static bool HasConnectedOutletAt(string locationUid)
@@ -515,16 +582,38 @@ namespace WaterDrivenInfrastructure.Patcher
                 }
             }
 
+            // CurrentlyBuiltImprovements means "present or being built": vanilla adds an improvement to it when
+            // construction STARTS (GameManager.StartBuildingImprovement), so the persisted list alone counts a
+            // Mill Race that is only half built. A live card on the board is the authority on the player's
+            // current location (the framework's CardUtil.IsImprovementBuilt reads it the same way): a complete
+            // one counts, and one that is not complete overrules its list entry. Every matching instance is
+            // read, never the first, because a UniqueOnBoard card can have two.
+            var liveComplete = new HashSet<string>(StringComparer.Ordinal);
+            var liveIncomplete = new List<KeyValuePair<string, string>>();
             foreach (var card in GetGameCards("ImprovementCards"))
             {
                 var improvementUid = GetCardUniqueId(card);
-                if (!EdgesByCloneUid.ContainsKey(improvementUid))
-                    continue;
-                if (!GetBoolMember(card, "BlueprintComplete"))
+                if (string.IsNullOrEmpty(improvementUid) || !EdgesByCloneUid.ContainsKey(improvementUid) || IsDestroyed(card))
                     continue;
                 var locationUid = GetCardLocationUid(card);
-                if (!string.IsNullOrEmpty(locationUid))
+                if (string.IsNullOrEmpty(locationUid))
+                    continue;
+                if (GetBoolMember(card, "BlueprintComplete"))
+                {
                     AddBuiltImprovement(completedByLocation, locationUid, improvementUid);
+                    liveComplete.Add(locationUid + "|" + improvementUid);
+                }
+                else
+                {
+                    liveIncomplete.Add(new KeyValuePair<string, string>(locationUid, improvementUid));
+                }
+            }
+            foreach (var pending in liveIncomplete)
+            {
+                if (liveComplete.Contains(pending.Key + "|" + pending.Value))
+                    continue;
+                if (completedByLocation.TryGetValue(pending.Key, out var builtHere))
+                    builtHere.Remove(pending.Value);
             }
 
             return completedByLocation;
@@ -611,36 +700,75 @@ namespace WaterDrivenInfrastructure.Patcher
             set.Add(to);
         }
 
-        private static bool IsImprovementBuilt(string locationUid, string improvementUid)
-        {
-            locationUid = ToLocationUid(locationUid);
-            var data = FindEnvironmentSaveData(locationUid);
-            var built = GetBuiltList(data);
-            if (built != null && built.Contains(improvementUid))
-                return true;
-
-            foreach (var card in GetGameCards("ImprovementCards"))
-            {
-                if (!string.Equals(GetCardUniqueId(card), improvementUid, StringComparison.Ordinal))
-                    continue;
-                if (!string.Equals(GetCardLocationUid(card), locationUid, StringComparison.Ordinal))
-                    continue;
-                if (GetBoolMember(card, "BlueprintComplete"))
-                    return true;
-            }
-
-            return false;
-        }
-
+        // Marks one end of a hop built in ITS OWN environment's saved data, for a location the player has
+        // never visited and for one they have left. GameManager.EnvironmentsData is a
+        // Dictionary<EnvDictKey, EnvironmentSaveDataByReference> (EnvDictKey is the env card's
+        // UniqueIDIndex), so the entry is found or created through the game's own
+        // GetEnvSaveData(EnvID, _CreateIfNull: true), which CardUtil.MarkImprovementBuilt calls; a left
+        // location's DictionaryKey reads "uid(Name)" and never matched a bare id by string, and this code
+        // used to build an EnvironmentSaveData under a string key, which a dictionary of that key type
+        // refuses (plan defect D: "Reciprocal completion failed").
         private static void MarkImprovementBuilt(string locationUid, string improvementUid)
         {
-            locationUid = ToLocationUid(locationUid);
-            var data = FindOrCreateEnvironmentSaveData(locationUid);
-            var built = GetOrCreateBuiltList(data);
-            if (built != null && !built.Contains(improvementUid))
+            var environmentUid = EnvironmentKeyForLocation(locationUid);
+            bool marked = CardUtil.MarkImprovementBuilt(environmentUid, improvementUid);
+            if (!marked)
+                WarnOnce("mark-improvement-built",
+                    $"Could not mark '{improvementUid}' built at '{environmentUid}' (CardUtil.MarkImprovementBuilt returned false: the game may have renamed EnvironmentsData, GetEnvSaveData or CurrentlyBuiltImprovements); a Mill Race completed at the other end will not connect this location");
+            else
+                MarkImprovementFinished(environmentUid, improvementUid);
+            InvalidateConnectivityCache();
+        }
+
+        // Vanilla completes an improvement card that SPAWNS in an environment whose saved data lists it in
+        // FinishedImprovements (GameManager, the spawn path after Init: ImprovementWasFinished). A hop's far
+        // end may already exist as an unfinished card in a location the player has left; without this entry
+        // it would come back under construction while the hop is marked built. The entry is read only
+        // there, so writing it for a location with no such card is inert.
+        private static void MarkImprovementFinished(string environmentUid, string improvementUid)
+        {
+            try
             {
-                built.Add(improvementUid);
-                InvalidateConnectivityCache();
+                var gm = GetGameManager();
+                var envIdType = CardUtil.FindGameType("EnvID");
+                MethodInfo getEnvSaveData = null;
+                if (gm != null)
+                    foreach (var method in gm.GetType().GetMethods(Flags))
+                    {
+                        var parameters = method.GetParameters();
+                        if (method.Name == "GetEnvSaveData" && parameters.Length == 2 && parameters[1].ParameterType == typeof(bool))
+                        {
+                            getEnvSaveData = method;
+                            break;
+                        }
+                    }
+                if (envIdType == null || getEnvSaveData == null)
+                {
+                    WarnOnce("finished-improvements-reflection",
+                        "GameManager.GetEnvSaveData or the EnvID type was not found, so a far-end Mill Race that already exists as an unfinished card is not marked finished (the hop still connects); the game may have renamed them");
+                    return;
+                }
+
+                var envId = Activator.CreateInstance(envIdType, new object[] { environmentUid });
+                var data = getEnvSaveData.Invoke(gm, new object[] { envId, false });
+                var finishedField = data?.GetType().GetField("FinishedImprovements", Flags);
+                if (finishedField == null)
+                {
+                    WarnOnce("finished-improvements-field",
+                        $"EnvironmentSaveDataByReference.FinishedImprovements was not found for '{environmentUid}' (no saved data, or the game renamed it), so a far-end Mill Race that already exists as an unfinished card is not marked finished");
+                    return;
+                }
+                if (!(finishedField.GetValue(data) is IList finished))
+                {
+                    finished = new List<string>();
+                    finishedField.SetValue(data, finished);
+                }
+                if (!finished.Contains(improvementUid))
+                    finished.Add(improvementUid);
+            }
+            catch (Exception ex)
+            {
+                WarnOnce("finished-improvements-threw", $"Marking '{improvementUid}' finished at '{environmentUid}' threw: {ex.InnerException?.Message ?? ex.Message}");
             }
         }
 
@@ -661,6 +789,23 @@ namespace WaterDrivenInfrastructure.Patcher
             }
         }
 
+        /// <summary>True when a RUNNING (Placed, not Frozen, not Closed) outlet stands at the location (feature 16b: only a running
+        /// outlet fills an ACT bathtub).</summary>
+        public static bool HasRunningOutletAt(string locationUid)
+        {
+            locationUid = ToLocationUid(locationUid);
+            if (string.IsNullOrEmpty(locationUid))
+                return false;
+            foreach (var card in GetGameCards("AllCards"))
+            {
+                if (!string.Equals(GetCardUniqueId(card), OutletPlacedID, StringComparison.Ordinal) || IsDestroyed(card))
+                    continue;
+                if (string.Equals(GetCardLocationUid(card), locationUid, StringComparison.Ordinal))
+                    return true;
+            }
+            return false;
+        }
+
         private static bool HasPlacedOutletAt(string locationUid)
         {
             locationUid = ToLocationUid(locationUid);
@@ -676,8 +821,14 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (string.Equals(GetCardLocationUid(card), locationUid, StringComparison.Ordinal))
                     return true;
             }
-            // A frozen outlet heated by a nearby lit Copper Brazier counts as an active outlet.
-            if (HasLitBrazierAt(locationUid))
+            // A frozen outlet at a location with a heat source counts as an active outlet (it carries no
+            // cistern feed, so heat never restarts the Rain Cistern: only the Placed outlet has that effect).
+            // A Closed outlet (the Control Valve, MillRaceOutlet_Closed.json, plan feature 22) is never
+            // counted, heat or no heat: a shut valve is the player's choice, not the season's. Its UID is
+            // deliberately named nowhere in this class (a WDI contract asserts that). The network itself
+            // keeps no per-outlet registration: locations and edges come from the static map, and an
+            // outlet is found by this AllCards scan at query time, so closing one unregisters nothing.
+            if (HasHeatSourceAt(locationUid))
             {
                 foreach (var card in GetGameCards("AllCards"))
                 {
@@ -693,7 +844,13 @@ namespace WaterDrivenInfrastructure.Patcher
             return false;
         }
 
-        private static bool HasLitBrazierAt(string locationUid)
+        // True when a heat source stands at the location (plan section 10): a lit ACT Copper Brazier (through
+        // ActCompat), one of the eight vanilla fire cards, or a WDI Forge or Workshop whose Temperature is at
+        // or above HeatSourceMinTemperatureFraction of its maximum. An AllCards UID scan is NOT the cards in
+        // this room (ChangeEnvironment keeps carried and independent cards in the list), so every candidate is
+        // paired with the location's environment UID. Reached only from the frozen-outlet draw branch of
+        // GetGateResult, the Winter Station Lock exemption (lock on, winter) and HasPlacedOutletAt.
+        private static bool HasHeatSourceAt(string locationUid)
         {
             if (string.IsNullOrEmpty(locationUid))
                 return false;
@@ -701,81 +858,43 @@ namespace WaterDrivenInfrastructure.Patcher
                 return false;
             foreach (var card in GetGameCards("AllCards"))
             {
-                if (!string.Equals(GetCardUniqueId(card), LitBrazierID, StringComparison.Ordinal))
+                var uid = GetCardUniqueId(card);
+                if (string.IsNullOrEmpty(uid))
+                    continue;
+                bool isFire = HeatSourceCardUids.Contains(uid);
+                bool isStation = !isFire && HeatSourceStationIds.Contains(uid);
+                if (!isFire && !isStation)
                     continue;
                 if (IsDestroyed(card))
                     continue;
-                if (string.Equals(GetCardEnvironmentUid(card), targetEnvUid, StringComparison.Ordinal))
+                if (!string.Equals(GetCardEnvironmentUid(card), targetEnvUid, StringComparison.Ordinal))
+                    continue;
+                if (isFire || IsStationHot(card))
                     return true;
             }
             return false;
         }
 
-        private static object FindEnvironmentSaveData(string locationUid)
+        private static bool IsStationHot(object card)
         {
-            var gm = GetGameManager();
-            var envData = GetMemberValue(gm, "EnvironmentsData") as IDictionary;
-            if (envData == null)
-                return null;
-
-            var key = EnvironmentKeyForLocation(locationUid);
-            var environmentUid = ToEnvironmentUid(locationUid);
-            if (!string.IsNullOrEmpty(key) && envData.Contains(key))
-                return envData[key];
-
-            foreach (DictionaryEntry entry in envData)
+            float temperature = CardUtil.GetDurability(card, TemperatureStat);
+            float max = CardUtil.GetDurabilityMax(card, TemperatureStat);
+            if (float.IsNaN(temperature) || float.IsNaN(max) || max <= 0f)
             {
-                var value = entry.Value;
-                var dictionaryKey = GetMemberValue(value, "DictionaryKey") as string;
-                var environmentId = LoadSavedUniqueId(GetMemberValue(value, "EnvironmentID") as string);
-                if (string.Equals(dictionaryKey, key, StringComparison.Ordinal) ||
-                    string.Equals(dictionaryKey, environmentUid, StringComparison.Ordinal) ||
-                    string.Equals(environmentId, environmentUid, StringComparison.Ordinal))
-                    return value;
+                WarnOnce("heat-source-temperature-unreadable",
+                    "A Water-Driven Forge or Workshop's Temperature (SpoilageTime) could not be read, so it is not counted as a winter heat source; CardUtil.GetDurability or GetDurabilityMax returned NaN or the game renamed the stat");
+                return false;
             }
-
-            return null;
+            return temperature >= max * HeatSourceMinTemperatureFraction;
         }
 
-        private static object FindOrCreateEnvironmentSaveData(string locationUid)
+        private static readonly HashSet<string> _warnedCauses = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
         {
-            var existing = FindEnvironmentSaveData(locationUid);
-            if (existing != null)
-                return existing;
-
-            var normalizedLocationUid = ToLocationUid(locationUid);
-            if (!LocationsByUid.TryGetValue(normalizedLocationUid, out var location) || location.EnvironmentCard == null)
-                return null;
-
-            var gm = GetGameManager();
-            var envData = GetMemberValue(gm, "EnvironmentsData") as IDictionary;
-            if (envData == null)
-                return null;
-
-            var key = EnvironmentKeyForLocation(normalizedLocationUid);
-            var saveKey = AddNamesToEnvKey(key);
-            var data = new EnvironmentSaveData(location.EnvironmentCard, GetCurrentTick(gm), saveKey);
-            var fillCounters = data.GetType().GetMethod("FillCounters", Flags);
-            fillCounters?.Invoke(data, new[] { GetMemberValue(gm, "AllCounters") });
-            envData[key] = data;
-            return data;
-        }
-
-        private static List<string> GetBuiltList(object environmentSaveData)
-        {
-            return GetMemberValue(environmentSaveData, "CurrentlyBuiltImprovements") as List<string>;
-        }
-
-        private static List<string> GetOrCreateBuiltList(object environmentSaveData)
-        {
-            if (environmentSaveData == null)
-                return null;
-            var built = GetBuiltList(environmentSaveData);
-            if (built != null)
-                return built;
-            built = new List<string>();
-            SetMemberValue(environmentSaveData, "CurrentlyBuiltImprovements", built);
-            return built;
+            if (!_warnedCauses.Add(cause))
+                return;
+            Logger?.LogWarning($"[MillRaceNetwork] {message} [cause '{cause}', logged once per session]");
         }
 
         private static IEnumerable GetGameCards(string listName)
@@ -834,38 +953,28 @@ namespace WaterDrivenInfrastructure.Patcher
             return value is bool boolValue && boolValue;
         }
 
+        // (Type, member) -> the resolved field or property, so the per-card AllCards scans
+        // (HasHeatSourceAt, HasPlacedOutletAt, HasRunningOutletAt, HasTaggedWaterSourceCardAt)
+        // resolve each MemberInfo once per type instead of once per card, matching the caching
+        // ActionInterceptPatch uses for the same reads. A miss is cached too (null MemberInfo).
+        private static readonly Dictionary<(Type, string), MemberInfo> _memberLookups = new Dictionary<(Type, string), MemberInfo>();
+
         private static object GetMemberValue(object instance, string memberName)
         {
             if (instance == null || string.IsNullOrEmpty(memberName))
                 return null;
             var type = instance.GetType();
-            var field = type.GetField(memberName, Flags);
-            if (field != null)
+            var key = (type, memberName);
+            if (!_memberLookups.TryGetValue(key, out var member))
+            {
+                member = (MemberInfo)type.GetField(memberName, Flags) ?? type.GetProperty(memberName, Flags);
+                _memberLookups[key] = member;
+            }
+            if (member is FieldInfo field)
                 return field.GetValue(instance);
-            var property = type.GetProperty(memberName, Flags);
-            if (property != null && property.CanRead)
+            if (member is PropertyInfo property && property.CanRead)
                 return property.GetValue(instance, null);
             return null;
-        }
-
-        private static bool SetMemberValue(object instance, string memberName, object value)
-        {
-            if (instance == null || string.IsNullOrEmpty(memberName))
-                return false;
-            var type = instance.GetType();
-            var field = type.GetField(memberName, Flags);
-            if (field != null)
-            {
-                field.SetValue(instance, value);
-                return true;
-            }
-            var property = type.GetProperty(memberName, Flags);
-            if (property != null && property.CanWrite)
-            {
-                property.SetValue(instance, value, null);
-                return true;
-            }
-            return false;
         }
 
         private static string EnvironmentKeyForLocation(string locationUid)
@@ -874,29 +983,6 @@ namespace WaterDrivenInfrastructure.Patcher
             if (normalizedLocationUid != null && LocationsByUid.TryGetValue(normalizedLocationUid, out var location) && !string.IsNullOrEmpty(location.EnvironmentUid))
                 return location.EnvironmentUid;
             return ToEnvironmentUid(locationUid);
-        }
-
-        private static int GetCurrentTick(object gm)
-        {
-            var tickInfo = GetMemberValue(gm, "CurrentTickInfo");
-            var z = GetMemberValue(tickInfo, "z");
-            if (z is int intValue)
-                return intValue;
-            return 0;
-        }
-
-        private static string AddNamesToEnvKey(string key)
-        {
-            try
-            {
-                var method = typeof(UniqueIDScriptable).GetMethod("AddNamesToEnvKey", BindingFlags.Public | BindingFlags.Static);
-                return method?.Invoke(null, new object[] { key }) as string ?? key;
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogDebug($"[MillRaceNetwork] AddNamesToEnvKey reflection failed: {ex.InnerException?.Message ?? ex.Message}");
-                return key;
-            }
         }
 
         private static string LoadSavedUniqueId(string id)
@@ -978,25 +1064,33 @@ namespace WaterDrivenInfrastructure.Patcher
         private static bool IsForgeFireAction(string cardId, string actionName)
         {
             if (!string.Equals(cardId, "water_sawmill_forge_placed", StringComparison.Ordinal)
-                && !string.Equals(cardId, "water_sawmill_workshop_placed", StringComparison.Ordinal))
+                && !string.Equals(cardId, "water_sawmill_workshop_placed", StringComparison.Ordinal)
+                && !string.Equals(cardId, "water_sawmill_workshop_placed_expanded", StringComparison.Ordinal))
                 return false;
 
             return actionName.IndexOf("Smelt", StringComparison.OrdinalIgnoreCase) >= 0
                 || actionName.IndexOf("Heat Metal", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
+        private static bool WinterStationLockEnabled()
+        {
+            return Plugin.WinterStationLock != null && Plugin.WinterStationLock.Value;
+        }
+
+        private static bool IsSeasonalTransformAction(string actionName)
+        {
+            return actionName.IndexOf("Freeze", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        // GameManager.CurrentSeason is a plain `Season` class keyed by SeasonID (.decomp/Season.cs),
+        // not a UniqueIDScriptable or a UnityEngine.Object, so the UniqueID/.name reads this method
+        // used to do always came back empty and the lock never fired. The framework's GameQuery
+        // already resolves SeasonID (its CurrentSeason fix, 2026-06-27) and logs its own read failures.
         private static bool IsWinter()
         {
             try
             {
-                var season = GetMemberValue(GetGameManager(), "CurrentSeason");
-                if (season == null)
-                    return false;
-
-                var uniqueId = (season as UniqueIDScriptable)?.UniqueID
-                    ?? GetMemberValue(season, "UniqueID") as string
-                    ?? (season as UnityEngine.Object)?.name;
-                return string.Equals(uniqueId, "Winter", StringComparison.OrdinalIgnoreCase);
+                return CSFFModFramework.Api.GameQuery.IsWinter;
             }
             catch (Exception ex)
             {

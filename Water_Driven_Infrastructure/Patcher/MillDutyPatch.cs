@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using CSFFModFramework.Api;
@@ -39,15 +40,16 @@ namespace WaterDrivenInfrastructure.Patcher
     /// grafting ActionSequence onto each already-loaded NPCDuty via GetFromID + reflection, and
     /// appending an NPCDutyRef per duty to the vanilla Partner NPCAgent template's AgentDuties —
     /// mirrors Community_Mod_Chest/Patcher/AshPartnerDutyPatch.cs exactly (reflection-only; every
-    /// type resolved via CardUtil.FindGameType, never assumed to be compile-time accessible even
-    /// though WDI's own lib/Assembly-CSharp-nstrip.dll happens to carry a reference — that DLL
-    /// is a manually-regenerated, version-driftable artifact per root CLAUDE.md §Game-Update
-    /// Reference Refresh, so this patch deliberately does not depend on it staying in sync).
+    /// type resolved via CardUtil.FindGameType, never assumed to be compile-time accessible; WDI
+    /// compiles against the plain game lib/Assembly-CSharp.dll since 1.12.5, see root CLAUDE.md
+    /// section Game-Update Reference Refresh).
     /// </summary>
     public static class MillDutyPatch
     {
         private const string MillDutyUid = "wdiOperateGrindingMill_Duty";
         private const string MillUid = "water_sawmill_grinding_mill_placed";
+        private const string StampMillDutyUid = "wdiOperateStampMill_Duty";
+        private const string StampMillUid = "water_sawmill_stamp_mill_placed";
         private const string SluiceDutyUid = "wdiOperateOreSluice_Duty";
         private const string SluiceUid = "water_sawmill_ore_sluice_placed";
         private const string SawmillDutyUid = "wdiOperateSawmill_Duty";
@@ -56,6 +58,20 @@ namespace WaterDrivenInfrastructure.Patcher
         private const string ForgeUid = "water_sawmill_forge_placed";
         private const string WorkshopDutyUid = "wdiOperateWorkshop_Duty";
         private const string WorkshopUid = "water_sawmill_workshop_placed";
+        // Plan feature 18 (Expand): the larger copies are separate CardData, and a duty's Move and item pool name ONE
+        // card's CardData, so each expanded station has a duty of its own (the pond duties below, the same reason).
+        private const string SawmillExpandedDutyUid = "wdiOperateSawmillExpanded_Duty";
+        private const string SawmillExpandedUid = "water_sawmill_placed_expanded";
+        private const string WorkshopExpandedDutyUid = "wdiOperateWorkshopExpanded_Duty";
+        private const string WorkshopExpandedUid = "water_sawmill_workshop_placed_expanded";
+        private const string ReedBedDutyUid = "wdiHarvestReedBed_Duty";
+        private const string ReedBedUid = "water_sawmill_reed_bed";
+        private const string CattailBedDutyUid = "wdiHarvestCattailBed_Duty";
+        private const string CattailBedUid = "water_sawmill_cattail_bed";
+        private const string FishpondFilledDutyUid = "wdiFishPondFilled_Duty";
+        private const string FishpondFilledUid = "water_sawmill_fishpond_filled";
+        private const string FishpondStockedDutyUid = "wdiFishPondStocked_Duty";
+        private const string FishpondStockedUid = "water_sawmill_fishpond_stocked";
         /// <summary>
         /// Shared BaseWeight for every station duty grafted by this patcher.
         ///
@@ -82,10 +98,17 @@ namespace WaterDrivenInfrastructure.Patcher
         private const string PartnerAgentGuid = "b6a4cc575cf9ddd41b321ec619db21fd";
 
         private static bool _millGrafted;
+        private static bool _stampMillGrafted;
         private static bool _sluiceGrafted;
         private static bool _sawmillGrafted;
         private static bool _forgeGrafted;
         private static bool _workshopGrafted;
+        private static bool _sawmillExpandedGrafted;
+        private static bool _workshopExpandedGrafted;
+        private static bool _reedBedGrafted;
+        private static bool _cattailBedGrafted;
+        private static bool _fishpondFilledGrafted;
+        private static bool _fishpondStockedGrafted;
 
         /// <summary>
         /// Which engine action list a single AffectItemsDutyAction step searches. This is fixed
@@ -129,6 +152,23 @@ namespace WaterDrivenInfrastructure.Patcher
             catch (Exception ex)
             {
                 Plugin.Logger?.LogError($"[MillDutyPatch] Failed to apply patch: {ex}");
+            }
+
+            // The empty-station gate (plan Prompt 22): see RequiredActionsAreDoable_Postfix.
+            try
+            {
+                var dutyType = CardUtil.FindGameType("NPCDuty");
+                var doable = dutyType == null ? null : AccessTools.Method(dutyType, "RequiredActionsAreDoable");
+                if (doable == null)
+                {
+                    Plugin.Logger?.LogWarning("[MillDutyPatch] NPCDuty.RequiredActionsAreDoable not found (game update?): a marked but empty Grinding Mill, Stamp Mill or Ore Sluice will keep its Partner pressing in a loop.");
+                    return;
+                }
+                harmony.Patch(doable, postfix: new HarmonyMethod(AccessTools.Method(typeof(MillDutyPatch), nameof(RequiredActionsAreDoable_Postfix))));
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger?.LogError($"[MillDutyPatch] Failed to apply the empty-station gate: {ex}");
             }
         }
 
@@ -199,12 +239,27 @@ namespace WaterDrivenInfrastructure.Patcher
             }
 
             if (!_millGrafted)
+            {
                 _millGrafted = GraftOneDuty(partnerAgent, MillDutyUid, MillUid, "wdiOperateGrindingMill", "Grinding Mill",
                     AffectShape.DismantleAction);
+                if (_millGrafted) RegisterWorkGate(MillDutyUid, ActionInterceptPatch.HasGrindWork);
+            }
+
+            // Stamp Mill (plan feature 25): a copy of the Grinding Mill duty, one DismantleAction step against
+            // its "Stamp All" (the only DA carrying the duty marker).
+            if (!_stampMillGrafted)
+            {
+                _stampMillGrafted = GraftOneDuty(partnerAgent, StampMillDutyUid, StampMillUid, "wdiOperateStampMill", "Stamp Mill",
+                    AffectShape.DismantleAction);
+                if (_stampMillGrafted) RegisterWorkGate(StampMillDutyUid, ActionInterceptPatch.HasStampWork);
+            }
 
             if (!_sluiceGrafted)
+            {
                 _sluiceGrafted = GraftOneDuty(partnerAgent, SluiceDutyUid, SluiceUid, "wdiOperateOreSluice", "Ore Sluice",
                     AffectShape.DismantleAction);
+                if (_sluiceGrafted) RegisterWorkGate(SluiceDutyUid, ActionInterceptPatch.HasSluiceWork);
+            }
 
             // Sawmill is the first CARD-ON-CARD (drag-based CardInteraction) duty in this file —
             // its "Cut" action is a CI, not a DismantleAction, so it takes the cardOnCard branch.
@@ -247,6 +302,65 @@ namespace WaterDrivenInfrastructure.Patcher
             if (!_workshopGrafted)
                 _workshopGrafted = GraftOneDuty(partnerAgent, WorkshopDutyUid, WorkshopUid, "wdiOperateWorkshop", "Water-Driven Workshop",
                     AffectShape.DismantleAction, AffectShape.CardOnCardAction);
+
+            // ── Expanded Sawmill / Workshop (plan feature 18): the same steps as their base cards' duties, aimed at
+            // the expanded card's own CardData (CardOrTagRefWithDurabilities.CheckCard matches a CardData target
+            // only on the card itself, so the base duty can never pick an expanded station).
+            if (!_sawmillExpandedGrafted)
+                _sawmillExpandedGrafted = GraftOneDuty(partnerAgent, SawmillExpandedDutyUid, SawmillExpandedUid, "wdiOperateSawmillExpanded", "Expanded Sawmill",
+                    AffectShape.CardOnCardAction);
+
+            if (!_workshopExpandedGrafted)
+                _workshopExpandedGrafted = GraftOneDuty(partnerAgent, WorkshopExpandedDutyUid, WorkshopExpandedUid, "wdiOperateWorkshopExpanded", "Expanded Workshop",
+                    AffectShape.DismantleAction, AffectShape.CardOnCardAction);
+
+            // ── Reed Bed / Cattail Bed harvest (plan feature 26, tracker T2.601) ──────────────
+            // The beds first carried vanilla's PartnerDuty_HarvestReeds (c1c946d4...), copied from
+            // the wild ReedPatch/CattailPatch. That duty can never pick a bed: its affect steps'
+            // item pools name the CardData ReedPatch and CattailPatch, and a CardData target
+            // matches only when _Card.CardModel == Card (.decomp/CardOrTagRefWithDurabilities.cs,
+            // CheckCard), so a marked bed read "Required actions are not doable" on a live Partner
+            // (2026-10-02). These WDI duties target the beds' own CardData instead, with one
+            // DismantleAction step against the by-hand "Harvest" DA, the only bed action that
+            // carries the duty marker (the scythe and sickle CIs are CardOnCard-shaped and
+            // carry none). Same shape as the confirmed Ore Sluice duty (T2.87).
+            //
+            // Two duties rather than one over both beds, for the Forge/Workshop reason above:
+            // FoundAValidMatch takes the FIRST ItemPool entry with enough matches, so one duty
+            // holding {reed bed, cattail bed} would never reach a marked cattail bed while a
+            // marked reed bed stood beside it.
+            //
+            // The harvest is pure JSON (ReceivingCardChanges Special1 -288 + ProducedCards), so a
+            // Partner's harvest needs no ActionRouter handler; the DA's own Yield gate (>= 5%)
+            // decides when the duty is doable.
+            if (!_reedBedGrafted)
+                _reedBedGrafted = GraftOneDuty(partnerAgent, ReedBedDutyUid, ReedBedUid, "wdiHarvestReedBed", "Reed Bed",
+                    AffectShape.DismantleAction);
+
+            if (!_cattailBedGrafted)
+                _cattailBedGrafted = GraftOneDuty(partnerAgent, CattailBedDutyUid, CattailBedUid, "wdiHarvestCattailBed", "Cattail Bed",
+                    AffectShape.DismantleAction);
+
+            // ── Fishpond catch (plan feature 12, fork (b)) ─────────────────────────────────────
+            // A Partner fishes the Filled and Stocked ponds through duties of WDI's own: vanilla's
+            // "Fish" and "Spearfish" duties select only the CardData River, so they can never pick a
+            // pond (wave0-harness.md section 5). One DismantleAction step against the ponds' "Catch X"
+            // DAs, every one of which carries the duty marker. Two duties, not one over both cards, for
+            // the Forge/Workshop reason above (FoundAValidMatch takes the FIRST item-pool entry with
+            // enough matches); the Winter pond (ice fishing) carries no duty.
+            //
+            // PRIORITY IS A TUNABLE PLACEHOLDER, not a design: the engine takes the FIRST duty-marked DA
+            // whose conditions pass, so the cards' own DA order decides which species a Partner fishes
+            // (Pike, Perch, Minnow, Sturgeon, Trout, Char, Eel, Crayfish, then Frog on the Stocked pond).
+            // A species at 0, or one whose spear/stat gate fails, is skipped; a Partner left on a pond
+            // can fish the first species down. The owner has stated no priority.
+            if (!_fishpondFilledGrafted)
+                _fishpondFilledGrafted = GraftOneDuty(partnerAgent, FishpondFilledDutyUid, FishpondFilledUid, "wdiFishPondFilled", "Filled Fishpond",
+                    AffectShape.DismantleAction);
+
+            if (!_fishpondStockedGrafted)
+                _fishpondStockedGrafted = GraftOneDuty(partnerAgent, FishpondStockedDutyUid, FishpondStockedUid, "wdiFishPondStocked", "Stocked Fishpond",
+                    AffectShape.DismantleAction);
 
             if (_graftedThisPass > 0)
                 Plugin.Logger?.LogInfo($"[MillDutyPatch] attached {_graftedThisPass} Partner duty/duties (enable Debug logging for the per-duty list).");
@@ -329,6 +443,86 @@ namespace WaterDrivenInfrastructure.Patcher
             Plugin.Logger?.LogDebug($"[MillDutyPatch] {logLabel} duty attached to Agent_Partner (JSON-shell path).");
             _graftedThisPass++;
             return true;
+        }
+
+        // ── empty-station gate (plan Prompt 22) ─────────────────────────────────
+        //
+        // MEASURED 2026-10-10 (T2.623, T2.621): a marked Grinding Mill, Stamp Mill or Ore Sluice kept its Partner
+        // pressing the batch button in a loop with an empty hopper, at weight 850, starving every other duty. Why,
+        // from .decomp (EA 0.68b): NPCDuty.RequiredActionsAreDoable checks only step 0 (the Move) and steps marked
+        // RequiredForSelectingDuty, and every affect step here is false; Grind All, Stamp All and Sluice All carry
+        // no condition, so nothing in the engine sees an empty hopper.
+        //
+        // Not fixed in data, because neither data route is safe: (1) no CardAction requirement reads a card's own
+        // inventory (RequiredReceivingDurabilities reads stats, VisibilityWithInventory reads the open panel), and any
+        // condition on the DA would also change the player's button; (2) making the affect step required would let its
+        // OnlyEnvironment item search (the NPC's CURRENT environment) veto a duty whose Move searches every environment,
+        // so a Partner elsewhere could never walk to a loaded station.
+        //
+        // So this postfix answers "not doable" for those three duties while no station marked with the duty (the
+        // game's own GameManager.DutyCards) holds anything its button would process, asked through the handler's own
+        // input resolver. It never touches a press already started on step 1 (the engine runs a queued press
+        // regardless, the T2.621/T2.623 triage), the player's button (which never calls this method), or any other
+        // duty; the Workshop, Forge and Sawmill duties register no gate.
+        private static readonly Dictionary<object, Func<object, bool>> _workGates = new Dictionary<object, Func<object, bool>>();
+        private static readonly HashSet<string> _gateWarned = new HashSet<string>(StringComparer.Ordinal);
+        private static FieldInfo _dutyCardsField;
+        private static PropertyInfo _destroyedProp;
+
+        private static void RegisterWorkGate(string dutyUid, Func<object, bool> hasWork)
+        {
+            var duty = _getFromIdMethod.Invoke(null, new object[] { dutyUid });
+            if (duty == null)
+            {
+                GateWarnOnce("duty-" + dutyUid, $"NPCDuty '{dutyUid}' vanished between graft and gate: its station keeps a Partner pressing when empty.");
+                return;
+            }
+            _workGates[duty] = hasWork;
+        }
+
+        private static void GateWarnOnce(string cause, string message)
+        {
+            if (!_gateWarned.Add(cause)) return;
+            Plugin.Logger?.LogWarning($"[MillDutyPatch] {message} [cause '{cause}', logged once per session]");
+        }
+
+        // __1 is the duty's current step and __2 whether that step has started (NPCDuty.RequiredActionsAreDoable's
+        // _CurrentStep and _ActionStarted).
+        private static void RequiredActionsAreDoable_Postfix(object __instance, int __1, bool __2, ref bool __result)
+        {
+            if (!__result || _workGates.Count == 0 || __instance == null) return;
+            if (!_workGates.TryGetValue(__instance, out var hasWork)) return;
+            if (__2 && __1 > 0) return; // a press already under way runs as the engine has it
+            try
+            {
+                if (!AnyMarkedStationHasWork(__instance, hasWork)) __result = false;
+            }
+            catch (Exception ex)
+            {
+                GateWarnOnce("gate-threw", $"the empty-station gate threw, so it fails open (the old behaviour): {ex.InnerException?.Message ?? ex.Message}");
+            }
+        }
+
+        // Fails OPEN (true) on every reflection miss, so a game update can only bring back the loop, never strand a duty.
+        private static bool AnyMarkedStationHasWork(object duty, Func<object, bool> hasWork)
+        {
+            var gm = CardUtil.GetGameManagerInstance();
+            if (gm == null) { GateWarnOnce("GameManager-null", "GameManager instance not found: the empty-station gate is open."); return true; }
+            if (_dutyCardsField == null) _dutyCardsField = gm.GetType().GetField("DutyCards", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (_dutyCardsField == null) { GateWarnOnce("GameManager.DutyCards", "GameManager.DutyCards not found (game update?): the empty-station gate is open."); return true; }
+            var dict = _dutyCardsField.GetValue(gm) as System.Collections.IDictionary;
+            if (dict == null) { GateWarnOnce("DutyCards-null", "GameManager.DutyCards is not a dictionary: the empty-station gate is open."); return true; }
+            // A missing key reads null through IDictionary: no station is marked, so the duty could press nothing.
+            if (!(dict[duty] is System.Collections.IList marked)) return false;
+            foreach (var card in marked)
+            {
+                if (card == null || (card is UnityEngine.Object uo && uo == null)) continue;
+                if (_destroyedProp == null) _destroyedProp = card.GetType().GetProperty("Destroyed", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                if (_destroyedProp == null) GateWarnOnce("InGameCardBase.Destroyed", "InGameCardBase.Destroyed not found (game update?): the gate reads every marked station as live.");
+                else if (_destroyedProp.GetValue(card, null) is bool destroyed && destroyed) continue;
+                if (hasWork(card)) return true;
+            }
+            return false;
         }
 
         // ── action construction ─────────────────────────────────────────────────

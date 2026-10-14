@@ -1,477 +1,475 @@
 # Water Driven Infrastructure
 
-**Version:** 1.11.3
+**Version:** 1.12.5
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.66)
-**Requires:** CSFFModFramework (AdvancedCopperTools optional — enhances, doesn't gate)
+**For:** Card Survival: Fantasy Forest (EA 0.68b)
+**Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
 
 ---
 
 ## Overview
 
-Water Driven Infrastructure adds large-scale, water-powered construction to Card Survival: Fantasy Forest. Build water wheels to harness river power, then connect them to sawmills, forges, grinding mills, ore sluices, and fishponds. Gears and saw blades are cast from copper using WDI's own metalworking pipeline. The Mill Race Outlet lets you tap that water supply to draw unclean water at any outdoor location — no more long treks to the river.
+Build a water wheel on a river, then run sawmills, forges, grinding and stamp mills, ore sluices and fishponds from it. A Mill Race Outlet brings unclean water to any outdoor location, so you stop walking to the river.
 
-Fully standalone: WDI ships its own copper AND iron fasteners (Cast Copper Rivet, Cast Iron Rivet, Alloy Solder, Cast Copper Sheet, Cast Iron Sheet) so every blueprint builds with just the framework installed. Both cast sheets earn their keep without any other mod — the Cast Iron Sheet shears into eight Iron Rivets in one cold-work craft, and the Cast Copper Sheet is what the Workshop's Hammer Copper Sheet action produces when AdvancedCopperTools is absent. If **AdvancedCopperTools** is also installed, its Copper/Iron Nails, Tin Solder, and Copper/Iron Sheet are accepted interchangeably in every fastener slot (same tier for sheets; any tier for nails/rivets, since they're a generic fastener), and the Workshop's Hammer Copper Sheet / Forge Copper Nails actions produce ACT's real items instead of WDI's.
+The mod stands alone with the framework. Its nails, solder and sheets are the framework's shared Metal Nail, Tin Solder and Metal Sheet, so ones made with any mod fit WDI recipes.
 
-All 25 shipped blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
+Since 1.12.0 a running outlet also fills a Rain Cistern for winter, and you can feed your fishpond, plant reed and cattail beds, and build a Water Basin that raises Sanctuary. Working the stations trains your skills.
+
+24 of the 26 blueprints are in the journal from the start. Cast Large and Small Bronze Gear appear only with Advanced Copper Tools.
+
+The mod ships 26 blueprints, 23 items, 18 placed structures (each form of a card counts), 4 Mill Race improvements, 7 perks, 12 Partner duties and 1 setting. It also keeps five retired parts and their six blueprints so old saves load (see **Retired parts**).
 
 ---
 
-## Infrastructure Chain
+## Build chain
 
 ```
 Water Source (river / lake)
- └── Mill Race ──────────────────────→ Mill Race Outlet  (draw water anywhere outdoors)
+ └── Mill Race ──────────────────────→ Mill Race Outlet  (draw water anywhere outdoors; fills a Rain Cistern)
+                   ├── Reed Bed / Cattail Bed
+                   ├── Water Basin
                    └── Water Wheel
-                          └── Water Mill
+                          └── Water-Driven Mill
                                  ├── Water-Driven Sawmill
                                  ├── Water-Driven Forge ──→ Water-Driven Workshop (upgrade)
                                  ├── Water-Driven Grinding Mill
+                                 ├── Water-Driven Stamp Mill
                                  ├── Ore Sluice
                                  └── Fishpond
 ```
 
----
-
-## Content
-
-### Blueprint Tabs
+### Blueprint tabs
 
 | Tab | Blueprints |
 |-----|-----------|
-| **Advanced Tools** | Mill Race, Mill Race Outlet, Water Wheel, Water Mill, Ore Sluice (Empty), Fish Funnel |
-| **Metal Crafts** | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Forge Iron Bearing, Forge Iron Axle, Forge Iron Wrench, Forge Copper Rivet, Forge Iron Rivet, Forge Alloy Solder, Forge Cast Copper Sheet, Forge Cast Iron Sheet, Cut Iron Rivets from Sheet |
-| **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Water-Driven Sawmill, Water-Driven Forge, Water-Driven Workshop Kit |
-| **Farming Agriculture** | Fishpond |
+| **Advanced Tools** (7) | Mill Race, Mill Race Outlet, Water Wheel, Overshot Wheel, Water-Driven Mill, Ore Sluice Frame, Fish Funnel |
+| **Metal Crafts** (7, +2 with ACT) | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Bearing, Axle and Wrench. With Advanced Copper Tools, also Cast Large and Small Bronze Gear. |
+| **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Sawmill, Forge, Workshop Kit, Stamp Mill, Water Basin |
+| **Farming Agriculture** | Fishpond, Reed Bed, Cattail Bed |
 
-Mill Race directional improvements (N/S/E/W) appear in the **Environment Improvements** panel of each outdoor location — injected per-location at runtime; they do not appear in the crafting journal.
-
-The mill-race network is built from a static world-map edge list (`Data/MillRaceMapEdges.json`). Since 1.6.0, locations added to the world map by other mods through CSFFModFramework 2.7.0+ (`WorldMap/MapNodes.json`) are appended to the network automatically via `Api.WorldMap` — no edits to the static map file needed.
+The four Mill Race improvements appear in the **Environment Improvements** panel of each outdoor location, not in the journal. Locations that other mods add to the world map join the water network automatically.
 
 ---
 
-## Mill Race & Water Outlets
+## Mill Race and Outlet
 
-**Mill Race** — a wooden channel that directs river or lake water to your machines.
+**Mill Race:** a wooden channel that carries river or lake water to your machines. Most other blueprints need one. Build it next to water. Research takes 4 hours and the build is one 1-hour stage.
 
-- Must be placed adjacent to a water source (river, lake, or stream)
-- Unlocked: 16 ticks research; 1-stage build
-- Required by most downstream blueprints
+Finishing a Mill Race also connects the location at its far end, even one you have never visited. A race still under construction connects nothing.
 
-**Mill Race Outlet** — taps the Mill Race to provide freely drawable unclean water anywhere outdoors.
+**Mill Race Outlet:** draw unclean water at any outdoor location. Build a Mill Race first, then the outlet (research 8 hours). The water never runs out, but purify it before drinking. It freezes in winter and thaws in spring.
 
-- Build one Mill Race, then construct the outlet at any outdoor location
-- Provides effectively unlimited unclean water (purify before drinking)
-- Freezes in winter; thaws in spring
-- Unlock: 32 ticks research
+- **Control Valve:** "Close Valve" (15 minutes) shuts the outlet. Nothing can be drawn, a Rain Cistern there stops filling, and stations that rely on it stop. "Open Valve" (15 minutes) reverses it. A closed outlet neither freezes nor thaws.
+- **Winter heat:** stations at a frozen outlet keep working if a heat source stands there. That means a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery, Forge or Copper Brazier, or a Water-Driven Forge or Workshop at Temperature 900 or more. Heat does not thaw the outlet.
+- **Rain Cistern feed:** a Rain Cistern at the same location fills with River Water at 50 every 15 minutes, about 4.5 days from empty, so summer water lasts into winter. Each outlet adds its own flow.
+- A cistern already holding rainwater or any other liquid is left alone until drawn empty. A frozen outlet feeds nothing until the thaw.
 
 ---
 
-## Water Wheel & Water Mill
+## Water Wheel, Mill and Overshot Wheel
 
-**Water Wheel** — the primary power source.
+**Water Wheel:** the main power source. Build it next to a Mill Race. Research 12 hours. Cost: 25 Wooden Planks, 20 Stone, 5 Heavy Stone and 1 Large Copper Gear (1.5 hours). Its card art is animated.
 
-| Field | Value |
-|-------|-------|
-| Requires | 25 Planks, 20 Stone, 5 Heavy Stone, 1 Large Copper Gear |
-| Placement | Adjacent to a Mill Race |
-| Unlock | 48 ticks |
+**Water-Driven Mill:** turns the wheel's rotation into power, and every downstream machine builds on it. Research 12 hours. Cost: 1 Water Wheel, 1 Mill Race and 1 Large Copper Gear (3 hours).
 
-**Water Mill** — converts wheel rotation into usable mechanical power; the base for all downstream machines.
+**Overshot Wheel:** a faster wheel you fit to a finished station. Research 12 hours. Cost: 1 Water Wheel, 1 Iron Axle, 1 Large Copper Gear and 1 Iron Bearing (1.5 hours).
 
-| Field | Value |
-|-------|-------|
-| Requires | 1 Water Wheel + 1 Mill Race + 1 Large Copper Gear |
-| Unlock | 48 ticks |
+Drag it onto a Sawmill, Grinding Mill, Workshop or Ore Sluice (30 minutes). That station's batch button is faster when you press it yourself:
+
+| Button | Normal | With wheel |
+|--------|--------|-----------|
+| Saw All | 1 hour | 30 minutes |
+| Grind All, Hammer All | 30 minutes | 15 minutes |
+| Sluice All | 45 minutes | 15 minutes |
+
+A Partner's duty work takes no time either way, so the wheel cannot speed a Partner up. A fitted station shows **Pack Up (Overshot)**, which also returns the wheel. The Forge and Stamp Mill take no wheel. Times may be rebalanced.
 
 ---
 
 ## Water-Driven Sawmill
 
-Automated wood processing — drag logs in, collect planks.
+Drag a log onto the sawmill to cut planks.
 
-**Multi-stage build** (unlock 96 ticks, requires Water Mill):
+**Build** (research 24 hours, four 3-hour stages, needs a Water-Driven Mill):
 
 | Stage | Materials |
 |-------|-----------|
-| 1 | 25 Heavy Stone + 10 Plaster + Wooden Shovel (keep) + Metal Shovel (keep) |
+| 1 | 25 Heavy Stone, 10 Plaster, a shovel (kept) |
 | 2 | 8 Rope |
-| 3 | Forge Hammer (keep) + 20 Planks |
-| 4 | Water Mill + Mill Race + 2× Large Copper Gear + 4× Small Copper Gear + Copper Saw Blade + 2× Iron Parts + 2× Iron Bearings + 1× Iron Axle + 12× Copper Rivets* |
+| 3 | 20 Wooden Planks, a Forge Hammer or Stone (kept) |
+| 4 | Water-Driven Mill, Mill Race, 2 Large Copper Gears, 4 Small Copper Gears, Copper Saw Blade, 2 Iron Parts, 2 Iron Bearings, 1 Iron Axle, 12 Metal Nails*, 1 Tin Solder* |
 
-**Key features:**
-- **Cut** action (30 min): drag a log onto the sawmill → 8 Planks
-- 6-slot inventory; holds logs awaiting processing
-- **Pack Up** dismantle (1 hour): recovers all components as a portable kit
-
-A recruited Partner can be assigned an **Operate the Sawmill** duty — toggle it on and they'll walk to the sawmill and run Cut, supplying a log themselves. *(Shipped in 1.10.11, confirmed in-game 2026-09-07.)*
+- **Cut** (30 minutes): a log gives 8 Wooden Planks and 2 Wood Shavings. The planks keep the log's wood and dryness, so a birch log gives birch planks.
+- **Saw All** (1 hour): the sawmill holds 20,000 weight (6 logs). Saw All saws every log inside, each giving what Cut gives. The saw blade stays. It trains no skill.
+- **Expand** (30 minutes): rebuilds the sawmill in place as the **Expanded Water-Driven Sawmill**, holding 40,000 instead of 20,000. Contents and a fitted Overshot Wheel stay. It costs 6 Wooden Planks and 4 Iron Nails (Metal Nails at Metal Type Iron), taken from your inventory or cards at the location.
+- There is no way back from Expand, and Pack Up returns the plain kit. Cost and capacity may change.
+- **Pack Up** (1 hour) returns the kit.
+- **Operate the Sawmill** (Partner duty): mark it and a Partner cuts logs there. The expanded sawmill has its own duty.
 
 ---
 
-## Water-Driven Forge
+## Water-Driven Forge and Workshop
 
-Water-powered forge that smelts at 1100°+ and adds a water-hammer for batch metalworking.
+A water-powered forge that smelts at 1,100 degrees and above.
 
-**Multi-stage build** (unlock 64 ticks, requires Water Mill):
+**Build** (research 16 hours, four 3-hour stages, needs a Water-Driven Mill):
 
 | Stage | Materials |
 |-------|-----------|
-| 1 | Water Mill + Wooden Shovel (keep) + Metal Shovel (keep) |
-| 2 | 40 Stone + 40 Mud Brick + 10 Planks |
-| 3 | 10 Clay + 1 Leather Bellows + 10 Planks |
-| 4 | 20 Planks + 10 Mud Brick + 10 Plaster + 2× Iron Parts + 2× Iron Bearings + 1× Iron Axle + 10× Copper Rivets* |
+| 1 | Water-Driven Mill, a shovel (kept) |
+| 2 | 40 Stone, 40 Mud Brick, 10 Wooden Planks |
+| 3 | 10 Clay, 1 Bellows, 10 Wooden Planks |
+| 4 | 20 Wooden Planks, 10 Mud Brick, 10 Plaster, 2 Iron Parts, 2 Iron Bearings, 1 Iron Axle, 10 Metal Nails*, 1 Tin Solder* |
 
-**Key features:**
-- Max temperature 1800°; loses heat at −33°/hour whenever out of fuel, and above ~1000° loses an additional −100°/hour without windflow (a windy environment or the Blast/Bellows actions) — a third of the original cooldown rate, so the forge holds its heat much longer between Blasts
-- Fuel capacity 96 units: firewood (+20), charcoal (+25), embers
-- **Blast** action: +480° temperature using water power (costs fuel + 1 hour); also pushes ambient temperature toward its 80° maximum, warming the player — most noticeable in winter
-- **Smelt Ore** (copper): requires 1100°+; processes Greenstone and other copper ores into ingots
-- **Smelt Iron Components** (Parts/Bearing/Axle/Wrench): requires 1100°+ (same threshold as copper); each item automatically smelts back into 6 iron-typed metal nuggets once fully heated — not into a bar
-- Automatically copies vanilla kiln and smelting recipes; greenstone and copper ore smelting built in
-- A recruited Partner can be assigned the vanilla **fire-tending duty** to this station — they'll feed firewood, fuel, charcoal, or embers into it automatically to keep it lit
+**Heat and fuel**
 
-### Water-Driven Workshop (Upgrade)
+- Temperature goes up to 1,800. With no fuel the forge cools by about 33 degrees every 15 minutes, and above 1,000 it loses another 100 unless wind blows (a windy location or a recent Blast).
+- Fuel holds 96. Firewood and other fuel add 20, Charcoal 25 and Embers 16. The forge only gains heat while it holds fuel.
+- **Blast** (1 hour) adds 480 Temperature and burns 16 fuel. It needs a lit forge with fuel and leaves a pile of Ash. Blast heats only the forge.
 
-An upgrade on top of the forge adding batch metalworking and 14 inventory slots.
+**What it does**
 
-**Build** (unlock 32 ticks): requires existing Forge Kit + Water Mill + Leather Bellows + 10 Charcoal + 2 Iron Parts + 2 Iron Bearings + 1 Iron Axle + 1 Iron Wrench + 2 Small Copper Gears + 1 Large Copper Gear + 8 Copper Rivets* + 1 Alloy Solder*
+- **Smelt Ore:** drag copper ore onto the hot forge.
+- **Smelt Greenstone:** Greenstone Powder becomes one copper Metal Nugget at the powder's Quality, plus one Greenstone Slag.
+- **Iron parts** (Iron Parts, Bearing, Axle, Wrench) smelt at 1,100 or more. A Bearing, Axle or Wrench gives 6 iron nuggets and Iron Parts give 3, at the quality of the bar they came from.
+- The forge copies the vanilla kiln and smelting recipes, so clay fires and vanilla ores smelt in it.
+- **Blast with Advanced Copper Tools:** every ACT metal item inside melts into nuggets of its own Metal Type: Iron 200, White Bronze 140, Tin Bronze 130, Tin 120, Ghost Bronze 110, copper 100. Each item's nuggets take that item's own quality. Items with no quality of their own, such as armour and shields, give quality 0.
+- **Fire-tending:** a Partner can tend the fire with vanilla's duty.
+- **Operate the Forge** (Partner duty): the Partner smelts ore at a forge you have already heated. It never lights or blasts it.
 
-**Additional actions:**
-- **Hammer All** (30 min): applies water-hammer to all inventory contents simultaneously
-- **Hammer Copper Sheet** (1 hour): 6 copper nuggets → 1 metal sheet
-- **Forge Copper Nails** (1 hour): 6 copper nuggets → 6 copper nails
+### Water-Driven Workshop (upgrade)
 
-The Workshop is tagged `tag_SmeltingContainer` so vanilla PassiveEffects on ore items work correctly.
+Adds batch metalworking and 5,000 weight of storage to the forge.
+
+**Build** (research 8 hours, 2 hours): Water-Driven Forge Kit, Water-Driven Mill, Forge Hammer, 10 Charcoal, 2 Iron Parts, 2 Iron Bearings, 1 Iron Axle, 1 Iron Wrench, 2 Small Copper Gears, 1 Large Copper Gear, 8 Metal Nails*, 1 Tin Solder*.
+
+The Workshop keeps every forge action and adds these:
+
+- **Hammer All** (30 minutes): hammers everything inside at once.
+- **Hammer Copper Sheet** (1 hour): 6 copper nuggets make 1 Metal Sheet at the nuggets' average Metal Quality.
+- **Forge Copper Nails** (1 hour): 6 copper nuggets make 6 copper Metal Nails.
+- **Forge Iron Nails** (1 hour): 6 iron nuggets make 6 Iron Nails (Metal Nails at Metal Type Iron).
+- **Hammer Iron Sheet** (1 hour): 6 iron nuggets make 1 Metal Sheet at Metal Type Iron, at the average Metal Quality.
+- **Cast Metal Lump** (1 hour): 6 copper nuggets make one Unfinished Metal Bar at their average quality, which Hammer All can then work.
+- **Expand** (30 minutes): rebuilds it as the **Expanded Water-Driven Workshop**, holding 7,000 instead of 5,000. Temperature, contents and a fitted wheel stay. Cost and rules match the sawmill's Expand.
+- **Operate the Workshop** (Partner duty): Hammer All, then Smelt Ore, at a Workshop you have already heated. The expanded Workshop has its own duty.
+
+Iron nuggets are vanilla Metal Nuggets at Metal Type 200. The Ore Sluice makes them, and so does smelting a WDI iron part. Each craft takes only nuggets of its own metal.
+
+The Workshop's heat stands in for the heated bar the sheet blueprints ask for. The 6-nugget costs may change.
 
 ---
 
 ## Water-Driven Grinding Mill
 
-The water wheel drives the millstone — automates all grinding tasks.
+The wheel drives the millstone and automates grinding.
 
-**Build** (unlock 96 ticks, requires Water Mill): Water Mill + Grinding Stone + 20 Planks + 10 Stone + 1 Iron Bearing + 1 Iron Axle + 8 Copper Rivets* + 1 Alloy Solder*
+**Build** (research 24 hours, 2 hours, needs a Water-Driven Mill): Water-Driven Mill, Rotary Quern, 20 Wooden Planks, 10 Stone, 1 Iron Bearing, 1 Iron Axle, 8 Metal Nails*, 1 Tin Solder*.
 
-A recruited Partner can be assigned an **Operate the Grinding Mill** duty — toggle it on and they'll walk to the mill and press Grind All automatically.
+It takes anything you can grind, crush or pound: grains, acorns, dried herbs and mushrooms, Bone Splinters (into bonemeal), Charcoal, Greenstone and the bog irons. 
+
+Other hammer jobs stay out, such as breaking a cast, bones or a mud brick, mashing berries, cracking a geode, or making clay from mud.
+
+**Grind All** takes 30 minutes, or 15 with an Overshot Wheel. **Operate the Grinding Mill** (Partner duty): the Partner presses Grind All, but only while a marked mill holds something to grind.
+
+---
+
+## Water-Driven Stamp Mill
+
+Water-driven stamps crush a whole hopper of ore at once.
+
+**Build** (research 24 hours, 2 hours, needs a Water-Driven Mill): the Grinding Mill's recipe with 2 Iron Sheets (Metal Sheets at Metal Type Iron) in place of the Rotary Quern.
+
+**Hopper** (18 slots, 8,000 weight): Greenstone, Greenstone Slag and Bog Iron (fresh, dried or roasted), and nothing else. Tin ore does not go in.
+
+**Stamp All** (30 minutes) crushes the hopper into Greenstone Powder, Greenstone Slag Powder or Crushed Bog Iron. Each comes out at the ore's Quality plus a hammer bonus: Greenstone +7, Bog Iron +3, slag +0.
+
+The Grinding Mill also crushes these ores, with no bonus. A good quern still beats the stamp mill on Greenstone. The recipe and bonus may change.
+
+**Operate the Stamp Mill** (Partner duty): the Partner presses Stamp All, but only while a marked mill holds ore.
 
 ---
 
 ## Ore Sluice
 
-Uses flowing water to separate and concentrate mineral deposits.
+Flowing water washes minerals out of soil.
 
-**Two-stage build** (unlock 16 ticks, requires Mill Race):
+**Build** (needs a Mill Race, each part researched in 4 hours):
 
-| Stage | Materials |
-|-------|-----------|
-| 1 — Sluice Frame | 12 Planks + 6 Copper Rivets* + hammering tool |
-| 2 — Ore Sluice | 10 Planks + 4 Stone + 1 Sluice Frame + 6 Copper Rivets* |
+| Step | Materials |
+|------|-----------|
+| Ore Sluice Frame (1 hour) | 12 Wooden Planks, 6 Metal Nails*, a hammering tool (kept) |
+| Ore Sluice (1.5 hours) | 10 Wooden Planks, 4 Heavy Stone, 1 Ore Sluice Frame, 6 Metal Nails* |
 
-Placement must be adjacent to a Mill Race.
+Place it next to a Mill Race.
 
-Every wash now yields something: a soil pile whose mineral rolls all miss leaves a **Stone** behind as washed tailings, so Sluice All is never entirely empty (previously about 29% of mud piles and 34% of fine dirt produced nothing at all).
+Metal is rare: a mud pile gives a copper nugget about 1 time in 50 and greenstone 1 in 33. Dirt and fine dirt give less, and tin and iron less still. The sluice supplements the game's copper mine, it does not replace it.
 
-A recruited Partner can be assigned an **Operate the Ore Sluice** duty — toggle it on and they'll walk to the sluice and press Sluice All. *(Shipped in 1.10.10, confirmed in-game 2026-09-07.)*
+Nuggets come out at Metal Quality 35.
+
+A pile whose rolls all miss leaves a **Stone**, so Sluice All never comes out empty.
+
+**Sluice All** takes 45 minutes, or 15 with an Overshot Wheel. **Operate the Ore Sluice** (Partner duty): the Partner presses Sluice All, but only while a marked sluice holds a Mud, Dirt or Fine Dirt pile.
 
 ---
 
 ## Fishpond
 
-A dug and stocked pond for sustained fish production.
+A dug and stocked pond for a steady supply of fish.
 
-**Multi-stage build** (unlock 64 ticks, requires Mill Race):
+**Build** (research 16 hours, five 2-hour stages, needs a Mill Race):
 
 | Stage | Action |
 |-------|--------|
-| 1 | Dig with shovel (−25 durability) |
-| 2 | Dig with shovel (−25 durability) |
-| 3 | Dig with shovel (−25 durability) |
-| 4 | Line: 10 Planks + 4 Copper Rivets* + 3 Bugs + 15 Heavy Stone + 30 Stone |
-| 5 | Supplement: 2 Pike + 2 Perch + 2 Minnow |
+| 1 to 3 | Dig with a shovel (25 durability each) |
+| 4 | Line: 10 Wooden Planks, 4 Metal Nails*, 3 Bugs, 15 Heavy Stone, 30 Stone |
+| 5 | Stock: 2 Pike, 2 Perch, 2 Minnow |
 
-Fish population grows over time and can be harvested periodically. The pond freezes in winter and cannot be packed up until it thaws in spring.
+The population grows over time. Harvest it with the **Catch** buttons (30 minutes each, 15 for Crayfish and Frog). Each needs at least one whole fish of that species.
+
+In winter the pond becomes the Fishpond (Frozen), with Ice Fish buttons, and cannot be packed up until spring.
+
+- **Rod and spear:** drag a fishing rod onto a pond to **Fish**, or a spear to **Spearfish**. Each takes 30 minutes, wears the tool as river fishing does, and gives 0.5 Fishing XP.
+- **What you catch:** a random species, weighted by how many the pond holds, at Quality 72. Crayfish are not caught this way. With no fish, nothing happens and no time passes.
+- **Partner fishing:** mark a pond with **Fish the Fishpond** in the Duty Assignment menu. The Partner presses the Catch buttons under the same rules, taking the first species still in the pond (Pike, Perch, Minnow, Sturgeon, Trout, Char, Eel, Crayfish, Frog). Mark the pond again if it switches between Fishpond and Fishpond (Stocked).
+- **Eel:** drag a vanilla Eel onto a pond and **Stock Eel** adds it, up to 10. Eels do not breed. **Catch Eel** (spear in reach) or **Ice Fish Eel** takes one out. Eels survive the freeze and thaw.
+- **Feeding:** drag Fish Scraps, Bugs or any fishing bait onto a working pond, and **Scatter Fish Food** adds a quarter fish each to Pike, Perch and Minnow. Only a species of two or more breeds, so food is wasted on a species of one or of 10. The frozen pond cannot be fed.
 
 ---
 
 ## Fish Funnel
 
-A woven timber wing-wall staked out across a river to steer passing fish into a trap.
+A woven timber wing-wall staked across a river to steer fish into a trap.
 
-**Single-stage build** (unlock 16 ticks, 1.5 hours, requires Mill Race): 6 Planks + 2 Rope + 4 Twine.
-Must be built outdoors at a river; the blueprint is hidden anywhere else.
+**Build** (research 4 hours, 1.5 hours, needs a Mill Race): 6 Wooden Planks, 2 Rope, 4 Twine. It gives a **Fish Funnel Kit**. Place it at a river, and **Pack Up** returns the kit.
 
-The blueprint yields a **Fish Funnel Kit**. Place the kit at a river and it becomes the funnel;
-**Pack Up** returns the kit for relocation. Disassembling the kit instead recovers 4 Planks,
-1 Rope and 2 Twine.
+Disassembling the kit gives back 4 Wooden Planks, 1 Rope and 2 Twine.
 
-A placed funnel doubles how fast a **vanilla Funnel Trap** in the same location gains fish:
-it adds +10 Common Fish Population per daytime point on top of the trap's own 10, so a trap
-fills in roughly half the time. The funnel catches nothing by itself, so a Funnel Trap still
-has to be set in the same water. Funnels stack additively (two give +200%), which is
-deliberate: the alternative, `OnBoardEffectCap`, is keyed globally rather than per
-environment and would silently disable a second funnel built at a different river.
-
-*(Shipped in 1.11.0. The +100% rate is a first-pass placeholder and has not yet been confirmed or tuned in-game.)*
+A placed funnel doubles how fast a vanilla Funnel Trap at the same location gains fish. It catches nothing alone, so you still need the trap in the same water. Two funnels give triple speed. The rate may be rebalanced.
 
 ---
 
-## Copper Gear Components & Fasteners
+## Reed Bed and Cattail Bed
 
-Copper gears, the copper saw blade, iron parts, iron bearings, and the iron wrench are required for advanced water-driven machinery. Cast copper components through WDI's own crucible pipeline, forge iron parts, bearings, axles, and wrenches from wrought iron bars, then use them in WDI construction blueprints.
+Plantable copies of the wild reed and cattail patches, in **Farming > Agriculture**.
 
-| Blueprint | Requires | Unlock | Ingredients |
-|-----------|----------|:------:|-------------|
-| **Cast Large Copper Gear** | Large Crucible of Molten Copper | 16 ticks | large molten copper crucible + mold + hammer |
-| **Cast Small Copper Gear** | Small Crucible of Molten Copper | 8 ticks | small molten copper crucible + mold + hammer |
-| **Cast Copper Saw Blade** | Large Crucible of Molten Copper | 16 ticks | one large molten copper crucible + saw-blade mold + hammer |
-| **Forge Iron Parts** | Wrought Iron Bar (iron-typed) | 8 ticks | 1 wrought iron bar → 2 Iron Parts (no tool needed) |
-| **Forge Iron Bearing** | Wrought Iron Bar (iron-typed) | 8 ticks | 1 wrought iron bar → 1 Iron Bearing (no tool needed) |
-| **Forge Iron Axle** | Wrought Iron Bar (iron-typed) | 8 ticks | 1 wrought iron bar → 1 Iron Axle (no tool needed) |
-| **Forge Iron Wrench** | Wrought Iron Bar (iron-typed) | 8 ticks | 1 wrought iron bar → 1 Iron Wrench (no tool needed) |
-| **Forge Copper Rivet** | Copper-grade Metal Nugget | 8 ticks | 1 nugget + hammer (kept) → 1 Copper Rivet |
-| **Forge Iron Rivet** | Iron-grade Metal Nugget | 8 ticks | 1 nugget + hammer (kept) → 1 Iron Rivet |
-| **Forge Alloy Solder** | Copper-grade Metal Nugget | 8 ticks | 1 nugget + hammer (kept) → 2 Alloy Solder |
-| **Forge Cast Copper Sheet** | Heated Copper-grade Metal Bar | 8 ticks | 1 heated bar + hammer (kept) → 1 Cast Copper Sheet |
-| **Forge Cast Iron Sheet** | Heated Iron-grade Metal Bar | 8 ticks | 1 heated bar + hammer (kept) → 1 Cast Iron Sheet |
-| **Cut Iron Rivets from Sheet** | Cast Iron Sheet | 8 ticks | 1 Cast Iron Sheet + hammer (kept) → 8 Iron Rivets (cold work — no forge heat) |
+| Blueprint | Research | Build (1 hour) | Each harvest gives |
+|-----------|----------|----------------|--------------------|
+| **Reed Bed** | 2 hours, needs a Mill Race | 6 Fresh Reeds | 4-8 Fresh Reeds |
+| **Cattail Bed** | 2 hours, needs a Mill Race | 3 Cattail Roots | 2-4 Fresh Reeds, 1 Cattail Root, and Cattail Fluff in autumn and winter |
 
-**Copper gears and the saw blade** smelt back to copper nuggets in the furnace or WDI Forge (1100°+).
-
-**Iron components** (Parts, Bearing, Axle, Wrench) smelt back into iron-typed metal nuggets (6 per item) in the WDI Forge or Workshop once heated to 1100°+ — the same threshold as copper, not 1300°. The forge is tagged `tag_SmeltingContainerIron` for this purpose; a standard vanilla furnace will not melt iron components.
-
-**\* Fasteners (Copper/Iron Rivets, Alloy Solder) — interchangeable with AdvancedCopperTools:** every blueprint slot that calls for a Rivet or Alloy Solder also accepts ACT's Copper/Iron Nail or Tin Solder if AdvancedCopperTools is installed — craft whichever you already have, in whichever tier you have. Rivets are a generic fastener commodity, so copper and iron rivets/nails are all interchangeable with each other regardless of tier or mod. Cast Copper/Iron Sheet stay tier-locked with ACT's Copper/Iron Sheet (same-tier only — an iron-tier build still needs iron-tier sheet). **The Cast Iron Sheet does not depend on ACT to be worth making:** the Cut Iron Rivets from Sheet blueprint shears one sheet into 8 Iron Rivets with any hammering tool, no forge heat required. Since a sheet comes from one iron bar (6 nuggets), plate-cutting yields 8 fasteners where nugget-by-nugget forging yields 6 — the extra bar-and-heat work buys a better fastener rate, in a single craft action instead of six. WDI's own fastener blueprints are always researchable, independent of whether ACT is present, and forge from a plain copper- or iron-grade Metal Nugget/Bar (no tin ore or ACT-exclusive materials required). *(A 2026-09-06 playtest reported the Cut Iron Rivets from Sheet craft failing; re-checked 2026-09-15 against current source - JSON schema, WarpData/WarpType pairing, UID cross-references, and blueprint-tab registration are all correct and match every sibling fastener blueprint, and no wiring defect was found. Cause unconfirmed - retest with a specific symptom (blueprint not appearing, sheet not accepted, or wrong output) needed to close T2.113.)*
+- Build at a river or lake, or at any outdoor location a connected outlet waters. Anywhere else the build is refused.
+- A bed regrows like the wild patch. A harvest takes about 3 days of growth, faster in spring and none in winter. A new bed has one harvest ready.
+- Harvest by hand (30 minutes), or all at once with a metal scythe or sickle. **Clear Bed** pulls the bed up and the plants are lost.
+- Only planting needs water. Harvesting is never blocked.
+- **Harvest the Reed Bed** and **Harvest the Cattail Bed** (Partner duties): the Partner harvests a marked bed whenever 5% of its growth is back.
 
 ---
 
-## Character Creation Perks
+## Water-Source Tag and Plumbed Bathtub
 
-All perks appear in the **Situational** tab.
+**Plumbed bathtub** (needs Advanced Copper Tools): an empty placed Copper Bathtub where a Mill Race Outlet runs fills itself within seconds, ready for a Cold Bath. A frozen or closed outlet fills nothing, and a warm tub is left alone.
 
-| Perk | Cost | Starting Items |
+Another mod can also mark a card as a water source so WDI structures can be built there (see **For modders**).
+
+---
+
+## Water Basin
+
+A low stone basin fed by a thin stream. While it stands at your location it adds 10 to your Sanctuary. It is in **Construction > Furniture**.
+
+- **Research:** 2 hours, needs a Mill Race. **Build** (1.5 hours): 8 Stone and 1 Metal Sheet of any metal but iron.
+- Build at a river or lake, or at an outlet-watered outdoor location, never indoors. One basin per location.
+- **Clear Basin** (30 minutes, asks to confirm) removes it. Nothing comes back.
+- Only building needs water. A placed basin keeps its Sanctuary through a frozen outlet or after the outlet is gone. The +10 may be rebalanced.
+
+---
+
+## Gears, iron parts and fasteners
+
+Advanced machines need copper gears, a copper saw blade and iron parts. Cast the copper pieces from a molten crucible and forge the iron pieces from heated iron bars.
+
+| Blueprint | Research | Build | Ingredients |
+|-----------|:--------:|:-----:|-------------|
+| **Cast Large Copper Gear** | 4 hours | 1 hour | Large Molten Crucible of copper, 3 Mud Brick, 3 Clay, hammering tool (kept) |
+| **Cast Small Copper Gear** | 2 hours | 45 min | Small Molten Crucible of copper, 2 Mud Brick, 2 Clay, hammering tool (kept) |
+| **Cast Large Bronze Gear** (ACT) | 4 hours | 1 hour | Large Molten Crucible at Metal Type 120-140, 3 Mud Brick, 3 Clay, hammering tool (kept) |
+| **Cast Small Bronze Gear** (ACT) | 2 hours | 45 min | Small Molten Crucible at Metal Type 120-140, 2 Mud Brick, 2 Clay, hammering tool (kept) |
+| **Cast Copper Saw Blade** | 4 hours | 45 min | Large Molten Crucible of copper, 10 Mud Brick, 10 Clay, hammering tool (kept) |
+| **Forge Iron Parts** | 2 hours | 30 min | 1 Heated Metal Bar (iron) gives 2 Iron Parts |
+| **Forge Iron Bearing, Axle, Wrench** | 2 hours | 45 min each | 1 Heated Metal Bar (iron) and a hammering tool (kept) |
+
+- **Bronze gears** carry the crucible's Metal Type (tin 120, tin bronze 130, white bronze 140) and smelt back into nuggets of that type. They fit wherever a copper gear of the same size is needed: Water Wheel, Overshot Wheel, Water-Driven Mill, Sawmill and Workshop Kit. They give no bonus.
+- **Copper gears and the saw blade** smelt back into copper nuggets at the quality of the crucible they were cast from, in a furnace or the WDI Forge at 1,100 or more. A piled stack of bronze gears can be spread out to pick one metal type.
+- **Iron parts** smelt in the WDI Forge or Workshop at 1,100 or more, not in a vanilla furnace. Parts made before 1.12.3 have no recorded quality and melt at 0.
+
+**\* Fasteners and sheets.** Every nail slot takes the framework's Metal Nail of any metal, and every solder slot takes its Tin Solder. Nails come from the framework's nail blueprints or the Workshop. Tin Solder comes from Forge Tin Solder: one tin nugget makes 2.
+
+Sheet slots read the sheet's metal: the Stamp Mill takes Iron Sheets and the Water Basin any sheet but iron. Iron Sheets come from the framework's Iron Sheet blueprint (6 iron nuggets) or the Workshop's Hammer Iron Sheet.
+
+**Retired parts (1.12.3).** WDI no longer makes its own Cast Copper and Iron Rivets, Alloy Solder or Cast Copper and Iron Sheets. They duplicated the shared cards under near-identical names, and the cast sheets could not be melted back.
+
+Their six blueprints, Cut Iron Rivets from Sheet included, have left the journal.
+
+An old card in a save is named "(old)" and turns into the shared card within a quarter of an hour, or at once with its Reforge button.
+
+Copper becomes a Copper Sheet or Copper Nail, iron an Iron Sheet or Iron Nail, and Alloy Solder a Tin Solder.
+
+---
+
+## Skill training
+
+Building and working WDI trains vanilla skills, matching the vanilla equivalents:
+
+| What | Skill gained |
+|------|--------------|
+| Casting and forging parts (gears, saw blade, iron parts) | Smithing +1.0 each |
+| Water Wheel, Mill, Overshot Wheel, Sawmill, Grinding Mill, Stamp Mill, Forge, Workshop Kit, Ore Sluice, Fishpond | Crafting +2.0 |
+| Mill Race, Outlet, Sluice Frame, Fish Funnel, Water Basin | Crafting +1.0 |
+| Water Wheel, Mill, Overshot Wheel, Mill Race, Sawmill | Woodworking +0.5 as well |
+| Reed Bed, Cattail Bed | Herbalism +1.0 |
+| Sawmill Cut (per log) | Woodworking +0.5 |
+| Pond Catch or Ice Fish (per fish) | Fishing +0.5 (Crayfish and Frog +0.25) |
+
+The batch buttons (Grind All, Hammer All, Sluice All, Saw All, Blast) give no XP. Skill Speed Boost multiplies these gains like any other.
+
+---
+
+## Character creation perks
+
+All perks are in the **Situational** tab.
+
+| Perk | Cost | Starting items |
 |------|-----:|---------------|
-| **Forge Start** | 1 Star | Water-Driven Forge Kit + 1 Mill Race component |
-| **Sawmill Start** | 2 Moons | Water-Driven Sawmill Frame |
-| **Grinding Mill Start** | 2 Moons | Water-Driven Grinding Mill Kit + 1 Mill Race component |
+| **Forge Start** | 1 Star | Water-Driven Forge Kit, 1 Mill Race |
+| **Sawmill Start** | 2 Moons | Water-Driven Sawmill Kit |
+| **Grinding Mill Start** | 2 Moons | Water-Driven Grinding Mill Kit, 1 Mill Race |
 | **Prospector's Start** | 2 Moons | Ore Sluice Kit |
 | **Angler's Start** | 2 Moons | Fishpond Kit |
-| **Homesteader's Waterworks** | 2 Moons | Mill Race Outlet Kit + 1 Mill Race component |
-| **Millwright** | 30 Suns | +75 Woodworking head start (no items) |
+| **Homesteader's Waterworks** | 2 Moons | Mill Race Outlet (packed), 1 Mill Race |
+| **Millwright** | 30 Suns | +75 Woodworking head start |
+
+---
+
+## Partner duties
+
+Assign these to a recruited Partner in the Duty Assignment menu:
+
+- Operate the Grinding Mill, Ore Sluice, Sawmill, Expanded Sawmill and Stamp Mill
+- Operate the Forge, Workshop and Expanded Workshop
+- Harvest the Reed Bed and Harvest the Cattail Bed
+- Fish the Fishpond (one duty each for the Fishpond and the Fishpond (Stocked))
+
+A Partner works only the stations you mark. The Forge and Workshop also take vanilla's fire-tending duty.
 
 ---
 
 ## Installation
 
-### Requirements
+**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.0 or later, and Card Survival: Fantasy Forest (EA 0.68b). Advanced Copper Tools is optional: it adds Blast melting for its metal items, the lit Copper Brazier as winter heat, bronze gears and the plumbed bathtub.
 
-- BepInEx 5.x
-- CSFFModFramework (latest)
-- Card Survival: Fantasy Forest (EA 0.66)
-- **AdvancedCopperTools** (optional — enhances fastener/Workshop output, not required to build or research anything)
-
-### Steps
-
-1. Install BepInEx 5.x if not already installed.
-2. Deploy CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
-3. (Optional) Deploy AdvancedCopperTools to `BepInEx/plugins/Advanced_Copper_Tools/`.
+1. Install BepInEx 5.x if you have not already.
+2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
+3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.11.3 loaded.`
+5. Launch the game and look for `WaterDrivenInfrastructure v1.12.5 loaded.` in `BepInEx/LogOutput.log`.
 
-### Deployed layout
+---
+
+## Settings
+
+BepInEx writes `BepInEx/config/crispywhips.waterdriveninfrastructure.cfg` on first launch. A changed value needs a full game restart, not a save reload.
+
+- **Seasons > Winter Station Lock** (default `false`): when on, the water-powered stations stop in winter everywhere, even beside a river, unless a heat source from the winter heat list stands there. It never blocks packing up, fuel, lighting, smelting or a pond's own freeze.
+- When off, only a frozen outlet stops a station in winter, and stations at a river or lake work all year.
+
+---
+
+## Compatibility
+
+- Advanced Copper Tools is optional and not a plugin dependency, so load order does not matter.
+- Works alongside Herbs and Fungi, Repeat Action, Skill Speed Boost, Sirus23 Mod Collection and other framework mods.
+- Safe to add to an existing save. Removing it mid-save makes its structures disappear but does not corrupt the save.
+
+---
+
+## Testing status
+
+Most features were checked by scripted tests in a running game. Not yet tried in a game, or by hand:
+
+- The 1.12.3 fixes (nugget quality, Blast, Cast Metal Lump, Hammer All on an Iron Bloom, world temperature, Smelt Greenstone, retired parts turning into shared ones). They have scripted checks that are not yet confirmed by hand.
+- The Ore Sluice's new metal rates, the Iron Nail cost of Expand, and the Iron Sheet recipes for the Stamp Mill and Water Basin.
+- The animated Water Wheel art: seen working, not yet judged by eye.
+- The pile toggle on Bronze Gears (1.12.5).
+- Partner duties for the Stamp Mill, Fishpond and expanded stations: scripted checks only.
+
+---
+
+## Troubleshooting
+
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.5 loaded.`
+- **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
+- **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
+- **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.
+- **Hammer All does nothing?** Load tool blanks or copper pieces into the Workshop first. The game never shows Metal Quality as a number, but the boost is real. It also raises the visible Quality once an item has taken a Strike.
+- **Sawmill Cut missing?** The sawmill must be placed, not held as a kit. Drag a log onto it.
+- **Saw All does nothing?** Put Tree Logs into the sawmill's inventory first. Dragging a log onto the sawmill runs Cut instead.
+
+---
+
+## For modders
+
+**Water-source tag:** give a card the tag `tag_x_WaterSource` and a WDI station, Reed Bed, Cattail Bed or Water Basin can be built at its location as if beside a river.
+
+The tag affects building only. Drawing water and the cistern feed still need a Mill Race Outlet. WDI never ships the tag itself.
+
+**Installed layout:**
 
 ```
 BepInEx/plugins/Water_Driven_Infrastructure/
 ├── Water_Driven_Infrastructure.dll
 ├── ModInfo.json
 ├── BlueprintTabs.json
-├── CardData/
-│   ├── Blueprint/
-│   ├── EnvImprovement/
-│   ├── Item/
-│   └── Location/
+├── Data/MillRaceMapEdges.json
+├── CardData/ (Blueprint, EnvImprovement, Gif, Item, Location)
 ├── CharacterPerk/
 ├── NPCDuty/
-├── Localization/
-│   ├── SimpEn.csv
-│   └── SimpCn.csv
-└── Resource/Picture/
+├── ScriptableObject/ActionTag/
+├── Localization/ (SimpEn.csv, SimpCn.csv)
+└── Resource/ (GIF, Picture)
 ```
 
----
-
-## Harmony Patches
+**Code map:**
 
 | Patch | Purpose |
 |-------|---------|
-| **GameLoadPatch** | Loads mod data at startup; injects Mill Race directional improvements into world-map locations, copies vanilla kiln/smelting recipes into the forge and workshop, and fixes the runtime iron-smelting container tag |
-| **MillRaceNetwork** | Bidirectional mill race connectivity — both endpoints of a race must be complete before the connection activates (a single directional segment cannot power structures); also gates outlet/station placement, water draws, and station use to locations with direct water or a connected, unfrozen outlet, with a winter-freeze bypass when a lit Copper Brazier is nearby |
-| **ActionInterceptPatch** | Registers ActionRouter handlers for Grind All (mill), Sluice All (ore sluice), fishpond stocking/catch stats, Workshop crafts (Hammer Copper Sheet / Forge Copper Nails / Cast Metal Lump), Hammer All, and forge/workshop Blast; checks station inventory before consuming for inventory-backed buttons; sets SD4=200 (iron metal type) and quality on the iron-typed metal nuggets spawned when iron components finish smelting. (Sawmill Cut is pure JSON and is not intercepted here.) |
-| **FishpondPopulationPatch** | Fishpond population growth: gates breeding per species (needs ≥2 individuals) and swaps the pond between Filled ↔ Stocked card variants once total population crosses the stocking threshold (10) |
-| **MillDutyPatch** | Grafts five custom NPCDuties — "Operate the Grinding Mill", "Operate the Ore Sluice", "Operate the Sawmill", "Operate the Forge" and "Operate the Workshop" — onto the vanilla Partner NPCAgent template (JSON-shell + reflection-built `ActionSequence`), letting a recruited companion work each station once the player's Duty Assignment toggle is on. The mill and sluice drive a DismantleAction button; the sawmill drives the drag-based **Cut** CardInteraction, with the engine sourcing the log from that action's own `CompatibleCards`; the forge drives **Smelt Ore** and the workshop chains **Hammer All** then **Smelt Ore**. The forge/workshop duties only work a station the player has *already heated* — they never light or blast it. **Three of these five are confirmed working in-game**: the Grinding Mill (2026-08-15), the Ore Sluice and the Sawmill (both 2026-09-07). A play session on 2026-08-16 had shown all five losing duty selection outright to vanilla's much-higher-weighted native duties; 1.10.13 raised their base weight to 850, and that fix is now validated by log evidence of three duties being selected and run in one save. The **Forge** and **Workshop** duties remain unconfirmed: in the 2026-09-06 session both attached at boot but neither ever became the current duty, with every path probe reporting no reachable route to the station, so that result does not yet distinguish a code bug from a station that was not built, heated and reachable in the test save |
+| **GameLoadPatch** | Postfix on `GameLoad.LoadMainGameData`. Injects the Mill Race improvements into world-map locations, copies the vanilla kiln and smelting recipes into the forge and workshop, repairs the Greenstone powder smelt and fixes the iron smelting container tag. |
+| **MillRaceNetwork** | Two-way race connectivity. Gates outlet and station placement, water draws and station use to locations with direct water or a connected, unfrozen outlet. A heat source bypasses the winter freeze. Also runs the optional Winter Station Lock. |
+| **ActionInterceptPatch** | `ActionRouter` handlers for Grind All, Sluice All, Stamp All, Saw All (`AfterWrapped`, so its time is charged), pond stocking and catches, the Workshop crafts, Hammer All, Blast and Expand. Checks station inventory before consuming. |
+| **FishpondPopulationPatch** | Gates breeding per species (needs 2) and swaps the pond between its Filled and Stocked cards at 10. |
+| **BathtubPlumbingPatch** | With ACT, polls every 5 seconds and fills an empty Copper Bathtub at a running outlet. |
+| **BronzeGearTabPatch** | With ACT, adds the two Cast Bronze Gear blueprints to Metal Crafts at runtime. |
+| **MillDutyPatch** | Grafts the 12 `NPCDuty` files onto the vanilla Partner template. A postfix on `NPCDuty.RequiredActionsAreDoable` stops the mill, sluice and stamp mill duties while no marked station holds work. Every duty sets `RequiresMarkedCard`. Base weight 850. |
+| **BaseTemperatureHeal** | On `GameManager.OnGMInitialized`, resets a positive vanilla BaseTemperature base to 0, repairing saves warmed by Blast before 1.12.3. |
 
-All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops, or stats.
+Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they never modify vanilla cards, drops or stats.
 
----
-
-## Compatibility
-
-- **AdvancedCopperTools is optional**, declared as `BepInDependency.DependencyFlags.SoftDependency` — WDI is fully playable with only CSFFModFramework installed. When ACT is also present, its Copper Nail, Tin Solder, and Copper Sheet are accepted interchangeably in every WDI fastener slot, and the Workshop's Hammer Copper Sheet / Forge Copper Nails actions produce ACT's real items instead of WDI's own.
-- Works alongside HerbsAndFungi, RepeatAction, SkillSpeedBoost, SheepHusbandry, and other framework mods.
-- Safe to add to an existing save. Removing mid-save causes modded structures to disappear but does not corrupt the save file.
-
-**Dependency chain:** `CSFFModFramework` → `WaterDrivenInfrastructure` (soft, enhanced by: `AdvancedCopperTools`). No other mod depends on WDI.
+**Building from source:** the project compiles against the plain game `lib/Assembly-CSharp.dll`, the same file as `CSFFModFramework/lib/Assembly-CSharp.dll`. Copy the game's own DLL there after a game update.
 
 ---
 
-## Troubleshooting
+## Version history
 
-**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.11.3 loaded.` AdvancedCopperTools is optional.
+Full notes are in CHANGELOG.md.
 
-**Forge won't smelt?** Temperature must reach 1100°. Feed charcoal and use the Blast action before attempting to smelt.
-
-**Building from source?** The project intentionally references `lib/Assembly-CSharp-nstrip.dll` as its compile-time game assembly. A separate `lib/Assembly-CSharp.dll` is not required for this mod.
-
-**Mill Race Outlet not producing water?** The outlet must be outdoors and a Mill Race must be built first. Outlets freeze in winter — wait until spring.
-
-**Workshop Hammer All does nothing?** Load tool blanks or copper components into the workshop's inventory slots first. Note that a hammered item's hidden "Metal Quality" stat won't visibly move — vanilla flags its display `AlwaysHide` on every candidate item — but the boost is real and, as of v1.10.19, also raises the player-visible "Quality" number directly, provided the item has taken at least one Strike.
-
-**Sawmill Cut action missing?** The sawmill must be placed (not held as a kit) and a log must be dragged onto it.
-
----
-
-## Version History
-
-### v1.11.2 (current)
-- Smaller download (now 12.0 MB): every card image had been packaged twice, and the Filled
-  Fishpond image shipped at 848x1264 instead of the mod's 512-wide size. No gameplay change.
-
-### v1.11.1
-- Quieter startup log: the Partner station duties now print one summary line instead of five.
-  No gameplay change.
-
-### v1.11.0
-- **Fish Funnel** (Advanced Tools tab) - a river-placed timber wing-wall that doubles how fast
-  a vanilla Funnel Trap in the same location gains fish. 6 Planks + 2 Rope + 4 Twine, built at a
-  river, placed from a kit and packed back up for relocation. The +100% rate is a placeholder
-  pending in-game tuning. *(Not yet confirmed in-game.)*
-- **Ore Sluice washed tailings** - a soil pile whose mineral rolls all miss now leaves a Stone
-  behind, so Sluice All never comes out empty. About 29% of mud piles and 34% of fine dirt
-  previously produced nothing at all. *(Not yet confirmed in-game.)*
-
-### v1.10.20
-- Fixed the Cast Metal Sheet standing in for a bronze-grade sheet in Advanced Copper Tools'
-  Bronze armor recipes. Its Metal Type stat was inactive, and the game skips the bronze-grade
-  range test entirely when that stat is off. It now carries a copper stamp. *(Not yet confirmed
-  in-game.)*
-
-### v1.10.19
-- Fixed Hammer All's Metal Quality boost never moving the player-visible "Quality" number on hammered metal items. Vanilla metal-bar items carry two independent quality stats — hidden `SpecialDurability2` ("Metal Quality") and visible `SpecialDurability3` ("Quality") — and the boost previously only ever raised the hidden one. Now boosts both. Quality gain still requires the item to have taken at least one Strike. *(Not yet confirmed in-game.)*
-
-### v1.10.18
-- Fixed vanilla iron items (Iron Nuggets, Unfinished/Finished Wrought Iron Bars) never registering as "in a smelting container" in the Forge or Workshop, so their Smelted progress only ever drained. Generalized the existing iron-tag injection to also inject the general vanilla `tag_SmeltingContainer` SO into both stations. *(Not yet confirmed in-game.)*
-
-### v1.10.17
-- Forge and Workshop self-smelting (iron parts/bearing/axle/wrench, copper gears/saw blades) now retains the melted item's own quality (floored at 50%) instead of always flattening to the 50% floor — matching how Blast already behaves. *(Not yet confirmed in-game.)*
-
-### v1.10.16
-- Fixed Copper Nuggets smelted from Copper Gears/Saw Blades coming out at 0% quality. Added a GiveCard hook that discovers any self-smelting item at runtime and floors its output nuggets' quality, matching the existing Blast/iron-smelting quality floor. *(Not yet confirmed in-game.)*
-
-### v1.10.15
-- Fixed Natural Windflow still going dead below 790° in windy environments (e.g. High Grove) — the v1.10.5 fix moved the dead zone rather than removing it. Lowered the floor to 1°, matching "Lose Temperature without fuel"'s own floor.
-- Fixed Cast Metal Lump's output (vanilla MetalBarUnfinished) never being accepted back into the Workshop's own inventory, dead-ending the Cast Metal Lump → Hammer All progression despite the Workshop's own help text claiming to accept it.
-- Clarified in the Workshop's help text that Hammer All's Metal Quality boost is real (traced end-to-end and confirmed correct) but never shows as a visible number — vanilla flags that stat `AlwaysHide` on every candidate item, so the game's own UI never renders it regardless of value.
-
-### v1.10.8
-- Water-Driven Grinding Mill can now be assigned to a Partner's Duty Assignment list — toggle the mill's duty marker on and a recruited companion will walk to it and press Grind All automatically. Ships a custom NPCDuty (`NPCDuty/wdiOperateGrindingMill_Duty.json`) grafted onto the vanilla Partner template via reflection (`MillDutyPatch`).
-
-### v1.10.7
-- Water-Driven Forge and Workshop can now be assigned to a Partner's vanilla fire-tending duty (`PartnerDuty_Firekeeping`) — a recruited companion will feed firewood, fuel, charcoal, or embers into the station automatically to keep it lit.
-
-### v1.10.6
-- Blast (Forge and Workshop) now also pushes ambient temperature toward its 80° cap, via a direct `StatModifications` bump to the vanilla `BaseTemperature` GameStat (clamped by the stat's own -80..80 range, so it can never overshoot). Warms the player standing at the station — most noticeable countering the deep cold of winter.
-- Forge and Workshop now hold their heat 3x longer: both cooldown `PassiveEffects` ("Lose Temperature without fuel", "High Temperature loss without windflow") cut to a third of their prior rate, so Blast is needed less often to stay at smelting temperature.
-
-### v1.10.5
-- Fixed Hammer All never raising Metal Quality on heated nuggets — `IsMetalQualityTool`'s tag gate (`tag_Metal`/`tag_ToolBlank`/`tag_CopperSmall`/`tag_CopperBig`) never matched any real item (vanilla MetalNugget/MetalBarUnfinished carry no gameplay tags at all — the workshop's own InventoryFilter has to allowlist MetalNugget by exact UID for the same reason), so every strike just burned down vanilla's own inert "Strikes" stat with no quality payoff. Dropped the tag requirement; the existing active-"...Quality"-named SpecialDurability2 check is a sufficient, safe signal on its own.
-- Fixed Natural Windflow going dead the moment fuel hits exactly 0, even in a confirmed-windy environment (e.g. High Grove) — the forge/workshop would just bleed heat via "Lose Temperature without fuel" (−100/hour) with no windflow rescue, contradicting the "wind carries it to smelting temp on its own" description. Natural Windflow's gate now requires the structure already be substantially hot (≥790°, reached only through real fuel-burning) instead of requiring live fuel — preserves the original fix (an unlit, never-fueled forge still can't self-heat from ambient wind alone) while letting wind carry an already-hot forge through fuel gaps as advertised.
-
-### v1.10.1
-- Fixed Blast-produced copper nuggets shipping at 0 quality (`SpawnService.Spawn` returns `null` on success in EA 0.65, so the old null-check on its return value always skipped the quality-init code; switched to the same ID-diff pattern already used by the Sluice/Grind/Fish paths).
-- Reworded the Water-Driven Forge cooling description — the previous "cools −40°/hour when idle" line didn't match any reachable state of the forge's actual passive-effect stack.
-- Added log breadcrumbs to 8 previously-silent `catch` blocks (diagnostic hygiene only — no behavior change).
-
-### v1.10.0
-- Added Cast Iron Rivet and Cast Iron Sheet (Metal Crafts tab) — WDI-native iron-tier fasteners forged from an iron-grade Metal Nugget/heated Metal Bar, always researchable, no ACT required. Renamed Cast Metal Sheet → Cast Copper Sheet (same UID; cosmetic rename now that an iron sibling exists).
-- Rivets and nails are now fully cross-tier AND cross-mod interchangeable: every fastener slot (in either mod) accepts ACT Copper Nail, ACT Iron Nail, WDI Copper Rivet, and WDI Iron Rivet.
-- Cast Copper/Iron Sheet are now cross-mod interchangeable with ACT's Copper/Iron Sheet, same tier only (a new pairing — the original v1.8.0 decoupling never wired sheet alternates).
-- Framework's `BlueprintAlternates.AddAlternateIngredient` (2.17.0+) now accumulates multiple alternates per primary instead of overwriting the prior one — required for a single fastener slot to accept three or four interchangeable items.
-
-### v1.8.3
-- Removed a stale `CookingRecipes` entry ("Melt Iron Parts") on the Forge and Workshop that gated Iron Parts/Bearing/Axle/Wrench smelting at 1300° with the message "Temperature must reach 1300 to melt iron!" — left over from the pre-v1.7.1 design. Iron components have smelted at 1100° (same as copper) since v1.7.1 via their own passive-effect stat gate and `tag_SmeltsAt1100`; the stale recipe contradicted that (wrong on-screen message) and could double-count smelting charges above 1300°. Also removed the now-unused `tag_SmeltsAt1300` reference from both structures' inventory filters (no item in the mod ever carried it).
-- Fixed the README understating the shipped blueprint count (said 18, actually 21 since v1.8.0's fastener additions).
-
-### v1.8.0
-- **Removed the hard dependency on AdvancedCopperTools.** WDI now loads and is fully playable with only CSFFModFramework installed; ACT is a soft/optional enhancement.
-- Added 3 WDI-native items + blueprints: Cast Copper Rivet, Alloy Solder, Cast Metal Sheet (Metal Crafts tab) — forged from a plain copper-grade Metal Nugget, always researchable.
-- The 12 blueprint slots that previously required ACT's Copper Nail / Tin Solder now require WDI's own Copper Rivet / Alloy Solder instead, and additionally accept ACT's originals interchangeably when ACT is installed.
-- Workshop's Hammer Copper Sheet / Forge Copper Nails actions now produce ACT's real items when ACT is installed, and WDI's own Cast Metal Sheet / Copper Rivet otherwise.
-- Framework gained a new shared helper, `CSFFModFramework.Api.BlueprintAlternates`, generalizing the alternate-ingredient pattern AdvancedCopperTools already used for iron/copper nail interchangeability.
-
-### v1.7.3
-- GameLoadPatch: replaced a silent no-op guard with explicit error logging at every reflection step (`GameLoad` type, instance, `DataBase`, `AllData`) and a single Info summary line on success. Previously, if any upstream reflection call resolved to null, the entire postfix (kiln recipe copy, greenstone smelt fix, iron container tag, mill race improvements) skipped with zero log output and no exception — indistinguishable from a working load in the default BepInEx log filter.
-
-### v1.7.2
-- Fishpond: build time reduced from 12 to 8 DTP/stage (5 stages: 15 hours → 10 hours total), bringing it in line with the mod's other multi-stage structures (Sawmill/Forge total 12 hours across 4 stages). Description and localization updated to match.
-
-### v1.7.1
-- Forge: added 14 inventory slots so items can be loaded into the forge for smelting.
-- Iron components (Parts, Bearing, Axle, Wrench): added `tag_SmeltsAt1100` so these items are accepted by the forge and workshop smelting station inventory filters and smelt at the same threshold as copper.
-- Copper Saw Blade: removed duplicate OnFull auto-smelt that was conflicting with the progress-based smelting system.
-- Workshop Kit: added pack-up time (`DeconstructDaytimeCost: 3`).
-- Fishpond Winter: description now clarifies the pond cannot be packed up while frozen.
-- Blueprint / location stage ProgressRange fixes for Water Wheel and Grinding Mill.
-
-### v1.6.0
-- Mill race network now automatically incorporates world-map locations added by other mods via CSFFModFramework 2.7.0+ `Api.WorldMap` (e.g. CMC's Village Path) — no manual edge-file edits needed.
-- Tested with EA 0.65.
-
-### v1.5.0
-- Quality invariant: machine outputs never spawn below input quality; Blast All nuggets inherit best input quality (floor 50%).
-- Natural Windflow: forge and workshop gain the vanilla wind passive (+8 windflow, +120° in windy environments), matching vanilla Forge/Bloomery/Furnace.
-- Hammer dedup: single wrap point prevents one press from routing through both PerformStackActionRoutine and ActionRoutine (was doubling strikes or double-charging fish-catch tick).
-- UnfinishedLump eager stat init so Hammer All works immediately after Cast Metal Lump.
-
-### v1.4.0
-- Simplified Chinese localization for all cards, blueprints, and perks.
-
-### v1.3.4
-- Fixed iron item smelting: Iron Parts, Bearing, Axle, and Wrench now correctly produce a wrought iron bar (SD4=200, iron metal type) when smelted in the WDI Forge at 1300°. Previously the spawned bar defaulted to SD4=0 (copper type), causing it to fail the iron-ingredient gate on downstream blueprints.
-
-### v1.3.3
-- EA 0.63f compatibility; blueprint tab injector updated to live UI tabs (fixes journal tab disappearing on EA 0.63f)
-
-### v1.3.2
-- Workshop storage pattern: replaced `ContainedBlueprintCardsWarpData` with DismantleAction buttons + Harmony handlers; eliminates inventory display conflict that occurred with station-contained operation blueprints
-- `BlueprintContainerSaveLoadFix`: separated save-load and gameplay paths to prevent freeze when ModCore is installed
-
-### v1.3.0
-- Water-Driven Workshop (Forge upgrade): Hammer All, Hammer Copper Sheet, Forge Copper Nails — 14 inventory slots
-- Iron component blueprints: Forge Iron Parts, Bearing, Axle, Wrench from wrought iron bars
-
-### v1.2.x
-- Water-Driven Forge: Blast action, 1300° max temperature, tagged `tag_SmeltingContainer` + `tag_SmeltingContainerIron`
-- Water-Driven Grinding Mill
-
-### v1.1.x
-- Mill Race Outlet: draw unclean water at any outdoor location; freezes in winter
-- Ore Sluice two-stage build
-
-### v1.0.x
-- Initial release: Mill Race, Water Wheel, Water Mill, Water-Driven Sawmill, Fishpond
-- Copper gear components (Large/Small Gear, Saw Blade) cast from ACT crucible pipeline
+- **1.12.5:** the Forge and Workshops no longer heat themselves with no fuel; Bronze Gear piles can be spread out.
+- **1.12.3:** Blast no longer warms the world, melted metal keeps its own quality, Partners only work marked stations, and WDI's own nails, solder and sheets give way to the shared ones.
+- **1.12.2:** Expand for the Sawmill and Workshop, Partner fishing, bronze gears, an animated Water Wheel.
 
 ---
 
 ## Credits
 
 - **Author:** Jared (crispywhips)
-- **Framework:** [CSFFModFramework](https://github.com/jscott3/CSFF_Mods) + BepInEx & Harmony
+- **Framework:** [CSFFModFramework](https://github.com/jscott3/CSFF_Mods) + BepInEx and Harmony
 - **Game:** Card Survival: Fantasy Forest by WinterSpring Games

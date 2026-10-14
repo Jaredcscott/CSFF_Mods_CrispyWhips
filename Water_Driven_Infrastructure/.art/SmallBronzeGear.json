@@ -1,0 +1,19 @@
+{
+  "target": "SmallBronzeGear.png",
+  "sourceCard": "CardData/Item/WaterDrivenSawmill_BronzeGearSmall.json",
+  "subject": "the SmallCopperGear art recast in dull olive-gold bronze",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; image2image with reference SmallCopperGear.png (same design, one stated change)",
+  "historyId": "QYrX8O1eGZOOiPzASOXO",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791639376710_0db3465a_1791639377501_4dbfbbe0.png",
+  "credits": 30,
+  "generated": "2026-10-10",
+  "note": "Missing-art sweep 2026-10-10, one sample, NO owner pick yet. Finished by /process-card-art (headless GIMP 3 batch bridge) plus key_enclosed.py for the spoke holes."
+}

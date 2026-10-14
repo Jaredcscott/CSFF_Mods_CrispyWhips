@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_CardDescription",
-    "DefaultText": "The downstream end of a mill race outlet. Provides a steady flow of unclean water. Freezes solid in winter."
+    "DefaultText": "The downstream end of a mill race outlet. Provides a steady flow of unclean water, and slowly fills a Rain Cistern built in the same place with river water. Freezes solid in winter."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_CardHelpSection",
-    "DefaultText": "<b>Fill containers:</b> Drag an empty water container onto the outlet to draw unclean water.\n\n<b>Winter:</b> The outlet freezes in winter — no water can be drawn until the spring thaw.\n\n<b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation."
+    "DefaultText": "<b>Fill containers:</b> Drag an empty water container onto the outlet to draw unclean water.\n\n<b>Rain Cistern:</b> A Rain Cistern built in the same location slowly fills with river water, about 4.5 days from empty to full, so water banked in summer and autumn lasts into winter. Each outlet in the location adds its own flow. A cistern already holding a different liquid, such as rainwater, is left alone until it is drawn empty.\n\n<b>Winter:</b> The outlet freezes in winter: no water can be drawn and the cistern stops filling until the spring thaw.\n\n<b>Close Valve:</b> Shut the water off without packing the outlet up (15 minutes): nothing can be drawn, the cistern stops filling and the stations that run on this outlet stop until you open the valve again.\n\n<b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation."
   },
   "CardType": 2,
   "ObjectWeight": 500.0,
@@ -164,6 +164,33 @@
           ]
         }
       ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_CloseValve_ActionName",
+        "DefaultText": "Close Valve"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_CloseValve_ActionDescription",
+        "DefaultText": "Shut the outlet's valve: the water stops until you open it again."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_mill_race_outlet_closed",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false
+      }
     }
   ],
   "OnStatsChangeActions": [
@@ -209,6 +236,336 @@
   ],
   "PassiveEffects": [],
   "PassiveStatEffects": [],
+  "RemotePassiveEffects": [
+    {
+      "AppliesTo": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "536f722edbb5e9e4b959b1f3ad25f648",
+          "TargetWarpType": 3
+        }
+      ],
+      "Effect": {
+        "EffectName": "WdiOutletFeedsCistern",
+        "OnlyWhenEquipped": false,
+        "EquippedOnBodyOnly": false,
+        "OnlyWhenNOTEquipped": false,
+        "OnlyWhenInHand": false,
+        "OnlyOnBaseActions": false,
+        "OnlyOnNOTBaseActions": false,
+        "OnlyWhenNOTInBG": false,
+        "Conditions": {
+          "NotInBackground": false,
+          "InBackground": false,
+          "PlayerUsesCard": 0,
+          "RequiredEnvironment": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "InvertEnvironmentRequirement": false,
+          "RequiredEnvironmentTags": [],
+          "RequiredNOTEnvironmentTags": [],
+          "RequiredContainer": [],
+          "RequiredNOTContainer": [],
+          "RequiredContainerTags": [],
+          "RequiredNOTContainerTags": [],
+          "RequiredCardsOnBoard": [],
+          "RequiredTagsOnBoard": [],
+          "RequiredCardsNOTOnBoard": [],
+          "RequiredTagsNOTOnBoard": [],
+          "RequiredComplexCardConditions": [],
+          "RequiredCardsInInventory": [],
+          "RequiredTagsInInventory": [],
+          "RequiredTagsInInventoryWarpData": [],
+          "RequiredTagsInInventoryWarpType": 3,
+          "RequiredInventoryWeight": {
+            "Active": false,
+            "Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "UsePercentage": false,
+            "Invert": false
+          },
+          "CardWasBuiltWith": [],
+          "CardWasNOTBuiltWith": [],
+          "RequiredPlayerOwnedCards": [],
+          "RequiredPlayerNOTOwnedCards": [],
+          "ReceivingRequiredDurabilityRanges": {
+            "SpoilageRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "UsageRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "FuelRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "ProgressRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special1Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special2Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special3Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special4Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "LiquidQuantityRange": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "GivenRequiredDurabilityRanges": {
+            "SpoilageRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "UsageRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "FuelRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "ProgressRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special1Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special2Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special3Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special4Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "LiquidQuantityRange": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "ReceivingContainerRequiredDurabilityRanges": {
+            "SpoilageRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "UsageRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "FuelRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "ProgressRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special1Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special2Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special3Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special4Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "LiquidQuantityRange": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "GivenContainerRequiredDurabilityRanges": {
+            "SpoilageRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "UsageRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "FuelRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "ProgressRange": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special1Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special2Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special3Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "Special4Range": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "LiquidQuantityRange": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "ReceivingCardTags": [],
+          "GivenCardTags": [],
+          "ReceivingCardSpices": [],
+          "GivenCardSpices": [],
+          "RequiredEnvironmentWeight": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "RequiredStatValues": [],
+          "RequiredNPCStatValues": [],
+          "RequiredNPCActiveDuties": [],
+          "RequiredNPCAtHome": [],
+          "RequiredPresentNPCS": [],
+          "RequiredInGameTimes": [],
+          "RequiredAlreadyVisitedEnvironments": [],
+          "RequiredUnlockedBps": [],
+          "RequiredNOTUnlockedBps": [],
+          "NPCInventoryConditions": [],
+          "NPCExists": []
+        },
+        "StatModifiers": [],
+        "NPCStatModifiers": [],
+        "EffectStacksWithRequiredCards": false,
+        "OnBoardEffectCap": 0,
+        "EffectScalesWithDurabilities": {
+          "Active": false,
+          "Inputs": [],
+          "EffectScalingOutput": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "SpoilageRateModifier": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "MultiplySpoilageRate": false,
+        "UsageRateModifier": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "MultiplyUsageRate": false,
+        "FuelRateModifier": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "MultiplyFuelRate": false,
+        "ConsumableChargesModifier": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "MultiplyConsumableChargesRate": false,
+        "Special1RateModifier": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "MultiplySpecial1Rate": false,
+        "Special2RateModifier": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "MultiplySpecial2Rate": false,
+        "Special3RateModifier": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "MultiplySpecial3Rate": false,
+        "Special4RateModifier": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "MultiplySpecial4Rate": false,
+        "LiquidRateModifier": 0.0,
+        "UpdateDurabilityConcentrations": {
+          "MaskValue": 0
+        },
+        "GeneratedLiquid": {
+          "LiquidCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "LiquidCardWarpData": "397594d260e114749ab6e1a76a732fbb",
+          "LiquidCardWarpType": 3,
+          "Quantity": {
+            "x": 50.0,
+            "y": 50.0
+          },
+          "Durabilities": {
+            "Spoilage": 0,
+            "Usage": 0,
+            "Fuel": 0,
+            "Progress": 0,
+            "Special1": 0,
+            "Special2": 0,
+            "Special3": 0,
+            "Special4": 0,
+            "SpoilageValue": 0.0,
+            "UsageValue": 0.0,
+            "FuelValue": 0.0,
+            "ProgressValue": 0.0,
+            "Special1Value": 0.0,
+            "Special2Value": 0.0,
+            "Special3Value": 0.0,
+            "Special4Value": 0.0,
+            "SpoilageFrom": 0,
+            "UsageFrom": 0,
+            "FuelFrom": 0,
+            "ProgressFrom": 0,
+            "Special1From": 0,
+            "Special2From": 0,
+            "Special3From": 0,
+            "Special4From": 0
+          }
+        },
+        "WeightCapacityModifier": 0.0,
+        "DroppedCards": []
+      }
+    }
+  ],
   "MaxLiquidCapacity": 0.0,
   "IsEnvironment": false,
   "IsAttachedToEnvironment": true,

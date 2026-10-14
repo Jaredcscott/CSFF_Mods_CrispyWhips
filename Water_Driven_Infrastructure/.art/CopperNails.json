@@ -1,0 +1,8 @@
+{
+  "target": "CopperNails.png",
+  "sourceCard": "CardData/Item/WaterDrivenSawmill_CopperRivet.json, Blueprint/Bp_CopperRivet.json",
+  "source_art": "CSFFModFramework/Resource/Picture/ACT_MetalNails_Copper.png (Chiwei's copper nail, ACT's per-metal variant of ACT_MetalNails_Iron.png; byte copy)",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: use the chiwei image; Chiwei already drew the copper variant, so it was copied rather than recoloured. The framework also ships a CopperNails.png sprite (identical bytes to ACT_MetalNails_Copper), so the shared sprite name now resolves to the same picture whichever wins"
+}

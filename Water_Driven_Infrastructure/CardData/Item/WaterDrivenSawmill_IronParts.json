@@ -118,8 +118,11 @@
               "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 6,
-                "y": 6
+                "x": 3,
+                "y": 3
+              },
+              "TransferRules": {
+                "Special2": 1
               },
               "FinishUnlocking": false
             }
@@ -132,7 +135,18 @@
     "Active": false
   },
   "SpecialDurability2": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_iron_parts",
+      "LocalizationKey": "LumpOfMetalFinishedQWE_SpecialDurability2.CardStatName",
+      "DefaultText": "Metal Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability3": {
     "Active": false

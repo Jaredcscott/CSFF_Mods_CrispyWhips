@@ -3,17 +3,17 @@
   "CardName": {
     "ParentObjectID": "water_sawmill_cast_metal_sheet",
     "LocalizationKey": "Water_Sawmill_CastMetalSheet_CardName",
-    "DefaultText": "Cast Copper Sheet"
+    "DefaultText": "Cast Copper Sheet (old)"
   },
   "CardDescription": {
     "ParentObjectID": "water_sawmill_cast_metal_sheet",
     "LocalizationKey": "Water_Sawmill_CastMetalSheet_CardDescription",
-    "DefaultText": "A flat metal sheet, hammered thin from a heated copper-grade metal bar."
+    "DefaultText": "A Cast Copper Sheet from before Water-Driven Infrastructure switched to the shared Metal Sheet of CSFFModFramework. Within a quarter of an hour it becomes a Copper Sheet (a Metal Sheet of copper, Metal Type 100) by itself; Reforge as Metal Sheet does it at once. Nothing makes this card any more."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_cast_metal_sheet",
     "LocalizationKey": "Water_Sawmill_CastMetalSheet_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From a heated copper-grade metal bar with a hammer. \n\n<b>Uses:</b> Construction and crafting material — accepted anywhere a Cast Iron Sheet is required."
+    "DefaultText": "<b>Retired:</b> Water-Driven Infrastructure no longer makes its own Cast Copper Sheet. Every WDI recipe now takes the shared Metal Sheet, the one CSFFModFramework ships for all mods. This old card turns into a Copper Sheet (a Metal Sheet of copper, Metal Type 100) by itself within a quarter of an hour, or at once with Reforge as Metal Sheet."
   },
   "CanBeRenamed": false,
   "CardImage": {
@@ -50,7 +50,46 @@
     "Active": false
   },
   "Progress": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_cast_metal_sheet",
+        "LocalizationKey": "Water_Sawmill_CastMetalSheet_OnFull_ActionName",
+        "DefaultText": "Becomes a Metal Sheet"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_cast_metal_sheet",
+        "LocalizationKey": "Water_Sawmill_CastMetalSheet_OnFull_ActionDescription",
+        "DefaultText": "An old card becomes a Copper Sheet (a Metal Sheet of copper, Metal Type 100)."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_metal_sheet",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      },
+      "ProducedCards": []
+    }
   },
   "SpecialDurability1": {
     "Active": false
@@ -66,7 +105,9 @@
     "FloatValue": 100.0,
     "MaxValue": 1000.0,
     "RestrictToSpecificValues": true,
-    "ValidValues": [ 100.0 ],
+    "ValidValues": [
+      100.0
+    ],
     "RatePerDaytimePoint": 0.0,
     "HidingOptions": 2,
     "TextDisplay": 0,
@@ -75,7 +116,41 @@
     "CountsForTradingValue": false
   },
   "CardInteractions": [],
-  "DismantleActions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_cast_metal_sheet",
+        "LocalizationKey": "Water_Sawmill_CastMetalSheet_Reforge_ActionName",
+        "DefaultText": "Reforge as Metal Sheet"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_cast_metal_sheet",
+        "LocalizationKey": "Water_Sawmill_CastMetalSheet_Reforge_ActionDescription",
+        "DefaultText": "Turn this old Cast Copper Sheet into a Copper Sheet (a Metal Sheet of copper, Metal Type 100), the card every WDI recipe now takes."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_metal_sheet",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      },
+      "ProducedCards": []
+    }
+  ],
   "PassiveStatEffects": [],
   "PassiveEffects": [],
   "MaxLiquidCapacity": 0.0,

@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_forge_placed",
     "LocalizationKey": "Water_Sawmill_ForgePlaced_CardHelpSection",
-    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop when water is frozen in winter.\n\n<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. You can also place metal nuggets and clay items in the inventory.\n\n<b>Iron:</b> Iron nuggets and iron blooms heat more slowly than copper. All metal heats once the forge is lit."
+    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The optional Winter Station Lock setting (off by default) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.\n\n<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. You can also place metal nuggets and clay items in the inventory.\n\n<b>Iron:</b> Iron nuggets and iron blooms heat more slowly than copper. All metal heats once the forge is lit."
   },
   "CardType": 2,
   "ObjectWeight": 1200.0,
@@ -192,7 +192,6 @@
       "water_sawmill_iron_bearing",
       "water_sawmill_iron_axle",
       "water_sawmill_iron_wrench",
-      "act_tin_ore",
       "cef83c7cd50093b489f4f19615bb2ddc"
     ],
     "AcceptedCardsWarpType": 3,
@@ -840,7 +839,8 @@
               "Quantity": {
                 "x": 1.0,
                 "y": 2.0
-              }
+              },
+              "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 2, "Special3": 0, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 100.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
             }
           ]
         }
@@ -863,7 +863,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_forge_placed",
         "LocalizationKey": "Water_Sawmill_ForgePlaced_Blast_ActionDescription",
-        "DefaultText": "Drive the water-powered bellows to push the forge to smelting heat, warming you in the process. Requires fuel, a lit fire, and flowing water."
+        "DefaultText": "Drive the water-powered bellows to push the forge to smelting heat. Requires fuel, a lit fire, and flowing water."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,
@@ -941,31 +941,7 @@
         }
       },
       "ProducedCards": [],
-      "StatModifications": [
-        {
-          "Stat": {
-            "m_FileID": 0,
-            "m_PathID": 0
-          },
-          "StatWarpData": "d875c7e4eea52f54ca5076f256ccd16c",
-          "StatWarpType": 3,
-          "ValueModifier": {
-            "x": 160.0,
-            "y": 160.0
-          },
-          "TriggerStat": {
-            "m_FileID": 0,
-            "m_PathID": 0
-          },
-          "TriggerStatWarpData": "",
-          "TriggerStatWarpType": 3,
-          "TriggerValue": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "TriggerStatValueIsMax": false
-        }
-      ]
+      "StatModifications": []
     },
     {
       "ActionName": {
@@ -1011,7 +987,7 @@
             "y": 780.0
           },
           "FuelRange": {
-            "x": 0.01,
+            "x": 0.1,
             "y": 1000000000.0
           }
         }
@@ -1030,7 +1006,7 @@
             "y": 950.0
           },
           "FuelRange": {
-            "x": 0.01,
+            "x": 0.1,
             "y": 1000000000.0
           }
         }
@@ -1049,7 +1025,7 @@
             "y": 1000000000.0
           },
           "FuelRange": {
-            "x": 0.01,
+            "x": 0.1,
             "y": 1000000000.0
           }
         }
@@ -1068,7 +1044,7 @@
             "y": 1000000000.0
           },
           "FuelRange": {
-            "x": 0.01,
+            "x": 0.1,
             "y": 1000000000.0
           }
         }
@@ -1376,7 +1352,19 @@
         "ModType": 0
       },
       "IngredientChanges": {
-        "ModType": 3
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+        "TransformIntoWarpType": 3,
+        "TransferSpecial2": true,
+        "ModifyDurability": true,
+        "Special4Change": {
+          "x": 100.0,
+          "y": 100.0
+        }
       },
       "FeedbackMode": 1,
       "ProgressBar": 3,
@@ -1407,11 +1395,11 @@
             "m_FileID": 0,
             "m_PathID": 0
           },
-          "DroppedCardWarpData": "b92071e54dac7e54db99b48794e737ad",
+          "DroppedCardWarpData": "efde4db74f8cb194e9ad7cd014bfd7d6",
           "DroppedCardWarpType": 3,
           "Quantity": {
             "x": 1,
-            "y": 2
+            "y": 1
           },
           "FinishUnlocking": false,
           "DropChance": {
@@ -1421,7 +1409,8 @@
             "StatsModifiers": [],
             "CardsModifiers": [],
             "NPCStatsModifiers": []
-          }
+          },
+          "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 1, "Special3": 0, "Special4": 0, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 0.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
         }
       ],
       "StatModifications": [],

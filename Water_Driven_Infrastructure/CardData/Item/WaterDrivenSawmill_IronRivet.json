@@ -3,17 +3,17 @@
   "CardName": {
     "ParentObjectID": "water_sawmill_iron_rivet",
     "LocalizationKey": "Water_Sawmill_IronRivet_CardName",
-    "DefaultText": "Cast Iron Rivet"
+    "DefaultText": "Cast Iron Rivet (old)"
   },
   "CardDescription": {
     "ParentObjectID": "water_sawmill_iron_rivet",
     "LocalizationKey": "Water_Sawmill_IronRivet_CardDescription",
-    "DefaultText": "A small iron rivet hammered from an iron-grade metal nugget. Stronger than a copper rivet, but interchangeable with it as a fastener in water-driven construction."
+    "DefaultText": "A Cast Iron Rivet from before Water-Driven Infrastructure switched to the shared Metal Nail of CSFFModFramework. Within a quarter of an hour it becomes an Iron Nail (a Metal Nail of iron, Metal Type 200) by itself; Reforge as Metal Nail does it at once. Nothing makes this card any more."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_iron_rivet",
     "LocalizationKey": "Water_Sawmill_IronRivet_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From an iron-grade metal nugget with a hammer. \n\n<b>Uses:</b> Fastener for water-driven construction blueprints — accepted anywhere a Copper Rivet is required."
+    "DefaultText": "<b>Retired:</b> Water-Driven Infrastructure no longer makes its own Cast Iron Rivet. Every WDI recipe now takes the shared Metal Nail, the one CSFFModFramework ships for all mods. This old card turns into an Iron Nail (a Metal Nail of iron, Metal Type 200) by itself within a quarter of an hour, or at once with Reforge as Metal Nail."
   },
   "CanBeRenamed": false,
   "CardImage": {
@@ -50,7 +50,47 @@
     "Active": false
   },
   "Progress": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_iron_rivet",
+        "LocalizationKey": "Water_Sawmill_IronRivet_OnFull_ActionName",
+        "DefaultText": "Becomes a Metal Nail"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_iron_rivet",
+        "LocalizationKey": "Water_Sawmill_IronRivet_OnFull_ActionDescription",
+        "DefaultText": "An old card becomes an Iron Nail (a Metal Nail of iron, Metal Type 200)."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_copper_nails",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true,
+        "TransferSpecial4": true
+      },
+      "ProducedCards": []
+    }
   },
   "SpecialDurability1": {
     "Active": false
@@ -62,10 +102,57 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 200.0,
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      200.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
   },
   "CardInteractions": [],
-  "DismantleActions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_iron_rivet",
+        "LocalizationKey": "Water_Sawmill_IronRivet_Reforge_ActionName",
+        "DefaultText": "Reforge as Metal Nail"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_iron_rivet",
+        "LocalizationKey": "Water_Sawmill_IronRivet_Reforge_ActionDescription",
+        "DefaultText": "Turn this old Cast Iron Rivet into an Iron Nail (a Metal Nail of iron, Metal Type 200), the card every WDI recipe now takes."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_copper_nails",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true,
+        "TransferSpecial4": true
+      },
+      "ProducedCards": []
+    }
+  ],
   "PassiveStatEffects": [],
   "PassiveEffects": [],
   "MaxLiquidCapacity": 0.0,

@@ -1,0 +1,13 @@
+{
+  "UniqueID": "wdiOperateStampMill_Duty",
+  "DutyName": {
+    "ParentObjectID": "wdiOperateStampMill_Duty",
+    "LocalizationKey": "Water_Sawmill_StampMillPlaced_Duty_DutyName",
+    "DefaultText": "Operate the Stamp Mill"
+  },
+  "RequiresMarkedCard": true,
+  "MaxPerformPerDay": 0,
+  "DutyExecutionOptions": 0,
+  "GiveUpOptions": 0,
+  "DutyConditions": {}
+}

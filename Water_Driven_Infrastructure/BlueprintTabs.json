@@ -3,6 +3,7 @@
         "water_sawmill_bp_mill_race",
         "water_sawmill_bp_mill_race_outlet",
         "water_sawmill_bp_water_wheel",
+        "water_sawmill_bp_overshot_wheel",
         "water_sawmill_bp_water_mill",
         "water_sawmill_bp_ore_sluice_empty",
         "water_sawmill_bp_fish_funnel"
@@ -14,23 +15,21 @@
         "water_sawmill_bp_iron_parts",
         "water_sawmill_bp_iron_bearing",
         "water_sawmill_bp_iron_axle",
-        "water_sawmill_bp_iron_wrench",
-        "water_sawmill_bp_copper_rivet",
-        "water_sawmill_bp_iron_rivet",
-        "water_sawmill_bp_alloy_solder",
-        "water_sawmill_bp_cast_metal_sheet",
-        "water_sawmill_bp_cast_iron_sheet",
-        "water_sawmill_bp_iron_rivets_from_sheet"
+        "water_sawmill_bp_iron_wrench"
     ],
     "Tab_2_Construction_Subtab_4_Furniture_TabName": [
         "water_sawmill_bp_ore_sluice",
         "water_sawmill_bp_grinding_mill",
+        "water_sawmill_bp_stamp_mill",
         "water_sawmill_bp_water_driven_sawmill",
         "water_sawmill_bp_water_driven_forge",
-        "water_sawmill_bp_water_driven_workshop_kit"
+        "water_sawmill_bp_water_driven_workshop_kit",
+        "water_sawmill_bp_water_basin"
     ],
     "Tab_6_Farming_Subtab_1_Agriculture_TabName": [
-        "water_sawmill_bp_fishpond"
+        "water_sawmill_bp_fishpond",
+        "water_sawmill_bp_reed_bed",
+        "water_sawmill_bp_cattail_bed"
     ]
             
 }

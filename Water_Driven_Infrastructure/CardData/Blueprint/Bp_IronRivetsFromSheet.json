@@ -24,31 +24,7 @@
   "CardImageWarpData": "IronRivet",
   "CardImageWarpType": 3,
   "BlueprintUnlockTicksCost": 8.0,
-  "CardsOnBoard": [
-    {
-      "ObjectiveName": "HasCastIronSheet",
-      "CompletionWeight": 1,
-      "Card": {
-        "m_FileID": 0,
-        "m_PathID": 0
-      },
-      "Quantity": 1,
-      "ConstantlyChecking": false,
-      "OnlyInEnvironment": {
-        "m_FileID": 0,
-        "m_PathID": 0
-      },
-      "OnlyIfEquipped": false,
-      "OnlyInContainer": {
-        "Target": {
-          "m_FileID": 0,
-          "m_PathID": 0
-        }
-      },
-      "CardWarpData": "water_sawmill_cast_iron_sheet",
-      "CardWarpType": 3
-    }
-  ],
+  "CardsOnBoard": [],
   "TagsOnBoard": [],
   "StatValues": [],
   "BuildingCardConditions": [],
@@ -117,7 +93,41 @@
       "DroppedCardWarpType": 3
     }
   ],
-  "BlueprintStatModifications": [],
+  "BlueprintStatModifications": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
   "WhenCreatedSoundsWarpData": [
     "Metal"
   ],

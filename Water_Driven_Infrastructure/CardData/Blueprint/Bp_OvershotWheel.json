@@ -1,0 +1,194 @@
+{
+  "UniqueID": "water_sawmill_bp_overshot_wheel",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_bp_overshot_wheel",
+    "LocalizationKey": "Water_Sawmill_Bp_OvershotWheel_CardName",
+    "DefaultText": "Overshot Wheel"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_bp_overshot_wheel",
+    "LocalizationKey": "Water_Sawmill_Bp_OvershotWheel_CardDescription",
+    "DefaultText": "Rebuild a Water Wheel as an overshot wheel (1.5 hours) with an Iron Axle, a Large Copper Gear and an Iron Bearing. Fitted to a Sawmill, Grinding Mill, Workshop or Ore Sluice, it shortens that station's batch action."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "water_sawmill_bp_overshot_wheel",
+    "LocalizationKey": "Water_Sawmill_Bp_OvershotWheel_UnlockConditionsDesc",
+    "DefaultText": "Mill Race"
+  },
+  "StartUnlocked": false,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "WaterWheel",
+  "CardImageWarpType": 3,
+  "BuildingStatConditions": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "water_sawmill_water_wheel",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "water_sawmill_iron_axle",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "water_sawmill_copper_gear_large",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "water_sawmill_iron_bearing",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 6,
+  "DeconstructDaytimeCost": 3,
+  "BlueprintActionTags": [],
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction",
+    "LegAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "water_sawmill_overshot_wheel",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStatModifications": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 2.0,
+        "y": 2.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "66d3ce9da7ddfca49a89e31143fe9e43",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasMillRace",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "CardWarpData": "water_sawmill_mill_race",
+      "CardWarpType": 3
+    }
+  ],
+  "BlueprintUnlockTicksCost": 48.0,
+  "ResearchedNotification": 0
+}

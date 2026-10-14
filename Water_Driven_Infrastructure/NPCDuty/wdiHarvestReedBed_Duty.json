@@ -1,0 +1,13 @@
+{
+  "UniqueID": "wdiHarvestReedBed_Duty",
+  "DutyName": {
+    "ParentObjectID": "wdiHarvestReedBed_Duty",
+    "LocalizationKey": "Water_Sawmill_ReedBed_Duty_DutyName",
+    "DefaultText": "Harvest the Reed Bed"
+  },
+  "RequiresMarkedCard": true,
+  "MaxPerformPerDay": 0,
+  "DutyExecutionOptions": 0,
+  "GiveUpOptions": 0,
+  "DutyConditions": {}
+}

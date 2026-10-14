@@ -1,0 +1,270 @@
+{
+  "UniqueID": "water_sawmill_stamp_mill_placed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_stamp_mill_placed",
+    "LocalizationKey": "Water_Sawmill_StampMillPlaced_CardName",
+    "DefaultText": "Water-Driven Stamp Mill"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_stamp_mill_placed",
+    "LocalizationKey": "Water_Sawmill_StampMillPlaced_CardDescription",
+    "DefaultText": "Water-driven stamps crush a hopper of ore at once, each piece a little better than by hand."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_stamp_mill_placed",
+    "LocalizationKey": "Water_Sawmill_StampMillPlaced_CardHelpSection",
+    "DefaultText": "<b>Requirements:</b> Water at this location (a river or lake, or a connected mill race outlet).\n\n<b>Hopper:</b> Takes only Greenstone, Greenstone Slag and Bog Iron (fresh, dried or roasted). Tin ore does not go in.\n\n<b>Stamp All:</b> Crushes everything in the hopper (30 minutes) into Greenstone Powder, Greenstone Slag Powder or Crushed Bog Iron, each with the hand hammer's Quality bonus (Greenstone +7, Bog Iron +3, slag +0).\n\n<b>Partner:</b> A recruited Partner can be given an Operate the Stamp Mill duty."
+  },
+  "CardType": 2,
+  "ObjectWeight": 1100.0,
+  "TradingValue": 450.0,
+  "AlwaysUpdate": false,
+  "UsesOwnershipSystem": false,
+  "CompatibleDutiesWarpData": [
+    "wdiOperateStampMill_Duty"
+  ],
+  "CompatibleDutiesWarpType": 3,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Wood",
+    "tag_Stone",
+    "tag_Bag"
+  ],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Stone"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 8000.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    }
+  ],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [
+      "bcc7d7a764978e447bc38b36dcca2055",
+      "efde4db74f8cb194e9ad7cd014bfd7d6",
+      "e14cee44bf956754aad485bb11f777ea",
+      "b9845f4223861e44f96c7815f210f365",
+      "c61381754fe81ae49aa486249b52406d"
+    ],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_stamp_mill_placed",
+        "LocalizationKey": "Water_Sawmill_StampMillPlaced_StampAll_ActionName",
+        "DefaultText": "Stamp All"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_stamp_mill_placed",
+        "LocalizationKey": "Water_Sawmill_StampMillPlaced_StampAll_ActionDescription",
+        "DefaultText": "Drop the water-driven stamps on everything in the hopper and crush it in one batch."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Stone"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": [],
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "wdiOperateStampMill_Duty",
+          "TargetWarpType": 3
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_stamp_mill_placed",
+        "LocalizationKey": "Water_Sawmill_StampMillPlaced_PickUp_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_stamp_mill_placed",
+        "LocalizationKey": "Water_Sawmill_StampMillPlaced_PickUp_ActionDescription",
+        "DefaultText": "Pack up the stamp mill back into a transportable kit."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Stone"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "water_sawmill_stamp_mill_kit",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "PreventInteractionsInContainer": false,
+  "IsIndoors": false,
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "EquipSlots": [],
+  "EquipSlotType": 0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "StampMill",
+  "CardImageWarpType": 3
+}

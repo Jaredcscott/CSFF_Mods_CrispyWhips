@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_frozen",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletFrozen_CardDescription",
-    "DefaultText": "The mill race is frozen solid. Water flow from the river is suspended for the winter. A lit Copper Brazier placed nearby provides enough heat to keep the machinery running. The outlet will thaw and resume flowing in spring."
+    "DefaultText": "The mill race is frozen solid. Water flow from the river is suspended for the winter. Heat in this location keeps the machinery running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier, or a Water-Driven Forge or Workshop at least half hot. A Rain Cistern here stays unfed until the thaw. The outlet will thaw and resume flowing in spring."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_frozen",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletFrozen_CardHelpSection",
-    "DefaultText": "<b>Frozen:</b> No water can be drawn during winter.\n\n<b>Chip Ice:</b> Chip blocks of ice from the frozen race — store them in an Ice Pit or let them melt for water.\n\n<b>Copper Brazier:</b> A lit Copper Brazier placed in this area provides enough heat to keep the machinery running, even while the outlet is frozen.\n\n<b>Spring thaw:</b> The outlet automatically resumes when winter ends.\n\n<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen."
+    "DefaultText": "<b>Frozen:</b> No water can be drawn during winter.\n\n<b>Chip Ice:</b> Chip blocks of ice from the frozen race — store them in an Ice Pit or let them melt for water.\n\n<b>Heat:</b> Heat in this location keeps the machinery running, even while the outlet is frozen: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot. Heat does not thaw the outlet, so a Rain Cistern here stays unfed until spring.\n\n<b>Spring thaw:</b> The outlet automatically resumes when winter ends.\n\n<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen."
   },
   "CardType": 2,
   "ObjectWeight": 500.0,

@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_fishpond_winter",
     "LocalizationKey": "Water_Sawmill_FishpondWinter_CardHelpSection",
-    "DefaultText": "<b>Ice fish:</b> Use Ice Fish Pike / Ice Fish Perch / Ice Fish Minnow / Ice Fish Trout / Ice Fish Char / Ice Fish Sturgeon with a spear nearby. Each catch costs more time than open-water fishing.\n\n<b>No frogs:</b> Frogs are dormant beneath the ice.\n\n<b>No water draw:</b> The pond is frozen — wait for the thaw.\n\n<b>No pack up:</b> A frozen pond cannot be packed up — wait for the spring thaw to drain and relocate it.\n\n<b>Spring thaw:</b> When winter ends the pond reopens and pike, perch, and minnow populations resume growing. Trout, char, and sturgeon are tracked separately and do not breed."
+    "DefaultText": "<b>Populations:</b> Pike, perch, and minnow are preserved beneath the ice (no growth until thaw). Trout, char, sturgeon, and eel are tracked separately and preserved across the freeze.\n\n<b>Ice Fish:</b> Each ice fishing action takes longer than open water and requires a spear.\n\n<b>Water Draw:</b> Disabled while frozen.\n\n<b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze."
   },
   "CardType": 2,
   "ObjectWeight": 1500.0,
@@ -300,7 +300,45 @@
     "CountsForTradingValue": false,
     "TradingValueCustomRanges": []
   },
-  "SpecialDurability4": {"Active": false},
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_winter",
+      "LocalizationKey": "Water_Sawmill_FishpondWinter_SpecialDurability4_CardStatName",
+      "DefaultText": "Eel"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Eel",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
   "DurabilitySorting": {"SortingList": []},
   "InventoryIsHidden": true,
   "IsMiniInventory": false,
@@ -372,10 +410,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpecial1Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredSpecial1Percent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "Special1Change": {"x": -1.0, "y": -1.0}
@@ -427,10 +500,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpecial2Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredSpecial2Percent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "Special2Change": {"x": -1.0, "y": -1.0}
@@ -482,10 +590,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpecial3Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredSpecial3Percent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "Special3Change": {"x": -1.0, "y": -1.0}
@@ -537,10 +680,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpoilagePercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredSpoilagePercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "SpoilageChange": {"x": -1.0, "y": -1.0}
@@ -592,10 +770,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredUsagePercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredUsagePercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "UsageChange": {"x": -1.0, "y": -1.0}
@@ -647,10 +860,45 @@
         }
       ],
       "RequiredReceivingDurabilities": {
-        "RequiredFuelPercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredFuelPercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": {"x": -1.0, "y": -1.0}
@@ -663,6 +911,96 @@
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "a966c94277465f741857b994202791f3",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishEel_ActionName",
+        "DefaultText": "Ice Fish Eel"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishEel_ActionDescription",
+        "DefaultText": "Chop a hole and spear an eel beneath the ice. Requires a spear nearby. Reduces the pond's eel population by one."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_Spear",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special4Change": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "bb8a42f395c31894188ff3038d76128f",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 1, "y": 1}
             }
@@ -690,10 +1028,45 @@
       "ActionSoundsWarpData": ["Ice"],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
-        "RequiredProgressPercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "RequiredProgressPercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
         "HideActionIfNotMet": true
       },
       "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 1,
         "ChargesChange": {"x": -1.0, "y": -1.0}
@@ -744,6 +1117,7 @@
         "TransferSpecial1": true,
         "TransferSpecial2": true,
         "TransferSpecial3": true,
+        "TransferSpecial4": true,
         "TransferSpoilage": true,
         "TransferUsage": true,
         "TransferFuel": true,

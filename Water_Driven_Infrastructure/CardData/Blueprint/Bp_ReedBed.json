@@ -1,0 +1,153 @@
+{
+  "UniqueID": "water_sawmill_bp_reed_bed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_bp_reed_bed",
+    "LocalizationKey": "Water_Sawmill_Bp_ReedBed_CardName",
+    "DefaultText": "Reed Bed"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_bp_reed_bed",
+    "LocalizationKey": "Water_Sawmill_Bp_ReedBed_CardDescription",
+    "DefaultText": "Plant a reed bed from 6 fresh reeds (1 hour) at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. It regrows and harvests like a wild reed patch: about one harvest every 3 days, faster in spring, and none in winter."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "water_sawmill_bp_reed_bed",
+    "LocalizationKey": "Water_Sawmill_Bp_ReedBed_UnlockConditionsDesc",
+    "DefaultText": "Mill Race Needed"
+  },
+  "StartUnlocked": false,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Reeds_Plant",
+  "CardImageWarpType": 3,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasMillRace",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "CardWarpData": "water_sawmill_mill_race",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BuildingStatConditions": [],
+  "BuildingTagConditions": [
+    {
+      "TriggerTag": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyInHand": false,
+      "NotInHand": false,
+      "ExcludeInventories": false,
+      "Inverted": true,
+      "OnlyEquipped": false,
+      "TriggerTagWarpData": "tag_EnvIndoors",
+      "TriggerTagWarpType": 3
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 6,
+          "DontSpend": false,
+          "RequiredCardWarpData": "141f6c50aeef4ed4cbbe7e52c39f8fd6",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 4,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "water_sawmill_reed_bed",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 1.0,
+        "y": 1.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "WhenCreatedSoundsWarpData": [
+    "Water"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTags": [],
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction",
+    "LegAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

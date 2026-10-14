@@ -1,0 +1,40 @@
+{
+  "target": "WaterBasin.png",
+  "sourceCard": "CardData/Location/WaterBasin_Placed.json, Blueprint/Bp_WaterBasin.json",
+  "subject": "Draw: a low rectangular water basin built of rough grey fitted stones, about twice as wide as it is tall, filled with clear blue water. Behind it on the left stands a short section of that same wooden mill race channel on two trestle legs, and a thin stream of water pours from the channel's open end down into the basin. Seen from a slight three-quarter angle above.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose. Reference image 1 is a PROP: our mill race, a raised wooden water channel on trestle legs; draw its timber exactly the same (the same weathered olive-brown planks and square posts, the same construction, colours and ink style). Reference image 2 is a style reference only: match its flat posterized colour fills, bold dark outline and the way it draws grey stones; do not copy its subject.\nDraw: a low rectangular water basin built of rough grey fitted stones, about twice as wide as it is tall, filled with clear blue water. Behind it on the left stands a short section of that same wooden mill race channel on two trestle legs, and a thin stream of water pours from the channel's open end down into the basin. Seen from a slight three-quarter angle above.\nSurvival card game structure art in exactly that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame width with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, water wheel, long aqueduct, grass, fountain statue, metal pipe.",
+  "historyId": "Uxhoe25TCEtoKAlOOHdu",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798701728_b98b8402_1791798701807_aa9939a9.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "prop",
+      "label": "MillRace",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/MillRace_1791798407963_9e007693.png"
+    },
+    {
+      "role": "style",
+      "label": "Campfire_Off",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Campfire_Off_1791744901006_8f14ed81.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798701728_b98b8402_1791798701807_aa9939a9.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: use the mill race; redrawn (not reused) as the stone basin fed by a short section of WDI's own mill race art (same timber and trestles), because reusing MillRace.png outright would make the basin and the mill race the same picture"
+}

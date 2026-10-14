@@ -1,0 +1,35 @@
+{
+  "target": "WDI_CattailBed.png",
+  "sourceCard": "CardData/Location/CattailBed_Placed.json",
+  "subject": "Draw this scene: a planted bed of cattails at the water's edge. Tall straight green-and-tan cattail leaves and stems standing thick in shallow blue water, many dark brown sausage-shaped seed heads on tall stalks, and along the front of the bed a short low row of driven wooden stakes with a woven edging, showing it was planted by hand; open water and a far shore of dark trees behind, a pale sky.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 is the game's own card for a wild cattail patch. Match it exactly: the same flat posterized colour fills, thin dark ink outlines, the same colours of the cattail leaves, brown seed heads, blue water and pale sky, and the same way the plants are drawn; draw the same kind of plants.\nDraw this scene: a planted bed of cattails at the water's edge. Tall straight green-and-tan cattail leaves and stems standing thick in shallow blue water, many dark brown sausage-shaped seed heads on tall stalks, and along the front of the bed a short low row of driven wooden stakes with a woven edging, showing it was planted by hand; open water and a far shore of dark trees behind, a pale sky.\nFull-bleed survival card game scene in exactly that style, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, people, birds, boat, flowers.",
+  "historyId": "h2v2mc9THUvskGsUjdQj",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798694897_9b0b5efc_1791798694970_bce8b944.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style (vanilla CattailPatch sprite)",
+      "label": "Cattails",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cattails_1791653130907_fa99255b.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798694897_9b0b5efc_1791798694970_bce8b944.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: match vanilla cattail; vanilla Cattails sprite as the style reference, plus a woven stake edging to show it was planted"
+}

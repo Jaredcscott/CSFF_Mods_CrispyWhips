@@ -97,7 +97,7 @@
           },
           "RequiredQuantity": 4,
           "DontSpend": false,
-          "RequiredCardWarpData": "water_sawmill_copper_rivet",
+          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
           "RequiredCardWarpType": 3
         }
       ],
@@ -122,7 +122,41 @@
       "DroppedCardWarpType": 3
     }
   ],
-  "BlueprintStatModifications": [],
+  "BlueprintStatModifications": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 1.0,
+        "y": 1.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
   "WhenCreatedSoundsWarpData": ["Wood"],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTags": [],

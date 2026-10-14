@@ -1,0 +1,72 @@
+{
+  "5f90d9e93b612a9be903ba4d32de5debafa7e54b862b683080c3def80b2d3b09": {
+    "id": "i1NQwgONAJvIZfqGi1RF",
+    "label": "SmallCopperGear (subject)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/SmallCopperGear.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/SmallCopperGear_1791639273463_6152c06d.png"
+  },
+  "6676b4a8c3eb17b631302073e650b452a8f98ed02864135283cd361d3d3d8569": {
+    "id": "u9gmouiLCidlkLPsdyAu",
+    "label": "LargeCopperGear (subject)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/LargeCopperGear.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LargeCopperGear_1791639272717_5f8527f4.png"
+  },
+  "7b144a8ef4b2f322b491b0ba18701d73f11f1f60266ac32feb32b7d988c8de5f": {
+    "id": "BsQ5YT9tH76Qj92SnUSR",
+    "label": "MillRace (prop)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/MillRace.png",
+    "uploaded": "2026-10-12",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/MillRace_1791798407963_9e007693.png"
+  },
+  "92867ad6915c4709762722c6f32c678316ead2776d1731d31bc2a81e7b072e12": {
+    "id": "SWYD19vOJvM9lUx3v4t0",
+    "label": "WDI_CattailBed (composition)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/WDI_CattailBed.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WDI_CattailBed_1791653135248_d159bb05.png"
+  },
+  "a3191071e02f34a33401a598f35e267919f67f83096517dcb7395f5e43a5af84": {
+    "id": "WYdvUB0rTMmJ1iVRjm1I",
+    "label": "vanilla Basin_Clay (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Basin_Clay.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Basin_Clay_1791653127596_7c799a42.png"
+  },
+  "b37e7da2ab890f466a2713aaacf8016a25497b840484f03356b6509539be3fdc": {
+    "id": "ewd4kJ0vopPdDd9NarJo",
+    "label": "WDI_ReedBed (composition)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/WDI_ReedBed.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WDI_ReedBed_1791653137144_4d7c6f54.png"
+  },
+  "c0f8f41e95ded4ce802f1296992cc6a7068248a302a6bf8339973a2700e48b29": {
+    "id": "eJYxKE1qkMKBZ9KIBWkj",
+    "label": "vanilla Cattails (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Cattails.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cattails_1791653130907_fa99255b.png"
+  },
+  "c69c394b767d4148d6f26e24d1bbf6a3a21b98a84587aa66c9489c6348de0eed": {
+    "id": "Tq2g2bn1QcHHuMom6Gy3",
+    "label": "vanilla Reeds_Plant (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Reeds_Plant.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Reeds_Plant_1791653132206_eff1700a.png"
+  },
+  "e3a7220539113b2665054e5a38d10cb487e167ed864897c619b3aa10a6412643": {
+    "id": "2UgsQnwYIa2DeVWlSmpx",
+    "label": "SawmillKit (subject)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/SawmillKit.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/SawmillKit_1791539240019_5e25906f.png"
+  },
+  "ed6740d629f931def3686ba4b395a4e174963a2729b2a2298c07fb9395153176": {
+    "id": "3M8lcbBI8YpIay0xPrQD",
+    "label": "WaterWheel (subject)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/WaterWheel.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WaterWheel_1791539239281_26eeca44.png"
+  }
+}

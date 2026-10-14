@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_grinding_mill_placed",
     "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_CardHelpSection",
-    "DefaultText": "<b>Requirements:</b> Requires a local mill race for water power.\n\n<b>Operation:</b> Load millable items, then press Grind All to process the full batch on demand, like a larger rotary quern."
+    "DefaultText": "<b>Requirements:</b> Requires a local mill race for water power.\n\n<b>Operation:</b> Load millable items, then press Grind All to process the full batch on demand, like a larger rotary quern.\n\n<b>Time:</b> Grind All takes 30 minutes.\n\n<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the mill to fit it (30 minutes): Grind All then takes 15 minutes. Pack Up (Overshot) packs the mill and gives the wheel back."
   },
   "CardType": 2,
   "ObjectWeight": 1100.0,
@@ -47,7 +47,7 @@
   },
   "SpecialDurability1": {"Active": false},
   "SpecialDurability2": {"Active": false},
-  "SpecialDurability3": {"Active": false},
+  "SpecialDurability3": {"Active": true, "FloatValue": 0.0, "MaxValue": 1.0, "CardStatName": {"ParentObjectID": "water_sawmill_grinding_mill_placed", "LocalizationKey": "Water_Sawmill_OvershotWheel_StatName", "DefaultText": "Overshot Wheel"}, "RatePerDaytimePoint": 0.0, "HidingOptions": 3},
   "SpecialDurability4": {"Active": false},
   "DurabilitySorting": {"SortingList": []},
   "InventoryIsHidden": false,
@@ -289,7 +289,451 @@
       "DroppedCards": []
     }
   ],
-  "CardInteractions": [],
+  "ActionModifiers": [
+    {
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredComplexCardConditions": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "RequiredInventoryWeight": {
+          "Active": false,
+          "Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsePercentage": false,
+          "Invert": false
+        },
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "ReceivingCardSpices": [],
+        "GivenCardSpices": [],
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredNPCActiveDuties": [],
+        "RequiredNPCAtHome": [],
+        "RequiredPresentNPCS": [],
+        "RequiredInGameTimes": [],
+        "RequiredAlreadyVisitedEnvironments": [],
+        "RequiredUnlockedBps": [],
+        "RequiredNOTUnlockedBps": [],
+        "NPCInventoryConditions": [],
+        "NPCExists": []
+      },
+      "WorksWithNPCs": true,
+      "AppliesTo": [],
+      "AppliesToWarpData": [
+        "wdi_action_batch"
+      ],
+      "AppliesToWarpType": 3,
+      "ExploreDirectionFilter": [],
+      "ActionAddedSuffix": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "BlocksAction": false,
+      "ActionBlockMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "DurationModifier": -1,
+      "AddedStatModifiers": [],
+      "ReceivingDurabilities": {
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "GivenDurabilities": {
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "DropsDurabilities": {
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "IgnoreStatConditions": [],
+      "AddedTemporaryStatModifiers": [],
+      "OverrideActionSounds": [],
+      "DisablePitchVariation": false,
+      "OverrideFadeToBlack": false,
+      "FadeToBlack": 0,
+      "OverrideFadeMessage": {
+        "Active": false,
+        "Text": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        }
+      }
+    }
+  ],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_grinding_mill_placed",
+        "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_FitOvershotWheel_ActionName",
+        "DefaultText": "Fit Overshot Wheel"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_grinding_mill_placed",
+        "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_FitOvershotWheel_ActionDescription",
+        "DefaultText": "Fit the Overshot Wheel to this station: its batch action then takes less time."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [
+          "water_sawmill_overshot_wheel"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special3Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      }
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {
@@ -306,13 +750,12 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionTagsWarpData": [],
+      "ActionTagsWarpData": ["wdi_action_batch"],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["Stone"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
-        "ModType": 1,
-        "ChargesChange": {"x": 2.0, "y": 2.0}
+        "ModType": 0
       },
       "ProducedCards": [],
       "StatModifications": [],
@@ -320,7 +763,7 @@
         {"TargetWarpData": "wdiOperateGrindingMill_Duty", "TargetWarpType": 3}
       ]
     },
-    {
+{
       "ActionName": {
         "ParentObjectID": "water_sawmill_grinding_mill_placed",
         "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_PickUp_ActionName",
@@ -337,16 +780,174 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpData": [
+        "Stone"
+      ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 2,
-        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
         "TransformIntoWarpData": "water_sawmill_grinding_mill_kit",
         "TransformIntoWarpType": 3,
         "TransferInventory": false,
         "SpawnTransformAtSource": true
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
       }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_grinding_mill_placed",
+        "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_PickUpOvershot_ActionName",
+        "DefaultText": "Pack Up (Overshot)"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_grinding_mill_placed",
+        "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_PickUpOvershot_ActionDescription",
+        "DefaultText": "Pack up the station for relocation; the fitted Overshot Wheel comes back with it."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Stone"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "water_sawmill_grinding_mill_kit",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": true,
+          "FloatValue": 1.0,
+          "MaxValue": 1.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "water_sawmill_overshot_wheel",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "PassiveEffects": [],

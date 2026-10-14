@@ -158,6 +158,8 @@ namespace WaterDrivenInfrastructure.Patcher
         // (capture durability stats → CardModel swap + SetupCardSource/ResetCard reinit →
         // restore captured stats) — it replaces the hand-rolled GetFromID + CardModel
         // cache + SetupCardSource reflection that used to live here.
+        // No stat names are passed, so all eight survive the swap, SpecialDurability4 (the Eel count,
+        // plan feature 6) included: CardUtil.AllDurabilityStats lists it.
         private static void TryTransform(object card, string targetUID)
         {
             try

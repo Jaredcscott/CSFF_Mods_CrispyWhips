@@ -1,0 +1,13 @@
+{
+  "UniqueID": "wdiFishPondFilled_Duty",
+  "DutyName": {
+    "ParentObjectID": "wdiFishPondFilled_Duty",
+    "LocalizationKey": "Water_Sawmill_FishpondFilled_Duty_DutyName",
+    "DefaultText": "Fish the Fishpond"
+  },
+  "RequiresMarkedCard": true,
+  "MaxPerformPerDay": 0,
+  "DutyExecutionOptions": 0,
+  "GiveUpOptions": 0,
+  "DutyConditions": {}
+}

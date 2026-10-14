@@ -3,17 +3,17 @@
   "CardName": {
     "ParentObjectID": "water_sawmill_alloy_solder",
     "LocalizationKey": "Water_Sawmill_AlloySolder_CardName",
-    "DefaultText": "Alloy Solder"
+    "DefaultText": "Alloy Solder (old)"
   },
   "CardDescription": {
     "ParentObjectID": "water_sawmill_alloy_solder",
     "LocalizationKey": "Water_Sawmill_AlloySolder_CardDescription",
-    "DefaultText": "A stick of soft metal alloy solder, hammered from a copper-grade metal nugget. Used for joining metal parts in water-driven construction."
+    "DefaultText": "An Alloy Solder from before Water-Driven Infrastructure switched to the shared Tin Solder of CSFFModFramework. Within a quarter of an hour it becomes Tin Solder by itself; Reforge as Tin Solder does it at once. Nothing makes this card any more."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_alloy_solder",
     "LocalizationKey": "Water_Sawmill_AlloySolder_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From a copper-grade metal nugget with a hammer. \n\n<b>Uses:</b> Fastener for water-driven construction blueprints."
+    "DefaultText": "<b>Retired:</b> Water-Driven Infrastructure no longer makes its own Alloy Solder. Every WDI recipe now takes the shared Tin Solder, the one CSFFModFramework ships for all mods. This old card turns into Tin Solder by itself within a quarter of an hour, or at once with Reforge as Tin Solder."
   },
   "CanBeRenamed": false,
   "CardImage": {
@@ -51,7 +51,46 @@
     "Active": false
   },
   "Progress": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_alloy_solder",
+        "LocalizationKey": "Water_Sawmill_AlloySolder_OnFull_ActionName",
+        "DefaultText": "Becomes a Tin Solder"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_alloy_solder",
+        "LocalizationKey": "Water_Sawmill_AlloySolder_OnFull_ActionDescription",
+        "DefaultText": "An old card becomes Tin Solder."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "act_tin_solder",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      },
+      "ProducedCards": []
+    }
   },
   "SpecialDurability1": {
     "Active": false
@@ -66,7 +105,41 @@
     "Active": false
   },
   "CardInteractions": [],
-  "DismantleActions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_alloy_solder",
+        "LocalizationKey": "Water_Sawmill_AlloySolder_Reforge_ActionName",
+        "DefaultText": "Reforge as Tin Solder"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_alloy_solder",
+        "LocalizationKey": "Water_Sawmill_AlloySolder_Reforge_ActionDescription",
+        "DefaultText": "Turn this old Alloy Solder into Tin Solder, the card every WDI recipe now takes."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "act_tin_solder",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      },
+      "ProducedCards": []
+    }
+  ],
   "PassiveStatEffects": [],
   "PassiveEffects": [],
   "MaxLiquidCapacity": 0.0,
