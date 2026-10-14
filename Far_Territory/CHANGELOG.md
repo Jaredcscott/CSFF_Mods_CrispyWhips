@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.3] - 2026-10-14
+
+### Changed
+
+- **Calmer sea in the animated card art.** The Sea's waves, the swell on the three Swim to shore cards, the Wave Grotto's breaker, the Sea Grotto's shallows and the Hot Spring's ripples now move at about half the speed and less strongly. The Hot Spring's steam is unchanged.
+
 ## [0.1.2] - 2026-10-14
 
 ### Added

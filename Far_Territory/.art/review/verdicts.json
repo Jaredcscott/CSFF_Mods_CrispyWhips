@@ -1,6 +1,76 @@
 {
   "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
   "images": {
+    "GIF/FT_HotSpring.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5ea55259d93fd021cac449ed0a21944a9f5ef310",
+      "at": "2026-10-14T10:42:13+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d92c5436c42bd67d2a4f042bfe4e8c0ea201a9c1",
+          "at": "2026-10-14T10:27:00+00:00"
+        }
+      ]
+    },
+    "GIF/FT_PathSwimToShore.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "176b97e84faa1294511612dabcb5ed527d5e480f",
+      "at": "2026-10-14T10:42:14+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4a2e4e34c647f783fac1a6a49cdeffeaca8ddd99",
+          "at": "2026-10-14T10:27:11+00:00"
+        }
+      ]
+    },
+    "GIF/FT_SeaGrotto.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "780b359e7d8610479300f2785bea2736a10b290f",
+      "at": "2026-10-14T10:42:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d100dab547d0af843ec44c6132d84b6d20d1faff",
+          "at": "2026-10-14T10:27:12+00:00"
+        }
+      ]
+    },
+    "GIF/FT_SeaShore.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9497eadf6a11ece20c27546d2ad0dc9c9c3594b0",
+      "at": "2026-10-14T10:42:36+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1b1d2e4a340fdede46e5a6f84180257c2ff7a695",
+          "at": "2026-10-14T10:27:15+00:00"
+        }
+      ]
+    },
+    "GIF/FT_WaveGrotto.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "97aacb9bd71c90a504c2295fe761b320804a7a72",
+      "at": "2026-10-14T10:42:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "53f9e3ee11534432875b622165256b82b72ca609",
+          "at": "2026-10-14T10:27:17+00:00"
+        }
+      ]
+    },
     "Picture/FT_AlmondTree.png": {
       "status": "approved",
       "notes": "",
