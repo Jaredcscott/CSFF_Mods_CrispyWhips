@@ -1,0 +1,22 @@
+{
+  "target": "HSP_Bookshelf.png",
+  "sourceCard": [
+    "GameSourceModify/e3af25c394ce2464782a287c05a16be2.json (vanilla BookShelfDismantled)",
+    "GameSourceModify/b20f8d758e211da47ad594a05765085a.json (vanilla Bookshelf)"
+  ],
+  "subject": "a rustic wooden bookshelf: a plain upright handmade open shelf unit of rough brown planks, two side boards and three horizontal shelves, a few old leather-bound books in muted brown, dark red and green leaning on the shelves, no doors, no glass, no carving",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": ["vanilla Forge_Off (style), WNi65rbzcbMWvsAnHJhp"]
+  },
+  "historyId": "4c6igKiYFfbJeIoQSP6Q",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791960212373_d9d67cc8_1791960213107_4b15fc88.png",
+  "credits": null,
+  "generated": "2026-10-14",
+  "note": "Same prompt template as HSP_RusticStool.json with this subject and the Avoid list extended by cabinet doors, glass, ornate carving, candles. Vanilla BookShelfDismantled and Bookshelf draw no sprite (extract_vanilla_sprites.py card, EA 0.69c)."
+}

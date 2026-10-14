@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.3 (2026-10-14)
+
+- **The Rustic Stool and the Bookshelf have pictures.** The game ships both with no card art at all, so the stool from the Rustic Table Kit perk and the bookshelf from the Bookshelf Kit perk were blank cards, carried or placed. They now show paintings shipped with this mod.
+
 ## 1.3.2 (2026-10-12)
 
 - **Well Kit has a picture again on game EA 0.69c:** the update removed the vanilla Well picture that the Well Kit card and its perk icon borrowed, so both were blank. They now use a stone well painting shipped with this mod.

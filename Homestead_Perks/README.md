@@ -1,6 +1,6 @@
 # Homestead Perks
 
-**Version:** 1.3.2
+**Version:** 1.3.3
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency)
 **Language:** English, Simplified Chinese
@@ -67,7 +67,7 @@ Costs are in Suns. Weights are what the item weighs once you pick it up.
 - **Sawhorses Kit**, **Pottery Wheel Kit** and **Fleshing Beam Kit** (15 each, weight 1000). That station, already made.
 - **Workbench Kit** (20, weight 1000). A vanilla Workbench, already made. Build it somewhere sheltered and lit, as vanilla requires. A Farmer's open River Clearing start is neither.
 
-Vanilla's stool and bookshelf have no card art of their own, and neither do these. The Rustic Table and the Sledge can be researched in vanilla; the bookshelf, stool and chest have no unlock at all.
+Vanilla's stool and bookshelf have no card art of their own. This mod gives both a picture, carried and placed. The Rustic Table and the Sledge can be researched in vanilla; the bookshelf, stool and chest have no unlock at all.
 
 ## Placing kits
 

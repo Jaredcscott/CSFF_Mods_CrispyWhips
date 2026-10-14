@@ -1,6 +1,24 @@
 {
   "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
   "images": {
+    "Picture/HSP_Bookshelf.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e09697a0299a2a0f1fcfcda7965950f7a7602046",
+      "at": "2026-10-14T09:05:01+00:00"
+    },
+    "Picture/HSP_RusticStool.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9949563084df600e55f28604fc794cfba7bdb0ab",
+      "at": "2026-10-14T09:05:02+00:00"
+    },
+    "Picture/HSP_WellKit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b3a0985c7806fa10b878996546758067aa37a055",
+      "at": "2026-10-14T04:26:35+00:00"
+    },
     "Picture/Kit_Homestead.png": {
       "status": "approved",
       "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",

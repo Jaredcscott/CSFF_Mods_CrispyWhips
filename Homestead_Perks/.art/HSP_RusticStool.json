@@ -1,0 +1,23 @@
+{
+  "target": "HSP_RusticStool.png",
+  "sourceCard": [
+    "GameSourceModify/1506c64cde08f3f44b47c15f1ac24684.json (vanilla Stool)",
+    "GameSourceModify/3a9ca5994f8fbd943a522670218663e3.json (vanilla StoolPlaced)"
+  ],
+  "subject": "a rustic wooden stool: a round thick plank seat on three splayed straight wooden legs, plain unvarnished brown wood, simple handmade, no back, no cushion",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": ["vanilla Forge_Off (style), WNi65rbzcbMWvsAnHJhp"]
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a rustic wooden stool: a round thick plank seat on three splayed straight wooden legs, plain unvarnished brown wood, simple handmade, no back, no cushion, in the style of a cozy hand-illustrated survival-crafting game (match the style of the reference image only, not its subject): visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, backrest, cushion, four legs, table, forge, fire.",
+  "historyId": "rMNjP03R2huiqWAOWe2o",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791958619516_3aa16f61_1791958619572_b497a8b0.png",
+  "credits": null,
+  "generated": "2026-10-14",
+  "note": "Vanilla Stool and StoolPlaced draw no sprite (extract_vanilla_sprites.py card, EA 0.69c). The sample drew four legs despite the three-leg subject; kept for the owner's gallery review."
+}
