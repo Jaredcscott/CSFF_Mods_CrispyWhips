@@ -1,0 +1,62 @@
+{
+  "target": "../Resource/GIF/FT_PathSwimToShore.gif",
+  "source": "Resource/Picture/FT_PathSwimToShore.png",
+  "sourceCard": "CardData/Gif (ft_path_gullstack_bleakstrand, _bouldershore, _cliffboundcove CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 2: the swell rolls in toward the cliffs; sky, far shore and cliffs are outside the sea polygon",
+  "frames": 8,
+  "duration_ms": 120,
+  "effects": [
+    {
+      "type": "flow",
+      "poly": [
+        [
+          0,
+          208
+        ],
+        [
+          512,
+          208
+        ],
+        [
+          512,
+          600
+        ],
+        [
+          430,
+          620
+        ],
+        [
+          300,
+          650
+        ],
+        [
+          250,
+          560
+        ],
+        [
+          150,
+          482
+        ],
+        [
+          60,
+          432
+        ],
+        [
+          0,
+          420
+        ]
+      ],
+      "mask": "all",
+      "blur": 2,
+      "mask_gain": 2.5,
+      "period": 44,
+      "dx": 0.25,
+      "dy": 1,
+      "feather": 4,
+      "strength": 1.0
+    }
+  ]
+}

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2] - 2026-10-14
+
+### Added
+
+- **The animals breathe, the plants sway, and the island drifts.** The bat, cobra, macaque, monitor lizard, moose, puffin, seagull, seal and walrus breathe on their cards and in their encounters; the trees and plants sway; every location, path and shore drifts slowly. Needs CSFF Mod Framework 2.28.3.
+- **Animated card art for the sea and the Hot Spring.** The Sea's waves roll in to the beach, the swell runs toward the cliffs on all three Swim to shore cards, the Wave Grotto's breaker spills through the cave mouth, the Sea Grotto's shallows run across its floor, and the Hot Spring ripples and steams.
+
 ## [0.1.1] - 2026-10-12
 
 ### Added

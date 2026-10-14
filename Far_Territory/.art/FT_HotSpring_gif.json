@@ -1,0 +1,117 @@
+{
+  "target": "../Resource/GIF/FT_HotSpring.gif",
+  "source": "Resource/Picture/FT_HotSpring.png",
+  "sourceCard": "CardData/Gif (ft_hot_spring CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 2: rings spread across the spring and the steam column rises and sways; the snow around it is outside the polygons",
+  "frames": 8,
+  "duration_ms": 130,
+  "effects": [
+    {
+      "type": "ripple",
+      "poly": [
+        [
+          110,
+          380
+        ],
+        [
+          200,
+          362
+        ],
+        [
+          350,
+          362
+        ],
+        [
+          432,
+          395
+        ],
+        [
+          420,
+          462
+        ],
+        [
+          300,
+          482
+        ],
+        [
+          150,
+          472
+        ],
+        [
+          100,
+          430
+        ]
+      ],
+      "mask": "all",
+      "feather": 4,
+      "cx": 270,
+      "cy": 420,
+      "squash": 0.36,
+      "wavelength": 22,
+      "amp": 2.0,
+      "speed": 1
+    },
+    {
+      "type": "flow",
+      "poly": [
+        [
+          170,
+          0
+        ],
+        [
+          400,
+          0
+        ],
+        [
+          395,
+          345
+        ],
+        [
+          175,
+          345
+        ]
+      ],
+      "mask": "pale",
+      "blur": 2,
+      "mask_gain": 3.0,
+      "period": 90,
+      "dx": 0,
+      "dy": -1,
+      "feather": 4,
+      "strength": 0.85
+    },
+    {
+      "type": "sway",
+      "poly": [
+        [
+          170,
+          0
+        ],
+        [
+          400,
+          0
+        ],
+        [
+          395,
+          345
+        ],
+        [
+          175,
+          345
+        ]
+      ],
+      "base_y": 345,
+      "tip_y": 0,
+      "amp": 5,
+      "waves": 1.4,
+      "curve": 1.0,
+      "mask": "pale",
+      "blur": 3,
+      "mask_gain": 3.0,
+      "feather": 6
+    }
+  ]
+}
