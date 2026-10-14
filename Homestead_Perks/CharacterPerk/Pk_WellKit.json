@@ -33,7 +33,7 @@
   },
   "PerkUnlockConditions": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "PerkIcon": { "m_FileID": 0, "m_PathID": 0 },
-  "PerkIconWarpData": "Well",
+  "PerkIconWarpData": "HSP_WellKit",
   "PerkIconWarpType": 3,
   "DifficultyRating": -350,
   "DisplayPriority": 2800.0,

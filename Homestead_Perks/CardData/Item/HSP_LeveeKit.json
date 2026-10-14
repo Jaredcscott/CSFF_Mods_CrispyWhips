@@ -1,0 +1,144 @@
+{
+  "UniqueID": "hspleveekit",
+  "CardName": {
+    "ParentObjectID": "hspleveekit",
+    "LocalizationKey": "HSP_LeveeKit_CardName",
+    "DefaultText": "Levee Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hspleveekit",
+    "LocalizationKey": "HSP_LeveeKit_CardDescription",
+    "DefaultText": "Spades and stakes for a river levee. Use Place to raise it where the water needs holding back, and only on a river. Can only be placed once."
+  },
+  "CardType": 0,
+  "ObjectWeight": 500.0,
+  "TradingValue": 250.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Levee",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Structure"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hspleveekit",
+        "LocalizationKey": "HSP_LeveeKit_DA_NeedsRiver",
+        "DefaultText": "Needs a River"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspleveekit",
+        "LocalizationKey": "HSP_LeveeKit_DA_NeedsRiver_Desc",
+        "DefaultText": "A levee can only be raised on a river. Carry the kit to a river to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerTagWarpData": "tag_Env_River",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hspleveekit",
+        "LocalizationKey": "HSP_LeveeKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspleveekit",
+        "LocalizationKey": "HSP_LeveeKit_DA_Place_Desc",
+        "DefaultText": "Raise your levee on this spot."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "LargeObject"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "7ed3e0bee54a8ed4bb70253bab2eb663",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      },
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerTagWarpData": "tag_Env_River",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

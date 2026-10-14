@@ -1,0 +1,72 @@
+{
+  "UniqueID": "hsptraitsperkleveekit",
+  "StartUnlocked": true,
+  "ActionObjectives": [],
+  "CombatObjectives": [],
+  "CardsOnBoardObjectives": [],
+  "TagsOnBoardObjectives": [],
+  "BlueprintsResearchedObjectives": [],
+  "StatsObjectives": [],
+  "TimeObjectives": [],
+  "NestedObjectives": [],
+  "PlayedCharacter": [],
+  "CompleteOnWin": false,
+  "CompleteOnLose": false,
+  "RequiredDifficultyScore": {
+    "x": 0,
+    "y": 0
+  },
+  "EditorOnly": false,
+  "NotifyWhenNotChecked": false,
+  "CheckingNotificationDetails": 0,
+  "DebugCompletion": false,
+  "SunsCost": 40,
+  "MoonsCost": 0,
+  "StarsCost": 0,
+  "ResetLockInEditor": false,
+  "PerkName": {
+    "ParentObjectID": "hsptraitsperkleveekit",
+    "LocalizationKey": "HSP_Perk_LeveeKit_PerkName",
+    "DefaultText": "Levee Kit"
+  },
+  "PerkDescription": {
+    "ParentObjectID": "hsptraitsperkleveekit",
+    "LocalizationKey": "HSP_Perk_LeveeKit_PerkDescription",
+    "DefaultText": "Start with a levee kit. Use Place to raise your levee wherever you want it, but only on a river. It can only be placed once."
+  },
+  "PerkUnlockConditions": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "PerkIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "PerkIconWarpData": "Levee",
+  "PerkIconWarpType": 3,
+  "DifficultyRating": -200,
+  "DisplayPriority": 3120.0,
+  "HiddenUntilUnlocked": false,
+  "AddedStartingHours": 0,
+  "OverrideEnvironment": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "OverrideWeather": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "AddedCards": [],
+  "AddedCardsWarpData": [
+    "hspleveekit"
+  ],
+  "AddedCardsWarpType": 3,
+  "EquippedCards": [],
+  "OverrideEquipment": false,
+  "StartingStatModifiers": [],
+  "PassiveStatModifiers": [],
+  "ActionModifiers": [],
+  "AddedPlayerTags": [],
+  "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

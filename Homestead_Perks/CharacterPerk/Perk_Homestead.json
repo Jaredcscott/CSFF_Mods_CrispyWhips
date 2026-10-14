@@ -35,7 +35,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets) all at once — then Place each kit to raise it. Everything can only be placed once.",
+        "DefaultText": "You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets, plus 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once.",
         "LocalizationKey": "HSP_Perk_Homestead_PerkDescription",
         "ParentObjectID": "hsptraitsperkhomestead"
     },
@@ -43,7 +43,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Cabin_Outside",
+    "PerkIconWarpData": "Kit_Homestead",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Homestead",

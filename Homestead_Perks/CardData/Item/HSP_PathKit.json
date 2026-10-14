@@ -30,6 +30,43 @@
     {
       "ActionName": {
         "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_Indoors",
+        "DefaultText": "Must be Outdoors"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_Indoors_Desc",
+        "DefaultText": "The Path Kit lays a road outdoors. Carry the kit outside to use it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_EnvIndoors",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hsppathkit",
         "LocalizationKey": "HSP_PathKit_DA_North",
         "DefaultText": "Build Path North"
       },
@@ -46,6 +83,19 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["LargeObject"],
       "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_EnvIndoors",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
       "ReceivingCardChanges": { "ModType": 3 },
       "ProducedCards": [
         {
@@ -82,6 +132,19 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["LargeObject"],
       "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_EnvIndoors",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
       "ReceivingCardChanges": { "ModType": 3 },
       "ProducedCards": [
         {
@@ -118,6 +181,19 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["LargeObject"],
       "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_EnvIndoors",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
       "ReceivingCardChanges": { "ModType": 3 },
       "ProducedCards": [
         {
@@ -154,6 +230,19 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["LargeObject"],
       "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_EnvIndoors",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
       "ReceivingCardChanges": { "ModType": 3 },
       "ProducedCards": [
         {

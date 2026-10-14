@@ -29,7 +29,7 @@
   "PerkDescription": {
     "ParentObjectID": "hsptraitsperkforgekit",
     "LocalizationKey": "HSP_Perk_ForgeKit_PerkDescription",
-    "DefaultText": "Start with a forge kit. Use Place to assemble your forge wherever you want it — it can only be placed once."
+    "DefaultText": "Start with a forge kit. Use Place to assemble your forge wherever you want it — it can only be placed once. Heavy: the kit weighs 800, so set it down before a long trip."
   },
   "PerkUnlockConditions": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "PerkIcon": { "m_FileID": 0, "m_PathID": 0 },

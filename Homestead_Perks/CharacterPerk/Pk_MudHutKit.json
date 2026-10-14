@@ -29,7 +29,7 @@
   "PerkDescription": {
     "ParentObjectID": "hsptraitsperkmudhutkit",
     "LocalizationKey": "HSP_Perk_MudHutKit_PerkDescription",
-    "DefaultText": "Start with a mud hut kit and a broom blueprint. Carry the kit with you and use Place to raise your hut wherever you want it — it can only be placed once."
+    "DefaultText": "Start with a mud hut kit and a broom blueprint. Carry the kit with you and use Place to raise your hut wherever you want it — it can only be placed once. Heavy: the kit weighs 1000, so set it down before a long trip."
   },
   "PerkUnlockConditions": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "PerkIcon": { "m_FileID": 0, "m_PathID": 0 },

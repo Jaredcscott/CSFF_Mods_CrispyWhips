@@ -29,7 +29,7 @@
   "PerkDescription": {
     "ParentObjectID": "hsptraitsperkpathkit",
     "LocalizationKey": "HSP_Perk_PathKit_PerkDescription",
-    "DefaultText": "Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting."
+    "DefaultText": "Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting. Heavy: the six kits weigh 900 together, so set them down before a long trip."
   },
   "PerkUnlockConditions": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "PerkIcon": { "m_FileID": 0, "m_PathID": 0 },

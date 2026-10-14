@@ -16,7 +16,7 @@
   "MaxStack": 1,
   "DoesNotPile": true,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Well",
+  "CardImageWarpData": "HSP_WellKit",
   "CardImageWarpType": 3,
   "CardTagsWarpData": ["tag_Structure"],
   "CardTagsWarpType": 3,
@@ -30,6 +30,43 @@
   "SpecialDurability4": { "Active": false },
   "CardInteractions": [],
   "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hspwellkit",
+        "LocalizationKey": "HSP_WellKit_DA_NoEnclosure",
+        "DefaultText": "Not in a Pen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspwellkit",
+        "LocalizationKey": "HSP_WellKit_DA_NoEnclosure_Desc",
+        "DefaultText": "The well cannot be dug inside an animal enclosure. Carry the kit outside to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerCardWarpData": "193f3be30d3891547a95d0d7e8539ccb",
+          "TriggerCardWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
     {
       "ActionName": {
         "ParentObjectID": "hspwellkit",
@@ -49,6 +86,18 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["LargeObject"],
       "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerCardWarpData": "193f3be30d3891547a95d0d7e8539ccb",
+          "TriggerCardWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 2,
         "TransformInto": { "m_FileID": 0, "m_PathID": 0 },

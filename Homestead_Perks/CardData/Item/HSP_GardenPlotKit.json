@@ -1,0 +1,144 @@
+{
+  "UniqueID": "hspgardenplotkit",
+  "CardName": {
+    "ParentObjectID": "hspgardenplotkit",
+    "LocalizationKey": "HSP_GardenPlotKit_CardName",
+    "DefaultText": "Garden Plot Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hspgardenplotkit",
+    "LocalizationKey": "HSP_GardenPlotKit_CardDescription",
+    "DefaultText": "A bundle of twigs and stakes for a garden plot. Use Place to lay it out where you want to grow crops. Can only be placed once, and not inside an animal enclosure."
+  },
+  "CardType": 0,
+  "ObjectWeight": 300.0,
+  "TradingValue": 100.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "GardenPlot",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Structure"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hspgardenplotkit",
+        "LocalizationKey": "HSP_GardenPlotKit_DA_NoEnclosure",
+        "DefaultText": "Not in a Pen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspgardenplotkit",
+        "LocalizationKey": "HSP_GardenPlotKit_DA_NoEnclosure_Desc",
+        "DefaultText": "The garden plot cannot be laid out inside an animal enclosure. Carry the kit outside to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "193f3be30d3891547a95d0d7e8539ccb",
+          "TriggerCardWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hspgardenplotkit",
+        "LocalizationKey": "HSP_GardenPlotKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspgardenplotkit",
+        "LocalizationKey": "HSP_GardenPlotKit_DA_Place_Desc",
+        "DefaultText": "Lay out your garden plot on this spot."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "LargeObject"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "f853a0a8ad6c64c4b81eabb8367c0c5c",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      },
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "193f3be30d3891547a95d0d7e8539ccb",
+          "TriggerCardWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

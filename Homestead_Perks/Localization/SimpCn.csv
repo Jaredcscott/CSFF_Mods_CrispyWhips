@@ -1,11 +1,11 @@
 HSP_Perk_Homestead_PerkName,Homestead,安家
-HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets) all at once — then Place each kit to raise it. Everything can only be placed once.","你已经准备好安顿下来。开局获得一个便于携带的家园套件。放到你想建造家园的地方，然后使用「放置」一次性拆开小屋套件、两个集雨桶套件和一批建筑材料（30块木板、30块泥砖、50块石头、20块大石头、15根原木、20份黏土、10份绳索、20块金属块）——然后依次「放置」每个套件将其立起。所有内容都只能放置一次。"
+HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets, plus 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once.","你已经准备好安顿下来。开局获得一个便于携带的家园套件。放到你想建造家园的地方，然后使用「放置」一次性拆开小屋套件、两个集雨桶套件和一批建筑材料（30块木板、30块泥砖、50块石头、20块大石头、15根原木、20份黏土、10份绳索、20块金属块，另有50枚铜钉）——然后依次「放置」每个套件将其立起。所有内容都只能放置一次。"
 HSP_HomesteadKit_CardName,Homestead Kit,家园套件
 HSP_HomesteadKit_CardDescription,"Everything you need to start a homestead, bundled into one portable pack: a cabin kit, two rain cistern kits, and a stockpile of building materials. Drop it wherever you want to settle, then use Place to unpack it all at once. Can only be placed once.",开启家园所需的一切，全部打包进一个便携行囊：一个小屋套件、两个集雨桶套件，还有一批建筑材料。放到你想定居的地方，然后使用「放置」一次性全部拆开。只能放置一次。
 HSP_HomesteadKit_DA_Place,Place,放置
 HSP_HomesteadKit_DA_Place_Desc,"Unpack your homestead kit here: cabin kit, rain cistern kits, and building materials all appear on the spot.",在此处拆开你的家园套件：小屋套件、集雨桶套件和建筑材料都会就地出现。
 HSP_Perk_CabinKit_PerkName,Cabin Kit,木屋套件
-HSP_Perk_CabinKit_PerkDescription,Start with a cabin kit and a broom blueprint. Carry the kit with you and use Place to raise your cabin wherever you want it — it can only be placed once.,开局获得一套木屋套件和一张扫帚蓝图。随身携带套件，使用“放置”在任意地点建起你的木屋——只能放置一次。
+HSP_Perk_CabinKit_PerkDescription,"Start with a cabin kit and a broom blueprint. Carry the kit with you and use Place to raise your cabin wherever you want it — it can only be placed once. Heavy: the kit weighs 1200, so set it down before a long trip.",开局获得一套木屋套件和一张扫帚蓝图。随身携带套件，使用“放置”在任意地点建起你的木屋——只能放置一次。很重：套件重1200，长途跋涉前请先放下。
 HSP_CabinKit_CardName,Cabin Kit,小屋套件
 HSP_CabinKit_CardDescription,"Your cabin, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once.",你的小屋，已经打包好方便携带。放到你想安家的地方，然后使用「放置」就地建起小屋。只能放置一次。
 HSP_CabinKit_DA_Place,Place,放置
@@ -17,13 +17,13 @@ HSP_RainCisternKit_CardDescription,"A rain cistern, disassembled and bundled for
 HSP_RainCisternKit_DA_Place,Place,放置
 HSP_RainCisternKit_DA_Place_Desc,Set up your rain cistern on this spot.,在此处搭建你的集雨桶。
 HSP_Perk_MudHutKit_PerkName,Mud Hut Kit,泥屋套件
-HSP_Perk_MudHutKit_PerkDescription,Start with a mud hut kit and a broom blueprint. Carry the kit with you and use Place to raise your hut wherever you want it — it can only be placed once.,开局获得一套泥屋套件和一张扫帚蓝图。随身携带套件，使用“放置”在任意地点建起你的泥屋——只能放置一次。
+HSP_Perk_MudHutKit_PerkDescription,"Start with a mud hut kit and a broom blueprint. Carry the kit with you and use Place to raise your hut wherever you want it — it can only be placed once. Heavy: the kit weighs 1000, so set it down before a long trip.",开局获得一套泥屋套件和一张扫帚蓝图。随身携带套件，使用“放置”在任意地点建起你的泥屋——只能放置一次。很重：套件重1000，长途跋涉前请先放下。
 HSP_MudHutKit_CardName,Mud Hut Kit,泥屋套件
 HSP_MudHutKit_CardDescription,"A humble mud hut, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once.",一座简朴的泥屋，打包便于携带。放到你想定居的地方，然后使用“放置”当场建起。只能放置一次。
 HSP_MudHutKit_DA_Place,Place,放置
 HSP_MudHutKit_DA_Place_Desc,Raise your mud hut on this spot.,在此处建起你的泥屋。
 HSP_Perk_LogBedKit_PerkName,Log Bed Kit,原木床套件
-HSP_Perk_LogBedKit_PerkDescription,Start with a log bed kit. Use Place to assemble your log bed wherever you want it — it can only be placed once.,开局获得一套原木床套件。使用“放置”在任意地点组装你的原木床——只能放置一次。
+HSP_Perk_LogBedKit_PerkDescription,"Start with a log bed kit. Use Place to assemble your log bed wherever you want it — it can only be placed once. Heavy: the kit weighs 800, so set it down before a long trip.",开局获得一套原木床套件。使用“放置”在任意地点组装你的原木床——只能放置一次。很重：套件重800，长途跋涉前请先放下。
 HSP_LogBedKit_CardName,Log Bed Kit,原木床套件
 HSP_LogBedKit_CardDescription,Split logs and lashings for a sturdy bed. Use Place to assemble it where you want to sleep. Can only be placed once.,打包好的原木与绑索，可组装成一张结实的床。使用“放置”在你想睡觉的地方组装。只能放置一次。
 HSP_LogBedKit_DA_Place,Place,放置
@@ -35,7 +35,7 @@ HSP_FurnaceKit_CardDescription,"A dismantled furnace, stones and flue neatly bun
 HSP_FurnaceKit_DA_Place,Place,放置
 HSP_FurnaceKit_DA_Place_Desc,Assemble your furnace on this spot.,在此处组装你的熔炉。
 HSP_Perk_ForgeKit_PerkName,Forge Kit,锻造台套件
-HSP_Perk_ForgeKit_PerkDescription,Start with a forge kit. Use Place to assemble your forge wherever you want it — it can only be placed once.,开局获得一套锻造台套件。使用“放置”在任意地点组装你的锻造台——只能放置一次。
+HSP_Perk_ForgeKit_PerkDescription,"Start with a forge kit. Use Place to assemble your forge wherever you want it — it can only be placed once. Heavy: the kit weighs 800, so set it down before a long trip.",开局获得一套锻造台套件。使用“放置”在任意地点组装你的锻造台——只能放置一次。很重：套件重800，长途跋涉前请先放下。
 HSP_ForgeKit_CardName,Forge Kit,锻造台套件
 HSP_ForgeKit_CardDescription,"A dismantled smithing forge. Use Place to assemble it where you want to work metal. Can only be placed once.",一座拆解好的锻造台。使用“放置”在你想锻打金属的地方组装。只能放置一次。
 HSP_ForgeKit_DA_Place,Place,放置
@@ -53,7 +53,7 @@ HSP_TanningPitKit_CardDescription,Everything needed to line and frame a tanning 
 HSP_TanningPitKit_DA_Place,Place,放置
 HSP_TanningPitKit_DA_Place_Desc,Dig your tanning pit on this spot.,在此处挖设你的鞣制坑。
 HSP_Perk_PathKit_PerkName,Path Kit,道路套件
-HSP_Perk_PathKit_PerkDescription,"Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting.",开局获得6个道路套件。每个都能让你在所在位置立即修好一条通往指定方向的道路——无需挖掘，无需等待。
+HSP_Perk_PathKit_PerkDescription,"Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting. Heavy: the six kits weigh 900 together, so set them down before a long trip.",开局获得6个道路套件。每个都能让你在所在位置立即修好一条通往指定方向的道路——无需挖掘，无需等待。很重：六个套件共重900，长途跋涉前请先放下。
 HSP_PathKit_CardName,Path Kit,道路套件
 HSP_PathKit_CardDescription,"Stones and gravel for laying a stretch of road. Pick a direction below to instantly finish a path leading that way from your current spot. Works outdoors, and only takes effect where a route actually leads that direction.",铺路用的石块与碎石。在下方选择一个方向，即可立即修好一条从你所在位置通往该方向的道路。仅限户外使用，且只有该方向确实有路可通时才会生效。
 HSP_PathKit_DA_North,Build Path North,修建北向道路
@@ -71,7 +71,7 @@ HSP_WellKit_CardDescription,"Stone lining, a windlass, and rope for a proper wel
 HSP_WellKit_DA_Place,Place,放置
 HSP_WellKit_DA_Place_Desc,Dig and raise your well on this spot.,在此处挖设并立起你的水井。
 HSP_Perk_CellarKit_PerkName,Cellar Kit,地窖套件
-HSP_Perk_CellarKit_PerkDescription,Start with a cellar kit. Use Place to dig in your cellar wherever you want it — it can only be placed once.,开局获得一套地窖套件。使用“放置”在任意地点挖设你的地窖——只能放置一次。
+HSP_Perk_CellarKit_PerkDescription,"Start with a cellar kit. Use Place to dig in your cellar wherever you want it — it can only be placed once. Heavy: the kit weighs 900, so set it down before a long trip.",开局获得一套地窖套件。使用“放置”在任意地点挖设你的地窖——只能放置一次。很重：套件重900，长途跋涉前请先放下。
 HSP_CellarKit_CardName,Cellar Kit,地窖套件
 HSP_CellarKit_CardDescription,"Timber shoring and a hatch for an underground cellar. Drop it wherever you want your food to keep longer, then use Place to dig it in on the spot. Can only be placed once.",支撑用的木料与一扇舱门，足以挖出一座地下地窖。放到你想延长食物保鲜期的地方，然后使用「放置」就地挖设。只能放置一次。
 HSP_CellarKit_DA_Place,Place,放置
@@ -82,3 +82,205 @@ HSP_PitTrapKit_CardName,Pit Trap Kit,陷坑套件
 HSP_PitTrapKit_CardDescription,"Stakes, cover, and digging tools for a big game pit trap. Drop it wherever you want to trap large prey, then use Place to dig it on the spot. Can only be placed once.",尖桩、伪装盖与挖掘工具，足以挖出一个捕捉大型猎物的陷坑。放到你想设陷阱的地方，然后使用「放置」就地挖设。只能放置一次。
 HSP_PitTrapKit_DA_Place,Place,放置
 HSP_PitTrapKit_DA_Place_Desc,Dig your pit trap on this spot.,在此处挖设你的陷坑。
+HSP_Perk_RusticTableKit_PerkName,Rustic Table Kit,简易桌子套件
+HSP_Perk_RusticTableKit_PerkDescription,"Start with a dismantled rustic table and a rustic stool, no research or building needed for the table, and vanilla gives you no way to build the stool at all. Use Build on the table and Place on the stool wherever you want them; both raise your Sanctuary, and the table stores your things. Heavy: the pair weighs 2250, so set them down before a long trip.",开局获得一张拆卸简易桌子和一张简易凳子，桌子无需研究或建造，原版也没有提供建造凳子的途径。在任意地点对桌子使用“组装”、对凳子使用“放置”即可；两者都能提升你的庇护度，桌子还能存放物品。很重：两件共重2250，长途跋涉前请先放下。
+HSP_Perk_BookshelfKit_PerkName,Bookshelf Kit,书架套件
+HSP_Perk_BookshelfKit_PerkDescription,"Start with a dismantled bookshelf, which vanilla gives you no way to build. Use Place to stand it up wherever you want it: it stores your things, keeps food fresh longer and raises your Sanctuary. Heavy: it weighs 1500, so set it down before a long trip.",开局获得一个拆卸书架，原版没有提供建造书架的途径。在任意地点使用“放置”将它立起：可以存放物品、让食物保鲜更久，并提升你的庇护度。很重：重1500，长途跋涉前请先放下。
+HSP_Perk_Sledge_PerkName,Sledge,雪橇
+HSP_Perk_Sledge_PerkDescription,"Start with a sledge already built, no research or building needed. Haul heavy loads across snow or ride it downhill from day one.",开局获得一架现成的雪橇，无需研究或建造。从第一天起就能在雪地上拖运重物，或乘着它快速下坡。
+HSP_Perk_Travois_PerkName,Travois,旧式雪橇
+HSP_Perk_Travois_PerkDescription,"Start with a finished travois, no research or building needed. A frame for carrying things around at the cost of some speed. It weighs 300.",开局获得一架现成的旧式雪橇，无需研究或建造。一种为了携带物品而牺牲速度的架子。重量300。
+HSP_Perk_KilnKit_PerkName,Kiln Kit,窑炉套件
+HSP_Perk_KilnKit_PerkDescription,"Start with a kiln kit. Use Place to assemble a kiln wherever you want it, for firing pottery and extracting tar and quicklime. It shares vanilla's oven art, as the vanilla kiln does. It can only be placed once.",开局获得一套窑炉套件。使用“放置”在任意地点组装你的窑炉，用于烧制陶器以及提取焦油和生石灰。它和原版窑炉一样使用烤箱的图片。只能放置一次。
+HSP_KilnKit_CardName,Kiln Kit,窑炉套件
+HSP_KilnKit_CardDescription,"A dismantled kiln, packed for travel. Use Place to assemble it where you want to fire pottery. It shares vanilla's oven art, as the vanilla kiln does. Can only be placed once.",一座拆解打包、便于携带的窑炉。使用“放置”在你想烧制陶器的地方组装。它和原版窑炉一样使用烤箱的图片。只能放置一次。
+HSP_KilnKit_DA_Place,Place,放置
+HSP_KilnKit_DA_Place_Desc,Assemble your kiln on this spot.,在此处组装你的窑炉。
+HSP_Perk_DryingRackKit_PerkName,Drying Rack Kit,晾晒架套件
+HSP_Perk_DryingRackKit_PerkDescription,Start with a drying rack kit. Use Place to set up a drying rack wherever you want it. It can only be placed once.,开局获得一套晾晒架套件。使用“放置”在任意地点安置你的晾晒架。只能放置一次。
+HSP_DryingRackKit_CardName,Drying Rack Kit,晾晒架套件
+HSP_DryingRackKit_CardDescription,"A drying rack, taken apart and bundled for travel. Use Place to set it up where you want to dry things. Can only be placed once.",一个拆解打包、便于携带的晾晒架。使用“放置”在你想晾晒东西的地方安置。只能放置一次。
+HSP_DryingRackKit_DA_Place,Place,放置
+HSP_DryingRackKit_DA_Place_Desc,Set up your drying rack on this spot.,在此处安置你的晾晒架。
+HSP_Perk_WeaverWorkshopKit_PerkName,Weaver's Workshop Kit,织工作坊套件
+HSP_Perk_WeaverWorkshopKit_PerkDescription,"Start with a treadle loom, a spinning wheel and a fiber break, no research or building needed. Use Place on each wherever you want it.",开局获得一台踏板织机、一架纺车和一台纤维破碎架，无需研究或建造。在任意地点对每件使用“放置”即可。
+HSP_Perk_SawhorsesKit_PerkName,Sawhorses Kit,锯木架套件
+HSP_Perk_SawhorsesKit_PerkDescription,"Start with a set of sawhorses, no research or building needed. Use Place to set them up wherever you want them. Heavy: it weighs 1000, so set it down before a long trip.",开局获得一套锯木架，无需研究或建造。在任意地点使用“放置”将其架起。很重：重1000，长途跋涉前请先放下。
+HSP_Perk_PotteryWheelKit_PerkName,Pottery Wheel Kit,陶轮套件
+HSP_Perk_PotteryWheelKit_PerkDescription,"Start with a pottery wheel, no research or building needed. Use Place to set it up wherever you want it. Heavy: it weighs 1000, so set it down before a long trip.",开局获得一架陶轮，无需研究或建造。在任意地点使用“放置”将其安置。很重：重1000，长途跋涉前请先放下。
+HSP_Perk_FleshingBeamKit_PerkName,Fleshing Beam Kit,刮皮梁套件
+HSP_Perk_FleshingBeamKit_PerkDescription,"Start with a fleshing beam, no research or building needed. Use Place to set it up wherever you want it. Heavy: it weighs 1000, so set it down before a long trip.",开局获得一根刮皮梁，无需研究或建造。在任意地点使用“放置”将其安置。很重：重1000，长途跋涉前请先放下。
+HSP_Perk_WorkbenchKit_PerkName,Workbench Kit,工作台套件
+HSP_Perk_WorkbenchKit_PerkDescription,"Start with a workbench, no research or building needed. Use Build to set it up anywhere sheltered and lit, the spot vanilla's own workbench needs. Heavy: it weighs 1000, so set it down before a long trip.",开局获得一张工作台，无需研究或建造。在有遮蔽且有光照的地方使用“组装”将其搭起（与原版工作台的要求相同）。很重：重1000，长途跋涉前请先放下。
+HSP_Perk_BloomeryKit_PerkName,Bloomery Kit,块炼炉套件
+HSP_Perk_BloomeryKit_PerkDescription,"Start with a bloomery kit. Use Place to assemble your iron-smelting bloomery wherever you want it. It still needs charcoal and bellows or a windy spot to run, and can only be placed once. Heavy: it weighs 900, so set it down before a long trip.",开局获得一套块炼炉套件。使用“放置”在任意地点组装你的炼铁块炼炉。它仍需木炭和风箱或多风之地才能运转，且只能放置一次。很重：重900，长途跋涉前请先放下。
+HSP_BloomeryKit_CardName,Bloomery Kit,块炼炉套件
+HSP_BloomeryKit_CardDescription,"A dismantled bloomery, clay and stone bundled for travel. Use Place to assemble it where you want to smelt iron. It still needs charcoal and bellows or a windy spot to run. Can only be placed once.",一座拆解好的块炼炉，黏土与石块捆扎便于携带。使用“放置”在你想炼铁的地方组装。它仍需木炭和风箱或多风之地才能运转。只能放置一次。
+HSP_BloomeryKit_DA_Place,Place,放置
+HSP_BloomeryKit_DA_Place_Desc,Assemble your bloomery on this spot.,在此处组装你的块炼炉。
+HSP_CellarKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
+HSP_CellarKit_DA_NoEnclosure_Desc,The cellar cannot be dug inside an animal enclosure. Carry the kit outside to place it.,地窖不能挖在动物围栏内。把套件带到围栏外再放置。
+HSP_WellKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
+HSP_WellKit_DA_NoEnclosure_Desc,The well cannot be dug inside an animal enclosure. Carry the kit outside to place it.,水井不能挖在动物围栏内。把套件带到围栏外再放置。
+HSP_TanningPitKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
+HSP_TanningPitKit_DA_NoEnclosure_Desc,The tanning pit cannot be dug inside an animal enclosure. Carry the kit outside to place it.,鞣制坑不能挖在动物围栏内。把套件带到围栏外再放置。
+HSP_LogBedKit_DA_HaveOne,Already Have One,此处已有一张
+HSP_LogBedKit_DA_HaveOne_Desc,"A log bed already stands here, and only one can be set up on a board. Carry the kit somewhere else to place it.",这里已经有一张原木床，同一处只能放一张。把套件带到别处再放置。
+HSP_CabinKit_DA_NotHere,Not Indoors,不能在室内
+HSP_CabinKit_DA_NotHere_Desc,A cabin cannot be raised indoors or in a cave. Carry the kit outside to place it.,无法在室内或洞穴中修建小屋。请把套件带到室外再放置。
+HSP_MudHutKit_DA_NotHere,Not Indoors,不能在室内
+HSP_MudHutKit_DA_NotHere_Desc,A mud hut cannot be raised indoors or in a cave. Carry the kit outside to place it.,无法在室内或洞穴中修建泥屋。请把套件带到室外再放置。
+HSP_CellarKit_DA_NotHere,Not Indoors,不能在室内
+HSP_CellarKit_DA_NotHere_Desc,The cellar cannot be dug indoors or in a cave. Carry the kit outside to place it.,无法在室内或洞穴中挖掘地窖。请把套件带到室外再放置。
+HSP_CellarKit_DA_NotRiver,Not by the River,不能在河边
+HSP_CellarKit_DA_NotRiver_Desc,"The cellar cannot be dug on a river bank, where the ground floods. Carry the kit to higher ground to place it.",无法在河岸边挖掘地窖，那里的地面会被水淹。请把套件带到地势较高处再放置。
+HSP_CellarKit_DA_NotWet,Not on Wet Ground,不能在湿地
+HSP_CellarKit_DA_NotWet_Desc,The cellar cannot be dug in a bog or mire. Carry the kit to dry ground to place it.,无法在沼泽或泥潭中挖掘地窖。请把套件带到干燥的地面再放置。
+HSP_PathKit_DA_Indoors,Must be Outdoors,必须在室外
+HSP_PathKit_DA_Indoors_Desc,The Path Kit lays a road outdoors. Carry the kit outside to use it.,道路套件只能在室外铺路。请把套件带到室外再使用。
+HSP_CellarKit_DA_NotMarsh,Not in Wetlands,不能在湿地带
+HSP_CellarKit_DA_NotMarsh_Desc,The cellar cannot be dug in marshy wetland country. Carry the kit to drier land to place it.,无法在沼泽湿地地带挖掘地窖。请把套件带到更干燥的土地再放置。
+HSP_Perk_EnclosureKit_PerkName,Enclosure Kit,围栏套件
+HSP_Perk_EnclosureKit_PerkDescription,"Start with an enclosure kit. Use Place to raise an animal pen wherever you want it, a home for vanilla's Starting Poultry and Starting Cattle perks from day one. It can only be placed once. Heavy: the kit weighs 800, so set it down before a long trip.",开局获得一套围栏套件。使用“放置”在任意地点围起一座动物围栏，让原版的“起始家禽”和“起始牲畜”特质从第一天起就有处安置。只能放置一次。很重：套件重800，长途跋涉前请先放下。
+HSP_EnclosureKit_CardName,Enclosure Kit,围栏套件
+HSP_EnclosureKit_CardDescription,"Fencing and a gate for an animal pen. Drop it wherever you want your animals kept, then use Place to raise the enclosure on the spot. Can only be placed once.",围起动物栏所需的栅栏和一扇门。放到你想圈养动物的地方，然后使用“放置”就地围起围栏。只能放置一次。
+HSP_EnclosureKit_DA_Place,Place,放置
+HSP_EnclosureKit_DA_Place_Desc,Raise an animal enclosure on this spot.,在此处围起一座动物围栏。
+HSP_EnclosureKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
+HSP_EnclosureKit_DA_NoEnclosure_Desc,An enclosure cannot be raised inside another animal enclosure. Carry the kit outside to place it.,不能在另一座动物围栏内再围起围栏。把套件带到围栏外再放置。
+HSP_Perk_ChestKit_PerkName,Chest Kit,箱子套件
+HSP_Perk_ChestKit_PerkDescription,"Start with a storage chest, which vanilla gives you no way to build. Use Place to set it down wherever you want it. Heavy: it weighs 3000, so set it down before a long trip.",开局获得一个储物箱，原版没有提供建造它的途径。使用“放置”将它放在你想要的地方。很重：重3000，长途跋涉前请先放下。
+HSP_Perk_CopperMineKit_PerkName,Copper Mine Kit,铜矿套件
+HSP_Perk_CopperMineKit_PerkDescription,"Start with a copper mine kit. Use Place at a copper deposit to open the mine without the long research and build; it can only be placed once, and nowhere else. Heavy: the kit weighs 800, so set it down before a long trip.",开局获得一套铜矿套件。在铜矿脉处使用“放置”即可开设矿井，免去漫长的研究与建造；只能放置一次，且只能放在矿脉处。很重：套件重800，长途跋涉前请先放下。
+HSP_CopperMineKit_CardName,Copper Mine Kit,铜矿套件
+HSP_CopperMineKit_CardDescription,"Props, rails and a door frame for a copper mine. Carry it to a copper deposit, then use Place to open the mine on the spot. Can only be placed once.",开设铜矿所需的支柱、轨道和门框。带到铜矿脉处，然后使用“放置”就地开设矿井。只能放置一次。
+HSP_CopperMineKit_DA_Place,Place,放置
+HSP_CopperMineKit_DA_Place_Desc,Open your copper mine on this spot.,在此处开设你的铜矿。
+HSP_CopperMineKit_DA_NeedsDeposit,Needs a Deposit,需要矿脉
+HSP_CopperMineKit_DA_NeedsDeposit_Desc,A copper mine can only be opened at a copper deposit. Carry the kit to one to place it.,铜矿只能开设在铜矿脉处。把套件带到矿脉处再放置。
+HSP_CopperMineKit_DA_HaveOne,Already Have a Mine Here,此处已有矿井
+HSP_CopperMineKit_DA_HaveOne_Desc,There is already a mine entrance here. Carry the kit to another deposit to place it.,此处已有一个矿井入口。把套件带到另一处矿脉再放置。
+HSP_Perk_FlintMineKit_PerkName,Flint Mine Kit,燧石矿套件
+HSP_Perk_FlintMineKit_PerkDescription,"Start with a flint mine kit. Use Place at a flint deposit to open the mine without the long research and build; it can only be placed once, and nowhere else. Heavy: the kit weighs 800, so set it down before a long trip.",开局获得一套燧石矿套件。在燧石矿脉处使用“放置”即可开设矿井，免去漫长的研究与建造；只能放置一次，且只能放在矿脉处。很重：套件重800，长途跋涉前请先放下。
+HSP_FlintMineKit_CardName,Flint Mine Kit,燧石矿套件
+HSP_FlintMineKit_CardDescription,"Props, rails and a door frame for a flint mine. Carry it to a flint deposit, then use Place to open the mine on the spot. Can only be placed once.",开设燧石矿所需的支柱、轨道和门框。带到燧石矿脉处，然后使用“放置”就地开设矿井。只能放置一次。
+HSP_FlintMineKit_DA_Place,Place,放置
+HSP_FlintMineKit_DA_Place_Desc,Open your flint mine on this spot.,在此处开设你的燧石矿。
+HSP_FlintMineKit_DA_NeedsDeposit,Needs a Deposit,需要矿脉
+HSP_FlintMineKit_DA_NeedsDeposit_Desc,A flint mine can only be opened at a flint deposit. Carry the kit to one to place it.,燧石矿只能开设在燧石矿脉处。把套件带到矿脉处再放置。
+HSP_FlintMineKit_DA_HaveOne,Already Have a Mine Here,此处已有矿井
+HSP_FlintMineKit_DA_HaveOne_Desc,There is already a mine entrance here. Carry the kit to another deposit to place it.,此处已有一个矿井入口。把套件带到另一处矿脉再放置。
+HSP_Perk_WitchstoneMineKit_PerkName,Witchstone Mine Kit,巫石矿套件
+HSP_Perk_WitchstoneMineKit_PerkDescription,"Start with a witchstone mine kit. Use Place at a witchstone deposit to open the mine without the long research and build; it can only be placed once, and nowhere else. Heavy: the kit weighs 800, so set it down before a long trip.",开局获得一套巫石矿套件。在巫石矿脉处使用“放置”即可开设矿井，免去漫长的研究与建造；只能放置一次，且只能放在矿脉处。很重：套件重800，长途跋涉前请先放下。
+HSP_WitchstoneMineKit_CardName,Witchstone Mine Kit,巫石矿套件
+HSP_WitchstoneMineKit_CardDescription,"Props, rails and a door frame for a witchstone mine. Carry it to a witchstone deposit, then use Place to open the mine on the spot. Can only be placed once.",开设巫石矿所需的支柱、轨道和门框。带到巫石矿脉处，然后使用“放置”就地开设矿井。只能放置一次。
+HSP_WitchstoneMineKit_DA_Place,Place,放置
+HSP_WitchstoneMineKit_DA_Place_Desc,Open your witchstone mine on this spot.,在此处开设你的巫石矿。
+HSP_WitchstoneMineKit_DA_NeedsDeposit,Needs a Deposit,需要矿脉
+HSP_WitchstoneMineKit_DA_NeedsDeposit_Desc,A witchstone mine can only be opened at a witchstone deposit. Carry the kit to one to place it.,巫石矿只能开设在巫石矿脉处。把套件带到矿脉处再放置。
+HSP_WitchstoneMineKit_DA_HaveOne,Already Have a Mine Here,此处已有矿井
+HSP_WitchstoneMineKit_DA_HaveOne_Desc,There is already a mine entrance here. Carry the kit to another deposit to place it.,此处已有一个矿井入口。把套件带到另一处矿脉再放置。
+HSP_Perk_StretchingFrameKit_PerkName,Stretching Frame Kit,拉伸架套件
+HSP_Perk_StretchingFrameKit_PerkDescription,Start with a stretching frame kit. Use Place to set up your frame wherever you want it. It can only be placed once.,开局获得一套拉伸架套件。使用“放置”在任意地点搭起你的拉伸架。只能放置一次。
+HSP_StretchingFrameKit_CardName,Stretching Frame Kit,拉伸架套件
+HSP_StretchingFrameKit_CardDescription,Sticks and twine for a hide stretching frame. Use Place to set it up where you want to work hides. Can only be placed once.,一捆木棍和细绳，可搭成一个皮革拉伸架。使用“放置”在你想处理兽皮的地方搭起。只能放置一次。
+HSP_StretchingFrameKit_DA_Place,Place,放置
+HSP_StretchingFrameKit_DA_Place_Desc,Set up your stretching frame on this spot.,在此处搭起你的拉伸架。
+HSP_Perk_WeightedLoomKit_PerkName,Weighted Loom Kit,重锤织机套件
+HSP_Perk_WeightedLoomKit_PerkDescription,"Start with a weighted loom kit. Use Place to set up your loom wherever you want it. It can only be placed once. This is the upright weighted loom, not the treadle loom of the Weaver's Workshop Kit.",开局获得一套重锤织机套件。使用“放置”在任意地点搭起你的织机。只能放置一次。这是立式重锤织机，不是织工工坊套件里的脚踏织机。
+HSP_WeightedLoomKit_CardName,Weighted Loom Kit,重锤织机套件
+HSP_WeightedLoomKit_CardDescription,"Upright beams and loom weights, packed flat. Use Place to set up the loom where you want to weave. Can only be placed once.",立式织机的木梁和织锤，已打包收好。使用“放置”在你想织布的地方搭起织机。只能放置一次。
+HSP_WeightedLoomKit_DA_Place,Place,放置
+HSP_WeightedLoomKit_DA_Place_Desc,Set up your weighted loom on this spot.,在此处搭起你的重锤织机。
+HSP_Perk_CharcoalMoundKit_PerkName,Charcoal Mound Kit,木炭堆套件
+HSP_Perk_CharcoalMoundKit_PerkDescription,Start with a charcoal mound kit. Use Place to raise a charcoal mound wherever you want it. The mound is already burning when it is placed and no wood is spent. It can only be placed once.,开局获得一套木炭堆套件。使用“放置”在任意地点垒起木炭堆。木炭堆放下时已在燃烧，不消耗木材。只能放置一次。
+HSP_CharcoalMoundKit_CardName,Charcoal Mound Kit,木炭堆套件
+HSP_CharcoalMoundKit_CardDescription,"Turf, dirt and kindling for a charcoal mound. Use Place to raise it where you want to burn charcoal. The mound starts burning at once and no wood is used. Can only be placed once.",草皮、泥土和引火物，可垒成一个木炭堆。使用“放置”在你想烧炭的地方垒起。木炭堆立刻开始燃烧，不消耗木材。只能放置一次。
+HSP_CharcoalMoundKit_DA_Place,Place,放置
+HSP_CharcoalMoundKit_DA_Place_Desc,Raise your charcoal mound on this spot.,在此处垒起你的木炭堆。
+HSP_Perk_WallShelfKit_PerkName,Wall Shelf Kit,壁架套件
+HSP_Perk_WallShelfKit_PerkDescription,Start with a wall shelf kit. Use Place to put up your shelf wherever you want it. It can only be placed once. It is not the Bookshelf Kit's bookshelf.,开局获得一套壁架套件。使用“放置”在任意地点装上你的壁架。只能放置一次。它不是书架套件里的书架。
+HSP_WallShelfKit_CardName,Wall Shelf Kit,壁架套件
+HSP_WallShelfKit_CardDescription,Planks and brackets for a plain wall shelf. Use Place to put it up where you want shelving. Can only be placed once.,做普通壁架用的木板和托架。使用“放置”在你想放置架子的地方装上。只能放置一次。
+HSP_WallShelfKit_DA_Place,Place,放置
+HSP_WallShelfKit_DA_Place_Desc,Put up your shelf on this spot.,在此处装上你的壁架。
+HSP_SnowShelterKit_DA_HaveOne,Already Have One,已经有一座
+HSP_SnowShelterKit_DA_HaveOne_Desc,"A snow shelter already stands here, and only one can be set up on a board. Carry the kit somewhere else to place it.",这里已经有一座雪屋，同一处只能搭一座。把套件带到别处再放置。
+HSP_Perk_SnowShelterKit_PerkName,Snow Shelter Kit,雪屋套件
+HSP_Perk_SnowShelterKit_PerkDescription,Start with a snow shelter kit. Use Place to build your shelter wherever you want it. Only one can stand on a board.,开局获得一套雪屋套件。使用“放置”在任意地点搭起你的雪屋。同一处只能有一座。
+HSP_SnowShelterKit_CardName,Snow Shelter Kit,雪屋套件
+HSP_SnowShelterKit_CardDescription,"Poles and twigs for a snow shelter, with the snow already counted in. Use Place to raise it where you need to rest. Only one can stand on a board.",搭雪屋用的木杆和细枝，积雪已经算在里面。使用“放置”在你需要休息的地方搭起。同一处只能有一座。
+HSP_SnowShelterKit_DA_Place,Place,放置
+HSP_SnowShelterKit_DA_Place_Desc,Raise your snow shelter on this spot.,在此处搭起你的雪屋。
+HSP_CompostBinKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
+HSP_CompostBinKit_DA_NoEnclosure_Desc,The compost bin cannot be set up inside an animal enclosure. Carry the kit outside to place it.,堆肥箱不能装在动物围栏里。把套件带到外面再放置。
+HSP_Perk_CompostBinKit_PerkName,Compost Bin Kit,堆肥箱套件
+HSP_Perk_CompostBinKit_PerkDescription,Start with a compost bin kit. Use Place to set up your bin wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure.,开局获得一套堆肥箱套件。使用“放置”在任意地点装好你的堆肥箱。只能放置一次，且不能放在动物围栏里。
+HSP_CompostBinKit_CardName,Compost Bin Kit,堆肥箱套件
+HSP_CompostBinKit_CardDescription,"Planks and twine for a compost bin. Use Place to set it up where you want to rot down scraps. Can only be placed once, and not inside an animal enclosure.",做堆肥箱用的木板和细绳。使用“放置”在你想沤烂残渣的地方装好。只能放置一次，且不能放在动物围栏里。
+HSP_CompostBinKit_DA_Place,Place,放置
+HSP_CompostBinKit_DA_Place_Desc,Set up your compost bin on this spot.,在此处装好你的堆肥箱。
+HSP_RitualPyreKit_DA_HaveOne,Already Have One,已经有一座
+HSP_RitualPyreKit_DA_HaveOne_Desc,"A ritual pyre already stands here, and only one can be raised on a board. Carry the kit somewhere else to place it.",这里已经有一座仪式火堆，同一处只能搭一座。把套件带到别处再放置。
+HSP_Perk_RitualPyreKit_PerkName,Ritual Pyre Kit,仪式火堆套件
+HSP_Perk_RitualPyreKit_PerkDescription,"Start with a ritual pyre kit. Use Place to build your pyre wherever you want it, with no fire affinity needed. Only one can stand on a board. Heavy: the kit weighs 1000, so set it down before a long trip.",开局获得一套仪式火堆套件。使用“放置”在任意地点搭起你的火堆，无需火亲和。同一处只能有一座。很重：套件重1000，长途跋涉前请先放下。
+HSP_RitualPyreKit_CardName,Ritual Pyre Kit,仪式火堆套件
+HSP_RitualPyreKit_CardDescription,"Dry wood and reeds stacked for a ritual pyre, with no fire affinity needed. Use Place to raise it where you want to gaze into the flames. Only one can stand on a board.",为仪式火堆码好的干柴和芦苇，无需火亲和。使用“放置”在你想凝视火焰的地方搭起。同一处只能有一座。
+HSP_RitualPyreKit_DA_Place,Place,放置
+HSP_RitualPyreKit_DA_Place_Desc,Raise your ritual pyre on this spot.,在此处搭起你的仪式火堆。
+HSP_FrostShrineKit_DA_HaveOne,Already Have One,已经有一座
+HSP_FrostShrineKit_DA_HaveOne_Desc,"A frost shrine already stands here, and only one can be raised on a board. Carry the kit somewhere else to place it.",这里已经有一座冰霜神龛，同一处只能立一座。把套件带到别处再放置。
+HSP_Perk_FrostShrineKit_PerkName,Frost Shrine Kit,冰霜神龛套件
+HSP_Perk_FrostShrineKit_PerkDescription,"Start with a frost shrine kit. Use Place to raise your shrine wherever you want it, but only in freezing cold. Only one can stand on a board. Heavy: the kit weighs 1000, so set it down before a long trip.",开局获得一套冰霜神龛套件。使用“放置”在任意地点立起你的神龛，但只能在严寒中放置。同一处只能有一座。很重：套件重1000，长途跋涉前请先放下。
+HSP_FrostShrineKit_CardName,Frost Shrine Kit,冰霜神龛套件
+HSP_FrostShrineKit_CardDescription,"Stones, snow and ice for a frost shrine. Use Place to raise it where you want to honour the cold, and only when it is freezing. Only one can stand on a board.",做冰霜神龛用的石块、积雪和冰。使用“放置”在你想祭拜寒冷的地方立起，且只能在严寒中放置。同一处只能有一座。
+HSP_FrostShrineKit_DA_Place,Place,放置
+HSP_FrostShrineKit_DA_Place_Desc,Raise your frost shrine on this spot.,在此处立起你的冰霜神龛。
+HSP_GardenPlotKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
+HSP_GardenPlotKit_DA_NoEnclosure_Desc,The garden plot cannot be laid out inside an animal enclosure. Carry the kit outside to place it.,菜圃不能开在动物围栏里。把套件带到外面再放置。
+HSP_Perk_GardenPlotKit_PerkName,Garden Plot Kit,菜圃套件
+HSP_Perk_GardenPlotKit_PerkDescription,Start with a garden plot kit. Use Place to lay out your garden plot wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure.,开局获得一套菜圃套件。使用“放置”在任意地点开出你的菜圃。只能放置一次，且不能放在动物围栏里。
+HSP_GardenPlotKit_CardName,Garden Plot Kit,菜圃套件
+HSP_GardenPlotKit_CardDescription,"A bundle of twigs and stakes for a garden plot. Use Place to lay it out where you want to grow crops. Can only be placed once, and not inside an animal enclosure.",做菜圃用的细枝和拉线木桩。使用“放置”在你想种庄稼的地方开出。只能放置一次，且不能放在动物围栏里。
+HSP_GardenPlotKit_DA_Place,Place,放置
+HSP_GardenPlotKit_DA_Place_Desc,Lay out your garden plot on this spot.,在此处开出你的菜圃。
+HSP_DeadfallTrapKit_DA_NotIndoors,Not Indoors,不能在室内
+HSP_DeadfallTrapKit_DA_NotIndoors_Desc,A deadfall trap cannot be set indoors or in a cave. Carry the kit outside to place it.,重石陷阱不能设在室内或洞穴里。把套件带到外面再放置。
+HSP_Perk_DeadfallTrapKit_PerkName,Deadfall Trap Kit,重石陷阱套件
+HSP_Perk_DeadfallTrapKit_PerkDescription,Start with a deadfall trap kit. Use Place to set your trap wherever you want it. It can only be placed once and cannot be placed indoors or in a cave.,开局获得一套重石陷阱套件。使用“放置”在任意地点设下你的陷阱。只能放置一次，且不能放在室内或洞穴里。
+HSP_DeadfallTrapKit_CardName,Deadfall Trap Kit,重石陷阱套件
+HSP_DeadfallTrapKit_CardDescription,"Twigs and a heavy stone rigged as a deadfall trap. Use Place to set it where game runs. Can only be placed once, and not indoors or in a cave.",用细枝和一块重石机关做成的重石陷阱。使用“放置”在猎物出没的地方设下。只能放置一次，且不能放在室内或洞穴里。
+HSP_DeadfallTrapKit_DA_Place,Place,放置
+HSP_DeadfallTrapKit_DA_Place_Desc,Set your deadfall trap on this spot.,在此处设下你的重石陷阱。
+HSP_LogBoomKit_DA_NeedsRiver,Needs a River,需要河流
+HSP_LogBoomKit_DA_NeedsRiver_Desc,A log boom can only be rigged beside a river. Carry the kit to a river to place it.,原木拦河栅只能架在河边。把套件带到河边再放置。
+HSP_Perk_LogBoomKit_PerkName,Log Boom Kit,原木拦河栅套件
+HSP_Perk_LogBoomKit_PerkDescription,"Start with a log boom kit. Use Place to rig your boom where you want it, but only beside a river. It can only be placed once.",开局获得一套原木拦河栅套件。使用“放置”架设你的拦河栅，但只能在河边放置。只能放置一次。
+HSP_LogBoomKit_CardName,Log Boom Kit,原木拦河栅套件
+HSP_LogBoomKit_CardDescription,"Logs and rope for a river log boom. Use Place to rig it where you want to catch drifting logs, and only beside a river. Can only be placed once.",做河上原木拦河栅用的原木和绳索。使用“放置”在你想拦截漂流原木的地方架设，且只能在河边。只能放置一次。
+HSP_LogBoomKit_DA_Place,Place,放置
+HSP_LogBoomKit_DA_Place_Desc,Rig your log boom on this spot.,在此处架设你的原木拦河栅。
+HSP_TilledFieldKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
+HSP_TilledFieldKit_DA_NoEnclosure_Desc,The field cannot be broken inside an animal enclosure. Carry the kit outside to place it.,耕地不能开垦在动物围栏里。把套件带到外面再放置。
+HSP_Perk_TilledFieldKit_PerkName,Tilled Field Kit,耕地套件
+HSP_Perk_TilledFieldKit_PerkDescription,Start with a tilled field kit. Use Place to break your field wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure.,开局获得一套耕地套件。使用“放置”在任意地点开垦你的田地。只能放置一次，且不能放在动物围栏里。
+HSP_TilledFieldKit_CardName,Tilled Field Kit,耕地套件
+HSP_TilledFieldKit_CardDescription,"A hoe and stakes for a tilled field. Use Place to break the ground where you want to farm. Can only be placed once, and not inside an animal enclosure.",开垦耕地用的锄头和木桩。使用“放置”在你想耕种的地方翻土。只能放置一次，且不能放在动物围栏里。
+HSP_TilledFieldKit_DA_Place,Place,放置
+HSP_TilledFieldKit_DA_Place_Desc,Break your tilled field on this spot.,在此处开垦你的耕地。
+HSP_LeveeKit_DA_NeedsRiver,Needs a River,需要河流
+HSP_LeveeKit_DA_NeedsRiver_Desc,A levee can only be raised on a river. Carry the kit to a river to place it.,堤坝只能筑在河流处。把套件带到河边再放置。
+HSP_Perk_LeveeKit_PerkName,Levee Kit,堤坝套件
+HSP_Perk_LeveeKit_PerkDescription,"Start with a levee kit. Use Place to raise your levee wherever you want it, but only on a river. It can only be placed once.",开局获得一套堤坝套件。使用“放置”筑起你的堤坝，但只能在河流处放置。只能放置一次。
+HSP_LeveeKit_CardName,Levee Kit,堤坝套件
+HSP_LeveeKit_CardDescription,"Spades and stakes for a river levee. Use Place to raise it where the water needs holding back, and only on a river. Can only be placed once.",筑河堤用的铁锹和木桩。使用“放置”在需要挡水的地方筑起，且只能在河流处。只能放置一次。
+HSP_LeveeKit_DA_Place,Place,放置
+HSP_LeveeKit_DA_Place_Desc,Raise your levee on this spot.,在此处筑起你的堤坝。
+HSP_MushroomBedKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
+HSP_MushroomBedKit_DA_NoEnclosure_Desc,The mushroom bed cannot be laid out inside an animal enclosure. Carry the kit outside to place it.,蘑菇床不能铺在动物围栏里。把套件带到外面再放置。
+HSP_Perk_MushroomBedKit_PerkName,Mushroom Bed Kit,蘑菇床套件
+HSP_Perk_MushroomBedKit_PerkDescription,"Start with a mushroom bed kit, a bed vanilla gives you no way to build. Use Place to lay it out wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure.",开局获得一套蘑菇床套件，原版没有任何办法建造蘑菇床。使用“放置”在任意地点铺设。只能放置一次，且不能放在动物围栏里。
+HSP_MushroomBedKit_CardName,Mushroom Bed Kit,蘑菇床套件
+HSP_MushroomBedKit_CardDescription,"Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it. Can only be placed once, and not inside an animal enclosure.",做蘑菇床用的木板和培养基，原版没有任何办法建造它。使用“放置”在你想要的地方铺设。只能放置一次，且不能放在动物围栏里。
+HSP_MushroomBedKit_DA_Place,Place,放置
+HSP_MushroomBedKit_DA_Place_Desc,Lay out your mushroom bed on this spot.,在此处铺设你的蘑菇床。

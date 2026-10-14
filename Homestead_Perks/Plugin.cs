@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.homestead_perks";
     public const string PluginName = "Homestead Perks";
-    public const string PluginVersion = "1.2.4";
+    public const string PluginVersion = "1.3.2";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
@@ -28,5 +28,7 @@ internal class Plugin : ContentModPlugin
         // Homestead Kit unpacks into the Cabin Kit, two Rain Cistern Kits, and the full
         // material stockpile on Place, instead of carrying it all from character creation.
         TryApply("HomesteadKitPatch", () => HomesteadKitPatch.Initialize());
+        // Path Kit: refuse a Build Path press that would spend a kit for nothing (no route, or built).
+        TryApply("PathKitPatch", () => PathKitPatch.Initialize());
     }
 }

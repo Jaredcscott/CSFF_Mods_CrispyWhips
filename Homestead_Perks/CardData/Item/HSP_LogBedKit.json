@@ -33,6 +33,43 @@
     {
       "ActionName": {
         "ParentObjectID": "hsplogbedkit",
+        "LocalizationKey": "HSP_LogBedKit_DA_HaveOne",
+        "DefaultText": "Already Have One"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hsplogbedkit",
+        "LocalizationKey": "HSP_LogBedKit_DA_HaveOne_Desc",
+        "DefaultText": "A log bed already stands here, and only one can be set up on a board. Carry the kit somewhere else to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerCardWarpData": "45e37a55cdd9e304886b3d06115e36f6",
+          "TriggerCardWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hsplogbedkit",
         "LocalizationKey": "HSP_LogBedKit_DA_Place",
         "DefaultText": "Place"
       },
@@ -49,6 +86,18 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["LargeObject"],
       "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerCardWarpData": "45e37a55cdd9e304886b3d06115e36f6",
+          "TriggerCardWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 2,
         "TransformInto": { "m_FileID": 0, "m_PathID": 0 },

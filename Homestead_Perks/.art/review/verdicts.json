@@ -1,0 +1,25 @@
+{
+  "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
+  "images": {
+    "Picture/Kit_Homestead.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "0c52cd3173394dce6e991ccd5394db6cd7799aed",
+      "at": "2026-10-12T17:28:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0c52cd3173394dce6e991ccd5394db6cd7799aed",
+          "at": "2026-10-12T16:59:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0c52cd3173394dce6e991ccd5394db6cd7799aed",
+          "at": "2026-10-12T17:01:10+00:00"
+        }
+      ]
+    }
+  }
+}

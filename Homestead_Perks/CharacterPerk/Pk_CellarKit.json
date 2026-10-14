@@ -29,7 +29,7 @@
   "PerkDescription": {
     "ParentObjectID": "hsptraitsperkcellarkit",
     "LocalizationKey": "HSP_Perk_CellarKit_PerkDescription",
-    "DefaultText": "Start with a cellar kit. Use Place to dig in your cellar wherever you want it — it can only be placed once."
+    "DefaultText": "Start with a cellar kit. Use Place to dig in your cellar wherever you want it — it can only be placed once. Heavy: the kit weighs 900, so set it down before a long trip."
   },
   "PerkUnlockConditions": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "PerkIcon": { "m_FileID": 0, "m_PathID": 0 },

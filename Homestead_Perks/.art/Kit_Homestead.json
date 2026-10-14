@@ -1,0 +1,37 @@
+{
+  "target": "Kit_Homestead.png",
+  "sourceCard": [
+    "CardData/Item/HSP_HomesteadKit.json",
+    "CharacterPerk/Perk_Homestead.json"
+  ],
+  "subject": "one large leather travel pack stuffed full, with a bundle of timber logs strapped across the top and thick buckled straps, a rolled green blanket tucked under the flap, no barrel, no cask, no bucket",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one large leather travel pack stuffed full, with a bundle of timber logs strapped across the top and thick buckled straps, a rolled green blanket tucked under the flap, no barrel, no cask, no bucket, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "9jaYcLdIaWBLJb0r0xBw",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088590349_50588b69_1791088590785_581de62e.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Round 2 of the 2026-10-03 batch (regenerated from the owner's notes on round 1); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088590645_d8995164_1791088591375_e0d2d047.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088590349_50588b69_1791088590785_581de62e.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088586084_6e35b5b3_1791088586654_ef6c69f8.png"
+    }
+  ],
+  "picked": "B"
+}

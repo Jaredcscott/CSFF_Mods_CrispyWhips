@@ -1,0 +1,63 @@
+{
+  "UniqueID": "hspbloomerykit",
+  "CardName": {
+    "ParentObjectID": "hspbloomerykit",
+    "LocalizationKey": "HSP_BloomeryKit_CardName",
+    "DefaultText": "Bloomery Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hspbloomerykit",
+    "LocalizationKey": "HSP_BloomeryKit_CardDescription",
+    "DefaultText": "A dismantled bloomery, clay and stone bundled for travel. Use Place to assemble it where you want to smelt iron. It still needs charcoal and bellows or a windy spot to run. Can only be placed once."
+  },
+  "CardType": 0,
+  "ObjectWeight": 900.0,
+  "TradingValue": 400.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Bloomery_Off",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hspbloomerykit",
+        "LocalizationKey": "HSP_BloomeryKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspbloomerykit",
+        "LocalizationKey": "HSP_BloomeryKit_DA_Place_Desc",
+        "DefaultText": "Assemble your bloomery on this spot."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "5fd70dab0dbdfbf4d84e9779e303bef7",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

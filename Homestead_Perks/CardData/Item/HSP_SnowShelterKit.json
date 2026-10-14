@@ -1,0 +1,144 @@
+{
+  "UniqueID": "hspsnowshelterkit",
+  "CardName": {
+    "ParentObjectID": "hspsnowshelterkit",
+    "LocalizationKey": "HSP_SnowShelterKit_CardName",
+    "DefaultText": "Snow Shelter Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hspsnowshelterkit",
+    "LocalizationKey": "HSP_SnowShelterKit_CardDescription",
+    "DefaultText": "Poles and twigs for a snow shelter, with the snow already counted in. Use Place to raise it where you need to rest. Only one can stand on a board."
+  },
+  "CardType": 0,
+  "ObjectWeight": 200.0,
+  "TradingValue": 80.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "SnowShelter",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Structure"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hspsnowshelterkit",
+        "LocalizationKey": "HSP_SnowShelterKit_DA_HaveOne",
+        "DefaultText": "Already Have One"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspsnowshelterkit",
+        "LocalizationKey": "HSP_SnowShelterKit_DA_HaveOne_Desc",
+        "DefaultText": "A snow shelter already stands here, and only one can be set up on a board. Carry the kit somewhere else to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "42363effc1173764c82dd976a329f839",
+          "TriggerCardWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hspsnowshelterkit",
+        "LocalizationKey": "HSP_SnowShelterKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspsnowshelterkit",
+        "LocalizationKey": "HSP_SnowShelterKit_DA_Place_Desc",
+        "DefaultText": "Raise your snow shelter on this spot."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "LargeObject"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "42363effc1173764c82dd976a329f839",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      },
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "42363effc1173764c82dd976a329f839",
+          "TriggerCardWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

@@ -1,11 +1,11 @@
 HSP_Perk_Homestead_PerkName,Homestead
-HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets) all at once — then Place each kit to raise it. Everything can only be placed once."
+HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets, plus 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once."
 HSP_HomesteadKit_CardName,Homestead Kit
 HSP_HomesteadKit_CardDescription,"Everything you need to start a homestead, bundled into one portable pack: a cabin kit, two rain cistern kits, and a stockpile of building materials. Drop it wherever you want to settle, then use Place to unpack it all at once. Can only be placed once."
 HSP_HomesteadKit_DA_Place,Place
 HSP_HomesteadKit_DA_Place_Desc,"Unpack your homestead kit here: cabin kit, rain cistern kits, and building materials all appear on the spot."
 HSP_Perk_CabinKit_PerkName,Cabin Kit
-HSP_Perk_CabinKit_PerkDescription,Start with a cabin kit and a broom blueprint. Carry the kit with you and use Place to raise your cabin wherever you want it — it can only be placed once.
+HSP_Perk_CabinKit_PerkDescription,"Start with a cabin kit and a broom blueprint. Carry the kit with you and use Place to raise your cabin wherever you want it — it can only be placed once. Heavy: the kit weighs 1200, so set it down before a long trip."
 HSP_CabinKit_CardName,Cabin Kit
 HSP_CabinKit_CardDescription,"Your cabin, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once."
 HSP_CabinKit_DA_Place,Place
@@ -17,13 +17,13 @@ HSP_RainCisternKit_CardDescription,"A rain cistern, disassembled and bundled for
 HSP_RainCisternKit_DA_Place,Place
 HSP_RainCisternKit_DA_Place_Desc,Set up your rain cistern on this spot.
 HSP_Perk_MudHutKit_PerkName,Mud Hut Kit
-HSP_Perk_MudHutKit_PerkDescription,Start with a mud hut kit and a broom blueprint. Carry the kit with you and use Place to raise your hut wherever you want it — it can only be placed once.
+HSP_Perk_MudHutKit_PerkDescription,"Start with a mud hut kit and a broom blueprint. Carry the kit with you and use Place to raise your hut wherever you want it — it can only be placed once. Heavy: the kit weighs 1000, so set it down before a long trip."
 HSP_MudHutKit_CardName,Mud Hut Kit
 HSP_MudHutKit_CardDescription,"A humble mud hut, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once."
 HSP_MudHutKit_DA_Place,Place
 HSP_MudHutKit_DA_Place_Desc,Raise your mud hut on this spot.
 HSP_Perk_LogBedKit_PerkName,Log Bed Kit
-HSP_Perk_LogBedKit_PerkDescription,Start with a log bed kit. Use Place to assemble your log bed wherever you want it — it can only be placed once.
+HSP_Perk_LogBedKit_PerkDescription,"Start with a log bed kit. Use Place to assemble your log bed wherever you want it — it can only be placed once. Heavy: the kit weighs 800, so set it down before a long trip."
 HSP_LogBedKit_CardName,Log Bed Kit
 HSP_LogBedKit_CardDescription,Split logs and lashings for a sturdy bed. Use Place to assemble it where you want to sleep. Can only be placed once.
 HSP_LogBedKit_DA_Place,Place
@@ -35,7 +35,7 @@ HSP_FurnaceKit_CardDescription,"A dismantled furnace, stones and flue neatly bun
 HSP_FurnaceKit_DA_Place,Place
 HSP_FurnaceKit_DA_Place_Desc,Assemble your furnace on this spot.
 HSP_Perk_ForgeKit_PerkName,Forge Kit
-HSP_Perk_ForgeKit_PerkDescription,Start with a forge kit. Use Place to assemble your forge wherever you want it — it can only be placed once.
+HSP_Perk_ForgeKit_PerkDescription,"Start with a forge kit. Use Place to assemble your forge wherever you want it — it can only be placed once. Heavy: the kit weighs 800, so set it down before a long trip."
 HSP_ForgeKit_CardName,Forge Kit
 HSP_ForgeKit_CardDescription,"A dismantled smithing forge. Use Place to assemble it where you want to work metal. Can only be placed once."
 HSP_ForgeKit_DA_Place,Place
@@ -53,7 +53,7 @@ HSP_TanningPitKit_CardDescription,Everything needed to line and frame a tanning 
 HSP_TanningPitKit_DA_Place,Place
 HSP_TanningPitKit_DA_Place_Desc,Dig your tanning pit on this spot.
 HSP_Perk_PathKit_PerkName,Path Kit
-HSP_Perk_PathKit_PerkDescription,"Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting."
+HSP_Perk_PathKit_PerkDescription,"Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting. Heavy: the six kits weigh 900 together, so set them down before a long trip."
 HSP_PathKit_CardName,Path Kit
 HSP_PathKit_CardDescription,"Stones and gravel for laying a stretch of road. Pick a direction below to instantly finish a path leading that way from your current spot. Works outdoors, and only takes effect where a route actually leads that direction."
 HSP_PathKit_DA_North,Build Path North
@@ -71,7 +71,7 @@ HSP_WellKit_CardDescription,"Stone lining, a windlass, and rope for a proper wel
 HSP_WellKit_DA_Place,Place
 HSP_WellKit_DA_Place_Desc,Dig and raise your well on this spot.
 HSP_Perk_CellarKit_PerkName,Cellar Kit
-HSP_Perk_CellarKit_PerkDescription,Start with a cellar kit. Use Place to dig in your cellar wherever you want it — it can only be placed once.
+HSP_Perk_CellarKit_PerkDescription,"Start with a cellar kit. Use Place to dig in your cellar wherever you want it — it can only be placed once. Heavy: the kit weighs 900, so set it down before a long trip."
 HSP_CellarKit_CardName,Cellar Kit
 HSP_CellarKit_CardDescription,"Timber shoring and a hatch for an underground cellar. Drop it wherever you want your food to keep longer, then use Place to dig it in on the spot. Can only be placed once."
 HSP_CellarKit_DA_Place,Place
@@ -82,3 +82,205 @@ HSP_PitTrapKit_CardName,Pit Trap Kit
 HSP_PitTrapKit_CardDescription,"Stakes, cover, and digging tools for a big game pit trap. Drop it wherever you want to trap large prey, then use Place to dig it on the spot. Can only be placed once."
 HSP_PitTrapKit_DA_Place,Place
 HSP_PitTrapKit_DA_Place_Desc,Dig your pit trap on this spot.
+HSP_Perk_RusticTableKit_PerkName,Rustic Table Kit
+HSP_Perk_RusticTableKit_PerkDescription,"Start with a dismantled rustic table and a rustic stool, no research or building needed for the table, and vanilla gives you no way to build the stool at all. Use Build on the table and Place on the stool wherever you want them; both raise your Sanctuary, and the table stores your things. Heavy: the pair weighs 2250, so set them down before a long trip."
+HSP_Perk_BookshelfKit_PerkName,Bookshelf Kit
+HSP_Perk_BookshelfKit_PerkDescription,"Start with a dismantled bookshelf, which vanilla gives you no way to build. Use Place to stand it up wherever you want it: it stores your things, keeps food fresh longer and raises your Sanctuary. Heavy: it weighs 1500, so set it down before a long trip."
+HSP_Perk_Sledge_PerkName,Sledge
+HSP_Perk_Sledge_PerkDescription,"Start with a sledge already built, no research or building needed. Haul heavy loads across snow or ride it downhill from day one."
+HSP_Perk_Travois_PerkName,Travois
+HSP_Perk_Travois_PerkDescription,"Start with a finished travois, no research or building needed. A frame for carrying things around at the cost of some speed. It weighs 300."
+HSP_Perk_KilnKit_PerkName,Kiln Kit
+HSP_Perk_KilnKit_PerkDescription,"Start with a kiln kit. Use Place to assemble a kiln wherever you want it, for firing pottery and extracting tar and quicklime. It shares vanilla's oven art, as the vanilla kiln does. It can only be placed once."
+HSP_KilnKit_CardName,Kiln Kit
+HSP_KilnKit_CardDescription,"A dismantled kiln, packed for travel. Use Place to assemble it where you want to fire pottery. It shares vanilla's oven art, as the vanilla kiln does. Can only be placed once."
+HSP_KilnKit_DA_Place,Place
+HSP_KilnKit_DA_Place_Desc,Assemble your kiln on this spot.
+HSP_Perk_DryingRackKit_PerkName,Drying Rack Kit
+HSP_Perk_DryingRackKit_PerkDescription,Start with a drying rack kit. Use Place to set up a drying rack wherever you want it. It can only be placed once.
+HSP_DryingRackKit_CardName,Drying Rack Kit
+HSP_DryingRackKit_CardDescription,"A drying rack, taken apart and bundled for travel. Use Place to set it up where you want to dry things. Can only be placed once."
+HSP_DryingRackKit_DA_Place,Place
+HSP_DryingRackKit_DA_Place_Desc,Set up your drying rack on this spot.
+HSP_Perk_WeaverWorkshopKit_PerkName,Weaver's Workshop Kit
+HSP_Perk_WeaverWorkshopKit_PerkDescription,"Start with a treadle loom, a spinning wheel and a fiber break, no research or building needed. Use Place on each wherever you want it."
+HSP_Perk_SawhorsesKit_PerkName,Sawhorses Kit
+HSP_Perk_SawhorsesKit_PerkDescription,"Start with a set of sawhorses, no research or building needed. Use Place to set them up wherever you want them. Heavy: it weighs 1000, so set it down before a long trip."
+HSP_Perk_PotteryWheelKit_PerkName,Pottery Wheel Kit
+HSP_Perk_PotteryWheelKit_PerkDescription,"Start with a pottery wheel, no research or building needed. Use Place to set it up wherever you want it. Heavy: it weighs 1000, so set it down before a long trip."
+HSP_Perk_FleshingBeamKit_PerkName,Fleshing Beam Kit
+HSP_Perk_FleshingBeamKit_PerkDescription,"Start with a fleshing beam, no research or building needed. Use Place to set it up wherever you want it. Heavy: it weighs 1000, so set it down before a long trip."
+HSP_Perk_WorkbenchKit_PerkName,Workbench Kit
+HSP_Perk_WorkbenchKit_PerkDescription,"Start with a workbench, no research or building needed. Use Build to set it up anywhere sheltered and lit, the spot vanilla's own workbench needs. Heavy: it weighs 1000, so set it down before a long trip."
+HSP_Perk_BloomeryKit_PerkName,Bloomery Kit
+HSP_Perk_BloomeryKit_PerkDescription,"Start with a bloomery kit. Use Place to assemble your iron-smelting bloomery wherever you want it. It still needs charcoal and bellows or a windy spot to run, and can only be placed once. Heavy: it weighs 900, so set it down before a long trip."
+HSP_BloomeryKit_CardName,Bloomery Kit
+HSP_BloomeryKit_CardDescription,"A dismantled bloomery, clay and stone bundled for travel. Use Place to assemble it where you want to smelt iron. It still needs charcoal and bellows or a windy spot to run. Can only be placed once."
+HSP_BloomeryKit_DA_Place,Place
+HSP_BloomeryKit_DA_Place_Desc,Assemble your bloomery on this spot.
+HSP_CellarKit_DA_NoEnclosure,Not in a Pen
+HSP_CellarKit_DA_NoEnclosure_Desc,The cellar cannot be dug inside an animal enclosure. Carry the kit outside to place it.
+HSP_WellKit_DA_NoEnclosure,Not in a Pen
+HSP_WellKit_DA_NoEnclosure_Desc,The well cannot be dug inside an animal enclosure. Carry the kit outside to place it.
+HSP_TanningPitKit_DA_NoEnclosure,Not in a Pen
+HSP_TanningPitKit_DA_NoEnclosure_Desc,The tanning pit cannot be dug inside an animal enclosure. Carry the kit outside to place it.
+HSP_LogBedKit_DA_HaveOne,Already Have One
+HSP_LogBedKit_DA_HaveOne_Desc,"A log bed already stands here, and only one can be set up on a board. Carry the kit somewhere else to place it."
+HSP_CabinKit_DA_NotHere,Not Indoors
+HSP_CabinKit_DA_NotHere_Desc,A cabin cannot be raised indoors or in a cave. Carry the kit outside to place it.
+HSP_MudHutKit_DA_NotHere,Not Indoors
+HSP_MudHutKit_DA_NotHere_Desc,A mud hut cannot be raised indoors or in a cave. Carry the kit outside to place it.
+HSP_CellarKit_DA_NotHere,Not Indoors
+HSP_CellarKit_DA_NotHere_Desc,The cellar cannot be dug indoors or in a cave. Carry the kit outside to place it.
+HSP_CellarKit_DA_NotRiver,Not by the River
+HSP_CellarKit_DA_NotRiver_Desc,"The cellar cannot be dug on a river bank, where the ground floods. Carry the kit to higher ground to place it."
+HSP_CellarKit_DA_NotWet,Not on Wet Ground
+HSP_CellarKit_DA_NotWet_Desc,The cellar cannot be dug in a bog or mire. Carry the kit to dry ground to place it.
+HSP_PathKit_DA_Indoors,Must be Outdoors
+HSP_PathKit_DA_Indoors_Desc,The Path Kit lays a road outdoors. Carry the kit outside to use it.
+HSP_CellarKit_DA_NotMarsh,Not in Wetlands
+HSP_CellarKit_DA_NotMarsh_Desc,The cellar cannot be dug in marshy wetland country. Carry the kit to drier land to place it.
+HSP_Perk_EnclosureKit_PerkName,Enclosure Kit
+HSP_Perk_EnclosureKit_PerkDescription,"Start with an enclosure kit. Use Place to raise an animal pen wherever you want it, a home for vanilla's Starting Poultry and Starting Cattle perks from day one. It can only be placed once. Heavy: the kit weighs 800, so set it down before a long trip."
+HSP_EnclosureKit_CardName,Enclosure Kit
+HSP_EnclosureKit_CardDescription,"Fencing and a gate for an animal pen. Drop it wherever you want your animals kept, then use Place to raise the enclosure on the spot. Can only be placed once."
+HSP_EnclosureKit_DA_Place,Place
+HSP_EnclosureKit_DA_Place_Desc,Raise an animal enclosure on this spot.
+HSP_EnclosureKit_DA_NoEnclosure,Not in a Pen
+HSP_EnclosureKit_DA_NoEnclosure_Desc,An enclosure cannot be raised inside another animal enclosure. Carry the kit outside to place it.
+HSP_Perk_ChestKit_PerkName,Chest Kit
+HSP_Perk_ChestKit_PerkDescription,"Start with a storage chest, which vanilla gives you no way to build. Use Place to set it down wherever you want it. Heavy: it weighs 3000, so set it down before a long trip."
+HSP_Perk_CopperMineKit_PerkName,Copper Mine Kit
+HSP_Perk_CopperMineKit_PerkDescription,"Start with a copper mine kit. Use Place at a copper deposit to open the mine without the long research and build; it can only be placed once, and nowhere else. Heavy: the kit weighs 800, so set it down before a long trip."
+HSP_CopperMineKit_CardName,Copper Mine Kit
+HSP_CopperMineKit_CardDescription,"Props, rails and a door frame for a copper mine. Carry it to a copper deposit, then use Place to open the mine on the spot. Can only be placed once."
+HSP_CopperMineKit_DA_Place,Place
+HSP_CopperMineKit_DA_Place_Desc,Open your copper mine on this spot.
+HSP_CopperMineKit_DA_NeedsDeposit,Needs a Deposit
+HSP_CopperMineKit_DA_NeedsDeposit_Desc,A copper mine can only be opened at a copper deposit. Carry the kit to one to place it.
+HSP_CopperMineKit_DA_HaveOne,Already Have a Mine Here
+HSP_CopperMineKit_DA_HaveOne_Desc,There is already a mine entrance here. Carry the kit to another deposit to place it.
+HSP_Perk_FlintMineKit_PerkName,Flint Mine Kit
+HSP_Perk_FlintMineKit_PerkDescription,"Start with a flint mine kit. Use Place at a flint deposit to open the mine without the long research and build; it can only be placed once, and nowhere else. Heavy: the kit weighs 800, so set it down before a long trip."
+HSP_FlintMineKit_CardName,Flint Mine Kit
+HSP_FlintMineKit_CardDescription,"Props, rails and a door frame for a flint mine. Carry it to a flint deposit, then use Place to open the mine on the spot. Can only be placed once."
+HSP_FlintMineKit_DA_Place,Place
+HSP_FlintMineKit_DA_Place_Desc,Open your flint mine on this spot.
+HSP_FlintMineKit_DA_NeedsDeposit,Needs a Deposit
+HSP_FlintMineKit_DA_NeedsDeposit_Desc,A flint mine can only be opened at a flint deposit. Carry the kit to one to place it.
+HSP_FlintMineKit_DA_HaveOne,Already Have a Mine Here
+HSP_FlintMineKit_DA_HaveOne_Desc,There is already a mine entrance here. Carry the kit to another deposit to place it.
+HSP_Perk_WitchstoneMineKit_PerkName,Witchstone Mine Kit
+HSP_Perk_WitchstoneMineKit_PerkDescription,"Start with a witchstone mine kit. Use Place at a witchstone deposit to open the mine without the long research and build; it can only be placed once, and nowhere else. Heavy: the kit weighs 800, so set it down before a long trip."
+HSP_WitchstoneMineKit_CardName,Witchstone Mine Kit
+HSP_WitchstoneMineKit_CardDescription,"Props, rails and a door frame for a witchstone mine. Carry it to a witchstone deposit, then use Place to open the mine on the spot. Can only be placed once."
+HSP_WitchstoneMineKit_DA_Place,Place
+HSP_WitchstoneMineKit_DA_Place_Desc,Open your witchstone mine on this spot.
+HSP_WitchstoneMineKit_DA_NeedsDeposit,Needs a Deposit
+HSP_WitchstoneMineKit_DA_NeedsDeposit_Desc,A witchstone mine can only be opened at a witchstone deposit. Carry the kit to one to place it.
+HSP_WitchstoneMineKit_DA_HaveOne,Already Have a Mine Here
+HSP_WitchstoneMineKit_DA_HaveOne_Desc,There is already a mine entrance here. Carry the kit to another deposit to place it.
+HSP_Perk_StretchingFrameKit_PerkName,Stretching Frame Kit
+HSP_Perk_StretchingFrameKit_PerkDescription,Start with a stretching frame kit. Use Place to set up your frame wherever you want it. It can only be placed once.
+HSP_StretchingFrameKit_CardName,Stretching Frame Kit
+HSP_StretchingFrameKit_CardDescription,Sticks and twine for a hide stretching frame. Use Place to set it up where you want to work hides. Can only be placed once.
+HSP_StretchingFrameKit_DA_Place,Place
+HSP_StretchingFrameKit_DA_Place_Desc,Set up your stretching frame on this spot.
+HSP_Perk_WeightedLoomKit_PerkName,Weighted Loom Kit
+HSP_Perk_WeightedLoomKit_PerkDescription,"Start with a weighted loom kit. Use Place to set up your loom wherever you want it. It can only be placed once. This is the upright weighted loom, not the treadle loom of the Weaver's Workshop Kit."
+HSP_WeightedLoomKit_CardName,Weighted Loom Kit
+HSP_WeightedLoomKit_CardDescription,"Upright beams and loom weights, packed flat. Use Place to set up the loom where you want to weave. Can only be placed once."
+HSP_WeightedLoomKit_DA_Place,Place
+HSP_WeightedLoomKit_DA_Place_Desc,Set up your weighted loom on this spot.
+HSP_Perk_CharcoalMoundKit_PerkName,Charcoal Mound Kit
+HSP_Perk_CharcoalMoundKit_PerkDescription,Start with a charcoal mound kit. Use Place to raise a charcoal mound wherever you want it. The mound is already burning when it is placed and no wood is spent. It can only be placed once.
+HSP_CharcoalMoundKit_CardName,Charcoal Mound Kit
+HSP_CharcoalMoundKit_CardDescription,"Turf, dirt and kindling for a charcoal mound. Use Place to raise it where you want to burn charcoal. The mound starts burning at once and no wood is used. Can only be placed once."
+HSP_CharcoalMoundKit_DA_Place,Place
+HSP_CharcoalMoundKit_DA_Place_Desc,Raise your charcoal mound on this spot.
+HSP_Perk_WallShelfKit_PerkName,Wall Shelf Kit
+HSP_Perk_WallShelfKit_PerkDescription,Start with a wall shelf kit. Use Place to put up your shelf wherever you want it. It can only be placed once. It is not the Bookshelf Kit's bookshelf.
+HSP_WallShelfKit_CardName,Wall Shelf Kit
+HSP_WallShelfKit_CardDescription,Planks and brackets for a plain wall shelf. Use Place to put it up where you want shelving. Can only be placed once.
+HSP_WallShelfKit_DA_Place,Place
+HSP_WallShelfKit_DA_Place_Desc,Put up your shelf on this spot.
+HSP_SnowShelterKit_DA_HaveOne,Already Have One
+HSP_SnowShelterKit_DA_HaveOne_Desc,"A snow shelter already stands here, and only one can be set up on a board. Carry the kit somewhere else to place it."
+HSP_Perk_SnowShelterKit_PerkName,Snow Shelter Kit
+HSP_Perk_SnowShelterKit_PerkDescription,Start with a snow shelter kit. Use Place to build your shelter wherever you want it. Only one can stand on a board.
+HSP_SnowShelterKit_CardName,Snow Shelter Kit
+HSP_SnowShelterKit_CardDescription,"Poles and twigs for a snow shelter, with the snow already counted in. Use Place to raise it where you need to rest. Only one can stand on a board."
+HSP_SnowShelterKit_DA_Place,Place
+HSP_SnowShelterKit_DA_Place_Desc,Raise your snow shelter on this spot.
+HSP_CompostBinKit_DA_NoEnclosure,Not in a Pen
+HSP_CompostBinKit_DA_NoEnclosure_Desc,The compost bin cannot be set up inside an animal enclosure. Carry the kit outside to place it.
+HSP_Perk_CompostBinKit_PerkName,Compost Bin Kit
+HSP_Perk_CompostBinKit_PerkDescription,Start with a compost bin kit. Use Place to set up your bin wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure.
+HSP_CompostBinKit_CardName,Compost Bin Kit
+HSP_CompostBinKit_CardDescription,"Planks and twine for a compost bin. Use Place to set it up where you want to rot down scraps. Can only be placed once, and not inside an animal enclosure."
+HSP_CompostBinKit_DA_Place,Place
+HSP_CompostBinKit_DA_Place_Desc,Set up your compost bin on this spot.
+HSP_RitualPyreKit_DA_HaveOne,Already Have One
+HSP_RitualPyreKit_DA_HaveOne_Desc,"A ritual pyre already stands here, and only one can be raised on a board. Carry the kit somewhere else to place it."
+HSP_Perk_RitualPyreKit_PerkName,Ritual Pyre Kit
+HSP_Perk_RitualPyreKit_PerkDescription,"Start with a ritual pyre kit. Use Place to build your pyre wherever you want it, with no fire affinity needed. Only one can stand on a board. Heavy: the kit weighs 1000, so set it down before a long trip."
+HSP_RitualPyreKit_CardName,Ritual Pyre Kit
+HSP_RitualPyreKit_CardDescription,"Dry wood and reeds stacked for a ritual pyre, with no fire affinity needed. Use Place to raise it where you want to gaze into the flames. Only one can stand on a board."
+HSP_RitualPyreKit_DA_Place,Place
+HSP_RitualPyreKit_DA_Place_Desc,Raise your ritual pyre on this spot.
+HSP_FrostShrineKit_DA_HaveOne,Already Have One
+HSP_FrostShrineKit_DA_HaveOne_Desc,"A frost shrine already stands here, and only one can be raised on a board. Carry the kit somewhere else to place it."
+HSP_Perk_FrostShrineKit_PerkName,Frost Shrine Kit
+HSP_Perk_FrostShrineKit_PerkDescription,"Start with a frost shrine kit. Use Place to raise your shrine wherever you want it, but only in freezing cold. Only one can stand on a board. Heavy: the kit weighs 1000, so set it down before a long trip."
+HSP_FrostShrineKit_CardName,Frost Shrine Kit
+HSP_FrostShrineKit_CardDescription,"Stones, snow and ice for a frost shrine. Use Place to raise it where you want to honour the cold, and only when it is freezing. Only one can stand on a board."
+HSP_FrostShrineKit_DA_Place,Place
+HSP_FrostShrineKit_DA_Place_Desc,Raise your frost shrine on this spot.
+HSP_GardenPlotKit_DA_NoEnclosure,Not in a Pen
+HSP_GardenPlotKit_DA_NoEnclosure_Desc,The garden plot cannot be laid out inside an animal enclosure. Carry the kit outside to place it.
+HSP_Perk_GardenPlotKit_PerkName,Garden Plot Kit
+HSP_Perk_GardenPlotKit_PerkDescription,Start with a garden plot kit. Use Place to lay out your garden plot wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure.
+HSP_GardenPlotKit_CardName,Garden Plot Kit
+HSP_GardenPlotKit_CardDescription,"A bundle of twigs and stakes for a garden plot. Use Place to lay it out where you want to grow crops. Can only be placed once, and not inside an animal enclosure."
+HSP_GardenPlotKit_DA_Place,Place
+HSP_GardenPlotKit_DA_Place_Desc,Lay out your garden plot on this spot.
+HSP_DeadfallTrapKit_DA_NotIndoors,Not Indoors
+HSP_DeadfallTrapKit_DA_NotIndoors_Desc,A deadfall trap cannot be set indoors or in a cave. Carry the kit outside to place it.
+HSP_Perk_DeadfallTrapKit_PerkName,Deadfall Trap Kit
+HSP_Perk_DeadfallTrapKit_PerkDescription,Start with a deadfall trap kit. Use Place to set your trap wherever you want it. It can only be placed once and cannot be placed indoors or in a cave.
+HSP_DeadfallTrapKit_CardName,Deadfall Trap Kit
+HSP_DeadfallTrapKit_CardDescription,"Twigs and a heavy stone rigged as a deadfall trap. Use Place to set it where game runs. Can only be placed once, and not indoors or in a cave."
+HSP_DeadfallTrapKit_DA_Place,Place
+HSP_DeadfallTrapKit_DA_Place_Desc,Set your deadfall trap on this spot.
+HSP_LogBoomKit_DA_NeedsRiver,Needs a River
+HSP_LogBoomKit_DA_NeedsRiver_Desc,A log boom can only be rigged beside a river. Carry the kit to a river to place it.
+HSP_Perk_LogBoomKit_PerkName,Log Boom Kit
+HSP_Perk_LogBoomKit_PerkDescription,"Start with a log boom kit. Use Place to rig your boom where you want it, but only beside a river. It can only be placed once."
+HSP_LogBoomKit_CardName,Log Boom Kit
+HSP_LogBoomKit_CardDescription,"Logs and rope for a river log boom. Use Place to rig it where you want to catch drifting logs, and only beside a river. Can only be placed once."
+HSP_LogBoomKit_DA_Place,Place
+HSP_LogBoomKit_DA_Place_Desc,Rig your log boom on this spot.
+HSP_TilledFieldKit_DA_NoEnclosure,Not in a Pen
+HSP_TilledFieldKit_DA_NoEnclosure_Desc,The field cannot be broken inside an animal enclosure. Carry the kit outside to place it.
+HSP_Perk_TilledFieldKit_PerkName,Tilled Field Kit
+HSP_Perk_TilledFieldKit_PerkDescription,Start with a tilled field kit. Use Place to break your field wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure.
+HSP_TilledFieldKit_CardName,Tilled Field Kit
+HSP_TilledFieldKit_CardDescription,"A hoe and stakes for a tilled field. Use Place to break the ground where you want to farm. Can only be placed once, and not inside an animal enclosure."
+HSP_TilledFieldKit_DA_Place,Place
+HSP_TilledFieldKit_DA_Place_Desc,Break your tilled field on this spot.
+HSP_LeveeKit_DA_NeedsRiver,Needs a River
+HSP_LeveeKit_DA_NeedsRiver_Desc,A levee can only be raised on a river. Carry the kit to a river to place it.
+HSP_Perk_LeveeKit_PerkName,Levee Kit
+HSP_Perk_LeveeKit_PerkDescription,"Start with a levee kit. Use Place to raise your levee wherever you want it, but only on a river. It can only be placed once."
+HSP_LeveeKit_CardName,Levee Kit
+HSP_LeveeKit_CardDescription,"Spades and stakes for a river levee. Use Place to raise it where the water needs holding back, and only on a river. Can only be placed once."
+HSP_LeveeKit_DA_Place,Place
+HSP_LeveeKit_DA_Place_Desc,Raise your levee on this spot.
+HSP_MushroomBedKit_DA_NoEnclosure,Not in a Pen
+HSP_MushroomBedKit_DA_NoEnclosure_Desc,The mushroom bed cannot be laid out inside an animal enclosure. Carry the kit outside to place it.
+HSP_Perk_MushroomBedKit_PerkName,Mushroom Bed Kit
+HSP_Perk_MushroomBedKit_PerkDescription,"Start with a mushroom bed kit, a bed vanilla gives you no way to build. Use Place to lay it out wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure."
+HSP_MushroomBedKit_CardName,Mushroom Bed Kit
+HSP_MushroomBedKit_CardDescription,"Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it. Can only be placed once, and not inside an animal enclosure."
+HSP_MushroomBedKit_DA_Place,Place
+HSP_MushroomBedKit_DA_Place_Desc,Lay out your mushroom bed on this spot.

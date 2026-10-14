@@ -158,6 +158,42 @@
       "csharpHandler": null,
       "confidence": "VERIFIED",
       "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); grant count (6) and cardinal-only directions confirmed current as of 1.2.2 (2026-08-14), predating the pass; digest note text '3 charges' is a stale annotation, not evidence of an older build being tested"
+    },
+    {
+      "name": "Rustic Table Kit",
+      "status": "Implemented",
+      "cards": ["ea2d9e20a65947d4faa6b54eb924fa68", "1506c64cde08f3f44b47c15f1ac24684"],
+      "perk": "hsptraitsperkrustictablekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "HIGH",
+      "evidence": "Added by hand 2026-09-28 for 1.3.0 (not a /feature-map run). Grants vanilla RusticTableDismantled (its own Build action makes RusticTable) and Stool (its own Place action makes StoolPlaced); GUIDs resolved in UniqueIDScriptableGUID/CardData.json. Not yet played: T1.127 pending, AUTO harness scenario HSP/T1.127"
+    },
+    {
+      "name": "Bookshelf Kit",
+      "status": "Implemented",
+      "cards": ["e3af25c394ce2464782a287c05a16be2"],
+      "perk": "hsptraitsperkbookshelfkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "HIGH",
+      "evidence": "Added by hand 2026-09-28 for 1.3.0 (not a /feature-map run). Grants vanilla BookShelfDismantled (its own Place action makes Bookshelf); GUID resolved in UniqueIDScriptableGUID/CardData.json. Not yet played: T1.127 pending, AUTO harness scenario HSP/T1.127"
+    },
+    {
+      "name": "Sledge",
+      "status": "Implemented",
+      "cards": ["dc3f93a661d68e547acfca2b5eb80cad"],
+      "perk": "hsptraitsperksledge",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": false,
+      "csharpHandler": null,
+      "confidence": "HIGH",
+      "evidence": "Added by hand 2026-09-28 for 1.3.0 (not a /feature-map run). Grants the finished vanilla Sledge; spawn durability comes from GenerateStartingValue (2688 of 2688, RandomStartingOffset 0). Not yet played: T1.127 pending, AUTO harness scenario HSP/T1.127"
     }
   ]
 }

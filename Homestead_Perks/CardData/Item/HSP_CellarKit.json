@@ -33,6 +33,191 @@
     {
       "ActionName": {
         "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NoEnclosure",
+        "DefaultText": "Not in a Pen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NoEnclosure_Desc",
+        "DefaultText": "The cellar cannot be dug inside an animal enclosure. Carry the kit outside to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerCardWarpData": "193f3be30d3891547a95d0d7e8539ccb",
+          "TriggerCardWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NotHere",
+        "DefaultText": "Not Indoors"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NotHere_Desc",
+        "DefaultText": "The cellar cannot be dug indoors or in a cave. Carry the kit outside to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_EnvIndoors",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NotRiver",
+        "DefaultText": "Not by the River"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NotRiver_Desc",
+        "DefaultText": "The cellar cannot be dug on a river bank, where the ground floods. Carry the kit to higher ground to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_River",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NotWet",
+        "DefaultText": "Not on Wet Ground"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NotWet_Desc",
+        "DefaultText": "The cellar cannot be dug in a bog or mire. Carry the kit to dry ground to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_Wetlands_HighAcidity",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NotMarsh",
+        "DefaultText": "Not in Wetlands"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspcellarkit",
+        "LocalizationKey": "HSP_CellarKit_DA_NotMarsh_Desc",
+        "DefaultText": "The cellar cannot be dug in marshy wetland country. Carry the kit to drier land to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_Env_Wetlands",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hspcellarkit",
         "LocalizationKey": "HSP_CellarKit_DA_Place",
         "DefaultText": "Place"
       },
@@ -49,6 +234,70 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["LargeObject"],
       "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerCardWarpData": "193f3be30d3891547a95d0d7e8539ccb",
+          "TriggerCardWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_River",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        },
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_Wetlands_HighAcidity",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        },
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_EnvIndoors",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        },
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_Env_River",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        },
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_Env_Wetlands",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
       "ReceivingCardChanges": {
         "ModType": 2,
         "TransformInto": { "m_FileID": 0, "m_PathID": 0 },

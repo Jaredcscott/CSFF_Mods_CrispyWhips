@@ -1,0 +1,72 @@
+{
+  "UniqueID": "hsptraitsperkritualpyrekit",
+  "StartUnlocked": true,
+  "ActionObjectives": [],
+  "CombatObjectives": [],
+  "CardsOnBoardObjectives": [],
+  "TagsOnBoardObjectives": [],
+  "BlueprintsResearchedObjectives": [],
+  "StatsObjectives": [],
+  "TimeObjectives": [],
+  "NestedObjectives": [],
+  "PlayedCharacter": [],
+  "CompleteOnWin": false,
+  "CompleteOnLose": false,
+  "RequiredDifficultyScore": {
+    "x": 0,
+    "y": 0
+  },
+  "EditorOnly": false,
+  "NotifyWhenNotChecked": false,
+  "CheckingNotificationDetails": 0,
+  "DebugCompletion": false,
+  "SunsCost": 15,
+  "MoonsCost": 0,
+  "StarsCost": 0,
+  "ResetLockInEditor": false,
+  "PerkName": {
+    "ParentObjectID": "hsptraitsperkritualpyrekit",
+    "LocalizationKey": "HSP_Perk_RitualPyreKit_PerkName",
+    "DefaultText": "Ritual Pyre Kit"
+  },
+  "PerkDescription": {
+    "ParentObjectID": "hsptraitsperkritualpyrekit",
+    "LocalizationKey": "HSP_Perk_RitualPyreKit_PerkDescription",
+    "DefaultText": "Start with a ritual pyre kit. Use Place to build your pyre wherever you want it, with no fire affinity needed. Only one can stand on a board. Heavy: the kit weighs 1000, so set it down before a long trip."
+  },
+  "PerkUnlockConditions": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "PerkIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "PerkIconWarpData": "Pyre",
+  "PerkIconWarpType": 3,
+  "DifficultyRating": -75,
+  "DisplayPriority": 3060.0,
+  "HiddenUntilUnlocked": false,
+  "AddedStartingHours": 0,
+  "OverrideEnvironment": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "OverrideWeather": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "AddedCards": [],
+  "AddedCardsWarpData": [
+    "hspritualpyrekit"
+  ],
+  "AddedCardsWarpType": 3,
+  "EquippedCards": [],
+  "OverrideEquipment": false,
+  "StartingStatModifiers": [],
+  "PassiveStatModifiers": [],
+  "ActionModifiers": [],
+  "AddedPlayerTags": [],
+  "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

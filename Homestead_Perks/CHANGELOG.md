@@ -1,5 +1,40 @@
 # Changelog
 
+## 1.3.2 (2026-10-12)
+
+- **Well Kit has a picture again on game EA 0.69c:** the update removed the vanilla Well picture that the Well Kit card and its perk icon borrowed, so both were blank. They now use a stone well painting shipped with this mod.
+- Card art in the vanilla form: the card picture is now cropped to the subject and saved as small palette images, the way the game's own art is, so each item fills its card like a vanilla item does and the pictures take about a sixth of the space they did.
+- Cleaner art: white left by the background removal is gone from the Homestead perk and Homestead Kit picture. No card data changed.
+
+## 1.3.1 (2026-09-28)
+
+Thanks to Chiwei, whose report is behind this release.
+
+- **Homestead Kit materials now work.** Its 30 Planks are oak (they had no wood type, so no recipe took them), its 15 Tree Logs are oak logs as a felled Large Oak gives them, its Clay is quality 30, and its 20 Metal Nuggets are cool copper at quality 50. Needs CSFF Mod Framework 2.28.0.
+- **Homestead Kit also unpacks 50 Copper Nails**, whether or not Advanced Copper Tools is installed. On an older framework the nails are skipped with no error.
+- **28 new perks** in the Situational tab:
+  - Travois (15 Suns), Kiln Kit (15), Drying Rack Kit (10) and Bloomery Kit (30).
+  - Weaver's Workshop Kit (35), Sawhorses Kit, Pottery Wheel Kit and Fleshing Beam Kit (15 each) and Workbench Kit (20).
+  - Enclosure Kit (25) and Chest Kit (15).
+  - Copper, Flint and Witchstone Mine Kits (40 each): a mine entrance only where that ore's deposit is on the board.
+  - Fourteen station kits: Stretching Frame, Charcoal Mound, Wall Shelf, Snow Shelter, Compost Bin, Weighted Loom, Ritual Pyre, Frost Shrine, Garden Plot, Deadfall Trap, Log Boom, Tilled Field, Levee and Mushroom Bed. Prices are listed in the README.
+- **Placement limits:** the Cellar, Well and Tanning Pit kits no longer Place inside an animal enclosure ("Not in a Pen"). The Log Bed Kit no longer Places while a Log Bed stands ("Already Have One"). The Cabin and Mud Hut kits no longer Place indoors or in a cave, and the Cellar Kit also refuses river, wetland and bog ground. The new station and mine kits carry their own limits, listed in the README.
+- **Path Kit:** indoors, a "Must be Outdoors" action replaces the four Build Path buttons. A press toward a direction with no route, or one already built, now does nothing and keeps your kit. Before, it spent a kit and made a road that led nowhere.
+- **Weights in the perk text.** The Cabin, Mud Hut, Cellar, Forge, Log Bed and Path Kit descriptions now say what they weigh. Starting items land on the ground, so they weigh nothing until picked up. At 4000 Encumbrance vanilla blocks travel, Forage, Swim and Climb, while Drop, pick-up and Place still work. An earlier note here said you could still travel over the cap; that was wrong.
+- **Wording fixed:** vanilla gives no way to build the bookshelf or the rustic stool, so the Rustic Table Kit and Bookshelf Kit no longer claim to skip research and building for them. The table and Sledge keep that wording.
+- **Description fixed:** the mod description grouped Path Kit with the one-time Place kits. It starts you with 6 charges and has no Place action.
+- Cleaner perk and card text, English and Chinese.
+
+## 1.3.0 (2026-09-28)
+
+- **Three new perks** in the Situational tab, each skipping vanilla's research and building:
+  - Rustic Table Kit (25 Suns): vanilla's Dismantled Rustic Table and a Rustic Stool. Both raise your Sanctuary, and the table stores your things.
+  - Bookshelf Kit (15 Suns): vanilla's Dismantled BookShelf. Placed, it stores your things, keeps food fresh longer and raises your Sanctuary.
+  - Sledge (20 Suns): a finished vanilla Sledge at full durability.
+- These are vanilla's own carried pieces, so the placed results behave exactly as vanilla's do. The table and bookshelf are heavy (1500 each, 2250 for the table and stool together), so set them down before a long trip.
+- Vanilla's stool and bookshelf have no card art, so these show none either.
+- No existing perk, kit or save changes.
+
 ## 1.2.4 (2026-09-18)
 - Perks now carry the "[HSP]" tag that CSFF Mod Framework 2.26.0 shows after a mod perk's name.
   `ModInfo.json` gains `"ShortName": "HSP"`. Without it the framework falls back to the initials of
@@ -9,21 +44,21 @@
 
 ## 1.2.3 (2026-08-16)
 - `ModInfo.json` Description corrected: the Path Kit blurb still said "3 kits" after the 1.2.2
-  fix bumped the actual grant to 6 — description now matches what the perk ships.
+  fix bumped the actual grant to 6. The description now matches what the perk ships.
 
 ## 1.2.2 (2026-08-14)
-- Path Kit perk now grants 6 Path Kits instead of 3 — completing a road direction actually
+- Path Kit perk now grants 6 Path Kits instead of 3, because completing a road direction actually
   consumes 2 kits per direction in practice, so 3 kits only covered 1.5 directions.
 
 ## 1.2.1 (2026-08-14)
 - Path Kit now offers only the 4 cardinal directions (North/South/East/West) instead of all 8
-  compass directions — the 4 diagonal "Build Path" actions cluttered the action list and are
+  compass directions. The 4 diagonal "Build Path" actions cluttered the action list and are
   removed, along with their orphaned localization rows.
 
 ## 1.2.0 (2026-08-14)
 - Added three new structure-kit perks, same one-item "Place" pattern as the original nine:
   Well Kit (35 Suns, transforms into vanilla `Well`), Cellar Kit (40 Suns, transforms into vanilla
-  `MudHutConstructionDoorEntranceMainCellar` — the Cellar's own self-contained entrance card, same
+  `MudHutConstructionDoorEntranceMainCellar`, the Cellar's own self-contained entrance card, same
   pattern already proven by Cabin Kit), and Pit Trap Kit (20 Suns, transforms into vanilla
   `PitTrap`, still needs bait after placing). All three skip vanilla's normal 5-to-11-stage
   construction blueprint entirely, same as every other kit in this mod.
@@ -31,7 +66,7 @@
 ## 1.1.0 (2026-08-14)
 - Added Path Kit perk (20 Suns): grants 3 Path Kit items. Each has 8 directional "Build Path"
   actions (N/S/E/W + diagonals) that instantly complete the matching vanilla `Imp_Path*` road
-  improvement at the player's current location, via `ProducedCards` + `CompletedImprovements` —
+  improvement at the player's current location, via `ProducedCards` + `CompletedImprovements`,
   no C# required. New content, not part of the original CMC extraction.
 
 ## 1.0.0 (2026-08-14)

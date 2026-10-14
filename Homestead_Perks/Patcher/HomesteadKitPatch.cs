@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using CSFFModFramework.Api;
+using CSFFModFramework.Util;
 
 namespace HomesteadPerks.Patcher
 {
@@ -35,6 +37,33 @@ namespace HomesteadPerks.Patcher
         private const string ClayGuid = "68c14d265ea6c874ba79444d2e1ef7b3";
         private const string RopeGuid = "a7a58aa687df66e47a42fc13e0fdbeaa";
         private const string MetalNuggetGuid = "4b0f4937a5ecb90499428c8c10288afc";
+        private const string CopperNailsId = "advanced_copper_tools_copper_nails";
+
+        // A bare spawn starts each card at its defaults, which for these four is unusable: a Plank's
+        // wood ID 0 is no wood at all, Clay rolls quality 0-50, a Tree Log is quality 0 with no fuel,
+        // and a Metal Nugget is untyped, quality 0 and spawns at 300 degrees. The values are vanilla's
+        // own: a felled Large Oak becomes a log carrying its Fragrance 18, Fuel 35, Quality 96 and ID 1
+        // (TreeLargeOak Progress.OnZero, ModType 2), oak planks are ID 1, the nuggets copy vanilla's
+        // copper-nugget perk carrier (Pk_5_1_8_SmithingGear_CopperNugget: Temperature 0, Metal
+        // Quality 50, Metal Type 100), and 30 is 60% of Clay's 50 cap (player report, Chiwei
+        // 2026-09-27). SpawnService.Spawn honours the overrides from framework 2.28.0.
+        private static readonly Dictionary<string, float> OakPlank = new Dictionary<string, float>
+        {
+            { "SpecialDurability4", 1f },
+        };
+        private static readonly Dictionary<string, float> OakLog = new Dictionary<string, float>
+        {
+            { "UsageDurability", 18f }, { "FuelCapacity", 35f },
+            { "SpecialDurability2", 96f }, { "SpecialDurability4", 1f },
+        };
+        private static readonly Dictionary<string, float> WorkedClay = new Dictionary<string, float>
+        {
+            { "SpecialDurability2", 30f },
+        };
+        private static readonly Dictionary<string, float> CopperNugget = new Dictionary<string, float>
+        {
+            { "FuelCapacity", 0f }, { "SpecialDurability2", 50f }, { "SpecialDurability4", 100f },
+        };
 
         public static void Initialize()
         {
@@ -55,22 +84,36 @@ namespace HomesteadPerks.Patcher
             SpawnService.Spawn(CabinKitId);
             SpawnMany(CisternKitId, 2);
 
-            SpawnMany(PlankGuid, 30);
+            SpawnMany(PlankGuid, 30, OakPlank);
             SpawnMany(MudBrickGuid, 30);
             SpawnMany(StoneSmallGuid, 50);
             SpawnMany(StoneHeavyGuid, 20);
-            SpawnMany(TreeLogGuid, 15);
-            SpawnMany(ClayGuid, 20);
+            SpawnMany(TreeLogGuid, 15, OakLog);
+            SpawnMany(ClayGuid, 20, WorkedClay);
             SpawnMany(RopeGuid, 10);
-            SpawnMany(MetalNuggetGuid, 20);
+            SpawnMany(MetalNuggetGuid, 20, CopperNugget);
+
+            // The Metal Nail ships in CSFFModFramework 2.28.0 and later (and in ACT before it), so the
+            // grant asks whether the CARD exists, never whether ACT is installed (Fleet plan feature 3).
+            // It spawns at its card defaults (fuel 0, Metal Type Copper), so no stats are passed. One
+            // lookup up front: a missing card would otherwise log 50 SpawnService errors.
+            if (CardUtil.GetCardDataById(CopperNailsId) != null)
+            {
+                SpawnMany(CopperNailsId, 50);
+                Plugin.Logger.LogDebug("[HomesteadKitPatch] Metal Nail card loaded: spawned 50 copper nails.");
+            }
+            else
+            {
+                Plugin.Logger.LogDebug("[HomesteadKitPatch] Metal Nail card not loaded (framework older than 2.28.0?): nails skipped.");
+            }
 
             Plugin.Logger.LogDebug("[HomesteadKitPatch] Homestead contents spawned.");
         }
 
-        private static void SpawnMany(string uid, int quantity)
+        private static void SpawnMany(string uid, int quantity, Dictionary<string, float> stats = null)
         {
             for (int i = 0; i < quantity; i++)
-                SpawnService.Spawn(uid);
+                SpawnService.Spawn(uid, stats);
         }
     }
 }

@@ -29,7 +29,7 @@
   "PerkDescription": {
     "ParentObjectID": "hsptraitsperklogbedkit",
     "LocalizationKey": "HSP_Perk_LogBedKit_PerkDescription",
-    "DefaultText": "Start with a log bed kit. Use Place to assemble your log bed wherever you want it — it can only be placed once."
+    "DefaultText": "Start with a log bed kit. Use Place to assemble your log bed wherever you want it — it can only be placed once. Heavy: the kit weighs 800, so set it down before a long trip."
   },
   "PerkUnlockConditions": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "PerkIcon": { "m_FileID": 0, "m_PathID": 0 },
