@@ -1,14 +1,4 @@
 {
   "_about": "Card motion layer (CSFFModFramework 2.28.3+, CardMotionLoader): sprite name -> built-in profile. npc and animal breathe, plant sways, location drifts slowly inside its frame. No image files.",
-  "Sprites": {
-    "ACT_CollapsedWall": "location",
-    "act_copper_lode": "location",
-    "ACT_CopperVein": "location",
-    "act_iron_lode": "location",
-    "act_iron_vein": "location",
-    "act_rock_vein": "location",
-    "act_salt_vein": "location",
-    "act_tin_vein": "location",
-    "MineDaylightShaft": "location"
-  }
+  "Sprites": {}
 }

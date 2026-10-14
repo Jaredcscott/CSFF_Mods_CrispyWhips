@@ -2,6 +2,12 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.6] - 2026-10-14
+
+### Changed
+
+- **The mine locations stay still again.** The slow drift on the Collapsed Wall, the ore lodes and veins and the Mine Daylight Shaft (1.18.5) is off for now. The animated lit lights are unchanged.
+
 ## [1.18.5] - 2026-10-14
 
 ### Added

@@ -13,11 +13,29 @@
       "sha1": "5a3b6db57261bd527919d73b18d6bb7ffed24639",
       "at": "2026-10-14T09:05:44+00:00"
     },
+    "GIF/ACT_MetalStove_On_Copper.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cf04a132e4a6b379d8bb64ba5ac0d7298237391f",
+      "at": "2026-10-14T10:26:56+00:00"
+    },
+    "GIF/CopperBathtub_Warm.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0c8d66a76180a6cfb3ebb54f600a46601c7e255f",
+      "at": "2026-10-14T10:26:58+00:00"
+    },
     "GIF/CopperBrazier_Lit.gif": {
       "status": "approved",
       "notes": "",
       "sha1": "05622abc735801bcbd26904271e6f644ab373c2a",
       "at": "2026-10-14T09:05:50+00:00"
+    },
+    "GIF/Tea_Station_Lit.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b2539e355a4c81bae3b72f485296b600358d94c8",
+      "at": "2026-10-14T10:27:21+00:00"
     },
     "Picture/ACT_CalmingTea.png": {
       "status": "approved",
