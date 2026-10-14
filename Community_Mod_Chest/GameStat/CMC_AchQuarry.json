@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAchQuarry",
+    "GameName": {
+        "LocalizationKey": "CMC_AchQuarry_StatName",
+        "DefaultText": "Achievement Earned: Northern Quarry"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchQuarry_StatDescription",
+        "DefaultText": "Hidden flag: 1 once every Harsh Wilds quarry member latch that resolved at load (lynx, wisent, musk ox) is set -- the Northern Quarry achievement. The board shows the line only while Harsh Wilds is installed. Clamped 0-1, never resets."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

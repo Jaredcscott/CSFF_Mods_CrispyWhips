@@ -1,38 +1,71 @@
 {
   "target": "CMC_HuntingStand.png",
   "sourceCard": "CardData/Location/HuntingStand.json",
-  "subject": "a simple elevated hunting platform: a small square deck of rough planks lashed with rope between the lower branches of a single bare tree trunk, a crude pole ladder leaning up to it, no railing, no roof",
+  "subject": "the hunting stand from the CMC_HuntingStandKit cover painting, as its own full-bleed forest scene: one big tree trunk, a small square plank platform lashed with rope about a third of the way up, no roof and no railing, a plain two-pole ladder, mossy ground with ferns, tall trees and soft green light",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image",
   "params": {
-    "imageCount": 3,
+    "imageCount": 1,
     "aspectRatio": "2:3",
-    "resolution": "2K",
+    "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of a simple elevated hunting platform: a small square deck of rough planks lashed with rope between the lower branches of a single bare tree trunk, a crude pole ladder leaning up to it, no railing, no roof, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, treehouse cabin, roof, walls, forest, several trees, grass, ground.",
-  "historyId": "Lp5AzHS0S2mh2pDZDZCr",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783579490_a39243bd_1789783580257_7148d3a8.png",
-  "credits": 90,
-  "generated": "2026-09-18",
-  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed); then white paper ENCLOSED by the subject (which the border-connected key cannot reach) was keyed out with the keyer's own 200-250 ramp (key_enclosed.py). Repointed CardImageWarpData from 'Plank' on CardData/Location/HuntingStand.json.",
+  "prompt": "full prompt text in OpenArt history VfXkKy5TzNVgtnVa8Wab",
+  "refs": [
+    {
+      "label": "vanilla Cabin_Outside (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cabin_Outside_1791652696629_82aef3a7.png"
+    },
+    {
+      "label": "vanilla TreeOak (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/TreeOak_1791700790914_80eaf8fd.png"
+    },
+    {
+      "label": "vanilla StretchingFrame (style; sent, but the job record lists only the first two inputs)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/StretchingFrame_1791804514906_a84e913c.png"
+    }
+  ],
+  "historyId": "VfXkKy5TzNVgtnVa8Wab",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791823986964_da468897_1791823987207_592077ec.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "full-bleed (process_card_art.py --full-bleed, 512x768)",
+  "note": "owner gallery rework pass 3 2026-10-12: \"match the kit\". Drawn from the kit box cover so the placed stand and the kit show the same stand.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783582794_ef923672_1789783583123_74cb9074.png",
-      "verdict": "deck, ladder and branches; rope lashing only at the trunk"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783582021_e47d5f28_1789783582263_79ab7de3.png",
-      "verdict": "deck and ladder; lashing at the trunk only"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783579490_a39243bd_1789783580257_7148d3a8.png",
-      "verdict": "PICK: square plank deck lashed with rope at several branches of one bare trunk, pole ladder leaning up, no railing or roof; paper between the rungs keyed out"
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791823986964_da468897_1791823987207_592077ec.png",
+      "verdict": "accepted: matches the owner note"
     }
   ],
-  "picked": "C",
-  "predicted": "C"
+  "picked": "A",
+  "predicted": "A",
+  "references": [
+    "CMC_HuntingStandKit.png (subject: copy the cover stand; uploaded 7uG3BJJlNoo3QIhxGhLf)",
+    "vanilla Woods1 (style)"
+  ],
+  "finishing": "process_card_art --full-bleed (512x768, nothing keyed).",
+  "previous": {
+    "subject": "a full-bleed forest scene: a sturdy wooden hunting stand on one big mature oak, a massive gnarled grey-brown trunk with spreading roots rising into a dense canopy, a square platform of thick split log planks on two heavy log beams lashed to the trunk with tan rope about halfway up, a low pole railing on three sides, a two-pole ladder with six lashed rungs, forest floor with grass, ferns and stones, a dim forest behind",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791805995214_243945cf_1791805996097_6ac138ee.png",
+    "historyId": "ICvflknqLI0RAA9Qv9ls",
+    "generated": "2026-10-12",
+    "note": "owner gallery rework pass 2 2026-10-12: regenerate, \"looks terrible follow vanilla art style\". The old spindly sapling is gone: a sturdy plank platform with railing and ladder on a massive mature oak. Sample A was asked for a keyed object but came back as a cropped scene with white paper on both sides (neither keyed nor full-bleed), so B was drawn as a full-bleed forest scene, the way vanilla draws a built structure outdoors (Cabin_Outside). The card art is now full-bleed rather than keyed. Ground checked: no footprints.",
+    "candidates": [
+      {
+        "n": "A",
+        "historyId": "FKbwvARmawW0B07l6Axn",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804733948_5f1b3b8e_1791804733993_d430e216.png",
+        "verdict": "rejected: sturdy and on-brief, but the tree is cropped top and bottom with white paper on both sides, so it cannot be keyed or shipped full-bleed"
+      },
+      {
+        "n": "B",
+        "historyId": "ICvflknqLI0RAA9Qv9ls",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791805995214_243945cf_1791805996097_6ac138ee.png",
+        "verdict": "shipped: full-bleed, massive oak, plank platform, railing, lashed ladder, no prints"
+      }
+    ],
+    "picked": "B",
+    "predicted": "B"
+  }
 }

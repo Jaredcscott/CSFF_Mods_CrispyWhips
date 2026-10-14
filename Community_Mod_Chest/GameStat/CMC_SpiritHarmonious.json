@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatSpiritHarmonious",
+    "GameName": {
+        "LocalizationKey": "CMC_SpiritHarmonious_StatName",
+        "DefaultText": "Spiritually Harmonious Marker"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_SpiritHarmonious_StatDescription",
+        "DefaultText": "Hidden marker the Spiritually Harmonious trait holds at 1 so the Stone Cairn can tell the trait apart (a trait cannot be read directly). Clamped to 0..1, no rate, never written by an action."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

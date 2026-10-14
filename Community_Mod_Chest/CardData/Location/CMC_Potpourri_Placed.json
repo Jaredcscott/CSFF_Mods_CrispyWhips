@@ -1,0 +1,135 @@
+{
+    "UniqueID": "cmcPotpourri",
+    "CardName": {
+        "ParentObjectID": "cmcPotpourri",
+        "LocalizationKey": "CMC_Potpourri_Placed_CardName",
+        "DefaultText": "Bowl of Potpourri"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcPotpourri",
+        "LocalizationKey": "CMC_Potpourri_Placed_CardDescription",
+        "DefaultText": "A clay bowl of dried heather flowers. It scents the camp, and the scent fades as the flowers dry out."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcPotpourri",
+        "LocalizationKey": "CMC_Potpourri_Placed_CardHelpSection",
+        "DefaultText": "The dried flowers fade over about four days and the bowl is then empty of scent. <b>Take Apart:</b> Returns the Clay Bowl."
+    },
+    "CardType": 2,
+    "MapStructureType": 0,
+    "ObjectWeight": 600.0,
+    "TradingValue": 16.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "KeepName": true,
+    "AlwaysUpdate": false,
+    "CardImageWarpData": "CMC_Potpourri",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Preservable", "tag_Structure", "tag_Furniture"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Plant"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 384.0,
+        "MaxValue": 384.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "Spoilage",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "cmcPotpourri",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcPotpourri",
+                "LocalizationKey": "CMC_Potpourri_Placed_Weathered",
+                "DefaultText": "The potpourri has faded to dust."
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcPotpourri",
+                "LocalizationKey": "CMC_Potpourri_Placed_DA_TakeApart",
+                "DefaultText": "Take Apart"
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": ["Plant"],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+8)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 8.0, "y": 8.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ],
+    "DurabilitySorting": { "SortingList": [] },
+    "OnlyShowPopupsWhenEquipped": false,
+    "MiniInventoryHideDurabilities": { "MaskValue": 0 },
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatDiplomaMedicine",
+    "GameName": {
+        "LocalizationKey": "CMC_DiplomaMedicine_StatName",
+        "DefaultText": "Medicine Diploma Handed Out"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_DiplomaMedicine_StatDescription",
+        "DefaultText": "Hidden bookkeeping stat: 1 once the Medicine diploma has been handed to you, 0 before. AcademyDiplomaPatch sets it ahead of the spawn so a reload or a second completion never hands out a second diploma."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

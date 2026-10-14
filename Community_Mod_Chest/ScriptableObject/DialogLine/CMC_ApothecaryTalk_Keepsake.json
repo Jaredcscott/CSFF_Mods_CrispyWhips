@@ -1,0 +1,70 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 24.0}}
+        ],
+        "RequiredNPCStatValues": [
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcApothecaryAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatApothecaryTrust",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 80.0,
+                    "y": 1000000000.0
+                }
+            },
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcApothecaryAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatApothecaryKeepsake",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_Keepsake_Line",
+        "DefaultText": "Come in, mind the racks. I've set something aside for you: the strongest draught I know how to brew, two days over the kettle. I don't hand these out, but you've brought me herbs from the deep woods and dealt fairly with me every time. Keep it for the day you truly need it."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatApothecaryKeepsake",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ],
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "cmcApothecaryHealingPotion",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 1,
+                    "y": 1
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Keepsake_Answer",
+                "DefaultText": "I'll keep it safe."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

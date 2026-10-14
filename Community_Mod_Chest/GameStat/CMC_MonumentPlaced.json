@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMonumentPlaced",
+    "GameName": {
+        "LocalizationKey": "CMC_MonumentPlaced_StatName",
+        "DefaultText": "Founder's Monument Placed"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MonumentPlaced_StatDescription",
+        "DefaultText": "Hidden flag: set to 1 by MonumentSeedPatch only after a scan finds the Founder's Monument on the Village board, so the monument is placed once per run and never twice. Clamped 0..1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

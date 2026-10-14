@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatCatGiftRolled",
+    "GameName": {
+        "LocalizationKey": "CMC_CatGiftRolled_StatName",
+        "DefaultText": "Cat Gift Rolled"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_CatGiftRolled_StatDescription",
+        "DefaultText": "Hidden latch: whether today's one roll for a gift from a Content cat has been made. 0 or 1, clamped to that range; set to 0 at every day rollover."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

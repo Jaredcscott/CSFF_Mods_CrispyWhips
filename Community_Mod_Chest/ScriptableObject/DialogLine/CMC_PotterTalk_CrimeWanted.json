@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 25.0, "y": 59.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_PotterTalk_CrimeWanted_Line",
+        "DefaultText": "The guards were in here asking after you. I told them I only know pots. Buy what you need, but don't linger by my shelf, people are watching."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_CrimeWanted_Answer_Understood",
+                "DefaultText": "Understood."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_CrimeWanted_Answer_Leave",
+                "DefaultText": "I'll go."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

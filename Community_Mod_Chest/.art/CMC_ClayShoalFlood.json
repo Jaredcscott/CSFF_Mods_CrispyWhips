@@ -1,0 +1,37 @@
+{
+  "target": "CMC_ClayShoalFlood.png",
+  "sourceCard": [
+    "CardData/Location/CMC_ClayShoalFlood.json"
+  ],
+  "subject": "a river ford drowned by spring flood, fast brown water rushing over a clay shoal, stepping stones barely showing, muddy banks and bare trees",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a river ford drowned by spring flood, fast brown water rushing over a clay shoal, stepping stones barely showing, muddy banks and bare trees, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "gujUt0MGsgsVEfb3n1Ow",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085378128_965abeca_1791085378734_c11a63ea.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Owner pick from the 2026-10-03 batch picker. predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085379192_906b16dc_1791085380000_bc370d8f.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085378128_965abeca_1791085378734_c11a63ea.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085379061_fc31e4d7_1791085380174_33e54e77.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "A"
+}

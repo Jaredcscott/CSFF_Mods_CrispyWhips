@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatAchOrderUp", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 1.0}},
+            {"StatWarpData": "cmcStatInnOrderUpRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_RemarkOrderUp_Line",
+        "DefaultText": "Filled a trader's order, did you? News like that reaches my taproom before the dust has settled on the road. A commission is a promise to a stranger a long way from home, and keeping one is how a road learns your name. Don't let it go to your head: the next order will want more."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_RemarkOrderUp_Answer",
+                "DefaultText": "I only did what was asked."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnOrderUpRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

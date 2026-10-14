@@ -1,0 +1,122 @@
+{
+    "UniqueID": "potterysculpturebppigmentbillberry",
+    "CardName": {
+        "ParentObjectID": "potterysculpturebppigmentbillberry",
+        "LocalizationKey": "Pottery_Sculpture_Bp_PigmentBillberry_CardName",
+        "DefaultText": "Billberry Pigment"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculpturebppigmentbillberry",
+        "LocalizationKey": "Pottery_Sculpture_Bp_PigmentBillberry_CardDescription",
+        "DefaultText": "Grind dried billberries into a fine violet pigment powder."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "potterysculpturebppigmentbillberry",
+        "LocalizationKey": "Pottery_Sculpture_Bp_PigmentBillberry_UnlockConditionsDesc",
+        "DefaultText": "Dried Billberries Needed"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasDriedBillberries",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "9955af347ce41af4c9e78ee97f008182",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "9955af347ce41af4c9e78ee97f008182",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -5.0,
+                            "y": -5.0
+                        }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 3,
+                "y": 3
+            },
+            "DroppedCardWarpData": "potterysculpturepigmentbillberry",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "CMC_PigmentBillberry",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 4.0,
+    "ResearchedNotification": 0
+}

@@ -242,7 +242,10 @@ namespace CommunityModChest.Patcher
         // ── summon signal stats (§10.8.11.1) ────────────────────────────────────
         /// <summary>
         /// Set to 1 by Vane's untagged seek duty once she reaches the player's environment
-        /// (a ChangeStatDutyAction, not a fight); read by Sterling's Duty_SterlingRespondToSummon;
+        /// (a ChangeStatDutyAction, not a fight), by killing Thorne, Corrin or Vane (their
+        /// EnemyDefeatedEffects, 1.58.2) and by Vane's PlayerDemoralizedEffects (1.68.46; she has
+        /// no subdual action, so that branch is data consistency rather than a live path);
+        /// read by Sterling's Duty_SterlingRespondToSummon;
         /// cleared by his own Encounter once it resolves. Deliberately NOT cmcStatArrestPending —
         /// that stat self-clears the same tick it fires (JailPatch.OnArrestPendingRaised) and
         /// cannot hold a durable state across a multi-hour cross-map walk.
@@ -252,6 +255,10 @@ namespace CommunityModChest.Patcher
         /// <summary>
         /// Set to 1 by Thorne's or Corrin's PlayerDemoralizedEffects the moment a spear guard wins
         /// locally; read by Sterling's Duty_SterlingFinishArrest; cleared by his own Encounter.
+        /// A spear-guard fight ends PlayerDemoralized only through that guard's subdual action
+        /// (the last EnemyActions entry, EncounterResult 8, weighted on the player's Bruising,
+        /// Fear, BloodLoss and Stamina). Before 1.68.46 no action carried result 8, so nothing
+        /// ever set this stat.
         /// </summary>
         internal const string CaptainSummonedStatUid = "cmcStatCaptainSummoned";
 
@@ -318,6 +325,24 @@ namespace CommunityModChest.Patcher
             "cmcEnvBadgerWarren",     "cmcLocBadgerWarren",
         };
 
+        /// <summary>True when <paramref name="envUid"/> is one of the village-territory ENVIRONMENT
+        /// cards (the CT4 half of <see cref="VillageTerritoryCardUids"/>).</summary>
+        internal static bool IsVillageTerritoryEnv(string envUid) =>
+            envUid != null && envUid.StartsWith("cmcEnv", StringComparison.Ordinal)
+            && Array.IndexOf(VillageTerritoryCardUids, envUid) >= 0;
+
+        /// <summary>True for the chase duties that carry the territory gate: every
+        /// <see cref="BuildChaseDuty"/> duty except the unrestricted seeker's (Vane).</summary>
+        internal static bool IsTerritoryGatedChase(string dutyUid)
+        {
+            if (dutyUid == null) return false;
+            foreach (var beat in Beats)
+                if (beat.HasLocalChase && !beat.IsUnrestrictedSeeker
+                    && string.Equals(beat.ChaseDutyUid, dutyUid, StringComparison.Ordinal))
+                    return true;
+            return false;
+        }
+
         private static bool _initialized;
         private static bool _dutiesBuilt;
         private static object _villageTerritoryTag;   // CardTag, created in C# (see EnsureVillageTerritoryTag)
@@ -383,6 +408,8 @@ namespace CommunityModChest.Patcher
             // Subscribing here is order-independent: it's a static event, GuardWitnessPatch does
             // not need to be initialized yet for this to attach.
             GuardWitnessPatch.AttackWitnessed += OnAttackWitnessed;
+            // D1: the crime gate on Suspicion's JSON decay rate, re-asserted once per day-time point.
+            TickEvents.DtpTick += SuspicionDecayTick;
             Plugin.Logger.LogDebug("[GuardDutyPatch] initialized.");
         }
 
@@ -833,8 +860,10 @@ namespace CommunityModChest.Patcher
         /// <para>Two gates beyond the shift, both on <c>DutyConditions</c> (arrays are AND'd):
         /// the warden-absence window must be closed (<see cref="WardenGapStatUid"/> == 0), and a
         /// guard the player has already put down does not report for duty. The absence window is
-        /// enforced HERE rather than by having <see cref="JailPatch"/> lie about the flag, so the
-        /// guards visibly walk off the post when the window opens.</para>
+        /// enforced HERE rather than by having <see cref="JailPatch"/> lie about the flag, and
+        /// <see cref="JailPatch"/> reads this same gate through the engine to decide whether a guard
+        /// in the square holds the post. Every patrol also ends in the square, so a released warden
+        /// does not leave the node: she stops standing warden and walks the beat instead.</para>
         /// </summary>
         private static object BuildWardenDuty(GuardBeat beat, object wardenEnv)
         {
@@ -903,9 +932,14 @@ namespace CommunityModChest.Patcher
         /// Both gates are the engine's, not ours: <c>DutyConditions</c> is re-evaluated every
         /// duty-selection tick (<c>NPCDutySelectionInfo.PopulateReport</c>, .decomp line 199),
         /// so the moment the guard's own env stops carrying the village-territory tag the duty
-        /// leaves the candidate list and Patrol pulls her home. Expected and accepted quirk:
-        /// selection is checked per tick but movement already happened, so she can overshoot
-        /// the boundary by ONE node before turning back.
+        /// leaves the candidate list. That gate alone does NOT hold the edge: the engine never
+        /// re-checks a running duty's conditions (<c>InGameNPC.StartOrUpdateCurrentDuty</c> asks
+        /// only the current action's <c>CanBePerformed</c>), keeps the running duty whenever
+        /// selection finds nothing else (Corrin has no patrol at night), runs the encounter step in
+        /// the same tick the move lands, and <see cref="GuardChaseUrgencyPatch"/>'s bonus steps skip
+        /// selection entirely. So Corrin followed the player one node past the edge and fought
+        /// there, and at day patrol pulled her home only for the chase to send her out again.
+        /// <see cref="GuardTerritoryLeashPatch"/> holds the edge for these duties.
         /// </summary>
         private static object BuildChaseDuty(GuardBeat beat)
         {
@@ -1385,7 +1419,9 @@ namespace CommunityModChest.Patcher
                         if (!verbose && !weightInfoReady) continue; // wait for the engine to fill its report
 
                         if (!verbose) _reported.Add(beat.AgentUid);
-                        Plugin.Logger.LogDebug(report);
+                        // EnableGuardDiagnostics is the reporter's opt-in: its report must reach LogOutput.log at Info
+                        // (BepInEx hides Debug), or turning the flag on shows nothing.
+                        if (verbose) Plugin.Logger.LogInfo(report); else Plugin.Logger.LogDebug(report);
                     }
                 }
                 catch (Exception ex)
@@ -1553,7 +1589,223 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        /// <summary>The per-guard detection tuning knob later Wave 2/3 chunks read.</summary>
+        // ── D1: Suspicion reader and the way down ───────────────────────────────
+
+        /// <summary>The Village square env, the post every guard's beat names. The chest roll asks
+        /// about this one (open question 6 default: the guard counted is the one posted here, Vane
+        /// at night).</summary>
+        internal const string VillageSquareEnvUid = "cmcEnvVillage";
+
+        /// <summary>TUNABLE PLACEHOLDER (open question 6): Suspicion points a guard sheds per
+        /// in-game day while Village Crime is under <see cref="SuspicionDecayCrimeCeiling"/>.</summary>
+        internal const float SuspicionDecayPerDay = 1f;
+
+        /// <summary>Decay runs only while Crime is below this (the Wanted band's floor).</summary>
+        internal const float SuspicionDecayCrimeCeiling = VillageCrimePatch.WantedFloor;
+
+        /// <summary>TUNABLE PLACEHOLDER: the patrol term never scales past this multiple of its
+        /// base, whatever a guard's Suspicion reaches (the chest roll's own 0.95 cap still binds).</summary>
+        internal const float MaxSuspicionPatrolScale = 2f;
+
+        /// <summary>Day-time points per in-game day (GameManager prefab DailyPoints), the divisor that
+        /// turns "1 point a day" into a per-tick rate. Mirrors the -0.0104167 OverrideRate in each
+        /// NPCCharacterPerk/Perk_Guard*.json.</summary>
+        private const float DtpPerDay = 96f;
+
+        /// <summary>One guard's Suspicion now and at her own start, as read by
+        /// <see cref="OnDutyGuardSuspicion"/>.</summary>
+        internal sealed class GuardSuspicionReading
+        {
+            public string AgentUid;
+            public string Label;
+            public float Current;
+            public float Start;
+        }
+
+        /// <summary>Pure: a guard's Suspicion relative to her starting value, as the multiple the
+        /// chest roll's patrol term is scaled by. Never below 1 (a guard below her own start is not
+        /// less watchful than the base term) and never above <see cref="MaxSuspicionPatrolScale"/>;
+        /// an unusable start or reading gives 1.</summary>
+        internal static float SuspicionPatrolScale(float current, float start)
+        {
+            if (float.IsNaN(current) || float.IsNaN(start) || start <= 0f) return 1f;
+            return Mathf.Clamp(current / start, 1f, MaxSuspicionPatrolScale);
+        }
+
+        /// <summary>Pure: the per-tick Suspicion rate for a given Village Crime. Falls
+        /// <see cref="SuspicionDecayPerDay"/> a day while Crime is under the ceiling, 0 otherwise.</summary>
+        internal static float SuspicionDecayRatePerTick(float crime)
+        {
+            return crime < SuspicionDecayCrimeCeiling ? -SuspicionDecayPerDay / DtpPerDay : 0f;
+        }
+
+        private static readonly HashSet<string> _suspicionWarned = new HashSet<string>();
+        private static object _suspicionStat;
+        private static MethodInfo _getNpcStatMethod;
+        private static MethodInfo _setStatRateMethod;
+
+        private static void SuspicionWarnOnce(string cause, string message)
+        {
+            if (_suspicionWarned.Add(cause)) Plugin.Logger.LogWarning("[GuardDutyPatch] " + message);
+        }
+
+        /// <summary>
+        /// The Suspicion of the guard on duty at <paramref name="envUid"/> right now, or null when no
+        /// guard is (every null return that is not "nobody is on shift" leaves one warn-once line
+        /// naming its cause). A guard is on duty when her beat patrols that env AND her shift covers
+        /// the hour: Vane 20:00-05:00, Thorne and Corrin 05:00-20:00; Captain Sterling holds no shift
+        /// and is never counted. When two guards share the shift (Thorne and Corrin by day) the one
+        /// whose Suspicion stands highest above her start is returned. Public and read-only: D2 and D3
+        /// (the Cloth Mask, bribes) read the same value.
+        /// </summary>
+        internal static GuardSuspicionReading OnDutyGuardSuspicion(string envUid)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(envUid)) return null;
+                float hour = GameQuery.HourOfDay;
+                if (hour < 0f)
+                {
+                    SuspicionWarnOnce("hour-unknown", "OnDutyGuardSuspicion: the hour of day is unreadable, so no guard counts as on duty.");
+                    return null;
+                }
+                bool night = hour >= NightShiftStartHour || hour < NightShiftEndHour;
+
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null) { SuspicionWarnOnce("gm-null", "OnDutyGuardSuspicion: no GameManager yet."); return null; }
+                if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs)
+                {
+                    SuspicionWarnOnce("allnpcs-null", "OnDutyGuardSuspicion: GameManager.AllNPCs is unreadable.");
+                    return null;
+                }
+
+                GuardSuspicionReading best = null;
+                float bestScale = float.NegativeInfinity;
+                foreach (var npc in allNpcs)
+                {
+                    if (npc == null) continue;
+                    var beat = BeatOfNpc(npc);
+                    if (beat == null) continue;
+                    if (!((beat.NightOnly && night) || (beat.DayShiftOnly && !night))) continue;
+                    if (Array.IndexOf(beat.PatrolEnvUids, envUid) < 0) continue;
+
+                    string cause = TryReadSuspicion(npc, out _, out float current, out float start);
+                    if (cause != null) { SuspicionWarnOnce("read-" + cause, "OnDutyGuardSuspicion: could not read " + beat.Label + "'s Suspicion (" + cause + ")."); continue; }
+
+                    float scale = SuspicionPatrolScale(current, start);
+                    if (scale > bestScale)
+                    {
+                        bestScale = scale;
+                        best = new GuardSuspicionReading { AgentUid = beat.AgentUid, Label = beat.Label, Current = current, Start = start };
+                    }
+                }
+                return best;
+            }
+            catch (Exception ex)
+            {
+                SuspicionWarnOnce("exception", "OnDutyGuardSuspicion failed: " + (ex.InnerException?.ToString() ?? ex.ToString()));
+                return null;
+            }
+        }
+
+        private static GuardBeat BeatOfNpc(object npc)
+        {
+            var model = Reflect.GetMember(npc, "NPCModel");
+            if (model == null) return null;
+            string uid = Reflect.GetMember(model, "UniqueID") as string;
+            if (uid == null) return null;
+            foreach (var beat in Beats)
+                if (string.Equals(beat.AgentUid, uid, StringComparison.OrdinalIgnoreCase)) return beat;
+            return null;
+        }
+
+        /// <summary>Reads one guard's live Suspicion stat. Returns null on success, else the cause of
+        /// the miss (a stable token, never a measured number).</summary>
+        internal static string TryReadSuspicion(object npc, out object inGameStat, out float current, out float start)
+        {
+            inGameStat = null;
+            current = float.NaN;
+            start = float.NaN;
+            if (_getFromIdMethod == null) return "getfromid-null";
+            _suspicionStat ??= _getFromIdMethod.Invoke(null, new object[] { GuardSuspicionStatUid });
+            if (_suspicionStat == null) return "stat-unresolved";
+            _getNpcStatMethod ??= npc.GetType().GetMethod("GetStat", BindingFlags.Instance | BindingFlags.Public,
+                null, new[] { _suspicionStat.GetType() }, null);
+            if (_getNpcStatMethod == null) return "getstat-missing";
+            inGameStat = _getNpcStatMethod.Invoke(npc, new[] { _suspicionStat });
+            if (inGameStat == null) return "stat-not-on-npc";
+            if (Reflect.GetMember(inGameStat, "CurrentValue") is not float cur) return "value-unreadable";
+            var model = Reflect.GetMember(inGameStat, "Model");
+            if (model == null) return "model-null";
+            if (Reflect.GetMember(model, "StartingValue") is not float st) return "start-unreadable";
+            current = cur;
+            start = st;
+            return null;
+        }
+
+        /// <summary>
+        /// The way down. Each day-time point, every live guard's Suspicion rate is set to the decay
+        /// rate while Village Crime is under the ceiling and to 0 otherwise. The rate itself is JSON
+        /// (OverrideRate in each Perk_Guard*.json, with an OverrideMinMaxValue floor at that guard's
+        /// own start, so the value stops at her start); this toggle is only the crime gate, which
+        /// has no JSON form. The rate is not saved (only the value is), so it is re-asserted every
+        /// tick, idempotently, and a freshly spawned or reloaded guard picks it up on the next one.
+        /// </summary>
+        private static void SuspicionDecayTick()
+        {
+            try
+            {
+                if (!_dutiesBuilt) return;
+                if (!VillageCrimePatch.TryCurrentCrime(out float crime, out string crimeCause))
+                {
+                    SuspicionWarnOnce("decay-crime-" + crimeCause, "Suspicion decay is paused: Village Crime is unreadable (" + crimeCause + ").");
+                    return;
+                }
+                float rate = SuspicionDecayRatePerTick(crime);
+
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null) { SuspicionWarnOnce("decay-gm-null", "Suspicion decay is paused: no GameManager."); return; }
+                if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs)
+                {
+                    SuspicionWarnOnce("decay-allnpcs-null", "Suspicion decay is paused: GameManager.AllNPCs is unreadable.");
+                    return;
+                }
+
+                foreach (var npc in allNpcs)
+                {
+                    if (npc == null) continue;
+                    var beat = BeatOfNpc(npc);
+                    if (beat == null) continue;
+
+                    string cause = TryReadSuspicion(npc, out object inGameStat, out _, out _);
+                    if (cause != null)
+                    {
+                        // "stat-not-on-npc" is normal for a guard still initialising, so it is not warned.
+                        if (cause != "stat-not-on-npc")
+                            SuspicionWarnOnce("decay-read-" + cause, "Suspicion decay skipped " + beat.Label + " (" + cause + ").");
+                        continue;
+                    }
+
+                    if (Reflect.GetMember(inGameStat, "CurrentPermanentRate") is float live && Math.Abs(live - rate) < 1e-6f) continue;
+
+                    _setStatRateMethod ??= inGameStat.GetType().GetMethod("SetStatRate", BindingFlags.Instance | BindingFlags.Public,
+                        null, new[] { typeof(float) }, null);
+                    if (_setStatRateMethod == null)
+                    {
+                        SuspicionWarnOnce("decay-setstatrate-missing", "Suspicion decay is off: InGameNPCStat.SetStatRate was not found, so the rate stays at its JSON value whatever the crime.");
+                        return;
+                    }
+                    _setStatRateMethod.Invoke(inGameStat, new object[] { rate });
+                    Plugin.Logger.LogDebug($"[GuardDutyPatch] {beat.Label}'s Suspicion rate set to {rate:0.######} (crime {crime:0.##}).");
+                }
+            }
+            catch (Exception ex)
+            {
+                SuspicionWarnOnce("decay-exception", "Suspicion decay tick failed: " + (ex.InnerException?.ToString() ?? ex.ToString()));
+            }
+        }
+
+        /// <summary>The per-guard detection tuning knob; <see cref="OnDutyGuardSuspicion"/> reads it.</summary>
         internal const string GuardSuspicionStatUid = "cmcNpcStatSuspicion";
     }
 }

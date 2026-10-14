@@ -132,7 +132,14 @@ namespace CommunityModChest.Patcher
                     _states.Remove(npcKey);
                     return null; // unreachable in the injected-edge graph — caller falls back to a direct hop
                 }
-                state = new WalkState { DestUid = destUid, Path = path, NextIndex = 1, NextStepTick = currentTotalTick + pace };
+                // A re-plan keeps the step timer the previous plan was running. The Apothecary's schedule changes her
+                // destination every 3 ticks (45 minutes), the same as the 3-tick pace, so resetting the timer to
+                // now + pace on every re-plan meant her first step of the morning commute was never due before the
+                // destination changed again: she stood at her cabin for the whole 06:00-09:00 walk (harness T2.920,
+                // 2026-10-13). Capped at now + pace so an old far-future value can never delay a step.
+                int due = currentTotalTick + pace;
+                if (state != null) due = Math.Min(due, state.NextStepTick);
+                state = new WalkState { DestUid = destUid, Path = path, NextIndex = 1, NextStepTick = due };
                 _states[npcKey] = state;
             }
 

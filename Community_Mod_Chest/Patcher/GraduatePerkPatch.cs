@@ -236,13 +236,19 @@ namespace CommunityModChest.Patcher
 
                 inRunList.Add(perkSo);
 
-                var applyMethod = gm.GetType().GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                // ApplyPerk is private: a public-only lookup finds nothing, and the perk then waits
+                // in InRunAddedPerks for a reload before any of it applies.
+                var applyMethod = gm.GetType().GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                     .FirstOrDefault(m => m.Name == "ApplyPerk");
                 if (applyMethod != null)
                 {
                     var ps = applyMethod.GetParameters();
                     object[] callArgs = ps.Length == 3 ? new object[] { perkSo, true, null } : new object[] { perkSo };
                     applyMethod.Invoke(gm, callArgs);
+                }
+                else
+                {
+                    Plugin.Logger.LogWarning($"[GraduatePerkPatch] GameManager.ApplyPerk not found - '{perkUid}' recorded in InRunAddedPerks but not applied until a reload.");
                 }
                 Plugin.Logger.LogDebug($"[GraduatePerkPatch] Granted grad perk '{perkUid}'.");
             }

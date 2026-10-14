@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnYearSurvivedRemarked",
+    "GameName": {
+        "LocalizationKey": "CMC_InnYearSurvivedRemarked_StatName",
+        "DefaultText": "The Inn Keeper's Happy New Year Remark"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnYearSurvivedRemarked_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = has not yet remarked on the Happy New Year achievement, 1 = remarked once."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

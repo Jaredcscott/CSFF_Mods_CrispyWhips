@@ -14,6 +14,10 @@
         "694cdedcfd63f354099aea87a53aa496"
     ],
     "AddedCardsWarpType": 3,
+    "AddedCardsStats": [
+        { "Card": "68c14d265ea6c874ba79444d2e1ef7b3", "SpecialDurability2": 30 },
+        { "Card": "694cdedcfd63f354099aea87a53aa496", "SpecialDurability2": 50 }
+    ],
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
     "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",

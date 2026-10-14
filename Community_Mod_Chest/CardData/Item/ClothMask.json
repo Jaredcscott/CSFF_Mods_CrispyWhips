@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "apparelclothmask",
     "LocalizationKey": "Apparel_ClothMask_CardDescription",
-    "DefaultText": "A simple cloth face covering tied behind the head. Keeps the wind and the worst of the dust off your face."
+    "DefaultText": "A simple cloth face covering tied behind the head. Keeps the wind and the worst of the dust off your face. A guard who spots you while you are Wanted grows suspicious half as fast."
   },
   "CardType": 0,
   "ObjectWeight": 25.0,
@@ -18,7 +18,9 @@
   "CardImageWarpData": "CMC_ClothMask",
   "CardImageWarpType": 3,
   "CardTagsWarpData": [
-    "tag_Clothing"
+    "tag_Clothing",
+    "tag_CMCDisguise",
+    "tag_CMCColdWeatherApparel"
   ],
   "CardTagsWarpType": 3,
   "EquipmentTags": [],
@@ -70,7 +72,125 @@
   "SpecialDurability3": { "Active": false },
   "SpecialDurability4": { "Active": false },
   "DurabilitySorting": { "SortingList": [] },
-  "CardInteractions": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_CI_Dye_ActionName",
+        "DefaultText": "Dye with Charcoal Pigment"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_CI_Dye_ActionDescription",
+        "DefaultText": "Work the charcoal pigment into the cloth mask, darkening it to a soft ash-grey."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "potterysculpturepigment"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "apparelclothmaskdyedcharcoal",
+        "TransformIntoWarpType": 3,
+        "TransferUsage": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_CI_DyeOchre_ActionName",
+        "DefaultText": "Dye with Ochre Pigment"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_CI_DyeOchre_ActionDescription",
+        "DefaultText": "Work the ochre pigment into the cloth mask, turning it a warm, earthy yellow-brown."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "potterysculpturepigmentochre"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "apparelclothmaskdyedochre",
+        "TransformIntoWarpType": 3,
+        "TransferUsage": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_CI_DyeBillberry_ActionName",
+        "DefaultText": "Dye with Billberry Pigment"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_CI_DyeBillberry_ActionDescription",
+        "DefaultText": "Steep the cloth mask in billberry pigment until it takes a deep violet."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "potterysculpturepigmentbillberry"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "apparelclothmaskdyedbillberry",
+        "TransformIntoWarpType": 3,
+        "TransferUsage": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {

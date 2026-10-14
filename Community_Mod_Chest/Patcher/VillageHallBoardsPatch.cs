@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using CSFFModFramework.Util;
 using HarmonyLib;
@@ -11,8 +12,8 @@ namespace CommunityModChest.Patcher
     {
         // Live status readout appended under each board's notices (descriptive tier + number).
         // Friendship reads the NPC's player-side stat (Inn Keeper: cmcStatInnFriendship;
-        // Miller/Weaver/Professor: the QuestChainSchedulePatch trust mirror). The Apothecary has
-        // no trust stat, so that board shows quest progress only. The Town boards show Village
+        // Miller/Weaver/Apothecary/Professor: the QuestChainSchedulePatch trust mirror, which
+        // copies each resident's NPC trust stat into a player GameStat every 5 s). The Town boards show Village
         // Renown + the village standing phase instead of a single NPC's values. The Town
         // Achievement Board (cmcBoardAchievements, Village_Master_Plan.md §10.9.2.2) is a fourth
         // shape - an earned-count summary plus ONE compact line per achievement, read
@@ -33,8 +34,9 @@ namespace CommunityModChest.Patcher
             ["cmcBoardInnKeeper"] = new BoardStatus { NpcName = "the Inn Keeper", FriendshipStatUid = "cmcStatInnFriendship", FriendshipMax = 30f, QuestChainStatUid = "cmcStatInnQuestChain", QuestChainMax = 8 },
             ["cmcBoardMiller"] = new BoardStatus { NpcName = "the Miller", FriendshipStatUid = "cmcStatMillerTrustMirror", FriendshipMax = 100f, QuestChainStatUid = "cmcStatMillerQuestChain", QuestChainMax = 3 },
             ["cmcBoardWeaver"] = new BoardStatus { NpcName = "the Weaver", FriendshipStatUid = "cmcStatWeaverTrustMirror", FriendshipMax = 100f, QuestChainStatUid = "cmcStatWeaverQuestChain", QuestChainMax = 7 },
-            ["cmcBoardApothecary"] = new BoardStatus { NpcName = "the Apothecary", FriendshipStatUid = null, FriendshipMax = 0f, QuestChainStatUid = "cmcStatApothQuestChain", QuestChainMax = 2 },
+            ["cmcBoardApothecary"] = new BoardStatus { NpcName = "the Apothecary", FriendshipStatUid = "cmcStatApothecaryTrustMirror", FriendshipMax = 100f, QuestChainStatUid = "cmcStatApothQuestChain", QuestChainMax = 2 },
             ["cmcBoardProfessor"] = new BoardStatus { NpcName = "the Professor", FriendshipStatUid = "cmcStatProfessorTrustMirror", FriendshipMax = 100f, QuestChainStatUid = "cmcStatProfQuestChain", QuestChainMax = 4 },
+            ["cmcBoardPotter"] = new BoardStatus { NpcName = "the Potter", FriendshipStatUid = "cmcStatPotterTrustMirror", FriendshipMax = 100f, QuestChainStatUid = "cmcStatPotterFiringDone", QuestChainMax = 1 },
             ["cmcBoardTown"] = new BoardStatus { IsTown = true },
             ["cmcBoardTownConstruction"] = new BoardStatus { IsTown = true },
         };
@@ -64,10 +66,27 @@ namespace CommunityModChest.Patcher
             "cmcBoardWeaver",
             "cmcBoardApothecary",
             "cmcBoardProfessor",
+            "cmcBoardPotter",
             "cmcBoardAchievements",
         };
 
         private const string AchievementsBoardUid = "cmcBoardAchievements";
+
+        // Villager boards printed in the achievement board's compact form: no flavour description, one line
+        // per notice taken from its ActionName rather than its full ActionDescription sentence, and a single
+        // newline between sections instead of a blank line. Measured live 2026-10-05 (walkthrough T2.919):
+        // the Weaver's board in its long form (description, location line, an errand and its hint, a trust
+        // notice, three two-line "heard whispers" interlock notices, then the friendship and errand-progress
+        // status lines, each a paragraph) laid out to lines=21 truncated=True fontSize=24, so the errand
+        // progress line, the last, was cut off. Compact, that same content is 10 lines and its fullest state
+        // (an errand with its hint, three past-errand notes and all three whispers) about 14.
+        private static readonly HashSet<string> CompactNoticeBoardUids = new(StringComparer.Ordinal)
+        {
+            "cmcBoardWeaver",
+            // Measured live 2026-10-13 (walkthrough rerun T2.919): the Apothecary's long form laid out to
+            // lines=16-17 truncated=True fontSize=24, so its last status line was cut off.
+            "cmcBoardApothecary",
+        };
 
         // Earned-latch stats (§10.9.2.3) — summary line counts these >= 0.5. Fixed order/labels
         // for readability only; the board's own DA text is the source of truth for wording.
@@ -84,7 +103,22 @@ namespace CommunityModChest.Patcher
             "cmcStatAchShaman",
             "cmcStatAchNoiseMax",
             "cmcStatAchStinkyJar",
+            "cmcStatAchOrderUp",
+            "cmcStatAchKing",
         };
+
+        // J15: King of the Forest is counted with the others above, but its board entry (unclaimed or crowned) is
+        // printed on the summary line rather than on a line of its own. Measured 2026-10-04 (T2.955): with Harsh
+        // Wilds installed the board is 14 lines (summary plus 13 entries), and 15 laid-out lines logged
+        // truncated=True at the auto-size floor, so a line of its own would cut the last entry off. Folding the capstone into the summary keeps the board at 13 lines
+        // without Harsh Wilds and 14 with it (LogBoardFit still reports the real layout).
+        private const string KingEarnedStatUid = "cmcStatAchKing";
+
+        // G5: the Harsh Wilds quarry achievement is NOT in the list above on purpose. It exists only while
+        // Harsh Wilds supplies the three encounters (AchievementKillEffectsPatch.QuarryAvailable), so the board
+        // counts it, shows its two lines and its progress only then; with no Harsh Wilds the achievement is
+        // not counted, not listed and never warned about.
+        private const string QuarryEarnedStatUid = "cmcStatAchQuarry";
 
         // Derived count stat for each of the six multi-part achievements, keyed by the earned latch
         // that gates that achievement's two board entries (the stat on their RequiredStatValues).
@@ -98,7 +132,25 @@ namespace CommunityModChest.Patcher
             ["cmcStatAchShaman"] = "cmcStatAchShamanCount",
             ["cmcStatAchExplorer"] = "cmcStatAchExplorerCount",
             ["cmcStatAchSpelunker"] = "cmcStatAchSpelunkerCount",
+            ["cmcStatAchQuarry"] = "cmcStatAchQuarryCount",
         };
+
+        // C5: each villager's board opens with one live line saying where that villager is right now. The
+        // source is the villager's own scheduler (CurrentLegLabel), which reads where the NPC ACTUALLY stands
+        // and returns the CSV key of one sentence, never English built here; this patch resolves that key in
+        // the current language. Read-only status, not a travel shortcut: nothing here moves anyone.
+        private static readonly Dictionary<string, Func<string>> LegLabelSources = new(StringComparer.Ordinal)
+        {
+            ["cmcBoardInnKeeper"] = () => InnKeeperSpawnPatch.CurrentLegLabel,
+            ["cmcBoardMiller"] = () => CottageResidentSchedulePatch.CurrentLegLabel("cmcMillerAgent"),
+            ["cmcBoardWeaver"] = () => CottageResidentSchedulePatch.CurrentLegLabel("cmcWeaverAgent"),
+            ["cmcBoardApothecary"] = () => ApothecarySchedulePatch.CurrentLegLabel,
+            ["cmcBoardProfessor"] = () => ProfessorSchedulePatch.CurrentLegLabel,
+            ["cmcBoardPotter"] = () => PotterSchedulePatch.CurrentLegLabel,
+        };
+
+        private static FieldInfo _localizationTextsField;
+        private static readonly HashSet<string> WarnedLegCauses = new(StringComparer.Ordinal);
 
         // Last "lines|truncated" result LogBoardFit printed per board, so the line appears once per
         // change rather than on each of the five postfixes that fire while one board is open.
@@ -165,6 +217,8 @@ namespace CommunityModChest.Patcher
 
             var sections = new List<string>();
             bool isAchievementBoard = string.Equals(card.CardModel.UniqueID, AchievementsBoardUid, StringComparison.Ordinal);
+            bool isCompactNoticeBoard = CompactNoticeBoardUids.Contains(card.CardModel.UniqueID);
+            bool compact = isAchievementBoard || isCompactNoticeBoard;
             if (isAchievementBoard)
             {
                 // One compact block instead of a paragraph per entry: see AppendAchievementSections.
@@ -172,11 +226,14 @@ namespace CommunityModChest.Patcher
             }
             else
             {
-                sections.AddRange(GetVisibleBoardLines(card));
+                sections.AddRange(GetVisibleBoardLines(card, isCompactNoticeBoard));
                 AppendStatusLines(sections, card.CardModel.UniqueID);
             }
 
-            if (sections.Count == 0)
+            // C5: the villager's live "where they are right now" line (null for every other board, and
+            // whenever there is nothing true to say). Counted here so a board with no notices shows it too.
+            string legLine = isAchievementBoard ? null : BuildLegLine(card.CardModel.UniqueID);
+            if (sections.Count == 0 && string.IsNullOrEmpty(legLine))
             {
                 return baseDescription;
             }
@@ -184,18 +241,99 @@ namespace CommunityModChest.Patcher
             // The achievement board leaves its flavour description out. Measured live 2026-09-19
             // (walkthrough T2.236): description (2 lines) + summary + eleven entries needs 16 lines,
             // and the box holds 15 at its auto-size floor (lines=15 truncated=True fontSize=24), so
-            // Stinky Jar, the last entry, was cut off. Summary plus list is 13.
-            var builder = new StringBuilder(isAchievementBoard ? string.Empty : baseDescription.Trim());
+            // Stinky Jar, the last entry, was cut off. Summary plus list is 13. A compact notice board
+            // (CompactNoticeBoardUids) leaves it out for the same reason.
+            var builder = new StringBuilder(compact ? string.Empty : baseDescription.Trim());
+            if (!string.IsNullOrEmpty(legLine))
+            {
+                // Directly under the description, on a line of its own with no blank line before it. The
+                // pane cuts its TAIL when a board runs long (see ApplyDescriptionSizing), so a status line
+                // placed after the notices would be the first thing lost on exactly the fullest boards, and
+                // a blank line would cost a second of the 15 lines the box holds at its auto-size floor.
+                if (builder.Length > 0) builder.Append('\n');
+                builder.Append(legLine);
+            }
+            // The achievement board joins its summary and its list with one newline, not a blank line.
+            // Measured live 2026-10-04 (walkthrough T2.955): with Harsh Wilds installed the Northern Quarry
+            // entry makes the list 13 lines, so summary + blank line + list was 15 lines, exactly the box's
+            // capacity at its auto-size floor, and the fit probe logged lines=15 truncated=True fontSize=24.
+            // Without the blank line it is 14 with Harsh Wilds and 13 without. Every other board keeps its
+            // blank line between notices, except a compact notice board (CompactNoticeBoardUids), which
+            // joins its notices the same way.
+            string separator = compact ? "\n" : "\n\n";
             foreach (var section in sections)
             {
-                if (builder.Length > 0 || !isAchievementBoard)
+                if (builder.Length > 0 || !compact)
                 {
-                    builder.Append("\n\n");
+                    builder.Append(separator);
                 }
                 builder.Append(section);
             }
 
             return builder.ToString();
+        }
+
+        /// <summary>The one live "where is the villager right now" line for a villager's board, or null when
+        /// there is nothing true to say: the board is not a villager's, the villager has not moved in, their
+        /// position cannot be read, or the key has no row in the current language. Null never blanks a board,
+        /// it only leaves the line out, and every cause that is not the ordinary "not moved in" is reported once.</summary>
+        private static string BuildLegLine(string boardUid)
+        {
+            if (!LegLabelSources.TryGetValue(boardUid, out var source)) return null;
+
+            string key;
+            try { key = source(); }
+            catch (Exception ex)
+            {
+                WarnLegOnce("source-" + boardUid, $"[VillageHallBoardsPatch] The location source for board '{boardUid}' threw, so that board shows no location line: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                return null;
+            }
+            if (string.IsNullOrEmpty(key)) return null;
+
+            string text = LocalizedLegText(key);
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                WarnLegOnce("text-" + key, $"[VillageHallBoardsPatch] No localization row for '{key}', so board '{boardUid}' shows no location line.");
+                return null;
+            }
+            return text.Trim();
+        }
+
+        /// <summary>The current-language text of a CMC localization key: the same LocalizationManager.CurrentTexts
+        /// lookup GuardOutcomePatch.Localized and OutfitWardrobeSectionsPatch.OutfitLabel make, but with no English
+        /// fallback here. The CSV row is the only copy of the sentence, so a missing row is a reported fault
+        /// (BuildLegLine), never a quiet switch to a second copy kept in C#.</summary>
+        private static string LocalizedLegText(string key)
+        {
+            try
+            {
+                if (_localizationTextsField == null)
+                {
+                    var locType = CardUtil.FindGameType("LocalizationManager");
+                    _localizationTextsField = locType?.GetField("CurrentTexts",
+                        BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+                    if (_localizationTextsField == null)
+                    {
+                        WarnLegOnce("texts-field", "[VillageHallBoardsPatch] LocalizationManager.CurrentTexts was not found, so no board shows a location line.");
+                        return null;
+                    }
+                }
+                if (_localizationTextsField.GetValue(null) is Dictionary<string, string> texts
+                    && texts.TryGetValue(key, out var text))
+                {
+                    return text;
+                }
+            }
+            catch (Exception ex)
+            {
+                WarnLegOnce("texts-read", $"[VillageHallBoardsPatch] The localization table could not be read, so no board shows a location line: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+            return null;
+        }
+
+        private static void WarnLegOnce(string cause, string message)
+        {
+            if (WarnedLegCauses.Add(cause)) Plugin.Logger.LogWarning(message);
         }
 
         private static void AppendStatusLines(List<string> sections, string boardUid)
@@ -291,18 +429,39 @@ namespace CommunityModChest.Patcher
                     anyReadable = true;
                     if (value >= 0.5f) earned++;
                 }
-                if (anyReadable)
+                int total = AchievementEarnedStatUids.Length;
+                bool quarryShown = AchievementKillEffectsPatch.QuarryAvailable;
+                if (quarryShown)
                 {
-                    sections.Add($"Achievements earned: {earned} of {AchievementEarnedStatUids.Length}");
+                    total++;
+                    float quarryValue = VillageClock.ReadStat(gm, QuarryEarnedStatUid);
+                    if (quarryValue >= 0f)
+                    {
+                        anyReadable = true;
+                        if (quarryValue >= 0.5f) earned++;
+                    }
                 }
-
                 var lines = new List<string>();
+                string kingLine = null;
                 foreach (var action in GetVisibleBoardActions(card))
                 {
+                    if (!quarryShown && IsQuarryEntry(action)) continue; // G5: hidden without Harsh Wilds
                     string name = (action.ActionName != null ? action.ActionName.ToString() : string.Empty).Trim();
                     if (string.IsNullOrEmpty(name)) continue;
+                    if (IsEntryFor(action, KingEarnedStatUid)) { kingLine = name; continue; } // J15: printed on the summary line
                     lines.Add(name + ProgressSuffix(gm, action));
                 }
+
+                if (anyReadable)
+                {
+                    string summary = $"Achievements earned: {earned} of {total}";
+                    sections.Add(string.IsNullOrEmpty(kingLine) ? summary : summary + " | " + kingLine);
+                }
+                else if (!string.IsNullOrEmpty(kingLine))
+                {
+                    sections.Add(kingLine);
+                }
+
                 if (lines.Count > 0)
                 {
                     sections.Add(string.Join("\n", lines));
@@ -312,6 +471,18 @@ namespace CommunityModChest.Patcher
             {
                 Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to build achievement board sections: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        /// <summary>True for the two board entries (unclaimed and earned) of the Harsh Wilds quarry achievement,
+        /// recognised by the stat on their own RequiredStatValues gate, like <see cref="ProgressSuffix"/>.</summary>
+        private static bool IsQuarryEntry(DismantleCardAction action) => IsEntryFor(action, QuarryEarnedStatUid);
+
+        /// <summary>True for a board entry whose own RequiredStatValues gate reads <paramref name="earnedStatUid"/>.</summary>
+        private static bool IsEntryFor(DismantleCardAction action, string earnedStatUid)
+        {
+            var gates = action.RequiredStatValues;
+            return gates != null && gates.Length > 0 && gates[0].Stat != null
+                && string.Equals(gates[0].Stat.UniqueID, earnedStatUid, StringComparison.Ordinal);
         }
 
         /// <summary>" (n/total)" for a multi-part achievement that is not yet earned, otherwise empty.
@@ -408,12 +579,16 @@ namespace CommunityModChest.Patcher
             return char.ToUpperInvariant(text[0]) + text.Substring(1);
         }
 
-        private static List<string> GetVisibleBoardLines(InGameCardBase card)
+        /// <summary>One string per visible notice: its ActionDescription sentence, or, on a compact notice
+        /// board (<see cref="CompactNoticeBoardUids"/>), its shorter ActionName, as the achievement board prints
+        /// its entries. Both are localized CSV rows, so either follows the player's language.</summary>
+        private static List<string> GetVisibleBoardLines(InGameCardBase card, bool useNames)
         {
             var visible = new List<string>();
             foreach (var action in GetVisibleBoardActions(card))
             {
-                string line = (action.ActionDescription != null ? action.ActionDescription.ToString() : string.Empty).Trim();
+                var text = useNames ? action.ActionName : action.ActionDescription;
+                string line = (text != null ? text.ToString() : string.Empty).Trim();
                 if (!string.IsNullOrEmpty(line))
                 {
                     visible.Add(line);

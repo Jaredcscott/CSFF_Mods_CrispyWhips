@@ -1,0 +1,148 @@
+{
+    "UniqueID": "cmcIceSculpture",
+    "CardName": {
+        "ParentObjectID": "cmcIceSculpture",
+        "LocalizationKey": "CMC_IceSculpture_Placed_CardName",
+        "DefaultText": "Ice Sculpture"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcIceSculpture",
+        "LocalizationKey": "CMC_IceSculpture_Placed_CardDescription",
+        "DefaultText": "Blocks of ice carved into a figure. It keeps in the cold of winter and melts away when the weather turns."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcIceSculpture",
+        "LocalizationKey": "CMC_IceSculpture_Placed_CardHelpSection",
+        "DefaultText": "In freezing weather the sculpture holds and slowly recovers; otherwise it melts in about three days. <b>Take Apart:</b> Breaks it up; the ice is not recovered."
+    },
+    "CardType": 2,
+    "MapStructureType": 0,
+    "ObjectWeight": 3000.0,
+    "TradingValue": 0.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "KeepName": true,
+    "AlwaysUpdate": false,
+    "CardImageWarpData": "CMC_IceSculpture",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Preservable", "tag_Structure", "tag_Furniture"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Stone"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 288.0,
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "Spoilage",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "cmcIceSculpture",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcIceSculpture",
+                "LocalizationKey": "CMC_IceSculpture_Placed_Weathered",
+                "DefaultText": "The ice sculpture has melted away."
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcIceSculpture",
+                "LocalizationKey": "CMC_IceSculpture_Placed_DA_TakeApart",
+                "DefaultText": "Take Apart"
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": ["Stone"],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+12)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 12.0, "y": 12.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Freeze",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                        "StatWarpData": "d875c7e4eea52f54ca5076f256ccd16c",
+                        "StatWarpType": 3,
+                        "TriggerRange": { "x": -10000.0, "y": 0.0 },
+                        "NotifyWhenNotMet": false,
+                        "HideAllWhenNotMet": false
+                    }
+                ]
+            },
+            "StatModifiers": [],
+            "SpoilageRateModifier": { "Active": true, "FloatValue": 2.0 }
+        }
+    ],
+    "DurabilitySorting": { "SortingList": [] },
+    "OnlyShowPopupsWhenEquipped": false,
+    "MiniInventoryHideDurabilities": { "MaskValue": 0 },
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

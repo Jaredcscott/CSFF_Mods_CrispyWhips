@@ -1,0 +1,26 @@
+{
+  "target": "CMC_CurtainsOpen.png",
+  "sourceCard": "CardData/Blueprint/Bp_CMC_Curtains.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a pair of linen curtains that are CLOSED. Draw these exact same curtains: the same oatmeal-beige linen, the same dark wooden rod with a round knob at each end, the same fold style, colours, thin ink linework and flat cel-like shading, the same rod length, the same size and placement in the frame. Change only one thing: the curtains are now OPEN. Each panel is gathered to its own side and held there by a plain brown cord tie-back at about two-thirds of the way down, so a wide empty gap of plain white shows down the middle between the two panels; the gathered fabric bunches in tight folds at the tie and flares out below it to the hem.\nReference image 2 is a style reference only: match its ink linework, shading and palette; do not copy its subject.\nStyle: flat posterized colour fills in three or four tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture; thin dark ink outlines and small ink hatch and tick marks in the folds; nothing glossy.\nSingle subject centred with a generous white margin on a solid flat pure white background (#FFFFFF) filling every edge, no ground shadow, no scenery. No text, no watermark, no signature, no border, no frame.\nAvoid: closed curtains, panels meeting in the middle, a window, window frame, glass, sky or landscape in the gap, wall, room, tassels, patterns, lace, a different rod, a different fabric colour, footprints, tracks, watercolour, glossy highlights, photo, 3D render, scenery behind the subject, grey background, off-white background, checkerboard.",
+  "refs": [
+    {
+      "label": "installed CMC_CurtainsDrawn (composition)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653125943_343894f0_1791653126015_ea5bca9f.png"
+    },
+    {
+      "label": "vanilla Wood (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wood_1791652739500_9b610d7b.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791675038752_974bd1ef_1791675038874_65d9fdde.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Redo Review (second round, redrawn from the owner's notes on the first). Finished by /process-card-art."
+}

@@ -2,7 +2,8 @@
     "StartingPoint": true,
     "StartingConditions": {
         "RequiredStatValues": [
-            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 24.0}}
         ]
     },
     "Line": {
@@ -143,6 +144,23 @@
             },
             "NewNextLine": {
                 "NextStep": 2
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatMillerMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                    {"StatWarpData": "cmcStatInterlockS3", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_InterlockS3",
+                "DefaultText": "Any baking day coming up?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_InterlockS3Offer",
+                "NextLineWarpType": 3
             }
         },
         {

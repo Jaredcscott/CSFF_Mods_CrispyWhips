@@ -1,0 +1,37 @@
+{
+  "target": "CMC_ScentedCandle.png",
+  "sourceCard": [
+    "CardData/Item/ScentedCandle.json"
+  ],
+  "subject": "one unlit hand-dipped pale yellow beeswax candle, slightly uneven, with a short rope wick, standing upright, no holder",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one unlit hand-dipped pale yellow beeswax candle, slightly uneven, with a short rope wick, standing upright, no holder, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "a74vf6vTAAEn1YHjfQdR",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085929327_feb2d834_1791085929803_24bd4024.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Owner pick from the 2026-10-03 batch picker. predicted was written before the owner looked. Finished by /process-card-art (keyed on white).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085928960_d116e3c6_1791085929661_6a349653.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085929327_feb2d834_1791085929803_24bd4024.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085929301_892352b9_1791085929521_4348b72f.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

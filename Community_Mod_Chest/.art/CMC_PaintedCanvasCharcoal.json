@@ -1,0 +1,19 @@
+{
+  "target": "CMC_PaintedCanvasCharcoal.png",
+  "sourceCard": "CardData/Location/CMC_CanvasCharcoal_Placed.json",
+  "subject": "a painted canvas picture: a plain rectangular unframed stretched cloth canvas tied at the top corners with twine, painted with a simple abstract landscape of rolling hills and a low sun in black charcoal ink only, soft grey and deep black washes on cream cloth",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: ornate gilded frame, easel, wall, paintbrushes, colour other than black and grey",
+  "historyId": "7CiUPi8JdJotmWvKcPAN",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125623867_4f39e2ec_1791125624726_5ae7322c.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase H closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_CanvasCharcoal.json. One of three colour variants that replace the single shared CMC_PaintedCanvas name. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

@@ -1,0 +1,28 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatStallTheftState", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_GuardTalk_TheftNotFound_Line",
+        "DefaultText": "About your stall. We asked about and walked the lanes, and there is no sign of what was taken. Whoever it was is long gone, and so are your goods. I am sorry."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_GuardTalk_TheftNotFound_Answer_Understood",
+                "DefaultText": "I understand. Thank you for trying."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatStallTheftState", "StatWarpType": 3, "ValueModifier": {"x": -4.0, "y": -4.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

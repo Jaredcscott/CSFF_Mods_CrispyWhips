@@ -1,0 +1,30 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 4.0}},
+            {"StatWarpData": "cmcStatInnOverheardCooldown", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}},
+            {"StatWarpData": "cmcStatInnOverheardIndex", "StatWarpType": 3, "TriggerRange": {"x": 3.0, "y": 3.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Overheard_Academy_Line",
+        "DefaultText": "Lectures, that's the talk by the fire. Half the table swears the Professor's teaching is worth the walk up the road, and the other half admits they only go for the warm room."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Overheard_Academy_Answer",
+                "DefaultText": "A warm room is a fine reason to study."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnOverheardCooldown", "StatWarpType": 3, "ValueModifier": {"x": 72.0, "y": 72.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnOverheardIndex", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

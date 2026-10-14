@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatWeaverOrderDue",
+    "GameName": {
+        "LocalizationKey": "CMC_WeaverOrderDue_StatName",
+        "DefaultText": "Weaver's Commission Due Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WeaverOrderDue_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = no order. 0.5 = an order just placed, waiting for C# to arm it. 1 or more = the absolute day the cloth is ready; it is delivered when you next stand in the Weaver's cottage on or after that day."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 100000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

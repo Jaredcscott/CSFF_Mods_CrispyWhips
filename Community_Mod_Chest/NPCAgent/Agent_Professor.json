@@ -469,6 +469,32 @@
                                 "x": 1,
                                 "y": 1
                             },
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 3,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 1.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
                             "DropChance": {
                                 "Active": true,
                                 "BaseDropChance": 45.0
@@ -714,7 +740,7 @@
                             }
                         },
                         {
-                            "DroppedCardWarpData": "water_sawmill_copper_rivet",
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
                                 "x": 1,
@@ -810,6 +836,18 @@
                             "DropChance": {
                                 "Active": true,
                                 "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "herbs_fungi_hemp_seeds",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 25.0
                             }
                         },
                         {
@@ -1074,11 +1112,37 @@
                             }
                         },
                         {
-                            "DroppedCardWarpData": "act_iron_nail",
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
                                 "x": 1,
                                 "y": 1
+                            },
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 3,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 200.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
                             },
                             "DropChance": {
                                 "Active": true,
@@ -1215,6 +1279,32 @@
                                 "x": 1,
                                 "y": 1
                             },
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 3,
+                                "Special3": 3,
+                                "Special4": 3,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 50.0,
+                                "Special3Value": 50.0,
+                                "Special4Value": 100.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            },
                             "DropChance": {
                                 "Active": true,
                                 "BaseDropChance": 1.7
@@ -1280,6 +1370,48 @@
             "ForTradingDirection": 2,
             "ModifierMode": 1,
             "SimpleModifier": 1.5,
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.5},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.015},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatMarketDay",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 1.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.02},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
             "NPCStatModifiers": [
                 {
                     "StatWarpData": "cmcStatProfessorTrust",
@@ -1304,6 +1436,38 @@
             "ForTradingDirection": 1,
             "ModifierMode": 1,
             "SimpleModifier": 0.5,
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.25},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.015},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
             "NPCStatModifiers": [
                 {
                     "StatWarpData": "cmcStatProfessorTrust",

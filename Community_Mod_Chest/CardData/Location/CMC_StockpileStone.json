@@ -1,0 +1,202 @@
+{
+    "UniqueID": "cmcStockpileStone",
+    "CardName": {
+        "ParentObjectID": "cmcStockpileStone",
+        "LocalizationKey": "CMC_StockpileStone_CardName",
+        "DefaultText": "Stone Stockpile"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcStockpileStone",
+        "LocalizationKey": "CMC_StockpileStone_CardDescription",
+        "DefaultText": "A low stone-walled bay that keeps loose Stones as one tidy count. Drag Stones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcStockpileStone",
+        "LocalizationKey": "CMC_StockpileStone_CardHelpSection",
+        "DefaultText": "<b>Fullness:</b> how many Stones are stored, out of 50. <b>Stack the Stones:</b> Drag a Stone onto the bay to store it; a full bay refuses and keeps the Stone in your hand. <b>Take One, Take Five:</b> Hands back that many Stones, or whatever is left. <b>Take Apart:</b> Hands back every stored Stone and two Planks."
+    },
+    "CardType": 2,
+    "MapStructureType": 0,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "KeepName": true,
+    "AlwaysUpdate": false,
+    "CardImageWarpData": "CMC_StockpileStone",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": {
+        "Active": true,
+        "CardStatName": {
+            "LocalizationKey": "CMC_StockpileStone_SD1_Name",
+            "DefaultText": "Fullness"
+        },
+        "FloatValue": 0.0,
+        "MaxValue": 50.0,
+        "RatePerDaytimePoint": 0.0
+    },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcStockpileStone",
+                "LocalizationKey": "CMC_StockpileStone_CI_Stack",
+                "DefaultText": "Stack the Stones"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcStockpileStone",
+                "LocalizationKey": "CMC_StockpileStone_CI_Stack_Desc",
+                "DefaultText": "Store the dragged Stone in the bay: it becomes one more on the count."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "StackCompatible": true,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 99.0,
+                    "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "LocalizationKey": "CMC_StockpileStone_CI_Stack_Full",
+                    "DefaultText": "The stockpile is full."
+                }
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": ["a7384e5147b23a642809451cc4ef24fb"],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "GivenCardChanges": { "ModType": 3 },
+            "ReceivingCardChanges": { "ModType": 0 },
+            "ProducedCards": []
+        }
+    ],
+    "CardInteractionsWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcStockpileStone",
+                "LocalizationKey": "CMC_StockpileStone_DA_TakeOne",
+                "DefaultText": "Take One Stone"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcStockpileStone",
+                "LocalizationKey": "CMC_StockpileStone_DA_TakeOne_Desc",
+                "DefaultText": "Take one Stone back out of the stockpile."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcStockpileStone",
+                "LocalizationKey": "CMC_StockpileStone_DA_TakeFive",
+                "DefaultText": "Take Five Stones"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcStockpileStone",
+                "LocalizationKey": "CMC_StockpileStone_DA_TakeFive_Desc",
+                "DefaultText": "Take five Stones back out of the stockpile, or whatever is left if fewer."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcStockpileStone",
+                "LocalizationKey": "CMC_StockpileStone_DA_TakeApart",
+                "DefaultText": "Take Apart"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcStockpileStone",
+                "LocalizationKey": "CMC_StockpileStone_DA_TakeApart_Desc",
+                "DefaultText": "Dismantle the bay: every stored Stone and two Planks come back."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 },
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 3,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 1.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "DismantleActionsWarpType": 3,
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "DurabilitySorting": { "SortingList": [] },
+    "OnlyShowPopupsWhenEquipped": false,
+    "MiniInventoryHideDurabilities": { "MaskValue": 0 },
+    "MaxLiquidCapacity": 0.0,
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

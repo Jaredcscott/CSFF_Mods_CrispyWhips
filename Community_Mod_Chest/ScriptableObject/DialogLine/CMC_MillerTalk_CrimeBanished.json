@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 60.0, "y": 100.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_CrimeBanished_Line",
+        "DefaultText": "You. I've nothing to say to you, and I'd sooner you said nothing to me. The village has made up its mind, and I'm not about to argue with the village. My door isn't barred, mind. That's all the welcome there is."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_CrimeBanished_Answer_Understood",
+                "DefaultText": "Understood."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_CrimeBanished_Answer_Leave",
+                "DefaultText": "I'll go."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

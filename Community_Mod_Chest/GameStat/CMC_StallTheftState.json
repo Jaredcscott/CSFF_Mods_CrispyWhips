@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatStallTheftState",
+    "GameName": {
+        "LocalizationKey": "CMC_StallTheftState_StatName",
+        "DefaultText": "Stall Theft Report State"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_StallTheftState_StatDescription",
+        "DefaultText": "Hidden clamped marker for reporting a Market Stall robbery to the Watch, one open report at a time: 0 = none, 1 = a stolen item waits to be reported, 2 = reported and waiting for the due day, 3 = the Watch found it and it comes back on your next visit to the Village, 4 = the Watch found nothing and a guard will say so. Never a counter: the stall robbery sets 1, a guard's Talk line sets 2, the recovery check sets 3 or 4, and delivery or the guard's 'not found' line puts it back to 0."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 4.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

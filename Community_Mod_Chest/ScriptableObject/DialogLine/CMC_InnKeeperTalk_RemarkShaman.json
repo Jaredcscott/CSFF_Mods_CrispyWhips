@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatAchShaman", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 1.0}},
+            {"StatWarpData": "cmcStatInnShamanRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_RemarkShaman_Line",
+        "DefaultText": "You've come to hold a bound spirit of every kind, animal and fish alike. My mother's village kept a single one on the windowsill and spoke to it softly. You've collected the lot. I wouldn't leave them alone in the dark together."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_RemarkShaman_Answer",
+                "DefaultText": "They get on better than the village does."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnShamanRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

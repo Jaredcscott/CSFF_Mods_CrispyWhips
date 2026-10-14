@@ -1,0 +1,19 @@
+{
+  "target": "CMC_LogBench.png",
+  "sourceCard": "CardData/Location/CMC_LogBench_Placed.json",
+  "subject": "a rough log bench: half a thick pale-barked log split lengthwise and set flat side up as a seat, resting on four short stout splayed peg legs of the same wood, the round bark side underneath, visible axe-cut texture on the flat seat, no back and no arms",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: backrest, armrests, cushion, planks, grass, person",
+  "historyId": "HiHJgnUj6umnv9E0EFyT",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125628088_83811556_1791125628488_f0853356.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase H closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_LogBench.json. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

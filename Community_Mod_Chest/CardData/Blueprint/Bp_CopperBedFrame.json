@@ -8,13 +8,13 @@
     "CardDescription": {
         "ParentObjectID": "comfortbpcopperbedframe",
         "LocalizationKey": "Comfort_Bp_CopperBedFrame_CardDescription",
-        "DefaultText": "Build a bed frame from wood planks braced with hammered copper sheet joints. Requires the Copper Sheet blueprint (Advanced Copper Tools)."
+        "DefaultText": "Build a bed frame from wood planks braced with hammered copper sheet joints. Requires copper Metal Sheets (the Metal Sheet blueprint)."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "comfortbpcopperbedframe",
         "LocalizationKey": "Comfort_Bp_CopperBedFrame_UnlockConditionsDesc",
-        "DefaultText": "Earn the Inn Keeper's friendship (30) and a Copper Sheet (Advanced Copper Tools)"
+        "DefaultText": "Earn the Inn Keeper's friendship (30) and a Metal Sheet"
     },
     "StartUnlocked": false,
     "CardsOnBoard": [

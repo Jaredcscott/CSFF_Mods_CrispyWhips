@@ -12,10 +12,11 @@
         "DefaultText": "A cloth hood with a short cape, rubbed through with charcoal pigment until it darkens to a deep soot-black. More coverage than a simple coif. The dye is purely cosmetic — it hides ash and grime well, but offers nothing the plain cloth doesn't.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
     },
     "CardType": 0,
-    "CardImageWarpData": "Chaperon",
+    "CardImageWarpData": "CMC_ChaperonDyedCharcoal",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
-        "tag_Clothing"
+        "tag_Clothing",
+        "tag_CMCColdWeatherApparel"
     ],
     "CardTagsWarpType": 3,
     "ObjectWeight": 200.0,

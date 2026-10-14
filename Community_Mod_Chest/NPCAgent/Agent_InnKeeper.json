@@ -324,6 +324,9 @@
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInterlockS3", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["7900a60c205568640a887f30cc6ff8f9", "730e96f4b2a7540448604cd0c1644e97"],
                 "TriggerCardsWarpType": 3
@@ -349,8 +352,39 @@
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInterlockS5", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["potterysculptureherbpaste"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_Commission_ActionName",
+                "DefaultText": "Hire a Hunter"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_Commission_ActionDescription",
+                "DefaultText": "Pay the Inn Keeper one Salt, a metal Nugget or a coin and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnHunterOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnHunterOrder", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatInnHunterOrderDue", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa", "4b0f4937a5ecb90499428c8c10288afc", "e5f5d2a633f3437780d6198c3d1e9fdd"],
                 "TriggerCardsWarpType": 3
             }
         }
@@ -389,6 +423,64 @@
                             "DroppedCardWarpType": 3,
                             "Quantity": {"x": 0, "y": 1}
                         }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "InnKeeperRestock_ACT",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperRestock_ACT"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn pantry restock - Advanced Copper Tools teas",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "advanced_copper_tools_focus_tea", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "advanced_copper_tools_calming_tea", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "advanced_copper_tools_warming_tea", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "InnKeeperRestock_HF",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperRestock_HF"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn pantry restock - Herbs & Fungi",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "herbs_fungi_mushroom_pasty", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "herbs_fungi_wild_berry_pasty", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "herbs_fungi_trail_mix", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "InnKeeperRestock_Sirus",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperRestock_Sirus"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn pantry restock - Sirus23 Sheep Husbandry",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "sh_sheep_cheese", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 1}}
                     ],
                     "DropCardsInsideInventory": true
                 }
@@ -482,7 +574,8 @@
                 {
                     "CollectionName": "Inn Keeper chest savings",
                     "DroppedCards": [
-                        { "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": { "x": 5, "y": 5 } }
+                        { "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": { "x": 5, "y": 5 } },
+                        { "DroppedCardWarpData": "e5f5d2a633f3437780d6198c3d1e9fdd", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 }, "TransferRules": { "Special4": 3, "Special4Value": 100.0 } }
                     ],
                     "DropCardsInsideInventory": true
                 }
@@ -582,6 +675,46 @@
                         "OutputValueRange": {"x": 0.0, "y": -0.3},
                         "WhenOutOfRange": 1
                     }
+                },
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.5},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.015},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatMarketDay",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 1.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.02},
+                        "WhenOutOfRange": 1
+                    }
                 }
             ]
         },
@@ -597,6 +730,36 @@
                         "Active": true,
                         "InputValueRange": {"x": 0.0, "y": 20.0},
                         "OutputValueRange": {"x": 0.0, "y": 0.15},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.25},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.015},
                         "WhenOutOfRange": 1
                     }
                 }

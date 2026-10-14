@@ -21,7 +21,8 @@
   "CardImageWarpData": "QuiltedVest",
   "CardImageWarpType": 3,
   "CardTagsWarpData": [
-    "tag_Clothing"
+    "tag_Clothing",
+    "tag_CMCColdWeatherApparel"
   ],
   "CardTagsWarpType": 3,
   "EquipmentTags": [],

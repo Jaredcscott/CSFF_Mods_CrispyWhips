@@ -1,0 +1,89 @@
+{
+    "UniqueID": "cmcTrgKingOfTheForest",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcTrgKingOfTheForest",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "King of the Forest"
+            },
+            "RepeatOptions": 1,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatInnFriendship",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 24.0, "y": 30.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatMillerTrustMirror",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 80.0, "y": 100.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatWeaverTrustMirror",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 80.0, "y": 100.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatApothecaryTrustMirror",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 80.0, "y": 100.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatProfessorTrustMirror",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 80.0, "y": 100.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatVillageReputation",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 100.0, "y": 100.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatAchKing",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatAchKing",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 1.0, "y": 1.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "BlueprintsFullUnlockWarpData": ["cmcbpthrone", "cmcbpcrown"],
+            "BlueprintsFullUnlockWarpType": 3
+        }
+    ]
+}

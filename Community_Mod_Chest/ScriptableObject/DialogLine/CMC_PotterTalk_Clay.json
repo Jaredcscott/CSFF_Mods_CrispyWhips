@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_PotterTalk_Clay_Line",
+        "DefaultText": "Riverbanks, where the water slows and leaves the fine stuff behind. Dig below the top layer, work the stones out with your thumbs, and keep it wet until you use it."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_Clay_Answer_Bye",
+                "DefaultText": "I'll remember that."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

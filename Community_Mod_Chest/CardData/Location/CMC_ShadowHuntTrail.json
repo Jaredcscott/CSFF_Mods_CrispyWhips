@@ -1,0 +1,49 @@
+{
+    "UniqueID": "cmcShadowHuntTrail",
+    "CardType": 2,
+    "CardName": {
+        "LocalizationKey": "CMC_ShadowHuntTrail_CardName",
+        "DefaultText": "Shadow's Trail"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_ShadowHuntTrail_CardDescription",
+        "DefaultText": "A few black hairs caught on a stalk and a line of light paw prints heading off toward the Foraging Forest. Shadow has gone hunting in the dark. He comes back on his own after a few hours, as long as you are here to meet him."
+    },
+    "CardImageWarpData": "Tracks",
+    "CardImageWarpType": 3,
+    "CanBeRenamed": false,
+    "ObjectWeight": 0.0,
+    "CannotBeTrashed": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 288.0,
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2,
+        "HasActionOnZero": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 144.0,
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2,
+        "HasActionOnZero": false
+    },
+    "FuelCapacity": {"Active": false},
+    "Progress": {"Active": false},
+    "SpecialDurability1": {"Active": false},
+    "SpecialDurability2": {"Active": false},
+    "SpecialDurability3": {
+        "Active": true,
+        "FloatValue": 70.0,
+        "MaxValue": 100.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2,
+        "HasActionOnZero": false
+    },
+    "SpecialDurability4": {"Active": false},
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveStatEffects": []
+}

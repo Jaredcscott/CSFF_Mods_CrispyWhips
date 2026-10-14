@@ -1,0 +1,45 @@
+{
+  "target": "CMC_TrainingPostKit.png",
+  "sourceCard": "CardData/Item/CMC_TrainingPostKit.json",
+  "subject": "a wooden training post standing in a grassy village yard: one thick upright timber post sunk into the ground, its upper half wrapped in padded tan sackcloth bound with rope, one short round wooden arm sticking out sideways from the padding, a wooden practice sword leaning against its base, timber houses and green trees softly in the background.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 shows the FORMAT to copy, one of our other kit cards: a closed rectangular cardboard model-kit box drawn in three-quarter view, standing upright, its front panel a full painted cover illustration framed by a thin dark green border, a large bold cream title in capital letters across the bottom of the front panel, the same name in smaller cream capitals running up the narrow left side panel, the box's top edge visible. Draw a NEW box in exactly that format, the same box shape, proportions, border, lettering style and painting style.\nReference image 2 is a STYLE reference for the cover painting (art from the game Card Survival: Fantasy Forest): match its flat shading and palette.\nFront cover painting: a wooden training post standing in a grassy village yard: one thick upright timber post sunk into the ground, its upper half wrapped in padded tan sackcloth bound with rope, one short round wooden arm sticking out sideways from the padding, a wooden practice sword leaning against its base, timber houses and green trees softly in the background.\nThe large title on the front reads exactly \"TRAINING POST KIT\" and the side panel reads exactly \"TRAINING POST KIT\"; spell every word correctly; no other words anywhere on the box.\nThe box alone, centred, with a white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery outside the box. No watermark, no signature, no frame.\nAvoid: misspelled text, extra words, a logo, a price tag, an open box, loose parts outside the box, photo, 3D render, glossy plastic, grey background, off-white background, checkerboard, footprints, tracks, a person, a fighter, a waterwheel, a mill.",
+  "refs": [
+    {
+      "label": "WDI SawmillKit (kit format reference)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/SawmillKit_1791539240019_5e25906f.png"
+    },
+    {
+      "label": "vanilla Woods1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods1_1791745308283_a2624cc3.png"
+    }
+  ],
+  "historyId": "fNfdOP8X2tT6nxefrZ81",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798492604_10459625_1791798492853_199a97f0.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed by process_card_art.py, trimmed palette PNG",
+  "note": "owner gallery rework 2026-10-12: should match the rest of our kits like WDI Kit-box form copied from WDI SawmillKit. Side panel duplicated a word ('TRAINING POST / POST KIT'); fixed locally the same way, now 'TRAINING POST / KIT'.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798492604_10459625_1791798492853_199a97f0.png",
+      "historyId": "fNfdOP8X2tT6nxefrZ81",
+      "verdict": "shipped"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652798921_a9108054_1791652799248_1f37f12a.png",
+    "generated": "2026-10-10",
+    "note": "the picture this rework replaced"
+  }
+}

@@ -7,10 +7,10 @@
     "LocalizationKey": "CMC_MarketStall_CardName"
   },
   "CardDescription": {
-    "DefaultText": "A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls.",
+    "DefaultText": "A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each), or, with DurosCoinage installed, Duros coins. Thieves occasionally target unattended stalls.",
     "LocalizationKey": "CMC_MarketStall_CardDesc"
   },
-  "CardImage": "CMC_MarketStall",
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardImageWarpData": "CMC_MarketStall",
   "CardImageWarpType": 3,
   "CardHelpSection": {
@@ -73,6 +73,24 @@
     },
     {
       "ActionName": {
+        "DefaultText": "Collect as Coins",
+        "LocalizationKey": "CMC_MarketStall_DA_CollectCoins"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatDurosPresent", "StatWarpType": 3, "TriggerRange": { "x": 0.5, "y": 1.5 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
         "DefaultText": "Pack Up Stall",
         "LocalizationKey": "CMC_MarketStall_DA_PackUp"
       },
@@ -80,10 +98,22 @@
       "UseMiniTicks": 0,
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "Stall Kit",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "cmcmarketstallkit",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
       "ReceivingCardChanges": {
-        "ModType": 3,
-        "DroppedCardWarpData": "cmcmarketstallkit",
-        "DroppedCardWarpType": 3
+        "ModType": 3
       }
     },
     {

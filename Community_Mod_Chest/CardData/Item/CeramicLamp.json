@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "ceramiclamp",
         "LocalizationKey": "CeramicLamp_CardDescription",
-        "DefaultText": "A small open clay lamp with a wick channel. Burns fat for steady light. Fill with fat then light from a fire source."
+        "DefaultText": "A small open clay lamp with a wick channel. Burns fat or lamp oil for steady light. Fill it with fat or a bowl of oil and light it from a fire source."
     },
     "CardType": 0,
     "ObjectWeight": 150.0,
@@ -34,9 +34,9 @@
         "CardStatName": {
             "ParentObjectID": "ceramiclamp",
             "LocalizationKey": "CeramicLamp_FuelCapacity_CardStatName",
-            "DefaultText": "Fat"
+            "DefaultText": "Fuel"
         },
-        "MaxValue": 48.0,
+        "MaxValue": 96.0,
         "RatePerDaytimePoint": 0.0,
         "HidingOptions": 1,
         "TextDisplay": 0,
@@ -94,13 +94,77 @@
             "ReceivingCardChanges": {
                 "ModType": 1,
                 "FuelChange": {
-                    "x": 24.0,
-                    "y": 24.0
+                    "x": 48.0,
+                    "y": 48.0
                 }
             },
             "GivenCardChanges": {
                 "ModType": 3
             }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "ceramiclamp",
+                "LocalizationKey": "CeramicLamp_RefuelOil_ActionName",
+                "DefaultText": "Refuel with Oil"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "ceramiclamp",
+                "LocalizationKey": "CeramicLamp_RefuelOil_ActionDescription",
+                "DefaultText": "Pour a bowl of oil into the lamp's reservoir. The empty bowl comes back to you."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Drink"
+            ],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_Oil"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "StackCompatible": true,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "FuelChange": {
+                    "x": 48.0,
+                    "y": 48.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
             "ActionName": {
@@ -131,7 +195,7 @@
                 "FailMessage": {
                     "ParentObjectID": "ceramiclamp",
                     "LocalizationKey": "CeramicLamp_NeedsFuel",
-                    "DefaultText": "The lamp needs fat first."
+                    "DefaultText": "The lamp needs fat or oil first."
                 }
             },
             "CompatibleCards": {

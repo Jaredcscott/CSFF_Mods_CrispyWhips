@@ -1,0 +1,69 @@
+{
+    "UniqueID": "cmcfoundersmonument",
+    "CardType": 2,
+    "CardName": {
+        "ParentObjectID": "cmcfoundersmonument",
+        "LocalizationKey": "CMC_FoundersMonument_CardName",
+        "DefaultText": "Founder's Monument"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcfoundersmonument",
+        "LocalizationKey": "CMC_FoundersMonument_CardDescription",
+        "DefaultText": "A squared stone set on the village square, cut with the names of everyone who helped raise the place. The villagers raised it when your good standing in the village reached its full mark. It is not yours to take down, and standing near it is a comfort."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcfoundersmonument",
+        "LocalizationKey": "CMC_FoundersMonument_CardHelpSection",
+        "DefaultText": "Founder's Monument: appears once in the Village after your Village Reputation first reaches its full mark. Adds 6 Comfort while you are in the village. It cannot be taken down."
+    },
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "CMC_FoundersMonument",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpType": 3,
+    "ObjectWeight": 100000.0,
+    "TradingValue": 0.0,
+    "DoesNotPile": true,
+    "UniqueOnBoard": true,
+    "CannotBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["Stone"],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "DismantleActionsWarpType": 3,
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+6)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 6.0, "y": 6.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

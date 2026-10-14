@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 60.0, "y": 100.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_PotterTalk_CrimeBanished_Line",
+        "DefaultText": "You shouldn't be here, and I shouldn't be seen talking to you. I'll still sell you a pot, at a price that pays for the risk. That's all."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_CrimeBanished_Answer_NoHarm",
+                "DefaultText": "I mean no harm."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_CrimeBanished_Answer_Leave",
+                "DefaultText": "I'll go."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

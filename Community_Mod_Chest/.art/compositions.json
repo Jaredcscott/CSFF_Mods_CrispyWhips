@@ -32,5 +32,24 @@
     "framing": "waist-up three-quarter portrait, 2:3",
     "finish": "full-bleed",
     "use": "CottageSpriteName in Patcher/CottageResidentSchedulePatch.cs"
+  },
+  "CMC_Potter_Inn": {
+    "anchor": true,
+    "character": "Potter",
+    "scene": "Inn",
+    "props": [],
+    "action": "relaxing at the inn in the evening, seated at a plank table eating a bowl of stew: a wooden spoon of stew near his mouth with a warm closed-mouth smile, a terracotta bowl of stew, a loaf of bread and a plain clay cup on the table; behind him the timber wall with hanging herbs and the lantern, on the right the stone fireplace with the iron cauldron (redrawn 2026-10-12 from the owner note: the background did not match the inn interior)",
+    "framing": "waist-up three-quarter portrait, 2:3",
+    "finish": "full-bleed",
+    "use": "AgentImageWarpData in NPCAgent/Agent_Potter.json and the board art of CardData/Location/CMC_BoardPotter.json"
+  },
+  "CMC_Potter_Stall": {
+    "character": "Potter",
+    "scene": "Market Stall (CMC_MarketStallDressed.png)",
+    "props": [],
+    "action": "working the stall on market day, behind a plank counter of painted clay bowls, cups and a tall vase, holding up a small clay cup, the striped awning over his head",
+    "framing": "waist-up three-quarter portrait, 2:3",
+    "finish": "full-bleed",
+    "use": "StallSpriteName in Patcher/PotterSchedulePatch.cs"
   }
 }

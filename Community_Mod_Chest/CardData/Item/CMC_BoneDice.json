@@ -7,7 +7,7 @@
     },
     "CardDescription": {
         "LocalizationKey": "CMC_BoneDice_CardDescription",
-        "DefaultText": "A pair of dice carved from bone and rubbed smooth with a thumb. Passing an idle evening rolling them is a small comfort against a long, quiet night."
+        "DefaultText": "A pair of dice carved from bone and rubbed smooth with a thumb. Passing an idle evening rolling them is a small comfort against a long, quiet night. A tamed cat will chase them, too."
     },
     "CardImageWarpData": "CMC_BoneDice",
     "CardImageWarpType": 3,
@@ -47,7 +47,50 @@
         "Active": false
     },
     "CardInteractions": [],
-    "DismantleActions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_BoneDice_DA_Roll",
+                "DefaultText": "Roll the Dice"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_BoneDice_DA_Roll_Desc",
+                "DefaultText": "Rattle them in a cupped hand and let them fall. Only a pair of numbers, but it passes a quarter hour."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "AlwaysShow": true,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -5.0,
+                        "y": -5.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4.0,
+                        "y": 4.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        }
+    ],
     "PassiveEffects": [
         {
             "EffectName": "Comfort (+8)",

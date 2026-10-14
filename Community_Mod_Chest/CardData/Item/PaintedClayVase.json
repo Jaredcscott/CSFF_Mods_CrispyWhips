@@ -71,7 +71,40 @@
     },
     "MaxLiquidCapacity": 40.0,
     "IsMiniInventory": true,
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "potterysculpturepaintedvase",
+                "LocalizationKey": "Pottery_Sculpture_PaintedVase_CI_Arrange",
+                "DefaultText": "Arrange Flowers"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "potterysculpturepaintedvase",
+                "LocalizationKey": "Pottery_Sculpture_PaintedVase_CI_Arrange_Desc",
+                "DefaultText": "Set fresh flowers in the vase. They wilt in about three days. Water in the vase is spilled."
+            },
+            "DaytimeCost": 1,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "potterysculpturepaintedvaseflowers",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "CompatibleCards": {
+                "TriggerTagsWarpData": [
+                    "tag_Flower"
+                ],
+                "TriggerTagsWarpType": 3,
+                "TriggerCardsWarpData": [
+                    "022d83d74a3b5df4e9f50e70d216d4c0"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
     "DismantleActions": [],
     "PassiveEffects": [
         {

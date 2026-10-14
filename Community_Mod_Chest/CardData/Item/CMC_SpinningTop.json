@@ -7,7 +7,7 @@
     },
     "CardDescription": {
         "LocalizationKey": "CMC_SpinningTop_CardDescription",
-        "DefaultText": "A small wooden top whittled to a point and wound with cord. Give it a sharp twist and watch it spin — simple, but it never quite gets old."
+        "DefaultText": "A small wooden top whittled to a point and wound with cord. Give it a sharp twist and watch it spin: simple, but it never quite gets old. A tamed cat will chase it, too."
     },
     "CardImageWarpData": "CMC_SpinningTop",
     "CardImageWarpType": 3,
@@ -47,7 +47,50 @@
         "Active": false
     },
     "CardInteractions": [],
-    "DismantleActions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_SpinningTop_DA_Spin",
+                "DefaultText": "Spin the Top"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_SpinningTop_DA_Spin_Desc",
+                "DefaultText": "A sharp pull of the cord, and it hums across the floor until it wobbles and tips over."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "AlwaysShow": true,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -5.0,
+                        "y": -5.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4.0,
+                        "y": 4.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        }
+    ],
     "PassiveEffects": [
         {
             "EffectName": "Comfort (+10)",

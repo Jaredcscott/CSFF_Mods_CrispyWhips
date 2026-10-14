@@ -1,38 +1,45 @@
 {
   "target": "CMC_HuntingStandKit.png",
   "sourceCard": "CardData/Item/HuntingStandKit.json",
-  "subject": "a bundle of rough wooden planks and two long straight poles lying horizontally, tied together with coils of rope, a spare coil of rope lashed on top",
+  "subject": "a simple elevated hunting stand in a quiet forest at dawn: a small square platform of rough planks lashed with rope to the trunk of one big tree about one third of the way up, a plain pole ladder leaning against it, no roof and no railing, mossy ground and ferns around the base, tall trees and soft green light behind.",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
   "params": {
-    "imageCount": 3,
+    "imageCount": 1,
     "aspectRatio": "2:3",
-    "resolution": "2K",
+    "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of a bundle of rough wooden planks and two long straight poles lying horizontally, tied together with coils of rope, a spare coil of rope lashed on top, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, tree, assembled platform, ladder, cart, saw, axe.",
-  "historyId": "fv6g97Xix2BO3l7tbLOL",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783717680_2706c10c_1789783718317_4f014a56.png",
-  "credits": 90,
-  "generated": "2026-09-18",
-  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Plank' on CardData/Item/HuntingStandKit.json, CardData/Blueprint/Bp_HuntingStand.json.",
+  "prompt": "Reference image 1 shows the FORMAT to copy, one of our other kit cards: a closed rectangular cardboard model-kit box drawn in three-quarter view, standing upright, its front panel a full painted cover illustration framed by a thin dark green border, a large bold cream title in capital letters across the bottom of the front panel, the same name in smaller cream capitals running up the narrow left side panel, the box's top edge visible. Draw a NEW box in exactly that format, the same box shape, proportions, border, lettering style and painting style.\nReference image 2 is a STYLE reference for the cover painting (art from the game Card Survival: Fantasy Forest): match its flat shading and palette.\nFront cover painting: a simple elevated hunting stand in a quiet forest at dawn: a small square platform of rough planks lashed with rope to the trunk of one big tree about one third of the way up, a plain pole ladder leaning against it, no roof and no railing, mossy ground and ferns around the base, tall trees and soft green light behind.\nThe large title on the front reads exactly \"HUNTING STAND KIT\" and the side panel reads exactly \"HUNTING STAND KIT\"; spell every word correctly; no other words anywhere on the box.\nThe box alone, centred, with a white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery outside the box. No watermark, no signature, no frame.\nAvoid: misspelled text, extra words, a logo, a price tag, an open box, loose parts outside the box, photo, 3D render, glossy plastic, grey background, off-white background, checkerboard, footprints, tracks, a hunter, a deer, a waterwheel, a mill.",
+  "refs": [
+    {
+      "label": "WDI SawmillKit (kit format reference)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/SawmillKit_1791539240019_5e25906f.png"
+    },
+    {
+      "label": "vanilla Woods1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods1_1791745308283_a2624cc3.png"
+    }
+  ],
+  "historyId": "5O5OhTJTdM2FYG8LPKKR",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798490362_4ffab702_1791798490420_5447b27b.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed by process_card_art.py, trimmed palette PNG",
+  "note": "owner gallery rework 2026-10-12: looks AI generated this is poor quality we want to have kits like the WDI kits Kit-box form copied from WDI SawmillKit. The model duplicated a word on the side panel ('HUNTING STAND / STAND KIT'); fixed locally (fixside.py: second-line word painted out with the panel colour, 'KIT' moved up) so the side reads 'HUNTING STAND / KIT'.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783716603_2ec53537_1789783717149_aa1621a7.png",
-      "verdict": "planks and rope coil; poles hard to tell from planks"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783717023_a4d25175_1789783717261_b22d5355.png",
-      "verdict": "bundle tied with a bow; no spare rope coil"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783717680_2706c10c_1789783718317_4f014a56.png",
-      "verdict": "PICK: rough planks with two long poles clearly protruding, tied with rope, a spare coil lashed on top"
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798490362_4ffab702_1791798490420_5447b27b.png",
+      "historyId": "5O5OhTJTdM2FYG8LPKKR",
+      "verdict": "shipped"
     }
   ],
-  "picked": "C",
-  "predicted": "C"
+  "picked": "A",
+  "predicted": "A",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783717680_2706c10c_1789783718317_4f014a56.png",
+    "generated": "2026-09-18",
+    "note": "the picture this rework replaced"
+  }
 }

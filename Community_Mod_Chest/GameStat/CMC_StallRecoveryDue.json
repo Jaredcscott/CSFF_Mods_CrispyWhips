@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatStallRecoveryDue",
+    "GameName": {
+        "LocalizationKey": "CMC_StallRecoveryDue_StatName",
+        "DefaultText": "Stall Theft Recovery Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_StallRecoveryDue_StatDescription",
+        "DefaultText": "Hidden C#-only bookkeeping stat: the in-game day (1 to 99999, 0 = none) on which the Watch's search for a stolen stall item is decided. MarketStallPatch sets it a few days after a guard takes the report and clears it once the search is decided."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 99999.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

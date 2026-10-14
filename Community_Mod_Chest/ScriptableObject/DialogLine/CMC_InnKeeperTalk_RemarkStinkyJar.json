@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatAchStinkyJar", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 1.0}},
+            {"StatWarpData": "cmcStatInnStinkyJarRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_RemarkStinkyJar_Line",
+        "DefaultText": "I'll tell you what the board won't, since it's been nagging at me: a Stinky Jar is a clay storage pot filled to the brim with urine. I'm not going to ask why. I'm only going to ask that it stays out of my taproom, and that wherever it lives, there's a stiff breeze."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_RemarkStinkyJar_Answer",
+                "DefaultText": "It's for the tanning. Mostly."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStinkyJarRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

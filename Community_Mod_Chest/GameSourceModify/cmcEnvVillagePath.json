@@ -1,0 +1,8 @@
+{
+  "UniqueID": "cmcEnvVillagePath",
+  "Ambience": {
+    "OnlyOneNoiseAtATime": true,
+    "RandomNoisesWarpData": ["RoosterB", "Chicken1", "Cow1", "Goat1"],
+    "RandomNoisesWarpType": 5
+  }
+}

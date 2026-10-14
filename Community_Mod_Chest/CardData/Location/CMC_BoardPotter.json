@@ -1,0 +1,136 @@
+{
+  "UniqueID": "cmcBoardPotter",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardPotter_CardName",
+    "DefaultText": "Potter's Board"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardPotter_CardDescription",
+    "DefaultText": "A small board where the Potter posts what he needs fired."
+  },
+  "CardImageWarpData": "CMC_Potter_Inn",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardPotter_DA_Offer_Name",
+        "DefaultText": "Open errand: a firing run"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardPotter_DA_Offer_Desc",
+        "DefaultText": "The Potter has no kiln at the Inn. Ask him about a firing run."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillagePhase",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 9999.0
+          }
+        },
+        {
+          "StatWarpData": "cmcStatPotterFiringErrand",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatPotterFiringDone",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardPotter_DA_Accepted_Name",
+        "DefaultText": "Active errand: fired pottery"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardPotter_DA_Accepted_Desc",
+        "DefaultText": "The Potter is waiting on a clay bowl, plate, jar or vase you fired in your own kiln."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatPotterFiringErrand",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.25
+          }
+        },
+        {
+          "StatWarpData": "cmcStatPotterFiringDone",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardPotter_DA_Delivered_Name",
+        "DefaultText": "Pottery delivered"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardPotter_DA_Delivered_Desc",
+        "DefaultText": "The Potter has your fired pottery. Talk to him for your pay."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatPotterFiringErrand",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.25,
+            "y": 0.75
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

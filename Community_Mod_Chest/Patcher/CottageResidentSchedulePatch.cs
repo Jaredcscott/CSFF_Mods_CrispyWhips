@@ -46,7 +46,7 @@ namespace CommunityModChest.Patcher
     ///   - Remaining daytime hours, [6:00, 18:00), on non-Academy days: "at work" — owned by
     ///     <see cref="CottageResidentWorkDutyPatch"/>'s real engine NPCDuty chassis (same pattern
     ///     as the Village Guards' patrol), NOT this file. Dest.Work's RunCommute case is
-    ///     deliberately a no-op: during that window, the engine duty is the only caller of
+    ///     a no-op while the resident is out in the world (the one hop it makes is out of an interior, see the case): during that window, the engine duty is the only caller of
     ///     MoveNPC for these two residents, so the two independent pollers can never race over
     ///     the same move. This file's only remaining job for that window is (a) keeping
     ///     <c>AcademyTodayStat</c> current — the one gate the engine duty needs but ValidTimesOfDay
@@ -67,6 +67,9 @@ namespace CommunityModChest.Patcher
     /// the resident's Village photo if a Cottage sprite ever fails to resolve, which keeps
     /// that regression cosmetic rather than blanking the card: a present-but-blank file
     /// would render the resident white every night, strictly worse than art staying put.
+    ///
+    /// Board status (C5): <see cref="CurrentLegLabel"/> reports where a resident ACTUALLY stands right now
+    /// as the CSV key of one sentence, for that resident's Notice Board. Read-only: it never moves anyone.
     ///
     /// Never moves a resident out from under a player standing with them (SharesPlayerEnv guard,
     /// same as every other village NPC scheduler). Never creates cards — weekly Copper Chest
@@ -104,16 +107,29 @@ namespace CommunityModChest.Patcher
             public string AcademySpriteName;
             public string CottageSpriteName; // "at home" leg; art shipped 1.68.10, Village fallback kept
 
+            // Board status line (C5): CSV keys, one per place this resident can be, never English built
+            // here. The board patch resolves the text through the game's own localization table.
+            public string LegCottageKey;
+            public string LegInnKey;
+            public string LegAcademyKey;
+            public string LegWorkKey;
+            public string LegVillageKey;
+
             // "At work" leg — owned by CottageResidentWorkDutyPatch's engine duty, not this file
             // (see class doc). AcademyTodayStatUid is the gate that duty reads; ProduceActionId is
             // the AgentAction this file fires once/day while the resident is actually at work.
             public string AcademyTodayStatUid;
             public string ProduceActionId;
 
+            // Cross-mod stock actions (C10) fired in the same once-a-day pass, straight after ProduceActionId.
+            // An action whose drops name a card that is not installed is skipped by the game (the Apothecary's
+            // ApothecaryRestock_HF is the shipped proof), so a missing mod costs nothing in play. The only trace is
+            // the framework's one Info line per boot, "WarpResolver: [<mod>] unresolved: ...", naming the missing cards.
+            public string[] ExtraProduceActionIds;
+
             public object Agent;                // NPCAgent, resolved lazily
             public object LiveNpc;              // cached InGameNPC, validated by FindLiveNpc before trusting it
-            public object CottageInteriorCard;   // CardData (own cottage interior)
-            public object CottageInteriorEnvId;  // built directly once CottageInteriorCard resolves (see ResolveRefs) — no player visit needed
+            public object CottageInteriorCard;   // CardData (own cottage interior); its EnvID is built per move, see EnvIdOf
             public object AcademyTodayStat;      // GameStat SO, resolved lazily
             public Portrait LastPortrait;        // 0 = not yet synced this run
             public int LastProduceDay = int.MinValue; // session-scoped throttle, like ProfessorSchedulePatch's _lastSpecialtyDay
@@ -127,6 +143,9 @@ namespace CommunityModChest.Patcher
                 AcademyDayOfWeek = 1,
                 VillageSpriteName = "CMC_Miller", InnSpriteName = "CMC_Miller_Inn", AcademySpriteName = "CMC_Miller_Academy",
                 CottageSpriteName = "CMC_Miller_Cottage",
+                LegCottageKey = "CMC_BoardLeg_Miller_Cottage", LegInnKey = "CMC_BoardLeg_Miller_Inn",
+                LegAcademyKey = "CMC_BoardLeg_Miller_Academy", LegWorkKey = "CMC_BoardLeg_Miller_Work",
+                LegVillageKey = "CMC_BoardLeg_Miller_Village",
                 AcademyTodayStatUid = "cmcStatMillerAcademyToday", ProduceActionId = "MillerProduceFlour",
             },
             new Resident
@@ -135,21 +154,29 @@ namespace CommunityModChest.Patcher
                 AcademyDayOfWeek = 4,
                 VillageSpriteName = "CMC_Weaver", InnSpriteName = "CMC_Weaver_Inn", AcademySpriteName = "CMC_Weaver_Academy",
                 CottageSpriteName = "CMC_Weaver_Cottage",
+                LegCottageKey = "CMC_BoardLeg_Weaver_Cottage", LegInnKey = "CMC_BoardLeg_Weaver_Inn",
+                LegAcademyKey = "CMC_BoardLeg_Weaver_Academy", LegWorkKey = "CMC_BoardLeg_Weaver_Work",
+                LegVillageKey = "CMC_BoardLeg_Weaver_Village",
                 AcademyTodayStatUid = "cmcStatWeaverAcademyToday", ProduceActionId = "WeaverProduceYarn",
+                ExtraProduceActionIds = new[] { "WeaverRestock_Sirus" }, // C10: Sirus23 Wool Yarn and Felted Wool
             },
         };
 
         private static bool _initialized;
 
+        private static bool _legReadWarned;
+
         private static object _villageEnvCard;   // CardData
         private static object _academyInteriorCard;
         private static object _innInteriorCard;
 
-        // Academy/Inn destination EnvIDs (shared across both residents — same Academy/Inn everyone
-        // else visits) — built once directly from their CardData in ResolveRefs; see the class
-        // doc comment for why no player-visit capture is needed.
-        private static object _academyEnvId;
-        private static object _innEnvId;
+        // No cached destination EnvIDs, on purpose (fixed 1.69.1). An EnvID's DictionnaryKey holds the
+        // env card's UniqueIDIndex, and GameLoad assigns that index in SortUniqueObjectList BEFORE the
+        // framework adds mod cards, so at the main menu every mod env card reads index 0 until a later
+        // re-sort. This poll runs from the menu on, so EnvIDs cached on its first pass all carried
+        // EnvIndex 0 for the whole session: MoveNPC then read "cottage" and "Inn" as the same place
+        // and never moved a resident from home to the Inn or the Academy, and one moved home landed
+        // in a room the player's own EnvID never matched. EnvIdOf builds a fresh one per move.
 
         // Reflection handles, resolved once.
         private static Type _gmType;
@@ -198,10 +225,9 @@ namespace CommunityModChest.Patcher
             Plugin.Logger.LogDebug("[CottageResidentSchedulePatch] initialized.");
         }
 
-        // The destination EnvIDs (_academyEnvId/_innEnvId/resident.CottageInteriorEnvId) are built
-        // directly from stable CardData references (ResolveRefs' ??= only ever computes them once)
-        // and carry no per-session/per-visit state, so they do NOT need resetting on reload — only
-        // the portrait/walk state that genuinely is session-scoped.
+        // The destination EnvIDs are built per move (EnvIdOf) and the CardData references ResolveRefs
+        // caches are stable, so only the portrait/walk state that genuinely is session-scoped needs
+        // resetting on reload.
         private static void ResetSessionState_Postfix()
         {
             foreach (var resident in Residents)
@@ -255,18 +281,11 @@ namespace CommunityModChest.Patcher
             _academyInteriorCard ??= CardUtil.GetCardDataById(AcademyInteriorUid);
             _innInteriorCard ??= CardUtil.GetCardDataById(InnInteriorUid);
 
-            // Built directly, exactly like every outdoor tile below — see the class doc comment
-            // for why these interiors need no live player-visit capture (InstancedEnvironment is
-            // false on all of them, confirmed in their own JSON).
-            _academyEnvId ??= BuildOutdoorEnvId(_academyInteriorCard);
-            _innEnvId ??= BuildOutdoorEnvId(_innInteriorCard);
-
             bool residentsOk = true;
             foreach (var resident in Residents)
             {
                 resident.Agent ??= _getFromIdMethod.Invoke(null, new object[] { resident.AgentUid });
                 resident.CottageInteriorCard ??= CardUtil.GetCardDataById(resident.CottageInteriorUid);
-                resident.CottageInteriorEnvId ??= BuildOutdoorEnvId(resident.CottageInteriorCard);
                 // Optional — see SetAcademyTodayStat; CottageResidentWorkDutyPatch's own build
                 // poll is what actually gates on this stat existing, not this file.
                 resident.AcademyTodayStat ??= _getFromIdMethod.Invoke(null, new object[] { resident.AcademyTodayStatUid });
@@ -373,21 +392,30 @@ namespace CommunityModChest.Patcher
                     // No "already there" shortcut needed (mirrors ApothecarySchedulePatch's own
                     // cabin-interior homing) — WalkTowards' CurrentOutdoorUidOf/IsAtEnv checks
                     // already short-circuit once the resident has arrived.
-                    WalkTowards(gm, npc, resident, VillageEnvUid, resident.CottageInteriorEnvId);
+                    WalkTowards(gm, npc, resident, VillageEnvUid, EnvIdOf(resident.CottageInteriorCard));
                     return;
 
                 case Dest.Inn:
-                    WalkTowards(gm, npc, resident, VillageEnvUid, _innEnvId);
+                    WalkTowards(gm, npc, resident, VillageEnvUid, EnvIdOf(_innInteriorCard));
                     return;
 
                 case Dest.Academy:
-                    WalkTowards(gm, npc, resident, VillageEnvUid, _academyEnvId);
+                    WalkTowards(gm, npc, resident, VillageEnvUid, EnvIdOf(_academyInteriorCard));
                     return;
 
                 case Dest.Work:
-                    // No-op, deliberately: CottageResidentWorkDutyPatch's engine duty is the ONLY
-                    // caller of MoveNPC for these two residents during work hours — see class doc
-                    // for why this is what keeps the two independent pollers from ever racing.
+                    // CottageResidentWorkDutyPatch's engine duty is the ONLY caller of MoveNPC for these
+                    // two residents during work hours while they are OUT in the world — see class doc for
+                    // why this is what keeps the two independent pollers from ever racing. The one thing
+                    // that duty cannot do is start from an INTERIOR: the engine pathfinds only over WorldMap
+                    // nodes, so a resident standing in a cottage, the Inn or the Academy never has the duty
+                    // selected and, before this step existed, stayed indoors all day (harness T1.114,
+                    // 2026-10-13: Miller and Weaver still in their cottages at 07:00, duty trace picked
+                    // nothing from 06:00 to 08:30). So only when indoors, hop out to the Village once (the
+                    // same hop Dest.Village uses), after which the engine duty owns them again.
+                    if (IsAtEnv(npc, resident.CottageInteriorCard) || IsAtEnv(npc, _innInteriorCard)
+                        || IsAtEnv(npc, _academyInteriorCard))
+                        WalkTowards(gm, npc, resident, VillageEnvUid, BuildOutdoorEnvId(_villageEnvCard));
                     return;
 
                 default: // Dest.Village
@@ -448,6 +476,58 @@ namespace CommunityModChest.Patcher
         }
 
         // ── Public queries ────────────────────────────────────────────────────────
+
+        /// <summary>
+        /// Where the named resident is right now, as the CSV key of one sentence for their Notice Board, or
+        /// null when they have not moved in or this cannot be read. Read-only status: it derives from where
+        /// the NPC ACTUALLY stands (the same environment read the portrait uses, so the two never disagree)
+        /// and never moves anyone. In the Village the day's schedule decides between "at work" (the engine
+        /// duty's post is the Village itself) and simply being out in it; the Quiet Village perk never
+        /// reports work, because the perk sends them home instead.
+        /// </summary>
+        public static string CurrentLegLabel(string agentUid)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(agentUid)) return null;
+                if (!ResolveTypes() || !ResolveRefs()) return null;
+
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null) return null;
+
+                foreach (var resident in Residents)
+                {
+                    if (!string.Equals(resident.AgentUid, agentUid, StringComparison.OrdinalIgnoreCase)) continue;
+                    var npc = FindLiveNpc(gm, resident);
+                    if (npc == null) return null; // hasn't moved in yet
+                    return LegKeyOf(npc, resident);
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                if (!_legReadWarned)
+                {
+                    _legReadWarned = true;
+                    Plugin.Logger.LogWarning($"[CottageResidentSchedulePatch] CurrentLegLabel('{agentUid}') failed, so that notice board shows no location line: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                }
+                return null;
+            }
+        }
+
+        private static string LegKeyOf(object npc, Resident resident)
+        {
+            if (IsAtEnv(npc, _innInteriorCard)) return resident.LegInnKey;
+            if (IsAtEnv(npc, _academyInteriorCard)) return resident.LegAcademyKey;
+            if (IsAtEnv(npc, resident.CottageInteriorCard)) return resident.LegCottageKey;
+            if (IsAtEnv(npc, _villageEnvCard))
+            {
+                bool atWork = !QuietVillagePerkPatch.IsActive()
+                    && ComputeDestination(GameQuery.HourOfDay, IsAcademyDay(GameQuery.CurrentDay, resident)) == Dest.Work;
+                return atWork ? resident.LegWorkKey : resident.LegVillageKey;
+            }
+            return null; // somewhere unexpected: no line is better than a wrong one
+        }
 
         /// <summary>
         /// True when the named resident's NPC is currently standing inside their OWN cottage
@@ -525,7 +605,14 @@ namespace CommunityModChest.Patcher
             if (associatedCard == null) return;
 
             if (FireAgentAction(resident, npc, associatedCard, resident.ProduceActionId))
+            {
                 resident.LastProduceDay = today;
+                if (resident.ExtraProduceActionIds != null)
+                {
+                    foreach (string extraActionId in resident.ExtraProduceActionIds)
+                        FireAgentAction(resident, npc, associatedCard, extraActionId);
+                }
+            }
         }
 
         // Fires a named AgentAction with `associatedCard` as the receiving container — same
@@ -607,6 +694,11 @@ namespace CommunityModChest.Patcher
             if (env == null || Reflect.GetMember(env, "IsNull") is true) return false;
             return ReferenceEquals(Reflect.GetMember(env, "EnvCard"), envCard);
         }
+
+        // A destination EnvID built now, so its key carries the card's CURRENT UniqueIDIndex (see the
+        // note above the reflection handles). Same (CardData, false) ctor as every outdoor tile:
+        // InstancedEnvironment is false on the Inn, Academy and both cottage interiors.
+        private static object EnvIdOf(object envCard) => BuildOutdoorEnvId(envCard);
 
         private static object BuildOutdoorEnvId(object cardData)
         {

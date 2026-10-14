@@ -1,0 +1,39 @@
+{
+  "UniqueID": "cmctrainingpostkit",
+  "TradingValue": 120,
+  "CardType": 0,
+  "CardName": {
+    "DefaultText": "Training Post Kit",
+    "LocalizationKey": "CMC_TrainingPostKit_CardName"
+  },
+  "CardDescription": {
+    "DefaultText": "A padded post, lashing and a sunk timber, ready to be set up as a striking dummy. Once it stands, Practice Strikes trains Melee Fighting.",
+    "LocalizationKey": "CMC_TrainingPostKit_CardDesc"
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CMC_TrainingPostKit",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "DefaultText": "Training Post Kit",
+    "LocalizationKey": "CMC_TrainingPostKit_Help"
+  },
+  "CardTagsWarpData": ["tag_Structure", "tag_Craftable"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 3000,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "DefaultText": "Set Up Post",
+        "LocalizationKey": "CMC_TrainingPostKit_DA_SetUp"
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "cmctrainingpost",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ]
+}

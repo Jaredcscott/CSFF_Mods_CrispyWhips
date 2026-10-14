@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatProvisionState",
+    "GameName": {
+        "LocalizationKey": "CMC_ProvisionState_StatName",
+        "DefaultText": "Autumn Provisioning Marker"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProvisionState_StatDescription",
+        "DefaultText": "Hidden clamped marker for the Inn Keeper's autumn provisioning errand, never a counter: 1 offered, 0 accepted (or idle), 0.5 delivered and awaiting thanks. Offered by VillageSeasonsPatch each autumn, accepted by the Inn Keeper's dialog, delivered at the Inn Counter, reset in the thanks line. Clamped 0..1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

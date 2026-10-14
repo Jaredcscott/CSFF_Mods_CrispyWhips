@@ -109,7 +109,7 @@
     "BlueprintStatModifications": [],
     "BlueprintActionTagsWarpData": ["HandAction", "CraftAction", "LegAction"],
     "BlueprintActionTagsWarpType": 3,
-    "CardImageWarpData": "Well",
+    "CardImageWarpData": "CMC_WellPlans",
     "CardImageWarpType": 3,
     "BlueprintUnlockTicksCost": 192.0,
     "ResearchedNotification": 0

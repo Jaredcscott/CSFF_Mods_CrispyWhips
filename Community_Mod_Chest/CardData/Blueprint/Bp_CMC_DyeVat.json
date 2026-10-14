@@ -1,0 +1,77 @@
+{
+    "UniqueID": "bpcmcdyevat",
+    "CardName": {
+        "ParentObjectID": "bpcmcdyevat",
+        "LocalizationKey": "Bp_CMC_DyeVat_CardName",
+        "DefaultText": "Dye Vat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "bpcmcdyevat",
+        "LocalizationKey": "Bp_CMC_DyeVat_CardDescription",
+        "DefaultText": "Bind planks into a wide vat and dye a whole armful of garments at once."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": ""
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 0.0, "y": 10.0 },
+                "StatWarpData": "cmcStatVillagePhase",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 2,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcDyeVat",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "CMC_DyeVat",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

@@ -9,7 +9,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "CMC_AcademyLectern_CardDescription",
-    "DefaultText": "The academy masters lecture here. Drag Salt, metal Nuggets, or Duros Coins onto the lectern to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance, including the final exam. Choose a subject below to advance its coursework; when only one session remains, sit the final exam to earn your degree."
+    "DefaultText": "The academy masters lecture here. Drag Salt, metal Nuggets, or Duros Coins onto the lectern to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance (more while you are Wanted or Banished), including the final exam. Choose a subject below to advance its coursework; when only one session remains, sit the final exam to earn your degree. On the afternoons the Miller, Weaver, Apothecary or Professor is lecturing here, a Sit In button lets you listen in for a small boost to their craft, once a week for each."
   },
   "CardImageWarpData": "VillageAcademyLectern",
   "CardImageWarpType": 3,
@@ -202,7 +202,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Architecture_Desc",
-        "DefaultText": "A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -254,7 +254,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_ArchitectureFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Architecture degree: unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop."
+        "DefaultText": "The final two-hour examination. Pass it to earn the Architecture degree and its steady Beaver Blessing; with Water-Driven Infrastructure installed, it also unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -308,7 +308,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Metallurgy_Desc",
-        "DefaultText": "A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -360,7 +360,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_MetallurgyFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet recipe is handed to you outright, no research required, and, together with an Architecture degree, it unlocks the Water-Driven Forge and Workshop."
+        "DefaultText": "The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet and Bronze Sheet recipes are handed to you outright, no research required, and, with Water-Driven Infrastructure installed and an Architecture degree, it also unlocks the Water-Driven Forge and Workshop."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -414,7 +414,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Herbalism_Desc",
-        "DefaultText": "A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -520,7 +520,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Fishing_Desc",
-        "DefaultText": "A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -626,7 +626,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Armorer_Desc",
-        "DefaultText": "A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -678,7 +678,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_ArmorerFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Armorer degree: unlocks the copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets)."
+        "DefaultText": "The final two-hour examination. Pass it to earn the Armorer degree: unlocks every metal armor recipe (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields)."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -732,7 +732,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Medicine_Desc",
-        "DefaultText": "A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -838,7 +838,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_CarpentryBench_DA_Carpentry_Desc",
-        "DefaultText": "A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -890,7 +890,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_CarpentryBench_DA_CarpentryFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe and Wicker Chair blueprints."
+        "DefaultText": "The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe, Wicker Chair and Training Post blueprints, plus the hunt trophies and camp furnishings."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -935,6 +935,118 @@
       "ReceivingCardChanges": {
         "ModType": 1,
         "ChargesChange": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_SitIn_Miller",
+        "DefaultText": "Sit In on the Miller's Lecture"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_SitIn_Miller_Desc",
+        "DefaultText": "Listen in on the Miller's afternoon at the Academy for two hours: Cooking +3. Once a week for each resident, and only while they are here."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatAcademyGuest", "StatWarpType": 3, "TriggerRange": { "x": 1.0, "y": 1.0 } },
+        { "StatWarpData": "cmcStatAcademySitInMiller", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } },
+        { "StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": { "x": 1.0, "y": 10.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        { "StatWarpData": "93c4433b9c1640343b87576d355e53b4", "StatWarpType": 3, "ValueModifier": { "x": 3.0, "y": 3.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatAcademySitInMiller", "StatWarpType": 3, "ValueModifier": { "x": 672.0, "y": 672.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_SitIn_Weaver",
+        "DefaultText": "Sit In on the Weaver's Lecture"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_SitIn_Weaver_Desc",
+        "DefaultText": "Listen in on the Weaver's afternoon at the Academy for two hours: Weaving +3. Once a week for each resident, and only while they are here."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatAcademyGuest", "StatWarpType": 3, "TriggerRange": { "x": 2.0, "y": 2.0 } },
+        { "StatWarpData": "cmcStatAcademySitInWeaver", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } },
+        { "StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": { "x": 1.0, "y": 10.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        { "StatWarpData": "056080607e57afa4ea4dfc3db3377204", "StatWarpType": 3, "ValueModifier": { "x": 3.0, "y": 3.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatAcademySitInWeaver", "StatWarpType": 3, "ValueModifier": { "x": 672.0, "y": 672.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_SitIn_Apothecary",
+        "DefaultText": "Sit In on the Apothecary's Lecture"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_SitIn_Apothecary_Desc",
+        "DefaultText": "Listen in on the Apothecary's afternoon at the Academy for two hours: Herbalism +3. Once a week for each resident, and only while they are here."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatAcademyGuest", "StatWarpType": 3, "TriggerRange": { "x": 3.0, "y": 3.0 } },
+        { "StatWarpData": "cmcStatAcademySitInApothecary", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } },
+        { "StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": { "x": 1.0, "y": 10.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        { "StatWarpData": "85559650c938ef843af92c18f5b0c6c7", "StatWarpType": 3, "ValueModifier": { "x": 3.0, "y": 3.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatAcademySitInApothecary", "StatWarpType": 3, "ValueModifier": { "x": 672.0, "y": 672.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_SitIn_Professor",
+        "DefaultText": "Sit In on the Professor's Lecture"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_SitIn_Professor_Desc",
+        "DefaultText": "Listen in on the Professor's afternoon at the Academy for two hours: Insight +3. Once a week for each resident, and only while they are here."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatAcademyGuest", "StatWarpType": 3, "TriggerRange": { "x": 4.0, "y": 4.0 } },
+        { "StatWarpData": "cmcStatAcademySitInProfessor", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } },
+        { "StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": { "x": 1.0, "y": 10.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        { "StatWarpData": "36e14930ddfdcdb4b901f6416b5453be", "StatWarpType": 3, "ValueModifier": { "x": 3.0, "y": 3.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatAcademySitInProfessor", "StatWarpType": 3, "ValueModifier": { "x": 672.0, "y": 672.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
       }
     }
   ],

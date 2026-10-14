@@ -1,0 +1,37 @@
+{
+  "target": "CMC_ScentedCandleLit.png",
+  "sourceCard": [
+    "CardData/Item/ScentedCandleLit.json"
+  ],
+  "subject": "one hand-dipped pale yellow beeswax candle burning with a single small warm flame and a soft wisp of smoke, standing upright, no holder",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one hand-dipped pale yellow beeswax candle burning with a single small warm flame and a soft wisp of smoke, standing upright, no holder, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "u2WSbzJoo1ZBVIZqFSLM",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085930934_e1d3caac_1791085931023_23d0e012.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Owner pick from the 2026-10-03 batch picker. predicted was written before the owner looked. Finished by /process-card-art (keyed on white).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085930587_a2d65c03_1791085930677_f9183d44.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085931814_5808cf18_1791085932853_2ebef07f.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085930934_e1d3caac_1791085931023_23d0e012.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "B"
+}

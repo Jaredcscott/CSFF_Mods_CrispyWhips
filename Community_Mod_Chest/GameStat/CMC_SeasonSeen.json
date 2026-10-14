@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatSeasonSeen",
+    "GameName": {
+        "LocalizationKey": "CMC_SeasonSeen_StatName",
+        "DefaultText": "Village Season Last Handled"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_SeasonSeen_StatDescription",
+        "DefaultText": "Hidden bookkeeping: the season (1 Spring, 2 Summer, 3 Autumn, 4 Winter) whose village beat VillageSeasonsPatch last finished, written only after that beat's work is done, so each beat fires once per season and never again on a reload. Clamped 0..4."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 4.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

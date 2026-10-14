@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatProvisionDone",
+    "GameName": {
+        "LocalizationKey": "CMC_ProvisionDone_StatName",
+        "DefaultText": "Autumn Provisioning Completed"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProvisionDone_StatDescription",
+        "DefaultText": "Hidden completion flag for this autumn's provisioning errand: advanced to 1 only in the Inn Keeper's thanks line, after the marker is reset, and cleared by VillageSeasonsPatch when the next autumn's offer is made. Clamped 0..1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

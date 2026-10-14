@@ -1,0 +1,55 @@
+{
+  "target": "CMC_AcademyBookshelf.png",
+  "sourceCard": "CardData/Location/CMC_AcademyBookshelf.json",
+  "subject": "a tall sturdy wooden bookshelf against a timber wall of the Academy, five shelves of well-thumbed leather-bound books in warm brown, tan, faded red and green, one open book on a small ledge at mid height, plain oak frame with no doors or glass, lantern light from the upper left",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs item-in-scene template: reference 1 SCENE (Academy fragment, VillageAcademyInterior.png), reference 2 STYLE and full-bleed finish (VillageAcademyLectern.png); subject as above; Avoid list is the refs template's plus: glass doors, scrolls, skulls, candles on the shelf, a ladder",
+  "composition": {
+    "scene": "Academy",
+    "props": [],
+    "style": "VillageAcademyLectern",
+    "finish": "full-bleed"
+  },
+  "references": [
+    {
+      "role": "scene",
+      "fragment": "Academy",
+      "image": "Resource/Picture/VillageAcademyInterior.png",
+      "sha256": "e3bad553bf54bea5f2e834ac2881f1a116a12c5f6fd69d71c1c89a35ec02ae78",
+      "id": "udpnaAUPTU2tKqaI0IIH"
+    },
+    {
+      "role": "style",
+      "fragment": null,
+      "image": "Resource/Picture/VillageAcademyLectern.png",
+      "sha256": "bf3190099ea7556ebde270875027f005d66d7982ec144291cd1b3e4a04206d4a",
+      "id": "4HcmOfCsyRxCGL7WRSJG"
+    }
+  ],
+  "historyId": "r38Qew9BRaK3TbKURzHw",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791114805365_a0f408a4_1791114806185_832b5122.png",
+  "credits": 60,
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791114805365_a0f408a4_1791114806185_832b5122.png",
+      "verdict": "on-model: five shelves, open book on a ledge, lantern left, oak and floorboards match the Academy; shipped"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791114809151_6a5dd11f_1791114809492_a62aa27a.png",
+      "verdict": "on-model too, but a loose book rests on a shelf edge and the frame is cropped tighter at the left; not shipped"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "generated": "2026-10-04",
+  "note": "Phase F closeout. Two samples of one prompt; the session picked A against the subject phrases (no owner look yet, so this is a session pick, not an owner pick). Full-bleed finish (transparent_pct 0), like the shipped VillageAcademyLectern."
+}

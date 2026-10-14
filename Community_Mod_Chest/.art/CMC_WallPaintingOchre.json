@@ -1,0 +1,22 @@
+{
+  "target": "CMC_WallPaintingOchre.png",
+  "sourceCard": "CardData/EnvImprovement/Imp_WallPaintingOchre.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a style reference only: match its flat posterized colour fills, thin dark ink outlines and muted grey stone palette exactly; do not copy its composition.\nDraw a Wall Painting (Ochre) for a survival game card: an upright irregular slab of rough grey cave-wall rock, shown face-on, painted with primitive prehistoric pictures in ochre yellow-red pigment only: a stick-figure hunter with a spear chasing a deer, a small herd of three running deer, and four hand prints. The pigment is flat ochre, slightly uneven like daubed paint, on the plain grey stone.\nStyle: vanilla Card Survival: Fantasy Forest card art exactly like reference image 1: flat posterized colour fills in three or four hard-edged tonal steps (cel-like), thin dark ink outlines, a few small ink hatch and tick marks for texture, muted naturalistic palette, realistic proportions. No soft gradients, no watercolour bleed, no paper texture, nothing glossy, no glow.\nSingle object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft painterly shading, paper texture, photo, photorealistic, 3D render, glossy highlights, sun symbol, bison, other pigment colours, blue, black paint, carved relief, scenery behind the object, grey background, off-white background, checkerboard, transparency grid, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla Stone_Heavy (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Stone_Heavy_1791652660573_24a21f33.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652800757_eac55ef1_1791652801269_ca674d9b.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
+}

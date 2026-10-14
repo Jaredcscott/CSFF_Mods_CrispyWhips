@@ -72,6 +72,7 @@
     "PlayedCharacter": [],
     "RequiredDifficultyScore": { "x": 0, "y": 0 },
     "ResetLockInEditor": false,
+    "StarsCost": 0,
     "StartUnlocked": true,
     "StartingStatModifiers": [],
     "StatsObjectives": [],

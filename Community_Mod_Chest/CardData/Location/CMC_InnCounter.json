@@ -9,7 +9,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "CMC_InnCounter_CardDescription",
-    "DefaultText": "The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance. Drag Firewood onto the counter to sell it for Salt. There is usually odd work available too, paid in copper nuggets."
+    "DefaultText": "The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it for Salt. There is usually odd work available too, paid in copper nuggets."
   },
   "CardImageWarpData": "VillageInnDesk",
   "CardImageWarpType": 3,
@@ -93,6 +93,463 @@
         "ModType": 0
       },
       "ProducedCards": []
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_PlayForRoom_ActionName",
+        "DefaultText": "Play for the Room"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_PlayForRoom_ActionDescription",
+        "DefaultText": "Play a tune for the residents gathered here this evening. You keep your instrument, and the whole room warms to you. Shares Join the Table's once-per-evening limit."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": { "x": 2.0, "y": 4.0 } },
+        { "StatWarpData": "cmcStatInnEveningCooldown", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "9bd7f751f1e2bc04f973da0dc13c251f",
+          "135d998b104c7bb4cb2197bfc8019ab3",
+          "658ad86629180fa4db5779812f620198",
+          "cmcClayOcarina"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StatModifications": [
+        { "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": { "x": 20.0, "y": 20.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": { "x": 3.0, "y": 3.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnEveningCooldown", "StatWarpType": 3, "ValueModifier": { "x": 48.0, "y": 48.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": { "x": 1.0, "y": 1.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "GivenCardChanges": {
+        "ModType": 1
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_Wager_ActionName",
+        "DefaultText": "Wager on the Dice"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_Wager_ActionDescription",
+        "DefaultText": "Drag Bone Dice or Loaded Dice onto the counter and stake 25 from your Inn Account on a roll against a resident. Honest dice win a little under half the time and a win pays twice the stake; loaded dice win more often, but a resident may catch the weight, which costs the stake and adds to your Village Crime. You keep the dice. Needs someone at the Inn with you."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": { "x": 1.0, "y": 4.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "cmcBoneDice",
+          "cmcLoadedDice"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_Morris_ActionName",
+        "DefaultText": "Play Morris"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_Morris_ActionDescription",
+        "DefaultText": "Drag your Morris Board onto the counter and play a resident at Nine Men's Morris for 25 from your Inn Account. The sharper your Focus, the better your odds, but even a very sharp player only breaks even. A win pays twice the stake. You keep the board. Needs someone at the Inn with you, and room in your account for the winnings."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": { "x": 1.0, "y": 4.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "cmcMorrisBoard"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_CI_StockPantry",
+        "DefaultText": "Stock the Pantry"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_CI_StockPantry_Desc",
+        "DefaultText": "Hand over one dried meat, fish, berry, pea or root for the Inn's winter stores. Only while the Inn Keeper's autumn request is accepted and not yet delivered."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatProvisionState", "StatWarpType": 3, "TriggerRange": { "x": -0.5, "y": 0.25 } },
+        { "StatWarpData": "cmcStatSeasonAutumn", "StatWarpType": 3, "TriggerRange": { "x": 0.5, "y": 1.5 } },
+        { "StatWarpData": "cmcStatProvisionDone", "StatWarpType": 3, "TriggerRange": { "x": -0.5, "y": 0.5 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "f4be79e87ba98db41a9c9e31bb76c33d",
+          "1e3f5517c9203e74b9c76a7bae1a3920",
+          "0e26aee350306af4eb4f0af0423481ee",
+          "d6b37ce716d384b4db1ab37e1af1800f",
+          "9955af347ce41af4c9e78ee97f008182",
+          "0f14d75156adbeb42b1e7616414c236b",
+          "b73cff900d872ed41b361ba086582581",
+          "60ef8a7f5f5a1134db4d57ae69148111"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StatModifications": [
+        { "StatWarpData": "cmcStatProvisionState", "StatWarpType": 3, "ValueModifier": { "x": 0.5, "y": 0.5 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_OddJob_Stone_ActionName",
+        "DefaultText": "Odd Job: Bring a Stone"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_OddJob_Stone_ActionDescription",
+        "DefaultText": "Today's job: the Inn needs a Stone for the hearth wall. Drag a Stone onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+      },
+      "DaytimeCost": 12,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "TriggerRange": { "x": 0.5, "y": 1.5 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": ["a7384e5147b23a642809451cc4ef24fb"],
+        "TriggerCardsWarpType": 3
+      },
+      "StatModifications": [
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -11.0, "y": -11.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Wages",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 3,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 50.0,
+                "Special4Value": 100.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_OddJob_Rope_ActionName",
+        "DefaultText": "Odd Job: Bring Rope"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_OddJob_Rope_ActionDescription",
+        "DefaultText": "Today's job: the Inn needs a length of Rope for the cellar hoist. Drag the Rope onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+      },
+      "DaytimeCost": 12,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "TriggerRange": { "x": 1.5, "y": 2.5 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": ["a7a58aa687df66e47a42fc13e0fdbeaa"],
+        "TriggerCardsWarpType": 3
+      },
+      "StatModifications": [
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -11.0, "y": -11.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "ValueModifier": { "x": -2.0, "y": -2.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Wages",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 3,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 50.0,
+                "Special4Value": 100.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_OddJob_Ash_ActionName",
+        "DefaultText": "Odd Job: Bring Ash"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_OddJob_Ash_ActionDescription",
+        "DefaultText": "Today's job: the Inn needs a handful of Ash for the lye pot. Drag the Ash onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+      },
+      "DaytimeCost": 12,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "TriggerRange": { "x": 2.5, "y": 3.5 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": ["65f9b26c048cd474d9fb14d1c9e46754"],
+        "TriggerCardsWarpType": 3
+      },
+      "StatModifications": [
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -11.0, "y": -11.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "ValueModifier": { "x": -3.0, "y": -3.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Wages",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 3,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 50.0,
+                "Special4Value": 100.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_OddJob_Bowl_ActionName",
+        "DefaultText": "Odd Job: Bring a Clay Bowl"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_OddJob_Bowl_ActionDescription",
+        "DefaultText": "Today's job: the Inn needs a Clay Bowl for the kitchen shelf. Drag the Clay Bowl onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+      },
+      "DaytimeCost": 12,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "TriggerRange": { "x": 3.5, "y": 4.5 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": ["a968f3eaffc6b9743b82982b5af2ab8c"],
+        "TriggerCardsWarpType": 3
+      },
+      "StatModifications": [
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -11.0, "y": -11.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "ValueModifier": { "x": -4.0, "y": -4.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Wages",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 3,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 50.0,
+                "Special4Value": 100.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "DismantleActions": [
@@ -103,7 +560,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_DA_Meal_Desc",
-        "DefaultText": "Draws 50 from your Inn Account. Restores Satiation, Thirst, and Fullness. Provides Protein, Iron, and Vitamins. Tastes great."
+        "DefaultText": "Draws 50 from your Inn Account (more while you are Wanted or Banished). Restores Satiation, Thirst, and Fullness. Provides Protein, Iron, and Vitamins. Tastes great."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -195,7 +652,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_DA_Sleep_Desc",
-        "DefaultText": "Draws 50 from your Inn Account. Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call)."
+        "DefaultText": "Draws 50 from your Inn Account (more while you are Wanted or Banished). Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call)."
       },
       "DaytimeCost": 24,
       "UseMiniTicks": 0,
@@ -461,6 +918,101 @@
           ]
         }
       ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_JoinTable_ActionName",
+        "DefaultText": "Join the Table"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_JoinTable_ActionDescription",
+        "DefaultText": "Pull up a stool with the residents gathered here this evening. An hour of company lifts your spirits, and everyone at the table warms to you a little. Once per evening."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": { "x": 2.0, "y": 4.0 } },
+        { "StatWarpData": "cmcStatInnEveningCooldown", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        { "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": { "x": 30.0, "y": 30.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": { "x": 15.0, "y": 15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": { "x": 15.0, "y": 15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnEveningCooldown", "StatWarpType": 3, "ValueModifier": { "x": 48.0, "y": 48.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": { "x": 1.0, "y": 1.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_JoinTableSupper_ActionName",
+        "DefaultText": "Join the Snowed-In Supper"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_JoinTableSupper_ActionDescription",
+        "DefaultText": "The drifts have closed the roads and the residents have gathered for a long supper by the fire. Pull up a stool: a warmer evening than Join the Table, and everyone at the table warms to you the same. Once per winter, in the evening, and it shares Join the Table's once-per-evening limit."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": { "x": 2.0, "y": 4.0 } },
+        { "StatWarpData": "cmcStatInnEveningCooldown", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } },
+        { "StatWarpData": "cmcStatSupperOpen", "StatWarpType": 3, "TriggerRange": { "x": 0.5, "y": 1.5 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        { "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": { "x": -30.0, "y": -30.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": { "x": 40.0, "y": 40.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": { "x": 25.0, "y": 25.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": { "x": 35.0, "y": 35.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnEveningCooldown", "StatWarpType": 3, "ValueModifier": { "x": 48.0, "y": 48.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatSupperArmed", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_ArmWrestle_ActionName",
+        "DefaultText": "Arm Wrestle"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_ArmWrestle_ActionDescription",
+        "DefaultText": "Set your elbow on the table and arm-wrestle a resident for 25 from your Inn Account. A fit character wins more often and an exhausted one seldom; a very fit one only breaks even. A win pays twice the stake. Every bout costs 8 Stamina. Needs someone at the Inn with you, and room in your account for the winnings."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": { "x": 1.0, "y": 4.0 }, "HideAllWhenNotMet": true },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "TriggerRange": { "x": 8.0, "y": 32.0 }, "NotifyWhenNotMet": true }
+      ],
+      "StatModifications": [
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -8.0, "y": -8.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "ProducedCards": [],
       "ReceivingCardChanges": {
         "ModType": 0
       }

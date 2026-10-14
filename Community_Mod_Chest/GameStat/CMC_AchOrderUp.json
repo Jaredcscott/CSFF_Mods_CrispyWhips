@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAchOrderUp",
+    "GameName": {
+        "LocalizationKey": "CMC_AchOrderUp_StatName",
+        "DefaultText": "Achievement Earned: Order Up!"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchOrderUp_StatDescription",
+        "DefaultText": "Hidden flag: 1 once a travelling trader's commission has been filled (the +1 rides the commission blueprint's own build) -- the Order Up! achievement. Clamped 0-1, never resets."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,31 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatWatchServiceArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_SterlingTalk_ServiceDone_Line",
+        "DefaultText": "The work is done, and done properly. I wrote it down. A record is a thing you can answer for, Captain to citizen, and every honest job you put against it makes it a little shorter."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_ServiceDone_Answer_Thanks",
+                "DefaultText": "Thank you, Captain."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatWatchServiceCount", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatWatchServiceArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatWatchServiceJob", "StatWarpType": 3, "ValueModifier": {"x": -2.0, "y": -2.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "ValueModifier": {"x": -6.0, "y": -6.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

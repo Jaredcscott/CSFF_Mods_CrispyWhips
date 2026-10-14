@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 60.0, "y": 100.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_CrimeBanished_Line",
+        "DefaultText": "Mind the racks and keep your hands to yourself. I've heard what the village says of you, and I've no wish to test it. I'll weigh out what you ask for and nothing more. Keep it short."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_CrimeBanished_Answer_Quick",
+                "DefaultText": "I'll be quick."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_CrimeBanished_Answer_Leave",
+                "DefaultText": "I'll go."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatSirusYarnPresent",
+    "GameName": {
+        "LocalizationKey": "CMC_SirusYarnPresent_StatName",
+        "DefaultText": "Sirus23 Wool Yarn Present"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_SirusYarnPresent_StatDescription",
+        "DefaultText": "Hidden flag: 1 while Sirus23's Wool Yarn (sh_yarn) is loaded, else 0. Written by QuestChainSchedulePatch's poll and read only to show or hide the Weaver's wool yarn errand, so that errand never appears without Sirus23."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

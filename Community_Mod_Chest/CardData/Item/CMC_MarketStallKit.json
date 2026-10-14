@@ -19,7 +19,7 @@
   },
   "CardTagsWarpData": ["tag_Structure", "tag_Craftable"],
   "CardTagsWarpType": 3,
-  "ObjectWeight": 4,
+  "ObjectWeight": 800,
   "DismantleActions": [
     {
       "ActionName": {
@@ -35,6 +35,5 @@
         "SpawnTransformAtSource": true
       }
     }
-  ],
-  "DismantleActionsWarpType": 3
+  ]
 }

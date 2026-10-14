@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatMillerKeepsake",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Trust keepsake claimed flag (0=unclaimed 1=claimed): the Miller's sack of flour, given once when his trust reaches 80"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

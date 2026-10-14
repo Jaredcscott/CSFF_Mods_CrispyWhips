@@ -29,6 +29,7 @@
         "RatePerDaytimePoint": -1.0,
         "HidingOptions": 0,
         "HasActionOnZero": true,
+        "OnZeroNotification": 1,
         "OnZero": {
             "ActionDescription": {
                 "ParentObjectID": "comfortheatherwreath",

@@ -1,0 +1,26 @@
+{
+  "target": "CMC_StockpileStone.png",
+  "sourceCard": "CardData/Blueprint/Bp_CMC_StockpileStone.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows what each STONE looks like: draw rocks exactly like this one, rough rounded lumps of grey rock with flat grey colour steps and thin dark ink outlines.\nReference image 2 is a LAYOUT reference only: copy only its viewpoint, the size and position of the heap on the card, and its flat oval patch of bare brown earth. Do NOT copy what it is made of: it is a pile of bones, and this picture must contain no bones at all.\nDraw a Stone Stockpile for a survival game card: JUST A PILE OF ROCKS. About twenty rough, chunky, rounded grey rocks of mixed sizes, from fist-sized to head-sized, each a blocky irregular lump like reference image 1, heaped into a low rounded mound directly on the oval earth patch, seen from a slightly high three-quarter view. A few small pebbles at the foot of the heap. No long thin shapes: every piece is a compact lump of rock. Nothing around the heap: no frame, no poles, no posts, no fence, no rope, no wall. Muted cool greys with darker grey shade steps.\nStyle: vanilla Card Survival: Fantasy Forest card art: flat posterized colour fills in three or four hard-edged tonal steps (cel-like), thin dark ink outlines, a few small ink hatch and tick marks for texture, muted naturalistic palette, realistic proportions. No soft gradients, no watercolour bleed, no paper texture, nothing glossy, no glow.\nSingle subject only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: bones, bone shapes, long thin pieces, sticks, fence, frame, wooden poles, posts, stakes, rope lashing, boundary, enclosure, stone wall, crate, footprints, tracks, prints in the earth, grass, watercolor, soft painterly shading, paper texture, photo, 3D render, glossy highlights, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, text, watermark, signature, logo, border.",
+  "refs": [
+    {
+      "label": "vanilla Stone_Heavy (subject and style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Stone_Heavy_1791652660573_24a21f33.png"
+    },
+    {
+      "label": "new CMC_StockpileBones (layout)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791675046900_5dc81a7c_1791675047981_e1b8ff8a.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791675469084_61d79a93_1791675469202_dc67ea54.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Redo Review (second round, redrawn from the owner's notes on the first). Finished by /process-card-art."
+}

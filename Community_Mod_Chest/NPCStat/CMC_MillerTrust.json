@@ -2,7 +2,7 @@
     "UniqueID": "cmcStatMillerTrust",
     "GameName": {
         "LocalizationKey": "IGNOREKEY",
-        "DefaultText": "Miller trust/relationship - raised by chatting and completing his errand; gates warm dialog"
+        "DefaultText": "Miller trust/relationship - raised by chatting, trading, bread gifts and his errand; gates warm dialog and his prices"
     },
     "DefaultStartingValue": 0.0,
     "DefaultMinMaxValue": {

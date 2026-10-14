@@ -10,8 +10,8 @@
     "DefaultText": "The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (50 pay each) or salt (30 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need.",
     "LocalizationKey": "CMC_TownWoodPile_CardDesc"
   },
-  "CardImage": "Firewood",
-  "CardImageWarpData": "Firewood",
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CMC_TownWoodPile",
   "CardImageWarpType": 3,
   "CardHelpSection": {
     "DefaultText": "Town Wood Pile",

@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_GuardTalk_TheftReported_Line",
+        "DefaultText": "A thief at the market stalls. I will put it in the Watch's book and ask about. Give it a few days. I cannot promise the goods are still whole, or that anyone will have seen where they went."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_GuardTalk_TheftReported_Answer_Thanks",
+                "DefaultText": "Thank you."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

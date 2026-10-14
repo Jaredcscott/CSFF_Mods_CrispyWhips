@@ -1,0 +1,26 @@
+{
+  "target": "CMC_IceSculpture.png",
+  "sourceCard": "CardData/Blueprint/Bp_CMC_IceSculpture.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the vanilla game's own block of ice (from Card Survival: Fantasy Forest): match its rendering exactly, the same teal-blue ice colour and the same way the ice is painted with flat patches of lighter and darker teal and thin dark outlines.\nReference image 2 is the COMPOSITION: keep this subject and pose (a sitting fox carved from ice), redrawn in reference image 1's style and ice colour.\nSubject: an ice sculpture: a block of teal-blue ice carved into a sitting fox with two pointed ears and its tail curled around its front paws, the carving simple and slightly rough with flat chisel facets, a few small drips of melt at the base.\nStyle: flat posterized colour fills in a few tonal steps of teal and pale blue-white, cel-like, no soft gradients, no watercolour bleed, no paper texture; thin dark ink outlines; realistic proportions; nothing glossy, no sparkles, no glow.\nSingle subject centred with a generous white margin on a solid flat pure white background (#FFFFFF) filling every edge, no ground shadow, no scenery. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, glass crystal, sparkles, lens flare, transparent see-through rendering, real fox with fur, orange colour, snow ground, puddle, pedestal, photo, 3D render, scenery behind the subject, grey background, off-white background, checkerboard.",
+  "refs": [
+    {
+      "label": "IceBlock (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/IceBlock_1791652737197_4b5fede6.png"
+    },
+    {
+      "label": "CMC_IceSculpture current (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_IceSculpture_1791652740568_a78ca020.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652963636_1bec497a_1791652963791_73b64248.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
+}

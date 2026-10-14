@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnOverheardIndex",
+    "GameName": {
+        "LocalizationKey": "CMC_InnOverheardIndex_StatName",
+        "DefaultText": "Inn Overheard Line"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnOverheardIndex_StatDescription",
+        "DefaultText": "Hidden rotation counter, 0 up to the number of overheard lines minus 1: which overheard line the Inn Keeper passes on next on an evening with company. Each line moves it on by 1 and the last sends it back to 0."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 4.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

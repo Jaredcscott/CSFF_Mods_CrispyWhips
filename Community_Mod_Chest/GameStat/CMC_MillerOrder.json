@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMillerOrder",
+    "GameName": {
+        "LocalizationKey": "CMC_MillerOrder_StatName",
+        "DefaultText": "Miller's Commission"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MillerOrder_StatDescription",
+        "DefaultText": "Hidden marker: 1 while a flour commission is open with the Miller, 0 once it is delivered. Clamped 0 to 1, so it can never count up past the range that hides the Commission button."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

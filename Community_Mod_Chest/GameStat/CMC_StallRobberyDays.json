@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatStallRobberyDays",
+    "GameName": {
+        "LocalizationKey": "CMC_StallRobberyDays_StatName",
+        "DefaultText": "Market Stall Robbery Clock"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_StallRobberyDays_StatDescription",
+        "DefaultText": "Hidden C#-only bookkeeping stat: days a Market Stall has stood since its last robbery roll (0 to 7). Kept in the save so the seven-day count survives a quit and relaunch. MarketStallPatch adds one each day a stall stands and, on reaching 7, resets it to 0 and rolls."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 7.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

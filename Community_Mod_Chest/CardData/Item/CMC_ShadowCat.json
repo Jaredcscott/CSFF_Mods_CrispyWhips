@@ -23,6 +23,9 @@
                 "LocalizationKey": "CMC_ShadowCat_CI_PlayInstrument_Desc",
                 "DefaultText": "A few soft notes, and he stops mid-step to listen."
             },
+            "StatModifications": [
+                {"StatWarpData": "cmcStatShadowCatPresent", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}}
+            ],
             "ReceivingCardChanges": {
                 "ModType": 2,
                 "TransformIntoWarpData": "cmcShadowCatTamed",

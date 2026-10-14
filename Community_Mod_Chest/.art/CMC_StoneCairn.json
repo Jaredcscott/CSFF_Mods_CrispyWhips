@@ -1,0 +1,19 @@
+{
+  "target": "CMC_StoneCairn.png",
+  "sourceCard": "CardData/Location/CMC_StoneCairn_Placed.json",
+  "subject": "a stone cairn: a neat tapering stack of flat river stones of grey and warm sandstone-tan, each smaller than the one below, balanced into a tall narrow cone with a small round pebble on top, a few tufts of pale moss in the cracks",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: grass field, mountain, person, mortar, bricks, wall, candles",
+  "historyId": "C072zWbRa4lpcUzajFWr",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125650785_8c3ee076_1791125650934_d90cd6b2.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase H closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_StoneCairn.json. The prompt said seven stones; the picture shows nine, which does not matter for a Comfort piece built from eight. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

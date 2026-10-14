@@ -15,7 +15,7 @@
   "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783732184_2709c4ba_1789783732935_a81590b5.png",
   "credits": 90,
   "generated": "2026-09-18",
-  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Coif_Cloth' on CardData/Item/ClothMask.json, CardData/Blueprint/Bp_ClothMask.json.",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Coif_Cloth' on CardData/Item/ClothMask.json, CardData/Blueprint/Bp_ClothMask.json. | owner gallery rework 2026-10-12: needs white removed: re-derived from resource_url at 512x768, paper enclosed by the left tie loop and between the right tie and the mask keyed (key_enclosed.py confined by --box so the pale mask body stays opaque); the three dyed variants (CMC_ClothMaskDyed*.png, recolours of this picture at the same geometry) took the same alpha change. Trimmed palette PNG. No credits.",
   "candidates": [
     {
       "n": "A",
@@ -34,5 +34,6 @@
     }
   ],
   "picked": "B",
-  "predicted": "B"
+  "predicted": "B",
+  "rekeyed": "2026-10-12"
 }

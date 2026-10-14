@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAchQuarryCount",
+    "GameName": {
+        "LocalizationKey": "CMC_AchQuarryCount_StatName",
+        "DefaultText": "Achievement Progress: Northern Quarry"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchQuarryCount_StatDescription",
+        "DefaultText": "Derived counter: how many of the 3 Northern Quarry member latches (cmcStatAchQuarry*) are currently set. Recomputed every AchievementTrackerPatch poll -- never written directly. Read by the board's progress suffix."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 3.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

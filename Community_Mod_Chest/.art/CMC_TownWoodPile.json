@@ -1,0 +1,26 @@
+{
+  "target": "CMC_TownWoodPile.png",
+  "sourceCard": "CardData/Location/CMC_TownWoodPile.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the SUBJECT and STYLE reference: draw this same stack of split firewood under its thatched lean-to roof, with the same log colours, flat posterized colour fills, thin ink outlines and muted palette.\nReference image 2 is a style reference only (a scene from the game Card Survival: Fantasy Forest): match its rendering; do not copy its subject.\nDraw the Town Wood Pile, zoomed in on just the pile: a tall, neat stack of split firewood logs with pale cut ends facing the viewer, under a simple lean-to with a mossy thatched roof on two rough wooden posts, standing on packed earth with a little green grass at its foot. The woodpile fills most of the card from edge to edge; only a narrow strip of grey overcast sky and the dark green edge of a pine forest show above and beside the roof.\nFraming: tight close view from the front at standing eye level, the stack and lean-to filling the frame.\nStyle: flat posterized colour fills in a few tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture; thin dark ink outlines and small ink hatch marks on the bark and cut ends; a muted naturalistic palette of tan, brown, moss green and grey; nothing glossy. The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground or snow, the village square, cobblestones, a well, houses, cottages, people, axe, chopping block, wide shot, photo, 3D render, glossy highlights, golden glow, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "staged CMC_TownWoodPile (subject)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652800993_44866dec_1791652801718_f68a7a78.png"
+    },
+    {
+      "label": "vanilla Bear_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652734929_38bf6561.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791675048241_6da8d097_1791675048837_41acea5f.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Redo Review (second round, redrawn from the owner's notes on the first). Finished by /process-card-art --full-bleed."
+}

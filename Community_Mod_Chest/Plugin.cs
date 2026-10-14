@@ -8,26 +8,23 @@ using HarmonyLib;
 namespace CommunityModChest;
 
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
-// HARD dependency (2026-08-15, explicit project-owner decision — deliberate exception to the
-// repo's "no content mod hard-depends on another content mod" doctrine, Documentation/Ideas/
-// IDEAS_OVERVIEW.md §3.3 rule 2): River Bridge (Imp_RiverBridge.json), Copper Bed Frame
-// (Bp_CopperBedFrame.json), and the Market Stall's Copper Pantry all reference
-// advanced_copper_tools_* UIDs directly in BlueprintStages.RequiredElements with no fallback —
-// without ACT installed those RequiredCardWarpData refs never resolve (silent WarpResolver
-// failure), which was reported as the River Bridge CT10 no longer appearing at all. Rather than
-// building CMC-native fallback items + Api.BlueprintAlternates wiring for every ACT-flavored
-// feature, ACT is now mandatory for CMC — BepInEx will refuse to load this plugin at all without
-// it. Do not soften this back to SoftDependency without re-adding fallback content first.
-[BepInDependency("crispywhips.advanced_copper_tools", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("crispywhips.Herbs_And_Fungi", BepInDependency.DependencyFlags.SoftDependency)]
-[BepInDependency("crispywhips.waterdriveninfrastructure", BepInDependency.DependencyFlags.SoftDependency)]
-[BepInDependency("crispywhips.Sirus23ModCollection", BepInDependency.DependencyFlags.SoftDependency)]
+// No dependency on any other content mod (Fleet plan feature 2, 2026-10-09). CMC hard-depended on
+// Advanced Copper Tools from 2026-08-15 (an owner-approved exception to IDEAS_OVERVIEW section 3.3
+// rule 2, retired in Documentation/Interop_Registry.md) because the River Bridge, Copper Bed Frame and
+// Market Stall named ACT cards with no fallback. Since CSFFModFramework 2.28.0 the Metal Nail, Metal
+// Sheet and Tin Solder ship in the framework under the same UniqueIDs, and the Market Stall builds from
+// a vanilla Storage Chest (ACT's Copper Pantry is only an alternate), so CMC loads and plays without
+// ACT. What a player without ACT sees: the Armorer course is pruned from the lectern
+// (AcademyPatch.PruneUnavailableCourses, its payoff is ACT armour), the Professor's and Inn Keeper's
+// ACT stock rows (teas, tools, armour) never drop (a drop naming a missing card creates nothing),
+// and the Copper Pantry is not offered as the stall's chest. The Forest Crown is hidden only if the
+// Metal Sheet itself is missing (a framework older than 2.28.0, AcademyCourseService).
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.68.45";
+    public const string PluginVersion = "1.69.12";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -70,6 +67,8 @@ internal class Plugin : ContentModPlugin
 
     protected override void RegisterPatches(Harmony harmony)
     {
+        // Self-contained copy of framework 2.28.0's UniqueIdIndexRepair: without it every interior's Enter opens the Inn.
+        TryApply("UniqueIdIndexFallbackPatch", () => UniqueIdIndexFallbackPatch.ApplyPatch(harmony));
         TryApply("ArmorCardsPatch", () => ArmorCardsPatch.ApplyPatch(harmony));
         // River Bridge improvement moved to declarative InjectImprovementInto.json 2026-07-02
         // (framework CSFFModFramework.Injection.ImprovementInjector) — RiverBridgeImprovementPatch.cs retired.
@@ -112,6 +111,12 @@ internal class Plugin : ContentModPlugin
         // The old bespoke VillageFarmSeasonalCropPatch (+ cmcfarmfield* stats) was removed —
         // it relied on GameQuery.CurrentSeason, which returned null until the framework fix.
         TryApply("MarketStallPatch", () => MarketStallPatch.Initialize());
+        // H1: the Dye Vat's three dye buttons (a storage-first station, handlers read its own inventory).
+        TryApply("DyeVatPatch", () => DyeVatPatch.Initialize());
+        // I1: Stone, Twig and Bone Stockpiles hold stat-less cards as one count (Take One, Take Five, Take Apart).
+        TryApply("StockpilePatch", () => StockpilePatch.Initialize());
+        // H4: three or more worn cold-weather pieces write the hidden Layered Warmth stat, whose status warms you.
+        TryApply("LayeredWarmthPatch", () => LayeredWarmthPatch.Initialize());
         TryApply("VillageReputationPatch", () => VillageReputationPatch.Initialize());
         // Puts Village Reputation on the vanilla "Mental" stats tab at game boot — replaces
         // GameSourceModify/Mental.json, which could never resolve its target at load time
@@ -123,7 +128,19 @@ internal class Plugin : ContentModPlugin
         // Pine Trail travel softlock) — see class doc comment for the reported bug this caused.
         TryApply("StrayImprovementsPatch", () => StrayImprovementsPatch.Initialize(harmony));
         TryApply("VillageCrimePatch", () => VillageCrimePatch.Initialize());
+        // A Fugitive character is marked Suspected on their first village visit (1.69.0).
+        TryApply("FugitiveWatchPatch", FugitiveWatchPatch.Initialize);
         TryApply("InnPatch", () => InnPatch.Initialize(harmony));
+        // Evening company at the Inn: Join the Table / Play for the Room trust rewards (1.69.0).
+        TryApply("InnEveningPatch", () => InnEveningPatch.Initialize(harmony));
+        // Wagers at the Inn Counter: the dice, and the stake/account/RNG helpers the Inn games share (D7, round 2).
+        TryApply("InnWagerPatch", () => InnWagerPatch.Initialize());
+        // The Inn Counter odd-jobs board: one small job posted each morning, paid in copper (J2, round 2).
+        TryApply("InnOddJobPatch", () => InnOddJobPatch.Initialize());
+        // Chance meetings on the road: the Apothecary or Professor stops for a word (C6, 1.69.3).
+        TryApply("RoadMeetingPatch", () => RoadMeetingPatch.Initialize());
+        // Commissions: pay the Miller, Weaver or Inn Keeper and collect the goods a day or two later (C7, 1.69.3).
+        TryApply("CommissionPatch", () => CommissionPatch.Initialize());
         // The village's communal fuel stack. MUST initialize before VillageFireplacePatch, which
         // debits its pool on every hearth top-off (Village_Master_Plan.md §10.11 Chunk G).
         TryApply("TownWoodPilePatch", () => TownWoodPilePatch.Initialize());
@@ -137,6 +154,8 @@ internal class Plugin : ContentModPlugin
         TryApply("AshPosePatch", () => AshPosePatch.Initialize());
         TryApply("AshBoarHuntPatch", () => AshBoarHuntPatch.Initialize(harmony));
         TryApply("AshCatTickPatch", AshCatTickPatch.Initialize);
+        TryApply("CatGiftPatch", () => CatGiftPatch.Initialize());
+        TryApply("CatBowlPatch", () => CatBowlPatch.Initialize());
         // Ash Partner conversion — Phase 0 spike (EA 0.66 Partner NPC system reaction plan;
         // "Convert Ash the Cat into a hands-free Partner companion"). Gated off by default 2026-08-06
         // (critical-analysis CRITICAL C6): this spike is debug-only — it unconditionally spawned
@@ -180,6 +199,8 @@ internal class Plugin : ContentModPlugin
         // Higher Education / Village Academy (perk-gated course system)
         TryApply("AcademyCourseService", AcademyCourseService.Initialize);
         TryApply("AcademyPatch", () => AcademyPatch.Initialize(harmony));
+        // Framed graduation diplomas, one per course, handed out on a Final Exam and backfilled for earlier graduates (J3, round 2).
+        TryApply("AcademyDiplomaPatch", () => AcademyDiplomaPatch.Initialize());
         TryApply("OutfitWardrobeEquipService", () => OutfitWardrobeEquipService.Initialize(harmony));
         // "Outfit 1/2/3" labels on the wardrobe's inventory grid — see file header for why
         // this was needed (the 54-slot grid gave no visual cue where each outfit's slots were).
@@ -188,6 +209,8 @@ internal class Plugin : ContentModPlugin
         // course progress, independent of Village Founder (split 2026-07-23).
         TryApply("GraduatePerkPatch", () => GraduatePerkPatch.Initialize(harmony));
         TryApply("ProfessorSchedulePatch", () => ProfessorSchedulePatch.Initialize(harmony));
+        // The Potter (round 2 H6): a lodger at the Inn who works the market corner on market day.
+        TryApply("PotterSchedulePatch", () => PotterSchedulePatch.Initialize(harmony));
         // Miller/Weaver workplace duty (engine NPCDuty chassis, owner request 2026-08-21) — MUST
         // initialize before the spawn patch: CottageResidentSpawnPatch refuses to place Miller/
         // Weaver until CottageResidentWorkDutyPatch.DutiesReady flips, because InGameNPC.Init
@@ -218,6 +241,10 @@ internal class Plugin : ContentModPlugin
         // a WorldMap graph analysis (three chordless 4-node cycles in cmcTagVillageTerritory).
         // Registered after GuardDutyPatch: reads GuardDutyPatch.DutiesReady before it does anything.
         TryApply("GuardChaseUrgencyPatch", () => GuardChaseUrgencyPatch.Initialize());
+        // Holds Thorne's and Corrin's chase at the territory edge: the engine never re-checks a running
+        // duty's territory gate, and the urgency steps above skip selection entirely.
+        TryApply("GuardTerritoryLeashPatch", () => GuardTerritoryLeashPatch.Initialize(harmony));
+        TryApply("EnvImprovementTwinGuard", () => EnvImprovementTwinGuard.Initialize());
         // Attack action (§10.8.4) — the button and both crime penalties are declarative on the
         // guards' NPCAgent/Encounter JSON; this only publishes "who was standing there" so a
         // later chunk's pursuit duty can re-arm the instant a fight starts in front of a guard.
@@ -239,6 +266,14 @@ internal class Plugin : ContentModPlugin
         // the cell is a softlock) and the warden-absence window. MUST initialize after
         // GuardOutcomePatch: it subscribes to that class's ArrestPendingRaised event.
         TryApply("JailPatch", () => JailPatch.Initialize());
+        // D3 bribes: a guard takes Salt or a nugget to lower her own Suspicion, and the cell's warden takes Salt
+        // for a day off the sentence. After JailPatch, whose sentence stat and new-sentence latch reset it uses.
+        TryApply("GuardBribePatch", () => GuardBribePatch.Initialize(harmony));
+        // D4 jail labour: Break Rocks takes a quarter day off the sentence. After JailPatch, whose sentence stat it writes.
+        TryApply("JailLabourPatch", () => JailLabourPatch.Initialize());
+        // D5 community service: Captain Sterling's jobs. Watches the drift digs; the firewood job is signalled by
+        // TownWoodPilePatch. Writes only its own marker, so it needs no ordering against the crime or jail classes.
+        TryApply("CommunityServicePatch", () => CommunityServicePatch.Initialize());
         // The Hidden Tunnel (§10.8.8) — bed/tunnel toggle, dig progress, getting caught. Only
         // needs JailPatch's UnguardedStatUid/SentenceOriginalStatUid to already be readable, not
         // strict init ordering, but registering right after keeps the two jail chunks together.
@@ -267,6 +302,13 @@ internal class Plugin : ContentModPlugin
         // CMC_InnInterior.json's DefaultEnvCardDrops); Tracker = the 5-second poll behind nine of
         // the achievements; KillEffects = the two kill-driven ones. Each is once-guarded.
         TryApply("AchievementBoardSeedPatch", () => AchievementBoardSeedPatch.Initialize());
+        // Academy Sit In presence (cmcStatAcademyGuest) and the Academy Bookshelf backfill (round 2, F1).
+        TryApply("AcademyGuestPatch", () => AcademyGuestPatch.Initialize());
+        TryApply("AcademyShelfSeedPatch", () => AcademyShelfSeedPatch.Initialize());
+        // Founder's Monument (round 2, G1): placed in the Village once Village Reputation first reads full.
+        TryApply("MonumentSeedPatch", () => MonumentSeedPatch.Initialize());
+        // Village seasons (round 2, G2): summer market day, autumn provisioning offer, winter snowed-in supper.
+        TryApply("VillageSeasonsPatch", () => VillageSeasonsPatch.Initialize());
         TryApply("AchievementTrackerPatch", () => AchievementTrackerPatch.Initialize());
         TryApply("AchievementKillEffectsPatch", () => AchievementKillEffectsPatch.Initialize());
         // Founders Kit trait (formerly "Homestead") — the kit unpacks into a cabin kit, two

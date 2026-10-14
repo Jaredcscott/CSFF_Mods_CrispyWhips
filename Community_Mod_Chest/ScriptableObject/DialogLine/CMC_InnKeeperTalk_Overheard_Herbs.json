@@ -1,0 +1,30 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 4.0}},
+            {"StatWarpData": "cmcStatInnOverheardCooldown", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}},
+            {"StatWarpData": "cmcStatInnOverheardIndex", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Overheard_Herbs_Line",
+        "DefaultText": "Over by the window they're going on about herbs: whose patch grows the best silverwort, and who found it first. Neither will say where it actually grows, naturally."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Overheard_Herbs_Answer",
+                "DefaultText": "Everyone guards their own patch."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnOverheardCooldown", "StatWarpType": 3, "ValueModifier": {"x": 72.0, "y": 72.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnOverheardIndex", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

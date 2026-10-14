@@ -1,0 +1,39 @@
+{
+  "target": "CMC_SnowDrift.png",
+  "sourceCard": [
+    "CardData/Location/CMC_SnowDriftEast.json",
+    "CardData/Location/CMC_SnowDriftNorth.json",
+    "CardData/Location/CMC_SnowDriftSouth.json"
+  ],
+  "subject": "a country road buried under a deep wind-sculpted snow drift, bare trees and a leaning fence either side, a cold grey-blue winter sky",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a country road buried under a deep wind-sculpted snow drift, bare trees and a leaning fence either side, a cold grey-blue winter sky, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "9tgXXHNtwBRE23NvCIjM",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085463429_4719727d_1791085464495_e373615b.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Owner pick from the 2026-10-03 batch picker. predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085463668_bf5c5db6_1791085464731_3c047310.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085463429_4719727d_1791085464495_e373615b.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085463073_0721634c_1791085463919_f00ec3e8.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "A"
+}

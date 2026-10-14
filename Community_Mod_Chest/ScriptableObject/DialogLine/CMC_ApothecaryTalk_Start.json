@@ -1,5 +1,10 @@
 {
     "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 24.0}}
+        ]
+    },
     "Line": {
         "LocalizationKey": "CMC_ApothecaryTalk_Start_Line",
         "DefaultText": "Ah, the one who built me this cabin, come in, mind the drying racks. The forest's been good to me: nettle by the stream, moss on the north stones, more roots than I can press in a day. It's the finest workshop I've ever kept."

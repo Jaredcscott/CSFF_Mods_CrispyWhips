@@ -1,0 +1,16 @@
+{
+    "SceneTitle": {
+        "LocalizationKey": "CMC_PotterTalk_SceneTitle",
+        "DefaultText": "The Potter"
+    },
+    "SceneLinesWarpData": [
+        "CMC_PotterTalk_FiringThanks",
+        "CMC_PotterTalk_CrimeWanted",
+        "CMC_PotterTalk_CrimeBanished",
+        "CMC_PotterTalk_Start",
+        "CMC_PotterTalk_Work",
+        "CMC_PotterTalk_Clay",
+        "CMC_PotterTalk_FiringOffer"
+    ],
+    "SceneLinesWarpType": 3
+}

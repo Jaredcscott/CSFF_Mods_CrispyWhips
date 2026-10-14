@@ -9,14 +9,14 @@
     "CardDescription": {
         "ParentObjectID": "bpcmcmarketstall",
         "LocalizationKey": "CMC_MarketStall_BP_Desc",
-        "DefaultText": "Build a market stall using planks, cloth, rope, and a Copper Chest for the coin lockbox. The finished kit can only be assembled in the village."
+        "DefaultText": "Build a market stall using planks, cloth, rope, and a Storage Chest for the coin lockbox (with Advanced Copper Tools installed, its Copper Chest also fits). The finished kit can only be assembled in the village."
     },
     "CardImageWarpData": "CMC_MarketStall",
     "CardImageWarpType": 3,
     "UnlockConditionsDesc": {
         "ParentObjectID": "bpcmcmarketstall",
         "LocalizationKey": "CMC_MarketStall_BP_UnlockDesc",
-        "DefaultText": "Requires a Copper Chest"
+        "DefaultText": "Requires a Storage Chest"
     },
     "StartUnlocked": false,
     "BlueprintUnlockTicksCost": 16,
@@ -24,12 +24,14 @@
     "DeconstructDaytimeCost": 4,
     "CardsOnBoard": [
         {
-            "CardWarpData": "advanced_copper_tools_copper_pantry",
+            "ObjectiveName": "HasStorageChest",
+            "CompletionWeight": 1,
+            "Quantity": 1,
+            "CardWarpData": "2daa7f9ceb2e7534a943e22c3cc6b027",
             "CardWarpType": 3,
             "ConstantlyChecking": false
         }
     ],
-    "CardsOnBoardWarpType": 3,
     "BlueprintStages": [
         {
             "RequiredElements": [
@@ -52,7 +54,7 @@
                     "DontSpend": false
                 },
                 {
-                    "RequiredCardWarpData": "advanced_copper_tools_copper_pantry",
+                    "RequiredCardWarpData": "2daa7f9ceb2e7534a943e22c3cc6b027",
                     "RequiredCardWarpType": 3,
                     "RequiredQuantity": 1,
                     "DontSpend": false

@@ -10,6 +10,9 @@
         "a968f3eaffc6b9743b82982b5af2ab8c"
     ],
     "AddedCardsWarpType": 3,
+    "AddedCardsStats": [
+        { "Card": "9b6a1dd5ae3c5574e97cc837d64a2ea9", "SpecialDurability2": 50 }
+    ],
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
     "CharacterPerkPerkGroup": "None",

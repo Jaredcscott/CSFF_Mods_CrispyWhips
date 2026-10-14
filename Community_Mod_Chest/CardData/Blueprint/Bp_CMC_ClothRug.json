@@ -1,0 +1,69 @@
+{
+    "UniqueID": "cmcbpclothrug",
+    "CardName": {
+        "ParentObjectID": "cmcbpclothrug",
+        "LocalizationKey": "CMC_Bp_ClothRug_CardName",
+        "DefaultText": "Cloth Rug"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcbpclothrug",
+        "LocalizationKey": "CMC_Bp_ClothRug_CardDescription",
+        "DefaultText": "Stitch two large cloths into a rug to lay down at camp."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "cmcbpclothrug",
+        "LocalizationKey": "CMC_Bp_CarpentryDecor_UnlockConditionsDesc",
+        "DefaultText": "Graduate the Academy's Carpentry course"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "3e94716876eae304787efa2ae0b43711",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 3,
+    "DeconstructDaytimeCost": 2,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcClothRug",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Cloth"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "CMC_ClothRug",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

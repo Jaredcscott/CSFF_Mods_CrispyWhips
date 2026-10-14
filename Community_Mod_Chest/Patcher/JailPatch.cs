@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 using UnityEngine;
@@ -160,6 +162,10 @@ namespace CommunityModChest.Patcher
         /// <summary>Hidden 0/1 flag: whether this sentence's one-time construction bundle has
         /// already been placed. Reset to 0 in <see cref="OnArrestPendingRaised"/> so a later
         /// re-arrest re-arms the delivery for the new sentence.</summary>
+        private const string DiggingToolUid = "3db4c94184af274409f0d3eb16870f64"; // StickLong
+        private const string InsulationUid = "93dc37a6ecbf2374297b044af8b8c720"; // MeadowgrassDry
+        private const string FireplaceModelUid = "41a50d68ca445034197a936ac8680dcc";
+        private const string FireplaceLitUid = "e50543ef8a7e7d543a42e199adeee963";
         private const string SuppliesGrantedStatUid = "cmcStatJailSuppliesGranted";
 
         /// <summary>Hidden record of the day the last Lit Tinder was placed, in the same
@@ -262,6 +268,10 @@ namespace CommunityModChest.Patcher
                 // a second time (re-arrest after release, or after an escape recapture) must get a
                 // fresh delivery, not silently skip it because a prior sentence flipped this flag.
                 ok &= HiddenStat.Set(SuppliesGrantedStatUid, 0f);
+                // D3: one bribe to the warden per sentence. Not part of `ok`: a latch that cannot be written
+                // must not hold the sentence back, and it defaults to 0 anyway.
+                if (!HiddenStat.Set(GuardBribePatch.BribeUsedStatUid, 0f))
+                    Plugin.Logger.LogDebug("[JailPatch] The warden-bribe latch could not be reset for this sentence.");
                 if (!ok)
                 {
                     Plugin.Logger.LogWarning(
@@ -287,11 +297,13 @@ namespace CommunityModChest.Patcher
                 float remaining = HiddenStat.Get(SentenceRemainingStatUid);
                 if (remaining < 0f || remaining <= 0f) return; // unreadable or not serving
 
-                // Ceiling first: a save written before 1.68.42 can hold a half-day remainder (the
-                // old tunnel-caught penalty added original * 0.5). Rounding it up here serves the
-                // same number of rollovers as before (4.5 -> 4 -> ... -> 0 is five, as 4.5 -> 3.5
-                // -> ... -> 0.5 -> 0 was) and leaves the stat a whole number from then on.
-                float next = Math.Max(0f, (float)Math.Ceiling(remaining - 0.01f) - 1f);
+                // One plain day off. This used to round up first (4.5 -> 4), which kept the stat a whole
+                // number but would swallow the quarter days Break Rocks (JailLabourPatch) takes off: 4.75 and
+                // 5 both reached 4. The cell door's "N more days" and Exit buttons floor the stat before they
+                // compare (StatValueTrigger), so a remainder under one day reads as 0 and opens the Exit: it is
+                // set to 0 here, in the same step that clears the crime, never left standing as 0.75.
+                float next = remaining - 1f;
+                if (next < 1f) next = 0f;
                 HiddenStat.Set(SentenceRemainingStatUid, next);
 
                 if (next <= 0f)
@@ -369,6 +381,10 @@ namespace CommunityModChest.Patcher
                 if (gm == null) return;
                 if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return;
 
+                float gap = HiddenStat.Get(GuardDutyPatch.WardenGapStatUid);
+                // Unreadable (negative) means the run is still loading: leave the flag as saved. Treating it as a
+                // closed window would write Unguarded 0 over a saved open window and catch an exposed tunnel on reload.
+                if (gap < 0f) return;
                 bool anyOnPost = false;
                 foreach (var agentUid in GuardAgentUids)
                 {
@@ -379,7 +395,7 @@ namespace CommunityModChest.Patcher
                     if (npc == null) continue;
 
                     var performing = Reflect.GetMember(npc, "CurrentPerformingDuty");
-                    if (ReferenceEquals(performing, wardenDuty))
+                    if (ReferenceEquals(performing, wardenDuty) || HoldsPost(npc, wardenDuty, gap))
                     {
                         anyOnPost = true;
                         break;
@@ -391,6 +407,107 @@ namespace CommunityModChest.Patcher
             {
                 Plugin.Logger.LogWarning($"[JailPatch] UpdateUnguarded failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        private static MethodInfo _daytimeValid;
+        private static readonly HashSet<string> _holdsPostWarned = new HashSet<string>();
+
+        private static void WarnHoldsPostOnce(string cause, string what)
+        {
+            if (_holdsPostWarned.Add(cause))
+                Plugin.Logger.LogWarning($"[JailPatch] {what} - a guard standing at the jail post is not counted as on watch, so the jail can read unguarded during her shift.");
+        }
+
+        /// <summary>
+        /// True when this guard is standing on the post with the warden duty due: in the post's own
+        /// environment, inside her shift, not downed, and her warden duty's own gate open as the ENGINE
+        /// evaluates it.
+        /// <para>The duty is one Move to the post, and the engine finishes a duty whose Move has
+        /// nothing to do (<c>MoveDutyAction.PickDestinationAndMoveThere</c> yields at once when the NPC
+        /// already stands in the target env), so a guard AT the post holds the duty only while she is
+        /// walking there: <c>CurrentPerformingDuty</c> reads null for the rest of her shift and the
+        /// jail would read unguarded with a warden on the step (T4.23, 2026-10-13). The duty being
+        /// due while she stands at the post IS "on the post".</para>
+        /// <para>The absence window is read only THROUGH that gate (<see cref="WardenGateOpen"/>), never
+        /// from <c>cmcStatJailWardenGap</c> directly. Until 1.69.13 an open window returned false here
+        /// before anything else was checked, so a guard whose gate had failed to build (or did not see
+        /// the window) stood on the post doing her warden duty while the jail read unguarded and offered
+        /// Dig, and T4.23 still passed because it only ever opened the window. Now the jail follows what
+        /// decides the guard's behaviour: if her gate does not release her, she holds the post.</para>
+        /// </summary>
+        private static bool HoldsPost(object npc, object wardenDuty, float gap)
+        {
+            // A missing member reads as "not on the post", which silently brings back the T4.23 bug (the jail reads
+            // unguarded with a warden on the step), so each such cause leaves one Warning per session.
+            if (!Reflect.TryGetMember(npc, "CurrentEnvironment", out var env) || env == null)
+            {
+                WarnHoldsPostOnce("CurrentEnvironment", "InGameNPC.CurrentEnvironment unreadable");
+                return false;
+            }
+            if (!Reflect.TryGetMember(env, "EnvCard", out var envCard))
+            {
+                WarnHoldsPostOnce("EnvCard", "EnvID.EnvCard unreadable");
+                return false;
+            }
+            if (!string.Equals(CardUtil.GetCardUniqueId(envCard), GuardDutyPatch.VillageSquareEnvUid, StringComparison.Ordinal))
+                return false;
+
+            _daytimeValid ??= wardenDuty.GetType().GetMethod("DaytimeRequirementsValid", BindingFlags.Instance | BindingFlags.Public);
+            if (_daytimeValid == null)
+            {
+                WarnHoldsPostOnce("DaytimeRequirementsValid", "NPCDuty.DaytimeRequirementsValid not found");
+                return false;
+            }
+            if (!(_daytimeValid.Invoke(wardenDuty, new[] { npc }) is bool inShift) || !inShift) return false;
+
+            var agentUid = CardUtil.GetCardUniqueId(Reflect.GetMember(npc, "NPCModel"));
+            if (GuardOutcomePatch.ReadDownedMarker(CardUtil.GetGameManagerInstance(), agentUid) >= 0.5f) return false;
+
+            return WardenGateOpen(npc, wardenDuty, gap);
+        }
+
+        private static MethodInfo _currentConditions, _conditionsValid;
+        private static PropertyInfo _notInBase;
+
+        /// <summary>
+        /// Asks the engine whether this guard's warden duty passes its own <c>DutyConditions</c> right now, through
+        /// the exact call duty selection makes (<c>Duty.CurrentConditions(NPC).ConditionsValid(GM.NotInBase,
+        /// NPC.AssociatedCard, null, NPC)</c>, .decomp/NPCDutySelectionInfo.cs:199). The warden-absence window and
+        /// the downed marker live in that gate (GuardDutyPatch.BuildWardenDuty), so a closed gate is the guard being
+        /// released from the post, and an open one, for whatever reason, is her being held to it.
+        /// <para>If the gate cannot be evaluated the jail falls back to the window stat alone (the pre-1.69.13
+        /// reading) and warns once, so the escape still works on a game update that renames these members.</para>
+        /// </summary>
+        private static bool WardenGateOpen(object npc, object wardenDuty, float gap)
+        {
+            var gm = CardUtil.GetGameManagerInstance();
+            _currentConditions ??= wardenDuty.GetType().GetMethod("CurrentConditions", BindingFlags.Instance | BindingFlags.Public);
+            if (_currentConditions == null || gm == null)
+            {
+                WarnGateOnce("CurrentConditions", "NPCDuty.CurrentConditions not found");
+                return gap <= 0.5f;
+            }
+            var conditions = _currentConditions.Invoke(wardenDuty, new[] { npc });
+            if (conditions == null)
+            {
+                WarnGateOnce("conditions-null", "NPCDuty.CurrentConditions returned null");
+                return gap <= 0.5f;
+            }
+            _conditionsValid ??= conditions.GetType().GetMethod("ConditionsValid", BindingFlags.Instance | BindingFlags.Public);
+            _notInBase ??= gm.GetType().GetProperty("NotInBase", BindingFlags.Instance | BindingFlags.Public);
+            if (_conditionsValid == null || _notInBase == null || _conditionsValid.GetParameters().Length != 5)
+            {
+                WarnGateOnce("ConditionsValid", "GeneralCondition.ConditionsValid(bool, InGameCardBase, InGameCardBase, InGameNPC, bool) or GameManager.NotInBase not found");
+                return gap <= 0.5f;
+            }
+            var args = new[] { _notInBase.GetValue(gm), Reflect.GetMember(npc, "AssociatedCard"), null, npc, (object)false };
+            return _conditionsValid.Invoke(conditions, args) is bool valid && valid;
+        }
+
+        private static void WarnGateOnce(string cause, string what)
+        {
+            if (_holdsPostWarned.Add("gate-" + cause))
+                Plugin.Logger.LogWarning($"[JailPatch] {what} - the jail reads the warden gate from the absence-window stat alone, so a guard whose duty gate does not see the window still counts as off post.");
         }
 
         private static object FindLiveNpc(IEnumerable allNpcs, string agentUid)
@@ -461,15 +578,58 @@ namespace CommunityModChest.Patcher
             if (granted < 0f) return; // stat not ready
             if (granted >= 0.5f) return; // already delivered this sentence
 
+            EnsureFireplaceModel();
+            // The first stage also needs a Digging Tool (a GpTag_DiggingTool card is a requirement slot, not a
+            // consumed material): without one the build button does nothing (T2.281, 2026-10-13). A Long Stick
+            // is one of the four cards that group accepts, and it is not consumed.
+            // Default stats of a bare spawn are 0 (a wood ID of 0 and 0% quality); StickLong's own are Quality
+            // (SpecialDurability2) 96 and Wood ID (SpecialDurability4) 1.
+            SpawnService.Spawn(DiggingToolUid, new System.Collections.Generic.Dictionary<string, float>
+            {
+                ["SpecialDurability2"] = 96f,
+                ["SpecialDurability4"] = 1f,
+            });
             for (int i = 0; i < StoneQty; i++) SpawnService.Spawn(StoneUid);
             for (int i = 0; i < MudBrickQty; i++) SpawnService.Spawn(MudBrickUid);
             for (int i = 0; i < ClayQty; i++) SpawnService.Spawn(ClayUid);
             for (int i = 0; i < TwigsQty; i++) SpawnService.Spawn(TwigsUid);
+            // Stage 3 also asks for one Insulation Material (GpTag_InsulationMaterial: reeds, grass, straw, heather or
+            // willow twigs), which the vanilla cost list in the class doc left out because it is a tab-group slot,
+            // not a named card (T2.281, 2026-10-13). Dry Meadow Grass, at its own starting dryness (Progress 80).
+            SpawnService.Spawn(InsulationUid, new System.Collections.Generic.Dictionary<string, float> { ["Progress"] = 80f });
 
             HiddenStat.Set(SuppliesGrantedStatUid, 1f);
             Plugin.Logger.LogInfo(
                 $"[JailPatch] Fireplace building supplies placed in the cell: {StoneQty} Stone, {MudBrickQty} " +
                 $"Mud Brick, {ClayQty} Clay, {TwigsQty} Twigs.");
+        }
+
+        /// <summary>
+        /// Vanilla spawns an Environment Improvement model card (and registers it in
+        /// <c>UnlockedImprovements</c>, <c>GameManager.AddCard</c> case EnvImprovement) only when
+        /// something unlocks it; the cell lists Imp_FirePlace in its EnvironmentImprovements but
+        /// nothing unlocks it, so the Improvements tab showed nothing to build. Spawn the unbuilt
+        /// model once (skipped when the model is already on the board or a fireplace already stands).
+        /// Env-scoped scan via <see cref="GameQuery.CardsInPlayerEnv"/> (AllCards is not "this room").
+        /// </summary>
+        private static void EnsureFireplaceModel()
+        {
+            foreach (var card in GameQuery.CardsInPlayerEnv())
+            {
+                var uid = CardUtil.GetCardUniqueId(card);
+                if (uid == FireplaceModelUid || uid == FireplaceColdUid || uid == FireplaceLitUid) return;
+            }
+            // NOT SpawnService.Spawn: it calls GiveCard(data, true), and for an EnvImprovement the
+            // `_Complete` flag builds it outright (GameManager.GiveCard sets the blueprint to its last
+            // stage), which put an already-built Fireplace in the cell (walkthrough T2.281, 2026-10-13).
+            var model = UniqueIDScriptable.GetFromID<CardData>(FireplaceModelUid);
+            if (model == null)
+            {
+                Plugin.Logger.LogWarning("[JailPatch] Fireplace improvement model not found; the cell shows nothing to build.");
+                return;
+            }
+            GameManager.GiveCard(model, false);
+            Plugin.Logger.LogInfo("[JailPatch] Fireplace improvement model placed in the cell.");
         }
 
         /// <summary>
@@ -525,7 +685,7 @@ namespace CommunityModChest.Patcher
             bool isBelow = current <= threshold;
             if (isBelow && !wasBelow)
             {
-                HiddenStat.Set(statUid, current + topUp);
+                HiddenStat.SetWithStatuses(statUid, current + topUp);
                 Plugin.Logger.LogInfo(
                     $"[JailPatch] SAFETY NET: {label} at {current:0} (<= {threshold:0}) — emergency top-up " +
                     $"+{topUp:0} applied.");

@@ -12,10 +12,11 @@
         "DefaultText": "A cloth scarf worked over with fine charcoal pigment, settling to a soft ash-grey. Offers light protection from wind and cold. The dye is purely for looks — it won't keep you any warmer than the plain scarf.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
     },
     "CardType": 0,
-    "CardImageWarpData": "ClothScarf",
+    "CardImageWarpData": "CMC_ClothScarfDyedCharcoal",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
-        "tag_Clothing"
+        "tag_Clothing",
+        "tag_CMCColdWeatherApparel"
     ],
     "CardTagsWarpType": 3,
     "ObjectWeight": 75.0,

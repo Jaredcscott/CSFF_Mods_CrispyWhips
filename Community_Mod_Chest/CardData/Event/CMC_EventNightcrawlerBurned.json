@@ -10,7 +10,7 @@
     "LocalizationKey": "CMC_EventNightcrawlerBurned_CardDesc"
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Spirit_Fire",
+  "CardImageWarpData": "CMC_EventNightcrawlerBurned",
   "CardImageWarpType": 3,
   "DismantleActions": [
     {

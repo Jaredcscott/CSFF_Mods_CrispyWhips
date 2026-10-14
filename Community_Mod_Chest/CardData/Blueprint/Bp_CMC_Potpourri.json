@@ -1,0 +1,69 @@
+{
+    "UniqueID": "cmcbppotpourri",
+    "CardName": {
+        "ParentObjectID": "cmcbppotpourri",
+        "LocalizationKey": "CMC_Bp_Potpourri_CardName",
+        "DefaultText": "Bowl of Potpourri"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcbppotpourri",
+        "LocalizationKey": "CMC_Bp_Potpourri_CardDescription",
+        "DefaultText": "Fill a clay bowl with dried heather flowers to scent the camp."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "cmcbppotpourri",
+        "LocalizationKey": "CMC_Bp_CarpentryDecor_UnlockConditionsDesc",
+        "DefaultText": "Graduate the Academy's Carpentry course"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "bb2b60e54f65da4449a62faa8c84654a",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 2,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcPotpourri",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Plant"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "CMC_Potpourri",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 4.0,
+    "ResearchedNotification": 0
+}

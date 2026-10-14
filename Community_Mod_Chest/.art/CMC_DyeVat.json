@@ -1,0 +1,19 @@
+{
+  "target": "CMC_DyeVat.png",
+  "sourceCard": "CardData/Location/CMC_DyeVat.json",
+  "subject": "a wide wooden dye vat: a squat round open-topped tub of pale oak staves bound with two dark iron hoops, filled to near the brim with a deep indigo-purple dye liquid, a long plain wooden stirring paddle leaning in it, a small fold of damp undyed cream cloth hanging over the rim",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: lid, cauldron, fire, bottles, several colours of dye, steam",
+  "historyId": "85mUpgqcJsHxpxe9qRke",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125603392_d8fcd9fc_1791125603571_f2f89bc6.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase H closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_DyeVat.json. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

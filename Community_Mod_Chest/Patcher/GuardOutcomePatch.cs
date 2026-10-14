@@ -20,10 +20,15 @@ namespace CommunityModChest.Patcher
     /// <c>NPCStatChanges</c> entry with <c>UseAssociatedAgent</c>, which writes
     /// <c>cmcNpcStatGuardDowned = 1</c> onto whichever guard just lost — a kill and a forced rout
     /// both count as the player besting them (§10.8.4.3).</item>
-    /// <item><c>PlayerDemoralizedEffects.StatChanges</c> raises <c>cmcStatArrestPending</c>, the
-    /// clamped 0/1 marker <see cref="JailPatch"/> (§10.8.7.2) consumes, and the same block's
+    /// <item>On Captain Sterling's three Encounters, <c>PlayerDemoralizedEffects.StatChanges</c>
+    /// raises <c>cmcStatArrestPending</c>, the clamped 0/1 marker <see cref="JailPatch"/>
+    /// (§10.8.7.2) consumes, and the same block's
     /// <c>MovePlayer</c>/<c>MovePlayerToSpecificEnvironment</c> fields carry the player into the
-    /// jail cell through vanilla's own post-encounter travel path.</item>
+    /// jail cell through vanilla's own post-encounter travel path. The other three guards never
+    /// raise it (1.68.46): Thorne and Corrin raise <c>cmcStatCaptainSummoned</c> and Vane
+    /// <c>cmcStatGuardsSummoned</c>, because JailPatch sentences the instant the marker rises and
+    /// a sentence written with no jail move would be served, and the crime cleared, while the
+    /// player walks free.</item>
     /// <item><c>SaveEncounterToNPC</c> on every result the guard survives persists their remaining
     /// Blood/Stamina/Morale, which is what makes four sequential duels read as one running battle
     /// (.decomp/EncounterPopup.cs:2826-2828, restored at :456-459).</item>
@@ -167,7 +172,8 @@ namespace CommunityModChest.Patcher
         /// than her old post. See <see cref="WasLastDownKilled"/>.</summary>
         private const int KilledSeasonDays = 7;
 
-        /// <summary>Set to 1 by every guard Encounter's <c>PlayerDemoralizedEffects</c>.
+        /// <summary>Set to 1 by the <c>PlayerDemoralizedEffects</c> of Sterling's three Encounters,
+        /// the only ones that also move the player into the cell (see the class doc).
         /// <see cref="JailPatch"/> (§10.8.7.2) consumes it; see <see cref="ArrestPending"/>.</summary>
         internal const string ArrestPendingStatUid = "cmcStatArrestPending";
 
@@ -1010,7 +1016,7 @@ namespace CommunityModChest.Patcher
         /// for an absent guard is correct rather than convenient: the player-side day stat is what
         /// keeps a killed guard down, and it is already armed by the time their NPC disappears.
         /// </summary>
-        private static float ReadDownedMarker(object gm, string agentUid)
+        internal static float ReadDownedMarker(object gm, string agentUid)
         {
             var npc = FindLiveNpc(gm, agentUid);
             if (npc == null) return 0f;

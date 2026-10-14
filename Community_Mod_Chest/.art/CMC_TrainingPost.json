@@ -1,0 +1,19 @@
+{
+  "target": "CMC_TrainingPost.png",
+  "sourceCard": "CardData/Location/CMC_TrainingPost.json",
+  "subject": "a single upright wooden training post: one thick round oak log standing straight up, the upper half wrapped in a thick band of padded tan canvas lashed with rope, the lower half sunk into a small mound of packed earth, scuffed padding, one short wooden crosspiece arm near the top",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: weapons, swords, shield, target, human figure, fence, grass",
+  "historyId": "HQG0dFADBOs3dALWjcdA",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791114819387_413c7067_1791114819885_515abef2.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase F closeout. One sample, no owner pick (imageCount 1). text2image; keyed (a placed structure like CMC_HuntingStand). Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

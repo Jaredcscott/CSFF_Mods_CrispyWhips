@@ -1,0 +1,38 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_PotterTalk_FiringOffer_Line",
+        "DefaultText": "There's no kiln at the Inn, and the landlord won't hear of one. If you have a kiln of your own, fire me a plain clay bowl, plate, jar or vase and bring it here. I'll paint it and sell it, and pay you for the firing."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_FiringOffer_Answer_Accept",
+                "DefaultText": "I'll fire you something."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatPotterFiringErrand",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_FiringOffer_Answer_Decline",
+                "DefaultText": "Not just now."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

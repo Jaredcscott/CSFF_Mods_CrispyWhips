@@ -1,0 +1,36 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 60.0, "y": 100.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_CrimeBanished_Line",
+        "DefaultText": "I know who you are, and so does everyone under this roof. Nobody has turned you out, because an inn is an inn, but don't mistake that for a welcome. Take what you've paid for, keep your voice down, and don't linger. That's all I've got for you."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_Trade",
+                "DefaultText": "Let's see your pantry."
+            },
+            "ActionToPerform": {
+                "StartTrading": true
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_CrimeBanished_Answer_Leave",
+                "DefaultText": "I'll be on my way."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

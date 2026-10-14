@@ -67,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your stomach is easily upset. Nausea takes longer to recover from, lingering well after the cause is gone.",
+        "DefaultText": "Your stomach is easily upset. Nausea takes longer to recover from lingering well after the cause is gone.",
         "LocalizationKey": "CharacterTraits_Perk_WeakStomach_PerkDescription",
         "ParentObjectID": "traits_perk_weak_stomach"
     },

@@ -1,0 +1,10 @@
+{
+  "about": "Item cards drawn as vanilla's clay bowl (owner gallery 2026-10-12: 'must match the HF_LQ_ images'). Rebuild with liquid_bowl.make_bowl(Bowl_Clay_Water, colour) then trim_card_art; kept out of liquid_bowls.json, which holds liquid cards only.",
+  "images": {
+    "Picture/PaintedClayBowl.png": {
+      "source": "vanilla Bowl_Clay (empty), trimmed",
+      "colour": null,
+      "looks": "empty clay bowl"
+    }
+  }
+}

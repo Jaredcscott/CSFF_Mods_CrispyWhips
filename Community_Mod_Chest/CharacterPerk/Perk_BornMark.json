@@ -67,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised. Nothing in the world reads Luck yet, so the mark changes nothing you can see today.",
+        "DefaultText": "You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised, and Luck now counts: you are a little less likely to be caught searching a chest or to have your market stall robbed, and the Iron Fishing Rod lands slightly better catches.",
         "LocalizationKey": "CharacterTraits_Perk_BornMark_PerkDescription",
         "ParentObjectID": "traits_perk_born_mark"
     },

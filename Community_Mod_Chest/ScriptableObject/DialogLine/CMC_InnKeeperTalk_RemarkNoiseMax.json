@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatAchNoiseMax", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 1.0}},
+            {"StatWarpData": "cmcStatInnNoiseMaxRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_RemarkNoiseMax_Line",
+        "DefaultText": "The board won't explain Spiritual Overcrowding, so I'll tell you straight: your Spiritual Noise hit its very limit. Too many spirits crowding in at once, and a head can only hold so many. Find somewhere quiet and sit until it passes."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_RemarkNoiseMax_Answer",
+                "DefaultText": "I'll try not to bring them into your taproom."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnNoiseMaxRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

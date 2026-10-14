@@ -1,0 +1,35 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatProvisionState", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_ProvisionThanks_Line",
+        "DefaultText": "Saw you leave it on the counter, and it's already on the high shelf. That's a few more meals the snow can't take from us. Here, for the trouble, and a seat by the fire whenever the roads close."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_ProvisionThanks_Answer",
+                "DefaultText": "Glad to help stock the Inn."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatProvisionState", "StatWarpType": 3, "ValueModifier": {"x": -0.5, "y": -0.5}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatProvisionDone", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 3.0, "y": 3.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ],
+                "DroppedCards": [
+                    {
+                        "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                        "DroppedCardWarpType": 3,
+                        "Quantity": {"x": 3, "y": 3}
+                    }
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

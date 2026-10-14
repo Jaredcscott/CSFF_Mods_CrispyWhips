@@ -106,6 +106,41 @@ namespace CommunityModChest.Patcher
             ("d47e145147d460a4c80d739af904fe8a", "Wolf",      new[] { "cmcStatAchHuntWolf" }),
         };
 
+        /// <summary>
+        /// G5: Harsh Wilds' three quarry encounters (read on disk 2026-10-04: HarshWilds/Encounter/hw_encounter_lynx.json,
+        /// hw_encounter_wisent.json, hw_encounter_muskox.json, each with an EnemyDefeatedEffects block), each mapped to
+        /// the member latch a kill sets. Harsh Wilds is a soft crossover (INJ + HIDE): a latch is appended only when its
+        /// encounter resolves at load, and the achievement is on the board only when at least one did. Never hard-fails,
+        /// never warns on an install without Harsh Wilds, never edits HarshWilds/.
+        /// </summary>
+        private static readonly (string EncounterUid, string Label, string StatUid)[] QuarryLatches =
+        {
+            ("hw_encounter_lynx",   "Lynx",    "cmcStatAchQuarryLynx"),
+            ("hw_encounter_wisent", "Wisent",  "cmcStatAchQuarryWisent"),
+            ("hw_encounter_muskox", "Musk Ox", "cmcStatAchQuarryMuskOx"),
+        };
+
+        private static readonly System.Collections.Generic.List<string> _quarryResolved = new();
+
+        /// <summary>The member latches whose Harsh Wilds encounter resolved at the last load. Empty without Harsh Wilds.</summary>
+        internal static System.Collections.Generic.IReadOnlyList<string> QuarryResolvedStatUids => _quarryResolved;
+
+        /// <summary>True when at least one quarry encounter resolved: the board then lists the Northern Quarry achievement.</summary>
+        internal static bool QuarryAvailable => _quarryResolved.Count > 0;
+
+        /// <summary>G4 "Order Up!": the three vanilla commission blueprints (read 2026-10-02, trade_and_crossmod.md W0.4:
+        /// Agent_TraderGeneral's two and Agent_TraderMetal's one are the only vanilla commissions). Each is a one-stage
+        /// blueprint whose Build action is the completion, so a +1 StatModifier on its BlueprintStatModifications sets the
+        /// latch when the build completes. No method is patched: both build methods return IEnumerator.</summary>
+        private static readonly (string BlueprintUid, string Label)[] OrderUpBlueprints =
+        {
+            ("607e90b32540e1540a2b0a8e0e4832ce", "Bp_CommissionPartridgeEggs"),
+            ("bbd72396a77f3ad4f9b118db2c7a5a9e", "Bp_CommissionCopperNuggets"),
+            ("7e007b1784114c789402c53454382428", "Bp_CommissionCopperBarMillKnowledge"),
+        };
+
+        private const string OrderUpStatUid = "cmcStatAchOrderUp";
+
         private static bool _initialized;
 
         public static void Initialize()
@@ -163,6 +198,9 @@ namespace CommunityModChest.Patcher
                     if (touchedThisEncounter) encountersWired++;
                 }
 
+                WireQuarry();
+                WireOrderUp();
+
                 // One Info line for the whole pass (root CLAUDE.md § Mod Logging Norms — per-item
                 // loops stay at Debug). A 0/0 pass is the normal steady state on a second
                 // LoadMainGameData in the same process, not a failure.
@@ -177,6 +215,59 @@ namespace CommunityModChest.Patcher
             }
         }
 
+        /// <summary>G5: append the three kill latches for the Harsh Wilds encounters that resolve, and record which did.
+        /// Quiet when an encounter is absent (Debug only): a CMC install without Harsh Wilds is the normal case.</summary>
+        private static void WireQuarry()
+        {
+            foreach (var row in QuarryLatches)
+            {
+                var encounter = UniqueIDScriptable.GetFromID<Encounter>(row.EncounterUid);
+                var effects = encounter?.EnemyDefeatedEffects;
+                if (effects == null)
+                {
+                    Plugin.Logger.LogDebug($"[AchievementKillEffectsPatch] Harsh Wilds encounter '{row.EncounterUid}' ({row.Label}) did not resolve; the quarry latch is not wired.");
+                    continue;
+                }
+                var stat = UniqueIDScriptable.GetFromID<GameStat>(row.StatUid);
+                if (stat == null)
+                {
+                    Plugin.Logger.LogWarning($"[AchievementKillEffectsPatch] GameStat '{row.StatUid}' not found - {row.Label} kills will not latch it.");
+                    continue;
+                }
+                AppendLatch(effects, stat); // false on a re-run in the same process: already wired
+                if (!_quarryResolved.Contains(row.StatUid)) _quarryResolved.Add(row.StatUid);
+                Plugin.Logger.LogDebug($"[AchievementKillEffectsPatch] Harsh Wilds {row.Label} kill -> {row.StatUid} (+1).");
+            }
+            if (_quarryResolved.Count > 0)
+                Plugin.Logger.LogInfo($"[AchievementKillEffectsPatch] Harsh Wilds quarry: {_quarryResolved.Count} of {QuarryLatches.Length} encounters wired.");
+        }
+
+        /// <summary>G4: append the Order Up! latch to each commission blueprint's BlueprintStatModifications.</summary>
+        private static void WireOrderUp()
+        {
+            var stat = UniqueIDScriptable.GetFromID<GameStat>(OrderUpStatUid);
+            if (stat == null)
+            {
+                Plugin.Logger.LogWarning($"[AchievementKillEffectsPatch] GameStat '{OrderUpStatUid}' not found - filling a commission will not count toward Order Up!.");
+                return;
+            }
+            int wired = 0;
+            foreach (var row in OrderUpBlueprints)
+            {
+                var blueprint = UniqueIDScriptable.GetFromID<CardData>(row.BlueprintUid);
+                if (blueprint == null)
+                {
+                    Plugin.Logger.LogWarning($"[AchievementKillEffectsPatch] vanilla commission blueprint '{row.BlueprintUid}' ({row.Label}) not found - it will not count toward Order Up!.");
+                    continue;
+                }
+                var grown = GrowWithLatch(blueprint.BlueprintStatModifications, stat);
+                if (grown == null) continue; // already wired this process
+                blueprint.BlueprintStatModifications = grown;
+                wired++;
+            }
+            Plugin.Logger.LogInfo($"[AchievementKillEffectsPatch] Order Up! latch appended to {wired} of {OrderUpBlueprints.Length} commission blueprints.");
+        }
+
         /// <summary>
         /// Appends a clamped <c>+1</c> StatModifier targeting <paramref name="stat"/> onto
         /// <paramref name="effects"/>, preserving every entry already there. Returns false when an
@@ -184,10 +275,21 @@ namespace CommunityModChest.Patcher
         /// </summary>
         private static bool AppendLatch(EncounterResultEffect effects, GameStat stat)
         {
-            var existing = effects.StatChanges ?? Array.Empty<StatModifier>();
+            var grown = GrowWithLatch(effects.StatChanges, stat);
+            if (grown == null) return false;
+            effects.StatChanges = grown;
+            return true;
+        }
+
+        /// <summary>The grown copy of <paramref name="current"/> with the latch entry added, or null when an entry
+        /// for that stat is already present. Shared by the kill effects (an Encounter's StatChanges) and G4's
+        /// commission blueprints (a CardData's BlueprintStatModifications), both plain StatModifier arrays.</summary>
+        private static StatModifier[] GrowWithLatch(StatModifier[] current, GameStat stat)
+        {
+            var existing = current ?? Array.Empty<StatModifier>();
 
             for (int i = 0; i < existing.Length; i++)
-                if (existing[i].Stat == stat) return false;
+                if (existing[i].Stat == stat) return null;
 
             var grown = new StatModifier[existing.Length + 1];
             Array.Copy(existing, grown, existing.Length);
@@ -206,8 +308,7 @@ namespace CommunityModChest.Patcher
                 // this same effect block on 11 of these 12 encounters.
             };
 
-            effects.StatChanges = grown;
-            return true;
+            return grown;
         }
     }
 }

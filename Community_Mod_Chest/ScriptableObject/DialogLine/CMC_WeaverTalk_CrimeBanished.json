@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 60.0, "y": 100.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_CrimeBanished_Line",
+        "DefaultText": "Please don't stay. I don't want any trouble, and I don't think you do either. I'll sell you what I always have, and I'll keep my eyes on my work. That is the most I can do."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_CrimeBanished_Answer_NoHarm",
+                "DefaultText": "I mean no harm."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_CrimeBanished_Answer_Leave",
+                "DefaultText": "I'll go."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

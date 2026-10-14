@@ -1,0 +1,26 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatProvisionState", "StatWarpType": 3, "TriggerRange": {"x": 0.75, "y": 1.25}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_ProvisionOffer_Line",
+        "DefaultText": "Leaves are turning, and the snows will not wait on my pantry. If you've dried meat, fish, berries, peas or roots to spare, set a piece on the counter and I'll stack it with the winter stores. It's a long season with a thin larder."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_ProvisionOffer_Answer",
+                "DefaultText": "I'll bring some dried food by."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatProvisionState", "StatWarpType": 3, "ValueModifier": {"x": -1.0, "y": -1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

@@ -30,6 +30,13 @@
             }
         },
         {
+            "Conditions": {"Special3Range": {"x": 90.0, "y": 100.0}},
+            "Description": {
+                "LocalizationKey": "CMC_ShadowCatTamed_CareContent_CardDescription",
+                "DefaultText": "Shadow has stopped keeping to the edge of the light. He sleeps in plain sight by the fire, one ear turned your way, as easy in your camp as a shadow ever gets."
+            }
+        },
+        {
             "Conditions": {"Special3Range": {"x": 75.0, "y": 100.0}},
             "Description": {
                 "LocalizationKey": "CMC_ShadowCatTamed_CareHigh_CardDescription",
@@ -55,7 +62,8 @@
                 "DefaultText": "Slips Into the Dark"
             },
             "StatModifications": [
-                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}}
+                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}},
+                {"StatWarpData": "cmcStatShadowCatPresent", "StatWarpType": 3, "ValueModifier": {"x": -1.0, "y": -1.0}}
             ],
             "ReceivingCardChanges": {"ModType": 3}
         }
@@ -78,7 +86,8 @@
                 "DefaultText": "Slips Into the Dark"
             },
             "StatModifications": [
-                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}}
+                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}},
+                {"StatWarpData": "cmcStatShadowCatPresent", "StatWarpType": 3, "ValueModifier": {"x": -1.0, "y": -1.0}}
             ],
             "ReceivingCardChanges": {"ModType": 3}
         }
@@ -102,7 +111,8 @@
                 "DefaultText": "Slips Into the Dark"
             },
             "StatModifications": [
-                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}}
+                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}},
+                {"StatWarpData": "cmcStatShadowCatPresent", "StatWarpType": 3, "ValueModifier": {"x": -1.0, "y": -1.0}}
             ],
             "ReceivingCardChanges": {"ModType": 3}
         }
@@ -236,6 +246,137 @@
                 ],
                 "TriggerCardsWarpType": 3
             }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_ShadowCatTamed_CI_PlayToy",
+                "DefaultText": "Play with the Toy"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_ShadowCatTamed_CI_PlayToy_Desc",
+                "DefaultText": "He stalks it from the shadows and strikes all at once, and for a moment he is only a young cat."
+            },
+            "DaytimeCost": 2,
+            "StatModifications": [
+                {
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 16.0,
+                        "y": 16.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -25.0,
+                        "y": -25.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -30.0,
+                        "y": -30.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special3Change": {
+                    "x": 20.0,
+                    "y": 20.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "GetSpoilageFromOtherCard": false,
+                "GetUsageFromOtherCard": false,
+                "GetChargesFromOtherCard": false,
+                "GetSpecial1FromOtherCard": false,
+                "GetSpecial2FromOtherCard": false,
+                "GetSpecial3FromOtherCard": false,
+                "GetSpecial4FromOtherCard": false,
+                "AverageGivenAndReceivingCards": false,
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": []
+            },
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "cmcBoneDice",
+                    "cmcSpinningTop",
+                    "cmcWheeledHorse"
+                ],
+                "TriggerCardsWarpType": 3
+            }
         }
     ],
     "PassiveStatEffects": [
@@ -243,6 +384,35 @@
             "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
             "StatWarpType": 3,
             "RateModifier": {"x": -2.0, "y": -2.0}
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "CMC Content Cat Calm",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true,
+                "ReceivingRequiredDurabilityRanges": {
+                    "Special3Range": { "x": 90.0, "y": 100.0 }
+                }
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 0.0, "y": 0.0 },
+                    "RateModifier": { "x": -2.0, "y": -2.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
         }
     ]
 }

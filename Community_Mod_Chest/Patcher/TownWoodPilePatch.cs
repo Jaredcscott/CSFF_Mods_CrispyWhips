@@ -330,6 +330,9 @@ namespace CommunityModChest.Patcher
                 // evidence this path works end to end; without a visible line the next run cannot
                 // produce that evidence either.
                 Plugin.Logger.LogInfo($"[TownWoodPilePatch] Stocked +{value:0} fuel ({pool:0} -> {updated:0}).");
+
+                // D5: a stocking is the firewood job's completion signal (a no-op unless Captain Sterling set that job).
+                CommunityServicePatch.OnWoodStocked(value);
             }
             catch (Exception ex)
             {

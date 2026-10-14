@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatAchSpelunker", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 1.0}},
+            {"StatWarpData": "cmcStatInnSpelunkerRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_RemarkSpelunker_Line",
+        "DefaultText": "Caves and hollows, I hear, and a good few of them. I wouldn't set foot down one of those holes for a purse of salt. The dark in there is the kind you can hear. What does a person find down there, besides the dark?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_RemarkSpelunker_Answer",
+                "DefaultText": "Mostly more dark, and the odd bear."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnSpelunkerRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

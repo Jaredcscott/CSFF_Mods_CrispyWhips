@@ -4,6 +4,7 @@
         "DefaultText": "Guard Iris Vane"
     },
     "SceneLinesWarpData": [
+        "CMC_GuardTalk_TheftNotFound",
         "CMC_VaneTalk_Start"
     ],
     "SceneLinesWarpType": 3

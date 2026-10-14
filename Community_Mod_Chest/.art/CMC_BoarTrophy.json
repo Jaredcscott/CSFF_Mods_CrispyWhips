@@ -1,0 +1,19 @@
+{
+  "target": "CMC_BoarTrophy.png",
+  "sourceCard": "CardData/Location/CMC_BoarTrophy_Placed.json",
+  "subject": "a wild boar tusk trophy: a small plain rectangular oak plaque with a pair of curved ivory-yellow boar tusks mounted side by side on it, curving outward and upward like a wide crescent, fixed with two small iron pins, a short twine loop at the top for hanging",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: boar head, skull, fur, blood, wall, antlers",
+  "historyId": "uhwX2Eeou0KDX2Y9mOhx",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125604235_cc7fa22f_1791125605014_ab5b3d1c.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase H closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_BoarTrophy.json. The paper inside the hanging loop was not border-connected, so it stays white. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

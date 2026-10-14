@@ -27,6 +27,13 @@ namespace CommunityModChest.Patcher
     /// table's weights in place, immediately before each roll, based on whether the
     /// degree is held — lower tiers (Nothing/Minnow) are suppressed and higher tiers
     /// (Perch/Eel/Crayfish) are boosted and their population gate is lowered.
+    ///
+    /// Luck (round 2, B4): each rare collection (Crayfish, Perch, Eel) carries a SECOND
+    /// StatsDropChanceModifier on vanilla Luck, after the population one (the graduate hook above edits
+    /// index 0 and must keep finding the population modifier there). The game reads Luck's current value
+    /// itself on every roll; the modifier maps Luck 0 to <see cref="LuckBonus.LuckPlateau"/> onto 0 to a
+    /// few hundred extra weight (UseMinMaxWeight clamps a Luck above the plateau to the full bonus and
+    /// never cancels a drop). Nothing and Minnow stay flat.
     /// </summary>
     internal static class IronRodFishingPatch
     {
@@ -39,6 +46,14 @@ namespace CommunityModChest.Patcher
         private const string PopCrayfishGuid = "478a22eb24d03244fa9c31911175eb6c";
         private const string PopPerchGuid    = "06a9b3a507f78374084b51efdfb5f02c";
         private const string PopEelGuid      = "800a4ffb6dc941c45b805472d3ad785d";
+
+        // B4: the most extra weight Luck adds to each rare collection, reached at LuckBonus.LuckPlateau.
+        // PLACEHOLDERS to tune by playing, small on purpose: at a population of 50 the table weighs about
+        // 18800 and the three rare collections' share rises about 3 points at full Luck (computed from the
+        // weights below, not played). Eel (500 to 3000 on population) gets half of the others.
+        private const int LuckWeightCrayfish = 400;
+        private const int LuckWeightPerch    = 400;
+        private const int LuckWeightEel      = 200;
 
         // All river/water cards that have the full minnow-based fish table.
         private static readonly string[] FishingWaterUids =
@@ -158,6 +173,7 @@ namespace CommunityModChest.Patcher
                 var popCrayfish  = UniqueIDScriptable.GetFromID<GameStat>(PopCrayfishGuid);
                 var popPerch     = UniqueIDScriptable.GetFromID<GameStat>(PopPerchGuid);
                 var popEel       = UniqueIDScriptable.GetFromID<GameStat>(PopEelGuid);
+                var luckStat     = UniqueIDScriptable.GetFromID<GameStat>(LuckBonus.LuckStatUid);
 
                 if (minnowCard == null)   Plugin.Logger.LogWarning($"[CMCFishing] Minnow ({MinnowGuid}) not found — dropped from the Iron Rod catch table.");
                 if (crayfishCard == null) Plugin.Logger.LogWarning($"[CMCFishing] Crayfish ({CrayfishGuid}) not found — dropped from the Iron Rod catch table.");
@@ -166,6 +182,7 @@ namespace CommunityModChest.Patcher
                 if (popCrayfish == null)  Plugin.Logger.LogWarning($"[CMCFishing] Pop_Crayfish stat ({PopCrayfishGuid}) not found — Crayfish population gate disabled.");
                 if (popPerch == null)     Plugin.Logger.LogWarning($"[CMCFishing] Pop_Perch stat ({PopPerchGuid}) not found — Perch population gate disabled.");
                 if (popEel == null)       Plugin.Logger.LogWarning($"[CMCFishing] Pop_Eel stat ({PopEelGuid}) not found — Eel population gate disabled.");
+                if (luckStat == null)     Plugin.Logger.LogWarning($"[CMCFishing] Luck stat ({LuckBonus.LuckStatUid}) not found - Luck adds nothing to the Iron Rod's rare catches.");
 
                 int injected = 0;
 
@@ -233,7 +250,7 @@ namespace CommunityModChest.Patcher
                     // Drop table: built from scratch — no Copy() needed.
                     ironCI.ProducedCards = BuildDropTable(
                         minnowCard, crayfishCard, perchCard, eelCard,
-                        popCrayfish, popPerch, popEel);
+                        popCrayfish, popPerch, popEel, luckStat);
 
                     // 3. Append to this water card's CardInteractions.
                     var existing = waterCard.CardInteractions;
@@ -282,7 +299,7 @@ namespace CommunityModChest.Patcher
 
         private static CardsDropCollection[] BuildDropTable(
             CardData minnow, CardData crayfish, CardData perch, CardData eel,
-            GameStat popCrayfish, GameStat popPerch, GameStat popEel)
+            GameStat popCrayfish, GameStat popPerch, GameStat popEel, GameStat luckStat)
         {
             var result = new List<CardsDropCollection>();
 
@@ -311,17 +328,17 @@ namespace CommunityModChest.Patcher
             // so FinalWeight=0 which is excluded; at pop=1+, scales 1000→5000).
             if (crayfish != null && popCrayfish != null)
                 result.Add(MakePopCollection("Crayfish", crayfish, popCrayfish,
-                    0f, 100f, 1000, 5000, StatDropChanceModOutOfRange.Add0Weight));
+                    0f, 100f, 1000, 5000, StatDropChanceModOutOfRange.Add0Weight, luckStat, LuckWeightCrayfish));
 
             // Perch: excluded below pop=10 (CancelDrop adds -1000000); scales 1000→6000 above.
             if (perch != null && popPerch != null)
                 result.Add(MakePopCollection("Perch", perch, popPerch,
-                    10f, 100f, 1000, 6000, StatDropChanceModOutOfRange.CancelDrop));
+                    10f, 100f, 1000, 6000, StatDropChanceModOutOfRange.CancelDrop, luckStat, LuckWeightPerch));
 
             // Eel: same pop gate, lower ceiling.
             if (eel != null && popEel != null)
                 result.Add(MakePopCollection("Eel", eel, popEel,
-                    10f, 100f, 500, 3000, StatDropChanceModOutOfRange.CancelDrop));
+                    10f, 100f, 500, 3000, StatDropChanceModOutOfRange.CancelDrop, luckStat, LuckWeightEel));
 
             return result.ToArray();
         }
@@ -329,24 +346,38 @@ namespace CommunityModChest.Patcher
         private static CardsDropCollection MakePopCollection(
             string name, CardData fish, GameStat popStat,
             float statMin, float statMax, int interpMin, int interpMax,
-            StatDropChanceModOutOfRange oor)
+            StatDropChanceModOutOfRange oor, GameStat luckStat, int luckWeight)
         {
+            // Index 0 stays the population modifier: ApplyGraduateTierWeights edits it by index.
+            var modifiers = new List<StatBasedDropChanceModifier>
+            {
+                new StatBasedDropChanceModifier
+                {
+                    Stat              = popStat,
+                    StatRange         = new Vector2(statMin, statMax),
+                    InterpWeightRange = new Vector2Int(interpMin, interpMax),
+                    WhenOutOfRange    = oor
+                }
+            };
+
+            // B4: Luck. Never cancels (UseMinMaxWeight), 0 extra at Luck 0, the full luckWeight from the
+            // plateau up. A Luck stat that did not resolve leaves the table exactly as it was.
+            if (luckStat != null && luckWeight > 0)
+                modifiers.Add(new StatBasedDropChanceModifier
+                {
+                    Stat              = luckStat,
+                    StatRange         = new Vector2(0f, LuckBonus.LuckPlateau),
+                    InterpWeightRange = new Vector2Int(0, luckWeight),
+                    WhenOutOfRange    = StatDropChanceModOutOfRange.UseMinMaxWeight
+                });
+
             return new CardsDropCollection
             {
                 CollectionName   = name,
                 CollectionWeight = 0,
                 CollectionUses   = new Vector2Int(-1, -1),
                 DroppedCards     = new[] { new CardDrop { DroppedCard = fish, Quantity = new Vector2Int(1, 1) } },
-                StatsDropChanceModifiers = new[]
-                {
-                    new StatBasedDropChanceModifier
-                    {
-                        Stat              = popStat,
-                        StatRange         = new Vector2(statMin, statMax),
-                        InterpWeightRange = new Vector2Int(interpMin, interpMax),
-                        WhenOutOfRange    = oor
-                    }
-                }
+                StatsDropChanceModifiers = modifiers.ToArray()
             };
         }
     }

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnEveningCooldown",
+    "GameName": {
+        "LocalizationKey": "CMC_InnEveningCooldown_StatName",
+        "DefaultText": "Inn Evening Cooldown"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnEveningCooldown_StatDescription",
+        "DefaultText": "Hidden cooldown shared by Join the Table and Play for the Room: set to 48 when either is used, drains 1 per tick, so the table can be joined once per evening."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 96.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -5985,8 +5985,8 @@
   "ResultLog": {
    "LogText": {
     "ParentObjectID": "cmcEncounterGuardVane",
-    "LocalizationKey": "",
-    "DefaultText": "You have nothing left. You stop fighting and let Vane take you."
+    "LocalizationKey": "CMC_GuardVane_Demoralized_Result",
+    "DefaultText": "You have nothing left. Vane steps back out of reach and whistles for the rest of the Watch."
    },
    "AlternateLogTexts": [],
    "TextSettings": {
@@ -6018,7 +6018,7 @@
      "m_FileID": 0,
      "m_PathID": 0
     },
-    "StatWarpData": "cmcStatArrestPending",
+    "StatWarpData": "cmcStatGuardsSummoned",
     "StatWarpType": 3,
     "ValueModifier": {
      "x": 1.0,
@@ -6042,7 +6042,7 @@
      "MaxValue": 0.0
     },
     "ApplyEachTick": false,
-    "InstantModifier": false,
+    "InstantModifier": true,
     "IgnoreNovelty": true,
     "IsInverse": false
    }
@@ -6455,13 +6455,9 @@
     "SoundEffects": []
    }
   },
-  "MovePlayer": 2,
+  "MovePlayer": 0,
   "MovePlayerToSpecificEnvironment": [],
-  "MovePlayerToSpecificEnvironmentWarpData": [
-   "cmcEnvJailCell"
-  ],
-  "MovePlayerToSpecificEnvironmentWarpType": 3,
-  "MoveDuration": 4,
+  "MoveDuration": 0,
   "MoveNPC": 0,
   "MoveNPCToSpecificEnvironment": [],
   "MoveNPCPathfindingAction": {

@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailLabourToday",
+    "GameName": {
+        "LocalizationKey": "CMC_JailLabourToday_StatName",
+        "DefaultText": "Jail Labour Today"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailLabourToday_StatDescription",
+        "DefaultText": "Hidden counter: how many times the prisoner has broken rocks today. 0 to 2, clamped to that range; the cell's Break Rocks button is hidden at 2 and the counter is set back to 0 at every day rollover."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 2.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

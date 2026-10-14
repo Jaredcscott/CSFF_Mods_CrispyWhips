@@ -1,0 +1,27 @@
+{
+  "target": "CMC_StockpileBones.png",
+  "sourceCard": "CardData/Blueprint/Bp_CMC_StockpileBones.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the STYLE and SUBJECT reference: match its pale bleached bones, flat posterized colour steps, thin dark ink outlines and muted palette; keep the same kind of bones but NOT its frame of wooden poles.\nReference image 2 is a style reference only: match its flat colour fills and ink lines; do not copy its composition.\nDraw a Bone Stockpile for a survival game card: JUST A PILE. A loose rounded heap of pale bleached animal bones (long leg bones, a few curved ribs, knobbly joint ends) lying directly on a small flat oval patch of bare brown earth. Nothing around the heap: no frame, no poles, no posts, no fence, no rope. Seen from a slightly high three-quarter view, the heap filling the lower-middle of the card. The bones are pale cream and tan.\nStyle: vanilla Card Survival: Fantasy Forest card art: flat posterized colour fills in three or four hard-edged tonal steps (cel-like), thin dark ink outlines, a few small ink hatch and tick marks for texture, muted naturalistic palette, realistic proportions. No soft gradients, no watercolour bleed, no paper texture, nothing glossy, no glow.\nSingle subject only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: fence, frame, wooden poles, posts, stakes, rope lashing, boundary, enclosure, crate, box, skulls, footprints, tracks, prints in the earth, grass, watercolor, soft painterly shading, paper texture, photo, 3D render, glossy highlights, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, text, watermark, signature, logo, border.",
+  "refs": [
+    {
+      "label": "staged CMC_StockpileBones (style)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652794464_01ffcb4e_1791652794616_02b6371c.png"
+    },
+    {
+      "label": "vanilla Bones (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bones_1791652738076_35951b3e.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791675046900_5dc81a7c_1791675047981_e1b8ff8a.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Redo Review (second round, redrawn from the owner's notes on the first). Finished by /process-card-art. | owner gallery rework 2026-10-12: needs white removed: re-derived from resource_url at 512x768, paper caught between the bones at the top of the pile keyed with key_enclosed.py, edge trim cleaned with defringe.py. Trimmed palette PNG. No credits.",
+  "rekeyed": "2026-10-12"
+}

@@ -1,0 +1,20 @@
+{
+  "target": "VillageAcademyCarpentry.png",
+  "sourceCard": "CharacterPerk/Pk_GradCarpentry.json",
+  "role": "ICON (PerkIconWarpData): 512x512 RGBA keyed, matching the shipped square course-icon family (VillageAcademyArchitecture, Armorer, Fishing, Herbalism, Medicine, Metallurgy), not the 512x768 card canvas",
+  "subject": "a carpenter's still life of three objects grouped together: a steel-bladed hand saw with a plain wooden handle lying diagonally, a plain round-headed wooden mallet with a straight handle resting across it, and a short oak plank whose end shows one clean interlocking dovetail joint",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game icon illustration of a carpenter's still life of three objects grouped together: a steel-bladed hand saw with a plain wooden handle lying diagonally, a plain round-headed wooden mallet with a straight handle resting across it, and a short oak plank whose end shows one clean interlocking dovetail joint. Warm honey-brown oak and steel-grey tones with fine ink cross-hatching, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, a still life of exactly three objects filling most of a square frame yet comfortably inset from every edge with a clear white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame, no human figures.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, more than three objects, nails, sawdust, wood shavings, workbench, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the objects, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, people, hands.",
+  "historyId": "m1qWFjfAqi5qOrvaXbrt",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790946307262_43a25a39_1790946307500_1082aba0.png",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "note": "First generation, accepted. Finished with the process_card_art.py GIMP recipe (border-connected paper keyed, paper floor 250) at a 512x512 canvas instead of 512x768 through a scratchpad wrapper, because the course icons are square (the gate pins them as the square course-icon sizes). The picture shows a saw, a mallet and two oak planks forming a dovetail joint; the plank count is a model liberty and was kept. Relinked CharacterPerk/Pk_GradCarpentry.json PerkIconWarpData from VillageAcademyArchitecture."
+}

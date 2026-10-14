@@ -51,6 +51,21 @@ namespace CommunityModChest.Patcher
             return 0f;
         }
 
+        /// <summary>
+        /// What one freshly spawned coin is worth, read from the coin's own CardData.TradingValue (the same
+        /// field <see cref="CoinValue"/> reads off a card the player holds), or 0 when the coin does not resolve
+        /// (DurosCoinage is not installed). A coin whose data carries no TradingValue is priced at half the
+        /// default metal-type reading, the same fallback CoinValue gives such a coin. Used by the Market Stall's
+        /// Collect as Coins, which pays out at this price so a coin is never worth more in the stall's takings
+        /// than it is at the Inn Counter.
+        /// </summary>
+        public static float CoinPrice()
+        {
+            var coin = UniqueIDScriptable.GetFromID<CardData>(CoinUid);
+            if (coin == null) return 0f;
+            return coin.TradingValue > 0f ? coin.TradingValue : DefaultMetalTypeValue / 2f;
+        }
+
         private static float CoinValue(object card)
         {
             var cardData = CardUtil.GetCardData(card);

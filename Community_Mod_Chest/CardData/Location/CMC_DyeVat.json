@@ -1,0 +1,181 @@
+{
+    "UniqueID": "cmcDyeVat",
+    "SpillsInventoryOnDestroy": true,
+    "CardName": {
+        "ParentObjectID": "cmcDyeVat",
+        "LocalizationKey": "CMC_DyeVat_CardName",
+        "DefaultText": "Dye Vat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcDyeVat",
+        "LocalizationKey": "CMC_DyeVat_CardDescription",
+        "DefaultText": "A wide wooden vat for dyeing cloth by the armful. Put plain garments and pigments inside, then choose a colour: every plain garment in the vat is dyed, one pigment each, and keeps its wear. A garment that already carries a dye is left alone."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcDyeVat",
+        "LocalizationKey": "CMC_DyeVat_CardHelpSection",
+        "DefaultText": "<b>Dye Charcoal, Dye Ochre, Dye Billberry:</b> Dyes every plain Cloth Scarf, Cloth Coat, Cloth Mask, Chaperon, Quilted Cap, Straw Hat and Leather Apron in the vat, using one matching pigment for each. When the pigment runs out, the rest stay plain. <b>Take Apart:</b> Splits the vat back into Planks and Rope; whatever is inside spills out."
+    },
+    "CardType": 2,
+    "MapStructureType": 0,
+    "ObjectWeight": 3000.0,
+    "TradingValue": 80.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "KeepName": true,
+    "AlwaysUpdate": false,
+    "CardImageWarpData": "CMC_DyeVat",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "MaxWeightCapacity": 50000,
+    "InventorySlots": [
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 }
+    ],
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcDyeVat",
+                "LocalizationKey": "CMC_DyeVat_DA_DyeCharcoal",
+                "DefaultText": "Dye Charcoal"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcDyeVat",
+                "LocalizationKey": "CMC_DyeVat_DA_DyeCharcoal_Desc",
+                "DefaultText": "Steep every plain garment in the vat in Charcoal Pigment, one pigment each, until it settles to a soft ash-grey."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcDyeVat",
+                "LocalizationKey": "CMC_DyeVat_DA_DyeOchre",
+                "DefaultText": "Dye Ochre"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcDyeVat",
+                "LocalizationKey": "CMC_DyeVat_DA_DyeOchre_Desc",
+                "DefaultText": "Steep every plain garment in the vat in Ochre Pigment, one pigment each, until it turns a warm, earthy yellow-brown."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcDyeVat",
+                "LocalizationKey": "CMC_DyeVat_DA_DyeBillberry",
+                "DefaultText": "Dye Billberry"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcDyeVat",
+                "LocalizationKey": "CMC_DyeVat_DA_DyeBillberry_Desc",
+                "DefaultText": "Steep every plain garment in the vat in Billberry Pigment, one pigment each, until it takes a deep violet."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcDyeVat",
+                "LocalizationKey": "CMC_DyeVat_DA_TakeApart",
+                "DefaultText": "Take Apart"
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 4, "y": 4 },
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 3,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 1.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "DurabilitySorting": { "SortingList": [] },
+    "OnlyShowPopupsWhenEquipped": false,
+    "MiniInventoryHideDurabilities": { "MaskValue": 0 },
+    "MaxLiquidCapacity": 0.0,
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatDurosPresent",
+    "GameName": {
+        "LocalizationKey": "CMC_DurosPresent_StatName",
+        "DefaultText": "Duros Coin Present"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_DurosPresent_StatDescription",
+        "DefaultText": "Hidden flag: 1 while DurosCoinage's Metal Coin is loaded, else 0. Written by QuestChainSchedulePatch's poll and read only to show or hide the Market Stall's Collect as Coins button, so that button never appears without DurosCoinage."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

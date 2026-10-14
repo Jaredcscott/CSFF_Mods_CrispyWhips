@@ -1,0 +1,157 @@
+{
+    "UniqueID": "cmcLogBench",
+    "CardName": {
+        "ParentObjectID": "cmcLogBench",
+        "LocalizationKey": "CMC_LogBench_Placed_CardName",
+        "DefaultText": "Log Bench"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcLogBench",
+        "LocalizationKey": "CMC_LogBench_Placed_CardDescription",
+        "DefaultText": "Two logs and two planks make a bench broad enough for a few people to sit on."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcLogBench",
+        "LocalizationKey": "CMC_LogBench_Placed_CardHelpSection",
+        "DefaultText": "<b>Sit:</b> Take a seat for a moment. <b>Take Apart:</b> Splits the bench back into its Wood and Planks."
+    },
+    "CardType": 2,
+    "MapStructureType": 0,
+    "ObjectWeight": 4000.0,
+    "TradingValue": 40.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "KeepName": true,
+    "AlwaysUpdate": false,
+    "CardImageWarpData": "CMC_LogBench",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Preservable", "tag_Structure", "tag_Furniture"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcLogBench",
+                "LocalizationKey": "CMC_LogBench_Placed_DA_Sit",
+                "DefaultText": "Sit"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcLogBench",
+                "LocalizationKey": "CMC_LogBench_Placed_DA_Sit_Desc",
+                "DefaultText": "Take a seat for a moment."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcLogBench",
+                "LocalizationKey": "CMC_LogBench_Placed_DA_TakeApart",
+                "DefaultText": "Take Apart"
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 },
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 0,
+                                "Special3": 0,
+                                "Special4": 3,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 0.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 1.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+6)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 6.0, "y": 6.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ],
+    "DurabilitySorting": { "SortingList": [] },
+    "OnlyShowPopupsWhenEquipped": false,
+    "MiniInventoryHideDurabilities": { "MaskValue": 0 },
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

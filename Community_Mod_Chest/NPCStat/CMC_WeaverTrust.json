@@ -2,7 +2,7 @@
     "UniqueID": "cmcStatWeaverTrust",
     "GameName": {
         "LocalizationKey": "IGNOREKEY",
-        "DefaultText": "Weaver trust/relationship - raised by chatting and completing her errand; gates warm dialog"
+        "DefaultText": "Weaver trust/relationship - raised by chatting, trading, painted clay gifts and her errand; gates warm dialog and her prices"
     },
     "DefaultStartingValue": 0.0,
     "DefaultMinMaxValue": {

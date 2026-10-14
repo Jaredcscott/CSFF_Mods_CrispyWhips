@@ -676,6 +676,186 @@
         "ModType": 0
       },
       "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_orderup_locked_Name",
+        "DefaultText": "Order Up! - unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_orderup_locked_Desc",
+        "DefaultText": "Fill a travelling trader's commission."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchOrderUp",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_orderup_earned_Name",
+        "DefaultText": "Order Up! - earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_orderup_earned_Desc",
+        "DefaultText": "A trader asked, and you delivered. Word travels along the road."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchOrderUp",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_quarry_locked_Name",
+        "DefaultText": "Northern Quarry - unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_quarry_locked_Desc",
+        "DefaultText": "Bring down a lynx, a wisent and a musk ox in the Harsh Wilds."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchQuarry",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_quarry_earned_Name",
+        "DefaultText": "Northern Quarry - earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_quarry_earned_Desc",
+        "DefaultText": "Lynx, wisent and musk ox: the Harsh Wilds have given up all three."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchQuarry",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_king_locked_Name",
+        "DefaultText": "King of the Forest - unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_king_locked_Desc",
+        "DefaultText": "Win the deep trust of every resident and the village's full honour."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchKing",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_king_earned_Name",
+        "DefaultText": "King of the Forest - crowned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_king_earned_Desc",
+        "DefaultText": "Every resident trusts you and the whole village honours you. The forest has a King."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchKing",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
     }
   ],
   "DismantleActionsWarpType": 3

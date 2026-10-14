@@ -1,0 +1,87 @@
+{
+    "UniqueID": "cmcStatLayeredWarmth",
+    "GameName": {
+        "ParentObjectID": "cmcStatLayeredWarmth",
+        "LocalizationKey": "CMC_LayeredWarmth_StatName",
+        "DefaultText": "Layered Warmth"
+    },
+    "Description": {
+        "ParentObjectID": "cmcStatLayeredWarmth",
+        "LocalizationKey": "CMC_LayeredWarmth_StatDescription",
+        "DefaultText": "Counts the cold-weather apparel you are wearing. Three or more pieces at once trap enough warmth to feel a little warmer than the pieces alone."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 6.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatLayeredWarmth",
+                "LocalizationKey": "CMC_LayeredWarmth_Status_Layered_Name",
+                "DefaultText": "Well Layered"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatLayeredWarmth",
+                "LocalizationKey": "CMC_LayeredWarmth_Status_Layered_Description",
+                "DefaultText": "Layers of warm clothing hold your own heat close, and you feel a little warmer."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 3, "y": 6},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 1.0, "y": 1.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

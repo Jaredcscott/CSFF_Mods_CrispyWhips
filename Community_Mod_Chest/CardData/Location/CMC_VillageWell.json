@@ -15,7 +15,7 @@
     "TradingValue": 0.0,
     "CardImageWarpData": "CMC_WellPlans",
     "CardImageWarpType": 3,
-    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpData": ["tag_Structure", "tag_x_WaterSource"],
     "CardTagsWarpType": 3,
     "UniqueOnBoard": true,
     "DoesNotPile": true,

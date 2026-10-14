@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatShadowHuntCooldown",
+    "GameName": {
+        "LocalizationKey": "CMC_ShadowHuntCooldown_StatName",
+        "DefaultText": "Shadow's Hunt Cooldown"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ShadowHuntCooldown_StatDescription",
+        "DefaultText": "Hidden cooldown: set to 288 (three days) when Shadow leaves on a night hunt, drains 1 per tick. He comes home once 24 have drained and leaves again only at 0. Clamped to 0..288."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 288.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

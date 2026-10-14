@@ -16,7 +16,9 @@
     "DoesNotPile": true,
     "CardImageWarpData": "FishingNet",
     "CardImageWarpType": 3,
-    "CardTagsWarpData": [],
+    "CardTagsWarpData": [
+        "tag_FishingNet"
+    ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
         "SticksAppear"

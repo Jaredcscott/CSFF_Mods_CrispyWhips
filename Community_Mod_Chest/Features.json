@@ -92,6 +92,16 @@
       "evidence": "needle-gated 2026-08-26 (fb719693c); T2.138 PENDING"
     },
     {
+      "name": "Cloth Hood",
+      "status": "Implemented",
+      "cards": [
+        "apparelbpclothhood",
+        "apparelclothhood"
+      ],
+      "confidence": "LOW",
+      "evidence": "built 2026-10-04 (round 2 D2, 287df0ac1); the Cloth Mask and the hood halve a Wanted sighting's Suspicion bump. Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (every disguise card carries tag_CMCDisguise, no CardTag file ships). Harness T2.926 equips the hood and reads +2.5 against a bare +5, written 2026-10-04, not yet run; T2.936 asks a person to look at the hood's new card art"
+    },
+    {
       "name": "Long Johns",
       "status": "Implemented",
       "cards": [
@@ -160,8 +170,13 @@
       "status": "Implemented",
       "cards": [
         "potterysculpturebppigment",
-        "potterysculpturepigment"
+        "potterysculpturepigment",
+        "potterysculpturebppigmentochre",
+        "potterysculpturepigmentochre",
+        "potterysculpturebppigmentbillberry",
+        "potterysculpturepigmentbillberry"
       ],
+      "notes": "Three colours from 1.68.46: Charcoal Pigment (2 Charcoal), Ochre Pigment (2 Crushed Bog Iron) and Billberry Pigment (2 Dried Billberries), each ground with a hammering tool into 3 powder on the Utensils tab. All three dye garments; only charcoal paints pottery. The Weaver's second-pigment step takes any of the three.",
       "confidence": "MEDIUM",
       "evidence": "T1.6 family spot-check PASS 2026-07-23, but now feeds T2.108 PENDING dye-variant mechanic (1.60.0) not covered by that older pass"
     },
@@ -268,7 +283,7 @@
     {
       "name": "Herb Paste",
       "status": "Implemented",
-      "notes": "Quest reward as of the NPC enrichment pass: the crafting blueprint is no longer in the normal research tab; it is unlocked via BlueprintsFullUnlockWarpData on the Apothecary's herb-gathering quest completion (CMC_ApothecaryTalk_HerbQuestThanks). Recipe still requires Wild Garlic + Old Growth Bark. The Apothecary still sells the finished paste as rare vendor stock independently.",
+      "notes": "Quest reward as of the NPC enrichment pass: the crafting blueprint is no longer in the normal research tab; it is unlocked via BlueprintsFullUnlockWarpData on the Apothecary's herb-gathering quest completion (CMC_ApothecaryTalk_HerbQuestThanks). Recipe still requires Wild Garlic + Old Growth Bark. The Apothecary still sells the finished paste as rare vendor stock independently. 1.68.46 (audit plan N2): the paste carries FlavourTags Pungent, cmcflavourtannic (FlavourTag/CMC_FlavourTannic.json) and Herbal, all Medium, its Eat sets ReceivingCardFlavourBonus, and a 'Season with Herb Paste' CI (WorksInverted, 19 vanilla cooked/boiled/dried meat, bird, fish and sausage cards) copies those flavours onto the food via AddFlavoursFromOtherCard and uses the paste up. FlavourMatrix/CMC_TannicSavoury.json makes Tannic + Savoury Good, which is what turns a seasoned plain fish from flavour score 2.0 (no Gratification) into 3.0 (+25). In-game check T2.286.",
       "cards": [
         "potterysculpturebpherbpaste",
         "potterysculptureherbpaste"
@@ -374,7 +389,7 @@
     {
       "name": "Ceramic Lamp",
       "status": "Implemented",
-      "notes": "2-variant light item (unlit/lit). Fuel: Fat. IsSourceOfLight. Moonlight stat +10.",
+      "notes": "2-variant light item (unlit/lit). Fuel: fat, or any card tagged tag_Oil since 1.69.3 (see Ceramic Lamp - Burns Any Oil). IsSourceOfLight. Moonlight stat +10.",
       "cards": [
         "ceramiclampbp",
         "ceramiclamp",
@@ -450,7 +465,7 @@
     {
       "name": "River Bridge",
       "status": "Implemented",
-      "notes": "CT10 env improvement. Injected into River Clearing CT8 by RiverBridgeImprovementPatch. Requires ACT copper nails (40) - hard dep despite SoftDependency declaration. Completion triggers village path reveal.",
+      "notes": "CT10 env improvement. Injected into River Clearing CT8 by RiverBridgeImprovementPatch. Requires 40 Metal Nails (advanced_copper_tools_copper_nails), which ship in CSFFModFramework 2.28.0+ with or without ACT; CMC declares no dependency on ACT (Fleet plan feature 2). Completion triggers village path reveal.",
       "cards": [
         "cmcimpriverbridge"
       ],
@@ -547,7 +562,7 @@
     {
       "name": "Village Academy (permanent fixture, course-gated blueprints)",
       "status": "Implemented",
-      "notes": "The cmcAcademy entrance always spawns in the Village via framework ConditionalDrops/AlwaysTrue (MaxOnBoard:1, ForceStay) - PR-1 dropped the old HasPerk gate and RETIRED the Higher Education trait from character creation (CharacterPerkPerkGroup 'None'; asset kept so old saves stay valid). Study actions additionally require cmcStatVillagePhase >= 1 (AcademyPatch.BlockReason via VillageClock.PhaseAtLeast). Entrance 'Enter the Academy' DA produces the cmcAcademyInterior CT4 InstancedEnvironment; interior seeds Academy Door (TravelToPreviousEnv) + Lecture Hall. Six courses run as 2-hour study sessions (8 DTP, Energy -5/Stamina -4): course progress lives on the lectern's 8 generic DurabilityStat slots - SpecialDurability1/2/3 (Architecture 72h, Metallurgy 60h, Herbalism 30h) plus SpoilageTime/UsageDurability/FuelCapacity (Fishing/Armorer/Medicine, 24h each; CardData exposes 8 such slots total, not just the 4 Special ones). Each 'Study ...' DA adds +2h via ReceivingCardChanges ModType 1 and hides natively (RequiredReceivingDurabilities, HideActionIfNotMet) once one session remains; a 'Final Exam: ...' DA (also 2h, +2h) becomes visible for the last session and grants the hidden in-run Graduate perk via AddedInRunPerksWarpData (CharacterPerkPerkGroup 'None' keeps them out of character creation; requires framework 2.11.0+) - session split: 35+1 / 29+1 / 14+1 / 11+1 / 11+1 / 11+1. AcademyPatch gates tuition as a one-time enrollment fee (100, drawn from the Tuition Account balance) - deposits credit 2 Copper Coins (SD4=100 -> 50 each), 1 raw Copper Nugget (SD4=100 x2 unrefined multiplier -> 200, covers two enrollments), or 7 Salt (15 each, rounded up from the Copper Coin equivalent: 100/15=6.67->7) per CurrencyValue.cs - required and consumed on each course's FIRST session only; blocks re-study after graduating; CollectActionModifiers tooltip. AcademyCourseService (OnGMInitialized + post-course): for every run (trait check removed in PR-1), sets BlueprintModelStates=Hidden and UnlockableCards.Disabled=true for the gated blueprints unless earned, then unlocks earned ones via GameManager.MakeBlueprintAvailable - Architecture → WDI Sawmill+Grinding Mill; Metallurgy → ACT Copper Sheet; both → WDI Forge+Workshop Kit; Fishing → CMC Iron Fishing Rod; Armorer → ACT Copper Breastplate/Helmet/Greaves/Gauntlets; already-Available blueprints are never re-locked; missing mods are skipped. The Armorer course itself is pruned from the lectern's DismantleActions (AcademyPatch.PruneUnavailableCourses, via BepInEx Chainloader.PluginInfos GUID check) if Advanced Copper Tools isn't installed - Fishing and Medicine have no cross-mod dependency and are always offered. HerbalismForagePatch: GameManager.SelectCardCollection postfix duplicates Item-type CurrentDrop entries on 'Forage' actions when the Herbalism degree is held (execution path only, previews untouched). IronRodFishingPatch: an ActionRouter Before-hook mutates the shared Iron Rod catch-table weights in place (Nothing/Minnow suppressed, Crayfish/Perch/Eel boosted and pop-gate lowered) once cmcperkgradfishing is held. Pk_GradMedicine carries two PassiveStatModifiers (RateModifier -0.3/-0.2) copied from Perk_Trollblood's bleed-clot/ache-fade stats. Art: VillageAcademy/VillageAcademyInterior/VillageAcademyLectern/VillageAcademyFishing/VillageAcademyArmorer/VillageAcademyMedicine PNGs are white placeholders pending real art (prompts drafted in .audit/image-prompts-academy-courses.md).",
+      "notes": "The cmcAcademy entrance always spawns in the Village via framework ConditionalDrops/AlwaysTrue (MaxOnBoard:1, ForceStay) - PR-1 dropped the old HasPerk gate and RETIRED the Higher Education trait from character creation (CharacterPerkPerkGroup 'None'; asset kept so old saves stay valid). Study actions additionally require cmcStatVillagePhase >= 1 (AcademyPatch.BlockReason via VillageClock.PhaseAtLeast). Entrance 'Enter the Academy' DA produces the cmcAcademyInterior CT4 InstancedEnvironment; interior seeds Academy Door (TravelToPreviousEnv) + Lecture Hall. Six courses run as 2-hour study sessions (8 DTP, Energy -5/Stamina -4): course progress lives on the lectern's 8 generic DurabilityStat slots - SpecialDurability1/2/3 (Architecture 72h, Metallurgy 60h, Herbalism 30h) plus SpoilageTime/UsageDurability/FuelCapacity (Fishing/Armorer/Medicine, 24h each; CardData exposes 8 such slots total, not just the 4 Special ones). Each 'Study ...' DA adds +2h via ReceivingCardChanges ModType 1 and hides natively (RequiredReceivingDurabilities, HideActionIfNotMet) once one session remains; a 'Final Exam: ...' DA (also 2h, +2h) becomes visible for the last session and grants the hidden in-run Graduate perk via AddedInRunPerksWarpData (CharacterPerkPerkGroup 'None' keeps them out of character creation; requires framework 2.11.0+) - session split: 35+1 / 29+1 / 14+1 / 11+1 / 11+1 / 11+1. AcademyPatch gates tuition per session (the base 100 is drawn from the Tuition Account balance on every Study and Final Exam session, through VillagePricing.Apply: 120 while Wanted, 150 while Banished, and the Academy never refuses a Banished student) - deposits credit 2 Copper Coins (SD4=100 -> 50 each), 1 raw Copper Nugget (SD4=100 x2 unrefined multiplier -> 200, covers two sessions), or 7 Salt (15 each, rounded up from the Copper Coin equivalent: 100/15=6.67->7) per CurrencyValue.cs - required and consumed on every session; blocks re-study after graduating; CollectActionModifiers tooltip. AcademyCourseService (OnGMInitialized + post-course): for every run (trait check removed in PR-1), sets BlueprintModelStates=Hidden and UnlockableCards.Disabled=true for the gated blueprints unless earned, then unlocks earned ones via GameManager.MakeBlueprintAvailable - Architecture → WDI Sawmill+Grinding Mill; Metallurgy → ACT Copper Sheet; both → WDI Forge+Workshop Kit; Fishing → CMC Iron Fishing Rod; Armorer → ACT Copper Breastplate/Helmet/Greaves/Gauntlets; already-Available blueprints are never re-locked; missing mods are skipped. The Armorer course itself is pruned from the lectern's DismantleActions (AcademyPatch.PruneUnavailableCourses, via BepInEx Chainloader.PluginInfos GUID check) if Advanced Copper Tools isn't installed - Fishing and Medicine have no cross-mod dependency and are always offered. HerbalismForagePatch: GameManager.SelectCardCollection postfix duplicates Item-type CurrentDrop entries on 'Forage' actions when the Herbalism degree is held (execution path only, previews untouched). IronRodFishingPatch: an ActionRouter Before-hook mutates the shared Iron Rod catch-table weights in place (Nothing/Minnow suppressed, Crayfish/Perch/Eel boosted and pop-gate lowered) once cmcperkgradfishing is held. Pk_GradMedicine carries two PassiveStatModifiers (RateModifier -0.3/-0.2) copied from Perk_Trollblood's bleed-clot/ache-fade stats. Art: VillageAcademy/VillageAcademyInterior/VillageAcademyLectern/VillageAcademyFishing/VillageAcademyArmorer/VillageAcademyMedicine PNGs are white placeholders pending real art (prompts drafted in .audit/image-prompts-academy-courses.md).",
       "cards": [
         "cmcperkhighereducation",
         "cmcperkgradarchitecture",
@@ -681,16 +696,20 @@
       "name": "Toys & Games",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "T2.108 PENDING (CMC 1.60.0 flavor batch, unverified, some placeholder art)",
+      "evidence": "T2.108 PENDING (CMC 1.60.0 flavor batch, unverified); round 2 Inn games: harness scenarios T2.932 to T2.935 written 2026-10-04, not yet run; T2.936 asks a person to look at the three new card images",
       "cards": [
         "bpcmcbonedice",
         "cmcbonedice",
+        "bpcmcloadeddice",
+        "cmcloadeddice",
+        "bpcmcmorrisboard",
+        "cmcmorrisboard",
         "bpcmcspinningtop",
         "cmcspinningtop",
         "bpcmcwheeledhorse",
         "cmcwheeledhorse"
       ],
-      "notes": "Bone Dice, Spinning Top, Wheeled Horse - Entertainment-tab craftables from the 1.60.0 flavor batch. T2.108 asks to confirm real art on each (some ships placeholder) and no blank cards."
+      "notes": "Bone Dice, Spinning Top, Wheeled Horse - Entertainment-tab craftables from the 1.60.0 flavor batch. T2.108 asks to confirm real art on each (some ships placeholder) and no blank cards. 1.68.46 (audit plan N3): each toy has a 15-minute pastime DA (Roll the Dice / Spin the Top: Stress -5, Focus +4; Pull the Horse Along: Stress -5, Loneliness -10), and a 'Play with the Toy' CI on both tamed cats (cmcInnCat, cmcShadowCatTamed) takes any of the three: 30 minutes, Focus +16, Stamina -10, Stress -25, Loneliness -30, cat Care (Special3) +20, toy kept (GivenCardChanges ModType 0). In-game check T2.287. Round 2 D7 (CMC 1.69.3): a Wager on the Dice CI on the Inn Counter takes the Bone Dice or the new Loaded Dice (Bone Dice plus Clay, researchable from the start) with at least one resident at the Inn, stakes 25 from the Inn Account, keeps the dice, and settles in C# (Patcher/InnWagerPatch.cs): honest dice win 45% for twice the stake, loaded dice are caught 15% (stake lost, Village Crime +8) and otherwise win 60%. Odds are placeholders; the Loaded Dice have their own card art (2026-10-04). Round 2 D8 and D9: the Morris Board (Plank, 2 Stone, Charcoal Pigment; pastime Work a Morris Problem) gets a Play Morris CI on the Inn Counter (board kept, 4 daytime points, company 1 to 4) winning 30% + 20% x Focus/96, and an Arm Wrestle counter action (1 daytime point, Stamina -8 in JSON, Stamina >= 8 with a notice, company 1 to 4) winning 30% + 20% x Fitness/3200, 10 points less when started Exhausted; both settle through the shared InnWagerPatch helpers with a stake gate and a 500-cap room gate, and never write Fitness. The Morris Board has its own card art (2026-10-04)."
     },
     {
       "name": "Dyed Apparel Variants",
@@ -700,9 +719,27 @@
       "cards": [
         "apparelchaperondyed",
         "apparelclothcoatdyed",
-        "apparelclothscarfdyed"
+        "apparelclothscarfdyed",
+        "apparelchaperondyedochre",
+        "apparelchaperondyedbillberry",
+        "apparelclothcoatdyedochre",
+        "apparelclothcoatdyedbillberry",
+        "apparelclothscarfdyedochre",
+        "apparelclothscarfdyedbillberry",
+        "combatandarmorquiltedcapdyedcharcoal",
+        "combatandarmorquiltedcapdyedochre",
+        "combatandarmorquiltedcapdyedbillberry",
+        "apparelstrawhatdyedcharcoal",
+        "apparelstrawhatdyedochre",
+        "apparelstrawhatdyedbillberry",
+        "apparelleatheraprondyedcharcoal",
+        "apparelleatheraprondyedochre",
+        "apparelleatheraprondyedbillberry",
+        "apparelclothmaskdyedcharcoal",
+        "apparelclothmaskdyedochre",
+        "apparelclothmaskdyedbillberry"
       ],
-      "notes": "Dye a Cloth Coat/Chaperon/Cloth Scarf with Pigment via a CardInteraction (TriggerCardsWarpData against the Pigment GUID) to get a charcoal/soot/ash-grey cosmetic variant. Each dyed variant is its own CT0 card with a 'Rip up' DA; no PassiveEffects resolved beyond the base item's (digest shows empty stat/rate fields, i.e. cosmetic-only relative to the base garment)."
+      "notes": "Drag a pigment onto a plain Chaperon, Cloth Coat, Cloth Scarf, Quilted Cap, Straw Hat, Leather Apron or Cloth Mask (a CardInteraction per pigment, TriggerCardsWarpData against that pigment's UID) to transform it into that colour's variant: charcoal (grey/black), ochre (yellow-brown) or billberry (violet), 21 variants from 1.68.46 (the 3 charcoal ones date from 1.60.0). Each variant is its own CT0 card cloned from its base with tinted art, the base's own Rip up/Dismantle yield and a ~25% trade-value bump; stats are the base garment's, so the dye is cosmetic. Only the plain garment can be dyed."
     },
     {
       "name": "Scented Candle",
@@ -742,24 +779,63 @@
       "name": "Cat Bed & Cat Care",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "T2.109 PENDING (Care-tier flavor text, Give a Treat mechanic across 3 cats); needle-gated from launch and needle-cost-normalized 2026-08-26 (f5117eeb4)",
+      "evidence": "T2.109 PENDING (Care-tier flavor text, Give a Treat mechanic across 3 cats); needle-gated from launch and needle-cost-normalized 2026-08-26 (f5117eeb4). Round 2 E1 (3954b84de): static Development_Tools/Tests/CMC-Round2.Tests.ps1 (the bed names both cats, carries an effect name, mends below one cistern drink a day, README and CSV no longer say it does nothing); harness T2.937 compares Care with and without a bed, written 2026-10-04, not yet run",
       "cards": [
         "cmcbpcatbed",
         "cmccatbed"
       ],
-      "notes": "Place a Cat Bed; 'Give a Treat' (uses an Iron Fishing Rod catch) raises Care for Ash, Shadow, or the tamed Stray. Care-tier flavor lines should appear in each tamed cat's description as Care rises/falls. Cross-references the Clay Ocarina and Shadow the Cat groups."
+      "notes": "Place a Cat Bed (Comfort +10 while placed; since round 2 E1, 1.69.3, it also mends both tamed cats' Care by 0.05 a tick, about 4.8 a day, through a RemotePassiveEffects entry while it is set down on the cat's board, and a carried bed is not claimed to work); 'Give a Treat' (uses an Iron Fishing Rod catch) raises Care for the two tamed cats, Ash (the tamed Stray, cmcInnCat) and Shadow (cmcShadowCatTamed). Since 1.68.46 'Play with the Toy' (drag a Bone Dice, Spinning Top or Wheeled Horse onto either cat) raises Care by 20 too (T2.287). Four Care-tier flavor lines (the fourth, Content, from Care 90, round 2 E2) should appear in each tamed cat's description as Care rises/falls. Cross-references the Clay Ocarina and Shadow the Cat groups."
+    },
+    {
+      "name": "Content Cats and Small Gifts",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the Content tier starts at Care 90 and sits ahead of the High line, the aura is gated on the cat's own Care, the gift chance is one in ten, the latch is clamped 0 to 1, the gift is spawned with its stats and needs the cat on the player's board, the class is started once per process). Harness T2.938 reads the Content line at Care 89 and 90, Loneliness's rate across Shadow turning Content and the seeded gift rolls over three days; written 2026-10-04, not yet run. The aura gated on a card's own Care is unproven in this repo until it runs.",
+      "cards": [
+        "cmcInnCat",
+        "cmcShadowCatTamed",
+        "cmcStatCatGiftRolled"
+      ],
+      "notes": "Round 2 E2 (3954b84de). From Care 90 each tamed cat is Content: a fourth description line (Ash's in every pose), a second Loneliness aura of -2 a tick, and one 10 percent roll a day, made only while a Content cat is on the board the player is on, for a Fish Scraps or a Feathers spawned with its own starting stats. CatGiftPatch latches the roll in cmcStatCatGiftRolled and resets it at the day rollover. Chance, threshold and aura strength are placeholders for tuning."
+    },
+    {
+      "name": "Cat Bowl",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (three declared slots, mini inventory, the sixteen meat and fish cards of the cats' Feed and no tag filter, Take Apart spills the contents, the blueprint spends a Clay Bowl, the hunger test, board-scoped reads, once-per-process start). Harness T2.939 runs a hungry cat beside an empty bowl and a full cat as controls, then one meal and Take Apart; written 2026-10-04, not yet run. The Cat Bowl has its own card art (2026-10-04); T2.942 asks a person to look at it and craft it.",
+      "cards": [
+        "cmcCatBowl",
+        "cmcbpcatbowl"
+      ],
+      "notes": "Round 2 E3 (d3008ab35). A craftable bowl (one Clay Bowl, Metal and Clay Utensils) with three slots that take only raw or cooked meat and fish. While Ash or Shadow stands on the same board and their Hunger has fallen to a quarter of full, CatBowlPatch removes one piece through CardUtil.TryRemoveCard, raises Hunger by 288 and lowers Care by half a cistern drink, and waits while the player is dragging a card. Take Apart returns the Clay Bowl and spills the contents. Threshold, meal and Care cost are placeholders for tuning."
+    },
+    {
+      "name": "Night Hunts for Shadow and Ash's Boar Hunt",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (Ash's CSV rows, hunt UIDs, trail card and return stats byte-identical to HEAD and Ash the first parameter set; Shadow's trip env-scoped and retried; the hunt state stat clamped; a carried Shadow never swapped; no second Shadow while he is out). Harness T2.940 runs Shadow's two controls, departure and return on a seeded find; T2.941 runs Ash's departure, trail and arrival at Hunter's Crossing; both written 2026-10-04, not yet run. The boar fight itself is not driven.",
+      "cards": [
+        "cmcShadowCatTamed",
+        "cmcShadowHuntTrail",
+        "cmcStatShadowHuntSpot",
+        "cmcStatShadowHuntCooldown",
+        "cmcInnCat",
+        "cmcAshTrackingBoar",
+        "cmcAshBoarTrail"
+      ],
+      "notes": "Round 2 E4 (8ff6fd1ce). AshBoarHuntPatch now runs one mechanism from a parameter set per cat. Ash's set is the shipped boar hunt, unchanged. Shadow's set: at night (17:00 to 06:00), set down on the player's board with Care 70 or more and his clamped cooldown at 0, he is swapped in place for Shadow's Trail and the cooldown set to 288; once 24 ticks have drained the next poll that finds the trail on the player's board swaps him back and lands a Squirrel or Partridge carcass. Care floor, trip length and cooldown are placeholders for tuning."
     },
     {
       "name": "Hunting Stand",
       "status": "Implemented",
       "confidence": "HIGH",
-      "evidence": "same Hidden-blueprint-until-Miller-quest mechanism as Garden Trellis, whose family was CONFIRMED FIXED via T1.6 Spike-1 (2026-07-22); CHANGELOG explicitly pairs the two as sibling Miller grain-errand rewards",
+      "evidence": "same Hidden-blueprint-until-Miller-quest mechanism as Garden Trellis, whose family was CONFIRMED FIXED via T1.6 Spike-1 (2026-07-22); CHANGELOG explicitly pairs the two as sibling Miller grain-errand rewards; none of that covers the 1.69.3 C# move-refusal roll, whose harness scenario T2.901 and in-game camp are pending",
       "cards": [
         "hunterscachebphuntingstand",
         "hunterscachehuntingstandkit",
         "hunterscachehuntingstand"
       ],
-      "notes": "NOT registered in BlueprintTabs.json - by design, same Hidden-until-quest pattern as Garden Trellis (unlocked via the Miller's grain-errand thanks dialog, BlueprintsFullUnlockWarpData). Kit item (3 Planks + 4 Long Sticks + 2 Rope) has a 'Set Up' DA producing the placed CT2 stand; the stand carries 'Take Down' (returns kit) and 'Dismantle' (returns raw materials) DAs. Declarative EncounterGuards/HuntingStandGuard.json gives a 45% chance to suppress wildlife encounters while stationed there (no C#)."
+      "notes": "NOT registered in BlueprintTabs.json - by design, same Hidden-until-quest pattern as Garden Trellis (unlocked via the Miller's grain-errand thanks dialog, BlueprintsFullUnlockWarpData). Kit item (3 Planks + 4 Long Sticks + 2 Rope) has a 'Set Up' DA producing the placed CT2 stand; the stand carries 'Take Down' (returns kit) and 'Dismantle' (returns raw materials) DAs. Declarative EncounterGuards/HuntingStandGuard.json gives a 45% chance to suppress wildlife encounters started with no NPC while stationed there; since 1.69.3 Patcher/WildlifeIndoorGuardPatch.cs also refuses a hostile agent's move onto the board with the same chance (HuntingStandRefuseChance 0.45, rolled once per agent per day; see Wildlife Indoor & Village Encounter Suppression)."
     },
     {
       "name": "Homestead / Founders Kit Perks",
@@ -845,7 +921,7 @@
         "cmcMillerCottageInteriorLocation",
         "cmcWeaverCottageInteriorLocation"
       ],
-      "notes": "7-stage civic blueprints (same K33 pattern as Village Hall/Apothecary Cabin). CottageResidentSpawnPatch handles move-in +7 days after construction; interiors are enterable via a DA added post-launch. CottageResidentWorkDutyPatch (1.67.0, new) gives Miller/Weaver a real engine NPCDuty for their remaining daytime hours (T2.120 PENDING); CottageResidentSchedulePatch adds at-home cottage portraits (T2.142 PENDING, 1.68.10)."
+      "notes": "7-stage civic blueprints (same K33 pattern as Village Hall/Apothecary Cabin). CottageResidentSpawnPatch handles move-in +7 days after construction; interiors are enterable via a DA added post-launch. CottageResidentWorkDutyPatch (1.67.0, new) gives Miller/Weaver a real engine NPCDuty for their remaining daytime hours (T2.120 PENDING); CottageResidentSchedulePatch adds at-home cottage portraits (T2.142 PENDING, 1.68.10). Until 1.69.1 that patch cached its Inn, Academy and cottage EnvIDs on its first poll at the main menu, when mod env cards still read UniqueIDIndex 0, so once a resident went home MoveNPC saw every destination as the same room: no Inn evening or Academy day ever happened, and a resident at home was not in the player's copy of the room (harness 2026-09-26: T4.40 step 11, T2.303, T2.304 and T2.305 red on it; probe read EnvIndex 0 against the card's live 7). Fixed 1.69.1 by building each EnvID per move; rechecked by T2.304/T2.305."
     },
     {
       "name": "Miller & Weaver - Schedule, Trade & Errands",
@@ -927,9 +1003,10 @@
       "evidence": "T2.39 CONFIRMED PASS 2026-07-30 playthrough (spawn/tame through Stage 6)",
       "cards": [
         "cmcShadowCat",
-        "cmcShadowCatTamed"
+        "cmcShadowCatTamed",
+        "cmcStatShadowCatPresent"
       ],
-      "notes": "Separate tameable companion from Ash; ShadowCatPatch.cs drives the tame-stage progression. The Clay Ocarina group's T2.109 (PENDING) is specifically about closing a 'no vanilla flute' gap in this same taming path - Shadow's spawn/tame mechanic itself is VERIFIED, but the Ocarina-as-instrument addition on top of it is not."
+      "notes": "Separate tameable companion from Ash; ShadowCatPatch.cs drives the tame-stage progression. 1.69.11 (T2.1453, pending): the one-Shadow guard is the hidden stat cmcStatShadowCatPresent (set on a confirmed spawn and by Play Music, cleared by the tamed card's three Slips Into the Dark destroys), back-filled for older saves from AllCards and other environments' saved boards; the old blueprint-on-board gate that could block Shadow for good is gone. The Clay Ocarina group's T2.109 (PENDING) is specifically about closing a 'no vanilla flute' gap in this same taming path - Shadow's spawn/tame mechanic itself is VERIFIED, but the Ocarina-as-instrument addition on top of it is not."
     },
     {
       "name": "Ash Partner Spike (dormant, config-gated)",
@@ -1067,7 +1144,7 @@
         "cmcbpwickerchair",
         "cmcWickerChair"
       ],
-      "notes": "7th Academy course (unconditional, any character); grants Pk_GradCarpentry and unlocks the Outfit Wardrobe (merged from the original separate Clothes Rack/Coat Rack/Wardrobe concept) and Wicker Chair blueprints. The Wardrobe replaces Clothes-Rack-era per-piece swapping with 3 fixed 18-slot outfit sections (54 slots total) toggled via OutfitWardrobeEquipService.cs/OutfitWardrobeSectionsPatch.cs - direct CharacterScreen slot manipulation is new engineering territory for this codebase, never before attempted, and never yet observed working in-game."
+      "notes": "7th Academy course (unconditional, any character); grants Pk_GradCarpentry and unlocks the Outfit Wardrobe (merged from the original separate Clothes Rack/Coat Rack/Wardrobe concept), Wicker Chair and Training Post (1.69.3 F2: a CT0 kit set up as a CT2 post, Practice Strikes trains cmcSkillMeleeFighting once a day behind cmcStatTrainingPostCooldown) blueprints. The Wardrobe replaces Clothes-Rack-era per-piece swapping with 3 fixed 18-slot outfit sections (54 slots total) toggled via OutfitWardrobeEquipService.cs/OutfitWardrobeSectionsPatch.cs - direct CharacterScreen slot manipulation is new engineering territory for this codebase, never before attempted, and never yet observed working in-game."
     },
     {
       "name": "Herb Poultice & Tincture (Medicine Course Payoff)",
@@ -1109,10 +1186,10 @@
     {
       "name": "Wildlife Indoor & Village Encounter Suppression",
       "status": "Implemented",
-      "confidence": "VERIFIED",
-      "evidence": "T1.27 PASS 2026-08-09 (village-wide wildlife suppression, framework 2.18.1 EncounterGuards GuardEnvironmentUids); T2.76 PASS 2026-08-15 (7-interior no-wildlife sweep); T2.151 PENDING for the newer indoor-relocation-block layer (1.68.14, WildlifeIndoorGuardPatch.cs, closes the 'creature arrives at whatever board the player is on' gap that EncounterGuards alone didn't cover)",
+      "confidence": "MEDIUM",
+      "evidence": "T1.27 PASS 2026-08-09, T2.76 PASS 2026-08-15 and T2.151 PASS 2026-09-07 (r33, the interior arrival block) were all recorded on pre-0.68 builds and prove nothing on EA 0.68b, where an agent's own attack never reaches an EncounterGuards guard (Documentation/Research/Community_Mod_Chest/engine_reads.md W0.1). The 1.69.3 arrival refusal for the outdoor village tiles and the Hunting Stand (plan A1) is static evidence only: Development_Tools/Tests/CMC-Round2.Tests.ps1 keeps each C# protected set equal to its guard JSON and the wildlife list covering every agent that drops the village guard's encounters; harness scenarios T2.900 (the protected tables and the refusal verdict) and T2.901 (the stand's 45% roll over 80 agent-days) passed on 2026-10-02 (walkthrough-20261002-090201, CMC 1.69.3 at d7bb6d3dd), driven through the patch's own tables by reflection, and an in-game night at the Village Farm is pending (no harness verb moves an NPC, so a real predator's approach is a person's check)",
       "cards": [],
-      "notes": "Cross-cutting: EncounterGuards/CMC_VillageNoWildlife.json (village-wide) + CMC_InteriorsNoWildlife.json (7 interiors) block the COMBAT; WildlifeIndoorGuardPatch.cs (new, 111 LOC) is a newer C# layer blocking the creature's ARRIVAL at an interior board in the first place (reported via a screenshot of a Bear at the Inn Counter) - the arrival-block half is the part still PENDING (T2.151)."
+      "notes": "Two layers. ARRIVAL: Patcher/WildlifeIndoorGuardPatch.cs prefixes GameManager.MoveNPC and refuses the eight hostile wildlife agents (HostileWildlifeUids) onto each ProtectedSet (the seven interiors, and since 1.69.3 the seven outdoor village tiles, each mirroring one guard JSON's GuardEnvironmentUids) and, at HuntingStandRefuseChance once per agent per day, onto the player's board when a Hunting Stand stands on it. COMBAT: EncounterGuards/CMC_VillageNoWildlife.json, CMC_InteriorsNoWildlife.json and HuntingStandGuard.json only catch null-NPC starts on EA 0.68b; an agent's own attack is the framework plan's A1."
     },
     {
       "name": "Village Tree Respawn",
@@ -1143,6 +1220,762 @@
         "cmcperkvillagefounder"
       ],
       "notes": "3-Star character-creation perk (StartUnlocked, StarsCost 3). VillageFounderPerkPatch.cs pre-builds village structures directly onto the player's actual starting board using the spawn-targets-current-board pattern (memory:reference_spawn_targets_current_board) rather than firing at an arbitrary time, which is exactly the failure mode this perk had to be built around."
+    },
+    {
+      "name": "Resident Trust - Chat, Trade & Prices (Miller, Weaver, Apothecary)",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.301 PENDING (CMC 1.69.0); gate Development_Tools/Tests/CMC-ResidentFriendship.Tests.ps1 green, watched red on the pre-1.69.0 files",
+      "cards": [
+        "cmcMillerAgent",
+        "cmcWeaverAgent",
+        "cmcApothecaryAgent",
+        "cmcStatMillerTrust",
+        "cmcStatWeaverTrust",
+        "cmcStatApothecaryTrust",
+        "cmcStatApothecaryTrustMirror"
+      ],
+      "notes": "1.69.0 plan feature 1. Each resident's Chat DA writes +1 to its own trust stat through NPCStatModifications with UseAssociatedAgent (the resident card is SetNPC'd, so ActionRoutine's associatedAgent is that resident); ModifyNPCStatsPerTradeValue adds 0.08 per trade value (0-6 per trade); trust NPCStatModifiers scale buy 1.5 -> 1.1 and sell 0.5 -> 0.75 over trust 0-100, copied from the Professor. The Apothecary's Village Hall board reads cmcStatApothecaryTrustMirror (VillageHallBoardsPatch.cs). MEDIUM: the UseAssociatedAgent write on a DA is a first for CMC, read from .decomp but not yet observed live."
+    },
+    {
+      "name": "Resident Gifts - Miller & Weaver",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.302 PENDING (CMC 1.69.0); gate Development_Tools/Tests/CMC-ResidentFriendship.Tests.ps1 green, watched red on the pre-1.69.0 files",
+      "cards": [
+        "cmcMillerAgent",
+        "cmcWeaverAgent",
+        "cmcStatMillerGiftCooldown",
+        "cmcStatWeaverGiftCooldown"
+      ],
+      "notes": "1.69.0 plan feature 2. 'Give Bread' drag on the Miller (Wheat Bread Loaf, Rye Bread Loaf, Rye Round Bread) and 'Give Painted Clay' on the Weaver (three figurines and the Painted Clay Vase): gift kept (GivenCardChanges ModType 3), trust +3 (UseAssociatedAgent), hidden 96-tick cooldown gated [0, 0] with HideIfConditionsNotMet. Triggers disjoint from every errand drag; no errand or interlock stat written."
+    },
+    {
+      "name": "Crime at the Counter (Wanted markup, held at its maximum while Banished)",
+      "status": "Implemented",
+      "confidence": "HIGH",
+      "evidence": "T2.303 PENDING (CMC 1.69.0); gate Development_Tools/Tests/CMC-ResidentFriendship.Tests.ps1 green, watched red on the pre-1.69.0 files",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "cmcMillerAgent",
+        "cmcWeaverAgent",
+        "cmcApothecaryAgent",
+        "cmcProfessorAgent",
+        "cmcStatVillageCrime"
+      ],
+      "notes": "1.69.0 plan feature 3. All five residents: a cmcStatVillageCrime GlobalStatModifiers entry per trade direction (input 25-59, buy +0..+0.5, sell 0..-0.25, WhenOutOfRange 1 clamps both ends); no crime TradingConditions, so a Banished player keeps trading at the Wanted maximum (owner call 2026-09-26, before release; first built as a crime [0, 59] refusal). Copper-chest Sell and Make It Right untouched so restitution stays payable while Banished. HIGH: both mechanisms are vanilla trade fields the Inn Keeper and Professor already use."
+    },
+    {
+      "name": "Evenings at the Inn - Join the Table & Play for the Room",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.304, T2.305 PENDING (CMC 1.69.0); gate Development_Tools/Tests/CMC-ResidentFriendship.Tests.ps1 green, watched red on the pre-1.69.0 files",
+      "cards": [
+        "cmcInnCounter",
+        "cmcStatInnCompany",
+        "cmcStatInnEveningCooldown"
+      ],
+      "notes": "1.69.0 plan features 4-5. Patcher/InnEveningPatch.cs publishes cmcStatInnCompany every 5 s (Miller, Weaver, Apothecary, Professor counted by their own CurrentEnvironment; 0 when the player is outside cmcInnInterior) and registers two AfterWrapped ActionRouter handlers once per process (_initialized guard) that give +2 (Join the Table DA) or +3 (Play for the Room CI, instrument kept via ModType 1) trust to each resident present. Both actions gate on company [2, 4] and a shared 48-tick cooldown [0, 0]."
+    },
+    {
+      "name": "Fugitive Known to the Watch",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.306 PENDING (CMC 1.69.0); gate Development_Tools/Tests/CMC-ResidentFriendship.Tests.ps1 green, watched red on the pre-1.69.0 files",
+      "cards": [
+        "traits_perk_fugitive",
+        "cmcStatFugitiveSeeded",
+        "cmcStatVillageCrime"
+      ],
+      "notes": "1.69.0 plan feature 6. Patcher/FugitiveWatchPatch.cs polls every 3 s: with the Fugitive perk equipped, the player in cmcEnvVillage and cmcStatFugitiveSeeded < 0.5, Village Crime is raised TO 12 (never by 12, so it cannot push anyone past Suspected) through VillageCrimePatch.AddCrime, and only then is the latch written. Retroactive once on existing saves."
+    },
+    {
+      "name": "Market Stall - Seven-Day Robbery Clock Kept in the Save",
+      "status": "Tested",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (no static day counter left in MarketStallPatch.cs, the stat constant matches the GameStat UniqueID, the stat is a hidden 0..7 counter with no rate, every reflection-miss cause warns once). Harness T2.902 (the count, its reset on the seventh day, a day with no stall, and the count after a save, quit and relaunch) and T2.903 (whether a day spent in the Village Hall sells or counts) PASS 2026-10-02 (walkthrough-20261002-090201, CMC 1.69.3 at d7bb6d3dd), both confirmed.",
+      "cards": [
+        "cmcmarketstall",
+        "cmcmarketstalldressed",
+        "cmcStatStallRobberyDays"
+      ],
+      "notes": "1.69.3 plan A2. The count of days a stall has stood since the last 5% robbery roll was a static int in MarketStallPatch and restarted on every relaunch; it is now the hidden GameStat cmcStatStallRobberyDays (GameStat/CMC_StallRobberyDays.json, 0..7, rate 0), advanced once a day by MarketStallPatch.AdvanceRobberyClock through a direct StatsDict write. The reset to 0 is written before the roll is reported due, and an unreadable stat warns once per cause instead of rolling every day. OnDayChanged finds stalls with CardFinder.FindAll (FindObjectsOfType over live scene cards), so a day passed off the Village board sells nothing and does not count: MEASURED by T2.903 on 2026-10-02: a day inside the Village Hall neither sold nor counted, and a day in the Village did both, as the README and CHANGELOG say. A save from before 1.69.3 starts the count at 0."
+    },
+    {
+      "name": "Ceramic Lamp - Burns Any Oil",
+      "status": "Tested",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (a refuel CI on tag_Oil with its WarpType, the Fat refuel's 24 fuel, the oil consumed, the Clay Bowl returned, the Light CI kept, ACT's Oil carrying the tag, English and Chinese rows for the new button). Harness T2.904 (Peanut Oil, ACT's Oil, Fat, Twigs, both lightings, the Fuel label) PASS 2026-10-02 (walkthrough-20261002-090201, CMC 1.69.3 at d7bb6d3dd), confirmed.",
+      "cards": [
+        "ceramiclamp",
+        "ceramiclamplit"
+      ],
+      "notes": "1.69.3 plan A4. The lamp gained the card interaction 'Refuel with Oil' (CeramicLamp_RefuelOil): any card tagged tag_Oil adds 24 fuel like the Fat interaction, is consumed, and one Clay Bowl (a968f3eaffc6b9743b82982b5af2ab8c) comes back. The carriers are ACT's Oil and the eleven Herbs & Fungi oils (cooking and medicinal alike); ACT 1.17.2's sweep found the only other carriers are two NOT_USED_ vanilla liquids nothing produces. The fuel bar label is Fuel, not Fat. With no H&F installed only ACT's Oil refuels it, and ACT is a hard dependency."
+    },
+    {
+      "name": "Carpentry Graduate Perk Icon",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CardArt-ShippedForm.Tests.ps1 (alpha and keyed paper for every shipped image) and Sprite-NameResolves.Tests.ps1 (the name resolves to a shipped image). Harness scenario T2.905 reads the resolved icon's name and size for both graduate perks and screenshots the perk row; a person judges the picture. Its harness half passed on 2026-10-02 (walkthrough-20261002-090201, CMC 1.69.3 at d7bb6d3dd): each perk resolves its own icon at 512x512. The run's screenshot shows the perk row scrolled away from the icon, so the person's glance is still open.",
+      "cards": [
+        "cmcperkgradcarpentry",
+        "cmcperkgradarchitecture"
+      ],
+      "notes": "1.69.3 plan A5. Pk_GradCarpentry.json's PerkIconWarpData names the new Resource/Picture/VillageAcademyCarpentry.png (a hand saw, a wooden mallet and dovetailed oak planks; 512x512 RGBA keyed, the square course-icon family; generation record Community_Mod_Chest/.art/VillageAcademyCarpentry.json) where it used to borrow VillageAcademyArchitecture, so the Carpentry and Architecture graduates no longer share a picture. A perk ICON owes alpha and keying but not the 512x768 card canvas."
+    },
+    {
+      "name": "Residents Price on Socials and Facial Harmony",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-ResidentFriendship.Tests.ps1 (each of the five agents carries Skill_Socials and FacialHarmony in both trading directions, no entry can raise a price, and the full Wanted markup still outweighs trust plus Socials plus face discounts; watched red on a fixture with a raising curve). Harness T2.906 prices the Miller's trading-value-100 ration at the four Socials and Facial Harmony corners and at crime 59; written 2026-10-02, not yet run. The Apothecary's window and a real trade are left to a person.",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "cmcMillerAgent",
+        "cmcWeaverAgent",
+        "cmcApothecaryAgent",
+        "cmcProfessorAgent"
+      ],
+      "notes": "1.69.3 plan B1 (c7fb3550e). Each of the five resident agents gained two GlobalStatModifiers in both trading directions, mirroring vanilla Agent_TraderGeneral: Skill_Socials 59e9ebfecfacb154b8436e93f094b316 (input 0 to 150, output 0 to -0.06 on the buy multiplier and 0 to +0.06 on the buyback) and FacialHarmony a2b9a00cae306bf40b1dedafd87dc9ee (input 0 to 100, output 0 to -0.015 and +0.015), both WhenOutOfRange 1, so the modifier is discount-only: a low Socials or a plain face never costs more than before. The game's interpolation rounds to 1/1000 for an output span under 1, so a face of 50 gives about 0.007 either way. The Natural Trader trait (Socials 75 at the start) gets about 0.03 each way from the first day and the Leper (Facial Harmony 0) none of the face discount an average face earns. At the top of the Wanted band the +0.5 markup still outweighs trust (or the Inn Keeper's Friendship), Socials and face discounts together, which the gate asserts."
+    },
+    {
+      "name": "Village Counters Priced by Crime - Inn Meals and Beds, Academy Tuition",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the restitution handlers never reach VillagePricing, the markups ascend, nothing in the Academy path refuses). Harness T2.907 reads VillagePricing.Apply at six crime values, buys a real meal at crime 0 and 30, checks the button's availability at a balance of 59 and 60, studies once at crime 30 and reads the never-refuses availability at crime 60; written 2026-10-02, not yet run. The greyed-out tooltips are a person's glance.",
+      "cards": [
+        "cmcInnCounter",
+        "cmcAcademyLectern",
+        "cmcStatVillageCrime"
+      ],
+      "notes": "1.69.3 plan B2 (d7bb6d3dd). One helper, VillagePricing.Apply, rounds a base price times the Charge multiplier (1.00 while Clean or Suspected, 1.20 while Wanted at 25 to 59 crime, 1.50 while Banished at 60 and up, each a tunable placeholder). InnPatch prices Purchase Meal and Stay the Night (base 50) through it in BalanceGate, DeductBalance and the blocked-button tooltip; AcademyPatch prices every Study and Final Exam session (base 100) through it in StudyGate, the tooltip and StudyCompleted. Nothing refuses: a Banished student is quoted 150. The restitution paths never reach the helper (the copper chests' Sell, the Miller's Make It Right, the Town Wood Pile's Player's Pay and stock, the Inn's Work Odd Jobs, deposits and the firewood sale), so a Banished player can still raise restitution money."
+    },
+    {
+      "name": "Market Stall - Reputation Curve and Banished Halving",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the curve's maximum equals the old 1.25, the stall sells through the helper's Earn side). Harness T2.908 drives the stall's daily handler at Reputation 0, 75 and 100 (clean) and 50 (Banished) and reads x1.00, x1.17, x1.25 and x0.55; written 2026-10-02, not yet run.",
+      "cards": [
+        "cmcmarketstall",
+        "cmcmarketstalldressed",
+        "cmcStatVillageReputation",
+        "cmcStatVillageCrime"
+      ],
+      "notes": "1.69.3 plan B2. MarketStallPatch.SellNextItem multiplies each daily sale by VillagePricing.Multiplier(Earn): a Reputation bonus curve (knots 0, 25, 50, 75 and 100 give 1.00, 1.05, 1.10, 1.17 and 1.25, straight lines between) times 0.50 while Banished, capped at 1.25. It replaces the old latch that paid nothing extra until full Reputation and then 1.25; the curve's top is that same 1.25, so the top is never double-counted."
+    },
+    {
+      "name": "Resident Crime-Band Greetings",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (every new gate is an integer bound, the Wanted and Banished lines precede the greeting, the greeting's complement leaves no crime value without one). Harness T2.909 reads the first line at crime 30, 60 and 10 for the Miller, Weaver, Inn Keeper and Professor; written 2026-10-02, not yet run. The Apothecary (Foraging Forest) is a person's check.",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "cmcMillerAgent",
+        "cmcWeaverAgent",
+        "cmcApothecaryAgent",
+        "cmcProfessorAgent",
+        "cmcStatVillageCrime"
+      ],
+      "notes": "1.69.3 plan B3 (366d53fcb). Ten new starting DialogLines, a Wanted (Village Crime 25 to 59) and a Banished (60 to 100) line for each of the five residents, listed ahead of each normal greeting in the scene's SceneLinesWarpData (DialogScene.GetStartingLine takes the first valid starting line), with integer TriggerRange bounds (the 1.68.42 half-step lesson). The normal greeting gained the complement gate 0 to 24, so every crime value has a greeting. Trade is unchanged, the Inn Keeper's cold line still offers the pantry, the Professor's leads on to his menu, and the Miller, Weaver and Apothecary keep their errand thank-yous (and the Weaver's rope epilogue and the Professor's milestone gifts) ahead of the cold line; the Inn Keeper's and the Professor's quest thank-yous wait behind it. The rest of their small talk waits until crime is back under 25. The Inn Keeper's confession after the whole Watch is downed still comes first."
+    },
+    {
+      "name": "Errand Thank-Yous Play - Inn Keeper and Professor",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the shadowed thank-you Describe: a thank-you starting point may not sit behind a starting line that is always valid for the same state). Harness T2.910 (the Inn Keeper's four thank-yous, the cold line winning at crime 30, the Soot story) and T2.911 (the Professor's three thank-yous and the vest thanks); written 2026-10-02, not yet run.",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "cmcProfessorAgent",
+        "cmcStatInnQuestChain",
+        "cmcStatInnQuestArmed",
+        "cmcStatProfQuestChain",
+        "cmcStatProfQuestArmed",
+        "cmcStatInterlockS4"
+      ],
+      "notes": "1.69.3 fix (5c14e38ec). CMC_InnKeeperTalk_QuestThanks2 to 5 and CMC_ProfessorGreeting_QuestThanks2 to 4 and InterlockS4Thanks were starting points listed behind the everyday greeting, and the first valid one wins, so they never opened: the Inn Keeper's chain stayed on the stew errand and the Professor's on his clay, metal or bone request, however often you spoke to them. They now sit ahead of it, behind the cold crime lines. A save that delivered an errand earlier plays the thank-you on its next Talk. The Inn Keeper's Cat2ndLife (Soot) story, one of his six seasonal tales, can now be told when it is the season's."
+    },
+    {
+      "name": "Luck Readers - Chest Search, Stall Robbery, Iron Rod",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the plateau and ceiling constants, the three call sites, the Born Mark description no longer claiming nothing reads Luck). Harness T2.912 reads the chest search's reason line at Luck 0 and 100 and the stall's robbery roll at Luck 36, 18 and 0; written 2026-10-02, not yet run. The Iron Rod's rare catches are statistical and left to a person.",
+      "cards": [
+        "traits_perk_born_mark",
+        "cmcCopperChestMiller",
+        "cmcmarketstall",
+        "cmcmarketstalldressed"
+      ],
+      "notes": "1.69.3 plan B4 (50ce67bea). LuckBonus.cs reads vanilla Luck (0aa0ed30405a3ae499ca690c069a007e, 0 to 288, which nothing in the base game reads) by its CURRENT value: adjustment = 0.05 x clamp01(Luck / 36), 36 being where a Born Mark holder settles (the trait's rate against Luck's own decay of 1 a tick across 2 to 36), not the 288 cap. CopperChestPatch.RollDetection subtracts it inside its 0.01 to 0.95 clamp (the reason line ends '- luck N.N%'); MarketStallPatch rolls its weekly robbery against max(0.01, 0.05 - adjustment); IronRodFishingPatch gives Crayfish, Perch and Eel a second Luck StatBasedDropChanceModifier (0 to 36, UseMinMaxWeight, weights 400, 400 and 200, placeholders). Small on purpose: vanilla may wire Luck itself later and the two would stack. An unreadable Luck applies nothing and warns once per roll site. Born Mark's description, English and Chinese, no longer says that nothing reads Luck."
+    },
+    {
+      "name": "Inn Keeper - Friend Greeting Keeps His Errands",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the B5 Describe: Friendship_Warm's answer set is a superset of Start's, in Start's order). Harness T2.913 reads the warm greeting at Inn friendship 20 and follows the errand-2 offer; written 2026-10-02, not yet run.",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "cmcStatInnFriendship",
+        "cmcStatInnQuestArmed",
+        "cmcStatInnQuestChain"
+      ],
+      "notes": "1.69.3 plan B5 (a94143e3f). From Friendship 15 CMC_InnKeeperTalk_Friendship_Warm replaces the usual greeting but carried only five of its answers, so his second to fifth errand offers and the Apothecary's incense offer never came up again. It now carries every answer CMC_InnKeeperTalk_Start does, with the same conditions and next lines, in Start's order (so 'Just warming my hands.' stays last), and keeps its own warm words, which are the friendship reward."
+    },
+    {
+      "name": "Village Hand-Ins Finish - Baking Day, Brew-Night Remedy, Dust Mask",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the B5 Describe: each Interlock hand-in drag writes 0.5 to its own stat, no NoWriter pin remains). Harness T2.914 hands the Inn Keeper flour and herb paste, reads her thanks and the unlocked patterns, and checks a second hand-in is refused; written 2026-10-02, not yet run. The Apothecary's Give Cloth and the Weaver's second-pigment words are a person's check.",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "cmcApothecaryAgent",
+        "cmcWeaverAgent",
+        "cmcStatInterlockS2",
+        "cmcStatInterlockS3",
+        "cmcStatInterlockS5",
+        "potterysculptureherbpaste"
+      ],
+      "notes": "1.69.3 plan B5 (a94143e3f). The Inn Keeper's Give Flour and Give Herb Paste drags and the Apothecary's Give Cloth took the goods and wrote nothing, so the thank-yous that teach the Painted Plate, Incense Burner and Cloth Mask never opened and the drags stayed live; each now adds the delivered value 0.5 to its own marker (cmcStatInterlockS3, S5, S2) like the working Professor and Weaver hand-ins, and the three thank-yous sit ahead of the greeting. The Inn Keeper's menu offers 'Any baking day coming up?' (CMC_InnKeeperTalk_InterlockS3Offer, which was a starting point listed after Start and so never opened) once the Miller has moved in. The Weaver's Give Pigment gate is now -0.5 to 0.25 like every hand-in, so the 0.5 it leaves no longer re-admits a second Charcoal Pigment to the first-pigment hand-in. A save that handed goods over before the fix gets no retroactive thanks: hand them over once more."
+    },
+    {
+      "name": "Apothecary - Daily Rare Herb Gift",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-ResidentFriendship.Tests.ps1 (the gift's triggers are disjoint from her eight other drags, no errand stat is touched, the cooldown gate is [0, 0]). Harness T2.915 gives a Silverwort Blossom, refuses a second gift the same day, takes a Hollow Sage after the cooldown drains and refuses a Stone; its alt_hf file gives the three Herbs & Fungi dried herbs; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcApothecaryAgent",
+        "cmcStatApothecaryGiftCooldown",
+        "cmcStatApothecaryTrust",
+        "cmcSilverwortBlossom",
+        "cmcHollowSage"
+      ],
+      "notes": "1.69.3 plan C1 (d382f2efb). A 'Give Rare Herb' drag on Agent_Apothecary.json (GivenCardChanges ModType 3, DaytimeCost 1) takes a Silverwort Blossom, Hollow Sage or, with Herbs & Fungi, herbs_fungi_dried_ginseng, herbs_fungi_dried_reishi or herbs_fungi_hemp_flower_dried, writes cmcStatApothecaryTrust +3 through UseAssociatedAgent and sets the hidden cmcStatApothecaryGiftCooldown (0 to 96, rate -1) to 96, which hides the drag until it drains: one gift a day. The three Herbs & Fungi UIDs are unresolved names without that mod, so they are simply not accepted, the same way the Apothecary's Herbs & Fungi tinctures already are."
+    },
+    {
+      "name": "Resident Keepsakes at Trust 80",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-ResidentFriendship.Tests.ps1 (each latch NPCStat is in its agent's AgentStats, the vanilla flour drop carries TransferRules, the keepsake lines are gated on Village Crime 0 to 24). Harness T2.916 sets trust to 79 and 80 for the Miller, 80 for the Weaver (and again at crime 30) and the Apothecary and reads the item, its quality and the latch; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcMillerAgent",
+        "cmcWeaverAgent",
+        "cmcApothecaryAgent",
+        "cmcStatMillerKeepsake",
+        "cmcStatWeaverKeepsake",
+        "cmcStatApothecaryKeepsake",
+        "apparelclothscarfdyed",
+        "cmcApothecaryHealingPotion"
+      ],
+      "notes": "1.69.3 plan C2 (d382f2efb). Three DialogLines (CMC_MillerTalk_Keepsake, CMC_WeaverTalk_Keepsake, CMC_ApothecaryTalk_Keepsake) open at trust 80 and above with Village Crime 0 to 24 and a zero latch (cmcStatMillerKeepsake, cmcStatWeaverKeepsake, cmcStatApothecaryKeepsake, each in its agent's AgentStats), once per run: five vanilla Wheat Flour at quality 48 (TransferRules SetValue), one dyed Ash-Grey Cloth Scarf (looks only, no extra warmth) and one Powerful Healing Potion. The Spirit Herb tag shipped by the same commit stays quiet without Herbs & Fungi."
+    },
+    {
+      "name": "Inn Keeper Remarks on Achievements",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (every achievement latch has exactly one remark line and one remarked latch, the remarks sit after the other starting lines, bounds are integers). Harness T2.917 earns the bear and Stinky Jar latches by stat and reads one remark per Talk, the latch and the Friendship step; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "cmcStatAchBearSlain",
+        "cmcStatInnBearSlainRemarked",
+        "cmcStatAchStinkyJar",
+        "cmcStatInnStinkyJarRemarked",
+        "cmcStatInnFriendship"
+      ],
+      "notes": "1.69.3 plan C3 (6d9b8e75e). Eleven DialogLines (CMC_InnKeeperTalk_Remark*) in CMC_InnKeeperTalk, one per Town Achievement Board achievement, each gated on the earned latch (cmcStatAch*) being 1 and its own cmcStatInn*Remarked latch being 0; the answer sets the remarked latch and adds 1 to cmcStatInnFriendship and ends the conversation, so a save with several earned hears one per Talk. Spiritual Overcrowding and the Stinky Jar, which the board refuses to explain, are explained by him."
+    },
+    {
+      "name": "Overheard at the Inn",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (five lines gated on cmcStatInnCompany 2 to 4, cooldown and rotation stats bounded for 72 ticks and the line count). Harness T2.918 reads no overheard line with no company, then the index-0 line with the Miller and Weaver in the Inn at 18:30, the cooldown, the rotation and no second line; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "cmcStatInnCompany",
+        "cmcStatInnOverheardCooldown",
+        "cmcStatInnOverheardIndex"
+      ],
+      "notes": "1.69.3 plan C4 (6d9b8e75e). Five DialogLines (CMC_InnKeeperTalk_Overheard_Mill, Loom, Herbs, Academy, Roads) each gated on cmcStatInnCompany 2 to 4 (published every 5 s by InnEveningPatch), cmcStatInnOverheardCooldown 0 and cmcStatInnOverheardIndex equal to its own position; the answer sets the cooldown to 72 (rate -1, so one evening) and moves the rotation index on by 1, the last wrapping to 0. JSON only."
+    },
+    {
+      "name": "Notice Boards Show Where the Villager Is",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (every leg label key a scheduler names has an English and a Chinese row, no English sentence is too long for one board line, and a scheduler cannot stop naming one of its legs unnoticed). Harness T2.919 reads the Inn Keeper's, Miller's and Weaver's boards at night and the layout log for a truncation Warning; the Apothecary's and Professor's legs are a person's check; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcBoardInnKeeper",
+        "cmcBoardMiller",
+        "cmcBoardWeaver",
+        "cmcBoardApothecary",
+        "cmcBoardProfessor"
+      ],
+      "notes": "1.69.3 plan C5 (50d3fdb91). CottageResidentSchedulePatch, ApothecarySchedulePatch, ProfessorSchedulePatch and InnKeeperSpawnPatch each expose a read-only current-leg label from where the resident actually stands (the same read the portrait uses), and VillageHallBoardsPatch writes it as the first line under the board's description, since the board's text box cuts its tail. Labels are localization keys (CMC_BoardLeg_*), never built from English at runtime. A resident who has not moved in shows no line. Read only: it never moves anyone."
+    },
+    {
+      "name": "Chance Meetings on the Road",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (each cooldown stat drains and can hold the 72 ticks the code writes, the poll registers once under an _initialized guard, the Miller is not a resident who can meet the player, a meeting tile is a map node and never a home door tile, the Quiet Village early return stays) and Development_Tools/Tests/Framework-PerRunHandlerRegistration.Tests.ps1. Harness T2.920 walks the Apothecary's commute and records state; whether she and the player share a tile at a poll is a person's check; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcApothecaryAgent",
+        "cmcProfessorAgent",
+        "cmcStatRoadMeetApothecary",
+        "cmcStatRoadMeetProfessor"
+      ],
+      "notes": "1.69.3 plan C6 (99f982781). Patcher/RoadMeetingPatch.cs polls every 3 s: when the player stands on an outdoor tile that is neither the resident's home door nor work post and the resident's own CurrentEnvironment is that tile, it writes the resident's trust +1, Morale +3, a 72-tick cooldown stat and one message popup. Only the Apothecary (Pine Trail, Highland Pines, Moss-Grown Clearing) and the Professor (Village Path, Village Farm, Foraging Forest) can fire; the Miller and Weaver have no such tile. Nothing fires under the Quiet Village trait."
+    },
+    {
+      "name": "Commissions - Flour, Cloth and a Hunter's Carcass",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (each order and due stat is clamped, the fee gate reads CurrencyValue, delivery clears the due stat and the marker before it spawns, the vanilla goods carry stats). Harness T2.921 places all three orders, refuses a second Miller order, enters the cottage early (nothing) and collects each on its day; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcMillerAgent",
+        "cmcWeaverAgent",
+        "cmcInnKeeperAgent",
+        "cmcStatMillerOrder",
+        "cmcStatWeaverOrder",
+        "cmcStatInnHunterOrder"
+      ],
+      "notes": "1.69.3 plan C7 (da873f014). One drag per resident (a Salt, a metal Nugget or a Duros Coin worth at least 15) writes a clamped 0 or 1 order marker and a 0.5 due sentinel that Patcher/CommissionPatch.cs turns into an absolute due day (1, 2 and 2 days). When the player stands in the target room (cmcMillerCottageInterior, cmcWeaverCottageInterior, cmcInnInterior) on or after that day the poll clears the due stat, then the marker, then spawns: ten Wheat Flour at quality 48, a Large Cloth at 50, a Doe Carcass at 8. An order never collected simply waits."
+    },
+    {
+      "name": "Apothecary at Her Market Stall (Portrait)",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the stall portrait looks for a Market Stall by MarketStallPatch.IsStallUid on the player's own board, never on an empty or mid-change read, only on her stall leg, and shows her board photo CMC_Apothecary), Development_Tools/Tests/Sprite-NameResolves.Tests.ps1 (the picture resolves). Harness T2.922 reads her card image name at her stall hour and after the stall is removed; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcApothecaryAgent",
+        "cmcmarketstall",
+        "cmcmarketstalldressed"
+      ],
+      "notes": "1.69.3 plan C8 (the code in 50d3fdb91, the picture in the Phase C closeout). ApothecarySchedulePatch.ActualPortrait returns the Stall leg when she stands in cmcEnvVillage, a Market Stall UID (MarketStallPatch.IsStallUid) was read on the Village board while the player stood there, she was gifted the Stall Kit, is not brewing and the hour is between 9:00 and her 19:15 Inn departure outside her Academy afternoon; the card then shows her board photo CMC_Apothecary (the separate CMC_ApothecaryAtStall portrait was retired 2026-10-12, owner: \"We already have the CMC_Apothecary image which is better\"); the Stall leg still sets her board line (CMC_BoardLeg_Apothecary_Stall)."
+    },
+    {
+      "name": "Inn Keeper Pantry - ACT Teas and Herbs & Fungi Foods",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (each cross-mod block is defined once in the Apothecary block's shape with the cards and amounts the plan names, fired from the one restock that already runs, with no poll of its own). Harness T2.923 jumps past the 4-day cadence and reads the Inn Keeper's inventory for the teas and, in the main file, the three foods; its alt_without_hf file asserts the foods are absent and no new Warning; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcInnKeeperAgent",
+        "advanced_copper_tools_focus_tea",
+        "advanced_copper_tools_calming_tea",
+        "advanced_copper_tools_warming_tea",
+        "herbs_fungi_mushroom_pasty",
+        "herbs_fungi_wild_berry_pasty",
+        "herbs_fungi_trail_mix"
+      ],
+      "notes": "1.69.3 plan C9 and J1 (267158403). Two AgentActions on Agent_InnKeeper.json, InnKeeperRestock_ACT (Focus, Calming and Warming Tea) and InnKeeperRestock_HF (Mushroom Pasty, Wild Berry Pasty, Forager's Trail Mix), each one collection of {1, 2} with DropCardsInsideInventory, fired beside InnKeeperMorningRestock on its 4-day cadence. Neither block has a gate: CMC depends on no other content mod (Fleet plan feature 2), so without ACT the teas and without Herbs & Fungi its foods are skipped by the game (a drop naming a missing card creates nothing), as the Apothecary's ApothecaryRestock_HF already is."
+    },
+    {
+      "name": "Weaver and Inn Keeper Trade with Sirus23, and the Wool Yarn Errand",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the marker is clamped, the done counter is advanced only in the thanks line, the offer line is gated on the presence stat). Harness T2.924 runs the errand end to end with Sirus23 installed (marker 1, 0, 0.5, done counter, two Salt, +3 trust) and its alt_without_sirus file asserts the flag stays 0, no offer and no new Warning; the random stock is a person's check; written 2026-10-03, not yet run.",
+      "cards": [
+        "cmcWeaverAgent",
+        "cmcStatSirusYarnPresent",
+        "cmcStatWeaverYarnErrand",
+        "cmcStatWeaverYarnDone",
+        "sh_yarn",
+        "sh_felted_wool",
+        "sh_sheep_cheese"
+      ],
+      "notes": "1.69.3 plan C10 (2faa726ae). WeaverRestock_Sirus (sh_yarn at 20 percent, sh_felted_wool at 15 percent, quantity 1) fires with the Weaver's work-day restock and InnKeeperRestock_Sirus adds one sh_sheep_cheese; the Weaver's 'Running short of yarn?' errand uses a clamped marker (1 offered, 0 accepted, 0.5 handed over), a done counter that only her thanks line advances, and cmcStatSirusYarnPresent, which QuestChainSchedulePatch.SyncSirusPresence keeps at 1 only while sh_yarn resolves, so without Sirus23 the offer never shows. Selling needed no data: every resident's Trade already values any card by its own trade value."
+    },
+    {
+      "name": "Guard Suspicion Reader and Decay",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the scale and decay-rate pure functions, the README no longer calling the reader planned). Harness T2.925 reads the patrol term in a night chest search at Vane's start and raised, and her Suspicion across a day at crime 0 and a day at crime 30; written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcNpcStatSuspicion",
+        "cmcCopperChestMiller"
+      ],
+      "notes": "Round 2 D1 (3e819e757). GuardDutyPatch.OnDutyGuardSuspicion(envUid) names the on-duty Village-square guard's Suspicion against her start; the chest roll scales its night patrol term by Suspicion/start between 1 and 2 under the 95 percent cap; every guard's Suspicion falls about 1 a day toward her start while Village Crime is under 25."
+    },
+    {
+      "name": "Guard and Warden Bribes",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the bribe latch is clamped 0 to 1, Vane carries no bribe action, the Salt value mirrors CurrencyValue). Harness T2.927 bribes Sterling twice and reads the floor at his start; T2.928 pays the warden in the Jail Cell; both written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcGuardSterlingAgent",
+        "cmcGuardThorneAgent",
+        "cmcGuardCorrinAgent",
+        "cmcJailCellLocation",
+        "cmcStatJailBribeUsed"
+      ],
+      "notes": "Round 2 D3 (287df0ac1). Slip a Bribe is a drag of Salt or a metal nugget onto Sterling, Thorne or Corrin that lowers that guard's Suspicion by 12 x 40 / start (at most 20), never below her start; Pay the Warden takes a day off the sentence for Salt once per sentence, while a warden is on the step and at least 1.5 days remain, and never clears crime. All amounts are placeholders."
+    },
+    {
+      "name": "Jail Labour - Break Rocks",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the action name is unique on the cell, its daily stat is clamped). Harness T2.929 presses Break Rocks twice and checks a third is hidden; written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcJailCellLocation",
+        "cmcStatJailLabourToday"
+      ],
+      "notes": "Round 2 D4 (e3c5b1c9f). Break Rocks costs 4 hours and 30 Stamina, takes a quarter day off the sentence and 2 off crime, twice a day, only while at least 2 days remain."
+    },
+    {
+      "name": "Community Service - The Lawful Road Back",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the marker is clamped, the counter advances only in the thanks line). Harness T2.930 runs the firewood job end to end; written 2026-10-04, not yet run. The snow drift job and the Deputy beat are not driven by a scenario.",
+      "cards": [
+        "cmcGuardSterlingAgent",
+        "cmcStatWatchServiceArmed",
+        "cmcStatWatchServiceJob",
+        "cmcStatWatchServiceCount",
+        "cmcStatWatchDeputy"
+      ],
+      "notes": "Round 2 D5 (2cb3a2e9b). Two of the plan's three jobs are built (firewood to the Town Wood Pile, a snow drift in winter); the night round with Iris Vane has no observable signal and is not built. Each job is worth 6 crime; three jobs at crime 0 earn a one-time Deputy line and a flat 5 civic Reputation."
+    },
+    {
+      "name": "Report a Stall Robbery to the Watch",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the report and recovery stats are clamped, the hash mirrors the C# fold). Harness T2.931 reports a recorded theft, passes four days and forces each outcome; written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcStatStallTheftState",
+        "cmcStatStallTheftHash",
+        "cmcStatStallRecoveryDue"
+      ],
+      "notes": "Round 2 D6 (5b778a2a8). A robbery records a 24-bit FNV hash of the stolen card's UniqueID; a Report the Theft Talk line with any guard sets a due day three days on; a 50 percent roll then delivers the item on the next Village visit or a guard says nothing was found. One open report at a time."
+    },
+    {
+      "name": "Inn Wagers - Dice, Morris and Arm Wrestling",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the dice and board CIs keep the given card, no new counter action name contains Night, Meal, Deposit or Firewood, the wager handlers are in B2's never-priced list, arm wrestling writes no Fitness). Harness T2.932 to T2.935 run seeded batches against win counts computed offline from the .NET generator; written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcInnCounter",
+        "cmcBoneDice",
+        "cmcLoadedDice",
+        "bpcmcloadeddice",
+        "cmcMorrisBoard",
+        "bpcmcmorrisboard"
+      ],
+      "notes": "Round 2 D7 to D9 (275bf863a, d34a4ce6f). Patcher/InnWagerPatch.cs holds the shared stake (25), the Inn Account debit and credit clamped 0 to 500 and a seedable RNG hook. Honest dice 45 percent, Loaded Dice 60 percent with a 15 percent catch (+8 crime), Morris 30 percent plus 20 percent x Focus/96, arm wrestling 30 percent plus 20 percent x Fitness/3200 less 10 points when Exhausted. W0.22 was not measured: the full stat ranges are used. Every odd is a placeholder."
+    },
+    {
+      "name": "Sit In and Study Alone",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the guest stat's reads and writes, the four Sit In buttons gated on guest stat, weekly clamped latch and village phase, the shelf unique on board, seeded by DefaultEnvCardDrops and backfilled once, the daily Study Alone cooldown). Harness T2.943 (Miller's Sit In, with a non-Academy-day control and the second use refused) and T2.944 (one shelf, Study Alone, the cooldown, one shelf after re-entering); both written 2026-10-04, not yet run. The Apothecary and Professor legs are not driven. The shelf has its own card art (2026-10-04); T2.948 asks a person to look at it.",
+      "cards": [
+        "cmcAcademyLectern",
+        "cmcAcademyBookshelf",
+        "cmcStatAcademyGuest",
+        "cmcStatAcademySitInMiller",
+        "cmcStatAcademySitInWeaver",
+        "cmcStatAcademySitInApothecary",
+        "cmcStatAcademySitInProfessor",
+        "cmcStatAcademyStudyCooldown",
+        "cmcStatAcademyShelfPlaced"
+      ],
+      "notes": "Round 2 F1 (f115ce1fc). AcademyGuestPatch publishes cmcStatAcademyGuest every 5 s from each resident's own CurrentEnvironment (1 Miller, 2 Weaver, 3 Apothecary, 4 Professor). The lectern's four Sit In buttons read it in JSON: two hours for +3 to the resident's craft (Cooking, Weaving, Herbalism, Insight), a 672-tick weekly latch per resident, village phase at least 1. The Academy Bookshelf (CT2, unique on board) offers Study Alone: an hour, Insight +1, a 96-tick cooldown; AcademyShelfSeedPatch backfills it into saves that had already visited the Academy and latches only after re-counting. The Apothecary and Professor walk inside only after one Academy visit this session, so their button waits for that. Gains, costs and latch lengths are placeholders for tuning."
+    },
+    {
+      "name": "Training Post",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the blueprint's recipe and Carpentry gate, the kit transforming into the post, Practice Strikes' gain, cost and clamped cooldown, Take Down returning the kit). Harness T2.945 sets the kit up, practises, tries a second practice and takes the post down; written 2026-10-04, not yet run. The blueprint build is not driven. The kit and post have their own card art (2026-10-04); T2.948 asks a person to look at them.",
+      "cards": [
+        "bpcmctrainingpost",
+        "cmctrainingpostkit",
+        "cmctrainingpost",
+        "cmcStatTrainingPostCooldown"
+      ],
+      "notes": "Round 2 F2 (4ef1c2ec6). A Carpentry graduate's blueprint (Construction > Furniture; 2 Planks, 2 Rope, 2 Stone) makes a Training Post Kit, which Set Up Post (an hour) turns into the placed post. Practice Strikes: an hour, Melee Fighting +2, Stamina -10, once a day behind a clamped 0..96 cooldown. Take Down Post returns the kit. Gain, cost and recipe are placeholders for tuning."
+    },
+    {
+      "name": "Spring Tonic",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 and StatBase-ImmuneNoBaseWrite.Tests.ps1 (the Drink writes only the effect stat, never ImmuneSystem; the status carries Comfort and the infection rate; the Medicine gate; the Apothecary restock lists it). Harness T2.946 drinks one tonic, reads the stat, status and ImmuneSystem, then a second dose; written 2026-10-04, not yet run. The recipe and the restock are not driven. The tonic has its own card art (2026-10-04); T2.948 asks a person to look at it.",
+      "cards": [
+        "cmcbpspringtonic",
+        "cmcSpringTonic",
+        "cmcStatSpringTonic"
+      ],
+      "notes": "Round 2 F3 (d8d7432f0). A Medicine graduate's blueprint (Survival > Cooking; 2 dried Heather Flowers, 1 dried Willow Bark, a Stone Mortar and Pestle that is not used up) makes two tonics. Drinking one sets the effect stat cmcStatSpringTonic to 96, which drains 1 a tick; while it lasts the status adds Comfort +10 and an upper respiratory infection rate of -2.25 (the size the spring Seasonal Allergies status adds). A second dose only refills it. The Apothecary's shelf restock lists one or two. Comfort, rate and dose are placeholders for tuning."
+    },
+    {
+      "name": "Armorer Course Shields",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/Academy-CourseGating.Tests.ps1 (every gated blueprint UID resolves to a real ACT blueprint and no gated blueprint's product is another gated recipe's ingredient outside the course). Harness T2.947 reads both new shields and the Copper Shield Hidden without the degree and Available with it; written 2026-10-04, not yet run.",
+      "cards": [
+        "act_bp_iron_shield",
+        "act_bp_ghostbronze_shield",
+        "act_bp_copper_shield"
+      ],
+      "notes": "Round 2 F4 (ea38a21b5). ACT 1.18.0's Iron Shield and Ghost Bronze Shield join the Armorer course's unlock array beside the Copper Shield (UIDs read from ACT's own blueprint files). They are end products, so the lock hides no ingredient; an ACT without them skips the entries. A recipe already researched stays yours."
+    },
+    {
+      "name": "Founder's Monument",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the earned flag is written once when net Reputation reaches its full mark and never cleared; MonumentSeedPatch gates on the Village board, re-counts before latching and is registered once per process; the monument is unique, untrashable and has no dismantle). Harness T2.949 sets the flag by cheat, waits for the poll, counts one monument and counts again after an Academy round trip; written 2026-10-04, not yet run. The first-fill latch is not driven. The card has its own art (2026-10-04); T2.957 asks a person to look at it.",
+      "cards": [
+        "cmcfoundersmonument",
+        "cmcStatMonumentEarned",
+        "cmcStatMonumentPlaced"
+      ],
+      "notes": "Round 2 G1 (bd9e2f698). VillageReputationPatch sets cmcStatMonumentEarned the first time net Reputation reads 100. MonumentSeedPatch (5 s poll, cmcEnvVillage only) then spawns one CT2 Founder's Monument and sets cmcStatMonumentPlaced after re-counting it. +6 Comfort while in the village is a placeholder. 'Village square' is read as the Village board."
+    },
+    {
+      "name": "Village Seasons",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 and CMC-ResidentFriendship.Tests.ps1 (each beat latched after its work and cleared on a season change, the provisioning marker clamped 0..1 with a 0.5 delivery never overwritten, the supper window gate, the market-day discount capped under the Wanted markup). Harness T2.950 (market day), T2.951 (autumn offer and its once-only and no-clobber checks) and T2.952 (winter arming and the 17:00 window) force each season by the SeasonCounter stats; written 2026-10-04, not yet run. Accepting the errand, Stock the Pantry, the thanks, Join the Snowed-In Supper and the price ease are not driven; T2.958 asks a person.",
+      "cards": [
+        "cmcStatSeasonSeen",
+        "cmcStatSeasonSummer",
+        "cmcStatSeasonAutumn",
+        "cmcStatSeasonWinter",
+        "cmcStatMarketDay",
+        "cmcStatProvisionState",
+        "cmcStatProvisionDone",
+        "cmcStatSupperArmed",
+        "cmcStatSupperOpen"
+      ],
+      "notes": "Round 2 G2 (df1b73504). VillageSeasonsPatch fires one beat per season change once the Inn introduction is done: summer fills cmcStatMarketDay (96, 0.02 off the six residents' 1.5 buy-price multiplier: about 1.3 percent off at neutral standing, nearer 2 percent at high trust), autumn raises the Inn Keeper's provisioning marker to 1 only from rest, winter arms the snowed-in supper that the Inn Counter offers from 17:00 (Morale +35, once per winter). The last-season stat is written only after a beat's work succeeds. Every amount is a placeholder."
+    },
+    {
+      "name": "Summer Bramble Thicket",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/MapNodes-Schema.Tests.ps1 (both clear actions share the gate's ClearActionKeyPrefix) and CMC-Round2.Tests.ps1 (the gate entry, the sickle trigger cards, three uses with an OnZero destroy). Harness T2.953 forces spring and summer, checks the seed and the shut road, makes three sickle cuts and travels on; written 2026-10-04, not yet run. The by-hand tear-through is not driven (T2.958). The card has its own art (2026-10-04); T2.957 asks a person to look at it.",
+      "cards": [
+        "cmcBrambleThicket",
+        "cmcEnvBadgerWarren",
+        "cmcEnvDeerMeadow"
+      ],
+      "notes": "Round 2 G3 (a9a472a3b). A SealableGates entry on Sett Warren seals the Stillwater Meadow leg every summer (60-day regrowth). A sickle clears it in three 8-point cuts; with no tool, three 20-point goes by hand. Costs copy Deadfall and Snow Drift and are placeholders."
+    },
+    {
+      "name": "Order Up! Achievement",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (the latch appended to the three vanilla commission blueprints by UID, the board line, the Inn Keeper remark in the shipped shape, the board counting 12). Harness T2.954 builds the Copper Bar commission from cheated items and reads the latch, and T2.956 reads the board on a fresh save; written 2026-10-04, not yet run. Whether a real build applies the appended modifier is the open runtime question; the fallback is an ActionRouter AfterWrapped handler.",
+      "cards": [
+        "cmcStatAchOrderUp",
+        "cmcBoardAchievements"
+      ],
+      "notes": "Round 2 G4 (9d610811a). AchievementKillEffectsPatch appends a +1 on cmcStatAchOrderUp to Bp_CommissionPartridgeEggs, Bp_CommissionCopperNuggets and Bp_CommissionCopperBarMillKnowledge at GameDataReady. A commission only shows once the trader trusts you at 50 or more."
+    },
+    {
+      "name": "Northern Quarry Achievement (Harsh Wilds)",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (each quarry latch appended only when its Harsh Wilds encounter resolves, a missing encounter logs Debug only, the board hides the two quarry lines and the count of 13 unless one resolved, the quarry stat stays out of the always-on earned list). Harness T2.955 reads the board with Harsh Wilds (13, the quarry line, (0/3), no truncation) and T2.956 without it (12, no wiring or quarry log line); written 2026-10-04, not yet run. A real lynx, wisent and musk ox kill is not scriptable and is left to a person.",
+      "cards": [
+        "cmcStatAchQuarry",
+        "cmcStatAchQuarryCount",
+        "cmcStatAchQuarryLynx",
+        "cmcStatAchQuarryWisent",
+        "cmcStatAchQuarryMuskOx"
+      ],
+      "notes": "Round 2 G5 (9d610811a). A soft crossover (INJ and HIDE): the lynx, wisent and musk ox latches are appended to hw_encounter_lynx, hw_encounter_wisent and hw_encounter_muskox kill effects only for encounters that resolve; with none, the line, its count and its kills do not exist and nothing is logged above Debug. HarshWilds/ is never edited."
+    },
+    {
+      "name": "Dye Vat and the Weaver's Dye Run",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.959 (the vat) and T2.960 (the errand) written 2026-10-04, not yet run. The art is a person's look (T2.972).",
+      "cards": [
+        "cmcDyeVat",
+        "bpcmcdyevat",
+        "cmcStatWeaverDyeErrand",
+        "cmcStatWeaverDyeDone"
+      ],
+      "notes": "Round 2 H1. DyeVatPatch cancels a Dye button with no plain garment or no pigment and dyes every plain garment inside, one pigment each, writing the wear back. The Weaver's dye run is a clamped-marker errand that pays once."
+    },
+    {
+      "name": "Stockpiles",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenarios T2.974 (store, take, take apart), T2.975 (material isolation and refusals) and T2.976 (a frame-time measurement against 200 loose stones, report only) written 2026-10-04, not yet run. The part-boiled Bone refusal and a held stack stored in one gesture are a person's play (T2.980) and the art is a person's look (T2.979).",
+      "cards": [
+        "cmcStockpileStone",
+        "cmcStockpileTwigs",
+        "cmcStockpileBones",
+        "bpcmcstockpilestone",
+        "bpcmcstockpiletwigs",
+        "bpcmcstockpilebones"
+      ],
+      "notes": "Round 2 I1. StockpilePatch counts a stacked card on Fullness (a CI keyed on the one material, consuming the drop), refuses a full stockpile and a part-boiled Bone before the card is spent, hands cards back through SpawnService.Spawn on Take One and Take Five, and returns every stored card on Take Apart. Stone, Twigs and Bones only (W0.11). No lag saving is claimed."
+    },
+    {
+      "name": "Wall Paintings",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.977 reads the wiring, cost, stage time and sibling-exclusion conditions from the loaded data, written 2026-10-04, not yet run. Building one in a cave and reading its Comfort, and whether the exclusion really hides the other two colours in the room, are a person's play (T2.980); the art is a person's look (T2.979).",
+      "cards": [
+        "cmcimpwallpaintingcharcoal",
+        "cmcimpwallpaintingochre",
+        "cmcimpwallpaintingbillberry"
+      ],
+      "notes": "Round 2 I2. Three CT10 improvements (one per pigment: the engine allows one recipe per improvement) sharing one Comfort +10 passive, injected by InjectImprovementInto.json into the six lived-in caves, the mud hut and the cabin (15 CT8 cards); each carries inverted BlueprintCardConditions on the other two so a room takes one painting."
+    },
+    {
+      "name": "Curtains",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.978 (the build gate, then insulation and cabin-fever rate with the curtains open and drawn, in the Apothecary's Cabin interior) written 2026-10-04, not yet run; it cheats the window in as a card, which is inferred to count as built. A window built through its own blueprint is a person's play (T2.980) and the art is a person's look (T2.979).",
+      "cards": [
+        "cmcCurtainsOpen",
+        "cmcCurtainsDrawn",
+        "cmcbpcurtains"
+      ],
+      "notes": "Round 2 I4. A CT2 pair swapped by Draw Curtains and Open Curtains DAs; drawn writes TemperaturePerceived +1 and CabinFever rate +0.5 to cancel Imp_Windows's -1 and -0.5 (W0.13), open writes nothing. The blueprint (Large Cloth x2, Furniture tab, Carpentry gate) requires a built Imp_Windows in both BlueprintCardConditions and BuildingCardConditions. Vanilla's window is untouched; the hide variant was not built."
+    },
+    {
+      "name": "Hunt Trophies",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.961 (built, Comfort) and T2.964 (the Carpentry gate) written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcBoarTrophy",
+        "cmcStagTrophy",
+        "cmcbpboartrophy",
+        "cmcbpstagtrophy"
+      ],
+      "notes": "Round 2 H2. Two wall trophies, each a Comfort passive, behind the Carpentry degree."
+    },
+    {
+      "name": "Camp Furnishings",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.961 (rug, canvas, bench, map, cairn built), T2.962 (potpourri and ice sculpture decay) and T2.963 (the cairn's Meditate) written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcClothRug",
+        "cmcCanvasCharcoal",
+        "cmcCanvasOchre",
+        "cmcCanvasBillberry",
+        "cmcLogBench",
+        "cmcPotpourri",
+        "cmcFramedMap",
+        "cmcIceSculpture",
+        "cmcStoneCairn",
+        "cmcStatSpiritHarmonious"
+      ],
+      "notes": "Round 2 H3. Comfort furnishings; the potpourri and the ice sculpture decay on their own clocks, the sculpture holds in winter, and the cairn offers one of three Meditate buttons by Hollowness and the Spiritually Harmonious marker."
+    },
+    {
+      "name": "Carpentry Gate for Decor",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.964 written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcperkgradcarpentry"
+      ],
+      "notes": "Round 2 J4. Eleven decor blueprints join the Carpentry CourseUnlock table; the Dye Vat is deliberately outside it."
+    },
+    {
+      "name": "Layered Warmth",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.965 written 2026-10-04, not yet run. The felt temperature bonus itself is a person's read (T2.973).",
+      "cards": [
+        "cmcStatLayeredWarmth"
+      ],
+      "notes": "Round 2 H4. LayeredWarmthPatch counts worn tag_CMCColdWeatherApparel pieces every 5 s; three or more give the Well Layered status."
+    },
+    {
+      "name": "Garden Trellis Growth Help",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.966 written 2026-10-04, not yet run.",
+      "cards": [
+        "cmcgardentrellisplaced"
+      ],
+      "notes": "Round 2 H5. One RemotePassiveEffects entry on the trellis adds 0.25 Growth a point to 22 planted crops on the same board."
+    },
+    {
+      "name": "The Potter (sixth resident)",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. Harness scenario T2.967 (arrival), T2.968 (market stall and reload), T2.969 (price by crime band), T2.970 (the firing run) and T2.971 (cold greetings) written 2026-10-04, not yet run. His stock, the Hall board and the Quiet Village trait are a person's checks (T2.973); his two portraits are T2.972.",
+      "cards": [
+        "cmcPotterAgent",
+        "CMC_PotterTrust",
+        "cmcStatPotterFiringErrand",
+        "cmcStatPotterFiringDone"
+      ],
+      "notes": "Round 2 H6. PotterSchedulePatch moves him in once the village phase is 1, to the Village market corner on a market day from 08:00 to 18:00, and back to the Inn. Prices and greetings follow the shared crime-band helpers."
+    },
+    {
+      "name": "Inn odd-jobs board",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.981 harness run FAILed 2026-10-09 on a scenario step (earlier PASS 05:11); not recorded.",
+      "cards": [
+        "CMC_InnCounter",
+        "cmcStatInnOddJob"
+      ],
+      "notes": "Round 2 J2. The Inn Counter posts one small job a morning (Bring a Stone, Rope, Ash or a Clay Bowl); the goods are consumed for a paid shift (InnOddJobPatch)."
+    },
+    {
+      "name": "Painted Clay Vase with Flowers",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Harness T2.994 (arrange and wilt) FAILed 2026-10-09 on the wilt line, fixed 1.69.6 with OnZeroNotification; re-run pending.",
+      "cards": [
+        "potterysculpturepaintedvaseflowers"
+      ],
+      "notes": "Round 2 J7. A Comfort decor card that wilts to its own line and crumbles when it shatters."
+    },
+    {
+      "name": "Soaking Trough",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.995 FAILed 2026-10-09 (blueprint Locked); 1.69.6 gives the blueprint a ResearchableFromStart condition; re-run pending.",
+      "cards": [
+        "cmcbplimewatertrough",
+        "cmcLimewaterTrough"
+      ],
+      "notes": "Round 2 J9. Blueprint and placed trough for soaking limewater."
+    },
+    {
+      "name": "King of the Forest",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1. T2.990 harness run FAILed 2026-10-09 (Professor trust never reached 80 in the scenario); not recorded. Ships no run ending.",
+      "cards": [
+        "cmcTrgKingOfTheForest",
+        "cmcStatAchKing",
+        "cmcbpthrone",
+        "cmcThrone",
+        "cmcbpcrown",
+        "cmcCrown"
+      ],
+      "notes": "Round 2 J15. Capstone achievement: a once-only trigger latches cmcStatAchKing and teaches the Forest Throne and Forest Crown blueprints."
+    },
+    {
+      "name": "Wool-Quilted Cap and Vest",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.989 harness PASS 2026-10-09 (awaiting review and record). Needs Sirus23 Mod Collection for the wool.",
+      "cards": [
+        "cmcwoolquiltedcap",
+        "cmcwoolquiltedvest",
+        "cmcbpwoolquiltedcap",
+        "cmcbpwoolquiltedvest"
+      ],
+      "notes": "Round 2 J18. Warmer variants of the Quilted Cap and Vest."
+    },
+    {
+      "name": "Village Well water-source tag",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static only. No code in the suite reads tag_x_WaterSource yet (WDI feature 16 is unbuilt), so it changes nothing in play.",
+      "cards": [
+        "cmcimpwell",
+        "CMC_VillageWell"
+      ],
+      "notes": "Round 2 J20. The built well carries the shared cross-mod tag tag_x_WaterSource by name, with no CardTag file shipped."
     }
   ]
 }

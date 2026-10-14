@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatPotterFiringDone",
+    "GameName": {
+        "LocalizationKey": "CMC_PotterFiringDone_StatName",
+        "DefaultText": "Potter's Firing Run Errand Done"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_PotterFiringDone_StatDescription",
+        "DefaultText": "Hidden completion counter for the Potter's firing run errand: 0 until his thank-you line, then 1 for good. Only that line advances it, and the offer is gated on it staying 0, so the errand completes once."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

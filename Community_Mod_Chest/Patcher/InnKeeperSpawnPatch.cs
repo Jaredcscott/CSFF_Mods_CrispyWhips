@@ -49,6 +49,18 @@ namespace CommunityModChest.Patcher
         private const string InnKeeperAgentUid = "cmcInnKeeperAgent";
         private const string InnInteriorUid = "cmcInnInterior";
         private const string RestockActionId = "InnKeeperMorningRestock";
+        // Cross-mod pantry blocks (C9, J1), each an AgentAction in Agent_InnKeeper.json fired beside
+        // RestockActionId on every restock. Add a later block by adding its ActionID here: PerformRestock
+        // loops this array. An action whose drops name a card that is not installed is skipped by the
+        // game (the Apothecary's ApothecaryRestock_HF is the shipped proof); the only trace is the
+        // framework's one Info line per boot, "WarpResolver: [<mod>] unresolved: ...". No block is
+        // guaranteed to resolve: CMC depends on no other content mod, ACT included (Fleet plan feature 2).
+        private static readonly string[] CrossModRestockActionIds =
+        {
+            "InnKeeperRestock_ACT", // J1: Focus, Calming and Warming Teas
+            "InnKeeperRestock_HF",  // C9: three Herbs & Fungi foods
+            "InnKeeperRestock_Sirus", // C10: Sirus23's Sheep Cheese
+        };
         private const int RestockIntervalDays = 4;
 
         private static bool _initialized;
@@ -243,6 +255,46 @@ namespace CommunityModChest.Patcher
         }
 
         private static bool AlreadySpawned(object gm) => FindLiveNpc(gm) != null;
+
+        // Board status line (C5): the CSV key of his one place. He never leaves the Inn, so there is one leg.
+        private const string LegInnKey = "CMC_BoardLeg_InnKeeper_Inn";
+        private static bool _legReadWarned;
+
+        /// <summary>
+        /// Where he is right now, as the CSV key of one sentence for his Notice Board, or null when he has not
+        /// been spawned yet or this cannot be read. Read-only status: it reads where he ACTUALLY stands and
+        /// never moves him. The key names the Inn only while his own environment is the Inn, so a stale save
+        /// that left him in an orphaned environment (see the reconcile notes above) shows no line.
+        /// </summary>
+        internal static string CurrentLegLabel
+        {
+            get
+            {
+                try
+                {
+                    if (!ResolveTypes() || !ResolveRefs()) return null;
+
+                    var gm = CardUtil.GetGameManagerInstance();
+                    if (gm == null) return null;
+
+                    var npc = FindLiveNpc(gm);
+                    if (npc == null) return null;
+
+                    var env = Reflect.GetMember(npc, "CurrentEnvironment");
+                    if (env == null || Reflect.GetMember(env, "IsNull") is true) return null;
+                    return ReferenceEquals(Reflect.GetMember(env, "EnvCard"), _innInterior) ? LegInnKey : null;
+                }
+                catch (Exception ex)
+                {
+                    if (!_legReadWarned)
+                    {
+                        _legReadWarned = true;
+                        Plugin.Logger.LogWarning($"[InnKeeperSpawnPatch] CurrentLegLabel failed, so his notice board shows no location line: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                    }
+                    return null;
+                }
+            }
+        }
 
         // The env the Keeper belongs in, built from the interior card itself rather than from
         // whatever string a past session serialized. cmcInnInterior is InstancedEnvironment:false,
@@ -605,6 +657,9 @@ namespace CommunityModChest.Patcher
             string seasonalActionId = SeasonalRestockActionId();
             if (seasonalActionId != null)
                 FireAgentAction(npc, associatedCard, seasonalActionId);
+
+            foreach (string crossModActionId in CrossModRestockActionIds)
+                FireAgentAction(npc, associatedCard, crossModActionId);
 
             _lastRestockDay = currentDay;
 

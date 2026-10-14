@@ -47,6 +47,71 @@ namespace CommunityModChest.Patcher
     {
         private const float SuspicionBumpAmount = 5f;
 
+        /// <summary>D2: the CMC tag the Cloth Mask, its dyed variants and the Cloth Hood carry. Referenced by
+        /// NAME in each card's CardTagsWarpData (no ScriptableObject/CardTag file ships for it).</summary>
+        internal const string DisguiseTagName = "tag_CMCDisguise";
+
+        /// <summary>TUNABLE PLACEHOLDER (D2): the share of a sighting's Suspicion bump that gets through while an
+        /// equipped card carries <see cref="DisguiseTagName"/>. 0.5 halves it (5 becomes 2.5).</summary>
+        internal const float DisguiseBumpFactor = 0.5f;
+
+        /// <summary>Pure: the Suspicion a sighting adds, given whether a disguise is worn. Independent of the
+        /// Burglar's Kit, which acts on the chest roll and never on Suspicion (open question 7).</summary>
+        internal static float BumpAmountFor(bool disguised)
+        {
+            return disguised ? SuspicionBumpAmount * DisguiseBumpFactor : SuspicionBumpAmount;
+        }
+
+        private static readonly HashSet<string> _disguiseWarned = new HashSet<string>();
+        private static PropertyInfo _equippedProp;
+
+        private static void DisguiseWarnOnce(string cause, string message)
+        {
+            if (_disguiseWarned.Add(cause)) Plugin.Logger.LogWarning("[GuardWantedReactionPatch] " + message);
+        }
+
+        /// <summary>
+        /// Whether any card the player is wearing right now carries <see cref="DisguiseTagName"/>. Read through
+        /// <see cref="GameQuery.EquippedCards"/> (which warns once per cause when the equipment cannot be read and
+        /// returns an empty list). Every non-throwing miss here leaves its own warn-once line, so a renamed
+        /// CardData field reads as a logged cause and never as "nobody is disguised".
+        /// </summary>
+        internal static bool PlayerWearsDisguise()
+        {
+            try
+            {
+                // Read by reflection: this mod compiles against HerbsAndFungi/lib's framework copy, which predates
+                // GameQuery.EquippedCards (framework 2.27+), while the framework installed with the game has it.
+                _equippedProp ??= typeof(GameQuery).GetProperty("EquippedCards", BindingFlags.Public | BindingFlags.Static);
+                if (_equippedProp == null)
+                {
+                    DisguiseWarnOnce("equippedcards-missing", "PlayerWearsDisguise: GameQuery.EquippedCards is not in the installed framework (needs a newer CSFFModFramework), so no disguise is ever read.");
+                    return false;
+                }
+                if (_equippedProp.GetValue(null, null) is not IEnumerable equipped)
+                {
+                    DisguiseWarnOnce("equippedcards-unreadable", "PlayerWearsDisguise: GameQuery.EquippedCards returned nothing readable.");
+                    return false;
+                }
+                foreach (object card in equipped)
+                {
+                    if (card == null) continue;
+                    var model = CardUtil.GetCardData(card);
+                    if (model == null) { DisguiseWarnOnce("model-null", "PlayerWearsDisguise: an equipped card has no CardData, so it cannot count as a disguise."); continue; }
+                    var tagsField = CardUtil.GetCachedField(model.GetType(), "CardTags");
+                    if (tagsField == null) { DisguiseWarnOnce("cardtags-field-missing", "PlayerWearsDisguise: CardData.CardTags was not found, so no disguise can be read."); return false; }
+                    if (tagsField.GetValue(model) is not IList tags) continue;
+                    foreach (var tag in tags)
+                        if (tag is UnityEngine.Object uo && uo != null && uo.name == DisguiseTagName) return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                DisguiseWarnOnce("exception", "PlayerWearsDisguise failed: " + (ex.InnerException?.ToString() ?? ex.ToString()));
+            }
+            return false;
+        }
+
         private static bool _initialized;
         private static Type _inGameNPCType, _npcStatInstantModifierType, _uidType;
         private static MethodInfo _changeStatMethod, _getFromIdMethod;
@@ -144,35 +209,51 @@ namespace CommunityModChest.Patcher
         }
 
         /// <summary>
-        /// Starts (never synchronously drains) the guard's own ChangeStat coroutine with a +5
-        /// instant Suspicion modifier. Returns true only once the coroutine is actually started,
-        /// so a failed cast/invoke does not falsely latch the per-sighting cooldown.
+        /// Starts (never synchronously drains) the guard's own ChangeStat coroutine with an instant
+        /// Suspicion modifier of <see cref="BumpAmountFor"/> (+5, or +2.5 while the player wears a disguise).
+        /// Returns true only once the coroutine is actually started, so a failed cast/invoke does not
+        /// falsely latch the per-sighting cooldown.
         /// </summary>
         private static bool BumpSuspicion(GuardWitnessPatch.Witness witness)
         {
-            if (witness?.GuardNpc is not MonoBehaviour npcBehaviour) return false;
+            float amount = BumpAmountFor(PlayerWearsDisguise());
+            if (!ChangeGuardSuspicion(witness?.GuardNpc, witness?.GuardLabel, amount, "GuardWantedReaction")) return false;
+            Plugin.Logger.LogInfo($"[GuardWantedReactionPatch] {witness.GuardLabel} spots a Wanted face nearby - Suspicion +{amount:0.##}{(amount < SuspicionBumpAmount ? " (disguised)" : "")}.");
+            return true;
+        }
+
+        /// <summary>
+        /// The one write to a live guard's Suspicion: an instant NPCStat modifier of <paramref name="delta"/>
+        /// (negative lowers it, and the stat's own floor at the guard's starting value still binds) started on
+        /// the guard's own MonoBehaviour. Shared by the sighting bump and D3's bribes. Returns true only once
+        /// the coroutine is started.
+        /// </summary>
+        internal static bool ChangeGuardSuspicion(object guardNpc, string label, float delta, string source)
+        {
+            if (guardNpc is not MonoBehaviour npcBehaviour) return false;
+            if (!ResolveTypes()) return false;
+            if (!ResolveSuspicionStat()) return false;
             try
             {
                 object modifier = Activator.CreateInstance(_npcStatInstantModifierType);
                 Reflect.SetMember(modifier, "TargetStat", _suspicionStat);
-                Reflect.SetMember(modifier, "ValueChange", new Vector2(SuspicionBumpAmount, SuspicionBumpAmount));
+                Reflect.SetMember(modifier, "ValueChange", new Vector2(delta, delta));
                 Reflect.SetMember(modifier, "IgnoreNovelty", true);
 
                 int tick = 0;
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm != null && Reflect.GetMember(gm, "CurrentTickInfo") is Vector3Int tickInfo) tick = tickInfo.z;
 
-                if (_changeStatMethod.Invoke(witness.GuardNpc, new object[] { modifier, null, "GuardWantedReaction", tick })
+                if (_changeStatMethod.Invoke(guardNpc, new object[] { modifier, null, source, tick })
                     is not IEnumerator routine)
                     return false;
 
                 npcBehaviour.StartCoroutine(routine);
-                Plugin.Logger.LogInfo($"[GuardWantedReactionPatch] {witness.GuardLabel} spots a Wanted face nearby — Suspicion +{SuspicionBumpAmount:0}.");
                 return true;
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"[GuardWantedReactionPatch] BumpSuspicion failed for {witness.GuardLabel}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Plugin.Logger.LogWarning($"[GuardWantedReactionPatch] ChangeGuardSuspicion failed for {label}: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }

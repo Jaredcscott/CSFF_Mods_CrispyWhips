@@ -1,0 +1,19 @@
+{
+  "target": "CMC_CatBowl.png",
+  "sourceCard": "CardData/Location/CMC_CatBowl.json",
+  "subject": "a single plain shallow round terracotta clay bowl, warm orange-brown unglazed clay, simple smooth rim, no handle, no pattern, empty and set flat on the ground",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: wooden bowl, glaze, painted designs, handle, food, fish, meat, cat",
+  "historyId": "RS7RQmyiuJZoLiw1he2s",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791111662885_ecec0b8e_1791111663101_4814913b.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase E closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMCCatBowl.json, which shares this image. Finished by /process-card-art (512x768, alpha, border-connected paper keyed, 75.7 percent transparent)."
+}

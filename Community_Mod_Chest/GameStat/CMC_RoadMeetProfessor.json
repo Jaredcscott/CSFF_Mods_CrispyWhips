@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatRoadMeetProfessor",
+    "GameName": {
+        "LocalizationKey": "CMC_RoadMeetProfessor_StatName",
+        "DefaultText": "Road Meeting Cooldown (Professor)"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_RoadMeetProfessor_StatDescription",
+        "DefaultText": "Hidden cooldown: set to 72 when the Professor stops for a word with you on the road, drains 1 per tick, so a chance meeting can happen once every few days."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 96.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

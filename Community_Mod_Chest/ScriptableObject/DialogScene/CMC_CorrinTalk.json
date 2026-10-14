@@ -4,6 +4,7 @@
         "DefaultText": "Guard Old Corrin"
     },
     "SceneLinesWarpData": [
+        "CMC_GuardTalk_TheftNotFound",
         "CMC_CorrinTalk_Start"
     ],
     "SceneLinesWarpType": 3

@@ -1,0 +1,36 @@
+{
+  "target": "ClayBeads.png",
+  "sourceCard": "CardData/Item/ClayBeads.json",
+  "subject": "one string of eight small round beads of fired reddish-brown terracotta clay, each bead hand-rolled and slightly uneven with a small threading hole, threaded close together on a thin pale tan twine cord tied in one simple knot with two short loose ends, the whole string lying flat in a gentle open U-shape, about one and a half times as wide as it is tall, matte unglazed clay",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 is a STYLE reference only (art from the game Card Survival: Fantasy Forest): match its ink linework, flat shading and palette; do not copy its subject or composition.\nSubject: one string of eight small round beads of fired reddish-brown terracotta clay, each bead hand-rolled and slightly uneven with a small threading hole, threaded close together on a thin pale tan twine cord tied in one simple knot with two short loose ends, the whole string lying flat in a gentle open U-shape, about one and a half times as wide as it is tall, matte unglazed clay.\nStyle: match the style reference: the look of the game Card Survival: Fantasy Forest, flat posterized colour fills in a few tonal steps, thin dark ink outlines and small ink hatch marks, a continuous dark outline around the whole object, a muted naturalistic palette, realistic proportions; not watercolour, not glossy, nothing shiny.\nSingle subject, centred, filling most of the frame with a white margin on every side, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: glass beads, painted beads, a pendant, a metal clasp, more than one string, beads of different colours, photo, photorealistic, 3D render, glossy highlights, watercolour bleed, paper texture, soft airbrush gradients, neon colours, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "refs": [
+    {
+      "label": "vanilla Amulet (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_1791744833077_263b1f4a.png"
+    }
+  ],
+  "historyId": "Y81U57c4XAOE6CfWIAP8",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798406497_d6d3cfdc_1791798406550_5c2edead.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed by process_card_art.py, trimmed palette PNG",
+  "note": "owner gallery rework 2026-10-12: this is a bad quality image Generated 3:2 and padded to 2:3; paper inside the cord loop keyed with key_enclosed.py, edge trim cleaned with defringe.py.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798406497_d6d3cfdc_1791798406550_5c2edead.png",
+      "historyId": "Y81U57c4XAOE6CfWIAP8",
+      "verdict": "shipped"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

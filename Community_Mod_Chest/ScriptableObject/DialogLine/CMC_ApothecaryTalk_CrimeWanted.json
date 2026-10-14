@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 25.0, "y": 59.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_CrimeWanted_Line",
+        "DefaultText": "Ah. The cabin-builder. The forest talks, you know, and lately it has had a good deal to say about you. I won't turn you out: sick is sick, and I keep no grudges in my racks. But my tonics leave my hands and my confidences stay in them, and you'll find the second thin for now."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_CrimeWanted_Answer_Fair",
+                "DefaultText": "Fair enough."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_CrimeWanted_Answer_Earn",
+                "DefaultText": "I'll earn it back."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

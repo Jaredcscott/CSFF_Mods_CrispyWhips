@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 25.0, "y": 59.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_CrimeWanted_Line",
+        "DefaultText": "Oh. It's you. Come in, then, mind the draught. I've heard things. I don't know what's true and I don't want to ask. The loom wants my hands, and I think I'd rather it had them than a conversation. Perhaps when it has all blown over."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_CrimeWanted_Answer_BlowOver",
+                "DefaultText": "It will blow over."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_CrimeWanted_Answer_Leave",
+                "DefaultText": "I'll leave you to it."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

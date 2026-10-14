@@ -1,0 +1,47 @@
+{
+  "target": "CMC_BrambleThicket.png",
+  "sourceCard": "CardData/Location/CMC_BrambleThicket.json",
+  "subject": "a forest trail completely blocked by a dense wall of wild bramble: tangled arching thorny canes in dark green and reddish-brown filling the whole middle of the picture from the left edge to the right edge, a few clusters of dark purple-black blackberries and small white five-petal bramble flowers among the jagged leaves, a trail of bare trampled earth running up from the bottom of the picture into the brambles and disappearing into them, tall dark tree trunks and a deep green forest canopy behind, warm summer light",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "see historyId fLRGEfNxPKq0uECViu7N (same template as A, subject rewritten: a solid impassable wall of bramble bushes to head height, unbroken edge to edge, NO gap, NO opening, NO arch; the trail stops at its foot; Avoid adds arch, tunnel, arching canes, opening, path continuing)",
+  "refs": [
+    {
+      "label": "vanilla Woods1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods1_1791745308283_a2624cc3.png"
+    }
+  ],
+  "historyId": "fLRGEfNxPKq0uECViu7N",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798603488_07d2de12_1791798603650_59bc977f.png",
+  "credits": 40,
+  "generated": "2026-10-12",
+  "finish": "full-bleed (process_card_art.py --full-bleed, 512x768)",
+  "note": "owner gallery rework 2026-10-12: looks AI generated poor quality. Full-bleed. Sample A drew the canes as arches over an open trail (a tunnel); redrawn once as B with an unbroken wall.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798481806_4a7e7272_1791798481876_5b510c75.png",
+      "historyId": "Mmunhxnr2NaqSwF0kumv",
+      "verdict": "rejected: canes drawn as arches over an open trail, reads as a tunnel the subject excluded"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798603488_07d2de12_1791798603650_59bc977f.png",
+      "historyId": "fLRGEfNxPKq0uECViu7N",
+      "verdict": "shipped"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652955070_b5041a2e_1791652955773_280e932f.png",
+    "generated": "2026-10-10",
+    "note": "the picture this rework replaced"
+  }
+}

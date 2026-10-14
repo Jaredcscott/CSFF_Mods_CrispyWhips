@@ -1,0 +1,62 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 24.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_PotterTalk_Start_Line",
+        "DefaultText": "Mind the shelf, the glaze on those is still curing. I took a room here so I'd be near the market. Clay travels badly, but it sells well."
+    },
+    "PossibleAnswers": [
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatPotterFiringErrand", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatPotterFiringDone", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_Start_Answer_FiringOffer",
+                "DefaultText": "Need anything fired?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_PotterTalk_FiringOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_Start_Answer_Work",
+                "DefaultText": "What do you make?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_PotterTalk_Work",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_Start_Answer_Clay",
+                "DefaultText": "Where do you find good clay?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_PotterTalk_Clay",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_Start_Answer_Bye",
+                "DefaultText": "I'll leave you to your wheel."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

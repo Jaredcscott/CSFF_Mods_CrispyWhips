@@ -1,0 +1,70 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 24.0}}
+        ],
+        "RequiredNPCStatValues": [
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcWeaverAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatWeaverTrust",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 80.0,
+                    "y": 1000000000.0
+                }
+            },
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcWeaverAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatWeaverKeepsake",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_Keepsake_Line",
+        "DefaultText": "Hold still a moment. I finished this on the loom last night and I meant it for you: a scarf, dyed the soft grey of a charcoal wash. I'll tell you straight, it won't keep the cold off any better than plain cloth, but I wanted you to have something of mine to wear. A good thread is worth a long wait, and so is a good neighbor."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatWeaverKeepsake",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ],
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "apparelclothscarfdyed",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 1,
+                    "y": 1
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Keepsake_Answer",
+                "DefaultText": "It's lovely. Thank you."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

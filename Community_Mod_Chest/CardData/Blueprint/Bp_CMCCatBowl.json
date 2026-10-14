@@ -1,0 +1,68 @@
+{
+    "UniqueID": "cmcbpcatbowl",
+    "CardName": {
+        "LocalizationKey": "CMC_Bp_CatBowl_CardName",
+        "DefaultText": "Cat Bowl"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_Bp_CatBowl_CardDescription",
+        "DefaultText": "Set a clay bowl aside for the cats, to be filled with meat or fish."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "CMC_Bp_CatBowl_UnlockConditionsDesc",
+        "DefaultText": "Clay Bowl Needed"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasClayBowl",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyIfEquipped": false,
+            "CardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 0,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcCatBowl",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Clay"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "CMC_CatBowl",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 4.0,
+    "ResearchedNotification": 0
+}

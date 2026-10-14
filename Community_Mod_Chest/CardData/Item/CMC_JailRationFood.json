@@ -9,9 +9,9 @@
     "LocalizationKey": "CMC_JailRationFood_CardDescription",
     "DefaultText": "A thin bowl of cold gruel, slid through the door's grille once a day. It won't fill you up, but the warden makes sure you get just enough to keep your strength."
   },
-  "CardImageWarpData": "Bowl_Clay",
+  "CardImageWarpData": "CMC_JailRationFood",
   "CardImageWarpType": 3,
-  "ObjectWeight": 1,
+  "ObjectWeight": 100,
   "DoesNotPile": true,
   "DismantleActions": [
     {
@@ -58,6 +58,5 @@
       "ProducedCards": [],
       "ReceivingCardChanges": { "ModType": 3 }
     }
-  ],
-  "DismantleActionsWarpType": 3
+  ]
 }

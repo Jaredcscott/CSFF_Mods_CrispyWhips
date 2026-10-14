@@ -14,7 +14,7 @@
     "UnlockConditionsDesc": {
         "ParentObjectID": "comfortbpscentedcandle",
         "LocalizationKey": "ScentedCandle_Bp_UnlockConditionsDesc",
-        "DefaultText": "Beeswax Needed"
+        "DefaultText": "Wax Needed"
     },
     "StartUnlocked": false,
     "CardsOnBoard": [

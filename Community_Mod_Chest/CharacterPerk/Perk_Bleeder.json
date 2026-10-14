@@ -67,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your blood doesn't clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations.",
+        "DefaultText": "Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations.",
         "LocalizationKey": "CharacterTraits_Perk_Bleeder_PerkDescription",
         "ParentObjectID": "traits_perk_bleeder"
     },

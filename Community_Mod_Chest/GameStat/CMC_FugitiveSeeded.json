@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatFugitiveSeeded",
+    "GameName": {
+        "LocalizationKey": "CMC_FugitiveSeeded_StatName",
+        "DefaultText": "Fugitive Known to the Watch"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_FugitiveSeeded_StatDescription",
+        "DefaultText": "Hidden latch: 0 = a Fugitive character has not yet been marked by the Watch, 1 = marked (their first village visit added 12 crime, Suspected). Set only after the crime was added."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

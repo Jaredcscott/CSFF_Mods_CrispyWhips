@@ -916,16 +916,32 @@ namespace CommunityModChest.Patcher
             }
 
             float heatBonus = Math.Min(MaxHeatBonus, CurrentHeatCount(cfg) * HeatPerPriorTheft);
-            float patrolBonus = NightPatrolActive() ? NightPatrolBonus : 0f;
+            // D1: the patrol term scales by the on-duty Village-square guard's Suspicion relative to her
+            // own start (1.0 when she is at it or no reading exists); the 0.95 cap below still binds.
+            float patrolBonus = 0f;
+            string patrolNote = "";
+            if (NightPatrolActive())
+            {
+                var watch = GuardDutyPatch.OnDutyGuardSuspicion(GuardDutyPatch.VillageSquareEnvUid);
+                float patrolScale = watch == null ? 1f : GuardDutyPatch.SuspicionPatrolScale(watch.Current, watch.Start);
+                patrolBonus = NightPatrolBonus * patrolScale;
+                if (watch != null)
+                    patrolNote = $" x{patrolScale:0.##} {watch.Label} suspicion {watch.Current:0.#}/{watch.Start:0.#}";
+            }
             float kitDiscount = HasBurglarsKit() ? BurglarsKitDiscount : 0f;
             if (kitDiscount > 0f)
                 Plugin.Logger.LogDebug($"[CopperChestPatch] Burglar's Kit present — detection chance reduced by {kitDiscount:P0} for this roll.");
 
+            // B4: Luck's current value, read once for this roll, takes up to 5 points off. It sits inside
+            // the same clamp as the Kit, so it is a discount and never immunity.
+            float luckAdjustment = LuckBonus.Adjustment("chest");
+
             // Floored well above 0 (not just the raw sum) — a Kit shaves the odds, it doesn't grant
             // immunity even on a lucky roll with zero heat/patrol active.
-            float chance = Math.Min(0.95f, Math.Max(0.01f, BaseDetectionChance + heatBonus + patrolBonus - kitDiscount));
+            float chance = Math.Min(0.95f, Math.Max(0.01f, BaseDetectionChance + heatBonus + patrolBonus - kitDiscount - luckAdjustment));
             bool caught = UnityEngine.Random.value < chance;
-            reason = $"roll {chance:P0} (base {BaseDetectionChance:P0} + heat {heatBonus:P0} + patrol {patrolBonus:P0} - kit {kitDiscount:P0})";
+            // The Luck term is appended after the kit term: the harness reads "- kit 0" and "- kit 5" here.
+            reason = $"roll {chance:P0} (base {BaseDetectionChance:P0} + heat {heatBonus:P0} + patrol {patrolBonus:P0}{patrolNote} - kit {kitDiscount:P0} - luck {luckAdjustment:P1})";
             return caught;
         }
 
@@ -1012,12 +1028,11 @@ namespace CommunityModChest.Patcher
         /// a guard who isn't there.
         ///
         /// <para>Deliberately duplicates the shift window rather than reading GuardDutyPatch's
-        /// private constant: that file is under active development in a parallel workstream and
-        /// exposes no on-duty query yet. TODO(guards): replace this with a proper
-        /// GuardDutyPatch.IsOnDuty(agentUid) / nearest-guard-Suspicion lookup once that API
-        /// settles, so the modifier tracks where a guard actually IS rather than only the clock —
-        /// and keep <see cref="NightShiftStartHour"/>/<see cref="NightShiftEndHour"/> in step with
-        /// GuardDutyPatch until then.</para>
+        /// private constant. The guard's Suspicion now comes from the public
+        /// GuardDutyPatch.OnDutyGuardSuspicion(envUid) query (D1), which scales this term in
+        /// RollDetection; this method stays the on/off gate, so keep
+        /// <see cref="NightShiftStartHour"/>/<see cref="NightShiftEndHour"/> in step with
+        /// GuardDutyPatch's own night window.</para>
         /// </summary>
         private static bool NightPatrolActive()
         {

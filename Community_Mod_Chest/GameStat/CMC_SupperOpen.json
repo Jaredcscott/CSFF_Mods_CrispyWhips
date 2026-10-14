@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatSupperOpen",
+    "GameName": {
+        "LocalizationKey": "CMC_SupperOpen_StatName",
+        "DefaultText": "Snowed-In Supper Table Open"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_SupperOpen_StatDescription",
+        "DefaultText": "Hidden flag VillageSeasonsPatch republishes every poll: 1 while the snowed-in supper is called and it is evening (17:00 to midnight), otherwise 0. Join the Snowed-In Supper is gated on it. Clamped 0..1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

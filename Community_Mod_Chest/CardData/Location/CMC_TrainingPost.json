@@ -1,0 +1,99 @@
+{
+    "UniqueID": "cmctrainingpost",
+    "CardType": 2,
+    "CardName": {
+        "ParentObjectID": "cmctrainingpost",
+        "LocalizationKey": "CMC_TrainingPost_CardName",
+        "DefaultText": "Training Post"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmctrainingpost",
+        "LocalizationKey": "CMC_TrainingPost_CardDescription",
+        "DefaultText": "A stout padded post sunk upright and lashed against the sway, scarred by every blow it has taken. Practice Strikes at it for an hour to sharpen your Melee Fighting, once a day."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmctrainingpost",
+        "LocalizationKey": "CMC_TrainingPost_CardHelpSection",
+        "DefaultText": "Practice Strikes: an hour at the post for Melee Fighting +2 and Stamina -10. Once a day. Take Down Post folds it back into its kit."
+    },
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "CMC_TrainingPost",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpType": 3,
+    "ObjectWeight": 3000.0,
+    "TradingValue": 0.0,
+    "DoesNotPile": true,
+    "UniqueOnBoard": false,
+    "CannotBeTrashed": false,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmctrainingpost",
+                "LocalizationKey": "CMC_TrainingPost_DA_Practice",
+                "DefaultText": "Practice Strikes"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmctrainingpost",
+                "LocalizationKey": "CMC_TrainingPost_DA_Practice_Desc",
+                "DefaultText": "Spend an hour striking the post: Melee Fighting +2, Stamina -10. Once a day."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                { "StatWarpData": "cmcStatTrainingPostCooldown", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 }, "NotifyWhenNotMet": true }
+            ],
+            "StatModifications": [
+                { "StatWarpData": "cmcSkillMeleeFighting", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "InstantModifier": true, "ApplyEachTick": false },
+                { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
+                { "StatWarpData": "cmcStatTrainingPostCooldown", "StatWarpType": 3, "ValueModifier": { "x": 96.0, "y": 96.0 }, "InstantModifier": true, "ApplyEachTick": false }
+            ],
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmctrainingpost",
+                "LocalizationKey": "CMC_TrainingPost_DA_TakeDown",
+                "DefaultText": "Take Down Post"
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Recovered Kit",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "cmctrainingpostkit",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "DismantleActionsWarpType": 3,
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

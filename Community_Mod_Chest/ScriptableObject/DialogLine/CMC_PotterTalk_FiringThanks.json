@@ -1,0 +1,56 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatPotterFiringErrand", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_PotterTalk_FiringThanks_Line",
+        "DefaultText": "Hear that? It rings true, no cracks. You fired that well. I'll have colour on it by the end of the week. Here, for the firing."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_FiringThanks_Answer_Thanks",
+                "DefaultText": "Glad it came out well."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatPotterFiringDone",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatPotterFiringErrand",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -0.5, "y": -0.5 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "NPCStatModifications": [
+                    {
+                        "TargetStatWarpData": "cmcStatPotterTrust",
+                        "TargetStatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "ValueChange": { "x": 3.0, "y": 3.0 }
+                    }
+                ],
+                "DroppedCards": [
+                    {
+                        "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                        "DroppedCardWarpType": 3,
+                        "Quantity": { "x": 3, "y": 3 }
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

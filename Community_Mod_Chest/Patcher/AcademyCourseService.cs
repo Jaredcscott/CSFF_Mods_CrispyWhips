@@ -19,7 +19,8 @@ namespace CommunityModChest.Patcher
     ///   - Architecture course            → WDI Water-Driven Sawmill + Grinding Mill
     ///   - Architecture + Metallurgy      → WDI Water-Driven Forge + Workshop Kit
     ///   - Fishing course                 → CMC Iron Fishing Rod
-    ///   - Armorer course                 → ACT Copper + Iron Breastplate/Helmet/Greaves/Gauntlets
+    ///   - Armorer course                 → every ACT armor blueprint: Copper, Tin, Ghost Bronze, Tin Bronze,
+    ///                                      White Bronze and Iron Breastplate/Helmet/Greaves/Gauntlets, Copper, Iron and Ghost Bronze Shields
     ///   - Herbalism course               → CMC Apothecary Cabin + Healing Mixture
     /// The Armorer course itself is pruned from the lectern entirely if ACT isn't
     /// installed (see AcademyPatch.PruneUnavailableCourses) — this table's "owning
@@ -30,7 +31,7 @@ namespace CommunityModChest.Patcher
     /// researchable, and passing the course simply hands it over early via
     /// MakeBlueprintAvailable. Only end-tier rewards (WDI water-driven buildings, ACT
     /// armor sets) use the hide-until-earned lock above.
-    ///   - Metallurgy course              → ACT Copper Sheet (GRANT, never hidden)
+    ///   - Metallurgy course              → ACT Copper Sheet + Bronze Sheet (GRANT, never hidden)
     /// Why: gating ACT's Copper Sheet was a lock from 2026-07-05 (opt-in behind the
     /// Higher Education trait) and unconditional for every character from 2026-07-20
     /// (Village overhaul PR-1). Copper Sheet is ACT's tier-1 material - 21 downstream
@@ -107,10 +108,37 @@ namespace CommunityModChest.Patcher
                     "advanced_copper_tools_bp_copper_helmet",
                     "advanced_copper_tools_bp_copper_greaves",
                     "advanced_copper_tools_bp_copper_gauntlets",
-                    "act_bp_iron_breastplate",
+                    // ACT ships the iron breastplate as two blueprints (female and male fit). The single
+                    // "act_bp_iron_breastplate" listed here until 1.69.0 matched no blueprint, so both
+                    // breastplates were researchable without the degree.
+                    "act_bp_iron_breastplate_f",
+                    "act_bp_iron_breastplate_m",
                     "act_bp_iron_helmet",
                     "act_bp_iron_greaves",
-                    "act_bp_iron_gauntlets"
+                    "act_bp_iron_gauntlets",
+                    // ACT 1.18.0 alloy armor and the Copper Shield (owner 2026-09-29: "Gate all armor"). An older
+                    // ACT without these blueprints is harmless: GateTable skips a UID that resolves to nothing.
+                    "act_bp_copper_shield",
+                    // The Iron Shield and Ghost Bronze Shield (UIDs read from ACT's Bp_IronShield.json and
+                    // Bp_GhostBronzeShield.json, Phase F4).
+                    "act_bp_iron_shield",
+                    "act_bp_ghostbronze_shield",
+                    "act_bp_bronze_helmet",
+                    "act_bp_bronze_breastplate",
+                    "act_bp_bronze_gauntlets",
+                    "act_bp_bronze_greaves",
+                    "act_bp_tin_helmet",
+                    "act_bp_tin_breastplate",
+                    "act_bp_tin_gauntlets",
+                    "act_bp_tin_greaves",
+                    "act_bp_ghostbronze_helmet",
+                    "act_bp_ghostbronze_breastplate",
+                    "act_bp_ghostbronze_gauntlets",
+                    "act_bp_ghostbronze_greaves",
+                    "act_bp_whitebronze_helmet",
+                    "act_bp_whitebronze_breastplate",
+                    "act_bp_whitebronze_gauntlets",
+                    "act_bp_whitebronze_greaves"
                 }
             },
             new CourseUnlock
@@ -120,7 +148,23 @@ namespace CommunityModChest.Patcher
                 Blueprints    = new[]
                 {
                     "cmcbpoutfitwardrobe",
-                    "cmcbpwickerchair"
+                    "cmcbpwickerchair",
+                    "bpcmctrainingpost",
+                    // Round 2 H2, H3 and J4: hunt trophies and camp furnishings (decor, no recipe consumes any
+                    // of them, so the lock hides only end products; UIDs read from the shipped blueprints).
+                    "cmcbpboartrophy",
+                    "cmcbpstagtrophy",
+                    "cmcbpclothrug",
+                    "cmcbpcanvascharcoal",
+                    "cmcbpcanvasochre",
+                    "cmcbpcanvasbillberry",
+                    "cmcbplogbench",
+                    "cmcbppotpourri",
+                    "cmcbpframedmap",
+                    "cmcbpicesculpture",
+                    "cmcbpstonecairn",
+                    // Round 2 I4: curtains over a built window (decor, nothing is crafted from them).
+                    "cmcbpcurtains"
                 }
             }
         };
@@ -147,7 +191,7 @@ namespace CommunityModChest.Patcher
             {
                 Label         = "Medicine",
                 RequiredPerks = new[] { GradMedicine },
-                Blueprints    = new[] { "cmcbpherbpoultice", "cmcbptincture" }
+                Blueprints    = new[] { "cmcbpherbpoultice", "cmcbptincture", "cmcbpspringtonic" }
             }
         };
 
@@ -164,44 +208,58 @@ namespace CommunityModChest.Patcher
             {
                 Label         = "Metallurgy",
                 RequiredPerks = new[] { GradMetallurgy },
-                Blueprints    = new[] { "advanced_copper_tools_bp_metal_sheet" }
+                Blueprints    = new[] { "advanced_copper_tools_bp_metal_sheet", "act_bp_bronze_sheet" }
             }
         };
 
-        // Three CMC recipes hard-require Herbs & Fungi ingredients (rare herbs incl. hemp) by explicit
-        // owner request — there is no CMC-only substitute, unlike every other soft H&F touchpoint in
-        // this mod (see project_soft_dep_doctrine). On a CMC-only install the ingredient WarpData fails
-        // to resolve and the element drops out of the required list entirely (BlueprintElement.
-        // ValidRequirements returns false for a null RequiredCard, and the construction popup then
-        // skips it — confirmed in the decompile), silently trivializing the recipe. Each of the three
-        // needs a DIFFERENT remedy because they are three different blueprint kinds:
+        // One CMC recipe still hard-requires a Herbs & Fungi ingredient: the Weaver's hemp recipe
+        // (BpCMCWeaverProcessHemp) needs herbs_fungi_hemp_stalks, and there is no CMC-only substitute. On a
+        // CMC-only install that ingredient WarpData fails to resolve and the element drops out of the required
+        // list entirely (BlueprintElement.ValidRequirements returns false for a null RequiredCard, and the
+        // construction popup then skips it, confirmed in the decompile), so the recipe would degrade to
+        // "2 MetalNugget -> 120 Fibers" with no hemp. It is a STATION-CONTAINED operation blueprint
+        // (StartUnlocked:true) that lives in GameManager.AllMiniBlueprints, NOT BlueprintModelStates, so a state
+        // hide can't reach it: it is removed from its host station's ContainedBlueprintCards instead
+        // (StripContainedBlueprintIfMissing), so the Weaver station never offers it; the station's other four
+        // recipes (Rope, LargeCloth, ProcessNettle, ProcessFlax) are CMC-only and stay available.
+        // The probe is the stalks themselves, the ingredient that would drop, so an H&F rename of any other
+        // card cannot reopen the trivialized recipe.
         //
-        //  1. Healing Mixture (bpcmcapothecaryhealingmixture) — a RESEARCH-GATED blueprint
-        //     (StartUnlocked:false) tracked in GameManager.BlueprintModelStates. Hidden via
-        //     HideIfDependencyMissing below; without the hide it would craft a Powerful Healing Potion
-        //     from nothing.
-        //  2. Weaver hemp recipe (BpCMCWeaverProcessHemp) — a STATION-CONTAINED operation blueprint
-        //     (StartUnlocked:true) that lives in GameManager.AllMiniBlueprints, NOT BlueprintModelStates,
-        //     so the state-hide can't reach it (its state is already Available and it isn't in that
-        //     dict). Without a fix it degrades to "2 MetalNugget -> 120 Fibers" with no hemp. Removed
-        //     from its host station's ContainedBlueprintCards instead (StripContainedBlueprintIfMissing),
-        //     so the Weaver station never offers it; the station's other four recipes (Rope, LargeCloth,
-        //     ProcessNettle, ProcessFlax) are CMC-only and stay available.
-        //  3. Apothecary's CABIN (BpCMCApothecaryCabin) — deliberately left ALONE. It is a one-time,
-        //     arc-gating CONSTRUCTION blueprint: building it opens the entire Apothecary residency arc.
-        //     Hiding or blocking it on a CMC-only install would lock that whole arc, a far worse outcome
-        //     than letting its 6 herb requirement-instances (of 15) drop, which merely makes the
-        //     one-time build cheaper. Graceful degradation of a one-time build beats deleting a
-        //     questline, so the cabin is intentionally allowed to trivialize.
-        //
-        // herbs_fungi_hemp_flower_dried is used purely as an "is H&F installed" presence probe.
+        // The Healing Mixture (bpcmcapothecaryhealingmixture) and the Apothecary's Cabin need no guard: since
+        // CMC 1.68.3 their rare-herb slots take the vanilla GpTag_SpiritHerb group (CMC's own Silverwort Blossom
+        // and Hollow Sage are in it; H&F's dried herbs join it through CMC's own GameSourceModify), so neither has an H&F
+        // ingredient to drop.
         // NOTE: GetFromID is case-SENSITIVE (UniqueIDScriptable.LoadID does not normalize case), so each
-        // UID below must match its JSON UniqueID verbatim — the Mixture ships lowercase, the Weaver
-        // recipe/station ship PascalCase/camelCase.
-        private const string HfPresenceProbeUid  = "herbs_fungi_hemp_flower_dried";
-        private const string HfGatedBlueprint    = "bpcmcapothecaryhealingmixture";
+        // UID below must match its JSON UniqueID verbatim: the Weaver recipe/station ship PascalCase/camelCase.
+        private const string HfPresenceProbeUid  = "herbs_fungi_hemp_stalks";
         private const string HfWeaverStationUid  = "cmcCottageWeaver";
         private const string HfWeaverHempRecipe  = "BpCMCWeaverProcessHemp";
+
+        // Round 2 J18: the Wool-Quilted Cap and Vest pad the plain pieces' cloth with Sirus23's raw wool
+        // (sh_wool). Without Sirus23 that ingredient does not resolve and its slot is left null (measured
+        // 2026-10-11: four requirement slots, the Wool one null; the game reads a null slot as no
+        // requirement), so each recipe would turn the plain piece's cloth into a warmer garment for free. Both blueprints are therefore kept Hidden, out of the tab, whenever
+        // sh_wool does not resolve; sh_wool is its own presence probe because it IS the ingredient that would
+        // drop. BlueprintTabs.json has no conditional form and the framework injects tabs at UI time, so the
+        // lever is a per-run BlueprintModelStates hide (the course gate's own lever): both dictionaries are
+        // rebuilt every run, so installing Sirus23 later restores the two recipes on the next load. The plain
+        // Quilted Cap and Quilted Vest are not touched either way, and nothing here warns (one Debug line).
+        internal const string WoolProbeUid = "sh_wool";
+        internal static readonly string[] WoolQuiltedBlueprints = { "cmcbpwoolquiltedcap", "cmcbpwoolquiltedvest" };
+        private static bool _woolHideLogged;
+
+        // Round 2 J15: the King of the Forest capstone (SelfTriggeredAction/CMC_KingOfTheForest.json) unlocks the
+        // Forest Throne and the Forest Crown through its BlueprintsFullUnlock. The Crown is hammered from the Metal
+        // Sheet; if that card does not resolve, the sheet would drop out of the Crown's requirement list and
+        // the capstone would hand over a Crown made of a scrap of cloth. So, whenever the sheet is unresolved, the
+        // Crown is taken out of the capstone's BlueprintsFullUnlock (the Throne still unlocks) and kept Hidden, out
+        // of the tab, with one Debug line and no warning. CMC no longer depends on ACT (Fleet plan feature 2), and
+        // since CSFFModFramework 2.28.0 the framework ships the Metal Sheet under this UniqueID with or without ACT,
+        // so this only fires on an older framework; it is the plan's HIDE rule applied anyway.
+        internal const string CrownSheetProbeUid = "advanced_copper_tools_metal_sheet";
+        internal const string CrownBlueprintUid = "cmcbpcrown";
+        internal const string KingCapstoneStaUid = "cmcTrgKingOfTheForest";
+        private static bool _crownHideLogged;
 
         private static bool _subscribed;
         private static Action _gmInitializedHandler;
@@ -300,40 +358,105 @@ namespace CommunityModChest.Patcher
         private static void ApplyUnconditionalGating(string reason)
         {
             GateTable(UnconditionalCourseUnlocks, $"Academy gating at {reason}");
-            HideIfDependencyMissing(HfGatedBlueprint, HfPresenceProbeUid, "Herbs & Fungi", reason);
             StripContainedBlueprintIfMissing(HfWeaverStationUid, HfWeaverHempRecipe, HfPresenceProbeUid, "Herbs & Fungi", reason);
+            HideWoolQuiltedIfNoWool(reason);
+            HideCrownIfNoCopperSheet(reason);
         }
 
-        // Forces a blueprint permanently Hidden when a cross-mod ingredient dependency isn't
-        // installed — independent of (and layered on top of) the perk gate above. Never touches an
-        // already-Available blueprint.
-        private static void HideIfDependencyMissing(string bpUid, string presenceProbeUid, string depLabel, string reason)
+        // J15 Crown guard (see CrownSheetProbeUid). The capstone's unlock list is CMC's own SelfTriggeredAction, so
+        // trimming it touches no vanilla object; it is idempotent, and the run-start pass repeats it every run.
+        private static void HideCrownIfNoCopperSheet(string reason)
         {
-            if (FindCardData(presenceProbeUid) != null) return; // dependency installed — normal perk gate applies
+            if (FindCardData(CrownSheetProbeUid) != null) return; // the Metal Sheet resolves (framework 2.28.0+ or ACT): the Crown unlocks as built
+
+            var notes = new System.Collections.Generic.List<string>();
+            var crown = FindCardData(CrownBlueprintUid);
+            if (crown == null) notes.Add(CrownBlueprintUid + " not loaded");
+
+            var sta = UniqueIDScriptable.GetFromID<SelfTriggeredAction>(KingCapstoneStaUid);
+            if (sta == null || sta.Actions == null) notes.Add(KingCapstoneStaUid + " not loaded, so its unlock list was not trimmed");
+            else if (crown != null)
+            {
+                int trimmed = 0;
+                foreach (var action in sta.Actions)
+                {
+                    var list = action?.BlueprintsFullUnlock;
+                    if (list == null || Array.IndexOf(list, crown) < 0) continue;
+                    var kept = new System.Collections.Generic.List<CardData>(list.Length);
+                    foreach (var bp in list) if (!ReferenceEquals(bp, crown)) kept.Add(bp);
+                    action.BlueprintsFullUnlock = kept.ToArray();
+                    trimmed++;
+                }
+                if (trimmed > 0) notes.Add("removed from the capstone's unlock list");
+            }
 
             var gm = CardUtil.GetGameManagerInstance();
-            if (gm == null) return;
+            var states = gm == null ? null : CardUtil.GetMemberValue(gm, "BlueprintModelStates") as IDictionary;
+            var unlockables = gm == null ? null : CardUtil.GetMemberValue(gm, "UnlockableCards") as IList;
+            if (states == null) notes.Add("BlueprintModelStates not readable, so not hidden");
+            else if (crown != null && states.Contains(crown))
+            {
+                if (Convert.ToInt32(states[crown]) == StateAvailable) notes.Add("already researched, left available");
+                else
+                {
+                    states[crown] = Enum.ToObject(states[crown].GetType(), StateHidden);
+                    DisableUnlockConditions(unlockables, crown);
+                    notes.Add("hidden");
+                }
+            }
+
+            if (_crownHideLogged) return;
+            _crownHideLogged = true;
+            Plugin.Logger.LogDebug($"[AcademyCourseService] {CrownSheetProbeUid} unresolved at {reason}: Forest Crown " + string.Join("; ", notes) + ". The Forest Throne still unlocks.");
+        }
+
+        // J18 tab guard (see WoolProbeUid). Never takes away an already-Available blueprint, like every
+        // other hide here. Logs one Debug line per process, naming every blueprint it could not reach and
+        // why, so a renamed member or a missing card reads as a cause rather than as "nothing to hide".
+        private static void HideWoolQuiltedIfNoWool(string reason)
+        {
+            if (FindCardData(WoolProbeUid) != null) return; // Sirus23 installed: the normal research gate applies
+
+            var gm = CardUtil.GetGameManagerInstance();
+            if (gm == null) return; // no run yet; the next pass (run start or the deferred recheck) retries
 
             var states = CardUtil.GetMemberValue(gm, "BlueprintModelStates") as IDictionary;
             var unlockables = CardUtil.GetMemberValue(gm, "UnlockableCards") as IList;
-            if (states == null) return;
+            if (states == null)
+            {
+                if (!_woolHideLogged)
+                {
+                    _woolHideLogged = true;
+                    Plugin.Logger.LogDebug($"[AcademyCourseService] {WoolProbeUid} unresolved at {reason}, but BlueprintModelStates is not readable: wool-quilted blueprints not hidden.");
+                }
+                return;
+            }
 
-            var bp = FindCardData(bpUid);
-            if (bp == null || !states.Contains(bp)) return;
+            int hidden = 0;
+            var skipped = new System.Collections.Generic.List<string>();
+            foreach (var bpUid in WoolQuiltedBlueprints)
+            {
+                var bp = FindCardData(bpUid);
+                if (bp == null) { skipped.Add(bpUid + " (card not loaded)"); continue; }
+                if (!states.Contains(bp)) { skipped.Add(bpUid + " (not a blueprint this run)"); continue; }
+                if (Convert.ToInt32(states[bp]) == StateAvailable) { skipped.Add(bpUid + " (already researched)"); continue; }
 
-            int state = Convert.ToInt32(states[bp]);
-            if (state == StateAvailable) return; // never take away an available blueprint
+                states[bp] = Enum.ToObject(states[bp].GetType(), StateHidden);
+                DisableUnlockConditions(unlockables, bp);
+                hidden++;
+            }
 
-            states[bp] = Enum.ToObject(states[bp].GetType(), StateHidden);
-            DisableUnlockConditions(unlockables, bp);
-            Plugin.Logger.LogInfo($"[AcademyCourseService] {depLabel} not installed at {reason} — {bpUid} hidden regardless of perk.");
+            if (_woolHideLogged) return;
+            _woolHideLogged = true;
+            Plugin.Logger.LogDebug($"[AcademyCourseService] Sirus23 Mod Collection not installed ({WoolProbeUid} unresolved) at {reason}: {hidden} wool-quilted blueprint(s) hidden" +
+                (skipped.Count > 0 ? "; not hidden: " + string.Join(", ", skipped) : "") + ".");
         }
 
         // Removes a station-CONTAINED operation blueprint from its host station's ContainedBlueprintCards
         // when a cross-mod ingredient dependency isn't installed, so the station never offers a recipe
         // that would trivialize once its unresolved ingredient drops out. This is the correct lever for
         // contained op blueprints (StartUnlocked:true) — they live in GameManager.AllMiniBlueprints, not
-        // BlueprintModelStates, so HideIfDependencyMissing above can't touch them. CardData.
+        // BlueprintModelStates, so a BlueprintModelStates hide can't touch them. CardData.
         // ContainedBlueprintCards is a public CardData[] the game reads live from the shared model
         // (.decomp/CardData.cs), so mutating it here removes the recipe from every station instance.
         // Idempotent (a UID already absent writes nothing); the station's other contained recipes are

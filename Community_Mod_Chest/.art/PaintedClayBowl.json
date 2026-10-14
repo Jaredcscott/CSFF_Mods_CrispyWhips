@@ -1,0 +1,17 @@
+{
+  "target": "PaintedClayBowl.png",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "UtC0WIVX4Y0WwygxfjFF",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791837674782_86483fee_1791837674846_ada307f2.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery round 4 (2026-10-12): vanilla Bowl_Clay as content reference, painted rust-red and black zigzag band. Not yet seen by the owner.",
+  "vanilla_score": 81
+}

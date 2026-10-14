@@ -49,7 +49,10 @@ namespace CommunityModChest.Patcher
 
         /// <summary>Lowest crime score in each band (§10.8.2): 0 Clean, 1-24 Suspected,
         /// 25-59 Wanted, 60+ Enemy/Banished. No longer mirrored by a MapNodes.json travel gate
-        /// (removed 2026-08-15) — the Banished band now only affects guard pursuit/Watch reactions.</summary>
+        /// (removed 2026-08-15) — the Banished band affects guard pursuit/Watch reactions, and
+        /// since 1.69.0 the five residents' trade too: their NPCAgent TradingConditions require
+        /// crime [0, 59] (Floor rounding, so 59.9 still trades and 60 does not, matching BandOf),
+        /// and their TradingModifiers mark prices up across the Wanted band 25-59.</summary>
         internal const float SuspectedFloor = 1f;
         internal const float WantedFloor = 25f;
         internal const float BanishedFloor = 60f;
@@ -84,6 +87,23 @@ namespace CommunityModChest.Patcher
             if (gm == null) return 0f;
             float crime = ReadCrime(gm);
             return crime < 0f ? 0f : crime;
+        }
+
+        /// <summary>Current crime score, or false with the reason when the stat cannot be read:
+        /// "gm-null" (no GameManager yet) or "stat-unreadable" (stat SO missing, StatsDict not built, or
+        /// the stat not materialized for this run). CurrentCrime() collapses both to 0 (Clean); a caller that
+        /// must not read an unreadable stat as a clean record, VillagePricing, uses this so it can leave one
+        /// warn-once line per cause.</summary>
+        internal static bool TryCurrentCrime(out float crime, out string cause)
+        {
+            crime = 0f;
+            var gm = CardUtil.GetGameManagerInstance();
+            if (gm == null) { cause = "gm-null"; return false; }
+            float read = ReadCrime(gm);
+            if (read < 0f) { cause = "stat-unreadable"; return false; }
+            crime = read;
+            cause = null;
+            return true;
         }
 
         public static CrimeBand BandOf(float crime) =>

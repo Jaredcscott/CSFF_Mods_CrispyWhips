@@ -1,0 +1,192 @@
+{
+  "UniqueID": "cmcBrambleThicket",
+  "CardName": {
+    "ParentObjectID": "cmcBrambleThicket",
+    "LocalizationKey": "CMC_BrambleThicket_CardName",
+    "DefaultText": "Bramble Thicket"
+  },
+  "CardDescription": {
+    "ParentObjectID": "cmcBrambleThicket",
+    "LocalizationKey": "CMC_BrambleThicket_CardDescription",
+    "DefaultText": "In the heat of summer the brambles have run wild across the trail between Stillwater Meadow and Sett Warren, a wall of thorny canes too dense to walk through. Cut a way through with a sickle to clear the path quickly, or tear through it with your bare hands if you have no blade - slower, but it works. Once cut back, the trail stays open for the rest of the summer."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CMC_BrambleThicket",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 2,
+  "CannotBeTransferred": true,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 0.0,
+  "TradingValue": 0.0,
+  "CardTags": [],
+  "CardTagsWarpData": [ "tag_Structure" ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": true,
+  "CanBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "NeedsRoomInLocationToSpawn": false,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 3.0,
+    "CardStatName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 3.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "JuniperBush",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": true,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {
+      "ActionName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "ActionDescription": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "CountsForTradingValue": false
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "cmcBrambleThicket",
+        "LocalizationKey": "CMC_BrambleThicket_CI_Cut_Sickle_ActionName",
+        "DefaultText": "Cut Back the Bramble Thicket"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "cmcBrambleThicket",
+        "LocalizationKey": "CMC_BrambleThicket_CI_Cut_Sickle_ActionDescription",
+        "DefaultText": "Hack a path through the brambles with a sickle. Clears the trail to Sett Warren once fully cut through."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "f766e4e8f4820ab44a70c7a4eaf80578",
+          "c7ea4d8f5518a3344920712663a60efc"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -2.0, "y": -2.0 }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 2 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "cmcBrambleThicket",
+        "LocalizationKey": "CMC_BrambleThicket_CI_Cut_ByHand_ActionName",
+        "DefaultText": "Tear Through the Bramble Thicket by Hand"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "cmcBrambleThicket",
+        "LocalizationKey": "CMC_BrambleThicket_CI_Cut_ByHand_ActionDescription",
+        "DefaultText": "Wrestle through the brambles with your bare hands. Slower and more tiring than a sickle, but it clears the trail to Sett Warren all the same."
+      },
+      "DaytimeCost": 20,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 2 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

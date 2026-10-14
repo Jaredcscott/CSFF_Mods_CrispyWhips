@@ -4,9 +4,13 @@
         "DefaultText": "Captain Reeve Sterling"
     },
     "SceneLinesWarpData": [
+        "CMC_GuardTalk_TheftNotFound",
+        "CMC_SterlingTalk_ServiceDone",
+        "CMC_SterlingTalk_Deputy",
         "CMC_SterlingTalk_Warning",
         "CMC_SterlingTalk_Wanted",
-        "CMC_SterlingTalk_Start"
+        "CMC_SterlingTalk_Start",
+        "CMC_SterlingTalk_ServiceOffer"
     ],
     "SceneLinesWarpType": 3
 }

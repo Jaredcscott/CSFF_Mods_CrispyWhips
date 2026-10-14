@@ -27,7 +27,7 @@ namespace CommunityModChest.Patcher
         // full-reliance drink interval is 3*(1-0.20) = 2.4 in-game days (Thirst MaxValue 288,
         // RatePerDaytimePoint -1, 96 DTP/day); 25 Care/drink zeroes a fresh 100 Care cat in 4
         // drinks (~9.6 days) — matching CHANGELOG's "runs dry after roughly 9 in-game days."
-        private const float  CareLossPerDrink = 25f;
+        internal const float CareLossPerDrink = 25f;
         private const string CareStatName     = "SpecialDurability3";
 
         // Containers not reliably tagged tag_WaterContainer (all three are vanilla).

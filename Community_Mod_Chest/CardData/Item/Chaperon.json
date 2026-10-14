@@ -15,7 +15,8 @@
     "CardImageWarpData": "Chaperon",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
-        "tag_Clothing"
+        "tag_Clothing",
+        "tag_CMCColdWeatherApparel"
     ],
     "CardTagsWarpType": 3,
     "ObjectWeight": 200.0,
@@ -193,7 +194,7 @@
             "ActionName": {
                 "ParentObjectID": "apparelchaperon",
                 "LocalizationKey": "apparel_chaperon_CI_Dye_ActionName",
-                "DefaultText": "Dye with Pigment"
+                "DefaultText": "Dye with Charcoal Pigment"
             },
             "ActionDescription": {
                 "ParentObjectID": "apparelchaperon",
@@ -223,6 +224,84 @@
                     "m_PathID": 0
                 },
                 "TransformIntoWarpData": "apparelchaperondyed",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelchaperon",
+                "LocalizationKey": "apparel_chaperon_CI_DyeOchre_ActionName",
+                "DefaultText": "Dye with Ochre Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelchaperon",
+                "LocalizationKey": "apparel_chaperon_CI_DyeOchre_ActionDescription",
+                "DefaultText": "Work the ochre pigment into the cloth hood, turning it a warm, earthy yellow-brown."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigmentochre"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelchaperondyedochre",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelchaperon",
+                "LocalizationKey": "apparel_chaperon_CI_DyeBillberry_ActionName",
+                "DefaultText": "Dye with Billberry Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelchaperon",
+                "LocalizationKey": "apparel_chaperon_CI_DyeBillberry_ActionDescription",
+                "DefaultText": "Steep the cloth hood in billberry pigment until it takes a deep violet."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigmentbillberry"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelchaperondyedbillberry",
                 "TransformIntoWarpType": 3,
                 "TransferUsage": true,
                 "SpawnTransformAtSource": true

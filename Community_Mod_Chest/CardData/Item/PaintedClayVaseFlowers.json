@@ -1,0 +1,146 @@
+{
+    "UniqueID": "potterysculpturepaintedvaseflowers",
+    "CardName": {
+        "ParentObjectID": "potterysculpturepaintedvaseflowers",
+        "LocalizationKey": "Pottery_Sculpture_PaintedVaseFlowers_CardName",
+        "DefaultText": "Painted Clay Vase with Flowers"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculpturepaintedvaseflowers",
+        "LocalizationKey": "Pottery_Sculpture_PaintedVaseFlowers_CardDescription",
+        "DefaultText": "A painted vase holding a fresh posy. It brightens a camp, but the flowers wilt in about three days and leave the empty vase."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "PaintedClayVaseFlowers",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 288.0,
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "potterysculpturepaintedvaseflowers",
+                "LocalizationKey": "Pottery_Sculpture_PaintedVaseFlowers_Wilted",
+                "DefaultText": "The flowers in the vase have wilted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "potterysculpturepaintedvase",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 500.0,
+        "CardStatName": {
+            "ParentObjectID": "potterysculpturepaintedvaseflowers",
+            "LocalizationKey": "Pottery_Sculpture_PaintedVaseFlowers_UsageDurability",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 500.0,
+        "RatePerDaytimePoint": 0.0,
+        "HasActionOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "potterysculpturepaintedvaseflowers",
+                "LocalizationKey": "Pottery_Sculpture_PaintedVaseFlowers_Broken",
+                "DefaultText": "The painted vase has shattered."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "OverrideIconWarpData": "Durability",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+14)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 14.0, "y": 14.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Gratification (+4)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 4.0, "y": 4.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 100.0,
+    "TradingValue": 250.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

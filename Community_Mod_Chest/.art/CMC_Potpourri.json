@@ -1,0 +1,63 @@
+{
+  "target": "CMC_Potpourri.png",
+  "sourceCard": null,
+  "subject": "a simple round terracotta clay bowl heaped with dried heather flowers: tiny dusty pink-purple flower sprigs piled above the rim, the bowl plain with no pattern",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of a simple round terracotta clay bowl heaped with dried heather flowers: tiny dusty pink-purple flower sprigs piled above the rim, the bowl plain with no pattern. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, painted pattern, handles, wooden bowl, petals scattered around.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Bowl_Clay (style)",
+      "id": "04LHd7mwHRbYRbDqNeJ5",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_1791697575163_a3345586.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Jar_Clay (style)",
+      "id": "304Uabdn36QEDz6jme26",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Jar_Clay_1791744969247_3d5d98e8.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Fairyweed_Item (style)",
+      "id": "Wb0GLQvzK24ukRm1aa4T",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fairyweed_Item_1791744904622_eefe970e.png"
+    }
+  ],
+  "historyId": "RPLnquYlsTpEIjA9YiMr",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828012416_a2788716_1791828012439_229029c9.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)",
+    "vanillify.py step [1, 24, None, 2, 70]"
+  ],
+  "vanilla_score": 100,
+  "previous": {
+    "target": "CMC_Potpourri.png",
+    "sourceCard": "CardData/Location/CMC_Potpourri_Placed.json",
+    "subject": "a bowl of potpourri: a plain round terracotta clay bowl heaped with dried purple heather flowers, a few pale pink petals and tiny grey-green leaves, the dried blossoms mounded above the rim",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: wooden bowl, lid, candle, fresh flowers with long stems, table, cloth",
+    "historyId": "b92Qmu4VaVjTpnX7RYbv",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125644900_122b1e74_1791125645096_d6b745a2.png",
+    "credits": 30,
+    "generated": "2026-10-04",
+    "note": "Phase H closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_Potpourri.json. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+  }
+}

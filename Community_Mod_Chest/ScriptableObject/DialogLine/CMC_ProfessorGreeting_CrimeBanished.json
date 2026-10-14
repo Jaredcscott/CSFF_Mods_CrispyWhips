@@ -1,0 +1,35 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 60.0, "y": 100.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_CrimeBanished_Line",
+        "DefaultText": "Word travels, even to a quiet corner like this one, and what it says of you is not flattering. I shall answer what I must and no more. State your business plainly."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_CrimeBanished_Answer_Business",
+                "DefaultText": "My business is simple."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_Menu",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_CrimeBanished_Answer_Leave",
+                "DefaultText": "I'll leave you in peace."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

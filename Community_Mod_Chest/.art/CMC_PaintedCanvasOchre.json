@@ -1,0 +1,19 @@
+{
+  "target": "CMC_PaintedCanvasOchre.png",
+  "sourceCard": "CardData/Location/CMC_CanvasOchre_Placed.json",
+  "subject": "a painted canvas picture: a plain rectangular unframed stretched cloth canvas tied at the top corners with twine, painted with a simple abstract landscape of rolling hills and a low sun in warm ochre yellow-brown paint only, golden and tawny washes on cream cloth",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: ornate gilded frame, easel, wall, paintbrushes, colour other than ochre and tan",
+  "historyId": "QWuefIxbOZtZbVZn7EU3",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125628266_d16b9df2_1791125628776_df85def7.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase H closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_CanvasOchre.json. The twine loop at the top has white paper inside it. One of three colour variants. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

@@ -1,38 +1,52 @@
 {
   "target": "CMC_ClayOcarina.png",
   "sourceCard": "CardData/Item/CMC_ClayOcarina.json",
-  "subject": "one palm-sized ocarina of fired reddish-brown clay shaped like a rounded egg, a short mouthpiece jutting from one end, several small round finger holes on top, worn smooth",
+  "subject": "one palm-sized transverse ocarina in the classic sweet-potato shape, lying on its side: a plump elongated egg or teardrop body about twice as long as it is tall, broad and round at the left end and tapering to a blunt point at the right, a short squat mouthpiece stub sticking out of the broad end, eight small finger holes in a curved row on top plus a thumb hole, an even slate blue-grey glaze, no markings",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
   "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of one palm-sized ocarina of fired reddish-brown clay shaped like a rounded egg, a short mouthpiece jutting from one end, several small round finger holes on top, worn smooth, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, flute, recorder, long pipe, animal shape, string, glaze.",
-  "historyId": "99eWyzAFsoxCcoWcYYvn",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783322179_a28080f8_1789783322403_bcf1a6f6.png",
-  "credits": 90,
-  "generated": "2026-09-18",
-  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Flute' on CardData/Item/CMC_ClayOcarina.json, CardData/Blueprint/Bp_CMC_ClayOcarina.json.",
+  "prompt": "Use the attached reference images, each for one purpose. Reference images 1 and 2 are STYLE references only (art from the game Card Survival: Fantasy Forest: a wooden flute and a clay jar): match their ink linework, flat shading and palette; do not copy their subjects or composition.\nSubject: one palm-sized transverse ocarina in the classic sweet-potato shape, lying on its side seen from slightly above: a smooth rounded body like a plump elongated egg or teardrop, about twice as long as it is tall, broad and round at the left end and tapering to a blunt rounded point at the right end; a short squat mouthpiece stub sticking straight out of the broad left end; eight small round finger holes on the top of the body in a gentle curved row, plus one thumb hole on the near side; covered all over in a smooth even slate blue-grey glaze, a little paler along the top where the light falls, with a few dark ink hatch marks for shading; plain, no markings of any kind.\nStyle: match the style references: the look of the game Card Survival: Fantasy Forest, flat posterized colour fills in a few tonal steps, thin dark ink outlines and small ink hatch marks, a continuous dark outline around the whole object, a muted naturalistic palette, realistic proportions; not watercolour, not shiny plastic.\nSingle subject, centred, filling most of the frame with a white margin on every side, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: a logo, an emblem, a triangle symbol, a crest, painted patterns, a cord, a strap, a long round mouthpiece tube, a flute shape, a whistle shape, a bird or animal shape, terracotta orange clay, more than one ocarina, photo, photorealistic, 3D render, glossy plastic highlights, watercolour bleed, paper texture, soft airbrush gradients, neon colours, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, drop shadow, text, watermark, signature, border, frame, footprints, tracks.",
+  "refs": [
+    {
+      "label": "vanilla Flute (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flute_1791804514062_2422867e.png"
+    },
+    {
+      "label": "vanilla Jar_Clay (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Jar_Clay_1791744969247_3d5d98e8.png"
+    }
+  ],
+  "historyId": "jqHeHYdObCUsMmItk3rl",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804729397_c7c45807_1791804729422_780395e5.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed by process_card_art.py, trimmed palette PNG (generated 3:2, padded to 2:3 with white first)",
+  "note": "owner gallery rework pass 2 2026-10-12: regenerate, \"like an ocarina from Zelda\". Redrawn as the classic sweet-potato transverse ocarina: egg/teardrop body, mouthpiece stub at the broad end, finger holes on top, blue-grey glaze; no logo or game emblem (Avoid list). Vanilla Flute (exported and uploaded this pass) and Jar_Clay as style references; the old picture was not passed as a reference.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783324343_ab6158d6_1789783325166_43a51c86.png",
-      "verdict": "flatter egg, holes crowded"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783322179_a28080f8_1789783322403_bcf1a6f6.png",
-      "verdict": "PICK: rounded egg of reddish-brown clay, short mouthpiece, finger holes on top, worn smooth"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783322678_f6027c0d_1789783323646_1dcbd835.png",
-      "verdict": "mottled surface, reads rough rather than worn smooth"
+      "historyId": "jqHeHYdObCUsMmItk3rl",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804729397_c7c45807_1791804729422_780395e5.png",
+      "verdict": "shipped: sweet-potato body, mouthpiece at the broad end, holes on top, blue-grey glaze, no emblem"
     }
   ],
-  "picked": "B",
-  "predicted": "B"
+  "picked": "A",
+  "predicted": "A",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798413056_185ef599_1791798413097_8971ea76.png",
+    "historyId": "W3ijSDBOCDQNpBpMDmo6",
+    "generated": "2026-10-12",
+    "subject": "one palm-sized ocarina of fired reddish-brown terracotta clay, a plump rounded egg shape lying on its side, about one and a half times as wide as it is tall, a short round mouthpiece tube jutting from its left end, four small round finger holes in a gentle arc along its top and one thumb hole on the near side, matte unglazed surface worn smooth, no decoration",
+    "note": "the picture this pass 2 rework replaced",
+    "earlier": {
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783322179_a28080f8_1789783322403_bcf1a6f6.png",
+      "generated": "2026-09-18",
+      "note": "the picture this rework replaced"
+    }
+  }
 }

@@ -1,10 +1,50 @@
 {
     "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 24.0}}
+        ]
+    },
     "Line": {
         "LocalizationKey": "CMC_WeaverTalk_Start_Line",
         "DefaultText": "Oh! Come in out of the wind. You're the one who raised this cottage, aren't you? I've set the loom up by the window, best light in the whole village, if you ask me."
     },
     "PossibleAnswers": [
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatSirusYarnPresent", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverYarnErrand", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverYarnDone", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_YarnOffer",
+                "DefaultText": "Running short of yarn?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_YarnOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverDyeErrand", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverDyeDone", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_DyeOffer",
+                "DefaultText": "Any cloth you'd like dyed?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_DyeOffer",
+                "NextLineWarpType": 3
+            }
+        },
         {
             "Answer": {
                 "LocalizationKey": "CMC_WeaverTalk_Start_Answer_Work",

@@ -1,0 +1,118 @@
+{
+    "UniqueID": "cmcCatBowl",
+    "CardName": {
+        "ParentObjectID": "cmcCatBowl",
+        "LocalizationKey": "CMC_CatBowl_CardName",
+        "DefaultText": "Cat Bowl"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcCatBowl",
+        "LocalizationKey": "CMC_CatBowl_CardDescription",
+        "DefaultText": "A clay bowl set down for the cats. Put raw or cooked meat or fish in it, and a hungry tamed cat on the same board will eat from it on its own. Every self-served meal chips away at that cat's Care."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcCatBowl",
+        "LocalizationKey": "CMC_CatBowl_CardHelpSection",
+        "DefaultText": "<b>Self-serve:</b> When Ash or Shadow is hungry and the bowl holds meat or fish, the cat eats one piece, its Hunger is restored and its Care drops, the same bargain as the Rain Cistern.\n<b>Take Apart:</b> Gives back the Clay Bowl; anything left inside is spilled."
+    },
+    "CardType": 2,
+    "MapStructureType": 0,
+    "ObjectWeight": 400.0,
+    "TradingValue": 20.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "KeepName": true,
+    "AlwaysUpdate": false,
+    "CardImageWarpData": "CMC_CatBowl",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Clay"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcCatBowl",
+                "LocalizationKey": "CMC_CatBowl_DA_TakeApart",
+                "DefaultText": "Take Apart"
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": ["Clay"],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "DismantleActionsWarpType": 3,
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "DurabilitySorting": { "SortingList": [] },
+    "OnlyShowPopupsWhenEquipped": false,
+    "MiniInventoryHideDurabilities": { "MaskValue": 0 },
+    "MaxLiquidCapacity": 0.0,
+    "MaxWeightCapacity": 5000,
+    "IsMiniInventory": true,
+    "InventorySlots": [
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 },
+        { "m_FileID": 0, "m_PathID": 0 }
+    ],
+    "InventoryFilter": {
+        "AcceptedCards": [],
+        "AcceptedCardsWarpData": [
+            "3103c059d34608a4bb95c426d9ac77e0",
+            "272fe32c20eebef4d82290c7a31ac885",
+            "be70da939b3b49040817669f6e681ef1",
+            "fe07d4d800bcc8646a0ff2513c78d5df",
+            "5dc9560f81be57c4b9e22780f8a5ad78",
+            "e292e8faac1041f4ab1da9bcf900e751",
+            "692c88d91a4fdf0498749339ae6d53f8",
+            "f4be79e87ba98db41a9c9e31bb76c33d",
+            "cea21fa218c28ee49a49ba2ffc8eba7c",
+            "fce44510da25a3a4b970c3dffa9468f8",
+            "e32cb25589e676c49baa6c8f54637fa3",
+            "e6b341c0770197047a5ad6470476bbd4",
+            "6f0031502c513cc4085f7c8b912b7a3c",
+            "b351a3f9131348742bcbf17b6ae10fd5",
+            "f72ca8f6249870d4b9306c2d779c93a9",
+            "81766d95f54c99242ab3d18be522db49"
+        ],
+        "AcceptedCardsWarpType": 3,
+        "AcceptedTypes": [],
+        "AcceptedTags": [],
+        "NOTAcceptedCards": [],
+        "NOTAcceptedTypes": [],
+        "NOTAcceptedTags": [],
+        "CardFilters": [],
+        "TagFilters": []
+    },
+    "SpillsInventoryOnDestroy": true,
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

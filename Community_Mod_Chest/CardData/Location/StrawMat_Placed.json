@@ -33,6 +33,7 @@
         "OverrideIconWarpData": "Spoilage",
         "OverrideIconWarpType": 3,
         "HasActionOnZero": true,
+        "OnZeroNotification": 1,
         "OnZero": {
             "ActionName": {
                 "ParentObjectID": "comfortstrawmatplaced",

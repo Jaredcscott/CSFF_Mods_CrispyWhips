@@ -54,13 +54,13 @@
                 "FloatValue": 30.0
             },
             "OverrideMinMaxValue": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
+                "Active": true,
+                "FloatValue": 30.0,
+                "MaxValue": 100.0
             },
             "OverrideRate": {
-                "Active": false,
-                "FloatValue": 0.0
+                "Active": true,
+                "FloatValue": -0.0104167
             },
             "OverrideMinMaxRate": {
                 "Active": false,

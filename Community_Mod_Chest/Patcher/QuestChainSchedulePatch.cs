@@ -83,6 +83,7 @@ namespace CommunityModChest.Patcher
             new TrustMirror { AgentUid = "cmcWeaverAgent", NpcStatUid = "cmcStatWeaverTrust", PlayerStatUid = "cmcStatWeaverTrustMirror" },
             new TrustMirror { AgentUid = "cmcProfessorAgent", NpcStatUid = "cmcStatProfessorTrust", PlayerStatUid = "cmcStatProfessorTrustMirror" },
             new TrustMirror { AgentUid = "cmcApothecaryAgent", NpcStatUid = "cmcStatApothecaryTrust", PlayerStatUid = "cmcStatApothecaryTrustMirror" },
+            new TrustMirror { AgentUid = "cmcPotterAgent", NpcStatUid = "cmcStatPotterTrust", PlayerStatUid = "cmcStatPotterTrustMirror" },
         };
 
         private static bool _initialized;
@@ -107,6 +108,19 @@ namespace CommunityModChest.Patcher
                 if (!ResolveGetFromId()) return;
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
+
+                // Ahead of the chain gates below: since 1.69.0 Chat and trade raise trust from the
+                // day a resident moves in, so a mirror held behind "week >= 1" left the Hall boards
+                // and the trust-gated blueprints stale for the whole first week. MirrorTrust skips
+                // an NPC that has not spawned, which covers "before the intro" on its own.
+                foreach (var mirror in TrustMirrors)
+                    MirrorTrust(gm, mirror);
+
+                // Ahead of the chain gates too: the Weaver's Sirus23 yarn errand (C10) is shown by this flag
+                // alone, and it is kept in step with the load order on every poll, in both directions.
+                SyncSirusPresence(gm);
+                SyncDurosPresence(gm); // J5: shows the Market Stall's Collect as Coins only while DurosCoinage's coin resolves
+
                 if (!VillageClock.PhaseAtLeast(1f)) return; // no chains before the intro
 
                 int week = VillageClock.WeeksSinceIntro(gm);
@@ -114,13 +128,58 @@ namespace CommunityModChest.Patcher
 
                 foreach (var npc in Npcs)
                     CheckArm(gm, npc, week);
-
-                foreach (var mirror in TrustMirrors)
-                    MirrorTrust(gm, mirror);
             }
             catch (Exception ex)
             {
                 Plugin.Logger.LogWarning($"[QuestChainSchedulePatch] RunSchedule failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        // C10: the hidden presence flag that shows the Weaver's wool yarn errand. It is 1 only while Sirus23's
+        // Wool Yarn card resolves, so the offer, the hand-over and the thank-you never appear without that mod,
+        // and a save made with Sirus23 and loaded without it goes back to 0 on the next poll. This rides the
+        // poll registered once in Initialize (no new registration, so nothing multiplies on a save reload).
+        // Both early returns are expected states (the stat is not in this run yet, or the value is already
+        // right), and a missing Sirus23 is a normal state that logs nothing above Debug.
+        private const string SirusYarnUid = "sh_yarn";
+        private const string SirusPresenceStatUid = "cmcStatSirusYarnPresent";
+        private static float _lastSirusPresenceWanted = -1f;
+
+        private static void SyncSirusPresence(object gm)
+        {
+            float current = ReadStat(gm, SirusPresenceStatUid);
+            if (current < 0f) return; // the flag is not in this run's stat list yet: try again next poll
+
+            float wanted = StatRef(SirusYarnUid) != null ? 1f : 0f;
+            if (Math.Abs(current - wanted) < 0.01f) return; // already correct
+            if (!WriteStat(gm, SirusPresenceStatUid, wanted)) return;
+
+            if (Math.Abs(_lastSirusPresenceWanted - wanted) > 0.01f)
+            {
+                _lastSirusPresenceWanted = wanted;
+                Plugin.Logger.LogDebug($"[QuestChainSchedulePatch] Sirus23 Wool Yarn {(wanted > 0.5f ? "resolves" : "does not resolve")}: the Weaver's yarn errand flag set to {wanted}.");
+            }
+        }
+
+        // J5: the same shape for DurosCoinage. The hidden flag is 1 only while its Metal Coin (CurrencyValue.CoinUid)
+        // resolves, so the stalls' "Collect as Coins" button never shows without that mod, and a save made with it
+        // and loaded without it goes back to 0 on the next poll. It rides the poll registered once in Initialize.
+        private const string DurosPresenceStatUid = "cmcStatDurosPresent";
+        private static float _lastDurosPresenceWanted = -1f;
+
+        private static void SyncDurosPresence(object gm)
+        {
+            float current = ReadStat(gm, DurosPresenceStatUid);
+            if (current < 0f) return; // the flag is not in this run's stat list yet: try again next poll
+
+            float wanted = StatRef(CurrencyValue.CoinUid) != null ? 1f : 0f;
+            if (Math.Abs(current - wanted) < 0.01f) return; // the flag already matches
+            if (!WriteStat(gm, DurosPresenceStatUid, wanted)) return;
+
+            if (Math.Abs(_lastDurosPresenceWanted - wanted) > 0.01f)
+            {
+                _lastDurosPresenceWanted = wanted;
+                Plugin.Logger.LogDebug($"[QuestChainSchedulePatch] DurosCoinage's coin {(wanted > 0.5f ? "resolves" : "does not resolve")}: the Market Stall coin button flag set to {wanted}.");
             }
         }
 

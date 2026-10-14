@@ -1,0 +1,22 @@
+{
+  "target": "CMC_LoadedDice.png",
+  "sourceCard": "CardData/Blueprint/Bp_CMC_LoadedDice.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 is a STYLE reference only (bones from the game Card Survival: Fantasy Forest): match its rendering and its warm bone colour exactly; do not copy its subject.\nSubject: two small cube dice carved from pale yellowed bone with slightly rounded corners, resting side by side and a little apart, each seen from above at a three-quarter angle so exactly three faces of each die are visible (top, front-left, front-right). The pips are small round dark drilled holes in the standard die layouts. LEFT die: its top face shows ONE pip in the centre, its front-left face shows TWO pips on a diagonal, its front-right face shows THREE pips on a diagonal. RIGHT die: its top face shows FOUR pips in the four corners, its front-left face shows FIVE pips (four corners and one centre), its front-right face shows SIX pips in two columns of three. Every visible face on a die shows a different number; no face repeats. The right die has one small chipped corner and a brownish stain on one face, hinting it is weighted.\nStyle: flat posterized colour fills in a few tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture; thin dark ink outlines and small ink hatch marks for bone grain; a muted palette of ivory, tan and brown; realistic proportions; nothing glossy.\nSingle subject centred with a generous white margin on a solid flat pure white background (#FFFFFF) filling every edge, no ground shadow, no scenery. No text, no watermark, no signature, no border, no frame.\nAvoid: repeated faces, two faces with the same number on one die, wrong pip counts, extra dice, more than two dice, red dice, wooden dice, plastic, glossy highlights, cup, game board, bones, skull, cloth, watercolour, photo, 3D render, scenery behind the subject, grey background, off-white background, checkerboard.",
+  "refs": [
+    {
+      "label": "Bones (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bones_1791652738076_35951b3e.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652965012_d706e7f0_1791652965370_81373efa.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
+}

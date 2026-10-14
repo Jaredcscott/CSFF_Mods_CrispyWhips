@@ -1,9 +1,413 @@
-# Community Mod Chest — Changelog
+# Community Mod Chest - Changelog
 
 All notable changes to this mod are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
+
+## [1.69.12] - 2026-10-13
+
+- **No wild beehives in the Village:** game EA 0.69c's bees nest in clover clearings, and the Village is built on one. The Village now drops that tag (framework 2.28.2 `StripEnvTags`), so bees pass it by. The Mossy Clearing keeps its bees.
+- **Thorne and Corrin stop at the river.** A chasing guard could step one location past the village's edge, onto the River Clearing, and offer her fight there, and by day she kept going back out to offer it again. They now wait on the Village Path while you are across. Iris Vane still crosses, as before.
+- **The jail tunnel follows the warden's own orders.** The jail counted the warden as off the step whenever the absence window was open, without asking whether she had actually been released. It now asks the same check that sends her off duty, so a warden still at her post keeps the Dig button hidden.
+- **The Scented Candle asks for Wax, as the game now names it:** game EA 0.69c renamed vanilla Beeswax to Wax, so the candle's unlock text, its Coat with Wax button and its refuel message now say Wax.
+- **The Village Well blueprint has its picture back on game EA 0.69c:** the game update removed the vanilla Well picture it borrowed, so the blueprint card was blank. It now shows the mod's own village well painting.
+- **Iris Vane keeps hunting after your first arrest.** A chase could stall on a duty that never started, leaving her standing about and never raising the alarm again. A stalled chase now restarts after a few seconds.
+- **The Apothecary walks to the village in the morning.** She used to stay at her cabin until 09:00 and then walk the whole way. The Professor, Miller and Weaver had the same stall on multi-tile walks, now fixed.
+- **Only one Stone Tile Floor site appears.** Laying a Stone Tile in the Inn or the Jail Cell could place two sites. The unbuilt duplicate is now removed, for any of this mod's room improvements.
+- **`EnableGuardDiagnostics` now shows in the log.** Its report was written at a level BepInEx hides. It is still off by default.
+- **Six items now weigh what they look like:** Plank Causeway 2000 (was 12), Market Stall Kit 800 (was 4), prison Water Jug 400 (was 1), Meager Prison Ration 100 (was 1), Rare Herb Mixture 50 (was 2) and Well Plans 5 (was 0).
+- **Only one Shadow the Cat per game.** The check looked only at the board you stand on, so a tamed Shadow left elsewhere could be joined by a wild second one in the Foraging Forest. Shadow is now tracked wherever he is, and older saves are checked across every saved board on your next night visit. If he is nowhere (lost to neglect, for example), he can turn up again; once given to the Apothecary's Cabin he never returns. Also fixed: placing the cabin blueprint before taming Shadow stopped him appearing, which blocked the cabin's last stage. Not yet confirmed in game.
+- **Ash still goes hunting with Chiwei's NoQualityDecay installed:** that plugin stops an item's Special2 stat from falling, and Ash's five-day hunt timer counted down on Special2, so with it installed he never left. The timer now counts up to the same five days. A cat partway through a cycle in an existing save leaves on a slightly different day.
+
+## [1.69.11] - 2026-10-13
+
+- **The jail tunnel can only be dug while the Watch is really away.** A guard standing on the step used to read as "not on post", so the bed could be shoved aside almost any time. A guard now counts as on post while she is in the Village inside her shift. Not yet confirmed in an unscripted game.
+- **Ash's boar-hunt reward is logged correctly.** The carcass always spawned; only the "Boar carcass spawned." log line was missing.
+
+## [1.69.10] - 2026-10-13
+
+- **Every village building's Enter button no longer opens the Inn** (Nexus report, Kasi123456). On a framework older than 2.28.0 all of the mod's rooms shared one room number. The mod now numbers them itself at run start. Framework 2.28.0 or later is still recommended. Not yet confirmed in game on an older framework.
+- **A rare error in the Guards' chase is gone.** The extra pursuit step could fire the instant a chase action ended and log an error. Chase speed is unchanged.
+
+## [1.69.9] - 2026-10-13
+
+- **The Miller and the Weaver leave their cottages in the morning.** Their work duty could not start from indoors, so they stayed home all day. The scheduler now steps them out into the Village at work hours. Not yet confirmed in game.
+
+## [1.69.8] - 2026-10-13
+
+- **The Jail Cell's Fireplace can be built.** Its model card never appeared. It now arrives with the building supplies at the start of a sentence, along with two items the stages needed: a Long Stick for the digging stage and a Dry Meadow Grass for the insulation stage. Build it by day, since it needs light.
+- **Herb Paste works both ways.** Drag the paste onto food or food onto the paste. Either uses up one paste.
+- **The Apothecary's board is no longer cut off.** Her notices now print as one-line titles like the Weaver's.
+
+## [1.69.7] - 2026-10-12
+
+- **Card art follows the vanilla form.** 142 pictures are cropped to their subject and stored as small palette images, so items fill their cards like vanilla items and take about a sixth of the space.
+- **New or redrawn art:** the Hunting Stand (matching its kit box), Clay Ocarina, Bramble Thicket, burned Nightcrawler event, Framed Map, Ice Sculpture, Curtains, Training Post Kit, the three Wall Paintings, the Potter at the inn and at his stall, the Bone, Stone and Twig Stockpiles and the town wood pile. The Loaded Dice now show different faces, and the Cloth Rug's pale centre is back. The Apothecary at her Market Stall now uses her usual portrait. No card data changed.
+- **The Professor's Metallurgy stock drops a Metal Nail.** Water-Driven Infrastructure 1.12.3 retired its Cast Copper Rivet (Chiwei's Nexus report). The slot now drops the framework's copper Metal Nail, which needs no other mod, and the nail counts toward his Architecture stock cap. Not yet confirmed in game.
+- **The Fishing Net can be cast on Far Territory's seas,** using their Cast the Net action. Its own Cast Net button still needs a river. Not yet confirmed in game.
+- **The Ceramic Lamp matches the Advanced Copper Tools Metal Lantern.** It holds 96 fuel (was 48), and a handful of fat or a bowl of oil adds 48 (was 24), so a full lamp burns 48 hours. The Metal Lantern now gets 15% more from oil.
+- **Text fixes.** The Carpentry final exam description no longer cuts off after "Outfit Wardrobe". The Chinese text for the Market Stall, Inn Counter, Academy Lectern, Carpentry Bench and Cloth Mask now matches the English about Wanted and Banished effects.
+- **The Professor now settles at the Academy, stocks his specialty items and offers his course talk.** The code that updates his hidden state called a game method that does not exist, so he stayed in his foraging phase forever: no rare stock, no Commissions, no "I passed your course" lines, and no progress on river-bridge news or his weekly specimen request. It now uses the real setter. Not yet confirmed in an unscripted game.
+
+## [1.69.6] - 2026-10-10
+
+- **Twelve blueprints can now be researched.** The Soaking Trough, Dye Vat, Morris Board, Bone Dice, Loaded Dice, Spinning Top, Wheeled Horse, Clay Ocarina, Village Home Sign and the Bone, Stone and Twig Stockpiles had no unlock condition, so they sat locked for good. They now open from the start of a run.
+- **Wilt and crumble messages show their own wording** for the Painted Clay Vase with Flowers, Heather Wreath, both wall hangings, Garden Trellis, Ice Sculpture, Potpourri and Straw Mat. A generic "spoiled" line played before.
+- **Five cards that showed blank now have art:** the Soaking Trough, Forest Crown, Forest Throne, the seven Academy diplomas and the Painted Clay Vase with Flowers.
+- **The Fire-Hardened Spear uses the vanilla rustic spear picture.** Stray white edges are gone from the Painted Canvas (Ochre), Stag Trophy, Bone and Stone Stockpiles and Forest Throne art.
+- **No false warnings in the log.** Shadow's hunt check and the cat gift roll no longer warn at the main menu, and the Potter no longer warns when you enter the Inn.
+- **The README no longer implies Earthy cuts eat better with Herb Paste.** Measured in game, the paste dilutes their Earthy flavour, so the Earthy pairing adds a quarter of what the Savoury one does.
+
+## [1.69.5] - 2026-10-09
+
+### Removed
+
+- **The Peat Hut, its interior and the Peat Roof are gone,** at the owner's request, as too close to vanilla's mud hut. Dry Peat Turf is unchanged.
+- **Existing saves:** a built Peat Hut or Peat Roof disappears when you load, with its +2 warmth, and anything inside the hut is lost. The peat turf is not refunded. Take your things out first, and do not update while standing inside the hut. Leave it and save before updating.
+
+### Changed
+
+- **Advanced Copper Tools, Herbs & Fungi, Water-Driven Infrastructure and Sirus23 Mod Collection are no longer needed or load-ordered.** The mod loads without ACT, and with ACT installed nothing changes. Without it the Armorer course is not offered, and ACT's teas, tools and armour do not appear in the Inn Keeper's pantry or the Professor's stock.
+- **The Metal Sheet, Metal Nail and Tin Solder now come from CSFFModFramework 2.28.0,** which ships them under the same IDs. The River Bridge, Copper Bed Frame, Forest Crown, the Professor's stock and the Homestead Kit nails use them. This needs framework 2.28.0 or later.
+- **The Market Stall is built from a vanilla Storage Chest** (also the research requirement). ACT's Copper Chest still fits as an alternate. The blueprint keeps its ID, so a researched stall stays researched.
+- **The Architecture and Metallurgy course texts say what needs Water-Driven Infrastructure** (the Sawmill, Grinding Mill, Forge and Workshop), and the Architecture exam names the Beaver Blessing it grants either way. The Metallurgy degree grants the Metal Sheet and Bronze Sheet recipes with or without ACT.
+- **The README names every optional Herbs & Fungi and Sirus23 item** the mod can stock or accept.
+
+### Fixed
+
+- **The Market Stall's research waits for a Storage Chest.** The gate counted as met with no chest, so the blueprint was researchable from day one.
+- **The Weaver's Process Hemp recipe checks for Hemp Stalks,** the card it uses.
+- **A stale Herbs & Fungi check on the Rare Herb Mixture is gone.** Nothing changes in play.
+
+## [1.69.4] - 2026-10-09
+
+- **The Wool-Quilted Cap and Vest show a picture.** They reuse the plain Quilted Cap and Vest art.
+
+## [1.69.3] - 2026-09-29
+
+### Changed
+- **A Soaking Trough for limewater tanning** (round 2 J9). A new Construction > Working Tools blueprint, **Soaking Trough** (`cmcbplimewatertrough`, four Planks and a Rope, researchable from the start), makes a liquid container (`CardData/Item/CMC_LimewaterTrough.json`, 1800 capacity). Vanilla's Quicklime already soaks in water to make limewater; drag a fleshed hide (any of the five sizes) onto a trough holding limewater for **Soak Hide in Limewater** (two daytime points) and the hide gains a quarter of the Progress it needs to become leather (+144 of 576), so it tans sooner by the vanilla route. Each hide can be soaked once, and no vanilla card is edited. The soak amount and the once-only cap are untested placeholders. Art is not drawn yet, so the trough and its blueprint show blank.
+- **Flowers in the Painted Clay Vase** (round 2 J7). Drag a fresh flower onto a Painted Clay Vase for **Arrange Flowers** (one daytime point): the flower is used up and the vase becomes the **Painted Clay Vase with Flowers** (`CardData/Item/PaintedClayVaseFlowers.json`), worth Comfort +14 and Gratification +4 where the plain vase gives +8 and +3. After about three days the flowers wilt and the empty vase comes back with its durability intact. The action takes any card tagged `tag_Flower` plus vanilla Heather Flowers; whether other flowers carry that tag has not been measured in game (Herbs & Fungi's Chamomile and Dandelion did not on 2026-10-01). Water in the vase is spilled. Its art is not drawn yet, so the card shows blank until it is.
+- **The summer market day's discount is described as it works.** The market-day entry takes 0.02 off each resident's 1.5 buy-price multiplier, which is about 1.3% off what a stranger pays and nearer 2% from a resident who already trusts you (trust, Socials and face lower the multiplier, so the fixed 0.02 is a larger share of it), not the flat 2% the README, the mod description and the 1.69.3 notes said. The behaviour is unchanged: a deeper cut would let trust, Socials, face and the market day together outweigh the full Wanted markup, which the mod promises never happens. The README, the mod description and the feature notes now say so.
+- **Herb Paste flatters earthy food too, and the Village Well carries a water-source tag** (round 2 J19 and J20). A second flavour pair, `FlavourMatrix/CMC_TannicEarthy.json`, makes CMC's Tannic flavour go well with vanilla Earthy, as it already did with Savoury. Of the 19 cuts **Season with Herb Paste** accepts, five also taste Earthy (cooked, boiled and dried meat, and cooked and boiled minced meat), so seasoning one of those now makes two good pairings instead of one; Herb Paste's own intensities are unchanged. The built **Village Well** (`cmcimpwell`) now also carries the shared cross-mod tag `tag_x_WaterSource`, referenced by name with no CardTag file shipped, so another mod can treat the well as a water source; nothing in the suite reads the tag yet (Water Driven Infrastructure's feature that would is not built), so it changes nothing in play today.
+- **King of the Forest** (round 2 J15). The Town Achievement Board's thirteenth achievement is a capstone: once the Inn Keeper's friendship reads 24 or more of 30, the Miller's, Weaver's, Apothecary's and Professor's trust 80 or more of 100 (the board's own "trusts you deeply" tier, read from the same stats) and Village Reputation sits at its full 100, all at once, a once-only trigger (`SelfTriggeredAction/CMC_KingOfTheForest.json`) sets the hidden latch `cmcStatAchKing` (clamped 0 to 1, never cleared) and teaches two new blueprints outright through `BlueprintsFullUnlock`: the **Forest Throne** (`CardData/Blueprint/Bp_CMC_Throne.json`, Construction > Furniture: six Planks, a Large Leather and two Twine with a cutting tool, two hours; a placed seat giving Comfort +15, taken apart for its six Planks) and the **Forest Crown** (`CardData/Blueprint/Bp_CMC_Crown.json`, Metal and Clay > Metal Crafts: one copper Metal Sheet and a Small Cloth with a hammer, two hours; head gear giving Comfort +10 while worn). Befriending is the only road: no stat here moves by fighting a resident. The board shows the entry (unclaimed, then crowned) on its count line rather than a line of its own, so the board stays at 13 lines, or 14 with Harsh Wilds, and the Inn Keeper remarks on it once in Talk like the other achievements. It does not end the run: the research found a QuestLog-free ending (`CardAction.VictorySettings`), but it closes the run with no Keep Playing, so it is not built. Should the Metal Sheet ever fail to resolve, a run-start check in `Patcher/AcademyCourseService.cs` keeps the Crown hidden and out of the capstone's unlock list (one Debug line) while the Throne still unlocks. Every Comfort amount is a placeholder for tuning. (Their art, `CMC_Throne` and `CMC_Crown`, was drawn in 1.69.6.)
+- **Wool-Quilted Cap and Vest, with Sirus23 Mod Collection** (round 2 J18). Two new garments, the **Wool-Quilted Cap** and the **Wool-Quilted Vest** (`CardData/Item/CMC_WoolQuilted*.json`), each sewn in Tailoring > Equipment from its plain piece's cloth and twine plus Sirus23's raw Wool (`sh_wool`) as padding: one Wool for the cap, two for the vest (`CardData/Blueprint/Bp_CMC_WoolQuilted*.json`, researched under the same condition as the plain piece). They give +2.0 (cap) and +3.0 (vest) perceived temperature against the plain pieces' +1.0 and +1.5, and Comfort +10 and +12 against +8 and +10, with the same armour (both are registered for combat damage reduction like the plain pieces) and the cold-weather apparel tag, so they count toward layered warmth. They come undyed and carry no dye actions; dismantling one gives back the cloth and twine but not the matted wool. Without Sirus23 the Wool does not resolve and would drop out of the recipe, so a run-start check in `Patcher/AcademyCourseService.cs` keeps both blueprints hidden and out of the tab (one Debug line, no warning); the plain Quilted Cap and Quilted Vest are unchanged either way. Every warmth and Comfort amount is a placeholder for tuning, and both cards still need their art (`CMC_WoolQuiltedCap`, `CMC_WoolQuiltedVest`).
+- **The Village Path sounds like a settlement by day** (round 2 J14). A data-only patch, `GameSourceModify/cmcEnvVillagePath.json`, sets the Village Path environment's daytime ambience to play one of four vanilla animal sounds at random (`RoosterB`, `Chicken1`, `Cow1`, `Goat1`, one at a time) over the thicket loop it already inherited from the Green Tangle it clones; the game's own ambience handling plays it on arrival and swaps to the unchanged night loop after dusk, so there is no C# and no new audio. The vanilla game ships no bell, hammer or crowd clip, so farm animals are all it can offer. A name that does not resolve is dropped and the rest still play. Not yet confirmed in a running game.
+- **Predators are turned back from the Foraging Forest about half the time** (round 2 J6). The guard that refuses a bear, boar, wolf, Wolf Pack, Primeval Wolf, Forest Beast or Moontouched a move onto the village tiles now has a second protected set holding the Foraging Forest at a 0.5 refusal chance (`Patcher/WildlifeIndoorGuardPatch.cs`, rolled once per animal per day like the Hunting Stand), and `EncounterGuards/CMC_ForagingForestWildlife.json` (the bear and the three wolf fights, `SuppressChance` 50) stops half of those fights in the forest. Because it names the encounters, framework 2.28.0 applies it to a fight the animal starts itself as well as to one that starts with no animal behind it (corrected 2026-10-04: this entry first said an animal's own fight was not stopped, which was true only before framework 2.28.0). The forest is safer than the open woods and never as safe as the village: half the time a predator still gets in, half of its fights still go ahead, and one already standing there is not moved off. The 0.5 is a placeholder for tuning; not yet confirmed in a running game.
+- **Duros coins in the Inn Keeper's chest and at the Market Stall, and Hemp Seeds on the Professor's shelf** (round 2 J5 and J16). With the optional DurosCoinage installed, the Inn Keeper's chest restock (`InnKeeperChestCurrency`) also drops one of its Metal Coin beside the Salt, and the chest's wealth counts it at the coin's own trade value through `CurrencyValue`, as the Inn Counter and lectern already do. Both Market Stalls gain **Collect as Coins**, which drains the Sales Revenue into coins at that same trade value (`CurrencyValue.CoinPrice`) and keeps the remainder, like Collect as Copper and Collect as Salt; a hidden flag, `cmcStatDurosPresent`, set by the existing five-second poll only while the coin resolves, hides the button without DurosCoinage, so nothing new is shown or logged above Debug without it. With Herbs & Fungi installed the Professor's Herbalism specialty stock can also include its Hemp Seeds (a row in `ProfessorSpecialty_Herbalism` and the same UID in the C# pool that caps his stock); the row simply never resolves without H&F. J17 (a trail to H&F's Foraging Path) is closed: measured against the three mods' map files, the Foraging Forest is nine grid steps from the nearest H&F node with no collision, so there is nothing to reconcile. The coin count and the one-coin chest row are placeholders for tuning; not yet confirmed in a running game.
+- **Graduation diplomas** (round 2 J3). Passing an Academy course's Final Exam hands you a framed diploma for it, seven cards in all (`CardData/Item/CMC_Diploma*.json`), each giving Comfort +4 with no trade value. `AcademyDiplomaPatch` sets a hidden per-course stat (`GameStat/CMC_Diploma*.json`) before spawning the card, so a reload or a second completion never hands out a second one, and a 5-second backfill, running only while you stand in the Academy, gives an earlier graduate (or a character who started with a graduate perk) the diplomas they lack. A lost diploma is not re-issued. New art: one shared framed-diploma image, `CMC_Diploma`.
+- **A Peat Hut and a Peat Roof** (round 2 J12 and J13). The **Peat Hut** (`CardData/Blueprint/Bp_CMC_PeatHut.json`, Construction > House Building) is built at Sodden Hollow only (`cmcLocMarshHollow` in both blueprint condition lists) from Dry Peat Turf, Twigs, Long Sticks and Twine (2 hours a stage; corrected 2026-10-05, this line said 8 hours, but `BuildingDaytimeCost` 8 is 8 quarter-hours) and gives a placed **Peat Hut** with an Enter button into a fixed, non-instanced one-room interior (`CMC_PeatHutInterior.json`, `CMC_PeatHutInteriorLocation.json`, `CMC_PeatHutExit.json`: Insulation +4, rain, sun and shelter cover like the other CMC interiors, no hearth); it is registered with `InteriorEnvSaveDataPatch` and the interiors wildlife guard like the other interiors, and clones no vanilla environment. The **Peat Roof** (`CardData/EnvImprovement/Imp_PeatRoof.json`) is an Environment Improvement costing ten Dry Peat Turf for an hour and a half (corrected 2026-10-05 from six hours: `BuildingDaytimeCost` 6 is 6 quarter-hours), giving Insulation +2 (`TemperaturePerceived`, only while you are in the room), injected into the Cabin and the five mud hut rooms that run vanilla's roof-damage cycle (`InjectImprovementInto.json`); vanilla ships no roof improvement. Not yet confirmed in a running game; the hut, its interior and the roof each have card art.
+- **Wall paintings and curtains** (round 2 I2 and I4). Three Environment Improvements, **Wall Painting (Charcoal)**, **(Ochre)** and **(Billberry)** (`CardData/EnvImprovement/Imp_WallPainting*.json`), each costing two of its pigment for an hour (corrected 2026-10-05 from four hours: `BuildingDaytimeCost` 4 is 4 quarter-hours) and giving Comfort +10; they are injected into the six lived-in caves, the mud hut and the cabin (15 rooms, `InjectImprovementInto.json`), and each is written to hide once another colour is built in the room. **Curtains** are a Construction > Furniture blueprint behind the Carpentry degree (two Large Cloths; `Bp_CMC_Curtains.json`) that can only be built where a window is already built (`Imp_Windows` in both blueprint condition lists), giving the placed **Curtains (Open)** and **Curtains (Drawn)** (`CardData/Location/CMC_Curtains*.json`): **Draw Curtains** and **Open Curtains** swap them, drawn adds +1 to perceived temperature and +0.5 to the cabin-fever rate to cancel the window's own -1 and -0.5, open changes nothing. Vanilla's windows are untouched. Not yet confirmed in a running game; each painting and each curtain state has its own card art.
+- **Stockpiles: one card that holds many** (round 2 I1). Three new Construction > Furniture structures, the **Stone Stockpile**, **Twig Stockpile** and **Bone Stockpile** (three Planks and one Rope each, researchable from the start), each keep up to 50 loose cards of one kind as a **Fullness** count (`CardData/Location/CMC_Stockpile*.json`, `Patcher/StockpilePatch.cs`). Drag the card, or a held stack, onto the matching stockpile to store it; **Take One** and **Take Five** hand the cards back as ordinary cards, and **Take Apart** hands back everything stored plus two Planks. A full stockpile and a part-boiled Bone (which would come back at Boil 0) are refused before the card is spent. Only Stone, Twigs and Bones are stored, since each comes back identical; logs, clay, hay, straw and the Long Stick carry stats and stay out. Each stockpile has its own card art. No frame-time saving is claimed: it has not been measured yet.
+- **A sixth resident: the Potter** (round 2 H6). Once the Inn Keeper has introduced you to the village, the Potter takes a room at the Inn the next time you step inside (`NPCAgent/Agent_Potter.json`, `Patcher/PotterSchedulePatch.cs`). He lodges at the Inn and, on the summer market day, works the market corner of the Village from 08:00 to 18:00; with the Quiet Village trait he stays at the Inn, and he never walks off while you share his room. His destination is built fresh at the moment of each move, never cached (the 1.69.1 stale-EnvID lesson), and he is restored from the save on every load. **Trade** sells CMC's painted bowls, cups, plates, glazed plates, clay beads and vases and raw Clay (quality 30), restocked once a day while he is at the Inn and holds fewer than twelve cards, with the same price modifiers as the other residents: his Trust, Socials and Facial Harmony, the market-day discount, and the Wanted markup that Banished keeps (never a refusal). **Chat** and trading raise his Trust (`cmcStatPotterTrust`, listed in his AgentStats and mirrored for his board). His one firing run is a clamped-marker errand: ask him **Need anything fired?**, hand over a plain clay bowl, plate, jar or vase you fired yourself (**Give Fired Pottery**), and his thanks pays 3 Salt and 3 Trust; the hand-over closes once the run is done. While you are Wanted or Banished he greets you with a cold line like the other five. His board in the Village Hall (`cmcBoardPotter`) shows the errand, his friendship and where he is right now; a Hall generated before he existed gets the board the next time you enter it. His two portraits (`CMC_Potter_Inn`, `CMC_Potter_Stall`) are new art; stock, hours and rewards are placeholders.
+- **The Weaver's yarn and dye errands now run once, as documented.** Her thank-you line puts the errand marker back to 0, the same value as "accepted", so **Give Wool Yarn** and **Give Dyed Cloth** reappeared after the errand was done and paid Salt and Trust again for every later skein or garment. Both hand-overs are now also gated on the errand's done counter.
+
+- **The Garden Trellis helps nearby crops grow.** A Garden Trellis standing on the same board as a planted crop now adds 0.25 Growth a tick to each of the 22 planted crops (Appleweed, Billberries, Bog Myrtle, Fairy Weed, Fireroot, Flax, Fly Agaric, Forest Caps, Frostleaf, Heather, Juniper Berries, Kingcup, Nettle Stems, Peas, Rye, Spirit Mushrooms, Spring Berries, Turnroot, Wheat, Wild Garlic, Wolfsbane, Wood Sorrel), on top of the Garden Plot. Two trellises stack. Sown fields and trees are not helped. The 0.25 is a placeholder for tuning. No vanilla card is edited.
+- **Layered warmth for cold-weather apparel.** Wearing three or more of the cold-weather pieces at once (Cloth Scarf, Cloth Mask, Hand Wraps, Foot Wraps, Cloth Coat, Long Johns, Chaperon, Quilted Cap, Quilted Vest, Cloth Hood, in any dye) now adds +1.0 perceived temperature on top of what each piece gives (a placeholder for tuning). Each of those cards carries a new CMC tag, `tag_CMCColdWeatherApparel`, and a five-second poll counts the worn ones into a hidden, clamped (0 to 6) stat, `cmcStatLayeredWarmth`, whose status at 3 or more carries the warmth. The Straw Hat, Leather Sandals, Leather Apron and Bone Lamellar are not counted. Taking a piece off clears it on the next poll.
+- **Hunt trophies and camp furnishings behind the Carpentry degree.** The Academy's Carpentry course now also unlocks eleven decor blueprints in Construction > Furniture, each a placed structure that adds Comfort while it stands (every amount here is a placeholder for tuning): a **Boar Tusk Trophy** and a **Stag Antler Trophy** (a Wooden Plank, two Tusks or two Antlers and a Twine; +10 each), a **Cloth Rug** (two Large Cloths and two Twine; +8), a **Painted Canvas** in charcoal, ochre or billberry (a Large Cloth, two Wooden Planks and one pigment of that colour; +8; each colour has its own picture), a **Log Bench** (two Wood, two Wooden Planks and a cutting tool that loses 8 wear; +6, with a **Sit** button), a **Bowl of Potpourri** (a Clay Bowl and three Dry Heather Flowers; +8, fading away after about four days), a **Framed Map** (a Map, two Wooden Planks and a Twine; +10), an **Ice Sculpture** (three Ice Blocks and a cutting tool; +12; it holds while the base temperature is 0 or below, the same test the game's own Ice Block uses, and otherwise melts in about three days) and a **Stone Cairn** (eight Stones; +4). At the cairn, **Meditate** takes an hour and eases 15 Stress, **Meditate in Peace** eases 30 for the Spiritually Harmonious (that trait now also holds a hidden marker stat at 1, because a trait cannot be read directly) and **Meditate Uneasily** eases only 4 once you are hollowed (Hollowness 672 or more, which a Spiritually Troubled character always is); the three buttons are gated so only the one that fits you can be used. **Take Apart** returns the materials except the pigment, the ice and the cutting-tool wear. Nothing is crafted from any of them, so the Carpentry gate hides only finished decor. The Carpentry Final Exam, the Carpentry Graduate perk and the lectern text name them.
+- **A Dye Vat, and a dye run for the Weaver.** The new **Dye Vat** (Construction > Furniture; six Planks and two Rope, researchable from the start) is a storage station with eight slots and three buttons, **Dye Charcoal**, **Dye Ochre** and **Dye Billberry**. Put plain garments and the matching pigment inside and press one: after an hour (corrected 2026-10-05 from four hours: `DaytimeCost` 4 is 4 quarter-hours) every plain Cloth Scarf, Cloth Coat, Cloth Mask, Chaperon, Quilted Cap, Straw Hat and Leather Apron in the vat is turned into its dyed form, one pigment each, and keeps its wear. When the pigment runs short the rest stay plain; with no plain garment or no pigment of that colour the vat refuses before any time passes. A garment that is already dyed is left alone, and **Take Apart** returns four Planks and a Rope with the contents spilled out. Dragging one pigment onto one garment still works as before. The Weaver also offers a one-time **dye run** ("Any cloth you'd like dyed?" in Talk): accept, then hand her one dyed Cloth Scarf, Cloth Coat, Cloth Mask, Chaperon or Quilted Cap with **Give Dyed Cloth**, and her thanks pays 3 Salt and raises her Trust by 3.
+- **"Order Up!" and a Harsh Wilds quarry on the Town Achievement Board.** Filling any of the three vanilla trader commissions (15 Partridge Eggs and 5 Copper Nuggets from the general trader, 1 Copper Bar from the metal trader) now earns **Order Up!**, the board's twelfth achievement, and the Inn Keeper remarks on it once in Talk like the others. With **Harsh Wilds** installed the board adds a thirteenth, **Northern Quarry**: kill a lynx, a wisent and a musk ox (a kill sets that animal's flag, and the board shows a running count like Master Hunter's). Without Harsh Wilds the quarry line, its count and its kills do not exist, the summary counts twelve, and nothing is logged about the missing mod. A commission only shows once the trader trusts you at 50 or more, so Order Up! follows the trader's own schedule.
+- **A Bramble Thicket in summer.** Every summer the trail between Stillwater Meadow and Sett Warren is choked by a Bramble Thicket, so summer joins winter's snow drifts, autumn's deadfall and spring's flood as the fourth season with a road hazard. Cut it back with a metal sickle (three cuts, 8 daytime points each, the sickle takes 2 wear a cut), or tear through it by hand in three 20-point goes with no tool; once cleared the trail stays open for the rest of the summer, and it seals again the next one (60-day regrowth timer, as the other three). Both actions share the gate's action-key prefix, so either one opens the trail.
+- **The village keeps the seasons.** Once the Inn Keeper has introduced you (or, if he introduces you partway through a season, as soon as he has), three beats fire once each as their season arrives, tracked by a hidden last-season stat that is written only after a beat's work succeeds, so a reload never repeats one. In **autumn** the Inn Keeper asks for dried food: his Talk line offers it (a clamped hidden marker: 1 offered, 0 accepted, 0.5 delivered), **Stock the Pantry** on the Inn Counter takes one dried meat, fish, berry, pea or root while the request is open, and his thanks line resets the marker, marks the errand complete and pays 3 Salt and 3 Inn friendship; a delivery still awaiting thanks is never overwritten by the next autumn's offer. At the start of **summer** a day-long market-day stat (96, draining 1 a tick) takes 2% off the price you pay at all five residents (corrected 2026-10-05: it takes 0.02 off the 1.5 price multiplier, which is about 1.3% off at neutral standing and nearer 2% at high trust); the discount is capped so the full Wanted markup still outweighs every discount combined (the 1.69.0 invariant, now including the market day). When **winter** arrives the drifts close the roads and the Inn Counter offers **Join the Snowed-In Supper** from 17:00 to midnight with two or more residents present: Morale +35 (Join the Table gives +15), once per winter, sharing the evening cooldown, with the same trust reward for those at the table. Every amount is a placeholder for tuning. A moment in which the game cannot name the season does nothing and latches nothing.
+- **A Founder's Monument for a full Reputation.** The first time your Village Reputation reads its full mark of 100, a hidden flag is set (and never cleared, so the monument is still owed if Reputation later falls). The next time you stand in the Village, one **Founder's Monument** appears there, never twice: a squared stone that adds 6 Comfort while you are in the village and cannot be taken down. The Comfort amount is a placeholder for tuning, and the monument has its own card art.
+- **The Armorer course also teaches ACT's Iron Shield and Ghost Bronze Shield.** Both shields now sit
+  behind the Armorer degree like the rest of ACT's armor, instead of being researchable by anyone. A recipe
+  you already researched stays yours. With an ACT that lacks these shields the entries simply do nothing.
+- **A Spring Tonic for the sneezing season.** The Academy's Medicine graduates also get the **Spring Tonic** blueprint (Survival > Cooking, beside the Herb Poultice and Tincture): two dried Heather Flowers and one dried Willow Bark, ground with a Stone Mortar and Pestle that is not used up, make two tonics. Drinking one raises a new daily effect stat to its full 96, which drains by 1 a tick (about a day) and while it lasts adds 10 Comfort and takes 2.25 off the upper respiratory infection rate, the same size as the spring Seasonal Allergies status adds; a second dose only refills it, and the tonic never touches the immune system's base. The Apothecary's shelf restock lists it (one or two a restock). The Comfort, the infection rate and the dose are placeholders for tuning, and the tonic has its own card art.
+- **A Training Post for Melee Fighting.** The Academy's Carpentry graduates now also get the **Training Post** blueprint (Construction > Furniture; two Planks, two Rope, two Stone; the Final Exam and the Carpentry Graduate perk text name it). It builds into a Training Post Kit, which you **Set Up** (an hour) wherever there is room. At the post, **Practice Strikes** costs an hour and 10 Stamina for +2 Melee Fighting, once a day, and **Take Down Post** folds it back into the kit. Every amount is a placeholder for tuning.
+- **Sit In on a lecture, and Study Alone at the Academy bookshelf.** When the Miller, Weaver, Apothecary or Professor is at the Academy with you, the Lecture Hall offers a **Sit In** button for that resident: two hours for +3 to their craft (the Miller Cooking, the Weaver Weaving, the Apothecary Herbalism, the Professor Insight), once a week for each resident, and only once you have heard the Inn Keeper's introduction. The Apothecary and the Professor walk inside only after you have stood in the Academy once this session, so their button waits for that. A new Academy Bookshelf stands in the Academy (spawned into saves that already visited it the next time you step in, never twice): **Study Alone** costs an hour for +1 Insight, once a day. Every amount is a placeholder for tuning.
+- **The Cat Bed mends Care, and a cat can turn Content.** A Cat Bed set down on the same board as Ash or Shadow now raises that cat's Care by about 4.8 a day (0.05 a tick), far less than the 25 each self-serve cistern drink costs, so tending the cat yourself still matters; a carried bed is not claimed to work. A cat at Care 90 or more is Content: a fourth description line (in every one of Ash's pictures), a second Loneliness aura of the same strength as its usual one, and one 10% roll a day, made only while a Content cat is on the board you are standing on, for a small gift at camp (a Fish Scraps or a Feathers). The mending rate, the threshold and the chance are placeholders for tuning.
+- **A Cat Bowl the cats serve themselves from.** The new **Cat Bowl** (one Clay Bowl, crafted from the Metal and Clay tab's Utensils once you have a Clay Bowl) has three slots that take only the raw or cooked meat and fish a cat's Feed accepts. While Ash or Shadow stands on the same board as a bowl holding food and their Hunger has fallen to a quarter of full, the cat eats one piece on its own: Hunger rises by the 288 a hand Feed gives and Care drops by half of what a Rain Cistern drink costs. It waits while you are dragging a card; **Take Apart** returns the Clay Bowl and spills what is left inside. The hunger threshold, the meal and the Care cost are placeholders for tuning, and the Cat Bowl has its own card art.
+- **Shadow goes on night hunts too.** At night, while Shadow is set down on your board with Care 70 or more, he slips off toward the Foraging Forest and leaves **Shadow's Trail** in his place. About six hours later, the next time you are on that board, he is back with a Squirrel or Partridge carcass, and he sets out at most once every three days. Ash's boar hunt now runs on the same per-cat mechanism and behaves exactly as before. The Care floor, the trip length and the wait are placeholders for tuning.
+- **Dice at the Inn.** With at least one resident at the Inn, drag the Bone Dice onto the Inn Counter for **Wager on the Dice**: 25 from your Inn Account on one roll, dice kept, the result shown over the counter, and no wager when the account holds less than the stake. Honest dice win 45% of rolls and a win pays twice the stake, so the house wins on average (a tenth of the stake a roll). The new **Loaded Dice** (one Bone Dice and one Clay, researchable from the start, Entertainment tab) are caught 15% of the time, which costs the stake and adds 8 to your Village Crime, and otherwise win 60% of rolls, which on average is a small gain (2% of the stake a roll) before the crime. A wager is the same stake whatever your standing. The stake, every odd and the crime are placeholders for tuning, and the Loaded Dice have their own card art. New shared helpers in `InnWagerPatch` (the stake, the account debit and credit, a seedable roll) for later Inn games.
+- **Nine Men's Morris and arm wrestling at the Inn.** The new craftable **Morris Board** (one Plank, two Stone, one Charcoal Pigment, researchable from the start, Entertainment tab) has a 15-minute pastime (**Work a Morris Problem**: Stress -5, Focus +4) and a **Play Morris** action on the Inn Counter: drag the board on with at least one resident at the Inn for an hour-long game at the usual 25 stake, board kept. You win 30% of games plus 20% x your Focus/96 as the game starts (the term held between 0 and 1, so at most 50%; Focus is read before the hour's play drains it, so a full Focus really reaches 50%) and a win pays twice the stake. **Arm Wrestle** is a counter action with no item: 15 minutes and 8 Stamina, hidden when nobody is at the Inn, a "too tired" notice under 8 Stamina; you win 30% of bouts plus 20% x your Fitness/3200 (held between 0 and 1) and 10 points less when the bout started Exhausted. Neither writes Fitness. Both are refused when the Inn Account holds less than the stake or a win would not fit under its 500 cap, both show the result over the counter naming a resident at the Inn, and neither is marked up for being Wanted or Banished. The odds use the full Focus and Fitness ranges, since the live-game measurement of evening values has not run; every number is a placeholder for tuning, and the Morris Board has its own card art.
+- **An odd-jobs board at the Inn** (round 2 J2). Besides Work Odd Jobs, the Inn Counter posts one small job each morning: **Odd Job: Bring a Stone**, **Bring Rope**, **Bring Ash** or **Bring a Clay Bowl** (`CardData/Location/CMC_InnCounter.json`, `Patcher/InnOddJobPatch.cs`). Only today's button shows; drag the goods onto the counter (they are consumed) for three hours of work, 15 Energy and 11 Stamina, and a copper nugget typed as Metal Type 100 at 50 quality. The job is held in a hidden stat clamped 0 to 4 (`GameStat/CMC_InnOddJob.json`) and rolled once a morning, latched by a second hidden stat holding the day it was posted (`GameStat/CMC_InnOddJobDay.json`), written before the job so a failed write posts nothing instead of re-rolling; both live in the save and not in memory, so a reload cannot post a second job. If the job stat cannot be read the hand-over is refused rather than all four paying. It is never gated by Village Crime and never marked up (both handlers are on the never-priced list), and pays about a third of a nugget an hour against Work Odd Jobs' 0.375 average, so one job a day is no copper farm. No button name contains a word the Inn's meal, bed, deposit or firewood actions are picked by. The pay and the job list are placeholders for tuning.
+- **A Cloth Mask or the new Cloth Hood slows a guard's recognition.** While you wear the Cloth Mask (in any dye) or the new Cloth Hood, a guard who spots you in the Wanted band raises her Suspicion by 2.5 instead of 5. It is a soft edge, not invisibility. The hood is a head garment sewn from three cloth and four twine with a needle, researched once the Weaver trusts you at 25 or more, and rips up for one cloth. It has its own card art.
+- **Bribes.** Drag Salt or a metal nugget onto Captain Sterling, Guard Thorne or Guard Old Corrin to lower that guard's Suspicion by a personality-scaled amount (Corrin is the cheapest), never below where she started; Iris Vane takes no bribes. In the Jail Cell, once per sentence and only while a warden is on the step with at least a day and a half left, Pay the Warden takes a day off the sentence for Salt in hand (3 while Clean or Suspected, 4 while Wanted, 5 while Banished). A bribe shortens time and never clears crime by itself. The amounts and the fee are placeholders for tuning.
+- **Jail labour: Break Rocks.** A new button in the Jail Cell costs four hours and 30 Stamina and takes a quarter of a day off your sentence, paying your crime down by 2 points (a quarter of what a day served pays). Twice a day at most, and only while at least two days remain, so it shortens a sentence but never opens the door by itself. The sentence can now hold quarter days: each day rollover takes a whole day off, and a remainder under one day is cleared at that rollover together with your crime record. Pay the Warden now takes a plain day off too, quarter days included. The Stamina cost, the quarter day and the daily limit are placeholders for tuning.
+- **Community service: the lawful road back.** While your Village Crime is 1 to 59, Captain Sterling's Talk list offers honest work that walks it down: carry wood to the Town Wood Pile (one stocking worth at least 20 fuel) or, in winter, dig a snow drift clear. Tell him it is done and he takes 6 off your Village Crime, once per job; you can give a job up from the same list. Three jobs and a Village Crime of 0 earn a one-time Deputy line, which adds a flat 5 to Village Reputation's civic half. The jobs run on a clamped marker and a counter that only his thanks line advances; the fuel floor and the 6 are placeholders. The plan's third job, a night round with Iris Vane, is not in: nothing records the player walking a round with her.
+- **Report a Market Stall robbery to the Watch.** When a stall is robbed, the stolen item is now remembered in the save. Choose "Report the Theft" in Talk with Captain Sterling, Guard Thorne, Guard Old Corrin or Guard Iris Vane (one open report at a time). About three days later the Watch decides: half the time the item comes back and appears in the Village the next time you are there (on the board, not inside the stall, and as a fresh item at its default condition); otherwise a guard tells you nothing was found. The chance and the delay are placeholders for tuning.
+- **A guard's Suspicion is now read, and it falls again.** The hidden Suspicion rating each guard carries
+  (raised +5 whenever a guard spots a Wanted face) used to feed nothing. The Copper Chests' night-time
+  search roll now scales Iris Vane's patrol term by her Suspicion against her own starting value, never
+  below the base 20% and never above double it, and the roll's overall 95% cap still binds. Every guard's
+  Suspicion falls about 1 point a day back to where she started, but only while your Village Crime is
+  under 25; from the Wanted band up it holds. The one-point-a-day rate and the doubling limit are
+  placeholders for tuning. New public query `GuardDutyPatch.OnDutyGuardSuspicion(envUid)` for later Watch features.
+- **The Armorer course teaches every Advanced Copper Tools armor recipe.** Besides the copper and iron
+  sets it now covers ACT 1.18.0's Tin, Ghost Bronze, Tin Bronze (the old Bronze) and White Bronze suits
+  and the Copper Shield, which were researchable without the degree. A recipe you already researched
+  stays yours. With an ACT older than 1.18.0 the new entries simply do nothing.
+- **Passing Metallurgy also hands over ACT's Bronze Sheet recipe**, the sheet every alloy suit is made
+  from. Like the Copper Sheet it is granted, never locked: it stays normally researchable for everyone.
+- **The Ceramic Lamp now burns any lamp oil, not only fat.** Drag a bowl of oil onto an unlit lamp and
+  "Refuel with Oil" adds the same 24 fuel as a piece of fat (two refuels fill it) and hands the empty
+  Clay Bowl back. "Oil" means any card tagged as oil: Advanced Copper Tools' Oil, and every Herbs &
+  Fungi oil when that mod is installed, so its cooking oils (Peanut, Linseed, Hemp Seed, Truffle) and its
+  herbal medicinal oils burn too. The lamp's fuel bar now reads Fuel rather than Fat, and its descriptions mention oil.
+- **The Carpentry Graduate perk has its own icon**: a hand saw, a mallet and dovetailed oak planks, in the
+  same square style as the other Academy course icons, where it used to borrow the Architecture Graduate's picture.
+- **Residents price on your Socials and your face.** All five residents (the Inn Keeper, Miller, Weaver,
+  Apothecary and Professor) now read the same two stats the base game's own traders read, in both
+  Trade directions. A higher Socials skill takes up to 0.06 off the multiplier on what you buy and adds up
+  to 0.06 to what you are paid, reached at Socials 150; a better Facial Harmony does the same up to 0.015,
+  reached at 100. They only ever help: a low Socials or a plain face earns nothing and never a worse
+  price, so nobody pays more than before. At the top of the Wanted band the +0.5 markup still outweighs
+  Trust (or the Inn Keeper's Friendship), Socials and face discounts put together. Two traits now show
+  at the village counters as their descriptions say: the Natural Trader, who starts at Socials 75, gets
+  0.03 off the buy multiplier and 0.03 more on the buyback from the first day, and the Leper, whose
+  Facial Harmony is 0, gets none of the face discount an average face (50) earns, about 0.007 either way.
+  These stack with the Trust figures quoted for each resident in the README.
+- **The village's own counters read your crime and Reputation.** At the Inn a meal or a night's stay now
+  costs 60 while you are Wanted (25-59 Village Crime) and 75 while Banished (60+), against 50 for everyone
+  else, and Academy tuition costs 120 and 150 against 100. The Academy never turns a Banished student away,
+  it only charges more. When your balance cannot cover the price, the greyed-out button's tooltip names the
+  price you are quoted. The Market Stall's daily sale earns half as much while you are Banished, and its
+  bonus for a high Village Reputation no longer waits for the very top: it now grows step by step from
+  nothing at Reputation 0 to the same +25% at full Reputation, where before it jumped from nothing to +25%
+  only at the top. Never marked up, so a Banished player can still raise restitution money: the copper
+  chests' Sell and the Miller's Make It Right, the Town Wood Pile's Player's Pay, Work Odd Jobs, deposits
+  at the counters and the firewood sale.
+- **The five residents greet a wanted player coldly.** While your Village Crime is in the Wanted band
+  (25-59) the Inn Keeper, Miller, Weaver, Apothecary and Professor open Talk with a short, cold line
+  instead of their usual greeting, and from the Banished band (60 and up) the line is shorter and
+  warier, ten new lines in all. When your crime falls below 25 the usual greeting is back. They stay
+  civil, never hostile: Trade is unchanged, the Inn Keeper's cold line still offers the pantry, the
+  Professor's leads on to his menu, and the Miller, Weaver and Apothecary still play the thank-you for
+  an errand you have already handed over (as do the Weaver's rope epilogue and the Professor's
+  milestone gifts). The rest of their small talk waits until you are back under 25: the Inn Keeper's
+  tales, news and errand offers, and the Miller's, Weaver's and Apothecary's conversation topics and
+  next errands. The Inn Keeper's confession after you have downed the whole Watch still comes first.
+- **Luck finally does something: Born Mark's raised Luck now shows.** Three rolls read Luck's current value. A chest
+  search's detection chance loses up to 5 points, the Market Stall's weekly robbery chance (5%) falls as low as 1%,
+  and the Iron Fishing Rod's Crayfish, Perch and Eel catches gain weight. Each is full at Luck 36, about where a
+  Born Mark character's Luck should settle (the stat's own decay cancels the trait's gain), scales with Luck below that,
+  and does nothing at Luck 0; the rolls read the stat itself, so any raised Luck counts. The amounts are small on
+  purpose, and the chest and stall rolls never fall below 1%. Born Mark's description, in English and Chinese, no longer
+  says that nothing reads Luck.
+- **The Apothecary takes a daily gift.** Drag a rare herb onto her once a day: a Silverwort Blossom or a
+  Hollow Sage, or, with Herbs & Fungi installed, a Dried Ginseng, Dried Reishi or Dried Hemp Flower. She
+  keeps it and her Trust rises by 3, the same as the Miller's bread and the Weaver's painted clay. The
+  button hides for the rest of the day after each gift (a hidden Apothecary Gift Cooldown, 96 ticks) and the
+  gift never touches her errands. Without Herbs & Fungi the three Herbs & Fungi herbs are simply not accepted.
+- **High-trust keepsakes.** Once the Miller's, the Weaver's or the Apothecary's Trust reaches 80, and your
+  Village Crime is below 25, their next Talk opens on a keepsake instead of the usual greeting, once per run:
+  five Wheat Flour from the Miller (at quality 48 of 96, the quality vanilla wheat grain starts at), an Ash-Grey Cloth
+  Scarf from the Weaver, and a Powerful Healing Potion from the Apothecary. The scarf is for looks only: it
+  keeps you no warmer than the plain scarf. Each keepsake has its own hidden once-only stat, so the Talk
+  after it goes back to the usual greeting.
+- **The Inn Keeper remarks on your achievements.** Each of the Town Achievement Board's eleven achievements
+  now earns one remark from him, the first time you talk to him after you earn it: Finding a Friend, Full Kit,
+  Right to Bear Arms, Master Hunter, Forest Explorer, Happy New Year, Master Angler, Spelunker, Master Shaman
+  and the two the board refuses to explain, Spiritual Overcrowding and the Stinky Jar, which he now explains
+  himself. A remark ends the conversation and adds 1 to his Friendship, and each has its own hidden once-only
+  stat, so it never repeats. The remarks sit after every other starting line in his scene and ahead of his
+  greeting, so a village beat, an errand offer or a cat line goes first (one beat per Talk, as before), and
+  while you are Wanted or Banished his cold greeting opens instead and they wait. A save with several
+  achievements already earned hears one remark per Talk until they are caught up.
+- **Overheard at the Inn.** On an evening when two or more of the Miller, Weaver, Apothecary and Professor are
+  at the Inn with you, his first Talk passes on a line of what the table is talking about: the mill, the loom,
+  the herbs, the Academy, the muddy roads. The lines rotate through a hidden Inn Overheard Line counter that
+  moves on by one after each and wraps back to the first, and a hidden cooldown of 72 ticks (18 hours) lets
+  only one show per evening. They sit with the remarks, after his other village news.
+- **Each villager's notice board says where that villager is right now.** The Inn Keeper's, Miller's,
+  Weaver's, Apothecary's and Professor's boards now open with one live line directly under the board's
+  description, such as "The Miller is at work, grinding grain." or "The Professor is at the Academy.". It is read
+  from where the villager actually stands, so it agrees with their card art, and it never moves them. The
+  Miller and Weaver are at home, at work, at the Inn or at the Academy (or out and about in the village
+  between legs); the Apothecary is at her cabin, on the trail, in the village, at the Academy, at the Inn,
+  minding the Market Stall or busy brewing; the Professor is at the Academy, at the Inn, out foraging or out
+  and about; the Inn Keeper is at the Inn. A villager who has not moved in yet shows no line. The line sits
+  first, ahead of the notices, because the board's text box cuts its tail when a board runs long. Each
+  sentence has an English and a Chinese row in the localization files.
+- **The Apothecary's card shows her at the Market Stall while she works it.** From 9:00 until she heads for
+  the Inn (outside her weekly Academy afternoon), while a Market Stall you have set up stands in the
+  Village, her card shows her at the stall (the picture is `CMC_ApothecaryAtStall`, a new portrait of her
+  behind the stall's striped awning with her bottles and herbs on the counter). With no stall there, or
+  under the Quiet Village trait, she keeps her ordinary Village photo in the Village. The stall is looked for on the Village board whenever you are
+  standing in the Village, and the last look stands while you are away.
+- **Chance meetings on the road.** Stand on the same outdoor tile as the Apothecary (Pine Trail, Highland
+  Pines or Moss-Grown Clearing, while she commutes after you have gifted her a Market Stall Kit) or the
+  Professor (Village Path, Village Farm or Foraging Forest, while he forages) and that resident stops for a
+  word: a message appears, your Morale rises by 3 and their Trust by 1, and a hidden 72-tick (18 hours)
+  cooldown per resident keeps it to one meeting each every few days. The Miller and Weaver cannot meet you
+  this way, since their only outdoor tile, the Village, is both their home door and their work post. Under
+  the Quiet Village trait nobody commutes, so nothing happens. The message has an English and a Chinese row.
+- **The Inn Keeper's pantry carries Advanced Copper Tools teas and Herbs & Fungi foods.** Every restock (the
+  same 4-day cadence as the rest of his pantry) now also adds one or two each of ACT's Focus Tea, Calming Tea
+  and Warming Tea, and, with Herbs & Fungi installed, one or two each of its Mushroom Pasty, Wild Berry Pasty
+  and Forager's Trail Mix, so they show up in his Trade window. Without Herbs & Fungi the three foods are
+  skipped by the game, the same way the Apothecary's Herbs & Fungi tinctures already are, and the log carries
+  no new warning. The teas and the pasties spoil in his stock like any other food. These rows need no new text.
+- **Village trade and a Weaver errand for Sirus23's wool, felt and cheese.** With Sirus23 Mod Collection
+  (Sheep Husbandry) installed, each restock of the Inn Keeper's pantry also adds one Sheep Cheese, and each
+  day the Weaver is at work in the Village she may add a Wool Yarn (a 20% chance) and a Felted Wool (15%) to
+  her stock, so they show in her Trade window. The Weaver also has a one-time errand: talk to her and ask
+  **Running short of yarn?**, accept, drag one Wool Yarn onto her with **Give Wool Yarn**, and talk to her
+  again for her thanks, which pays two Salt and raises her Trust by 3. The errand is three hidden stats: a
+  clamped marker (1 offered, 0 accepted, 0.5 handed over), a done counter that only her thank-you line
+  advances, and a presence flag that a check in the existing quest poll sets to 1 only while Sirus23's Wool
+  Yarn exists. Without Sirus23 the flag stays 0, so the errand's three lines never show, the cheese and the
+  two goods are skipped by the game, and the log carries no new warning (the Wool Yarn drag target is one
+  more unresolved card name, which the loader counts in its usual Info summary). Selling is unchanged: every
+  resident's Trade already values any card at that card's own trade value, so they buy Sirus23 goods at the
+  usual rate for that resident (half of the card's value at the base, before Trust and Village Crime adjust
+  it); no extra data was needed. The new lines have English and Chinese rows. The salt, the trust, the drop
+  chances and the one cheese a restock are placeholders to tune after play.
+- **Commissions with the Miller, the Weaver and the Inn Keeper.** Drag a Salt, a metal Nugget or a Duros
+  Coin (a card worth at least one Salt) onto the resident and press **Commission Flour**, **Commission
+  Cloth** or **Hire a Hunter**: the card is the fee and is taken whole. The goods then wait for you in
+  that resident's own room, delivered when you next stand there on or after the due day: ten Wheat Flour
+  from the Miller's cottage the next day, a Large Cloth from the Weaver's cottage two days later, and a
+  Doe Carcass left in the Inn two days after hiring the hunter. Each resident holds one open order, so the
+  button is hidden until you have collected, and an order you never collect simply waits. A card worth less
+  than a Salt is refused before it is taken. The cottages' own grinding and weaving blueprints are
+  untouched: a commission sells time, not access. Each order is two hidden stats, a marker that only ever
+  reads 0 or 1 and a due day; the three buttons and their messages each have an English and a Chinese row.
+  The fee and the batch sizes are placeholders to retune. This is not "leave grain with the Miller": an
+  action cannot read or spend what is in your pockets, so the card you drag is the whole payment.
+
+- **The Professor's iron nail is Advanced Copper Tools' Metal Nail of iron.** ACT 1.18.0 merged its Iron Nail into its one Metal Nail card (shown as "Iron Nail" at Metal Type Iron), and its old Iron Nail now turns itself into that card within a tick. The Architecture specialty stock (`Agent_Professor.json`) used to drop the old `act_iron_nail`; it now drops the Metal Nail (`advanced_copper_tools_copper_nails`) stamped Metal Type 200 through the drop's `TransferRules` (Special4 SetValue), so the nail he leaves is iron from the start and is never copper. The copper nail drop beside it is unchanged. The specialty cap still counts an old `act_iron_nail` he may hold from an earlier save (`ProfessorSchedulePatch.cs`). The Forest Crown keeps taking any Metal Sheet, now iron included, with no Metal Type gate: the crown has no metal stat to mislabel and the slot already took every bronze. Not yet confirmed in a running game (T2.993).
+
+### Fixed
+
+- **The Duros coin in the Inn Keeper's chest is a Copper Coin.** With the optional DurosCoinage installed, the chest restock (`InnKeeperChestCurrency`) dropped its Metal Coin at the card's default Metal Type of 0, which is none of the coin's six metals, so the coin had no metal name or art and nothing for its metal to add to its trade value. The drop now sets Metal Type 100 (copper), the same value `CurrencyValue` already assumed for such a coin. Found by `Perk-StartingItemStats.Tests.ps1`, which now reads DurosCoinage's exported cards; not yet confirmed in a running game.
+- **Packing up a market stall gives the Market Stall Kit back.** Pack Up Stall (with or without the awning) took the stall down and handed you nothing, so the kit was gone for good. It now returns the kit to set up again. Found by the boot log check in walkthrough T2.274; not yet confirmed in a running game.
+- **The Weaver's notice board no longer cuts off its last line** (walkthrough T2.919). The Village Hall's Weaver board printed every notice as its own paragraph under the board's flavour description, and with an errand, its hint, a trust notice and the three "heard whispers" notices about her joint work with the Apothecary and the Professor it came to 21 lines in a text box that holds about 15 at its smallest font, so the errand-progress line at the bottom was cut off (`lines=21 truncated=True fontSize=24`). It now uses the compact form the Town Achievement Board already uses: the flavour description is left out, each notice is printed as its one-line title instead of its full sentence (for example "Active errand: dried flax stems" and "A hint: bring a bundle of dried flax"), and notices are separated by a single line break. The live location line, the friendship line and the errand progress stay, and the progress line is visible again. The titles are the same English and Chinese CSV rows the notices already had, so no text was added. The other villager boards are unchanged. Not yet confirmed in a running game.
+- **Hemp Seeds actually turn up on the Professor's shelf** (round 2 J16). With Herbs & Fungi installed and the Herbalism course passed, each of the Professor's daily Herbalism restocks now carries a 25% chance of Hemp Seeds instead of 1.7%, so a player sees them within a few restocks rather than after roughly sixty. The old value was not a scale mistake (`BaseDropChance` is on a 0 to 100 scale and 1.7 meant 1.7%); it was the same small share every other row of that table carries. The seeds count toward his two-item Herbalism stock limit like every other row, so until a seed sells, a restock can bring one fewer other Herbalism item. Not yet confirmed in a running game.
+- **Layered warmth now actually warms, and three other stat writes now update their statuses.** The layered-warmth poll counted the worn pieces correctly, but it wrote the count with a raw write the game never re-checks statuses for, so the "Well Layered" status (and its +1.0 perceived temperature) never appeared in a running game (walkthrough T2.965). It now writes through the game's own stat change (framework 2.28.0's `StatAccess.Set`, a new `HiddenStat.SetWithStatuses`), which attaches the status at three pieces and removes it when you drop below three. The same change applies to the Morale lift from meeting the Apothecary or Professor on the road, and to the Jail's emergency Weight, Hydration and Satiation top-ups, so their Morale, hunger, thirst and weight statuses now follow the new value at once; they also now move the value by exactly the stated amount, where the raw write could fold active modifiers into the base. With a framework older than 2.28.0 the values are still written the old way and one warning says the statuses will not update.
+- **The Town Achievement Board fits with Harsh Wilds installed.** Its thirteenth entry, Northern Quarry, brought the board to 15 lines, exactly what the panel holds at its smallest font, and the board's own layout check reported the text as cut off (walkthrough T2.955). The earned-count summary now sits directly above the list with no blank line between them, so the board is 14 lines with Harsh Wilds and 13 without. The other Village Hall boards are unchanged.
+- **An Academy graduation perk now applies the moment it is granted, not after the next reload.** The
+  grant looked up the game's perk-apply method as a public member, but it is private, so the lookup
+  found nothing and the grant skipped it without a word: the perk was recorded, and it only took effect
+  once the save was reloaded. The grant now finds it, and logs a warning if a future game update ever
+  hides it again.
+- **The Market Stall's seven-day robbery count now survives a relaunch.** It was kept only in memory,
+  so every quit and relaunch restarted the count, and a stall only reached its robbery roll if one
+  launch lasted seven in-game days. The count is now a hidden stat in your save: it still advances
+  once a day while a stall stands and you are in the Village with it (a day spent inside a building or
+  away from the Village does not count), and on the seventh day it resets and the 5% roll runs. A save from
+  before this change starts the count at 0.
+- **Bears, wolves and the other roaming predators no longer walk into the village.** The village's
+  wildlife guard only ever watched for a fight starting, and on the current game version a roaming
+  animal's own attack never reaches it, so a bear or wolf hunting you could walk onto the Village, its
+  paths and its farm and start a fight there. The guard that already kept these animals out of the
+  seven village buildings now also refuses every move a bear, boar, wolf, Wolf Pack, Primeval Wolf,
+  Forest Beast or Moontouched makes onto the Village, Village Path, Village Farm, Hunter's Crossing,
+  Pine Trail, Highland Pines and Stillwater Meadow, so a predator on your trail stops at the edge of that
+  ground. A Hunting Stand now does the same for the board it stands on while you are there: a predator
+  heading onto it is turned back about 45% of the time, decided once per animal per day.
+- **What the village guard still cannot stop** (each is outside a move refusal; the first three are the
+  framework plan's A1, `Documentation/Design/CSFFModFramework_Content_Update_Round2_As_Built.md`):
+  - a fight an animal opens while it is somewhere else: the game starts the fight first and only then
+    moves the animal to you;
+  - the game's old explore-event wildlife fights (its `Combat_Event` bear, wolf, boar, Wolf Pack and
+    Forest Beast cards), which start that way; no location in the current game offers them;
+  - a predator already standing on a guarded tile, saved there by an earlier version or placed there by
+    the game's spawn code: the guard refuses moves and never evicts;
+  - you walking onto a tile where such a predator already stands;
+  - a boar, Forest Beast or Moontouched fight you start yourself by clicking that animal on a guarded
+    outdoor tile, because the village encounter guard lists only the bear and the three wolf fights.
+- **The Inn Keeper's second to fifth errands and the Professor's second to fourth quests now finish and
+  pay out when you talk to them after handing the goods over.** The thank-you that records the errand,
+  gives you the reward pattern and lets the next errand arrive was listed behind their everyday
+  greeting, so it never opened: the Inn Keeper's chain stayed on his stew errand, and the Professor's on
+  his clay, metal or bone request, however often you spoke to them. The thank-yous now come first. That
+  includes a save where an errand you delivered earlier was stuck: the next Talk after loading plays it
+  and pays out. While your Village Crime is Wanted or Banished they still open with the cold line, and
+  the thank-you plays once your crime is back under 25. The Professor's thanks for the Weaver's cloth
+  coat (his quilted vest pattern) works for the same reason, and the Inn Keeper's story of Soot, the cat
+  who came before Ash, one of his six seasonal fireside tales, can now be told when it is the season's.
+- **Once the Inn Keeper counts you a friend he still offers his errands.** From Friendship 15 his
+  warmer greeting takes over from the usual one, but it carried only five of its answers, so his second
+  to fifth errands and the Apothecary's incense errand were never offered again. The warm greeting now
+  offers everything the usual one does, his errands included, and keeps its own words.
+- **Three village hand-ins now finish: the Inn Keeper's baking day and his brew-night remedy, and the
+  Apothecary's dust mask.** Handing over the flour, the herb paste or the cloth took the goods and
+  recorded nothing, so the thank-you that teaches the Painted Plate, Incense Burner or Cloth Mask
+  pattern never came, and the same drag kept taking more goods for nothing. Each hand-in is now
+  recorded once: talk to that resident afterwards for the thanks and the pattern, and the drag stops
+  appearing once the errand is done. Once the Miller has moved in, the Inn Keeper's menu also offers
+  "Any baking day coming up?", the question that asks for the flour, which before could never come up
+  in conversation. A save that handed goods over before this change gets no thanks for them, but the
+  errand is still open: hand the goods over once more.
+- **The Weaver's second pigment always counts as the second.** While she waited for it, a Charcoal
+  Pigment could still land on her first-pigment hand-in; the errand advanced all the same, but with the
+  first hand-in's words. Now only the second hand-in takes it.
+- **Without Herbs & Fungi the Spirit Herb blueprint group no longer logs three warnings on every launch.**
+  CMC adds its two rare herbs and Herbs & Fungi's Dried Hemp Flower, Dried Ginseng and Dried Reishi to the
+  game's Spirit Herb group (the one the Apothecary's Cabin and the Rare Herb Mixture read), and the patch
+  listed all five by id, so an install without Herbs & Fungi logged a warning for each of the three. The
+  three now go in through a reference list that skips an absent herb without a warning. With Herbs & Fungi
+  installed the group holds the same five herbs in the same order, so both recipes read it as before.
+
+### Documentation
+
+- README: the Village Home Sign faces and the Jail and its cell no longer "ship blank placeholder
+  art"; all four cards ship painted art. Card data housekeeping with no in-game change rides along:
+  Medicine Graduate carries the explicit `StarsCost` 0 its sibling graduate perks do, four unused
+  WarpType keys are gone (Market Stall blueprint and kit, jail ration, jail water jug), the Market
+  Stall and Town Wood Pile card-image field and the Well Plans weight are written in the shape their
+  siblings use, and the Bleeder and Weak Stomach JSON descriptions match the text players read.
+
+---
+
+## [1.69.2] - 2026-09-28
+
+Thanks to Chiwei, whose report is behind this release.
+
+### Fixed
+
+- **Trait starting items are usable.** They started at quality 0. Mineral Rich and Prospector now give Greenstone at 50, Potter's Apprentice gives Clay at 30 and a Basket at 50, and Angler's Rustic Fishing Line and Peaceful Farmer's Flint Hoe start at 50. Needs framework 2.28.0.
+- **Founders Kit materials are usable.** Its 30 Planks are oak, its 15 Tree Logs are oak logs, and its Clay is quality 30. Needs framework 2.28.0.
+- **Dismantling returns usable materials.** Planks from dismantled furniture, signs, the Hunting Stand and the Wooden Shield, and the Professor's planks, are oak. Leather from Bone Lamellar, Sandals, Aprons and the Wooden Shield has a real skin type and quality 50. Large Cloth from the Bedroll and Down Mattress is quality 50. The Miller's planks are oak, the Weaver's Large Cloth is quality 50, and the Professor's gift pan is a copper pan at quality 50.
+
+## [1.69.1] - 2026-09-26
+
+### Fixed
+
+- **The Miller and the Weaver keep their Inn evenings and Academy afternoons.** After going home for the night they never left again, and were missing when you stepped into their cottage. They now look up each room when they set off. Existing saves need nothing.
+- **Trust from the village's first week reaches the Village Hall boards straight away.** Board lines and trust-gated blueprints only followed it from the second week.
+
+## [1.69.0] - 2026-09-26
+
+### Added
+
+- **Chatting and trading warm the Miller, Weaver and Apothecary.** Each Chat gives +1 Trust and each trade a little more. Prices improve as Trust climbs: what you buy falls from 1.5 times value toward 1.1, and what they pay rises from 0.5 toward 0.75. The Apothecary's board now shows how well she knows you.
+- **Daily gifts.** Drag a loaf of bread (Wheat, Rye or Rye Round) onto the Miller, or a painted clay figurine or the Painted Clay Vase onto the Weaver, for +3 Trust once a day. Gifts never advance errands.
+- **The village remembers at the counter.** While Wanted (Village Crime 25 to 59) every resident charges up to 0.5 more on buying and pays up to 0.25 less, easing as your crime decays. When Banished (60 or more) the markup holds at that maximum, but they still trade, and the Copper Chests and Make It Right still work.
+- **Evenings at the Inn.** With two or more of the Miller, Weaver, Apothecary and Professor present, **Join the Table** gives an hour of company (+2 Trust for each at the table). Or drag a Wooden Flute, Bone Flute, Frame Drum or Clay Ocarina on for **Play for the Room** (+3 Trust each, instrument kept). One use per evening. With Quiet Village the residents stay home.
+- **Fugitive: known to the Watch.** A Fugitive's first village visit raises Village Crime to 12 (Suspected): Captain Sterling gives his one warning. It fades in about twelve days.
+
+### Fixed
+
+- **Both iron breastplates now need the Armorer degree.** The lock named a blueprint that does not exist, so both real ones stayed researchable. Advanced Copper Tools' bronze armour is in no course and stays open.
+
+## [1.68.47] - 2026-09-26
+
+### Fixed
+
+- **"Make It Right" works.** Dragging Salt or a Metal Nugget onto the Miller's chest was treated as a sale and never paid down crime. Make It Right now comes first and is offered only while you have Village Crime. With a clean record the same drag sells.
+
+## [1.68.46] - 2026-09-26
+
+### Added
+
+- **Two new pigments and seven garments that dye in three colours.** Ochre Pigment (two Crushed Bog Iron, three per grind) and Billberry Pigment (two Dried Billberries) join Charcoal Pigment on the Metal and Clay > Utensils tab. The Chaperon, Cloth Coat and Cloth Scarf now also dye ochre or violet, and the Quilted Cap, Straw Hat, Leather Apron and Cloth Mask can be dyed for the first time: 18 new dyed garments with their own art. Dyeing keeps wear.
+- **Herb Paste seasons food.** Drag cooked, boiled or dried meat, fish or sausage onto the paste to rub it in: the food takes Pungent, Herbal and a new Tannic flavour, and the paste is used up. Tannic pairs well with Savoury, so seasoned fish or meat is a more satisfying meal. Season too often and it turns too strong.
+- **The toys have a use.** Roll the Bone Dice or spin the Spinning Top for less Stress and more Focus, or pull the Wheeled Horse for less Stress and Loneliness. Drag any of the three onto a tamed cat to play together: a bigger lift for you and +20 Care for the cat. The toy is kept.
+
+### Changed
+
+- **Pigment is now called Charcoal Pigment.** Its recipe and uses are unchanged, and the Weaver's second pigment may now be any of the three colours. The three charcoal-dyed garments that already existed got new art.
+- **README corrections:** there are two tamable cats (Ash and Shadow), and the Cat Bed gives Comfort +10 and leaves Care alone.
+
+### Fixed
+
+- **Losing a fight to the Watch now ends in arrest.** Until now no guard fight could end that way. Once you are badly hurt (seriously bruised, shaken, bleeding heavily or exhausted), Thorne and Corrin may grab you instead of stabbing, more often the worse you are hurt, and send for the Captain. Sterling can grab you in his own fights, and losing to him takes you to the Jail Cell, bruised but alive. Unhurt, they fight as before. Being held by Thorne or Corrin does not start a sentence; only Sterling's arrest does.
+- **Guard Vane's fight no longer ends with a trip to the Jail in its data.** If she ever beat you she would call the rest of the Watch, as intended. Nothing changes in play.
+- **README: defeating all four guards does not clear Village Crime by itself.** It makes you eligible, and talking to the Inn Keeper clears it.
 
 ## [1.68.45] - 2026-09-26
 
@@ -948,11 +1352,11 @@ This release fixes how the hearth/wood-pile system *runs*; it does not change th
 
 ---
 
-## [1.68.16] — 2026-08-30
+## [1.68.16] - 2026-08-30
 
 ### Fixed
 
-- **The Bleeder trait's passive Blood Pressure drain had no floor.** Its −0.5/tick rate modifier ran unopposed for as long as the trait was active — the game itself treats Blood Pressure hitting 0 as an instant death ("went into shock"), and Blood Pressure has no built-in rate clamp of its own to stop a modifier like this. In the worst case, choosing this trait could quietly become an unrecoverable death spiral with nothing the player did wrong. Its passive drain now bottoms out at 15 (out of 75) instead of being able to reach 0 on its own — Blood Pressure can still be driven the rest of the way down by actual wounds, it just can no longer be killed by this trait alone sitting idle.
+- **The Bleeder trait's passive Blood Pressure drain had no floor.** Its −0.5/tick rate modifier ran unopposed for as long as the trait was active, the game itself treats Blood Pressure hitting 0 as an instant death ("went into shock"), and Blood Pressure has no built-in rate clamp of its own to stop a modifier like this. In the worst case, choosing this trait could quietly become an unrecoverable death spiral with nothing the player did wrong. Its passive drain now bottoms out at 15 (out of 75) instead of being able to reach 0 on its own, Blood Pressure can still be driven the rest of the way down by actual wounds, it just can no longer be killed by this trait alone sitting idle.
 
 ### Changed
 
@@ -960,66 +1364,66 @@ This release fixes how the hearth/wood-pile system *runs*; it does not change th
 
 ### Changed
 
-- **The Deadly Disease trait's Nausea and Rash no longer drift all the way to their true maximum with no ceiling.** Its passive stat modifiers included a bare rate change (Nausea and Rash both +0.4/tick) with nothing to stop it — left unequipped from treatment, either stat would eventually climb to its absolute in-game max and stay pegged there for as long as the perk was active. Rash's native range is especially wide (0–384), so this was the more visible offender: a long enough save would walk it all the way up. Both entries now also carry a capped ceiling (Nausea's growth stops around 15 instead of 24; Rash's stops around 250 instead of 384) — the trait still worsens gradually over time exactly as its description says, it just no longer has an unbounded rate that eventually pins the stat at its hard max.
+- **The Deadly Disease trait's Nausea and Rash no longer drift all the way to their true maximum with no ceiling.** Its passive stat modifiers included a bare rate change (Nausea and Rash both +0.4/tick) with nothing to stop it, left unequipped from treatment, either stat would eventually climb to its absolute in-game max and stay pegged there for as long as the perk was active. Rash's native range is especially wide (0–384), so this was the more visible offender: a long enough save would walk it all the way up. Both entries now also carry a capped ceiling (Nausea's growth stops around 15 instead of 24; Rash's stops around 250 instead of 384), the trait still worsens gradually over time exactly as its description says, it just no longer has an unbounded rate that eventually pins the stat at its hard max.
 
 ---
 
-## [1.68.14] — 2026-08-28
+## [1.68.14] - 2026-08-28
 
 ### Fixed
 
-- **Wild bears, boars, wolves, and other hostile wildlife could physically walk into the Village Inn, Academy, and Jail and just stand there.** Reported via a screenshot of a Bear sitting at the Inn Counter and in the Academy. These creatures' vanilla "approach the player" behavior relocates them straight to whatever board the player is currently standing on with no indoor/outdoor check at all — something that never came up before this mod added real, enterable building interiors. `EncounterGuards/CMC_InteriorsNoWildlife.json` already stopped the resulting combat encounter from firing, but did nothing to stop the animal from physically arriving — that's the gap this closes: Bear, Boar, Forest Beast, Moontouched, Wolf, Primeval Wolf, and Wolf Pack can no longer be relocated into any of the seven village building interiors.
+- **Wild bears, boars, wolves, and other hostile wildlife could physically walk into the Village Inn, Academy, and Jail and just stand there.** Reported via a screenshot of a Bear sitting at the Inn Counter and in the Academy. These creatures' vanilla "approach the player" behavior relocates them straight to whatever board the player is currently standing on with no indoor/outdoor check at all, something that never came up before this mod added real, enterable building interiors. `EncounterGuards/CMC_InteriorsNoWildlife.json` already stopped the resulting combat encounter from firing, but did nothing to stop the animal from physically arriving, that's the gap this closes: Bear, Boar, Forest Beast, Moontouched, Wolf, Primeval Wolf, and Wolf Pack can no longer be relocated into any of the seven village building interiors.
 
 ---
 
-## [1.68.13] — 2026-08-28
+## [1.68.13] - 2026-08-28
 
 ### Fixed
 
-- **The Academy hearth (and potentially any of the other five village fireplaces) could still fail to refill even after 1.68.12's entry-poll fix.** Root cause: the built-in hearths spawn directly from the vanilla Fireplace card, whose starting fuel is 0 — a real fireplace only ever gets fuel from being explicitly lit, so a freshly-created building hearth was already "cold" from the moment its room first loaded, for all six interiors at once. The shared Town Wood Pile only starts with enough banked fuel to fully re-light *one* hearth from cold, so whichever room the player happened to enter first drained the entire starting reserve reviving itself, leaving every other hearth — Academy included — permanently unable to afford its own first light. Lighting a hearth for the very first time no longer draws on the Town Wood Pile at all; it's treated as part of the building coming online, not village upkeep. Ongoing top-offs and re-lights of a hearth that actually burned down through real play still cost pool fuel exactly as before.
+- **The Academy hearth (and potentially any of the other five village fireplaces) could still fail to refill even after 1.68.12's entry-poll fix.** Root cause: the built-in hearths spawn directly from the vanilla Fireplace card, whose starting fuel is 0, a real fireplace only ever gets fuel from being explicitly lit, so a freshly-created building hearth was already "cold" from the moment its room first loaded, for all six interiors at once. The shared Town Wood Pile only starts with enough banked fuel to fully re-light *one* hearth from cold, so whichever room the player happened to enter first drained the entire starting reserve reviving itself, leaving every other hearth, Academy included, permanently unable to afford its own first light. Lighting a hearth for the very first time no longer draws on the Town Wood Pile at all; it's treated as part of the building coming online, not village upkeep. Ongoing top-offs and re-lights of a hearth that actually burned down through real play still cost pool fuel exactly as before.
 
 ---
 
-## [1.68.12] — 2026-08-27
+## [1.68.12] - 2026-08-27
 
 ### Fixed
 
-- **The Academy hearth (and any of the other five village fireplaces) could go cold forever and never be caught.** The auto-maintenance that tops off and re-lights the Inn, Academy, Village Hall, Miller's and Weaver's cottage, and Apothecary's Cabin hearths only ran on a time-costing action tick — a player who stepped into a room, looked around, and left without doing anything that spends DayTimePoints passed through without ever triggering a check. A save-file inspection confirmed five of the six built-in hearths had sat dead from the moment they were created. Auto-maintenance now also runs the instant the game detects you've actually walked into one of those six rooms, so a hearth that spawned cold or burned out between visits gets caught and revived immediately instead of needing a lucky time-costing action to notice it.
-- **Collecting copper or salt from the Town Wood Pile no longer drains the fuel the village hearths need.** The pile's "Collect as Copper"/"Collect as Salt" actions previously drained the SAME shared stockpile that keeps the Inn, Academy, Village Hall, Miller's and Weaver's cottages, and the Apothecary's cabin heated — so cashing out currency was always fuel taken straight out of the hearths' reserve. The pile now tracks two independent counters: the Wood Stockpile the hearths burn, and a new Player's Pay bar that fills at the same rate as fuel is stocked. "Collect as Copper"/"Collect as Salt" still work exactly as before — one click cashes out everything you can afford, 50 pay per copper nugget or 30 pay per salt — but they now draw on Player's Pay only, never on the hearth Fuel pool. Existing saves keep their current Wood Stockpile; Player's Pay starts fresh from zero.
-- **Taking items out of a resident's Copper Chest by hand had no effect on Village Crime or Reputation.** Each Copper Chest is a real container with its own inventory, so it could always be opened and dragged from directly, exactly like any ordinary storage chest — completely bypassing the "Search for valuables" action that's the only thing that ever rolled for detection. Every resident's chest (Miller, Weaver, Apothecary, Inn Keeper, Professor) is now watched while you're in the room with it: any card that disappears from it without going through Search or a paid Sell now rolls its own detection check, with the same consequences as getting caught searching — Village Crime rises and Reputation drops accordingly if you're caught.
+- **The Academy hearth (and any of the other five village fireplaces) could go cold forever and never be caught.** The auto-maintenance that tops off and re-lights the Inn, Academy, Village Hall, Miller's and Weaver's cottage, and Apothecary's Cabin hearths only ran on a time-costing action tick, a player who stepped into a room, looked around, and left without doing anything that spends DayTimePoints passed through without ever triggering a check. A save-file inspection confirmed five of the six built-in hearths had sat dead from the moment they were created. Auto-maintenance now also runs the instant the game detects you've actually walked into one of those six rooms, so a hearth that spawned cold or burned out between visits gets caught and revived immediately instead of needing a lucky time-costing action to notice it.
+- **Collecting copper or salt from the Town Wood Pile no longer drains the fuel the village hearths need.** The pile's "Collect as Copper"/"Collect as Salt" actions previously drained the SAME shared stockpile that keeps the Inn, Academy, Village Hall, Miller's and Weaver's cottages, and the Apothecary's cabin heated, so cashing out currency was always fuel taken straight out of the hearths' reserve. The pile now tracks two independent counters: the Wood Stockpile the hearths burn, and a new Player's Pay bar that fills at the same rate as fuel is stocked. "Collect as Copper"/"Collect as Salt" still work exactly as before, one click cashes out everything you can afford, 50 pay per copper nugget or 30 pay per salt, but they now draw on Player's Pay only, never on the hearth Fuel pool. Existing saves keep their current Wood Stockpile; Player's Pay starts fresh from zero.
+- **Taking items out of a resident's Copper Chest by hand had no effect on Village Crime or Reputation.** Each Copper Chest is a real container with its own inventory, so it could always be opened and dragged from directly, exactly like any ordinary storage chest, completely bypassing the "Search for valuables" action that's the only thing that ever rolled for detection. Every resident's chest (Miller, Weaver, Apothecary, Inn Keeper, Professor) is now watched while you're in the room with it: any card that disappears from it without going through Search or a paid Sell now rolls its own detection check, with the same consequences as getting caught searching, Village Crime rises and Reputation drops accordingly if you're caught.
 
 ---
 
-## [1.68.11] — 2026-08-26
+## [1.68.11] - 2026-08-26
 
 Finishes the needle-cost correction started in 1.68.9. That release fixed the two blueprints it had just added; the same miscalculation was sitting in **nine older stitching recipes**, which are now brought in line and given a deliberate, documented cost tier.
 
 ### Changed
 
-- **Nine stitched recipes no longer destroy your needle in a single craft.** The Cloth Scarf, Quilted Cap, Chaperon, Cat Bed, Quilted Vest, Cloth Coat, Bedroll, Down Mattress and Bone Lamellar armour were charging between 3 and 16 uses of the needle. A **Bone Needle only ever holds 3 uses and a Metal Needle only 1**, so every one of those numbers destroyed *either* needle on a single item — the difference between a 3-cost recipe and a 16-cost one was invisible in play, because both simply meant "your needle is gone." The costs below are now real numbers a needle can actually pay.
+- **Nine stitched recipes no longer destroy your needle in a single craft.** The Cloth Scarf, Quilted Cap, Chaperon, Cat Bed, Quilted Vest, Cloth Coat, Bedroll, Down Mattress and Bone Lamellar armour were charging between 3 and 16 uses of the needle. A **Bone Needle only ever holds 3 uses and a Metal Needle only 1**, so every one of those numbers destroyed *either* needle on a single item, the difference between a 3-cost recipe and a 16-cost one was invisible in play, because both simply meant "your needle is gone." The costs below are now real numbers a needle can actually pay.
 - **Sewing cost is now set in three deliberate tiers**, rather than the ad-hoc numbers that were there before:
-  - **Cloth garments cost 1 use** — Cloth Scarf, Quilted Cap, Chaperon, Cat Bed, Quilted Vest and Cloth Coat. One Bone Needle now sews **three** of them before it wears out. This is also what the Cloth Mask and Long Johns were set to in 1.68.9, so every plain cloth garment in the mod now costs the same.
-  - **Bulky bedding costs 2 uses** — Bedroll and Down Mattress. These are the largest stitching jobs the mod has (the mattress alone takes 100 feathers and 20 twine). One Bone Needle makes **two** of them; the third use is left on the needle and absorbed when the second one finishes it off.
-  - **Bone Lamellar armour costs 3 uses — a whole Bone Needle, on purpose.** This is the one item here where "it consumes an entire needle" is a real design statement rather than an accident: it is the mod's highest-tier stitched item, it laces bone plates through leather rather than sewing cloth, and it has the longest research time of the nine. It is capped at exactly 3 so that a Bone Needle can genuinely pay it, instead of being charged a debt it could never cover.
-- **The Metal Needle behaves the same in all nine recipes, by design.** Because it starts with a single use, any cost at all consumes it on one craft and turns it into a **Metal Knife Blank** you can forge back into a needle. Its advantage over bone is that it is *recoverable*, never that it lasts longer — so the tiers above are purely a question of how many items one **Bone** Needle can make.
+  - **Cloth garments cost 1 use**: Cloth Scarf, Quilted Cap, Chaperon, Cat Bed, Quilted Vest and Cloth Coat. One Bone Needle now sews **three** of them before it wears out. This is also what the Cloth Mask and Long Johns were set to in 1.68.9, so every plain cloth garment in the mod now costs the same.
+  - **Bulky bedding costs 2 uses**: Bedroll and Down Mattress. These are the largest stitching jobs the mod has (the mattress alone takes 100 feathers and 20 twine). One Bone Needle makes **two** of them; the third use is left on the needle and absorbed when the second one finishes it off.
+  - **Bone Lamellar armour costs 3 uses, a whole Bone Needle, on purpose.** This is the one item here where "it consumes an entire needle" is a real design statement rather than an accident: it is the mod's highest-tier stitched item, it laces bone plates through leather rather than sewing cloth, and it has the longest research time of the nine. It is capped at exactly 3 so that a Bone Needle can genuinely pay it, instead of being charged a debt it could never cover.
+- **The Metal Needle behaves the same in all nine recipes, by design.** Because it starts with a single use, any cost at all consumes it on one craft and turns it into a **Metal Knife Blank** you can forge back into a needle. Its advantage over bone is that it is *recoverable*, never that it lasts longer, so the tiers above are purely a question of how many items one **Bone** Needle can make.
 
 ### Notes
 
 - This is a cost **reduction** across all nine recipes and adds no new requirement, so it is safe mid-save: anything you have already researched still builds, and now costs less needle than it did. No recipe's materials, build time or research time changed.
 - No description text advertised a needle count, so no in-game wording needed correcting and no translations changed.
-- For calibration: across the base game's 417 tool-wear costs (every blueprint ingredient the recipe wears rather than consumes), **no tool is ever charged more than 5 uses**, and a single use accounts for 309 of them — about three quarters. The old 8, 10, 15 and 16 values sat far outside anything the base game does.
-- One thing deliberately *not* claimed here: the base game's own sewing recipes store their needle requirement under an obfuscated internal name shared by many unrelated tool groups, so which specific vanilla recipes charge a *needle* (as opposed to some other tool) cannot be read off the game data with confidence. The tiers above are calibrated against the base game's overall tool-wear range and against each needle's real capacity — not against a claim about what any particular vanilla garment charges.
+- For calibration: across the base game's 417 tool-wear costs (every blueprint ingredient the recipe wears rather than consumes), **no tool is ever charged more than 5 uses**, and a single use accounts for 309 of them, about three quarters. The old 8, 10, 15 and 16 values sat far outside anything the base game does.
+- One thing deliberately *not* claimed here: the base game's own sewing recipes store their needle requirement under an obfuscated internal name shared by many unrelated tool groups, so which specific vanilla recipes charge a *needle* (as opposed to some other tool) cannot be read off the game data with confidence. The tiers above are calibrated against the base game's overall tool-wear range and against each needle's real capacity, not against a claim about what any particular vanilla garment charges.
 
 ---
 
-## [1.68.10] — 2026-08-26
+## [1.68.10] - 2026-08-26
 
-Closes out two art debts that had been shipping on placeholder/fallback images while the code and JSON wiring waited for finished PNGs — no code or JSON changes, art only.
+Closes out two art debts that had been shipping on placeholder/fallback images while the code and JSON wiring waited for finished PNGs, no code or JSON changes, art only.
 
 ### Added
 
-- **The Village Home Sign now shows two real, visually distinct faces.** "Carve the Face" and "Plane the Face Smooth" swap between a bare, unworked plank and the same board carved with a bordered panel and relief scrollwork — both had been rendering a blank white placeholder since 2026-08-25 while the transform logic itself was already live.
-- **The Miller and Weaver now look visibly different at home than they do at work.** Their nightly "at home" leg (added 2026-08-26 alongside the guaranteed Inn/Academy schedule) had no art of its own yet and silently fell back to each resident's default Village portrait. Both now have a dedicated off-duty cottage portrait — no apron, no loom, seated by their own hearth — so the portrait genuinely follows where they are actually standing (Village / Inn / Academy / their own Cottage) instead of three real destinations and one reused fallback.
+- **The Village Home Sign now shows two real, visually distinct faces.** "Carve the Face" and "Plane the Face Smooth" swap between a bare, unworked plank and the same board carved with a bordered panel and relief scrollwork, both had been rendering a blank white placeholder since 2026-08-25 while the transform logic itself was already live.
+- **The Miller and Weaver now look visibly different at home than they do at work.** Their nightly "at home" leg (added 2026-08-26 alongside the guaranteed Inn/Academy schedule) had no art of its own yet and silently fell back to each resident's default Village portrait. Both now have a dedicated off-duty cottage portrait, no apron, no loom, seated by their own hearth, so the portrait genuinely follows where they are actually standing (Village / Inn / Academy / their own Cottage) instead of three real destinations and one reused fallback.
 
 ### Notes
 
@@ -1028,334 +1432,334 @@ Closes out two art debts that had been shipping on placeholder/fallback images w
 
 ---
 
-## [1.68.9] — 2026-08-26
+## [1.68.9] - 2026-08-26
 
-Ships the bone-tier sewing gate and a second incense scent, and corrects three number bugs found in review — two of them in the 1.68.7 sewing change itself, one of them years-old in every lamp and candle the mod ships.
+Ships the bone-tier sewing gate and a second incense scent, and corrects three number bugs found in review, two of them in the 1.68.7 sewing change itself, one of them years-old in every lamp and candle the mod ships.
 
 ### Added
 
-- **A second scent for the Incense Burner, burned in the same pot you already crafted.** Pack the empty burner with **dry juniper needles** instead of rye straw and light it as usual: instead of the straw version's calm, it raises a sharp resinous smoke that **keeps biting insects off you** while it burns. No second blueprint and no second vessel — one burner, two herbs. Juniper burns for the same full day a load of straw does.
+- **A second scent for the Incense Burner, burned in the same pot you already crafted.** Pack the empty burner with **dry juniper needles** instead of rye straw and light it as usual: instead of the straw version's calm, it raises a sharp resinous smoke that **keeps biting insects off you** while it burns. No second blueprint and no second vessel, one burner, two herbs. Juniper burns for the same full day a load of straw does.
 - **Both burners can now be emptied without burning them down.** "Tip Out the Straw" and "Tip Out the Needles" return an unlit burner to a clean, empty pot, so switching scents no longer means waiting out a whole load you did not want.
 
 ### Changed
 
-- **Cloth Mask and Long Johns now need a needle to sew, like the mod's other stitched garments.** Both blueprints described sewing and asked for no needle at all; they now require one the same way the Quilted Vest, Cloth Coat, Chaperon and Scarf already do. Either the base game's **Bone Needle** or its **Metal Needle** works. This changes two blueprints you may already have researched — if you are mid-save, you will need a needle on hand that you did not need before.
-- **Sewing now costs one use of the needle, not a whole needle.** The two new gates were first shipped at 3 and 8 usage, on the mistaken belief that a Metal Needle carries a budget of 10,000. It does not: a **Bone Needle starts with 3 uses and a Metal Needle with 1**, so both of those costs destroyed *either* needle on a single garment, and actually made the expensive metal one worse than bone. Each of the two garments now costs **one use**. A Bone Needle sews three things and is then gone for good; a Metal Needle sews one and turns into a **Metal Knife Blank**, which you can forge back into a needle — so the metal is never actually lost. That recoverability, not a bigger budget, is what the metal tier is really worth.
+- **Cloth Mask and Long Johns now need a needle to sew, like the mod's other stitched garments.** Both blueprints described sewing and asked for no needle at all; they now require one the same way the Quilted Vest, Cloth Coat, Chaperon and Scarf already do. Either the base game's **Bone Needle** or its **Metal Needle** works. This changes two blueprints you may already have researched, if you are mid-save, you will need a needle on hand that you did not need before.
+- **Sewing now costs one use of the needle, not a whole needle.** The two new gates were first shipped at 3 and 8 usage, on the mistaken belief that a Metal Needle carries a budget of 10,000. It does not: a **Bone Needle starts with 3 uses and a Metal Needle with 1**, so both of those costs destroyed *either* needle on a single garment, and actually made the expensive metal one worse than bone. Each of the two garments now costs **one use**. A Bone Needle sews three things and is then gone for good; a Metal Needle sews one and turns into a **Metal Knife Blank**, which you can forge back into a needle, so the metal is never actually lost. That recoverability, not a bigger budget, is what the metal tier is really worth.
 
 ### Fixed
 
-- **Lamps, candles and incense burners could not be lit when they were nearly out of fuel.** Their "is there anything to light" check was written as if fuel were measured 0–100 when the game measures it 0–1, so every one of them silently demanded a **tenth of a full tank** before it would take a flame — leaving a stub of wax or straw that could not be burned and could not be removed. The Ceramic Lamp, Scented Candle and both Incense Burners now light with any fuel at all.
+- **Lamps, candles and incense burners could not be lit when they were nearly out of fuel.** Their "is there anything to light" check was written as if fuel were measured 0–100 when the game measures it 0–1, so every one of them silently demanded a **tenth of a full tank** before it would take a flame, leaving a stub of wax or straw that could not be burned and could not be removed. The Ceramic Lamp, Scented Candle and both Incense Burners now light with any fuel at all.
 - **Packing juniper into a burner that still held straw destroyed the straw.** The same 0–100 mix-up made the "only when empty" check accept a burner holding up to 4.8 straw, which was then thrown away without a word. It now means genuinely empty, and the burner tells you to burn the straw down or tip it out first.
 
 ### Notes
 
-- The juniper burner reuses the existing burner artwork — same clay pot, different herb — rather than shipping a placeholder. Dedicated art has not been commissioned.
+- The juniper burner reuses the existing burner artwork, same clay pot, different herb, rather than shipping a placeholder. Dedicated art has not been commissioned.
 - The base game already provides the **Bone Needle** and the **Bone Hook** (an early fishing hook), both with their own blueprints. This release deliberately does *not* add mod copies of either; the Weaver already trades the real Bone Needle, and the two blueprints above now use it.
 
 ---
 
-## [1.68.8] — 2026-08-26
+## [1.68.8] - 2026-08-26
 
-Closes the 2026-08-25 Chiwei player-feedback batch. 1.68.4 shipped the approved half (trait tab moves, numeric trait fixes, cottage hearths); this release ships the remainder — the communal wood pile that the village fires now run on, and the Village Founder wording fix — and records the two reports that were investigated and closed with no code change.
+Closes the 2026-08-25 Chiwei player-feedback batch. 1.68.4 shipped the approved half (trait tab moves, numeric trait fixes, cottage hearths); this release ships the remainder, the communal wood pile that the village fires now run on, and the Village Founder wording fix, and records the two reports that were investigated and closed with no code change.
 
 ### Added
 
-- **A Town Wood Pile now stands in the Village, and the village's fires run on it.** Until now the hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin quietly refuelled themselves out of nothing, forever. They now draw from a single shared stack beside the square. Drag **twigs, long sticks, wood or firewood** onto the pile to fill its **Wood Stockpile** bar. **Each piece is worth exactly what it would have given a real fire** — a log of wood about 35, pine or alder about 21, twigs 7, a long stick 4 — measured in the same units a fireplace actually burns, so 96 in the bar is exactly one full hearth, and part-burnt fuel is worth whatever is left of it. Fuel drops in a stack at a time, not one card per drag. The village pays for surplus: **Collect as Copper** takes 50 stockpile for one copper nugget and **Collect as Salt** takes 30 for one salt, the same rates the Market Stall uses. Each collection hands over a single item, and **a full hearth's worth is always held back and cannot be cashed out**, so selling surplus can never be the thing that puts the fires out.
+- **A Town Wood Pile now stands in the Village, and the village's fires run on it.** Until now the hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin quietly refuelled themselves out of nothing, forever. They now draw from a single shared stack beside the square. Drag **twigs, long sticks, wood or firewood** onto the pile to fill its **Wood Stockpile** bar. **Each piece is worth exactly what it would have given a real fire**, a log of wood about 35, pine or alder about 21, twigs 7, a long stick 4, measured in the same units a fireplace actually burns, so 96 in the bar is exactly one full hearth, and part-burnt fuel is worth whatever is left of it. Fuel drops in a stack at a time, not one card per drag. The village pays for surplus: **Collect as Copper** takes 50 stockpile for one copper nugget and **Collect as Salt** takes 30 for one salt, the same rates the Market Stall uses. Each collection hands over a single item, and **a full hearth's worth is always held back and cannot be cashed out**, so selling surplus can never be the thing that puts the fires out.
 - **The pile starts with one hearth's worth of fuel (96) already in it.** An existing save that has never seen the pile therefore gets a grace period rather than six fires going out at once the moment you update.
-- **Only wood is accepted.** Peat and charcoal burn perfectly well in a fireplace and are deliberately not accepted here — this is a wood pile, and "it takes wood" is an easier rule to hold in your head than an arbitrary list of everything flammable.
+- **Only wood is accepted.** Peat and charcoal burn perfectly well in a fireplace and are deliberately not accepted here, this is a wood pile, and "it takes wood" is an easier rule to hold in your head than an arbitrary list of everything flammable.
 
 ### Changed
 
-- **The six village hearths can now go cold, and that is deliberate.** When the stockpile cannot cover a full top-up, the mod skips it entirely instead of trickling in a partial one: the fire burns down on its own normal schedule and, once out, stops being tended until someone restocks the pile — at which point auto-maintenance resumes on its own. Nothing stops you feeding and lighting any of these hearths by hand in the meantime; they are ordinary fireplaces, and only the *automatic* tending runs off the pile. This is the fix for the long-running "village fireplaces still bugged" report; the fires were never broken so much as unexplained, and they now have a visible, restockable reason to be lit. All six interiors are gated together, not just the Inn and the Academy the original report named. If the pile's hidden fuel tally is ever unreadable the hearths keep topping up as before, so a data problem can never leave the whole village cold.
-- **The stockpile holds 672 — enough to re-light all six hearths from cold at once, with room to spare.** An earlier draft of this feature capped it at 480, which was quietly less than the 576 that relighting all six costs: a player who let every fire go out could never have recovered them, even from a completely full pile.
-- **Village Founder now explains why every village-progress tracker reads as finished from day one.** The trait starts you with all four buildings up, the residents moved in and their first errands settled, so the Inn Keeper's and Professor's building news, the notice board, and every other building-complete marker are all legitimately complete before you take a step. Its description now says so outright — this was reported as "3 buildings always shows complete", which is the trait working as designed rather than a bug. Wording only; the trait's effects, cost and tab are unchanged. Fully translated (English + Chinese).
+- **The six village hearths can now go cold, and that is deliberate.** When the stockpile cannot cover a full top-up, the mod skips it entirely instead of trickling in a partial one: the fire burns down on its own normal schedule and, once out, stops being tended until someone restocks the pile, at which point auto-maintenance resumes on its own. Nothing stops you feeding and lighting any of these hearths by hand in the meantime; they are ordinary fireplaces, and only the *automatic* tending runs off the pile. This is the fix for the long-running "village fireplaces still bugged" report; the fires were never broken so much as unexplained, and they now have a visible, restockable reason to be lit. All six interiors are gated together, not just the Inn and the Academy the original report named. If the pile's hidden fuel tally is ever unreadable the hearths keep topping up as before, so a data problem can never leave the whole village cold.
+- **The stockpile holds 672, enough to re-light all six hearths from cold at once, with room to spare.** An earlier draft of this feature capped it at 480, which was quietly less than the 576 that relighting all six costs: a player who let every fire go out could never have recovered them, even from a completely full pile.
+- **Village Founder now explains why every village-progress tracker reads as finished from day one.** The trait starts you with all four buildings up, the residents moved in and their first errands settled, so the Inn Keeper's and Professor's building news, the notice board, and every other building-complete marker are all legitimately complete before you take a step. Its description now says so outright, this was reported as "3 buildings always shows complete", which is the trait working as designed rather than a bug. Wording only; the trait's effects, cost and tab are unchanged. Fully translated (English + Chinese).
 
-### Investigated — no change needed
+### Investigated: no change needed
 
 - **"Sunshine Allergy does nothing."** No trait by that name exists in the mod. The real trait is **Sensitive Skin**, and it correctly targets the base game's Sun Allergy stat, exactly as its description says.
 - **"The Inn Keeper promises a free fire pit."** No line anywhere in the Inn Keeper's dialogue or the mod's text offers free or pre-fuelled fire access. Nothing was promised, so nothing is missing.
 
 ### Notes
 
-- The trait tab moves and the Drunkard/Fugitive/Lost Tourist/Deadly Disease ongoing-effect fixes from this same feedback batch already shipped, and are documented, in **1.68.4** — they are not repeated here. Three further traits from that batch (**Agoraphobia**, **Nyctophobia**, **Lunacy**) remain deliberately unwired: each describes a conditional effect (outdoors only, night without light, escalating with the moon) that a flat ongoing modifier would misrepresent, and each needs real runtime logic that is not in this release. They are tracked, not forgotten.
+- The trait tab moves and the Drunkard/Fugitive/Lost Tourist/Deadly Disease ongoing-effect fixes from this same feedback batch already shipped, and are documented, in **1.68.4**: they are not repeated here. Three further traits from that batch (**Agoraphobia**, **Nyctophobia**, **Lunacy**) remain deliberately unwired: each describes a conditional effect (outdoors only, night without light, escalating with the moon) that a flat ongoing modifier would misrepresent, and each needs real runtime logic that is not in this release. They are tracked, not forgotten.
 
-## [1.68.7] — 2026-08-25
+## [1.68.7] - 2026-08-25
 
 ### Added
 
-- **New "Village Home Sign" decoration, with a carve-it-later face you can change your mind about.** A small buildable nameboard (Plank ×2, Long Stick ×2, Rope ×1), researched in the Construction › Furniture tab from the start of a run — no village phase, no quest, no NPC gate. It goes up as a plain rustic board worth Comfort +4. **Carve the Face** (4 hours) cuts a bordered panel and a run of relief work into it: the card's picture *and* its description change on the spot, on the same card in the same place, and the Comfort bonus rises to +8. **Plane the Face Smooth** (2 hours) takes the carving back off and returns the plain board. Both directions are free, repeatable as many times as you like, and never consume or duplicate the sign — this is the same in-place swap the Market Stall's **Set Up Awning** / **Take Down Awning** pair already uses. **Take Down Sign** recovers the build materials as usual.
-- **Known limitation — the two sign faces currently ship blank placeholder art.** The mechanic is complete and playable, but until the real illustrations are drawn the sign renders as a plain white card in both states, so the two faces look identical in-game even though the description and the Comfort bonus do change correctly. This was a deliberate choice to avoid holding the feature back on art; the finished pictures will drop in without any further change on your side.
+- **New "Village Home Sign" decoration, with a carve-it-later face you can change your mind about.** A small buildable nameboard (Plank ×2, Long Stick ×2, Rope ×1), researched in the Construction › Furniture tab from the start of a run, no village phase, no quest, no NPC gate. It goes up as a plain rustic board worth Comfort +4. **Carve the Face** (4 hours) cuts a bordered panel and a run of relief work into it: the card's picture *and* its description change on the spot, on the same card in the same place, and the Comfort bonus rises to +8. **Plane the Face Smooth** (2 hours) takes the carving back off and returns the plain board. Both directions are free, repeatable as many times as you like, and never consume or duplicate the sign, this is the same in-place swap the Market Stall's **Set Up Awning** / **Take Down Awning** pair already uses. **Take Down Sign** recovers the build materials as usual.
+- **Known limitation, the two sign faces currently ship blank placeholder art.** The mechanic is complete and playable, but until the real illustrations are drawn the sign renders as a plain white card in both states, so the two faces look identical in-game even though the description and the Comfort bonus do change correctly. This was a deliberate choice to avoid holding the feature back on art; the finished pictures will drop in without any further change on your side.
 
 ### Fixed
 
-- **README no longer advertises the Village Well's "Re-face the Well" option, which has not existed since 1.33.4.** That one-time re-skin action and its second well card were removed as dead weight back in 1.33.4 (the well now simply shows the correct forest-cut art from the moment it is built), but the README kept describing a choice between "Discard the Old Sketch" and "Re-face the Well". Only **Discard the Old Sketch** is real. No gameplay change — this corrects the documentation to match what actually ships.
+- **README no longer advertises the Village Well's "Re-face the Well" option, which has not existed since 1.33.4.** That one-time re-skin action and its second well card were removed as dead weight back in 1.33.4 (the well now simply shows the correct forest-cut art from the moment it is built), but the README kept describing a choice between "Discard the Old Sketch" and "Re-face the Well". Only **Discard the Old Sketch** is real. No gameplay change, this corrects the documentation to match what actually ships.
 
-## [1.68.6] — 2026-08-25
+## [1.68.6] - 2026-08-25
 
 ### Added
 
-- **Spring-thaw flood at the Clay Shoal ford — the third seasonal route gate.** Winter already drifts snow across the three Village roads and autumn drops a pine across the Pine Trail ↔ Highland Pines leg; spring now swells the river over the shoal and closes the **Clay Shoal ↔ Sodden Hollow** leg with a **Flooded Ford**. Two ways through, and both notify the gate: **wait it out** on the bank (a `Wait for the Floodwaters to Fall` self-action, 3 waits × 8 hours = a full day) or lay the new **Plank Causeway** across it (drag-on interaction, opens the road in one action and consumes the causeway). Simply outlasting the season also reopens it — the gate is season-triggered, so once spring ends the road is clear regardless. Once the ford is open it stays open for the rest of the spring; the marker expires on the shipped 60-day regrowth timer, so the next spring floods it again. Sodden Hollow is never cut off while the ford is shut — the Moss-Grown Clearing → Foraging Forest loop still reaches it.
-- **Plank Causeway** (`bpcmcplankcauseway` → `cmccausewaykit`) — a new construction blueprint under Construction › House Building, research 16 ticks, one 10-DTP stage costing 8 Planks + 4 Rope + 10 Stone. Location-locked to Clay Shoal in **both** `BlueprintCardConditions` and `BuildingCardConditions`, so it can neither be staged nor continued anywhere else. The finished causeway keeps indefinitely — build one out of season and have it ready for the next thaw.
+- **Spring-thaw flood at the Clay Shoal ford, the third seasonal route gate.** Winter already drifts snow across the three Village roads and autumn drops a pine across the Pine Trail ↔ Highland Pines leg; spring now swells the river over the shoal and closes the **Clay Shoal ↔ Sodden Hollow** leg with a **Flooded Ford**. Two ways through, and both notify the gate: **wait it out** on the bank (a `Wait for the Floodwaters to Fall` self-action, 3 waits × 8 hours = a full day) or lay the new **Plank Causeway** across it (drag-on interaction, opens the road in one action and consumes the causeway). Simply outlasting the season also reopens it, the gate is season-triggered, so once spring ends the road is clear regardless. Once the ford is open it stays open for the rest of the spring; the marker expires on the shipped 60-day regrowth timer, so the next spring floods it again. Sodden Hollow is never cut off while the ford is shut, the Moss-Grown Clearing → Foraging Forest loop still reaches it.
+- **Plank Causeway** (`bpcmcplankcauseway` → `cmccausewaykit`), a new construction blueprint under Construction › House Building, research 16 ticks, one 10-DTP stage costing 8 Planks + 4 Rope + 10 Stone. Location-locked to Clay Shoal in **both** `BlueprintCardConditions` and `BuildingCardConditions`, so it can neither be staged nor continued anywhere else. The finished causeway keeps indefinitely, build one out of season and have it ready for the next thaw.
 
   Both clearing actions are keyed under the gate's `ClearActionKeyPrefix` (`CMC_ClayShoalFlood_CI_Ford`), the invariant whose violation softlocked the Snow Drift road in 1.67.2; `Development_Tools/Tests/MapNodes-Schema.Tests.ps1` enforces it.
 
-## [1.68.5] — 2026-08-25
+## [1.68.5] - 2026-08-25
 
 ### Added
 
-- **Village Guards now show how the fight is actually going.** Inspecting a guard you have traded blows with adds a two-clause condition line under her description — one clause for how badly she is cut up ("Bleeding badly — the wounds are starting to tell", "Barely standing; the next solid blow could be the last"), one for how close her nerve is to going ("Rattled, but holding the line", "A breath away from breaking and running"). A guard fight is a running battle rather than a single duel: every guard Encounter saves her remaining Blood and Morale onto her when you break off, so the next engagement resumes from where the last one stopped. Until now there was no way to see that state — you could not tell whether one more exchange would kill her (Blood at zero) or merely rout her (Morale at zero), which are very different outcomes, since killing a guard maxes Village Crime and carries a much heavier jail sentence. A guard currently serving out a defeat cooldown shows a single "beaten" line instead. Display only: nothing about combat, pursuit, crime or the jail changed, and a guard you have never fought reads exactly as before. Fully translated (English + Chinese).
+- **Village Guards now show how the fight is actually going.** Inspecting a guard you have traded blows with adds a two-clause condition line under her description, one clause for how badly she is cut up ("Bleeding badly, the wounds are starting to tell", "Barely standing; the next solid blow could be the last"), one for how close her nerve is to going ("Rattled, but holding the line", "A breath away from breaking and running"). A guard fight is a running battle rather than a single duel: every guard Encounter saves her remaining Blood and Morale onto her when you break off, so the next engagement resumes from where the last one stopped. Until now there was no way to see that state, you could not tell whether one more exchange would kill her (Blood at zero) or merely rout her (Morale at zero), which are very different outcomes, since killing a guard maxes Village Crime and carries a much heavier jail sentence. A guard currently serving out a defeat cooldown shows a single "beaten" line instead. Display only: nothing about combat, pursuit, crime or the jail changed, and a guard you have never fought reads exactly as before. Fully translated (English + Chinese).
 
-## [1.68.4] — 2026-08-25
+## [1.68.4] - 2026-08-25
 
-Character-creation trait pass, resolving the approved half of the 2026-08-25 Chiwei player-feedback batch. The numeric values below are a first tuning pass, not final balance — they are expected to move again once played.
+Character-creation trait pass, resolving the approved half of the 2026-08-25 Chiwei player-feedback batch. The numeric values below are a first tuning pass, not final balance, they are expected to move again once played.
 
 ### Changed
 
-- **11 traits moved to the character-creation tab they actually belong in.** Several CMC traits had been sitting in a tab that didn't match what they do, which made them hard to find next to the vanilla traits they resemble. Black Thumb, Natural Trader, and Past Life Memories moved to **Knowledge** (they are backgrounds/aptitudes); Fugitive, Weak Courage, and Weak Cowardice moved to **Psychological** (fear and nerve); Seasonal Allergies and Weak Stomach moved to **Physiological** (innate bodily reactions) — CMC's first use of that tab; Graduate, Quiet Village, and Village Founder moved to **Situational** (they change the state of the world you start in, not your body or mind). No trait's effects, cost, or availability changed as part of this move.
-- **Bleeder no longer inflicts bleeding out of nowhere — it now makes blood loss harder to come back from.** Previously the trait pushed the BloodLoss stat directly, which is why it read as "I am bleeding and nothing stops it." It now applies a drag on **BloodPressure recovery** instead: blood still returns on its own, at roughly half the normal rate. With no wound, nothing happens at all; with a wound, the recovery afterward is the slow part — which is what the trait's description always claimed.
+- **11 traits moved to the character-creation tab they actually belong in.** Several CMC traits had been sitting in a tab that didn't match what they do, which made them hard to find next to the vanilla traits they resemble. Black Thumb, Natural Trader, and Past Life Memories moved to **Knowledge** (they are backgrounds/aptitudes); Fugitive, Weak Courage, and Weak Cowardice moved to **Psychological** (fear and nerve); Seasonal Allergies and Weak Stomach moved to **Physiological** (innate bodily reactions): CMC's first use of that tab; Graduate, Quiet Village, and Village Founder moved to **Situational** (they change the state of the world you start in, not your body or mind). No trait's effects, cost, or availability changed as part of this move.
+- **Bleeder no longer inflicts bleeding out of nowhere, it now makes blood loss harder to come back from.** Previously the trait pushed the BloodLoss stat directly, which is why it read as "I am bleeding and nothing stops it." It now applies a drag on **BloodPressure recovery** instead: blood still returns on its own, at roughly half the normal rate. With no wound, nothing happens at all; with a wound, the recovery afterward is the slow part, which is what the trait's description always claimed.
 - **Aged now actually does something.** It had been pointed at a stat the game does not drive (`StaminaRecovery`), so the trait's stamina penalty never applied. It now reduces base **Stamina** by 8 (of a 32 maximum), alongside its existing ongoing Pain.
 - **Nausea penalties lowered on Deadly Disease, Leper, and Weak Stomach; Rash raised on Leper and Seasonal Allergies.** Nausea's maximum is only 24, so the old values (15–20) sat at or near permanently maxed-out nausea; they are now 2–3. Rash's maximum is 384 and it decays quickly on its own, so the old values (30) were gone within minutes of a new game; Leper now sits at 193 and Seasonal Allergies at 96, which is where those traits become noticeable rather than cosmetic.
-- **Three traits that advertised an ongoing effect but shipped an empty one now have a real one.** Fugitive and Lost Tourist apply a mild ongoing **Stress** pressure, Deadly Disease applies ongoing **Nausea** and **Rash** plus a fixed ongoing **Pain** penalty, and Drunkard — whose description already promised restlessness — applies the same mild Stress pressure. Each ongoing rate is deliberately set at or below the stat's own natural recovery, matching how the base game's Anxious trait is built, so none of them can spiral to a maxed-out stat the way the traits fixed in 1.67.7 did.
-- **The three resident cottages now keep their fires going like the rest of the village.** The Miller's Cottage, the Weaver's Cottage, and the Apothecary's Cabin each get the same self-maintaining Fireplace the Inn, the Academy, and the Village Hall already had, so stepping inside an NPC's home in winter is no longer colder than standing outside it. This reuses the existing fireplace-tending mechanism — no blanket indoor temperature bonus was added, and a fireplace you place yourself in one of those rooms is left alone.
+- **Three traits that advertised an ongoing effect but shipped an empty one now have a real one.** Fugitive and Lost Tourist apply a mild ongoing **Stress** pressure, Deadly Disease applies ongoing **Nausea** and **Rash** plus a fixed ongoing **Pain** penalty, and Drunkard, whose description already promised restlessness, applies the same mild Stress pressure. Each ongoing rate is deliberately set at or below the stat's own natural recovery, matching how the base game's Anxious trait is built, so none of them can spiral to a maxed-out stat the way the traits fixed in 1.67.7 did.
+- **The three resident cottages now keep their fires going like the rest of the village.** The Miller's Cottage, the Weaver's Cottage, and the Apothecary's Cabin each get the same self-maintaining Fireplace the Inn, the Academy, and the Village Hall already had, so stepping inside an NPC's home in winter is no longer colder than standing outside it. This reuses the existing fireplace-tending mechanism, no blanket indoor temperature bonus was added, and a fireplace you place yourself in one of those rooms is left alone.
 
 ### Fixed
 
 - **A stale English reference line on the Hand Wraps description in the Chinese localization file** (the Chinese text itself was already correct and is unchanged).
 
-## [1.68.3] — 2026-08-25
+## [1.68.3] - 2026-08-25
 
 ### Changed
 
-- **Apothecary's Cabin and Rare Herb Mixture are no longer hard-dependent on Herbs & Fungi.** Player report: uninstalling H&F fixed a performance complaint (see Herbs and Fungi 1.10.16) but broke the Apothecary questline, since the Cabin's finishing stage and the Rare Herb Mixture recipe both required H&F's Dried Hemp Flower/Dried Ginseng/Dried Reishi with no substitute. Both now accept any mix of six rare herbs via the vanilla `GpTag_SpiritHerb` blueprint tab group (`RequiredTabGroupWarpData`) — membership in a tab group is a list on the group itself (`CardTabGroup.IncludedCards`), not a tag on the card, so a new `GameSourceModify/GpTag_SpiritHerb.json` patch appends H&F's three dried herbs plus two new CMC-native herbs — **Silverwort Blossom** and **Hollow Sage** (forageable in the Foraging Forest and nearby groves: Hunter's Crossing, High Grove, Mossy Clearing) — to that group's existing member list, which harmlessly skips the three H&F entries (logged, not fatal) if H&F isn't installed. `GpTag_SpiritHerb` already ships with 9 vanilla members (Fairyweed/Spirit Mushrooms/Fly Agaric, fresh/dried/powder) that also count, one of which (Spirit Mushrooms) is already forageable in the Foraging Forest today — so both recipes were already loosely completable on pure vanilla, and are now robustly so with the two new CMC herbs added. `README.md` updated to match; the Rare Herb Mixture's description no longer names specific H&F herbs.
+- **Apothecary's Cabin and Rare Herb Mixture are no longer hard-dependent on Herbs & Fungi.** Player report: uninstalling H&F fixed a performance complaint (see Herbs and Fungi 1.10.16) but broke the Apothecary questline, since the Cabin's finishing stage and the Rare Herb Mixture recipe both required H&F's Dried Hemp Flower/Dried Ginseng/Dried Reishi with no substitute. Both now accept any mix of six rare herbs via the vanilla `GpTag_SpiritHerb` blueprint tab group (`RequiredTabGroupWarpData`), membership in a tab group is a list on the group itself (`CardTabGroup.IncludedCards`), not a tag on the card, so a new `GameSourceModify/GpTag_SpiritHerb.json` patch appends H&F's three dried herbs plus two new CMC-native herbs, **Silverwort Blossom** and **Hollow Sage** (forageable in the Foraging Forest and nearby groves: Hunter's Crossing, High Grove, Mossy Clearing), to that group's existing member list, which harmlessly skips the three H&F entries (logged, not fatal) if H&F isn't installed. `GpTag_SpiritHerb` already ships with 9 vanilla members (Fairyweed/Spirit Mushrooms/Fly Agaric, fresh/dried/powder) that also count, one of which (Spirit Mushrooms) is already forageable in the Foraging Forest today, so both recipes were already loosely completable on pure vanilla, and are now robustly so with the two new CMC herbs added. `README.md` updated to match; the Rare Herb Mixture's description no longer names specific H&F herbs.
 
-## [1.68.2] — 2026-08-25
+## [1.68.2] - 2026-08-25
 
 ### Fixed
 
-- **The Academy's Carpentry course folded back onto the Lecture Hall — no more separate "Carpentry Bench" table with its own, out-of-sync Tuition Account.** Player report: the Carpentry Bench's Tuition Account balance never matched the Lecture Hall's, because they were genuinely two different accounts on two different physical cards — depositing currency on one never funded the other. The Carpentry Bench existed only because the Lectern's other six courses had already claimed every visible progress-stat slot on the card; Carpentry now uses `CardData`'s previously-unused 8th durability slot (`Progress`) instead, so it lives as a 7th "Study"/"Final Exam" action pair directly on the Lectern. There is only one Academy study card, one Tuition Account, and one balance to fund from now on. Existing saves with progress already banked on a Carpentry Bench instance keep that card in the world (harmless, no longer referenced by any action); new Carpentry study/deposits happen on the Lectern going forward. **[Correction, 1.68.23: the last sentence was wrong. Deleting the bench's CardData meant `GameManager.LoadCard` silently dropped every saved bench on the next load (a saved UID that no longer resolves returns false there), taking any balance and study hours banked on it with it. 1.68.23 restores the card as a retired stub with a Transfer to Lecture Hall action - see that entry.]**
+- **The Academy's Carpentry course folded back onto the Lecture Hall, no more separate "Carpentry Bench" table with its own, out-of-sync Tuition Account.** Player report: the Carpentry Bench's Tuition Account balance never matched the Lecture Hall's, because they were genuinely two different accounts on two different physical cards, depositing currency on one never funded the other. The Carpentry Bench existed only because the Lectern's other six courses had already claimed every visible progress-stat slot on the card; Carpentry now uses `CardData`'s previously-unused 8th durability slot (`Progress`) instead, so it lives as a 7th "Study"/"Final Exam" action pair directly on the Lectern. There is only one Academy study card, one Tuition Account, and one balance to fund from now on. Existing saves with progress already banked on a Carpentry Bench instance keep that card in the world (harmless, no longer referenced by any action); new Carpentry study/deposits happen on the Lectern going forward. **[Correction, 1.68.23: the last sentence was wrong. Deleting the bench's CardData meant `GameManager.LoadCard` silently dropped every saved bench on the next load (a saved UID that no longer resolves returns false there), taking any balance and study hours banked on it with it. 1.68.23 restores the card as a retired stub with a Transfer to Lecture Hall action - see that entry.]**
 
-## [1.68.1] — 2026-08-24
+## [1.68.1] - 2026-08-24
 
 ### Changed
 
-- **NPC scheduler performance: cached resolved NPC references instead of re-scanning the full NPC roster every tick.** Player-reported performance concern: the game's own NPC pathfinding/AI is known to be costly (community-reported since a past game update), and CMC's growing roster of scheduled NPCs (Apothecary, Professor, Miller, Weaver, the 4 Village Guards, InnKeeper, Ash, and the 3 Cottage residents) compounds it. Investigation found a distinct, independently-fixable inefficiency layered on top: about a dozen 1–3 second pollers (`ApothecarySchedulePatch`, `ProfessorSchedulePatch`, `CottageResidentSchedulePatch`, `CottageResidentSpawnPatch`, `GuardSpawnPatch`, `InnKeeperSpawnPatch`, `AshPartnerSpawnPatch`) each ran their own full linear scan of `GameManager.AllNPCs` every tick, forever, purely to re-confirm an NPC that had already been found and hadn't gone anywhere — `GuardSpawnPatch` alone did this 4× per second for the life of every save. Each now caches its resolved `InGameNPC` reference (mirroring the pattern `CSFFModFramework/Animals/AnimalLifecycleTicker` already used correctly) and only re-scans the roster when the cached reference is actually gone (destroyed/despawned) or hasn't been found yet — a new `Reflect.IsAlive` framework helper (CSFFModFramework 2.25.7) handles the Unity-destroyed-object check safely. Behavior is unchanged; this only removes redundant work in the common steady-state case.
-- **`CompanionFollowDiagnostics` (a still-armed temporary diagnostic tracking whether companions can cross into modded map nodes, pending confirmation of a framework-level pathfinding fix) no longer re-runs its expensive real A\* pathfind probe on every player environment change while a companion is stuck** — its dedup key tracked the specific player environment, so while reproducing the exact bug it exists to catch, it re-probed on almost every 15-second tick as the player kept moving. It now dedups on stuck-vs-caught-up state alone, still logging every real transition, at a fraction of the cost.
+- **NPC scheduler performance: cached resolved NPC references instead of re-scanning the full NPC roster every tick.** Player-reported performance concern: the game's own NPC pathfinding/AI is known to be costly (community-reported since a past game update), and CMC's growing roster of scheduled NPCs (Apothecary, Professor, Miller, Weaver, the 4 Village Guards, InnKeeper, Ash, and the 3 Cottage residents) compounds it. Investigation found a distinct, independently-fixable inefficiency layered on top: about a dozen 1–3 second pollers (`ApothecarySchedulePatch`, `ProfessorSchedulePatch`, `CottageResidentSchedulePatch`, `CottageResidentSpawnPatch`, `GuardSpawnPatch`, `InnKeeperSpawnPatch`, `AshPartnerSpawnPatch`) each ran their own full linear scan of `GameManager.AllNPCs` every tick, forever, purely to re-confirm an NPC that had already been found and hadn't gone anywhere, `GuardSpawnPatch` alone did this 4× per second for the life of every save. Each now caches its resolved `InGameNPC` reference (mirroring the pattern `CSFFModFramework/Animals/AnimalLifecycleTicker` already used correctly) and only re-scans the roster when the cached reference is actually gone (destroyed/despawned) or hasn't been found yet, a new `Reflect.IsAlive` framework helper (CSFFModFramework 2.25.7) handles the Unity-destroyed-object check safely. Behavior is unchanged; this only removes redundant work in the common steady-state case.
+- **`CompanionFollowDiagnostics` (a still-armed temporary diagnostic tracking whether companions can cross into modded map nodes, pending confirmation of a framework-level pathfinding fix) no longer re-runs its expensive real A\* pathfind probe on every player environment change while a companion is stuck**, its dedup key tracked the specific player environment, so while reproducing the exact bug it exists to catch, it re-probed on almost every 15-second tick as the player kept moving. It now dedups on stuck-vs-caught-up state alone, still logging every real transition, at a fraction of the cost.
 
-## [1.68.0] — 2026-08-24
+## [1.68.0] - 2026-08-24
 
 ### Added
 
-- **New "Quiet Village" character-creation trait (performance/accessibility).** Trades away the village's roaming NPC content for reduced simulation overhead: the Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of commuting or foraging, and none of the four Town Watch guards ever take up their posts — their patrol/chase/warden/summon duties are never spawned or evaluated for the whole run. The Inn Keeper needed no change, since he never leaves the Inn under any schedule. Free (0 Suns) — this is an opt-in accessibility toggle, not a gameplay advantage.
+- **New "Quiet Village" character-creation trait (performance/accessibility).** Trades away the village's roaming NPC content for reduced simulation overhead: the Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of commuting or foraging, and none of the four Town Watch guards ever take up their posts, their patrol/chase/warden/summon duties are never spawned or evaluated for the whole run. The Inn Keeper needed no change, since he never leaves the Inn under any schedule. Free (0 Suns), this is an opt-in accessibility toggle, not a gameplay advantage.
 
-## [1.67.7] — 2026-08-23
+## [1.67.7] - 2026-08-23
 
 ### Fixed
 
-- **Bleeder inflicted a real, unstoppable bleeding status with no wounds present, instead of just making existing wounds bleed longer.** The trait applied an unbounded per-tick RateModifier to the player's BloodLoss stat, so BloodLoss climbed toward its max and stayed there indefinitely — there was no way to actually recover from it in-game short of a witch ritual. Bleeder (and the same runaway-rate pattern on `Aged`, `DeadlyDisease`, `Fugitive`, `Leper`, `LostTourist`, `SeasonalAllergies`, `SensitiveSkin`, and `SpirituallyTroubled`) now apply a fixed, permanent stat offset instead — matching how the base game's own harsh drawback traits (Weak Immune System, Pain Sensitivity) are built: a constant `ValueModifier` with `RateModifier` zeroed, not an ever-increasing rate. These traits still make Pain/Nausea/Rash/Stress/Fear/Loneliness/SunAllergy/BloodLoss permanently worse, but at a fixed, survivable severity instead of spiraling to a maxed-out stat over a few in-game days.
-- **Depositing higher-value Duros Coins (Ghost Copper, Bronze, Iron, White Copper, Pure Tin) at the Inn/Academy counter credited far less than the coin's actual worth**, even though trading the same coin with the innkeeper paid full value. The deposit formula approximated a coin's value from its raw metal-purity stat (`SpecialDurability4`), which only happens to line up with a plain Copper Coin — every higher denomination is priced by DurosCoinage as its own worth, not metal purity, so the approximation undervalued them (e.g. a 1800-value Pure Tin Coin credited only 60). Deposits now read the coin's own `TradingValue` — the same field the innkeeper correctly uses — falling back to the old metal-purity formula only if a coin has no trading value set.
+- **Bleeder inflicted a real, unstoppable bleeding status with no wounds present, instead of just making existing wounds bleed longer.** The trait applied an unbounded per-tick RateModifier to the player's BloodLoss stat, so BloodLoss climbed toward its max and stayed there indefinitely, there was no way to actually recover from it in-game short of a witch ritual. Bleeder (and the same runaway-rate pattern on `Aged`, `DeadlyDisease`, `Fugitive`, `Leper`, `LostTourist`, `SeasonalAllergies`, `SensitiveSkin`, and `SpirituallyTroubled`) now apply a fixed, permanent stat offset instead, matching how the base game's own harsh drawback traits (Weak Immune System, Pain Sensitivity) are built: a constant `ValueModifier` with `RateModifier` zeroed, not an ever-increasing rate. These traits still make Pain/Nausea/Rash/Stress/Fear/Loneliness/SunAllergy/BloodLoss permanently worse, but at a fixed, survivable severity instead of spiraling to a maxed-out stat over a few in-game days.
+- **Depositing higher-value Duros Coins (Ghost Copper, Bronze, Iron, White Copper, Pure Tin) at the Inn/Academy counter credited far less than the coin's actual worth**, even though trading the same coin with the innkeeper paid full value. The deposit formula approximated a coin's value from its raw metal-purity stat (`SpecialDurability4`), which only happens to line up with a plain Copper Coin, every higher denomination is priced by DurosCoinage as its own worth, not metal purity, so the approximation undervalued them (e.g. a 1800-value Pure Tin Coin credited only 60). Deposits now read the coin's own `TradingValue`, the same field the innkeeper correctly uses, falling back to the old metal-purity formula only if a coin has no trading value set.
 
 ### Added
 
-- **Two new milder Courage traits: Weak Courage and Weak Cowardice.** The base game's Brave/Fainthearted traits swing Courage by a full ±10000 — enough to make a character permanently fearless or permanently unable to push through scary actions regardless of circumstance. These new traits shift Courage by a much smaller fixed +50/-100, leaving room for other factors (like Pain) to still tip the balance — e.g. enough courage to grit through stitching a wound at high Pain, but not enough to do it comfortably at low Pain.
+- **Two new milder Courage traits: Weak Courage and Weak Cowardice.** The base game's Brave/Fainthearted traits swing Courage by a full ±10000, enough to make a character permanently fearless or permanently unable to push through scary actions regardless of circumstance. These new traits shift Courage by a much smaller fixed +50/-100, leaving room for other factors (like Pain) to still tip the balance, e.g. enough courage to grit through stitching a wound at high Pain, but not enough to do it comfortably at low Pain.
 
-## [1.67.6] — 2026-08-22
+## [1.67.6] - 2026-08-22
 
 ### Changed
 
-- **Foot Wraps got new card art depicting an actual reed/rush weave** — the item's description and blueprint always called for dried reed and plant fiber, but its art was a duplicate of the Hand Wraps illustration (a woven cloth strip), so the two looked identical despite being different materials.
+- **Foot Wraps got new card art depicting an actual reed/rush weave**: the item's description and blueprint always called for dried reed and plant fiber, but its art was a duplicate of the Hand Wraps illustration (a woven cloth strip), so the two looked identical despite being different materials.
 - **Hand Wraps no longer require Reeds to craft.** Its art has always depicted plain cloth strips (and the Chinese localization already described it that way), so the item and blueprint now match: it's built from a scrap of cloth (`ClothSmall`) instead of Dry Reeds, dropped `tag_ReedClothing`, and its "Rip up" action now returns cloth instead of reeds. Still freely craftable from the start, same as before.
 
-## [1.67.5] — 2026-08-22
+## [1.67.5] - 2026-08-22
 
 ### Fixed
 
-- **Duplicate trees on new map-expansion tiles (e.g. Pine Trail showing two Small Pine Tree, two Pine Tree, and a Birch Tree x2 stack).** Nine of the twelve CMC map nodes (`cmcEnvPineTrail`, `cmcEnvHighGrove`, `cmcEnvClayFlats`, `cmcEnvMarshHollow`, `cmcEnvMossyClearing`, `cmcEnvForagingForest`, `cmcEnvHuntersCrossing`, `cmcEnvDeerMeadow`, `cmcEnvBadgerWarren`) clone a vanilla location without stripping its native "Create Small/Large/Birch Tree" regrowth action, which could race `TreeRespawnPatch`'s own daily/env-entry tree check and plant a second copy of the same species. `TreeRespawnPatch` now trims any species that exceeds its declared per-location count in addition to filling shortfalls, so both future races and already-duplicated boards self-correct on the next day rollover or env visit. (The tree species were deliberately kept out of `StripLegacyBoardUIDs` — that list also triggers a full env-board wipe-and-reseed if a listed UID is ever found present on a saved board, which would fire on every load for a species this patch intentionally keeps on the board forever.)
+- **Duplicate trees on new map-expansion tiles (e.g. Pine Trail showing two Small Pine Tree, two Pine Tree, and a Birch Tree x2 stack).** Nine of the twelve CMC map nodes (`cmcEnvPineTrail`, `cmcEnvHighGrove`, `cmcEnvClayFlats`, `cmcEnvMarshHollow`, `cmcEnvMossyClearing`, `cmcEnvForagingForest`, `cmcEnvHuntersCrossing`, `cmcEnvDeerMeadow`, `cmcEnvBadgerWarren`) clone a vanilla location without stripping its native "Create Small/Large/Birch Tree" regrowth action, which could race `TreeRespawnPatch`'s own daily/env-entry tree check and plant a second copy of the same species. `TreeRespawnPatch` now trims any species that exceeds its declared per-location count in addition to filling shortfalls, so both future races and already-duplicated boards self-correct on the next day rollover or env visit. (The tree species were deliberately kept out of `StripLegacyBoardUIDs`: that list also triggers a full env-board wipe-and-reseed if a listed UID is ever found present on a saved board, which would fire on every load for a species this patch intentionally keeps on the board forever.)
 
-## [1.67.4] — 2026-08-22
+## [1.67.4] - 2026-08-22
 
 ### Changed
 
 - **Partner Inn/Academy following: diagnostics promoted from invisible to logged.** `PartnerIndoorFollowPatch` (shipped 1.47.1) has never been confirmed in-game crossing either doorway. Its only "it worked" line was `LogDebug`, which BepInEx suppresses by default, so a successful run and a silent no-op looked identical in the log. Boundary crossings, per-companion relocation outcomes, and failure paths (missing refs, missing `GameManager`) now log at `LogInfo` so the next playthrough that walks a companion through the Inn or Academy door will show conclusively whether it worked.
 
-## [1.67.3] — 2026-08-22
+## [1.67.3] - 2026-08-22
 
 ### Changed
 
-- **Town Achievement Board benched pending further work.** A fresh-save playtest found the board's in-game presentation broken — several of the eleven achievement entries and the "N of 11 earned" progress summary don't render. Rather than ship a half-working board, the whole subsystem is disabled: `cmcBoardAchievements` is removed from the Village Inn's default spawns, and the three supporting patches (`AchievementBoardSeedPatch`, `AchievementTrackerPatch`, `AchievementKillEffectsPatch`) are commented out in `Plugin.cs`. No code was deleted — the board's CardData, all `cmcStatAch*` GameStats, and the patch classes remain in the repo for the next work session. Player-facing mentions removed from `README.md` and `ModInfo.json` until it's ready.
+- **Town Achievement Board benched pending further work.** A fresh-save playtest found the board's in-game presentation broken, several of the eleven achievement entries and the "N of 11 earned" progress summary don't render. Rather than ship a half-working board, the whole subsystem is disabled: `cmcBoardAchievements` is removed from the Village Inn's default spawns, and the three supporting patches (`AchievementBoardSeedPatch`, `AchievementTrackerPatch`, `AchievementKillEffectsPatch`) are commented out in `Plugin.cs`. No code was deleted, the board's CardData, all `cmcStatAch*` GameStats, and the patch classes remain in the repo for the next work session. Player-facing mentions removed from `README.md` and `ModInfo.json` until it's ready.
 
-## [1.67.2] — 2026-08-22
-
-### Fixed
-
-- **Digging a winter Snow Drift "by hand" (no shovel) permanently softlocked that road.** Each Snow Drift (Village↔Pine Trail, Village↔Deer Meadow/Stillwater Meadow, Village↔Village Farm) offers two ways to clear it: a shovel `CardInteraction`, or a slower no-tool `DismantleAction`. The framework's gate-reopen listener was only wired to the shovel action's key prefix, so clearing the drift by hand destroyed the card exactly as advertised but never told the road gate to reopen — the connection stayed locked for the rest of the game, even after a full clear. Renamed the by-hand action's internal key to share the shovel action's prefix so either method now correctly reopens the road. A road already stuck locked from digging by hand before this fix needs the Snow Drift to regrow and be cleared again (or a manual save edit) — this only prevents new occurrences.
-
-## [1.67.1] — 2026-08-22
+## [1.67.2] - 2026-08-22
 
 ### Fixed
 
-- **Town Achievement Board: "Finding a Friend" could show as already earned on Day 1-2 of a brand-new save.** The detector checked only whether a Trader NPC existed anywhere in the game's NPC roster (`GameManager.AllNPCs`) — but Traders are instantiated into that roster during normal game boot, regardless of whether the player has ever actually been near one. It now additionally requires the trader to be on the player's current board at the moment of the check, matching the achievement's "cross paths with a traveling trader" description. Note: a save where this already latched incorrectly will keep showing it as earned — the fix only prevents new false positives.
+- **Digging a winter Snow Drift "by hand" (no shovel) permanently softlocked that road.** Each Snow Drift (Village↔Pine Trail, Village↔Deer Meadow/Stillwater Meadow, Village↔Village Farm) offers two ways to clear it: a shovel `CardInteraction`, or a slower no-tool `DismantleAction`. The framework's gate-reopen listener was only wired to the shovel action's key prefix, so clearing the drift by hand destroyed the card exactly as advertised but never told the road gate to reopen, the connection stayed locked for the rest of the game, even after a full clear. Renamed the by-hand action's internal key to share the shovel action's prefix so either method now correctly reopens the road. A road already stuck locked from digging by hand before this fix needs the Snow Drift to regrow and be cleared again (or a manual save edit), this only prevents new occurrences.
 
-## [1.67.0] — 2026-08-21
+## [1.67.1] - 2026-08-22
+
+### Fixed
+
+- **Town Achievement Board: "Finding a Friend" could show as already earned on Day 1-2 of a brand-new save.** The detector checked only whether a Trader NPC existed anywhere in the game's NPC roster (`GameManager.AllNPCs`), but Traders are instantiated into that roster during normal game boot, regardless of whether the player has ever actually been near one. It now additionally requires the trader to be on the player's current board at the moment of the check, matching the achievement's "cross paths with a traveling trader" description. Note: a save where this already latched incorrectly will keep showing it as earned, the fix only prevents new false positives.
+
+## [1.67.0] - 2026-08-21
 
 ### Added
 
-- **The Miller and the Weaver now genuinely go to work.** Previously, once their weekly Academy day and nightly Inn visit were accounted for, their remaining daytime hours were a purely cosmetic roll to wander generic outdoor nodes (Village Path/Farm, Foraging Forest, Pine Trail, Highland Pines, Moss-Grown Clearing) — no profession-specific action ever fired there, which is what player reports of "they don't enter the mill/workshop" were really describing. They now hold a real "at work" duty (built on the same engine `NPCDuty` chassis the Village Guards' patrol already uses) that keeps them at the Village during the day, and while there they top up their own trade stock once a day — the Miller grinding a little Wheat/Rye/Acorn Flour, the Weaver working the loom for Spindle, Bone Needle, Twine, and Yarn Fiber. Distinct from their existing weekly Copper Chest savings — this is a separate, smaller daily top-up to their own carried satchel.
+- **The Miller and the Weaver now genuinely go to work.** Previously, once their weekly Academy day and nightly Inn visit were accounted for, their remaining daytime hours were a purely cosmetic roll to wander generic outdoor nodes (Village Path/Farm, Foraging Forest, Pine Trail, Highland Pines, Moss-Grown Clearing), no profession-specific action ever fired there, which is what player reports of "they don't enter the mill/workshop" were really describing. They now hold a real "at work" duty (built on the same engine `NPCDuty` chassis the Village Guards' patrol already uses) that keeps them at the Village during the day, and while there they top up their own trade stock once a day, the Miller grinding a little Wheat/Rye/Acorn Flour, the Weaver working the loom for Spindle, Bone Needle, Twine, and Yarn Fiber. Distinct from their existing weekly Copper Chest savings, this is a separate, smaller daily top-up to their own carried satchel.
 
 ### Fixed
 
-- **README's Cottage Residents section still described the pre-1.66.0 "won't head to the Inn/Academy until you've visited that interior yourself at least once" limitation**, which no longer applies — corrected alongside the wording above.
+- **README's Cottage Residents section still described the pre-1.66.0 "won't head to the Inn/Academy until you've visited that interior yourself at least once" limitation**, which no longer applies, corrected alongside the wording above.
 
-## [1.66.0] — 2026-08-21
+## [1.66.0] - 2026-08-21
 
 ### Added
 
-- **Winter snow drifts blocking the Village's three roads can now be dug through by hand, not just with a shovel.** Each `cmcSnowDrift{North,South,East}` gained a "Dig Through the Snow Drift by Hand" self-action — no tool required, same 3-hit clear, but 20 DTP per hit instead of 8 (2.5x slower), so a character caught out in winter with no shovel isn't hard-blocked from ever reaching the Village.
-- **Foot Wraps and Hand Wraps now craft from Fiber + Reeds + Twine instead of Small Cloth**, joining the reed-based equipment line (`tag_ReedClothing`) alongside the vanilla Reed Coat/Tunic/Skirt. Previously both recipes required Small Cloth, which meant they were only obtainable once the Loom (a mid-game Weaving-skill unlock) was already researched — by which point most players already have leather boots/gloves and no longer need improvised wraps at all. The reed-based recipe keeps them genuinely early-game, matching their "crude improvised" flavor text and their placement in the lowest Tailoring subtab. Flavor text and the research-gate item both updated to match (now gated on having Reeds in hand, not Cloth).
+- **Winter snow drifts blocking the Village's three roads can now be dug through by hand, not just with a shovel.** Each `cmcSnowDrift{North,South,East}` gained a "Dig Through the Snow Drift by Hand" self-action, no tool required, same 3-hit clear, but 20 DTP per hit instead of 8 (2.5x slower), so a character caught out in winter with no shovel isn't hard-blocked from ever reaching the Village.
+- **Foot Wraps and Hand Wraps now craft from Fiber + Reeds + Twine instead of Small Cloth**, joining the reed-based equipment line (`tag_ReedClothing`) alongside the vanilla Reed Coat/Tunic/Skirt. Previously both recipes required Small Cloth, which meant they were only obtainable once the Loom (a mid-game Weaving-skill unlock) was already researched, by which point most players already have leather boots/gloves and no longer need improvised wraps at all. The reed-based recipe keeps them genuinely early-game, matching their "crude improvised" flavor text and their placement in the lowest Tailoring subtab. Flavor text and the research-gate item both updated to match (now gated on having Reeds in hand, not Cloth).
 
 ### Fixed
 
-- **Traveling toward the Village from the south (via Pine Trail) could skip straight into the Village instead of stopping there.** Root cause: 11 of the 12 CMC WorldMap clone nodes (not just the Village, previously fixed in 1.65.2) inherited the same 8 stray vanilla road/fence improvements (`Imp_PathNorth/East/South/West`, `Imp_HuntingFencesNorth/East/South/West`) from their own clone templates — unlocked, freely buildable, with a travel-destination cache that can go stale against this mod's own seasonal snow-drift gates. `VillageStrayImprovementsPatch` is now `StrayImprovementsPatch`, generalized to strip all 8 stray GUIDs from every CMC location, plus a new boot-time pass that also un-marks any of them already built on an existing save.
+- **Traveling toward the Village from the south (via Pine Trail) could skip straight into the Village instead of stopping there.** Root cause: 11 of the 12 CMC WorldMap clone nodes (not just the Village, previously fixed in 1.65.2) inherited the same 8 stray vanilla road/fence improvements (`Imp_PathNorth/East/South/West`, `Imp_HuntingFencesNorth/East/South/West`) from their own clone templates, unlocked, freely buildable, with a travel-destination cache that can go stale against this mod's own seasonal snow-drift gates. `VillageStrayImprovementsPatch` is now `StrayImprovementsPatch`, generalized to strip all 8 stray GUIDs from every CMC location, plus a new boot-time pass that also un-marks any of them already built on an existing save.
 - **The Professor's Commissions option (and the "3 Nettle Leaves" specimen request specifically) could disappear and reappear while entering/leaving buildings, even while standing right in front of him.** His phase-downgrade check (Resident → Foraging, which hides all Commissions) was missing the same `withPlayer` guard his movement logic already had, so his satchel dipping to ≤2 while the player was mid-conversation would instantly hide every commission.
 - **Giving the Professor a finished Cloth Coat for his Weaver interlock errand consumed the coat but never advanced the quest, so he asked for another one immediately.** The "Give Cloth Coat" drag-and-drop action on his agent was missing the `StatModifications` bump every sibling "Give X" action has; added, matching the existing pattern.
-- **The Miller and Weaver never actually entered their own cottage interiors overnight.** Their schedule required the player to have personally opened the Miller's/Weaver's cottage door at least once that session before it could path them there — something almost no player ever does — so they stood outside in the Village indefinitely instead. Both interiors are non-instanced, so the "must be visited first" requirement was unnecessary; their destination `EnvID`s are now built the same way every outdoor wander node's already was, with no prior visit needed.
+- **The Miller and Weaver never actually entered their own cottage interiors overnight.** Their schedule required the player to have personally opened the Miller's/Weaver's cottage door at least once that session before it could path them there, something almost no player ever does, so they stood outside in the Village indefinitely instead. Both interiors are non-instanced, so the "must be visited first" requirement was unnecessary; their destination `EnvID`s are now built the same way every outdoor wander node's already was, with no prior visit needed.
 
 ### Investigated, not a bug
 
-- **New map areas having several large trees plus small branches.** `TreeRespawnPatch`'s per-node tree targets are hard-capped (never spawns beyond the declared count) and confirmed against each node's real vanilla clone template — most nodes match 1:1, a handful deliberately set the secondary/decorative tree species one or two higher for variety. No runaway growth is possible; this is intentional forest density, not a bug.
+- **New map areas having several large trees plus small branches.** `TreeRespawnPatch`'s per-node tree targets are hard-capped (never spawns beyond the declared count) and confirmed against each node's real vanilla clone template, most nodes match 1:1, a handful deliberately set the secondary/decorative tree species one or two higher for variety. No runaway growth is possible; this is intentional forest density, not a bug.
 
 ---
 
-## [1.65.5] — 2026-08-20
+## [1.65.5] - 2026-08-20
 
 ### Changed
 
-- **Village Inn/Academy/Village Hall warmth no longer comes from a forced stat hack — it comes from a real fire.** 1.65.2 patched the "Hearth-Warmed" PassiveEffect's runaway `RateModifier` (which cooked a player to death in the Inn) down to a small `+2/tick`, backed by a compensating `IndoorHeatCapPatch` that force-set Body Temperature to a target value every tick. That's two hacks fighting over one stat, unconditionally active whether or not the room was actually "warm" in any in-fiction sense. Replaced instead: the "Hearth-Warmed" PassiveEffect and `IndoorHeatCapPatch` are both removed outright, and the Academy and Village Hall now each get their own vanilla Fireplace dropped into their interior on first visit (`DefaultEnvCardDrops`), same as the Inn already had. Warmth now comes entirely from vanilla's own Fireplace mechanism — its "Body Temp"/"Indoors Temp" PassiveEffects, present only on the lit CardData and gone the instant it goes out — the exact same source every player-built fireplace already uses, so it naturally settles at a comfortable level and can't cook anyone. `InnFireplacePatch` (which kept the Inn's hearth topped off and auto-relit) is generalized into `VillageFireplacePatch`, which now maintains all three buildings' own built-in hearths the same way.
+- **Village Inn/Academy/Village Hall warmth no longer comes from a forced stat hack, it comes from a real fire.** 1.65.2 patched the "Hearth-Warmed" PassiveEffect's runaway `RateModifier` (which cooked a player to death in the Inn) down to a small `+2/tick`, backed by a compensating `IndoorHeatCapPatch` that force-set Body Temperature to a target value every tick. That's two hacks fighting over one stat, unconditionally active whether or not the room was actually "warm" in any in-fiction sense. Replaced instead: the "Hearth-Warmed" PassiveEffect and `IndoorHeatCapPatch` are both removed outright, and the Academy and Village Hall now each get their own vanilla Fireplace dropped into their interior on first visit (`DefaultEnvCardDrops`), same as the Inn already had. Warmth now comes entirely from vanilla's own Fireplace mechanism, its "Body Temp"/"Indoors Temp" PassiveEffects, present only on the lit CardData and gone the instant it goes out, the exact same source every player-built fireplace already uses, so it naturally settles at a comfortable level and can't cook anyone. `InnFireplacePatch` (which kept the Inn's hearth topped off and auto-relit) is generalized into `VillageFireplacePatch`, which now maintains all three buildings' own built-in hearths the same way.
 
-## [1.65.4] — 2026-08-20
-
-### Changed
-
-- **Wicker Chair blueprint now actually calls for wicker.** The recipe previously asked for 3 Wooden Plank + 3 Rope, which doesn't read as "wicker" at all. It's now 2 Wooden Plank (frame) + 4 Dry Reeds (weaving) + 2 Twine (binding), plus a Cutting Tool held (not consumed, GpTag_CuttingTool group) to trim the reeds during construction — the tool takes 8 Usage wear per build, same pattern as this mod's other tool-gated blueprints. Take Apart and the card's help text now return/describe Plank, Reeds, and Twine instead of the old Plank/Rope pair.
-
-## [1.65.3] — 2026-08-20
+## [1.65.4] - 2026-08-20
 
 ### Changed
 
-- **The Outfit Wardrobe's storage now labels each outfit's slots directly on the grid.** The 54-slot inventory previously rendered as one flat, paginated grid with no visual boundary between the three 18-slot outfit blocks, and the page-arrow scroll width doesn't land on those boundaries either — there was no way to tell where one outfit's slots ended and the next began, so a player had no reliable way to choose which outfit an item was going into. "Outfit 1/2/3" headers now sit directly on the first slot of each block (`OutfitWardrobeSectionsPatch.cs`), and clicking any "Equip/Unequip Outfit N" button now also scrolls the popup straight to that block, whether or not the click itself equips/unequips anything.
+- **Wicker Chair blueprint now actually calls for wicker.** The recipe previously asked for 3 Wooden Plank + 3 Rope, which doesn't read as "wicker" at all. It's now 2 Wooden Plank (frame) + 4 Dry Reeds (weaving) + 2 Twine (binding), plus a Cutting Tool held (not consumed, GpTag_CuttingTool group) to trim the reeds during construction, the tool takes 8 Usage wear per build, same pattern as this mod's other tool-gated blueprints. Take Apart and the card's help text now return/describe Plank, Reeds, and Twine instead of the old Plank/Rope pair.
 
-## [1.65.2] — 2026-08-20
+## [1.65.3] - 2026-08-20
+
+### Changed
+
+- **The Outfit Wardrobe's storage now labels each outfit's slots directly on the grid.** The 54-slot inventory previously rendered as one flat, paginated grid with no visual boundary between the three 18-slot outfit blocks, and the page-arrow scroll width doesn't land on those boundaries either, there was no way to tell where one outfit's slots ended and the next began, so a player had no reliable way to choose which outfit an item was going into. "Outfit 1/2/3" headers now sit directly on the first slot of each block (`OutfitWardrobeSectionsPatch.cs`), and clicking any "Equip/Unequip Outfit N" button now also scrolls the popup straight to that block, whether or not the click itself equips/unequips anything.
+
+## [1.65.2] - 2026-08-20
 
 ### Fixed
 
-- **Village/Academy/Village Hall interiors could cook a player to death from heat.** The "Hearth-Warmed" PassiveEffect on all three interiors applied an unconditional `RateModifier: +15/tick` to Body Temperature — stronger than even vanilla's own emergency Hyperthermia cool-down rate (-12/tick, applied only once you're already dying of heat stroke) and wildly out of proportion to the "small Comfort bonus" this mod's own description promises. The existing runtime safety net (`IndoorHeatCapPatch`) only covered the Inn and Academy — Village Hall had no correction at all — and even where present, its 0.75 target fraction landed at Body Temperature 125 (the "Sweating" band), not the "Comfortable" band (86-114), which is why a player still died of heat stroke in the Inn despite it. Fixed at the root: the RateModifier is now `+2/tick` in all three interior JSONs. `IndoorHeatCapPatch` now also covers Village Hall and targets a genuinely safe 0.65 fraction (value 95, mid-Comfortable) as defense-in-depth. **Superseded the same day — see 1.65.5.**
-- **Visiting the Inn could turn a player's own fireplace into a "full fuel, no heat" fireplace.** `InnFireplacePatch`'s auto-relight logic matched *any* card on the Inn's board sharing the vanilla Fireplace UID — since `UniqueOnBoard` is false on vanilla Fireplace, a player who built their own fireplace inside the Inn had it caught by the same logic and force-refueled via reflection, which doesn't go through the normal ignition path (so it showed full fuel but produced no heat until manually extinguished and relit). The patch now backs off entirely unless exactly one fireplace-type card is present on the board, so it can no longer act on a player-owned one.
-- **Building "a road" at the Village could permanently block travel south.** `cmcLocVillage` is cloned from vanilla `ClearingOak_GreenGlade`, whose CT8 template carries 8 vanilla improvements (`Imp_PathNorth/East/South/West`, `Imp_HuntingFencesNorth/East/South/West`) that CMC never intended to inherit — unlocked, freely buildable, with no CMC content behind them. Completing one of the Path improvements resolves its destination from a cache built once when the Village's CT8 first loads and never rebuilt after the Village's own seasonal snow-drift gates strip/restore travel actions — letting the resolved destination silently diverge from the live travel state (reported: building the road and then traveling south looped back to the Village instead). `VillageStrayImprovementsPatch` now strips all 8 stray GUIDs from the Village's `EnvironmentImprovements` every boot, before a player can ever see or build them.
+- **Village/Academy/Village Hall interiors could cook a player to death from heat.** The "Hearth-Warmed" PassiveEffect on all three interiors applied an unconditional `RateModifier: +15/tick` to Body Temperature, stronger than even vanilla's own emergency Hyperthermia cool-down rate (-12/tick, applied only once you're already dying of heat stroke) and wildly out of proportion to the "small Comfort bonus" this mod's own description promises. The existing runtime safety net (`IndoorHeatCapPatch`) only covered the Inn and Academy, Village Hall had no correction at all, and even where present, its 0.75 target fraction landed at Body Temperature 125 (the "Sweating" band), not the "Comfortable" band (86-114), which is why a player still died of heat stroke in the Inn despite it. Fixed at the root: the RateModifier is now `+2/tick` in all three interior JSONs. `IndoorHeatCapPatch` now also covers Village Hall and targets a genuinely safe 0.65 fraction (value 95, mid-Comfortable) as defense-in-depth. **Superseded the same day, see 1.65.5.**
+- **Visiting the Inn could turn a player's own fireplace into a "full fuel, no heat" fireplace.** `InnFireplacePatch`'s auto-relight logic matched *any* card on the Inn's board sharing the vanilla Fireplace UID, since `UniqueOnBoard` is false on vanilla Fireplace, a player who built their own fireplace inside the Inn had it caught by the same logic and force-refueled via reflection, which doesn't go through the normal ignition path (so it showed full fuel but produced no heat until manually extinguished and relit). The patch now backs off entirely unless exactly one fireplace-type card is present on the board, so it can no longer act on a player-owned one.
+- **Building "a road" at the Village could permanently block travel south.** `cmcLocVillage` is cloned from vanilla `ClearingOak_GreenGlade`, whose CT8 template carries 8 vanilla improvements (`Imp_PathNorth/East/South/West`, `Imp_HuntingFencesNorth/East/South/West`) that CMC never intended to inherit, unlocked, freely buildable, with no CMC content behind them. Completing one of the Path improvements resolves its destination from a cache built once when the Village's CT8 first loads and never rebuilt after the Village's own seasonal snow-drift gates strip/restore travel actions, letting the resolved destination silently diverge from the live travel state (reported: building the road and then traveling south looped back to the Village instead). `VillageStrayImprovementsPatch` now strips all 8 stray GUIDs from the Village's `EnvironmentImprovements` every boot, before a player can ever see or build them.
 
 ### Investigated, not yet actionable
 
-- **Two overlapping locations shown in the world map's top-left corner.** No coordinate collision found among any of this repo's mods (CMC/ACT/H&F) or against vanilla `DefaultWorldMap.json`, and the framework's `CoordRegistry` would loudly reject a same-session collision rather than silently double-render one — so the cause isn't visible from source alone. Needs the player's installed mod list, a map screenshot, and the `[CoordRegistry]`/`WorldMapInjector:` lines from their BepInEx log to diagnose further.
-- **A path to a waterfall north of the Village that doesn't seem to go anywhere.** This is very likely the intentional, gated Sett Warren → Greenfalls shortcut (`cmcEnvBadgerWarren`'s `VanillaExits`), which only opens after building a Climbing Rope at Greenfalls itself via the normal vanilla route — not a bug. `ConnectionGateService` is documented to fully hide a locked connection's line on the map, so if the player is seeing a visible-but-non-functional route before ever building the rope, that would point to a gate-evaluation bug rather than working-as-intended content; unconfirmed without a log from a reproduction.
+- **Two overlapping locations shown in the world map's top-left corner.** No coordinate collision found among any of this repo's mods (CMC/ACT/H&F) or against vanilla `DefaultWorldMap.json`, and the framework's `CoordRegistry` would loudly reject a same-session collision rather than silently double-render one, so the cause isn't visible from source alone. Needs the player's installed mod list, a map screenshot, and the `[CoordRegistry]`/`WorldMapInjector:` lines from their BepInEx log to diagnose further.
+- **A path to a waterfall north of the Village that doesn't seem to go anywhere.** This is very likely the intentional, gated Sett Warren → Greenfalls shortcut (`cmcEnvBadgerWarren`'s `VanillaExits`), which only opens after building a Climbing Rope at Greenfalls itself via the normal vanilla route, not a bug. `ConnectionGateService` is documented to fully hide a locked connection's line on the map, so if the player is seeing a visible-but-non-functional route before ever building the rope, that would point to a gate-evaluation bug rather than working-as-intended content; unconfirmed without a log from a reproduction.
 
-## [1.65.1] — 2026-08-19
+## [1.65.1] - 2026-08-19
 
 ### Fixed
 
-- **Outfit Wardrobe blueprint's Carpentry-course unlock gate was broken.** `AcademyCourseService.cs`'s `Carpentry` course-unlock table still referenced the three blueprint UIDs (`cmcbpclothesrack`, `cmcbpcoatrack`, `cmcbpwardrobe`) that 1.65.0 deleted when it consolidated them into the Outfit Wardrobe, and was never updated to reference the new blueprint (`cmcbpoutfitwardrobe`) in their place. The dead UIDs silently no-opped (treated identically to "owning mod not installed"), and the real blueprint was never touched by the course-gating pass at all — leaving it either permanently locked or freely researchable without graduating, contradicting both the blueprint's own `UnlockConditionsDesc` and the graduate perk's description. Fixed by swapping the table entry to `cmcbpoutfitwardrobe` (found by `/audit-mod`, 2026-08-19).
+- **Outfit Wardrobe blueprint's Carpentry-course unlock gate was broken.** `AcademyCourseService.cs`'s `Carpentry` course-unlock table still referenced the three blueprint UIDs (`cmcbpclothesrack`, `cmcbpcoatrack`, `cmcbpwardrobe`) that 1.65.0 deleted when it consolidated them into the Outfit Wardrobe, and was never updated to reference the new blueprint (`cmcbpoutfitwardrobe`) in their place. The dead UIDs silently no-opped (treated identically to "owning mod not installed"), and the real blueprint was never touched by the course-gating pass at all, leaving it either permanently locked or freely researchable without graduating, contradicting both the blueprint's own `UnlockConditionsDesc` and the graduate perk's description. Fixed by swapping the table entry to `cmcbpoutfitwardrobe` (found by `/audit-mod`, 2026-08-19).
 
-## [1.65.0] — 2026-08-17
+## [1.65.0] - 2026-08-17
 
 Merged the Carpentry course's Clothes Rack, Coat Rack, and Wardrobe, plus the separately-shipped Weapon Rack & Armor Stand, into one furniture piece: the **Outfit Wardrobe**. Also fixes two confirmed latent bugs in the old Dress/Undress mechanic those items shared.
 
 ### Changed
 
-- **Outfit Wardrobe (`cmcOutfitWardrobe`, blueprint `Bp_OutfitWardrobe.json`)** replaces Clothes Rack (`cmcClothesRack`), Coat Rack (`cmcCoatRack`), Wardrobe (`cmcWardrobe`), and Weapon Rack & Armor Stand (`cmcWeaponRack`) — all four are removed. One placed item, 54 `InventorySlots` split into three fixed 18-slot sections (one per non-wound `EquipmentTag`, matching the old Clothes Rack's slot count), each with its own **Equip Outfit N** / **Unequip Outfit N** DismantleAction pair — three complete, independently swappable gear sets instead of one flat Dress/Undress rack. Keeps the Weapon Rack's ambient Comfort (+6) passive effect. Gated the same as the old Clothes Rack/Wardrobe (Carpentry course graduation + at Foraging Forest) rather than the Weapon Rack's no-requirement tier. `BlueprintTabs.json`'s Furniture tab, `CMC_CarpentryBench.json`'s final-exam description, and `Pk_GradCarpentry.json`'s perk description all updated to match.
+- **Outfit Wardrobe (`cmcOutfitWardrobe`, blueprint `Bp_OutfitWardrobe.json`)** replaces Clothes Rack (`cmcClothesRack`), Coat Rack (`cmcCoatRack`), Wardrobe (`cmcWardrobe`), and Weapon Rack & Armor Stand (`cmcWeaponRack`), all four are removed. One placed item, 54 `InventorySlots` split into three fixed 18-slot sections (one per non-wound `EquipmentTag`, matching the old Clothes Rack's slot count), each with its own **Equip Outfit N** / **Unequip Outfit N** DismantleAction pair, three complete, independently swappable gear sets instead of one flat Dress/Undress rack. Keeps the Weapon Rack's ambient Comfort (+6) passive effect. Gated the same as the old Clothes Rack/Wardrobe (Carpentry course graduation + at Foraging Forest) rather than the Weapon Rack's no-requirement tier. `BlueprintTabs.json`'s Furniture tab, `CMC_CarpentryBench.json`'s final-exam description, and `Pk_GradCarpentry.json`'s perk description all updated to match.
 - Localization: removed all 36 EN/CN rows for the four retired items, added 19 rows for the Outfit Wardrobe (`SimpEn.csv` + `SimpCn.csv`, in the same commit per root CLAUDE.md's localization-parity rule).
 
 ### Fixed
 
-- **`ClothesRackEquipService`'s "Dress" (rack → body) direction never actually equipped anything**, on both the old Clothes Rack and Wardrobe, confirmed by static analysis of the decompiled engine types (not yet reproduced in-game): (1) it read the rack's contents via `CardUtil.GetInventoryList`, which resolves `InGameCardBase.CardsInInventory` — a `List<InventorySlot>` wrapper list, not the actual cards — so every entry it iterated was an `InventorySlot`, not a card; (2) its `IsAlive()` Unity-object null check assumed every reflected object was a `UnityEngine.Object`, but both `InventorySlot` and `DynamicLayoutSlot` are plain C# classes, so that check was always false for them regardless of the first bug. Together, "Dress" always iterated zero items and silently logged "nothing in the rack could be equipped" no matter what was actually stored. "Undress" (body → rack) was unaffected by either bug.
-- New **`OutfitWardrobeEquipService`** rewrites the whole mechanism using direct compile-time types against the mod's already-referenced `Assembly-CSharp-nstrip.dll` instead of reflection (removing both bugs' root cause), and adds a third fix needed for per-outfit sections specifically: `InGameCardBase.DropInInventory`'s target-slot search ignores its `_From` parameter for a normal (non-legacy) inventory and always scans from index 0, so it cannot be scoped to one outfit's 18-slot block — a naive "Unequip Outfit 2" could land an item in Outfit 1 or 3's section instead. `TryPlaceInOutfit` finds a free slot within the target section itself and replicates `DropInInventory`'s placement steps with that manually-chosen index.
+- **`ClothesRackEquipService`'s "Dress" (rack → body) direction never actually equipped anything**, on both the old Clothes Rack and Wardrobe, confirmed by static analysis of the decompiled engine types (not yet reproduced in-game): (1) it read the rack's contents via `CardUtil.GetInventoryList`, which resolves `InGameCardBase.CardsInInventory`, a `List<InventorySlot>` wrapper list, not the actual cards, so every entry it iterated was an `InventorySlot`, not a card; (2) its `IsAlive()` Unity-object null check assumed every reflected object was a `UnityEngine.Object`, but both `InventorySlot` and `DynamicLayoutSlot` are plain C# classes, so that check was always false for them regardless of the first bug. Together, "Dress" always iterated zero items and silently logged "nothing in the rack could be equipped" no matter what was actually stored. "Undress" (body → rack) was unaffected by either bug.
+- New **`OutfitWardrobeEquipService`** rewrites the whole mechanism using direct compile-time types against the mod's already-referenced `Assembly-CSharp-nstrip.dll` instead of reflection (removing both bugs' root cause), and adds a third fix needed for per-outfit sections specifically: `InGameCardBase.DropInInventory`'s target-slot search ignores its `_From` parameter for a normal (non-legacy) inventory and always scans from index 0, so it cannot be scoped to one outfit's 18-slot block, a naive "Unequip Outfit 2" could land an item in Outfit 1 or 3's section instead. `TryPlaceInOutfit` finds a free slot within the target section itself and replicates `DropInInventory`'s placement steps with that manually-chosen index.
 
-## [1.64.0] — 2026-08-16
+## [1.64.0] - 2026-08-16
 
-Inn Achievement Board (`Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §10.9), Wave 3 — the final six detectors. Prompt 7 of the pack (the last one); Prompt 6 (1.63.0) shipped the two kill-driven detectors. **All eleven achievements now have a wired detector — code-complete and build-verified. An in-game playthrough confirming every one fires correctly (the plan's §10.9.5 acid test) has NOT been run yet; this release does not claim in-game verification.**
+Inn Achievement Board (`Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §10.9), Wave 3, the final six detectors. Prompt 7 of the pack (the last one); Prompt 6 (1.63.0) shipped the two kill-driven detectors. **All eleven achievements now have a wired detector, code-complete and build-verified. An in-game playthrough confirming every one fires correctly (the plan's §10.9.5 acid test) has NOT been run yet; this release does not claim in-game verification.**
 
 ### Added
 
 - **`AchievementTrackerPatch`** gains six more branches on its existing 5-second poll:
   - **Full Kit / Master Angler / Master Shaman** now share ONE `GameManager.AllCards` scan (`CheckCollectionsAndStinkyJar`), reusing the same object-gm → IEnumerable AllCards → CardModel → UniqueID walk `LostCatPatch.CatExistsAnywhere` established rather than opening three separate loops. Each card's UID is checked against whichever of the three curated item-UID lists (6 metal tools / 6 fish / 19 bound spirits) isn't already fully earned; a sighting latches "possessed at least once" and the derived count/earned stats recompute only when something new latched.
-  - **Stinky Jar** rides the SAME scan: a storage-pot card (4 curated UIDs — unsealed/sealed, item and placed forms) whose `ContainedLiquidModel` is one of the 3 Urine aging stages and whose `ContainedLiquid.CurrentLiquidQuantity` has reached the pot's own `CurrentMaxLiquidQuantity`. Single boolean earned latch, no member/count stats.
+  - **Stinky Jar** rides the SAME scan: a storage-pot card (4 curated UIDs, unsealed/sealed, item and placed forms) whose `ContainedLiquidModel` is one of the 3 Urine aging stages and whose `ContainedLiquid.CurrentLiquidQuantity` has reached the pot's own `CurrentMaxLiquidQuantity`. Single boolean earned latch, no member/count stats.
   - **Spiritual Overcrowding** is its own small poll branch (a per-player stat read, not a card scan): earns when the vanilla Spiritual Noise GameStat's current value reaches its own LIVE maximum, read via a new `HiddenStat.GetMax` (`CurrentMinMaxValue.y`) rather than the JSON default of 13, since perks can shift the ceiling at runtime.
-  - **Finding a Friend** is also its own poll branch: `GameManager.FindNPC` against the 3 Trader NPCAgent SOs, checked with the same compile-time `UniqueIDScriptable.GetFromID<T>` idiom `AchievementKillEffectsPatch` established — safe because a statically-referenced `GameManager`/`NPCAgent` symbol binds at compile time to the one Assembly-CSharp.dll the csproj references, unlike the broad runtime type-name scans the ModCore-shadowing warning in root CLAUDE.md is actually about.
-- **`HiddenStat.GetMax(string statUid)`** — new accessor alongside the existing `Get`/`Set`, wrapping `StatAccess.GetMaxValue` on the same resolved GameStat instance. Added rather than duplicating the GetFromID+StatsDict resolution chain a third time.
+  - **Finding a Friend** is also its own poll branch: `GameManager.FindNPC` against the 3 Trader NPCAgent SOs, checked with the same compile-time `UniqueIDScriptable.GetFromID<T>` idiom `AchievementKillEffectsPatch` established, safe because a statically-referenced `GameManager`/`NPCAgent` symbol binds at compile time to the one Assembly-CSharp.dll the csproj references, unlike the broad runtime type-name scans the ModCore-shadowing warning in root CLAUDE.md is actually about.
+- **`HiddenStat.GetMax(string statUid)`**: new accessor alongside the existing `Get`/`Set`, wrapping `StatAccess.GetMaxValue` on the same resolved GameStat instance. Added rather than duplicating the GetFromID+StatsDict resolution chain a third time.
 
 ### Fixed
 
-- **Overclaiming "craft"/"catch" wording** — Master Angler's earned line ("...has been hooked and hauled to shore") and Master Shaman's locked line ("Bind the spirit of every...") both implied the player personally performed the acquisition action (fishing / a binding ritual), which an AllCards sighting can never actually confirm — a possessed-via-trade item counts identically. Reworded both (JSON `DefaultText` + `SimpEn.csv` + `SimpCn.csv`, all three realigned in this commit) to a possession framing ("has passed through your hands at least once" / "Come to possess a bound spirit of every kind... you've ever held"). Full Kit's existing wording ("Assemble the complete set...") was checked and left as-is — it doesn't specify a craft-only acquisition method.
-- **`VillageHallBoardsPatch`'s stale doc comment** — it previously said Full Kit/Hunter/Angler/Shaman "read as 0 until their Wave 2 detectors ship (a later prompt)"; updated to reflect that all five multi-part achievements now have a live detector.
+- **Overclaiming "craft"/"catch" wording**, Master Angler's earned line ("...has been hooked and hauled to shore") and Master Shaman's locked line ("Bind the spirit of every...") both implied the player personally performed the acquisition action (fishing / a binding ritual), which an AllCards sighting can never actually confirm, a possessed-via-trade item counts identically. Reworded both (JSON `DefaultText` + `SimpEn.csv` + `SimpCn.csv`, all three realigned in this commit) to a possession framing ("has passed through your hands at least once" / "Come to possess a bound spirit of every kind... you've ever held"). Full Kit's existing wording ("Assemble the complete set...") was checked and left as-is, it doesn't specify a craft-only acquisition method.
+- **`VillageHallBoardsPatch`'s stale doc comment**: it previously said Full Kit/Hunter/Angler/Shaman "read as 0 until their Wave 2 detectors ship (a later prompt)"; updated to reflect that all five multi-part achievements now have a live detector.
 
 ### Notes
 
-- README.md / ModInfo.json Description / this changelog all now describe the board as eleven-of-eleven code-complete rather than five-of-eleven — docs-honesty pass in the same commit as the wiring, per root CLAUDE.md § Docs-Honesty on Behavior Change. None of the three claims in-game verification.
+- README.md / ModInfo.json Description / this changelog all now describe the board as eleven-of-eleven code-complete rather than five-of-eleven, docs-honesty pass in the same commit as the wiring, per root CLAUDE.md § Docs-Honesty on Behavior Change. None of the three claims in-game verification.
 
-## [1.63.0] — 2026-08-16
+## [1.63.0] - 2026-08-16
 
-Inn Achievement Board (`Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §10.9), Wave 2 — the two kill-driven detectors. Prompt 6 of the pack; Prompt 5 (1.62.0) shipped board rendering plus the first three detectors.
+Inn Achievement Board (`Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §10.9), Wave 2, the two kill-driven detectors. Prompt 6 of the pack; Prompt 5 (1.62.0) shipped board rendering plus the first three detectors.
 
 ### Added
 
 - **Right to Bear Arms** and **Master Hunter** now actually track. Felling a Bear earns Right to Bear Arms outright; hunting each of the twelve huntable animals (Badger, Bear, Beaver, Boar, Doe, Duck, Fox, Hare, Partridge, Squirrel, Stag, Wolf) latches that animal, and the board's "Master Hunter: N of 12" line advances as you go. Repeat kills of the same animal never double-count. That brings the board to five of eleven working detectors; the remaining six (Finding a Friend, Full Kit, Master Angler, Master Shaman, Spiritual Overcrowding, Stinky Jar) are still a follow-up release.
-- **`AchievementKillEffectsPatch.cs`** — appends a clamped `+1` `StatModifier` onto the `EnemyDefeatedEffects.StatChanges` of each of the twelve animals' **vanilla** `Encounter` assets (Bear gets two: its Master Hunter member latch plus the standalone `cmcStatAchBearSlain`). Runs on `FrameworkEvents.GameDataReady` — the tail of the framework's own `GameLoad.LoadMainGameData` postfix, so WarpResolver has already run and the resolved `GameStat` reference is set directly rather than via a (by then dead) `StatWarpData` string. The append copies the existing array and grows it by one, deliberately: all twelve encounters already carry 2–5 vanilla entries (Gratification, BloodSpilled, ViolenceTracker, FoxUrge, Pop_Squirrel, BadgerDefeated), and assigning a fresh array would have silently deleted every animal's vanilla kill rewards. Idempotent — an entry already targeting that stat is skipped, so repeated `LoadMainGameData` calls in one process cannot stack duplicates.
+- **`AchievementKillEffectsPatch.cs`**, appends a clamped `+1` `StatModifier` onto the `EnemyDefeatedEffects.StatChanges` of each of the twelve animals' **vanilla** `Encounter` assets (Bear gets two: its Master Hunter member latch plus the standalone `cmcStatAchBearSlain`). Runs on `FrameworkEvents.GameDataReady`, the tail of the framework's own `GameLoad.LoadMainGameData` postfix, so WarpResolver has already run and the resolved `GameStat` reference is set directly rather than via a (by then dead) `StatWarpData` string. The append copies the existing array and grows it by one, deliberately: all twelve encounters already carry 2–5 vanilla entries (Gratification, BloodSpilled, ViolenceTracker, FoxUrge, Pop_Squirrel, BadgerDefeated), and assigning a fresh array would have silently deleted every animal's vanilla kill rewards. Idempotent, an entry already targeting that stat is skipped, so repeated `LoadMainGameData` calls in one process cannot stack duplicates.
 - **`AchievementTrackerPatch`** gains a Master Hunter branch on its existing 5-second poll: derives `cmcStatAchHunterCount` and the earned latch from the twelve member latches the kill effects set, writing only on an actual change and short-circuiting entirely once the achievement is earned.
 
 ### Notes
 
-- A `GameSourceModify/` JSON patch was evaluated for this and ruled out on two independent grounds, both confirmed against framework source rather than assumed: `StatChanges` lives on the nested `EncounterResultEffect` object, which `GameSourceModifier.ApplyAppendArrays`' flat `GetField` lookup cannot reach; and it is a fixed-size `StatModifier[]`, which that method's `list.Add()` append cannot grow. Vanilla `Encounter` objects themselves *are* GSM-targetable (unlike the scene-scoped `StatListTab` assets that defeated `StatTabInjectionPatch`) — the blocker is the nested fixed-size array, not the target's availability.
+- A `GameSourceModify/` JSON patch was evaluated for this and ruled out on two independent grounds, both confirmed against framework source rather than assumed: `StatChanges` lives on the nested `EncounterResultEffect` object, which `GameSourceModifier.ApplyAppendArrays`' flat `GetField` lookup cannot reach; and it is a fixed-size `StatModifier[]`, which that method's `list.Add()` append cannot grow. Vanilla `Encounter` objects themselves *are* GSM-targetable (unlike the scene-scoped `StatListTab` assets that defeated `StatTabInjectionPatch`): the blocker is the nested fixed-size array, not the target's availability.
 
-## [1.62.0] — 2026-08-16
+## [1.62.0] - 2026-08-16
 
-Inn Achievement Board (`Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §10.9), Wave 1 completion — board prose-rendering plus the first three (of eleven) working detectors. Prompt 5 of the pack; Prompt 4 (1.61.0) shipped the board/stats chassis with zero live detection.
-
-### Added
-
-- **Achievement Board prose rendering** — `cmcBoardAchievements` joins `VillageHallBoardsPatch`'s existing board-description postfix (the same "read-only, no button strip" pattern as the six villager/Town boards). Its description now appends an `"Achievements earned: N of 11"` summary line (counting the eleven earned-latch stats ≥ 0.5) plus a `"<Achievement>: N of <total>"` progress line for each of the five multi-part achievements (Full Kit, Master Hunter, Master Angler, Master Shaman, Forest Explorer, Spelunker), read from their derived count stats.
-- **`AchievementTrackerPatch.cs`** — a new 5-second poll (the only new `TickEvents.Interval` this pass) implementing three of the eleven detectors:
-  - **Happy New Year** — earns when `GameManager.CurrentDay` reaches the gamemode's actual year length (`GameManager.DaySettings.DaysPerYear`, read live via a new `GameQuery.DaysPerYear` accessor — never hardcoded).
-  - **Forest Explorer** / **Spelunker** — intersect `GameManager.VisitedEnvironments` against two Wave-0-curated vanilla environment-UID lists (10 surface groves/thickets/clearings, 8 caves); each newly-visited member latches its own hidden stat, the derived count stat recomputes, and the achievement's earned latch flips once every member is latched. Each detector short-circuits on its own earned latch before touching `VisitedEnvironments`, so a settled save costs a handful of stat reads per poll.
-  - The remaining eight detectors (Finding a Friend, Full Kit, Right to Bear Arms, Master Hunter, Master Angler, Master Shaman, Spiritual Overcrowding, Stinky Jar) are Wave 2 — a later prompt in this pack.
-- **`GameQuery.DaysPerYear`** (`CSFFModFramework/Api/GameQuery.cs`) — new read-only accessor for `GameManager.DaySettings.DaysPerYear`, following the same lazy-reflection-cache pattern as the existing `DaysPerMoon`/`CurrentDay`. Falls back to 120 (the confirmed EA 0.66h default) before game init or on a read failure, so a `CurrentDay >= DaysPerYear` comparison can never false-trigger at boot.
-
-## [1.61.0] — 2026-08-16
-
-Inn Achievement Board (`Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §10.9), Wave 1 chassis — the first of a multi-part implementation pack. This release ships the board, its full 22-line entry set, and the hidden-stat scaffolding; it does **not** ship detection, so every entry currently reads as not yet earned. Detection and the board's prose-rendering are follow-up releases.
+Inn Achievement Board (`Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §10.9), Wave 1 completion, board prose-rendering plus the first three (of eleven) working detectors. Prompt 5 of the pack; Prompt 4 (1.61.0) shipped the board/stats chassis with zero live detection.
 
 ### Added
 
-- **Town Achievement Board** (`cmcBoardAchievements`) — a new notice board in the Village Inn, copied from `CMC_BoardTown.json`'s chassis. Lists eleven achievements, two `DismantleActions` lines each (locked/earned, gated by `RequiredStatValues` half-open bands on that achievement's own earned-latch stat): Finding a Friend, Full Kit, Right to Bear Arms, Master Hunter, Forest Explorer, Happy New Year, Master Angler, Spelunker, Master Shaman, Spiritual Overcrowding, and Stinky Jar. Spiritual Overcrowding and Stinky Jar keep cryptic locked-line flavor ("The innkeeper refuses to explain this entry.") in the spirit of the plan's joke achievements.
-- **79 hidden `GameStat/CMC_Ach*.json` files** — 11 earned latches (one per achievement), 61 member latches (one per item in the five multi-part achievements: 6 metal tools, 12 huntable animals, 6 fish, 19 bound spirits, 10 surface environments, 8 caves), 6 derived count stats (`cmcStatAchFullKitCount`, `cmcStatAchHunterCount`, `cmcStatAchAnglerCount`, `cmcStatAchShamanCount`, `cmcStatAchExplorerCount`, `cmcStatAchSpelunkerCount`, each `MinMaxValue` bounded to its own list size), and `cmcStatAchBoardPlaced` (the seeding latch below). All generated by a throwaway script (`Development_Tools/Generate-AchievementBoardContent.py`) rather than hand-authored, per the plan's own instruction. Member-latch stat UIDs follow `cmcStatAch<Category><Item>` (e.g. `cmcStatAchToolAxe`, `cmcStatAchHuntBoar`, `cmcStatAchFishTrout`, `cmcStatAchShamanBadger`, `cmcStatAchEnvSacredGrove`, `cmcStatAchCaveBearCave`), matching each JSON file's own `CMC_Ach<Category><Item>.json` name.
-- **Seeding**: `CMC_InnInterior.json`'s `DefaultEnvCardDrops` now includes the board for fresh saves. A new `AchievementBoardSeedPatch.cs` backfills it for existing saves that had already visited the Inn — same deferred-spawn shape as `CopperChestPatch`/`LostCatPatch` (gate on the player's current environment, duplicate-scan before spawning, latch `cmcStatAchBoardPlaced` so it never respawns).
+- **Achievement Board prose rendering**: `cmcBoardAchievements` joins `VillageHallBoardsPatch`'s existing board-description postfix (the same "read-only, no button strip" pattern as the six villager/Town boards). Its description now appends an `"Achievements earned: N of 11"` summary line (counting the eleven earned-latch stats ≥ 0.5) plus a `"<Achievement>: N of <total>"` progress line for each of the five multi-part achievements (Full Kit, Master Hunter, Master Angler, Master Shaman, Forest Explorer, Spelunker), read from their derived count stats.
+- **`AchievementTrackerPatch.cs`**: a new 5-second poll (the only new `TickEvents.Interval` this pass) implementing three of the eleven detectors:
+  - **Happy New Year**, earns when `GameManager.CurrentDay` reaches the gamemode's actual year length (`GameManager.DaySettings.DaysPerYear`, read live via a new `GameQuery.DaysPerYear` accessor, never hardcoded).
+  - **Forest Explorer** / **Spelunker**: intersect `GameManager.VisitedEnvironments` against two Wave-0-curated vanilla environment-UID lists (10 surface groves/thickets/clearings, 8 caves); each newly-visited member latches its own hidden stat, the derived count stat recomputes, and the achievement's earned latch flips once every member is latched. Each detector short-circuits on its own earned latch before touching `VisitedEnvironments`, so a settled save costs a handful of stat reads per poll.
+  - The remaining eight detectors (Finding a Friend, Full Kit, Right to Bear Arms, Master Hunter, Master Angler, Master Shaman, Spiritual Overcrowding, Stinky Jar) are Wave 2, a later prompt in this pack.
+- **`GameQuery.DaysPerYear`** (`CSFFModFramework/Api/GameQuery.cs`): new read-only accessor for `GameManager.DaySettings.DaysPerYear`, following the same lazy-reflection-cache pattern as the existing `DaysPerMoon`/`CurrentDay`. Falls back to 120 (the confirmed EA 0.66h default) before game init or on a read failure, so a `CurrentDay >= DaysPerYear` comparison can never false-trigger at boot.
 
-## [1.60.1] — 2026-08-16
+## [1.61.0] - 2026-08-16
 
-Fixed: Stone Tile Floor (`cmcimpstonetilefloor`) was missing from the Cabin's Attic room (`07af3f7fc01dd6e48920b19ed63c0d48`) in `InjectImprovementInto.json` — every other livable cabin/mud-hut room (Cabin main room, under-construction Cabin, Cabin Room, Mud Hut main room, under-construction Mud Hut, and both Mud Hut expansion rooms) already had it, but the Attic was the one room in the "can be laid in cabins and mud huts" description that couldn't build it. Added the missing target entry (now 9 total).
+Inn Achievement Board (`Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §10.9), Wave 1 chassis, the first of a multi-part implementation pack. This release ships the board, its full 22-line entry set, and the hidden-stat scaffolding; it does **not** ship detection, so every entry currently reads as not yet earned. Detection and the board's prose-rendering are follow-up releases.
 
-## [1.60.0] — 2026-08-16
+### Added
 
-Batch implementation of the mod's open audit-derived Near-Term backlog (`Documentation/Plans/Community_Mod_Chest/Audit_Remediation_Plan.md`, N1–N22) — 19 of 22 ideas shipped this pass; three fleet-tooling items and one blocked-by-design item are called out separately below.
+- **Town Achievement Board** (`cmcBoardAchievements`): a new notice board in the Village Inn, copied from `CMC_BoardTown.json`'s chassis. Lists eleven achievements, two `DismantleActions` lines each (locked/earned, gated by `RequiredStatValues` half-open bands on that achievement's own earned-latch stat): Finding a Friend, Full Kit, Right to Bear Arms, Master Hunter, Forest Explorer, Happy New Year, Master Angler, Spelunker, Master Shaman, Spiritual Overcrowding, and Stinky Jar. Spiritual Overcrowding and Stinky Jar keep cryptic locked-line flavor ("The innkeeper refuses to explain this entry.") in the spirit of the plan's joke achievements.
+- **79 hidden `GameStat/CMC_Ach*.json` files**: 11 earned latches (one per achievement), 61 member latches (one per item in the five multi-part achievements: 6 metal tools, 12 huntable animals, 6 fish, 19 bound spirits, 10 surface environments, 8 caves), 6 derived count stats (`cmcStatAchFullKitCount`, `cmcStatAchHunterCount`, `cmcStatAchAnglerCount`, `cmcStatAchShamanCount`, `cmcStatAchExplorerCount`, `cmcStatAchSpelunkerCount`, each `MinMaxValue` bounded to its own list size), and `cmcStatAchBoardPlaced` (the seeding latch below). All generated by a throwaway script (`Development_Tools/Generate-AchievementBoardContent.py`) rather than hand-authored, per the plan's own instruction. Member-latch stat UIDs follow `cmcStatAch<Category><Item>` (e.g. `cmcStatAchToolAxe`, `cmcStatAchHuntBoar`, `cmcStatAchFishTrout`, `cmcStatAchShamanBadger`, `cmcStatAchEnvSacredGrove`, `cmcStatAchCaveBearCave`), matching each JSON file's own `CMC_Ach<Category><Item>.json` name.
+- **Seeding**: `CMC_InnInterior.json`'s `DefaultEnvCardDrops` now includes the board for fresh saves. A new `AchievementBoardSeedPatch.cs` backfills it for existing saves that had already visited the Inn, same deferred-spawn shape as `CopperChestPatch`/`LostCatPatch` (gate on the player's current environment, duplicate-scan before spawning, latch `cmcStatAchBoardPlaced` so it never respawns).
+
+## [1.60.1] - 2026-08-16
+
+Fixed: Stone Tile Floor (`cmcimpstonetilefloor`) was missing from the Cabin's Attic room (`07af3f7fc01dd6e48920b19ed63c0d48`) in `InjectImprovementInto.json`: every other livable cabin/mud-hut room (Cabin main room, under-construction Cabin, Cabin Room, Mud Hut main room, under-construction Mud Hut, and both Mud Hut expansion rooms) already had it, but the Attic was the one room in the "can be laid in cabins and mud huts" description that couldn't build it. Added the missing target entry (now 9 total).
+
+## [1.60.0] - 2026-08-16
+
+Batch implementation of the mod's open audit-derived Near-Term backlog (`Documentation/Plans/Community_Mod_Chest/Audit_Remediation_Plan.md`, N1–N22): 19 of 22 ideas shipped this pass; three fleet-tooling items and one blocked-by-design item are called out separately below.
 
 ### Added
 
 - **Clay Ocarina.** A craftable pottery-tier instrument that now also counts toward taming Shadow the Cat, closing a real gap where a player who never crafted a vanilla flute/drum had no path to the Apothecary's Cabin quest chain.
-- **Medicine course payoff — Herb Poultice + Tincture.** The Academy's Medicine graduates now unlock two treatment items (an active bleed/pain poultice, a nausea/pain/rash/stress tincture) gated the same way every other course's payoff is, closing the one course that previously granted no craftable reward.
+- **Medicine course payoff: Herb Poultice + Tincture.** The Academy's Medicine graduates now unlock two treatment items (an active bleed/pain poultice, a nausea/pain/rash/stress tincture) gated the same way every other course's payoff is, closing the one course that previously granted no craftable reward.
 - **Old Growth Bark now tans leather.** A new "Tan Hide" interaction on the bark follows through on its own description's tannin claim, turning a fleshed hide into usable leather.
-- **Toys & Games line.** Bone Dice, Spinning Top, and Wheeled Horse — three cheap, always-buildable comfort flavor items in the Entertainment tab.
+- **Toys & Games line.** Bone Dice, Spinning Top, and Wheeled Horse, three cheap, always-buildable comfort flavor items in the Entertainment tab.
 - **Dyed apparel variants.** Cloth Coat, Chaperon, and Cloth Scarf can each be dyed with Pigment into a cosmetic charcoal-toned variant (Charcoal-Grey, Soot-Black, Ash-Grey) with a modest trade-value bump; purely cosmetic, no new passive effects.
 - **Scented Candle.** A beeswax-fueled comfort light source alongside the existing Incense Burner and Ceramic Lamp.
-- **Themed starting traits — Potter's Apprentice and Caravan Peddler.** Two new character-creation packages bundling pottery-starter or trading-starter goods, in the same style as the Founders Kit trait.
+- **Themed starting traits: Potter's Apprentice and Caravan Peddler.** Two new character-creation packages bundling pottery-starter or trading-starter goods, in the same style as the Founders Kit trait.
 - **Burglar's Kit.** A craftable tool that shaves a small amount off a Copper Chest "Search for valuables" detection roll when carried.
-- **"Make It Right" restitution.** Dragging Salt or a Metal Nugget onto the Miller's Copper Chest now pays down a small amount of Village Crime — the first voluntary, non-punitive way to walk crime back down.
+- **"Make It Right" restitution.** Dragging Salt or a Metal Nugget onto the Miller's Copper Chest now pays down a small amount of Village Crime, the first voluntary, non-punitive way to walk crime back down.
 - **Selling into a Copper Chest now builds the resident's Trust.** All five residents gain a small Trust bump per completed sale; the Apothecary gained a full new Trust stat (mirroring Miller/Weaver/Professor) for parity, while the Inn Keeper's sale bump writes his existing friendship stat instead of duplicating it.
-- **A civic tell for Village Crime standing.** The Town board now shows a four-tier, softly-worded read of the player's standing with the village — a way to check your reputation without waiting to be confronted by a guard.
+- **A civic tell for Village Crime standing.** The Town board now shows a four-tier, softly-worded read of the player's standing with the village, a way to check your reputation without waiting to be confronted by a guard.
 - **Cat Bed.** A new placed comfort item, plus a "Give a Treat" interaction on all three cats (Ash, Shadow, and the tamed Stray) that raises their Care stat using the Iron Fishing Rod's own catch. Tamed cats now also show three Care-tier flavor lines in their description as Care rises or falls, so the stat is legible before it hits zero.
 - **A reason to linger in resident interiors.** All five resident interiors (Miller, Weaver, Apothecary, Academy, Inn) now carry a small themed Comfort bonus while the player is inside.
 - **Market Stall "Set Up / Take Down Awning."** A free cosmetic toggle between the stall's plain frame and a dressed, market-day appearance, preserving inventory and sales progress across the swap.
@@ -1366,18 +1770,18 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 ### Fixed
 
-- `Community_Mod_Chest/Patcher/AcademyCourseService.cs`'s Medicine course had a declared graduate-perk constant with no unlock table entry — the two new Medicine payoff blueprints are wired into it in this same release so they aren't shipped inert.
+- `Community_Mod_Chest/Patcher/AcademyCourseService.cs`'s Medicine course had a declared graduate-perk constant with no unlock table entry, the two new Medicine payoff blueprints are wired into it in this same release so they aren't shipped inert.
 
 ### Notes
 
 - **Sling / Sling Stones (N11) stays deferred.** `Documentation/Ideas/Community_Mod_Chest/DEFERRED_ITEMS.md` is explicit that ranged-combat wiring is an open EA 0.66 engine question; shipping the items without a real ranged mechanic would misrepresent what they do, so this one idea from the backlog was intentionally not implemented this pass.
-- Several new blueprints, items, and dialog lines ship with placeholder art/sprite names pending a dedicated art pass — see the Audit Remediation Plan history and each feature's own commit for specifics.
+- Several new blueprints, items, and dialog lines ship with placeholder art/sprite names pending a dedicated art pass, see the Audit Remediation Plan history and each feature's own commit for specifics.
 
-## [1.59.3] — 2026-08-16
+## [1.59.3] - 2026-08-16
 
 ### Fixed
 
-- **Carpentry furniture set — blank blueprint/card icons.** Clothes Rack, Coat Rack, Wicker
+- **Carpentry furniture set, blank blueprint/card icons.** Clothes Rack, Coat Rack, Wicker
   Chair, and Wardrobe shipped in 1.59.0 pointing `CardImageWarpData` at reused vanilla sprite
   names (`Bookshelf`, `Shelf`, `Basket`, `Chest`), which rendered as a blank placeholder in the
   Construction › Furniture blueprint tab instead of borrowed art. Repointed all four blueprint
@@ -1385,33 +1789,33 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   of the broken references; final custom art is still pending (prompts drafted in
   `Documentation/Community_Mod_Chest_Image_Prompts.md`).
 
-## [1.59.2] — 2026-08-16
+## [1.59.2] - 2026-08-16
 
 ### Fixed
 
-- **Stone Tile Floor — missing coverage on the Cabin's earliest construction stage.**
+- **Stone Tile Floor, missing coverage on the Cabin's earliest construction stage.**
   `InjectImprovementInto.json` wired the improvement into 7 of the 8 cabin/mud-hut boards it
-  should reach — the Mud Hut's starting-point (pre-wall) construction stage was included, but the
+  should reach, the Mud Hut's starting-point (pre-wall) construction stage was included, but the
   Cabin's equivalent starting-point stage (`CabinConstructionStartingPointCabin`) was not, even
   though vanilla's own Windows/Fireplace/Sauna Stove improvements are all buildable there. Added
   the missing `TargetEnvUID` entry so Stone Tile Floor now reaches the same stage for both house
   types.
 
-## [1.59.1] — 2026-08-16
+## [1.59.1] - 2026-08-16
 
 ### Fixed
 
-- **Fishing Net — "Cast Net" now actually requires a riverbank.** The water gate used the wrong
+- **Fishing Net: "Cast Net" now actually requires a riverbank.** The water gate used the wrong
   JSON shape for `RequiredTagsOnBoard` (a flat tag-name array, valid only for `GeneralCondition`),
   so it silently resolved to nothing and the action was available on any tile. Rebuilt using the
   proven per-condition `TriggerTagWarpData` shape (see WDI's `MillRaceOutlet_Kit.json`), and the
   action now hides entirely when not near `tag_River`.
-- **Fishing Net — "Cast Net" now consumes a use.** `ReceivingCardChanges.ModType` was left at `0`
+- **Fishing Net: "Cast Net" now consumes a use.** `ReceivingCardChanges.ModType` was left at `0`
   (None), which is a no-op for durability changes regardless of `UsageChange`; the net's "Casts"
   stat never ticked down. Set to `1` (DurabilityChanges) so each cast now spends 1 of 10 uses
   before the net wears out.
 
-## [1.59.0] — 2026-08-16
+## [1.59.0] - 2026-08-16
 
 ### Added
 
@@ -1421,40 +1825,40 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   the Carpentry Graduate perk and unlock four new furniture blueprints, all filed under the
   existing Construction › Furniture tab: **Clothes Rack**, **Wicker Chair**, **Coat Rack**, and
   **Wardrobe**.
-- **Clothes Rack — one-motion Dress/Undress.** Hang gear in the rack's own storage, then use
+- **Clothes Rack, one-motion Dress/Undress.** Hang gear in the rack's own storage, then use
   "Dress" to equip everything it's holding that you have a free equipment slot for; use "Undress"
   to hang your entire current outfit back on the rack at once (skips anything the rack has no room
   for, leaving it equipped rather than losing it). This is a real equip/dequip shortcut, not a
-  reskinned drag-and-drop container — it calls the same game code the character-portrait UI uses
+  reskinned drag-and-drop container, it calls the same game code the character-portrait UI uses
   to actually equip gear.
-- Wicker Chair, Coat Rack, and Wardrobe are plain new furniture — a seat, a small coat-and-hat
+- Wicker Chair, Coat Rack, and Wardrobe are plain new furniture, a seat, a small coat-and-hat
   storage post, and a bigger closed storage cabinet than the vanilla Shelf.
 
-## [1.58.2] — 2026-08-16
+## [1.58.2] - 2026-08-16
 
 ### Fixed
 
-- **Killing a guard now actually summons Captain Sterling — previously it summoned nobody.**
+- **Killing a guard now actually summons Captain Sterling, previously it summoned nobody.**
   Owner report: "I killed a guard and the captain and the other two guards just stood there for
   2 hours." Root-caused by reading the actual Encounter JSON, not guessed: `cmcStatCaptainSummoned`
   (the stat that sends Sterling after you) is written ONLY by Thorne's or Corrin's
-  `PlayerDemoralizedEffects` — i.e. only when the PLAYER LOSES a fight to one of them while being
+  `PlayerDemoralizedEffects`: i.e. only when the PLAYER LOSES a fight to one of them while being
   chased. `cmcStatGuardsSummoned` (the "whole Watch has converged" signal, the only stat that
   actually builds Sterling a response duty for the no-leniency Converge fight) was set only by Guard
   Vane independently catching up to the player herself. Neither stat was ever touched by
-  `EnemyDefeatedEffects` (a KILL) on any guard's own Encounter — winning a fight against a guard,
+  `EnemyDefeatedEffects` (a KILL) on any guard's own Encounter, winning a fight against a guard,
   including killing them outright, raised Village Crime and marked that guard down/dead, but told
   Captain Sterling and every other guard nothing. If the guard you killed was the only one who could
   ever have summoned him (losing to Thorne/Corrin) and Vane never independently caught you, Sterling
   had no path to ever respond, for any amount of elapsed time. Fixed by adding a
   `cmcStatGuardsSummoned` StatChanges entry to `EnemyDefeatedEffects` on Thorne's, Corrin's, and
-  Vane's own guard-fight Encounters — a kill now calls the Captain in for real, routed straight to
+  Vane's own guard-fight Encounters, a kill now calls the Captain in for real, routed straight to
   the no-leniency Converge fight (matching the mod's own "let the whole Watch converge on you" line),
   the same as if Vane herself had raised the alarm.
 - **The other guards standing nearby also had no reason to react the instant a kill actually raised
   Crime.** `GuardWitnessPatch`'s immediate duty-recheck (added in an earlier pass so a witnessing
   guard doesn't wait out a up-to-15-in-game-minute natural tick before reacting) only ever fired from
-  `EncounterPopup.StartEncounter`'s postfix — the moment a fight STARTS, before any kill has resolved
+  `EncounterPopup.StartEncounter`'s postfix, the moment a fight STARTS, before any kill has resolved
   and before Crime has actually crossed the Banished threshold. A guard standing right there when the
   fight began, then, had already run its one immediate re-check against the OLD Crime value and had
   no reason to check again once the kill pushed Crime over 60. `GuardOutcomePatch.OnGuardDefeated`
@@ -1462,22 +1866,22 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   co-located with the fight re-evaluates their own chase duty immediately instead of waiting for the
   next natural tick.
 
-## [1.58.0] — 2026-08-15
+## [1.58.0] - 2026-08-15
 
 ### Added
 
 - **Guards can now actually catch you.** Follow-up to 1.57.2's pursuit investigation, which found
   the previously-suspected "leaky border" theory was wrong (the territory is fully closed, one exit,
   already locked). The REAL cause, confirmed by graphing every connection in `WorldMap/MapNodes.json`:
-  a chasing guard moves at *exactly* the player's own speed — one environment node per DTP tick, the
-  same rate the player themselves travels at — and the territory contains three overlapping 4-node
+  a chasing guard moves at *exactly* the player's own speed, one environment node per DTP tick, the
+  same rate the player themselves travels at, and the territory contains three overlapping 4-node
   cycles (Village Path/Highland Pines/Pine Trail/Hunters Crossing; Village Path/Highland Pines/Mossy
   Clearing/Clay Shoal; Clay Shoal/Mossy Clearing/Foraging Forest/Marsh Hollow). Classical
   pursuit-evasion theory says a single pursuer at equal speed can never force a catch on a cycle like
-  that — the evader just keeps circling — which is exactly what a player being chased by Iris Vane
+  that, the evader just keeps circling, which is exactly what a player being chased by Iris Vane
   alone at night could always do, forever, no matter how long the chase went on. New
   `GuardChaseUrgencyPatch` gives any guard actively performing a chase duty one bonus pursuit step
-  every few seconds of real time, on top of their normal tick-driven movement — a genuine speed edge
+  every few seconds of real time, on top of their normal tick-driven movement, a genuine speed edge
   over the player that breaks the cycle-evasion problem regardless of which loop you run around.
   Guards not actively chasing (patrolling, standing warden, already fighting) are completely
   unaffected.
@@ -1486,7 +1890,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   cold hearth that needs to be manually re-fed and re-lit. The Inn is meant to feel staffed and
   maintained, so `InnFireplacePatch` now tops the fire back off to full the moment its fuel drops
   to 20% while the player is inside, and revives an already-extinguished hearth back to lit on the
-  same check — covering both the normal per-tick drain and the case where the fireplace goes cold
+  same check, covering both the normal per-tick drain and the case where the fireplace goes cold
   during a long real-world absence from the Inn (a stale save's catch-up simulation can run the
   burnout before the mod's own poll gets a turn).
 
@@ -1494,18 +1898,18 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 - **A built River Bridge now always opens the Village Path crossing.** Root-caused via
   `Documentation/Retrospectives/river-bridge.md`: the East connection was gated by two independent
-  axes in `WorldMap/MapNodes.json` — `GateConditions` (River Bridge built, or the Village Pathfinder
+  axes in `WorldMap/MapNodes.json`: `GateConditions` (River Bridge built, or the Village Pathfinder
   trait) opened it, but a separate `LockConditions` StatThreshold force-locked it again whenever
   Village Crime reached the Banished band (60+), regardless of the bridge. A single guard attack
   (+35 Crime the instant the fight starts, win or lose) plus one more encounter was enough to cross
   60 and strand a player outside the village with the bridge fully built. That `LockConditions`
-  entry is removed — the River Bridge (or the Pathfinder trait) is now the sole gate on this
+  entry is removed, the River Bridge (or the Pathfinder trait) is now the sole gate on this
   crossing. Village Crime is unchanged otherwise: guard pursuit, Watch reactions, arrest, and jail
   time still work exactly as before, and killing a guard still pins Crime at 100.
 
 ---
 
-## [1.57.2] — 2026-08-15
+## [1.57.2] - 2026-08-15
 
 ### Changed
 
@@ -1515,49 +1919,49 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   code (`EncounterPopup.GenerateWoundSeverity`/`InGameEncounter.ModifyEnemyValues`) and the shared
   `Combat_ BTHuntsman` wound table all four guards use: every landed hit drains **Morale 1-2x
   faster than Blood** (Minor wound: Blood -9 / Morale -17; Medium: Blood -17 / Morale -34; Serious:
-  Blood -34 / Morale -34), and Morale — left untouched by 1.57.0 — was only 23%-79% the size of
+  Blood -34 / Morale -34), and Morale, left untouched by 1.57.0, was only 23%-79% the size of
   the newly-buffed Blood pools (Old Corrin was the worst case: 60 Morale against a 260 Blood pool,
   routable in as few as 2 hits). Since a guard's `Morale.OnZeroEncounterResult` is `EnemyEscaped`
   (rout) and `Blood.OnZeroEncounterResult` is `EnemyDefeated` (kill), and Morale always hit zero
-  first, the 1.57.0 Blood/armor buff was never actually being tested — every fight ended as a
+  first, the 1.57.0 Blood/armor buff was never actually being tested, every fight ended as a
   Morale-rout long before Blood mattered. Raising Blood without also raising Morale had, if
   anything, made this worse (Old Corrin's Morale/Blood ratio fell from 37.5% pre-1.57.0 to 23%
   post-1.57.0).
 - **Fix: raised `Morale.MaxValue` on all five guard combat Encounter assets** (Thorne, Corrin,
   Vane, Sterling, and Sterling's Converge/full-Watch-fight variant) to roughly 109-110% of each
-  guard's own Blood pool — Thorne 150 → 210, Old Corrin 60 → 285, Vane 90 → 240, Sterling/Converge
+  guard's own Blood pool: Thorne 150 → 210, Old Corrin 60 → 285, Vane 90 → 240, Sterling/Converge
   100 → 350. Blood, armor, damage, and `Morale.OnZeroEncounterResult` (still `EnemyEscaped`) are
-  all untouched — a beaten guard still routs rather than dies in the large majority of fights, per
+  all untouched, a beaten guard still routs rather than dies in the large majority of fights, per
   the existing design intent, but it now takes roughly twice as many hits to get there under
   typical (Minor/Medium-severity) combat, and Blood/armor finally come under real pressure in a
   fight instead of being cosmetic. Sized deliberately so that taking down all four guards is a
   harder overall fight than a single vanilla Wolf Pack encounter (Blood 400, no Morale/rout
-  mechanic at all) — Sterling alone now has 320 Blood + 350 Morale (670 combined), and the full
+  mechanic at all): Sterling alone now has 320 Blood + 350 Morale (670 combined), and the full
   Watch's combined total across all four guards is well over 3x the Wolf Pack's single-pool
   endurance.
-- Investigated a companion report ("guards never seem to overtake me") — traced the actual
+- Investigated a companion report ("guards never seem to overtake me"), traced the actual
   `MoveDutyAction`/`InGameNPC` movement code and confirmed pursuit mechanics are working as coded
   (live per-tick re-targeting, no stale destinations, the territory boundary is fully closed with
-  only one exit and it's already locked while Banished). No code change made here yet — root cause
+  only one exit and it's already locked while Banished). No code change made here yet, root cause
   is more likely the travel distance from the guards' single Town Square patrol post to wherever
   the player is when Banished triggers, combined with the day/night shift split leaving only 1-2
   of 3 chase-capable guards active at a time. Needs a fresh in-game reproduction to pin down further.
 
 ---
 
-## [1.57.1] — 2026-08-15
+## [1.57.1] - 2026-08-15
 
 ### Fixed
 
 - **Attacking Captain Sterling directly at his post, then declining all three "think better of it"
   chances, never actually led to an arrest.** His own Attack button (`Agent_GuardSterling.json`)
   pointed at the same lenient encounter (`cmcEncounterGuardSterling`) no matter how many chances
-  had been burned — the forced arrest only existed on a separate summon-response duty
+  had been burned, the forced arrest only existed on a separate summon-response duty
   (`Duty_SterlingForceArrest`) that additionally required `cmcStatCaptainSummoned`, a stat only set
   by *losing a fight to Thorne or Corrin* while they're chasing you. A player who engages guards
   directly at their posts (rather than being chased down) never sets that stat, so the "next time he
   reaches the player the arrest is forced" promise (`GuardOutcomePatch`'s own log line) could never
-  be kept — Sterling would offer the identical choice forever. His Attack button is now two
+  be kept: Sterling would offer the identical choice forever. His Attack button is now two
   mutually-exclusive `Interactions` entries gated on `cmcStatSterlingEscapeCount`: fewer than 3
   chances used still opens the lenient encounter; 3 of 3 used opens `cmcEncounterSterlingArrest`
   directly, forcing the arrest with no further escape option. The chase-summon route
@@ -1567,7 +1971,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 ---
 
-## [1.57.0] — 2026-08-15
+## [1.57.0] - 2026-08-15
 
 ### Changed
 
@@ -1576,19 +1980,19 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   threatened. Thorne, Corrin, and Vane all had their Blood pool raised (110/160/130 -> 190/260/220),
   their armor more than doubled (Torso 10 -> 22, limbs 5 -> 12), and their base Damage roll
   increased (25-75 -> 35-95), with a matching bump to how much their own Melee Skill scales that
-  damage. **Captain Sterling never dealt any damage at all** — every one of his `EnemyActions`
+  damage. **Captain Sterling never dealt any damage at all**: every one of his `EnemyActions`
   carried `DoesNotAttack: true` as part of the 2026-08-12 non-lethal leniency redesign, which
   correctly kept him harmless while *offering* the "attack or think better of it" choice, but also
   left him harmless if the player actually chose to attack, or if the whole Watch converged and
-  forced a fight. He is now the toughest fight in the Watch when either of those happens — highest
+  forced a fight. He is now the toughest fight in the Watch when either of those happens, highest
   Blood (140 -> 320), heaviest armor (Torso 35, limbs 18), hardest-hitting (Damage 0-0 -> 45-110),
   and his wound table now applies real Bruising (90/180/320 by severity) alongside Fear, matching
   the fix already shipped for the other three guards in 1.55.0. His forced-arrest asset
-  (`cmcEncounterSterlingArrest`, the "third refusal" surrender) is untouched — declining his offer,
+  (`cmcEncounterSterlingArrest`, the "third refusal" surrender) is untouched, declining his offer,
   or being taken in on the third refusal, is still unhurt by design; only actually fighting him is
   now dangerous.
 - **Jail sentences didn't reflect what you actually did.** Every arrest used the same crime/8
-  formula regardless of cause, floored at 1 day — and because a single guard kill already maxes
+  formula regardless of cause, floored at 1 day, and because a single guard kill already maxes
   Village Crime to its 100-point ceiling, that formula could never tell "killed one guard" apart
   from "killed three"; both just hit the existing 8-day cap. New hidden counter
   `cmcStatGuardKillsPending` tracks guards killed since the player's last full sentence
@@ -1597,59 +2001,59 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   guard killed** instead of the crime formula (2 kills already reaches the unchanged 8-day cap, so
   no change was needed to the jail cell door's 8 pre-built "N more days" DAs). The counter resets to
   0 once that sentence is served in full, alongside Village Crime. Killing all four guards still
-  bypasses jail entirely, unchanged from 1.53.0 — with nobody left standing to make the arrest, the
+  bypasses jail entirely, unchanged from 1.53.0, with nobody left standing to make the arrest, the
   Inn Keeper's confession dialog remains the only way to clear a Watch-wiped record.
 
 ---
 
-## [1.56.0] — 2026-08-15
+## [1.56.0] - 2026-08-15
 
 ### Changed
 
 - **AdvancedCopperTools (ACT) is now a hard dependency.** The River Bridge, Copper Bed Frame, and
   Market Stall's Copper Pantry all build from ACT items (`advanced_copper_tools_copper_nails` /
   `advanced_copper_tools_metal_sheet`) referenced directly in their construction requirements, with
-  no fallback. Without ACT installed those references never resolve — reported as the River Bridge
+  no fallback. Without ACT installed those references never resolve, reported as the River Bridge
   environment improvement no longer appearing at all at the River Clearing. Rather than authoring
   CMC-native fallback items for every ACT-flavored feature, `Plugin.cs`'s `[BepInDependency]` on ACT
-  is now `HardDependency` instead of `SoftDependency` — Community Mod Chest will not load without
+  is now `HardDependency` instead of `SoftDependency`: Community Mod Chest will not load without
   Advanced Copper Tools also installed. **This is a breaking change for any existing CMC-only
   install.**
 
 ---
 
-## [1.55.0] — 2026-08-15
+## [1.55.0] - 2026-08-15
 
 ### Fixed
 
 - **Fighting a Town Watch guard (Thorne, Corrin, or Vane) landed hits but never felt like real
   damage.** Their per-round wound tables were copied from vanilla's Wolf encounter, which only
-  raises Fear (a psychological "makes you run away" stat) on a landed hit — no physical
+  raises Fear (a psychological "makes you run away" stat) on a landed hit, no physical
   consequence at all. That matched vanilla wildlife design, but a human guard's spear should hurt.
   Every wound tier (Minor/Medium/Serious, both of each guard's attack variants) now also applies
-  `Bruising` — the same real vanilla physical-injury stat this mod already uses for Captain
-  Sterling's arrest sequence — scaled to the wound's severity (Minor 68, Medium 136, Serious 272,
+  `Bruising`: the same real vanilla physical-injury stat this mod already uses for Captain
+  Sterling's arrest sequence, scaled to the wound's severity (Minor 68, Medium 136, Serious 272,
   out of Bruising's 0-400 range; a Serious hit now crosses into the "Seriously Bruised" status).
-  Fear is unchanged and still rises alongside it — a guard fight is still meant to be frightening,
+  Fear is unchanged and still rises alongside it, a guard fight is still meant to be frightening,
   it's just no longer *only* frightening.
-- **Guard wounds left nothing in your inventory either** — vanilla ships a complete set of wound
-  items (Bruise, Abrasion, Minor Laceration, Puncture — each causing Pain until you Clean, and in
+- **Guard wounds left nothing in your inventory either**: vanilla ships a complete set of wound
+  items (Bruise, Abrasion, Minor Laceration, Puncture, each causing Pain until you Clean, and in
   some cases Stitch, it away) that no vanilla encounter actually spawns; the same asset set is used
   for fall damage but was never wired into combat. Every guard wound tier now drops the matching
-  item on top of the Bruising hit above — a light Abrasion/Laceration/Puncture on a Minor hit,
-  scaling up to a stacked pair of them on a Serious one — reusing existing vanilla items and their
+  item on top of the Bruising hit above, a light Abrasion/Laceration/Puncture on a Minor hit,
+  scaling up to a stacked pair of them on a Serious one, reusing existing vanilla items and their
   existing Clean/Stitch treatment actions; nothing new was added to the game.
 
 ---
 
-## [1.54.3] — 2026-08-15
+## [1.54.3] - 2026-08-15
 
 ### Fixed
 
 - **A killed Town Watch guard's body disappeared, but not until ~30 in-game minutes after the
   kill.** The despawn was driven only by `GuardOutcomePatch`'s 5-second poll reading the
   `cmcNpcStatGuardKilled` marker, and the engine writes that marker inside a *time-costed*
-  end-of-encounter action performed after the player presses Continue — so the body lingered until
+  end-of-encounter action performed after the player presses Continue, so the body lingered until
   game time advanced. `GuardOutcomePatch` now also subscribes to `GameManager.OnEncounterEnemyDefeated`,
   which fires the instant the guard's Blood hits zero (before that time-costed action), and removes
   her body + arms her Jail cooldown immediately. A routed guard fires the separate "escaped" event,
@@ -1657,21 +2061,21 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 ---
 
-## [1.54.2] — 2026-08-15
+## [1.54.2] - 2026-08-15
 
 ### Fixed
 
 - **A killed Town Watch guard's body was removed correctly, then respawned within seconds.**
   `GuardOutcomePatch`'s 5-second poll despawned the killed guard's NPC (`CheckKilledGuards`)
   *before* arming her respawn cooldown, so by the time the cooldown-arming code tried to read
-  her `cmcNpcStatGuardDowned` marker off the live NPC, the NPC was already gone — the cooldown
+  her `cmcNpcStatGuardDowned` marker off the live NPC, the NPC was already gone, the cooldown
   never armed, `GuardSpawnPatch` never saw her as suppressed, and she took up her post again on
   the very next 1-second arrival poll. The despawn and the cooldown-arming read now happen in the
   correct order within the same poll tick.
 - **A guard who was routed first and then killed on a later attack never got flagged as killed at
-  all**, reproducing the same instant-respawn bug through a different path — the kill-detection
+  all**, reproducing the same instant-respawn bug through a different path, the kill-detection
   logic originally only ran the first time a guard went down, so a guard already down from an
-  earlier rout (the mod's own advertised common outcome — "guards break and flee... actually
+  earlier rout (the mod's own advertised common outcome: "guards break and flee... actually
   killing one takes real determination") skipped it entirely on a later kill. Kill detection now
   runs on every poll, independent of whether the guard was already marked down.
 
@@ -1679,7 +2083,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 - **A killed guard's cooldown is now 7 days, distinct from a routed guard's full season, and she
   returns through the Village Jail instead of her old post** (owner request). Breaking a guard's
-  morale (a rout) is unchanged — still a full season, still back at her own post. Killing one
+  morale (a rout) is unchanged, still a full season, still back at her own post. Killing one
   outright now reads as a heavier but faster-resolving consequence, tied to the Jail: a new
   per-guard hidden marker (`cmcStatGuardKilledFlag*`) tracks whether her current absence came
   from a kill, redirects her first placement after the cooldown to the Village Jail (reachable
@@ -1688,9 +2092,9 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   pre-kill `CurrentSaveData` entry (a load/new-game snapshot never refreshed mid-session) before
   she is actually due back. Known tradeoff, not fixed: shortening a killed guard's cooldown to 7
   days can shrink or close the window in which all four guards are simultaneously down, which
-  gates the Inn Keeper confession/pardon path — see `GuardOutcomePatch`'s class doc.
+  gates the Inn Keeper confession/pardon path, see `GuardOutcomePatch`'s class doc.
 
-## [1.54.1] — 2026-08-15
+## [1.54.1] - 2026-08-15
 
 ### Fixed
 
@@ -1701,10 +2105,10 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   interactable at her post. Each guard's `EnemyDefeatedEffects` now also sets a new, kill-only
   `cmcNpcStatGuardKilled` marker; `GuardOutcomePatch` polls for it and despawns the guard's NPC
   the same way vanilla removes one for a `DeleteNPC` card action, while leaving a merely-routed
-  guard exactly as before. The season-long return to duty is unaffected either way — a killed
+  guard exactly as before. The season-long return to duty is unaffected either way, a killed
   guard's post is simply empty until she is back.
 
-## [1.54.0] — 2026-08-15
+## [1.54.0] - 2026-08-15
 
 ### Added
 
@@ -1713,13 +2117,13 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   existing quest-chain script): she teaches the **Climbing Rope** blueprint (Rope ×4 + Plank ×1 →
   Climbing Rope). Build a **Climbing Rope** `CardType 10` environment improvement at the vanilla
   **Greenfalls** location (consumes the item) to permanently open the Sett Warren ↔ Greenfalls
-  path in both directions — previously a one-way, dead-end exit. The connection is locked from
+  path in both directions, previously a one-way, dead-end exit. The connection is locked from
   both sides (travel DA stripped, cliff "too high") via `WorldMap/MapNodes.json` `ConnectionGates`
   (`Edge` granularity, `ImprovementBuilt` condition) until the rope is anchored, mirroring the
   existing River Bridge pattern. The Climbing Rope item and the placed improvement both use the
   vanilla Rope sprite as a placeholder pending custom art.
 
-## [1.53.0] — 2026-08-15
+## [1.53.0] - 2026-08-15
 
 ### Changed
 
@@ -1727,12 +2131,12 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   for the four core structures + Market Stall milestone (Miller 25, Weaver 25, Well 15, Bridge
   15, Market Stall 20) that added up to the full 100-point ceiling on construction alone, with
   the six villager-errand flags contributing nothing extra. A fresh save with the Village
-  Founder perk equipped — which instantly completes 4 of 6 errand flags and spawns Miller's and
-  Weaver's cottages on first visit — read as "full reputation" almost immediately. Reputation is
+  Founder perk equipped, which instantly completes 4 of 6 errand flags and spawns Miller's and
+  Weaver's cottages on first visit, read as "full reputation" almost immediately. Reputation is
   now split into two 50-point buckets, construction and errands, and BOTH must be fully complete
   to reach the 100 ceiling; neither alone can carry the total past halfway.
 - **Beating the entire Town Watch no longer auto-clears Village Crime.** Previously, the instant
-  all four guards were simultaneously down, Village Crime silently reset to 0 in the same tick —
+  all four guards were simultaneously down, Village Crime silently reset to 0 in the same tick,
   which undid the crime penalty for an actual guard kill (guard `EnemyDefeatedEffects` already
   carried a steep Village Crime hit; the auto-pardon erased it before it meant anything). Clearing
   your name now requires a follow-up conversation: once all four guards are down and Village Crime
@@ -1740,22 +2144,22 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   the violence and inviting them to sit with what they did; the conversation itself is what resets
   Village Crime, not defeating the guards alone.
 
-## [1.52.0] — 2026-08-14
+## [1.52.0] - 2026-08-14
 
 ### Changed
 
 - **Kit-perk overlap with HomesteadPerks resolved by content separation, not runtime dedup.**
   1.51.0's `HomesteadPerksCompatPatch` (hide CMC's copies from `PerkTabGroup.ContainedPerks`
-  when HomesteadPerks is installed) only ever controlled the *available* perk list — it had no
+  when HomesteadPerks is installed) only ever controlled the *available* perk list, it had no
   effect on a character profile that already had CMC's perk UIDs saved as *equipped* (see
   `Documentation/Retrospectives/CMC-HSP-compat.md`), so duplicate kit perks could still show up
   twice in Equipped Perks. Replaced with a simpler, structurally conflict-free split: CMC now
-  ships only two of its original nine kit perks — **Founders Kit** (renamed from "Homestead")
-  and **Rain Cistern Kit** — while the standalone HomesteadPerks mod remains the sole home for
+  ships only two of its original nine kit perks: **Founders Kit** (renamed from "Homestead")
+  and **Rain Cistern Kit**: while the standalone HomesteadPerks mod remains the sole home for
   all nine (Founders/Homestead, Cabin, Mud Hut, Log Bed, Furnace, Forge, Oven, Rain Cistern,
   Tanning Pit) under its own `hsp*`-prefixed UIDs. With no shared UIDs and no identically-named
   perks between the two mods' remaining offering, there is nothing left to hide or dedup at
-  runtime — `HomesteadPerksCompatPatch.cs` is removed, along with the `homestead_perks` soft
+  runtime: `HomesteadPerksCompatPatch.cs` is removed, along with the `homestead_perks` soft
   BepInDependency it existed for.
 - **"Homestead" perk renamed to "Founders Kit"** (`traits_perk_homestead` UniqueID unchanged, so
   existing character saves keep the perk). The granted item (`cmchomesteadkit`) is renamed to
@@ -1767,11 +2171,11 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Bed Kit, Furnace Kit, Forge Kit, Oven Kit, Tanning Pit Kit (and their exclusive granted items).
   These were a straight recreation of the abandoned Better Perks Buildings mod and now live only
   in the standalone, dependency-free **HomesteadPerks** mod. **Rain Cistern Kit is kept** in CMC
-  as its own perk — a player can take it alongside Founders Kit to end up with more than the two
+  as its own perk, a player can take it alongside Founders Kit to end up with more than the two
   cisterns the Founders Kit bundle already grants. Existing characters with a removed perk UID
   already equipped keep whatever they already placed; the perk simply won't be offered again.
 
-## [1.51.0] — 2026-08-14
+## [1.51.0] - 2026-08-14
 
 ### Added
 
@@ -1781,10 +2185,10 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   placeable-structure kits without the rest of the village content. If both mods are
   installed, CMC now detects HomesteadPerks (by its BepInEx plugin GUID) and hides its own
   nine copies of those perks from character creation, so only HomesteadPerks' set is offered
-  — no duplicate "Cabin Kit" entries, and no load-order dependency between the two mods. CMC's
+ , no duplicate "Cabin Kit" entries, and no load-order dependency between the two mods. CMC's
   own perks are untouched and fully functional when HomesteadPerks is not installed.
 
-## [1.50.3] — 2026-08-14
+## [1.50.3] - 2026-08-14
 
 ### Fixed
 
@@ -1795,21 +2199,21 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   `DefaultEnvCardDrops` entry that spawns its chest onto the board. The other 4 interior
   environment cards (`CMC_WeaverCottageInterior.json`, `CMC_ApothecaryCabinInterior.json`,
   `CMC_InnInterior.json`, `CMC_AcademyInterior.json`) never had the equivalent entry added,
-  so those chests could never spawn — confirmed by a 2026-08-13 playthrough report ("only
+  so those chests could never spawn, confirmed by a 2026-08-13 playthrough report ("only
   the miller has a chest"). Each now drops its resident's chest on first visit, same as the
   Miller's. Independent per-NPC theft/heat counters were already correctly wired in C# and
   should now be testable across all 5 residents.
 
-## [1.50.2] — 2026-08-14
+## [1.50.2] - 2026-08-14
 
 ### Internal
 
 - Village Flax, Rye, and Turnroot fields are now marked with vanilla Partner-NPC harvest
   duties (`PartnerDuty_HarvestFlax`/`HarvestRye`/`HarvestTurnroot`), matching the existing
   vanilla flax field's own wiring. JSON-only, no new C#. Not yet verified in-game with a
-  recruited Partner — not advertised as a feature until confirmed.
+  recruited Partner, not advertised as a feature until confirmed.
 
-## [1.50.1] — 2026-08-14
+## [1.50.1] - 2026-08-14
 
 ### Fixed
 
@@ -1825,36 +2229,36 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Debug breadcrumb, and the warning only fires if references are still unresolved while a game
   is actually running (a real failure).
 
-## [1.50.0] — 2026-08-14
+## [1.50.0] - 2026-08-14
 
 ### Changed
 
 - **Homestead trait reworked to a single "Homestead Kit" card.** The perk previously granted
-  the Cabin Kit, two Rain Cistern Kits, and raw materials directly into starting inventory —
+  the Cabin Kit, two Rain Cistern Kits, and raw materials directly into starting inventory,
   all of it counted against the 4000 Encumbrance cap at once, which forced the material bundle
   down to a token 3 Plank/2 Mud Brick/2 Stone/3 Copper Nails/1 Rope in [1.48.4] to avoid
   immobilizing the player on spawn. Now the perk grants one portable Homestead Kit (600 weight);
-  using **Place** unpacks the Cabin Kit, two Rain Cistern Kits, and a real starting stockpile —
+  using **Place** unpacks the Cabin Kit, two Rain Cistern Kits, and a real starting stockpile:
   30 Planks, 30 Mud Bricks, 50 Stones, 20 Heavy Stones, 15 Tree Logs, 20 Clay, 10 Rope, 50
-  Copper Nails — on the spot, so none of it has to be carried cross-country first (Heavy Stone
+  Copper Nails, on the spot, so none of it has to be carried cross-country first (Heavy Stone
   and Tree Log are only viable at these quantities because they spawn on the ground instead of
   going straight into starting inventory).
 
-## [1.49.0] — 2026-08-14
+## [1.49.0] - 2026-08-14
 
 ### Added
 
-- **Six starter building-kit perks** — a working recreation of the abandoned *Better Perks
+- **Six starter building-kit perks**: a working recreation of the abandoned *Better Perks
   Buildings* mod, requested by players after that mod stopped working. Each perk grants a
   one-time-placeable kit at character creation; carry it with you and use **Place** to raise
   the building wherever you like:
-  - **Cabin Kit** (60 Suns) — the Homestead cabin kit, plus a Broom blueprint
-  - **Mud Hut Kit** (40 Suns) — a new mud hut kit, plus a Broom blueprint
+  - **Cabin Kit** (60 Suns), the Homestead cabin kit, plus a Broom blueprint
+  - **Mud Hut Kit** (40 Suns), a new mud hut kit, plus a Broom blueprint
   - **Log Bed Kit** (15 Suns)
   - **Furnace Kit** (20 Suns)
   - **Forge Kit** (25 Suns)
   - **Oven Kit** (15 Suns)
-  - **Rain Cistern Kit** (10 Suns) — the Homestead rain cistern kit
+  - **Rain Cistern Kit** (10 Suns), the Homestead rain cistern kit
   - **Tanning Pit Kit** (15 Suns)
 - Six new kit items (Mud Hut, Log Bed, Furnace, Forge, Oven, Tanning Pit) that transform into the vanilla
   structures on placement, matching the existing Homestead kit behavior. All perks sit in the
@@ -1862,7 +2266,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 ---
 
-## [1.48.4] — 2026-08-13
+## [1.48.4] - 2026-08-13
 
 ### Fixed
 
@@ -1870,35 +2274,35 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   run could only ever settle at spawn.** The [1.46.6] fix reduced the Cabin Kit alone from
   6000 to 2500 weight, but never checked the perk's OTHER granted items against the same
   4000 Encumbrance cap. The two Rain Cistern Kits (1200 each) plus the Cabin Kit (2500) summed
-  to 4900 on their own — over the cap before the player touched anything else — and the
+  to 4900 on their own, over the cap before the player touched anything else, and the
   perk's separate raw-material bundle (`EquippedCardsWarpData`, placed directly into carried
   inventory at character creation) added a further ~72,000 weight on top of that (30 Heavy
   Stones at 750 each = 22,500; 10 Tree Logs at 3000 each = 30,000; plus Planks, Mud Bricks,
   Stones, Copper Nails, Rope), roughly 19× the entire carry cap. `CMC_HomesteadCabinKit.json`
   reduced to `1200.0`, `CMC_HomesteadRainCisternKit.json` reduced to `400.0` (all three kits
-  together now total 2000 — well under cap with room for ordinary gear). `Perk_Homestead.json`'s
+  together now total 2000, well under cap with room for ordinary gear). `Perk_Homestead.json`'s
   material bundle cut to 3 Planks, 2 Mud Bricks, 2 Stones, 3 Copper Nails, 1 Rope (Heavy Stone
-  and Tree Log removed entirely — even a single Tree Log alone is 3000 weight, 75% of the whole
+  and Tree Log removed entirely, even a single Tree Log alone is 3000 weight, 75% of the whole
   cap, and cannot be included at any quantity without reintroducing the same bug). Total granted
   weight is now 3440, leaving margin for starting clothes. `PerkDescription` (JSON + both
   localization CSVs) updated to describe the smaller bundle honestly. Placeholder values, not a
-  final balance pass — same caveat as the original Cabin Kit fix.
+  final balance pass, same caveat as the original Cabin Kit fix.
 
 ### Changed
 
 - **Framework hardening (CSFFModFramework 2.22.3): `Api.ActionRouter`'s wrapped-action coroutine
   can no longer strand the game in a permanent action-lock.** If the game's own action coroutine
   threw partway through (any dialog, drag, or DismantleAction with a framework `AfterWrapped`
-  handler registered), the exception propagated out of `RunWrapped` uncaught — the same failure
+  handler registered), the exception propagated out of `RunWrapped` uncaught, the same failure
   shape already fixed once for `GameManager.ChangeEnvironment`
   (`ChangeEnvironmentCrashGuard`, [1.44.4]/fwk 2.20.6): the coroutine never reached the point
   where the game clears `RootAction`, so `PerformingAction` stayed true forever and every later
   action showed "I can't do two things at once..." with no recovery short of quitting. This is
   general defensive hardening, not a confirmed fix for the specific "spoke with the Professor and
-  could no longer go anywhere" report — no reproduction of that softlock exists in the log
+  could no longer go anywhere" report, no reproduction of that softlock exists in the log
   reviewed this session (which instead shows the River Bridge trait, hammer-slot fix, and
   interior/wildlife fixes below all working correctly this same run). If the "can't go anywhere"
-  softlock recurs, please leave the game running and send a fresh `LogOutput.log` — an `Error`-
+  softlock recurs, please leave the game running and send a fresh `LogOutput.log`: an `Error`-
   level `[ActionRouter]` line will now name the exact action/card involved if this is the cause.
 
 ### Verified (re-confirmed against current source + a fresh player log, no changes needed)
@@ -1915,7 +2319,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   `InteriorEnvSaveDataPatch` both confirmed present and firing in the same player log
   (`[InteriorEnvSaveData] pre-created/verified EnvironmentsData for 7/7 interior environment(s)`).
 - **Teleporting to the Village via the Portal Hub before building the bridge, with no way back
-  across the river:** traced the WorldMap graph — `cmcEnvVillagePath`'s westbound connection
+  across the river:** traced the WorldMap graph: `cmcEnvVillagePath`'s westbound connection
   back to River Clearing is a plain, ungated `Connections` entry (only the River-Clearing-side
   EASTBOUND entry DA is gated by `ConnectionGates`/`HideTravelDA`), so it stays walkable on foot
   regardless of bridge state; separately, `PortalService`'s `CloneNodeHasOwnExit` fix ([1.46.7])
@@ -1924,14 +2328,14 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   not skipped the way ACT/H&F's own-exit clone nodes are). No remaining chicken-and-egg lock
   found in the current source.
 
-## [1.48.3] — 2026-08-13
+## [1.48.3] - 2026-08-13
 
 ### Fixed
 
 - **Six village map locations renamed to stop colliding or being confusable with vanilla location names.**
   `cmcEnvHighGrove`/`cmcLocHighGrove` and `cmcEnvMossyClearing`/`cmcLocMossyClearing` are clones of the vanilla
   environments `Env_GrovePine_HighGrove` and `Env_ClearingOak_MossyClearing`, and had kept those environments' exact
-  vanilla display names ("High Grove", "Mossy Clearing") — indistinguishable in menus, logs, and player conversation
+  vanilla display names ("High Grove", "Mossy Clearing"), indistinguishable in menus, logs, and player conversation
   from the real vanilla locations of the same name. Renamed to **Highland Pines** and **Moss-Grown Clearing**. A
   follow-up pass also renamed four more nodes that echoed a *different* vanilla location's name closely enough to be
   confusable, even though the full text wasn't identical: **Clay Flats** → **Clay Shoal** (vanilla has "Clay Banks"),
@@ -1939,10 +2343,10 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Meadow** (its own clone source is vanilla "Deer Grove"), **Badger Warren** → **Sett Warren** (its own clone source is
   vanilla "Badger Hill"). All six: English + Chinese localization, `WorldMap/MapNodes.json` `DisplayName`, plus the
   North Snow Drift's description/action text which named Deer Meadow by name. UIDs, connections, and terrain are
-  unchanged — this is a display-text-only fix. The other six village map nodes were audited against the full vanilla
+  unchanged, this is a display-text-only fix. The other six village map nodes were audited against the full vanilla
   `CardName` table and confirmed to not collide with or closely echo any vanilla location.
 
-## [1.48.2] — 2026-08-12
+## [1.48.2] - 2026-08-12
 
 ### Fixed
 
@@ -1950,11 +2354,11 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Apothecary's Cabin, Jail Cell) now self-declare as indoor environments** (`"tag_EnvIndoors"` in
   `CardTagsWarpData`). These 7 environments previously shipped with no `CardTags` at all, which
   silently broke Sirus23_Mod_Collection's Owl-companion "don't follow indoors" check (and any
-  other future indoor-aware mod logic) for every one of them — the Owl kept following straight
+  other future indoor-aware mod logic) for every one of them, the Owl kept following straight
   into the Inn/Academy/etc. despite that mod's fix. `CardData/Environment/*Interior*.json`,
   `CardData/Environment/CMC_JailCell.json`.
 
-## [1.48.1] — 2026-08-12
+## [1.48.1] - 2026-08-12
 
 ### Changed
 
@@ -1962,34 +2366,34 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   hidden tracked-only stat. It appears alongside Morale, Stress, Connection, etc. in the Mental
   tab (`GameSourceModify/Mental.json` appends `cmcStatVillageReputation` into the vanilla tab's
   `ContainedStats`, so no vanilla file is overridden). The Village Hall's Notice Board mirror and
-  every existing threshold/gate are unchanged — this only adds a second place to see the number.
+  every existing threshold/gate are unchanged, this only adds a second place to see the number.
 
-## [1.48.0] — 2026-08-12
+## [1.48.0] - 2026-08-12
 
 ### Changed
 
 - **Captain Reeve Sterling no longer deals damage to the player under any circumstance.** Every
-  one of his combat actions — blocking, grappling, holding — stops short of drawing his sword on
+  one of his combat actions, blocking, grappling, holding, stops short of drawing his sword on
   you; he can no longer wound you in any encounter, including one you start yourself by using the
   Attack button on him.
 - **Being caught alone by Sterling now opens with a choice instead of a forced fight.** When
   Thorne or Corrin has beaten you and sent for the Captain, and he catches up with you himself,
   the encounter offers **Attack the captain** or **Think better of it**. Choosing to think better
-  of it ends the confrontation with no fight at all — you walk, and Sterling simply resumes
+  of it ends the confrontation with no fight at all, you walk, and Sterling simply resumes
   pursuing you.
   - You get **three** such chances, tracked by a hidden counter.
   - The third refusal spends the leniency: the next time Sterling reaches you, the encounter opens
     with no escape option at all, and he takes you into custody without a fight and without
     hurting you.
   - You still wake up in the **Village Jail** afterward, serving the same crime-based sentence as
-    before — but with **no Bruising** this time, since no blow was ever struck.
+    before, but with **no Bruising** this time, since no blow was ever struck.
 - **The whole-Watch encounter, when Guard Iris Vane's alarm brings every guard down on you at
   once, keeps its existing stakes.** That encounter opens straight into the fight with no
   leniency offer. Sterling still deals no damage in it, so you can fight through and beat him same
-  as any other guard — the "best all four guards and the village drops the charges" reward path
+  as any other guard, the "best all four guards and the village drops the charges" reward path
   is unchanged.
 
-## [1.47.1] — 2026-08-12
+## [1.47.1] - 2026-08-12
 
 ### Fixed
 
@@ -1999,12 +2403,12 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   vanilla's own follow mechanism (`NPCDuty` + `MoveDutyAction`'s A* pathfinding) could never
   route a companion through either door no matter how the duty was tuned. `PartnerIndoorFollowPatch`
   bypasses pathfinding for this boundary and directly relocates any allied NPC that was
-  standing with the player in the village the moment they step through — the same direct
+  standing with the player in the village the moment they step through, the same direct
   `GameManager.MoveNPC` mechanism CMC's own resident schedulers (Professor, Miller, Weaver,
   Apothecary, Inn Keeper) already use for their own interior comings and goings. A companion
   who wasn't with the player is left where it was rather than teleported in.
 
-## [1.47.0] — 2026-08-12
+## [1.47.0] - 2026-08-12
 
 ### Changed
 
@@ -2013,60 +2417,60 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Beads/Stone Mace reveal thresholds now all read a new signed `cmcStatVillageReputation` stat
   (civic score minus your own Village Crime notoriety), instead of the old unsigned
   `cmcStatVillageRenown`. All existing thresholds (25/50/75/100) mean the same thing as before in
-  the common case (zero crime) — the only new behavior is that high Village Crime can now visibly
+  the common case (zero crime), the only new behavior is that high Village Crime can now visibly
   suppress your civic standing, including delaying the Clay Beads/Stone Mace reveals and the
   Market Stall's full-reputation bonus if crime is high enough to offset it.
   `cmcStatVillageCrime` itself, `VillageCrimePatch`, and the entire Guards/Jail/Banishment system
-  are functionally unchanged — Crime remains its own independent 0-100 incident ledger, now with
+  are functionally unchanged: Crime remains its own independent 0-100 incident ledger, now with
   a second, read-only consumer.
   - New Town Board notice for a net-negative Village Reputation (previously no board text
     acknowledged that state at all).
   - Fixed a latent bug where the Town Board's status line silently vanished if a read-succeeded
-    sentinel check (`>= 0f`) ever saw a legitimately negative value — not reachable before this
+    sentinel check (`>= 0f`) ever saw a legitimately negative value, not reachable before this
     merge, since Renown could never go negative.
   - Fixed a mismatched threshold: the Town Board's prose tier text switched to its top tier at
-    80% while the board's own declarative bands switched at 75% — both now agree at 75%.
+    80% while the board's own declarative bands switched at 75%, both now agree at 75%.
 
-## [1.46.7] — 2026-08-11
+## [1.46.7] - 2026-08-11
 
 ### Fixed
 
 - **Academy lectern self-heal could permanently latch onto the wrong duplicate instance.**
   `GraduatePerkPatch.CheckAcademyBackfill` used a single-match `FindLiveCard` to locate the
   `cmcAcademyLectern` on the board, backfilled it, then latched a "already backfilled" flag that
-  never retries — if it resolved an orphan/empty duplicate instead of the instance the player
+  never retries, if it resolved an orphan/empty duplicate instead of the instance the player
   actually sees, the visible lectern stayed stuck at 0% forever (graduate perks still granted).
   Mirrors `AcademyPatch.FindAllLiveLecternCards`: now reconciles every live `cmcAcademyLectern`
   instance found on the board, and only latches the flag after at least one instance was written.
 - **Five NPC spawn/schedule patchers failed silently when an Agent UID couldn't resolve.**
   `CottageResidentSpawnPatch`, `GuardSpawnPatch`, `AshPartnerSpawnPatch`, `ProfessorSchedulePatch`,
-  and `ApothecarySchedulePatch` all polled a `GetFromID` result with zero log output on failure — a
+  and `ApothecarySchedulePatch` all polled a `GetFromID` result with zero log output on failure, a
   renamed/mistyped UID or a JSON load failure meant the affected NPC silently never spawned, with
   no diagnostic trail. Each now emits a one-shot `LogWarning` naming the unresolved UID(s).
 
 ### Changed
 
 - Demoted 6 shipped `LogInfo` diagnostic call sites (`CompanionFollowDiagnostics`,
-  `AcademyPatch.DumpLecternInstanceIdentity` + duplicate-count log) to `LogDebug` — these were
+  `AcademyPatch.DumpLecternInstanceIdentity` + duplicate-count log) to `LogDebug`: these were
   temporary investigation logging left at Info level past their investigation, contrary to
   §Mod Logging Norms. No behavior change; log-volume hygiene only.
 
 ---
 
-## [1.46.6] — 2026-08-11
+## [1.46.6] - 2026-08-11
 
 ### Fixed
 
 - **The Homestead trait's cabin kit was too heavy to carry.** `CardData/Item/CMC_HomesteadCabinKit.json`
-  shipped `ObjectWeight: 6000.0`, well above the vanilla starting-character Encumbrance cap of 4000 —
+  shipped `ObjectWeight: 6000.0`, well above the vanilla starting-character Encumbrance cap of 4000,
   holding the kit alone triggered "Too encumbered to move," so a Homestead run could only ever settle
-  at spawn. Reduced to `2500.0` (a placeholder value, not a final balance pass — well below the cap,
+  at spawn. Reduced to `2500.0` (a placeholder value, not a final balance pass, well below the cap,
   heaviest vanilla carryable is 3500).
 - **The River Bridge blueprint slot could never accept a player-held forge hammer.** Both
   `CardData/EnvImprovement/Imp_RiverBridge.json`'s construction stage and
   `CardData/Blueprint/Bp_CMC_IronFishingRodFittings.json` referenced the vanilla legacy `ForgeHammer`
   card (`e118b8cd90f14b048aab78a0d37e8f61`), which self-transforms into `ToolOrWeapon_Hammer_Metal`
-  the instant it spawns — no player could ever be holding the legacy card, and blueprint slots match
+  the instant it spawns, no player could ever be holding the legacy card, and blueprint slots match
   by exact `CardData` reference, not name. Swapped both references to the modern hammer GUID
   (`2914e01d9af26f24d92ff61389fb0195`).
 - **Bears and wolves could spawn inside village interior buildings.**
@@ -2097,9 +2501,9 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   (`CMC_{Inn,Academy,ApothecaryCabin,MillerCottage,WeaverCottage,VillageHall}InteriorLocation.json`,
   `CMC_JailCellLocation.json`) had shipped with `AlwaysUpdate: true`, a documented rule violation for
   CT4/CT8 environment cards. This is a rule-compliance correction, not a resolution of the reported
-  professor travel softlock — that root cause remains unconfirmed.
+  professor travel softlock, that root cause remains unconfirmed.
 
-## [1.46.5] — 2026-08-09
+## [1.46.5] - 2026-08-09
 
 ### Fixed
 
@@ -2107,23 +2511,23 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   old saves, for any player without the Village Pathfinder perk.** The slot only renders once the
   engine spawns a ghost card for it, which only happens once the CT10's own `CardUnlockConditions`
   discovery gate (`CardsOnBoard: "HasPlank"`) evaluates true *while the player is standing at River
-  Clearing* — being listed in the CT8's `EnvironmentImprovements` array (via
+  Clearing*, being listed in the CT8's `EnvironmentImprovements` array (via
   `InjectImprovementInto.json`) is necessary but not sufficient. Nothing guaranteed a returning
   player was holding a Plank the moment the engine's periodic unlock scan ran, so the gate could
   stay unsatisfied indefinitely and the bridge would never appear, regardless of the mod working
   correctly otherwise. `VillagePathfinderBridgePatch` already bypassed this exact gate with
   `CardUtil.ForceUnlockCard`, but only for Village Pathfinder perk holders. Renamed to
-  `RiverBridgeUnlockPatch` and now bypasses the gate for every player, every run start — the
+  `RiverBridgeUnlockPatch` and now bypasses the gate for every player, every run start, the
   bridge slot always appears the first time River Clearing is visited that run, construction
   materials still required as normal. The perk's existing auto-build shortcut (marks it fully
   constructed, no materials needed) is unchanged and still perk-exclusive.
 
-## [1.46.4] — 2026-08-09
+## [1.46.4] - 2026-08-09
 
 ### Fixed
 
 - **The Inn Keeper was still missing from the Village Inn after the [1.46.2] fix.** That fix
-  corrected the *NPC's* environment but not her *board card's* — the two are separate `EnvID`s, and
+  corrected the *NPC's* environment but not her *board card's*, the two are separate `EnvID`s, and
   vanilla `GameManager.MoveNPC` only carries the card across inside a block it skips entirely when
   the NPC's own environment already matches the target. The 1.46.2 boot-time reconcile runs from
   `InitializeStatsAndActions`, which is *before* vanilla builds her board card, so it moved an NPC
@@ -2131,9 +2535,9 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   `cmcInnInterior_cmcEnvVillage`, and from then on both reconcile paths saw a matching NPC
   environment and stood down every load. Verified against the owner's `LogOutput.log`: she restores
   from save, the player walks into `cmcInnInterior` with an exact environment match, and the mod
-  logs nothing further — no error, no warning, no reconcile.
+  logs nothing further, no error, no warning, no reconcile.
   `InnKeeperSpawnPatch` now runs a board-presence check while the player is standing in the Inn that
-  asserts the *card's* environment, not just the NPC's, and repairs either — relocating a
+  asserts the *card's* environment, not just the NPC's, and repairs either, relocating a
   left-behind card (by clearing the NPC's environment first, so vanilla's early-return can't skip
   the card relocation) and requesting a new one via `AssignOrCreateNPCCards` if she has none at all.
   The check logs the state it observes on every change, is capped at five repair attempts per
@@ -2141,7 +2545,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   player enters the Inn. **Note:** as with [1.46.2], loose items left in the Inn before the 1.44.x
   environment flip are in that same orphaned environment and are not recovered.
 
-## [1.46.3] — 2026-08-09
+## [1.46.3] - 2026-08-09
 
 ### Fixed
 
@@ -2150,7 +2554,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   `WaterLevelVisible` is a vanilla *global* stat (one value for the whole save, driven by
   `RainValue`/weather) rather than something tied to a specific environment, so it displays
   and applies everywhere the player stands, including the Village's cloned `Green Glade`
-  environment. Vanilla's own countermeasure is the `Levee` structure — a `CardType: 13`
+  environment. Vanilla's own countermeasure is the `Levee` structure, a `CardType: 13`
   invisible helper (`LeveeInvisible`) carrying a passive effect that clamps `WaterLevelVisible`
   by -7665 (fully suppressing the overflow status and its "flooded" travel penalty) while the
   player is physically standing in the same environment. `WorldMap/MapNodes.json` now force-drops
@@ -2158,7 +2562,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   and `cmcEnvVillageFarm` (alongside the seasonal crop fields) via the existing `ConditionalDrops`
   mechanism, so both are permanently flood-protected without any player action required.
 
-## [1.46.2] — 2026-08-09
+## [1.46.2] - 2026-08-09
 
 ### Fixed
 
@@ -2168,16 +2572,16 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   An NPC's location persists as a *string key*, and for an `InstancedEnvironment: true` env that
   key carries the parent chain. 1.44.x correctly flipped all six village interiors to
   `InstancedEnvironment: false` (to fix the entering-an-interior softlock), which changed the key
-  the player travels into — but nothing rewrote keys already written into saves. On load the
+  the player travels into, but nothing rewrote keys already written into saves. On load the
   Keeper was restored into that now-orphaned environment, vanilla's `AssignOrCreateNPCCards` built
   her board card *there*, and she became permanently invisible: no error, no warning, and the
   once-a-second arrival check saw her as "already spawned" and stood down every time the player
-  walked in. She was the only village NPC affected — the Professor, Apothecary, Miller and Weaver
+  walked in. She was the only village NPC affected, the Professor, Apothecary, Miller and Weaver
   are all moved by their own schedulers, which rebuild the environment ID from the card each time
   and so silently self-corrected after the flip; the Keeper never moves, so nothing ever
   rewrote hers. `InnKeeperSpawnPatch` now reconciles her environment against the Inn interior card
-  itself in two places — immediately after the save restore (before her board card is built) and
-  again whenever the player is standing in the Inn — using vanilla `GameManager.MoveNPC`, which
+  itself in two places, immediately after the save restore (before her board card is built) and
+  again whenever the player is standing in the Inn, using vanilla `GameManager.MoveNPC`, which
   also carries an already-created card across. Affected saves repair themselves on the next load;
   the check is inert once the keys agree. **Note:** items left in the Inn before the 1.44.x flip
   are in that same orphaned environment and are not recovered by this fix.
@@ -2189,52 +2593,52 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   work." Added `Special4: {Active:true, FloatValue:100, MaxValue:100}` (Copper's SD4 value) to each
   recipe's nugget requirement slot, matching the vanilla `Bp_CommissionCopperNuggets` pattern.
 
-## [1.46.1] — 2026-08-09
+## [1.46.1] - 2026-08-09
 
 ### Fixed
 
 - **Confirmed the Inn Account currency deposit ("drag Salt/Nuggets onto the Inn Counter") works
-  correctly** — the `TEMP DIAGNOSTIC (2026-08-08)` logging added while chasing an owner report that
+  correctly**, the `TEMP DIAGNOSTIC (2026-08-08)` logging added while chasing an owner report that
   "dragging copper nuggets does nothing" caught a real play session (`LogOutput.log`, 2026-08-09) with
-  three successful deposits (balance 0→50→100, with a silent `Purchase Meal` draw in between —
+  three successful deposits (balance 0→50→100, with a silent `Purchase Meal` draw in between,
   everything self-consistent). No code defect found; the diagnostic `LogInfo` calls in
   `Patcher/InnPatch.cs` are demoted back to `LogDebug` per CLAUDE.md §Debugging Discipline.
 - **Not yet confirmed**: the identical deposit CI on the Academy tuition account
   (`Patcher/AcademyPatch.cs`) and the Academy Lecture Hall course-progress reconciler (`[1.45.2]`)
-  were never exercised in that session — their diagnostics remain armed at `LogInfo` until a session
+  were never exercised in that session, their diagnostics remain armed at `LogInfo` until a session
   actually tests them.
 
-## [1.46.0] — 2026-08-09
+## [1.46.0] - 2026-08-09
 
 ### Added
 
-- **Copper Chests for all five village NPCs.** The Copper Chest — the weekly-accruing container that
-  is simultaneously a merchant's savings, their spending power, and a burglary target — was previously
+- **Copper Chests for all five village NPCs.** The Copper Chest, the weekly-accruing container that
+  is simultaneously a merchant's savings, their spending power, and a burglary target, was previously
   the Miller's alone (1.38.0, `Village_Master_Plan.md` §10.8.3.7's "prototype it on one cottage first"
   step). It now ships for the **Weaver** (`cmcCopperChestWeaver`, in her cottage interior), the
   **Apothecary** (`cmcCopperChestApothecary`, in her cabin interior), the **Inn Keeper**
   (`cmcCopperChestInnKeeper`, inside the Inn) and the **Professor** (`cmcCopperChestProfessor`, inside
   the Academy), each with its own Sell CI, its own "Search for valuables" theft DA, and its own
-  independent theft-heat and accrual-day trackers — five chests never share one counter, so robbing
+  independent theft-heat and accrual-day trackers, five chests never share one counter, so robbing
   the Miller does not raise your risk at the Academy.
 - **Per-NPC wealth tiering** (§10.8.3.3, placeholder values pending the tuning pass). Inn Keeper: 500
   salt-value ceiling, 5 Salt/week, and the most varied goods (acorn flatbread, firm cheese, dried meat).
   Miller and Weaver: 300, 3 Salt/week. Apothecary and Professor: 180, 2 Salt/week, but rarer goods drawn
-  from their own already-curated pools — healer's moss and old growth bark for her, spirit mushrooms and
+  from their own already-curated pools, healer's moss and old growth bark for her, spirit mushrooms and
   nettle leaves for him. No new items were invented for any chest.
 - **Three different accrual mechanisms, one per NPC's existing plumbing** (§10.8.3.3), so no new spawn
   mechanism was introduced anywhere. The Weaver's weekly satchel restock was **retargeted** onto her
-  chest exactly as the Miller's was — not duplicated (R6); her `WeaverWeeklyRestock` action is now
+  chest exactly as the Miller's was, not duplicated (R6); her `WeaverWeeklyRestock` action is now
   unfired. The Apothecary gets a parallel weekly drop inside her own schedule patch, which already owns
-  her poll. The Inn Keeper and Professor get genuinely new weekly ticks, independent of — and not
-  replacing — his 4-day pantry restock and the Professor's per-node forage, which are unchanged.
+  her poll. The Inn Keeper and Professor get genuinely new weekly ticks, independent of, and not
+  replacing, his 4-day pantry restock and the Professor's per-node forage, which are unchanged.
 - Each chest is that NPC's **personal** savings. `cmcInnCounter`'s Inn account and `cmcAcademyLectern`'s
   tuition account are untouched and remain separate pools, as §10.8.3.2 requires.
 
 ### Fixed
 
 - **The Miller's Copper Chest rendered as a broken/blank image in-game.** Its `CardImageWarpData` was
-  `"ChestPlaced"` — a plausible-looking but non-existent sprite name, which resolves to nothing silently
+  `"ChestPlaced"`: a plausible-looking but non-existent sprite name, which resolves to nothing silently
   (no error, no log; root CLAUDE.md §Sprites/Images). It now uses `"Copper_Chest"`, backed by a real PNG
   shipped in this mod at `Resource/Picture/Copper_Chest.png`. All four new chests use the same sprite.
   Because CMC only soft-depends on Advanced Copper Tools, the PNG is a byte-identical copy carried by
@@ -2245,7 +2649,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 - `CopperChestPatch` was generalised from three hardcoded Miller constants to a per-resident config
   array; the three action handlers are now registered once per chest, dispatching on each chest's own
-  card UID. Its "is the owner standing right here" instant-catch check is now self-contained — it
+  card UID. Its "is the owner standing right here" instant-catch check is now self-contained, it
   previously delegated to a cottage-resident-only helper that knew nothing about the Apothecary, Inn
   Keeper or Professor and would have silently reported "nobody home" (never an instant catch) for all
   three of them.
@@ -2253,38 +2657,38 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   residents on chests it could no longer run, and leaving a dormant `RestockActionId` field behind would
   have made the double-drop regression R6 warns about a one-line mistake away.
 
-## [1.45.5] — 2026-08-09
+## [1.45.5] - 2026-08-09
 
 ### Fixed
 
-- **Weaver, Miller, and Professor errand "thanks" dialog could never fire, so quest progress never advanced and the village boards stayed frozen on the initial ask forever.** Owner-reported: after delivering the requested materials (dried flax stems, wheat grain, etc.), talking to the NPC again never acknowledged the delivery and the Weaver's/Miller's/Professor's Board kept showing the same unfulfilled errand. Root cause: `DialogScene.GetStartingLine` opens on the first `StartingPoint:true` scene line (in array order) whose conditions pass — and each NPC's generic greeting (`*Talk_Start` / `ProfessorGreeting_Menu`) is essentially unconditioned, so it was listed *before* the conditioned `QuestThanksN` lines in `SceneLinesWarpData`. The generic greeting always won the first-match check, so the Thanks lines (and, for the Professor, several other gated greetings — `GiftValedictorian`, `GiftFirstPass`, `GiftTrust`, `TrustHigh`/`TrustMid`, the seasonal lines) were unreachable dead code; none of their `StatModifications` (incrementing `*QuestChain`, resetting `*QuestArmed`, granting trust/blueprints) ever ran. Reordered `CMC_WeaverTalk.json`, `CMC_MillerTalk.json`, and `CMC_ProfessorGreeting.json` so every conditioned `StartingPoint:true` line is checked before the generic fallback greeting, per the documented "most-restrictive first, unconditioned fallback last" rule — no other wiring changed (dialog branches reference each other by UID, not array position).
+- **Weaver, Miller, and Professor errand "thanks" dialog could never fire, so quest progress never advanced and the village boards stayed frozen on the initial ask forever.** Owner-reported: after delivering the requested materials (dried flax stems, wheat grain, etc.), talking to the NPC again never acknowledged the delivery and the Weaver's/Miller's/Professor's Board kept showing the same unfulfilled errand. Root cause: `DialogScene.GetStartingLine` opens on the first `StartingPoint:true` scene line (in array order) whose conditions pass, and each NPC's generic greeting (`*Talk_Start` / `ProfessorGreeting_Menu`) is essentially unconditioned, so it was listed *before* the conditioned `QuestThanksN` lines in `SceneLinesWarpData`. The generic greeting always won the first-match check, so the Thanks lines (and, for the Professor, several other gated greetings, `GiftValedictorian`, `GiftFirstPass`, `GiftTrust`, `TrustHigh`/`TrustMid`, the seasonal lines) were unreachable dead code; none of their `StatModifications` (incrementing `*QuestChain`, resetting `*QuestArmed`, granting trust/blueprints) ever ran. Reordered `CMC_WeaverTalk.json`, `CMC_MillerTalk.json`, and `CMC_ProfessorGreeting.json` so every conditioned `StartingPoint:true` line is checked before the generic fallback greeting, per the documented "most-restrictive first, unconditioned fallback last" rule, no other wiring changed (dialog branches reference each other by UID, not array position).
 
-## [1.45.4] — 2026-08-09
-
-### Fixed
-
-- **Ash's boar-hunt trail card never actually left the village, despite the log repeatedly saying it had faded.** Owner-reported: "Ash's Trail" (`cmcAshBoarTrail`) stayed on the board indefinitely once the hunt resolved. The cleanup step wrote the trail card's `SpoilageTime` stat directly to 0 via reflection — a write that bypasses the game's own per-tick durability processing, which is the only place `HasActionOnZero`/`OnZero` (the destroy trigger) actually gets evaluated. The stat sat at 0 forever, the card was never removed, and the once-every-2-seconds poll kept re-finding it and re-logging "Ash's trail has faded from the village." `AshBoarHuntPatch` now hands the zeroed trail card to the same CT13 invisible-helper transform already used to remove the tracking card at hunt-start (`BeastTracksCardInvisible` — its own active `SpoilageTime` the real tick loop does evaluate), so the card is actually destroyed instead of just reporting that it was.
-
-## [1.45.3] — 2026-08-09
+## [1.45.4] - 2026-08-09
 
 ### Fixed
 
-- **Inn Keeper could fail to spawn inside the Village Inn.** Owner-reported: the Keeper never appeared. `InnKeeperSpawnPatch`'s once-a-second arrival check matched the player's current environment against the cached `cmcInnInterior` card by raw object reference (`ReferenceEquals`) — fragile against any path that ends up with two distinct `CardData` instances for the same UID (this install also runs a third-party ModLoader). The check (and the matching "is this NPC already spawned" check) now compares by `UniqueID` string instead, and failure paths that were previously completely silent now log a one-time warning. Root cause not confirmed from the log alone (it showed no `[InnKeeperSpawnPatch]` activity at all this session) — unverified in-game; diagnostic logging is in place to pinpoint the cause on the next test if this doesn't resolve it.
+- **Ash's boar-hunt trail card never actually left the village, despite the log repeatedly saying it had faded.** Owner-reported: "Ash's Trail" (`cmcAshBoarTrail`) stayed on the board indefinitely once the hunt resolved. The cleanup step wrote the trail card's `SpoilageTime` stat directly to 0 via reflection, a write that bypasses the game's own per-tick durability processing, which is the only place `HasActionOnZero`/`OnZero` (the destroy trigger) actually gets evaluated. The stat sat at 0 forever, the card was never removed, and the once-every-2-seconds poll kept re-finding it and re-logging "Ash's trail has faded from the village." `AshBoarHuntPatch` now hands the zeroed trail card to the same CT13 invisible-helper transform already used to remove the tracking card at hunt-start (`BeastTracksCardInvisible`, its own active `SpoilageTime` the real tick loop does evaluate), so the card is actually destroyed instead of just reporting that it was.
 
-## [1.45.2] — 2026-08-09
+## [1.45.3] - 2026-08-09
 
 ### Fixed
 
-- **Academy Lecture Hall could show 0% progress on a course whose degree you'd already earned.** Owner-reported: after finishing all six courses over many play sessions, every "Study ..." tooltip read "You have already completed this course" (the graduate perk was genuinely held) while the progress bar showed 0%. The lectern's own progress stat had desynced from the perk it's supposed to track — root cause unconfirmed, but the graduate perk is already the authoritative "done" signal used everywhere else (the "already completed" gate, the course-gated blueprint unlocks), so `AcademyPatch` now reconciles the lectern's displayed progress to match it: while standing in the Academy, any course whose perk is held gets its progress stat force-set to max if it reads below that. Self-healing against future desyncs from any cause, not just a one-time repair.
-- **Academy course-gated blueprints (Sawmill, Grinding Mill, Copper Sheet, Iron Fishing Rod, copper/iron armor, Forge/Workshop) could get silently re-locked on every reload of a save that had already earned them.** `AcademyCourseService`'s run-start gating pass ran on `GameManager.OnGMInitialized`, which can fire before `InRunAddedPerks` finishes restoring from the save — the pass would find no graduate perks held yet and re-hide the reward blueprints. A one-shot recheck 5 seconds after boot now re-runs the same gating pass once perks have had time to settle.
+- **Inn Keeper could fail to spawn inside the Village Inn.** Owner-reported: the Keeper never appeared. `InnKeeperSpawnPatch`'s once-a-second arrival check matched the player's current environment against the cached `cmcInnInterior` card by raw object reference (`ReferenceEquals`), fragile against any path that ends up with two distinct `CardData` instances for the same UID (this install also runs a third-party ModLoader). The check (and the matching "is this NPC already spawned" check) now compares by `UniqueID` string instead, and failure paths that were previously completely silent now log a one-time warning. Root cause not confirmed from the log alone (it showed no `[InnKeeperSpawnPatch]` activity at all this session), unverified in-game; diagnostic logging is in place to pinpoint the cause on the next test if this doesn't resolve it.
 
-## [1.45.1] — 2026-08-08
+## [1.45.2] - 2026-08-09
+
+### Fixed
+
+- **Academy Lecture Hall could show 0% progress on a course whose degree you'd already earned.** Owner-reported: after finishing all six courses over many play sessions, every "Study ..." tooltip read "You have already completed this course" (the graduate perk was genuinely held) while the progress bar showed 0%. The lectern's own progress stat had desynced from the perk it's supposed to track, root cause unconfirmed, but the graduate perk is already the authoritative "done" signal used everywhere else (the "already completed" gate, the course-gated blueprint unlocks), so `AcademyPatch` now reconciles the lectern's displayed progress to match it: while standing in the Academy, any course whose perk is held gets its progress stat force-set to max if it reads below that. Self-healing against future desyncs from any cause, not just a one-time repair.
+- **Academy course-gated blueprints (Sawmill, Grinding Mill, Copper Sheet, Iron Fishing Rod, copper/iron armor, Forge/Workshop) could get silently re-locked on every reload of a save that had already earned them.** `AcademyCourseService`'s run-start gating pass ran on `GameManager.OnGMInitialized`, which can fire before `InRunAddedPerks` finishes restoring from the save, the pass would find no graduate perks held yet and re-hide the reward blueprints. A one-shot recheck 5 seconds after boot now re-runs the same gating pass once perks have had time to settle.
+
+## [1.45.1] - 2026-08-08
 
 ### Fixed
 
 - **Ash's boar hunt no longer logs spurious "may not be loaded" warnings.** The hunt-movement poll treated `SpawnService.Spawn`'s return value as a spawn-success signal, but that call returns null on success in the current game version (the card is placed as a side effect). The trail and tracking-boar cards were always spawning correctly; the code now verifies placement by re-querying the board, so the state advances on the spawning tick and the warning only fires on a genuine failure. No player-visible behavior change to the hunt itself.
 
-## [1.45.0] — 2026-08-08
+## [1.45.0] - 2026-08-08
 
 ### Added
 - **(1.45.0) Captain Sterling now gives a one-time warning the first time you're caught, and the
@@ -2294,26 +2698,26 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Wanted band onward (25-59 crime, short of the Banished threshold that arms a chase) any guard who
   shares your current environment reacts without fighting: their own Suspicion rises (feeding the
   existing per-guard detection tuning), and talking to Sterling in that band gets a harder,
-  visibly hostile line instead of his usual greeting. Neither reaction is an Encounter or a chase —
+  visibly hostile line instead of his usual greeting. Neither reaction is an Encounter or a chase,
   pursuit still only arms at Banished (60+).
 
 ### Changed
 - **(1.45.0) The four Town Watch guards now have three distinct jobs instead of one identical
   hunt-and-fight duty each.** Captain Sterling drops his own local chase and only moves when
-  summoned — sword drawn, not spear, and the player he catches is left Bruised on the way to the
+  summoned, sword drawn, not spear, and the player he catches is left Bruised on the way to the
   cell; he is now the only guard whose fight ends in a jail teleport. Guard Thorne and Guard Corrin
   relocate from their separate river/farm beats to a shared day-shift (05:00–20:00) Town Square
   patrol; their local territory-gated chase is unchanged, but beating the player no longer jails them
-  directly — they hold the player in place and send for the Captain instead. Guard Vane drops the
+  directly, they hold the player in place and send for the Captain instead. Guard Vane drops the
   village-territory restriction entirely (the one guard who now crosses the river) and, once she
   reaches the player, calls the rest of the Watch in rather than fighting herself; her day-hiding gate
   now also lets her manifest outside her usual night window once summoned into a hunt. Two new
   hidden player stats (`cmcStatGuardsSummoned`, `cmcStatCaptainSummoned`) carry the summon state
-  between guards across the multi-hour walk this can take — deliberately not `cmcStatArrestPending`,
+  between guards across the multi-hour walk this can take, deliberately not `cmcStatArrestPending`,
   which self-clears the same tick it fires. Not fully in-game verified this release; folds into the
   next full guard-system playthrough pass.
 - **(1.44.6) The Watch captain is now "Captain Reeve Sterling," not "Captain Reeve Ashdown."**
-  The surname read too close to "Ash," the name of the Village Inn's stray cat — renamed to avoid
+  The surname read too close to "Ash," the name of the Village Inn's stray cat, renamed to avoid
   player confusion between the two characters. Purely cosmetic: `UniqueID`s, localization keys,
   and file names were all updated in step (`cmcGuardSterlingAgent`, `cmcGuardPerkSterling`,
   `cmcEncounterGuardSterling`, `cmcStatGuardDownDaySterling`), so no save-compatibility impact.
@@ -2324,7 +2728,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   rather than manual inspection: `CMC_JailRationTray.json`'s `CardImageWarpData` was `"ClayPlate"`
   (the vanilla `ClayPlate` card's own UniqueID, not a sprite name) and `CMC_JailRationFood.json`'s
   was `"ClayBowl"` (same mistake, vanilla `ClayBowl` card). Real sprite names are `"Plate_Clay"` and
-  `"Bowl_Clay"` respectively — confirmed against the vanilla `Bp_ClayPlate`/`Bp_ClayBowl` exports,
+  `"Bowl_Clay"` respectively, confirmed against the vanilla `Bp_ClayPlate`/`Bp_ClayBowl` exports,
   and `"Plate_Clay"` is already used correctly elsewhere in this mod (`GlazedClayPlate.json`).
 - **(1.45.0) A retry of the village-territory guard-pursuit boundary tag could leave stale,
   destroyed-object tag references stamped on already-tagged map cards.** `GuardDutyPatch.cs`'s
@@ -2334,81 +2738,81 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   and repeated the same partial-stamp risk without ever clearing the stale one. Rewritten as a true
   two-pass commit: every node is resolved and staged first, and the tag is only written onto any
   card once the entire batch resolves cleanly (with a rollback path if an individual write
-  unexpectedly fails mid-commit) — a failed attempt now leaves zero cards holding a reference to the
+  unexpectedly fails mid-commit), a failed attempt now leaves zero cards holding a reference to the
   discarded tag, so a retry starts clean. Found by `/code-quality`, not observed as a player-facing
   symptom in this release.
 - **(1.45.0) Five NPC-spawn paths (Ash's Partner spike, the Town Guards, the Inn Keeper, both
   Cottage residents, and the Professor) had no log output if `CreateNPC` succeeded but the
-  follow-up identity lookup in `GameManager.AllNPCs` came back empty** — a silent no-spawn
+  follow-up identity lookup in `GameManager.AllNPCs` came back empty**, a silent no-spawn
   indistinguishable from "nothing went wrong." Each of the five `SpawnAndReturn` helpers now logs a
   warning naming the NPC when this happens, so a future framework/game-version change to NPC
   identity semantics is diagnosable instead of invisible. Found by `/code-quality`, not observed as
   a player-facing symptom in this release.
 - **(1.45.0) The Jail Cell's Water Jug (`cmcJailWaterJug`) rendered as a blank card.** Its
-  `CardImageWarpData` was `"WaterPouch"` — the human-readable name of the vanilla Water Pouch card,
+  `CardImageWarpData` was `"WaterPouch"`: the human-readable name of the vanilla Water Pouch card,
   not its actual sprite name. Confirmed against the vanilla `Bp_WaterPouch` export that the real
   sprite name is `"Waterskin"` (`WaterPouch` appears nowhere as a `CardImageWarpData` value in
   vanilla data). Fixed by pointing the jug at `"Waterskin"`.
 - **(1.44.4) The "Exit" action on all 6 village interior doors (Inn, Academy, Apothecary's Cabin,
   Miller's Cottage, Village Hall, Weaver's Cottage) was still invisible after the 1.44.x
-  `AlwaysShow` fix below — confirmed in-game (player permanently trapped inside the Miller's
+  `AlwaysShow` fix below, confirmed in-game (player permanently trapped inside the Miller's
   Cottage interior with no usable action on the door).** Root cause was misdiagnosed the first
   time: `AlwaysShow: true` only bypasses `CanAppear()`; it does **not** bypass
   `CardAction.WillHaveAnEffect()`, and `WillHaveAnEffect()` DOES evaluate `TravelToPreviousEnv`
-  (via `WillProduceCards()`, confirmed by decompile) — but only returns true when
+  (via `WillProduceCards()`, confirmed by decompile), but only returns true when
   `EnvID.GetPrevEnv()` resolves to a real card. `EnvID.GetPrevEnv()` reads `EnvID.ParentEnvs`,
   which the engine populates **only for `InstancedEnvironment: true` environments**
   (`EnvID(CardData, EnvID, int)` ctor). All 6 interiors are `InstancedEnvironment: false` (correctly
-  — see the entry below on why flipping that flag is worse), so `ParentEnvs` is always empty and
-  `TravelToPreviousEnv` can never produce a destination for these doors — the Exit button was
+ , see the entry below on why flipping that flag is worse), so `ParentEnvs` is always empty and
+  `TravelToPreviousEnv` can never produce a destination for these doors, the Exit button was
   permanently un-renderable, `AlwaysShow` or not. Fixed for real this time by dropping
   `TravelToPreviousEnv` entirely and giving each door's Exit action an explicit `ProducedCards`
   drop of the specific outdoor environment it should return to (`cmcEnvVillage` for five of the
-  six; `cmcEnvForagingForest` for the Apothecary's Cabin) — the same explicit-destination pattern
+  six; `cmcEnvForagingForest` for the Apothecary's Cabin), the same explicit-destination pattern
   the Village Jail Cell door already used successfully. Because this doesn't depend on any
   per-session parent-env history, it also un-sticks saves where a player is already trapped inside
-  one of these interiors — no `InstancedEnvironment` flag or save data needs to change.
+  one of these interiors, no `InstancedEnvironment` flag or save data needs to change.
 - **(1.44.x) The "Exit" action on all 6 village interior doors (Inn, Academy, Apothecary's Cabin,
   Miller's Cottage, Village Hall, Weaver's Cottage) was invisible, trapping the player inside with no way
-  out.** Each door's `Exit` `DismantleAction` relied only on `TravelToPreviousEnv: true` to leave —
+  out.** Each door's `Exit` `DismantleAction` relied only on `TravelToPreviousEnv: true` to leave,
   but the game's `WillHaveAnEffect()` visibility gate (which decides whether a `DismantleAction`
   renders as a button at all) does not check `TravelToPreviousEnv`. With `ReceivingCardChanges.
   ModType: 0` and `DaytimeCost: 0` and nothing else set, every one of these six actions evaluated
   to "no effect" and never rendered, leaving the door's action panel completely empty. Fixed by
   adding `"AlwaysShow": true` to each door's Exit action, matching the pattern already used
-  correctly by the Village Jail Cell door. **⚠ Superseded by the 1.44.4 entry above — this
+  correctly by the Village Jail Cell door. **⚠ Superseded by the 1.44.4 entry above, this
   diagnosis was incomplete and the fix did not actually resolve the softlock.**
 - **Entering the Inn (and 5 other singular interiors) permanently softlocked the game
   ("I can't do two things at once..." on every subsequent action).** The Academy, Apothecary's
   Cabin, Inn, Miller's Cottage, Village Hall, and Weaver's Cottage interiors were all flagged
   `InstancedEnvironment: true`. That flag makes vanilla's `WorldMapData.AddInstancedEnv` register
   the interior into `CoordsDict` keyed by its (unassigned) `Coords`, which defaults to
-  `(0,0,0,0)` for a singular interior with no sibling instances — so the *second* one of these six
+  `(0,0,0,0)` for a singular interior with no sibling instances, so the *second* one of these six
   interiors entered in a session collided on that key, threw inside the `ChangeEnvironment`
   coroutine, and left the action-lock permanently held. All 6 are now `InstancedEnvironment: false`,
   matching the Village Jail Cell (which never hit this because it already shipped with the flag
   off). `InstancedEnvironment` is only correct for templates the engine spawns multiple
   independent instances of (e.g. vanilla `Env_Cabin`); these are unique, persistent, named
   locations. A save that already has two of these envs recorded at `(0,0,0,0)` may still crash on
-  load — test from a save taken before either was first entered, or a fresh game.
+  load, test from a save taken before either was first entered, or a fresh game.
 
 ### Added
 - **Homestead perk now grants portable Cabin/Rain Cistern kits instead of auto-placing the
   structures.** Previously `Perk_Homestead.json`'s `AddedCardsWarpData` referenced the real CT2
   structure UIDs directly (`7042e3f52e632a2408319de344a3aa0c` Cabin, `536f722edbb5e9e4b959b1f3ad25f648`
-  Rain Cistern ×2) — the same mechanism vanilla's `Pk_5_12_CabinStart` uses — which spawns them
+  Rain Cistern ×2), the same mechanism vanilla's `Pk_5_12_CabinStart` uses, which spawns them
   straight onto the starting board, since `GameManager.GetStartingCardsFromArray` falls back to a
   direct board-drop for `CardType.Location` cards passed through a perk's `AddedCards`. Added two
   new CT0 item cards, `CMC_HomesteadCabinKit` and `CMC_HomesteadRainCisternKit` (`DoesNotPile`,
   single-use), each carrying a `Place` `DismantleAction` (`ModType: 2` Transform,
-  `SpawnTransformAtSource: true`) that turns the kit in-place into the real structure — the same
+  `SpawnTransformAtSource: true`) that turns the kit in-place into the real structure, the same
   kit-then-transform pattern already used by `CMC_MarketStallKit`/`HuntingStandKit` in this mod.
   The kits land in the player's starting inventory (CT0 items resolve through the same
   `_UseDefaultInventory: true` path the perk's building materials already use) so they can be
-  carried to any site before being placed, and each is consumed on placement — one placement per
+  carried to any site before being placed, and each is consumed on placement, one placement per
   kit. `Perk_Homestead.json` now points `AddedCardsWarpData` at the two kit UIDs instead of the
   structure UIDs; description text updated to match.
-- **The Village Jail** (Village Guards system, `Village_Master_Plan.md` §10.8.7) — losing to the
+- **The Village Jail** (Village Guards system, `Village_Master_Plan.md` §10.8.7), losing to the
   Watch now has somewhere to put you.
   - **Arrest is a real transition, not a flag.** Each guard's Encounter now sets
     `PlayerDemoralizedEffects.MovePlayer = MoveToSpecificArea` at the new Jail Cell with a 1-hour
@@ -2421,43 +2825,43 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
     8-points-per-day rate; release clears the record outright.
   - **A warden rotation.** Every guard now carries a `Duty_JailWarden` alongside their patrol and
     chase duties, with a fixed non-overlapping shift block each (Sterling 05:00-11:00, Thorne
-    11:00-17:00, Corrin 17:00-23:00, Vane 23:00-05:00 — inside her own night window) so the post is
+    11:00-17:00, Corrin 17:00-23:00, Vane 23:00-05:00, inside her own night window) so the post is
     always rostered. Vanilla's weighted-duty engine does the switching; CMC does not hand-drive it.
     The warden stands on the jail's step in the village square rather than inside the cell: duty
     movement resolves through the WorldMap graph, and the cell is deliberately not a map node.
   - **A rare gap.** Each hour there is an 8% chance the whole Watch leaves the jail step for two
-    hours. This is enforced on the duties themselves — a hidden `cmcStatJailWardenGap` countdown
-    that fails every warden duty's `DutyConditions` — so the guards genuinely walk off rather than a
+    hours. This is enforced on the duties themselves, a hidden `cmcStatJailWardenGap` countdown
+    that fails every warden duty's `DutyConditions`: so the guards genuinely walk off rather than a
     flag merely claiming they did. `cmcStatJailUnguarded` is then read back from what the guards are
     actually doing. The hidden escape tunnel this window exists for is the next bullet.
-  - **Daily rations and a starvation safety net (§10.8.7.4, Risk R9 — release-blocking).** A
+  - **Daily rations and a starvation safety net (§10.8.7.4, Risk R9, release-blocking).** A
     "Meager Prison Ration" bowl and a Water Jug are placed in the cell once per in-game day while a
     sentence is being served, each an explicit `ModType:3` Eat/Drink action. Verified against real
     vanilla `GameStat` decay data (not estimated): Weight decays -12 to -23 per 15-minute tick
     depending on its own band (independent of Satiation, contrary to the original plan's
-    assumption); Hydration — a *different* stat from Thirst, and the one that actually carries a
-    GameOver floor ("Dead of Thirst" at 0) — decays at a flat -1/tick. Across the worst-case 8-day
+    assumption); Hydration, a *different* stat from Thirst, and the one that actually carries a
+    GameOver floor ("Dead of Thirst" at 0), decays at a flat -1/tick. Across the worst-case 8-day
     sentence the ration keeps Weight net-positive and Hydration net-positive under baseline decay.
     Beyond the ration, a disableable safety net (`EnableJailSafetyNet` config, default on) polls the
     player's actual Weight/Hydration/Satiation every tick and force-tops-up any of them that cross a
-    threshold with a wide margin above their floor — the real guarantee against R9, since Weight's
+    threshold with a wide margin above their floor, the real guarantee against R9, since Weight's
     decay can stack with cold/fever/parasites the ration math alone doesn't model.
-  - **Ways to pass the time.** "Meditate" (2-hour, no material effect — an optional Stress tie-in
+  - **Ways to pass the time.** "Meditate" (2-hour, no material effect, an optional Stress tie-in
     was considered and deliberately left out, unresolved design choice) and two flavor actions
     ("Count the stones," building to a 100-count milestone payoff) on the cell's own room card. The
     cell's bed also carries vanilla's own Nap/Sleep actions verbatim, reused as-is rather than
     building a bespoke rest mechanic.
   - **Known gaps, stated plainly.** The Jail and its cell ship with blank placeholder art
-    (`CMC_Jail.png`, `CMC_JailCellInterior.png`) — real art drops over the same filenames with no
+    (`CMC_Jail.png`, `CMC_JailCellInterior.png`): real art drops over the same filenames with no
     JSON change. None of this has been verified in-game.
-- **The Hidden Tunnel** (Village Jail escape, `Village_Master_Plan.md` §10.8.8) — a way out of a
+- **The Hidden Tunnel** (Village Jail escape, `Village_Master_Plan.md` §10.8.8), a way out of a
   cell sentence besides waiting it out.
   - **Move the bed, find a tunnel.** The cell's bed can be shoved aside and back in place at will,
     swapping in place for a Tunnel card on the same tile (`CardUtil.TransformCardInPlace`, the first
     REPEATED player-driven toggle use of that primitive in this codebase rather than a one-shot
-    upgrade/process transform — flagged as risk R10 and requiring its own repeated-toggle,
+    upgrade/process transform, flagged as risk R10 and requiring its own repeated-toggle,
     across-a-reload verification pass before being trusted).
-  - **Digging only works during the same guard-absence window the warden rotation already tracks** —
+  - **Digging only works during the same guard-absence window the warden rotation already tracks**,
     no separate detection roll. Each Dig advances a hidden `cmcStatJailTunnelProgress` counter and
     costs 30 minutes; the Dig button is hidden outright (not merely greyed) whenever a guard is
     actually on the step.
@@ -2467,99 +2871,99 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
     before the window closes avoids all of that and keeps whatever progress was already dug.
   - **A finished tunnel** adds a "Crawl through the tunnel" action that clears the remaining
     sentence, drops the player at the Village Path outside the walls, and adds its own (separate,
-    harsher-reads) crime bump for "escaped custody" — an escaped convict caught again is not treated
+    harsher-reads) crime bump for "escaped custody", an escaped convict caught again is not treated
     like a first-time arrest. Recapture-penalty and escape-crime-bump sizes are both open-question
     placeholders (§10.8.10 Q12), not tuned values. Not verified in-game.
 - **8 perishable items and placed decor now carry `tag_Preservable`** (Apothecary Healing Potion,
   Herb Paste, Heather Wreath, Woven/Tricolor Wall Hangings, Straw Mat, Garden Trellis, Bedroll). This
   is a vanilla CardTag with no shipped vanilla users; third-party mods that bulk-match spoilage-rate
   effects onto it (e.g. freshness/preservation perk mods) now apply correctly to these items. Ash's
-  Trail, Shadow Cat, Inn Cat, and the Academy Lectern were deliberately excluded — their `SpoilageTime`
+  Trail, Shadow Cat, Inn Cat, and the Academy Lectern were deliberately excluded, their `SpoilageTime`
   channel is either relabeled for a different mechanic (Hunger, a Fishing progress counter) or has a
   zero decay rate, so tagging them would be either semantically wrong or a no-op.
-- **The Miller's Copper Chest** (Village Guards system, `Village_Master_Plan.md` §10.8.3) — a
+- **The Miller's Copper Chest** (Village Guards system, `Village_Master_Plan.md` §10.8.3), a
   storage chest inside the Miller's cottage interior that is his savings, his spending power, and
   a burglary target all at once, all read off the one physical inventory.
-  - **Weekly accrual** — once the Miller has moved in he adds ~3 Salt and 2 Wheat Flour to the
+  - **Weekly accrual**: once the Miller has moved in he adds ~3 Salt and 2 Wheat Flour to the
     chest about once a week, applied the first time you enter the cottage on or after the due day
     (the chest lives in an instanced environment, so it is only reachable while you are standing
     in it). Currency pauses at 300 in value, goods at 10 cards, each independently.
-  - **Sell to the Miller** — drag a valuable item onto the chest to sell it, priced on the same
+  - **Sell to the Miller**: drag a valuable item onto the chest to sell it, priced on the same
     `ObjectWeight / 10` scale the Market Stall uses. The sale is refused outright, with nothing
-    consumed, when the price exceeds what is physically in the chest — so a freshly settled Miller
+    consumed, when the price exceeds what is physically in the chest, so a freshly settled Miller
     genuinely cannot afford an expensive item, and the same Miller weeks later can. He pays from
     his own hoard smallest-coin-first, and overpays rather than blocking a sale he cannot make
-    exact change for. No crime cost — this is an ordinary trade.
-  - **Search for valuables** — empties the chest to you and rolls for detection: instant catch if
+    exact change for. No crime cost, this is an ordinary trade.
+  - **Search for valuables**: empties the chest to you and rolls for detection: instant catch if
     the Miller is home, otherwise 15% base + 5% per earlier undetected theft this season (heat
     resets on a season change and on being caught) + 20% while Iris Vane's night watch is out.
-    Detected costs 10 Village Crime — the **first mechanic in the mod that actually raises that
+    Detected costs 10 Village Crime, the **first mechanic in the mod that actually raises that
     stat**. Undetected leaves no record at all.
-  - **Miller only this release** — the Weaver, Apothecary, Inn Keeper and Professor chests are a
+  - **Miller only this release**: the Weaver, Apothecary, Inn Keeper and Professor chests are a
     later chunk, per the plan's own one-cottage-first sequencing.
 
-- **Village Crime foundation** (Village Guards system, `Village_Master_Plan.md` §10.8.2) — a new
+- **Village Crime foundation** (Village Guards system, `Village_Master_Plan.md` §10.8.2), a new
   hidden `cmcStatVillageCrime` stat (0-100), its four bands (Clean / Suspected / Wanted /
   Enemy-Banished), a 1-per-day passive decay for the two middle bands, and the declarative
   banishment travel lock on the Village Path connection gate. The Copper Chest's theft roll (above)
   is the first and so far only thing that raises it (+10 per detected burglary); attack detection
   is a later chunk. Requires framework 2.20.2+ for the travel lock to be read at all.
-- **The Town Watch** (Village Guards system, `Village_Master_Plan.md` §10.8.1) — four guards now
+- **The Town Watch** (Village Guards system, `Village_Master_Plan.md` §10.8.1), four guards now
   live on the village map and walk their own beats: **Captain Reeve Sterling** holds the village
   square, **Guard Nella Thorne** works the river-bridge junction on the Village Path, **Guard Old
   Corrin** walks the farm and clay-flats round, and **Guard Iris Vane** takes the night watch,
   appearing only between dusk (20:00) and dawn (05:00) and staying out of sight the rest of the
-  day. Each guard carries their own hidden Suspicion rating — the tuning knob the later theft and
-  attack-detection systems read — with Iris noticeably sharper-eyed than the rest and Corrin the
+  day. Each guard carries their own hidden Suspicion rating, the tuning knob the later theft and
+  attack-detection systems read, with Iris noticeably sharper-eyed than the rest and Corrin the
   slowest to suspect anyone. Portraits are placeholders reusing existing art. Requires framework
   2.20.0+.
-- **You can attack the Watch** (Village Guards system, `Village_Master_Plan.md` §10.8.4) — each of
+- **You can attack the Watch** (Village Guards system, `Village_Master_Plan.md` §10.8.4), each of
   the four guards now has an **Attack** button on their inspection panel. It opens a confirmation
   first: back out and it costs you nothing, commit and you take **+35 Village Crime the moment the
   fight starts**, win or lose. That is enough on its own to put a clean player in the Wanted band.
   - **Guards usually break and run rather than die.** Each guard has their own fight, and morale
-    drains about twice as fast as blood, so a beaten guard normally routs — hurt, alive, and now
+    drains about twice as fast as blood, so a beaten guard normally routs, hurt, alive, and now
     with a very good reason to remember you. Killing one is possible but takes real determination,
     and it pins Village Crime at its 100 ceiling: instantly and permanently Banished.
   - **Each guard fights differently.** Old Corrin gives up early and takes a lot of punishment to
     actually kill; Nella Thorne holds her nerve far longer than anyone else, which makes her the
     one most likely to die if you push. Sterling and Vane sit between them.
   - **A guard standing in the same place when you start a fight notices immediately** rather than
-    on their next patrol beat — the witnessing guard's own pursuit check re-runs on the spot
+    on their next patrol beat, the witnessing guard's own pursuit check re-runs on the spot
     instead of waiting for the normal patrol tick, and Nella Thorne now acts on the resulting
     Crime score without that lag (see the pursuit entry below).
   - **Guards only.** The Miller, Weaver, Apothecary, Inn Keeper and Professor cannot be attacked;
     proving the pipeline on the Watch first is deliberate.
 - **Guard Nella Thorne hunts you once you are Banished** (Village Guards system,
-  `Village_Master_Plan.md` §10.8.5) — the first guard pursuit. Once your hidden Village Crime
-  reaches **60 or more** (the Enemy/Banished band — two attacks on the Watch will do it), Thorne
+  `Village_Master_Plan.md` §10.8.5), the first guard pursuit. Once your hidden Village Crime
+  reaches **60 or more** (the Enemy/Banished band, two attacks on the Watch will do it), Thorne
   abandons her river beat and walks the map toward wherever you actually are, one node per move,
   re-routing as you run. Stand still and she catches up; when she reaches your location she starts
   a real fight on the spot.
   - **She will not cross the river.** The pursuit only holds while Thorne is standing on
     village-side ground; step onto the vanilla map and she breaks off and heads back to her beat.
-    She may follow one node past the boundary before turning around — she is checked when she picks
+    She may follow one node past the boundary before turning around, she is checked when she picks
     her next move, not mid-stride.
   - **Drop back below 60 Crime and she goes back to patrolling**, immediately.
-  - Only Thorne pursues for now — the other three guards keep to their beats until this one is
+  - Only Thorne pursues for now, the other three guards keep to their beats until this one is
     proven in play. Losing the fight does not yet jail you; the jail is a later chunk.
-- **`ForceClearVillageCrime` debug config** — admin override that holds the crime stat at 0, so a
+- **`ForceClearVillageCrime` debug config**: admin override that holds the crime stat at 0, so a
   tester locked out of the village by a future banishment can recover without editing a save.
-- **`EnableGuardDiagnostics` debug config** — keeps re-logging each guard's duty weights and the
+- **`EnableGuardDiagnostics` debug config**: keeps re-logging each guard's duty weights and the
   engine's own duty-selection reason string while patrol behavior is being tuned.
 
 ### Changed
 - **The Miller's weekly satchel restock has been RETARGETED onto his Copper Chest, not duplicated
-  into it** — his personal carried inventory is no longer topped up every week; his trade stock is
+  into it**, his personal carried inventory is no longer topped up every week; his trade stock is
   now his starting inventory plus whatever is in the chest. This is deliberate (the design calls
   for one accrual, not two); a build that kept both would double-drop every week.
-- `VillageCrimePatch` gains `ReduceCrime(amount, reason)` — a partial pay-down that, unlike the
+- `VillageCrimePatch` gains `ReduceCrime(amount, reason)`: a partial pay-down that, unlike the
   daily decay, deliberately works inside the Banished band, so days served in the jail count.
 
 ### Fixed
 - **README understated the live Village Crime system.** The Requirements section still claimed
   "nothing in the mod raises the crime stat yet... this currently has no effect in play," which was
-  stale and directly contradicted the README's own Town Watch section — attacking a guard (+35),
+  stale and directly contradicted the README's own Town Watch section, attacking a guard (+35),
   killing one (+100, instant Banished), getting caught robbing the Miller's Copper Chest (+10), and
   getting caught mid-dig in the jail escape tunnel all already raise it, on any framework version.
   Only the banishment travel-lock *enforcement* needs framework 2.20.2+; Crime itself was never
@@ -2569,43 +2973,43 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   this was invisible in an English playtest; Chinese players saw raw English. Both rows added with a
   translated Chinese row.
 
-## [1.44.1] — 2026-08-07
+## [1.44.1] - 2026-08-07
 
 ### Added
-- **Simplified Chinese localization** — `Localization/SimpCn.csv` now covers all 1,771 player-visible
+- **Simplified Chinese localization**: `Localization/SimpCn.csv` now covers all 1,771 player-visible
   keys (full parity with `SimpEn.csv`: 0 missing, 0 untranslated, 0 stale). Terminology follows a
   dedicated glossary (`Documentation/Design/Chinese_Glossary_CMC.md`) built from vanilla's own
   Chinese strings and established ACT/WDI/H&F house style, with per-NPC register notes so dialog
   voice (Inn Keeper's warmth, the Professor's formality, etc.) survives translation.
 
-## [1.37.1] — 2026-08-06
+## [1.37.1] - 2026-08-06
 
 ### Fixed
 - **The Professor no longer forces a throwaway "Go on." click before showing his topic menu.**
-  His greeting was still split into two steps — a flavor line with a single "Go on." answer, then
-  the real menu — left over from the 1.37.0 consolidation of his seven duplicate entry lines into
+  His greeting was still split into two steps, a flavor line with a single "Go on." answer, then
+  the real menu, left over from the 1.37.0 consolidation of his seven duplicate entry lines into
   one canonical menu. Every other village NPC (Inn Keeper, Miller, Weaver, Apothecary) already opens
   straight into their topic list; the Professor's greeting now does the same, folding his opening
   line directly into the menu so the first thing you see is real conversation options.
 
-## [1.37.0] — 2026-08-06
+## [1.37.0] - 2026-08-06
 
 ### Changed
 - **Inn Keeper and Professor dialogue reworked for less repetition and more meaningful conversations.**
   The Professor's greeting used to duplicate his entire ~25-option topic menu across seven separate
-  entry lines (default greeting, two trust tiers, four seasonal greetings) — hand-copied text that had
+  entry lines (default greeting, two trust tiers, four seasonal greetings), hand-copied text that had
   quietly drifted out of sync with itself, so the "What is this place?" answer only correctly described
   your actual location if you happened to greet him through the one variant that had been fixed. All
   seven now share one canonical topic menu, so every fix and addition applies everywhere at once.
   The Inn Keeper's five seasonal fireside tales (Wolves, Miller's Wager, the Fish Tale, the Mushroom
-  Peddler, the Ferryman) were each told across four short, mostly single-line "go on..." exchanges —
+  Peddler, the Ferryman) were each told across four short, mostly single-line "go on..." exchanges,
   they're now told in two longer, fuller passages apiece.
-- **Both NPCs' weekly quest chains got a proper acceptance beat** — accepting a request no longer
+- **Both NPCs' weekly quest chains got a proper acceptance beat**: accepting a request no longer
   jumps straight to a fade-out; there's now a short, in-character reaction before the conversation
   closes, and the delivery "thank you" lines are longer and more specific about what you brought.
 
 ### Added
-- **The Professor now reacts, once, the first time you pass each of his six Academy courses** —
+- **The Professor now reacts, once, the first time you pass each of his six Academy courses**:
   Metallurgy, Herbalism, Medicine, Fishing, Architecture, and Armorer each get their own short,
   subject-specific congratulations the next time you talk to him, instead of only ever seeing a generic
   "how many courses have you finished" summary.
@@ -2614,140 +3018,140 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Miller's Cottage, the Weaver's Cottage, and the Village Hall are finished, and again when Village
   Renown crosses the halfway and full-renown marks.
 
-## [1.36.2] — 2026-08-06
+## [1.36.2] - 2026-08-06
 
 ### Fixed
-- **The Inn Keeper, Professor, Miller, Weaver, and Apothecary stopped appearing in the village at all** —
+- **The Inn Keeper, Professor, Miller, Weaver, and Apothecary stopped appearing in the village at all**,
   the game's EA 0.66 update changed the internal method the game uses to create an NPC, and every one of
   this mod's village-resident spawn routines was still calling the old version. Nothing indicated an error
   to the player; the village just stayed empty aside from Ash (who isn't spawned the same way). All five
   residents now spawn correctly again.
 
-## [1.36.1] — 2026-08-06
+## [1.36.1] - 2026-08-06
 
 ### Fixed
 - **Removed an unfinished, unreleased test companion agent that could unexpectedly appear in your game.** An
   in-progress experiment for a future "Ash as a hands-free companion" feature was accidentally left switched on:
   it spawned a second character also named "Ash," using the same portrait as your tamed Inn cat, with
-  placeholder debug buttons visible in its card popup. This was never finished or intended to ship — it's now
+  placeholder debug buttons visible in its card popup. This was never finished or intended to ship, it's now
   disabled again. Nothing about your existing tamed Ash is affected.
 - **README's framework requirement now correctly lists 2.19.0+ for the winter road blockage.** The winter
   snow-drift feature (1.35.0) needs a newer `CSFFModFramework` than the mod's previously-listed minimum; on an
-  older framework the roads simply never sealed for winter, with no indication why. Documentation only — no
+  older framework the roads simply never sealed for winter, with no indication why. Documentation only, no
   behavior change.
-- **`Powerful Healing Potion`'s carry weight corrected from 0.5 to 50** — a scale error left it registering as
+- **`Powerful Healing Potion`'s carry weight corrected from 0.5 to 50**: a scale error left it registering as
   nearly weightless compared to every other item in the mod.
 - Minor schema cleanup: 3 items' `CardImage` field now uses the correct placeholder object instead of a bare
-  sprite name (cosmetic only — the actual artwork was never affected).
+  sprite name (cosmetic only, the actual artwork was never affected).
 
-## [1.36.0] — 2026-08-06
+## [1.36.0] - 2026-08-06
 
 ### Added
-- **New starting perk: Homestead (100 Suns).** Start with a Cabin and two Rain Cisterns — all
-  fully portable, so you choose where to place them — plus a stockpile of building materials:
+- **New starting perk: Homestead (100 Suns).** Start with a Cabin and two Rain Cisterns, all
+  fully portable, so you choose where to place them, plus a stockpile of building materials:
   30 Wooden Planks, 30 Mud Bricks, 30 Heavy Stones, 50 Stones, 10 Tree Logs, 50 Treenails, and
   10 Rope. Uses the same vanilla `AddedCards` grant the base game's own "Cabin Start" perk relies
   on, so the Cabin and Cisterns behave exactly like their vanilla counterparts (pick up, carry,
   drop anywhere to place).
 
-## [1.35.0] — 2026-08-05
+## [1.35.0] - 2026-08-05
 
 ### Added
-- **The Village gets snowed in every winter.** All three roads out of the Village — north to Deer
-  Meadow, south to Pine Trail, and east to the Village Farm — now drift over with snow for the
+- **The Village gets snowed in every winter.** All three roads out of the Village, north to Deer
+  Meadow, south to Pine Trail, and east to the Village Farm, now drift over with snow for the
   duration of winter, blocking travel until dug clear. Each drift takes 3 shovel strikes to clear
-  (dropping Snow with each strike) and, once cleared, stays open for the rest of that winter — but
+  (dropping Snow with each strike) and, once cleared, stays open for the rest of that winter, but
   the snow returns to block the road again the following winter. Requires CSFFModFramework 2.19.0
   (new `"Season"` gate-trigger support).
 
 ### Fixed
-- **Inspecting a Village Hall board could leave the vanilla Time Options ("T" key) menu's description text permanently shrunk/truncated.** The board-status feature below only restored the shared description text object's font sizing on 4 of its 5 vanilla writers — the Time Options screen used the 5th, uninstrumented one, so it inherited the boards' truncated sizing instead of its own. Added the missing patch; Time Options now always renders at its normal size regardless of which board you looked at last.
-- **Self-serve drinking from a Rain Cistern had no Care cost at all**, despite being advertised (1.34.1, "at the cost of your bond") as lowering a cat's Care with every automatic drink. The auto-drink code restored Thirst and drained the cistern but never touched the Care stat — a fully cistern-reliant cat's bond never actually degraded. Auto-drink now costs 25 Care per drink, zeroing a fresh cat's Care in about 4 drinks (~9-10 in-game days at the auto-drink trigger threshold), matching the original design. Also corrected the auto-drink trigger threshold in this document: it's Thirst below **20%**, not 30% as previously stated.
-- **Telling the Inn Keeper "he wandered off" about Ash could permanently retire that check-in conversation.** Picking that answer while Ash was alive and present at the Inn decremented the same hidden progress stat used to detect a genuine wander-off, without checking whether he was actually gone — since the spawn logic for his replacement never fires while the original cat still exists, the stat could never climb back to the value needed to re-open the conversation. The answer now only fires its stat change when Ash isn't currently on the Inn's board.
+- **Inspecting a Village Hall board could leave the vanilla Time Options ("T" key) menu's description text permanently shrunk/truncated.** The board-status feature below only restored the shared description text object's font sizing on 4 of its 5 vanilla writers, the Time Options screen used the 5th, uninstrumented one, so it inherited the boards' truncated sizing instead of its own. Added the missing patch; Time Options now always renders at its normal size regardless of which board you looked at last.
+- **Self-serve drinking from a Rain Cistern had no Care cost at all**, despite being advertised (1.34.1, "at the cost of your bond") as lowering a cat's Care with every automatic drink. The auto-drink code restored Thirst and drained the cistern but never touched the Care stat, a fully cistern-reliant cat's bond never actually degraded. Auto-drink now costs 25 Care per drink, zeroing a fresh cat's Care in about 4 drinks (~9-10 in-game days at the auto-drink trigger threshold), matching the original design. Also corrected the auto-drink trigger threshold in this document: it's Thirst below **20%**, not 30% as previously stated.
+- **Telling the Inn Keeper "he wandered off" about Ash could permanently retire that check-in conversation.** Picking that answer while Ash was alive and present at the Inn decremented the same hidden progress stat used to detect a genuine wander-off, without checking whether he was actually gone, since the spawn logic for his replacement never fires while the original cat still exists, the stat could never climb back to the value needed to re-open the conversation. The answer now only fires its stat change when Ash isn't currently on the Inn's board.
 
-## [1.34.1] — 2026-08-03
+## [1.34.1] - 2026-08-03
 
 ### Added
-- **Village notice boards now show your standing with each villager.** Every Village Hall notice board (Inn Keeper, Miller, Weaver, Apothecary, Professor) now displays a live status readout beneath its notices: your **friendship** with that villager as a descriptive tier plus the raw value in parentheses (e.g. "The Inn Keeper considers you a good friend. (18 / 30)"), and your **quest progress** with them (e.g. "You are working through the Miller's errands. (2 / 3)"). The two **Village Standing** boards likewise show current **Village Renown** and whether the village has been properly introduced. Values update every time you open a board — no more guessing at hidden trackers.
-- **Companion cats now self-serve water from a Rain Cistern — at the cost of your bond.** Ash and Shadow each gained a visible **Care** stat (their relationship with you). Whenever a cat's Thirst drops below 20% and a **Rain Cistern with water** is on the same board, it will automatically drink to refill its Thirst — but every self-serve drink lowers its Care a little, because you weren't the one who tended it. Left entirely to the cistern with no personal attention, a cat's Care runs dry after roughly **9 in-game days** and it wanders off (recoverable through its usual return path). **Petting, Feeding, or personally Giving Water** all restore Care, so a hands-on owner keeps a happy cat indefinitely. Implemented as a small tick-driven patch (`AshCatTickPatch.cs`) rather than vanilla's native `DurabilityTransferEffects`, since Care's decay needed to be tied to the auto-drink event itself. An empty cistern gives no water, so a fully neglected cat can still die of thirst on the old ~3-day clock.
+- **Village notice boards now show your standing with each villager.** Every Village Hall notice board (Inn Keeper, Miller, Weaver, Apothecary, Professor) now displays a live status readout beneath its notices: your **friendship** with that villager as a descriptive tier plus the raw value in parentheses (e.g. "The Inn Keeper considers you a good friend. (18 / 30)"), and your **quest progress** with them (e.g. "You are working through the Miller's errands. (2 / 3)"). The two **Village Standing** boards likewise show current **Village Renown** and whether the village has been properly introduced. Values update every time you open a board, no more guessing at hidden trackers.
+- **Companion cats now self-serve water from a Rain Cistern, at the cost of your bond.** Ash and Shadow each gained a visible **Care** stat (their relationship with you). Whenever a cat's Thirst drops below 20% and a **Rain Cistern with water** is on the same board, it will automatically drink to refill its Thirst, but every self-serve drink lowers its Care a little, because you weren't the one who tended it. Left entirely to the cistern with no personal attention, a cat's Care runs dry after roughly **9 in-game days** and it wanders off (recoverable through its usual return path). **Petting, Feeding, or personally Giving Water** all restore Care, so a hands-on owner keeps a happy cat indefinitely. Implemented as a small tick-driven patch (`AshCatTickPatch.cs`) rather than vanilla's native `DurabilityTransferEffects`, since Care's decay needed to be tied to the auto-drink event itself. An empty cistern gives no water, so a fully neglected cat can still die of thirst on the old ~3-day clock.
 
 ### Fixed
 - **The "Village Founder" perk no longer fast-forwarded the Miller's grain quest or the Weaver's flax quest.** A prior update moved those two quests onto the shared quest-chain system, but the Village Founder perk's fast-forward list still wrote the old, now-unused quest stats. Equipping the perk now correctly marks both quests as already completed, matching every other village beat it fast-forwards.
 - **Completing the boar encounter with Ash did not drop a boar carcass.** The `AshBoarHuntPatch` resolved the fight (transforming Ash back to `cmcInnCat`, setting epilogue stats) but never spawned loot. Now spawns a vanilla `Carcass_BoarCarcass` at the current board (Hunter's Crossing) when the encounter ends in a player victory.
-- **Ash the Cat's quest line soft-locked permanently if Ash ever wandered off (starved of food or water).** When Ash's Hunger or Thirst hit zero he was removed from the game, but nothing reset the hidden lost-cat quest stat (`cmcStatLostCat`) or the boar-hunt state (`cmcStatAshBoarHuntSpot`). The stray never respawned (it only reappears while the search is armed), the boar hunt never fired (Ash was gone before his 5-day timer), and the Inn Keeper was stuck forever asking "how's Ash?" with no way to recover. Added a recovery answer to that check-in greeting — telling the Keeper "he wandered off" re-arms the search, so Ash reappears in the Foraging Forest at dusk and can be re-adopted (which also restarts the boar-hunt clock). Fixes existing stuck saves and any future wander-off.
-- **Wind effects persisted indoors in the Village Inn, Academy, and other village building interiors.** The "Wind Affinity" passive effect from outdoor grove environments was not suppressed when standing inside the village's closed indoor environments (Inn, Academy, Apothecary Cabin, Miller Cottage, Village Hall, Weaver Cottage). Added an inverse wind resistance modifier (RateModifier -0.5 on the wind affinity stat GUID) to the "Sheltered from the Elements" passive effect already protecting those interiors from rain, sun, and snow — wind effects no longer affect the player indoors.
+- **Ash the Cat's quest line soft-locked permanently if Ash ever wandered off (starved of food or water).** When Ash's Hunger or Thirst hit zero he was removed from the game, but nothing reset the hidden lost-cat quest stat (`cmcStatLostCat`) or the boar-hunt state (`cmcStatAshBoarHuntSpot`). The stray never respawned (it only reappears while the search is armed), the boar hunt never fired (Ash was gone before his 5-day timer), and the Inn Keeper was stuck forever asking "how's Ash?" with no way to recover. Added a recovery answer to that check-in greeting, telling the Keeper "he wandered off" re-arms the search, so Ash reappears in the Foraging Forest at dusk and can be re-adopted (which also restarts the boar-hunt clock). Fixes existing stuck saves and any future wander-off.
+- **Wind effects persisted indoors in the Village Inn, Academy, and other village building interiors.** The "Wind Affinity" passive effect from outdoor grove environments was not suppressed when standing inside the village's closed indoor environments (Inn, Academy, Apothecary Cabin, Miller Cottage, Village Hall, Weaver Cottage). Added an inverse wind resistance modifier (RateModifier -0.5 on the wind affinity stat GUID) to the "Sheltered from the Elements" passive effect already protecting those interiors from rain, sun, and snow, wind effects no longer affect the player indoors.
 
-## [1.33.8] — 2026-07-30
+## [1.33.8] - 2026-07-30
 
 ### Fixed
-- **Trees never grew back once chopped down, in the Village, Village Farm, Village Path, and by extension every other CMC map location.** Every vanilla explorable location carries "Create Small/Large/Birch Tree" actions that silently re-plant a chopped tree once it's missing from the board. WorldMap/MapNodes.json's `StripLegacyBoardUIDs` (used on Village/Village Farm/Village Path to keep wild Nettle/Clover/Meadowgrass patches from sprouting in the finished settlement) matches and deletes any action that *produces* a stripped card UID — which caught the tree-respawn actions too, since they produce the same tree cards. Added a small env-scoped daily check (`TreeRespawnPatch`) that replaces the missing behavior across all twelve CMC map locations: once per in-game day, while standing in that environment, any of its native tree species missing from the board has a chance to grow back, keyed to the correct species per location (oak groves regrow oak, pine groves regrow pine, etc.).
+- **Trees never grew back once chopped down, in the Village, Village Farm, Village Path, and by extension every other CMC map location.** Every vanilla explorable location carries "Create Small/Large/Birch Tree" actions that silently re-plant a chopped tree once it's missing from the board. WorldMap/MapNodes.json's `StripLegacyBoardUIDs` (used on Village/Village Farm/Village Path to keep wild Nettle/Clover/Meadowgrass patches from sprouting in the finished settlement) matches and deletes any action that *produces* a stripped card UID, which caught the tree-respawn actions too, since they produce the same tree cards. Added a small env-scoped daily check (`TreeRespawnPatch`) that replaces the missing behavior across all twelve CMC map locations: once per in-game day, while standing in that environment, any of its native tree species missing from the board has a chance to grow back, keyed to the correct species per location (oak groves regrow oak, pine groves regrow pine, etc.).
 
-## [1.33.7] — 2026-07-30
+## [1.33.7] - 2026-07-30
 
 ### Fixed
 - **Rotten Remains piled up permanently in NPC inventories.** Food NPCs are carrying (deliveries, foraged stock, restock items) spoils the same as it does for the player, but no NPC action ever cleared the resulting Rotten Remains back out. Added a periodic sweep (every 15 in-game minutes) that removes any Rotten Remains found in an NPC's own inventory.
 
-## [1.33.6] — 2026-07-29
+## [1.33.6] - 2026-07-29
 
 ### Fixed
-- **Every card's Info-tab description text was locked to a shrunken font (worse after 1.33.5).** The Town Hall board sizing patch remembered the description font size from the first card inspected and then force-wrote it — with auto-sizing disabled — onto every non-board card's popup. Because the game's own text box auto-sizes natively, the remembered value was often an already-shrunk computed size, so every card inherited it permanently. The patch now snapshots the complete vanilla text state (auto-sizing flag, size, min/max, overflow) only at the moment a Town Hall board first modifies it, restores that exact state when a non-board card is next inspected, and leaves the text completely untouched otherwise. Only the 7 Town Hall boards' descriptions auto-shrink now.
+- **Every card's Info-tab description text was locked to a shrunken font (worse after 1.33.5).** The Town Hall board sizing patch remembered the description font size from the first card inspected and then force-wrote it, with auto-sizing disabled, onto every non-board card's popup. Because the game's own text box auto-sizes natively, the remembered value was often an already-shrunk computed size, so every card inherited it permanently. The patch now snapshots the complete vanilla text state (auto-sizing flag, size, min/max, overflow) only at the moment a Town Hall board first modifies it, restores that exact state when a non-board card is next inspected, and leaves the text completely untouched otherwise. Only the 7 Town Hall boards' descriptions auto-shrink now.
 
-## [1.33.5] — 2026-07-29
+## [1.33.5] - 2026-07-29
 
 ### Fixed
-- **Font auto-shrinking meant for the Village Town Hall boards was shrinking every card's hover tooltip in the game.** The board description sizing (added in 1.33.2) is correctly scoped to just the 7 tracked boards, but a second, unrelated patch also force-enabled auto-sizing on the game's single shared hover-tooltip text object — since that object is reused for every card's hover box, the effect applied globally instead of just to the boards. Removed the unrelated global patch; only the Town Hall boards' description text resizes now.
+- **Font auto-shrinking meant for the Village Town Hall boards was shrinking every card's hover tooltip in the game.** The board description sizing (added in 1.33.2) is correctly scoped to just the 7 tracked boards, but a second, unrelated patch also force-enabled auto-sizing on the game's single shared hover-tooltip text object, since that object is reused for every card's hover box, the effect applied globally instead of just to the boards. Removed the unrelated global patch; only the Town Hall boards' description text resizes now.
 
-## [1.33.4] — 2026-07-29
+## [1.33.4] - 2026-07-29
 
 ### Changed
-- **The Village Well now shows its custom art immediately on construction**, instead of the vanilla "Well" sprite (a leftover tropical-island image that never matched the village). Previously the well was built with that vanilla placeholder and only got the intended art if you used the Well Plans sketch's "Re-face the Well" action afterward — but that swap wasn't reliably refreshing the on-screen image. Removed the two-stage indirection entirely: the well card itself now points at the correct art from the start, so there's nothing left to swap. The "Re-face the Well" action and the card it swapped to are gone; the sketch's "Discard the Old Sketch" action still works as before.
+- **The Village Well now shows its custom art immediately on construction**, instead of the vanilla "Well" sprite (a leftover tropical-island image that never matched the village). Previously the well was built with that vanilla placeholder and only got the intended art if you used the Well Plans sketch's "Re-face the Well" action afterward, but that swap wasn't reliably refreshing the on-screen image. Removed the two-stage indirection entirely: the well card itself now points at the correct art from the start, so there's nothing left to swap. The "Re-face the Well" action and the card it swapped to are gone; the sketch's "Discard the Old Sketch" action still works as before.
 
-## [1.33.3] — 2026-07-29
+## [1.33.3] - 2026-07-29
 
 ### Fixed
-- **Drawing water from the Village Well only filled a Rain Cistern by about 1% per drag.** The well's "Draw Water" action added a flat 300 units of water to whatever container was dragged onto it — plenty for a Waterskin or Cooking Pot, but a sliver of the Rain Cistern's 21,600-unit capacity. Changed to the same oversized flat quantity (100,000) vanilla water sources (River, Pond, Lake, etc.) use for their own "Fill" action — the game always caps the actual amount added to whatever room is left in the container, so this now tops off any container, including a Cistern, in one drag.
+- **Drawing water from the Village Well only filled a Rain Cistern by about 1% per drag.** The well's "Draw Water" action added a flat 300 units of water to whatever container was dragged onto it, plenty for a Waterskin or Cooking Pot, but a sliver of the Rain Cistern's 21,600-unit capacity. Changed to the same oversized flat quantity (100,000) vanilla water sources (River, Pond, Lake, etc.) use for their own "Fill" action, the game always caps the actual amount added to whatever room is left in the container, so this now tops off any container, including a Cistern, in one drag.
 
-## [1.33.2] — 2026-07-29
+## [1.33.2] - 2026-07-29
 
 ### Fixed
 - **Lecture Hall description overflowed onto the discipline icons and Study buttons below it.** The card description crammed in a per-subject breakdown of every course's hour length and every degree's unlock effect, making it nearly 2.5x longer than any other location card's description in the mod and long enough to run past the popup's text box. Trimmed to the funding mechanic only; each subject's course length and unlock effect were already restated in that subject's own Study/Final Exam action description, so no information was lost.
 
-## [1.33.1] — 2026-07-29
+## [1.33.1] - 2026-07-29
 
 ### Fixed
 - **Re-faced Village Well showed a blank card image.** The re-faced well (`cmcimpwellcustom`) pointed at a placeholder sprite that was never replaced with real art. It now reuses the Well Plans artwork (the same stone-well sketch shown on the Inn Keeper's plans) instead of a blank image.
 
-## [1.33.0] — 2026-07-28
+## [1.33.0] - 2026-07-28
 
 ### Added
-- **Matching Inn/Academy card art for the Miller, the Weaver, and the Apothecary.** Each now shows a dedicated portrait while standing inside the Village Inn (`CMC_Miller_Inn`/`CMC_Weaver_Inn`/`CMC_Alchemist_Inn`) or the Village Academy (`CMC_Miller_Academy`/`CMC_Weaver_Academy`/`CMC_Alchemist_Academy`), falling back to their existing Village portrait everywhere else — the same envCard-driven portrait sync the Professor and Apothecary already used, extended to cover these two new locations.
+- **Matching Inn/Academy card art for the Miller, the Weaver, and the Apothecary.** Each now shows a dedicated portrait while standing inside the Village Inn (`CMC_Miller_Inn`/`CMC_Weaver_Inn`/`CMC_Alchemist_Inn`) or the Village Academy (`CMC_Miller_Academy`/`CMC_Weaver_Academy`/`CMC_Alchemist_Academy`), falling back to their existing Village portrait everywhere else, the same envCard-driven portrait sync the Professor and Apothecary already used, extended to cover these two new locations.
 
 ### Changed
 - **The Miller and the Weaver now visit the Inn every evening and the Academy once a week, guaranteed** (previously an independent 13%/12% daily roll for each, so either visit could go missed for a stretch of days). Every evening (18:00–21:00) both residents head to the Inn; each also has one fixed day per week (staggered so they don't both go the same day) for an Academy afternoon (13:00–17:00). Occasional outdoor wandering on non-Academy days is unchanged, still a roll.
 - **The Apothecary now also visits the Inn every evening and the Academy once a week.** Her stall hours end at 19:15 as before, but she now stops at the Inn (19:15–21:00) before walking home instead of leaving immediately, and one day a week she spends 13:00–17:00 at the Academy instead of the stall. Both legs share the same instanced-env visit-once-to-unlock prerequisite as her cabin homing, and neither fires while she's actively brewing a healing potion.
 
-## [1.32.1] — 2026-07-28
+## [1.32.1] - 2026-07-28
 
 ### Fixed
-- **Town Hall board descriptions and the 7 village boards' action visibility now actually work.** Since the Town Hall Boards feature shipped (PR-3, 1.x), the Harmony patch that renders each board's gated status lines and hides its inspection-popup action buttons was silently failing to register at all — a reflection lookup for the game's `InspectionPopup.Setup` method didn't specify which of its two overloads to target, and the resulting ambiguity exception aborted patch setup before any of the four board-related patches applied. Boards affected: Town, Town Construction, Inn Keeper, Miller, Weaver, Apothecary, Professor. No player-facing symptom beyond the boards never showing their intended extra text — the mod otherwise loaded and ran normally, which is why this went unnoticed.
+- **Town Hall board descriptions and the 7 village boards' action visibility now actually work.** Since the Town Hall Boards feature shipped (PR-3, 1.x), the Harmony patch that renders each board's gated status lines and hides its inspection-popup action buttons was silently failing to register at all, a reflection lookup for the game's `InspectionPopup.Setup` method didn't specify which of its two overloads to target, and the resulting ambiguity exception aborted patch setup before any of the four board-related patches applied. Boards affected: Town, Town Construction, Inn Keeper, Miller, Weaver, Apothecary, Professor. No player-facing symptom beyond the boards never showing their intended extra text, the mod otherwise loaded and ran normally, which is why this went unnoticed.
 
-## [1.32.0] — 2026-07-28
+## [1.32.0] - 2026-07-28
 
 ### Added
-- **Village Well art choice.** Once the Well is built, the Well Plans sketch now offers two one-time, mutually-exclusive options while you stand at the finished well: the existing **Discard the Old Sketch** (keeps the well's original vanilla stonework), or the new **Re-face the Well**, which re-skins the well with custom forest-cut stone art in place of the legacy "Well" sprite (a holdover asset that reads as a tropical-island well rather than a Fantasy Forest one). Both options consume the sketch either way. Implemented via an in-place `CardModel` swap (`WellArtPatch.cs` + `CardUtil.TransformCardInPlace`, never `Object.Destroy`), retargeting the on-board well card to an otherwise-identical structure (`cmcimpwellcustom`) that differs only in its art. Real custom art is pending delivery — ships for now as a blank placeholder PNG.
+- **Village Well art choice.** Once the Well is built, the Well Plans sketch now offers two one-time, mutually-exclusive options while you stand at the finished well: the existing **Discard the Old Sketch** (keeps the well's original vanilla stonework), or the new **Re-face the Well**, which re-skins the well with custom forest-cut stone art in place of the legacy "Well" sprite (a holdover asset that reads as a tropical-island well rather than a Fantasy Forest one). Both options consume the sketch either way. Implemented via an in-place `CardModel` swap (`WellArtPatch.cs` + `CardUtil.TransformCardInPlace`, never `Object.Destroy`), retargeting the on-board well card to an otherwise-identical structure (`cmcimpwellcustom`) that differs only in its art. Real custom art is pending delivery, ships for now as a blank placeholder PNG.
 
 ### Changed
-- **Village NPCs now walk their commutes instead of teleporting.** The Professor, the Miller, the Weaver, and the Apothecary previously jumped straight from their current spot to their next scheduled destination in a single hop. They now visibly step across each intermediate map tile along the way (paced at roughly 45 in-game minutes per tile), so a long commute reads as an actual walk rather than a teleport. Purely a presentation change — schedules, destinations, and timing windows are unchanged.
+- **Village NPCs now walk their commutes instead of teleporting.** The Professor, the Miller, the Weaver, and the Apothecary previously jumped straight from their current spot to their next scheduled destination in a single hop. They now visibly step across each intermediate map tile along the way (paced at roughly 45 in-game minutes per tile), so a long commute reads as an actual walk rather than a teleport. Purely a presentation change, schedules, destinations, and timing windows are unchanged.
 
-## [1.31.1] — 2026-07-27
+## [1.31.1] - 2026-07-27
 
 ### Fixed
-- **The Village Hall's "Renown" score, and the Market Stall's 25% sales bonus it unlocks, are now correct no matter where you're standing.** Renown used to be recomputed from a live scan of whatever's physically on the board around you, so the moment you walked away from the Village, Miller's Cottage/Weaver's Cottage/the Well/the River Bridge/the Market Stall would all read as "not built" and Renown would drop — silently resetting the Market Stall's sales bonus back to nothing well before its once-a-day unattended sale ever had a chance to use it. The Village Hall's own Notice Board still looked correct whenever you actually checked it (you have to be standing at the Hall to see it, and everything else is right there with you at that moment too), which is exactly why this went unnoticed. Village construction now counts toward Renown permanently once built, and the Market Stall's sales-milestone bonus is remembered for good the first time it's earned — both regardless of where you currently are.
+- **The Village Hall's "Renown" score, and the Market Stall's 25% sales bonus it unlocks, are now correct no matter where you're standing.** Renown used to be recomputed from a live scan of whatever's physically on the board around you, so the moment you walked away from the Village, Miller's Cottage/Weaver's Cottage/the Well/the River Bridge/the Market Stall would all read as "not built" and Renown would drop, silently resetting the Market Stall's sales bonus back to nothing well before its once-a-day unattended sale ever had a chance to use it. The Village Hall's own Notice Board still looked correct whenever you actually checked it (you have to be standing at the Hall to see it, and everything else is right there with you at that moment too), which is exactly why this went unnoticed. Village construction now counts toward Renown permanently once built, and the Market Stall's sales-milestone bonus is remembered for good the first time it's earned, both regardless of where you currently are.
 
-## [1.31.0] — 2026-07-27
+## [1.31.0] - 2026-07-27
 
 ### Added
-- **Vanilla trading-value table (`TradingValues.json`)** — NPC trading is no longer full of
+- **Vanilla trading-value table (`TradingValues.json`)**: NPC trading is no longer full of
   0-cost goods. 653 vanilla items/liquids that shipped with `TradingValue: 0` (planks, rope,
   berries, meat, hides, pottery, tools, carcasses, brews, …) now have prices calibrated to
   vanilla's own scale (bugs/salt 5, herb powders ~17, dried meat 40, flint/metal nugget 250,
@@ -2758,52 +3162,52 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   trading simply stays vanilla). Full review table: repo `Documentation/TradingValues_Review_2026-07-27.csv`.
 
 ### Changed
-- **CMC tradeable items priced** — Rare Herb Mixture 200, Powerful Healing Potion 350, Market
+- **CMC tradeable items priced**: Rare Herb Mixture 200, Powerful Healing Potion 350, Market
   Stall Kit 400, and the 8 apparel pieces (Cloth Coat 1500, Leather Apron 1200, Chaperon 800,
   Leather Sandals 800, Cloth Scarf 600, Straw Hat 200, Foot/Hand Wraps 150). Ash, Shadow, the
-  stray-cat cards, and quest items (Well Plans, "Ash, On the Hunt") intentionally stay 0 —
+  stray-cat cards, and quest items (Well Plans, "Ash, On the Hunt") intentionally stay 0,
   companions and quest state are not market goods.
 
-## [1.30.1] — 2026-07-27
+## [1.30.1] - 2026-07-27
 
 ### Fixed
-- **The Well Plans no longer haunt your pack after the well is built.** The dig now consumes the plans as one of the listed build materials, so for new wells the card retires itself. For a well that was already standing before this version, the plans card gains a **Discard the Old Sketch** action that appears only while you stand at the finished well — so the plans can never be thrown away while they are still needed. Before the well is built the card stays protected from trashing, since the Inn Keeper only ever hands it over once.
+- **The Well Plans no longer haunt your pack after the well is built.** The dig now consumes the plans as one of the listed build materials, so for new wells the card retires itself. For a well that was already standing before this version, the plans card gains a **Discard the Old Sketch** action that appears only while you stand at the finished well, so the plans can never be thrown away while they are still needed. Before the well is built the card stays protected from trashing, since the Inn Keeper only ever hands it over once.
 
-## [1.30.0] — 2026-07-27
+## [1.30.0] - 2026-07-27
 
 ### Changed
-- **The Village Well is now a real card on the village board.** It used to be a village-tile improvement: built from the tile's improvements panel, and once finished the well lived inside that panel, where it was awkward to reach and easy to miss. It is now a standard construction blueprint like the cottages and the Village Hall — hold the Inn Keeper's **Well Plans** while at the Village and the blueprint appears in the crafting journal; research it, then build it with the same materials and build time as before. The finished well stands on the village board like any other structure: drag an empty water container onto it to draw water.
-- **The Well Plans card now visibly matters.** Keeping it in hand is what reveals the Village Well blueprint — it is no longer an inert keepsake after the Inn Keeper hands it over.
+- **The Village Well is now a real card on the village board.** It used to be a village-tile improvement: built from the tile's improvements panel, and once finished the well lived inside that panel, where it was awkward to reach and easy to miss. It is now a standard construction blueprint like the cottages and the Village Hall, hold the Inn Keeper's **Well Plans** while at the Village and the blueprint appears in the crafting journal; research it, then build it with the same materials and build time as before. The finished well stands on the village board like any other structure: drag an empty water container onto it to draw water.
+- **The Well Plans card now visibly matters.** Keeping it in hand is what reveals the Village Well blueprint, it is no longer an inert keepsake after the Inn Keeper hands it over.
 
 ### Notes
 - The well keeps its old card identity, so Village Renown, the Village Projects board, the Inn Keeper's well remark and village toast, and Ash's storyline gate all track the new structure unchanged. A well already finished on an existing save is expected to carry over as the new structure card; if it does not appear on the village board after updating, the blueprint offers the rebuild path.
 
-## [1.29.5] — 2026-07-27
+## [1.29.5] - 2026-07-27
 
 ### Fixed
-- **Players got wet from rain inside every village building.** The Inn, Academy, Apothecary's Cabin, Village Hall, Miller's Cottage, and Weaver's Cottage interiors never granted the vanilla indoor-shelter stat effects (Rain Protection, Sun Protection, Sheltered, hidden snow FX), so standing inside them was mechanically identical to standing outdoors — rain wetness accrued normally. Added the same "Sheltered from the Elements" stat grant vanilla indoor rooms (e.g. the player Cabin) carry, keyed to each building's interior environment card via `Conditions.NotInBackground` (the same mechanism already used by the existing Hearth-Warmed Inn/Academy/Village Hall warmth effects).
+- **Players got wet from rain inside every village building.** The Inn, Academy, Apothecary's Cabin, Village Hall, Miller's Cottage, and Weaver's Cottage interiors never granted the vanilla indoor-shelter stat effects (Rain Protection, Sun Protection, Sheltered, hidden snow FX), so standing inside them was mechanically identical to standing outdoors, rain wetness accrued normally. Added the same "Sheltered from the Elements" stat grant vanilla indoor rooms (e.g. the player Cabin) carry, keyed to each building's interior environment card via `Conditions.NotInBackground` (the same mechanism already used by the existing Hearth-Warmed Inn/Academy/Village Hall warmth effects).
 
-## [1.29.4] — 2026-07-28
+## [1.29.4] - 2026-07-28
 
 ### Added
 - **Miller & Weaver daily schedule.** Both cottages are now enterable ("Enter the Cottage" / "Exit", mirroring the Apothecary's Cabin). Each resident now keeps a daily routine instead of standing at the Village around the clock: home inside their own cottage overnight (22:00–6:00), at the Village the rest of the day, with occasional half-days spent wandering the outdoor map (Village Path/Farm, Foraging Forest, Pine Trail, High Grove, Mossy Clearing), visiting the Inn in the evening, or visiting the Academy in the afternoon. The schedule never moves a resident away mid-conversation, and a resident won't travel to the Inn/Academy/their own cottage interior until you've visited that interior yourself at least once this session (falls back to standing at the Village until then).
 
-## [1.29.3] — 2026-07-27
+## [1.29.3] - 2026-07-27
 
 ### Fixed
 - **Inn Keeper's fireside tales booted you out after every line.** Each seasonal story arc (the wolves, the mushroom peddler, the fish that got away, the miller's wager, the ghostly ferryman, and the cat's second life) advanced with a step type that meant "end the conversation" instead of "go to the next line," so you had to re-open Talk for every single sentence. All 18 mid-story chapters now flow straight through to their conclusion.
-- **NPC "≥ 1" quest/errand gates could never be satisfied — the garlic errand loop.** Any dialog answer, drag-and-drop action, or interaction gated on a stat being "1 or more" used the range `[0.5, 1000000000.0]`, which overflows the game's range math (a fractional lower bound forces a ×10 decimal pass, and `1e9 × 10` overflows a 32-bit integer into a large negative number, making the range impossible to satisfy). This is why delivering **Dried Wild Garlic** to the Inn Keeper never registered even with the correct item in hand — the delivery action was permanently hidden after the first errand. Same defect also silently blocked several "after they moved in" villager interactions (Miller flour hand-off, Weaver/Apothecary pigment steps). Replaced the broken upper bound with a safe large value across all affected gates.
+- **NPC "≥ 1" quest/errand gates could never be satisfied, the garlic errand loop.** Any dialog answer, drag-and-drop action, or interaction gated on a stat being "1 or more" used the range `[0.5, 1000000000.0]`, which overflows the game's range math (a fractional lower bound forces a ×10 decimal pass, and `1e9 × 10` overflows a 32-bit integer into a large negative number, making the range impossible to satisfy). This is why delivering **Dried Wild Garlic** to the Inn Keeper never registered even with the correct item in hand, the delivery action was permanently hidden after the first errand. Same defect also silently blocked several "after they moved in" villager interactions (Miller flour hand-off, Weaver/Apothecary pigment steps). Replaced the broken upper bound with a safe large value across all affected gates.
 
 ### Changed
 - **Village Hall boards cleanup.** The Boards room now opens each villager board directly without a redundant "Read ... Board" action, and the two civic boards were relabeled to **Village Standing** and **Village Projects** to make their roles clearer at a glance.
 - **Village Hall boards now render notices as prose instead of button labels.** The Boards room keeps using the existing gated notice data, but the current board entries are now written into the description panel and removed from the action strip so long lines are readable.
 
-## [1.29.2] — 2026-07-23
+## [1.29.2] - 2026-07-23
 
 ### Fixed
 - **Village Founder + "already completed this course" softlock.** Village Founder granted all
   6 Academy graduate perks directly (bypassing the Lecture Hall), but never backfilled the
-  lectern's course-progress stats to match — `AcademyCourseService.HasCourse` reported every
+  lectern's course-progress stats to match: `AcademyCourseService.HasCourse` reported every
   course as done while the progress bars stayed at 0%, so every "Study ..." button permanently
   showed "You have already completed this course" instead of allowing (harmless, already-passed)
   study sessions to proceed. Fixed by backfilling each course's progress stat to its max hours
@@ -2817,7 +3221,7 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   backfill. The two are independent and can be taken together or apart. `Pk_HigherEducation`
   (already retired) is untouched.
 
-## [1.29.1] — 2026-07-23
+## [1.29.1] - 2026-07-23
 
 ### Fixed
 - **Portal Hub "Travel to Village" landed at Village Path instead of the Village.**
@@ -2828,30 +3232,30 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   every "Travel to Village" click from any registered mod's portal hub dropped the player one
   map node short of the village proper. Repointed both fields to `cmcEnvVillage`/`cmcLocVillage`.
 
-## [1.29.0] — 2026-07-23
+## [1.29.0] - 2026-07-23
 
-### Added — Shadow the Cat + Apothecary's Cabin themed finishing stage
+### Added: Shadow the Cat + Apothecary's Cabin themed finishing stage
 - **Shadow the Cat**: a second, wholly independent companion-cat chain (`cmcShadowCat` →
   `cmcShadowCatTamed`, `Patcher/ShadowCatPatch.cs` templated directly on `LostCatPatch.cs`)
   sharing zero UIDs/files/state with Ash. Spawn-eligible in the Foraging Forest between dusk
   and dawn (17:00–06:00) only once Herbalism is graduated (`AcademyCourseService.HasCourse`),
-  with no hidden GameStat gating the spawn — the dupe-guard (a live `GameManager.AllCards`
+  with no hidden GameStat gating the spawn, the dupe-guard (a live `GameManager.AllCards`
   scan for either cat form) is the sole thing preventing repeat spawns, since the perk check
   stays true forever once earned.
 - **Taming is deliberately different from Ash's feed-to-tame arc**: drag any of the three
-  vanilla musical instruments (Wooden Flute, Bone Flute, Frame Drum) onto her and she tames —
+  vanilla musical instruments (Wooden Flute, Bone Flute, Frame Drum) onto her and she tames,
   none of the three are consumed (`GivenCardChanges: {"ModType": 1}` with every change field
   left at zero/false, the confirmed non-destructive no-op shape, precedented by vanilla
   Fibers.json's "Comb" interaction).
 - **Apothecary's Cabin finishing stage** (7th stage, appended to the existing 6-stage vanilla
   backbone): Dried Hemp Flower ×2, Dried Ginseng ×2, Dried Reishi ×2 (all Herbs & Fungi items),
-  Dried Nettle Leaves ×3 (vanilla), and one tamed Shadow — `DontSpend: true`, present but never
+  Dried Nettle Leaves ×3 (vanilla), and one tamed Shadow: `DontSpend: true`, present but never
   destroyed. Ingredient list is a direct, verbatim reuse of the existing Healing Mixture
   blueprint's own rare-herb list, not a new invention.
-- **H&F is now a hard dependency for finishing the Apothecary's Cabin** — three of the four
+- **H&F is now a hard dependency for finishing the Apothecary's Cabin**: three of the four
   finishing-stage ingredients have no Community Mod Chest substitute. Documented in README
   (Contents + a new Requirements bullet) and ModInfo `Description` in this same commit; H&F was
-  already a declared `SoftDependency` in `Plugin.cs` (BepInEx load order only — this doesn't
+  already a declared `SoftDependency` in `Plugin.cs` (BepInEx load order only, this doesn't
   change loadability, only what's needed to finish one specific structure).
 - Placeholder white card art for both Shadow forms (`CMC_ShadowCat.png`,
   `CMC_ShadowCatTamed.png`); real art still owed. 15 new SimpEn.csv rows (SimpCn not adopted for
@@ -2861,29 +3265,29 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   in-game acid test has run yet (spawn gate, taming CI, stage-6 presence-check with
   `DontSpend: true`, and narrative differentiation from Ash all still need a playtest pass).
 
-## [1.28.0] — 2026-07-23
+## [1.28.0] - 2026-07-23
 
-### Added — Professor Phases P4–P6: event-triggered tasks, a third milestone gift, polish
+### Added: Professor Phases P4–P6: event-triggered tasks, a third milestone gift, polish
 - **Field Samples** (Phase P4): a new one-shot commission task, offerable once village week 10
   arrives (bridged into a hidden NPCStat, `cmcStatProfFieldSamplesReady`, the same one-shot-latch
-  idiom `SyncNarrativeStats` already uses for the river-bridge news flag) — bring 5 fresh
+  idiom `SyncNarrativeStats` already uses for the river-bridge news flag), bring 5 fresh
   Billberries, paid in 2 Salt, +6 trust. Discoverable via a new "Any work for me?" dialog branch
   once armed.
 - **Applied Herbalism** (Phase P4): a second one-shot commission task, gated on graduating the
-  Herbalism course (reuses the existing `cmcStatProfEligibleHerbalism` eligibility stat directly —
-  no new subject-bridge needed) — bring 4 Dried Nettle Leaves, paid in 1 Metal Nugget + 2 Salt,
+  Herbalism course (reuses the existing `cmcStatProfEligibleHerbalism` eligibility stat directly,
+  no new subject-bridge needed), bring 4 Dried Nettle Leaves, paid in 1 Metal Nugget + 2 Salt,
   +8 trust. Also reachable via "Any work for me?".
 - Both tasks are genuinely one-shot: each has its own "claimed" NPCStat gate
   (`cmcStatProfFieldSamplesClaimed` / `cmcStatProfAppliedHerbalismClaimed`) so, unlike the weekly
   specimen commission, they never re-offer once completed. Each also contributes +10 to Village
   Renown exactly once (`cmcStatQuestRenownProfFieldSamples` / `cmcStatQuestRenownProfAppliedHerbalism`,
   wired into the existing `VillageRenownPatch` tick alongside the other villagers' one-shot flags).
-- **Trust-milestone gift** (Phase P5, the third of the plan's 2–3 milestone gifts — the first two,
+- **Trust-milestone gift** (Phase P5, the third of the plan's 2–3 milestone gifts, the first two,
   first-degree and Valedictorian, were already shipped in Phase P3): at Trust 80+ the Professor
   gifts 4 Stone Tiles from "the Academy's old teaching kilns," self-disarming via a new
   `cmcStatProfGiftTrust` flag, the same pattern as the existing gift-ladder lines. Chose Stone
   Tiles over an armor-tier reward specifically to avoid the zero-durability-on-spawn risk described
-  in CLAUDE.md's GiveCard-postfix-stat-init rule — no CMC code currently initializes durability
+  in CLAUDE.md's GiveCard-postfix-stat-init rule, no CMC code currently initializes durability
   stats on `DroppedCards`-spawned gear, so a shield-tier reward would have handed the player a
   broken 0/80-durability item.
 - **Phase P6 polish:** 17 new SimpEn.csv rows for all of the above (SimpCn still not adopted for
@@ -2891,12 +3295,12 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   to name the two new tasks and the third gift (docs-honesty pass, same commit).
 - Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md §10.2 phase log updated: P4/P5/P6 moved from
   UNBUILT to CODE BUILT, pending in-game acid tests (fresh commission offer/turn-in, one-shot
-  claimed-guard survives save/reload, trust-gift fires exactly once) — no in-game verification has
+  claimed-guard survives save/reload, trust-gift fires exactly once), no in-game verification has
   run yet for this batch.
 
-## [1.27.0] — 2026-07-23
+## [1.27.0] - 2026-07-23
 
-### Added — Town Hall Boards now show real quest status (PR-3)
+### Added: Town Hall Boards now show real quest status (PR-3)
 - The six notice boards inside the Village Hall (shipped flavor-only in 1.25.0) now display
   live, gated content driven by each villager's quest chain:
   - Each of the five villager boards (Inn Keeper, Miller, Weaver, Apothecary, Professor) shows
@@ -2911,29 +3315,29 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
     and which structures are contributing to it.
   - A new seventh board, the **Construction Board**, tracks all 7 village structures (both
     cottages, the Apothecary's Cabin, the Village Hall, the Well, the River Bridge, and the
-    Market Stall) as Not Yet Begun / Complete — split out from the Town Board so the Hall's board
+    Market Stall) as Not Yet Begun / Complete, split out from the Town Board so the Hall's board
     list doesn't overflow past a reasonable length.
 - New hidden GameStats (`cmcStatChronicle<Structure>Day`, one per tracked structure) stamp the
   day each structure was completed, written by a new `VillageChroniclePatch` (one new 5s poll).
 - **Known simplification:** construction status is two-state (not begun / complete) rather than
-  three-state (not begun / under construction / complete) — a cheap "construction in progress"
+  three-state (not begun / under construction / complete), a cheap "construction in progress"
   signal wasn't available without extra per-blueprint bookkeeping; flagged in the design doc as
   an accepted simplification.
 - **Known gap carried over from PR-2:** the Inn Keeper's quest chain is designed for 8 steps but
-  only 5 have dedicated offer/hint/teaser content on his board — the remaining 3 (his fireside
+  only 5 have dedicated offer/hint/teaser content on his board, the remaining 3 (his fireside
   story, Ash's return, and the boar-hunt epilogue) are pre-existing narrative beats that advance
   the same counter without dedicated quest-offer dialog of their own, so the board's content
   caps at step 5 rather than showing a phantom errand with nothing behind it.
 
-## [1.26.0] — 2026-07-23
+## [1.26.0] - 2026-07-23
 
-### Added — Village quest-chain reveal system (PR-2)
+### Added: Village quest-chain reveal system (PR-2)
 - 37 previously-freely-available decor, clothing, and combat item blueprints are now revealed one
   at a time by helping the village's residents, instead of all sitting in the crafting journal
   from a fresh game. Each of the five villagers (Inn Keeper, Miller, Weaver, Apothecary, Professor)
   now runs an independent quest chain: talk to them once a village-week has passed since their
   last errand, accept a fetch request, hand over the item, then talk again to hear their thanks
-  and see the next blueprint appear (still costs research time — this reveals it, it doesn't
+  and see the next blueprint appear (still costs research time, this reveals it, it doesn't
   unlock it for free). Chains run in order and never skip ahead.
   - Inn Keeper (8 quests: odd jobs, a hot stew, ale, wine, dried foragables, a fireside story, Ash's
     return, the boar-hunt epilogue) reveals painted dishware, wind chimes, a fire-hardened spear,
@@ -2959,17 +3363,17 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 ### Known issues / needs in-game confirmation
 - The Inn Keeper's "bring a hot cooked stew" quest currently accepts any water-filled container
-  (`LQ_Water`), not specifically a thickened stew — the game has no Progress/thickness check
+  (`LQ_Water`), not specifically a thickened stew, the game has no Progress/thickness check
   available on a drag-and-drop delivery action, only liquid identity and quantity. Will likely be
   tightened or re-flavored in a follow-up once playtested.
 - The ale and wine delivery actions (Inn Keeper quests 3 and 4) accept liquid-type cards
-  (`LQ_RyeAle`/`LQ_WheatAle`, three wine varieties) via drag-and-drop — this mod has no prior
+  (`LQ_RyeAle`/`LQ_WheatAle`, three wine varieties) via drag-and-drop, this mod has no prior
   precedent of a liquid card being accepted this way, so it needs an in-game click-test before
   being considered confirmed working.
 
-## [1.25.0] — 2026-07-22
+## [1.25.0] - 2026-07-22
 
-### Added — Village Hall is now enterable, with a Boards room
+### Added: Village Hall is now enterable, with a Boards room
 - The Village Hall now has an **"Enter the Village Hall"** action leading to an interior room,
   temporarily reusing the Village Academy's interior artwork as a placeholder
   (`cmcVillageHallInterior` / `cmcVillageHallInteriorLocation`) until dedicated Town Hall art is
@@ -2977,27 +3381,27 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 - Inside, six notice boards are on display: a **Town Board** (general village renown/standing,
   using the Village Hall's own image) and one board each for the **Inn Keeper, Miller, Weaver,
   Apothecary, and Professor**, each showing that NPC's own portrait artwork. Each board is a
-  simple flavor-text notice (0-cost "Read" action) — no quest-chain gating yet; that lands with
+  simple flavor-text notice (0-cost "Read" action), no quest-chain gating yet; that lands with
   the planned quest-chain chassis (`Village_Master_Plan.md` §10.6).
 - The Village Hall's original outdoor "Read Notice Board" action (tracking the village's overall
   Renown stat) is unchanged and still lives on the Village Hall's own card, representing the
   town's general reputation.
 
-## [1.24.2] — 2026-07-22
+## [1.24.2] - 2026-07-22
 
-### Fixed — 7 truncated / malformed item & NPC descriptions
+### Fixed: 7 truncated / malformed item & NPC descriptions
 - Seven `Localization/SimpEn.csv` rows held an unquoted English value with an internal comma,
   which the loader truncates at the first comma (the remainder is misread as the Chinese
-  column) — the card/NPC showed only a half-sentence. Down Mattress (item + blueprint), Straw
+  column), the card/NPC showed only a half-sentence. Down Mattress (item + blueprint), Straw
   Mat (placed), Painted Plate, the Professor's day-gated greeting, and a hidden stat
   description are now fully shown; the Inn Keeper's description also had a stray `, a bed`
   fragment left outside its quotes, now removed. All values are now double-quoted.
 
-## [1.24.1] — 2026-07-22
+## [1.24.1] - 2026-07-22
 
-### Fixed — Village Founder buildings spawned at the wrong location
+### Fixed: Village Founder buildings spawned at the wrong location
 - The perk's 4 pre-built buildings spawned on whatever board the player stood on when the
-  perk applied (the run's STARTING location, e.g. River Clearing) — `SpawnService.Spawn`
+  perk applied (the run's STARTING location, e.g. River Clearing): `SpawnService.Spawn`
   only targets the current board. Placement is now deferred per building to the first time
   the player stands in its home environment: Miller's Cottage, Weaver's Cottage, and the
   Village Hall appear at the **Village** (`cmcEnvVillage`), the Apothecary's Cabin at the
@@ -3008,16 +3412,16 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   (deconstruct them manually, or start a fresh run); correct copies appear at the proper
   locations on next visit.
 
-### Changed — the 4 village building blueprints are now location-locked
+### Changed: the 4 village building blueprints are now location-locked
 - `BpCMCCottageMiller`, `BpCMCCottageWeaver`, `BpCMCVillageHall` can now ONLY be built at
   the Village; `BpCMCApothecaryCabin` can ONLY be built in the Foraging Forest. Enforced via
   `BlueprintCardConditions` (gates the "Start Building" model placement) + matching
   `BuildingCardConditions` (gates every construction stage), both requiring the location's
   CT8 card on the board. Blueprint descriptions now state the build location.
 
-## [1.24.0] — 2026-07-22
+## [1.24.0] - 2026-07-22
 
-### Added — Village Founder perk (cheat/head-start perk)
+### Added: Village Founder perk (cheat/head-start perk)
 - New optional character creation perk, **Village Founder** (`cmcperkvillagefounder`, 3 Stars):
   instantly fast-forwards every currently-shipped village beat at game start. Places all 4
   village structures (Miller's Cottage, Weaver's Cottage, Village Hall, Apothecary's Cabin)
@@ -3028,19 +3432,19 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Herb Paste, Market Stall); and grants all 6 Academy graduate perks.
 - Does **not** touch anything from the still-unbuilt design layer (Town Hall Boards, Shadow
   the Cat, the 37-item NPC-quest-chain reveal sweep, Trust/Renown-gated item reveals) since
-  none of that exists as spawnable content yet — see `Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md`.
+  none of that exists as spawnable content yet, see `Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md`.
 - New file: `Patcher/VillageFounderPerkPatch.cs` (gated one-shot apply via
   `cmcStatVillageFounderApplied`, using the same StatsDict/CurrentBaseValue GameStat-write
   idiom as `VillageClock`/`CottageResidentSpawnPatch`, and the InRunAddedPerks-list-append +
   `ApplyPerk` pattern proven in `Sirus23_Mod_Collection/Patcher/CompanionHuntPatch`).
 
-## [1.23.0] — 2026-07-21
+## [1.23.0] - 2026-07-21
 
-### Changed — shared village construction backbone (Cottage Rework §3.7)
+### Changed: shared village construction backbone (Cottage Rework §3.7)
 - **Miller's Cottage, Weaver's Cottage, and the Village Hall are now built the same way every
-  village residence will be**: six shared stages (foundation/walls ×4 — Heavy Stone ×6 + Tree
-  Log ×6 each; frame — Tree Log ×8; roof — Plank ×10) plus one themed finishing stage per
-  building — Miller: Rope ×8 + Wood ×12; Weaver: Cloth ×14 + Fibers ×10 + Rope ×12; Village
+  village residence will be**: six shared stages (foundation/walls ×4: Heavy Stone ×6 + Tree
+  Log ×6 each; frame, Tree Log ×8; roof, Plank ×10) plus one themed finishing stage per
+  building: Miller: Rope ×8 + Wood ×12; Weaver: Cloth ×14 + Fibers ×10 + Rope ×12; Village
   Hall (civic): Plaster ×20 + Clay ×16 + Heavy Stone ×10. This is the same backbone the
   Apothecary's Cabin already uses (verified in-game 2026-07-21).
 - **Balance callout (deliberate, large):** cottage research time rises 12 → 192 ticks (16×) and
@@ -3054,17 +3458,17 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 ### Diagnostics
 - **Fixed the 1.22.3 `BlueprintVisibilityDiagnostic` so it actually runs.** It targeted
-  `GameManager.LoadMainGameData` — a method that lives on `GameLoad`, and which runs before
+  `GameManager.LoadMainGameData`: a method that lives on `GameLoad`, and which runs before
   `BlueprintModelStates` exists at all. It now postfixes `GameManager.InitializeStatsAndActions`
   (the method that actually populates the dictionary, at run start), corrects the Garden
   Trellis UID casing (`BpCMCGardenTrellis`), adds the Hunting Stand
   (`hunterscachebphuntingstand`), and logs `BlueprintPurchasing` plus the dictionary size.
   Note: re-analysis of the T1.6 "still visible" report found no runtime evidence the 1.22.2
-  hide fix ever failed — the observation was made 8 minutes after the deploy, likely against a
+  hide fix ever failed, the observation was made 8 minutes after the deploy, likely against a
   game process started before it. The decompiled Hidden/Locked branch confirms the shipped
   JSON recipe is correct; the diagnostic stays in until a fresh-run journal check settles it.
 
-## [1.22.4] — 2026-07-21
+## [1.22.4] - 2026-07-21
 
 ### Changed
 - **Village location cards showed a wall of flavor text that pushed the Trees/Overgrowth/Foraging
@@ -3077,15 +3481,15 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Added the missing `CardDescription` rows to `Localization/SimpEn.csv` (previously JSON
   `DefaultText`-only, silently falling back since no CSV row existed).
 
-## [1.22.3] — 2026-07-21
+## [1.22.3] - 2026-07-21
 
 ### Diagnostics
-- **The 1.22.2 quest-reward blueprint hide fix did not hold up in playtest** — Straw Mat, Woven
+- **The 1.22.2 quest-reward blueprint hide fix did not hold up in playtest**: Straw Mat, Woven
   Wall Hanging, Tricolor Wall Hanging, and Garden Trellis were still visible in the crafting
   journal from a fresh run despite the JSON matching the documented `Hidden`-state recipe exactly.
   Added a temporary startup diagnostic (`BlueprintVisibilityDiagnostic.cs`) that logs each item's
   actual resolved `BlueprintModelState` and `UnlockConditionsDesc` contents right after
-  `GameManager.LoadMainGameData` — needed to see what the game actually resolved before attempting
+  `GameManager.LoadMainGameData`: needed to see what the game actually resolved before attempting
   another fix. Remove once root-caused. See `Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md` §3.4
   ("Spike 1 result: FAILED").
 
@@ -3094,32 +3498,32 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Village Pathfinder perk.** The Village Path connection gate used `"RestoreDAOnUnlock": false`,
   so any run start where the gate evaluated locked (e.g. loading a character without the perk
   first, or perk state not yet readable) stripped the East travel action off River Clearing for
-  the whole game process — and unlocking the gate later re-showed the map connection but never
+  the whole game process, and unlocking the gate later re-showed the map connection but never
   gave the travel button back. The gate now restores the travel action when it unlocks
   (`"RestoreDAOnUnlock": true`). Confirmed from the live load log: gate locked at run start,
   bridge/perk recognized later in the same process, gate flipped unlocked, button never returned.
 
-## [1.22.2] — 2026-07-21
+## [1.22.2] - 2026-07-21
 
 ### Fixed
 - **Quest-reward blueprints were visible in the crafting journal before their quest was done.**
   The Weaver's flax-errand rewards (Woven Wall Hanging, Straw Mat, Tricolor Wall Hanging) and the
   Miller's grain-errand rewards (Garden Trellis, Hunting Stand) are meant to be learned only by
-  helping those villagers — but four of the five were listed in a crafting-journal tab, and all
+  helping those villagers, but four of the five were listed in a crafting-journal tab, and all
   five carried a "Help the Weaver/Miller with their errand" unlock hint, so they showed up as
-  greyed, teased entries from the start. They are now fully hidden — no card, no teaser — until
+  greyed, teased entries from the start. They are now fully hidden, no card, no teaser, until
   the errand is completed and thanked, at which point the reward conversation teaches the recipe
   and it appears in its normal tab. (Removed the four tab registrations; blanked the unlock-hint
   text so the blueprints load in the game's `Hidden` state rather than `Locked`. Herb Paste is
-  unchanged — it stays a materials teaser, since it's learnable by foraging Wild Garlic + Old
+  unchanged, it stays a materials teaser, since it's learnable by foraging Wild Garlic + Old
   Growth Bark, not only by the Apothecary quest.)
 
-## [1.22.1] — 2026-07-20
+## [1.22.1] - 2026-07-20
 
 ### Fixed
 - **Village Inn trait: first-ever conversation was the wild-garlic errand, with no welcome at all.**
   The trait backfills `cmcStatVillagePhase` to 1 in the background within seconds of loading (so
-  the intro conversation never plays), but nothing filled that gap — a trait character's first
+  the intro conversation never plays), but nothing filled that gap, a trait character's first
   `Talk` could land directly on whatever week/errand beat the phase gate had already opened,
   cold. Added a one-time `CMC_InnKeeperTalk_TraitWelcome` line (new `cmcStatInnTraitWelcomeGiven`
   latch) that now plays first for exactly that path: acknowledges the head start, gives the same
@@ -3127,19 +3531,19 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   the normal intro conversation, or whose save is backfilled from pre-rework village progress,
   never see it (the latch is set for them too, since they already got an equivalent welcome).
 
-## [1.22.0] — 2026-07-20
+## [1.22.0] - 2026-07-20
 
-### Added — Village Rework PR-1: phase gate, Village Clock, intro conversation
+### Added: Village Rework PR-1: phase gate, Village Clock, intro conversation
 - **The village now opens in phases, at the player's pace.** A fresh character sees a quiet
   village: the Inn Keeper offers only a new 4-line **introduction conversation** (the valley's
-  money system — salt/nuggets/coins, the Inn account, Academy tuition — and the three construction
+  money system, salt/nuggets/coins, the Inn account, Academy tuition, and the three construction
   projects the village dreams of), the Professor redirects to the Inn ("introductions first"),
   neither NPC trades, Academy study is politely refused with a tooltip, and the Miller's Cottage /
   Weaver's Cottage / Village Hall blueprints stay out of the crafting journal. Finishing the intro
   sets the new hidden `cmcStatVillagePhase` to 1 and opens all of it at once (blueprints still
   require research). A "Remind me how the village works" answer on his normal greeting replays a
   condensed recap any time.
-- **Village Clock** (`Patcher/VillageClock.cs`, ticked inside the existing 5 s Inn Keeper poll —
+- **Village Clock** (`Patcher/VillageClock.cs`, ticked inside the existing 5 s Inn Keeper poll,
   no new polls): `cmcStatVillageEpochDay` is stamped once when phase 1 is first observed, and
   `cmcStatVillageWeek` is recomputed from it every poll (derived, reload-safe). **No Inn Keeper
   beat reads the absolute world calendar anymore**: the settled-in line paces to village week 2,
@@ -3151,14 +3555,14 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 - **Save back-compat:** pre-rework saves with real village progress (the Well Plans, or any
   completed villager quest) are detected within seconds of loading and skip the intro
   automatically; a save that already has the Well Plans also skips both onboarding beats.
-  Inn friendship alone deliberately does NOT waive the intro — the Chat action stays available
+  Inn friendship alone deliberately does NOT waive the intro, the Chat action stays available
   pre-intro and builds friendship, so counting it would let one Chat skip the whole onboarding;
   a lightly-engaged old save simply gets the short intro conversation once.
 
 ### Changed
-- **The Village Inn and Village Academy are now permanent village fixtures** — their map spawns no
+- **The Village Inn and Village Academy are now permanent village fixtures**: their map spawns no
   longer require character traits (`ConditionalDrops` re-keyed from `HasPerk` to `AlwaysTrue`).
-- **Village Inn trait repurposed** — now a head start instead of a gate: +5 starting Inn
+- **Village Inn trait repurposed**: now a head start instead of a gate: +5 starting Inn
   friendship, and the Inn Keeper waives the formal introductions (the village timeline starts
   open for that character).
 - **Higher Education trait retired from character creation** (`CharacterPerkPerkGroup: "None"`;
@@ -3170,9 +3574,9 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   to the intro (`StatValues: cmcStatVillagePhase >= 1`), with unlock descriptions rewritten to
   "Hear the Inn Keeper's plans for the village".
 
-## [1.21.0] — 2026-07-19
+## [1.21.0] - 2026-07-19
 
-### Added (backfilled entry — released as "Bug fixes")
+### Added (backfilled entry: released as "Bug fixes")
 - **The Miller and Weaver now work their cottages.** Miller: mill 3 logs into 24 Planks or grind a
   30-count sack of wheat/rye/edible acorns into flour, each for a copper nugget, via
   station-contained operation blueprints; trades planks and flour, restocking weekly. Weaver:
@@ -3180,63 +3584,63 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   into fiber batches, trades weaving tools and cordage, also restocking weekly
   (`CottageResidentSpawnPatch` restock chassis + operation blueprints on both cottages).
 
-## [1.20.0] — 2026-07-17
+## [1.20.0] - 2026-07-17
 
 ### Added
-- **Ash's "Boar Hunt"** — five days after taming Ash the Cat, he slips out after dusk to track a
+- **Ash's "Boar Hunt"**: five days after taming Ash the Cat, he slips out after dusk to track a
   boar through the underbrush and doesn't come home (`cmcInnCat` transforms in place into
-  `cmcAshTrackingBoar`, art `CMC_InnCat_Wary`, via a new hidden `SpecialDurability2` timer — same
-  idiom as his existing Hunger/Thirst "Wanders Off"). He's away — no Feed/Water/Pet/Play — until
+  `cmcAshTrackingBoar`, art `CMC_InnCat_Wary`, via a new hidden `SpecialDurability2` timer, same
+  idiom as his existing Hunger/Thirst "Wanders Off"). He's away, no Feed/Water/Pet/Play, until
   the player wins any real vanilla wild boar encounter (`Combat_EncounterBoar`), at which point a
   new Harmony patch (`Patcher/AshBoarHuntPatch.cs`, postfixing `EncounterPopup.ApplyEncounterResult`)
   transforms him back to `cmcInnCat` with Hunger/Thirst restored to full. The hunt recurs roughly
-  every five days after each return. Resolution isn't tied to a specific boar instance — any
+  every five days after each return. Resolution isn't tied to a specific boar instance, any
   vanilla boar-encounter win while Ash is away resolves it, since no vanilla data links a specific
   wildlife encounter back to a companion card; this keeps the fight itself 100% vanilla rather than
   spawning/tracking a custom NPCAgent boar.
 
 ---
 
-## [1.19.1] — 2026-07-17
+## [1.19.1] - 2026-07-17
 
 ### Fixed
 - **All twelve village-area map locations now show accurate flora/fauna in their in-game Help
   popup**, instead of the vanilla clone template's original text. `CardCloneService.CloneCard`
-  only ever refreshes a clone's `CardName` — `CardHelpSection` is left untouched, so every
+  only ever refreshes a clone's `CardName`: `CardHelpSection` is left untouched, so every
   `WorldMap/MapNodes.json` clone node was silently displaying its unrelated vanilla template's
   help text (e.g. Village Farm showing its parent template's blank-fauna description instead of
   the seasonal crop fields actually seeded there). Added twelve `GameSourceModify/<LocationUID>.json`
   patches (framework's `GameSourceModifier` phase runs after `WorldMapInjector.PrepareAll` clones
   and registers the location cards, so these resolve cleanly) rewriting `CardHelpSection` for
   Village Path, High Grove, Pine Trail, Village, Village Farm, Clay Flats, Marsh Hollow, Mossy
-  Clearing, Foraging Forest, Hunter's Crossing, Deer Meadow, and Badger Warren — each reflecting
+  Clearing, Foraging Forest, Hunter's Crossing, Deer Meadow, and Badger Warren, each reflecting
   that tile's real vanilla-template flora/fauna plus any mod-specific additions (seasonal fields
   and wild garlic at Village Farm, the Clay Barrow at Clay Flats, the forage bonanza and Ash's
   dusk prowl at Foraging Forest, badger setts at Hunter's Crossing/Badger Warren).
 
 ---
 
-## [1.19.0] — 2026-07-17
+## [1.19.0] - 2026-07-17
 
 ### Added
 - **Three new hunting-terrain map locations**, wired via `WorldMap/MapNodes.json`:
-  - **Hunter's Crossing** — fills the gap between Village Path and Pine Trail with a direct
+  - **Hunter's Crossing**: fills the gap between Village Path and Pine Trail with a direct
     shortcut (clone of vanilla Badger Hill); badgers den here.
-  - **Deer Meadow** — extends the map north past the Village (clone of vanilla Deer Grove); deer
+  - **Deer Meadow**: extends the map north past the Village (clone of vanilla Deer Grove); deer
     frequent these woods.
-  - **Badger Warren** — the northernmost stop past Deer Meadow (clone of vanilla Badger Hill).
+  - **Badger Warren**: the northernmost stop past Deer Meadow (clone of vanilla Badger Hill).
 - **Secondary one-way connection to the vanilla Greenfalls location**, opened from Badger Warren
-  via `VanillaExits` — a forward-only shortcut out of the village area (no return route back into
+  via `VanillaExits`: a forward-only shortcut out of the village area (no return route back into
   the village from Greenfalls).
 
 ---
 
-## [1.18.0] — 2026-07-17
+## [1.18.0] - 2026-07-17
 
 ### Added
-- **Comfortable Bed** — a new top-tier sleeping structure assembled from two separately
+- **Comfortable Bed**: a new top-tier sleeping structure assembled from two separately
   craftable components: a **Down Mattress** (Feathers ×100, Fibers ×50, Large Cloth ×4, Twine
-  ×20, needle) and a **Copper Bed Frame** (Copper Sheet ×3, Wood ×6, Plank ×2, hammering tool —
+  ×20, needle) and a **Copper Bed Frame** (Copper Sheet ×3, Wood ×6, Plank ×2, hammering tool,
   requires Advanced Copper Tools). A third blueprint assembles both components into the placed
   Comfortable Bed, which has its own Nap/Sleep actions (stronger rest recovery than the Bedroll)
   and a passive perceived-temperature bonus. A Take Apart action splits the bed back into its
@@ -3245,12 +3649,12 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 ---
 
-## [1.17.4] — 2026-07-17
+## [1.17.4] - 2026-07-17
 
 ### Fixed
 - **Professor trade is now always available**, matching the Inn Keeper. Trade was previously
-  gated behind his "Resident" phase (satchel filled to 10 foraged items) — which he could never
-  reach while his forage was landing on the ground — so the Trade button never appeared. Removed
+  gated behind his "Resident" phase (satchel filled to 10 foraged items), which he could never
+  reach while his forage was landing on the ground, so the Trade button never appeared. Removed
   the phase gate and gave him a starting stock of six foraged specimens so there is something to
   buy from the first meeting.
 - **Foraged items now go into the Professor's satchel instead of dropping on the ground.** His
@@ -3258,17 +3662,17 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   Keeper's restock uses, the only one proven to route `DropCardsInsideInventory` into an NPC's own
   inventory) rather than through the native NPC action loop, which was depositing them on the
   environment board.
-- **Portrait now matches where you meet him.** The scheduler no longer moves him — or flips his
-  card art — while you are in the same location, so he no longer wanders off mid-conversation or
+- **Portrait now matches where you meet him.** The scheduler no longer moves him, or flips his
+  card art, while you are in the same location, so he no longer wanders off mid-conversation or
   shows his outdoor portrait while standing indoors, and the dialog/trade portrait resolves
   correctly when you talk to him.
 
 ---
 
-## [1.17.3] — 2026-07-17
+## [1.17.3] - 2026-07-17
 
 ### Changed
-- **World map district re-laid out** — Village and High Grove swapped cells: the Village now
+- **World map district re-laid out**: Village and High Grove swapped cells: the Village now
   sits at the northern head of the east spine (20,20) with High Grove taking the middle spot
   (20,0) directly east of Village Path. Village Farm moved to (30,20), directly east of the
   Village. Resulting spine: Village Path → High Grove → Pine Trail → Village → Village Farm.
@@ -3277,25 +3681,25 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
   no wing dead-ends. All 11 edges validated: unique cells, cardinal adjacency, travel directions
   match geometry, no collisions with vanilla/ACT/H&F.
 - **Clay Flats now seeds the vanilla Clay Barrow** instead of the custom `cmcClayMound`. The
-  bespoke CT2 clay-mound card, its placeholder art, and its localization rows were retired — the
+  bespoke CT2 clay-mound card, its placeholder art, and its localization rows were retired, the
   vanilla Clay Barrow's own "Dig Up Clay" interaction covers the same purpose.
 
 ---
 
-## [1.17.2] — 2026-07-16
+## [1.17.2] - 2026-07-16
 
 ### Fixed
-- **World map rearranged into a coherent village district** — the previous layout stretched the
+- **World map rearranged into a coherent village district**: the previous layout stretched the
   village into a single column running north along the river (parallel to River Confluence and
   the Metal Mine caves), and **Village Path was permanently hidden from the paper map**
   (`HideFromMap: true`), so the bridge crossing from River Clearing and every path into the
-  village cluster was never drawn — the village nodes floated disconnected next to the river.
+  village cluster was never drawn, the village nodes floated disconnected next to the river.
   Village Path is now visible (still fog-hidden until first visited, like any location) and the
   nine locations form a compact 2×5 block east of the river: wetlands south (Clay Flats, Marsh
   Hollow), village core center (Path, Village, Farm), pine highlands north (Pine Trail, High
   Grove beside the mine caves). Two loop connections added (Farm↔Pine Trail,
   Marsh Hollow↔Foraging Forest) so neither wing dead-ends through the Village Path hub.
-- **Village Well was unbuildable** — `InjectImprovementInto.json` targeted the CT4 environment
+- **Village Well was unbuildable**: `InjectImprovementInto.json` targeted the CT4 environment
   UID (`cmcEnvVillage`) instead of the CT8 location card (`cmcLocVillage`), so the injection was
   skipped at every load ("not found in registry" warning). Also requires framework **2.16.3**,
   which moves improvement injection after map-node clone creation so mod map locations can be
@@ -3303,15 +3707,15 @@ Batch implementation of the mod's open audit-derived Near-Term backlog (`Documen
 
 ---
 
-## [1.17.0] — 2026-07-16
+## [1.17.0] - 2026-07-16
 
 ### Added
 
-#### Village Professor — location-matched portraits
+#### Village Professor: location-matched portraits
 The Professor's card art and dialog/trading portrait now track where he actually is:
 - **Village Academy** → `Professor_Indoors` (study interior).
 - **Outdoor forage nodes** (Village Path / Village / Farm / Foraging Forest) → `Professor_Outdoors`.
-- **Inn (at night)** → `Professor_Inn` — this PNG does not exist yet; until it ships, the
+- **Inn (at night)** → `Professor_Inn`: this PNG does not exist yet; until it ships, the
   Academy art is used at the Inn (one Info log line notes the fallback). Dropping a
   `Professor_Inn.png` into `Resource/Picture/` is the only step needed to activate it.
 
@@ -3322,62 +3726,62 @@ graphics so the art flips the same tick he moves. Requires framework **2.16.0**
 (`GameContent.Find<Sprite>`).
 
 ### Fixed
-- **`Agent_Professor.json` pointed at a sprite name that no longer exists** — the P1
+- **`Agent_Professor.json` pointed at a sprite name that no longer exists**: the P1
   placeholder `Professor.png` was replaced by the `Professor_Indoors`/`Professor_Outdoors`
   art in an earlier commit, but `AgentImageWarpData` still said `"Professor"` (unresolvable →
   blank portrait). Now defaults to `Professor_Indoors`.
-- **`SyncNarrativeStats` was never called** — 1.15.0's changelog shipped it (grad-count
+- **`SyncNarrativeStats` was never called**: 1.15.0's changelog shipped it (grad-count
   mirror, River-Bridge news flag, weekly specimen-commission re-arm) and the method body was
   present, but the scheduler call site was still the pre-1.15.0 `// TODO` comment, so none of
   that state ever updated. The call is now wired in.
 
-## [1.16.0] — 2026-07-16
+## [1.16.0] - 2026-07-16
 
-### Added — deferred-items revival batch (recovered from the deleted 2026-05-20 standalone mods)
-- **Club** (Hunting › Close Combat): a budget blunt weapon carved from a tree trunk — 20–80 blunt damage, 60 durability, carves down into a long stick.
+### Added: deferred-items revival batch (recovered from the deleted 2026-05-20 standalone mods)
+- **Club** (Hunting › Close Combat): a budget blunt weapon carved from a tree trunk: 20–80 blunt damage, 60 durability, carves down into a long stick.
 - **Bone Helmet** (Tailoring › Equipment): 18 head armor from 2 Bones + small leather + sinew; armor scales with durability (50%–120%); dismantles back into its materials.
 - **Cloth Mask** (Tailoring › Cloth): mask-slot face covering (+0.5 perceived temperature); wears out slowly while worn; rips back into cloth.
 - **Long Johns** (Tailoring › Cloth): underwear-slot cloth leggings (+1.5 perceived temperature, +4 comfort, 2/2 leg armor); rips back into 2 cloth.
-- **Glazed Clay Plate** (Metal & Clay › Utensils): refire a clay plate with ash glaze — 600 durability tableware (vs 500 painted), stacks to 3.
-- **Hunting Stand** (Hunting › Trapping): build a kit (3 Planks + 4 Long Sticks + 2 Rope), set it up at a location, and wild-animal encounters there have a **~45% chance to be averted** (declarative framework `EncounterGuards` JSON — no C#). Take Down returns the kit; Dismantle returns planks and sticks.
+- **Glazed Clay Plate** (Metal & Clay › Utensils): refire a clay plate with ash glaze: 600 durability tableware (vs 500 painted), stacks to 3.
+- **Hunting Stand** (Hunting › Trapping): build a kit (3 Planks + 4 Long Sticks + 2 Rope), set it up at a location, and wild-animal encounters there have a **~45% chance to be averted** (declarative framework `EncounterGuards` JSON, no C#). Take Down returns the kit; Dismantle returns planks and sticks.
 
 ### Not revived (with reasons)
-- **Sling + Sling Stones** — vanilla EA 0.65 has no moddable ranged-ammunition combat path; shipping a non-functional weapon would be advertised dead content.
-- **Grinding Slab, Stone Block, Stone Tile (singular)** — no consumer exists in CMC yet (stone construction blueprints / grinding CI design pending).
+- **Sling + Sling Stones**: vanilla EA 0.65 has no moddable ranged-ammunition combat path; shipping a non-functional weapon would be advertised dead content.
+- **Grinding Slab, Stone Block, Stone Tile (singular)**: no consumer exists in CMC yet (stone construction blueprints / grinding CI design pending).
 
-## [1.15.0] — 2026-07-16
+## [1.15.0] - 2026-07-16
 
 ### Added
 
-#### Village Professor — Trade, Trust & Errands (enhancement pack)
+#### Village Professor: Trade, Trust & Errands (enhancement pack)
 Builds Phase P3 (Trade) plus a dialog/reward layer on the P2 Foraging Arc scheduler
 (`Documentation/Design/Village_Professor_Plan.md`). All state lives in the Professor's own
 NPCStats (native save path); dialog reads them via explicit-agent `RequiredNPCStatValues`
-(decomp-verified: `UseAssociatedAgent` cannot work in dialog conditions — they evaluate with a
-null card — but an explicit `TargetAgent` resolves through `GameManager.AllNPCs`).
+(decomp-verified: `UseAssociatedAgent` cannot work in dialog conditions, they evaluate with a
+null card, but an explicit `TargetAgent` resolves through `GameManager.AllNPCs`).
 
 - **Trade enabled** (`CannotTrade: false`), gated to his Resident phase via `TradingConditions`.
   Baseline barter: sells at 1.5×, buys at 0.5×.
-- **Trust** (`cmcStatProfessorTrust`, 0–100) — vanilla `AgentTrust` idiom: every trade feeds it
+- **Trust** (`cmcStatProfessorTrust`, 0–100), vanilla `AgentTrust` idiom: every trade feeds it
   via `ModifyNPCStatsPerTradeValue` (both directions, clamped +6/side/trade); the quiz, gifts,
   and commission completions add more.
-- **Price break at high trust** — trust-scaled `NPCStatModifiers` on both trade directions:
+- **Price break at high trust**: trust-scaled `NPCStatModifiers` on both trade directions:
   at trust 100 he sells at 1.1× and pays 0.75× (linear from 1.5×/0.5× at trust 0).
 - **Trust-tiered greetings** (≥25 friendly, ≥60 personal) plus two trust-gated branches:
   field-scholar advice (≥25) and a two-part backstory (≥60).
-- **Seasonal greetings** — four season-gated starting lines (`InGameTimeCondition.SeasonIs`).
-- **"Where were you today?"** — the P2 scheduler now records each wander destination in
+- **Seasonal greetings**: four season-gated starting lines (`InGameTimeCondition.SeasonIs`).
+- **"Where were you today?"**: the P2 scheduler now records each wander destination in
   `cmcStatProfLastNode`; a menu answer surfaces one of four node-flavored responses.
-- **Milestone-reactive dialog** — scheduler mirrors graduated-course count into
+- **Milestone-reactive dialog**: scheduler mirrors graduated-course count into
   `cmcStatProfGradCount` (studies check-in at 0 / 1–5 / 6) and flags the River Bridge via
   `CardUtil.IsImprovementBuilt` (`cmcStatProfBridgeNews`, one-time news line); a one-time
   Ash-the-cat line gates on the Inn Keeper's `cmcStatLostCat` quest stat.
-- **Milestone gift ladder** — one-time gifts as self-disarming priority greetings (CatThanks
+- **Milestone gift ladder**: one-time gifts as self-disarming priority greetings (CatThanks
   pattern): first degree = 2× Metal Nugget (+5 trust); all six degrees ("Valedictorian") =
   4× Metal Nugget + 6× Salt (+10 trust).
-- **Entrance-exam quiz** — three-choice question; the correct answer pays 2× Salt (+5 trust),
+- **Entrance-exam quiz**: three-choice question; the correct answer pays 2× Salt (+5 trust),
   once; wrong answers allow retakes.
-- **Weekly specimen commission** (`bpcmcprofspecimen`, first commission on `CommissionsBp`) —
+- **Weekly specimen commission** (`bpcmcprofspecimen`, first commission on `CommissionsBp`),
   bring 3 Nettle Leaves for 1 Metal Nugget (+8 trust); completion disarms it and the scheduler
   re-arms it 7 days later (`cmcStatProfSpecimenReady`/`cmcStatProfSpecimenNextDay`). Commission
   blueprints are deliberately NOT in `BlueprintTabs.json`.
@@ -3385,53 +3789,53 @@ null card — but an explicit `TargetAgent` resolves through `GameManager.AllNPC
   localization rows; scheduler gains `SyncNarrativeStats` (grad count, bridge news, weekly
   re-arm) with once-true caches reset per run.
 
-#### Cottage Residents — the Miller & the Weaver move in
+#### Cottage Residents: the Miller & the Weaver move in
 Resident phase of `Documentation/Design/Village_Construction_Projects_Plan.md`: each cottage
 gains a resident NPC who **moves in one week (7 in-game days) after the cottage is finished**.
-No interiors — the resident stands on the Village board beside their home.
+No interiors, the resident stands on the Village board beside their home.
 
-- **The Miller** (`cmcMillerAgent`) and **the Weaver** (`cmcWeaverAgent`) — stationary NPCAgents
+- **The Miller** (`cmcMillerAgent`) and **the Weaver** (`cmcWeaverAgent`): stationary NPCAgents
   on the Inn Keeper/Professor chassis: a Talk dialog (`CMC_MillerTalk` / `CMC_WeaverTalk`, three
-  lines each — greeting, craft talk, village talk) plus a Chat `DismantleAction` with the same
+  lines each, greeting, craft talk, village talk) plus a Chat `DismantleAction` with the same
   social payoff as the Inn Keeper's Chat (Loneliness/Stress relief, Comfort, 1-hour cost).
-  No trade (`CannotTrade: true`) — deliberately smaller in scope than the Inn Keeper.
-- **Move-in timer** — new hidden GameStats `cmcStatMillerMoveIn` / `cmcStatWeaverMoveIn` store
+  No trade (`CannotTrade: true`): deliberately smaller in scope than the Inn Keeper.
+- **Move-in timer**: new hidden GameStats `cmcStatMillerMoveIn` / `cmcStatWeaverMoveIn` store
   the absolute arrival day. `CottageResidentSpawnPatch` arms each to (completion day + 7) the
-  first tick the built cottage exists (a `GameManager.AllCards` scan — note `AllCards` is
+  first tick the built cottage exists (a `GameManager.AllCards` scan, note `AllCards` is
   current-environment-scoped, so this fires while the player stands at the Village, which in
   practice is completion time since construction happens on that board), then spawns the
   resident the first time the player stands at the Village on/after the due day
   (`CreateNPC` + `Init(live EnvID)` + `AssignOrCreateNPCCards`), with an
-  `InitializeStatsAndActions` postfix restoring placed residents on save load — a structural
+  `InitializeStatsAndActions` postfix restoring placed residents on save load, a structural
   copy of `InnKeeperSpawnPatch` minus the restock machinery. GameStats persist natively, so
   the countdown survives save/reload.
 - Ships with solid-white placeholder portraits (`CMC_Miller.png`, `CMC_Weaver.png`) pending
   real art, matching the cottages' own placeholder card art.
 
 ### Requires
-- CSFF Mod Framework **2.15.1+** (non-UID SO body WarpData resolution — dialog assets).
+- CSFF Mod Framework **2.15.1+** (non-UID SO body WarpData resolution, dialog assets).
 
 ---
 
-## [1.14.0] — 2026-07-16
+## [1.14.0] - 2026-07-16
 
 ### Added
 
-#### Village Construction Projects — Miller's Cottage, Weaver's Cottage, Village Hall
-Phase 1 of `Documentation/Design/Village_Construction_Projects_Plan.md` — three buildable civic
+#### Village Construction Projects: Miller's Cottage, Weaver's Cottage, Village Hall
+Phase 1 of `Documentation/Design/Village_Construction_Projects_Plan.md`: three buildable civic
 structures at the Village node, no interiors, no new NPCs (deliberately deferred to a future Phase 2).
 
-- **Miller's Cottage** (`cmcCottageMiller` CT2 / `BpCMCCottageMiller` CT7) — single-stage build
+- **Miller's Cottage** (`cmcCottageMiller` CT2 / `BpCMCCottageMiller` CT7), single-stage build
   (Stone ×30, Plank ×16, Rope ×8, Wood ×12), gated on having visited the Village. Comfort +14 passive.
-  No `DismantleActions` — permanent civic growth, matching the Well/Bridge precedent, not the packable
+  No `DismantleActions`: permanent civic growth, matching the Well/Bridge precedent, not the packable
   Market Stall kit.
-- **Weaver's Cottage** (`cmcCottageWeaver` CT2 / `BpCMCCottageWeaver` CT7) — same shape, cloth/rope
-  material flavor instead of stone (Cloth ×14, Rope ×12, Plank ×14, Fibers ×10). Comfort +10 passive —
+- **Weaver's Cottage** (`cmcCottageWeaver` CT2 / `BpCMCCottageWeaver` CT7), same shape, cloth/rope
+  material flavor instead of stone (Cloth ×14, Rope ×12, Plank ×14, Fibers ×10). Comfort +10 passive,
   deliberately different from Miller's so the two don't feel like reskins.
-- **Village Hall** (`cmcVillageHall` CT2 / `BpCMCVillageHall` CT7) — the capstone, a 3-stage build
-  (foundation: Stone/Wood/Twine; walls: Heavy Stone/Clay/Plaster; roof: Plank/Rope — ~235 items total,
+- **Village Hall** (`cmcVillageHall` CT2 / `BpCMCVillageHall` CT7), the capstone, a 3-stage build
+  (foundation: Stone/Wood/Twine; walls: Heavy Stone/Clay/Plaster; roof: Plank/Rope, ~235 items total,
   ~1.75× the Well's build cost) each stage at `BuildingDaytimeCost: 12`, the framework's per-stage cap.
-- **Village Renown** (`cmcStatVillageRenown`, hidden `GameStat`, Visibility 2) — new `VillageRenownPatch`
+- **Village Renown** (`cmcStatVillageRenown`, hidden `GameStat`, Visibility 2), new `VillageRenownPatch`
   live-recomputes each tick from which civic structures currently exist (both cottages, the Well, the
   River Bridge, and a Market Stall revenue milestone), rather than incrementing once per completion.
   Recomputing avoids a real multi-stage pitfall: `CardData.BlueprintStatModifications` feeds
@@ -3440,18 +3844,18 @@ structures at the Village node, no interiors, no new NPCs (deliberately deferred
   three times on Village Hall alone.
 - Village Hall's Notice Board mirrors current Renown onto its own `SpecialDurability1` bar (a visible
   progress readout) and a flavor "Read Notice Board" `DismantleAction`. At full Renown, Market Stall
-  sales get a 25% revenue bonus (`MarketStallPatch.RevenueMultiplier`) — a real, working payoff rather
+  sales get a 25% revenue bonus (`MarketStallPatch.RevenueMultiplier`): a real, working payoff rather
   than the speculative `RatePerDaytimePoint` nudge floated in the design doc (Market Stall's revenue is
   event-driven via `MarketStallPatch.OnDayChanged`, not rate-based, so that field is inert for it).
 - Registered in `BlueprintTabs.json` under the vanilla `Tab_2_Construction_Subtab_5_HouseBuilding_TabName`
   tab (verified against its actual `TabName.LocalizationKey`, not the tab file's name).
 - Ships with solid-white placeholder card art (`CMC_CottageMiller.png`, `CMC_CottageWeaver.png`,
   `CMC_VillageHall.png`) pending real art.
-- Phase 2 (interiors + resident NPCs for any of the three) is explicitly out of scope for this release —
+- Phase 2 (interiors + resident NPCs for any of the three) is explicitly out of scope for this release,
   see the plan doc §1 and §8 for the sequencing/risk rationale.
 
-#### Inn Keeper — Friendship, seasonal wares, a gift, an errand, and village-progress banter
-Phase 7 of `Documentation/Design/Village_InnKeeper_Plan.md` — deepens the existing Inn Keeper NPC
+#### Inn Keeper: Friendship, seasonal wares, a gift, an errand, and village-progress banter
+Phase 7 of `Documentation/Design/Village_InnKeeper_Plan.md`: deepens the existing Inn Keeper NPC
 without new subsystems; reuses proven hidden-`GameStat` state-machine and `DragAndDropActions`
 patterns throughout.
 
@@ -3459,11 +3863,11 @@ patterns throughout.
   At 15+, unlocks a warmer greeting variant and the one-time **Inn Regular** perk
   (`Pk_InnRegular.json`, small passive Loneliness/Stress rate reduction, granted via a new "Feel at
   Home" `DismantleAction`). Also feeds a Trade discount via `NPCTradingValueModifier.
-  GlobalStatModifiers` on the existing markup/buyback modifiers — markup falls 1.5x -> 1.2x, buyback
+  GlobalStatModifiers` on the existing markup/buyback modifiers, markup falls 1.5x -> 1.2x, buyback
   rises 0.5x -> 0.65x as Friendship approaches 20.
 - **Progress-reactive dialog**: one-shot remarks when the Village Well or River Bridge is finished
   (`CardsOnBoard`-gated `StartingPoint` lines), followed by a one-shot Well "housewarming" dialog beat
-  (an invite + toast, narrated only — see below for why an actual NPC departure wasn't built).
+  (an invite + toast, narrated only, see below for why an actual NPC departure wasn't built).
 - **Seasonal pantry**: four new seasonal restock `AgentActions` swap in season-flavored stock (fresh
   Billberries in summer, Roasted Acorns in autumn, Fermented Billberries + Dried Bird Meat in winter,
   etc.) alongside the base pantry.
@@ -3474,49 +3878,49 @@ patterns throughout.
 - **Cross-NPC banter**: new dialog answers let you ask the Inn Keeper about the Professor and vice
   versa.
 - **Scope note**: a genuine "Keeper leaves the Inn for the Well celebration" mechanic (physical
-  `MoveToEnvironment`) was investigated and NOT built — `NPCAction.ToAction()` converts to a plain
+  `MoveToEnvironment`) was investigated and NOT built: `NPCAction.ToAction()` converts to a plain
   `CardAction` that drops movement data entirely, so this mod's existing direct-invoke restock/errand
   pattern (chosen specifically to bypass native NPC action scheduling) cannot move the Keeper; doing so
   safely would mean re-enabling native scheduling for one action, risking the documented
   sibling-action race. The narrative payoff ships via dialog only; physical departure remains a future,
   separately-scoped effort. "Ash living at the Inn" (Stay Here/Follow Me) was also investigated and
-  dropped as unnecessary — Ash has no `AlwaysUpdate` flag (matching vanilla `DogFriend`), so leaving him
+  dropped as unnecessary: Ash has no `AlwaysUpdate` flag (matching vanilla `DogFriend`), so leaving him
   behind or bringing him along via ordinary inventory drag already works with zero new code.
 
 ---
 
-## [1.13.0] — 2026-07-16
+## [1.13.0] - 2026-07-16
 
 ### Added
 
-#### Village map expansion — north/south trails, relocated Foraging Forest, Clay Mound
-- **Northern trail** — three new `WorldMap/MapNodes.json` clone nodes beyond the Village (not Village
-  Farm — see collision note below): **Mossy Clearing** → **Pine Trail** → **High Grove**, at
-  `(20,0,10)`/`(20,0,20)`/`(20,0,30)`, 10 units apart. Pure JSON, no C# — each node clones a distinct
+#### Village map expansion: north/south trails, relocated Foraging Forest, Clay Mound
+- **Northern trail**: three new `WorldMap/MapNodes.json` clone nodes beyond the Village (not Village
+  Farm, see collision note below): **Mossy Clearing** → **Pine Trail** → **High Grove**, at
+  `(20,0,10)`/`(20,0,20)`/`(20,0,30)`, 10 units apart. Pure JSON, no C#, each node clones a distinct
   vanilla outdoor template (`Env_ClearingOak_MossyClearing`, `Env_GrovePine_PineGrove`,
   `Env_GrovePine_HighGrove`) so it arrives with correct vanilla biome tags, ambience, and forage
   tables out of the box.
-- **Coordinate collision caught in review** — the northern trail was originally planned at
+- **Coordinate collision caught in review**: the northern trail was originally planned at
   `x:10,z:20/30/40` (continuing straight out from Village Farm), which turned out to exactly collide
   with `AdvancedCopperTools/WorldMap/MapNodes.json`'s `actIronCaveEnv`/`actTinCaveEnv`/`actCopperCaveEnv`
-  (same three cells). An independent QA pass caught this — the original collision check only compared
+  (same three cells). An independent QA pass caught this, the original collision check only compared
   against vanilla `DefaultWorldMap.json`, not sibling mods' own `MapNodes.json`. Moved to Village's own
   `x:20` column instead, confirmed clear against vanilla, ACT (`x:10` only), and HerbsAndFungi
   (`x:-70/-80` only). Lesson for future map-expansion work in this repo: always check ALL mods'
   `WorldMap/MapNodes.json`/`FullMap.json` files for the target cells, not just vanilla.
-- **Southern trail** — two new nodes between Village Path and the Foraging Forest: **Clay Flats**
+- **Southern trail**: two new nodes between Village Path and the Foraging Forest: **Clay Flats**
   (cloned from vanilla `Env_River_ClearingAlder_BoggyMeadows`, a riverside marsh) and **Marsh Hollow**
   (cloned from vanilla `Env_ClearingAlder_SwampHill`).
-- **Foraging Forest relocated** — moved two steps further out along the southern trail (past Clay
+- **Foraging Forest relocated**: moved two steps further out along the southern trail (past Clay
   Flats and Marsh Hollow) and re-templated from the vanilla Flower Glade to the vanilla **Deer Grove**
   (`Env_GrovePine_DeerGrove`) so deer are thematically at home in these woods. `EnvironmentUID`/
   `LocationUID` are unchanged, so the Ash lost-cat prowl gate (`LostCatPatch.TargetEnvUid`), the
   Professor's outdoor schedule (`ProfessorSchedulePatch.OutdoorNodeUids`), and the Wild
   Garlic/Old Growth Bark/H&F forage drop table (`DropInjections.json`, keyed on
-  `cmcLocForagingForest`) all continue to work unchanged — none of them key off coordinates or the
+  `cmcLocForagingForest`) all continue to work unchanged, none of them key off coordinates or the
   clone template. Existing saves that already visited the old Foraging Forest keep whatever board
   content they already generated there; only new/not-yet-visited games see the Deer Grove reseed.
-- **Clay Mound** (`cmcClayMound`, new `CardData/Location/`) — a `CardType 2` natural clay deposit
+- **Clay Mound** (`cmcClayMound`, new `CardData/Location/`): a `CardType 2` natural clay deposit
   seeded onto Clay Flats via `ExtraDropUIDs`. Two `CardInteractions`, mirroring Advanced Copper
   Tools' ore-vein pattern: **Dig Clay** (Shovel only; 2 Clay guaranteed + 40% chance of a 3rd) and
   **Scoop Clay** (any other digging/chopping tool; 1 Clay, slower). 12 `UsageDurability` charges
@@ -3527,29 +3931,29 @@ patterns throughout.
 
 ---
 
-## [1.12.0] — 2026-07-16
+## [1.12.0] - 2026-07-16
 
 ### Added
 
-#### Village Inn Keeper — weekly dialog, the Village Well, and Ash's return
-- **Weekly onboarding arc** — the Keeper's greeting now changes over the first three weeks: week 1
+#### Village Inn Keeper: weekly dialog, the Village Well, and Ash's return
+- **Weekly onboarding arc**: the Keeper's greeting now changes over the first three weeks: week 1
   greets the player and offers a foraging tip or points them to a bed/odd jobs; week 2 nods to the
   turning season and opens Trade directly from the greeting; week 3 shares his backstory (arriving
   in the valley as a boy, his father digging the cellar, the homestead growing into the Inn) and
   offers **Well Plans** if you agree to help the village grow. All new lines are additional
-  `StartingPoint` `DialogLine` entries gated by `RequiredInGameTimes` (`DayIs >= 8/21`) — no C#
+  `StartingPoint` `DialogLine` entries gated by `RequiredInGameTimes` (`DayIs >= 8/21`): no C#
   dialog-routing needed, the engine's own `DialogScene.GetStartingLine` gate list handles it.
-- **The Village Well** — a new buildable `CardType 10` improvement (`cmcimpwell`), unlocked by the
+- **The Village Well**: a new buildable `CardType 10` improvement (`cmcimpwell`), unlocked by the
   Well Plans item from the week-3 conversation. Twice the Stone/Heavy Stone cost of the vanilla
   root cellar, plus Plaster/Clay/Twine, at the maximum single-stage construction time (12). Once
   built, drag any empty water container to it to fill (`CreatedLiquidInGivenCard`, same idiom as
   vanilla ponds/rivers). Injected into the Village map via `InjectImprovementInto.json`.
-- **A seasonal story pool** — five independent folk tales (a hard winter with wolves, a
+- **A seasonal story pool**: five independent folk tales (a hard winter with wolves, a
   mushroom-addled night, a tall fish tale, a miller's wager, and a ferryman's uncanny crossing),
   each told across 4 visits over the span of a season. One story is randomly selected whenever the
   season changes (`Patcher/InnKeeperDialogSchedulePatch.cs`); progress within a story advances via
   the same self-advancing `StatModifications` idiom as the lost-cat arc.
-- **Ash's disappearance, take two** — starting day 42, once the Well is built, the Keeper's very
+- **Ash's disappearance, take two**: starting day 42, once the Well is built, the Keeper's very
   next greeting becomes a special reveal about Ash going missing (replacing whatever week/story
   greeting would otherwise show), arming the existing lost-cat search. Once Ash is found and
   thanked, the Keeper occasionally checks in asking how Ash is settling in, with several possible
@@ -3557,9 +3961,9 @@ patterns throughout.
 
 ### Fixed
 
-#### Village Inn Keeper — empty trade pantry on first meeting
+#### Village Inn Keeper: empty trade pantry on first meeting
 - The Keeper's pantry could show empty if Trade was opened within the first ~30 seconds of
-  meeting him — `StartingInventory`'s `ItemWarpData` resolution path is unproven for
+  meeting him: `StartingInventory`'s `ItemWarpData` resolution path is unproven for
   `NPCInventoryElement`, and the periodic restock (the confirmed-working mechanism) only ran on
   its own 30-second poll. The pantry is now force-restocked immediately the moment the Keeper's
   board card is created (arrival spawn or save-reload restore), reusing the same proven
@@ -3568,41 +3972,41 @@ patterns throughout.
 ### Changed
 
 - Em dashes removed from all Inn Keeper dialog and related card text (Ash the Cat, Ash the Stray
-  Cat, the Keeper's own description) per a wording pass — replaced with commas/colons.
+  Cat, the Keeper's own description) per a wording pass, replaced with commas/colons.
 
 ---
 
-## [1.11.5] — 2026-07-15
+## [1.11.5] - 2026-07-15
 
 ### Added
 
-#### Village Professor — Foraging Arc (Phase P2)
+#### Village Professor: Foraging Arc (Phase P2)
 - The Professor now has a daily routine instead of standing still in the Academy: by day he
   wanders the four Village-area map nodes (Village Path, Village Farm, Village, Foraging Forest)
   foraging small amounts of vanilla goods into his own satchel; every night, regardless of phase,
   he returns to the Inn. Once his satchel holds 10 items he settles in at the Academy by day
-  instead — and heads back out foraging again if his stock drops to 2 or fewer (repeating cycle).
-- **Specialty stock** — once a course is graduated at the Academy lectern, the Professor
+  instead, and heads back out foraging again if his stock drops to 2 or fewer (repeating cycle).
+- **Specialty stock**: once a course is graduated at the Academy lectern, the Professor
   occasionally turns up one themed advanced item (a copper tea kettle for Metallurgy, a rotary
   quern for Herbalism, and similarly for Medicine/Fishing/Architecture/Armorer) alongside his
   foraged goods, up to 2 held at a time. Items from mods you don't have installed simply never
-  appear — no error, no missing-dependency warning.
+  appear, no error, no missing-dependency warning.
 - All new movement and state (`Patcher/ProfessorSchedulePatch.cs`, renamed from
   `ProfessorSpawnPatch.cs`) is driven by `GameManager.MoveNPC`; new-item creation is delegated
   entirely to native `NPCAction.DroppedCards` JSON on `Agent_Professor.json`, gated by seven new
-  hidden `NPCStat`s (`NPCStat/CMC_Prof*.json`) — no reflection into the game's card-spawn
+  hidden `NPCStat`s (`NPCStat/CMC_Prof*.json`): no reflection into the game's card-spawn
   coroutine. Trade (exposing the accumulated stock to the player) is Phase P3.
 
 ---
 
-## [1.11.4] — 2026-07-15
+## [1.11.4] - 2026-07-15
 
 ### Added
 
-#### Village Inn Keeper — Trade, fireside tales, and the lost cat
-- **Trade** — the Inn Keeper now buys and sells (sells at 1.5× value, pays 0.5×). The pantry stocks Salt, Acorn Flatbread, Cooked/Dried Meat, Boiled Eggs, a Firm Cheese Wedge, Dried Springberries, and dried spices (Wild Garlic, Garlic Powder, Forest Caps), and restocks a few staples every morning (6–8 AM).
-- **Talk** — a new fireside dialog (`CMC_InnKeeperTalk`): the Keeper tells a tale of the forest's real places and legends (River Clearing, Green Glade, the Old Woods and Primeval Woods, Moon Hills, the Black Mire; the Wandering Oak, the Hag, the Humming Widow, the Primeval Wolf). A "Let's see your pantry" answer opens Trade directly.
-- **Ash, the lost cat** — the tale turns to the inn's missing mouser. Agree to look for him and Ash begins prowling the **Foraging Forest between dusk and dawn (17:00–06:00)**. Offer him meat or fish and he becomes **Ash the Cat**, a keepable pet with Hunger/Thirst (Feed / Give Water), Pet and Play actions, and a passive Loneliness-reducing aura — but starve him and he wanders off. Report back to the Inn Keeper for a thank-you meal and salt. Quest state is tracked in a hidden GameStat (`cmcStatLostCat`); the spawn check is `Patcher/LostCatPatch.cs`.
+#### Village Inn Keeper: Trade, fireside tales, and the lost cat
+- **Trade**: the Inn Keeper now buys and sells (sells at 1.5× value, pays 0.5×). The pantry stocks Salt, Acorn Flatbread, Cooked/Dried Meat, Boiled Eggs, a Firm Cheese Wedge, Dried Springberries, and dried spices (Wild Garlic, Garlic Powder, Forest Caps), and restocks a few staples every morning (6–8 AM).
+- **Talk**: a new fireside dialog (`CMC_InnKeeperTalk`): the Keeper tells a tale of the forest's real places and legends (River Clearing, Green Glade, the Old Woods and Primeval Woods, Moon Hills, the Black Mire; the Wandering Oak, the Hag, the Humming Widow, the Primeval Wolf). A "Let's see your pantry" answer opens Trade directly.
+- **Ash, the lost cat**, the tale turns to the inn's missing mouser. Agree to look for him and Ash begins prowling the **Foraging Forest between dusk and dawn (17:00–06:00)**. Offer him meat or fish and he becomes **Ash the Cat**, a keepable pet with Hunger/Thirst (Feed / Give Water), Pet and Play actions, and a passive Loneliness-reducing aura, but starve him and he wanders off. Report back to the Inn Keeper for a thank-you meal and salt. Quest state is tracked in a hidden GameStat (`cmcStatLostCat`); the spawn check is `Patcher/LostCatPatch.cs`.
 
 ### Changed
 - Inn Counter description now refers to the visible Inn Keeper.
@@ -3610,70 +4014,70 @@ patterns throughout.
 
 ---
 
-## [1.11.3] — 2026-07-14
+## [1.11.3] - 2026-07-14
 
 ### Added
 
 #### Village Professor
-- **Professor** — a stationary NPC now spawns inside the Village Academy on first visit and persists across save/reload. Built as a raw `NPCAgent` (`Agent_Professor.json`); spawn placement/restoration handled by `ProfessorSpawnPatch.cs` (same proven pattern as the Inn Keeper).
-- **Talk** — opens a greeting dialog scene with flavor about the Academy and a branch that only appears after day 3, proving the day-gated trigger mechanism. Trade, tasks, and milestone gifts are planned for later phases — see `Documentation/Design/Village_Professor_Plan.md`.
+- **Professor**: a stationary NPC now spawns inside the Village Academy on first visit and persists across save/reload. Built as a raw `NPCAgent` (`Agent_Professor.json`); spawn placement/restoration handled by `ProfessorSpawnPatch.cs` (same proven pattern as the Inn Keeper).
+- **Talk**, opens a greeting dialog scene with flavor about the Academy and a branch that only appears after day 3, proving the day-gated trigger mechanism. Trade, tasks, and milestone gifts are planned for later phases, see `Documentation/Design/Village_Professor_Plan.md`.
 
 ---
 
-## [1.11.2] — 2026-07-14
+## [1.11.2] - 2026-07-14
 
 ### Added
 
 #### Village Inn Keeper
-- **Inn Keeper** — a stationary NPC now spawns inside the Village Inn on first visit and persists across save/reload. Built as a raw `NPCAgent` (`Agent_InnKeeper.json`); spawn placement/restoration handled by `InnKeeperSpawnPatch.cs`.
-- **Chat** — talk with the Inn Keeper for a small boost to Loneliness, Wellbeing, Isolation, Comfort, Morale, Skill_Socials, and Stress (costs 1 in-game hour). Trade and further polish are planned for later phases — see `Documentation/Design/Village_InnKeeper_Plan.md`.
+- **Inn Keeper**: a stationary NPC now spawns inside the Village Inn on first visit and persists across save/reload. Built as a raw `NPCAgent` (`Agent_InnKeeper.json`); spawn placement/restoration handled by `InnKeeperSpawnPatch.cs`.
+- **Chat**, talk with the Inn Keeper for a small boost to Loneliness, Wellbeing, Isolation, Comfort, Morale, Skill_Socials, and Stress (costs 1 in-game hour). Trade and further polish are planned for later phases, see `Documentation/Design/Village_InnKeeper_Plan.md`.
 
 ---
 
-## [1.11.1] — 2026-07-14
+## [1.11.1] - 2026-07-14
 
 ### Changed
 
 #### Village Academy
-- **Armorer course** now also gates **Advanced Copper Tools' Iron armor** (Breastplate, Helmet, Greaves, Gauntlets), matching the existing Copper armor gating — both metal tiers stay locked until the Armorer course's Final Exam is passed. Perk and course descriptions (`Higher Education`, `Armorer Graduate`, lectern Final Exam text) updated to mention iron armor alongside copper.
+- **Armorer course** now also gates **Advanced Copper Tools' Iron armor** (Breastplate, Helmet, Greaves, Gauntlets), matching the existing Copper armor gating, both metal tiers stay locked until the Armorer course's Final Exam is passed. Perk and course descriptions (`Higher Education`, `Armorer Graduate`, lectern Final Exam text) updated to mention iron armor alongside copper.
 
 ---
 
-## [1.11.0] — 2026-07-14
+## [1.11.0] - 2026-07-14
 
 ### Added
 
 #### Stone Tile Floor
-- **Stone Tile Floor** — new environment improvement buildable inside cabins and mud huts (main rooms, expansions, and the free-build construction rooms — 7 interiors total). Lay **Stone Tiles ×12 + Clay ×4** (2-hour build) for a permanent **Comfort +12** and **Insulation** (+1 perceived temperature) in that room. Appears in a room's improvements panel once you have at least one Stone Tile.
+- **Stone Tile Floor**, new environment improvement buildable inside cabins and mud huts (main rooms, expansions, and the free-build construction rooms, 7 interiors total). Lay **Stone Tiles ×12 + Clay ×4** (2-hour build) for a permanent **Comfort +12** and **Insulation** (+1 perceived temperature) in that room. Appears in a room's improvements panel once you have at least one Stone Tile.
 - **Stone Tiles** now have a real downstream use: item and blueprint descriptions updated from "trade good only" to reflect their flooring role (closes the `STONE_TILES_FLOORING` deferred idea).
 
 ---
 
-## [1.10.3] — 2026-07-12
+## [1.10.3] - 2026-07-12
 
 ### Added
 
 #### Village Academy
-- **Village Academy** — unlock with the **Higher Education** character trait. Enter from the Village like a vanilla cabin. Drop Salt, metal Nuggets, or a Duros Coinage Metal Coin onto the Lectern to fund a **Tuition Account** (holds up to 1,000). Six courses run as 2-hour study sessions, each with a one-time 100-currency enrollment fee drawn on the first session:
-  - **Architecture** (72 h total) — unlocks the Water-Driven Sawmill and Grinding Mill blueprints; together with Metallurgy also unlocks the Water-Driven Forge and Workshop Kit
-  - **Metallurgy** (60 h) — unlocks the Copper Sheet recipe
-  - **Herbalism** (30 h) — doubles forage yields at all forage locations
-  - **Fishing** (24 h) — unlocks the Iron Fishing Rod recipe; improves Iron Rod catch odds
-  - **Armorer** (24 h) — unlocks copper armor recipes (course hidden if Advanced Copper Tools is not installed)
-  - **Medicine** (24 h) — speeds wound clotting and pain recovery
+- **Village Academy**: unlock with the **Higher Education** character trait. Enter from the Village like a vanilla cabin. Drop Salt, metal Nuggets, or a Duros Coinage Metal Coin onto the Lectern to fund a **Tuition Account** (holds up to 1,000). Six courses run as 2-hour study sessions, each with a one-time 100-currency enrollment fee drawn on the first session:
+  - **Architecture** (72 h total), unlocks the Water-Driven Sawmill and Grinding Mill blueprints; together with Metallurgy also unlocks the Water-Driven Forge and Workshop Kit
+  - **Metallurgy** (60 h), unlocks the Copper Sheet recipe
+  - **Herbalism** (30 h), doubles forage yields at all forage locations
+  - **Fishing** (24 h), unlocks the Iron Fishing Rod recipe; improves Iron Rod catch odds
+  - **Armorer** (24 h), unlocks copper armor recipes (course hidden if Advanced Copper Tools is not installed)
+  - **Medicine** (24 h), speeds wound clotting and pain recovery
 - Passing each course's Final Exam grants a hidden **Graduate perk** (`CharacterPerkPerkGroup: "None"`): invisible at character creation, accessible only by completing the course in-run.
 
 #### Weapons
-- **Fire-Hardened Spear** — craft from a Straight Branch + any open flame. Full vanilla spear moveset plus a signature **Charred-Tip Strike** attack dealing bonus `Char` damage. Blueprint in the Weapons tab; no tools required.
+- **Fire-Hardened Spear**: craft from a Straight Branch + any open flame. Full vanilla spear moveset plus a signature **Charred-Tip Strike** attack dealing bonus `Char` damage. Blueprint in the Weapons tab; no tools required.
 
 #### Apparel
-- **Cloth Coat** — new clothing item. Blueprint in the Apparel tab.
+- **Cloth Coat**: new clothing item. Blueprint in the Apparel tab.
 
 #### Village Inn overhaul
-- **Inn Counter** — new functional interaction card inside the enterable inn. Drop Salt, metal Nuggets, or a Duros Coinage Metal Coin to fund an **Inn Account** (holds up to 500 currency). **Purchase Meal** and **Stay the Night** each draw 50 from the balance. **Work Odd Jobs** (4-hour shift, no balance required) pays 1–2 copper nuggets at 50% quality.
+- **Inn Counter**: new functional interaction card inside the enterable inn. Drop Salt, metal Nuggets, or a Duros Coinage Metal Coin to fund an **Inn Account** (holds up to 500 currency). **Purchase Meal** and **Stay the Night** each draw 50 from the balance. **Work Odd Jobs** (4-hour shift, no balance required) pays 1–2 copper nuggets at 50% quality.
 
 #### Village area
-- **Village Crop Fields** — three standalone location cards inside the Village with per-season active harvests: **Flax Field** (spring), **Turnroot Field** (summer), **Rye Field** (autumn). Each field yields a limited number of harvests before it is spent for the season.
+- **Village Crop Fields**: three standalone location cards inside the Village with per-season active harvests: **Flax Field** (spring), **Turnroot Field** (summer), **Rye Field** (autumn). Each field yields a limited number of harvests before it is spent for the season.
 - Interior environment cards for the Academy (`CMC_AcademyInterior`) and Inn (`CMC_InnInterior`); dedicated exit cards for each building.
 - **Iron Fishing Rod** mechanics split into a dedicated `IronRodFishingPatch`; self-contained and no longer part of the general forage patch.
 
@@ -3681,17 +4085,17 @@ patterns throughout.
 - New images: Academy exterior, interior, lectern; per-discipline rooms (Architecture, Armorer, Fishing, Herbalism, Metallurgy, Medicine); Inn desk and interior; village door interior.
 
 #### Framework / data
-- `DropInjections.json` — Wild Garlic and Old Growth Bark forage now handled declaratively by the framework.
-- `InjectImprovementInto.json` — improvement injection for village improvements now handled declaratively.
+- `DropInjections.json`: Wild Garlic and Old Growth Bark forage now handled declaratively by the framework.
+- `InjectImprovementInto.json`: improvement injection for village improvements now handled declaratively.
 
 ### Changed
 
 - `ForageInjectionPatch.cs` heavily trimmed; Wild Garlic, Old Growth Bark, and herbalism bonuses extracted to `HerbalismForagePatch.cs` and `DropInjections.json`.
-- `VillageFarmSeasonalCropPatch.cs` removed — replaced by the three standalone seasonal location cards above.
-- `RiverBridgeImprovementPatch.cs` removed — improvement injection now handled by `InjectImprovementInto.json`.
+- `VillageFarmSeasonalCropPatch.cs` removed, replaced by the three standalone seasonal location cards above.
+- `RiverBridgeImprovementPatch.cs` removed, improvement injection now handled by `InjectImprovementInto.json`.
 - Academy and Inn buildings now each have a dedicated CT4 interior + CT8 exit pair, matching the enterable-cabin pattern used by vanilla.
-- `CardVisualsRefresh` helper added — keeps the displayed balance on lecterns and counters accurate after an account balance changes.
-- `CurrencyValue` helper introduced — centralises currency amount calculation (Salt, metal Nuggets, Duros coin) in one place.
+- `CardVisualsRefresh` helper added, keeps the displayed balance on lecterns and counters accurate after an account balance changes.
+- `CurrencyValue` helper introduced, centralises currency amount calculation (Salt, metal Nuggets, Duros coin) in one place.
 
 ---
 

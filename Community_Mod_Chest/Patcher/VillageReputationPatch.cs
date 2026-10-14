@@ -33,7 +33,7 @@ namespace CommunityModChest.Patcher
     /// RemoveCard(..., RemoveOption.RemoveAll)). Because RunTick fires every 5 real-time
     /// seconds regardless of player location, the old scene-scoped checks read every Village
     /// structure as "doesn't exist" the moment the player travelled away from the Village —
-    /// silently resetting MarketStallPatch.RevenueMultiplier to 1x well before the Market
+    /// silently resetting the stall's revenue bonus to 1x well before the Market
     /// Stall's own (location-independent) daily sale on TickEvents.DayRollover ever got to use
     /// it. The Village Hall's own Notice Board display looked correct whenever actually viewed
     /// (it only ever updates while standing at the Hall, where every other Village structure
@@ -53,8 +53,9 @@ namespace CommunityModChest.Patcher
     ///
     /// Mirrored onto Village Hall's own SpecialDurability1 bar (its Notice Board) once
     /// the Hall exists (CardFinder.Find is correct there — no reason to write a Unity
-    /// durability field on a card that isn't currently instantiated), and gates a small real
-    /// payoff (Market Stall revenue bonus) once full — see MarketStallPatch.RevenueMultiplier.
+    /// durability field on a card that isn't currently instantiated), and feeds a small real
+    /// payoff (the Market Stall's revenue bonus, which grows step by step with Reputation: see
+    /// VillagePricing.Multiplier with PriceSide.Earn).
     /// A durability bar can't render a negative value, so the mirrored bar floors the real
     /// signed reputation at 0 for display only; every gate/threshold in this class (and every
     /// JSON consumer) still reads the true signed value.
@@ -106,13 +107,13 @@ namespace CommunityModChest.Patcher
 
         private const int QuestFlagCount = 6; // quest bucket: QuestBucketMax * (done / QuestFlagCount)
 
+        private const string DeputyStatUid = "cmcStatWatchDeputy";
+        /// <summary>TUNABLE PLACEHOLDER: the civic points a Deputy of the Watch adds (Captain Sterling's community service).</summary>
+        private const float DeputyBonus = 5f;
+
         private const float CivicTotalMax = 100f;
         private const float ReputationMin = -100f;
         private const float ReputationMax = 100f;
-
-        // Market Stall bonus threshold — unchanged absolute value from the old FullRenown
-        // constant, but now requires a maxed civic total AND zero crime to actually reach 100 net.
-        private const float FullReputation = 100f;
 
         private static bool _initialized;
         private static Type _uidType;
@@ -129,6 +130,7 @@ namespace CommunityModChest.Patcher
         private static object _questFlagProfSpecimenStat;
         private static object _questFlagProfFieldSamplesStat;
         private static object _questFlagProfAppliedHerbalismStat;
+        private static object _deputyStat;
 
         public static void Initialize()
         {
@@ -154,6 +156,25 @@ namespace CommunityModChest.Patcher
             var statInstance = ResolveStatInstance(gm);
             if (statInstance == null) return float.NaN;
             return StatAccess.GetCurrentValue(statInstance);
+        }
+
+        /// <summary>CurrentReputation with the reason it failed: "types-unresolved", "gm-null",
+        /// "stat-unreadable" (the stat SO is missing, StatsDict is not built, or the stat is not
+        /// materialized for this run) or "value-nan". VillagePricing uses it so a miss leaves one warn-once
+        /// line per cause instead of silently pricing at zero Reputation.</summary>
+        internal static bool TryCurrentReputation(out float reputation, out string cause)
+        {
+            reputation = float.NaN;
+            if (!ResolveTypes()) { cause = "types-unresolved"; return false; }
+            var gm = CardUtil.GetGameManagerInstance();
+            if (gm == null) { cause = "gm-null"; return false; }
+            var statInstance = ResolveStatInstance(gm);
+            if (statInstance == null) { cause = "stat-unreadable"; return false; }
+            float read = StatAccess.GetCurrentValue(statInstance);
+            if (float.IsNaN(read)) { cause = "value-nan"; return false; }
+            reputation = read;
+            cause = null;
+            return true;
         }
 
         private static bool ResolveTypes()
@@ -191,10 +212,13 @@ namespace CommunityModChest.Patcher
                 float reputation = Math.Min(ReputationMax, Math.Max(ReputationMin, civicTotal - crime));
                 StatAccess.SetCurrentValue(statInstance, reputation);
 
+                // G1: the first time the net value reads its full mark, latch the monument as earned. Never
+                // cleared, so it is still owed if Reputation later falls; MonumentSeedPatch places it.
+                if (reputation >= ReputationMax && HiddenStat.Get(MonumentSeedPatch.EarnedStatUid) < 0.5f)
+                    HiddenStat.Set(MonumentSeedPatch.EarnedStatUid, 1f);
+
                 var hall = CardFinder.Find(VillageHallUid);
                 if (hall != null) CardUtil.SetDurability(hall, "SpecialDurability1", Math.Max(0f, reputation));
-
-                MarketStallPatch.RevenueMultiplier = reputation >= FullReputation ? MarketStallPatch.FullRenownRevenueMultiplier : 1f;
             }
             catch (Exception ex)
             {
@@ -241,7 +265,12 @@ namespace CommunityModChest.Patcher
             if (GetStatValue(gm, ref _questFlagProfAppliedHerbalismStat, QuestFlagProfAppliedHerbalismUid) >= 1.0f) questsDone++;
             float quests = QuestBucketMax * questsDone / QuestFlagCount;
 
-            return construction + quests;
+            // D5: the Deputy's standing, a flat one-time bonus while the latch reads 1. Reputation is derived and
+            // rewritten from its parts every tick, so a "+5 once" is a latched part of the civic total, not a write.
+            // The caller's CivicTotalMax clamp still applies, so it can never lift the total past 100.
+            float deputy = GetStatValue(gm, ref _deputyStat, DeputyStatUid) >= 1.0f ? DeputyBonus : 0f;
+
+            return construction + quests + deputy;
         }
 
         /// <summary>

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAcademySitInApothecary",
+    "GameName": {
+        "LocalizationKey": "CMC_AcademySitInApothecary_StatName",
+        "DefaultText": "Sat In on the Apothecary"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AcademySitInApothecary_StatDescription",
+        "DefaultText": "Hidden weekly latch: set to 672 (seven days) when you Sit In on the Apothecary's lecture, drains 1 per tick, and the button returns at 0. Clamped to 0..672."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 672.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

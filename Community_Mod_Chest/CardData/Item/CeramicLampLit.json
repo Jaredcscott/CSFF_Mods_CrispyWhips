@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "ceramiclamplit",
         "LocalizationKey": "CeramicLampLit_CardDescription",
-        "DefaultText": "A small clay lamp burning fat for light. Consumes fuel slowly. Extinguish to refuel."
+        "DefaultText": "A small clay lamp burning fat or oil for light. Consumes fuel slowly. Extinguish to refuel."
     },
     "CardType": 0,
     "ObjectWeight": 150.0,
@@ -63,13 +63,13 @@
     },
     "FuelCapacity": {
         "Active": true,
-        "FloatValue": 48.0,
+        "FloatValue": 96.0,
         "CardStatName": {
             "ParentObjectID": "ceramiclamplit",
             "LocalizationKey": "CeramicLampLit_FuelCapacity_CardStatName",
-            "DefaultText": "Fat"
+            "DefaultText": "Fuel"
         },
-        "MaxValue": 48.0,
+        "MaxValue": 96.0,
         "RatePerDaytimePoint": -0.5,
         "HidingOptions": 1,
         "TextDisplay": 0,
@@ -90,7 +90,7 @@
             "ActionDescription": {
                 "ParentObjectID": "ceramiclamplit",
                 "LocalizationKey": "CeramicLampLit_FuelOut_ActionDescription",
-                "DefaultText": "The lamp runs out of fat."
+                "DefaultText": "The lamp runs out of fuel."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 0,

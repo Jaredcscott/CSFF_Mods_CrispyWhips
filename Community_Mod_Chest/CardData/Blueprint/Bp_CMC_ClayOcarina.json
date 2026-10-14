@@ -16,7 +16,18 @@
     "StartUnlocked": true,
     "CardsOnBoard": [],
     "TagsOnBoard": [],
-    "StatValues": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 0.0, "y": 10.0 },
+                "StatWarpData": "cmcStatVillagePhase",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
     "BlueprintStages": [
         {
             "CannotRevertToThisStage": false,

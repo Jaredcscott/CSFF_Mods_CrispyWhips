@@ -232,6 +232,120 @@
       "StatModifications": [],
       "ProducedCards": [],
       "ReceivingCardChanges": { "ModType": 0 }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_PayWarden",
+        "DefaultText": "Pay the Warden"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_PayWarden_Desc",
+        "DefaultText": "Press Salt into the warden's palm for a day off your sentence. Once a sentence, and only while a warden is on the step. It shortens the time and never clears your crime."
+      },
+      "DaytimeCost": 1,
+      "RequiredStatValues": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailUnguarded",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": -0.5, "y": 0.5 }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailBribeUsed",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": -0.5, "y": 0.5 }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 1.5, "y": 8.0 }
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailBribeUsed",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.0, "y": 1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 0 }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_BreakRocks",
+        "DefaultText": "Break Rocks"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_BreakRocks_Desc",
+        "DefaultText": "Four hours of hard labour in the yard takes a quarter of a day off your sentence and pays your crime down at the same rate a day served does. It leaves you worn out. Twice a day at most, and only while at least two days remain."
+      },
+      "DaytimeCost": 16,
+      "RequiredStatValues": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailLabourToday",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 0.0, "y": 1.0 }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 2.0, "y": 8.0 }
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailLabourToday",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.0, "y": 1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -30.0, "y": -30.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 0 }
     }
   ],
   "DismantleActionsWarpType": 3

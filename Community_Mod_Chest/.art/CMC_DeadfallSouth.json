@@ -1,0 +1,37 @@
+{
+  "target": "CMC_DeadfallSouth.png",
+  "sourceCard": [
+    "CardData/Location/CMC_DeadfallSouth.json"
+  ],
+  "subject": "an enormous toppled pine tree lying across a forest trail, its root plate torn up on one side, blocking the way, autumn leaves on the ground",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of an enormous toppled pine tree lying across a forest trail, its root plate torn up on one side, blocking the way, autumn leaves on the ground, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "fCO0bStDcAjVyDhJfdQg",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085413342_efcb1f60_1791085414284_82c52bb7.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Owner pick from the 2026-10-03 batch picker. predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085413499_c513ee01_1791085414525_0634cb55.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085413342_efcb1f60_1791085414284_82c52bb7.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085415854_0a9ed488_1791085416668_2a45daf6.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

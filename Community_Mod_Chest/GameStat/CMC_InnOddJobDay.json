@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnOddJobDay",
+    "GameName": {
+        "LocalizationKey": "CMC_InnOddJobDay_StatName",
+        "DefaultText": "Inn Odd Job Day Stamp"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnOddJobDay_StatDescription",
+        "DefaultText": "Hidden bookkeeping stat: the in-game day (plus one, so 0 means never) on which the Inn Counter last posted an odd job. Kept in the save so a quit and relaunch cannot post a second job the same day."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1000000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatWatchServiceJob",
+    "GameName": {
+        "LocalizationKey": "CMC_WatchServiceJob_StatName",
+        "DefaultText": "Watch Service Job"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WatchServiceJob_StatDescription",
+        "DefaultText": "Hidden clamped 0 to 2: which job Captain Sterling has set (0 none, 1 carry firewood to the Town Wood Pile, 2 clear a snow drift). Set by the Captain's offer lines and put back to 0 by his thanks line or by giving the job up."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 2.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

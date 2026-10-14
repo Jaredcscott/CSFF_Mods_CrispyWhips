@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnCompany",
+    "GameName": {
+        "LocalizationKey": "CMC_InnCompany_StatName",
+        "DefaultText": "Inn Company"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnCompany_StatDescription",
+        "DefaultText": "Hidden count, written every 5 seconds by InnEveningPatch: how many of the Miller, Weaver, Apothecary and Professor are in the Inn with the player (0 whenever the player is not in the Inn). Join the Table and Play for the Room need 2 or more."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 4.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

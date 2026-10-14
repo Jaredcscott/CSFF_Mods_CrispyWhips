@@ -15,7 +15,8 @@
     "CardImageWarpData": "HandWraps",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
-        "tag_Clothing"
+        "tag_Clothing",
+        "tag_CMCColdWeatherApparel"
     ],
     "CardTagsWarpType": 3,
     "ObjectWeight": 50.0,

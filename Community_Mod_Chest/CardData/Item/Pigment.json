@@ -3,12 +3,12 @@
     "CardName": {
         "ParentObjectID": "potterysculpturepigment",
         "LocalizationKey": "Pottery_Sculpture_Pigment_CardName",
-        "DefaultText": "Pigment"
+        "DefaultText": "Charcoal Pigment"
     },
     "CardDescription": {
         "ParentObjectID": "potterysculpturepigment",
         "LocalizationKey": "Pottery_Sculpture_Pigment_CardDescription",
-        "DefaultText": "A fine colored powder made by grinding charcoal. Used to paint and decorate pottery."
+        "DefaultText": "A fine black powder made by grinding charcoal. Used to paint and decorate pottery, or rubbed into cloth, straw or leather to dye it charcoal-grey."
     },
     "CardType": 0,
     "CardTagsWarpData": [],

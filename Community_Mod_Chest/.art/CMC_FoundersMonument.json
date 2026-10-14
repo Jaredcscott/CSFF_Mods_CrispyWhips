@@ -1,0 +1,55 @@
+{
+  "target": "CMC_FoundersMonument.png",
+  "sourceCard": "CardData/Location/CMC_FoundersMonument.json",
+  "subject": "a single squared upright block of weathered grey cut stone, taller than it is wide, standing on a low two-step base of the same stone, the front face carved with several short rows of small incised name marks (marks only, no readable letters), a little moss at the foot of the base, nothing on top, no statue, no carved figure, no roof, no railing",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs item template with two style references: reference 1 STYLE and MATERIAL (Village.png, the square's grey well stone and painted palette), reference 2 FINISH style (CMC_MarketStall.png, a keyed placed structure); subject as above, then the /create-image step 3 template; Avoid list is the template's plus: readable letters, statue, human figure, obelisk point, cross, flowers, wreath, fence, grass field",
+  "composition": {
+    "scene": null,
+    "props": [],
+    "style": ["Village", "CMC_MarketStall"],
+    "finish": "keyed"
+  },
+  "references": [
+    {
+      "role": "style",
+      "fragment": null,
+      "image": "Resource/Picture/Village.png",
+      "sha256": "b872d11b41abf7b87a3b19347ab4ef2263e772937eee4e2768228f64135ee04f",
+      "id": "mMLZmz6vEqWQ7Nclg66P"
+    },
+    {
+      "role": "style",
+      "fragment": null,
+      "image": "Resource/Picture/CMC_MarketStall.png",
+      "sha256": "47fe43f72b22a29931b94b918dcf41bacd4e257338ce12a0b3036f2b6bc7bc48",
+      "id": "sxk158xGkA5g0tSuwrHn"
+    }
+  ],
+  "historyId": "5QhTe12A6x1BAgPcb0J8",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791118969342_9e568526_1791118969707_e4926f84.png",
+  "credits": 60,
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791118966557_7c7f2519_1791118967102_2fdf5243.png",
+      "verdict": "right block, base and name marks, but painted a hill-and-sky backdrop behind it (44.5 percent keyed instead of about 64); not shipped"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791118969342_9e568526_1791118969707_e4926f84.png",
+      "verdict": "on-brief: upright grey block, two-step base, rows of incised marks, moss at the foot, clean paper keyed (63.7 percent), no halo; shipped"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B",
+  "generated": "2026-10-04",
+  "note": "Phase G closeout. Two samples of one prompt; the session picked B against the subject phrases (no owner look yet, so a session pick, not an owner pick). Keyed finish like the shipped CMC_MarketStall. The credit figure is the 2-sample total as quoted by openart_model_cost before the call."
+}

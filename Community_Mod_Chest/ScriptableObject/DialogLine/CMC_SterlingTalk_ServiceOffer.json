@@ -1,0 +1,53 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_SterlingTalk_ServiceOffer_Line",
+        "DefaultText": "The Watch does not hand out pardons, but it can use honest hands. Carry firewood to the Town Wood Pile, so the village hearths do not go cold. Or, when the snow has closed a road, dig a drift clear. Come and tell me when it is done, and I will take it off your record."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_ServiceOffer_Answer_Firewood",
+                "DefaultText": "I will carry firewood to the Wood Pile."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatWatchServiceArmed", "StatWarpType": 3, "ValueModifier": {"x": -1.0, "y": -1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatWatchServiceJob", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {"TimeType": 3, "SeasonValue": {"MaskValue": 8}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_ServiceOffer_Answer_Drift",
+                "DefaultText": "I will dig a snow drift clear."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatWatchServiceArmed", "StatWarpType": 3, "ValueModifier": {"x": -1.0, "y": -1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatWatchServiceJob", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_ServiceOffer_Answer_Later",
+                "DefaultText": "Not just now."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

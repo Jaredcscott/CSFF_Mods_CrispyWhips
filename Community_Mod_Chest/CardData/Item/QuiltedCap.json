@@ -21,7 +21,8 @@
   "CardImageWarpData": "QuiltedCap",
   "CardImageWarpType": 3,
   "CardTagsWarpData": [
-    "tag_Clothing"
+    "tag_Clothing",
+    "tag_CMCColdWeatherApparel"
   ],
   "CardTagsWarpType": 3,
   "EquipmentTags": [],
@@ -127,7 +128,125 @@
   "DurabilitySorting": {
     "SortingList": []
   },
-  "CardInteractions": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "combatandarmorquiltedcap",
+        "LocalizationKey": "Combat_And_Armor_QuiltedCap_CI_Dye_ActionName",
+        "DefaultText": "Dye with Charcoal Pigment"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorquiltedcap",
+        "LocalizationKey": "Combat_And_Armor_QuiltedCap_CI_Dye_ActionDescription",
+        "DefaultText": "Work the charcoal pigment into the padded cap, darkening it to a dull charcoal-grey."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "potterysculpturepigment"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "combatandarmorquiltedcapdyedcharcoal",
+        "TransformIntoWarpType": 3,
+        "TransferUsage": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "combatandarmorquiltedcap",
+        "LocalizationKey": "Combat_And_Armor_QuiltedCap_CI_DyeOchre_ActionName",
+        "DefaultText": "Dye with Ochre Pigment"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorquiltedcap",
+        "LocalizationKey": "Combat_And_Armor_QuiltedCap_CI_DyeOchre_ActionDescription",
+        "DefaultText": "Work the ochre pigment into the padded cap, turning it a warm, earthy yellow-brown."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "potterysculpturepigmentochre"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "combatandarmorquiltedcapdyedochre",
+        "TransformIntoWarpType": 3,
+        "TransferUsage": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "combatandarmorquiltedcap",
+        "LocalizationKey": "Combat_And_Armor_QuiltedCap_CI_DyeBillberry_ActionName",
+        "DefaultText": "Dye with Billberry Pigment"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorquiltedcap",
+        "LocalizationKey": "Combat_And_Armor_QuiltedCap_CI_DyeBillberry_ActionDescription",
+        "DefaultText": "Steep the padded cap in billberry pigment until it takes a deep violet."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "potterysculpturepigmentbillberry"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "combatandarmorquiltedcapdyedbillberry",
+        "TransformIntoWarpType": 3,
+        "TransferUsage": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {

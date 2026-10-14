@@ -111,6 +111,8 @@
         <Content Include="GameSourceModify\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameSourceModify\%(Filename)%(Extension)" />
         <Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" Condition="Exists('EncounterGuards')" />
         <Content Include="Encounter\*.json" CopyToOutputDirectory="PreserveNewest" Link="Encounter\%(Filename)%(Extension)" Condition="Exists('Encounter')" />
+        <Content Include="FlavourTag\*.json" CopyToOutputDirectory="PreserveNewest" Link="FlavourTag\%(Filename)%(Extension)" Condition="Exists('FlavourTag')" />
+        <Content Include="FlavourMatrix\*.json" CopyToOutputDirectory="PreserveNewest" Link="FlavourMatrix\%(Filename)%(Extension)" Condition="Exists('FlavourMatrix')" />
         <!-- QuestLog/ and Objective/ are intentionally NOT shipped. The Wisp's deeds use a
              self-contained C# tracker (Deeds/) instead of vanilla QuestLogs, because vanilla
              quests serialize into the save that reconstructs blueprint research on load and

@@ -1,0 +1,38 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_YarnOffer_Line",
+        "DefaultText": "I am, as it happens. Somebody has been keeping sheep, and the yarn off their wool is finer than anything I can get here. Bring me a skein of it and I'll pay you for your trouble."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_YarnOffer_Answer_Accept",
+                "DefaultText": "I'll bring you a skein."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverYarnErrand",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_YarnOffer_Answer_Decline",
+                "DefaultText": "Not just now."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

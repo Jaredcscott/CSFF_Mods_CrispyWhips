@@ -1,0 +1,14 @@
+{
+  "id": "Potter",
+  "type": "character",
+  "image": ".art/fragments/characters/Potter.png",
+  "status": "candidate",
+  "anchor": "CMC_Potter_Inn",
+  "source": "Generated 2026-10-04 by /create-image-refs Mode B step 4 (nothing to cut from: a new character) as text2image, nano-banana-2 2K, historyId 8HUS4rB1TrCZ30UF0uqg, 30 credits, in the Miller fragment's render style. Saved at 1030x1536 by prepare_reference.py fetch. The two portraits built on it (CMC_Potter_Inn, CMC_Potter_Stall) keep the face, hair, beard, shirt and apron, so it is on-model against its own descendants; the owner has not looked at it yet.",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125673720_264f1772_1791125674046_0778d176.png",
+  "identity": "a lean village potter in his early forties: a narrow angular face with high cheekbones and a long straight nose, warm brown eyes with crow's feet, short curly dark-brown hair going grey at the temples, a closely trimmed short brown beard, a tanned complexion, a calm thoughtful half-smile, wiry forearms with dried terracotta clay smudged on the hands and forearms",
+  "outfit": "a rust-orange linen shirt with the sleeves rolled to the elbow under a long clay-stained oatmeal canvas apron with a deep front pocket, a plain brown leather belt, brown trousers",
+  "style": "clean confident black ink outlines with fine hatching in the shadows, smooth painted colour in a warm natural storybook palette, soft shading, the look of a hand-inked illustrated storybook panel",
+  "avoid": "a different face, a clean-shaven man, a young man, a bald head, glasses, a pottery wheel in hand",
+  "notes": "Made for NPCAgent/Agent_Potter.json (AgentImageWarpData CMC_Potter_Inn), the Village Hall board (CardData/Location/CMC_BoardPotter.json) and the stall leg in Patcher/PotterSchedulePatch.cs (CMC_Potter_Stall). Becomes approved when the owner accepts a portrait built on it."
+}

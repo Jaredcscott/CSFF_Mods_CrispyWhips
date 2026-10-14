@@ -1,0 +1,22 @@
+{
+  "target": "CMC_WallPaintingBillberry.png",
+  "sourceCard": "CardData/EnvImprovement/Imp_WallPaintingBillberry.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the COMPOSITION and STYLE reference: draw the same upright slab of grey cave-wall rock with the same primitive paintings in the same layout (a hunter, a running deer, a small herd of four running deer, a group of hand prints), same size on the card, same flat posterized colour fills and thin ink outlines. Change ONLY the pigment colour.\nDraw a Wall Painting (Billberry) for a survival game card: every painted figure and hand print is in billberry pigment, a muted dusky purple-blue, flat and slightly uneven like daubed berry juice, on the plain grey stone.\nStyle: vanilla Card Survival: Fantasy Forest card art: flat posterized colour fills in three or four hard-edged tonal steps (cel-like), thin dark ink outlines, a few small ink hatch and tick marks, muted naturalistic palette, no soft gradients, no watercolour bleed, no paper texture, nothing glossy, no glow.\nSingle object only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: ochre, orange, yellow, red paint, bright violet, neon, berries drawn on the rock, watercolor, photo, photorealistic, 3D render, carved relief, scenery behind the object, grey background, off-white background, checkerboard, transparency grid, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "CMC_WallPaintingOchre new (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_WallPaintingOchre_1791653159866_ebb04fc6.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653246921_a9dc8649_1791653247468_41e622a0.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
+}

@@ -1,0 +1,74 @@
+{
+    "UniqueID": "cmcbpicesculpture",
+    "CardName": {
+        "ParentObjectID": "cmcbpicesculpture",
+        "LocalizationKey": "CMC_Bp_IceSculpture_CardName",
+        "DefaultText": "Ice Sculpture"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcbpicesculpture",
+        "LocalizationKey": "CMC_Bp_IceSculpture_CardDescription",
+        "DefaultText": "Carve blocks of ice into a figure that lasts as long as the cold does."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "cmcbpicesculpture",
+        "LocalizationKey": "CMC_Bp_CarpentryDecor_UnlockConditionsDesc",
+        "DefaultText": "Graduate the Academy's Carpentry course"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "bb826818fc8e35d43b16d906fa65c8cb",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -8.0, "y": -8.0 }
+                    },
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredTabGroupWarpData": "GpTag_CuttingTool",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 3,
+    "DeconstructDaytimeCost": 2,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcIceSculpture",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Stone"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "CMC_IceSculpture",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

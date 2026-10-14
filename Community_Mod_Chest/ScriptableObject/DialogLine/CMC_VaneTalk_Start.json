@@ -6,6 +6,27 @@
     },
     "PossibleAnswers": [
         {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatStallTheftState", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_VaneTalk_Start_Answer_ReportTheft",
+                "DefaultText": "Report the Theft: someone robbed my market stall."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatStallTheftState", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_GuardTalk_TheftReported",
+                "NextLineWarpType": 3
+            }
+        },
+        {
             "Answer": {
                 "LocalizationKey": "CMC_VaneTalk_Start_Answer_Noted",
                 "DefaultText": "I'll remember that."

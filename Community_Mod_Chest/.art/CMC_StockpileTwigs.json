@@ -1,0 +1,25 @@
+{
+  "target": "CMC_StockpileTwigs.png",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the COMPOSITION: a stockpile heap sitting on a flat oval patch of bare brown earth, seen from slightly above. Keep exactly this oval earth patch, this viewpoint, this size and placement on the page, and this white paper around it; replace the grey stones with the heap described below.\nReference image 2 is a style reference only: match its ink linework, flat colour fills and palette; do not copy its subject or composition.\nSubject: a neat waist-high heap of WOODEN TWIGS AND SMALL BRANCHES, unmistakably wood: thin brown sticks of varied length, dark grey-brown and warm brown bark with fine ink bark texture lines, crooked and knobbly like real tree twigs, several with small forked side shoots, two or three with a single dry brown leaf still attached, the cut and snapped ends showing pale yellow-tan wood grain rings. Sticks crisscross and lean together in a loose tangled pile. Every stick is brown bark, none white, none smooth, none with rounded knobbed ends.\nStyle: vanilla Card Survival item art: flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks for texture, muted naturalistic earth browns, no soft gradients, no watercolour bleed, no gloss. Single subject with a generous white margin on a solid flat pure white background (#FFFFFF) filling every edge, no scenery. No text, no watermark, no signature, no border, no frame.\nAvoid: bones, skeleton, white or ivory pieces, pale rounded knobs, bulbous joint ends, ribs, skulls, antlers, rope, logs, planks, firewood split logs, footprints, tracks, prints in the ground, photo, photorealistic, 3D render, anime, neon colours, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, text, watermark, border.",
+  "refs": [
+    {
+      "label": "CMC_StockpileStone installed (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_StockpileStone_1791676377120_d4035b1d.png"
+    },
+    {
+      "label": "vanilla Twigs (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Twigs_1791652661880_b767d5b8.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791676440831_84e14606_1791676441383_cd20bcdc.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Final Touches review (third round, redrawn from the owner's notes). Enclosed paper keyed with key_enclosed.py."
+}

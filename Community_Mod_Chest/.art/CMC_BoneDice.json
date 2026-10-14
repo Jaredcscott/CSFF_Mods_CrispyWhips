@@ -1,33 +1,41 @@
 {
   "target": "CMC_BoneDice.png",
   "sourceCard": "CardData/Item/CMC_BoneDice.json",
-  "subject": "a pair of small cube dice carved from pale ivory bone, rubbed smooth with softly rounded corners, small dark drilled pips on each face, one die tilted against the other",
+  "subject": "two small cube dice carved from pale yellowed bone with slightly rounded corners, resting side by side and a little apart, each seen from above at a three-quarter angle so exactly three faces of each die are visible (top, front-left, front-right). The pips are small round dark drilled holes in the standard die layouts. LEFT die: its top face shows ONE pip in the centre, its front-left face shows TWO pips on a diagonal, its front-right face shows THREE pips on a diagonal. RIGHT die: its top face shows FOUR pips in the four corners, its front-left face shows FIVE pips (four corners and one centre), its front-right face shows SIX pips in two columns of three. Every visible face on a die shows a different number; no face repeats. Both dice are clean and even, no chips, no stains",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
   "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of a pair of small cube dice carved from pale ivory bone, rubbed smooth with softly rounded corners, small dark drilled pips on each face, one die tilted against the other, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, bones, skull, cup, game board, red dice, wooden dice, more than two dice.",
-  "historyId": "iFDwfQorI27rJA47pG3T",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783319398_20ff0e31_1789783319631_48d9d5d1.png",
-  "credits": 60,
-  "generated": "2026-09-18",
-  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked A from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Bones' on CardData/Item/CMC_BoneDice.json, CardData/Blueprint/Bp_CMC_BoneDice.json.",
+  "prompt": "Reference image 1 is a STYLE reference only (art from the game Card Survival: Fantasy Forest): match its ink linework, flat shading and palette; do not copy its subject or composition.\nSubject: two small cube dice carved from pale yellowed bone with slightly rounded corners, resting side by side and a little apart, each seen from above at a three-quarter angle so exactly three faces of each die are visible (top, front-left, front-right). The pips are small round dark drilled holes in the standard die layouts. LEFT die: its top face shows ONE pip in the centre, its front-left face shows TWO pips on a diagonal, its front-right face shows THREE pips on a diagonal. RIGHT die: its top face shows FOUR pips in the four corners, its front-left face shows FIVE pips (four corners and one centre), its front-right face shows SIX pips in two columns of three. Every visible face on a die shows a different number; no face repeats. Both dice are clean and even, no chips, no stains.\nStyle: match the style reference: the look of the game Card Survival: Fantasy Forest, flat posterized colour fills in a few tonal steps, thin dark ink outlines and small ink hatch marks, a continuous dark outline around the whole object, a muted naturalistic palette, realistic proportions; not watercolour, not glossy, nothing shiny.\nSingle subject, centred, filling most of the frame with a white margin on every side, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: repeated faces, two faces with the same number on one die, five pips on more than one face, wrong pip counts, extra dice, more than two dice, chips, stains, red dice, wooden dice, plastic, cup, game board, bones, skull, cloth, photo, photorealistic, 3D render, glossy highlights, watercolour bleed, paper texture, soft airbrush gradients, neon colours, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "refs": [
+    {
+      "label": "vanilla Bones (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bones_1791652738076_35951b3e.png"
+    }
+  ],
+  "historyId": "WdXl1vVLbtyOTSF5fIUV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798475099_2ebb7349_1791798475150_795ee2bf.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed by process_card_art.py, trimmed palette PNG",
+  "note": "owner gallery rework 2026-10-12: we have a new version with fixed numbers this has 5 5's and 1 3 side No newer BoneDice file existed anywhere in the repo (source, bin, suite staging and Mod_Repos copies were all the old picture); the 'fixed numbers' version is CMC_LoadedDice (2026-10-10), so this redraw reuses its pip-layout prompt with both dice clean (no chip or stain, which mark the loaded pair). Faces: left die 1/2/3, right die 4/5/6. Generated 3:2 and padded to 2:3.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783319398_20ff0e31_1789783319631_48d9d5d1.png",
-      "verdict": "PICK: exactly two pale ivory bone dice, rounded corners, drilled pips, one tilted against the other"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783320311_57616f5d_1789783320924_6a09c046.png",
-      "verdict": "three dice, an extra the subject excluded"
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798475099_2ebb7349_1791798475150_795ee2bf.png",
+      "historyId": "WdXl1vVLbtyOTSF5fIUV",
+      "verdict": "shipped"
     }
   ],
   "picked": "A",
-  "predicted": "A"
+  "predicted": "A",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783319398_20ff0e31_1789783319631_48d9d5d1.png",
+    "generated": "2026-09-18",
+    "note": "the picture this rework replaced"
+  }
 }

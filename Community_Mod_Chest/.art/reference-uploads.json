@@ -1,4 +1,46 @@
 {
+  "01cd4a35562febedd572ff2d19f2af2a6d0ad6d3e4d0f35b18737c18d1414b3b": {
+    "id": "ijThd7OLbSYBOLQQPVWt",
+    "label": "CMC_JailCellInterior (scene)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_JailCellInterior.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_JailCellInterior_1791539235191_55a4c7dd.png"
+  },
+  "148c0f6ab5c92d06d0629eb1f4caf42c8065bd9161ef28a5fd33415d2ae3e5f7": {
+    "id": "BJQI36zPzqCEL7HwvvA4",
+    "label": "vanilla Flute (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/2af4e41e-f7b2-49ea-8b8a-f48ab32d2b2f/scratchpad/p2/vsprites/Flute.png",
+    "uploaded": "2026-10-12",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flute_1791804514062_2422867e.png"
+  },
+  "15d032e1a50a80cc2ebe27f514a3752c909f84123b6f8646eda516a2896be67e": {
+    "id": "3tL1cRd51HSURX5g3Zx8",
+    "label": "CMC_CurtainsOpen (composition)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_CurtainsOpen.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_CurtainsOpen_1791652743949_074028c8.png"
+  },
+  "16f9ee35a54fde60e25289ad5ea71b7e784ccb493ce3452fba0aa2938fbd9081": {
+    "id": "fAuEeJVHTbC22hJRevPt",
+    "label": "vanilla Stone_Heavy (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Stone_Heavy.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Stone_Heavy_1791652660573_24a21f33.png"
+  },
+  "1f4bc4c5bae3d046a3335680a3e5a20aed33db222f178c9facf62ca606c6bd56": {
+    "id": "D5V8nXl9uCmb1T5um9jC",
+    "label": "CMC_FramedMap (composition)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_FramedMap.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_FramedMap_1791652741274_07fd40f4.png"
+  },
+  "23cca9a205753c668f8f289d51ca82eb71e38b2afabf26fb571ece51f216a6b4": {
+    "id": "AwQwyp3tMyfCgJDg8HIL",
+    "label": "CMC_Potter_Inn installed (subject)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_Potter_Inn.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_Potter_Inn_1791676377836_6d6f0a74.png"
+  },
   "31a3eb2127bc31fc055fcb5ba70b367862c8c186ba958e9dd19c5a50a76b9acb": {
     "id": "Ac8Mz1NvulWDWTnItrxQ",
     "label": "CMC_MarketStall (subject)",
@@ -6,12 +48,103 @@
     "uploaded": "2026-09-18",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_MarketStall_1789783966935_700a8608.png"
   },
+  "375fea45884c50fb71f8d04bb670d709bd25871441655f3058e1cc5f096a506e": {
+    "id": "VEVF5xsSWAr9us2imftg",
+    "label": "CMC_EventNightcrawlerBurned (composition)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_EventNightcrawlerBurned.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_EventNightcrawlerBurned_1791652742672_ac42cf3c.png"
+  },
+  "471d4c4effd7c0b55c5258d940e45bb3ec0b1841984afe0e66c2a682d5e4ae22": {
+    "id": "6wFFs2Tw3oMkWHR63ies",
+    "label": "CMC_Apothecary (character anchor)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_Apothecary.png",
+    "uploaded": "2026-10-03",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_Apothecary_1791074703789_8cb73f38.png"
+  },
+  "47fe43f72b22a29931b94b918dcf41bacd4e257338ce12a0b3036f2b6bc7bc48": {
+    "id": "sxk158xGkA5g0tSuwrHn",
+    "label": "CMC_MarketStall (keyed finish style)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_MarketStall.png",
+    "uploaded": "2026-10-04",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_MarketStall_1791118916885_b1475604.png"
+  },
+  "53e775953693341064285243266246c5743304f5734372016b628936e63403ce": {
+    "id": "s56iVlmySbUqnAXE0W15",
+    "label": "Bear_Wild (vanilla style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Bear_Wild.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652734929_38bf6561.png"
+  },
+  "610edb61640cc72bd7702f20f88edbb203f5de917f077ee239b31189d2661c02": {
+    "id": "1a2nTQnLKVT1b9YZFIsG",
+    "label": "vanilla StretchingFrame (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/2af4e41e-f7b2-49ea-8b8a-f48ab32d2b2f/scratchpad/p2/vsprites/StretchingFrame.png",
+    "uploaded": "2026-10-12",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/StretchingFrame_1791804514906_a84e913c.png"
+  },
+  "6c24ba797642cc93a53e7769013ae0c5ffbf3d0568c48d7dd3ade2c95d8493d5": {
+    "id": "oFrgOviKFc74FF8CH71H",
+    "label": "PaintedClayVase (subject)",
+    "source": "Community_Mod_Chest/Resource/Picture/PaintedClayVase.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/PaintedClayVase_1791539238656_f1807526.png"
+  },
+  "6d6960b89c0e0c6a60a2a2273a695bac715e809fde60e19304a3612b09d6316b": {
+    "id": "yhcQYqkNMqEYyEgHppYH",
+    "label": "Bones (vanilla style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Bones.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bones_1791652738076_35951b3e.png"
+  },
+  "70e68aa840683f19d30e00db4ca63a69e3a7969cfc16b05501fca1a5a6851114": {
+    "id": "FdbHW54pO8tAnSkPeGru",
+    "label": "Map (vanilla style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Map.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Map_1791652736542_adb93428.png"
+  },
+  "7486ae4b7a811ad5f5061bb72491f3ceee84d8cccd5e48479ee1b3ba858c378d": {
+    "id": "vlU0Q41fCExkD5103hkp",
+    "label": "QuiltedVest (subject)",
+    "source": "Community_Mod_Chest/Resource/Picture/QuiltedVest.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/QuiltedVest_1791539238020_979182f6.png"
+  },
+  "7bc63090e920ce8c415bb229377e5d716d9d178c56d4af829f27235722b747ec": {
+    "id": "IiikXorhC2oCuMylFUfZ",
+    "label": "CMC_IceSculpture (composition)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_IceSculpture.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_IceSculpture_1791652740568_a78ca020.png"
+  },
   "86fddd91129fe2c78e0dc0578dd4cac476011afa49037cfe1f922227ef673267": {
     "id": "wn0OHoSpcwaOPM4nVFDJ",
     "label": "Inn (scene fragment)",
     "source": "Community_Mod_Chest/Resource/Picture/VillageInnInterior.png",
     "uploaded": "2026-09-18",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/VillageInnInterior_1789780735062_379b2d21.png"
+  },
+  "8f3712250ec9464ae829b27cebafa3cbf6d6bd426e8de82d29b3eb3a3805accc": {
+    "id": "WsUQVJGykdYkmfaLjlXu",
+    "label": "CMC_BrambleThicket (composition)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_BrambleThicket.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_BrambleThicket_1791652742002_2ee4574c.png"
+  },
+  "94a0072a3e8e0d83205e075e896524c85b9b55ffdd137afff3698e55f30e6856": {
+    "id": "wBrQtMLWSw2mO5tJerXp",
+    "label": "Woods3 (vanilla style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Woods3.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods3_1791652735780_60f92364.png"
+  },
+  "a0c4991b0bc4880d9e91fa28d37f0e43d3db1256b3382f5b44378bbd09f3948b": {
+    "id": "2p6TDY29jpFeQIablOCQ",
+    "label": "Potter (character fragment)",
+    "source": "Community_Mod_Chest/.art/fragments/characters/Potter.png",
+    "uploaded": "2026-10-04",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Potter_1791125770712_50799fd7.png"
   },
   "adb6b835e2fe5aeb2b7fd7895158c549fdb3d8e967f55b1adec83e9f3f74bf48": {
     "id": "ErLZTi1Xn4UZxR3STqxR",
@@ -27,6 +160,41 @@
     "uploaded": "2026-09-18",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/Miller_1789780732281_55cf4883.png"
   },
+  "b872d11b41abf7b87a3b19347ab4ef2263e772937eee4e2768228f64135ee04f": {
+    "id": "mMLZmz6vEqWQ7Nclg66P",
+    "label": "Village (style and stone)",
+    "source": "Community_Mod_Chest/Resource/Picture/Village.png",
+    "uploaded": "2026-10-04",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Village_1791118916139_f170944f.png"
+  },
+  "be331d9d8bdd22b6078a9b995eef12d1895a11170cd8cd84b7c4cb3d868e0544": {
+    "id": "hI4n3m9IzeC6zU4pmYB6",
+    "label": "QuiltedCap (subject)",
+    "source": "Community_Mod_Chest/Resource/Picture/QuiltedCap.png",
+    "uploaded": "2026-10-09",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/QuiltedCap_1791539237434_fd305c44.png"
+  },
+  "bf3190099ea7556ebde270875027f005d66d7982ec144291cd1b3e4a04206d4a": {
+    "id": "4HcmOfCsyRxCGL7WRSJG",
+    "label": "VillageAcademyLectern (style)",
+    "source": "Community_Mod_Chest/Resource/Picture/VillageAcademyLectern.png",
+    "uploaded": "2026-10-04",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/VillageAcademyLectern_1791114753969_2891bfcc.png"
+  },
+  "c2046f984e373ca0e3f429bfb2f8a3e53e3c4607699371ec16f04ce10330d417": {
+    "id": "FK08d2Abk6yduwa1cHvr",
+    "label": "Wood (vanilla style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Wood.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wood_1791652739500_9b610d7b.png"
+  },
+  "ce6c1bae1754ff0a107acc8a7aad8f9a698852c485c12b7d18e235adf0f7fc1c": {
+    "id": "ypOypf0t467ML2VW61Wz",
+    "label": "CMC_StockpileStone (composition)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_StockpileStone.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_StockpileStone_1791676377120_d4035b1d.png"
+  },
   "e3bad553bf54bea5f2e834ac2881f1a116a12c5f6fd69d71c1c89a35ec02ae78": {
     "id": "udpnaAUPTU2tKqaI0IIH",
     "label": "Academy (scene fragment)",
@@ -40,5 +208,26 @@
     "source": "Community_Mod_Chest/Resource/Picture/CMC_CottageMiller_Interior.png",
     "uploaded": "2026-09-18",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_CottageMiller_Interior_1789781309241_67e8af21.png"
+  },
+  "ed1db4f139f85af25afacd5dc703ebbbcbb2c5bf7fede499520dd96bdd1b14fa": {
+    "id": "PmNGZkk6v3k2SkPS5U7C",
+    "label": "vanilla ImprovisedShelter (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/2af4e41e-f7b2-49ea-8b8a-f48ab32d2b2f/scratchpad/p2/vsprites/ImprovisedShelter.png",
+    "uploaded": "2026-10-12",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ImprovisedShelter_1791804515665_25feb001.png"
+  },
+  "f331fbb6f383a73352d0b7462f8586c5c4d5e72dcfe93e01e90a89a724a5661f": {
+    "id": "CvlP6dnl0DO0xQ98xCyf",
+    "label": "vanilla Twigs (style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Twigs.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Twigs_1791652661880_b767d5b8.png"
+  },
+  "f6f0afec6a6c9ad737272dadb42c7b9ef0f6d3c4309a4fb2796fa4a7793b1f5a": {
+    "id": "echnq9qywahrTsYroef5",
+    "label": "IceBlock (vanilla style)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/IceBlock.png",
+    "uploaded": "2026-10-10",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/IceBlock_1791652737197_4b5fede6.png"
   }
 }

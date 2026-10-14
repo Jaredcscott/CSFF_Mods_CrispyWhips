@@ -1,0 +1,106 @@
+{
+    "UniqueID": "cmcLimewaterTrough",
+    "CardName": {
+        "ParentObjectID": "cmcLimewaterTrough",
+        "LocalizationKey": "CMC_LimewaterTrough_CardName",
+        "DefaultText": "Soaking Trough"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcLimewaterTrough",
+        "LocalizationKey": "CMC_LimewaterTrough_CardDescription",
+        "DefaultText": "A plank trough that holds water. Soak Quicklime in it to make limewater, then drag a fleshed hide onto the trough to soak it: the lime loosens the hair and the hide tans sooner. A hide can be soaked once."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_WaterContainer"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "CMC_LimewaterTrough",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "MaxLiquidCapacity": 1800.0,
+    "IsMiniInventory": true,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcLimewaterTrough",
+                "LocalizationKey": "CMC_LimewaterTrough_CI_SoakHide",
+                "DefaultText": "Soak Hide in Limewater"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcLimewaterTrough",
+                "LocalizationKey": "CMC_LimewaterTrough_CI_SoakHide_Desc",
+                "DefaultText": "Steep the fleshed hide in limewater to loosen the hair. It tans sooner afterwards. A hide can be soaked once."
+            },
+            "DaytimeCost": 2,
+            "RequiredReceivingLiquidContent": {
+                "IsActive": true,
+                "RequiredLiquid": { "m_FileID": 0, "m_PathID": 0 },
+                "RequiredLiquidWarpData": "69e478d8bb4fa074788521f5ba02aecd",
+                "RequiredLiquidWarpType": 3,
+                "RequiredGroup": { "m_FileID": 0, "m_PathID": 0 },
+                "RequiredQuantity": { "x": 1.0, "y": 1000000000.0 }
+            },
+            "RequiredGivenDurabilities": {
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.2
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "ChargesChange": { "x": 144.0, "y": 144.0 }
+            },
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "78f74ff00810d1348a99fa1e3c1e68f2",
+                    "91657c91912187a4cb44c7ab965a429a",
+                    "497d287332908014d8fda729963f57c3",
+                    "92f48d39c7356da4882dd3a8b1221312",
+                    "7801bf9435e3d2946af718ed5adfe089"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "PassiveEffects": [],
+    "ObjectWeight": 1500.0,
+    "TradingValue": 40.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

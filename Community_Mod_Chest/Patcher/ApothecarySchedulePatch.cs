@@ -46,7 +46,9 @@ namespace CommunityModChest.Patcher
     ///   3. Portrait sync (new) — her card + dialog/trade portrait follows the same states:
     ///      Village (CMC_Apothecary), in transit or standing outside the cabin (CMC_Alchemist_Forest),
     ///      inside the cabin (CMC_Alchemist_Cabin), brewing (CMC_Alchemist_Potions), her weekly
-    ///      Academy visit (CMC_Alchemist_Academy), or her evening Inn visit (CMC_Alchemist_Inn).
+    ///      Academy visit (CMC_Alchemist_Academy), her evening Inn visit (CMC_Alchemist_Inn), or, while
+    ///      she works a Market Stall that stands on the Village board, CMC_ApothecaryAtStall (C8). The
+    ///      same reads feed <c>CurrentLegLabel</c>, the one-line "where she is" status her Notice Board shows (C5).
     ///   4. Healing-potion brew (new) — "Give Herb Mixture" (Agent_Apothecary.json
     ///      DragAndDropActions) consumes a player-crafted cmcApothecaryHealingMixture (rare H&F
     ///      herbs incl. hemp) and nudges cmcStatApothecaryPotionCraftDay from 0 to a small
@@ -105,13 +107,29 @@ namespace CommunityModChest.Patcher
         private const float InnVisitEndHour     = 21f;    // leaves the Inn, heading home
         private const float OutboundEndHour     = InnVisitEndHour + 3 * TileTravelHours; // arrives at the cabin exterior
 
-        private enum ApPortrait { None = 0, Village = 1, Forest = 2, Cabin = 3, Potions = 4, Inn = 5, Academy = 6 }
+        private enum ApPortrait { None = 0, Village = 1, Forest = 2, Cabin = 3, Potions = 4, Inn = 5, Academy = 6, Stall = 7 }
         private const string VillageSpriteName = "CMC_Apothecary";
         private const string ForestSpriteName  = "CMC_Alchemist_Forest";
         private const string CabinSpriteName   = "CMC_Alchemist_Cabin";
         private const string PotionsSpriteName = "CMC_Alchemist_Potions";
         private const string InnSpriteName     = "CMC_Alchemist_Inn";
         private const string AcademySpriteName = "CMC_Alchemist_Academy";
+        // The seventh leg (C8): her at the Market Stall. It shows her board photo, CMC_Apothecary, which
+        // already draws her behind her counter of bottles and herbs (owner, 2026-10-12: "We already have the
+        // CMC_Apothecary image which is better"; the separate CMC_ApothecaryAtStall portrait was retired).
+        // The Stall leg is kept because the board status line (LegStallKey) still reads from it.
+        private const string StallSpriteName   = "CMC_Apothecary";
+
+        // Board status line (C5): CSV keys, one per place she can be, never English built here. The board
+        // patch resolves the text through the game's own localization table, so the language follows the player.
+        private const string LegCabinKey    = "CMC_BoardLeg_Apothecary_Cabin";
+        private const string LegForestKey   = "CMC_BoardLeg_Apothecary_Forest";
+        private const string LegRoadKey     = "CMC_BoardLeg_Apothecary_Road";
+        private const string LegVillageKey  = "CMC_BoardLeg_Apothecary_Village";
+        private const string LegStallKey    = "CMC_BoardLeg_Apothecary_Stall";
+        private const string LegAcademyKey  = "CMC_BoardLeg_Apothecary_Academy";
+        private const string LegInnKey      = "CMC_BoardLeg_Apothecary_Inn";
+        private const string LegBrewingKey  = "CMC_BoardLeg_Apothecary_Brewing";
 
         private static bool _initialized;
 
@@ -136,6 +154,19 @@ namespace CommunityModChest.Patcher
         private static bool _innCaptured;
 
         private static ApPortrait _lastPortrait = ApPortrait.None;
+
+        // C8: whether a Market Stall stands on the Village board, as last read while the player was standing
+        // in the Village. The stall is a card on the Village's own board, and GameManager.AllCards holds only
+        // the PLAYER'S board, so the board cannot be read from anywhere else: null means "not read this run",
+        // which shows the Village photo. A stall can only be set up or taken down with the player present, so
+        // the last read stays true while they are away.
+        private static bool? _stallOnVillageBoard;
+        private static int _stallAbsentReads;
+        // A standing stall is only reported gone after this many polls in a row (about a second each) that
+        // found none: a board that is still being laid out on arrival reads as empty for a moment.
+        private const int StallAbsentReadsToClear = 2;
+        // One warning per cause (stall-read, stall-uids, leg-read) so a broken read cannot flood the log.
+        private static readonly System.Collections.Generic.HashSet<string> _warnedCauses = new(StringComparer.Ordinal);
 
         // Restock cadence (in-memory; resets on relaunch — self-heals an empty shelf immediately).
         private static int _lastRestockDay = int.MinValue;
@@ -188,6 +219,8 @@ namespace CommunityModChest.Patcher
         private static void ResetSessionState_Postfix()
         {
             _lastPortrait = ApPortrait.None;
+            _stallOnVillageBoard = null;
+            _stallAbsentReads = 0;
             _cabinInteriorCaptured = false;
             _cabinInteriorEnvId = null;
             _academyCaptured = false;
@@ -314,6 +347,7 @@ namespace CommunityModChest.Patcher
 
                 CaptureCabinInteriorEnvId(gm);
                 CaptureSharedEnvIds(gm);
+                RefreshStallVerdict(gm);
 
                 // Brewing overrides the whole schedule — she stays put with the Potions portrait
                 // for the full 2 days regardless of what time or gift-phase it is.
@@ -393,11 +427,137 @@ namespace CommunityModChest.Patcher
             if (ReferenceEquals(envCard, _cabinInteriorCard)) return ApPortrait.Cabin;
             if (ReferenceEquals(envCard, _innInteriorCard)) return ApPortrait.Inn;
             if (ReferenceEquals(envCard, _academyInteriorCard)) return ApPortrait.Academy;
-            if (ReferenceEquals(envCard, _commuteNodes[DestVillage])) return ApPortrait.Village;
+            // In the Village she is either at her stall (C8: on her stall leg, with a stall on the board) or
+            // simply in the village, walking between legs, or without a stall to work.
+            if (ReferenceEquals(envCard, _commuteNodes[DestVillage])) return StallInUse() ? ApPortrait.Stall : ApPortrait.Village;
             for (int i = 1; i <= DestForagingForest; i++)
                 if (ReferenceEquals(envCard, _commuteNodes[i])) return ApPortrait.Forest;
 
             return ApPortrait.None; // somewhere unexpected — leave the current art alone
+        }
+
+        // ── Stall portrait (C8) and the board's location line (C5) ──────────────────────────
+
+        /// <summary>
+        /// Reads the Village board for a Market Stall, but only while the player is standing in the Village:
+        /// <c>GameQuery.CardsInPlayerEnv</c> is the player's own board (a bare AllCards scan also holds carried
+        /// and environment-independent cards), so a read from anywhere else would say nothing about the
+        /// Village. A board with no cards, or one the game is still changing over, is NOT READY, never "no
+        /// stall": the verdict only changes on a real read, and a standing stall needs
+        /// <see cref="StallAbsentReadsToClear"/> empty reads in a row before it is reported gone.
+        /// </summary>
+        private static void RefreshStallVerdict(object gm)
+        {
+            try
+            {
+                var currentEnv = Reflect.GetMember(gm, "CurrentEnvironment");
+                if (currentEnv == null || Reflect.GetMember(currentEnv, "IsNull") is true) return;
+                if (!ReferenceEquals(Reflect.GetMember(currentEnv, "EnvCard"), _commuteNodes[DestVillage])) return;
+                if (GameQuery.IsTransitioning) return;
+
+                var cards = GameQuery.CardsInPlayerEnv();
+                if (cards.Count == 0) return;
+
+                bool found = false;
+                int named = 0;
+                foreach (var card in cards)
+                {
+                    string uid = CardUtil.GetCardUniqueId(card);
+                    if (uid == null) continue;
+                    named++;
+                    if (MarketStallPatch.IsStallUid(uid)) { found = true; break; }
+                }
+
+                if (!found && named == 0)
+                {
+                    WarnOnce("stall-uids", $"[ApothecarySchedulePatch] None of the {cards.Count} cards on the Village board gave a UniqueID, so a Market Stall there was not seen and her stall portrait stays off.");
+                    return;
+                }
+
+                if (found)
+                {
+                    _stallOnVillageBoard = true;
+                    _stallAbsentReads = 0;
+                }
+                else if (_stallOnVillageBoard != true || ++_stallAbsentReads >= StallAbsentReadsToClear)
+                {
+                    _stallOnVillageBoard = false;
+                    _stallAbsentReads = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                WarnOnce("stall-read", $"[ApothecarySchedulePatch] The Village board could not be read for a Market Stall, so her stall portrait stays off: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        /// <summary>
+        /// True while she is working the stall: her schedule leg is the stall (she has been gifted the kit,
+        /// the Quiet Village perk is off, she is not brewing, and it is stall hours: 9:00 on, outside her
+        /// Academy afternoon, until she heads for the Inn) AND the Village board holds a Market Stall.
+        /// <c>ComputeDestIndex</c> answers "Village" for her last arrival tile from 8:15 as well, so the
+        /// clock test (<c>ReturnEndHour</c>) is what keeps the walk in out of the stall leg.
+        /// </summary>
+        private static bool StallInUse()
+        {
+            if (_stallOnVillageBoard != true) return false;
+
+            var gm = CardUtil.GetGameManagerInstance();
+            if (gm == null) return false;
+            if (QuietVillagePerkPatch.IsActive()) return false;
+            if (GetGiftedFlag(gm) < 0.5f) return false;
+            if (GetCraftDay(gm) > 0.001f) return false;
+
+            float hour = GameQuery.HourOfDay;
+            bool isAcademyDay = GameQuery.CurrentDay % 7 == AcademyDayOfWeek;
+            return hour >= ReturnEndHour && ComputeDestIndex(hour, true, isAcademyDay) == DestVillage;
+        }
+
+        /// <summary>
+        /// Where she is right now, as the CSV key of one sentence for her Notice Board, or null when she has
+        /// not moved in or this cannot be read. Read-only status: it derives from where she ACTUALLY stands
+        /// (the same read the portrait uses, so the two never disagree) and never moves her. Brewing comes
+        /// first because she is frozen in place for the two days a Herb Mixture takes.
+        /// </summary>
+        internal static string CurrentLegLabel
+        {
+            get
+            {
+                try
+                {
+                    if (!ResolveTypes() || !ResolveRefs()) return null;
+
+                    var gm = CardUtil.GetGameManagerInstance();
+                    if (gm == null) return null;
+
+                    var npc = FindLiveNpc(gm);
+                    if (npc == null) return null;
+
+                    if (GetCraftDay(gm) > 0.001f) return LegBrewingKey;
+
+                    switch (ActualPortrait(npc))
+                    {
+                        case ApPortrait.Cabin: return LegCabinKey;
+                        case ApPortrait.Inn: return LegInnKey;
+                        case ApPortrait.Academy: return LegAcademyKey;
+                        case ApPortrait.Stall: return LegStallKey;
+                        case ApPortrait.Village: return LegVillageKey;
+                        case ApPortrait.Forest:
+                            return IsAtEnv(npc, _commuteNodes[DestForagingForest]) ? LegForestKey : LegRoadKey;
+                        default: return null; // somewhere unexpected: no line is better than a wrong one
+                    }
+                }
+                catch (Exception ex)
+                {
+                    WarnOnce("leg-read", $"[ApothecarySchedulePatch] CurrentLegLabel failed, so her notice board shows no location line: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                    return null;
+                }
+            }
+        }
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warnedCauses.Add(cause)) Plugin.Logger.LogWarning(message);
         }
 
         private static void RunCommute(object gm, object npc, int destIndex)
@@ -682,6 +842,7 @@ namespace CommunityModChest.Patcher
                 ApPortrait.Potions => PotionsSpriteName,
                 ApPortrait.Inn => InnSpriteName,
                 ApPortrait.Academy => AcademySpriteName,
+                ApPortrait.Stall => StallSpriteName,
                 _ => VillageSpriteName,
             };
             return GameContent.Find<Sprite>(name);
@@ -740,7 +901,8 @@ namespace CommunityModChest.Patcher
                 _missingRestockActionWarned = true;
                 Plugin.Logger.LogWarning($"[ApothecarySchedulePatch] '{RestockActionId}' not found on Agent_Apothecary.json — restock inactive.");
             }
-            // Herbs & Fungi tinctures — resolves to nothing (no error) when H&F isn't installed.
+            // Herbs & Fungi tinctures and teas: drops nothing when H&F isn't installed. The only trace is the
+            // framework's one Info line per boot, "WarpResolver: [<mod>] unresolved: ...", naming the missing cards.
             FireAgentAction(npc, associatedCard, RestockActionHfId);
 
             _lastRestockDay = currentDay;

@@ -103,6 +103,7 @@
     "Coords": { "x": 20.0, "y": 0.0, "z": 20.0, "w": 0.0 },
     "CardImage": "Village",
     "HideFromMap": false,
+    "StripEnvTags": ["tag_Env_OakClearingCloverPatch"],
     "ExtraDropUIDs": [],
     "StripLegacyBoardUIDs": [
       "14201221856a7b34fb86d602e0359b83",
@@ -430,6 +431,20 @@
         "GateLogic": "ALL",
         "HideTravelDA": true,
         "RestoreDAOnUnlock": true
+      }
+    ],
+    "SealableGates": [
+      {
+        "ConnectionUID": "cmcEnvDeerMeadow",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Season", "UID": "Summer" },
+        "ChallengeCardUID": "cmcBrambleThicket",
+        "ClearActionKeyPrefix": "CMC_BrambleThicket_CI_Cut",
+        "MultiHit": true,
+        "MarkerUID": "cmc_badgerwarren_bramble_cleared",
+        "MarkerEnvUID": "cmcEnvBadgerWarren",
+        "SeedOnEnvUIDs": ["cmcEnvBadgerWarren", "cmcEnvDeerMeadow"],
+        "ResealCondition": { "Type": "TimerRegrowth", "Days": 60 }
       }
     ]
   }

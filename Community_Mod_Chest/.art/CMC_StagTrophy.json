@@ -1,0 +1,19 @@
+{
+  "target": "CMC_StagTrophy.png",
+  "sourceCard": "CardData/Location/CMC_StagTrophy_Placed.json",
+  "subject": "a stag antler trophy: a small plain rectangular oak plaque with one pair of branching pale tan-brown deer antlers mounted on it, each antler with three tines, spreading upward in a wide V, fixed with two small iron pins, a short twine loop at the top for hanging",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: stag head, skull, fur, blood, wall, tusks",
+  "historyId": "46E9A7p08TEAL0X5chOs",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791125604539_8e68a355_1791125604953_7c39839b.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase H closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_StagTrophy.json. The paper inside the hanging loop stays white. The antlers spread wider than the plaque. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

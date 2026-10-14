@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatStallTheftHash",
+    "GameName": {
+        "LocalizationKey": "CMC_StallTheftHash_StatName",
+        "DefaultText": "Stolen Stall Item Identity"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_StallTheftHash_StatDescription",
+        "DefaultText": "Hidden C#-only bookkeeping stat: a 24-bit hash (1 to 16777215, 0 = none) of the UniqueID of the item the last stall robbery took. A GameStat holds a number and not text, so the save keeps this hash and the item is looked up again by it on delivery. Written only by MarketStallPatch."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 16777215.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

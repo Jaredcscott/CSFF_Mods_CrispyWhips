@@ -15,7 +15,7 @@
   "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783570556_4328bce1_1789783571097_a722d2ee.png",
   "credits": 60,
   "generated": "2026-09-18",
-  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'HealersMoss' on CardData/Item/CMC_HollowSage.json.",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'HealersMoss' on CardData/Item/CMC_HollowSage.json. | owner gallery rework 2026-10-12: needs white removed: re-derived from resource_url at 512x768, paper between the sprigs keyed with key_enclosed.py, white edge trim cleaned with defringe.py. Trimmed palette PNG. No credits.",
   "candidates": [
     {
       "n": "A",
@@ -29,5 +29,6 @@
     }
   ],
   "picked": "B",
-  "predicted": "B"
+  "predicted": "B",
+  "rekeyed": "2026-10-12"
 }

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatWatchDeputy",
+    "GameName": {
+        "LocalizationKey": "CMC_WatchDeputy_StatName",
+        "DefaultText": "Deputy of the Watch"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WatchDeputy_StatDescription",
+        "DefaultText": "Hidden 0/1 latch: 1 once Captain Sterling has named you a Deputy (three jobs done and a clean record). Latched for the run. Village Reputation adds a flat 5 to its civic half while it reads 1, so the standing is paid once and never repeated."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

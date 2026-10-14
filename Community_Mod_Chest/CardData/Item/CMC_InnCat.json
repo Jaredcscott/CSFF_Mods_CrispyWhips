@@ -38,6 +38,14 @@
             }
         },
         {
+            "Conditions": {"Special1Range": {"x": 1.0, "y": 1.0}, "Special3Range": {"x": 90.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Hunting", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareContent_CardDescription",
+                "DefaultText": "Ash has stopped keeping an eye on the door and keeps one on you instead: asleep in your lap before you have finished sitting, a slow blink for every look. Whatever he once was to the inn, he is content here."
+            }
+        },
+        {
             "Conditions": {"Special1Range": {"x": 1.0, "y": 1.0}, "Special3Range": {"x": 75.0, "y": 100.0}},
             "Art": {"CardImageWarpData": "CMC_InnCat_Hunting", "CardImageWarpType": 3},
             "Description": {
@@ -59,6 +67,14 @@
             "Description": {
                 "LocalizationKey": "CMC_InnCat_CareMid_CardDescription",
                 "DefaultText": "Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 2.0, "y": 2.0}, "Special3Range": {"x": 90.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Swimming", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareContent_CardDescription",
+                "DefaultText": "Ash has stopped keeping an eye on the door and keeps one on you instead: asleep in your lap before you have finished sitting, a slow blink for every look. Whatever he once was to the inn, he is content here."
             }
         },
         {
@@ -86,6 +102,14 @@
             }
         },
         {
+            "Conditions": {"Special1Range": {"x": 3.0, "y": 3.0}, "Special3Range": {"x": 90.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Lounging", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareContent_CardDescription",
+                "DefaultText": "Ash has stopped keeping an eye on the door and keeps one on you instead: asleep in your lap before you have finished sitting, a slow blink for every look. Whatever he once was to the inn, he is content here."
+            }
+        },
+        {
             "Conditions": {"Special1Range": {"x": 3.0, "y": 3.0}, "Special3Range": {"x": 75.0, "y": 100.0}},
             "Art": {"CardImageWarpData": "CMC_InnCat_Lounging", "CardImageWarpType": 3},
             "Description": {
@@ -110,6 +134,14 @@
             }
         },
         {
+            "Conditions": {"Special1Range": {"x": 4.0, "y": 4.0}, "Special3Range": {"x": 90.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Gift", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareContent_CardDescription",
+                "DefaultText": "Ash has stopped keeping an eye on the door and keeps one on you instead: asleep in your lap before you have finished sitting, a slow blink for every look. Whatever he once was to the inn, he is content here."
+            }
+        },
+        {
             "Conditions": {"Special1Range": {"x": 4.0, "y": 4.0}, "Special3Range": {"x": 75.0, "y": 100.0}},
             "Art": {"CardImageWarpData": "CMC_InnCat_Gift", "CardImageWarpType": 3},
             "Description": {
@@ -131,6 +163,14 @@
             "Description": {
                 "LocalizationKey": "CMC_InnCat_CareMid_CardDescription",
                 "DefaultText": "Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 5.0, "y": 5.0}, "Special3Range": {"x": 90.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Greeting", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareContent_CardDescription",
+                "DefaultText": "Ash has stopped keeping an eye on the door and keeps one on you instead: asleep in your lap before you have finished sitting, a slow blink for every look. Whatever he once was to the inn, he is content here."
             }
         },
         {
@@ -176,6 +216,13 @@
             }
         },
         {
+            "Conditions": {"Special3Range": {"x": 90.0, "y": 100.0}},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareContent_CardDescription",
+                "DefaultText": "Ash has stopped keeping an eye on the door and keeps one on you instead: asleep in your lap before you have finished sitting, a slow blink for every look. Whatever he once was to the inn, he is content here."
+            }
+        },
+        {
             "Conditions": {"Special3Range": {"x": 75.0, "y": 100.0}},
             "Description": {
                 "LocalizationKey": "CMC_InnCat_CareHigh_CardDescription",
@@ -201,20 +248,24 @@
     },
     "SpecialDurability2": {
         "Active": true,
-        "FloatValue": 480.0,
+        "FloatValue": 0.0,
         "MaxValue": 480.0,
-        "RatePerDaytimePoint": -1.0,
+        "RatePerDaytimePoint": 1.0,
         "HidingOptions": 2,
         "TextDisplay": 0,
         "NumberPrecision": 0,
         "SortInverted": false,
         "ResetWhenLoadedAtZero": false,
-        "HasActionOnZero": true,
+        "HasActionOnZero": false,
         "RepeatActionOnZero": false,
         "ShowPopupOnZero": false,
         "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "RepeatActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 0,
         "CountsForTradingValue": false,
-        "OnZero": {
+        "OnFull": {
             "ActionName": {
                 "LocalizationKey": "CMC_InnCat_BoarHunt_OnZero",
                 "DefaultText": "Goes Hunting"
@@ -446,6 +497,137 @@
                 ],
                 "TriggerCardsWarpType": 3
             }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_CI_PlayToy",
+                "DefaultText": "Play with the Toy"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnCat_CI_PlayToy_Desc",
+                "DefaultText": "Trail it across the floor and he pounces, bats it about, then pretends he was never interested."
+            },
+            "DaytimeCost": 2,
+            "StatModifications": [
+                {
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 16.0,
+                        "y": 16.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -25.0,
+                        "y": -25.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -30.0,
+                        "y": -30.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special3Change": {
+                    "x": 20.0,
+                    "y": 20.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "GetSpoilageFromOtherCard": false,
+                "GetUsageFromOtherCard": false,
+                "GetChargesFromOtherCard": false,
+                "GetSpecial1FromOtherCard": false,
+                "GetSpecial2FromOtherCard": false,
+                "GetSpecial3FromOtherCard": false,
+                "GetSpecial4FromOtherCard": false,
+                "AverageGivenAndReceivingCards": false,
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": []
+            },
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "cmcBoneDice",
+                    "cmcSpinningTop",
+                    "cmcWheeledHorse"
+                ],
+                "TriggerCardsWarpType": 3
+            }
         }
     ],
     "PassiveStatEffects": [
@@ -453,6 +635,35 @@
             "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
             "StatWarpType": 3,
             "RateModifier": {"x": -2.0, "y": -2.0}
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "CMC Content Cat Calm",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true,
+                "ReceivingRequiredDurabilityRanges": {
+                    "Special3Range": { "x": 90.0, "y": 100.0 }
+                }
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 0.0, "y": 0.0 },
+                    "RateModifier": { "x": -2.0, "y": -2.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
         }
     ]
 }

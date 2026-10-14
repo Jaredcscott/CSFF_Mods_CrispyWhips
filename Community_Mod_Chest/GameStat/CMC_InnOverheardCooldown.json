@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnOverheardCooldown",
+    "GameName": {
+        "LocalizationKey": "CMC_InnOverheardCooldown_StatName",
+        "DefaultText": "Inn Overheard Cooldown"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnOverheardCooldown_StatDescription",
+        "DefaultText": "Hidden cooldown: set to 72 when the Inn Keeper passes on an overheard line, drains 1 per tick, so at most one line is passed on per evening."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 96.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

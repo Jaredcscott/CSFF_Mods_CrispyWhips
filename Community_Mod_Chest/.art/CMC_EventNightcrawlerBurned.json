@@ -1,0 +1,26 @@
+{
+  "target": "CMC_EventNightcrawlerBurned.png",
+  "sourceCard": "CardData/Event/CMC_EventNightcrawlerBurned.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a STYLE reference only (a scene from the game Card Survival: Fantasy Forest): match its rendering exactly; do not copy its subject.\nReference image 2 is the COMPOSITION: keep this subject and layout, but redraw it in reference image 1's style.\nSubject: a pale, gaunt, hairless grey-skinned night creature crouching low in a meadow at dawn, flinching away with one long thin hand raised to shield its face from the first pale band of sunrise light on the horizon, thin wisps of grey smoke rising from its shoulders and back where the light touches it, rough grass and a few dark shrubs around it.\nStyle: flat posterized colour fills in a few tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture; thin dark ink outlines and small ink hatch and tick marks for grass and skin texture; a muted naturalistic palette of grey-greens, dull browns, slate-blue dawn sky with a narrow pale yellow band at the horizon; realistic proportions; nothing glossy, no glow. The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, cartoon zombie, horror gore, glowing eyes, fire, flames, saturated colours, photo, 3D render, anime, other creatures, people, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "Bear_Wild (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652734929_38bf6561.png"
+    },
+    {
+      "label": "CMC_EventNightcrawlerBurned current (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_EventNightcrawlerBurned_1791652742672_ac42cf3c.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652956371_2216cc6d_1791652957047_b6250cef.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art --full-bleed."
+}

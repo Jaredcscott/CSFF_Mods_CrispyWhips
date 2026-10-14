@@ -100,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most.",
+        "DefaultText": "You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most. Word of you has reached the village Watch: on your first visit there you are already Suspected.",
         "LocalizationKey": "CharacterTraits_Perk_Fugitive_PerkDescription",
         "ParentObjectID": "traits_perk_fugitive"
     },

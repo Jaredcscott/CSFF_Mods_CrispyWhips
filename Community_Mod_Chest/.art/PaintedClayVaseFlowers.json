@@ -1,0 +1,37 @@
+{
+  "target": "PaintedClayVaseFlowers.png",
+  "sourceCard": "CardData/Item/PaintedClayVaseFlowers.json",
+  "subject": "the PaintedClayVase art holding a small fresh wildflower posy",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; image2image with reference PaintedClayVase.png (same design, one stated change)",
+  "historyId": "Ywb15s9wEv9jaOs4jaW3",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791562482848_826acd96_1791562484055_8fec7c81.png",
+  "generated": "2026-10-09",
+  "note": "Owner pick from .claude/handoffs/card-art-picks-awaiting-gimp-2026-10-09.md, finished 2026-10-10 by /process-card-art (headless GIMP 3 batch bridge); enclosed paper keyed with key_enclosed.py where it was background. A duplicate sample generated 2026-10-10 by mistake was NOT used.",
+  "picked": "C",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791539367307_dad181a5_1791539368032_669609ef.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791539359997_39ad5160_1791539360501_2572fcea.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791562482848_826acd96_1791562484055_8fec7c81.png"
+    },
+    {
+      "n": "D",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791562482392_f56d8144_1791562482892_0a958282.png"
+    }
+  ]
+}

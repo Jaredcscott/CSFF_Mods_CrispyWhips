@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CSFFModFramework.Api;
 
 namespace CommunityModChest.Patcher
@@ -40,6 +41,26 @@ namespace CommunityModChest.Patcher
         private const string RopeGuid = "a7a58aa687df66e47a42fc13e0fdbeaa";
         private const string CopperNailUid = "advanced_copper_tools_copper_nails";
 
+        // A bare spawn starts each card at its defaults, which for these three is unusable: a Plank's
+        // wood ID 0 is no wood at all, Clay rolls quality 0-50, and a Tree Log is quality 0 with no
+        // fuel. The values are vanilla's own: a felled Large Oak becomes a log carrying its Fragrance
+        // 18, Fuel 35, Quality 96 and ID 1 (TreeLargeOak Progress.OnZero, ModType 2), oak planks are
+        // ID 1, and 30 is 60% of Clay's 50 cap (player report, Chiwei 2026-09-27). SpawnService.Spawn
+        // honours the overrides from framework 2.28.0.
+        private static readonly Dictionary<string, float> OakPlank = new Dictionary<string, float>
+        {
+            { "SpecialDurability4", 1f },
+        };
+        private static readonly Dictionary<string, float> OakLog = new Dictionary<string, float>
+        {
+            { "UsageDurability", 18f }, { "FuelCapacity", 35f },
+            { "SpecialDurability2", 96f }, { "SpecialDurability4", 1f },
+        };
+        private static readonly Dictionary<string, float> WorkedClay = new Dictionary<string, float>
+        {
+            { "SpecialDurability2", 30f },
+        };
+
         public static void Initialize()
         {
             ActionRouter.Register(new ActionHandler
@@ -59,22 +80,22 @@ namespace CommunityModChest.Patcher
             SpawnService.Spawn(CabinKitId);
             SpawnMany(CisternKitId, 2);
 
-            SpawnMany(PlankGuid, 30);
+            SpawnMany(PlankGuid, 30, OakPlank);
             SpawnMany(MudBrickGuid, 30);
             SpawnMany(StoneSmallGuid, 50);
             SpawnMany(StoneHeavyGuid, 20);
-            SpawnMany(TreeLogGuid, 15);
-            SpawnMany(ClayGuid, 20);
+            SpawnMany(TreeLogGuid, 15, OakLog);
+            SpawnMany(ClayGuid, 20, WorkedClay);
             SpawnMany(RopeGuid, 10);
             SpawnMany(CopperNailUid, 50);
 
             Plugin.Logger.LogDebug("[HomesteadKitPatch] Homestead contents spawned.");
         }
 
-        private static void SpawnMany(string uid, int quantity)
+        private static void SpawnMany(string uid, int quantity, Dictionary<string, float> stats = null)
         {
             for (int i = 0; i < quantity; i++)
-                SpawnService.Spawn(uid);
+                SpawnService.Spawn(uid, stats);
         }
     }
 }

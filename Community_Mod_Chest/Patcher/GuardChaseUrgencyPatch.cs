@@ -84,8 +84,45 @@ namespace CommunityModChest.Patcher
         {
             if (_initialized) return;
             _initialized = true;
+            TickEvents.DtpTick += () => _ticks++;
             TickEvents.Interval(PollIntervalSeconds, Run, "GuardChaseUrgency");
             Plugin.Logger.LogDebug("[GuardChaseUrgencyPatch] initialized.");
+        }
+
+        // DTP ticks seen this session, so "stuck for N ticks" is measured in game time (a paused game polls forever).
+        private static int _ticks;
+        private static readonly Dictionary<object, int> _freshSince = new Dictionary<object, int>();
+        private static MethodInfo _cancelMethod;
+        private const int StuckTicks = 3;
+
+        /// <summary>
+        /// A chase duty that sits at step -1 with its first action never started for several game ticks is
+        /// wedged: the engine only advances a fresh duty in the tick it was selected, and only re-selects a
+        /// duty whose required actions are doable from the CURRENT step (-1 reads as not doable), so the guard
+        /// holds the duty, is never re-selected and never updated again (harness T4.28: Iris Vane after the
+        /// player's first arrest, 'NOT SELECTABLE - Required actions are not doable' every tick with a valid
+        /// path). Cancelling it through the engine's own CancelCurrentDuty clears the slot so the next tick
+        /// selects the duty afresh.
+        /// </summary>
+        private static void HealStuckDuty(object npc, MonoBehaviour npcBehaviour, object gm, object currentDuty, string dutyName)
+        {
+            if (Reflect.GetBool(currentDuty, "ActionStarted")) { _freshSince.Remove(npc); return; }
+            if (!(Reflect.GetMember(currentDuty, "CurrentActionIndex") is int step) || step >= 0) { _freshSince.Remove(npc); return; }
+            if (!_freshSince.TryGetValue(npc, out int since)) { _freshSince[npc] = _ticks; return; }
+            if (_ticks - since < StuckTicks) return;
+
+            _cancelMethod ??= npc.GetType().GetMethod("CancelCurrentDuty", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (_cancelMethod == null)
+            {
+                Plugin.Logger.LogWarning("[GuardChaseUrgencyPatch] InGameNPC.CancelCurrentDuty not found - a wedged chase duty cannot be cleared.");
+                return;
+            }
+            _freshSince.Remove(npc);
+            if (_cancelMethod.Invoke(npc, null) is IEnumerator cancel)
+            {
+                (gm as MonoBehaviour ?? npcBehaviour).StartCoroutine(cancel);
+                Plugin.Logger.LogWarning($"[GuardChaseUrgencyPatch] '{dutyName}' sat unstarted for {StuckTicks}+ ticks (wedged); cancelled it so the guard selects it afresh.");
+            }
         }
 
         private static void Run()
@@ -116,6 +153,20 @@ namespace CommunityModChest.Patcher
                     // already mid-pass on this exact coroutine — skip rather than race it.
                     if (Reflect.GetBool(currentDuty, "IsBeingUpdated")) continue;
 
+                    // SelectedNPCDuty.CurrentAction is null while the step index sits outside the duty's
+                    // ActionSequence (reset to -1 around a duty ending or an encounter starting), and the
+                    // engine's StartOrUpdateCurrentDuty dereferences it unguarded: a bonus pass started in
+                    // that window threw a NullReferenceException (harness T4.28, 2026-10-13, from the first
+                    // pass after the chase's encounter). The engine's own per-tick pass is already past
+                    // that window by the time it runs, so skipping is always safe.
+                    var currentAction = Reflect.GetMember(currentDuty, "CurrentAction");
+                    if (currentAction == null || (currentAction is UnityEngine.Object actionObj && !actionObj))
+                    {
+                        HealStuckDuty(npc, npcBehaviour, gm, currentDuty, dutyName);
+                        Plugin.Logger.LogDebug($"[GuardChaseUrgencyPatch] '{dutyName}' has no current action this poll; no bonus step.");
+                        continue;
+                    }
+
                     _startOrUpdateMethod ??= npc.GetType()
                         .GetMethod("StartOrUpdateCurrentDuty", BindingFlags.Instance | BindingFlags.NonPublic);
                     if (_startOrUpdateMethod == null)
@@ -125,7 +176,14 @@ namespace CommunityModChest.Patcher
                     }
 
                     if (_startOrUpdateMethod.Invoke(npc, null) is not IEnumerator routine) continue;
-                    npcBehaviour.StartCoroutine(routine);
+                    // Run it on the GameManager, as the engine's own calls do (GM.StartCoroutineEx), NOT on the NPC's
+                    // component: StartOrUpdateCurrentDuty raises SelectedNPCDuty.IsBeingUpdated for its whole run and only
+                    // lowers it at the end, so a coroutine owned by the NPC's GameObject that is killed mid-pass (the
+                    // object goes inactive when the player changes environment, e.g. on being arrested) leaves the flag
+                    // up for good and the guard's duty never advances again: Iris Vane never raised the alarm after the
+                    // player's first arrest (harness T4.28 DAY leg, found 2026-10-13).
+                    var runner = gm as MonoBehaviour ?? npcBehaviour;
+                    runner.StartCoroutine(routine);
                     Plugin.Logger.LogDebug($"[GuardChaseUrgencyPatch] '{dutyName}' gets a bonus pursuit step.");
                 }
             }

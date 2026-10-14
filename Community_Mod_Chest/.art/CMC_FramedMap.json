@@ -1,0 +1,26 @@
+{
+  "target": "CMC_FramedMap.png",
+  "sourceCard": "CardData/Blueprint/Bp_CMC_FramedMap.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the vanilla game's own map item (from Card Survival: Fantasy Forest): match its rendering style exactly and draw the map inside the frame the same way: a pale grey-cream parchment covered in thin dark ink lines for coasts and a river and many tiny tick marks for trees.\nReference image 2 is the COMPOSITION: keep this subject and layout (a map in a plain plank frame hung from a twine loop), redrawn in reference image 1's style.\nSubject: a framed map: a hand-drawn parchment map of a coastline, a winding river and tiny tree tick marks, mounted in a plain narrow rectangular frame of four rough oak planks with square butt-joined corners, a loop of twine at the top for hanging, seen straight on with a slight tilt.\nStyle: flat posterized colour fills in a few tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture; thin dark ink outlines and small ink hatch marks for wood grain; a muted naturalistic palette of grey-cream parchment, dull grey-brown wood and dark ink; realistic proportions; nothing glossy.\nSingle subject centred with a generous white margin on a solid flat pure white background (#FFFFFF) filling every edge, no ground shadow, no scenery. No text, no watermark, no signature, no border.\nAvoid: watercolour, warm golden glow, sepia gradient, gilded ornate frame, glass glare, compass rose, readable lettering, sea monsters, wall, photo, 3D render, scenery behind the subject, grey background, off-white background, checkerboard.",
+  "refs": [
+    {
+      "label": "Map (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Map_1791652736542_adb93428.png"
+    },
+    {
+      "label": "CMC_FramedMap current (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_FramedMap_1791652741274_07fd40f4.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652959343_4ee57edc_1791652959747_f37f6805.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
+}

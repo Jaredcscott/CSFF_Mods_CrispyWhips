@@ -1,0 +1,54 @@
+{
+  "UniqueID": "cmcSpringTonic",
+  "TradingValue": 150,
+  "CardType": 0,
+  "CardName": {
+    "ParentObjectID": "cmcSpringTonic",
+    "DefaultText": "Spring Tonic",
+    "LocalizationKey": "CMC_SpringTonic_CardName"
+  },
+  "CardDescription": {
+    "ParentObjectID": "cmcSpringTonic",
+    "DefaultText": "A pale, sharp-smelling tonic ground from dried heather flowers and willow bark. The Academy's medicine course teaches it for the sneezing season: it eases a bad spring for about a day.",
+    "LocalizationKey": "CMC_SpringTonic_CardDesc"
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CMC_SpringTonic",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "ParentObjectID": "cmcSpringTonic",
+    "DefaultText": "Drink it to be more comfortable and to slow upper respiratory infections for about a day. It does not strengthen your immune system, and a second dose only tops the first one up.",
+    "LocalizationKey": "CMC_SpringTonic_Help"
+  },
+  "CardTagsWarpData": ["tag_Consumable", "tag_Drinkable", "tag_Medicine", "tag_Preservable"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 15.0,
+  "MaxStack": 5,
+  "SpoilageTime": {
+    "Active": true,
+    "MaxValue": 4320.0,
+    "RatePerDaytimePoint": 0.75
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "cmcSpringTonic",
+        "LocalizationKey": "CMC_SpringTonic_DA_Drink",
+        "DefaultText": "Drink"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "cmcSpringTonic",
+        "LocalizationKey": "CMC_SpringTonic_DA_Drink_Desc",
+        "DefaultText": "Drink the tonic. It tastes of heather and bitter bark, and you feel easier for the rest of the day."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": ["EatingAction", "MedicineAction"],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": { "ModType": 3 },
+      "StatModifications": [
+        { "StatWarpData": "cmcStatSpringTonic", "StatWarpType": 3, "ValueModifier": { "x": 96.0, "y": 96.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true }
+      ]
+    }
+  ]
+}

@@ -101,6 +101,14 @@ namespace CommunityModChest.Patcher
         private const string OutdoorsSpriteName = "Professor_Outdoors";
         private const string InnSpriteName = "Professor_Indoors_Inn";
 
+        // Board status line (C5): CSV keys, one per place he can be, never English built here. The board
+        // patch resolves the text through the game's own localization table, so the language follows the player.
+        private const string LegAcademyKey = "CMC_BoardLeg_Professor_Academy";
+        private const string LegInnKey = "CMC_BoardLeg_Professor_Inn";
+        private const string LegForagingKey = "CMC_BoardLeg_Professor_Foraging";
+        private const string LegOutdoorsKey = "CMC_BoardLeg_Professor_Outdoors";
+        private static bool _legReadWarned;
+
         private sealed class CourseSpec
         {
             public string PerkUid;
@@ -111,8 +119,9 @@ namespace CommunityModChest.Patcher
         // Mirrors Documentation/Design/Village_Professor_Plan.md §3d's curated item table.
         // Keep in sync with the matching AgentActions block in Agent_Professor.json — this
         // list is used only to COUNT currently-held specialty items for the cap check; the
-        // actual drop tables live in JSON (cross-mod soft-dependency degrades there, silently,
-        // via normal WarpData resolution — nothing to duplicate here).
+        // actual drop tables live in JSON (a missing partner mod's slot simply never drops, via
+        // normal WarpData resolution, and the framework logs one Info line per boot,
+        // "WarpResolver: [<mod>] unresolved: ...", naming it; nothing to duplicate here).
         private static readonly CourseSpec[] Courses =
         {
             new CourseSpec
@@ -122,8 +131,11 @@ namespace CommunityModChest.Patcher
                 {
                     "advanced_copper_tools_copper_tea_kettle", "advanced_copper_tools_metal_lantern",
                     "advanced_copper_tools_copper_oil_flask", "advanced_copper_tools_copper_watering_can",
+                    // WDI 1.12.3 retired its Cast Copper Rivet for the shared Metal Nail, so that slot drops
+                    // the framework's Metal Nail now (copper, its default Metal Type); the nail also sits in
+                    // the Architecture pool below, so one held nail counts toward both caps.
                     "advanced_copper_tools_copper_cauldron", "act_tin_solder",
-                    "water_sawmill_copper_gear_small", "water_sawmill_copper_rivet",
+                    "water_sawmill_copper_gear_small", "advanced_copper_tools_copper_nails",
                 }
             },
             new CourseSpec
@@ -134,7 +146,7 @@ namespace CommunityModChest.Patcher
                     "555bacff1fadd9a418c7324a8fdc568d", "herbs_fungi_herb_pipe",
                     "herbs_fungi_drying_tray", "herbs_fungi_dried_reishi",
                     "herbs_fungi_flower_garland", "advanced_copper_tools_focus_tea",
-                    "potterysculptureherbpaste",
+                    "potterysculptureherbpaste", "herbs_fungi_hemp_seeds",
                 }
             },
             new CourseSpec
@@ -161,6 +173,10 @@ namespace CommunityModChest.Patcher
                 PerkUid = "cmcperkgradarchitecture", StatUid = "cmcStatProfEligibleArchitecture",
                 PoolUids = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
                 {
+                    // ACT 1.18.0: the copper and iron nail drops both make the one Metal Nail
+                    // (advanced_copper_tools_copper_nails; the iron one stamped Metal Type 200 in
+                    // Agent_Professor.json). act_iron_nail is retired and no longer dropped; it stays
+                    // here only so an old one still held from a pre-merge save counts toward the cap.
                     "advanced_copper_tools_wheelbarrow", "advanced_copper_tools_large_saw",
                     "advanced_copper_tools_copper_nails", "act_iron_nail",
                     "potterysculpturestonetiles", "water_sawmill_iron_wrench",
@@ -255,7 +271,8 @@ namespace CommunityModChest.Patcher
         private static MethodInfo _assignOrCreateCardsMethod; // GameManager.AssignOrCreateNPCCards() (private, no args)
         private static MethodInfo _moveNpcMethod;    // GameManager.MoveNPC(InGameNPC, EnvID)
         private static MethodInfo _getStatValueMethod; // InGameNPC.GetStatValue(NPCStat)
-        private static MethodInfo _setStatValueMethod; // InGameNPCStat.SetStatValue(float) — resolved lazily (per-instance type)
+        private static MethodInfo _setStatValueMethod; // InGameNPCStat.SetStatValueFromEditor(float) — resolved lazily (per-instance type)
+        private static bool _setStatValueMissingWarned;
         private static MethodInfo _setCardImageMethod; // CardData.SetCardImage(Sprite)
         private static MethodInfo _refreshVisualsMethod; // CardGraphics.RefreshCookingStatus() — resolved lazily (per-instance type)
         private static bool _refreshVisualsFailureLogged;
@@ -1004,6 +1021,44 @@ namespace CommunityModChest.Patcher
             }
         }
 
+        /// <summary>
+        /// Where he is right now, as the CSV key of one sentence for his Notice Board, or null when he has
+        /// not been spawned yet or this cannot be read. Read-only status: it derives from where he ACTUALLY
+        /// stands (the same environment read SyncPortrait uses) and never moves him. Outdoors, his own
+        /// Foraging phase says whether he is out gathering or simply on his way somewhere.
+        /// </summary>
+        internal static string CurrentLegLabel
+        {
+            get
+            {
+                try
+                {
+                    if (!ResolveTypes() || !ResolveRefs()) return null;
+
+                    var gm = CardUtil.GetGameManagerInstance();
+                    if (gm == null) return null;
+
+                    var npc = FindProfessorNpc(gm);
+                    if (npc == null) return null;
+
+                    if (IsAtAcademy(npc)) return LegAcademyKey;
+                    if (IsAtInn(npc)) return LegInnKey;
+                    if (CurrentOutdoorNodeIndex(npc) >= 0)
+                        return GetNpcStatValue(npc, _phaseStat) < 0.5f ? LegForagingKey : LegOutdoorsKey;
+                    return null; // somewhere unexpected: no line is better than a wrong one
+                }
+                catch (Exception ex)
+                {
+                    if (!_legReadWarned)
+                    {
+                        _legReadWarned = true;
+                        Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] CurrentLegLabel failed, so his notice board shows no location line: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                    }
+                    return null;
+                }
+            }
+        }
+
         private static bool IsNightHour(float hour) => hour >= 22f || hour < 3f;
 
         private static int CurrentTotalTick()
@@ -1221,9 +1276,24 @@ namespace CommunityModChest.Patcher
                 if (!dict.Contains(stat)) return;
                 var inGameStat = dict[stat];
                 if (inGameStat == null) return;
-                _setStatValueMethod ??= inGameStat.GetType().GetMethod("SetStatValue",
+                // InGameNPCStat has no public SetStatValue(float): since EA 0.66 SetStatValue is a
+                // PRIVATE IEnumerator taking (float, NPCStatModifierTypes). The public 1-arg wrapper
+                // is SetStatValueFromEditor, which starts that coroutine as a Permanent change (it
+                // writes the value before its first yield, so a read on the next tick sees it).
+                // The old "SetStatValue" lookup resolved to null and every write here was a silent
+                // no-op, so his phase, course eligibility and narrative stats never moved (T2.993).
+                _setStatValueMethod ??= inGameStat.GetType().GetMethod("SetStatValueFromEditor",
                     BindingFlags.Public | BindingFlags.Instance, null, new[] { typeof(float) }, null);
-                _setStatValueMethod?.Invoke(inGameStat, new object[] { value });
+                if (_setStatValueMethod == null)
+                {
+                    if (!_setStatValueMissingWarned)
+                    {
+                        _setStatValueMissingWarned = true;
+                        Plugin.Logger.LogWarning("[ProfessorSchedulePatch] InGameNPCStat.SetStatValueFromEditor(float) not found - the Professor's phase, course eligibility and narrative stats cannot be written.");
+                    }
+                    return;
+                }
+                _setStatValueMethod.Invoke(inGameStat, new object[] { value });
             }
             catch (Exception ex)
             {

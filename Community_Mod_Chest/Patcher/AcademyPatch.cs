@@ -58,12 +58,15 @@ namespace CommunityModChest.Patcher
         private static readonly string[] HostCardUids = { LecternUid };
         private const string AcademyInteriorEnvUid = "cmcAcademyInterior";
         private const string BalanceStat = "SpecialDurability4";
+        /// <summary>Base fee per study session. What is actually drawn, and checked at the gate and shown in the
+        /// tooltip, is VillagePricing.Apply(TuitionPrice): marked up while Wanted or Banished. The Academy never
+        /// refuses a Banished student, it only charges more.</summary>
         private const float TuitionPrice = 100f;
         private const float AccountMax = 1000f;
         private const float SessionHours = 2f;
 
-        private const string NoTuitionMessage =
-            "Enrollment draws 100 from the Tuition Account — deposit Salt, coins, or nuggets on the lectern first.";
+        private static string NoTuitionMessageFor(float price) =>
+            "Enrollment draws " + price.ToString("0") + " from the Tuition Account - deposit Salt, coins, or nuggets on the lectern first.";
         private const string AlreadyGraduatedMessage =
             "You have already completed this course.";
         private const string IntroductionsFirstMessage =
@@ -501,7 +504,7 @@ namespace CommunityModChest.Patcher
                 return AlreadyGraduatedMessage; // safety net — the DAs hide natively at 100%
 
             if (!HasTuition(lecternCard))
-                return NoTuitionMessage;
+                return NoTuitionMessageFor(VillagePricing.Apply(TuitionPrice));
 
             return null;
         }
@@ -519,7 +522,7 @@ namespace CommunityModChest.Patcher
         private static bool HasTuition(object lecternCard)
         {
             float balance = CardUtil.GetDurability(lecternCard, BalanceStat);
-            return !float.IsNaN(balance) && balance >= TuitionPrice;
+            return !float.IsNaN(balance) && balance >= VillagePricing.Apply(TuitionPrice);
         }
 
         private static void StudyCompleted(ActionContext ctx)
@@ -533,18 +536,20 @@ namespace CommunityModChest.Patcher
             // account now (StudyGate already verified the balance covers it).
             if (course != null)
             {
+                float price = VillagePricing.Apply(TuitionPrice);
                 float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
                 if (float.IsNaN(balance)) balance = 0f;
-                float newBalance = Math.Max(balance - TuitionPrice, 0f);
+                float newBalance = Math.Max(balance - price, 0f);
                 CardUtil.SetDurability(ctx.Card, BalanceStat, newBalance);
                 CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
                 CardVisualsRefresh.RefreshOpenInventoryPopup();
-                Plugin.Logger.LogDebug($"[AcademyPatch] Tuition drawn for {course.NameFragment}: hoursAfter={hours} -{TuitionPrice:0} (balance {balance:0} -> {newBalance:0}/{AccountMax:0}).");
+                Plugin.Logger.LogDebug($"[AcademyPatch] Tuition drawn for {course.NameFragment}: hoursAfter={hours} -{price:0} (base {TuitionPrice:0}; balance {balance:0} -> {newBalance:0}/{AccountMax:0}).");
             }
 
             if (IsFinalExamAction(ctx.ActionName))
             {
                 AcademyCourseService.ResyncAfterCourse();
+                if (course != null) AcademyDiplomaPatch.OnCourseCompleted(course.GradPerk);
                 Plugin.Logger.LogInfo($"[AcademyPatch] Course completed: {ctx.ActionName}.");
             }
             else if (course != null)

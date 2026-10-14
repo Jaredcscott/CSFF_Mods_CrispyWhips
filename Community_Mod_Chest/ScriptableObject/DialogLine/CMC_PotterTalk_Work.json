@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_PotterTalk_Work_Line",
+        "DefaultText": "Bowls, cups, plates, the odd vase when someone is courting. Painted, mostly. Plain pots anyone can fire; it's the colour people pay for."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_PotterTalk_Work_Answer_Bye",
+                "DefaultText": "Fine work."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

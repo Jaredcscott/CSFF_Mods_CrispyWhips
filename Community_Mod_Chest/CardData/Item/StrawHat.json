@@ -188,6 +188,125 @@
             ]
         }
     ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelstrawhat",
+                "LocalizationKey": "apparel_straw_hat_CI_Dye_ActionName",
+                "DefaultText": "Dye with Charcoal Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelstrawhat",
+                "LocalizationKey": "apparel_straw_hat_CI_Dye_ActionDescription",
+                "DefaultText": "Work the charcoal pigment into the straw hat, darkening it to a smoky near-black."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigment"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelstrawhatdyedcharcoal",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelstrawhat",
+                "LocalizationKey": "apparel_straw_hat_CI_DyeOchre_ActionName",
+                "DefaultText": "Dye with Ochre Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelstrawhat",
+                "LocalizationKey": "apparel_straw_hat_CI_DyeOchre_ActionDescription",
+                "DefaultText": "Work the ochre pigment into the straw hat, turning it a warm, earthy yellow-brown."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigmentochre"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelstrawhatdyedochre",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelstrawhat",
+                "LocalizationKey": "apparel_straw_hat_CI_DyeBillberry_ActionName",
+                "DefaultText": "Dye with Billberry Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelstrawhat",
+                "LocalizationKey": "apparel_straw_hat_CI_DyeBillberry_ActionDescription",
+                "DefaultText": "Steep the straw hat in billberry pigment until it takes a deep violet."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigmentbillberry"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelstrawhatdyedbillberry",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {

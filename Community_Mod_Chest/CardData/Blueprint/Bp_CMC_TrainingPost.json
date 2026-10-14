@@ -1,0 +1,72 @@
+{
+    "UniqueID": "bpcmctrainingpost",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "bpcmctrainingpost",
+        "LocalizationKey": "CMC_TrainingPost_BP_Name",
+        "DefaultText": "Training Post"
+    },
+    "CardDescription": {
+        "ParentObjectID": "bpcmctrainingpost",
+        "LocalizationKey": "CMC_TrainingPost_BP_Desc",
+        "DefaultText": "Lash a padded post to a sunk timber and set it up as a striking dummy. The finished kit is set up wherever there is room, and Practice Strikes at it trains Melee Fighting once a day."
+    },
+    "CardImageWarpData": "CMC_TrainingPostKit",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "bpcmctrainingpost",
+        "LocalizationKey": "CMC_Bp_TrainingPost_UnlockConditionsDesc",
+        "DefaultText": "Graduate the Academy's Carpentry course"
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 8,
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 2,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "DroppedCardWarpData": "cmctrainingpostkit",
+            "DroppedCardWarpType": 3,
+            "Quantity": { "x": 1, "y": 1 }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

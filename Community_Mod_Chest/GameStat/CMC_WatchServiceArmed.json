@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatWatchServiceArmed",
+    "GameName": {
+        "LocalizationKey": "CMC_WatchServiceArmed_StatName",
+        "DefaultText": "Watch Service Errand State"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WatchServiceArmed_StatDescription",
+        "DefaultText": "Hidden clamped marker for Captain Sterling's community service: 1 = ready for an offer, 0 = a job accepted and under way, 0.5 = the job is done and waiting for his thanks. Never a counter: his thanks line (or giving the job up) puts it back to 1, and nothing else writes it."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 1.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -25,6 +25,8 @@ public static class ArmorCardsPatch
     {
         "combatandarmorquiltedcap",
         "combatandarmorquiltedvest",
+        "cmcwoolquiltedcap",
+        "cmcwoolquiltedvest",
         "combatandarmorbonelamellar",
         "combatandarmorwoodenshield",
         "apparelchaperon",

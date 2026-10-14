@@ -1,0 +1,57 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatSirusYarnPresent", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+            {"StatWarpData": "cmcStatWeaverYarnErrand", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_YarnThanks_Line",
+        "DefaultText": "Look at that, so even and soft. This will take dye beautifully. Here, for your trouble, and a little extra for the walk."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_YarnThanks_Answer_Thanks",
+                "DefaultText": "Glad it suits."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverYarnDone",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverYarnErrand",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -0.5, "y": -0.5 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "NPCStatModifications": [
+                    {
+                        "TargetStatWarpData": "cmcStatWeaverTrust",
+                        "TargetStatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "ValueChange": { "x": 3.0, "y": 3.0 }
+                    }
+                ],
+                "DroppedCards": [
+                    {
+                        "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                        "DroppedCardWarpType": 3,
+                        "Quantity": { "x": 2, "y": 2 }
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

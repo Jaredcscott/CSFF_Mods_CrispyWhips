@@ -1,0 +1,36 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 25.0, "y": 59.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_CrimeWanted_Line",
+        "DefaultText": "Evening. The fire's lit and the stew's on, same as ever, but I'll be plain with you: I've heard what's being said, and it's sitting in my common room with us. I'll serve you. I won't sit and gossip. Mend what you've bent, and we'll see about the good chair again."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_Trade",
+                "DefaultText": "Let's see your pantry."
+            },
+            "ActionToPerform": {
+                "StartTrading": true
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_CrimeWanted_Answer_Fair",
+                "DefaultText": "Fair enough."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

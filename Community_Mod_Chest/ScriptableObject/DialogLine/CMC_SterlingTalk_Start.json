@@ -6,6 +6,27 @@
     },
     "PossibleAnswers": [
         {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatStallTheftState", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Start_Answer_ReportTheft",
+                "DefaultText": "Report the Theft: someone robbed my market stall."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatStallTheftState", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_GuardTalk_TheftReported",
+                "NextLineWarpType": 3
+            }
+        },
+        {
             "Answer": {
                 "LocalizationKey": "CMC_SterlingTalk_Start_Answer_Duties",
                 "DefaultText": "How fares the Watch?"
@@ -14,6 +35,43 @@
                 "NextStep": 0,
                 "NextLineWarpData": "CMC_SterlingTalk_Duties",
                 "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 59.999}},
+                    {"StatWarpData": "cmcStatWatchServiceArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Start_Answer_Service",
+                "DefaultText": "Is there honest work I can do, Captain?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_SterlingTalk_ServiceOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWatchServiceJob", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 2.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Start_Answer_GiveUp",
+                "DefaultText": "I cannot see the work you set me through, Captain."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatWatchServiceArmed", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatWatchServiceJob", "StatWarpType": 3, "ValueModifier": {"x": -2.0, "y": -2.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
             }
         },
         {

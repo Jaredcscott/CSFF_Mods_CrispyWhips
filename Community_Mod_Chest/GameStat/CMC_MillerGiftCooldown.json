@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMillerGiftCooldown",
+    "GameName": {
+        "LocalizationKey": "CMC_MillerGiftCooldown_StatName",
+        "DefaultText": "Miller Gift Cooldown"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MillerGiftCooldown_StatDescription",
+        "DefaultText": "Hidden cooldown: set to 96 when the player gives the Miller bread, drains 1 per tick. The Give Bread drag is offered only at 0, so one gift per day."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 96.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

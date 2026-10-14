@@ -13,7 +13,7 @@
     "CardType": 0,
     "ObjectWeight": 75.0,
     "TradingValue": 180.0,
-    "CardImageWarpData": "Plate_Clay",
+    "CardImageWarpData": "CMC_GlazedClayPlate",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
         "tag_Plateable"

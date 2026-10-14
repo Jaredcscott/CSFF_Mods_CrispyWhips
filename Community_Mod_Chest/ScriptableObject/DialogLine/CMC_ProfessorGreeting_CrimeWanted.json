@@ -1,0 +1,35 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 25.0, "y": 59.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_CrimeWanted_Line",
+        "DefaultText": "Hm. The scholar's life is a cloistered one, but even here the village's talk finds its way in. I've heard what is said of you. A hypothesis, nothing more, and I hold my lectures until the evidence settles. What is it you need?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_CrimeWanted_Answer_Ask",
+                "DefaultText": "May I ask something?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_Menu",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_CrimeWanted_Answer_Leave",
+                "DefaultText": "I'll let you work."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

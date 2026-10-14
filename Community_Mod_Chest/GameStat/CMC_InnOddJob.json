@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnOddJob",
+    "GameName": {
+        "LocalizationKey": "CMC_InnOddJob_StatName",
+        "DefaultText": "Inn Odd Job Today"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnOddJob_StatDescription",
+        "DefaultText": "Hidden bookkeeping stat: which odd job the Inn Counter has posted today (0 none or done, 1 a Stone, 2 Rope, 3 Ash, 4 a Clay Bowl). InnOddJobPatch rolls it once each morning; each job's counter button shows only while it holds that number, and handing the goods over sets it back to 0."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 4.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

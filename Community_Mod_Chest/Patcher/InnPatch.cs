@@ -14,7 +14,9 @@ namespace CommunityModChest.Patcher
     ///     <see cref="CurrencyValue"/>. A deposit is rejected outright (item untouched)
     ///     if the account has no headroom left at all.
     ///   - "Purchase Meal" (DaytimeCost 2) and "Stay the Night" (DaytimeCost 32) each
-    ///     draw 50 from the balance; stat effects are applied via JSON StatModifications.
+    ///     draw 50 from the balance, marked up while Wanted or Banished (BalanceGate,
+    ///     DeductBalance and the tooltip all price through VillagePricing.Apply); stat
+    ///     effects are applied via JSON StatModifications.
     ///   - "Work Odd Jobs" DA is deliberately NOT gated or paid from the account — it
     ///     PAYS the player (pure JSON ProducedCards: 1-2 vanilla 50%-quality copper
     ///     nuggets).
@@ -35,8 +37,8 @@ namespace CommunityModChest.Patcher
         private const string SaltGuid      = "f91b5676fc26c0e48a4ee6fd9dfc2ffa";
         private static float _pendingFirewoodSd4 = -1f;
 
-        private const string NoBalanceMessage =
-            "Inn account balance too low — deposit Salt, coins, or nuggets on the counter. Meal/Sleep cost 50.";
+        private static string NoBalanceMessageFor(float price) =>
+            "Inn account balance too low - deposit Salt, coins, or nuggets on the counter. This costs " + price.ToString("0") + ".";
 
         private static bool _initialized;
 
@@ -201,14 +203,14 @@ namespace CommunityModChest.Patcher
                 bool isSleep = IsSleepAction(actionName);
                 if (!isMeal && !isSleep) return;
 
-                float price = isMeal ? MealPrice : SleepPrice;
+                float price = VillagePricing.Apply(isMeal ? MealPrice : SleepPrice);
                 float balance = CardUtil.GetDurability(__0, BalanceStat);
                 if (!float.IsNaN(balance) && balance >= price) return; // affordable — leave message untouched
 
                 // Don't clobber a message another mechanism may have already set this pass.
                 if (Reflect.GetMember(__instance, "ActionBlockedMessage") is string existing && !string.IsNullOrEmpty(existing)) return;
 
-                Reflect.SetMember(__instance, "ActionBlockedMessage", NoBalanceMessage);
+                Reflect.SetMember(__instance, "ActionBlockedMessage", NoBalanceMessageFor(price));
             }
             catch (Exception ex)
             {
@@ -218,23 +220,25 @@ namespace CommunityModChest.Patcher
 
         // ── Account balance gate/consume (Meal/Sleep) ──────────────────────────
 
-        private static bool BalanceGate(ActionContext ctx, float price)
+        private static bool BalanceGate(ActionContext ctx, float basePrice)
         {
+            float price = VillagePricing.Apply(basePrice);
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
             bool affordable = !float.IsNaN(balance) && balance >= price;
             if (!affordable)
-                Plugin.Logger.LogDebug($"[InnPatch] '{ctx.ActionName}' blocked — Inn account balance {balance:0} below price {price:0}.");
+                Plugin.Logger.LogDebug($"[InnPatch] '{ctx.ActionName}' blocked - Inn account balance {balance:0} below price {price:0} (base {basePrice:0}).");
             return !affordable; // return true = cancel
         }
 
-        private static void DeductBalance(ActionContext ctx, float price)
+        private static void DeductBalance(ActionContext ctx, float basePrice)
         {
+            float price = VillagePricing.Apply(basePrice);
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
             if (float.IsNaN(balance)) balance = 0f;
             CardUtil.SetDurability(ctx.Card, BalanceStat, Math.Max(0f, balance - price));
             CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
             CardVisualsRefresh.RefreshOpenInventoryPopup();
-            Plugin.Logger.LogDebug($"[InnPatch] '{ctx.ActionName}' drew {price:0} from the Inn account (balance now {Math.Max(0f, balance - price):0}).");
+            Plugin.Logger.LogDebug($"[InnPatch] '{ctx.ActionName}' drew {price:0} (base {basePrice:0}) from the Inn account (balance now {Math.Max(0f, balance - price):0}).");
         }
 
         // ── Deposit CI ──────────────────────────────────────────────────────────

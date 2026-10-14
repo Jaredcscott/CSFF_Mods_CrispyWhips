@@ -1,0 +1,96 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 24.0}}
+        ],
+        "RequiredNPCStatValues": [
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcMillerAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatMillerTrust",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 80.0,
+                    "y": 1000000000.0
+                }
+            },
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcMillerAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatMillerKeepsake",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_Keepsake_Line",
+        "DefaultText": "Wait, builder, before you go. I've been meaning to put this in your hands. A sack of the first flour off the stones this morning, ground fine, and I kept no pinch back. Half the village trades with me, but you raised the roof over these stones and you've been a friend to the mill ever since. Bake something good with it."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatMillerKeepsake",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ],
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "7900a60c205568640a887f30cc6ff8f9",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 5,
+                    "y": 5
+                },
+                "TransferRules": {
+                    "Spoilage": 0,
+                    "Usage": 0,
+                    "Fuel": 0,
+                    "Progress": 0,
+                    "Special1": 0,
+                    "Special2": 3,
+                    "Special3": 0,
+                    "Special4": 0,
+                    "SpoilageValue": 0.0,
+                    "UsageValue": 0.0,
+                    "FuelValue": 0.0,
+                    "ProgressValue": 0.0,
+                    "Special1Value": 0.0,
+                    "Special2Value": 48.0,
+                    "Special3Value": 0.0,
+                    "Special4Value": 0.0,
+                    "SpoilageFrom": 0,
+                    "UsageFrom": 0,
+                    "FuelFrom": 0,
+                    "ProgressFrom": 0,
+                    "Special1From": 0,
+                    "Special2From": 0,
+                    "Special3From": 0,
+                    "Special4From": 0
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Keepsake_Answer",
+                "DefaultText": "Thank you, Miller."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -11,7 +11,7 @@
   },
   "CardImageWarpData": "CMC_JailWaterJug",
   "CardImageWarpType": 3,
-  "ObjectWeight": 1,
+  "ObjectWeight": 400,
   "DoesNotPile": true,
   "DismantleActions": [
     {
@@ -58,6 +58,5 @@
       "ProducedCards": [],
       "ReceivingCardChanges": { "ModType": 3 }
     }
-  ],
-  "DismantleActionsWarpType": 3
+  ]
 }

@@ -1,0 +1,19 @@
+{
+  "target": "CMC_SpringTonic.png",
+  "sourceCard": "CardData/Item/CMC_SpringTonic.json",
+  "subject": "a single small round-bellied glass tonic bottle with a short neck and a plain cork stopper, filled with a pale cloudy yellow-green herbal liquid, a tiny sprig of dried purple heather flowers tied to the neck with twine, no label",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image step 3 template around the subject; Avoid list is the template's plus: label, writing, mortar, bowl, leaves, flowers lying loose, skull",
+  "historyId": "3U5TLrVi9CcNUm4jRaLY",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791114821067_1c7e2fbf_1791114821198_b6de8782.png",
+  "credits": 30,
+  "generated": "2026-10-04",
+  "note": "Phase F closeout. One sample, no owner pick (imageCount 1). Also named by Bp_CMC_SpringTonic.json, which shares this image. Finished by /process-card-art (512x768, alpha, border-connected paper keyed)."
+}

@@ -7,7 +7,7 @@
     },
     "CardDescription": {
         "LocalizationKey": "CMC_WheeledHorse_CardDescription",
-        "DefaultText": "A pull-toy horse whittled from wood, its wheels turning on a stick axle and a cord tied at its neck for towing. A cheerful little companion for a quiet homestead."
+        "DefaultText": "A pull-toy horse whittled from wood, its wheels turning on a stick axle and a cord tied at its neck for towing. A cheerful little companion for a quiet homestead. A tamed cat will chase it, too."
     },
     "CardImageWarpData": "CMC_WheeledHorse",
     "CardImageWarpType": 3,
@@ -47,7 +47,50 @@
         "Active": false
     },
     "CardInteractions": [],
-    "DismantleActions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_WheeledHorse_DA_Pull",
+                "DefaultText": "Pull the Horse Along"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_WheeledHorse_DA_Pull_Desc",
+                "DefaultText": "Tow it by its cord and listen to the wheels click. Silly, and a little less lonely for it."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "AlwaysShow": true,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -5.0,
+                        "y": -5.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        }
+    ],
     "PassiveEffects": [
         {
             "EffectName": "Comfort (+15)",

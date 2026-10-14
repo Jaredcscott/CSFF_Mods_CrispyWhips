@@ -11,7 +11,7 @@
         "DefaultText": "A long coil of rope, reinforced and knotted for climbing rather than hauling. The Weaver swore it would hold on the cliff north of the village, at Greenfalls."
     },
     "CardType": 0,
-    "CardImageWarpData": "Rope",
+    "CardImageWarpData": "CMC_ClimbingRope",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,

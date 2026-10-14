@@ -18,6 +18,10 @@
         {
             "ModelStatWarpData": "cmcStatWeaverTrust",
             "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatWeaverKeepsake",
+            "ModelStatWarpType": 3
         }
     ],
     "Interactions": [
@@ -55,10 +59,76 @@
                 {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "NPCStatModifications": [
+                {"TargetStatWarpData": "cmcStatWeaverTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}}
             ]
         }
     ],
     "DragAndDropActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveWoolYarn_ActionName",
+                "DefaultText": "Give Wool Yarn"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveWoolYarn_ActionDescription",
+                "DefaultText": "Hand over a skein of Wool Yarn for the Weaver's errand. She pays you in Salt and thinks the better of you."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatSirusYarnPresent", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatWeaverYarnErrand", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}},
+                {"StatWarpData": "cmcStatWeaverYarnDone", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverYarnErrand", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["sh_yarn"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveDyedCloth_ActionName",
+                "DefaultText": "Give Dyed Cloth"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveDyedCloth_ActionDescription",
+                "DefaultText": "Hand over a dyed scarf, coat, mask, chaperon or quilted cap for the Weaver's dye run. She holds it to the light and pays you in Salt."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverDyeErrand", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}},
+                {"StatWarpData": "cmcStatWeaverDyeDone", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverDyeErrand", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "apparelclothscarfdyed", "apparelclothscarfdyedochre", "apparelclothscarfdyedbillberry",
+                    "apparelclothcoatdyed", "apparelclothcoatdyedochre", "apparelclothcoatdyedbillberry",
+                    "apparelclothmaskdyedcharcoal", "apparelclothmaskdyedochre", "apparelclothmaskdyedbillberry",
+                    "apparelchaperondyed", "apparelchaperondyedochre", "apparelchaperondyedbillberry",
+                    "combatandarmorquiltedcapdyedcharcoal", "combatandarmorquiltedcapdyedochre", "combatandarmorquiltedcapdyedbillberry"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        },
         {
             "ActionName": {
                 "LocalizationKey": "CMC_Weaver_GiveFlaxStems_ActionName",
@@ -271,7 +341,7 @@
             "RequiredStatValues": [
                 {"StatWarpData": "cmcStatWeaverMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
                 {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 20.0}},
-                {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
@@ -307,7 +377,65 @@
                 {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
             ],
             "CompatibleCards": {
-                "TriggerCardsWarpData": ["potterysculpturepigment"],
+                "TriggerCardsWarpData": ["potterysculpturepigment", "potterysculpturepigmentochre", "potterysculpturepigmentbillberry"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiftPaintedPiece_ActionName",
+                "DefaultText": "Give Painted Clay"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiftPaintedPiece_ActionDescription",
+                "DefaultText": "A painted figurine or vase for her windowsill. The Weaver keeps it, and it warms her to you. One gift a day."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverGiftCooldown", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverGiftCooldown", "StatWarpType": 3, "ValueModifier": {"x": 96.0, "y": 96.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "NPCStatModifications": [
+                {"TargetStatWarpData": "cmcStatWeaverTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 3.0, "y": 3.0}}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["potterysculpturefigurinebear", "potterysculpturefigurinecastle", "potterysculpturefigurinedragon", "potterysculpturepaintedvase"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_Commission_ActionName",
+                "DefaultText": "Commission Cloth"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_Commission_ActionDescription",
+                "DefaultText": "Pay the Weaver one Salt, a metal Nugget or a coin to weave you a Large Cloth. It is waiting in her cottage two days later. One order at a time."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverOrder", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatWeaverOrderDue", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa", "4b0f4937a5ecb90499428c8c10288afc", "e5f5d2a633f3437780d6198c3d1e9fdd"],
                 "TriggerCardsWarpType": 3
             }
         }
@@ -372,6 +500,25 @@
             ]
         },
         {
+            "ActionID": "WeaverRestock_Sirus",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "WeaverRestock_Sirus"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Weaver loom stock - Sirus23 Sheep Husbandry",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "sh_yarn", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 }, "DropChance": { "Active": true, "BaseDropChance": 20.0 } },
+                        { "DroppedCardWarpData": "sh_felted_wool", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 }, "DropChance": { "Active": true, "BaseDropChance": 15.0 } }
+                    ]
+                }
+            ]
+        },
+        {
             "ActionID": "WeaverProduceYarn",
             "ActionLocalizedName": {
                 "LocalizationKey": "IGNOREKEY",
@@ -397,18 +544,136 @@
         }
     ],
     "CannotTrade": false,
+    "ModifyNPCStatsPerTradeValue": [
+        {
+            "Type": 1,
+            "ModifierMinMaxValue": {"x": 0.0, "y": 6.0},
+            "Modifier": {
+                "TargetStatWarpData": "cmcStatWeaverTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {"x": 0.08, "y": 0.08}
+            }
+        },
+        {
+            "Type": 2,
+            "ModifierMinMaxValue": {"x": 0.0, "y": 6.0},
+            "Modifier": {
+                "TargetStatWarpData": "cmcStatWeaverTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {"x": 0.08, "y": 0.08}
+            }
+        }
+    ],
     "TradingModifiers": [
         {
             "ForTradingDirection": 2,
             "ModifierMode": 1,
             "SimpleModifier": 1.5,
-            "GlobalStatModifiers": []
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.5},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.015},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatMarketDay",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 1.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.02},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
+            "NPCStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatWeaverTrust",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.4},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
         },
         {
             "ForTradingDirection": 1,
             "ModifierMode": 1,
             "SimpleModifier": 0.5,
-            "GlobalStatModifiers": []
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.25},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.015},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
+            "NPCStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatWeaverTrust",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.25},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
         }
     ],
     "StartingInventory": [

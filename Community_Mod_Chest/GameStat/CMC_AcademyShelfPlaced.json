@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAcademyShelfPlaced",
+    "GameName": {
+        "LocalizationKey": "CMC_AcademyShelfPlaced_StatName",
+        "DefaultText": "Academy Bookshelf Placed"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AcademyShelfPlaced_StatDescription",
+        "DefaultText": "Hidden flag: 1 once the Academy Bookshelf (cmcAcademyBookshelf) is confirmed on the Academy board, either from CMC_AcademyInterior.json's own DefaultEnvCardDrops (fresh saves) or from AcademyShelfSeedPatch's deferred spawn (saves that had already visited the Academy). Stops the backfill from ever spawning a second shelf. Clamped 0..1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

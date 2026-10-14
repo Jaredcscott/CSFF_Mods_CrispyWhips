@@ -12,6 +12,7 @@
         "apparelbpchaperon",
         "apparelbpclothcoat",
         "apparelbpclothmask",
+        "apparelbpclothhood",
         "apparelbplongjohns",
         "cmcbpcatbed"
     ],
@@ -28,10 +29,14 @@
     "Tab_4_Tailoring_Subtab_5_Equipment_TabName": [
         "combatandarmorbpquiltedvest",
         "combatandarmorbpquiltedcap",
+        "cmcbpwoolquiltedvest",
+        "cmcbpwoolquiltedcap",
         "combatandarmorbpbonelamellar"
     ],
     "Tab_5_MetalAndClay_Subtab_1_Utensils_TabName": [
         "potterysculpturebppigment",
+        "potterysculpturebppigmentochre",
+        "potterysculpturebppigmentbillberry",
         "potterysculpturebppaintedbowl",
         "potterysculpturebppaintedvase",
         "potterysculpturebppaintedplate",
@@ -43,15 +48,18 @@
         "potterysculpturebpstonetiles",
         "potterysculpturebpglazedplate",
         "potterysculpturebpherbpaste",
-        "bpcmcclayocarina"
+        "bpcmcclayocarina",
+        "cmcbpcatbowl"
     ],
     "Tab_1_Survival_Subtab_5_Cooking_TabName": [
         "bpcmcapothecaryhealingmixture",
         "cmcbpherbpoultice",
-        "cmcbptincture"
+        "cmcbptincture",
+        "cmcbpspringtonic"
     ],
     "Tab_2_Construction_Subtab_1_WorkingTools_TabName": [
-        "cmcbpburglarskit"
+        "cmcbpburglarskit",
+        "cmcbplimewatertrough"
     ],
     "Tab_2_Construction_Subtab_5_HouseBuilding_TabName": [
         "BpCMCCottageMiller",
@@ -69,7 +77,25 @@
         "cmcbpwickerchair",
         "cmcbpoutfitwardrobe",
         "comfortbpscentedcandle",
-        "bpcmcvillagehomesign"
+        "bpcmcvillagehomesign",
+        "bpcmctrainingpost",
+        "bpcmcdyevat",
+        "cmcbpboartrophy",
+        "cmcbpstagtrophy",
+        "cmcbpclothrug",
+        "cmcbpcanvascharcoal",
+        "cmcbpcanvasochre",
+        "cmcbpcanvasbillberry",
+        "cmcbplogbench",
+        "cmcbppotpourri",
+        "cmcbpframedmap",
+        "cmcbpicesculpture",
+        "cmcbpstonecairn",
+        "bpcmcstockpilestone",
+        "bpcmcstockpiletwigs",
+        "bpcmcstockpilebones",
+        "cmcbpcurtains",
+        "cmcbpthrone"
     ],
     "Tab_1_Survival_Subtab_4_Entertainment_TabName": [
         "comfortbpheatherwreath",
@@ -78,6 +104,8 @@
         "comfortbpwovenwallhanging",
         "comfortbptricolorwallhanging",
         "bpcmcbonedice",
+        "bpcmcloadeddice",
+        "bpcmcmorrisboard",
         "bpcmcspinningtop",
         "bpcmcwheeledhorse"
     ],
@@ -90,6 +118,7 @@
     ],
     "Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName": [
         "BpCMCIronFishingRodFittings",
-        "comfortbpcopperbedframe"
+        "comfortbpcopperbedframe",
+        "cmcbpcrown"
     ]
 }

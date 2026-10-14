@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatPotterTrust",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Potter trust/relationship - raised by chatting, trading and his firing run; scales his prices"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 100.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

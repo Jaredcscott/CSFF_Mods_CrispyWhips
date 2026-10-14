@@ -1,0 +1,6 @@
+{
+    "_comment": "CMC's one flavour-synergy pair: the Tannic tag (Old Growth Bark, carried by Herb Paste) against vanilla Savoury. Vanilla's FlavourMatrix already holds every pair of its 17 tags, so a pair only does anything when one side is a mod tag. It is what lifts a cooked meat, fish or sausage seasoned with Herb Paste into the +25 Gratification band when eaten.",
+    "TagA": "cmcflavourtannic",
+    "TagB": "55ebfecd567382b44a9d2c176c5b5156",
+    "Synergy": "Good"
+}

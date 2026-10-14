@@ -1,0 +1,86 @@
+{
+    "UniqueID": "cmcbpcurtains",
+    "CardName": {
+        "ParentObjectID": "cmcbpcurtains",
+        "LocalizationKey": "CMC_Bp_Curtains_CardName",
+        "DefaultText": "Curtains"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcbpcurtains",
+        "LocalizationKey": "CMC_Bp_Curtains_CardDescription",
+        "DefaultText": "Hang two large cloths over a window. Drawn, they keep the warmth in; open, the window lets the cabin fever out. Needs a built window in the room."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "cmcbpcurtains",
+        "LocalizationKey": "CMC_Bp_CarpentryDecor_UnlockConditionsDesc",
+        "DefaultText": "Graduate the Academy's Carpentry course"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintCardConditions": [
+        {
+            "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "68733e1539725384398068d02313d218",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "BuildingCardConditions": [
+        {
+            "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "68733e1539725384398068d02313d218",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "3e94716876eae304787efa2ae0b43711",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcCurtainsOpen",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Cloth"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "CMC_CurtainsOpen",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

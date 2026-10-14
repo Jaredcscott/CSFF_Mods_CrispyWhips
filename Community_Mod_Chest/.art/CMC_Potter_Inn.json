@@ -1,0 +1,62 @@
+{
+  "target": "CMC_Potter_Inn.png",
+  "sourceCard": "NPCAgent/Agent_Potter.json",
+  "subject": "the Potter relaxing at the village inn, eating stew with a closed-mouth smile, set in the Inn interior (VillageInnInterior) with its timber walls and stone fireplace",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the CHARACTER: draw this exact same person, a lean village potter in his early forties: a narrow angular face with high cheekbones and a long straight nose, warm brown eyes with crow's feet, short curly dark-brown hair going grey at the temples, a closely trimmed short brown beard, a tanned complexion, wiry forearms with dried terracotta clay smudged on the hands and forearms. Keep the face, age, build, hair, skin tone and facial hair identical to reference image 1; dress him as the Clothing line says.\nReference image 2 is the SCENE: set the picture inside exactly this place, the village inn's common room: warm timber plank walls and a beamed ceiling, bundles of dried lavender and herbs hanging from the rafters beside a hanging iron lantern, a large stone fireplace on the right with an iron cauldron over a crackling fire, a back counter with stacked ale barrels and shelves of jugs and bottles, a small leaded window, long plank tables and benches, wide worn floorboards, amber firelight. Keep its timber walls, architecture, furniture, materials, colours and lighting; the camera may come closer than in the reference and leave out its door frame, but do not redesign the room, do not turn the walls to stone, and do not add rooms.\nAction: relaxing at the inn in the evening, seated at a plank table eating a bowl of stew: he holds a wooden spoon of stew near his mouth with a warm, natural, closed-mouth smile, a terracotta bowl of stew, a loaf of bread and a plain clay cup on the table in front of him; behind him the timber wall with hanging herbs and the lantern, and on the right the stone fireplace with the iron cauldron over the fire, exactly as in reference image 2.\nClothing: a rust-orange linen shirt with the sleeves rolled to the elbow under a long clay-stained oatmeal canvas apron.\nFraming: waist-up three-quarter portrait, only this one person in the foreground.\nStyle: clean confident black ink outlines with fine hatching in the shadows, flat painted colour in a few tonal steps, a warm natural storybook palette, the look of a hand-inked illustrated storybook panel. The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, photo, photorealistic, 3D render, anime, flat vector art, neon colours, multiple people in the foreground, cropped face, open mouth, teeth, grin, a different face, a clean-shaven man, a young man, stone walls behind him, a stone alcove, an arched stone recess, a different room, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "Potter (character fragment, .art/fragments/characters/Potter.png)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Potter_1791125770712_50799fd7.png"
+    },
+    {
+      "label": "Inn (scene fragment, Resource/Picture/VillageInnInterior.png)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/VillageInnInterior_1789780735062_379b2d21.png"
+    }
+  ],
+  "historyId": "4cXIWBVnqFFNZSO6fAcR",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798491603_e8850f90_1791798492092_58814ff6.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "full-bleed (process_card_art.py --full-bleed, 512x768)",
+  "note": "owner gallery rework 2026-10-12: the background does not match the inn interior /create-image-refs composition: character Potter fragment + scene Inn fragment (VillageInnInterior.png), the 2026-10-10 approved action and closed-mouth smile kept in words; the old portrait was NOT passed as a reference. Full-bleed 512x768 (AgentImage + board CardImage).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798491603_e8850f90_1791798492092_58814ff6.png",
+      "historyId": "4cXIWBVnqFFNZSO6fAcR",
+      "verdict": "shipped"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "composition": "CMC_Potter_Inn in .art/compositions.json",
+  "references": [
+    {
+      "role": "character",
+      "fragment": "Potter",
+      "image": ".art/fragments/characters/Potter.png",
+      "id": "2p6TDY29jpFeQIablOCQ",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Potter_1791125770712_50799fd7.png"
+    },
+    {
+      "role": "scene",
+      "fragment": "Inn",
+      "image": "Resource/Picture/VillageInnInterior.png",
+      "id": "wn0OHoSpcwaOPM4nVFDJ",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/VillageInnInterior_1789780735062_379b2d21.png"
+    }
+  ],
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791676462792_0f101f55_1791676463602_c600aa48.png",
+    "generated": "2026-10-10",
+    "note": "the picture this rework replaced"
+  }
+}

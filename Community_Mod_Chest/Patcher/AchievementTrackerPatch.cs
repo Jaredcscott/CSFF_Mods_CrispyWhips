@@ -151,6 +151,12 @@ namespace CommunityModChest.Patcher
         private const string HunterCountStatUid = "cmcStatAchHunterCount";
         private const string HunterEarnedStatUid = "cmcStatAchHunter";
 
+        // G5 Northern Quarry: the three member latches are written by the engine from kill-effect StatModifiers that
+        // AchievementKillEffectsPatch appends only for Harsh Wilds encounters that resolve at load. This poll derives the
+        // count and the earned latch over exactly that resolved set, and does nothing at all without Harsh Wilds.
+        private const string QuarryCountStatUid = "cmcStatAchQuarryCount";
+        private const string QuarryEarnedStatUid = "cmcStatAchQuarry";
+
         // ── Full Kit (6 metal tools) — Wave 0 curated list (EA 0.66h). Index-aligned with
         // ToolMemberStatUids.
         private static readonly string[] ToolItemUids =
@@ -303,6 +309,7 @@ namespace CommunityModChest.Patcher
                 CheckEnvSet(ExplorerEnvUids, ExplorerMemberStatUids, ExplorerCountStatUid, ExplorerEarnedStatUid, "Forest Explorer");
                 CheckEnvSet(SpelunkerEnvUids, SpelunkerMemberStatUids, SpelunkerCountStatUid, SpelunkerEarnedStatUid, "Spelunker");
                 CheckMasterHunter();
+                CheckQuarry();
                 CheckCollectionsAndStinkyJar();
                 CheckSpiritualOvercrowding();
                 CheckFindingAFriend();
@@ -356,6 +363,32 @@ namespace CommunityModChest.Patcher
 
             HiddenStat.Set(HunterEarnedStatUid, 1f);
             Plugin.Logger.LogInfo("[AchievementTrackerPatch] Achievement earned: Master Hunter.");
+        }
+
+        /// <summary>
+        /// Northern Quarry (G5): the Master Hunter shape over the members Harsh Wilds actually supplied. An empty
+        /// resolved set (no Harsh Wilds, or a poll before GameDataReady) returns before any read or write.
+        /// </summary>
+        private static void CheckQuarry()
+        {
+            var members = AchievementKillEffectsPatch.QuarryResolvedStatUids;
+            if (members.Count == 0) return;
+            if (HiddenStat.Get(QuarryEarnedStatUid) >= 0.5f) return; // already earned
+
+            int count = 0;
+            for (int i = 0; i < members.Count; i++)
+                if (HiddenStat.Get(members[i]) >= 0.5f) count++;
+
+            float stored = HiddenStat.Get(QuarryCountStatUid);
+            if (stored < 0f) return; // stats not readable yet - never write a bogus 0 over saved progress
+
+            if (Math.Abs(stored - count) > 0.01f)
+                HiddenStat.Set(QuarryCountStatUid, count);
+
+            if (count < members.Count) return;
+
+            HiddenStat.Set(QuarryEarnedStatUid, 1f);
+            Plugin.Logger.LogInfo("[AchievementTrackerPatch] Achievement earned: Northern Quarry.");
         }
 
         /// <summary>Shared shape for Forest Explorer / Spelunker: intersect VisitedEnvironments

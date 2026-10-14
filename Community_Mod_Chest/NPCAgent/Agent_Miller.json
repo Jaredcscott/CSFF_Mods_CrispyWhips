@@ -18,6 +18,10 @@
         {
             "ModelStatWarpData": "cmcStatMillerTrust",
             "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatMillerKeepsake",
+            "ModelStatWarpType": 3
         }
     ],
     "Interactions": [
@@ -55,6 +59,9 @@
                 {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "NPCStatModifications": [
+                {"TargetStatWarpData": "cmcStatMillerTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}}
             ]
         }
     ],
@@ -142,6 +149,64 @@
                 "TriggerCardsWarpData": ["57460207bbf77fa4fb6720aed5d84851"],
                 "TriggerCardsWarpType": 3
             }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_GiftBread_ActionName",
+                "DefaultText": "Give Bread"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_GiftBread_ActionDescription",
+                "DefaultText": "A loaf baked from grain like his own. The Miller keeps it, and it warms him to you. One gift a day."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatMillerGiftCooldown", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatMillerGiftCooldown", "StatWarpType": 3, "ValueModifier": {"x": 96.0, "y": 96.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "NPCStatModifications": [
+                {"TargetStatWarpData": "cmcStatMillerTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 3.0, "y": 3.0}}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f9dbb3c3b7e5ae34b9030ca4167f5d72", "c2635acf66083aa4f91ae3aa080805f9", "9c8f6b8ca00422e4f8ae422c3d0b600e"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_Commission_ActionName",
+                "DefaultText": "Commission Flour"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_Commission_ActionDescription",
+                "DefaultText": "Pay the Miller one Salt, a metal Nugget or a coin to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatMillerOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatMillerOrder", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatMillerOrderDue", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa", "4b0f4937a5ecb90499428c8c10288afc", "e5f5d2a633f3437780d6198c3d1e9fdd"],
+                "TriggerCardsWarpType": 3
+            }
         }
     ],
     "AgentDuties": [],
@@ -207,18 +272,136 @@
         }
     ],
     "CannotTrade": false,
+    "ModifyNPCStatsPerTradeValue": [
+        {
+            "Type": 1,
+            "ModifierMinMaxValue": {"x": 0.0, "y": 6.0},
+            "Modifier": {
+                "TargetStatWarpData": "cmcStatMillerTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {"x": 0.08, "y": 0.08}
+            }
+        },
+        {
+            "Type": 2,
+            "ModifierMinMaxValue": {"x": 0.0, "y": 6.0},
+            "Modifier": {
+                "TargetStatWarpData": "cmcStatMillerTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {"x": 0.08, "y": 0.08}
+            }
+        }
+    ],
     "TradingModifiers": [
         {
             "ForTradingDirection": 2,
             "ModifierMode": 1,
             "SimpleModifier": 1.5,
-            "GlobalStatModifiers": []
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.5},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.015},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatMarketDay",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 1.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.02},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
+            "NPCStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatMillerTrust",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.4},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
         },
         {
             "ForTradingDirection": 1,
             "ModifierMode": 1,
             "SimpleModifier": 0.5,
-            "GlobalStatModifiers": []
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.25},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.015},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
+            "NPCStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatMillerTrust",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.25},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
         }
     ],
     "StartingInventory": [

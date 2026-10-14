@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatWeaverYarnErrand",
+    "GameName": {
+        "LocalizationKey": "CMC_WeaverYarnErrand_StatName",
+        "DefaultText": "Weaver's Wool Yarn Errand"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WeaverYarnErrand_StatDescription",
+        "DefaultText": "Hidden clamped marker for the Weaver's Sirus23 wool yarn errand: 1 = offer available, 0 = accepted and waiting for the yarn, 0.5 = yarn handed over and waiting for her thanks. Never a counter, so it cannot drift past its gates."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 1.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

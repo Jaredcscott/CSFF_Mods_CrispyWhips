@@ -37,6 +37,41 @@
   "CardInteractions": [
     {
       "ActionName": {
+        "LocalizationKey": "CMC_CopperChestMiller_CI_Restitution",
+        "DefaultText": "Make It Right"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_CopperChestMiller_CI_Restitution_Desc",
+        "DefaultText": "Drag Salt or a Metal Nugget onto the chest as restitution. It will not undo what was taken, but it goes some way toward clearing your name with the Watch."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": { "x": 0.01, "y": 100.0 } }
+      ],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+          "4b0f4937a5ecb90499428c8c10288afc"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
+    },
+    {
+      "ActionName": {
         "LocalizationKey": "CMC_CopperChestMiller_CI_Sell",
         "DefaultText": "Sell to the Miller"
       },
@@ -73,38 +108,6 @@
           "tag_TraderInterestX2Animal",
           "tag_TraderInterestX4Animal"
         ],
-        "TriggerTagsWarpType": 3
-      },
-      "GivenCardChanges": {
-        "ModType": 3
-      },
-      "ReceivingCardChanges": {
-        "ModType": 0
-      },
-      "ProducedCards": []
-    },
-    {
-      "ActionName": {
-        "LocalizationKey": "CMC_CopperChestMiller_CI_Restitution",
-        "DefaultText": "Make It Right"
-      },
-      "ActionDescription": {
-        "LocalizationKey": "CMC_CopperChestMiller_CI_Restitution_Desc",
-        "DefaultText": "Drag Salt or a Metal Nugget onto the chest as restitution. It will not undo what was taken, but it goes some way toward clearing your name with the Watch."
-      },
-      "DaytimeCost": 0,
-      "UseMiniTicks": 1,
-      "ActionTagsWarpData": [],
-      "ActionTagsWarpType": 3,
-      "CompatibleCards": {
-        "TriggerCards": [],
-        "TriggerTags": [],
-        "TriggerCardsWarpData": [
-          "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
-          "4b0f4937a5ecb90499428c8c10288afc"
-        ],
-        "TriggerCardsWarpType": 3,
-        "TriggerTagsWarpData": [],
         "TriggerTagsWarpType": 3
       },
       "GivenCardChanges": {

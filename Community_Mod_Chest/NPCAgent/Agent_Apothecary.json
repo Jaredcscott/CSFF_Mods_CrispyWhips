@@ -18,6 +18,10 @@
         {
             "ModelStatWarpData": "cmcStatApothecaryTrust",
             "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatApothecaryKeepsake",
+            "ModelStatWarpType": 3
         }
     ],
     "Interactions": [
@@ -55,6 +59,9 @@
                 {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "NPCStatModifications": [
+                {"TargetStatWarpData": "cmcStatApothecaryTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}}
             ]
         }
     ],
@@ -272,8 +279,41 @@
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInterlockS2", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["35d6f2a46f2bbc84bbe33e917991c71d"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiftHerb_ActionName",
+                "DefaultText": "Give Rare Herb"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiftHerb_ActionDescription",
+                "DefaultText": "A rare herb for her drying racks: a silverwort blossom or hollow sage, or a dried ginseng, reishi or hemp flower from Herbs & Fungi. She keeps it, and it warms her to you. One gift a day."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothecaryGiftCooldown", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatApothecaryGiftCooldown", "StatWarpType": 3, "ValueModifier": {"x": 96.0, "y": 96.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "NPCStatModifications": [
+                {"TargetStatWarpData": "cmcStatApothecaryTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 3.0, "y": 3.0}}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["cmcSilverwortBlossom", "cmcHollowSage", "herbs_fungi_dried_ginseng", "herbs_fungi_dried_reishi", "herbs_fungi_hemp_flower_dried"],
                 "TriggerCardsWarpType": 3
             }
         }
@@ -303,7 +343,8 @@
                         {"DroppedCardWarpData": "bb2b60e54f65da4449a62faa8c84654a", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 3}},
                         {"DroppedCardWarpData": "WildGarlicFresh", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
                         {"DroppedCardWarpData": "cmcoldgrowthbark", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
-                        {"DroppedCardWarpData": "potterysculptureherbpaste", "DroppedCardWarpType": 3, "Quantity": {"x": 0, "y": 1}}
+                        {"DroppedCardWarpData": "potterysculptureherbpaste", "DroppedCardWarpType": 3, "Quantity": {"x": 0, "y": 1}},
+                        {"DroppedCardWarpData": "cmcSpringTonic", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}}
                     ],
                     "DropCardsInsideInventory": true
                 }
@@ -389,12 +430,32 @@
         }
     ],
     "CannotTrade": false,
+    "ModifyNPCStatsPerTradeValue": [
+        {
+            "Type": 1,
+            "ModifierMinMaxValue": {"x": 0.0, "y": 6.0},
+            "Modifier": {
+                "TargetStatWarpData": "cmcStatApothecaryTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {"x": 0.08, "y": 0.08}
+            }
+        },
+        {
+            "Type": 2,
+            "ModifierMinMaxValue": {"x": 0.0, "y": 6.0},
+            "Modifier": {
+                "TargetStatWarpData": "cmcStatApothecaryTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {"x": 0.08, "y": 0.08}
+            }
+        }
+    ],
     "StartingInventory": [
         {"ItemWarpData": "8486fa421f3930a428cc4d650dc55859", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
         {"ItemWarpData": "9c66dd9251eb1e446b70958f82585af6", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
         {"ItemWarpData": "aa9bd5a17e9e8434cbd5ca6b90e6da39", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
-        {"ItemWarpData": "33c509d114eb34140a380bc8cfe8e709", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
-        {"ItemWarpData": "46654e0eb892126429a470e90f1bbf55", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
         {"ItemWarpData": "322e42ea161bf2e4bb94747882d1285a", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
         {"ItemWarpData": "c0f1eabb07ab5064bbebd151ae6b9a94", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 3}},
         {"ItemWarpData": "9cef8509b7b43cd4894c89615d87469f", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 3}},
@@ -408,13 +469,109 @@
             "ForTradingDirection": 2,
             "ModifierMode": 1,
             "SimpleModifier": 1.5,
-            "GlobalStatModifiers": []
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.5},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.015},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatMarketDay",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 1.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.02},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
+            "NPCStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatApothecaryTrust",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.4},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
         },
         {
             "ForTradingDirection": 1,
             "ModifierMode": 1,
             "SimpleModifier": 0.5,
-            "GlobalStatModifiers": []
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 25.0, "y": 59.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.25},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 150.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.06},
+                        "WhenOutOfRange": 1
+                    }
+                },
+                {
+                    "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.015},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
+            "NPCStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatApothecaryTrust",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 100.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.25},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
         }
     ]
 }

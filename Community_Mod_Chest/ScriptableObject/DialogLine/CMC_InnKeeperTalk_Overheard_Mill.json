@@ -1,0 +1,30 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 4.0}},
+            {"StatWarpData": "cmcStatInnOverheardCooldown", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}},
+            {"StatWarpData": "cmcStatInnOverheardIndex", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Overheard_Mill_Line",
+        "DefaultText": "Don't mind the noise. The table's been at it since sundown over whether the millstones grind finer in a cold wind or a warm one. Nobody has budged an inch, and I've stopped refilling their cups."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Overheard_Mill_Answer",
+                "DefaultText": "Let them have their argument."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnOverheardCooldown", "StatWarpType": 3, "ValueModifier": {"x": 72.0, "y": 72.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnOverheardIndex", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

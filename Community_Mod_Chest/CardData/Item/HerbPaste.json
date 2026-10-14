@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "potterysculptureherbpaste",
         "LocalizationKey": "Pottery_Sculpture_HerbPaste_CardDescription",
-        "DefaultText": "A thick paste ground from wild garlic and old growth bark in a stone mortar. Has a sharp, bitter flavor but eases the body and lifts the spirits."
+        "DefaultText": "A thick paste ground from wild garlic and old growth bark in a stone mortar. Has a sharp, bitter flavor but eases the body and lifts the spirits. Rub it into cooked meat, fish or sausage to season it: the bark's tannin brings out a savoury meal."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -68,6 +68,35 @@
     "SpecialDurability4": {
         "Active": false
     },
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "6a15980a4255f024584c507d2c1e2c53",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "cmcflavourtannic",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "eaecdca41b9d7134487931836f0ec104",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        }
+    ],
     "EdibleStats": {
         "Spoilage": 0,
         "RatePerDaytimePoint": 0,
@@ -75,7 +104,60 @@
         "Hydration": 4,
         "Toxins": 0
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "potterysculptureherbpaste",
+                "LocalizationKey": "Pottery_Sculpture_HerbPaste_CI_Season",
+                "DefaultText": "Season with Herb Paste"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "potterysculptureherbpaste",
+                "LocalizationKey": "Pottery_Sculpture_HerbPaste_CI_Season_Desc",
+                "DefaultText": "Rub the paste into the cooked food. The garlic, the herbs and the bark's tannin carry into every bite, and the tannin brings out a savoury meal. Too much and the garlic takes over."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "e292e8faac1041f4ab1da9bcf900e751",
+                    "91168c5978471d54aaad816581f63ffd",
+                    "f4be79e87ba98db41a9c9e31bb76c33d",
+                    "3ac73e895a8e9c5498ce4377f72642c0",
+                    "6da10dc7038448b4786d22165c6f2388",
+                    "692c88d91a4fdf0498749339ae6d53f8",
+                    "4093dde8982306b4d8a5a9108ac5f0bb",
+                    "1e3f5517c9203e74b9c76a7bae1a3920",
+                    "9fc65684183943e49a402bc16aaa7909",
+                    "c709607574554e040942d989881bb08c",
+                    "0e26aee350306af4eb4f0af0423481ee",
+                    "c3aa52fe507984b4ea3ac3df7f20e6ea",
+                    "4c15287719fce024ea0986bbda731c58",
+                    "d6b37ce716d384b4db1ab37e1af1800f",
+                    "5348869f82fde8140b4f91124c6f5222",
+                    "722c6b3b214bdac4f9c5cbf4cd0ca9fa",
+                    "0b1846782db91ec48996a57cda4281c8",
+                    "545ea8617264fb549aafb59a8d0e7434",
+                    "a7392bea52fed484fb819a1cf444c7fc"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
@@ -83,6 +165,7 @@
                 "LocalizationKey": "Pottery_Sculpture_HerbPaste_DA_Eat",
                 "DefaultText": "Eat"
             },
+            "ReceivingCardFlavourBonus": true,
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
             "ActionTagsWarpData": [

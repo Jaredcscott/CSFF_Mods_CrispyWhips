@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "cmcgardentrellisplaced",
         "LocalizationKey": "CMC_GardenTrellis_Placed_CardDescription",
-        "DefaultText": "A wooden trellis erected in the garden. Its orderly frame lifts the spirit and makes the space feel tended and alive."
+        "DefaultText": "A wooden trellis erected in the garden. Its orderly frame lifts the spirit and makes the space feel tended and alive. Crops planted on the same board grow a little faster beside it."
     },
     "CardType": 2,
     "ObjectWeight": 200.0,
@@ -33,6 +33,7 @@
         "OverrideIconWarpData": "Spoilage",
         "OverrideIconWarpType": 3,
         "HasActionOnZero": true,
+        "OnZeroNotification": 1,
         "OnZero": {
             "ActionName": {
                 "ParentObjectID": "cmcgardentrellisplaced",
@@ -122,6 +123,96 @@
                     "IsInverse": false
                 }
             ]
+        }
+    ],
+    "RemotePassiveEffects": [
+        {
+            "AppliesTo": [
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "b0ad42ad249a7ed4abc9bcf62d37b6fe", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "94ed3e2ecd2c28848ad36daded02f7db", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "9d59a5783a6ad8e4794ede97c5db44b9", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "51d7675f1e9d2824b9c741341258cccd", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "88140a952096e3c4b8945120ec51d032", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "06b45ab477dd2164eb8fe8b0f5cfa42d", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "b090218bbe026654ab389b03b1c7122b", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "8ceeb5cd8ea00894b8b8a96b1afd1b80", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "6411f72c73ec4b94f99386b4f81f0985", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "984ba64dad826584b8f15a59b7a98192", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "e834347a32cd5dc46a65f5711df5ab8f", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "fbabe33851dc08d43b710964cfb73e32", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "0e7da4472cfd6854794781ee6d5c3f6b", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "4c6a1a1388bc79743a1e3fd9d33f8963", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "0c748e69b4f34894a90cbdd04aff9fc0", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "792c1d44a5aa9e046ad962209d6501e8", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "c609f5777061d62458cd027440a908f7", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "d6164215fa8ad974ab7416b827f895c9", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "b8cc7312804b6004da25309bbde45e71", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "55d509c50e7ec584db988ff0c60d6c4a", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "03260dbaac8613342aa0e482c70222ce", "TargetWarpType": 3 },
+                { "Target": { "m_FileID": 0, "m_PathID": 0 }, "TargetWarpData": "333c2694d0d34594ea0845b899aa753d", "TargetWarpType": 3 }
+            ],
+            "Effect": {
+                "EffectName": "CMC Garden Trellis Helps Growth",
+                "OnlyWhenEquipped": false,
+                "EquippedOnBodyOnly": false,
+                "OnlyWhenNOTEquipped": false,
+                "OnlyWhenInHand": false,
+                "OnlyOnBaseActions": false,
+                "OnlyOnNOTBaseActions": false,
+                "OnlyWhenNOTInBG": false,
+                "Conditions": {
+                    "NotInBackground": false,
+                    "InBackground": false,
+                    "PlayerUsesCard": 0,
+                    "InvertEnvironmentRequirement": false,
+                    "RequiredEnvironmentTags": [],
+                    "RequiredNOTEnvironmentTags": [],
+                    "RequiredContainer": [],
+                    "RequiredNOTContainer": [],
+                    "RequiredContainerTags": [],
+                    "RequiredNOTContainerTags": [],
+                    "RequiredCardsOnBoard": [],
+                    "RequiredTagsOnBoard": [],
+                    "RequiredCardsNOTOnBoard": [],
+                    "RequiredTagsNOTOnBoard": [],
+                    "RequiredComplexCardConditions": [],
+                    "RequiredCardsInInventory": [],
+                    "RequiredTagsInInventory": [],
+                    "RequiredTagsInInventoryWarpData": [],
+                    "RequiredTagsInInventoryWarpType": 3,
+                    "RequiredInventoryWeight": { "Active": false, "Range": { "x": 0.0, "y": 0.0 }, "UsePercentage": false, "Invert": false },
+                    "CardWasBuiltWith": [],
+                    "CardWasNOTBuiltWith": [],
+                    "RequiredPlayerOwnedCards": [],
+                    "RequiredPlayerNOTOwnedCards": [],
+                    "ReceivingCardTags": [],
+                    "GivenCardTags": [],
+                    "ReceivingCardSpices": [],
+                    "GivenCardSpices": [],
+                    "RequiredEnvironmentWeight": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "RequiredStatValues": [],
+                    "RequiredNPCStatValues": [],
+                    "RequiredNPCActiveDuties": [],
+                    "RequiredNPCAtHome": [],
+                    "RequiredPresentNPCS": [],
+                    "RequiredInGameTimes": [],
+                    "RequiredAlreadyVisitedEnvironments": [],
+                    "RequiredUnlockedBps": [],
+                    "RequiredNOTUnlockedBps": [],
+                    "NPCInventoryConditions": [],
+                    "NPCExists": []
+                },
+                "StatModifiers": [],
+                "NPCStatModifiers": [],
+                "EffectStacksWithRequiredCards": false,
+                "OnBoardEffectCap": 0,
+                "EffectScalesWithDurabilities": { "Active": false, "Inputs": [], "EffectScalingOutput": { "x": 0.0, "y": 0.0 } },
+                "ConsumableChargesModifier": { "Active": true, "FloatValue": 0.25 },
+                "MultiplyConsumableChargesRate": false,
+                "LiquidRateModifier": 0.0,
+                "WeightCapacityModifier": 0.0,
+                "DroppedCards": []
+            }
         }
     ]
 }

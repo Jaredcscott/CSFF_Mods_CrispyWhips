@@ -14,7 +14,7 @@
     "ObjectWeight": 60.0,
     "TradingValue": 10.0,
     "DoesNotPile": true,
-    "CardImageWarpData": "Candle_On",
+    "CardImageWarpData": "CMC_ScentedCandleLit",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
         "tag_Preservable",

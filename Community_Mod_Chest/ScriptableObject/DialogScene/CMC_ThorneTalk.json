@@ -4,6 +4,7 @@
         "DefaultText": "Guard Nella Thorne"
     },
     "SceneLinesWarpData": [
+        "CMC_GuardTalk_TheftNotFound",
         "CMC_ThorneTalk_Start"
     ],
     "SceneLinesWarpType": 3

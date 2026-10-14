@@ -1,0 +1,30 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnCompany", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 4.0}},
+            {"StatWarpData": "cmcStatInnOverheardCooldown", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.0}},
+            {"StatWarpData": "cmcStatInnOverheardIndex", "StatWarpType": 3, "TriggerRange": {"x": 4.0, "y": 4.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Overheard_Roads_Line",
+        "DefaultText": "Everyone's grumbling about the roads tonight: from the cottages to the Inn, from the Inn to the Academy, and not two of them agree which stretch is the muddiest."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Overheard_Roads_Answer",
+                "DefaultText": "Then somebody should lay a few planks."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnOverheardCooldown", "StatWarpType": 3, "ValueModifier": {"x": 72.0, "y": 72.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnOverheardIndex", "StatWarpType": 3, "ValueModifier": {"x": -4.0, "y": -4.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

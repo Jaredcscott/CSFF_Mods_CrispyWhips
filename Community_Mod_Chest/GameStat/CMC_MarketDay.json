@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMarketDay",
+    "GameName": {
+        "LocalizationKey": "CMC_MarketDay_StatName",
+        "DefaultText": "Village Market Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MarketDay_StatDescription",
+        "DefaultText": "Hidden day-long trade modifier: set to 96 by VillageSeasonsPatch on the first day of summer and drained by 1 a tick, about a day. While it reads 1 or more the five residents take a small discount off the price you pay (a tunable placeholder, kept smaller than the Wanted markup). Clamped 0..96."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 96.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

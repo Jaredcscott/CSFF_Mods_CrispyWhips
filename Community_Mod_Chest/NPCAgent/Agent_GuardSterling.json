@@ -64,7 +64,28 @@
         }
     ],
     "DismantleActions": [],
-    "DragAndDropActions": [],
+    "DragAndDropActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_GuardBribe_ActionName",
+                "DefaultText": "Slip a Bribe"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_GuardBribe_ActionDescription",
+                "DefaultText": "Press Salt or a metal nugget into the guard's hand. Her suspicion of you eases, though never below what she carries on a quiet day, and it does nothing about your crime."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa", "4b0f4937a5ecb90499428c8c10288afc"],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
     "AmbientSounds": [],
     "AgentStats": [],
     "ItemPreferences": [],

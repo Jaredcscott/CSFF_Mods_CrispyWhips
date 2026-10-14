@@ -3,7 +3,7 @@
     "CardName": {
         "ParentObjectID": "potterysculpturebppigment",
         "LocalizationKey": "Pottery_Sculpture_Bp_Pigment_CardName",
-        "DefaultText": "Pigment"
+        "DefaultText": "Charcoal Pigment"
     },
     "CardDescription": {
         "ParentObjectID": "potterysculpturebppigment",

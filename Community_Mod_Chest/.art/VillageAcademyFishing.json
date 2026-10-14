@@ -1,0 +1,21 @@
+{
+  "target": "VillageAcademyFishing.png",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "fk8icAxWBEMQjUSAMUXs",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791833203956_a2adc04d_1791833204006_361ba62d.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery round 3 (2026-10-12): regenerate = new content. Two vanilla exemplars as style references, flat-ink prompt. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py",
+    "enclosed pure-white paper keyed on the trimmed image"
+  ],
+  "vanilla_score": 51
+}

@@ -12,10 +12,11 @@
         "DefaultText": "A full-length coat of woven cloth, worked over with fine charcoal pigment until it takes on a deep charcoal-grey hue. Lighter than fur but provides decent protection from wind and light rain. The dye is purely for show — it hides dirt better than plain cloth, but it won't keep you any warmer.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
     },
     "CardType": 0,
-    "CardImageWarpData": "ClothCoat",
+    "CardImageWarpData": "CMC_ClothCoatDyedCharcoal",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
-        "tag_Clothing"
+        "tag_Clothing",
+        "tag_CMCColdWeatherApparel"
     ],
     "CardTagsWarpType": 3,
     "ObjectWeight": 400.0,

@@ -14,7 +14,7 @@
     "ObjectWeight": 60.0,
     "TradingValue": 8.0,
     "DoesNotPile": true,
-    "CardImageWarpData": "Candle_Off",
+    "CardImageWarpData": "CMC_ScentedCandle",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
@@ -67,7 +67,7 @@
             "ActionName": {
                 "ParentObjectID": "comfortscentedcandle",
                 "LocalizationKey": "ScentedCandle_Refuel_ActionName",
-                "DefaultText": "Coat with Beeswax"
+                "DefaultText": "Coat with Wax"
             },
             "ActionDescription": {
                 "ParentObjectID": "comfortscentedcandle",
@@ -131,7 +131,7 @@
                 "FailMessage": {
                     "ParentObjectID": "comfortscentedcandle",
                     "LocalizationKey": "ScentedCandle_NeedsFuel",
-                    "DefaultText": "The candle needs beeswax first."
+                    "DefaultText": "The candle needs wax first."
                 }
             },
             "CompatibleCards": {

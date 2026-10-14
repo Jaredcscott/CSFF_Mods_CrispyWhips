@@ -118,8 +118,8 @@ CharacterTraits_Perk_Swimmer_PerkName,Swimmer,游泳好手
 CharacterTraits_Perk_Swimmer_PerkDescription,"You are at home in the water. Start with a head start in Swimming that opens the cheaper river crossing from day one, and keep a steady Swimming Aid as strong as one spirit blessing.",你在水中如鱼得水。开局即拥有领先的游泳技能，从第一天起就能以更省力的方式游过河去，并始终保有相当于一次精魄赐福的游泳援助。
 CharacterTraits_Perk_Trapper_PerkName,Trapper,设陷者
 CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap, a Cage and a Hideout.",你懂得如何布置陷阱，并靠猎获为生。开局拥有一个套索陷阱、一个原木陷阱、一个诱捕笼和一个藏匿点。
-Pottery_Sculpture_Pigment_CardName,Pigment,颜料
-Pottery_Sculpture_Pigment_CardDescription,A fine colored powder made by grinding charcoal. Used to paint and decorate pottery.,将木炭研磨成的细腻彩色粉末，用于绘制和装饰陶器。
+Pottery_Sculpture_Pigment_CardName,Charcoal Pigment,炭黑颜料
+Pottery_Sculpture_Pigment_CardDescription,"A fine black powder made by grinding charcoal. Used to paint and decorate pottery, or rubbed into cloth, straw or leather to dye it charcoal-grey.",将木炭研磨成的细腻黑色粉末，可用于绘制和装饰陶器，也能揉进布料、草编或皮革，将其染成炭灰色。
 Pottery_Sculpture_PaintedBowl_CardName,Painted Clay Bowl,彩绘陶碗
 Pottery_Sculpture_PaintedBowl_CardDescription,A clay bowl decorated with hand-painted designs. Beautiful and functional.,一只饰有手绘图案的陶碗，美观又实用。
 Pottery_Sculpture_PaintedBowl_UsageDurability,Durability,耐久度
@@ -136,7 +136,7 @@ Pottery_Sculpture_FigurineBear_CardName,Bear Figurine,熊形陶像
 Pottery_Sculpture_FigurineBear_CardDescription,A small clay figurine shaped like a bear. A charming decoration and a fine trade good.,一尊熊形小陶像，既是可爱的装饰品，也是不错的交易货物。
 Pottery_Sculpture_FigurineBear_UsageDurability,Durability,耐久度
 Pottery_Sculpture_FigurineBear_Broken,The bear figurine has crumbled.,熊形塑像已经碎裂剥落。
-Pottery_Sculpture_Bp_Pigment_CardName,Pigment,颜料
+Pottery_Sculpture_Bp_Pigment_CardName,Charcoal Pigment,炭黑颜料
 Pottery_Sculpture_Bp_Pigment_CardDescription,Grind charcoal into a fine pigment powder using a hand stone.,用研磨石把木炭磨成细腻的颜料粉末。
 Pottery_Sculpture_Bp_Pigment_UnlockConditionsDesc,Charcoal Needed,需要木炭
 Pottery_Sculpture_Bp_PaintedBowl_CardName,Painted Clay Bowl,彩绘陶碗
@@ -185,18 +185,20 @@ Comfort_Bedroll_UsageDurability,Durability,耐久度
 Comfort_Bedroll_WornOut,The bedroll has worn through and fallen apart.,睡袋已经磨穿散架。
 Comfort_Bedroll_DA_Dismantle,Dismantle,拆解
 CeramicLamp_CardName,Ceramic Lamp,陶灯
-CeramicLamp_CardDescription,A small open clay lamp with a wick channel. Burns fat for steady light. Fill with fat then light from a fire source.,一盏带灯芯槽的敞口小陶灯，燃烧油脂以提供稳定光源。先加入油脂，再用火源点燃。
-CeramicLamp_FuelCapacity_CardStatName,Fat,脂肪
+CeramicLamp_CardDescription,A small open clay lamp with a wick channel. Burns fat or lamp oil for steady light. Fill it with fat or a bowl of oil and light it from a fire source.,一盏带灯芯槽的敞口小陶灯，燃烧油脂或灯油以提供稳定光源。先加入油脂或一碗油，再用火源点燃。
+CeramicLamp_FuelCapacity_CardStatName,Fuel,燃料
 CeramicLamp_Refuel_ActionName,Refuel with Fat,添加油脂
 CeramicLamp_Refuel_ActionDescription,Add fat to the lamp's reservoir.,往灯的油槽里添加油脂。
+CeramicLamp_RefuelOil_ActionName,Refuel with Oil,添加灯油
+CeramicLamp_RefuelOil_ActionDescription,Pour a bowl of oil into the lamp's reservoir. The empty bowl comes back to you.,把一碗油倒进灯的油槽里，空碗会还给你。
 CeramicLamp_Light_ActionName,Light Lamp,点亮油灯
 CeramicLamp_Light_ActionDescription,Light the lamp from a fire source.,用火源点燃这盏灯。
-CeramicLamp_NeedsFuel,The lamp needs fat first.,这盏灯需要先加油脂。
+CeramicLamp_NeedsFuel,The lamp needs fat or oil first.,这盏灯需要先加油脂或灯油。
 CeramicLampLit_CardName,Lit Ceramic Lamp,燃烧的陶灯
-CeramicLampLit_CardDescription,A small clay lamp burning fat for light. Consumes fuel slowly. Extinguish to refuel.,一盏燃烧油脂发光的小陶灯，燃料消耗缓慢。熄灭后可重新加注燃料。
-CeramicLampLit_FuelCapacity_CardStatName,Fat,脂肪
+CeramicLampLit_CardDescription,A small clay lamp burning fat or oil for light. Consumes fuel slowly. Extinguish to refuel.,一盏燃烧油脂或灯油发光的小陶灯，燃料消耗缓慢。熄灭后可重新加注燃料。
+CeramicLampLit_FuelCapacity_CardStatName,Fuel,燃料
 CeramicLampLit_FuelOut_ActionName,Lamp Burns Out,油灯熄灭
-CeramicLampLit_FuelOut_ActionDescription,The lamp runs out of fat.,灯里的油脂用完了。
+CeramicLampLit_FuelOut_ActionDescription,The lamp runs out of fuel.,灯里的燃料用完了。
 CeramicLampLit_Extinguish_ActionName,Extinguish,熄灭
 CeramicLampLit_Extinguish_ActionDescription,Put out the lamp.,熄灭这盏灯。
 Combat_And_Armor_Bp_WoodenShield_CardName,Wooden Shield,木盾
@@ -250,8 +252,8 @@ Comfort_CopperBedFrame_CardName,Copper Bed Frame,铜制床架
 Comfort_CopperBedFrame_CardDescription,A sturdy wooden bed frame reinforced with hammered copper joints. Needs a mattress before it's worth sleeping on.,一副用锻打铜件加固接口的坚固木床架，需要配上床垫才能真正用来睡觉。
 Comfort_CopperBedFrame_DA_Dismantle,Dismantle,拆解
 Comfort_Bp_CopperBedFrame_CardName,Copper Bed Frame,铜制床架
-Comfort_Bp_CopperBedFrame_CardDescription,Build a bed frame from wood planks braced with hammered copper sheet joints. Requires the Copper Sheet blueprint (Advanced Copper Tools).,用木板搭建床架，并以锻打铜片接口加固。需要「铜板」蓝图（来自高级铜具模组）。
-Comfort_Bp_CopperBedFrame_UnlockConditionsDesc,Earn the Inn Keeper's friendship (30) and a Copper Sheet (Advanced Copper Tools),赢得旅店老板的友谊（30）并拥有一块铜板（需要高级铜具）
+Comfort_Bp_CopperBedFrame_CardDescription,Build a bed frame from wood planks braced with hammered copper sheet joints. Requires copper Metal Sheets (the Metal Sheet blueprint).,用木板搭建床架，并以锻打铜片接口加固。需要铜质金属片（「金属片」蓝图）。
+Comfort_Bp_CopperBedFrame_UnlockConditionsDesc,Earn the Inn Keeper's friendship (30) and a Metal Sheet,赢得旅店老板的友谊（30）并拥有一块金属片
 Comfort_ComfortableBed_Placed_CardName,Comfortable Bed,舒适床铺
 Comfort_ComfortableBed_Placed_CardDescription,A proper bed: a down-stuffed mattress mounted on a copper-braced wooden frame. The best night's sleep you can build in the wild.,一张真正的床：羽绒床垫安装在铜件加固的木床架上，是野外能搭建出的最佳睡眠场所。
 Comfort_ComfortableBed_Placed_CardHelpSection,"<b>Usage:</b> Nap or Sleep on it for the best rest available, and its warmth passively lifts perceived temperature while you're in this environment.
@@ -403,7 +405,7 @@ Bp_CMC_IronFishingRod_UnlockConditionsDesc,Iron Fishing Rod Fittings Needed,需�
 CMC_OldGrowthBark_CardName,Old Growth Bark,古树皮
 CMC_OldGrowthBark_CardDescription,"Thick bark peeled from the ancient oaks of the Foraging Forest. Rich with aromatic tannins, ground together with wild garlic into a soothing herb paste.",从觅食林古老橡树上剥下的厚实树皮，富含芳香单宁，与野蒜一同研磨可制成舒缓的草药糊。
 CMC_GardenTrellis_Placed_CardName,Garden Trellis,花园棚架
-CMC_GardenTrellis_Placed_CardDescription,A wooden trellis erected in the garden. Its orderly frame lifts the spirit and makes the space feel tended and alive.,一座竖立在花园中的木制棚架，整齐的结构令人心情舒畅，也让这片空间显得生机盎然、精心打理。
+CMC_GardenTrellis_Placed_CardDescription,A wooden trellis erected in the garden. Its orderly frame lifts the spirit and makes the space feel tended and alive. Crops planted on the same board grow a little faster beside it.,一座竖立在花园中的木制棚架，整齐的结构令人心情舒畅，也让这片空间显得生机盎然、精心打理。种在同一块场地上的作物在它旁边会长得稍快一些。
 CMC_GardenTrellis_Placed_DA_Dismantle,Dismantle,拆解
 CMC_GardenTrellis_Placed_Weathered,The garden trellis has rotted away.,花园棚架已经腐朽消失。
 Bp_CMC_GardenTrellis_CardName,Garden Trellis,花园棚架
@@ -421,7 +423,7 @@ Pottery_Sculpture_Bp_StoneTiles_CardName,Stone Tiles,石砖
 Pottery_Sculpture_Bp_StoneTiles_CardDescription,"Chip a stone flat and square. Produces several polished tiles that can be laid as flooring in cabins and mud huts, or sold in trade.",把石头凿成扁平方正的形状，可制成多块抛光石砖，用作小屋和泥屋的地板，也可用于交易。
 Pottery_Sculpture_Bp_StoneTiles_UnlockConditionsDesc,Help the Miller with good lumber,用优质木材帮助磨坊主
 Pottery_Sculpture_HerbPaste_CardName,Herb Paste,草药糊
-Pottery_Sculpture_HerbPaste_CardDescription,"A thick paste ground from wild garlic and old growth bark in a stone mortar. Has a sharp, bitter flavor but eases the body and lifts the spirits.",用石臼将野蒜和古树皮研磨成的浓稠糊状物，味道辛辣苦涩，却能舒缓身体、提振精神。
+Pottery_Sculpture_HerbPaste_CardDescription,"A thick paste ground from wild garlic and old growth bark in a stone mortar. Has a sharp, bitter flavor but eases the body and lifts the spirits. Rub it into cooked meat, fish or sausage to season it: the bark's tannin brings out a savoury meal.",用石臼将野蒜和古树皮研磨成的浓稠糊状物，味道辛辣苦涩，却能舒缓身体、提振精神。把它揉进熟肉、熟鱼或香肠里就能调味：树皮的涩味尤其能衬出咸鲜的菜肴。
 Pottery_Sculpture_HerbPaste_Spoiled,The herb paste has gone rancid.,草药膏已经变质腐坏。
 Pottery_Sculpture_HerbPaste_DA_Eat,Eat,食用
 Pottery_Sculpture_Bp_HerbPaste_CardName,Herb Paste,草药糊
@@ -550,7 +552,7 @@ CharacterTraits_Perk_Troglodyte_PerkDescription,"A life spent in caves and cramp
 CharacterTraits_Perk_ExiledArtist_PerkName,Exiled Artist,放逐艺术家
 CharacterTraits_Perk_ExiledArtist_PerkDescription,"Forced from your homeland, you carry your craft in your hands. Start with a head start in Pottery.",你被迫离开故土，手艺却始终留在你的手中。开局陶艺技能领先。
 CharacterTraits_Perk_BornMark_PerkName,Born Mark,天生印记
-CharacterTraits_Perk_BornMark_PerkDescription,"You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised. Nothing in the world reads Luck yet, so the mark changes nothing you can see today.",你生来便带有一道显眼的印记，连灵体都对此有所留意。它让你的幸运值始终偏高。但目前世上还没有任何东西会读取幸运值，因此这道印记不会带来任何你能察觉的改变。
+CharacterTraits_Perk_BornMark_PerkDescription,"You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised, and Luck now counts: you are a little less likely to be caught searching a chest or to have your market stall robbed, and the Iron Fishing Rod lands slightly better catches.",你生来便带有一道显眼的印记，连灵体都对此有所留意。它让你的幸运值始终偏高，而且如今确有其效：搜查铜箱时被发现的几率略低，集市摊位被盗的几率略低，铁制钓竿也能钓到稍好的渔获。
 CharacterTraits_Perk_Aged_PerkName,Aged,年迈
 CharacterTraits_Perk_Aged_PerkDescription,"The years have taken their toll. However hard you train, your body never regains the fitness of youth, and your energy never quite fills. You burn through your reserves more slowly and grow sleepy more slowly, but a dull ache never quite leaves you.",岁月在你身上留下了痕迹。无论怎样锻炼，你的身体都再也回不到年轻时的体能巅峰，精力也始终无法充满。你消耗储备的速度更慢，困意来得也更慢，但一丝钝痛始终挥之不去。
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder,凝血不良
@@ -566,7 +568,7 @@ CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for 
 CharacterTraits_Perk_Leper_PerkName,Leper,麻风病患者
 CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people.",一种消耗性的疾病夺走了你肌肤的知觉，也侵蚀了你的面容。受伤再也不会让你感到疼痛。你的皮肤更难阻挡污秽，残破的容貌让商人敬而远之，你对他人也几乎不再有感情。
 CharacterTraits_Perk_Fugitive_PerkName,Fugitive,逃亡者
-CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most.",你匆忙逃离了过去的生活，身上几乎只剩一身衣服。你抵达时紧张又惊恐，被追捕的恐惧让你永远无法彻底放松。但逃亡需要胆量，你的勇气胜过常人。
+CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most. Word of you has reached the village Watch: on your first visit there you are already Suspected.",你匆忙逃离了过去的生活，身上几乎只剩一身衣服。你抵达时紧张又惊恐，被追捕的恐惧让你永远无法彻底放松。但逃亡需要胆量，你的勇气胜过常人。你的消息已传到村庄巡逻队：你第一次到访村庄时就已被列为嫌疑对象。
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist,迷路游客
 CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident and arrive already on edge. You miss civilization and the people you left behind, so you feel for others more than most, but alone in the wild you grow isolated twice as fast.",你完全是误打误撞闯进了这片荒野，初来乍到便已心神不宁。你怀念文明，也思念留在身后的人们，因此比常人更能体会他人的感受，但独处荒野时，你陷入孤立的速度是常人的两倍。
 CharacterTraits_Perk_SeasonalAllergies_PerkName,Seasonal Allergies,季节性过敏
@@ -652,14 +654,15 @@ CMC_MarketStallKit_CardDesc,"A portable market stall. Can only be assembled in t
 CMC_MarketStallKit_Help,Market Stall Kit,集市摊位套件
 CMC_MarketStall_DA_SetUp,Set Up Stall,搭建摊位
 CMC_MarketStall_CardName,Market Stall,集市摊位
-CMC_MarketStall_CardDesc,"A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls.",一处架设在村庄内的小型交易点。将交易货物投入摊位；商人每天会购买一件商品，累积你的销售收益条。以铜块（每份50收益）或盐（每份30收益）的形式收取收益。无人看管的摊位偶尔会遭窃贼光顾。
+CMC_MarketStall_CardDesc,"A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each), or, with DurosCoinage installed, Duros coins. Thieves occasionally target unattended stalls.",一处架设在村庄内的小型交易点。将交易货物投入摊位；商人每天会购买一件商品，累积你的销售收益条（村庄声誉越高收益越多，被放逐期间则更少）。以铜块（每份50收益）或盐（每份30收益）的形式收取收益，安装了 DurosCoinage 时也可收取杜罗斯硬币。无人看管的摊位偶尔会遭窃贼光顾。
 CMC_MarketStall_SD1_Name,Sales Revenue,销售收入
 CMC_MarketStall_DA_CollectCopper,Collect as Copper,以铜块形式收取
 CMC_MarketStall_DA_CollectSalt,Collect as Salt,以盐形式收取
+CMC_MarketStall_DA_CollectCoins,Collect as Coins,以硬币形式收取
 CMC_MarketStall_DA_PackUp,Pack Up Stall,收起摊位
 CMC_MarketStall_BP_Name,Market Stall,集市摊位
-CMC_MarketStall_BP_Desc,"Build a market stall using planks, cloth, rope, and a Copper Chest for the coin lockbox. The finished kit can only be assembled in the village.",使用木板、布料、绳子，再用一个铜制箱子作为钱币保险箱，建造一个集市摊位。做好的套件只能在村庄内组装。
-CMC_MarketStall_BP_UnlockDesc,Requires a Copper Chest,需要一个铜制箱子
+CMC_MarketStall_BP_Desc,"Build a market stall using planks, cloth, rope, and a Storage Chest for the coin lockbox (with Advanced Copper Tools installed, its Copper Chest also fits). The finished kit can only be assembled in the village.",使用木板、布料、绳子，再用一个储物箱作为钱币保险箱，建造一个集市摊位（若安装了高级铜具，它的铜制箱子也可以使用）。做好的套件只能在村庄内组装。
+CMC_MarketStall_BP_UnlockDesc,Requires a Storage Chest,需要一个储物箱
 CMC_Inn_CardName,Village Inn,旅店
 CMC_Inn_CardDescription,"A warm inn kept by a friendly innkeeper. Step inside for a meal, a bed for the night, or some paying work.",一间由和蔼的旅店老板经营的温馨旅店。进去可以用餐、投宿一晚，或找些有偿工作。
 CMC_Inn_Help,Inn,旅店
@@ -671,11 +674,11 @@ CMC_InnExit_CardName,Inn Door,旅店大门
 CMC_InnExit_DA_Exit,Exit,离开
 CMC_InnExit_DA_Exit_Fade,Leaving the inn...,正在离开旅店……
 CMC_InnCounter_CardName,Inn Counter,旅店柜台
-CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance. Drag Firewood onto the counter to sell it for Salt. There is usually odd work available too, paid in copper nuggets.",旅店老板在这个柜台后供应热食、出租床铺。将盐、金属块或杜洛斯硬币拖到柜台上即可为你的旅店账户充值（上限500）；一顿饭或一晚住宿会从余额中扣除50。将木柴拖到柜台上可以换取盐。这里通常也有些零工可做，报酬以铜块支付。
+CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it for Salt. There is usually odd work available too, paid in copper nuggets.",旅店老板在这个柜台后供应热食、出租床铺。将盐、金属块或杜洛斯硬币拖到柜台上即可为你的旅店账户充值（上限500）；一顿饭或一晚住宿会从余额中扣除50（被通缉或被放逐期间会更多）。将木柴拖到柜台上可以换取盐。这里通常也有些零工可做，报酬以铜块支付。
 CMC_InnCounter_DA_Meal,Purchase Meal,购买餐食
-CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account. Restores Satiation, Thirst, and Fullness. Provides Protein, Iron, and Vitamins. Tastes great.",从你的旅店账户中扣除50。恢复饱食度、口渴度和肠胃充盈度，提供蛋白质、铁和维生素，味道很棒。
+CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Restores Satiation, Thirst, and Fullness. Provides Protein, Iron, and Vitamins. Tastes great.",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。恢复饱食度、口渴度和肠胃充盈度，提供蛋白质、铁和维生素，味道很棒。
 CMC_InnCounter_DA_Sleep,Stay the Night,留宿一晚
-CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account. Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call).",从你的旅店账户中扣除50。最多休息6小时，恢复清醒度和精力。若生命体征达到危急警报（口渴、体温、出血、疾病或如厕需求），你会提前醒来。
+CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call).",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。最多休息6小时，恢复清醒度和精力。若生命体征达到危急警报（口渴、体温、出血、疾病或如厕需求），你会提前醒来。
 CMC_InnCounter_DA_Sleep_Interrupt_Thirsty,I'm too thirsty to sleep...,太渴了，睡不着……
 CMC_InnCounter_DA_Sleep_Interrupt_Hot,I'm too hot to sleep...,太热了，睡不着……
 CMC_InnCounter_DA_Sleep_Interrupt_Cold,I'm too cold to sleep...,太冷了，睡不着……
@@ -780,17 +783,17 @@ CMC_AcademyExit_CardName,Academy Door,学院大门
 CMC_AcademyExit_DA_Exit,Exit,离开
 CMC_AcademyExit_DA_Exit_Fade,Leaving the academy...,正在离开学院……
 CMC_AcademyLectern_CardName,Lecture Hall,讲堂
-CMC_AcademyLectern_CardDescription,"The academy masters lecture here. Drag Salt, metal Nuggets, or Duros Coins onto the lectern to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance, including the final exam. Choose a subject below to advance its coursework; when only one session remains, sit the final exam to earn your degree.",学院的师傅们在此授课。将盐、金属块或杜洛斯硬币拖到讲台上即可为你的学费账户充值（上限1000）；每两小时的学习课时会从余额中扣除100，期末考试同样如此。在下方选择一门科目以推进课程进度；当只剩最后一节课时，参加期末考试即可获得学位。
+CMC_AcademyLectern_CardDescription,"The academy masters lecture here. Drag Salt, metal Nuggets, or Duros Coins onto the lectern to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance (more while you are Wanted or Banished), including the final exam. Choose a subject below to advance its coursework; when only one session remains, sit the final exam to earn your degree. On the afternoons the Miller, Weaver, Apothecary or Professor is lecturing here, a Sit In button lets you listen in for a small boost to their craft, once a week for each.",学院的师傅们在此授课。将盐、金属块或杜洛斯硬币拖到讲台上即可为你的学费账户充值（上限1000）；每两小时的学习课时会从余额中扣除100（被通缉或被放逐期间会更多），期末考试同样如此。在下方选择一门科目以推进课程进度；当只剩最后一节课时，参加期末考试即可获得学位。磨坊主、织工、药剂师或教授在此讲课的下午，你可以点“旁听”听上一场，略微提升他们擅长的技艺，每位居民每周一次。
 CMC_AcademyLectern_DA_Architecture,Study Architecture,学习建筑学
-CMC_AcademyLectern_DA_Architecture_Desc,"A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available.",一堂两小时的课程，讲授承重框架与水利工程。整门课程需要72小时的学习时间；每次上课都会从你的学费账户中扣除100。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Architecture_Desc,"A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，讲授承重框架与水利工程。整门课程需要72小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
 CMC_AcademyLectern_DA_Metallurgy,Study Metallurgy,学习冶金学
-CMC_AcademyLectern_DA_Metallurgy_Desc,"A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available.",一堂两小时的课程，在化验台前进行。整门课程需要60小时的学习时间；每次上课都会从你的学费账户中扣除100。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Metallurgy_Desc,"A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，在化验台前进行。整门课程需要60小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
 CMC_AcademyLectern_DA_Herbalism,Study Herbalism,学习药草学
-CMC_AcademyLectern_DA_Herbalism_Desc,"A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available.",一堂两小时的课程，在药草园中进行。整门课程需要30小时的学习时间；每次上课都会从你的学费账户中扣除100。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Herbalism_Desc,"A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，在药草园中进行。整门课程需要30小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
 CMC_AcademyLectern_DA_ArchitectureFinal,Final Exam: Architecture,期末考试：建筑学
-CMC_AcademyLectern_DA_ArchitectureFinal_Desc,"The final two-hour examination. Pass it to earn the Architecture degree: unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得建筑学学位：解锁水力锯木厂和水力磨坊的蓝图，若再搭配冶金学学位，还可解锁水力锻炉和水力工坊。
+CMC_AcademyLectern_DA_ArchitectureFinal_Desc,"The final two-hour examination. Pass it to earn the Architecture degree and its steady Beaver Blessing; with Water-Driven Infrastructure installed, it also unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得建筑学学位及其持续的河狸赐福；若已安装水力基础设施（Water-Driven Infrastructure），还会解锁水力锯木厂和水力磨坊的蓝图，若再搭配冶金学学位，还可解锁水力锻炉和水力工坊。
 CMC_AcademyLectern_DA_MetallurgyFinal,Final Exam: Metallurgy,期末考试：冶金学
-CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet recipe is handed to you outright, no research required, and, together with an Architecture degree, it unlocks the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得冶金学学位：铜板配方将直接授予你，无需研究；若再搭配建筑学学位，还可解锁水力锻炉和水力工坊。
+CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet and Bronze Sheet recipes are handed to you outright, no research required, and, with Water-Driven Infrastructure installed and an Architecture degree, it also unlocks the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得冶金学学位：铜板和青铜片配方将直接授予你，无需研究；若已安装水力基础设施（Water-Driven Infrastructure）并持有建筑学学位，还可解锁水力锻炉和水力工坊。
 CMC_AcademyLectern_DA_HerbalismFinal,Final Exam: Herbalism,期末考试：药草学
 CMC_AcademyLectern_DA_HerbalismFinal_Desc,The final two-hour examination. Pass it to earn the Herbalism degree: from then on you gather twice as much whenever you forage.,最后一场两小时的考试。通过后即可获得药草学学位：从此以后，每次采集所得的数量都会翻倍。
 CMC_AcademyLectern_Prog_Architecture,Architecture,建筑学
@@ -804,27 +807,27 @@ CMC_AcademyLectern_FinalNotReady,You are not ready for the final examination.,�
 CharacterTraits_Perk_HigherEducation_PerkName,Higher Education,高等教育
 CharacterTraits_Perk_HigherEducation_PerkDescription,"Retired trait. The village Academy now stands for every character, and its courses gate their blueprint rewards for everyone; this trait no longer appears at character creation and has no effect. It is kept only so older saves that selected it remain valid.",已停用特质。村庄学院如今对所有角色开放，其课程也统一决定所有人的蓝图奖励；此特质不再出现于角色创建界面，也不再产生任何效果，仅为保留旧存档中已选择此特质角色的有效性而存在。
 CharacterTraits_Perk_GradArchitecture_PerkName,Architecture Graduate,建筑学毕业生
-CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. The Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop. You also keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的建筑课程。水力锯木厂和水力磨坊的蓝图归你所有，若再持有冶金学位，还可获得水力锻炉和水力工坊。你还会持续获得相当于一次精灵赐福的河狸赐福。
+CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. With Water-Driven Infrastructure installed, the Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop. You also keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的建筑课程。若已安装水力基础设施（Water-Driven Infrastructure），水力锯木厂和水力磨坊的蓝图归你所有，若再持有冶金学位，还可获得水力锻炉和水力工坊。你还会持续获得相当于一次精灵赐福的河狸赐福。
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate,冶金学毕业生
-CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours outright, with no research needed, and together with an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的冶金课程。铜板配方直接归你所有，无需研究；若再持有建筑学位，还可获得水力锻炉和水力工坊。你的金工技能视为高出25点，打造的金属制品品质更好。
+CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet and Bronze Sheet recipes are yours outright, with no research needed, and, with Water-Driven Infrastructure installed and an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的冶金课程。铜板和青铜片配方直接归你所有，无需研究；若已安装水力基础设施（Water-Driven Infrastructure）并持有建筑学位，还可获得水力锻炉和水力工坊。你的金工技能视为高出25点，打造的金属制品品质更好。
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate,药草学毕业生
 CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's herbalism course. Every forage gives you twice as much. The extra finds are added as you gather them, so they do not show up in any drop-chance list.",你完成了学院的草药学课程。每次觅食的收获都会翻倍。额外的收获是在采集时加入的，因此不会显示在任何掉落概率列表中。
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate,钓鱼毕业生
 CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fishing course. The Iron Fishing Rod recipe is yours, and you've learned to read the water: you keep a steady Fishing Aid as strong as one spirit blessing.",你完成了学院的捕鱼课程。铁钓竿的配方归你所有，你也学会了观察水面：持续获得相当于一次精灵赐福的捕鱼援助。
 CharacterTraits_Perk_GradArmorer_PerkName,Armorer Graduate,制甲毕业生
-CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. The copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets) are yours, and your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的铠甲课程。铜制和铁制铠甲配方（胸甲、头盔、护胫、护手）归你所有，你的金工技能也视为高出25点，打造的金属制品品质更好。
+CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. Every metal armor recipe is yours (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields), and your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的铠甲课程。所有金属铠甲配方（铜、锡、幽灵青铜、锡青铜、白青铜和铁的胸甲、头盔、护胫、护手，以及铜盾、铁盾和幽灵青铜盾）归你所有，你的金工技能也视为高出25点，打造的金属制品品质更好。
 CharacterTraits_Perk_GradMedicine_PerkName,Medicine Graduate,医学毕业生
 CharacterTraits_Perk_GradMedicine_PerkDescription,"You completed the Academy's medicine course. You know how to dress a wound and manage pain, so your wounds bleed a little less and aches sit a little lighter.",你完成了学院的医学课程。你懂得如何包扎伤口、控制疼痛，因此你的伤口出血略少，疼痛也略轻一些。
 CMC_AcademyLectern_DA_Fishing,Study Fishing,学习钓鱼
-CMC_AcademyLectern_DA_Fishing_Desc,"A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available.",一堂两小时的课程，修补渔网并研读水情。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Fishing_Desc,"A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，修补渔网并研读水情。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
 CMC_AcademyLectern_DA_FishingFinal,Final Exam: Fishing,期末考试：钓鱼
 CMC_AcademyLectern_DA_FishingFinal_Desc,The final two-hour examination. Pass it to earn the Fishing degree: unlocks the Iron Fishing Rod recipe and teaches you to read the water for a better catch.,最后一场两小时的考试。通过后即可获得钓鱼学位：解锁铁制鱼竿配方，并教会你研判水情以获得更好的渔获。
 CMC_AcademyLectern_DA_Armorer,Study Armorer,学习制甲
-CMC_AcademyLectern_DA_Armorer_Desc,"A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available.",一堂两小时的课程，在制甲台前锤打配件、调整皮带。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Armorer_Desc,"A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，在制甲台前锤打配件、调整皮带。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
 CMC_AcademyLectern_DA_ArmorerFinal,Final Exam: Armorer,期末考试：制甲
-CMC_AcademyLectern_DA_ArmorerFinal_Desc,"The final two-hour examination. Pass it to earn the Armorer degree: unlocks the copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets).",最后一场两小时的考试。通过后即可获得制甲学位：解锁铜制和铁制护甲配方（胸甲、头盔、护胫、护手）。
+CMC_AcademyLectern_DA_ArmorerFinal_Desc,"The final two-hour examination. Pass it to earn the Armorer degree: unlocks every metal armor recipe (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields).",最后一场两小时的考试。通过后即可获得制甲学位：解锁所有金属护甲配方（铜、锡、幽灵青铜、锡青铜、白青铜和铁的胸甲、头盔、护胫、护手，以及铜盾、铁盾和幽灵青铜盾）。
 CMC_AcademyLectern_DA_Medicine,Study Medicine,学习医学
-CMC_AcademyLectern_DA_Medicine_Desc,"A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available.",一堂两小时的课程，学习伤口护理和疼痛管理。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Medicine_Desc,"A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，学习伤口护理和疼痛管理。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
 CMC_AcademyLectern_DA_MedicineFinal,Final Exam: Medicine,期末考试：医学
 CMC_AcademyLectern_DA_MedicineFinal_Desc,"The final two-hour examination. Pass it to earn the Medicine degree: from then on, wounds clot and aches fade noticeably faster.",最后一场两小时的考试。通过后即可获得医学学位：从此以后，伤口凝血和疼痛消退的速度都会明显加快。
 CMC_AcademyLectern_Prog_Fishing,Fishing,钓鱼
@@ -1198,7 +1201,7 @@ Combat_And_Armor_Bp_Club_CardName,Club,棍棒
 Combat_And_Armor_Bp_Club_CardDescription,Carve a stout club from a tree trunk.,用树干雕出一根粗壮的棍棒。
 Combat_And_Armor_Bp_Club_UnlockConditionsDesc,Tree Trunk Needed,需要树干
 Apparel_ClothMask_CardName,Cloth Mask,布口罩
-Apparel_ClothMask_CardDescription,A simple cloth face covering tied behind the head. Keeps the wind and the worst of the dust off your face.,一块系在脑后的简易布制面罩，能挡住风沙，减轻脸部所受的尘土侵扰。
+Apparel_ClothMask_CardDescription,A simple cloth face covering tied behind the head. Keeps the wind and the worst of the dust off your face. A guard who spots you while you are Wanted grows suspicious half as fast.,一块系在脑后的简易布制面罩，能挡住风沙，减轻脸部所受的尘土侵扰。通缉期间，卫兵发现你时，疑心的增长速度减半。
 Apparel_ClothMask_UsageDurability.CardStatName,Condition,状况
 Apparel_ClothMask_OnZero,The cloth mask has fallen apart.,布口罩已经破损散架。
 Apparel_ClothMask_RipUp_ActionName,Rip up,撕破
@@ -1478,6 +1481,7 @@ CMC_InnKeeperTalk_QuestThanks4_Line,"Now that's a top-shelf pour if I ever saw o
 CMC_InnKeeperTalk_QuestThanks5_Answer_Glad,Here's hoping for plenty more.,希望以后还能有更多。
 CMC_InnKeeperTalk_QuestThanks5_Line,"Now the pantry's set for the worst of it, shelves packed tight enough that I won't be lying awake fretting over the deep frost this year. Here, a glazed plate, tougher than the plain clay, fired twice over so it won't crack the first time someone sets it down too hard. Ought to last through however many winters this Inn has left in it, and I mean to see quite a few more of them yet.",这下储藏柜准备好过最难熬的时候了，架子堆得满满当当，今年严寒我再也不用躺着发愁了。来，这个上釉的盘子给你，比素陶结实，烧了两遍，不会有人一放重了就裂开。这家旅店往后还有多少个冬天，它都能撑得住，而我也打算亲眼见证不少个这样的冬天。
 CMC_InnKeeperTalk_Start_Answer_InterlockS5,Rough mornings after brew night?,酿酒之夜后早上不好受吧？
+CMC_InnKeeperTalk_Start_Answer_InterlockS3,Any baking day coming up?,最近有烤面包的日子吗？
 CMC_InnKeeperTalk_Start_Answer_QuestOffer2,The pot's been quiet lately.,锅子最近挺冷清的。
 CMC_InnKeeperTalk_Start_Answer_QuestOffer3,Any brew night planned?,有安排酿酒之夜吗？
 CMC_InnKeeperTalk_Start_Answer_QuestOffer4,What's for the top shelf?,那最好的一层架子上要放什么？
@@ -1919,9 +1923,15 @@ CMC_SnowDriftEast_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand,�
 CMC_SnowDriftEast_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to the Village Farm all the same.",徒手刨挖雪堆。比用铲子更慢更累，但同样能清出通往村庄农田的道路。
 CMC_SnowDriftEast_CI_Dig_ActionName,Dig Through the Snow Drift,挖开积雪
 CMC_SnowDriftEast_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to the Village Farm once fully dug through.,铲开一条穿过雪堆的通路。完全挖通后，通往村庄农田的道路便会畅通。
+CMC_BrambleThicket_CardName,Bramble Thicket,荆棘丛
+CMC_BrambleThicket_CardDescription,"In the heat of summer the brambles have run wild across the trail between Stillwater Meadow and Sett Warren, a wall of thorny canes too dense to walk through. Cut a way through with a sickle to clear the path quickly, or tear through it with your bare hands if you have no blade - slower, but it works. Once cut back, the trail stays open for the rest of the summer.",盛夏时节，荆棘在静水草甸与獾巢地之间的小径上疯长，密密麻麻的带刺藤蔓织成一堵墙，根本无法穿行。用镰刀砍开可以更快地清出道路，若没有刀具，也可以徒手撕扯开路——速度较慢，但同样可行。一旦砍开，这条小径将在整个夏季保持畅通。
+CMC_BrambleThicket_CI_Cut_Sickle_ActionName,Cut Back the Bramble Thicket,砍开荆棘丛
+CMC_BrambleThicket_CI_Cut_Sickle_ActionDescription,"Hack a path through the brambles with a sickle. Clears the trail to Sett Warren once fully cut through.",用镰刀砍出一条穿过荆棘的通路。完全砍通后，通往獾巢地的小径便会畅通。
+CMC_BrambleThicket_CI_Cut_ByHand_ActionName,Tear Through the Bramble Thicket by Hand,徒手撕开荆棘丛
+CMC_BrambleThicket_CI_Cut_ByHand_ActionDescription,"Wrestle through the brambles with your bare hands. Slower and more tiring than a sickle, but it clears the trail to Sett Warren all the same.",徒手撕扯荆棘开路。比用镰刀更慢更累，但同样能清出通往獾巢地的小径。
 CharacterTraits_Perk_Homestead_PerkName,Founders Kit,奠基者套件
 CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once.",你有备而来，准备就此安家落户。开局携带一个「奠基者套件」，已打包好方便携带。放到你想建立家园的地方，然后使用「放置」一次性拆开，取出一个小屋套件、两个集雨桶套件，以及一批建筑材料（30块木板、30块泥砖、50块石头、20块沉重石块、15根原木、20块黏土、10段绳子、50根铜钉）——之后再对每个套件使用「放置」将其搭建起来。所有物品都只能放置一次。
-CMC_ProfessorGreeting_CourseAckArchitecture_Line,"Architecture, passed with a design I'll admit I stole a diagram from for next term's lecture. Water doesn't forgive a bad angle the way earth does, but you found the right one. A water-driven sawmill and grinding mill are within your skill now, real ones, not the toy models I sketch on the board. Combine it with a Metallurgy degree and you'll be casting your own forge fittings before the season turns.",建筑学，通过了，我得承认，你的设计图我打算偷去用在下学期的讲课里。水流可不像土地那样，会原谅一个糟糕的角度，可你找对了那个角度。如今水力锯木厂和水力磨坊都在你的能力范围之内了，是真正的实物，不是我在黑板上画的那种玩具模型。再拿下一个冶金学学位，用不了一季，你就能自己铸造锻炉配件了。
+CMC_ProfessorGreeting_CourseAckArchitecture_Line,"Architecture, passed with a design I'll admit I stole a diagram from for next term's lecture. Water doesn't forgive a bad angle the way earth does, but you found the right one. With Water-Driven Infrastructure installed, a water-driven sawmill and grinding mill are within your skill now, real ones, not the toy models I sketch on the board, and with a Metallurgy degree beside it you'll be casting your own forge fittings before the season turns.",建筑学，通过了，我得承认，你的设计图我打算偷去用在下学期的讲课里。水流可不像土地那样，会原谅一个糟糕的角度，可你找对了那个角度。若已安装水力基础设施（Water-Driven Infrastructure），如今水力锯木厂和水力磨坊都在你的能力范围之内了，是真正的实物，不是我在黑板上画的那种玩具模型；再拿下一个冶金学学位，用不了一季，你就能自己铸造锻炉配件了。
 CMC_ProfessorGreeting_CourseAckArmorer_Line,"Armorer, passed, and passed properly, no student of mine gets a breastplate pattern without proving they understand why the rivets go where they go. Copper will do in a pinch, but iron will actually keep you alive out past the tree line, helm, greaves, gauntlets, the full set is yours to make now. I'd rather you never need it. I'd rather you have it anyway.",制甲，通过了，而且是货真价实地通过。我的学生想拿到胸甲的花样，就必须先证明自己明白铆钉为什么要钉在那些位置上。铜制的凑合一下还行，可真正能在林线之外保住你性命的是铁——头盔、护胫、护手，整套装备现在都在你的制作能力范围之内了。我宁愿你永远用不上它。我也宁愿你无论如何都拥有它。
 CMC_ProfessorGreeting_CourseAckFishing_Line,"You passed Fishing, and unlike most of my courses this one I actually enjoy grading, mostly because it involves an afternoon by the water instead of a stack of essays. The iron fittings for a proper rod are yours to build now, sturdier than anything whittled from green wood. My uncle's mythical river monster is still out there uncaught, incidentally, should you fancy a rematch on his behalf.",你通过了钓鱼课，跟我大多数课程不同，这门课的评分我是真心喜欢，主要是因为它意味着在水边度过一个下午，而不是批改一摞论文。如今你已经能制作一副像样鱼竿所需的铁制配件了，比任何用生木削出来的都结实。顺带一提，我叔叔那条传说中的河怪至今还没被钓上来过，你要是愿意替他打一场复仇之战，我不反对。
 CMC_ProfessorGreeting_CourseAckHerbalism_Line,"Herbalism, passed! That's the course I'm proudest to teach, truth be told, plants don't lecture back and neither do the students who love them. You've earned the plans for a proper apothecary's cabin now, and the knowledge to mix a real healing draught rather than just crushing leaves and hoping. Go build something with it. The forest's given you enough of itself; it's time you gave a little back.",药草学，通过了！说实话，这是我最引以为豪的一门课，植物不会顶嘴，喜爱植物的学生也一样不会。你如今已经赢得了一座像样的药剂师小屋的图纸，还有调配真正治疗药水的知识，而不再只是捣碎叶子碰运气了。拿它去建造点什么吧。这片森林已经给了你足够多的馈赠，是时候回馈一点了。
@@ -2236,13 +2246,13 @@ CMC_GuardKillsPending_StatName,Guards Killed (Unanswered For),未偿还的杀死
 CMC_GuardKillsPending_StatDescription,Hidden count of guards killed since the player last served a full jail sentence; sets a heavier sentence (7 days per guard killed; capped at 8) and resets once served.,隐藏计数：自玩家上次服满刑期以来杀死的守卫人数。用于设定更重的刑期（每杀死一名守卫加7天，上限8天），服刑完毕后重置。
 CMC_CarpentryBench_Prog_Carpentry,Carpentry,木工
 CMC_CarpentryBench_DA_Carpentry,Study Carpentry,学习木工
-CMC_CarpentryBench_DA_Carpentry_Desc,"A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available.",两小时的刨木板、装接榫的课程。整个课程需要24小时的学习；每节课都会从学费账户中扣除100。当只剩一节课时，期末考试即可开始。
+CMC_CarpentryBench_DA_Carpentry_Desc,"A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",两小时的刨木板、装接榫的课程。整个课程需要24小时的学习；每节课都会从学费账户中扣除100（被通缉或被放逐期间会更多）。当只剩一节课时，期末考试即可开始。
 CMC_CarpentryBench_StudyBlocked,The coursework is complete; sit the final exam.,课程已完成，请参加期末考试。
 CMC_CarpentryBench_DA_CarpentryFinal,Final Exam: Carpentry,期末考试：木工
-CMC_CarpentryBench_DA_CarpentryFinal_Desc,The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe and Wicker Chair blueprints.,最后两小时的考试。通过考试即可获得木工学位：解锁套装衣柜和藤椅的蓝图。
+CMC_CarpentryBench_DA_CarpentryFinal_Desc,"The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe, Wicker Chair and Training Post blueprints, plus the hunt trophies and camp furnishings.",最后两小时的考试。通过考试即可获得木工学位：解锁套装衣柜、藤椅和训练木桩的蓝图，以及猎物奖杯和营地家具的蓝图。
 CMC_CarpentryBench_FinalNotReady,You are not ready for the final examination.,你还没有准备好参加期末考试。
 CharacterTraits_Perk_GradCarpentry_PerkName,Carpentry Graduate,木工课程毕业生
-CharacterTraits_Perk_GradCarpentry_PerkDescription,"You completed the Academy's carpentry course. The Outfit Wardrobe and Wicker Chair blueprints are yours, and you keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的木工课程。服装衣柜和柳条椅的蓝图归你所有，你还会持续获得相当于一次精灵赐福的河狸赐福。
+CharacterTraits_Perk_GradCarpentry_PerkDescription,"You completed the Academy's carpentry course. The Outfit Wardrobe, Wicker Chair, Training Post, hunt trophy and camp furnishing blueprints are yours, and you keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的木工课程。服装衣柜、柳条椅、训练木桩以及猎物奖杯和营地家具的蓝图归你所有，你还会持续获得相当于一次精灵赐福的河狸赐福。
 CMC_Bp_WickerChair_CardName,Wicker Chair,藤椅
 CMC_Bp_WickerChair_CardDescription,"A lashed-frame chair, woven tight enough to actually sit in.",一把用藤条捆扎编织而成的椅子，编得足够紧实，可以真正坐上去。
 CMC_Bp_WickerChair_UnlockConditionsDesc,Graduate the Academy's Carpentry course,从学院的木工课程毕业
@@ -2255,6 +2265,7 @@ CMC_WickerChair_Placed_DA_TakeApart,Take Apart,拆解
 CMC_InnCat_CareLow_CardDescription,"Ash keeps well clear of you these days -- ears back, tail low, gone before you've crossed the yard. He hasn't forgotten the inn. He's just stopped trusting you to feed it.",阿什这些天对你避而远之——耳朵后贴，尾巴低垂，你还没穿过院子他就跑没影了。他没有忘记这家客栈，只是不再信任你会喂他了。
 CMC_InnCat_CareMid_CardDescription,"Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore.",阿什还算能容忍你——从房间那头瞥你一眼，运气好的话眨一下眼——但一只养得好的猫那种轻松的亲昵已经不在了。
 CMC_InnCat_CareHigh_CardDescription,"Ash follows at your heel like he's the one keeping watch over you, purring before you've even crouched down. Whatever he once was to the inn, he's yours now.",阿什如今寸步不离地跟着你，你还没蹲下他就已经开始呼噜了。不管他曾经是这家客栈的什么，如今他是你的了。
+CMC_InnCat_CareContent_CardDescription,"Ash has stopped keeping an eye on the door and keeps one on you instead: asleep in your lap before you have finished sitting, a slow blink for every look. Whatever he once was to the inn, he is content here.",阿什不再盯着门口，而是留意着你：你还没坐稳他就睡在你腿上，每看你一眼都慢慢眨眼。不管他曾经是这家客栈的什么，如今他在这里心满意足。
 CMC_InnCat_CI_Treat,Give a Treat,给点零食
 CMC_InnCat_CI_Treat_Desc,"A little something extra, just because.",多给一点，就因为想宠他。
 CMC_InnCat_CI_Treat_Fail,He's thoroughly spoiled already.,他早就被宠坏了。
@@ -2263,14 +2274,15 @@ CMC_OldGrowthBark_CI_TanHide_Desc,"Rub the bark's tannins into a fleshed hide, c
 CMC_ShadowCatTamed_CareLow_CardDescription,"Shadow doesn't come when the music starts anymore. You catch him at the treeline sometimes, watching -- gone the moment you take a step toward him.",影子不再在音乐响起时靠近了。你有时会在林缘看见他，只是远远看着——你一迈步他就消失不见。
 CMC_ShadowCatTamed_CareMid_CardDescription,"Shadow still lingers near the drying-racks when you're close, but he keeps more distance than he used to, and slips away sooner.",你在附近时，影子仍会在晾晒架旁徘徊，但他保持的距离比以前更远，也更快地溜走。
 CMC_ShadowCatTamed_CareHigh_CardDescription,"Shadow stays close now, closer than shadows are supposed to get, settling near the firelight until you turn in for the night.",如今影子总待在你身边，比影子该有的距离还要近，一直待到炉火旁，直到你就寝才离开。
+CMC_ShadowCatTamed_CareContent_CardDescription,"Shadow has stopped keeping to the edge of the light. He sleeps in plain sight by the fire, one ear turned your way, as easy in your camp as a shadow ever gets.",影子不再躲在光亮的边缘。他大大方方地睡在炉火旁，一只耳朵朝着你的方向，在你的营地里自在得像影子所能做到的那样。
 CMC_ShadowCatTamed_CI_Treat,Give a Treat,给点零食
 CMC_ShadowCatTamed_CI_Treat_Desc,"A little something extra, just because.",多给一点，就因为想宠他。
 CMC_ShadowCatTamed_CI_Treat_Fail,"He sniffs it, already at ease, and lets it be.",他嗅了嗅，早已放松警惕，随它去了。
-apparel_chaperon_CI_Dye_ActionName,Dye with Pigment,用颜料染色
+apparel_chaperon_CI_Dye_ActionName,Dye with Charcoal Pigment,用炭黑颜料染色
 apparel_chaperon_CI_Dye_ActionDescription,"Rub the charcoal pigment into the cloth hood, darkening it to a deep soot-black.",将炭黑颜料揉进布兜帽，使其染成深邃的乌黑色。
-apparel_cloth_coat_CI_Dye_ActionName,Dye with Pigment,用颜料染色
+apparel_cloth_coat_CI_Dye_ActionName,Dye with Charcoal Pigment,用炭黑颜料染色
 apparel_cloth_coat_CI_Dye_ActionDescription,"Work the charcoal pigment into the woven cloth, darkening it to a deep charcoal-grey.",将炭黑颜料揉进织物外套，使其染成深炭灰色。
-apparel_cloth_scarf_CI_Dye_ActionName,Dye with Pigment,用颜料染色
+apparel_cloth_scarf_CI_Dye_ActionName,Dye with Charcoal Pigment,用炭黑颜料染色
 apparel_cloth_scarf_CI_Dye_ActionDescription,"Work the charcoal pigment into the cloth, settling it to a soft ash-grey.",将炭黑颜料揉进布围巾，使其染成柔和的灰白色。
 CMC_AcademyInteriorLocation_CardDescription,"Shelves of books and a well-tended fireplace make the Academy's study a quiet, comfortable place to sit and think.",满架的书籍和一炉悉心照料的炉火，让学院的书房成了一个安静、舒适的沉思之地。
 CMC_ApothecaryCabinInteriorLocation_CardDescription,"Bundles of drying herbs sweeten the air of the Apothecary's cabin, and the low fire keeps the chill at bay. A calming place to rest a moment.",一束束晾干的草药让药剂师小屋里的空气变得香甜，低矮的炉火驱散寒意。是个静心休息片刻的好地方。
@@ -2297,6 +2309,9 @@ CMC_GuardVane_Talk,Talk,交谈
 CMC_Bp_CatBed_CardName,Cat Bed,猫窝
 CMC_Bp_CatBed_CardDescription,"Line a small wicker basket with cloth and straw, bound tight with twine.",用布料和干草铺垫一只小藤篮，再用细绳紧紧捆好。
 CMC_Bp_CatBed_UnlockConditionsDesc,Small Cloth Needed,需要小块布料
+CMC_Bp_CatBowl_CardName,Cat Bowl,猫食盆
+CMC_Bp_CatBowl_CardDescription,"Set a clay bowl aside for the cats, to be filled with meat or fish.",留出一只黏土碗给猫咪，里面可以放肉或鱼。
+CMC_Bp_CatBowl_UnlockConditionsDesc,Clay Bowl Needed,需要黏土碗
 Bp_CMC_BoneDice_CardName,Bone Dice,骨骰
 Bp_CMC_BoneDice_CardDescription,Carve a matched pair of dice from bone and bind them with a length of twine.,用骨头雕刻出一对骰子，用一段细绳捆好。
 Bp_CMC_BoneDice_UnlockConditionsDesc,Basic bonecraft — no special training required,基础骨器工艺——无需特殊训练
@@ -2320,16 +2335,22 @@ Bp_CMC_WheeledHorse_CardDescription,"Carve a horse's body and wheels from wood, 
 Bp_CMC_WheeledHorse_UnlockConditionsDesc,Basic woodworking — no special training required,基础木工——无需特殊训练
 ScentedCandle_Bp_CardName,Scented Candle,香氛蜡烛
 ScentedCandle_Bp_CardDescription,"Wind a rope wick and dip it in soft beeswax to shape a slow-burning, sweetly scented candle.",缠一根绳芯，蘸上柔软的蜂蜡，塑成一支燃烧缓慢、香气宜人的蜡烛。
-ScentedCandle_Bp_UnlockConditionsDesc,Beeswax Needed,需要蜂蜡
+ScentedCandle_Bp_UnlockConditionsDesc,Wax Needed,需要蜂蜡
 CMC_BoneDice_CardName,Bone Dice,骨骰
-CMC_BoneDice_CardDescription,"A pair of dice carved from bone and rubbed smooth with a thumb. Passing an idle evening rolling them is a small comfort against a long, quiet night.",一对用骨头雕刻而成的骰子，被拇指摩挲得光滑。在悠闲的夜晚掷骰消遣，是漫长寂静夜里的一点小小慰藉。
+CMC_BoneDice_CardDescription,"A pair of dice carved from bone and rubbed smooth with a thumb. Passing an idle evening rolling them is a small comfort against a long, quiet night. A tamed cat will chase them, too.",一对用骨头雕刻而成的骰子，被拇指摩挲得光滑。在悠闲的夜晚掷骰消遣，是漫长寂静夜里的一点小小慰藉。驯服的猫也会追着它们玩。
 CMC_BurglarsKit_CardName,Burglar's Kit,盗贼工具包
 CMC_BurglarsKit_CardDescription,"A bent nugget of scrap metal filed into a pick, lashed to a pry bar with a length of rope for a grip. Keep it on you and a Copper Chest search goes a little quieter.",一块弯曲的废旧金属锉成撬锁状，用一段绳子绑在撬棒上做把手。随身携带，搜查铜箱时能悄无声息一些。
 CMC_CatBed_CardName,Cat Bed,猫窝
-CMC_CatBed_CardDescription,"A wicker basket lined with soft cloth and straw, set out for whichever cat decides to claim it. Doesn't do much for the cat's Care on its own, but a camp that has one feels a little more like a home.",一只藤篮，内衬柔软的布料和干草，摆出来任由哪只猫来认领。单靠它对猫的照护值帮助不大，但有它在，营地会更有家的感觉。
+CMC_CatBed_CardDescription,"A wicker basket lined with soft cloth and straw, set out for whichever cat decides to claim it. While it is set down on the same board as a tamed cat it slowly mends that cat's Care, though never as fast as drinking from a cistern wears it down, and a camp that has one feels a little more like a home.",一只藤篮，内衬柔软的布料和干草，摆出来任由哪只猫来认领。放在与已驯服的猫同一处时，它会慢慢恢复那只猫的照护值，但永远赶不上从蓄水池喝水所消耗的速度；有它在，营地也会更有家的感觉。
 CMC_CatBed_UsageDurability,Durability,耐久度
 CMC_CatBed_WornOut,The basket has come apart and the stuffing has scattered.,篮子已经散架，填充物撒了一地。
 CMC_CatBed_DA_Dismantle,Dismantle,拆解
+CMC_CatBowl_CardName,Cat Bowl,猫食盆
+CMC_CatBowl_CardDescription,"A clay bowl set down for the cats. Put raw or cooked meat or fish in it, and a hungry tamed cat on the same board will eat from it on its own. Every self-served meal chips away at that cat's Care.",专为猫咪放下的黏土碗。往里面放生的或煮熟的肉或鱼，同一块场地上饥饿的已驯服猫咪会自己来吃。每次自助进食都会消耗该猫咪的一点照料度。
+CMC_CatBowl_CardHelpSection,"<b>Self-serve:</b> When Ash or Shadow is hungry and the bowl holds meat or fish, the cat eats one piece, its Hunger is restored and its Care drops, the same bargain as the Rain Cistern.
+<b>Take Apart:</b> Gives back the Clay Bowl; anything left inside is spilled.","<b>自助进食：</b>当艾什或影子饥饿且食盆里有肉或鱼时，猫咪会吃掉一块，饥饿度恢复，照料度下降，与集雨桶的代价相同。
+<b>拆解：</b>归还黏土碗；里面剩下的东西会散落出来。"
+CMC_CatBowl_DA_TakeApart,Take Apart,拆解
 CMC_ClayOcarina_CardName,Clay Ocarina,陶土陶笛
 CMC_ClayOcarina_CardDescription,"A palm-sized ocarina shaped from fired clay, its finger holes worn smooth by handling. Simple, but it holds a tune well enough to catch a wary animal's ear.",一只巴掌大小的陶笛，由烧制的陶土塑形而成，指孔已被摩挲得光滑。样式简单，但吹奏的曲调足以吸引警觉的动物侧耳倾听。
 CMC_ClayOcarina_UsageDurability,Durability,耐久度
@@ -2347,9 +2368,9 @@ CMC_HerbTincture_Help,"Drink it to settle nausea and calm a rash at once, and to
 CMC_HerbTincture_DA_Drink,Drink,饮用
 CMC_HerbTincture_DA_Drink_Desc,"Drink the tincture. It tastes of bark and bitterness, but the sickness eases within moments and the aches go quiet for a while.",喝下酊剂。味道苦涩，带着树皮的气息，但不适很快就会缓解，疼痛也会安静一阵子。
 CMC_SpinningTop_CardName,Spinning Top,陀螺
-CMC_SpinningTop_CardDescription,"A small wooden top whittled to a point and wound with cord. Give it a sharp twist and watch it spin — simple, but it never quite gets old.",一个削尖成锥形、缠着绳子的小木陀螺。用力一抽，看它旋转起来——简单，却百玩不厌。
+CMC_SpinningTop_CardDescription,"A small wooden top whittled to a point and wound with cord. Give it a sharp twist and watch it spin: simple, but it never quite gets old. A tamed cat will chase it, too.",一个削尖成锥形、缠着绳子的小木陀螺。用力一抽，看它旋转起来。简单，却百玩不厌。驯服的猫也会追着它玩。
 CMC_WheeledHorse_CardName,Wheeled Horse,木轮小马
-CMC_WheeledHorse_CardDescription,"A pull-toy horse whittled from wood, its wheels turning on a stick axle and a cord tied at its neck for towing. A cheerful little companion for a quiet homestead.",一只木雕拖拉玩具马，轮子装在木棍车轴上转动，脖子上系着绳子供牵引。是宁静家园里一个欢快的小伙伴。
+CMC_WheeledHorse_CardDescription,"A pull-toy horse whittled from wood, its wheels turning on a stick axle and a cord tied at its neck for towing. A cheerful little companion for a quiet homestead. A tamed cat will chase it, too.",一只木雕拖拉玩具马，轮子装在木棍车轴上转动，脖子上系着绳子供牵引。是宁静家园里一个欢快的小伙伴。驯服的猫也会追着它玩。
 apparel_chaperon_dyed_CardName,Soot-Black Chaperon,乌黑兜帽披肩
 apparel_chaperon_dyed_CardDescription,"A cloth hood with a short cape, rubbed through with charcoal pigment until it darkens to a deep soot-black. More coverage than a simple coif. The dye is purely cosmetic — it hides ash and grime well, but offers nothing the plain cloth doesn't.
 
@@ -2374,11 +2395,11 @@ apparel_cloth_scarf_dyed_DA_RipUp,Rip up,撕开
 ScentedCandle_CardName,Scented Candle,香氛蜡烛
 ScentedCandle_CardDescription,"A hand-dipped beeswax candle wound around a rope wick. Coat with more beeswax to extend its burn, and light from a fire source.",一支手工蘸制的蜂蜡蜡烛，缠绕在一根绳芯上。涂抹更多蜂蜡可延长燃烧时间，需用火源点燃。
 ScentedCandle_FuelCapacity_CardStatName,Wax,蜡
-ScentedCandle_Refuel_ActionName,Coat with Beeswax,涂抹蜂蜡
+ScentedCandle_Refuel_ActionName,Coat with Wax,涂抹蜂蜡
 ScentedCandle_Refuel_ActionDescription,Press soft beeswax onto the candle to extend its burn.,将柔软的蜂蜡压涂在蜡烛上以延长其燃烧时间。
 ScentedCandle_Light_ActionName,Light Candle,点燃蜡烛
 ScentedCandle_Light_ActionDescription,Touch a flame to the wick.,用火焰触碰烛芯。
-ScentedCandle_NeedsFuel,The candle needs beeswax first.,蜡烛需要先涂上蜂蜡。
+ScentedCandle_NeedsFuel,The candle needs wax first.,蜡烛需要先涂上蜂蜡。
 ScentedCandleLit_CardName,Lit Scented Candle,点燃的香氛蜡烛
 ScentedCandleLit_CardDescription,"A warm flame fills the air with a sweet, waxy fragrance. Settle nearby and let the spirit ease.",温暖的火焰弥漫出甜美的蜡香。在旁边坐一会儿，让心绪舒缓下来。
 ScentedCandleLit_FuelCapacity_CardStatName,Wax,蜡
@@ -2391,12 +2412,13 @@ CMC_DeadfallSouth_CardDescription,"An autumn storm has toppled a huge pine acros
 CMC_DeadfallSouth_CI_Chop_ActionName,Chop Through the Fallen Pine,劈开倒伏的松树
 CMC_DeadfallSouth_CI_Chop_ActionDescription,Chop through the fallen trunk blocking the trail. Clears the road between Pine Trail and Highland Pines once fully chopped through.,劈开挡住小路的倒伏树干。彻底劈开后即可清出松树小径与高地松林之间的道路。
 CMC_MarketStallDressed_CardName,Market Stall,集市摊位
-CMC_MarketStallDressed_CardDesc,"A small trading post set up in the village, dressed with a striped awning and hanging bunting for market days. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls.",一处架设在村庄内的小型交易点，为集市日装点了条纹遮篷和悬挂的彩旗。将交易货物投入摊位；商人每天会购买一件商品，累积你的销售收益条。以铜块（每份50收益）或盐（每份30收益）的形式收取收益。无人看管的摊位偶尔会遭窃贼光顾。
+CMC_MarketStallDressed_CardDesc,"A small trading post set up in the village, dressed with a striped awning and hanging bunting for market days. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each), or, with DurosCoinage installed, Duros coins. Thieves occasionally target unattended stalls.",一处架设在村庄内的小型交易点，为集市日装点了条纹遮篷和悬挂的彩旗。将交易货物投入摊位；商人每天会购买一件商品，累积你的销售收益条（村庄声誉越高收益越多，被放逐期间则更少）。以铜块（每份50收益）或盐（每份30收益）的形式收取收益，安装了 DurosCoinage 时也可收取杜罗斯硬币。无人看管的摊位偶尔会遭窃贼光顾。
 CMC_MarketStallDressed_CardHelpSection,Market Stall,集市摊位
 CMC_MarketStall_CardHelpSection,Market Stall,集市摊位
 CMC_MarketStallDressed_SD1_Name,Sales Revenue,销售收益
 CMC_MarketStallDressed_DA_CollectCopper,Collect as Copper,收取铜块
 CMC_MarketStallDressed_DA_CollectSalt,Collect as Salt,收取盐
+CMC_MarketStallDressed_DA_CollectCoins,Collect as Coins,收取硬币
 CMC_MarketStallDressed_DA_PackUp,Pack Up Stall,收起摊位
 CMC_MarketStallDressed_DA_TakeDownAwning_ActionName,Take Down Awning,拆下遮篷
 CMC_MarketStallDressed_DA_TakeDownAwning_ActionDescription,"Remove the awning and bunting, returning the stall to its plain frame.",拆下遮篷和彩旗，让摊位恢复朴素的框架。
@@ -2464,6 +2486,14 @@ CMC_BoardAchievements_DA_stinkyjar_locked_Name,Stinky Jar — unclaimed,臭气�
 CMC_BoardAchievements_DA_stinkyjar_locked_Desc,The innkeeper refuses to explain this entry.,店主拒绝解释这一条记录。
 CMC_BoardAchievements_DA_stinkyjar_earned_Name,Stinky Jar — earned,臭气罐子——已达成
 CMC_BoardAchievements_DA_stinkyjar_earned_Desc,"A storage pot, sealed to the brim with aged Urine. The innkeeper wants to know why.",一只储物罐，密封着满满的陈年尿液。店主很想知道这是为什么。
+CMC_BoardAchievements_DA_orderup_locked_Name,Order Up! - unclaimed,准时送达-未达成
+CMC_BoardAchievements_DA_orderup_locked_Desc,Fill a travelling trader's commission.,完成一位行商的委托。
+CMC_BoardAchievements_DA_orderup_earned_Name,Order Up! - earned,准时送达-已达成
+CMC_BoardAchievements_DA_orderup_earned_Desc,"A trader asked, and you delivered. Word travels along the road.",行商开了口，你把货送到了。消息沿着大路传开了。
+CMC_BoardAchievements_DA_quarry_locked_Name,Northern Quarry - unclaimed,北境猎物-未达成
+CMC_BoardAchievements_DA_quarry_locked_Desc,"Bring down a lynx, a wisent and a musk ox in the Harsh Wilds.",在严酷荒野中猎杀一头山猫、一头欧洲野牛和一头麝牛。
+CMC_BoardAchievements_DA_quarry_earned_Name,Northern Quarry - earned,北境猎物-已达成
+CMC_BoardAchievements_DA_quarry_earned_Desc,"Lynx, wisent and musk ox: the Harsh Wilds have given up all three.",山猫、欧洲野牛、麝牛：严酷荒野的三种猎物，都已倒在你手下。
 CMC_Bp_OutfitWardrobe_CardName,Outfit Wardrobe,套装衣柜
 CMC_Bp_OutfitWardrobe_CardDescription,"A tall wardrobe built with three separate hanging sections, each one big enough for a full outfit — store three complete sets of gear and step into any of them in a moment.",一个高大的衣柜，内部分为三个独立的挂衣格，每一格都能容纳一整套装备——存放三套完整装束，随时切换穿上任意一套。
 CMC_Bp_OutfitWardrobe_UnlockConditionsDesc,Graduate the Academy's Carpentry course,从学院的木工课程毕业
@@ -2596,3 +2626,825 @@ CMC_TraitNightcrawlerBurn_Status_Smouldering_Name,Smouldering,开始灼伤
 CMC_TraitNightcrawlerBurn_Status_Smouldering_Description,Your skin is starting to burn. Get out of the light before it catches.,你的皮肤开始灼痛。趁还没烧起来，赶紧离开光下。
 CharacterTraits_Perk_GiantStomach_PerkName,Giant Stomach,巨无霸胃
 CharacterTraits_Perk_GiantStomach_PerkDescription,"Your stomach is huge! It holds five times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick.",你的胃非常大！它能装下常人五倍的食物，装得很满时消化得也更快，而且再怎么吃也不会吃到反胃。
+CMC_GuardThorne_Subdue_Action,Thorne drops her spear low and lunges for your arm.,索恩压低长矛，扑上来抓你的胳膊。
+CMC_GuardThorne_Subdue_Success,Thorne twists your arm behind your back and shouts for the Captain.,索恩把你的胳膊拧到背后，高声呼喊队长。
+CMC_GuardThorne_Subdue_Failure,"You wrench free for a heartbeat, and Thorne has you again.",你挣脱了一瞬，随即又被索恩制住。
+CMC_GuardCorrin_Subdue_Action,Old Corrin sets his spear aside and grabs for your arm.,老科林把长矛放到一旁，伸手来抓你的胳膊。
+CMC_GuardCorrin_Subdue_Success,Old Corrin twists your arm behind your back and shouts for the Captain.,老科林把你的胳膊拧到背后，高声呼喊队长。
+CMC_GuardCorrin_Subdue_Failure,"You wrench free for a heartbeat, and Old Corrin has you again.",你挣脱了一瞬，随即又被老科林制住。
+CMC_GuardVane_Demoralized_Result,You have nothing left. Vane steps back out of reach and whistles for the rest of the Watch.,你已无力再战。韦恩退到你够不着的地方，吹哨召集巡逻队的其余人手。
+CMC_GuardSterling_Subdue_Action,Sterling lowers his sword and reaches for your collar.,斯特林垂下长剑，伸手来抓你的衣领。
+CMC_GuardSterling_Subdue_Success,Sterling bears you down and holds you there. It is over.,斯特林把你压倒在地，死死按住。一切都结束了。
+CMC_GuardSterling_Subdue_Failure,"You wrench free for a heartbeat, and the captain has you again.",你挣脱了一瞬，随即又被队长制住。
+Pottery_Sculpture_PigmentOchre_CardName,Ochre Pigment,赭石颜料
+Pottery_Sculpture_PigmentOchre_CardDescription,"A warm yellow-brown powder ground from crushed bog iron. Rubbed into cloth, straw or leather, it dyes them an earthy ochre.",用碎沼铁研磨成的温暖黄褐色粉末。揉进布料、草编或皮革中，能将其染成朴实的赭黄色。
+Pottery_Sculpture_Bp_PigmentOchre_CardName,Ochre Pigment,赭石颜料
+Pottery_Sculpture_Bp_PigmentOchre_CardDescription,Grind crushed bog iron into a fine ochre pigment powder.,把碎沼铁磨成细腻的赭石颜料粉末。
+Pottery_Sculpture_Bp_PigmentOchre_UnlockConditionsDesc,Crushed Bog Iron Needed,需要碎沼铁
+Pottery_Sculpture_PigmentBillberry_CardName,Billberry Pigment,越橘颜料
+Pottery_Sculpture_PigmentBillberry_CardDescription,"A deep violet powder ground from dried billberries. Rubbed into cloth, straw or leather, it dyes them a rich violet.",用越橘果干研磨成的深紫色粉末。揉进布料、草编或皮革中，能将其染成浓郁的紫色。
+Pottery_Sculpture_Bp_PigmentBillberry_CardName,Billberry Pigment,越橘颜料
+Pottery_Sculpture_Bp_PigmentBillberry_CardDescription,Grind dried billberries into a fine violet pigment powder.,把越橘果干磨成细腻的紫色颜料粉末。
+Pottery_Sculpture_Bp_PigmentBillberry_UnlockConditionsDesc,Dried Billberries Needed,需要越橘果干
+apparel_chaperon_dyed_ochre_CardName,Ochre Chaperon,赭黄兜帽披肩
+apparel_chaperon_dyed_ochre_CardDescription,"A cloth hood with a short cape that covers the head and shoulders. More coverage than a simple coif. Worked over with ochre pigment ground from bog iron, it has taken on a warm, earthy yellow-brown. The dye is purely for looks: it offers nothing the undyed cloth hood doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一顶带有短披肩的布兜帽，可以遮住头部和肩膀，比普通头巾遮盖范围更大。用沼铁研磨的赭石颜料反复涂抹后，呈现出温暖朴实的赭黄色。这层染色纯属装饰，除此之外与未染色的布兜帽并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_chaperon_dyed_ochre_DA_RipUp,Rip up,撕破
+apparel_chaperon_CI_DyeOchre_ActionName,Dye with Ochre Pigment,用赭石颜料染色
+apparel_chaperon_CI_DyeOchre_ActionDescription,"Work the ochre pigment into the cloth hood, turning it a warm, earthy yellow-brown.",将赭石颜料揉进布兜帽，使其染成温暖朴实的赭黄色。
+apparel_chaperon_dyed_billberry_CardName,Violet Chaperon,越橘紫兜帽披肩
+apparel_chaperon_dyed_billberry_CardDescription,"A cloth hood with a short cape that covers the head and shoulders. More coverage than a simple coif. Steeped in billberry pigment, it has taken on a deep violet. The dye is purely for looks: it offers nothing the undyed cloth hood doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一顶带有短披肩的布兜帽，可以遮住头部和肩膀，比普通头巾遮盖范围更大。浸染越橘颜料后，呈现出深沉的紫色。这层染色纯属装饰，除此之外与未染色的布兜帽并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_chaperon_dyed_billberry_DA_RipUp,Rip up,撕破
+apparel_chaperon_CI_DyeBillberry_ActionName,Dye with Billberry Pigment,用越橘颜料染色
+apparel_chaperon_CI_DyeBillberry_ActionDescription,Steep the cloth hood in billberry pigment until it takes a deep violet.,将布兜帽浸入越橘颜料，直至染成深沉的紫色。
+apparel_cloth_coat_dyed_ochre_CardName,Ochre Cloth Coat,赭黄布大衣
+apparel_cloth_coat_dyed_ochre_CardDescription,"A full-length coat of woven cloth. Lighter than fur but provides decent protection from wind and light rain. Worked over with ochre pigment ground from bog iron, it has taken on a warm, earthy yellow-brown. The dye is purely for looks: it offers nothing the undyed cloth coat doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一件及地的织布大衣，比毛皮更轻便，能提供不错的防风防小雨效果。用沼铁研磨的赭石颜料反复涂抹后，呈现出温暖朴实的赭黄色。这层染色纯属装饰，除此之外与未染色的布大衣并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_cloth_coat_dyed_ochre_DA_RipUp,Rip up,撕破
+apparel_cloth_coat_CI_DyeOchre_ActionName,Dye with Ochre Pigment,用赭石颜料染色
+apparel_cloth_coat_CI_DyeOchre_ActionDescription,"Work the ochre pigment into the cloth coat, turning it a warm, earthy yellow-brown.",将赭石颜料揉进布大衣，使其染成温暖朴实的赭黄色。
+apparel_cloth_coat_dyed_billberry_CardName,Violet Cloth Coat,越橘紫布大衣
+apparel_cloth_coat_dyed_billberry_CardDescription,"A full-length coat of woven cloth. Lighter than fur but provides decent protection from wind and light rain. Steeped in billberry pigment, it has taken on a deep violet. The dye is purely for looks: it offers nothing the undyed cloth coat doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一件及地的织布大衣，比毛皮更轻便，能提供不错的防风防小雨效果。浸染越橘颜料后，呈现出深沉的紫色。这层染色纯属装饰，除此之外与未染色的布大衣并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_cloth_coat_dyed_billberry_DA_RipUp,Rip up,撕破
+apparel_cloth_coat_CI_DyeBillberry_ActionName,Dye with Billberry Pigment,用越橘颜料染色
+apparel_cloth_coat_CI_DyeBillberry_ActionDescription,Steep the cloth coat in billberry pigment until it takes a deep violet.,将布大衣浸入越橘颜料，直至染成深沉的紫色。
+apparel_cloth_scarf_dyed_ochre_CardName,Ochre Cloth Scarf,赭黄布围巾
+apparel_cloth_scarf_dyed_ochre_CardDescription,"A cloth scarf worn around the neck. Offers light protection from wind and cold. Worked over with ochre pigment ground from bog iron, it has taken on a warm, earthy yellow-brown. The dye is purely for looks: it offers nothing the undyed scarf doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一条围在脖子上的布围巾，能为你抵御些许风寒。用沼铁研磨的赭石颜料反复涂抹后，呈现出温暖朴实的赭黄色。这层染色纯属装饰，除此之外与未染色的布围巾并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_cloth_scarf_dyed_ochre_DA_RipUp,Rip up,撕破
+apparel_cloth_scarf_CI_DyeOchre_ActionName,Dye with Ochre Pigment,用赭石颜料染色
+apparel_cloth_scarf_CI_DyeOchre_ActionDescription,"Work the ochre pigment into the scarf, turning it a warm, earthy yellow-brown.",将赭石颜料揉进布围巾，使其染成温暖朴实的赭黄色。
+apparel_cloth_scarf_dyed_billberry_CardName,Violet Cloth Scarf,越橘紫布围巾
+apparel_cloth_scarf_dyed_billberry_CardDescription,"A cloth scarf worn around the neck. Offers light protection from wind and cold. Steeped in billberry pigment, it has taken on a deep violet. The dye is purely for looks: it offers nothing the undyed scarf doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一条围在脖子上的布围巾，能为你抵御些许风寒。浸染越橘颜料后，呈现出深沉的紫色。这层染色纯属装饰，除此之外与未染色的布围巾并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_cloth_scarf_dyed_billberry_DA_RipUp,Rip up,撕破
+apparel_cloth_scarf_CI_DyeBillberry_ActionName,Dye with Billberry Pigment,用越橘颜料染色
+apparel_cloth_scarf_CI_DyeBillberry_ActionDescription,Steep the scarf in billberry pigment until it takes a deep violet.,将布围巾浸入越橘颜料，直至染成深沉的紫色。
+Combat_And_Armor_QuiltedCap_dyed_charcoal_CardName,Charcoal-Grey Quilted Cap,炭灰棉帽
+Combat_And_Armor_QuiltedCap_dyed_charcoal_CardDescription,"A thick padded cap offering basic head protection. Rubbed through with charcoal pigment, it has darkened to a dull charcoal-grey. The dye is purely for looks: it offers nothing the undyed padded cap doesn't.",一顶厚实的棉絮帽，能提供基础的头部保护。反复揉进炭黑颜料后，已染成暗沉的炭灰色。这层染色纯属装饰，除此之外与未染色的棉帽并无区别。
+Combat_And_Armor_QuiltedCap_dyed_charcoal_UsageDurability.CardStatName,Durability,耐久度
+Combat_And_Armor_QuiltedCap_dyed_charcoal_OnZero,Cap Destroyed!,帽子已损毁！
+Combat_And_Armor_QuiltedCap_dyed_charcoal_Dismantle_ActionName,Dismantle,拆解
+Combat_And_Armor_QuiltedCap_dyed_charcoal_Dismantle_ActionDescription,Take apart the cap to recover cloth and twine.,拆开帽子，回收布料和细绳。
+Combat_And_Armor_QuiltedCap_CI_Dye_ActionName,Dye with Charcoal Pigment,用炭黑颜料染色
+Combat_And_Armor_QuiltedCap_CI_Dye_ActionDescription,"Work the charcoal pigment into the padded cap, darkening it to a dull charcoal-grey.",将炭黑颜料揉进棉帽，使其染成暗沉的炭灰色。
+Combat_And_Armor_QuiltedCap_dyed_ochre_CardName,Ochre Quilted Cap,赭黄棉帽
+Combat_And_Armor_QuiltedCap_dyed_ochre_CardDescription,"A thick padded cap offering basic head protection. Worked over with ochre pigment ground from bog iron, it has taken on a warm, earthy yellow-brown. The dye is purely for looks: it offers nothing the undyed padded cap doesn't.",一顶厚实的棉絮帽，能提供基础的头部保护。用沼铁研磨的赭石颜料反复涂抹后，呈现出温暖朴实的赭黄色。这层染色纯属装饰，除此之外与未染色的棉帽并无区别。
+Combat_And_Armor_QuiltedCap_dyed_ochre_UsageDurability.CardStatName,Durability,耐久度
+Combat_And_Armor_QuiltedCap_dyed_ochre_OnZero,Cap Destroyed!,帽子已损毁！
+Combat_And_Armor_QuiltedCap_dyed_ochre_Dismantle_ActionName,Dismantle,拆解
+Combat_And_Armor_QuiltedCap_dyed_ochre_Dismantle_ActionDescription,Take apart the cap to recover cloth and twine.,拆开帽子，回收布料和细绳。
+Combat_And_Armor_QuiltedCap_CI_DyeOchre_ActionName,Dye with Ochre Pigment,用赭石颜料染色
+Combat_And_Armor_QuiltedCap_CI_DyeOchre_ActionDescription,"Work the ochre pigment into the padded cap, turning it a warm, earthy yellow-brown.",将赭石颜料揉进棉帽，使其染成温暖朴实的赭黄色。
+Combat_And_Armor_QuiltedCap_dyed_billberry_CardName,Violet Quilted Cap,越橘紫棉帽
+Combat_And_Armor_QuiltedCap_dyed_billberry_CardDescription,"A thick padded cap offering basic head protection. Steeped in billberry pigment, it has taken on a deep violet. The dye is purely for looks: it offers nothing the undyed padded cap doesn't.",一顶厚实的棉絮帽，能提供基础的头部保护。浸染越橘颜料后，呈现出深沉的紫色。这层染色纯属装饰，除此之外与未染色的棉帽并无区别。
+Combat_And_Armor_QuiltedCap_dyed_billberry_UsageDurability.CardStatName,Durability,耐久度
+Combat_And_Armor_QuiltedCap_dyed_billberry_OnZero,Cap Destroyed!,帽子已损毁！
+Combat_And_Armor_QuiltedCap_dyed_billberry_Dismantle_ActionName,Dismantle,拆解
+Combat_And_Armor_QuiltedCap_dyed_billberry_Dismantle_ActionDescription,Take apart the cap to recover cloth and twine.,拆开帽子，回收布料和细绳。
+Combat_And_Armor_QuiltedCap_CI_DyeBillberry_ActionName,Dye with Billberry Pigment,用越橘颜料染色
+Combat_And_Armor_QuiltedCap_CI_DyeBillberry_ActionDescription,Steep the padded cap in billberry pigment until it takes a deep violet.,将棉帽浸入越橘颜料，直至染成深沉的紫色。
+apparel_straw_hat_dyed_charcoal_CardName,Soot-Dark Straw Hat,烟黑草帽
+apparel_straw_hat_dyed_charcoal_CardDescription,"A wide-brimmed hat woven from dried straw. Good protection from the sun but not built to last. Rubbed through with charcoal pigment, it has darkened to a smoky near-black. The dye is purely for looks: it offers nothing the undyed straw hat doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","用干草编织的宽檐帽，能有效遮阳，但不耐用。反复揉进炭黑颜料后，已染成近乎乌黑的烟黑色。这层染色纯属装饰，除此之外与未染色的草帽并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_straw_hat_dyed_charcoal_DA_Dismantle,Dismantle,拆解
+apparel_straw_hat_CI_Dye_ActionName,Dye with Charcoal Pigment,用炭黑颜料染色
+apparel_straw_hat_CI_Dye_ActionDescription,"Work the charcoal pigment into the straw hat, darkening it to a smoky near-black.",将炭黑颜料揉进草帽，使其染成近乎乌黑的烟黑色。
+apparel_straw_hat_dyed_ochre_CardName,Ochre Straw Hat,赭黄草帽
+apparel_straw_hat_dyed_ochre_CardDescription,"A wide-brimmed hat woven from dried straw. Good protection from the sun but not built to last. Worked over with ochre pigment ground from bog iron, it has taken on a warm, earthy yellow-brown. The dye is purely for looks: it offers nothing the undyed straw hat doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","用干草编织的宽檐帽，能有效遮阳，但不耐用。用沼铁研磨的赭石颜料反复涂抹后，呈现出温暖朴实的赭黄色。这层染色纯属装饰，除此之外与未染色的草帽并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_straw_hat_dyed_ochre_DA_Dismantle,Dismantle,拆解
+apparel_straw_hat_CI_DyeOchre_ActionName,Dye with Ochre Pigment,用赭石颜料染色
+apparel_straw_hat_CI_DyeOchre_ActionDescription,"Work the ochre pigment into the straw hat, turning it a warm, earthy yellow-brown.",将赭石颜料揉进草帽，使其染成温暖朴实的赭黄色。
+apparel_straw_hat_dyed_billberry_CardName,Violet Straw Hat,越橘紫草帽
+apparel_straw_hat_dyed_billberry_CardDescription,"A wide-brimmed hat woven from dried straw. Good protection from the sun but not built to last. Steeped in billberry pigment, it has taken on a deep violet. The dye is purely for looks: it offers nothing the undyed straw hat doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","用干草编织的宽檐帽，能有效遮阳，但不耐用。浸染越橘颜料后，呈现出深沉的紫色。这层染色纯属装饰，除此之外与未染色的草帽并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_straw_hat_dyed_billberry_DA_Dismantle,Dismantle,拆解
+apparel_straw_hat_CI_DyeBillberry_ActionName,Dye with Billberry Pigment,用越橘颜料染色
+apparel_straw_hat_CI_DyeBillberry_ActionDescription,Steep the straw hat in billberry pigment until it takes a deep violet.,将草帽浸入越橘颜料，直至染成深沉的紫色。
+apparel_leather_apron_dyed_charcoal_CardName,Blackened Leather Apron,乌黑皮围裙
+apparel_leather_apron_dyed_charcoal_CardDescription,"A tough leather apron worn over the torso. Protects against sparks, cuts, and hard work. Rubbed through with charcoal pigment, it has darkened to a deep, even black. The dye is purely for looks: it offers nothing the undyed leather apron doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一条穿在躯干外的坚韧皮围裙，能防火星、防割伤，适合繁重劳作。反复揉进炭黑颜料后，已染成深沉均匀的乌黑色。这层染色纯属装饰，除此之外与未染色的皮围裙并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_leather_apron_dyed_charcoal_DA_Dismantle,Dismantle,拆解
+apparel_leather_apron_CI_Dye_ActionName,Dye with Charcoal Pigment,用炭黑颜料染色
+apparel_leather_apron_CI_Dye_ActionDescription,"Work the charcoal pigment into the leather apron, darkening it to a deep, even black.",将炭黑颜料揉进皮围裙，使其染成深沉均匀的乌黑色。
+apparel_leather_apron_dyed_ochre_CardName,Ochre Leather Apron,赭黄皮围裙
+apparel_leather_apron_dyed_ochre_CardDescription,"A tough leather apron worn over the torso. Protects against sparks, cuts, and hard work. Worked over with ochre pigment ground from bog iron, it has taken on a warm, earthy yellow-brown. The dye is purely for looks: it offers nothing the undyed leather apron doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一条穿在躯干外的坚韧皮围裙，能防火星、防割伤，适合繁重劳作。用沼铁研磨的赭石颜料反复涂抹后，呈现出温暖朴实的赭黄色。这层染色纯属装饰，除此之外与未染色的皮围裙并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_leather_apron_dyed_ochre_DA_Dismantle,Dismantle,拆解
+apparel_leather_apron_CI_DyeOchre_ActionName,Dye with Ochre Pigment,用赭石颜料染色
+apparel_leather_apron_CI_DyeOchre_ActionDescription,"Work the ochre pigment into the leather apron, turning it a warm, earthy yellow-brown.",将赭石颜料揉进皮围裙，使其染成温暖朴实的赭黄色。
+apparel_leather_apron_dyed_billberry_CardName,Violet Leather Apron,越橘紫皮围裙
+apparel_leather_apron_dyed_billberry_CardDescription,"A tough leather apron worn over the torso. Protects against sparks, cuts, and hard work. Steeped in billberry pigment, it has taken on a deep violet. The dye is purely for looks: it offers nothing the undyed leather apron doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一条穿在躯干外的坚韧皮围裙，能防火星、防割伤，适合繁重劳作。浸染越橘颜料后，呈现出深沉的紫色。这层染色纯属装饰，除此之外与未染色的皮围裙并无区别。
+
+<b>必须装备后才能生效</b>"
+apparel_leather_apron_dyed_billberry_DA_Dismantle,Dismantle,拆解
+apparel_leather_apron_CI_DyeBillberry_ActionName,Dye with Billberry Pigment,用越橘颜料染色
+apparel_leather_apron_CI_DyeBillberry_ActionDescription,Steep the leather apron in billberry pigment until it takes a deep violet.,将皮围裙浸入越橘颜料，直至染成深沉的紫色。
+Apparel_ClothMask_dyed_charcoal_CardName,Ash-Grey Cloth Mask,灰白布口罩
+Apparel_ClothMask_dyed_charcoal_CardDescription,"A simple cloth face covering tied behind the head. Keeps the wind and the worst of the dust off your face. A guard who spots you while you are Wanted grows suspicious half as fast. Rubbed through with charcoal pigment, it has darkened to a soft ash-grey. The dye is purely for looks: it offers nothing the undyed cloth mask doesn't.",一块系在脑后的简易布制面罩，能挡住风沙，减轻脸部所受的尘土侵扰。通缉期间，卫兵发现你时，疑心的增长速度减半。反复揉进炭黑颜料后，已染成柔和的灰白色。这层染色纯属装饰，除此之外与未染色的布口罩并无区别。
+Apparel_ClothMask_dyed_charcoal_UsageDurability.CardStatName,Condition,状况
+Apparel_ClothMask_dyed_charcoal_OnZero,The cloth mask has fallen apart.,布口罩已经破损散架。
+Apparel_ClothMask_dyed_charcoal_RipUp_ActionName,Rip up,撕破
+Apparel_ClothMask_dyed_charcoal_RipUp_ActionDescription,Rip the mask apart to recover the cloth.,撕开口罩，回收布料。
+Apparel_ClothMask_CI_Dye_ActionName,Dye with Charcoal Pigment,用炭黑颜料染色
+Apparel_ClothMask_CI_Dye_ActionDescription,"Work the charcoal pigment into the cloth mask, darkening it to a soft ash-grey.",将炭黑颜料揉进布口罩，使其染成柔和的灰白色。
+Apparel_ClothMask_dyed_ochre_CardName,Ochre Cloth Mask,赭黄布口罩
+Apparel_ClothMask_dyed_ochre_CardDescription,"A simple cloth face covering tied behind the head. Keeps the wind and the worst of the dust off your face. A guard who spots you while you are Wanted grows suspicious half as fast. Worked over with ochre pigment ground from bog iron, it has taken on a warm, earthy yellow-brown. The dye is purely for looks: it offers nothing the undyed cloth mask doesn't.",一块系在脑后的简易布制面罩，能挡住风沙，减轻脸部所受的尘土侵扰。通缉期间，卫兵发现你时，疑心的增长速度减半。用沼铁研磨的赭石颜料反复涂抹后，呈现出温暖朴实的赭黄色。这层染色纯属装饰，除此之外与未染色的布口罩并无区别。
+Apparel_ClothMask_dyed_ochre_UsageDurability.CardStatName,Condition,状况
+Apparel_ClothMask_dyed_ochre_OnZero,The cloth mask has fallen apart.,布口罩已经破损散架。
+Apparel_ClothMask_dyed_ochre_RipUp_ActionName,Rip up,撕破
+Apparel_ClothMask_dyed_ochre_RipUp_ActionDescription,Rip the mask apart to recover the cloth.,撕开口罩，回收布料。
+Apparel_ClothMask_CI_DyeOchre_ActionName,Dye with Ochre Pigment,用赭石颜料染色
+Apparel_ClothMask_CI_DyeOchre_ActionDescription,"Work the ochre pigment into the cloth mask, turning it a warm, earthy yellow-brown.",将赭石颜料揉进布口罩，使其染成温暖朴实的赭黄色。
+Apparel_ClothMask_dyed_billberry_CardName,Violet Cloth Mask,越橘紫布口罩
+Apparel_ClothMask_dyed_billberry_CardDescription,"A simple cloth face covering tied behind the head. Keeps the wind and the worst of the dust off your face. A guard who spots you while you are Wanted grows suspicious half as fast. Steeped in billberry pigment, it has taken on a deep violet. The dye is purely for looks: it offers nothing the undyed cloth mask doesn't.",一块系在脑后的简易布制面罩，能挡住风沙，减轻脸部所受的尘土侵扰。通缉期间，卫兵发现你时，疑心的增长速度减半。浸染越橘颜料后，呈现出深沉的紫色。这层染色纯属装饰，除此之外与未染色的布口罩并无区别。
+Apparel_ClothMask_dyed_billberry_UsageDurability.CardStatName,Condition,状况
+Apparel_ClothMask_dyed_billberry_OnZero,The cloth mask has fallen apart.,布口罩已经破损散架。
+Apparel_ClothMask_dyed_billberry_RipUp_ActionName,Rip up,撕破
+Apparel_ClothMask_dyed_billberry_RipUp_ActionDescription,Rip the mask apart to recover the cloth.,撕开口罩，回收布料。
+Apparel_ClothMask_CI_DyeBillberry_ActionName,Dye with Billberry Pigment,用越橘颜料染色
+Apparel_ClothMask_CI_DyeBillberry_ActionDescription,Steep the cloth mask in billberry pigment until it takes a deep violet.,将布口罩浸入越橘颜料，直至染成深沉的紫色。
+CMC_FlavourTannic_FlavourName,Tannic,涩味
+Pottery_Sculpture_HerbPaste_CI_Season,Season with Herb Paste,用药草膏调味
+Pottery_Sculpture_HerbPaste_CI_Season_Desc,"Rub the paste into the cooked food. The garlic, the herbs and the bark's tannin carry into every bite, and the tannin brings out a savoury meal. Too much and the garlic takes over.",把药草膏揉进熟食里。大蒜、药草和树皮的涩味会渗进每一口，涩味尤其能衬出咸鲜的菜肴。抹得太多，大蒜味就会盖过一切。
+CMC_InnCat_CI_PlayToy,Play with the Toy,用玩具逗他玩
+CMC_InnCat_CI_PlayToy_Desc,"Trail it across the floor and he pounces, bats it about, then pretends he was never interested.",把玩具在地上拖来拖去，他扑上去拍打一番，然后装作从来没感兴趣过。
+CMC_ShadowCatTamed_CI_PlayToy,Play with the Toy,用玩具逗他玩
+CMC_ShadowCatTamed_CI_PlayToy_Desc,"He stalks it from the shadows and strikes all at once, and for a moment he is only a young cat.",他从暗处悄悄逼近，猛地一扑，那一刻他只是一只年轻的小猫。
+CMC_BoneDice_DA_Roll,Roll the Dice,掷骰子
+CMC_BoneDice_DA_Roll_Desc,"Rattle them in a cupped hand and let them fall. Only a pair of numbers, but it passes a quarter hour.",在掌心里摇一摇，再让它们落下。不过是两个数字，却能消磨一刻钟。
+CMC_SpinningTop_DA_Spin,Spin the Top,抽陀螺
+CMC_SpinningTop_DA_Spin_Desc,"A sharp pull of the cord, and it hums across the floor until it wobbles and tips over.",猛地一拉绳子，它便嗡嗡地在地上旋转，直到摇摇晃晃地倒下。
+CMC_WheeledHorse_DA_Pull,Pull the Horse Along,拉着小马走
+CMC_WheeledHorse_DA_Pull_Desc,"Tow it by its cord and listen to the wheels click. Silly, and a little less lonely for it.",牵着绳子拖它走，听轮子咔嗒作响。有点傻气，却也没那么孤单了。
+CMC_Miller_GiftBread_ActionName,Give Bread,送面包
+CMC_Miller_GiftBread_ActionDescription,"A loaf baked from grain like his own. The Miller keeps it, and it warms him to you. One gift a day.",一条用和他磨的一样的谷物烤成的面包。磨坊主会收下它，并对你更亲近一些。每天只能送一次。
+CMC_Weaver_GiftPaintedPiece_ActionName,Give Painted Clay,送彩绘陶器
+CMC_Weaver_GiftPaintedPiece_ActionDescription,"A painted figurine or vase for her windowsill. The Weaver keeps it, and it warms her to you. One gift a day.",一件可以摆在她窗台上的彩绘陶像或花瓶。织工会收下它，并对你更亲近一些。每天只能送一次。
+CMC_InnCounter_JoinTable_ActionName,Join the Table,加入同桌
+CMC_InnCounter_JoinTable_ActionDescription,"Pull up a stool with the residents gathered here this evening. An hour of company lifts your spirits, and everyone at the table warms to you a little. Once per evening.",拉张凳子，和今晚聚在这里的居民们坐在一起。一小时的陪伴让你心情好转，同桌的每个人都会对你更亲近一些。每晚一次。
+CMC_InnCounter_PlayForRoom_ActionName,Play for the Room,为大家演奏
+CMC_InnCounter_PlayForRoom_ActionDescription,"Play a tune for the residents gathered here this evening. You keep your instrument, and the whole room warms to you. Shares Join the Table's once-per-evening limit.",为今晚聚在这里的居民们演奏一曲。乐器仍归你所有，整个屋子的人都会对你更亲近。与“加入同桌”共用每晚一次的限制。
+CMC_StallRobberyDays_StatName,Market Stall Robbery Clock,集市摊位窃案计时
+CMC_StallRobberyDays_StatDescription,Hidden bookkeeping stat: days since the Market Stall's last robbery roll.,隐藏记账统计：距离集市摊位上次窃案判定已过去的天数。
+CMC_MillerTalk_CrimeWanted_Line,"Hm. The builder. Word has come round to the mill, and none of it kind. I'll grind your grain and take my pinch, same as for anyone, but I won't stand about talking while the stones run. Put right whatever you've put wrong, and we'll talk like neighbors again.",嗯，建房子的。风声已经传到磨坊来了，没一句好听的。你的粮我照磨，我那一撮照收，和对别人一样，但石磨转着的时候我不会站着陪你闲聊。把你做错的事摆正了，我们再像邻居一样说话。
+CMC_MillerTalk_CrimeWanted_Answer_Right,I'll put it right.,我会把它摆正。
+CMC_MillerTalk_CrimeWanted_Answer_Fair,Fair enough.,说得有理。
+CMC_MillerTalk_CrimeBanished_Line,"You. I've nothing to say to you, and I'd sooner you said nothing to me. The village has made up its mind, and I'm not about to argue with the village. My door isn't barred, mind. That's all the welcome there is.",是你啊。我没什么话跟你说，你也最好别跟我说话。村子已经有了定论，我不打算跟整个村子争。不过我的门没闩，别误会。欢迎就只有这么多。
+CMC_MillerTalk_CrimeBanished_Answer_Understood,Understood.,明白了。
+CMC_MillerTalk_CrimeBanished_Answer_Leave,I'll go.,我这就走。
+CMC_WeaverTalk_CrimeWanted_Line,"Oh. It's you. Come in, then, mind the draught. I've heard things. I don't know what's true and I don't want to ask. The loom wants my hands, and I think I'd rather it had them than a conversation. Perhaps when it has all blown over.",哦，是你。那就进来吧，当心穿堂风。我听到了一些传言。我不知道哪些是真的，也不想问。织机在等我的手，我想与其聊天，不如让它占着。也许等这一切风头过去再说吧。
+CMC_WeaverTalk_CrimeWanted_Answer_BlowOver,It will blow over.,会过去的。
+CMC_WeaverTalk_CrimeWanted_Answer_Leave,I'll leave you to it.,那我不打扰你了。
+CMC_WeaverTalk_CrimeBanished_Line,"Please don't stay. I don't want any trouble, and I don't think you do either. I'll sell you what I always have, and I'll keep my eyes on my work. That is the most I can do.",请别留下来。我不想惹麻烦，我想你也不想。我还是会把一贯卖的东西卖给你，眼睛只盯着我的活计。我能做的也就这些了。
+CMC_WeaverTalk_CrimeBanished_Answer_NoHarm,I mean no harm.,我没有恶意。
+CMC_WeaverTalk_CrimeBanished_Answer_Leave,I'll go.,我这就走。
+CMC_ApothecaryTalk_CrimeWanted_Line,"Ah. The cabin-builder. The forest talks, you know, and lately it has had a good deal to say about you. I won't turn you out: sick is sick, and I keep no grudges in my racks. But my tonics leave my hands and my confidences stay in them, and you'll find the second thin for now.",啊，盖小屋的。你知道，森林是会说话的，最近它对你可有不少话要说。我不会赶你走：病就是病，我的架子上不留私怨。但药剂可以递出去，心里话却攥在手里，眼下你会发现后者很少。
+CMC_ApothecaryTalk_CrimeWanted_Answer_Fair,Fair enough.,说得有理。
+CMC_ApothecaryTalk_CrimeWanted_Answer_Earn,I'll earn it back.,我会重新赢回来。
+CMC_ApothecaryTalk_CrimeBanished_Line,"Mind the racks and keep your hands to yourself. I've heard what the village says of you, and I've no wish to test it. I'll weigh out what you ask for and nothing more. Keep it short.",当心架子，手放老实点。村里怎么说你，我听说了，我也不想去验证。你要什么我就称什么，别的没有。长话短说。
+CMC_ApothecaryTalk_CrimeBanished_Answer_Quick,I'll be quick.,我会很快。
+CMC_ApothecaryTalk_CrimeBanished_Answer_Leave,I'll go.,我这就走。
+CMC_InnKeeperTalk_CrimeWanted_Line,"Evening. The fire's lit and the stew's on, same as ever, but I'll be plain with you: I've heard what's being said, and it's sitting in my common room with us. I'll serve you. I won't sit and gossip. Mend what you've bent, and we'll see about the good chair again.",晚上好。炉火生着，炖菜也在锅里，一切照旧。不过我跟你实话实说：外头的传言我都听到了，它现在就和我们一起坐在大堂里。我会招待你，但不会陪你闲聊。把你弄歪的事掰正了，到时候再说那把好椅子的事。
+CMC_InnKeeperTalk_CrimeWanted_Answer_Fair,Fair enough.,说得有理。
+CMC_InnKeeperTalk_CrimeBanished_Line,"I know who you are, and so does everyone under this roof. Nobody has turned you out, because an inn is an inn, but don't mistake that for a welcome. Take what you've paid for, keep your voice down, and don't linger. That's all I've got for you.",我知道你是谁，这屋檐下的人也都知道。没人把你赶出去，因为客栈终归是客栈，但别把这当成欢迎。拿你付过钱的东西，压低声音，别久留。我能给你的就这些了。
+CMC_InnKeeperTalk_CrimeBanished_Answer_Leave,I'll be on my way.,我这就告辞。
+CMC_ProfessorGreeting_CrimeWanted_Line,"Hm. The scholar's life is a cloistered one, but even here the village's talk finds its way in. I've heard what is said of you. A hypothesis, nothing more, and I hold my lectures until the evidence settles. What is it you need?",嗯。学者的日子虽然清静，村里的闲话还是会传进来。关于你的传闻我听说了。那不过是个假说，仅此而已，在证据落定之前，我的课先搁一搁。你需要什么？
+CMC_ProfessorGreeting_CrimeWanted_Answer_Ask,May I ask something?,可以问点事吗？
+CMC_ProfessorGreeting_CrimeWanted_Answer_Leave,I'll let you work.,那我不打扰你工作了。
+CMC_ProfessorGreeting_CrimeBanished_Line,"Word travels, even to a quiet corner like this one, and what it says of you is not flattering. I shall answer what I must and no more. State your business plainly.",消息传得很远，连这样安静的角落也不例外，而它对你的评价并不好听。我只回答必须回答的，不多说一句。有事就直说。
+CMC_ProfessorGreeting_CrimeBanished_Answer_Business,My business is simple.,我的事很简单。
+CMC_ProfessorGreeting_CrimeBanished_Answer_Leave,I'll leave you in peace.,那我不打扰你清静了。
+CMC_Apothecary_GiftHerb_ActionName,Give Rare Herb,送稀有草药
+CMC_Apothecary_GiftHerb_ActionDescription,"A rare herb for her drying racks: a silverwort blossom or hollow sage, or a dried ginseng, reishi or hemp flower from Herbs & Fungi. She keeps it, and it warms her to you. One gift a day.",一株稀有草药，给她的晾晒架添点珍品：银草花或幽谷鼠尾草，或是“草药与真菌”里的干人参、干灵芝或干燥大麻花。她会收下，并对你更亲近一些。每天只能送一次。
+CMC_MillerTalk_Keepsake_Line,"Wait, builder, before you go. I've been meaning to put this in your hands. A sack of the first flour off the stones this morning, ground fine, and I kept no pinch back. Half the village trades with me, but you raised the roof over these stones and you've been a friend to the mill ever since. Bake something good with it.",等等，建造者，先别走。这东西我早就想交到你手里了：今早石磨底下磨出的头一袋面粉，磨得细细的，我一撮都没留。半个村子都跟我做买卖，可这磨坊的屋顶是你盖的，从那以后你一直把磨坊当朋友。拿去烤点好东西吧。
+CMC_MillerTalk_Keepsake_Answer,"Thank you, Miller.",谢谢你，磨坊主。
+CMC_WeaverTalk_Keepsake_Line,"Hold still a moment. I finished this on the loom last night and I meant it for you: a scarf, dyed the soft grey of a charcoal wash. I'll tell you straight, it won't keep the cold off any better than plain cloth, but I wanted you to have something of mine to wear. A good thread is worth a long wait, and so is a good neighbor.",站着别动。这件是我昨晚在织机上织完的，本来就是给你的：一条围巾，染成了木炭水洗出的柔和灰色。我可跟你说实话，它不比普通布围巾更防寒，可我想让你穿上我亲手做的东西。好线值得久等，好邻居也一样。
+CMC_WeaverTalk_Keepsake_Answer,It's lovely. Thank you.,真漂亮，谢谢你。
+CMC_ApothecaryTalk_Keepsake_Line,"Come in, mind the racks. I've set something aside for you: the strongest draught I know how to brew, two days over the kettle. I don't hand these out, but you've brought me herbs from the deep woods and dealt fairly with me every time. Keep it for the day you truly need it.",进来吧，小心晾架。我给你留了样东西：这是我所知道最烈的一剂药汤，在锅上熬了整整两天。这种药我从不轻易送人，可你从深林里给我带来过草药，每次待我也都公道。留着，等你真正需要的那天再用。
+CMC_ApothecaryTalk_Keepsake_Answer,I'll keep it safe.,我会好好收着的。
+CMC_InnTraderFoundRemarked_StatName,The Inn Keeper's Finding a Friend Remark,旅店老板对结识旅伴成就的评价
+CMC_InnTraderFoundRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Finding a Friend achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及结识旅伴成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkTraderFound_Line,"I hear you've crossed paths with one of the traders who work the roads. Good for you. A trader's cart carries news along with the salt, and it's easy to forget there's a world past the ridge when all you ever see is the valley. Did they leave you anything worth the haggling?",听说你在路上遇见了一位行商。真不错。商人的货车除了盐，还捎着各处的消息；要是只看得见这座山谷，很容易忘了山岭那头还有个世界。他们有没有留给你什么值得讨价还价的东西？
+CMC_InnKeeperTalk_RemarkTraderFound_Answer,"Mostly news, and a friendly face.",多半是些消息，还有一张友善的面孔。
+CMC_InnFullKitRemarked_StatName,The Inn Keeper's Full Kit Remark,旅店老板对全套工具成就的评价
+CMC_InnFullKitRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Full Kit achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及全套工具成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkFullKit_Line,"They tell me you've got the full set of metal tools now: axe, pickaxe, hoe, knife, shovel and sickle. My father owned one iron axe his whole life and treated it like a favoured cousin. You've six. Mind you keep them oiled and out of the damp.",听说你现在凑齐了一整套金属工具：斧头、镐子、锄头、小刀、铲子和镰刀。我父亲一辈子只有一把铁斧，还把它当成最受宠的表亲一样爱惜。你足足有六件。记得给它们上油，别让它们受潮。
+CMC_InnKeeperTalk_RemarkFullKit_Answer,"Six tools, and still not enough hours in the day.",六件工具，一天的时辰还是不够用。
+CMC_InnBearSlainRemarked_StatName,The Inn Keeper's Right to Bear Arms Remark,旅店老板对持械之权成就的评价
+CMC_InnBearSlainRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Right to Bear Arms achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及持械之权成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkBearSlain_Line,"They say you brought down a bear. The whole village knew before you'd cleaned your boots. Don't let it go to your head, mind: every bear gets bigger the further it travels from the woods.",听说你放倒了一头熊。你还没来得及擦靴子，全村就都知道了。不过可别得意过头：熊这东西，离森林越远，传得就越大。
+CMC_InnKeeperTalk_RemarkBearSlain_Answer,It was plenty big when it was charging me.,它朝我冲过来的时候，可一点也不小。
+CMC_InnHunterRemarked_StatName,The Inn Keeper's Master Hunter Remark,旅店老板对狩猎大师成就的评价
+CMC_InnHunterRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Master Hunter achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及狩猎大师成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkHunter_Line,"Badger, bear, beaver, boar, doe, duck, fox, hare, partridge, squirrel, stag and wolf, and every one of them has fallen to you at least once. I've known hunters who spent their whole lives after a single stag. I'd say the forest has a new name to be afraid of, but the squirrels will take some convincing.",獾、熊、河狸、野猪、母鹿、野鸭、狐狸、野兔、山鹑、松鼠、公鹿和狼，你把它们每一种都至少放倒过一次。我认识的猎人里，有人一辈子只追一头公鹿。我本想说森林里又多了个让它们害怕的名字，可那些松鼠怕是还得再劝劝。
+CMC_InnKeeperTalk_RemarkHunter_Answer,The squirrels fight dirtier than the wolves.,松鼠打起架来可比狼脏多了。
+CMC_InnExplorerRemarked_StatName,The Inn Keeper's Forest Explorer Remark,旅店老板对森林探索者成就的评价
+CMC_InnExplorerRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Forest Explorer achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及森林探索者成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkExplorer_Line,"The board says you've walked the forest's groves, thickets and glades, and not just its paths: the places most folk only hear about. You know that country better than the old foresters do, and they won't admit it either.",告示板上说，你不光走过森林里的小路，连林子、灌木丛和林间空地也都踏遍了，那些大多数人只是听说过的地方。你对那片土地的熟悉胜过老护林人，只是他们不肯承认罢了。
+CMC_InnKeeperTalk_RemarkExplorer_Answer,Every one of them had something to show me.,每一处都有值得一看的东西。
+CMC_InnYearSurvivedRemarked_StatName,The Inn Keeper's Happy New Year Remark,旅店老板对新年快乐成就的评价
+CMC_InnYearSurvivedRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Happy New Year achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及新年快乐成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkYearSurvived_Line,"A full year gone round, seasons and all, and you're still on your feet. Not everyone gets past a first winter in this valley, and fewer do it with a smile still on. Here's to a second one.",整整一年转了一圈，四季轮换，你还好端端地站着。不是每个人都能熬过这山谷的第一个冬天，脸上还挂着笑的就更少了。敬第二年。
+CMC_InnKeeperTalk_RemarkYearSurvived_Answer,Ask me again next winter.,等明年冬天你再问我吧。
+CMC_InnAnglerRemarked_StatName,The Inn Keeper's Master Angler Remark,旅店老板对钓鱼大师成就的评价
+CMC_InnAnglerRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Master Angler achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及钓鱼大师成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkAngler_Line,"Char, eel, perch, pike, sturgeon, trout: I'm told you've held every one of them. I've served fish at this bar for years and never once had all six on the same plate. The sturgeon in particular gets talked about like a ghost story.",红点鲑、鳗鱼、河鲈、狗鱼、鲟鱼、鳟鱼：听说这几样你都握在过手里。我在这吧台上卖了这么多年的鱼，六种从没同时上过一只盘子。尤其是那条鲟鱼，大家讲起它，就像在讲鬼故事。
+CMC_InnKeeperTalk_RemarkAngler_Answer,Put them on one plate and I'll eat the lot.,把它们放在一个盘子里，我全吃了。
+CMC_InnSpelunkerRemarked_StatName,The Inn Keeper's Spelunker Remark,旅店老板对洞穴探险者成就的评价
+CMC_InnSpelunkerRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Spelunker achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及洞穴探险者成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkSpelunker_Line,"Caves and hollows, I hear, and a good few of them. I wouldn't set foot down one of those holes for a purse of salt. The dark in there is the kind you can hear. What does a person find down there, besides the dark?",听说你钻过不少洞穴和岩洞。给我一袋盐，我也不愿踏进那种洞里一步。里面的黑暗是能听得见的那种。除了黑，人在底下还能找到什么？
+CMC_InnKeeperTalk_RemarkSpelunker_Answer,"Mostly more dark, and the odd bear.",多半还是黑，偶尔有头熊。
+CMC_InnShamanRemarked_StatName,The Inn Keeper's Master Shaman Remark,旅店老板对萨满大师成就的评价
+CMC_InnShamanRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Master Shaman achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及萨满大师成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkShaman_Line,"You've come to hold a bound spirit of every kind, animal and fish alike. My mother's village kept a single one on the windowsill and spoke to it softly. You've collected the lot. I wouldn't leave them alone in the dark together.",你竟然拥有了每一种被束缚的灵魂，走兽和游鱼都齐了。我母亲的村子里只供着一个，摆在窗台上，轻声细语地对它说话。你却收集了全套。我可不敢把它们一起留在黑暗里。
+CMC_InnKeeperTalk_RemarkShaman_Answer,They get on better than the village does.,它们相处得比村里人还融洽。
+CMC_InnNoiseMaxRemarked_StatName,The Inn Keeper's Spiritual Overcrowding Remark,旅店老板对灵魂过载成就的评价
+CMC_InnNoiseMaxRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Spiritual Overcrowding achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及灵魂过载成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkNoiseMax_Line,"The board won't explain Spiritual Overcrowding, so I'll tell you straight: your Spiritual Noise hit its very limit. Too many spirits crowding in at once, and a head can only hold so many. Find somewhere quiet and sit until it passes.",告示板不肯解释“灵魂过载”，那我就直说吧：你的灵魂噪动已经到了上限，一下子涌进来的灵魂太多，一个脑袋可装不下那么多。找个安静的地方坐一坐，等它过去。
+CMC_InnKeeperTalk_RemarkNoiseMax_Answer,I'll try not to bring them into your taproom.,我尽量不把它们带进你的酒馆。
+CMC_InnStinkyJarRemarked_StatName,The Inn Keeper's Stinky Jar Remark,旅店老板对臭气罐子成就的评价
+CMC_InnStinkyJarRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Stinky Jar achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及臭气罐子成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkStinkyJar_Line,"I'll tell you what the board won't, since it's been nagging at me: a Stinky Jar is a clay storage pot filled to the brim with urine. I'm not going to ask why. I'm only going to ask that it stays out of my taproom, and that wherever it lives, there's a stiff breeze.",告示板不肯说，那我来说，反正这事一直在我心里挠：“臭气罐子”就是一只装满尿液、直满到罐口的陶制储物罐。我不会问你为什么，我只求它别进我的酒馆，而且不管放在哪儿，那儿最好有阵劲风。
+CMC_InnKeeperTalk_RemarkStinkyJar_Answer,It's for the tanning. Mostly.,是用来鞣皮的。大部分时候是。
+CMC_InnOrderUpRemarked_StatName,The Inn Keeper's Order Up! Remark,旅店老板对准时送达成就的评价
+CMC_InnOrderUpRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the Order Up! achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及准时送达成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkOrderUp_Line,"Filled a trader's order, did you? News like that reaches my taproom before the dust has settled on the road. A commission is a promise to a stranger a long way from home, and keeping one is how a road learns your name. Don't let it go to your head: the next order will want more.",替行商把单子办妥了，是吧？这种消息，路上的尘土还没落定就传到我的酒馆里了。委托是对一位远离家乡的陌生人许下的承诺，守信，大路才会记住你的名字。可别得意：下一张单子要的会更多。
+CMC_InnKeeperTalk_RemarkOrderUp_Answer,I only did what was asked.,我不过是照吩咐办事。
+CMC_InnOverheardIndex_StatName,Inn Overheard Line,旅店听来的闲话
+CMC_InnOverheardIndex_StatDescription,"Hidden rotation counter, 0 up to the number of overheard lines minus 1: which overheard line the Inn Keeper passes on next on an evening with company. Each line moves it on by 1 and the last sends it back to 0.",隐藏轮换计数器：从0到闲话总数减1，表示有人作陪的傍晚旅店老板接下来转述哪一句听来的闲话。每说一句加1，最后一句说完后回到0。
+CMC_InnOverheardCooldown_StatName,Inn Overheard Cooldown,旅店闲话冷却
+CMC_InnOverheardCooldown_StatDescription,"Hidden cooldown: set to 72 when the Inn Keeper passes on an overheard line, drains 1 per tick, so at most one line is passed on per evening.",隐藏冷却：旅店老板转述一句听来的闲话后设为72，每刻度减1，因此每个傍晚最多转述一句。
+CMC_InnKeeperTalk_Overheard_Mill_Line,"Don't mind the noise. The table's been at it since sundown over whether the millstones grind finer in a cold wind or a warm one. Nobody has budged an inch, and I've stopped refilling their cups.",别在意吵闹。从日落起，那桌人就一直在争：磨盘在冷风里磨得细，还是在暖风里磨得细。谁都没让一步，我也不再给他们添杯了。
+CMC_InnKeeperTalk_Overheard_Mill_Answer,Let them have their argument.,让他们争去吧。
+CMC_InnKeeperTalk_Overheard_Loom_Line,"That corner has been swapping cloth gossip all evening: who's dyeing what colour this season, and who's pretending not to have copied whom. I keep my face straight and my opinions to myself.",那个角落整晚都在交换布料的闲话：这个季节谁染了什么颜色，谁又假装没有抄谁的。我板着脸，把意见都咽在肚子里。
+CMC_InnKeeperTalk_Overheard_Loom_Answer,A wise policy.,明智的做法。
+CMC_InnKeeperTalk_Overheard_Herbs_Line,"Over by the window they're going on about herbs: whose patch grows the best silverwort, and who found it first. Neither will say where it actually grows, naturally.",窗边那几位在聊草药：谁家那一块地长出的银草最好，又是谁先找到的。当然，谁也不肯说它到底长在哪儿。
+CMC_InnKeeperTalk_Overheard_Herbs_Answer,Everyone guards their own patch.,谁都得看好自己那一小块地。
+CMC_InnKeeperTalk_Overheard_Academy_Line,"Lectures, that's the talk by the fire. Half the table swears the Professor's teaching is worth the walk up the road, and the other half admits they only go for the warm room.",炉火边在聊讲座。一半的人发誓教授的课值得走那段路，另一半人则承认他们去只是图个暖和的屋子。
+CMC_InnKeeperTalk_Overheard_Academy_Answer,A warm room is a fine reason to study.,图个暖和的屋子，也算是个不错的求学理由。
+CMC_InnKeeperTalk_Overheard_Roads_Line,"Everyone's grumbling about the roads tonight: from the cottages to the Inn, from the Inn to the Academy, and not two of them agree which stretch is the muddiest.",今晚大家都在抱怨路：从村舍到旅店，从旅店到学院，没有两个人能说准哪一段最泥泞。
+CMC_InnKeeperTalk_Overheard_Roads_Answer,Then somebody should lay a few planks.,那是得有人去铺几块木板了。
+CMC_BoardLeg_InnKeeper_Inn,"The Inn Keeper is at the Inn, behind the bar.",旅店老板此刻在旅店里，守着吧台。
+CMC_BoardLeg_Miller_Cottage,The Miller is at home in his cottage.,磨坊主此刻在自己的小屋里休息。
+CMC_BoardLeg_Miller_Inn,The Miller is at the Inn.,磨坊主此刻在旅店里。
+CMC_BoardLeg_Miller_Academy,The Miller is at the Academy.,磨坊主此刻在学院里。
+CMC_BoardLeg_Miller_Work,"The Miller is at work, grinding grain.",磨坊主此刻正在干活，磨着谷物。
+CMC_BoardLeg_Miller_Village,The Miller is out and about in the village.,磨坊主此刻在村子里四处走动。
+CMC_BoardLeg_Weaver_Cottage,The Weaver is at home in her cottage.,织工此刻在自己的小屋里休息。
+CMC_BoardLeg_Weaver_Inn,The Weaver is at the Inn.,织工此刻在旅店里。
+CMC_BoardLeg_Weaver_Academy,The Weaver is at the Academy.,织工此刻在学院里。
+CMC_BoardLeg_Weaver_Work,The Weaver is at work at the loom.,织工此刻正在织机前干活。
+CMC_BoardLeg_Weaver_Village,The Weaver is out and about in the village.,织工此刻在村子里四处走动。
+CMC_BoardLeg_Apothecary_Cabin,The Apothecary is at home in her cabin.,药剂师此刻在自己的小屋里。
+CMC_BoardLeg_Apothecary_Forest,The Apothecary is outside her cabin in the Foraging Forest.,药剂师此刻在觅食林，就在自己的小屋外。
+CMC_BoardLeg_Apothecary_Road,The Apothecary is on the trail to or from the village.,药剂师此刻正走在往返村子的小径上。
+CMC_BoardLeg_Apothecary_Village,The Apothecary is in the village.,药剂师此刻在村子里。
+CMC_BoardLeg_Apothecary_Stall,The Apothecary is minding the Market Stall.,药剂师此刻正在看管集市摊位。
+CMC_BoardLeg_Apothecary_Academy,The Apothecary is at the Academy.,药剂师此刻在学院里。
+CMC_BoardLeg_Apothecary_Inn,The Apothecary is at the Inn.,药剂师此刻在旅店里。
+CMC_BoardLeg_Apothecary_Brewing,The Apothecary is busy brewing a healing potion.,药剂师此刻正忙着调制治疗药剂。
+CMC_BoardLeg_Professor_Academy,The Professor is at the Academy.,教授此刻在学院里。
+CMC_BoardLeg_Professor_Inn,The Professor is at the Inn.,教授此刻在旅店里。
+CMC_BoardLeg_Professor_Foraging,The Professor is out foraging.,教授此刻正在外面采集。
+CMC_BoardLeg_Professor_Outdoors,The Professor is out and about.,教授此刻在外面走动。
+CMC_RoadMeeting_Title,A Chance Meeting,偶遇
+CMC_RoadMeeting_Apothecary,"You cross paths with the Apothecary on the road. She stops for a word about the weather and the herbs, and you part in better spirits.","你在路上遇到了药剂师。她停下来和你聊了聊天气和草药，分别时你的心情好了许多。"
+CMC_RoadMeeting_Professor,"You meet the Professor on the road. He pauses to share something he noticed on his rounds, and you walk on in better spirits.","你在路上遇到了教授。他停下脚步，和你分享了沿途的一点见闻，你继续赶路时心情也好起来了。"
+CMC_Miller_Commission_ActionName,Commission Flour,委托磨粉
+CMC_Miller_Commission_ActionDescription,"Pay the Miller one Salt, a metal Nugget or a coin to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time.","向磨坊主支付一份盐、一块金属矿块或一枚硬币，请他为你磨十份小麦粉。次日就在他的小屋里等你来取。每次只能有一份订单。"
+CMC_Weaver_Commission_ActionName,Commission Cloth,委托织布
+CMC_Weaver_Commission_ActionDescription,"Pay the Weaver one Salt, a metal Nugget or a coin to weave you a Large Cloth. It is waiting in her cottage two days later. One order at a time.","向织布工支付一份盐、一块金属矿块或一枚硬币，请她为你织一块大布。两天后就在她的小屋里等你来取。每次只能有一份订单。"
+CMC_InnKeeper_Commission_ActionName,Hire a Hunter,雇用猎人
+CMC_InnKeeper_Commission_ActionDescription,"Pay the Inn Keeper one Salt, a metal Nugget or a coin and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time.","向旅店老板支付一份盐、一块金属矿块或一枚硬币，他认识的一位猎人会在两天后把一具母鹿尸体送到旅店。每次只能有一份订单。"
+CMC_Commission_Title,An Order Is Ready,订单已备好
+CMC_Commission_TooLittle,"That is not enough for a commission. Pay at least the worth of one Salt: a Salt, a metal Nugget or a coin.","这点钱不够委托。至少要付一份盐的价值：一份盐、一块金属矿块或一枚硬币。"
+CMC_Commission_Ready_Miller,Your order is ready: ten Wheat Flour are waiting in the Miller's cottage.,你的订单已备好：十份小麦粉正放在磨坊主的小屋里等你。
+CMC_Commission_Ready_Weaver,Your order is ready: a Large Cloth is waiting in the Weaver's cottage.,你的订单已备好：一块大布正放在织布工的小屋里等你。
+CMC_Commission_Ready_Inn,Your order is ready: the Inn Keeper's hunter has left a Doe Carcass in the Inn.,你的订单已备好：旅店老板认识的猎人把一具母鹿尸体留在了旅店里。
+CMC_WeaverTalk_Start_Answer_YarnOffer,Running short of yarn?,纱线不够用了吗？
+CMC_WeaverTalk_YarnOffer_Line,"I am, as it happens. Somebody has been keeping sheep, and the yarn off their wool is finer than anything I can get here. Bring me a skein of it and I'll pay you for your trouble.",说来也巧，正是。有人养了羊，用那羊毛纺出来的纱线，比我在这儿能弄到的任何纱线都细。给我带一缕来，我不会让你白跑一趟。
+CMC_WeaverTalk_YarnOffer_Answer_Accept,I'll bring you a skein.,我给你带一缕来。
+CMC_WeaverTalk_YarnOffer_Answer_Decline,Not just now.,现在不行。
+CMC_WeaverTalk_YarnThanks_Line,"Look at that, so even and soft. This will take dye beautifully. Here, for your trouble, and a little extra for the walk.",瞧瞧，这么匀，这么软，染起色来一定很漂亮。给，这是你的辛苦钱，路上跑一趟，再多给你一点。
+CMC_WeaverTalk_YarnThanks_Answer_Thanks,Glad it suits.,合用就好。
+CMC_Weaver_GiveWoolYarn_ActionName,Give Wool Yarn,给予羊毛纱线
+CMC_Weaver_GiveWoolYarn_ActionDescription,Hand over a skein of Wool Yarn for the Weaver's errand. She pays you in Salt and thinks the better of you.,把一缕羊毛纱线交给织工，完成她的差事。她会付你盐，对你也更有好感。
+CMC_ClothHood_CardName,Cloth Hood,布兜帽
+CMC_ClothHood_CardDescription,"A cloth hood that drapes over the head and shades the face. Offers light protection from wind and cold. A guard who spots you while you are Wanted grows suspicious half as fast.
+
+<b>MUST BE EQUIPPED TO WORK</b>","一顶罩住头部、遮住面容的布兜帽，能为你略微抵御风寒。通缉期间，卫兵发现你时，疑心的增长速度减半。
+
+<b>必须装备后才能生效</b>"
+CMC_ClothHood_DA_RipUp,Rip up,撕开
+CMC_Bp_ClothHood_CardName,Cloth Hood,布兜帽
+CMC_Bp_ClothHood_CardDescription,A cloth hood that shades the face.,一顶遮住面容的布兜帽。
+CMC_Bp_ClothHood_UnlockConditionsDesc,Earn the Weaver's trust,赢得织工的信任
+CMC_JailCellLocation_DA_PayWarden,Pay the Warden,贿赂狱卒
+CMC_JailCellLocation_DA_PayWarden_Desc,"Press Salt into the warden's palm for a day off your sentence. Once a sentence, and only while a warden is on the step. It shortens the time and never clears your crime.",往狱卒手里塞一些盐，换取刑期减少一天。每次刑期仅限一次，且只有狱卒在岗时才能进行。它只缩短刑期，不会消除你的罪行。
+CMC_GuardBribe_ActionName,Slip a Bribe,暗中行贿
+CMC_GuardBribe_ActionDescription,"Press Salt or a metal nugget into the guard's hand. Her suspicion of you eases, though never below what she carries on a quiet day, and it does nothing about your crime.",往卫兵手里塞一些盐或金属块。她对你的疑心会减轻，但不会低于她平日的警惕程度，也无法消除你的罪行。
+CMC_JailBribeUsed_StatName,Jail Bribe Used,监狱贿赂已用
+CMC_JailBribeUsed_StatDescription,"Hidden latch: whether the warden has already been paid this sentence. 0 = not yet, 1 = paid; clamped to that range and reset on every new sentence.",隐藏标记：本次刑期内是否已贿赂过狱卒。0表示尚未，1表示已贿赂；数值限定在此范围内，每次重新判刑时都会重置。
+CMC_JailCellLocation_DA_BreakRocks,Break Rocks,砸石头
+CMC_JailCellLocation_DA_BreakRocks_Desc,"Four hours of hard labour in the yard takes a quarter of a day off your sentence and pays your crime down at the same rate a day served does. It leaves you worn out. Twice a day at most, and only while at least two days remain.",在院子里干四个小时的苦力，能让刑期减少四分之一天，并按服满一天的同等比例减少你的罪行值。干完会筋疲力尽。每天最多两次，且只有剩余刑期至少两天时才能做。
+CMC_JailLabourToday_StatName,Jail Labour Today,今日监狱劳役
+CMC_JailLabourToday_StatDescription,"Hidden counter: how many times the prisoner has broken rocks today. 0 to 2, clamped to that range; the cell's Break Rocks button is hidden at 2 and the counter is set back to 0 at every day rollover.",隐藏计数：囚犯今天砸过几次石头。范围0到2，超出会被限制；计数到2时牢房里的“砸石头”按钮会隐藏，并在每天交替时归零。
+CMC_CatGiftRolled_StatName,Cat Gift Rolled,猫咪礼物已掷
+CMC_CatGiftRolled_StatDescription,"Hidden latch: whether today's one roll for a gift from a Content cat has been made. 0 or 1, clamped to that range; set to 0 at every day rollover.",隐藏标记：今天是否已为满足的猫咪掷过一次送礼机会。范围0到1，超出会被限制；每天交替时归零。
+CMC_WatchServiceArmed_StatName,Watch Service Errand State,守卫义务劳动状态
+CMC_WatchServiceArmed_StatDescription,"Hidden clamped marker for Captain Sterling's community service: 1 = ready for an offer, 0 = a job accepted and under way, 0.5 = the job is done and waiting for his thanks. Never a counter: his thanks line (or giving the job up) puts it back to 1, and nothing else writes it.",隐藏的限幅标记，用于斯特林队长的义务劳动：1表示可以接受新的差事，0表示已接下差事正在进行，0.5表示差事已完成、等待队长道谢。它不是计数器：队长道谢（或放弃差事）会把它调回1，别处不会写入。
+CMC_WatchServiceJob_StatName,Watch Service Job,守卫义务劳动差事
+CMC_WatchServiceJob_StatDescription,"Hidden clamped 0 to 2: which job Captain Sterling has set (0 none, 1 carry firewood to the Town Wood Pile, 2 clear a snow drift). Set by the Captain's offer lines and put back to 0 by his thanks line or by giving the job up.",隐藏的限幅数值，范围0到2：斯特林队长交代的差事（0为无，1为把柴火送到镇上的柴堆，2为清除一处雪堆）。由队长的提议台词写入，道谢或放弃差事后归零。
+CMC_WatchServiceCount_StatName,Watch Service Jobs Done,守卫义务劳动完成数
+CMC_WatchServiceCount_StatDescription,"Hidden completion counter, clamped 0 to 3: jobs done for Captain Sterling. It advances only in his thanks line, never from the job itself, and it stops at 3, which is what the Deputy line asks for.",隐藏的完成计数，限幅0到3：为斯特林队长完成的差事数。它只在队长道谢时增加，差事本身不会推动它，并且到3为止，这正是副手台词所需的数目。
+CMC_WatchDeputy_StatName,Deputy of the Watch,守卫副手
+CMC_WatchDeputy_StatDescription,"Hidden 0/1 latch: 1 once Captain Sterling has named you a Deputy (three jobs done and a clean record). Latched for the run. Village Reputation adds a flat 5 to its civic half while it reads 1, so the standing is paid once and never repeated.",隐藏的0/1锁存：斯特林队长任命你为副手（完成三件差事且记录清白）后变为1，整局保持。它为1时，村庄声望的公民部分固定加5，所以这份声望只给一次，不会重复。
+CMC_SterlingTalk_ServiceDone_Line,"The work is done, and done properly. I wrote it down. A record is a thing you can answer for, Captain to citizen, and every honest job you put against it makes it a little shorter.",活干完了，而且干得像样。我记下了。记录是要你自己担待的东西，队长对村民就是这么说话，你每做一件正经差事，它就短一点。
+CMC_SterlingTalk_ServiceDone_Answer_Thanks,"Thank you, Captain.",谢谢您，队长。
+CMC_SterlingTalk_Deputy_Line,"Three jobs done and a clean slate to show for them. I have had worse deputies sworn in by the Watch itself. Consider yourself one of mine: the square will know you, and I will vouch for you where it counts.",三件差事做完，案底也清白了。守卫队自己宣誓入队的副手，有些还不如你。从今往后你算我的人：广场上的人会认得你，要紧的地方我替你作保。
+CMC_SterlingTalk_Deputy_Answer_Honoured,"I am honoured, Captain.",承蒙抬举，队长。
+CMC_SterlingTalk_ServiceOffer_Line,"The Watch does not hand out pardons, but it can use honest hands. Carry firewood to the Town Wood Pile, so the village hearths do not go cold. Or, when the snow has closed a road, dig a drift clear. Come and tell me when it is done, and I will take it off your record.",守卫队不发赦免，但正缺踏实肯干的人手。把柴火送到镇上的柴堆，别让村里的炉火熄了；或者在大雪封路时，把雪堆挖开。干完了来告诉我，我就从你的记录里划掉一笔。
+CMC_SterlingTalk_ServiceOffer_Answer_Firewood,I will carry firewood to the Wood Pile.,我去把柴火送到柴堆。
+CMC_SterlingTalk_ServiceOffer_Answer_Drift,I will dig a snow drift clear.,我去把雪堆挖开。
+CMC_SterlingTalk_ServiceOffer_Answer_Later,Not just now.,现在不行。
+CMC_SterlingTalk_Start_Answer_Service,"Is there honest work I can do, Captain?",队长，有什么正经活我能做吗？
+CMC_SterlingTalk_Start_Answer_GiveUp,"I cannot see the work you set me through, Captain.",队长，您交代的活我干不下去了。
+CMC_SterlingTalk_Wanted_Answer_Service,"Is there honest work that would put it right, Captain?",队长，有什么正经活能让我将功补过吗？
+CMC_SterlingTalk_Wanted_Answer_GiveUp,"I cannot see the work you set me through, Captain.",队长，您交代的活我干不下去了。
+CMC_StallTheftState_StatName,"Stall Theft Report State",摊位失窃上报状态
+CMC_StallTheftState_StatDescription,"Hidden clamped marker for reporting a Market Stall robbery to the Watch, one open report at a time: 0 = none, 1 = a stolen item waits to be reported, 2 = reported and waiting for the due day, 3 = the Watch found it and it comes back on your next visit to the Village, 4 = the Watch found nothing and a guard will say so. Never a counter: the stall robbery sets 1, a guard's Talk line sets 2, the recovery check sets 3 or 4, and delivery or the guard's 'not found' line puts it back to 0.",隐藏的受限标记，用于向守卫上报市集摊位失窃，同一时间只有一份未结案的上报：0 为无，1 为有被盗物品等待上报，2 为已上报并等待到期日，3 为守卫找回了物品，下次回到村庄时归还，4 为守卫一无所获，会有守卫告知。它不是计数器：失窃时写入1，守卫的对话写入2，追查结果写入3或4，归还或守卫告知“没找到”后回到0。
+CMC_StallTheftHash_StatName,"Stolen Stall Item Identity",被盗摊位物品标识
+CMC_StallTheftHash_StatDescription,"Hidden C#-only bookkeeping stat: a 24-bit hash (1 to 16777215, 0 = none) of the UniqueID of the item the last stall robbery took. A GameStat holds a number and not text, so the save keeps this hash and the item is looked up again by it on delivery. Written only by MarketStallPatch.",隐藏的仅供C#使用的记账属性：上一次摊位失窃所丢物品唯一ID的24位哈希（1到16777215，0为无）。属性只能存数字不能存文字，所以存档保存哈希，归还时再据此找回物品。只由MarketStallPatch写入。
+CMC_StallRecoveryDue_StatName,"Stall Theft Recovery Day",摊位失窃追查日
+CMC_StallRecoveryDue_StatDescription,"Hidden C#-only bookkeeping stat: the in-game day (1 to 99999, 0 = none) on which the Watch's search for a stolen stall item is decided. MarketStallPatch sets it a few days after a guard takes the report and clears it once the search is decided.",隐藏的仅供C#使用的记账属性：守卫对被盗摊位物品的追查出结果的游戏日（1到99999，0为未设置）。守卫受理上报几天后由MarketStallPatch设置，追查出结果后清除。
+CMC_GuardTalk_TheftReported_Line,"A thief at the market stalls. I will put it in the Watch's book and ask about. Give it a few days. I cannot promise the goods are still whole, or that anyone will have seen where they went.",市集摊位有贼。我会记进守卫的簿子，再四处打听。过几天再来。我不敢保证东西还完好，也不敢保证有人看见它们去了哪儿。
+CMC_GuardTalk_TheftReported_Answer_Thanks,"Thank you.",谢谢你。
+CMC_GuardTalk_TheftNotFound_Line,"About your stall. We asked about and walked the lanes, and there is no sign of what was taken. Whoever it was is long gone, and so are your goods. I am sorry.",关于你的摊位。我们四处打听，也走遍了街巷，没有找到被偷东西的踪迹。那人早已远走，你的货也没了。很抱歉。
+CMC_GuardTalk_TheftNotFound_Answer_Understood,"I understand. Thank you for trying.",我明白了。谢谢你们尽力。
+CMC_SterlingTalk_Start_Answer_ReportTheft,"Report the Theft: someone robbed my market stall.",上报失窃：有人偷了我的市集摊位。
+CMC_ThorneTalk_Start_Answer_ReportTheft,"Report the Theft: someone robbed my market stall.",上报失窃：有人偷了我的市集摊位。
+CMC_CorrinTalk_Start_Answer_ReportTheft,"Report the Theft: someone robbed my market stall.",上报失窃：有人偷了我的市集摊位。
+CMC_VaneTalk_Start_Answer_ReportTheft,"Report the Theft: someone robbed my market stall.",上报失窃：有人偷了我的市集摊位。
+CMC_InnCounter_Wager_ActionName,Wager on the Dice,以骰子下注
+CMC_InnCounter_Wager_ActionDescription,"Drag Bone Dice or Loaded Dice onto the counter and stake 25 from your Inn Account on a roll against a resident. Honest dice win a little under half the time and a win pays twice the stake; loaded dice win more often, but a resident may catch the weight, which costs the stake and adds to your Village Crime. You keep the dice. Needs someone at the Inn with you.",把骨骰或灌泥骰子拖到柜台上，从旅店账户中押25点，与一位居民比点数。普通骰子赢的概率略低于一半，赢了可得双倍押注；灌泥骰子赢得更多，但居民可能发现其中的手脚，那样会失去押注并增加村庄犯罪值。骰子仍归你所有。需要有人在旅店里陪你。
+CMC_Wager_Win,"You win the roll: {0} added to your Inn Account.",你赢了这一局：旅店账户增加{0}点。
+CMC_Wager_Lose,"You lose the roll: {0} leaves your Inn Account.",你输了这一局：旅店账户减少{0}点。
+CMC_Wager_Caught,"A resident catches the loaded dice! You forfeit {0} and word spreads through the village.",居民发现了灌泥骰子！你损失{0}点押注，消息在村里传开了。
+CMC_Wager_NoStake,"You need {0} in your Inn Account to wager.",旅店账户中至少要有{0}点才能下注。
+CMC_LoadedDice_CardName,Loaded Dice,灌泥骰子
+CMC_LoadedDice_CardDescription,"A pair of bone dice, one hollowed out and packed with clay so it favours a number. Wagered at the Inn Counter they win more often than honest dice, but a resident who spots the weight talks, and the village hears of it.",一对骨骰，其中一枚被掏空并填入黏土，偏向某个点数。在旅店柜台下注时，它们比普通骰子赢得更多，但如果居民发现了其中的重量，就会传开，全村都会知道。
+CMC_LoadedDice_DA_Roll,Roll the Loaded Dice,掷灌泥骰子
+CMC_LoadedDice_DA_Roll_Desc,"Rattle them in a cupped hand and let them fall, favouring the weighted one. It passes a quarter hour.",在掌心里摇一摇，让它们落下，偏向那枚加重的骰子。能消磨一刻钟。
+Bp_CMC_LoadedDice_CardName,Loaded Dice,灌泥骰子
+Bp_CMC_LoadedDice_CardDescription,Hollow out one of a pair of Bone Dice and pack it with clay so it favours a number.,掏空一对骨骰中的一枚，填入黏土，使它偏向某个点数。
+Bp_CMC_LoadedDice_UnlockConditionsDesc,A trick any bonecarver could learn,任何骨雕匠都能学会的小把戏
+CMC_InnCounter_Morris_ActionName,Play Morris,玩九子棋
+CMC_InnCounter_Morris_ActionDescription,"Drag your Morris Board onto the counter and play a resident at Nine Men's Morris for 25 from your Inn Account. The sharper your Focus, the better your odds, but even a very sharp player only breaks even. A win pays twice the stake. You keep the board. Needs someone at the Inn with you, and room in your account for the winnings.",把你的九子棋盘拖到柜台上，与一位居民下九子棋，从旅店账户中押25点。你的专注越高，胜率越高，但即使非常敏锐的玩家也只是不赔不赚。赢了可得双倍押注。棋盘仍归你。需要有人在旅店陪你，且账户中要有足够空间容纳奖金。
+CMC_InnCounter_ArmWrestle_ActionName,Arm Wrestle,掰手腕
+CMC_InnCounter_ArmWrestle_ActionDescription,"Set your elbow on the table and arm-wrestle a resident for 25 from your Inn Account. A fit character wins more often and an exhausted one seldom; a very fit one only breaks even. A win pays twice the stake. Every bout costs 8 Stamina. Needs someone at the Inn with you, and room in your account for the winnings.",把手肘撑在桌上，与一位居民掰手腕，从旅店账户中押25点。体能好的角色赢得更多，精疲力竭的角色很少能赢；体能极佳者也只是不赔不赚。赢了可得双倍押注。每一局消耗8点体力。需要有人在旅店陪你，且账户中要有足够空间容纳奖金。
+CMC_Wager_NoRoom,Your Inn Account is too full to take the winnings: it holds up to 500.,你的旅店账户已满，装不下奖金：上限为500点。
+CMC_Morris_Win,You win the game against {1}: {0} added to your Inn Account.,你赢了与{1}的这盘棋：旅店账户增加{0}点。
+CMC_Morris_Lose,You lose the game to {1}: {0} leaves your Inn Account.,你输给了{1}：旅店账户减少{0}点。
+CMC_ArmWrestle_Win,You put down {1}'s arm: {0} added to your Inn Account.,你压倒了{1}的手臂：旅店账户增加{0}点。
+CMC_ArmWrestle_Lose,Your arm goes down against {1}: {0} leaves your Inn Account.,你的手臂败给了{1}：旅店账户减少{0}点。
+CMC_MorrisBoard_CardName,Morris Board,九子棋盘
+CMC_MorrisBoard_CardDescription,"A plank scored with three nested squares, its eighteen men chipped from stone and half of them blackened with charcoal. Working out a Morris problem passes a quiet quarter hour. Carry it to the Inn Counter to play a resident for a stake.",一块木板上刻着三个嵌套的方框，十八枚棋子由石头凿成，其中一半用木炭染黑。琢磨一道九子棋难题能消磨安静的一刻钟。带到旅店柜台，可与居民下注对弈。
+CMC_MorrisBoard_DA_Work,Work a Morris Problem,研究九子棋难题
+CMC_MorrisBoard_DA_Work_Desc,Set the men out in a half-finished game and find the winning line. A quiet quarter hour that steadies the mind.,把棋子摆成一盘下到一半的棋，找出取胜的走法。安静的一刻钟，让心神安定。
+Bp_CMC_MorrisBoard_CardName,Morris Board,九子棋盘
+Bp_CMC_MorrisBoard_CardDescription,"Score three nested squares into a plank and chip eighteen men from stone, blackening half of them with charcoal.",在木板上刻出三个嵌套的方框，把十八枚棋子凿成石头，并用木炭把其中一半染黑。
+Bp_CMC_MorrisBoard_UnlockConditionsDesc,A game any idle hand can learn,任何闲着的手都能学会的游戏
+CMC_ShadowHuntTrail_CardName,Shadow's Trail,影子的踪迹
+CMC_ShadowHuntTrail_CardDescription,"A few black hairs caught on a stalk and a line of light paw prints heading off toward the Foraging Forest. Shadow has gone hunting in the dark. He comes back on his own after a few hours, as long as you are here to meet him.",几根挂在草茎上的黑色毛发，和一串轻轻的爪印，一路朝觅食林延伸而去。影子趁着夜色出去打猎了。几个小时后他会自己回来，只要你在这里等他。
+CMC_ShadowHuntSpot_StatName,Shadow's Night Hunt,影子的夜猎
+CMC_ShadowHuntSpot_StatDescription,"Hidden tracker: 0 = Shadow is home, 1 = Shadow is out hunting and his trail holds his place. Clamped to 0..1.",隐藏追踪：0 = 影子在家，1 = 影子外出打猎，由他的踪迹占着他的位置。范围限制在0到1。
+CMC_ShadowHuntCooldown_StatName,Shadow's Hunt Cooldown,影子的狩猎冷却
+CMC_ShadowHuntCooldown_StatDescription,"Hidden cooldown: set to 288 (three days) when Shadow leaves on a night hunt, drains 1 per tick. He comes home once 24 have drained and leaves again only at 0. Clamped to 0..288.",隐藏冷却：影子出发夜猎时设为288（三天），每刻减少1。减少24后他会回家，降到0时才会再次出发。范围限制在0到288。
+CMC_AcademyGuest_StatName,Academy Guest Lecturer,学院客座讲师
+CMC_AcademyGuest_StatDescription,"Hidden marker, written every 5 seconds by AcademyGuestPatch: which resident is at the Academy with the player. 0 = nobody (or the player is not in the Academy), 1 = the Miller, 2 = the Weaver, 3 = the Apothecary, 4 = the Professor. When several are there, the first of that list wins. The Sit In buttons on the Lecture Hall read it. Clamped to 0..4.",隐藏标记，由 AcademyGuestPatch 每5秒写入一次：哪位居民正和玩家一起待在学院。0 = 没人（或玩家不在学院），1 = 磨坊主，2 = 织工，3 = 药剂师，4 = 教授。若有几位同时在场，则取此列表中靠前者。讲堂上的“旁听”按钮会读取它。范围限制在0到4。
+CMC_AcademySitInMiller_StatName,Sat In on the Miller,旁听过磨坊主
+CMC_AcademySitInMiller_StatDescription,"Hidden weekly latch: set to 672 (seven days) when you Sit In on the Miller's lecture, drains 1 per tick, and the button returns at 0. Clamped to 0..672.",隐藏的每周锁：旁听磨坊主的讲课时设为672（七天），每刻度减1，降到0时按钮重新出现。范围限制在0到672。
+CMC_AcademySitInWeaver_StatName,Sat In on the Weaver,旁听过织工
+CMC_AcademySitInWeaver_StatDescription,"Hidden weekly latch: set to 672 (seven days) when you Sit In on the Weaver's lecture, drains 1 per tick, and the button returns at 0. Clamped to 0..672.",隐藏的每周锁：旁听织工的讲课时设为672（七天），每刻度减1，降到0时按钮重新出现。范围限制在0到672。
+CMC_AcademySitInApothecary_StatName,Sat In on the Apothecary,旁听过药剂师
+CMC_AcademySitInApothecary_StatDescription,"Hidden weekly latch: set to 672 (seven days) when you Sit In on the Apothecary's lecture, drains 1 per tick, and the button returns at 0. Clamped to 0..672.",隐藏的每周锁：旁听药剂师的讲课时设为672（七天），每刻度减1，降到0时按钮重新出现。范围限制在0到672。
+CMC_AcademySitInProfessor_StatName,Sat In on the Professor,旁听过教授
+CMC_AcademySitInProfessor_StatDescription,"Hidden weekly latch: set to 672 (seven days) when you Sit In on the Professor's lecture, drains 1 per tick, and the button returns at 0. Clamped to 0..672.",隐藏的每周锁：旁听教授的讲课时设为672（七天），每刻度减1，降到0时按钮重新出现。范围限制在0到672。
+CMC_AcademyStudyCooldown_StatName,Academy Shelf Cooldown,学院书架冷却
+CMC_AcademyStudyCooldown_StatDescription,"Hidden daily latch: set to 96 (one day) when you Study Alone at the Academy bookshelf, drains 1 per tick, and the button returns at 0. Clamped to 0..96.",隐藏的每日锁：在学院书架前独自研读时设为96（一天），每刻度减1，降到0时按钮重新出现。范围限制在0到96。
+CMC_AcademyShelfPlaced_StatName,Academy Bookshelf Placed,学院书架已放置
+CMC_AcademyShelfPlaced_StatDescription,"Hidden flag: 1 once the Academy Bookshelf (cmcAcademyBookshelf) is confirmed on the Academy board, either from CMC_AcademyInterior.json's own DefaultEnvCardDrops (fresh saves) or from AcademyShelfSeedPatch's deferred spawn (saves that had already visited the Academy). Stops the backfill from ever spawning a second shelf. Clamped 0..1.",隐藏标记：确认学院书架（cmcAcademyBookshelf）已在学院场景中时为1，来源是 CMC_AcademyInterior.json 自带的 DefaultEnvCardDrops（新存档）或 AcademyShelfSeedPatch 的延迟生成（已去过学院的存档）。防止补发逻辑再生成第二个书架。范围限制在0到1。
+CMC_AcademyBookshelf_CardName,Academy Bookshelf,学院书架
+CMC_AcademyBookshelf_CardDescription,"A tall shelf of the academy's well-thumbed texts. Take a volume down and read alone for an hour to sharpen your Insight a little, once a day.",一座高高的书架，摆满学院翻旧了的典籍。取下一卷独自读上一小时，可略微提升你的灵视，每天一次。
+CMC_AcademyBookshelf_DA_StudyAlone,Study Alone,独自研读
+CMC_AcademyBookshelf_DA_StudyAlone_Desc,Read a volume from the shelf for an hour: Insight +1. Once a day.,从书架上取一卷读一小时：灵视 +1。每天一次。
+CMC_AcademyLectern_DA_SitIn_Miller,Sit In on the Miller's Lecture,旁听磨坊主的讲课
+CMC_AcademyLectern_DA_SitIn_Miller_Desc,"Listen in on the Miller's afternoon at the Academy for two hours: Cooking +3. Once a week for each resident, and only while they are here.",在学院旁听磨坊主的下午讲课两小时：烹饪 +3。每位居民每周一次，且只在他们在场时可用。
+CMC_AcademyLectern_DA_SitIn_Weaver,Sit In on the Weaver's Lecture,旁听织工的讲课
+CMC_AcademyLectern_DA_SitIn_Weaver_Desc,"Listen in on the Weaver's afternoon at the Academy for two hours: Weaving +3. Once a week for each resident, and only while they are here.",在学院旁听织工的下午讲课两小时：编织 +3。每位居民每周一次，且只在他们在场时可用。
+CMC_AcademyLectern_DA_SitIn_Apothecary,Sit In on the Apothecary's Lecture,旁听药剂师的讲课
+CMC_AcademyLectern_DA_SitIn_Apothecary_Desc,"Listen in on the Apothecary's afternoon at the Academy for two hours: Herbalism +3. Once a week for each resident, and only while they are here.",在学院旁听药剂师的下午讲课两小时：药草学 +3。每位居民每周一次，且只在他们在场时可用。
+CMC_AcademyLectern_DA_SitIn_Professor,Sit In on the Professor's Lecture,旁听教授的讲课
+CMC_AcademyLectern_DA_SitIn_Professor_Desc,"Listen in on the Professor's afternoon at the Academy for two hours: Insight +3. Once a week for each resident, and only while they are here.",在学院旁听教授的下午讲课两小时：灵视 +3。每位居民每周一次，且只在他们在场时可用。
+CMC_TrainingPostCooldown_StatName,Training Post Cooldown,训练木桩冷却
+CMC_TrainingPostCooldown_StatDescription,"Hidden daily latch: set to 96 (one day) when you Practice Strikes at a Training Post, drains 1 per tick, and the button returns at 0. Clamped to 0..96.","隐藏的每日锁：在训练木桩前练习击打时设为 96（一天），每刻度减 1，降到 0 时按钮重新出现。范围限制在 0 到 96。"
+CMC_TrainingPost_BP_Name,Training Post,训练木桩
+CMC_TrainingPost_BP_Desc,"Lash a padded post to a sunk timber and set it up as a striking dummy. The finished kit is set up wherever there is room, and Practice Strikes at it trains Melee Fighting once a day.","把一根包了垫子的木桩绑在埋入地下的木料上，做成击打木人。成品套件可在有空位的任何地方架设，每天可在上面练习击打一次来锻炼近战。"
+CMC_Bp_TrainingPost_UnlockConditionsDesc,Graduate the Academy's Carpentry course,从学院的木工课程毕业
+CMC_TrainingPostKit_CardName,Training Post Kit,训练木桩套件
+CMC_TrainingPostKit_CardDesc,"A padded post, lashing and a sunk timber, ready to be set up as a striking dummy. Once it stands, Practice Strikes trains Melee Fighting.","一根包了垫子的木桩、绑绳和埋入地下的木料，随时可以架设成击打木人。立起后，练习击打即可锻炼近战。"
+CMC_TrainingPostKit_Help,Training Post Kit,训练木桩套件
+CMC_TrainingPostKit_DA_SetUp,Set Up Post,架设木桩
+CMC_TrainingPost_CardName,Training Post,训练木桩
+CMC_TrainingPost_CardDescription,"A stout padded post sunk upright and lashed against the sway, scarred by every blow it has taken. Practice Strikes at it for an hour to sharpen your Melee Fighting, once a day.","一根结实的包垫木桩，直立埋入地下并绑牢以防摇晃，上面留满了每一次击打的痕迹。每天可练习击打一小时来磨炼近战。"
+CMC_TrainingPost_CardHelpSection,"Practice Strikes: an hour at the post for Melee Fighting +2 and Stamina -10. Once a day. Take Down Post folds it back into its kit.","练习击打：在木桩前一小时，近战 +2，体力 -10。每天一次。拆下木桩可将其收回套件。"
+CMC_TrainingPost_DA_Practice,Practice Strikes,练习击打
+CMC_TrainingPost_DA_Practice_Desc,"Spend an hour striking the post: Melee Fighting +2, Stamina -10. Once a day.","花一小时击打木桩：近战 +2，体力 -10。每天一次。"
+CMC_TrainingPost_DA_TakeDown,Take Down Post,拆下木桩
+CMC_SpringTonic_StatName,Spring Tonic,春日补药
+CMC_SpringTonic_StatDescription,"A dose of the Academy's spring tonic still working in you. It makes you more comfortable and slows upper respiratory infections, and wears off over about a day.",学院春日补药的药力仍在你体内起效。它让你更舒适，并减缓上呼吸道感染，大约一天后消退。
+CMC_SpringTonic_Status_Name,Spring Tonic,春日补药
+CMC_SpringTonic_Status_Description,The tonic eases you: you are more comfortable and a chest infection finds it harder to take hold. It wears off within a day.,补药让你轻松不少：你更加舒适，胸腔感染也更难扎根。药力会在一天内消退。
+CMC_SpringTonic_CardName,Spring Tonic,春日补药
+CMC_SpringTonic_CardDesc,"A pale, sharp-smelling tonic ground from dried heather flowers and willow bark. The Academy's medicine course teaches it for the sneezing season: it eases a bad spring for about a day.",用干帚石南花和干柳树皮研磨而成的淡色补药，气味刺鼻。学院医学课程专为打喷嚏的季节传授此方：它能让难熬的春天好过大约一天。
+CMC_SpringTonic_Help,"Drink it to be more comfortable and to slow upper respiratory infections for about a day. It does not strengthen your immune system, and a second dose only tops the first one up.",饮下后约一天内更加舒适，并减缓上呼吸道感染。它不会增强免疫系统，再喝一剂只会把前一剂补满。
+CMC_SpringTonic_DA_Drink,Drink,饮用
+CMC_SpringTonic_DA_Drink_Desc,"Drink the tonic. It tastes of heather and bitter bark, and you feel easier for the rest of the day.",喝下补药。它带着帚石南和苦树皮的味道，这一天余下的时间里你会觉得轻松些。
+CMC_Bp_SpringTonic_CardName,Spring Tonic,春日补药
+CMC_Bp_SpringTonic_CardDescription,"Grind dried heather flowers and willow bark together in a mortar into a tonic for the sneezing season, a remedy the Academy's medicine course teaches by heart.",在石臼中把干帚石南花和干柳树皮一起研磨，制成应对喷嚏季节的补药，这是学院医学课程传授的疗法。
+CMC_Bp_SpringTonic_UnlockConditionsDesc,Graduate the Academy's Medicine course,完成学院的医学课程
+CMC_MonumentEarned_StatName,Founder's Monument Earned,创始人纪念碑已达成
+CMC_MonumentEarned_StatDescription,"Hidden flag: set to 1 by VillageReputationPatch the first time Village Reputation reads its full mark of 100, and never cleared, so the monument is still owed if Reputation later falls. MonumentSeedPatch reads it. Clamped 0..1.",隐藏标记：村庄声望首次达到满值100时由VillageReputationPatch设为1，且永不清除，即使声望之后下降，纪念碑仍然应得。MonumentSeedPatch读取它。限制在0到1之间。
+CMC_MonumentPlaced_StatName,Founder's Monument Placed,创始人纪念碑已放置
+CMC_MonumentPlaced_StatDescription,"Hidden flag: set to 1 by MonumentSeedPatch only after a scan finds the Founder's Monument on the Village board, so the monument is placed once per run and never twice. Clamped 0..1.",隐藏标记：仅在扫描发现创始人纪念碑已在村庄场景中后，才由MonumentSeedPatch设为1，因此每局只会放置一次，绝不会放两座。限制在0到1之间。
+CMC_FoundersMonument_CardName,Founder's Monument,创始人纪念碑
+CMC_FoundersMonument_CardDescription,"A squared stone set on the village square, cut with the names of everyone who helped raise the place. The villagers raised it when your good standing in the village reached its full mark. It is not yours to take down, and standing near it is a comfort.",一块方正的石碑，立在村庄广场上，刻着每一位帮助建起这个村子的人的名字。当你在村中的声望达到满值时，村民们为你立起了它。它不是你能拆走的东西，站在它附近令人安心。
+CMC_FoundersMonument_CardHelpSection,Founder's Monument: appears once in the Village after your Village Reputation first reaches its full mark. Adds 6 Comfort while you are in the village. It cannot be taken down.,创始人纪念碑：你的村庄声望首次达到满值后，村庄中会出现一座。你在村庄时增加6点舒适度。无法拆除。
+CMC_SeasonSeen_StatName,Village Season Last Handled,村庄上次处理的季节
+CMC_SeasonSeen_StatDescription,"Hidden bookkeeping: the season (1 Spring, 2 Summer, 3 Autumn, 4 Winter) whose village beat VillageSeasonsPatch last finished, written only after that beat's work is done, so each beat fires once per season and never again on a reload. Clamped 0..4.",隐藏记录：村庄季节事件脚本上次完成的季节（1春、2夏、3秋、4冬），只在该季节事件的工作完成之后才写入，因此每个事件每季只触发一次，读档也不会重复。范围0到4。
+CMC_SeasonSummer_StatName,Village Market Day Held This Summer,本夏已举行村庄集市日
+CMC_SeasonSummer_StatDescription,"Hidden latch: set to 1 by VillageSeasonsPatch after it has started this summer's market day, cleared when the season changes. Clamped 0..1.",隐藏标记：脚本开始本夏的集市日之后设为1，季节更替时清零。范围0到1。
+CMC_SeasonAutumn_StatName,Village Provisioning Open This Autumn,本秋村庄备粮已开启
+CMC_SeasonAutumn_StatDescription,"Hidden latch: set to 1 by VillageSeasonsPatch after it has made this autumn's provisioning offer, cleared when the season changes. The Inn Counter accepts the dried food only while it reads 1. Clamped 0..1.",隐藏标记：脚本发出本秋的备粮请求之后设为1，季节更替时清零。只有它为1时，旅店柜台才接收干粮。范围0到1。
+CMC_SeasonWinter_StatName,Village Snowed-In Supper Called This Winter,本冬已召集大雪封路晚餐
+CMC_SeasonWinter_StatDescription,"Hidden latch: set to 1 by VillageSeasonsPatch after it has called this winter's snowed-in supper, cleared when the season changes. Clamped 0..1.",隐藏标记：脚本召集本冬的大雪封路晚餐之后设为1，季节更替时清零。范围0到1。
+CMC_MarketDay_StatName,Village Market Day,村庄集市日
+CMC_MarketDay_StatDescription,"Hidden day-long trade modifier: set to 96 by VillageSeasonsPatch on the first day of summer and drained by 1 a tick, about a day. While it reads 1 or more the five residents take a small discount off the price you pay (a tunable placeholder, kept smaller than the Wanted markup). Clamped 0..96.",隐藏的全天交易修正：夏季第一天由脚本设为96，每刻减1，约一天耗尽。读数不小于1时，五位村民会在你购买时小幅降价（数值为待调整的占位值，始终小于通缉加价）。范围0到96。
+CMC_ProvisionState_StatName,Autumn Provisioning Marker,秋季备粮标记
+CMC_ProvisionState_StatDescription,"Hidden clamped marker for the Inn Keeper's autumn provisioning errand, never a counter: 1 offered, 0 accepted (or idle), 0.5 delivered and awaiting thanks. Offered by VillageSeasonsPatch each autumn, accepted by the Inn Keeper's dialog, delivered at the Inn Counter, reset in the thanks line. Clamped 0..1.",隐藏的限幅标记，用于旅店老板的秋季备粮委托，绝不是计数器：1表示已提出，0表示已接受（或空闲），0.5表示已交付、等待致谢。每年秋天由脚本提出，由旅店老板的对话接受，在旅店柜台交付，在致谢对话中重置。范围0到1。
+CMC_ProvisionDone_StatName,Autumn Provisioning Completed,秋季备粮已完成
+CMC_ProvisionDone_StatDescription,"Hidden completion flag for this autumn's provisioning errand: advanced to 1 only in the Inn Keeper's thanks line, after the marker is reset, and cleared by VillageSeasonsPatch when the next autumn's offer is made. Clamped 0..1.",隐藏的完成标记：只在旅店老板的致谢对话中、标记重置之后才变为1，下一个秋天提出新请求时由脚本清零。范围0到1。
+CMC_SupperArmed_StatName,Snowed-In Supper Called,大雪封路晚餐已召集
+CMC_SupperArmed_StatDescription,"Hidden flag: set to 1 by VillageSeasonsPatch when winter arrives and the drifts close the roads, spent (back to 0) by Join the Snowed-In Supper, and cleared when winter ends. Clamped 0..1.",隐藏标记：冬天到来、积雪封路时由脚本设为1，参加大雪封路晚餐后归0，冬天结束时清零。范围0到1。
+CMC_SupperOpen_StatName,Snowed-In Supper Table Open,大雪封路晚餐餐桌开放
+CMC_SupperOpen_StatDescription,"Hidden flag VillageSeasonsPatch republishes every poll: 1 while the snowed-in supper is called and it is evening (17:00 to midnight), otherwise 0. Join the Snowed-In Supper is gated on it. Clamped 0..1.",隐藏标记，由脚本每次轮询重新写入：晚餐已召集且处于傍晚（17点到午夜）时为1，否则为0。“参加大雪封路晚餐”以它为条件。范围0到1。
+CMC_InnCounter_CI_StockPantry,Stock the Pantry,补充储藏室
+CMC_InnCounter_CI_StockPantry_Desc,"Hand over one dried meat, fish, berry, pea or root for the Inn's winter stores. Only while the Inn Keeper's autumn request is accepted and not yet delivered.",交出一份干肉、干鱼、干浆果、干豌豆或干根茎，充作旅店的冬季储备。仅在旅店老板的秋季请求已接受且尚未交付时可用。
+CMC_InnCounter_JoinTableSupper_ActionName,Join the Snowed-In Supper,参加大雪封路晚餐
+CMC_InnCounter_JoinTableSupper_ActionDescription,"The drifts have closed the roads and the residents have gathered for a long supper by the fire. Pull up a stool: a warmer evening than Join the Table, and everyone at the table warms to you the same. Once per winter, in the evening, and it shares Join the Table's once-per-evening limit.",积雪封住了道路，村民们聚在火炉旁享用一顿漫长的晚餐。拉一张凳子坐下：比“加入饭桌”更温暖的一晚，桌边的每个人同样会对你更亲近。每个冬天一次，仅限晚上，并与“加入饭桌”共用每晚一次的限制。
+CMC_InnKeeperTalk_ProvisionOffer_Line,"Leaves are turning, and the snows will not wait on my pantry. If you've dried meat, fish, berries, peas or roots to spare, set a piece on the counter and I'll stack it with the winter stores. It's a long season with a thin larder.",树叶已经变黄，大雪不会等我的储藏室备好。要是你有多余的干肉、干鱼、干浆果、干豌豆或干根茎，放一份在柜台上，我就把它和冬粮码在一起。这个季节漫长，粮仓却太薄。
+CMC_InnKeeperTalk_ProvisionOffer_Answer,I'll bring some dried food by.,我会带些干粮过来。
+CMC_InnKeeperTalk_ProvisionThanks_Line,"Saw you leave it on the counter, and it's already on the high shelf. That's a few more meals the snow can't take from us. Here, for the trouble, and a seat by the fire whenever the roads close.",看见你把它放在柜台上，现在已经在高架子上了。这又是几顿大雪夺不走的饭。拿着，算是辛苦费，等道路封了，火炉边随时有你的座位。
+CMC_InnKeeperTalk_ProvisionThanks_Answer,Glad to help stock the Inn.,很高兴能帮旅店备货。
+CMC_DyeVat_CardName,Dye Vat,染缸
+CMC_DyeVat_CardDescription,"A wide wooden vat for dyeing cloth by the armful. Put plain garments and pigments inside, then choose a colour: every plain garment in the vat is dyed, one pigment each, and keeps its wear. A garment that already carries a dye is left alone.","一口宽大的木缸，可以成批染布。把素色衣物和颜料放进缸里，再选一种颜色：缸里每件素色衣物都会被染上色，每件用一份颜料，磨损程度保持不变。已经染过色的衣物不会被动。"
+CMC_DyeVat_CardHelpSection,"<b>Dye Charcoal, Dye Ochre, Dye Billberry:</b> Dyes every plain Cloth Scarf, Cloth Coat, Cloth Mask, Chaperon, Quilted Cap, Straw Hat and Leather Apron in the vat, using one matching pigment for each. When the pigment runs out, the rest stay plain. <b>Take Apart:</b> Splits the vat back into Planks and Rope; whatever is inside spills out.","<b>染成炭灰、染成赭黄、染成越橘紫：</b>把缸里每件素色的布围巾、布外套、布面罩、软帽、绗缝帽、草帽和皮围裙都染上色，每件用一份对应的颜料。颜料用完后，剩下的保持素色。<b>拆解：</b>把染缸拆回木板和绳子；缸里的东西会散落出来。"
+CMC_DyeVat_DA_DyeCharcoal,Dye Charcoal,染成炭灰
+CMC_DyeVat_DA_DyeCharcoal_Desc,"Steep every plain garment in the vat in Charcoal Pigment, one pigment each, until it settles to a soft ash-grey.","把缸里每件素色衣物浸入炭黑颜料，每件用一份，直到染成柔和的灰色。"
+CMC_DyeVat_DA_DyeOchre,Dye Ochre,染成赭黄
+CMC_DyeVat_DA_DyeOchre_Desc,"Steep every plain garment in the vat in Ochre Pigment, one pigment each, until it turns a warm, earthy yellow-brown.","把缸里每件素色衣物浸入赭石颜料，每件用一份，直到染成温暖的土黄褐色。"
+CMC_DyeVat_DA_DyeBillberry,Dye Billberry,染成越橘紫
+CMC_DyeVat_DA_DyeBillberry_Desc,"Steep every plain garment in the vat in Billberry Pigment, one pigment each, until it takes a deep violet.","把缸里每件素色衣物浸入越橘颜料，每件用一份，直到染成深紫色。"
+CMC_DyeVat_DA_TakeApart,Take Apart,拆解
+CMC_DyeVat_NothingToDye,"There is no plain garment in the vat to dye.","缸里没有可以染色的素色衣物。"
+CMC_DyeVat_NoPigment,"The vat holds no pigment of that colour.","缸里没有这种颜色的颜料。"
+Bp_CMC_DyeVat_CardName,Dye Vat,染缸
+Bp_CMC_DyeVat_CardDescription,Bind planks into a wide vat and dye a whole armful of garments at once.,用木板箍成一口宽缸，一次染一大堆衣物。
+CMC_Weaver_GiveDyedCloth_ActionName,Give Dyed Cloth,交出染色布料
+CMC_Weaver_GiveDyedCloth_ActionDescription,"Hand over a dyed scarf, coat, mask, chaperon or quilted cap for the Weaver's dye run. She holds it to the light and pays you in Salt.","交出一件染过色的围巾、外套、面罩、软帽或绗缝帽，完成织布女的染布委托。她会对着光端详，然后付你盐作酬劳。"
+CMC_WeaverTalk_Start_Answer_DyeOffer,Any cloth you'd like dyed?,有没有想染色的布料？
+CMC_WeaverTalk_DyeOffer_Line,"I could use a run of dyed cloth to hang in the window, a few pieces in good colours. If you have a vat and some pigment, dye me a garment and bring it over, and I'll pay you for the trouble.","我正想要一批染好色的布挂在窗前，几件颜色好看的就行。你要是有染缸和颜料，就替我染一件衣物送来，我不会让你白忙一场。"
+CMC_WeaverTalk_DyeOffer_Answer_Accept,I'll dye you something.,我给你染一件。
+CMC_WeaverTalk_DyeOffer_Answer_Decline,Not just now.,现在不行。
+CMC_WeaverTalk_DyeThanks_Line,"Oh, that colour has taken beautifully, and it is even all the way through. That will brighten the whole window. Here, for your trouble.","哎呀，这颜色染得真好，里外都匀。整扇窗都会亮堂起来。给，这是你的辛苦钱。"
+CMC_WeaverTalk_DyeThanks_Answer_Thanks,Glad you like it.,你喜欢就好。
+CMC_Bp_CarpentryDecor_UnlockConditionsDesc,Graduate the Academy's Carpentry course,从学院的木工课程毕业
+CMC_Bp_BoarTrophy_CardName,Boar Tusk Trophy,野猪獠牙奖杯
+CMC_Bp_BoarTrophy_CardDescription,Mount a pair of boar tusks on a plank plaque for a little comfort at camp.,把一对野猪獠牙固定在木板上，为营地增添一点舒适感。
+CMC_BoarTrophy_Placed_CardName,Boar Tusk Trophy,野猪獠牙奖杯
+CMC_BoarTrophy_Placed_CardDescription,"A pair of boar tusks mounted on a plank plaque. A hunter's pride, and good company at camp.",一对野猪獠牙固定在木板上。猎人的骄傲，也为营地添一份陪伴。
+CMC_BoarTrophy_Placed_CardHelpSection,"<b>Take Apart:</b> Splits the plaque back into its Plank, Tusks and Twine.",<b>拆解：</b>将奖杯拆回木板、獠牙和麻线。
+CMC_BoarTrophy_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Bp_StagTrophy_CardName,Stag Antler Trophy,雄鹿鹿角奖杯
+CMC_Bp_StagTrophy_CardDescription,Mount a stag's antlers on a plank plaque for a little comfort at camp.,把一对雄鹿鹿角固定在木板上，为营地增添一点舒适感。
+CMC_StagTrophy_Placed_CardName,Stag Antler Trophy,雄鹿鹿角奖杯
+CMC_StagTrophy_Placed_CardDescription,A stag's antlers mounted on a plank plaque. A fine thing to sit beneath at the end of a hunt.,一对雄鹿鹿角固定在木板上。狩猎归来，坐在它下面再合适不过。
+CMC_StagTrophy_Placed_CardHelpSection,"<b>Take Apart:</b> Splits the plaque back into its Plank, Antlers and Twine.",<b>拆解：</b>将奖杯拆回木板、鹿角和麻线。
+CMC_StagTrophy_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Bp_ClothRug_CardName,Cloth Rug,布地毯
+CMC_Bp_ClothRug_CardDescription,Stitch two large cloths into a rug to lay down at camp.,把两块大布缝成一块地毯，铺在营地里。
+CMC_ClothRug_Placed_CardName,Cloth Rug,布地毯
+CMC_ClothRug_Placed_CardDescription,Two large cloths stitched together and laid flat. Softer underfoot than bare ground.,两块大布缝在一起平铺在地上，踩上去比光秃秃的地面柔软。
+CMC_ClothRug_Placed_CardHelpSection,<b>Take Apart:</b> Unstitches the rug into its two Large Cloths and the Twine.,<b>拆解：</b>将地毯拆回两块大布和麻线。
+CMC_ClothRug_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Bp_CanvasCharcoal_CardName,Painted Canvas (Charcoal),彩绘画布（木炭）
+CMC_Bp_CanvasCharcoal_CardDescription,Stretch a large cloth on a plank frame and paint it in charcoal pigment.,把一块大布绷在木框上，用木炭颜料作画。
+CMC_CanvasCharcoal_Placed_CardName,Painted Canvas (Charcoal),彩绘画布（木炭）
+CMC_CanvasCharcoal_Placed_CardDescription,A square of large cloth stretched on a plank frame and painted in charcoal pigment.,一块大布绷在木框上，用木炭颜料绘成。
+CMC_CanvasCharcoal_Placed_CardHelpSection,<b>Take Apart:</b> Returns the Large Cloth and the Planks; the pigment is gone into the painting.,<b>拆解：</b>返还大布和木板，颜料已经画进了画里。
+CMC_CanvasCharcoal_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Bp_CanvasOchre_CardName,Painted Canvas (Ochre),彩绘画布（赭石）
+CMC_Bp_CanvasOchre_CardDescription,Stretch a large cloth on a plank frame and paint it in ochre pigment.,把一块大布绷在木框上，用赭石颜料作画。
+CMC_CanvasOchre_Placed_CardName,Painted Canvas (Ochre),彩绘画布（赭石）
+CMC_CanvasOchre_Placed_CardDescription,A square of large cloth stretched on a plank frame and painted in ochre pigment.,一块大布绷在木框上，用赭石颜料绘成。
+CMC_CanvasOchre_Placed_CardHelpSection,<b>Take Apart:</b> Returns the Large Cloth and the Planks; the pigment is gone into the painting.,<b>拆解：</b>返还大布和木板，颜料已经画进了画里。
+CMC_CanvasOchre_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Bp_CanvasBillberry_CardName,Painted Canvas (Billberry),彩绘画布（越橘）
+CMC_Bp_CanvasBillberry_CardDescription,Stretch a large cloth on a plank frame and paint it in billberry pigment.,把一块大布绷在木框上，用越橘颜料作画。
+CMC_CanvasBillberry_Placed_CardName,Painted Canvas (Billberry),彩绘画布（越橘）
+CMC_CanvasBillberry_Placed_CardDescription,A square of large cloth stretched on a plank frame and painted in billberry pigment.,一块大布绷在木框上，用越橘颜料绘成。
+CMC_CanvasBillberry_Placed_CardHelpSection,<b>Take Apart:</b> Returns the Large Cloth and the Planks; the pigment is gone into the painting.,<b>拆解：</b>返还大布和木板，颜料已经画进了画里。
+CMC_CanvasBillberry_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Bp_LogBench_CardName,Log Bench,原木长凳
+CMC_Bp_LogBench_CardDescription,Two logs and two planks make a bench for camp.,用两根原木和两块木板做一条营地长凳。
+CMC_LogBench_Placed_CardName,Log Bench,原木长凳
+CMC_LogBench_Placed_CardDescription,Two logs and two planks make a bench broad enough for a few people to sit on.,两根原木加两块木板，做成一条能坐下几个人的长凳。
+CMC_LogBench_Placed_CardHelpSection,<b>Sit:</b> Take a seat for a moment. <b>Take Apart:</b> Splits the bench back into its Wood and Planks.,<b>坐下：</b>稍坐片刻。<b>拆解：</b>将长凳拆回原木和木板。
+CMC_LogBench_Placed_DA_TakeApart,Take Apart,拆解
+CMC_LogBench_Placed_DA_Sit,Sit,坐下
+CMC_LogBench_Placed_DA_Sit_Desc,Take a seat for a moment.,稍坐片刻。
+CMC_Bp_Potpourri_CardName,Bowl of Potpourri,干花香碗
+CMC_Bp_Potpourri_CardDescription,Fill a clay bowl with dried heather flowers to scent the camp.,在陶碗里装满干石楠花，为营地增添香气。
+CMC_Potpourri_Placed_CardName,Bowl of Potpourri,干花香碗
+CMC_Potpourri_Placed_CardDescription,"A clay bowl of dried heather flowers. It scents the camp, and the scent fades as the flowers dry out.",一只盛着干石楠花的陶碗。它为营地增添香气，花朵干透后香气便会散去。
+CMC_Potpourri_Placed_CardHelpSection,The dried flowers fade over about four days and the bowl is then empty of scent. <b>Take Apart:</b> Returns the Clay Bowl.,干花大约四天后褪去香气。<b>拆解：</b>返还陶碗。
+CMC_Potpourri_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Potpourri_Placed_Weathered,The potpourri has faded to dust.,干花香碗里的花已经化为尘土。
+CMC_Bp_FramedMap_CardName,Framed Map,装框地图
+CMC_Bp_FramedMap_CardDescription,Frame a map in planks and hang it up at camp.,用木板给地图装框，挂在营地里。
+CMC_FramedMap_Placed_CardName,Framed Map,装框地图
+CMC_FramedMap_Placed_CardDescription,"A map pressed flat and framed in planks, so the way home never gets creased.",一张压平并装进木框的地图，回家的路再也不会被折皱。
+CMC_FramedMap_Placed_CardHelpSection,"<b>Take Apart:</b> Returns the Map, the Planks and the Twine.",<b>拆解：</b>返还地图、木板和麻线。
+CMC_FramedMap_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Bp_IceSculpture_CardName,Ice Sculpture,冰雕
+CMC_Bp_IceSculpture_CardDescription,Carve blocks of ice into a figure that lasts as long as the cold does.,把冰块雕成人像，只要天气够冷它就不会消失。
+CMC_IceSculpture_Placed_CardName,Ice Sculpture,冰雕
+CMC_IceSculpture_Placed_CardDescription,Blocks of ice carved into a figure. It keeps in the cold of winter and melts away when the weather turns.,冰块雕成的人像。它在冬天的严寒里保持原样，天气转暖就会融化。
+CMC_IceSculpture_Placed_CardHelpSection,In freezing weather the sculpture holds and slowly recovers; otherwise it melts in about three days. <b>Take Apart:</b> Breaks it up; the ice is not recovered.,天气冰冻时雕像保持原样并缓慢恢复，否则大约三天就会融化。<b>拆解：</b>将其砸碎，冰块无法回收。
+CMC_IceSculpture_Placed_DA_TakeApart,Take Apart,拆解
+CMC_IceSculpture_Placed_Weathered,The ice sculpture has melted away.,冰雕已经融化了。
+CMC_Bp_StoneCairn_CardName,Stone Cairn,石堆
+CMC_Bp_StoneCairn_CardDescription,Stack small stones into a cairn where you can sit and meditate.,把小石头垒成石堆，在旁边坐下冥想。
+CMC_StoneCairn_Placed_CardName,Stone Cairn,石堆
+CMC_StoneCairn_Placed_CardDescription,Small stones stacked into a cairn: a quiet place to sit and think.,把小石头垒成石堆：一个安静坐下来思考的地方。
+CMC_StoneCairn_Placed_CardHelpSection,<b>Meditate:</b> An hour by the cairn eases stress; you are calmer still when Spiritually Harmonious and less eased when hollowed. <b>Take Apart:</b> Returns the Stones.,<b>冥想：</b>在石堆旁静坐一小时可缓解压力；精神平和时更加平静，空虚时效果较弱。<b>拆解：</b>返还小石头。
+CMC_StoneCairn_Placed_DA_TakeApart,Take Apart,拆解
+CMC_StoneCairn_Placed_DA_Meditate,Meditate,冥想
+CMC_StoneCairn_Placed_DA_Meditate_Desc,Sit by the cairn and let your mind settle.,坐在石堆旁，让心绪平静下来。
+CMC_StoneCairn_Placed_DA_MeditateInPeace,Meditate in Peace,安然冥想
+CMC_StoneCairn_Placed_DA_MeditateInPeace_Desc,"At peace with the world, you sit by the cairn and the calm comes easily.",你与世界和平相处，坐在石堆旁，平静自然而来。
+CMC_StoneCairn_Placed_DA_MeditateUneasily,Meditate Uneasily,不安地冥想
+CMC_StoneCairn_Placed_DA_MeditateUneasily_Desc,"The hollowness in you makes the silence by the cairn uneasy. It still helps, but not much.",你内心的空虚让石堆旁的寂静令人不安。它仍有些帮助，但效果有限。
+CMC_LayeredWarmth_StatName,Layered Warmth,叠穿保暖
+CMC_LayeredWarmth_StatDescription,Counts the cold-weather apparel you are wearing. Three or more pieces at once trap enough warmth to feel a little warmer than the pieces alone.,记录你身上穿着的御寒衣物件数。同时穿上三件或更多，所保住的暖意会比各件单穿时略多一些。
+CMC_LayeredWarmth_Status_Layered_Name,Well Layered,层层保暖
+CMC_LayeredWarmth_Status_Layered_Description,"Layers of warm clothing hold your own heat close, and you feel a little warmer.",层层保暖的衣物把你的体温锁在身边，你觉得稍微暖和了一些。
+CMC_Potter_AgentName,The Potter,陶匠
+CMC_Potter_AgentDescription,Lodges in a room at the Inn with clay under his nails. Sells his painted wares at the market corner when the village holds its market day.,在旅店里租了个房间，指甲缝里总嵌着陶土。每逢村里的集市日，他就在集市一角售卖自己彩绘的陶器。
+CMC_Potter_Talk,Talk,交谈
+CMC_Potter_Chat_ActionName,Chat,闲聊
+CMC_Potter_Chat_ActionDescription,Sit a while as the Potter turns a pot in his hands and talks about clay.,坐下来陪陶匠一会儿，听他一边在手里转着陶罐，一边聊着陶土。
+CMC_Potter_GiveFiredPottery_ActionName,Give Fired Pottery,交付烧制的陶器
+CMC_Potter_GiveFiredPottery_ActionDescription,"Hand over a clay bowl, plate, jar or vase you fired yourself for the Potter's firing run. He taps the rim to hear it ring and pays you in Salt.",把你亲手烧制的陶碗、陶盘、陶罐或陶花瓶交给陶匠，完成他的烧窑委托。他敲敲器口听它的声响，然后用盐付给你报酬。
+CMC_PotterTalk_SceneTitle,The Potter,陶匠
+CMC_PotterTalk_Start_Line,"Mind the shelf, the glaze on those is still curing. I took a room here so I'd be near the market. Clay travels badly, but it sells well.",当心那个架子，上面的釉还没干透。我在这儿租了间房，好离集市近一些。陶土经不起长途颠簸，但卖得很好。
+CMC_PotterTalk_Start_Answer_FiringOffer,Need anything fired?,有什么需要烧制的吗？
+CMC_PotterTalk_Start_Answer_Work,What do you make?,你都做些什么？
+CMC_PotterTalk_Start_Answer_Clay,Where do you find good clay?,哪里能找到好陶土？
+CMC_PotterTalk_Start_Answer_Bye,I'll leave you to your wheel.,不打扰你转陶轮了。
+CMC_PotterTalk_Work_Line,"Bowls, cups, plates, the odd vase when someone is courting. Painted, mostly. Plain pots anyone can fire; it's the colour people pay for.",碗、杯子、盘子，有人求亲的时候也做个花瓶。大多是彩绘的。素陶谁都能烧，人们肯花钱买的是颜色。
+CMC_PotterTalk_Work_Answer_Bye,Fine work.,手艺真好。
+CMC_PotterTalk_Clay_Line,"Riverbanks, where the water slows and leaves the fine stuff behind. Dig below the top layer, work the stones out with your thumbs, and keep it wet until you use it.",在河岸边，水流放缓、把细土留下的地方。挖开表层往下取，用拇指把石子挑出来，用之前一直保持湿润。
+CMC_PotterTalk_Clay_Answer_Bye,I'll remember that.,我会记住的。
+CMC_PotterTalk_FiringOffer_Line,"There's no kiln at the Inn, and the landlord won't hear of one. If you have a kiln of your own, fire me a plain clay bowl, plate, jar or vase and bring it here. I'll paint it and sell it, and pay you for the firing.",旅店里没有窑，店主也绝不肯让我砌一座。如果你自己有窑，就替我烧一个素陶碗、陶盘、陶罐或陶花瓶送过来。我来上彩出售，烧窑的工钱我付给你。
+CMC_PotterTalk_FiringOffer_Answer_Accept,I'll fire you something.,我给你烧一个。
+CMC_PotterTalk_FiringOffer_Answer_Decline,Not just now.,现在不行。
+CMC_PotterTalk_FiringThanks_Line,"Hear that? It rings true, no cracks. You fired that well. I'll have colour on it by the end of the week. Here, for the firing.",听见了吗？声音清脆，没有裂纹。你烧得很好。这周结束前我就能给它上好彩。拿着，这是烧窑的工钱。
+CMC_PotterTalk_FiringThanks_Answer_Thanks,Glad it came out well.,很高兴它烧得不错。
+CMC_PotterTalk_CrimeWanted_Line,"The guards were in here asking after you. I told them I only know pots. Buy what you need, but don't linger by my shelf, people are watching.",卫兵来这儿打听过你。我跟他们说我只懂陶器。需要什么就买吧，但别在我的架子旁边逗留，有人在看着。
+CMC_PotterTalk_CrimeWanted_Answer_Understood,Understood.,明白了。
+CMC_PotterTalk_CrimeWanted_Answer_Leave,I'll go.,我这就走。
+CMC_PotterTalk_CrimeBanished_Line,"You shouldn't be here, and I shouldn't be seen talking to you. I'll still sell you a pot, at a price that pays for the risk. That's all.",你不该来这儿，我也不该被人看见和你说话。陶器我还是会卖给你，只是价钱要算上我担的风险。就这样吧。
+CMC_PotterTalk_CrimeBanished_Answer_NoHarm,I mean no harm.,我没有恶意。
+CMC_PotterTalk_CrimeBanished_Answer_Leave,I'll go.,我这就走。
+CMC_BoardPotter_CardName,Potter's Board,陶匠的告示板
+CMC_BoardPotter_CardDescription,A small board where the Potter posts what he needs fired.,一块小告示板，陶匠在上面张贴他需要烧制的东西。
+CMC_BoardPotter_DA_Offer_Name,Open errand: a firing run,可接委托：烧窑
+CMC_BoardPotter_DA_Offer_Desc,The Potter has no kiln at the Inn. Ask him about a firing run.,陶匠在旅店里没有窑。去问问他烧窑的事吧。
+CMC_BoardPotter_DA_Accepted_Name,Active errand: fired pottery,进行中的委托：烧制的陶器
+CMC_BoardPotter_DA_Accepted_Desc,"The Potter is waiting on a clay bowl, plate, jar or vase you fired in your own kiln.",陶匠在等你用自己的窑烧制的陶碗、陶盘、陶罐或陶花瓶。
+CMC_BoardPotter_DA_Delivered_Name,Pottery delivered,陶器已交付
+CMC_BoardPotter_DA_Delivered_Desc,The Potter has your fired pottery. Talk to him for your pay.,陶匠已经收到你烧制的陶器。去和他谈谈，领取报酬。
+CMC_BoardLeg_Potter_Inn,The Potter is at the Inn.,陶匠此刻在旅店里。
+CMC_BoardLeg_Potter_Stall,The Potter is selling at the market corner.,陶匠此刻在集市一角摆摊。
+CMC_StockpileStone_CardName,Stone Stockpile,石头堆
+CMC_StockpileStone_CardDescription,"A low stone-walled bay that keeps loose Stones as one tidy count. Drag Stones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back.",一个石围仓，把零散的石头收成一个整齐的数目。把石头拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。
+CMC_StockpileStone_CardHelpSection,"<b>Fullness:</b> how many Stones are stored, out of 50. <b>Stack the Stones:</b> Drag a Stone onto the bay to store it; a full bay refuses and keeps the Stone in your hand. <b>Take One, Take Five:</b> Hands back that many Stones, or whatever is left. <b>Take Apart:</b> Hands back every stored Stone and two Planks.",<b>满度：</b>已存放的石头数量，满值为50。<b>堆放石头：</b>把一个石头拖到石围仓上存放；已满的石围仓会拒收，石头仍留在你手里。<b>取出一个、取出五个：</b>取回相应数量的石头，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的石头和两块木板。
+CMC_StockpileStone_SD1_Name,Fullness,满度
+CMC_StockpileStone_CI_Stack,Stack the Stones,堆放石头
+CMC_StockpileStone_CI_Stack_Desc,Store the dragged Stone in the bay: it becomes one more on the count.,把拖来的一个石头存进石围仓：计数加一。
+CMC_StockpileStone_CI_Stack_Full,The stockpile is full.,仓已满。
+CMC_StockpileStone_DA_TakeOne,Take One Stone,取出一个石头
+CMC_StockpileStone_DA_TakeOne_Desc,Take one Stone back out of the stockpile.,从堆里取回一个石头。
+CMC_StockpileStone_DA_TakeFive,Take Five Stones,取出五个石头
+CMC_StockpileStone_DA_TakeFive_Desc,"Take five Stones back out of the stockpile, or whatever is left if fewer.",从堆里取回五个石头，不足五个则取回剩下的全部。
+CMC_StockpileStone_DA_TakeApart,Take Apart,拆解
+CMC_StockpileStone_DA_TakeApart_Desc,Dismantle the bay: every stored Stone and two Planks come back.,拆掉石围仓：所有已存放的石头和两块木板都会取回。
+Bp_CMC_StockpileStone_CardName,Stone Stockpile,石头堆
+Bp_CMC_StockpileStone_CardDescription,Frame a bay that keeps up to 50 loose Stones as one tidy count.,搭起一个石围仓，把最多50个零散的石头收成一个整齐的数目。
+CMC_StockpileTwigs_CardName,Twig Stockpile,细枝堆
+CMC_StockpileTwigs_CardDescription,"A woven-stake rack that keeps loose Twigs as one tidy count. Drag Twigs onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back.",一个编桩架，把零散的细枝收成一个整齐的数目。把细枝拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。
+CMC_StockpileTwigs_CardHelpSection,"<b>Fullness:</b> how many Twigs are stored, out of 50. <b>Stack the Twigs:</b> Drag a Twig onto the rack to store it; a full rack refuses and keeps the Twig in your hand. <b>Take One, Take Five:</b> Hands back that many Twigs, or whatever is left. <b>Take Apart:</b> Hands back every stored Twig and two Planks.",<b>满度：</b>已存放的细枝数量，满值为50。<b>堆放细枝：</b>把一个细枝拖到编桩架上存放；已满的编桩架会拒收，细枝仍留在你手里。<b>取出一个、取出五个：</b>取回相应数量的细枝，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的细枝和两块木板。
+CMC_StockpileTwigs_SD1_Name,Fullness,满度
+CMC_StockpileTwigs_CI_Stack,Stack the Twigs,堆放细枝
+CMC_StockpileTwigs_CI_Stack_Desc,Store the dragged Twig in the rack: it becomes one more on the count.,把拖来的一个细枝存进编桩架：计数加一。
+CMC_StockpileTwigs_CI_Stack_Full,The stockpile is full.,仓已满。
+CMC_StockpileTwigs_DA_TakeOne,Take One Twig,取出一个细枝
+CMC_StockpileTwigs_DA_TakeOne_Desc,Take one Twig back out of the stockpile.,从堆里取回一个细枝。
+CMC_StockpileTwigs_DA_TakeFive,Take Five Twigs,取出五个细枝
+CMC_StockpileTwigs_DA_TakeFive_Desc,"Take five Twigs back out of the stockpile, or whatever is left if fewer.",从堆里取回五个细枝，不足五个则取回剩下的全部。
+CMC_StockpileTwigs_DA_TakeApart,Take Apart,拆解
+CMC_StockpileTwigs_DA_TakeApart_Desc,Dismantle the rack: every stored Twig and two Planks come back.,拆掉编桩架：所有已存放的细枝和两块木板都会取回。
+Bp_CMC_StockpileTwigs_CardName,Twig Stockpile,细枝堆
+Bp_CMC_StockpileTwigs_CardDescription,Stake together a rack that keeps up to 50 loose Twigs as one tidy count.,把细枝桩钉成一个架子，把最多50个零散的细枝收成一个整齐的数目。
+CMC_StockpileBones_CardName,Bone Stockpile,骨头堆
+CMC_StockpileBones_CardDescription,"A bleached wooden crate that keeps loose Bones as one tidy count. Drag Bones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back. A bone that has begun to boil in water is refused, because it would come back raw.",一个漂白木箱，把零散的骨头收成一个整齐的数目。把骨头拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。遇到已经开始煮沸的骨头会拒收，因为取回时它会变回生骨。
+CMC_StockpileBones_CardHelpSection,"<b>Fullness:</b> how many Bones are stored, out of 50. <b>Stack the Bones:</b> Drag a Bone onto the crate to store it; a full crate refuses and keeps the Bone in your hand, and so does a part-boiled Bone. <b>Take One, Take Five:</b> Hands back that many Bones, or whatever is left. <b>Take Apart:</b> Hands back every stored Bone and two Planks.",<b>满度：</b>已存放的骨头数量，满值为50。<b>堆放骨头：</b>把一个骨头拖到漂白木箱上存放；已满的漂白木箱会拒收，骨头仍留在你手里，煮到一半的骨头也一样。<b>取出一个、取出五个：</b>取回相应数量的骨头，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的骨头和两块木板。
+CMC_StockpileBones_SD1_Name,Fullness,满度
+CMC_StockpileBones_CI_Stack,Stack the Bones,堆放骨头
+CMC_StockpileBones_CI_Stack_Desc,Store the dragged Bone in the crate: it becomes one more on the count.,把拖来的一个骨头存进漂白木箱：计数加一。
+CMC_StockpileBones_CI_Stack_Full,The stockpile is full.,仓已满。
+CMC_StockpileBones_DA_TakeOne,Take One Bone,取出一个骨头
+CMC_StockpileBones_DA_TakeOne_Desc,Take one Bone back out of the stockpile.,从堆里取回一个骨头。
+CMC_StockpileBones_DA_TakeFive,Take Five Bones,取出五个骨头
+CMC_StockpileBones_DA_TakeFive_Desc,"Take five Bones back out of the stockpile, or whatever is left if fewer.",从堆里取回五个骨头，不足五个则取回剩下的全部。
+CMC_StockpileBones_DA_TakeApart,Take Apart,拆解
+CMC_StockpileBones_DA_TakeApart_Desc,Dismantle the crate: every stored Bone and two Planks come back.,拆掉漂白木箱：所有已存放的骨头和两块木板都会取回。
+Bp_CMC_StockpileBones_CardName,Bone Stockpile,骨头堆
+Bp_CMC_StockpileBones_CardDescription,Nail together a crate that keeps up to 50 loose Bones as one tidy count.,钉出一个木箱，把最多50个零散的骨头收成一个整齐的数目。
+CMC_Stockpile_Empty,The stockpile is empty.,这堆已经空了。
+CMC_Stockpile_BoiledBone,"That bone has begun to boil and would come back raw, so the crate will not take it.",这块骨头已经开始煮沸，取回时会变回生骨，所以木箱不肯收。
+CMC_Imp_WallPaintingCharcoal_CardName,Wall Painting (Charcoal),壁画（炭）
+CMC_Imp_WallPaintingCharcoal_CardDescription,"Hunts, hands and herds drawn on the walls in charcoal. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room.",用炭在墙上画出猎人、手印和兽群。能提升舒适度，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
+CMC_Imp_WallPaintingOchre_CardName,Wall Painting (Ochre),壁画（赭石）
+CMC_Imp_WallPaintingOchre_CardDescription,"Hunts, hands and herds drawn on the walls in ochre. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room.",用赭石在墙上画出猎人、手印和兽群。能提升舒适度，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
+CMC_Imp_WallPaintingBillberry_CardName,Wall Painting (Billberry),壁画（越橘）
+CMC_Imp_WallPaintingBillberry_CardDescription,"Hunts, hands and herds drawn on the walls in billberry. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room.",用越橘在墙上画出猎人、手印和兽群。能提升舒适度，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
+CMC_Bp_Curtains_CardName,Curtains,窗帘
+CMC_Bp_Curtains_CardDescription,"Hang two large cloths over a window. Drawn, they keep the warmth in; open, the window lets the cabin fever out. Needs a built window in the room.",把两块大布挂在窗上。拉上时能留住暖意，拉开时窗子能缓解幽闭感。房间里需要已建好的窗户。
+CMC_CurtainsOpen_Placed_CardName,Curtains (Open),窗帘（拉开）
+CMC_CurtainsOpen_Placed_CardDescription,"Two lengths of large cloth tied back from the window. The window does its work as it is: warmth lost, cabin fever eased.",两幅大布从窗边束起。窗子照常起作用：流失暖意，缓解幽闭感。
+CMC_CurtainsOpen_Placed_CardHelpSection,"<b>Draw Curtains:</b> Closes them across the window. Drawn, they give back the warmth the window loses and give up its cabin-fever relief. <b>Take Apart:</b> Returns the Large Cloth.",<b>拉上窗帘：</b>把窗帘拉到窗前。拉上后，它们补回窗子流失的暖意，但窗子缓解幽闭感的效果也随之消失。<b>拆除：</b>取回大布。
+CMC_CurtainsOpen_Placed_DA_Draw,Draw Curtains,拉上窗帘
+CMC_CurtainsOpen_Placed_DA_TakeApart,Take Apart,拆除
+CMC_CurtainsDrawn_Placed_CardName,Curtains (Drawn),窗帘（拉上）
+CMC_CurtainsDrawn_Placed_CardDescription,"Two lengths of large cloth drawn across the window. They hold the warmth in, and they shut out the view that eases cabin fever.",两幅大布拉到窗前。它们留住暖意，也挡住了能缓解幽闭感的景色。
+CMC_CurtainsDrawn_Placed_CardHelpSection,"<b>Open Curtains:</b> Ties them back. Open, the window does its work again: warmth lost, cabin fever eased. <b>Take Apart:</b> Returns the Large Cloth.",<b>拉开窗帘：</b>把窗帘束起。拉开后，窗子重新起作用：流失暖意，缓解幽闭感。<b>拆除：</b>取回大布。
+CMC_CurtainsDrawn_Placed_DA_Open,Open Curtains,拉开窗帘
+CMC_CurtainsDrawn_Placed_DA_TakeApart,Take Apart,拆除
+CMC_InnCounter_OddJob_Stone_ActionName,Odd Job: Bring a Stone,零工：送一块石头
+CMC_InnCounter_OddJob_Stone_ActionDescription,"Today's job: the Inn needs a Stone for the hearth wall. Drag a Stone onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一块石头来砌壁炉墙。把一块石头拖到柜台上，劳作三小时（精力 -15，体力 -11），报酬为一枚铜块。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
+CMC_InnCounter_OddJob_Rope_ActionName,Odd Job: Bring Rope,零工：送一段绳索
+CMC_InnCounter_OddJob_Rope_ActionDescription,"Today's job: the Inn needs a length of Rope for the cellar hoist. Drag the Rope onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一段绳索来修地窖的吊架。把绳索拖到柜台上，劳作三小时（精力 -15，体力 -11），报酬为一枚铜块。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
+CMC_InnCounter_OddJob_Ash_ActionName,Odd Job: Bring Ash,零工：送一把灰烬
+CMC_InnCounter_OddJob_Ash_ActionDescription,"Today's job: the Inn needs a handful of Ash for the lye pot. Drag the Ash onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一把灰烬来熬碱水。把灰烬拖到柜台上，劳作三小时（精力 -15，体力 -11），报酬为一枚铜块。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
+CMC_InnCounter_OddJob_Bowl_ActionName,Odd Job: Bring a Clay Bowl,零工：送一只陶碗
+CMC_InnCounter_OddJob_Bowl_ActionDescription,"Today's job: the Inn needs a Clay Bowl for the kitchen shelf. Drag the Clay Bowl onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一只陶碗放上厨房的架子。把陶碗拖到柜台上，劳作三小时（精力 -15，体力 -11），报酬为一枚铜块。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
+CMC_OddJob_Done,Job done: the Inn hands you a copper nugget.,零工完成：旅店付给你一枚铜块。
+CMC_OddJob_NotToday,Nobody is asking for that today.,今天没有人要这个。
+CMC_InnOddJob_StatName,Inn Odd Job Today,旅店今日零工
+CMC_InnOddJob_StatDescription,"Hidden bookkeeping stat: which odd job the Inn Counter has posted today (0 none or done, 1 a Stone, 2 Rope, 3 Ash, 4 a Clay Bowl). InnOddJobPatch rolls it once each morning; each job's counter button shows only while it holds that number, and handing the goods over sets it back to 0.",隐藏记账统计：旅店柜台今天张贴的零工（0 为无或已完成，1 石头，2 绳索，3 灰烬，4 陶碗）。InnOddJobPatch 每天清晨掷一次；每份零工的柜台按钮只在它等于该编号时显示，交出货物后重置为 0。
+CMC_InnOddJobDay_StatName,Inn Odd Job Day Stamp,旅店零工日期戳
+CMC_InnOddJobDay_StatDescription,"Hidden bookkeeping stat: the in-game day (plus one, so 0 means never) on which the Inn Counter last posted an odd job. Kept in the save so a quit and relaunch cannot post a second job the same day.",隐藏记账统计：旅店柜台上次张贴零工的游戏日（加一，0 表示从未）。存入存档，退出重开也无法在同一天张贴第二份零工。
+CMC_Diploma_Architecture_CardName,Architecture Diploma,建筑学毕业证书
+CMC_Diploma_Architecture_CardDescription,A framed diploma from the Village Academy: you passed the Architecture course. Hang it in camp and the room feels a little more like a home.,村庄学院颁发的装裱毕业证书：你已通过建筑学课程。把它挂在营地里，屋子会更像一个家。
+CMC_DiplomaArchitecture_StatName,Architecture Diploma Handed Out,已发放建筑学毕业证书
+CMC_DiplomaArchitecture_StatDescription,"Hidden bookkeeping stat: 1 once the Architecture diploma has been handed to you, 0 before. AcademyDiplomaPatch sets it ahead of the spawn so a reload or a second completion never hands out a second diploma.",隐藏记账属性：建筑学毕业证书发给你之后为 1，之前为 0。AcademyDiplomaPatch 会在生成证书之前先写入它，因此读档或再次完成课程都不会再发第二份证书。
+CMC_Diploma_Metallurgy_CardName,Metallurgy Diploma,冶金学毕业证书
+CMC_Diploma_Metallurgy_CardDescription,A framed diploma from the Village Academy: you passed the Metallurgy course. Hang it in camp and the room feels a little more like a home.,村庄学院颁发的装裱毕业证书：你已通过冶金学课程。把它挂在营地里，屋子会更像一个家。
+CMC_DiplomaMetallurgy_StatName,Metallurgy Diploma Handed Out,已发放冶金学毕业证书
+CMC_DiplomaMetallurgy_StatDescription,"Hidden bookkeeping stat: 1 once the Metallurgy diploma has been handed to you, 0 before. AcademyDiplomaPatch sets it ahead of the spawn so a reload or a second completion never hands out a second diploma.",隐藏记账属性：冶金学毕业证书发给你之后为 1，之前为 0。AcademyDiplomaPatch 会在生成证书之前先写入它，因此读档或再次完成课程都不会再发第二份证书。
+CMC_Diploma_Herbalism_CardName,Herbalism Diploma,草药学毕业证书
+CMC_Diploma_Herbalism_CardDescription,A framed diploma from the Village Academy: you passed the Herbalism course. Hang it in camp and the room feels a little more like a home.,村庄学院颁发的装裱毕业证书：你已通过草药学课程。把它挂在营地里，屋子会更像一个家。
+CMC_DiplomaHerbalism_StatName,Herbalism Diploma Handed Out,已发放草药学毕业证书
+CMC_DiplomaHerbalism_StatDescription,"Hidden bookkeeping stat: 1 once the Herbalism diploma has been handed to you, 0 before. AcademyDiplomaPatch sets it ahead of the spawn so a reload or a second completion never hands out a second diploma.",隐藏记账属性：草药学毕业证书发给你之后为 1，之前为 0。AcademyDiplomaPatch 会在生成证书之前先写入它，因此读档或再次完成课程都不会再发第二份证书。
+CMC_Diploma_Fishing_CardName,Fishing Diploma,垂钓学毕业证书
+CMC_Diploma_Fishing_CardDescription,A framed diploma from the Village Academy: you passed the Fishing course. Hang it in camp and the room feels a little more like a home.,村庄学院颁发的装裱毕业证书：你已通过垂钓学课程。把它挂在营地里，屋子会更像一个家。
+CMC_DiplomaFishing_StatName,Fishing Diploma Handed Out,已发放垂钓学毕业证书
+CMC_DiplomaFishing_StatDescription,"Hidden bookkeeping stat: 1 once the Fishing diploma has been handed to you, 0 before. AcademyDiplomaPatch sets it ahead of the spawn so a reload or a second completion never hands out a second diploma.",隐藏记账属性：垂钓学毕业证书发给你之后为 1，之前为 0。AcademyDiplomaPatch 会在生成证书之前先写入它，因此读档或再次完成课程都不会再发第二份证书。
+CMC_Diploma_Armorer_CardName,Armorer Diploma,铸甲学毕业证书
+CMC_Diploma_Armorer_CardDescription,A framed diploma from the Village Academy: you passed the Armorer course. Hang it in camp and the room feels a little more like a home.,村庄学院颁发的装裱毕业证书：你已通过铸甲学课程。把它挂在营地里，屋子会更像一个家。
+CMC_DiplomaArmorer_StatName,Armorer Diploma Handed Out,已发放铸甲学毕业证书
+CMC_DiplomaArmorer_StatDescription,"Hidden bookkeeping stat: 1 once the Armorer diploma has been handed to you, 0 before. AcademyDiplomaPatch sets it ahead of the spawn so a reload or a second completion never hands out a second diploma.",隐藏记账属性：铸甲学毕业证书发给你之后为 1，之前为 0。AcademyDiplomaPatch 会在生成证书之前先写入它，因此读档或再次完成课程都不会再发第二份证书。
+CMC_Diploma_Medicine_CardName,Medicine Diploma,医学毕业证书
+CMC_Diploma_Medicine_CardDescription,A framed diploma from the Village Academy: you passed the Medicine course. Hang it in camp and the room feels a little more like a home.,村庄学院颁发的装裱毕业证书：你已通过医学课程。把它挂在营地里，屋子会更像一个家。
+CMC_DiplomaMedicine_StatName,Medicine Diploma Handed Out,已发放医学毕业证书
+CMC_DiplomaMedicine_StatDescription,"Hidden bookkeeping stat: 1 once the Medicine diploma has been handed to you, 0 before. AcademyDiplomaPatch sets it ahead of the spawn so a reload or a second completion never hands out a second diploma.",隐藏记账属性：医学毕业证书发给你之后为 1，之前为 0。AcademyDiplomaPatch 会在生成证书之前先写入它，因此读档或再次完成课程都不会再发第二份证书。
+CMC_Diploma_Carpentry_CardName,Carpentry Diploma,木工学毕业证书
+CMC_Diploma_Carpentry_CardDescription,A framed diploma from the Village Academy: you passed the Carpentry course. Hang it in camp and the room feels a little more like a home.,村庄学院颁发的装裱毕业证书：你已通过木工学课程。把它挂在营地里，屋子会更像一个家。
+CMC_DiplomaCarpentry_StatName,Carpentry Diploma Handed Out,已发放木工学毕业证书
+CMC_DiplomaCarpentry_StatDescription,"Hidden bookkeeping stat: 1 once the Carpentry diploma has been handed to you, 0 before. AcademyDiplomaPatch sets it ahead of the spawn so a reload or a second completion never hands out a second diploma.",隐藏记账属性：木工学毕业证书发给你之后为 1，之前为 0。AcademyDiplomaPatch 会在生成证书之前先写入它，因此读档或再次完成课程都不会再发第二份证书。
+CMC_WoolQuiltedVest_CardName,Wool-Quilted Vest,羊毛棉背心
+CMC_WoolQuiltedVest_CardDescription,A cloth vest quilted thick with raw wool. It turns cuts and blows as well as the plain quilted vest and keeps you a good deal warmer.,一件用生羊毛厚厚絮填的布背心。防割防击的效果与普通棉背心相同，却暖和得多。
+CMC_WoolQuiltedVest_UsageDurability.CardStatName,Durability,耐久度
+CMC_WoolQuiltedVest_OnZero,Vest Destroyed!,背心已损毁！
+CMC_WoolQuiltedVest_Dismantle_ActionName,Dismantle,拆解
+CMC_WoolQuiltedVest_Dismantle_ActionDescription,Take apart the vest to recover cloth and twine. The matted wool padding cannot be saved.,拆开背心，回收布料和细绳。结成毡块的羊毛填料无法回收。
+CMC_WoolQuiltedCap_CardName,Wool-Quilted Cap,羊毛棉帽
+CMC_WoolQuiltedCap_CardDescription,A cap quilted thick with raw wool. It guards the head as well as the plain quilted cap and keeps you a good deal warmer.,一顶用生羊毛厚厚絮填的帽子。护头的效果与普通棉帽相同，却暖和得多。
+CMC_WoolQuiltedCap_UsageDurability.CardStatName,Durability,耐久度
+CMC_WoolQuiltedCap_OnZero,Cap Destroyed!,帽子已损毁！
+CMC_WoolQuiltedCap_Dismantle_ActionName,Dismantle,拆解
+CMC_WoolQuiltedCap_Dismantle_ActionDescription,Take apart the cap to recover cloth and twine. The matted wool padding cannot be saved.,拆开帽子，回收布料和细绳。结成毡块的羊毛填料无法回收。
+Bp_CMC_WoolQuiltedVest_CardName,Wool-Quilted Vest,羊毛棉背心
+Bp_CMC_WoolQuiltedVest_CardDescription,Stitch layered cloth around a padding of raw wool into a vest much warmer than the plain quilted one.,用层层布料包住生羊毛填料，缝成一件比普通棉背心暖和得多的背心。
+Bp_CMC_WoolQuiltedVest_UnlockConditionsDesc,The Weaver and Professor's winter fieldwork,织工与教授的冬季野外工作
+Bp_CMC_WoolQuiltedCap_CardName,Wool-Quilted Cap,羊毛棉帽
+Bp_CMC_WoolQuiltedCap_CardDescription,Stitch layered cloth around a padding of raw wool into a cap much warmer than the plain quilted one.,用层层布料包住生羊毛填料，缝成一顶比普通棉帽暖和得多的帽子。
+Bp_CMC_WoolQuiltedCap_UnlockConditionsDesc,Complete the Professor's first specimen commission,完成教授的首次标本委托
+CMC_Bp_Throne_CardName,Forest Throne,森林王座
+CMC_Bp_Throne_CardDescription,"A high-backed seat of planks and leather, fit for the one the whole village has taken to calling King of the Forest.",一张由木板和皮革制成的高背座椅，配得上全村人都开始称作“森林之王”的那个人。
+CMC_Bp_KingOfTheForest_UnlockConditionsDesc,Be named King of the Forest: every resident trusts you deeply and the village honours you in full,被尊为森林之王：每位居民都深深信任你，全村都对你推崇备至
+CMC_Bp_Crown_CardName,Forest Crown,森林王冠
+CMC_Bp_Crown_CardDescription,Hammer a copper sheet into a circlet of points and line it with cloth: a crown for the King of the Forest.,把一块铜板锤成一圈尖角的环冠，再衬上布料：一顶献给森林之王的王冠。
+CMC_Throne_Placed_CardName,Forest Throne,森林王座
+CMC_Throne_Placed_CardDescription,"A high-backed seat of planks and stretched leather. The village has taken to calling you King of the Forest, and this is where the King sits.",一张由木板和绷紧的皮革制成的高背座椅。村民们开始称你为森林之王，而这正是国王落座之处。
+CMC_Throne_Placed_CardHelpSection,<b>Sit on the Throne:</b> Take your seat for a moment. <b>Take Apart:</b> Splits the throne back into its Planks; the leather and twine are spent.,<b>坐上王座：</b>坐下歇一会儿。<b>拆解：</b>把王座拆回木板；皮革和细绳已经耗尽。
+CMC_Throne_Placed_DA_Sit,Sit on the Throne,坐上王座
+CMC_Throne_Placed_DA_Sit_Desc,Take your seat for a moment and look out over your forest.,坐下歇一会儿，眺望你的森林。
+CMC_Throne_Placed_DA_TakeApart,Take Apart,拆解
+CMC_Crown_CardName,Forest Crown,森林王冠
+CMC_Crown_CardDescription,"A circlet of hammered copper points, lined with cloth. It keeps off no blows and no cold, but the King of the Forest wears it gladly.",一圈锤打出尖角的铜环，内衬布料。它挡不住打击，也挡不住严寒，但森林之王乐于戴着它。
+CMC_InnKingRemarked_StatName,The Inn Keeper's King of the Forest Remark,旅店老板对森林之王成就的评价
+CMC_InnKingRemarked_StatDescription,"Hidden tracker: 0 = has not yet remarked on the King of the Forest achievement, 1 = remarked once.",隐藏追踪器：0=尚未提及森林之王成就，1=已提及一次。
+CMC_InnKeeperTalk_RemarkKing_Line,"Every one of them, then. The Miller, the Weaver, the Apothecary, the Professor, and this old barman too, and the whole village speaking your name like it belongs here. Folk have started calling you King of the Forest when they think you can't hear. Nobody voted on it. Nobody had to. Build yourself a seat worth sitting in, Your Majesty, and mind you still pay for your ale.",这么说，他们每一个都信你了。磨坊主、织工、药剂师、教授，还有我这个老酒保，整个村子提起你的名字，就像你本来就属于这里。大家以为你听不见的时候，都开始叫你森林之王了。没人投过票，也用不着投。给自己造一张配得上的座椅吧，陛下，不过酒钱可还得照付。
+CMC_InnKeeperTalk_RemarkKing_Answer,Put it on my tab.,记在我账上。
+CMC_BoardAchievements_DA_king_locked_Name,King of the Forest - unclaimed,森林之王-未达成
+CMC_BoardAchievements_DA_king_locked_Desc,Win the deep trust of every resident and the village's full honour.,赢得每位居民的深厚信任和全村的最高敬意。
+CMC_BoardAchievements_DA_king_earned_Name,King of the Forest - crowned,森林之王-已加冕
+CMC_BoardAchievements_DA_king_earned_Desc,Every resident trusts you and the whole village honours you. The forest has a King.,每位居民都信任你，全村都敬重你。森林有了它的国王。
+Pottery_Sculpture_PaintedVase_CI_Arrange,Arrange Flowers,插花
+Pottery_Sculpture_PaintedVase_CI_Arrange_Desc,Set fresh flowers in the vase. They wilt in about three days. Water in the vase is spilled.,将鲜花插入花瓶。鲜花约三天后枯萎。瓶中的水会洒出。
+Pottery_Sculpture_PaintedVaseFlowers_CardName,Painted Clay Vase with Flowers,插花彩绘陶瓶
+Pottery_Sculpture_PaintedVaseFlowers_CardDescription,"A painted vase holding a fresh posy. It brightens a camp, but the flowers wilt in about three days and leave the empty vase.",一只插着鲜花的彩绘花瓶。它能为营地增添生气，但鲜花约三天后就会枯萎，只留下空花瓶。
+Pottery_Sculpture_PaintedVaseFlowers_UsageDurability,Durability,耐久度
+Pottery_Sculpture_PaintedVaseFlowers_Broken,The painted vase has shattered.,彩绘花瓶碎了。
+Pottery_Sculpture_PaintedVaseFlowers_Wilted,The flowers in the vase have wilted.,花瓶里的鲜花枯萎了。
+CMC_LimewaterTrough_CardName,Soaking Trough,浸泡槽
+CMC_LimewaterTrough_CardDescription,"A plank trough that holds water. Soak Quicklime in it to make limewater, then drag a fleshed hide onto the trough to soak it: the lime loosens the hair and the hide tans sooner. A hide can be soaked once.",一只能盛水的木板槽。在槽中用生石灰浸泡成石灰水，再把去肉的兽皮拖到槽上浸泡：石灰会使毛发松动，兽皮更快鞣制完成。每张兽皮只能浸泡一次。
+CMC_LimewaterTrough_CI_SoakHide,Soak Hide in Limewater,石灰水浸皮
+CMC_LimewaterTrough_CI_SoakHide_Desc,Steep the fleshed hide in limewater to loosen the hair. It tans sooner afterwards. A hide can be soaked once.,将去肉的兽皮浸入石灰水使毛发松动，之后鞣制更快。每张兽皮只能浸泡一次。
+CMC_Bp_LimewaterTrough_CardName,Soaking Trough,浸泡槽
+CMC_Bp_LimewaterTrough_CardDescription,Four planks and a rope make a trough for soaking hides in limewater.,四块木板和一根绳子可做成一只用石灰水浸皮的槽。
+CMC_Bp_LimewaterTrough_UnlockConditionsDesc,No requirement,无要求
+CMC_ShadowCatPresent_StatName,Shadow Is Here,影子在此
+CMC_ShadowCatPresent_StatDescription,"Hidden tracker: 1 = a Shadow (wild, tamed or out hunting) exists somewhere in this run, so no second one turns up; 0 = none, or he slipped into the dark. Clamped to 0..1.",隐藏追踪：1 = 本局中某处已有一只影子（野生、已驯服或外出打猎），所以不会再出现第二只；0 = 没有，或他已溜进黑暗。范围限制在0到1。

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAcademyGuest",
+    "GameName": {
+        "LocalizationKey": "CMC_AcademyGuest_StatName",
+        "DefaultText": "Academy Guest Lecturer"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AcademyGuest_StatDescription",
+        "DefaultText": "Hidden marker, written every 5 seconds by AcademyGuestPatch: which resident is at the Academy with the player. 0 = nobody (or the player is not in the Academy), 1 = the Miller, 2 = the Weaver, 3 = the Apothecary, 4 = the Professor. When several are there, the first of that list wins. The Sit In buttons on the Lecture Hall read it. Clamped to 0..4."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 4.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

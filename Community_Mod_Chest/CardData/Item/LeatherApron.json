@@ -166,6 +166,125 @@
             ]
         }
     ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelleatherapron",
+                "LocalizationKey": "apparel_leather_apron_CI_Dye_ActionName",
+                "DefaultText": "Dye with Charcoal Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelleatherapron",
+                "LocalizationKey": "apparel_leather_apron_CI_Dye_ActionDescription",
+                "DefaultText": "Work the charcoal pigment into the leather apron, darkening it to a deep, even black."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigment"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelleatheraprondyedcharcoal",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelleatherapron",
+                "LocalizationKey": "apparel_leather_apron_CI_DyeOchre_ActionName",
+                "DefaultText": "Dye with Ochre Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelleatherapron",
+                "LocalizationKey": "apparel_leather_apron_CI_DyeOchre_ActionDescription",
+                "DefaultText": "Work the ochre pigment into the leather apron, turning it a warm, earthy yellow-brown."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigmentochre"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelleatheraprondyedochre",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelleatherapron",
+                "LocalizationKey": "apparel_leather_apron_CI_DyeBillberry_ActionName",
+                "DefaultText": "Dye with Billberry Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelleatherapron",
+                "LocalizationKey": "apparel_leather_apron_CI_DyeBillberry_ActionDescription",
+                "DefaultText": "Steep the leather apron in billberry pigment until it takes a deep violet."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigmentbillberry"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelleatheraprondyedbillberry",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
@@ -196,6 +315,32 @@
                             "Quantity": {
                                 "x": 2,
                                 "y": 2
+                            },
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 3,
+                                "Special3": 0,
+                                "Special4": 3,
+                                "SpoilageValue": 0.0,
+                                "UsageValue": 0.0,
+                                "FuelValue": 0.0,
+                                "ProgressValue": 0.0,
+                                "Special1Value": 0.0,
+                                "Special2Value": 50.0,
+                                "Special3Value": 0.0,
+                                "Special4Value": 400.0,
+                                "SpoilageFrom": 0,
+                                "UsageFrom": 0,
+                                "FuelFrom": 0,
+                                "ProgressFrom": 0,
+                                "Special1From": 0,
+                                "Special2From": 0,
+                                "Special3From": 0,
+                                "Special4From": 0
                             }
                         },
                         {

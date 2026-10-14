@@ -1,0 +1,9 @@
+{
+    "UniqueID": "cmcflavourtannic",
+    "FlavourName": {
+        "ParentObjectID": "cmcflavourtannic",
+        "LocalizationKey": "CMC_FlavourTannic_FlavourName",
+        "DefaultText": "Tannic"
+    },
+    "MaxIntensity": 8.0
+}
