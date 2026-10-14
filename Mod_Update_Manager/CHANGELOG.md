@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.68] - 2026-10-14
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds Herbs and Fungi 1.14.7, Advanced Copper Tools 1.18.7, Far Territory 0.1.5 and Sirus23 Mod Collection 1.22.4; every other suite mod is unchanged from 2.1.67. Spoilage now shows the bacteria icon and drying the hammer icon, as vanilla food does; berries, mushrooms and herbs taste of something when eaten straight, not only from a bowl; and meat dries at a quarter of the speed on the Herbs and Fungi Drying Tray (about a day for Bird Meat).
+
+---
+
 ## [2.1.67] - 2026-10-14
 
 ### Changed
