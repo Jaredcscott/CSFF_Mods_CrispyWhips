@@ -1,6 +1,24 @@
 {
   "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
   "images": {
+    "GIF/CeramicLampLit.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "069b4dd104a72d9bf3190de4a2dd912b4646471e",
+      "at": "2026-10-14T09:05:47+00:00"
+    },
+    "GIF/CMC_ScentedCandleLit.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "77c67e02f6ad75bc2f86eff40f497cf69922d7b7",
+      "at": "2026-10-14T09:05:48+00:00"
+    },
+    "GIF/IncenseBurnerLit.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "688a24c93fe08273bffa914d3670c02163ac0271",
+      "at": "2026-10-14T09:05:12+00:00"
+    },
     "Picture/Bedroll.png": {
       "status": "approved",
       "notes": "",

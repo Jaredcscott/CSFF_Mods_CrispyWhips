@@ -1,0 +1,15 @@
+{
+  "target": "../Resource/GIF/CMC_ScentedCandleLit.gif",
+  "source": "Resource/Picture/CMC_ScentedCandleLit.png",
+  "sourceCard": "CardData/Gif (comfortscentedcandlelit CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 1 of Documentation/Research/Card_Animation_Candidates.md: the flame sways and breathes, the candle body is still",
+  "frames": 8,
+  "duration_ms": 110,
+  "effects": [
+    { "type": "flame", "box": [10, 0, 98, 196], "base_y": 192, "tip_y": 4, "amp": 6, "waves": 0.8,
+      "stretch": 0.035, "bright": 0.05, "mask": "all", "blur": 0, "feather": 2 }
+  ]
+}

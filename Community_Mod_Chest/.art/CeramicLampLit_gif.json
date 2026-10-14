@@ -1,0 +1,15 @@
+{
+  "target": "../Resource/GIF/CeramicLampLit.gif",
+  "source": "Resource/Picture/CeramicLampLit.png",
+  "sourceCard": "CardData/Gif (ceramiclamplit CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 1 of Documentation/Research/Card_Animation_Candidates.md: the wick flame sways and breathes, the lamp is still",
+  "frames": 8,
+  "duration_ms": 110,
+  "effects": [
+    { "type": "flame", "box": [0, 0, 72, 98], "base_y": 96, "tip_y": 2, "amp": 5, "waves": 0.8,
+      "stretch": 0.04, "bright": 0.05, "mask": "all", "blur": 0, "feather": 2 }
+  ]
+}

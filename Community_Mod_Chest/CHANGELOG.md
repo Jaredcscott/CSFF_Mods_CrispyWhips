@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.13] - 2026-10-14
+
+- **The villagers breathe, the cats breathe, and the village drifts.** Every villager and guard portrait (in each of their places: the Inn, the Academy, their cottages and the forest) breathes softly; Ash, Shadow and the stray cat breathe; the Village, its paths, buildings and interiors drift slowly. Needs CSFF Mod Framework 2.28.3.
+- **Animated card art for lit lights.** The lit Scented Candle and lit Ceramic Lamp flames sway, and the smoke over every lit Incense Burner (plain, Heather and Juniper) drifts. Unlit cards stay still.
+- **The River Bridge is animated:** the river runs under it.
+
 ## [1.69.12] - 2026-10-13
 
 - **No wild beehives in the Village:** game EA 0.69c's bees nest in clover clearings, and the Village is built on one. The Village now drops that tag (framework 2.28.2 `StripEnvTags`), so bees pass it by. The Mossy Clearing keeps its bees.
