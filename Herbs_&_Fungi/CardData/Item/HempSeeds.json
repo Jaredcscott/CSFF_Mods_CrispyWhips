@@ -149,6 +149,16 @@
     "CardInteractions": [],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_seeds",
                 "LocalizationKey": "Herbs_And_Fungi_HempSeeds_DismantleActions_Eat_ActionName",
@@ -469,6 +479,7 @@
         }
     ],
     "CardTagsWarpData": [
+        "tag_HumanFood",
         "tag_Preservable",
         "tag_Feed",
         "tag_Gardenable",

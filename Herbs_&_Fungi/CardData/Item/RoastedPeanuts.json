@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_roasted_peanuts",
         "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Roasting Raw Peanuts on a fire (2 hours).\n\n<b>Uses:</b> Eat for a substantial fat and protein boost. High in calories, but very drying — have water on hand. Keeps for over a month.\n\n<b>Grind:</b> Grind with any grinding tool into Peanut Butter.\n\n<b>Trail Mix:</b> Combine with dried billberries (Cooking tab) for a travel ration."
+        "DefaultText": "<b>Made from:</b> Raw Peanuts left in a lit fire for about 15 minutes. Take them out within a few hours, or they char.\n\n<b>Uses:</b> Eat for a substantial fat and protein boost. High in calories, but very drying — have water on hand. Keeps for over a month.\n\n<b>Grind:</b> Grind with any grinding tool into Peanut Butter.\n\n<b>Cooking tab:</b> Trail Mix (with dried billberries), Honeyed Nuts (with honeycomb) and Peanut Meal, which soaks into Nut Milk."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -98,7 +98,31 @@
         "Active": false
     },
     "SpecialDurability1": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_roasted_peanuts",
+            "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_SpecialDurability1_CardStatName",
+            "DefaultText": "Burned"
+        },
+        "MaxValue": 8.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_roasted_peanuts",
+                "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "The peanuts were left in the fire and have burned to a crisp."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "274b94170226fcd479d2e73891000c9a",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Flame",
+        "OverrideIconWarpType": 3
     },
     "SpecialDurability2": {
         "Active": false
@@ -190,6 +214,16 @@
     ],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_roasted_peanuts",
                 "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_DismantleActions_Eat_ActionName",
@@ -306,6 +340,7 @@
     "CardTagsWarpData": [
         "tag_HumanFood",
         "tag_Plateable",
+        "tag_SlowlyCharsOnMediumHeat",
         "tag_Preservable"
     ],
     "CardTagsWarpType": 3,

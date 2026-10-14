@@ -1,0 +1,46 @@
+{
+  "target": "DandelionPlantGrowing.png",
+  "sourceCard": null,
+  "subject": "a low flat rosette of jagged, deeply toothed dandelion leaves on tilled soil; leaves only, no flowers, no buds",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "composition": "HerbsAndFungi/.art/compositions.json -> DandelionPlantGrowing",
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "DandelionFresh",
+      "image": "HerbsAndFungi/Resource/Picture/DandelionFresh.png",
+      "sha256": "70eb35545b5a8866745112886e0d6d001f2e2c0e0f73eb63885ccb370ff228b6",
+      "id": "D2QhRCV47N8Zg5AdsLjK",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/DandelionFresh_1790971886932_efd73336.png"
+    },
+    {
+      "role": "style",
+      "fragment": "YarrowPlantGrowing",
+      "image": "HerbsAndFungi/Resource/Picture/YarrowPlantGrowing.png",
+      "sha256": "032d6a06f0ca18fc824bd59feda2abb8cffc9eda02a34db91a264b2edc5837f0",
+      "id": "3YuZqHsf6DVdD0sCnHq1",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/YarrowPlantGrowing_1790971887622_e84dbe0f.png"
+    }
+  ],
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a bunch of fresh dandelion with flowers and leaves: draw this same plant, keeping its jagged, deeply toothed green leaf shape, colours and painting style identical, changed only as follows: it is a living plant growing from a small, roughly oval patch of freshly tilled dark brown soil, not a cut bundle (no cut stems), shown as a low, flat rosette of jagged, deeply toothed green leaves spreading outward from one central point at the soil; leaves only, with no flowers, no buds and no flower stems yet.\nReference image 2 is a style and layout reference only: match its ink linework, shading and palette, and the size, shape and placement of its small oval tilled soil patch in the frame; do not copy its subject or its feathery leaf shape.\nHand-painted watercolor-and-ink game item illustration of one young dandelion plant growing from a small, roughly oval patch of freshly tilled dark brown soil, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, flowers, yellow flowers, flower heads, buds, seed puffs, tall stems, twine, tied bundle, feathery fern-like leaves, pot, planter, grass.",
+  "historyId": "m9RTRsOsWZC7pVDDL4Zv",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790971997809_f871295a_1790971998262_7fbbe7a3.png",
+      "verdict": "accepted: low rosette of jagged toothed leaves, no flowers; soil shows darker wavy patches, within the set's look"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish); key_enclosed.py default (1 region, 107 px); then --pure 240 --min-area 6 --box 60,300,420,420 (2 regions, 36 px).",
+  "note": "HerbsAndFungi 1.14.1 plan feature 8, generated for the build session by Claude from the herb's shipped image as the subject reference (/create-image-refs, item variant); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

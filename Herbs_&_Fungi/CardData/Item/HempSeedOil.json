@@ -23,7 +23,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_HempSeedOil",
     "CardImageWarpType": 3,
     "CardTags": [],
     "CardTagsWarpData": [
@@ -65,9 +65,76 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_seed_oil",
+                "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_CardInteractions_Add_ActionName",
+                "DefaultText": "Add"
+            },
+            "DaytimeCost": 0,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Plateable"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddedSpiceTags": [],
+                "AddedSpiceTagsWarpData": [
+                    "herbs_fungi_spice_hemp_oil"
+                ],
+                "AddedSpiceTagsWarpType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_seed_oil",
                 "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_Eat_ActionName",

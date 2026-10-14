@@ -17,6 +17,7 @@
         "tag_Foraged",
         "tag_Fungus",
         "tag_Poisonous",
+        "tag_Dryable",
         "tag_Plateable",
         "tag_Preservable"
     ],

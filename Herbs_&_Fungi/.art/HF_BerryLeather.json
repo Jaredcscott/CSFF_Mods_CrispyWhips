@@ -1,0 +1,81 @@
+{
+  "target": "HF_BerryLeather.png",
+  "sourceCards": [
+    "CardData/Item/BerryLeather.json"
+  ],
+  "kind": "item",
+  "subject": "one hand-sized piece of dried berry fruit leather drawn bare: a thin, leathery, slightly wrinkled sheet of deep red-purple dried berry paste, rolled into a short loose roll lying on its side, its outer end unrolled flat in front, its surface matte with a fine dimpled texture, small dark seeds speckled through it and the thin edges a lighter translucent red",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "Liver_Cooked",
+      "id": "VDu0p7eDJdBMDBjBf4qx",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Liver_Cooked_1791745030318_81ca9f65.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Sausage_Cooked",
+      "id": "43Lq2CUDMKXPkCcIe9bS",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Sausage_Cooked_1791745174273_ba736119.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw one hand-sized sheet of dried berry fruit leather, deep red-purple, thin, matte and slightly wrinkled, rolled up loosely into a short roll lying on its side with the outer end partly unrolled flat, the edges a little translucent where thin and a few tiny berry seeds visible in it, drawn bare. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, carpet, rug, fabric, cloth, paper, scroll, plate, bowl, berries beside it.",
+  "historyId": "cCLx0hxLmaErq0zTdFtT",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791799029963_46c80279_1791799030204_dd40673f.png",
+  "credits": 40,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798781931_c82cbdf8_1791798782561_288cd35d.png",
+      "historyId": "ZbXgZAwnrif415S09y9u",
+      "verdict": "smooth photographic roll, small in frame, no outline (failed the vanilla look)"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791799029963_46c80279_1791799030204_dd40673f.png",
+      "historyId": "cCLx0hxLmaErq0zTdFtT",
+      "verdict": "larger, painted and posterized, seeds and translucent edge visible",
+      "references": [
+        "Liver_Cooked",
+        "Billberries_Pulp"
+      ],
+      "subject": "one hand-sized piece of dried berry fruit leather drawn bare: a thin, leathery, slightly wrinkled sheet of deep red-purple dried berry paste, rolled into a short loose roll lying on its side, its outer end unrolled flat in front, its surface matte with a fine dimpled texture, small dark seeds speckled through it and the thin edges a lighter translucent red"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG) from the 3:2 generation padded to 2:3 with white",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner. Sample A failed its note, so one retry (B) was made with a rewritten subject and shipped.",
+  "previousGeneration": {
+    "subject": "one thin rolled-up sheet of dark red-purple dried berry leather, matte and leathery, the roll partly unrolled to show its flat sheet, drawn bare",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "aspectRatio": "2:3",
+      "resolution": "1K",
+      "imageCount": 1,
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a game item illustration of one thin rolled-up sheet of dark red-purple dried berry leather, matte and leathery, the roll partly unrolled to show its flat sheet, drawn bare. Single subject, slight three-quarter angle, light from the upper left, a continuous dark ink outline around the whole subject, the subject large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, bowl, plate, whole berries, cloth.",
+    "historyId": "6xqvImlkfndAJQoJfytI",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756510066_1c297376_1791756510132_2df25214.png",
+    "credits": 20,
+    "generated": "2026-10-11",
+    "styleReference": {
+      "sprite": "Billberries_Item",
+      "id": "jCEJaopKgwrRUEDl9RfQ",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Billberries_Item_1791744835776_49ec6df1.png"
+    }
+  },
+  "promptNote": "Top-level prompt is sample A's. Sample B (shipped) used the same template with candidates[1].subject, style refs Liver_Cooked + Billberries_Pulp, 'hard edges between the bands, visible painted texture' in the style line, and 'photo, photorealistic, smooth gradients, studio lighting' leading the Avoid list."
+}

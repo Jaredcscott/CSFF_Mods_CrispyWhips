@@ -1,0 +1,30 @@
+{
+    "UniqueID": "herbs_fungi_stat_academy_herbalism",
+    "GameName": {
+        "LocalizationKey": "Herbs_And_Fungi_Stat_Academy_Herbalism_StatName",
+        "DefaultText": "Academy Herbalism Training"
+    },
+    "Description": {
+        "LocalizationKey": "Herbs_And_Fungi_Stat_Academy_Herbalism_StatDescription",
+        "DefaultText": "Hidden flag: 1 while the player holds Community Mod Chest's Herbalism graduate perk, else 0. Mirrored every few seconds by AcademyHerbalismBridgePatch; it gates the Identify (Academy training) action on the Unknown Chanterelle. Always 0 without Community Mod Chest."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

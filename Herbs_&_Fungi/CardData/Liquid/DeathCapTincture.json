@@ -27,7 +27,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_DeathCapTincture",
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_death_cap_tincture",
@@ -156,30 +156,6 @@
                     },
                     "StatWarpData": "8080df0dc107caa47b9591fde9347e09",
                     "StatWarpType": 3
-                },
-                {
-                    "Stat": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "ValueModifier": {
-                        "x": 10.0,
-                        "y": 10.0
-                    },
-                    "RateModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MinValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MaxValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
-                    "StatWarpType": 3
                 }
             ],
             "ProducedCards": [
@@ -209,7 +185,7 @@
             ]
         }
     ],
-    "ObjectWeight": 0.3,
+    "ObjectWeight": 350.0,
     "MaxStack": 5,
     "DroppedCardShadow": 1
 }

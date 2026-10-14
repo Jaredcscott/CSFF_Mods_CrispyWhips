@@ -1,0 +1,52 @@
+{
+  "target": "DandelionPlantMature.png",
+  "sourceCard": null,
+  "subject": "one flowering dandelion plant on tilled soil: a rosette of toothed leaves with tall slender stems each topped with one bright yellow dandelion flower head, plus a few closed buds",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "composition": "HerbsAndFungi/.art/compositions.json -> DandelionPlantMature",
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "DandelionFresh",
+      "image": "HerbsAndFungi/Resource/Picture/DandelionFresh.png",
+      "sha256": "70eb35545b5a8866745112886e0d6d001f2e2c0e0f73eb63885ccb370ff228b6",
+      "id": "D2QhRCV47N8Zg5AdsLjK",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/DandelionFresh_1790971886932_efd73336.png"
+    }
+  ],
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference image for one purpose.\nReference image 1 shows a bunch of fresh dandelion with flowers and leaves: draw this same plant, keeping its bright yellow many-petalled flower heads, its jagged, deeply toothed lion's-tooth green leaves, colours and painting style identical, changed only as follows: it is a living plant growing from a small, roughly oval patch of freshly tilled dark brown soil with a ragged edge, not a cut bundle (no cut stems), shown as a low rosette of broad, jagged, deeply toothed green dandelion leaves lying out from the centre at the soil, with several tall, slender, leafless green stems rising from the centre, each topped with one bright yellow dandelion flower head, and one or two closed green buds. Every leaf is a toothed dandelion leaf like those in reference image 1.\nHand-painted watercolor-and-ink game item illustration of one flowering dandelion plant growing from a small, roughly oval patch of freshly tilled dark brown soil, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, the soil patch about four fifths of the frame width and sitting in the lower part of the frame, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, white seed puffs, white flowers, flat umbrella-shaped flower clusters, twine, tied bundle, cut stems, feathery fern-like leaves, finely divided leaves, yarrow leaves, pot, planter, grass.",
+  "historyId": "fVkk6fIBGQNMYP11P2E1",
+  "credits": 60,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "round": 1,
+      "historyId": "oX5q18r0KXoHMbiQrVH8",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790971999607_922cb896_1790972000173_ddd513a7.png",
+      "verdict": "rejected: with YarrowPlantMature as the style reference the base leaves came out as yarrow's feathery fronds, not dandelion's toothed leaves; the round-1 prompt is retrievable by that historyId"
+    },
+    {
+      "n": "B1",
+      "round": 2,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790972241449_cf9cc493_1790972242723_28634827.png",
+      "verdict": "accepted: bright yellow many-petalled flower heads and closed buds on slender stems, every leaf jagged and toothed, tilled soil"
+    },
+    {
+      "n": "B2",
+      "round": 2,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790972238515_c9ba8c54_1790972239103_08638479.png",
+      "verdict": "usable, not picked: same subject, five flower heads, slightly more paper left between the stems than B1"
+    }
+  ],
+  "picked": "B1",
+  "finishing": "process_card_art.py (GIMP keyed finish); key_enclosed.py default (15 regions, 3816 px of paper between the stems and leaves); then --pure 240 --min-area 6 --box 170,340,400,570 (9 regions, 265 px).",
+  "note": "HerbsAndFungi 1.14.1 plan feature 8, generated for the build session by Claude from the herb's shipped image as the subject reference (/create-image-refs, item variant); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

@@ -1,0 +1,123 @@
+{
+    "UniqueID": "herbs_fungi_bp_fish_mash_fatty",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_fish_mash_fatty",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_FishMash_Fatty_CardName",
+        "DefaultText": "Salted Fish Mash (Fatty Fish)"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_fish_mash_fatty",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_FishMash_Fatty_CardDescription",
+        "DefaultText": "Pound two raw fatty fish with a measure of salt into a paste that will ferment into fish sauce."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_fish_mash_fatty",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_FishMash_Fatty_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Raw Fatty Fish Meat"
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasRawFattyFish",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "3103c059d34608a4bb95c426d9ac77e0",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "3103c059d34608a4bb95c426d9ac77e0",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_fish_mash",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "FIshMeat",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

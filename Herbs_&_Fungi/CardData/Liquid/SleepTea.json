@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_sleep_tea",
         "LocalizationKey": "herbsfungisleeptea_CardDescription",
-        "DefaultText": "A soothing herbal tea blend designed to improve sleep quality and reduce stress."
+        "DefaultText": "A soothing herbal tea blend. A cup eases stress and fills the stomach a little."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -25,7 +25,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_SleepTea",
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_sleep_tea",
@@ -70,7 +70,7 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_sleep_tea",
                 "LocalizationKey": "herbsfungisleeptea_Drink_Desc",
-                "DefaultText": "Drink the soothing tea before rest to sleep better."
+                "DefaultText": "Drink the soothing tea to calm down before rest."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
@@ -159,7 +159,7 @@
             ]
         }
     ],
-    "ObjectWeight": 0.15,
+    "ObjectWeight": 400.0,
     "MaxStack": 10,
     "DroppedCardShadow": 1
 }

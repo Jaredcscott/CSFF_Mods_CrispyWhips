@@ -1,0 +1,148 @@
+{
+    "UniqueID": "herbs_fungi_hops",
+    "TradingValue": 8,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hops",
+        "LocalizationKey": "herbsfungihops_CardName",
+        "DefaultText": "Hops"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hops",
+        "LocalizationKey": "herbsfungihops_CardDescription",
+        "DefaultText": "Papery green hop cones from a climbing vine, bitter and resinous. Drag them onto a bowl of finished rye ale to make hopped ale."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hops",
+        "LocalizationKey": "herbsfungihops_CardHelpSection",
+        "DefaultText": "<b>Found:</b> Foraging in summer and autumn at Alder Woods and the Oak Clearing.\n\n<b>Uses:</b> Drag onto finished rye ale in a bowl to make Hopped Ale (fresh wort will not take them). Holding them unlocks Plant Hops."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Hops",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_hops",
+        "LocalizationKey": "herbsfungihops_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hops",
+            "LocalizationKey": "herbsfungihops_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 1920.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hops",
+                "LocalizationKey": "herbsfungihops_SpoilageTime_OnFull",
+                "DefaultText": "The hops have gone mouldy."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hops",
+                "LocalizationKey": "Herbs_And_Fungi_Hops_Steep_ActionName",
+                "DefaultText": "Steep in Ale"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hops",
+                "LocalizationKey": "Herbs_And_Fungi_Hops_Steep_ActionDescription",
+                "DefaultText": "Steep the hops in finished rye ale to make hopped ale."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "f513b3c4572e3e44c92f9d4db6439b1d"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_lq_hopped_ale",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "TransferSpecial1": true,
+                "TransferSpecial2": true,
+                "TransferSpecial3": true
+            },
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [],
+    "ObjectWeight": 10,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "eaecdca41b9d7134487931836f0ec104",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "36fc84b5b14bc204cbd938ed02204080",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

@@ -1,0 +1,430 @@
+{
+    "UniqueID": "herbs_fungi_water_lily_cooked",
+    "TradingValue": 12,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_water_lily_cooked",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyCooked_CardName",
+        "DefaultText": "Cooked Water Lily Rhizome"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_water_lily_cooked",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyCooked_CardDescription",
+        "DefaultText": "A water lily rhizome cooked by the fire until soft and mealy. Starchy and filling, with a faint nutty bitterness."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Cooked",
+        "tag_Plateable",
+        "tag_HumanFood",
+        "tag_Preservable",
+        "tag_FoodStarchy"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Truffle_Cooked",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_water_lily_cooked",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyCooked_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_water_lily_cooked",
+            "LocalizationKey": "Herbs_And_Fungi_WaterLilyCooked_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 1440.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_water_lily_cooked",
+                "LocalizationKey": "Herbs_And_Fungi_WaterLilyCooked_SpoilageTime_Spoiled",
+                "DefaultText": "The cooked water lily rhizome has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_water_lily_cooked",
+                "LocalizationKey": "Herbs_And_Fungi_WaterLilyCooked_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_water_lily_cooked",
+                "LocalizationKey": "Herbs_And_Fungi_WaterLilyCooked_Eat_Desc",
+                "DefaultText": "Eat the cooked water lily rhizome. Soft, starchy and filling."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 25.0,
+                        "y": 25.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8.0,
+                        "y": 8.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 25.0,
+                        "y": 25.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -4.0,
+                        "y": -4.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6.0,
+                        "y": 6.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c88a8dd710996d64982b4948ca1ec996",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "ObjectWeight": 30,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_water_lily_cooked",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_water_lily_cooked",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the stew to enrich it."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_CookingContainer"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.99,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 290.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 16
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[0].Message",
+                            "DefaultText": "Not enough liquid"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 8
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[1].Message",
+                            "DefaultText": "Too thick"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[2].Message",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true,
+                "AddSpicesFromOtherCard": true,
+                "UsageChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                },
+                "ChargesChange": {
+                    "x": 16.66,
+                    "y": 16.66
+                },
+                "Special1Change": {
+                    "x": 10.0,
+                    "y": 10.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": true,
+                    "FloatValue": 300.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "b16daf50fa0b79443a2557e43f613bcc",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "d5d0c5e6112875a4cafc88a4b57711bf",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_water_lily_cooked",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyCooked_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> A Water Lily Rhizome cooked by a fire.\n\n<b>Uses:</b> Eat it or add it to a stew."
+    }
+}

@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_stimulant_tea",
         "LocalizationKey": "herbsfungistimulanttea_CardDescription",
-        "DefaultText": "An energizing herbal tea blend that boosts focus and energy. Effects are temporary."
+        "DefaultText": "A bracing herbal tea blend. A cup eases stress a little."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -25,7 +25,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_StimulantTea",
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_stimulant_tea",
@@ -70,7 +70,7 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_stimulant_tea",
                 "LocalizationKey": "herbsfungistimulanttea_Drink_Desc",
-                "DefaultText": "Drink the energizing tea to boost your focus."
+                "DefaultText": "Drink the bracing tea to steady your nerves."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
@@ -110,7 +110,7 @@
             ]
         }
     ],
-    "ObjectWeight": 0.15,
+    "ObjectWeight": 100.0,
     "MaxStack": 10,
     "DroppedCardShadow": 1
 }

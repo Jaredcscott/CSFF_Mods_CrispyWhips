@@ -1,0 +1,135 @@
+{
+    "UniqueID": "herbs_fungi_bp_ful",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_ful",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_Ful_CardName",
+        "DefaultText": "Ful"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_ful",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_Ful_CardDescription",
+        "DefaultText": "Mash broad beans with peanut oil into ful. The oil's clay bowl comes back."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_ful",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_Ful_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Broad Beans"
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasBroadBeans",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_broad_beans",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_broad_beans",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_peanut_oil",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_ful",
+            "DroppedCardWarpType": 3
+        },
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HempButter",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

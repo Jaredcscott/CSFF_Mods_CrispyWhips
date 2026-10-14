@@ -1,0 +1,81 @@
+{
+    "UniqueID": "herbs_fungi_gruit_bundle",
+    "TradingValue": 30.0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_gruit_bundle",
+        "LocalizationKey": "Herbs_And_Fungi_GruitBundle_CardName",
+        "DefaultText": "Gruit Bundle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_gruit_bundle",
+        "LocalizationKey": "Herbs_And_Fungi_GruitBundle_CardDescription",
+        "DefaultText": "Dried bog myrtle, heather flowers and yarrow tied with twine, the herbs old brewers used in place of hops. Drag it onto a bowl of finished rye ale to make gruit ale."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_gruit_bundle",
+        "LocalizationKey": "Herbs_And_Fungi_GruitBundle_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Dried Bog Myrtle, Dried Heather Flowers, Dried Yarrow and Twine, from the Cooking tab.\n\n<b>Uses:</b> Drag it onto finished rye ale in a bowl. Fresh wort will not take it."
+    },
+    "CardType": 0,
+    "ObjectWeight": 40,
+    "MaxStack": 4,
+    "AlwaysUpdate": false,
+    "DoesNotPile": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_GruitBundle",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_gruit_bundle",
+                "LocalizationKey": "Herbs_And_Fungi_GruitBundle_Steep_ActionName",
+                "DefaultText": "Steep in Ale"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_gruit_bundle",
+                "LocalizationKey": "Herbs_And_Fungi_GruitBundle_Steep_ActionDescription",
+                "DefaultText": "Steep the herbs in finished rye ale to make gruit ale."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "f513b3c4572e3e44c92f9d4db6439b1d"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_lq_gruit_ale",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "TransferSpecial1": true,
+                "TransferSpecial2": true,
+                "TransferSpecial3": true
+            },
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": []
+}

@@ -1,0 +1,37 @@
+{
+  "target": "HF_ClearedForestTrail.png",
+  "sourceCard": [
+    "CardData/Location/ClearedForestTrail.json"
+  ],
+  "subject": "a clear open forest trail winding between tall trees in soft green dappled light, the brush cut back neatly at the edges",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a clear open forest trail winding between tall trees in soft green dappled light, the brush cut back neatly at the edges, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "u2U4YsCaxYocGaRC8bXP",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085789572_a5c2d8a1_1791085790430_e45259fa.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Round 1 pick, applied after round 2 so the Overgrown Trail could be redrawn as its mirror. Prediction recorded before the owner looked.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085790488_91797225_1791085791379_24a80c71.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085789572_a5c2d8a1_1791085790430_e45259fa.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085789665_ee4464d2_1791085790314_2cc511bf.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "A"
+}

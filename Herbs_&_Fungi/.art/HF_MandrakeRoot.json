@@ -1,0 +1,68 @@
+{
+  "target": "HF_MandrakeRoot.png",
+  "sourceCards": [
+    "CardData/Item/MandrakeRoot.json"
+  ],
+  "kind": "item",
+  "subject": "one thick pale brown forked mandrake root, its body splitting into two leg-like forks and two thinner side roots like arms, so it is shaped faintly like a small human figure, covered in fine root hairs and earthy wrinkles, a short tuft of dark green crinkled leaves at the top",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "Fireroot_Item",
+      "id": "tRJFFwW2hh3XdGoSTEJK",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Item_1791697571643_a266b2a4.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Turnroot_Fresh",
+      "id": "TXRpFzqq9IIQETeqJs5N",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Fresh_1791745247756_1cbfb0bb.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw one thick pale brown forked mandrake root, its body splitting into two leg-like forks and two thinner side roots like arms, so it is shaped faintly like a small human figure, covered in fine root hairs and earthy wrinkles, a short tuft of dark green crinkled leaves at the top. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, face, eyes, mouth, carved features, soil clumps, pot.",
+  "historyId": "wC8rdwjmhyeqyJdMQWp4",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798886600_80fcaf3e_1791798886640_bb87b7a1.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798886600_80fcaf3e_1791798886640_bb87b7a1.png",
+      "historyId": "wC8rdwjmhyeqyJdMQWp4"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG)",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner.",
+  "previousGeneration": {
+    "subject": "one thick pale brown forked mandrake root shaped faintly like a small human figure with two leg-like forks, a short tuft of dark green crinkled leaves at the top",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "aspectRatio": "2:3",
+      "resolution": "1K",
+      "imageCount": 1,
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a game item illustration of one thick pale brown forked mandrake root shaped faintly like a small human figure with two leg-like forks, a short tuft of dark green crinkled leaves at the top. Single subject, slight three-quarter angle, light from the upper left, a continuous dark ink outline around the whole subject, the subject large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, face, eyes, mouth, arms waving, soil clumps.",
+    "historyId": "45BE567mXk5vbedKV8Bw",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756702342_d56ab613_1791756702399_617768ef.png",
+    "credits": 20,
+    "generated": "2026-10-11",
+    "styleReference": {
+      "sprite": "Fireroot_Item",
+      "id": "tRJFFwW2hh3XdGoSTEJK",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Item_1791697571643_a266b2a4.png"
+    }
+  }
+}

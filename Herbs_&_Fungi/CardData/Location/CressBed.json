@@ -1,0 +1,2479 @@
+{
+    "UniqueID": "herbs_fungi_cress_bed",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_cress_bed",
+        "LocalizationKey": "Herbs_And_Fungi_CressBed_CardName",
+        "DefaultText": "Cress Bed"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_cress_bed",
+        "LocalizationKey": "Herbs_And_Fungi_CressBed_CardDescription",
+        "DefaultText": "A bed of watercress planted in the shallows. It regrows and is harvested like a wild patch, for fresh watercress."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_cress_bed",
+        "LocalizationKey": "Herbs_And_Fungi_CressBed_CardHelpSection",
+        "DefaultText": "<b>Harvest:</b> By hand, or with a metal scythe or sickle, whenever at least 5% of the Yield has grown back. Each harvest takes 288 Yield, which regrows in about 3 days.\n\n<b>Seasons:</b> Grows faster in spring and does not grow at all in winter.\n\n<b>Clear Bed:</b> Pull the bed up to free the ground. The plants are lost."
+    },
+    "CardType": 2,
+    "ObjectWeight": 0.0,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "WhenCreatedSounds": [],
+    "WhenCreatedSoundsWarpData": [
+        "Water"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "CompatibleDuties": [],
+    "CompatibleDutiesWarpData": [],
+    "CompatibleDutiesWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 300.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_cress_bed",
+            "LocalizationKey": "Herbs_And_Fungi_CressBed_Yield_CardStatName",
+            "DefaultText": "Yield"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 5760.0,
+        "RestrictToSpecificValues": false,
+        "ValidValues": [],
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": true,
+        "PauseRateWhenInventoryIsFull": false,
+        "MinRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "MaxRate": {
+            "Active": false,
+            "FloatValue": 0.0
+        },
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "OverrideIconWarpData": "SaturationBerries",
+        "OverrideIconWarpType": 3,
+        "SortInverted": false,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "MinDaytimeCost": {
+                "Active": false,
+                "IntValue": 0
+            },
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "CompatibleNPCDuties": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredPresentNPCS": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "RequiredActiveHidingGroups": [],
+            "HideIfConditionsNotMet": false,
+            "NotBaseAction": false,
+            "Cancellable": false,
+            "InstantStatModifications": false,
+            "LocksCardsForUse": false,
+            "DontDoStatModificationsOnCancel": false,
+            "InstantDurabilityModifications": false,
+            "ReceivingCardFlavourBonus": false,
+            "GivenCardFlavourBonus": false,
+            "ResetWhenDone": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatInterruptions": [],
+            "StartDialog": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "InterpolatedStatModifications": [],
+            "NPCStatModifications": [],
+            "NPCSetDuties": [],
+            "TemporaryStatModifications": [],
+            "MovePlayer": {
+                "MoveOption": 0,
+                "ToEnv": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Direction": 0
+            },
+            "MoveReceivingCard": {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "UseCardinalDirection": false,
+                "MoveInDirection": 0,
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "SpawnNPCS": [],
+            "DeleteNPCS": [],
+            "MoveNPC": [],
+            "SetNPCHome": [],
+            "SetNPCSpecialLocation": [],
+            "ExtraDurabilityModifications": [],
+            "BlueprintsFullUnlock": [],
+            "AddedCardsInOtherEnvs": [],
+            "CompletedImprovements": [],
+            "AddedInRunPerks": [],
+            "DontShowDestroyMessage": false,
+            "CustomDestroyMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoCardsAffectedMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CustomWindowPrefab": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OpenQuestLog": false,
+            "OpenMap": false,
+            "UpdateMap": false,
+            "EditDescription": false,
+            "FadeToBlack": 0,
+            "FadeMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "FadeTips": false,
+            "TravelToPreviousEnv": false,
+            "TravelToOtherRoom": false,
+            "RoomDirection": 0,
+            "ExitDirection": 0
+        },
+        "HasActionOnFull": false,
+        "RepeatActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 0,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoveltyShared": false,
+            "VictorySettings": {
+                "Victory": false,
+                "SpecialEnding": false,
+                "VictoryMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                }
+            },
+            "UnavailableInDemo": false,
+            "SaveGame": false,
+            "ConfirmPopup": false,
+            "CustomConfirmText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NotInterruptedByEncounters": false,
+            "StackCompatible": false,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "MinDaytimeCost": {
+                "Active": false,
+                "IntValue": 0
+            },
+            "ActionSounds": [],
+            "DisablePitchVariation": false,
+            "CompatibleNPCDuties": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredPresentNPCS": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": false,
+                "RequiredLiquid": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredGroup": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "RequiredQuantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "RequiredActiveHidingGroups": [],
+            "HideIfConditionsNotMet": false,
+            "NotBaseAction": false,
+            "Cancellable": false,
+            "InstantStatModifications": false,
+            "LocksCardsForUse": false,
+            "DontDoStatModificationsOnCancel": false,
+            "InstantDurabilityModifications": false,
+            "ReceivingCardFlavourBonus": false,
+            "GivenCardFlavourBonus": false,
+            "ResetWhenDone": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatInterruptions": [],
+            "StartDialog": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "InterpolatedStatModifications": [],
+            "NPCStatModifications": [],
+            "NPCSetDuties": [],
+            "TemporaryStatModifications": [],
+            "MovePlayer": {
+                "MoveOption": 0,
+                "ToEnv": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Direction": 0
+            },
+            "MoveReceivingCard": {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "UseCardinalDirection": false,
+                "MoveInDirection": 0,
+                "Pathfinding": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "SpawnNPCS": [],
+            "DeleteNPCS": [],
+            "MoveNPC": [],
+            "SetNPCHome": [],
+            "SetNPCSpecialLocation": [],
+            "ExtraDurabilityModifications": [],
+            "BlueprintsFullUnlock": [],
+            "AddedCardsInOtherEnvs": [],
+            "CompletedImprovements": [],
+            "AddedInRunPerks": [],
+            "DontShowDestroyMessage": false,
+            "CustomDestroyMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "NoCardsAffectedMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "CustomWindowPrefab": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OpenQuestLog": false,
+            "OpenMap": false,
+            "UpdateMap": false,
+            "EditDescription": false,
+            "FadeToBlack": 0,
+            "FadeMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "FadeTips": false,
+            "TravelToPreviousEnv": false,
+            "TravelToOtherRoom": false,
+            "RoomDirection": 0,
+            "ExitDirection": 0
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": []
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "InventoryIsHidden": true,
+    "IsMiniInventory": false,
+    "CannotPutItemsIn": true,
+    "CannotTakeItemsOut": true,
+    "PreventsDismantleActions": false,
+    "PreventsCardInteractions": false,
+    "MaxWeightCapacity": 0.0,
+    "InventorySlots": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "SpillsInventoryOnDestroy": false,
+    "GroupInventoryActions": [],
+    "EffectsToInventoryContent": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_cress_bed",
+                "LocalizationKey": "Herbs_And_Fungi_CressBed_HarvestScythe_ActionName",
+                "DefaultText": "Harvest"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_cress_bed",
+                "LocalizationKey": "Herbs_And_Fungi_CressBed_HarvestScythe_ActionDescription",
+                "DefaultText": "Cut the grown stems with the blade."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "WorksInverted": false,
+            "StackCompatible": false,
+            "NotBaseAction": false,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "0c2a7537e550cff4098aa17a5706dfdd"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 11.0,
+                        "y": 10000.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.05,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_cress_bed",
+                    "LocalizationKey": "Herbs_And_Fungi_CressBed_HarvestScythe_FailMessage",
+                    "DefaultText": "Nothing left to harvest"
+                },
+                "HideActionIfNotMet": false
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": -0.5,
+                    "y": -0.5
+                },
+                "UsageChange": {
+                    "x": -0.5,
+                    "y": -0.5
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {
+                    "x": -288.0,
+                    "y": -288.0
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Watercress",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_watercress",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 4
+                            }
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -43.0,
+                        "y": -43.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "CompatibleNPCDuties": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_cress_bed",
+                "LocalizationKey": "Herbs_And_Fungi_CressBed_HarvestSickle_ActionName",
+                "DefaultText": "Harvest"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_cress_bed",
+                "LocalizationKey": "Herbs_And_Fungi_CressBed_HarvestSickle_ActionDescription",
+                "DefaultText": "Cut the grown stems with the blade."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "WorksInverted": false,
+            "StackCompatible": false,
+            "NotBaseAction": false,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "f766e4e8f4820ab44a70c7a4eaf80578"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 11.0,
+                        "y": 10000.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.05,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_cress_bed",
+                    "LocalizationKey": "Herbs_And_Fungi_CressBed_HarvestSickle_FailMessage",
+                    "DefaultText": "Nothing left to harvest"
+                },
+                "HideActionIfNotMet": false
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": -0.5,
+                    "y": -0.5
+                },
+                "UsageChange": {
+                    "x": -0.5,
+                    "y": -0.5
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {
+                    "x": -288.0,
+                    "y": -288.0
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Watercress",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_watercress",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 4
+                            }
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -43.0,
+                        "y": -43.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "CompatibleNPCDuties": []
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_cress_bed",
+                "LocalizationKey": "Herbs_And_Fungi_CressBed_Harvest_ActionName",
+                "DefaultText": "Harvest"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_cress_bed",
+                "LocalizationKey": "Herbs_And_Fungi_CressBed_Harvest_ActionDescription",
+                "DefaultText": "Cut the grown stems by hand."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 13.0,
+                        "y": 10000.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.05,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_cress_bed",
+                    "LocalizationKey": "Herbs_And_Fungi_CressBed_Harvest_FailMessage",
+                    "DefaultText": "Nothing left to harvest"
+                },
+                "HideActionIfNotMet": false
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {
+                    "x": -288.0,
+                    "y": -288.0
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Watercress",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_watercress",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 4
+                            }
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4.0,
+                        "y": 4.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -43.0,
+                        "y": -43.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "CompatibleNPCDuties": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_cress_bed",
+                "LocalizationKey": "Herbs_And_Fungi_CressBed_ClearBed_ActionName",
+                "DefaultText": "Clear Bed"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_cress_bed",
+                "LocalizationKey": "Herbs_And_Fungi_CressBed_ClearBed_ActionDescription",
+                "DefaultText": "Pull the cress bed up to free the ground. The plants are lost."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ConfirmPopup": true,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Water"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "Does not Grow in Winter",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "OnlyWhenNOTEquipped": false,
+            "OnlyWhenInHand": false,
+            "OnlyOnBaseActions": false,
+            "OnlyOnNOTBaseActions": false,
+            "OnlyWhenNOTInBG": false,
+            "Conditions": {
+                "NotInBackground": false,
+                "InBackground": false,
+                "PlayerUsesCard": 0,
+                "RequiredEnvironment": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "InvertEnvironmentRequirement": false,
+                "RequiredEnvironmentTags": [],
+                "RequiredNOTEnvironmentTags": [],
+                "RequiredContainer": [],
+                "RequiredNOTContainer": [],
+                "RequiredContainerTags": [],
+                "RequiredNOTContainerTags": [],
+                "RequiredCardsOnBoard": [],
+                "RequiredTagsOnBoard": [],
+                "RequiredCardsNOTOnBoard": [],
+                "RequiredTagsNOTOnBoard": [],
+                "RequiredComplexCardConditions": [],
+                "RequiredCardsInInventory": [],
+                "RequiredTagsInInventory": [],
+                "RequiredInventoryWeight": {
+                    "Active": false,
+                    "Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsePercentage": false,
+                    "Invert": false
+                },
+                "CardWasBuiltWith": [],
+                "CardWasNOTBuiltWith": [],
+                "RequiredPlayerOwnedCards": [],
+                "RequiredPlayerNOTOwnedCards": [],
+                "ReceivingRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "GivenRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "ReceivingContainerRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "GivenContainerRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "ReceivingCardTags": [],
+                "GivenCardTags": [],
+                "ReceivingCardSpices": [],
+                "GivenCardSpices": [],
+                "RequiredEnvironmentWeight": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredStatValues": [
+                    {
+                        "Stat": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        },
+                        "NotifyWhenNotMet": false,
+                        "HideAllWhenNotMet": false
+                    }
+                ],
+                "RequiredNPCStatValues": [],
+                "RequiredNPCActiveDuties": [],
+                "RequiredNPCAtHome": [],
+                "RequiredNPCAtSpecialLocation": [],
+                "RequiredPresentNPCS": [],
+                "RequiredInGameTimes": [],
+                "RequiredAlreadyVisitedEnvironments": [],
+                "RequiredUnlockedBps": [],
+                "RequiredNOTUnlockedBps": [],
+                "NPCInventoryConditions": [],
+                "NPCExists": []
+            },
+            "StatModifiers": [],
+            "NPCStatModifiers": [],
+            "EffectStacksWithRequiredCards": false,
+            "OnBoardEffectCap": 0,
+            "EffectScalesWithDurabilities": {
+                "Active": false,
+                "Inputs": [],
+                "EffectScalingOutput": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "SpoilageRateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplySpoilageRate": false,
+            "UsageRateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplyUsageRate": false,
+            "FuelRateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplyFuelRate": false,
+            "ConsumableChargesModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplyConsumableChargesRate": false,
+            "Special1RateModifier": {
+                "Active": true,
+                "FloatValue": -1.0
+            },
+            "MultiplySpecial1Rate": false,
+            "Special2RateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplySpecial2Rate": false,
+            "Special3RateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplySpecial3Rate": false,
+            "Special4RateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplySpecial4Rate": false,
+            "LiquidRateModifier": 0.0,
+            "UpdateDurabilityConcentrations": {
+                "MaskValue": 0
+            },
+            "GeneratedLiquid": {
+                "LiquidCard": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Quantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Durabilities": {
+                    "Spoilage": 0,
+                    "Usage": 0,
+                    "Fuel": 0,
+                    "Progress": 0,
+                    "Special1": 0,
+                    "Special2": 0,
+                    "Special3": 0,
+                    "Special4": 0,
+                    "SpoilageValue": 0.0,
+                    "UsageValue": 0.0,
+                    "FuelValue": 0.0,
+                    "ProgressValue": 0.0,
+                    "Special1Value": 0.0,
+                    "Special2Value": 0.0,
+                    "Special3Value": 0.0,
+                    "Special4Value": 0.0,
+                    "SpoilageFrom": 0,
+                    "UsageFrom": 0,
+                    "FuelFrom": 0,
+                    "ProgressFrom": 0,
+                    "Special1From": 0,
+                    "Special2From": 0,
+                    "Special3From": 0,
+                    "Special4From": 0
+                }
+            },
+            "WeightCapacityModifier": 0.0,
+            "DroppedCards": [],
+            "GrantedPathfindingTags": []
+        },
+        {
+            "EffectName": "Grows Fast In Spring",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "OnlyWhenNOTEquipped": false,
+            "OnlyWhenInHand": false,
+            "OnlyOnBaseActions": false,
+            "OnlyOnNOTBaseActions": false,
+            "OnlyWhenNOTInBG": false,
+            "Conditions": {
+                "NotInBackground": false,
+                "InBackground": false,
+                "PlayerUsesCard": 0,
+                "RequiredEnvironment": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "InvertEnvironmentRequirement": false,
+                "RequiredEnvironmentTags": [],
+                "RequiredNOTEnvironmentTags": [],
+                "RequiredContainer": [],
+                "RequiredNOTContainer": [],
+                "RequiredContainerTags": [],
+                "RequiredNOTContainerTags": [],
+                "RequiredCardsOnBoard": [],
+                "RequiredTagsOnBoard": [],
+                "RequiredCardsNOTOnBoard": [],
+                "RequiredTagsNOTOnBoard": [],
+                "RequiredComplexCardConditions": [],
+                "RequiredCardsInInventory": [],
+                "RequiredTagsInInventory": [],
+                "RequiredInventoryWeight": {
+                    "Active": false,
+                    "Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsePercentage": false,
+                    "Invert": false
+                },
+                "CardWasBuiltWith": [],
+                "CardWasNOTBuiltWith": [],
+                "RequiredPlayerOwnedCards": [],
+                "RequiredPlayerNOTOwnedCards": [],
+                "ReceivingRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "GivenRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "ReceivingContainerRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "GivenContainerRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "ReceivingCardTags": [],
+                "GivenCardTags": [],
+                "ReceivingCardSpices": [],
+                "GivenCardSpices": [],
+                "RequiredEnvironmentWeight": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredStatValues": [
+                    {
+                        "Stat": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "StatWarpData": "6f3f0faaf50a7974e915ae0915f7e241",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        },
+                        "NotifyWhenNotMet": false,
+                        "HideAllWhenNotMet": false
+                    }
+                ],
+                "RequiredNPCStatValues": [],
+                "RequiredNPCActiveDuties": [],
+                "RequiredNPCAtHome": [],
+                "RequiredNPCAtSpecialLocation": [],
+                "RequiredPresentNPCS": [],
+                "RequiredInGameTimes": [],
+                "RequiredAlreadyVisitedEnvironments": [],
+                "RequiredUnlockedBps": [],
+                "RequiredNOTUnlockedBps": [],
+                "NPCInventoryConditions": [],
+                "NPCExists": []
+            },
+            "StatModifiers": [],
+            "NPCStatModifiers": [],
+            "EffectStacksWithRequiredCards": false,
+            "OnBoardEffectCap": 0,
+            "EffectScalesWithDurabilities": {
+                "Active": false,
+                "Inputs": [],
+                "EffectScalingOutput": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "SpoilageRateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplySpoilageRate": false,
+            "UsageRateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplyUsageRate": false,
+            "FuelRateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplyFuelRate": false,
+            "ConsumableChargesModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplyConsumableChargesRate": false,
+            "Special1RateModifier": {
+                "Active": true,
+                "FloatValue": 5.0
+            },
+            "MultiplySpecial1Rate": false,
+            "Special2RateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplySpecial2Rate": false,
+            "Special3RateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplySpecial3Rate": false,
+            "Special4RateModifier": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "MultiplySpecial4Rate": false,
+            "LiquidRateModifier": 0.0,
+            "UpdateDurabilityConcentrations": {
+                "MaskValue": 0
+            },
+            "GeneratedLiquid": {
+                "LiquidCard": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "Quantity": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Durabilities": {
+                    "Spoilage": 0,
+                    "Usage": 0,
+                    "Fuel": 0,
+                    "Progress": 0,
+                    "Special1": 0,
+                    "Special2": 0,
+                    "Special3": 0,
+                    "Special4": 0,
+                    "SpoilageValue": 0.0,
+                    "UsageValue": 0.0,
+                    "FuelValue": 0.0,
+                    "ProgressValue": 0.0,
+                    "Special1Value": 0.0,
+                    "Special2Value": 0.0,
+                    "Special3Value": 0.0,
+                    "Special4Value": 0.0,
+                    "SpoilageFrom": 0,
+                    "UsageFrom": 0,
+                    "FuelFrom": 0,
+                    "ProgressFrom": 0,
+                    "Special1From": 0,
+                    "Special2From": 0,
+                    "Special3From": 0,
+                    "Special4From": 0
+                }
+            },
+            "WeightCapacityModifier": 0.0,
+            "DroppedCards": [],
+            "GrantedPathfindingTags": []
+        }
+    ],
+    "PassiveStatEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "IsEnvironment": false,
+    "IsAttachedToEnvironment": true,
+    "PreventInteractionsInContainer": false,
+    "IsIndoors": false,
+    "BlueprintStatModifications": [],
+    "BlueprintCardModifications": [],
+    "CookingRecipes": [],
+    "EquipSlots": [],
+    "EquipSlotType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_CressBed",
+    "CardImageWarpType": 3
+}

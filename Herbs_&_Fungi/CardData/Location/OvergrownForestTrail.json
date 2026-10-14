@@ -81,7 +81,7 @@
   "InventorySlots": [],
   "CookingRecipes": [],
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Woods1",
+  "CardImageWarpData": "HF_OvergrownForestTrail",
   "CardImageWarpType": 3,
   "IsWeapon": false,
   "IsArmor": false

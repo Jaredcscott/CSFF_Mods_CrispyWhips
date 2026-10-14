@@ -15,7 +15,8 @@
     "CardTagsWarpData": [
         "tag_Consumable",
         "tag_Medicine",
-        "tag_Preservable"
+        "tag_Preservable",
+        "tag_x_AnimalRemedy"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

@@ -1,0 +1,161 @@
+{
+    "UniqueID": "herbs_fungi_ripe_puffball",
+    "TradingValue": 8,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_ripe_puffball",
+        "LocalizationKey": "herbsfungiripepuffball_CardName",
+        "DefaultText": "Ripe Puffball"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_ripe_puffball",
+        "LocalizationKey": "herbsfungiripepuffball_CardDescription",
+        "DefaultText": "A puffball left too long. Its skin has dried to brown paper and split open. It is no use as food but the spores inside will slow bleeding when you dust them onto a wound."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Fungus"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "RipePuffball",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_ripe_puffball",
+        "LocalizationKey": "herbsfungiripepuffball_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ripe_puffball",
+            "LocalizationKey": "herbsfungiripepuffball_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 1440.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ripe_puffball",
+                "LocalizationKey": "herbsfungiripepuffball_SpoilageTime_Spoiled",
+                "DefaultText": "The ripe puffball has rotted away."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "ParentObjectID": "herbs_fungi_ripe_puffball",
+        "LocalizationKey": "herbsfungiripepuffball_UsageDurability_StatName",
+        "Active": true,
+        "FloatValue": 3.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ripe_puffball",
+            "LocalizationKey": "herbsfungiripepuffball_UsageDurability_StatName",
+            "DefaultText": "Dustings"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 3.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_ripe_puffball",
+                "LocalizationKey": "herbsfungiripepuffball_DustWound",
+                "DefaultText": "Dust a Wound"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ripe_puffball",
+                "LocalizationKey": "herbsfungiripepuffball_DustWound_Desc",
+                "DefaultText": "Dust the dry spores over a bleeding wound to slow the bleeding for a while. Uses up one dusting."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 24.0,
+                        "y": 24.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "herbs_fungi_stat_clotting_effect",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        }
+    ],
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "ObjectWeight": 40,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

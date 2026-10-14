@@ -12,7 +12,7 @@
     "DisplayPriority": 2050.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "herbs_fungi_lions_mane",
         "herbs_fungi_lions_mane",
         "herbs_fungi_lions_mane",
@@ -24,7 +24,7 @@
         "e41ab416339b3c9459a37b4942f8f57b",
         "e41ab416339b3c9459a37b4942f8f57b"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
     "MoonsCost": 0,
     "NestedObjectives": [],

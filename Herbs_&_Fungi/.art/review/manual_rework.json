@@ -1,0 +1,19 @@
+{
+  "about": "Images the owner flagged for MANUAL rework (owner gallery 2026-10-12: 'manual work needed please flag for manual rework'). Automated passes (generation, keying, vanillify) are not to be tried again on these; a person edits them. Notes say what the automated passes could not fix.",
+  "images": {
+    "Picture/HF_GruitBundle.png": {
+      "flagged": "2026-10-12",
+      "status": "fixed",
+      "notes": "Regenerated round 2, white voids keyed round 5. Remaining issue not identifiable by script; likely fringe or small enclosed voids between leaves.",
+      "fixed": "2026-10-12",
+      "resolution": "Fixed manually by the owner (owner, 2026-10-12: \"mark these two as fixed manually\")."
+    },
+    "Picture/WildFlowersDried.png": {
+      "flagged": "2026-10-12",
+      "status": "fixed",
+      "notes": "Regenerated round 2, gentle pass round 3, stem paper keyed round 4. Probably remaining pale fringe or voids among stems.",
+      "fixed": "2026-10-12",
+      "resolution": "Fixed manually by the owner (owner, 2026-10-12: \"mark these two as fixed manually\")."
+    }
+  }
+}

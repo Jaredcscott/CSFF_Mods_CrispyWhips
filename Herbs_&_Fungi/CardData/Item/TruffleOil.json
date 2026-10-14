@@ -23,7 +23,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_TruffleOil",
     "CardImageWarpType": 3,
     "CardTags": [],
     "CardTagsWarpData": [
@@ -314,11 +314,11 @@
                     "TriggerStatValueIsMax": false
                 },
                 {
-                    "StatWarpData": "322eaed3c37a4cd4b8b088495db6a8ed",
+                    "StatWarpData": "herbs_fungi_stat_herbal_tonic",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 15.0,
-                        "y": 15.0
+                        "x": 18.0,
+                        "y": 18.0
                     }
                 }
             ],

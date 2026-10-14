@@ -1,0 +1,136 @@
+{
+    "UniqueID": "herbs_fungi_camas_dough",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_camas_dough",
+        "LocalizationKey": "Herbs_And_Fungi_CamasDough_CardName",
+        "DefaultText": "Camas Dough"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_camas_dough",
+        "LocalizationKey": "Herbs_And_Fungi_CamasDough_CardDescription",
+        "DefaultText": "A sticky brown dough of camas flour and water. Bake it near a fire into a flatbread."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_camas_dough",
+        "LocalizationKey": "Herbs_And_Fungi_CamasDough_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Soaking Camas Flour in fresh water.\n\n<b>Next:</b> Heat it near a fire until the Cook bar fills and it becomes Camas Flatbread."
+    },
+    "CardType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Dough",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 75,
+    "TradingValue": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Heatable",
+        "tag_Cookable"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "AlwaysUpdate": false,
+    "MaxStack": 6,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_camas_dough",
+            "LocalizationKey": "Herbs_And_Fungi_CamasDough_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_camas_dough",
+                "LocalizationKey": "Herbs_And_Fungi_CamasDough_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The camas dough has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_camas_dough",
+            "LocalizationKey": "Herbs_And_Fungi_CamasDough_FuelCapacity_CardStatName",
+            "DefaultText": "Temperature"
+        },
+        "MaxValue": 200.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_camas_dough",
+            "LocalizationKey": "Herbs_And_Fungi_CamasDough_SpecialDurability1_CardStatName",
+            "DefaultText": "Cook"
+        },
+        "MaxValue": 1.0,
+        "HidingOptions": 3,
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_camas_dough",
+                "LocalizationKey": "Herbs_And_Fungi_CamasDough_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "The camas flatbread is baked."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_camas_flatbread",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "ModifyDurability": true
+            }
+        }
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

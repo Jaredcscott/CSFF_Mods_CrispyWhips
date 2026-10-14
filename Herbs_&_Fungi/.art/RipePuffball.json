@@ -1,0 +1,44 @@
+{
+  "target": "RipePuffball.png",
+  "sourceCard": "CardData/Item/RipePuffball.json",
+  "subject": "a ripe, dried-out giant puffball: the fresh card's round squat shape with a dull papery olive-brown skin, a small ragged hole split open in the top and a soft puff of fine olive-brown spore dust rising from it, a light dusting of the same powder on the upper skin",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a fresh giant puffball mushroom: draw this same object, keeping its round squat shape, size, proportions, placement in the frame and ink-and-watercolor rendering identical, changed only as follows: it has fully ripened and dried out, so the smooth white skin is now a dull, papery, olive-brown, slightly wrinkled and cracked, and a small ragged hole has split open in the top from which a soft puff of fine, dry, olive-brown spore dust rises and drifts to one side, with a light dusting of the same brown powder settled on the upper skin.\nHand-painted watercolor-and-ink game item illustration of a ripe, dried-out giant puffball with a papery olive-brown skin, a ragged hole in the top and a puff of brown spore dust, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, white skin, smooth white surface, stem, cap and gills, grass, leaves, bowl, plate, smoke, fire, flames, steam, glowing, bright green, red.",
+  "historyId": "5iuln3TbjItuY5o3180Q",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790974339357_359ccd65_1790974339901_138c594d.png",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790974339357_359ccd65_1790974339901_138c594d.png",
+      "verdict": "accepted against the subject checklist: round olive-brown papery skin with cracks, a ragged hole in the top with a drifting puff of spore dust, flecks of dust on the upper skin; no stem, cap, gills, bowl, grass or leaves. The ball is rounder and taller than the squat fresh card and the plume reads a little like smoke; neither judged off-model"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish) only. find_key_holes.py flags one 1087 px interior region inside the spore plume (box 147,156,192,205, ink_rim 0.00); looked at on white, dark and green backgrounds it is the plume's own translucent paper-white wash, not a punched pocket, so key_enclosed.py was not run (it would key the plume's pale body).",
+  "note": "One sample, generated for the plan feature 10 build (HerbsAndFungi 1.14.1 content update); accepted against its subject checklist by Claude, not yet seen by the owner.",
+  "composition": {
+    "ref": "PuffBallFresh",
+    "role": "subject",
+    "finish": "keyed",
+    "action": "the same round puffball, ripe and dried out: papery olive-brown skin, a ragged hole in the top and a puff of brown spore dust; same size and placement, no stem, no bowl"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "PuffBallFresh (shipped art, used as is)",
+      "image": "Resource/Picture/PuffBallFresh.png",
+      "sha256": "fc53b5894cdab3deb512ec51a40c933e0472eab37f58ced069e3e3db4efc8ef2",
+      "id": "srM3HgmRNSH6dJguLUhi",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/PuffBallFresh_1790974283649_bf260265.png"
+    }
+  ]
+}

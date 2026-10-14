@@ -1,0 +1,126 @@
+{
+    "UniqueID": "herbs_fungi_mossbed_mature",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_mossbed_mature",
+        "LocalizationKey": "Herbs_And_Fungi_MossbedMature_CardName",
+        "DefaultText": "Mossbed"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_mossbed_mature",
+        "LocalizationKey": "Herbs_And_Fungi_MossbedMature_CardDescription",
+        "DefaultText": "A thick, healthy bed of moss. Gather it for Healer's Moss."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_mossbed_mature",
+        "LocalizationKey": "Herbs_And_Fungi_MossbedMature_CardHelpSection",
+        "DefaultText": "<b>Harvest:</b> 3 to 4 Healer's Moss. The bed is used up."
+    },
+    "CardType": 2,
+    "ObjectWeight": 300.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": true,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_mossbed_mature",
+                "LocalizationKey": "Herbs_And_Fungi_MossbedMature_DismantleActions_ActionName",
+                "DefaultText": "Harvest"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_mossbed_mature",
+                "LocalizationKey": "Herbs_And_Fungi_MossbedMature_DismantleActions_ActionDescription",
+                "DefaultText": "Gather the healing moss."
+            },
+            "DaytimeCost": 2,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ActionSounds": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "322e42ea161bf2e4bb94747882d1285a",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 3,
+                                "y": 4
+                            }
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": [
+                {
+                    "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Mossbed",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Gardenable",
+        "tag_GardenPlantMature"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

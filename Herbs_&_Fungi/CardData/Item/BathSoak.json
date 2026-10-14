@@ -1,0 +1,177 @@
+{
+    "UniqueID": "herbs_fungi_bath_soak",
+    "TradingValue": 30.0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bath_soak",
+        "LocalizationKey": "Herbs_And_Fungi_BathSoak_CardName",
+        "DefaultText": "Herbal Bath Soak"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bath_soak",
+        "LocalizationKey": "Herbs_And_Fungi_BathSoak_CardDescription",
+        "DefaultText": "Dried chamomile and yarrow tied in twine. Drop it into a filled Copper Bathtub for a long, calming herbal bath, or into a pot of hot water to breathe its steam for a shorter calm."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_bath_soak",
+        "LocalizationKey": "Herbs_And_Fungi_BathSoak_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> 2 Dried Chamomile, 1 Dried Yarrow and 1 Twine, from the Medical tab.\n\n<b>Herbal Steam:</b> drag it onto hot water (at least half heat) in a cooking pot, cauldron or bowl. Soothing Soak rises by 48, which slows your Stress for about half a day.\n\n<b>Herbal Bath:</b> with Advanced Copper Tools, drag it onto a filled Copper Bathtub. Soothing Soak rises by 96, about a day of calm. Without that mod this action does not appear.\n\nThe bundle is used up either way. It does not wash you."
+    },
+    "CardType": 0,
+    "ObjectWeight": 30,
+    "MaxStack": 4,
+    "AlwaysUpdate": false,
+    "DoesNotPile": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_HerbalBathSoak",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_bath_soak",
+                "LocalizationKey": "Herbs_And_Fungi_BathSoak_Tub_ActionName",
+                "DefaultText": "Soak in the Tub"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_bath_soak",
+                "LocalizationKey": "Herbs_And_Fungi_BathSoak_Tub_ActionDescription",
+                "DefaultText": "Steep the herbs in the bath water and soak until the calm sets in."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 2,
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_x_Bathtub"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "herbs_fungi_stat_soothing_soak",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 96.0,
+                        "y": 96.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_bath_soak",
+                "LocalizationKey": "Herbs_And_Fungi_BathSoak_Steam_ActionName",
+                "DefaultText": "Herbal Steam"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_bath_soak",
+                "LocalizationKey": "Herbs_And_Fungi_BathSoak_Steam_ActionDescription",
+                "DefaultText": "Drop the herbs into the hot water and breathe the steam for a while."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 2,
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_CookingContainer"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_bath_soak",
+                    "LocalizationKey": "Herbs_And_Fungi_BathSoak_Steam_FailMessage",
+                    "DefaultText": "Not hot enough."
+                }
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "herbs_fungi_stat_soothing_soak",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 48.0,
+                        "y": 48.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ]
+        }
+    ],
+    "DismantleActions": []
+}

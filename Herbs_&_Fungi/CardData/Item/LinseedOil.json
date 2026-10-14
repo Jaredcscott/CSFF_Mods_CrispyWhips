@@ -23,7 +23,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_LinseedOil",
     "CardImageWarpType": 3,
     "CardTags": [],
     "CardTagsWarpData": [
@@ -65,9 +65,144 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_linseed_oil",
+                "LocalizationKey": "Herbs_And_Fungi_LinseedOil_CardInteractions_Add_ActionName",
+                "DefaultText": "Add"
+            },
+            "DaytimeCost": 0,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Plateable"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddedSpiceTags": [],
+                "AddedSpiceTagsWarpData": [
+                    "herbs_fungi_spice_linseed_oil"
+                ],
+                "AddedSpiceTagsWarpType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_linseed_oil",
+                "LocalizationKey": "Herbs_And_Fungi_LinseedOil_WorkIntoBeeswax_ActionName",
+                "DefaultText": "Work into Wax"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_linseed_oil",
+                "LocalizationKey": "Herbs_And_Fungi_LinseedOil_WorkIntoBeeswax_ActionDescription",
+                "DefaultText": "Soften the beeswax with the oil into a Wax Leather Dressing. The oil is used up and you keep the clay bowl."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "a4a6ae891a9665a479350796d1e6cfcf"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_wax_leather_dressing",
+                "TransformIntoWarpType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_linseed_oil",
                 "LocalizationKey": "Herbs_And_Fungi_LinseedOil_Eat_ActionName",

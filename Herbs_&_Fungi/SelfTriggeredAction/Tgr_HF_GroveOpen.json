@@ -1,0 +1,50 @@
+{
+    "UniqueID": "herbs_fungi_tgr_grove_open",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_tgr_grove_open",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HF_OldGrowthGroveOpens"
+            },
+            "RepeatOptions": 1,
+            "OncePerTick": false,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 10000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredAlreadyVisitedEnvironmentsWarpData": [
+                "hfEnvForagingPath",
+                "hfEnvPineClearing",
+                "hfEnvHighlandMeadow",
+                "hfEnvOakClearing",
+                "hfEnvMistyFalls",
+                "hfEnvAlderWoods"
+            ],
+            "RequiredAlreadyVisitedEnvironmentsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "herbs_fungi_stat_grove_open",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 1.0, "y": 1.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

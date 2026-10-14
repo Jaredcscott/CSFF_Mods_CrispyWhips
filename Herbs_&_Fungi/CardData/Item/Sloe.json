@@ -1,0 +1,416 @@
+{
+    "UniqueID": "herbs_fungi_sloe",
+    "TradingValue": 6,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_sloe",
+        "LocalizationKey": "herbsfungisloe_CardName",
+        "DefaultText": "Sloes"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_sloe",
+        "LocalizationKey": "herbsfungisloe_CardDescription",
+        "DefaultText": "Tiny blue-black fruit of the blackthorn, so astringent they pucker the whole mouth. Hardly worth eating raw; crush them into water to start a sloe must that ferments into wine."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_sloe",
+        "LocalizationKey": "herbsfungisloe_CardHelpSection",
+        "DefaultText": "<b>Season:</b> Autumn\n\n<b>Found:</b> Foraging at the Foraging Path and the Highland Meadow.\n\n<b>Uses:</b> Eat raw if you must. Drag onto a container of water to crush them into Sloe Must, which turns into Sloe Wine after 4 days."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_HumanFood",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Sloes",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_sloe",
+        "LocalizationKey": "herbsfungisloe_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_sloe",
+            "LocalizationKey": "herbsfungisloe_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_sloe",
+                "LocalizationKey": "herbsfungisloe_SpoilageTime_OnFull",
+                "DefaultText": "The sloes have rotted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_sloe",
+                "LocalizationKey": "Herbs_And_Fungi_Sloe_Crush_ActionName",
+                "DefaultText": "Crush into Must"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_sloe",
+                "LocalizationKey": "Herbs_And_Fungi_Sloe_Crush_ActionDescription",
+                "DefaultText": "Crush the sloes into the water to make sloe must."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionSoundsWarpData": [
+                "GrindingLeaves"
+            ],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_lq_sloe_must",
+                "TransformIntoWarpType": 3
+            },
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_sloe",
+                "LocalizationKey": "herbsfungisloe_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_sloe",
+                "LocalizationKey": "herbsfungisloe_Eat_Desc",
+                "DefaultText": "Eat the sloes. Fiercely sour and dry."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6,
+                        "y": 6
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8,
+                        "y": 8
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8,
+                        "y": 8
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30,
+                        "y": 30
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8,
+                        "y": 8
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -5,
+                        "y": -5
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4,
+                        "y": 4
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0344bd36c91a41041947df8e879ffab5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 20,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "b16daf50fa0b79443a2557e43f613bcc",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9d439001208b5a8449a5e5301515137f",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "7c9da6f50cc16e9428ccffb051c1454f",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

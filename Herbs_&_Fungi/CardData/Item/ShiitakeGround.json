@@ -313,8 +313,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": 20.0,
-                        "y": 20.0
+                        "x": 24.0,
+                        "y": 24.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -328,7 +328,7 @@
                         "x": 0.0,
                         "y": 0.0
                     },
-                    "StatWarpData": "322eaed3c37a4cd4b8b088495db6a8ed",
+                    "StatWarpData": "herbs_fungi_stat_herbal_tonic",
                     "StatWarpType": 3
                 },
                 {
@@ -362,23 +362,125 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_shiitake_ground",
+                "LocalizationKey": "Herbs_And_Fungi_ShiitakeGround_MakeHerbButter_ActionName",
+                "DefaultText": "Make Herb Butter"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_shiitake_ground",
+                "LocalizationKey": "Herbs_And_Fungi_ShiitakeGround_MakeHerbButter_ActionDescription",
+                "DefaultText": "Work Shiitake Powder through the butter. The butter is used up and the shiitake powder becomes Herb Butter."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredGivenContainer": [],
+            "RequiredGivenContainerTag": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "e2c13510dfb6fde418f280891ce797a3",
+                    "6d12c7ac4b8baf24fabeeedd77dc60da"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Fat"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_herb_butter",
+                "TransformIntoWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_shiitake_ground",
+                "LocalizationKey": "Herbs_And_Fungi_ShiitakeGround_MakeHerbCheese_ActionName",
+                "DefaultText": "Make Herb Cheese"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_shiitake_ground",
+                "LocalizationKey": "Herbs_And_Fungi_ShiitakeGround_MakeHerbCheese_ActionDescription",
+                "DefaultText": "Work Shiitake Powder through the cheese. The cheese is used up and the shiitake powder becomes Herb Cheese."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredGivenContainer": [],
+            "RequiredGivenContainerTag": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "c1e63a6d346893a41abf77f31f0d1dbb",
+                    "9eb244b0ea569b840b7f9d8eec942a6e",
+                    "e7b85953a822b9c4194a856cfd417832",
+                    "53256f0789ffd9544943eef9e447c777",
+                    "95f159ffff4d0ea4da53dfa8e54ede89"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_SheepCheese"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_herb_cheese",
+                "TransformIntoWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_shiitake_ground",
                 "LocalizationKey": "",
                 "DefaultText": "Add to Stew"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake_ground",
                 "LocalizationKey": "",
-                "DefaultText": "Drop into the boiling liquid to cook."
+                "DefaultText": "Stir it into hot water in a pot or bowl to thicken the stew and give it nourishment and flavour."
             },
             "WorksInverted": true,
             "CompatibleCards": {
                 "TriggerCards": [],
-                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
                 "TriggerCardsWarpType": 3,
                 "TriggerTags": [],
-                "TriggerTagsWarpData": [
-                    "tag_StewContainer"
-                ],
+                "TriggerTagsWarpData": [],
                 "TriggerTagsWarpType": 3
             },
             "DaytimeCost": 0,
@@ -394,6 +496,11 @@
             "RequiredReceivingContainerTag": [],
             "RequiredNOTReceivingContainerTag": [],
             "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_CookingContainer"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
             "RequiredGivenDurabilities": {
                 "RequiredSpoilagePercent": {
                     "Active": false,
@@ -414,24 +521,24 @@
                     }
                 },
                 "RequiredFuelPercent": {
-                    "Active": false,
-                    "FloatValue": 0.0,
-                    "MaxValue": 0.0,
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
                     "ScaleRequirementPerPortionOfLiquid": {
                         "Active": false,
                         "FloatValue": 0.0
                     }
                 },
                 "RequiredProgressPercent": {
-                    "Active": false,
+                    "Active": true,
                     "FloatValue": 0.0,
-                    "MaxValue": 0.0,
+                    "MaxValue": 0.99,
                     "ScaleRequirementPerPortionOfLiquid": {
                         "Active": false,
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 0.0,
+                "RequiredLiquidQuantity": 290.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,
@@ -468,16 +575,73 @@
                         "FloatValue": 0.0
                     }
                 },
-                "HideActionIfNotMet": true,
+                "HideActionIfNotMet": false,
                 "FailMessage": {
                     "ParentObjectID": "",
                     "LocalizationKey": "",
                     "DefaultText": ""
                 },
-                "SpecificFailMessages": []
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 16
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[0].Message",
+                            "DefaultText": "Not enough liquid"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 8
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[1].Message",
+                            "DefaultText": "Too thick"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[2].Message",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
             },
             "GivenCardChanges": {
-                "ModType": 0
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true,
+                "AddSpicesFromOtherCard": true,
+                "UsageChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                },
+                "ChargesChange": {
+                    "x": 16.66,
+                    "y": 16.66
+                },
+                "Special1Change": {
+                    "x": 10.0,
+                    "y": 10.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": true,
+                    "FloatValue": 300.0
+                }
             },
             "ReceivingCardChanges": {
                 "ModType": 3

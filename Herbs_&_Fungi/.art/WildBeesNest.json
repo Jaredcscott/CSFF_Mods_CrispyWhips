@@ -1,0 +1,63 @@
+{
+  "target": "WildBeesNest.png",
+  "sourceCards": [
+    "CardData/Location/WildBeesNest.json"
+  ],
+  "kind": "item",
+  "subject": "a round grey papery wild bees' nest the size of a melon, made of layered swirling grey paper bands, tucked into a short section of weathered brown oak bark with a hollow in it, a dark round entrance hole at the bottom of the nest with five small striped honey bees crawling around it",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "BeeHoneycomb",
+      "id": "hiwd3Ja2GUIUu9H3qawU",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BeeHoneycomb_1791744835235_b10558d1.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Wood",
+      "id": "FK08d2Abk6yduwa1cHvr",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wood_1791652739500_9b610d7b.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw a round grey papery wild bees' nest the size of a melon, made of layered swirling grey paper bands, tucked into a short section of weathered brown oak bark with a hollow in it, a dark round entrance hole at the bottom of the nest with five small striped honey bees crawling around it. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, wooden hive box, flowers, dripping honey, exposed honeycomb cells, whole tree, leaves.",
+  "historyId": "otXRAwiFSzE32Jub8b4f",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798893154_8b1716ac_1791798893539_1fae8dab.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798893154_8b1716ac_1791798893539_1fae8dab.png",
+      "historyId": "otXRAwiFSzE32Jub8b4f"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG)",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner.",
+  "previousGeneration": {
+    "subject": "a round grey papery wild bees' nest the size of a melon, tucked into a short section of weathered brown oak bark with a hollow in it, a dark round entrance hole at the bottom of the nest with five small striped honey bees crawling around it, no wooden hive box, no flowers, no honey dripping",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Hand-painted watercolor-and-ink game item illustration of a round grey papery wild bees' nest the size of a melon, tucked into a short section of weathered brown oak bark with a hollow in it, a dark round entrance hole at the bottom of the nest with five small striped honey bees crawling around it, no wooden hive box, no flowers, no honey dripping, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, wooden hive box, flowers, dripping honey, honeycomb cells exposed, tree trunk, leaves.",
+    "historyId": "JO6PfQkKDVrNH30l2MLi",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791036173108_6fc10060_1791036173657_79492615.png",
+    "credits": 30,
+    "generated": "2026-10-03"
+  }
+}

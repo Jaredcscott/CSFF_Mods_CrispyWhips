@@ -103,6 +103,9 @@
         <Content Include="GameStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameStat\%(Filename)%(Extension)" />
         <Content Include="Localization\*.csv" CopyToOutputDirectory="PreserveNewest" Link="Localization\%(Filename)%(Extension)" />
         <Content Include="SpiceTag\*.json" CopyToOutputDirectory="PreserveNewest" Link="SpiceTag\%(Filename)%(Extension)" />
+        <Content Include="GameSourceModify\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameSourceModify\%(Filename)%(Extension)" />
+        <Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" />
+        <Content Include="SelfTriggeredAction\*.json" CopyToOutputDirectory="PreserveNewest" Link="SelfTriggeredAction\%(Filename)%(Extension)" />
         <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="Resource\%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 </Project>

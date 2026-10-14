@@ -1,0 +1,437 @@
+{
+    "UniqueID": "herbs_fungi_lq_hopped_ale",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+        "LocalizationKey": "Herbs_And_Fungi_HoppedAle_CardName",
+        "DefaultText": "Hopped Ale"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+        "LocalizationKey": "Herbs_And_Fungi_HoppedAle_CardDescription",
+        "DefaultText": "Rye ale steeped with hop cones. Bitter, a little flowery and slow to spoil.\n\nDrink in moderation!"
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+        "LocalizationKey": "Herbs_And_Fungi_HoppedAle_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Drag Hops onto a bowl of finished rye ale. Fresh wort will not take them: let the wort ferment first. The hops are used up.\n\n<b>Keeps:</b> It spoils half as fast as plain rye ale. It does not freeze and does not age further in a barrel."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_LQ_HoppedAle",
+    "CardImageWarpType": 3,
+    "CardType": 9,
+    "ObjectWeight": 0.33,
+    "TradingValue": 24.0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_HumanDrink",
+        "tag_Quality"
+    ],
+    "CardTagsWarpType": 3,
+    "SpiceTags": [],
+    "SpiceTagsWarpData": [
+        "herbs_fungi_spice_hops"
+    ],
+    "SpiceTagsWarpType": 3,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "7c9da6f50cc16e9428ccffb051c1454f",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "36fc84b5b14bc204cbd938ed02204080",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "FlavourFadeRate": 0.0,
+    "AlwaysUpdate": true,
+    "ToggleablePiling": true,
+    "SpoilageTime": {
+        "Active": true,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+            "LocalizationKey": "Herbs_And_Fungi_HoppedAle_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 11520.0,
+        "RatePerDaytimePoint": 0.5,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+                "LocalizationKey": "Herbs_And_Fungi_HoppedAle_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The hopped ale has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "aa33d3104cc682c4e9a163e7df9a7e13",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+            "LocalizationKey": "Herbs_And_Fungi_HoppedAle_FuelCapacity_CardStatName",
+            "DefaultText": "Liquid Temperature"
+        },
+        "MaxValue": 200.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+            "LocalizationKey": "Herbs_And_Fungi_HoppedAle_SpecialDurability1_CardStatName",
+            "DefaultText": "Sweetness"
+        },
+        "MaxValue": 100.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "SaturationSugar_Old",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+            "LocalizationKey": "Herbs_And_Fungi_HoppedAle_SpecialDurability2_CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": -0.0083,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": true,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+            "LocalizationKey": "Herbs_And_Fungi_HoppedAle_SpecialDurability3_CardStatName",
+            "DefaultText": "Alcohol"
+        },
+        "MaxValue": 100.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Alcohol_Old",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "9060e702466d6764eb64e5983e72215e",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_lq_hopped_ale",
+                "LocalizationKey": "Herbs_And_Fungi_HoppedAle_Drink_ActionName",
+                "DefaultText": "Drink"
+            },
+            "UseMiniTicks": 1,
+            "ActionSoundsWarpData": [
+                "Drink"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": [
+                "DrinkingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 80.0,
+                        "y": 80.0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3
+                }
+            ],
+            "InterpolatedStatModifications": [
+                {
+                    "InputDurability": 32,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 334.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                },
+                {
+                    "InputDurability": 32,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "f1d5fe40048674e408f56be22beaf6ae",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 136.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                },
+                {
+                    "InputDurability": 32,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "21a4731a528d97f49821f64efc19d4b3",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 576.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                },
+                {
+                    "InputDurability": 32,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 10.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                },
+                {
+                    "InputDurability": 32,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 84.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                },
+                {
+                    "InputDurability": 128,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "513ae4007a5e58c47857537a3ae653ad",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 127.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                },
+                {
+                    "InputDurability": 128,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 15.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                },
+                {
+                    "InputDurability": 128,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 448.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                },
+                {
+                    "InputDurability": 128,
+                    "OutputStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "OutputStatWarpData": "f1d5fe40048674e408f56be22beaf6ae",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 136.0
+                        },
+                        "WhenOutOfRange": 0,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "TransformIntoWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                "TransformIntoWarpType": 3,
+                "ModifyLiquid": true,
+                "LiquidEffectScaling": 2,
+                "SpoilageChange": {
+                    "x": -250.0,
+                    "y": -250.0
+                },
+                "LiquidQuantityChange": {
+                    "x": -300.0,
+                    "y": -300.0
+                }
+            },
+            "ReceivingCardFlavourBonus": true
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "CoolDown",
+            "Conditions": {
+                "ReceivingContainerRequiredDurabilityRanges": {
+                    "FuelRange": {
+                        "y": 0.1
+                    }
+                }
+            },
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        }
+    ]
+}

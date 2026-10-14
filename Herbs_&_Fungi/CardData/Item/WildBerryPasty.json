@@ -1,0 +1,510 @@
+{
+    "UniqueID": "herbs_fungi_wild_berry_pasty",
+    "CardName": {
+        "LocalizationKey": "herbsfungiwildberrypasty_CardName",
+        "DefaultText": "Wild Berry Pasty"
+    },
+    "CardDescription": {
+        "LocalizationKey": "herbsfungiwildberrypasty_CardDescription",
+        "DefaultText": "Wild berries baked in a golden crust. A good source of calories and flavour."
+    },
+    "CardType": 0,
+    "AlwaysUpdate": true,
+    "ToggleablePiling": true,
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_Heatable",
+        "tag_FastlyCharsOnHighHeat",
+        "tag_SlowlyCharsOnMediumHeat",
+        "tag_Quality",
+        "tag_HumanFood",
+        "tag_SugarsMedium",
+        "tag_Plateable",
+        "tag_FoodSweet",
+        "tag_FoodFatty",
+        "tag_FoodStarchy",
+        "tag_FoodCrunchy"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "WildBerryPasty",
+    "CardImageWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Conch"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbsfungiwildberrypasty_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 672.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "LocalizationKey": "herbsfungiwildberrypasty_SpoilageTime_Spoiled",
+                "DefaultText": "The wild berry pasty has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 100.0,
+        "CardStatName": {
+            "LocalizationKey": "herbsfungiwildberrypasty_FuelCapacity_StatName",
+            "DefaultText": "Temperature"
+        },
+        "MaxValue": 200.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbsfungiwildberrypasty_SpecialDurability1_StatName",
+            "DefaultText": "Burned"
+        },
+        "MaxValue": 8.0,
+        "HidingOptions": 3,
+        "OverrideIconWarpData": "Flame",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "274b94170226fcd479d2e73891000c9a",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbsfungiwildberrypasty_SpecialDurability2_StatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": -0.33,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "LocalizationKey": "herbsfungiwildberrypasty_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "herbsfungiwildberrypasty_Eat_ActionDescription",
+                "DefaultText": "Eat the wild berry pasty."
+            },
+            "DaytimeCost": 1,
+            "ActionSoundsWarpData": [
+                "Eating"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardFlavourBonus": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 67.0,
+                        "y": 67.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 83.0,
+                        "y": 83.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 74.0,
+                        "y": 74.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "09c2ec726d9e9f64f87eb675b8e5f005",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 112.0,
+                        "y": 112.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "f1d5fe40048674e408f56be22beaf6ae",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 34.0,
+                        "y": 34.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 44.0,
+                        "y": 44.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 35.0,
+                        "y": 35.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ca65984e668e95344a7009df3dcfb052",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6.0,
+                        "y": 6.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0d34e8e577d811f41a11526a9aa49490",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 45.0,
+                        "y": 45.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1c65f54ccf62e6f448c6c18fa8a21337",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 22.0,
+                        "y": 22.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "ApplyEachTick": true
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    }
+                }
+            ],
+            "InterpolatedStatModifications": [
+                {
+                    "InputDurability": 1,
+                    "OutputStatWarpData": "1a8d37787d69c9b4aa05d332921f3763",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "y": 360.0
+                        },
+                        "OutputValueRange": {
+                            "y": 20.0
+                        },
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 100.0,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "b98eb512d651f7e4999a66e0fe58e268",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "a20b2d50b9a50e44f90231e3b3f8bcaf",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "7c9da6f50cc16e9428ccffb051c1454f",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9d439001208b5a8449a5e5301515137f",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Winter Preservation",
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        }
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 0.5
+            },
+            "MultiplySpoilageRate": true,
+            "FuelRateModifier": {
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Summer Spoilage",
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        }
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 1.5
+            },
+            "MultiplySpoilageRate": true,
+            "FuelRateModifier": {
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Salt Preservation",
+            "Conditions": {
+                "ReceivingCardSpices": [
+                    {
+                        "TagWarpData": "6dc5a4f564e72b0458cf0352e84f318d",
+                        "TagWarpType": 3
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 0.75
+            },
+            "MultiplySpoilageRate": true,
+            "FuelRateModifier": {
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Juniper Preservation",
+            "Conditions": {
+                "ReceivingCardSpices": [
+                    {
+                        "TagWarpData": "4ba562e6aaf3b054a89af9ae7d84573e",
+                        "TagWarpType": 3
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 0.9
+            },
+            "MultiplySpoilageRate": true,
+            "FuelRateModifier": {
+                "FloatValue": -100.0
+            }
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+  "target": "HF_CressBed.png",
+  "sourceCards": [
+    "CressBed"
+  ],
+  "kind": "bleed",
+  "subject": "a small bed of bright green watercress growing thick and low in shallow clear water at the edge of a forest stream, a few flat stones at the edge",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "Nettle_Plant",
+    "id": "CrFyYUQsNSTRlUvg1GpD",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nettle_Plant_1791745097065_425816d8.png"
+  },
+  "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a full-bleed game card painting of a small bed of bright green watercress growing thick and low in shallow clear water at the edge of a forest stream, a few flat stones at the edge, the plants filling the lower two-thirds of the frame, a dark shadowy forest undergrowth background, the painting filling the entire frame edge to edge with no white anywhere. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, blurry, white background, vignette border, sky, text, watermark, signature, logo, border, frame, people, buildings, boats, flowers.",
+  "historyId": "dZKMsYjrKNxlzfleC6KD",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756574054_cb2a10cf_1791756574155_3738ad85.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "review": "awaiting owner gallery review (one sample, owner 2026-10-11)"
+}

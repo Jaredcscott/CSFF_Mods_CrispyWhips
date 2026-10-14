@@ -1,0 +1,40 @@
+{
+    "UniqueID": "herbs_fungi_spice_hops",
+    "SpiceName": {
+        "ParentObjectID": "herbs_fungi_spice_hops",
+        "LocalizationKey": "Herbs_And_Fungi_Spice_Hops_SpiceName",
+        "DefaultText": "Hops"
+    },
+    "UseNameAsSuffix": false,
+    "DontShowSpiceIconOnCard": false,
+    "TagGroupID": {
+        "Active": false,
+        "Text": ""
+    },
+    "CustomSpiceIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CustomFadingDuration": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "CustomFadingRate": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "ScaleStatModifiersWithFading": false,
+    "AddedFlavours": [
+        {
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        },
+        {
+            "FlavourWarpData": "36fc84b5b14bc204cbd938ed02204080",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "AddedStatModifiers": []
+}

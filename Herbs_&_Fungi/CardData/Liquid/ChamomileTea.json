@@ -13,6 +13,7 @@
     },
     "CardType": 0,
     "CardTagsWarpData": [
+        "tag_HumanDrink",
         "tag_Consumable",
         "tag_Drinkable",
         "tag_Preservable"
@@ -22,7 +23,7 @@
     "InventorySlotsWarpData": [],
     "InventorySlotsWarpType": 3,
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_ChamomileTea",
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_chamomile_tea",
@@ -54,8 +55,57 @@
             }
         }
     },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_chamomile_tea",
+                "LocalizationKey": "herbsfungichamomiletea_Chill_ActionName",
+                "DefaultText": "Chill with Ice"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chamomile_tea",
+                "LocalizationKey": "herbsfungichamomiletea_Chill_ActionDescription",
+                "DefaultText": "Drop an Ice Block into the tea to make it an iced tea. The ice is used up. Ice melts fast, so do this at once."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "bb826818fc8e35d43b16d906fa65c8cb"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksBothWays": true,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_iced_chamomile_tea",
+                "TransformIntoWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "9060e702466d6764eb64e5983e72215e",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chamomile_tea",
                 "LocalizationKey": "herbsfungichamomiletea_Drink",
@@ -105,7 +155,7 @@
             ]
         }
     ],
-    "ObjectWeight": 0.15,
+    "ObjectWeight": 100.0,
     "MaxStack": 10,
     "DroppedCardShadow": 1
 }

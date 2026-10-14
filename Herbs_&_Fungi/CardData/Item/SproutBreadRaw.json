@@ -1,0 +1,124 @@
+{
+    "UniqueID": "herbs_fungi_sprout_bread_raw",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_sprout_bread_raw",
+        "LocalizationKey": "Herbs_And_Fungi_SproutBreadRaw_CardName",
+        "DefaultText": "Raw Sprouted Rye Bread"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_sprout_bread_raw",
+        "LocalizationKey": "Herbs_And_Fungi_SproutBreadRaw_CardDescription",
+        "DefaultText": "Rye dough worked with ground malted rye. Bake it near a fire."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_sprout_bread_raw",
+        "LocalizationKey": "Herbs_And_Fungi_SproutBreadRaw_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Blueprint: Sprouted Rye Bread (Rye Grist and Rye Dough).\n\n<b>Next:</b> Heat it near a fire until the Cook bar fills and it becomes Sprouted Rye Bread."
+    },
+    "CardType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "BreadLoaf_Rye",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 100,
+    "TradingValue": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Heatable",
+        "tag_Cookable"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "AlwaysUpdate": false,
+    "MaxStack": 6,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_sprout_bread_raw",
+            "LocalizationKey": "Herbs_And_Fungi_SproutBreadRaw_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_sprout_bread_raw",
+                "LocalizationKey": "Herbs_And_Fungi_SproutBreadRaw_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The raw sprouted rye bread has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_sprout_bread_raw",
+            "LocalizationKey": "Herbs_And_Fungi_SproutBreadRaw_FuelCapacity_CardStatName",
+            "DefaultText": "Temperature"
+        },
+        "MaxValue": 200.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_sprout_bread_raw",
+            "LocalizationKey": "Herbs_And_Fungi_SproutBreadRaw_SpecialDurability1_CardStatName",
+            "DefaultText": "Cook"
+        },
+        "MaxValue": 1.0,
+        "HidingOptions": 3,
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_sprout_bread_raw",
+                "LocalizationKey": "Herbs_And_Fungi_SproutBreadRaw_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "The sprouted rye bread is baked."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_sprout_bread",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "ModifyDurability": true
+            }
+        }
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": []
+}

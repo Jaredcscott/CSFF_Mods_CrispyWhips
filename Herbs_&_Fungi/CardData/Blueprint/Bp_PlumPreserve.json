@@ -1,0 +1,146 @@
+{
+    "UniqueID": "herbs_fungi_bp_plum_preserve",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_plum_preserve",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_PlumPreserve_CardName",
+        "DefaultText": "Plum Preserve"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_plum_preserve",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_PlumPreserve_CardDescription",
+        "DefaultText": "Cook 3 wild plums down with 2 honeycomb to make a sweet preserve that keeps."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_plum_preserve",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_PlumPreserve_UnlockConditionsDesc",
+        "DefaultText": "Wild Plums and Honeycomb Needed"
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasPlum",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_plum",
+            "CardWarpType": 3
+        },
+        {
+            "ObjectiveName": "HasHoneycomb",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "33cf4067563dac649b026a87ba0766bd",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_plum",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "33cf4067563dac649b026a87ba0766bd",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_plum_preserve",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Jar_Clay",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

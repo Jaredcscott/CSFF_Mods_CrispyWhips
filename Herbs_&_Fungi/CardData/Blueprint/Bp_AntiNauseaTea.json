@@ -23,14 +23,14 @@
     "TagsOnBoard": [],
     "StatValues": [
         {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
+            "ObjectiveName": "ApothecaryGingerCollection",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 1.0, "y": 10.0 },
+                "StatWarpData": "herbs_fungi_quest_ginger_collection",
+                "StatWarpType": 3
             },
-            "MinValue": 1.0,
-            "MaxValue": 10.0,
-            "StatWarpData": "herbs_fungi_quest_ginger_collection",
-            "StatWarpType": 3
+            "ConstantlyChecking": false
         }
     ],
     "BlueprintStages": [
@@ -90,7 +90,20 @@
             "DroppedCardWarpType": 3
         }
     ],
-    "BlueprintStatModifications": [],
+    "BlueprintStatModifications": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ValueModifier": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+            "StatWarpType": 3
+        }
+    ],
     "WhenCreatedSoundsWarpData": [
         "Clay"
     ],

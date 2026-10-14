@@ -1,0 +1,68 @@
+{
+  "target": "HF_Leek.png",
+  "sourceCards": [
+    "CardData/Item/Leek.json"
+  ],
+  "kind": "item",
+  "subject": "one long leek lying diagonally from lower left to upper right, a straight thick white stem shading into pale green and then broad flat dark green leaves fanning out at the top, a tuft of small pale hairy roots at the white end",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "Turnroot_Fresh",
+      "id": "TXRpFzqq9IIQETeqJs5N",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Fresh_1791745247756_1cbfb0bb.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Cattail_Roots",
+      "id": "KNtYSOyccEiiuA6ZMZrS",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cattail_Roots_1791744901726_395051b7.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw one long leek lying diagonally from lower left to upper right, a straight thick white stem shading into pale green and then broad flat dark green leaves fanning out at the top, a tuft of small pale hairy roots at the white end. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, onion bulb, slices, more than one leek, soil clumps.",
+  "historyId": "9sLUAwN5QfJRaGuAydTA",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798884073_bedd4ab0_1791798884099_a15ca30d.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798884073_bedd4ab0_1791798884099_a15ca30d.png",
+      "historyId": "9sLUAwN5QfJRaGuAydTA"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG)",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner.",
+  "previousGeneration": {
+    "subject": "one long leek lying on its side, a straight white stem shading into pale green and then broad flat dark green leaves, small hairy roots at the white end",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "aspectRatio": "2:3",
+      "resolution": "1K",
+      "imageCount": 1,
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a game item illustration of one long leek lying on its side, a straight white stem shading into pale green and then broad flat dark green leaves, small hairy roots at the white end. Single subject, slight three-quarter angle, light from the upper left, a continuous dark ink outline around the whole subject, the subject large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, onion bulb, slices, more than one leek, soil clumps.",
+    "historyId": "hlQiqd9mCQNgWQ2IsMbb",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756654489_28b1413b_1791756654528_f9167d36.png",
+    "credits": 20,
+    "generated": "2026-10-11",
+    "styleReference": {
+      "sprite": "Fireroot_Item",
+      "id": "tRJFFwW2hh3XdGoSTEJK",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Item_1791697571643_a266b2a4.png"
+    }
+  }
+}

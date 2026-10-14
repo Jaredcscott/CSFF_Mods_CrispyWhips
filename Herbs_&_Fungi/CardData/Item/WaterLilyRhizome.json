@@ -1,0 +1,321 @@
+{
+    "UniqueID": "herbs_fungi_water_lily_rhizome",
+    "TradingValue": 8,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_CardName",
+        "DefaultText": "Water Lily Rhizome"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_CardDescription",
+        "DefaultText": "The thick, starchy rootstock of a water lily, pulled from the mud of a river bank. Bitter and tough raw; cooked it turns soft and mealy, like a chestnut."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Heatable",
+        "tag_Cookable",
+        "tag_Plateable",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Cattail_Roots",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+            "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 2880.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+                "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_SpoilageTime_Spoiled",
+                "DefaultText": "The water lily rhizome has gone slimy and rotted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "SpecialDurability1": {
+        "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_SpecialDurability1_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+            "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_SpecialDurability1_StatName",
+            "DefaultText": "Cook"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HidingOptions": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+                "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_SpecialDurability1_Cooked",
+                "DefaultText": "The water lily rhizome is cooked soft."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_water_lily_cooked",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        },
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3
+    },
+    "DismantleActions": [],
+    "ObjectWeight": 30,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+                "LocalizationKey": "",
+                "DefaultText": "Stir it into hot water in a pot or bowl to thicken the stew and give it nourishment and flavour."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_CookingContainer"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.99,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 290.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 16
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[0].Message",
+                            "DefaultText": "Not enough liquid"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 8
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[1].Message",
+                            "DefaultText": "Too thick"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[2].Message",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true,
+                "AddSpicesFromOtherCard": true,
+                "UsageChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                },
+                "ChargesChange": {
+                    "x": 16.66,
+                    "y": 16.66
+                },
+                "Special1Change": {
+                    "x": 10.0,
+                    "y": 10.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": true,
+                    "FloatValue": 300.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "b16daf50fa0b79443a2557e43f613bcc",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_water_lily_rhizome",
+        "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_CardHelpSection",
+        "DefaultText": "<b>Season:</b> Spring to autumn, foraged at the river places.\n\n<b>Uses:</b> Cook it by a fire into a Cooked Water Lily Rhizome, or add it to a stew. It cannot be eaten raw."
+    }
+}

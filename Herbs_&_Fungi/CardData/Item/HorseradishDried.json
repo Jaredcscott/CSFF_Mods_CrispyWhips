@@ -1,0 +1,128 @@
+{
+    "UniqueID": "herbs_fungi_horseradish_dried",
+    "TradingValue": 14,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_horseradish_dried",
+        "LocalizationKey": "herbsfungihorseradishdried_CardName",
+        "DefaultText": "Dried Horseradish"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_horseradish_dried",
+        "LocalizationKey": "herbsfungihorseradishdried_CardDescription",
+        "DefaultText": "Dried horseradish slices that keep for a long time. Drag them onto a plateable food to season it with a sharp, pungent bite. A bundle seasons three plates."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_horseradish_dried",
+        "LocalizationKey": "herbsfungihorseradishdried_CardHelpSection",
+        "DefaultText": "<b>Uses:</b> Drag it onto a plateable food (cooked meat, fish, eggs and the like) to season it with Horseradish. Each drag uses one of its three pinches."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Flour_Rye",
+    "CardImageWarpType": 3,
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 3.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_horseradish_dried",
+            "LocalizationKey": "herbsfungihorseradishdried_UsageDurability_CardStatName",
+            "DefaultText": "Pinches"
+        },
+        "MaxValue": 3.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_horseradish_dried",
+                "LocalizationKey": "herbsfungihorseradishdried_OnZero_ActionDescription",
+                "DefaultText": "The dried horseradish is used up."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_horseradish_dried",
+                "LocalizationKey": "herbsfungihorseradishdried_Add",
+                "DefaultText": "Add"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_horseradish_dried",
+                "LocalizationKey": "herbsfungihorseradishdried_Add_Desc",
+                "DefaultText": "Season a plateable food with it."
+            },
+            "DaytimeCost": 0,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Plateable"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddedSpiceTags": [],
+                "AddedSpiceTagsWarpData": [
+                    "herbs_fungi_spice_horseradish"
+                ],
+                "AddedSpiceTagsWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "ObjectWeight": 8,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "6a15980a4255f024584c507d2c1e2c53",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "d730fb3433f3af3409aaf9a74af3ee6a",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

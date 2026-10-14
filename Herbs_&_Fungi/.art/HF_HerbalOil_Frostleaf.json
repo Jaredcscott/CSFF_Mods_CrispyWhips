@@ -1,0 +1,46 @@
+{
+  "target": "HF_HerbalOil_Frostleaf.png",
+  "sourceCards": [
+    "CardData/Item/HerbalOil_Frostleaf.json"
+  ],
+  "kind": "clay bowl (vanilla Bowl_Clay_Water, liquid recoloured)",
+  "method": "Development_Tools/CardArt/liquid_bowl.py make_bowl() with the colour from .art/bowl_items.json, trimmed by trim_card_art; no generation, no credits",
+  "colour": "#8cb4aa",
+  "looks": "pale icy blue-green",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: see the images of other HF_LQ_",
+  "ownerReview": "2026-10-12 alter | notes: see the images of other HF_LQ_",
+  "previousGeneration": {
+    "subject": "",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "imageCount": 3,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows the frostleaf bundle of pointed green leaves: draw exactly this same herb bundle (same stems, leaves and flowers), small, lying beside a bowl.\nReference image 2 shows the bowl style: draw the same plain round terracotta clay bowl with the same shape, colour and finish, no handle, no spoon, filled with faint icy blue-green oil.\nHand-painted watercolor-and-ink game item illustration in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework, soft watercolor and gouache shading, warm muted natural palette, gentle light from the upper left, slight three-quarter angle, \nsingle object only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, drop shadow, text, watermark, signature, logo, border, frame.",
+    "historyId": "tq7LReguRaXCw3zAVlve",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088810880_d413ef91_1791088811415_fc8b2a12.png",
+    "credits": 150,
+    "generated": "2026-10-03",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088810880_d413ef91_1791088811415_fc8b2a12.png"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088811324_cc10496d_1791088811999_8f6a627b.png"
+      },
+      {
+        "n": "C",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088811646_a6cfb230_1791088812176_df3f64c5.png"
+      }
+    ],
+    "picked": "A",
+    "note": "Round 2 of the 2026-10-03 batch (regenerated from the owner's notes on round 1); owner pick. No prediction recorded for this round."
+  }
+}

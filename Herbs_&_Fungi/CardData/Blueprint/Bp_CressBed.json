@@ -1,0 +1,156 @@
+{
+    "UniqueID": "herbs_fungi_bp_cress_bed",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_cress_bed",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_CressBed_CardName",
+        "DefaultText": "Cress Bed"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_cress_bed",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_CressBed_CardDescription",
+        "DefaultText": "Plant a cress bed from 4 fresh watercress (1 hour) at a river. It regrows and harvests like a wild patch: about one harvest every 3 days, faster in spring, and none in winter."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_cress_bed",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_CressBed_UnlockConditionsDesc",
+        "DefaultText": "Needs a river"
+    },
+    "StartUnlocked": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "PlantainPlantGrowing",
+    "CardImageWarpType": 3,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {"m_FileID": 0, "m_PathID": 0},
+                "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                "StatWarpType": 3,
+                "TriggerRange": {"x": 0.0, "y": 100000.0}
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BuildingStatConditions": [],
+    "BuildingTagConditions": [
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_River",
+            "TriggerTagWarpType": 3
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_watercress",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_cress_bed",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "Water"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction",
+        "LegAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0,
+    "BlueprintTagConditions": [
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_River",
+            "TriggerTagWarpType": 3
+        }
+    ]
+}

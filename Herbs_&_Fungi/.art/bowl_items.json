@@ -1,0 +1,225 @@
+{
+ "_note": "Clay-bowl pictures for bowl-of-liquid ITEM cards (CardType 0: teas, broths, tinctures and oils served in a clay bowl). Owner gallery review 2026-10-12, 'see the images of other HF_LQ_': the same vanilla Bowl_Clay_Water recolour as liquid_bowls.json. Kept out of liquid_bowls.json because its gate (CardArt-LiquidBowl.Tests.ps1) requires every row's card to be CardType 9. Drawn with Development_Tools/CardArt/liquid_bowl.py's make_bowl() per row (the CLI reads only liquid_bowls.json); each row's cards already name its image.",
+ "bowls": [
+  {
+   "image": "HF_AntiNauseaTea",
+   "cards": [
+    "CardData/Liquid/AntiNauseaTea.json"
+   ],
+   "colour": "#b4b45a",
+   "looks": "pale green-yellow"
+  },
+  {
+   "image": "HF_ChamomileTea",
+   "cards": [
+    "CardData/Liquid/ChamomileTea.json",
+    "CardData/Liquid/IcedChamomileTea.json"
+   ],
+   "colour": "#c39b46",
+   "looks": "warm pale gold"
+  },
+  {
+   "image": "HF_ElderflowerCordial",
+   "cards": [
+    "CardData/Liquid/ElderflowerCordial.json"
+   ],
+   "colour": "#d2c878",
+   "looks": "pale lemon straw"
+  },
+  {
+   "image": "HF_ChanterelleBroth",
+   "cards": [
+    "CardData/Liquid/ChanterelleBroth.json"
+   ],
+   "colour": "#c8822d",
+   "looks": "clear golden orange"
+  },
+  {
+   "image": "HF_DandelionTea",
+   "cards": [
+    "CardData/Liquid/DandelionTea.json",
+    "CardData/Liquid/IcedDandelionTea.json"
+   ],
+   "colour": "#d7b432",
+   "looks": "bright light yellow"
+  },
+  {
+   "image": "HF_DeathCapTincture",
+   "cards": [
+    "CardData/Liquid/DeathCapTincture.json"
+   ],
+   "colour": "#6e6e4b",
+   "looks": "murky olive-grey"
+  },
+  {
+   "image": "HF_HealersMossTincture",
+   "cards": [
+    "CardData/Liquid/HealersMossTincture.json"
+   ],
+   "colour": "#4b5528",
+   "looks": "dark moss green-brown"
+  },
+  {
+   "image": "HF_HerbalTincture",
+   "cards": [
+    "CardData/Liquid/HerbalTincture.json"
+   ],
+   "colour": "#82411e",
+   "looks": "deep reddish orange-brown"
+  },
+  {
+   "image": "HF_LionsManeBroth",
+   "cards": [
+    "CardData/Liquid/LionsManeBroth.json"
+   ],
+   "colour": "#d7cdaf",
+   "looks": "pale cream"
+  },
+  {
+   "image": "HF_MushroomBroth",
+   "cards": [
+    "CardData/Liquid/MushroomBroth.json"
+   ],
+   "colour": "#6e4628",
+   "looks": "rich brown"
+  },
+  {
+   "image": "HF_TendonSoup",
+   "cards": [
+    "CardData/Liquid/TendonSoup.json"
+   ],
+   "colour": "#c3aa82",
+   "looks": "cloudy pale beige"
+  },
+  {
+   "image": "HF_ReishiBroth",
+   "cards": [
+    "CardData/Liquid/ReishiBroth.json"
+   ],
+   "colour": "#642d1e",
+   "looks": "dark red-brown"
+  },
+  {
+   "image": "HF_SleepTea",
+   "cards": [
+    "CardData/Liquid/SleepTea.json"
+   ],
+   "colour": "#a08caa",
+   "looks": "pale lavender"
+  },
+  {
+   "image": "HF_StimulantTea",
+   "cards": [
+    "CardData/Liquid/StimulantTea.json"
+   ],
+   "colour": "#8c5523",
+   "looks": "dark amber-brown"
+  },
+  {
+   "image": "HF_HempSeedOil",
+   "cards": [
+    "CardData/Item/HempSeedOil.json"
+   ],
+   "colour": "#a5a032",
+   "looks": "golden green"
+  },
+  {
+   "image": "HF_HerbalOil_Appleweed",
+   "cards": [
+    "CardData/Item/HerbalOil_Appleweed.json"
+   ],
+   "colour": "#aab446",
+   "looks": "apple green-yellow"
+  },
+  {
+   "image": "HF_HerbalOil_Chamomile",
+   "cards": [
+    "CardData/Item/HerbalOil_Chamomile.json"
+   ],
+   "colour": "#dcc864",
+   "looks": "pale yellow"
+  },
+  {
+   "image": "HF_HerbalOil_Fairyweed",
+   "cards": [
+    "CardData/Item/HerbalOil_Fairyweed.json"
+   ],
+   "colour": "#c08aae",
+   "looks": "pale violet-pink"
+  },
+  {
+   "image": "HF_HerbalOil_Frostleaf",
+   "cards": [
+    "CardData/Item/HerbalOil_Frostleaf.json"
+   ],
+   "colour": "#8cb4aa",
+   "looks": "pale icy blue-green"
+  },
+  {
+   "image": "HF_HerbalOil_Ginseng",
+   "cards": [
+    "CardData/Item/HerbalOil_Ginseng.json"
+   ],
+   "colour": "#b48241",
+   "looks": "amber tan"
+  },
+  {
+   "image": "HF_HerbalOil_Hemp",
+   "cards": [
+    "CardData/Item/HerbalOil_Hemp.json"
+   ],
+   "colour": "#46642d",
+   "looks": "dark green"
+  },
+  {
+   "image": "HF_HerbalOil_Yarrow",
+   "cards": [
+    "CardData/Item/HerbalOil_Yarrow.json"
+   ],
+   "colour": "#d2b95a",
+   "looks": "pale gold"
+  },
+  {
+   "image": "HF_LinseedOil",
+   "cards": [
+    "CardData/Item/LinseedOil.json"
+   ],
+   "colour": "#c8912d",
+   "looks": "golden amber"
+  },
+  {
+   "image": "HF_PeanutOil",
+   "cards": [
+    "CardData/Item/PeanutOil.json"
+   ],
+   "colour": "#d7be6e",
+   "looks": "pale gold"
+  },
+  {
+   "image": "HF_PineNutOil",
+   "cards": [
+    "CardData/Item/PineNutOil.json"
+   ],
+   "colour": "#d2c37d",
+   "looks": "pale greenish straw"
+  },
+  {
+   "image": "HF_TruffleOil",
+   "cards": [
+    "CardData/Item/TruffleOil.json"
+   ],
+   "colour": "#a07d32",
+   "looks": "dark gold"
+  },
+  {
+   "image": "HF_HoneySyrup",
+   "cards": [
+    "CardData/Item/HoneySyrup.json",
+    "CardData/Blueprint/Bp_HoneySyrup_Chamomile.json",
+    "CardData/Blueprint/Bp_HoneySyrup_Plantain.json"
+   ],
+   "colour": "#d2911e",
+   "looks": "golden amber honey"
+  }
+ ]
+}

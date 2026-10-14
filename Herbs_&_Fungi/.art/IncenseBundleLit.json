@@ -1,25 +1,78 @@
 {
   "target": "IncenseBundleLit.png",
-  "sourceCard": "CardData/Item/IncenseBundleLit.json",
-  "subject": "a small bundle of dried wildflowers and herbs tightly bound with twine, its top end smouldering with glowing orange embers and a thin curl of pale smoke rising from it",
+  "sourceCard": null,
+  "subject": "one smouldering herb incense bundle: dried wild flowers, chamomile and yarrow bound tight with tan twine into a short thick stick, the top end charred black with a few glowing orange embers and one thin curl of grey smoke",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image",
   "params": {
-    "imageCount": 3,
+    "imageCount": 1,
+    "resolution": "1K",
     "aspectRatio": "2:3",
-    "resolution": "2K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small bundle of dried wildflowers and herbs tightly bound with twine, its top end smouldering with glowing orange embers and a thin curl of pale smoke rising from it, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
-  "historyId": "B4YjnuZbM0cEGba1pEzu",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792408_7d4e8f5a_1789760792882_b4d1cca6.png",
-  "credits": 90,
-  "generated": "2026-09-18",
-  "note": "Owner picked option C of a 3-up batch (not picked: A=IncenseBundleLit__v1.png, B=IncenseBundleLit__v2.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: white placeholder.",
-  "candidates": [
-    {"n": "A", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760795524_c273b1f6_1789760795833_dca2fcc5.png"},
-    {"n": "B", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792264_c7ce61f6_1789760792803_0de33fea.png"},
-    {"n": "C", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792408_7d4e8f5a_1789760792882_b4d1cca6.png"}
+  "prompt": "Game card item illustration of one smouldering herb incense bundle: dried wild flowers, chamomile and yarrow bound tight with tan twine into a short thick stick, the top end charred black with a few glowing orange embers and one thin curl of grey smoke. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, open flame, burner, dish, holder, hand.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Nettle_Leaves (style)",
+      "id": "KFCUiSwyA0HLW4KfaxDa",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nettle_Leaves_1791745096221_64f1fc34.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Frostleaf_Item (style)",
+      "id": "BehyUooUjiJPXdE1y0Z2",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Frostleaf_Item_1791744966881_db19717a.png"
+    }
   ],
-  "picked": "C"
+  "historyId": "vGbUgu97mJReZcMGY8oS",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828061933_c6c97241_1791828061965_bcc0aa0d.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)"
+  ],
+  "vanilla_score": 50,
+  "previous": {
+    "target": "IncenseBundleLit.png",
+    "sourceCard": "CardData/Item/IncenseBundleLit.json",
+    "subject": "a small bundle of dried wildflowers and herbs tightly bound with twine, its top end smouldering with glowing orange embers and a thin curl of pale smoke rising from it",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 3,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Hand-painted watercolor-and-ink game item illustration of a small bundle of dried wildflowers and herbs tightly bound with twine, its top end smouldering with glowing orange embers and a thin curl of pale smoke rising from it, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+    "historyId": "B4YjnuZbM0cEGba1pEzu",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792408_7d4e8f5a_1789760792882_b4d1cca6.png",
+    "credits": 90,
+    "generated": "2026-09-18",
+    "note": "Owner picked option C of a 3-up batch (not picked: A=IncenseBundleLit__v1.png, B=IncenseBundleLit__v2.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: white placeholder.",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760795524_c273b1f6_1789760795833_dca2fcc5.png"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792264_c7ce61f6_1789760792803_0de33fea.png"
+      },
+      {
+        "n": "C",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792408_7d4e8f5a_1789760792882_b4d1cca6.png"
+      }
+    ],
+    "picked": "C",
+    "ownerReview": "2026-10-12 alter | notes: has white to remove",
+    "rework": {
+      "date": "2026-10-12",
+      "note": "owner gallery rework 2026-10-12: has white to remove",
+      "finishing": "faint paper haze over the whole canvas (alpha <= 20) cleared, paper pockets between the stems keyed (6 regions, 341 px), light edge halo recoloured to the ink below the smoke; the smoke wisps kept as they were. Worked on the shipped trimmed PNG (scratchpad keyreg.py / dehalo.py / clearlight.py, or Development_Tools/CardArt/fill_holes.py), re-trimmed with trim_card_art. Re-deriving from resource_url brings the defect back: repeat these passes and read a dark preview.",
+      "credits": 0
+    }
+  }
 }

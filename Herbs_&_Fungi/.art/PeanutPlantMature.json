@@ -1,0 +1,28 @@
+{
+  "target": "PeanutPlantMature.png",
+  "sourceCard": null,
+  "subject": "one whole mature peanut plant just lifted out of the soil and shown upright on its own: a bushy green top of many leaves, each made of four rounded oval leaflets in two pairs, and below it a tangle of pale roots with many beige, knobbly, net-veined peanut pods hanging from them, a little brown soil clinging to the pods and roots",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one whole mature peanut plant just lifted out of the soil and shown upright on its own: a bushy green top of many leaves, each made of four rounded oval leaflets in two pairs, and below it a tangle of pale roots with many beige, knobbly, net-veined peanut pods hanging from them, a little brown soil clinging to the pods and roots, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, hand, person, ground, soil patch, pot, shelled peanuts, peanut kernels, flowers.",
+  "historyId": "KfDv3OF1oV1Xer7AFXts",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470743553_22af6822_1790470743782_2f3b22b6.png",
+  "credits": 30,
+  "generated": "2026-09-26",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470743553_22af6822_1790470743782_2f3b22b6.png",
+      "verdict": "accepted: whole plant lifted out, bushy four-leaflet top, many beige knobbly pods hanging from pale roots with soil clinging"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish), then key_enclosed.py default (28 regions, 7636 px of paper enclosed between leaves and between roots and pods; roots and pods checked intact against the raw), then --min-area 6 --pure 238 (947 px of slivers). find_key_holes.py flags two gaps among the bottom roots as pale-rimmed; that is its documented pale-wispy-subject blind spot, confirmed by comparing the zoomed roots with the raw. Re-deriving this image from resource_url with /process-card-art alone brings the defect back: repeat these passes (Development_Tools/CardArt/key_enclosed.py, fill_holes.py) and read a dark preview.",
+  "note": "One sample by instruction (HerbsAndFungi 1.14.0 content update, generated for the lead session building the card JSON); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

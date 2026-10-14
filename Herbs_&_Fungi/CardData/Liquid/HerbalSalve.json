@@ -15,7 +15,8 @@
     "CardTagsWarpData": [
         "tag_Consumable",
         "tag_Medicine",
-        "tag_Preservable"
+        "tag_Preservable",
+        "tag_x_AnimalRemedy"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -25,7 +26,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_HerbalSalve",
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_herbal_salve",
@@ -110,7 +111,7 @@
             ]
         }
     ],
-    "ObjectWeight": 0.2,
+    "ObjectWeight": 25.0,
     "MaxStack": 5,
     "DroppedCardShadow": 1
 }

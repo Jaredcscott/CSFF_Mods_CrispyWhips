@@ -1,0 +1,14 @@
+{
+  "target": "HF_PineNutOil.png",
+  "sourceCards": [
+    "CardData/Item/PineNutOil.json"
+  ],
+  "kind": "clay bowl (vanilla Bowl_Clay_Water, liquid recoloured)",
+  "method": "Development_Tools/CardArt/liquid_bowl.py make_bowl() with the colour from .art/bowl_items.json, trimmed by trim_card_art; no generation, no credits",
+  "colour": "#d2c37d",
+  "looks": "pale greenish straw",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: see the images like HF_LQ_",
+  "ownerReview": "2026-10-12 regenerate | notes: see the images like HF_LQ_"
+}

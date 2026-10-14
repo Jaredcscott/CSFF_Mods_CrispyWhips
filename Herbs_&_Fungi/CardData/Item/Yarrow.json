@@ -107,17 +107,18 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_yarrow",
                 "LocalizationKey": "",
-                "DefaultText": "Drop into the boiling liquid to cook."
+                "DefaultText": "Stir it into hot water in a pot or bowl to thicken the stew and give it nourishment and flavour."
             },
             "WorksInverted": true,
             "CompatibleCards": {
                 "TriggerCards": [],
-                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
                 "TriggerCardsWarpType": 3,
                 "TriggerTags": [],
-                "TriggerTagsWarpData": [
-                    "tag_StewContainer"
-                ],
+                "TriggerTagsWarpData": [],
                 "TriggerTagsWarpType": 3
             },
             "DaytimeCost": 0,
@@ -133,6 +134,11 @@
             "RequiredReceivingContainerTag": [],
             "RequiredNOTReceivingContainerTag": [],
             "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_CookingContainer"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
             "RequiredGivenDurabilities": {
                 "RequiredSpoilagePercent": {
                     "Active": false,
@@ -153,24 +159,24 @@
                     }
                 },
                 "RequiredFuelPercent": {
-                    "Active": false,
-                    "FloatValue": 0.0,
-                    "MaxValue": 0.0,
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
                     "ScaleRequirementPerPortionOfLiquid": {
                         "Active": false,
                         "FloatValue": 0.0
                     }
                 },
                 "RequiredProgressPercent": {
-                    "Active": false,
+                    "Active": true,
                     "FloatValue": 0.0,
-                    "MaxValue": 0.0,
+                    "MaxValue": 0.98,
                     "ScaleRequirementPerPortionOfLiquid": {
                         "Active": false,
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 0.0,
+                "RequiredLiquidQuantity": 290.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,
@@ -207,16 +213,79 @@
                         "FloatValue": 0.0
                     }
                 },
-                "HideActionIfNotMet": true,
+                "HideActionIfNotMet": false,
                 "FailMessage": {
                     "ParentObjectID": "",
                     "LocalizationKey": "",
                     "DefaultText": ""
                 },
-                "SpecificFailMessages": []
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 16
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[0].Message",
+                            "DefaultText": "Not enough liquid"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 8
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[1].Message",
+                            "DefaultText": "Too thick"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[2].Message",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
             },
             "GivenCardChanges": {
-                "ModType": 0
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true,
+                "AddSpicesFromOtherCard": true,
+                "UsageChange": {
+                    "x": 44.0,
+                    "y": 44.0
+                },
+                "ChargesChange": {
+                    "x": 33.3,
+                    "y": 33.3
+                },
+                "Special1Change": {
+                    "x": 2.0,
+                    "y": 2.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": true,
+                    "FloatValue": 300.0
+                },
+                "AddedSpiceTags": [],
+                "AddedSpiceTagsWarpData": [
+                    "herbs_fungi_spice_herbal_analgesic",
+                    "herbs_fungi_spice_clotting_effect"
+                ],
+                "AddedSpiceTagsWarpType": 3
             },
             "ReceivingCardChanges": {
                 "ModType": 3

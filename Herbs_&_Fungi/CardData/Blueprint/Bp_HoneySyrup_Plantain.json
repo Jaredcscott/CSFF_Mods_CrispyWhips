@@ -1,0 +1,100 @@
+{
+    "UniqueID": "herbs_fungi_bp_honey_syrup_plantain",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_honey_syrup_plantain",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HoneySyrupPlantain_CardName",
+        "DefaultText": "Herbal Honey Syrup (Plantain)"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_honey_syrup_plantain",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HoneySyrupPlantain_CardDescription",
+        "DefaultText": "Stir honeycomb and two dried plantain into a clay bowl to make a herbal honey syrup. A spoonful eases a chest or throat infection."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_honey_syrup_plantain",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HoneySyrupPlantain_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Honeycomb"
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasHoneycomb",
+            "CompletionWeight": 1,
+            "Card": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {"m_FileID": 0, "m_PathID": 0},
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {"m_FileID": 0, "m_PathID": 0}
+            },
+            "CardWarpData": "33cf4067563dac649b026a87ba0766bd",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredTabGroup": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "33cf4067563dac649b026a87ba0766bd",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredTabGroup": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_common_plantain_dried",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredTabGroup": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": ["HandAction", "CraftAction"],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": {"x": 1, "y": 1},
+            "DroppedCardWarpData": "herbs_fungi_honey_syrup",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "ValueModifier": {"x": 1.0, "y": 1.0},
+            "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+            "StatWarpType": 3
+        }
+    ],
+    "WhenCreatedSoundsWarpData": ["Clay"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "HF_HoneySyrup",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

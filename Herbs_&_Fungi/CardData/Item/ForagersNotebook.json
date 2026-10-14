@@ -1,0 +1,59 @@
+{
+    "UniqueID": "herbs_fungi_foragers_notebook",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_foragers_notebook",
+        "LocalizationKey": "Herbs_And_Fungi_ForagersNotebook_CardName",
+        "DefaultText": "Forager's Notebook"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_foragers_notebook",
+        "LocalizationKey": "Herbs_And_Fungi_ForagersNotebook_CardDescription",
+        "DefaultText": "A small hemp-paper notebook. Once you carry it, it writes down each wild plant and mushroom you find and the place where you first found it."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_foragers_notebook",
+        "LocalizationKey": "Herbs_And_Fungi_ForagersNotebook_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> three sheets of Hemp Paper and twine, from the Support tab.\n\n<b>Uses:</b> Keep it in your inventory. Each time a wild plant or mushroom of this mod turns up in your hands, the notebook adds it under the place where you got it, the first time only. Open the card to read the list. Foraged finds are what it is for, but anything of that kind you receive is written down too. The list is saved with the notebook. Placeholder art."
+    },
+    "ObjectWeight": 15.0,
+    "TradingValue": 30,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_BotanicalFieldGuide",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": []
+}

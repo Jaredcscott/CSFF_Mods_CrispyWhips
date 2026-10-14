@@ -1,9 +1,162 @@
-# Herbs and Fungi — Changelog
+# Herbs and Fungi: Changelog
 
 All notable changes to this mod. Dates are release dates.
 
 ---
 
+
+## [1.14.4] - 2026-10-13
+
+- **Honey foods are worth their honeycomb again:** game EA 0.69c made Honeycomb a 168-calorie food, so honeying or preserving lost calories. Honeyed Berries (133), Honeyed Nuts (182), Berry Preserve (433), Plum Preserve (387) and Rhubarb Preserve (345) now give back at least what goes into them.
+- **Honey help names every honeycomb source, and Wax by its new name:** since game EA 0.69c vanilla beehives and bee skeps give Honeycomb too, so the help text lists them beside the Wild Bees' Nest; the Wax Leather Dressing help and the Linseed Oil button say Wax, the game's new name for Beeswax.
+- **The Wild Bees' Nest shows its honeycomb icon again on game EA 0.69c:** the update renamed the vanilla honeycomb picture, so the stat icon fell back to the default glyph.
+- **Starter-kit perks hand their items over as ordinary starting items.** Thirteen perks (Add Fungi, Add Hemp, Alchemist, Apothecary, Culinary Kit, Edibles Kit, Fungal Cultivator, Master Herbalist, Medical Mushrooms, Oil Press, Seed Bag, Smoke Kit, Hemp Farmer) listed their items as worn equipment, but none can be equipped, so they always landed on the ground. You get the same items at the same quality; the perk text now says so.
+- **Forager's Notebook keeps its entries.** If a game update ever changes how the notebook's saved text is read, it stops updating and keeps what it lists, instead of rewriting itself with only the newest find.
+- **ForageDropDensityScale above 1.0 stops at a certain drop.** Values over 1.0 still make finds more common, but no drop chance (or seasonal boost) goes past 100%. 1.0 or lower behaves as before.
+- **Teas, tinctures and remedies have realistic weights.** They weighed 0.1 to 0.3 before. Anti-Nausea Tea and Sleep Tea now weigh 400, Death Cap Tincture, Healer's Moss Tincture and Herbal Tincture 350, and Pain Relief Powder 320 (a Clay Bowl is 300, plus contents). Chamomile Tea, Dandelion Tea, Elderflower Cordial, both iced teas and Stimulant Tea weigh 100, and Herbal Salve 25, like the base game's salves.
+- The mod description now lists the 1.14 wild finds, Iced Teas, Shaved Ice and fire-roasted peanuts.
+- Modders: the pickle vat gate, Spice Brine and the Dig for Truffles injection now log one warning per cause when a game update changes a field they read.
+
+## [1.14.3] - 2026-10-13
+
+- **Mushroom Basket perk: the basket and mushrooms land properly.** The base game does not let a Hand Basket be equipped, so the basket dropped on the ground anyway. The perk now hands over a quality 50 Hand Basket and 16 mushrooms (2 each of 8 kinds) beside you, ready to put in the basket yourself.
+
+## [1.14.2] - 2026-10-12
+
+- **Raw Peanuts roast in a lit fire, like vanilla Pine Nuts.** In a campfire, fire pit or fireplace they become Roasted Peanuts in about 15 minutes, so the 2-hour Roast button is gone. Left in the fire about 4 hours, Roasted Peanuts char into Charred Remains. The peanut help text lists every use.
+- **Card art in the vanilla form.** 175 pictures are cropped to the subject and saved smaller, so cards fill like vanilla items and the pictures take about a sixth of the space.
+- **Liquid pictures.** All 27 liquids show the base game's clay bowl filled with that liquid's colour, replacing water drops, tea cups and one ale picture shared by eight drinks.
+- **Closer borrowed pictures for seven cards.** Berry Pulp uses Bilberry Pulp, Elderberries and Dried Elderberries the blackcurrant pictures, Dried Horseradish the Rye Flour heap, Roasted Chestnuts and Roasted Hazelnuts the raw nut pictures, and Cooked Watercress Nettle Mash.
+- **Cleaner Gruit Bundle and Dried Wild Flowers pictures.** The white fringe and gaps between leaves are gone.
+- **New pictures for 43 cards:** Bark Meal, Berry Leather, Camas Cake, the four doughs (they showed a bar of soap), Carrot, Chicory Root, Crabapples and Dried Crabapples, fresh and dried Elderflowers, Fiddleheads, Salted Fish Mash, raw and cooked Fishcake, Ful, the three grow bag stages, Hops, Sliced Horseradish, Kale, Leek, Mandrake Root, Mustard Seeds, Dried Wild Pears, Rhubarb, and painted beds for the carrot, cress, hop, kale, leek, moss and rhubarb crops.
+
+### Added
+
+Numbers for the new foods (chances, food values, spoilage, growth times) are starting values and may be tuned.
+
+- **Horseradish Root** (spring and autumn, Pine Clearing and Alder Woods). Cut it into Sliced Horseradish to season a plateable food with a new Horseradish spice, or dry it into Dried Horseradish, which seasons three plates.
+- **Chicory Root** (summer and autumn, Highland Meadow and Foraging Path). Roast it, then steep it in hot water for Chicory Brew, whose Drink quenches thirst and gives **Chicory Lift**: you tire more slowly and stress rises a little faster, doubled from the second cup.
+- **Goosefoot Greens** (spring and summer, Foraging Path and Oak Clearing). Eat them for **Goosefoot Purge**, a gentle parasite cure beside Death Cap Tincture's hard one.
+- **Water Lily Rhizome** (spring to autumn at every river place) must be cooked by a fire before you eat it. **Turnroot Greens** come about half the time when you harvest a mature turnroot field by hand, not with a sickle, and are eaten raw. Both go into a stew.
+- **Crabapples, Wild Pears and Wild Plums** at the mod's clearings. Eat each fresh, dry it for long keeping, or stew it. The new Cooking-tab **Plum Preserve** takes 3 Wild Plums and 2 Honeycomb.
+- **Chestnuts and Hazelnuts** (autumn). Eat them raw or roast them. Grind a Roasted Chestnut into Chestnut Flour, soak it into dough and bake Chestnut Flatbread.
+- **Sloes** (autumn). Crush them into water for Sloe Must, which ferments into **Sloe Wine** in four days.
+- **Elderflowers and Elderberries.** Dry the flowers and steep them in hot water for **Elderflower Cordial**. The berries are eaten, dried or stewed.
+- **Fiddleheads, Thistle Greens and Camas Bulb** (spring and summer). Raw Fiddleheads give short food poisoning, so cook them. Camas roasts, and a Camas Cake grinds into Camas Flour that soaks into dough and bakes into Camas Flatbread.
+- **Mandrake Root, Rhubarb and Mustard Seeds.** Steep Mandrake in hot water for a sleepy Mandrake Draught (vanilla Fairy Tea's effect). Rhubarb is eaten, stewed, preserved (**Rhubarb Preserve**) or planted (**Plant Rhubarb**). Mustard Seeds season plateable food with a new Mustard spice.
+- **Kale, Carrot and Leek** are found foraging from spring to autumn. Eat or stew them, or plant them with **Plant Kale**, **Plant Carrot** and **Plant Leek** (2 of the vegetable and a hoe).
+- **Hops, Grapes and Oats** are found foraging in summer and autumn. Steep Hops in finished rye ale for **Hopped Ale**, crush Grapes into Must for **Grape Wine**, and grind Oats into Oatmeal for porridge. Plant them with **Plant Hops**, **Plant Grapes** and **Oat Field**.
+- **Broad Beans** are found in spring and summer, eaten or stewed, and grown in the **Broad Bean Field**.
+- **Pea Flour, Turnroot Flour and Ful.** Split Peas and Turnroot Chips grind into flours that soak into dough. Turnroot Dough bakes into Turnroot Flatbread, Pea Dough into Pea Bread. **Ful** is 3 Broad Beans and 1 Peanut Oil.
+- **Sprouted Rye Bread and Nettle Bread** are new Cooking-tab breads on the vanilla doughs.
+- **Nut Milk and Nut Tofu.** Soak Peanut Meal in cool water for Nut Milk, which sours in about three days. Curdle it with Salt into Nut Tofu.
+- **Tendon Soup, Fishcake and Haggis.** Three new meat and fish dishes.
+- **Liver Sausage.** A raw sausage you cook, boil or dry into long-keeping Dried Liver Sausage. The raw one risks parasites, as vanilla's does.
+- **Fish Sauce and Lutefisk.** Salted Fish Mash dragged onto water becomes Young Fish Sauce, then Fish Sauce after about 5 days. Fish soaked in Lye for about 2 days, rinsed and cooked becomes Lutefisk.
+- **Bark Meal.** A famine food made from 2 Oak Bark. It gives a little food and costs a little Stress and Gratification.
+- **Iced Teas and Shaved Ice, the first cold foods.** Drag a vanilla Ice Block onto Chamomile or Dandelion Tea (**Chill with Ice**), or make Shaved Ice from an Ice Block and a Berry Preserve. Drinking or eating them gives **Cooled**, which lowers Perceived Temperature. An Ice Block melts in about 2 hours.
+- **Vigor Elixir.** Drag Ground Ginseng onto Reishi Tea held in a Clay or Copper Cauldron for a strong Herbal Tonic dose (72 of 96). It is refused outside a cauldron.
+- **Herbal Ferment.** Drag a honeycomb onto Chaga, Ginseng, Lion's Mane, Reishi or Yarrow Tea. After about three days it becomes a drink that quenches thirst and gives a mild Herbal Tonic.
+- **Herb-spiced wines and ales, and Needle Ale.** Dried Chamomile, Yarrow or Ginger dropped on finished wine or ale makes a Herb-Spiced version. A Needle Bundle steeped in rye ale makes Needle Ale.
+- **Mossbed.** Make Mossbed (2 Healer's Moss, 1 Moss) grows 3 to 4 Healer's Moss per Harvest after about 5 days, a camp source for a card vanilla gives only from foraging.
+- **Grow Bags for Golden Oyster and King Oyster.** A smaller alternative to a log: 1 wood shavings, 5 mushrooms and 1 Small Cloth. It colonizes in about 2.5 days and gives 12 mushrooms.
+- **Spore Prints.** Harvesting a ready mushroom log also gives a Spore Print, and six new blueprints start a log from 1 print instead of 10 mushrooms.
+- **Dried Death Cap and Toxin Tolerance.** Dry a Death Cap on the Drying Tray, then **Taste a Sliver** for mild food poisoning (+4) and a fading Toxin Tolerance that makes later food poisoning clear faster.
+- **Unknown Chanterelle.** A quarter of chanterelle finds are now Unknown Chanterelles, in the same places and seasons. Identify one with Herbalism 25 or more, with the Botanical Field Guide, or, with Community Mod Chest, after the Academy's Herbalism course. It becomes a Chanterelle or an inedible False Chanterelle. Eating it unidentified gives food poisoning (+8).
+- **Velvet Shank, the first winter-only forage.** Oak, alder and willow woods can turn one up in winter (14% a forage). It cooks and dries like Golden Oyster.
+- **Old-Growth Grove.** A seventh location west of Misty Falls, opening once you have explored all six clearings. Foraging there can find Truffles, Morels and Cloudberries.
+- **Watercress and the Cress Bed.** Riverside forage from spring to autumn has a 10% chance of Watercress. The **Cress Bed** blueprint can be built only at a river and regrows about every 3 days.
+- **Fungal Bloom.** A rare autumn event after heavy rain: for about 2 days, arriving at each of the six clearings leaves a patch you can harvest for mushrooms before it rots.
+- **Forage hotspots.** A Lingonberry Patch at Oak Clearing, a Cloudberry Patch at Pine Clearing and a Chamomile Patch at Alder Woods stay at their place. **Pick** uses a quarter of a patch, and a picked-clean patch rests about 7 days.
+- **Forager's Notebook.** Made from 3 Hemp Paper and Twine. It records each wild plant or mushroom the first time one turns up, under the place you found it.
+- **Seasonal flushes at the mod's forage spots.** Wild Flowers and Common Plantain are twice as likely in spring at the Foraging Path and Alder Woods, and Chanterelle and Black Trumpet in autumn at the Highland Meadow. Other seasons keep their chance.
+- **Berry Leather and honeyed sweets.** Four Mash blueprints turn berries into Berry Pulp, which dries into Berry Leather. With Honeycomb, make Honeyed Nuts, Honeyed Pine Nuts and Honeyed Berries.
+- **Spiced Pickle Brine and Spiced Pickles.** Drag Dried Wild Garlic or Dried Ginger onto a vat of plain brine, then pick one of four new Spiced Pickle blueprints. The plain pickles now accept only plain brine.
+- **Herb Butter and Herb Cheese.** Drag butter or cheese onto Black Trumpet, Shiitake or King Oyster Powder or Dried Ginger. The spread is plain food that keeps much longer than plain dairy.
+- **Wax Leather Dressing.** Drag Linseed Oil onto Beeswax, then the dressing onto a leather garment to raise its Quality by 5.
+- **Medicinal herbs carry their effect into a stew.** Adding Reishi, Lion's Mane, Chaga, Ginseng or Yarrow to a pot of hot water gives a gentle share of Herbal Tonic (or Herbal Analgesic and Clotting for Yarrow), below a tea's dose.
+- **Allied Partners eat this mod's food.** A vanilla Partner takes the Eat of 107 foods and the Drink of 18 drinks (the plain teas and broths, Tendon Soup, Nut Milk, the ales and wines). It never touches medicines, anything that cures or causes poisoning or infection, anything with a timed effect, Sleep and Stimulant Teas, Fish Sauce or the ready pickle vats. 25 foods gained the human food tag and 7 drinks the human drink tag; with the framework's opt-in Wildlife Raids on, those foods can be raided from open storage like vanilla food.
+- **Fresh Chamomile, Dandelion and Wild Flowers are flowers.** With Community Mod Chest, each fills its Painted Clay Vase (Arrange Flowers). Dried herbs stay off it.
+- **Lanolin in the Herbal Salve.** With Sirus23's Mod Collection, the salve's oil slot also takes Lanolin. Without it nothing changes.
+- **Wound remedies for companions.** Dried and Ground Yarrow, Yarrow Tea, Herbal Salve and Plantain Poultice can treat a companion's wounds with Sirus23's Mod Collection. Reishi Tea is left out.
+
+### Fixed
+
+- **The Botanical Field Guide sends you to the right places.** It had listed Lion's Mane and Black Trumpet in cave locations with no Forage action, said Truffles and Peanut Pods could be dug anywhere, and put Dig for Truffles in the mod's own oak and alder places. All corrected in English and Chinese.
+- **The Botanical Field Guide lists every plant the mod adds.** The wild finds, fruit and nuts, crops and Velvet Shank each now have a line with seasons and places, and the Old-Growth Grove is listed as a place.
+- **Felled trees grow back at the Foraging Path, Pine Clearing, Oak Clearing and Alder Woods.** Those clearings had stripped their own tree-regrowth actions. Each now replants one tree per species, as vanilla does; a large oak or pine waits while a large birch or willow still stands.
+- **Dried Yarrow could not appear since the herb-spiced wines were added.** Its five Spice drags were in the wrong list of the card, which broke creating any Dried Yarrow. They are ordinary drags again.
+- **The Lutefisk lye-soak blueprints did nothing when you pressed Build.** The lye slot now asks for a container holding 100 Lye, like vanilla Soap.
+
+### Changed
+
+- **ForageDropDensityScale now reaches every H&F forage and dig drop.** It used to scale only drops added by code, so it missed the mod's own locations, the birch-tree rows, Chaga, Watercress and the Old-Growth Grove. It now covers every Forage, Clear, Dig up Mud, Dig up Dirt and Dig for Truffles drop of this mod's cards, including its herbs another mod adds, and scales a seasonal flush with the base chance. At the default 1.0 nothing changes; an existing .cfg keeps its value.
+- **Vanilla-location forage is now declared data, with nothing a player sees changed.** The same cards, chances and seasons appear at the same places. A location a future game update adds is no longer picked up by name and needs an entry. The old code also held branches for the caves and the mod's own locations that never fired, so the README and Player Guide no longer claim cave forage or Dig for Truffles at the mod's own locations.
+- **Cleaner card art.** White left by background removal is gone from 21 pictures, including the Chamomile and Dandelion plants, several teas, the herbal oils, Herbal Salve, Herbal Tincture, Pain Relief Powder, Peanut Oil and both Wild Berry Pasties.
+- **Docs.** The README and Player Guide now say which picture each card shows, the mod description counts 9 foraged berries and wild fruits (it said 4) and names the Plum Preserve, Chestnuts, Hazelnuts and Elderflowers, and the modder patch list includes the Forager's Notebook and Academy Herbalism patches.
+
+## [1.14.1] - 2026-09-28
+
+Thanks to Chiwei, whose report is behind this release.
+
+### Added
+
+- **Hemp Seed, Peanut and Linseed Oil season food.** Drag the oil onto a plateable food (cooked meat, fish, eggs and the like) with **Add** for its flavour and a little extra nourishment. One Add uses the whole bowl and gives back the Clay Bowl.
+- **Plant Chamomile, Plant Plantain and Plant Dandelion** (Farming > Agriculture). Each unlocks once you hold the herb and takes 2 of it and a hoe. It grows for 5 days and gives 3 to 4 back, training Herbalism.
+- **Ripe Puffball, a spore styptic.** A Giant Puffball left uneaten until its spoilage fills ripens instead of rotting. **Dust a Wound** raises Yarrow Clotting by 24 (half of Ground Yarrow's), slowing bleeding. It gives 3 dustings and rots after twice the fresh puffball's time.
+- **Forager's pasties.** Drag a foraged mushroom or berry onto greased rye or wheat dough in daylight (**Fill a Pasty**), then bake the raw pasty in an oven. The mushroom pasty takes Black Trumpet, Chanterelle, Chicken of the Woods, Golden Oyster, King Oyster, Lion's Mane, Morel, Shiitake and Giant Puffball. The berry pasty takes Blackcurrant, Redcurrant, Lingonberry and Cloudberry. Food values are copied from vanilla's pasties.
+- **Wild Bees' Nest, a honeycomb source.** The game places no vanilla beehive, so Honeycomb (and the Berry Preserve) had no source. A nest now sits at the Foraging Path, Pine Clearing, Oak Clearing and Alder Woods. Smoke it with a Lit Torch (or lit Bee Smoker) and **Take the Comb** for 1 to 2 Honeycomb without stings. Unsmoked, you get stung. The comb grows back in about 7 days, not in winter.
+- **Herbal Honey Syrup.** Honeycomb, two Dried Chamomile or two Dried Common Plantain and a Clay Bowl make syrup in the Medical tab. **Take a Spoonful** raises the Heather Effect, which slows chest and throat infections and eases Stress. It gives 3 spoonfuls and never spoils.
+- **Gruit Ale.** Steep a Gruit Bundle (Dried Bog Myrtle, Dried Heather Flowers, Dried Yarrow and Twine) in finished rye ale (**Steep in Ale**) for a bitter, herbal ale that spoils half as fast. It does not freeze or age in a barrel.
+- **Hemp paper and the Botanical Field Guide** (Support tab). Hemp Stalks make Hemp Pulp, which soaks for about a day and presses into Hemp Paper. 6 paper and Twine bind the Guide, whose **Read** action lists every plant the mod adds with its seasons and places.
+- **Forager's Seasoning.** Black Trumpet, Shiitake and King Oyster Powder plus Salt make a pouch of 3 pinches. **Add** it to a plateable food for Earthy and Savoury flavour.
+- **Herbal Bath Soak.** Two Dried Chamomile, a Dried Yarrow and Twine. Dropped on hot water in a pot, **Herbal Steam** eases stress for about half a day. With Advanced Copper Tools 1.18.0 or later, **Soak in the Tub** on a filled Copper Bathtub lasts about a day. It does not wash you.
+- **The Death Cap Ward is back.** Lash 5 Death Caps to 2 long sticks and place it at a location. While you are there, bear, wolf, wolf pack, primeval wolf and boar attacks, and other wild-animal encounters that start without a creature on the map, are turned away 45% of the time. It never stops people, your own fights, or other mods' animals. Pick Up moves it and Dismantle returns the sticks.
+- **Linseed Cake.** Pressing Flax Seeds also gives a Linseed Cake. **Add to Fodder** on a placed Dry Fodder gives it 6 Amount and 25 Nutrition. It keeps about 30 days.
+- **Maggots clean an infected wound.** Rotten Remains gain **Collect Maggots** (outside winter). **Apply Maggots** on an infected open wound lowers Infection by 180 and raises Stress by 15.
+- **Pine Nut Oil.** **Press Pine Nuts** on the Oil Press makes a cooking oil. Eat it or **Add** it to a plateable food. With Advanced Copper Tools 1.17.0 or later it also refuels its lanterns and braziers.
+
+### Changed
+
+- **The Apothecary Shelf takes Wild Ginseng and Wild Flowers, and no longer takes the Herbal Incense Bundle.** Both now count as herbs. A bundle already on a shelf stays. Wild Ginger stays a spice, and the shelf still refuses it.
+- **Making medicines and harvesting plants and logs trains Herbalism.** Crafting a Herbal Salve, Plantain Poultice, Herbal Tincture, Healer's Moss Tincture, Death Cap Tincture, Pain Relief Powder, Sleep Tea, Stimulant Tea or Anti-Nausea Tea, and harvesting Mature Ginseng, Flowering Yarrow or any of the six ready mushroom logs, now gives Herbalism. Mix into Hot Water brews give none.
+- **Raw Morel and raw Chicken of the Woods give food poisoning.** Eating either raw adds 8, which fades by itself in about two in-game hours with a little nausea. The Morel keeps its own nausea. Cooked ones are unchanged.
+
+### Fixed
+
+- **The Drying Stack could be researched with no Drying Tray.** It now needs one on the board, as its unlock text says.
+- **Anti-Nausea Tea and Stimulant Tea can be unlocked.** Their unlock condition never completed. Your first Dried Ginger now unlocks Anti-Nausea Tea, and your first Ground Ginseng unlocks Stimulant Tea.
+- **Trait starting items are usable.** Items from Edibles Kit, Mushroom Basket, Seed Bag, Smoke Kit and Hemp Farmer that started at quality 0 now start at 50 (Fibers at 30). Needs CSFF Mod Framework 2.28.0.
+- **Dismantling returns usable materials.** The Apothecary Shelf, Drying Stack and Wooden Pantry give back oak Planks, and a mushroom log gives back an oak log, instead of wood of no kind.
+- **Birch woods give Blackcurrant, Redcurrant, Common Plantain, Chamomile and Chanterelle.** The old code looked for a location name no vanilla location has, so none dropped. They now drop at the 17 forest spots with a large birch tree. Blackcurrant rises from 5 to 12% at five oak and alder spots and from 8 to 12% at four river spots; where a spot already gave a card, nothing drops less.
+- **The README and Player Guide say what the mod does.** Truffles come from Dig for Truffles at oak and alder locations, never under birch. The Death Cap's Apply Poison is listed. The Oil Press table lists all eleven pressings, and every pressed oil refuels Advanced Copper Tools' Metal Lantern, Copper Brazier and Copper Oil Flask (ACT 1.17.0 or later).
+- **Stimulant Tea and Sleep Tea say what they do.** Stimulant Tea lowers Stress by 12, and Sleep Tea lowers it by 20 and fills you a little. Neither touches sleep, focus or energy. Text corrected in English and Chinese; the teas themselves are unchanged.
+- **Every Add to Stew ingredient goes into the stew.** On 62 cards the action never reached the stew: in a vanilla Cooking Pot the card was only put in the pot, and in the Copper Cauldron it vanished. Now a mushroom, berry, herb, root, powder or Truffle Butter dropped on a Cooking Pot, Clay Cauldron, Clay Bowl or Copper Cauldron holding hot water (100 or more, at least 290 units, not at full thickness) is stirred in, adding vanilla's numbers for the nearest ingredient and its flavours. Cold, too thick or too little water says so. A full Clay Bowl of hot water works too.
+
+---
+
+## [1.14.0] - 2026-09-27: The Physic Garden
+
+### Added
+
+- **Chaga, Dried Chaga, Ground Chaga and Chaga Tea.** Chaga is a birch conk found foraging in Alder Woods (likeliest), Oak Clearing, Pine Clearing, Highland Meadow and vanilla forests with large birch trees, in every season. Dry it, grind it and mix the powder into hot water for the mod's biggest Herbal Tonic dose, about half a day.
+- **Plant Ginseng, Plant Yarrow and Plant Peanuts** (Farming > Agriculture). Build with 2 of the herb (or 2 Raw Peanuts) and a hoe. Ginseng grows 14 days, Yarrow 5, Peanuts 10; the harvest gives 3 to 4 herbs or 3 to 5 Peanut Pods. Roasted peanuts do not sprout.
+- **Spent mushroom logs give back wood.** A ready log still gives 20 mushrooms and now also 2 to 3 Wood Shavings and a piece of Firewood, so the shavings start your next log.
+
+### Changed
+
+- **Balance: medicinal teas dose you once, when you drink them.** Mixing Ground Ginseng, Lion's Mane, Reishi or Yarrow into hot water used to apply the effects on the spot and again on drinking. Brewing now does nothing and the Drink gives the effect once, so a cup is worth about half the Wellbeing and Stress relief it used to be.
+- **Balance: immune boosts now fade.** Ginseng, lion's mane, reishi, shiitake, black trumpet, king oyster, truffle oil, their teas and Reishi Broth used to raise your immune system permanently, so it stacked for the whole run. They now give a **Herbal Tonic** status that lasts a few hours (up to a day when doses stack), like the game's garlic, and doses close together give Strong Herbal Tonic. Immune strength already banked in a save is kept.
+- **Death Cap Tincture no longer adds lasting pain.** It still clears gut parasites and makes you sick for a while, but repeated doses no longer pin you in Minor Pain for the rest of the run.
+- **Herbs, mushrooms and berries follow the seasons at the mod's own forage spots.** The Foraging Path, Oak Clearing, Alder Woods, Pine Clearing and Highland Meadow gave every herb and mushroom all year. Now ginseng, ginger, yarrow, wild flowers, plantain, chamomile, puffball, cloudberry, death cap, chanterelle, shiitake and black trumpet run spring to autumn, lingonberry summer and autumn, and blackcurrant summer. Morels and Chaga stay year-round. Needs CSFFModFramework 2.27.0 or later; with an older one these drops stay year-round.
+
+### Fixed
+
+- **Season text matches where the mushrooms grow.** Golden Oyster, King Oyster and Morel are all-year finds, Lion's Mane and Cloudberry grow spring to autumn, Chanterelle's text now includes spring, and the starting-fungi perk no longer gives mushrooms a season they do not keep. Cloudberry's help now includes the mod's own forage spots, and King Oyster's Chinese help text is complete.
+- **The README and Player Guide no longer say hemp can be planted into vanilla garden plots.** Plant Hemp Seeds and Hemp Field are how hemp is planted.
+- **The README and Player Guide no longer call raw Chicken of the Woods toxic.** (1.14.1 later made raw Chicken of the Woods give short food poisoning.)
+- **README corrections.** The Oil Press list names all 11 oils, and Hemp Farming says what a harvest gives.
+- **Chinese help text for Ginseng Tea, Reishi Tea and Truffle Oil** is now a proper Chinese preparation and benefits text. It had repeated the English line and named the wrong item.
 
 ## [1.13.7] - 2026-09-23
 
@@ -216,21 +369,21 @@ below has been confirmed at a running game yet: every item carries a row in
   mod's four spice-tag references that did not resolve. The tag now exists and carries Peanut Oil's
   own flavour profile (Nutty, Earthy, Grassy) plus the same nutrition values its sibling oils use.
 
-## [1.10.18] — 2026-09-05
+## [1.10.18] - 2026-09-05
 
 ### Fixed
 
-- **Destroying or harvesting any Pickle Vat (Ready or Sealed, all 4 flavors) returned nothing — the
+- **Destroying or harvesting any Pickle Vat (Ready or Sealed, all 4 flavors) returned nothing, the
   vat and its Open Pickle Jar just vanished.** All 8 variant files (`PickleVatReady_{Frogs,Meat,
   Mushrooms,Vegetables}.json`, `PickleVatSealed_{Frogs,Meat,Mushrooms,Vegetables}.json`) authored
   `DroppedOnDestroy` as a flat array of drop entries, but the real field type is a nested collection
   (the same shape `ProducedCards` uses elsewhere in this mod) with the payload one level deeper. The
   mismatched shape deserialized without error, so `DroppedCards` stayed null on every collection and
-  nothing spawned — no log, no exception, just an empty destroy. Reshaped all 8 files to the correct
+  nothing spawned, no log, no exception, just an empty destroy. Reshaped all 8 files to the correct
   nested `CollectionName`/`CollectionWeight`/`DroppedCards[]` structure; destroying or emptying a
   Pickle Vat now correctly returns the reusable fired vat plus an Open Pickle Jar, as the README's
   Pickle Vat walkthrough has always described. First identified in the 2026-09-01 audit, fixed here.
-  Not yet verified in-game — recommend adding to `/playthrough-test-plan`.
+  Not yet verified in-game, recommend adding to `/playthrough-test-plan`.
 
 - **"Return Bowl" on an Open Pickle Jar produced no clay bowl, and destroying the jar dropped
   nothing.** The same flat-vs-nested shape bug also affected `CardData/Item/OpenPickleJar.json`, on
@@ -245,29 +398,29 @@ below has been confirmed at a running game yet: every item carries a row in
 
 - **Seasonal forage drops are now actually gated by season.** The forage-drop injector's per-item
   season hints ("Summer only", "Spring/Summer/Fall only", "Late Summer/Fall") were previously dead
-  parameters — every herb, mushroom, and berry dropped year-round regardless of the comment. Each
+  parameters, every herb, mushroom, and berry dropped year-round regardless of the comment. Each
   seasonal injected drop now carries a `StatsModifiers` entry keyed on the vanilla
   `SeasonCounter_<season>` GameStats that drives its chance to 0% outside its allowed seasons:
   Blackcurrant and Redcurrant are Summer-only, Lingonberry is Summer/Autumn, and every other
   seasonal herb/mushroom is Spring/Summer/Autumn (absent in Winter). Morels, King/Golden Oyster,
   and dug-for Truffles remain year-round. The suppressor is added only to the mod's own injected
-  DropChance — never a vanilla drop — so it is not a hot-path patch. Not yet verified in-game:
+  DropChance, never a vanilla drop, so it is not a hot-path patch. Not yet verified in-game:
   confirm seasonal appearance/absence across a season boundary via `/playthrough-test-plan`.
 
 - **README's Pickle Vat walkthrough now describes the shipped mechanic.** Step 6 said harvesting a
-  Ready vat spawns "the pickled goods" as a separate item; there is no such item — the Ready vat
+  Ready vat spawns "the pickled goods" as a separate item; there is no such item, the Ready vat
   *is* the food (named for its contents, e.g. "Pickled Frogs") and holds 5 servings eaten straight
   from the vat. Reworded to describe eating servings, with the jar and reusable fired vat returned
   when the vat is emptied or destroyed. Documentation only, no gameplay change.
 
-## [1.10.17] — 2026-09-01
+## [1.10.17] - 2026-09-01
 
 ### Fixed
 
-- **Hemp Butter was unreachable — Active Hemp Butter never solidified.** The 2026-09-01 fleet
+- **Hemp Butter was unreachable. Active Hemp Butter never solidified.** The 2026-09-01 fleet
   feature audit flagged the advertised 3-dose Hemp Butter as dead content. Root cause: Active Hemp
   Butter's "Wetness" stat started at 0 with a negative drain rate, and the engine only fires an
-  OnZero action on a positive-to-zero crossing — so the "solidify into Hemp Butter" transform could
+  OnZero action on a positive-to-zero crossing, so the "solidify into Hemp Butter" transform could
   never trigger, stranding the chain one step before the card that carries the three dose actions.
   Wetness now starts full at a retuned 96 DTP (one in-game day) instead of the authored 480: spoilage
   accrued while drying transfers 1:1 into the solid butter (whose spoilage window is 480), so the old
@@ -275,33 +428,33 @@ below has been confirmed at a running game yet: every item carries a row in
   with Hemp Flower Powder, heat to activate, let it rest a day, and the dosed butter now actually
   arrives. Not yet verified in-game.
 
-## [1.10.16] — 2026-08-25
+## [1.10.16] - 2026-08-25
 
 ### Fixed
 
-- **Reduced forage-table bloat that a player traced to a performance loss comparable to the village mod.** `AddMushroomDropsToForaging`'s biome matcher had a real double-counting bug: `isClearing` (bare `Contains("Clearing")`) also fired for `ClearingOak`/`ClearingAlder`/`ClearingPine` locations, since those names structurally contain `"Clearing"` — so those three location types received both their specific-biome drop set AND the full generic-clearing drop set (Wild Flowers, Dandelion, Common Plantain, Chamomile, Puffball, Redcurrant, Yarrow, Peanut Pod, all at high chance) stacked on top. Fixed by excluding the three specific-named clearings from the generic bucket.
+- **Reduced forage-table bloat that a player traced to a performance loss comparable to the village mod.** `AddMushroomDropsToForaging`'s biome matcher had a real double-counting bug: `isClearing` (bare `Contains("Clearing")`) also fired for `ClearingOak`/`ClearingAlder`/`ClearingPine` locations, since those names structurally contain `"Clearing"`, so those three location types received both their specific-biome drop set AND the full generic-clearing drop set (Wild Flowers, Dandelion, Common Plantain, Chamomile, Puffball, Redcurrant, Yarrow, Peanut Pod, all at high chance) stacked on top. Fixed by excluding the three specific-named clearings from the generic bucket.
 
 ### Added
 
 - **New `ForageDropDensityScale` config (`[Performance]`, default `1.0`).** Multiplies every H&F-injected forage/dig drop chance. Lower it instead of uninstalling the mod if forage variety still feels too dense after the fix above.
 
-## [1.10.15] — 2026-08-24
+## [1.10.15] - 2026-08-24
 
 ### Removed
 - **Forest Scout perk removed.** The Overgrown Forest Trail gate it described has applied to every
-  character by default since v1.10.7 — the perk itself no longer controlled access to anything, and
+  character by default since v1.10.7, the perk itself no longer controlled access to anything, and
   the only thing left to justify its 1-Star cost was a `+1 Foraging Aid` passive bonus (added in
   v1.10.9 as a band-aid once the gate went default). Removing the perk removes that bonus too rather
-  than reinventing a hidden always-on replacement for it — the mod now has one fewer redundant
+  than reinventing a hidden always-on replacement for it, the mod now has one fewer redundant
   character-creation choice. Character-creation perk count: 16 → 15.
 
-## [1.10.14] — 2026-08-19
+## [1.10.14] - 2026-08-19
 
 ### Fixed
 
 - **Pickle vat: "Uncap" no longer destroys packed food with a single accidental click.** The
   Closed-stage vat's "Uncap" button sat right next to "Seal" and discarded the 5 packed
-  ingredients with no warning beyond its own tooltip text — a player checking on progress or
+  ingredients with no warning beyond its own tooltip text, a player checking on progress or
   misclicking lost everything and the vat "vanished" back to empty with nothing to show for it.
   Uncap now shows a confirmation prompt ("Discard the packed [food] and reopen the vat?") on
   all four variants (Frogs/Meat/Mushrooms/Vegetables) before it fires.
@@ -311,11 +464,11 @@ below has been confirmed at a running game yet: every item carries a row in
 - Fixed "The packed meat are lost" grammar in the Uncap description (→ "is lost").
 - Removed 16 orphaned localization rows (`Herbs_And_Fungi_PickleVatSealed_*` /
   `PickleVatClosed_*` / `PickleVatReady_*` without a food-type suffix) left over from an earlier
-  single-recipe version of the vat — unreferenced by any shipped card, but described a different,
+  single-recipe version of the vat, unreferenced by any shipped card, but described a different,
   now-inaccurate design ("Harvest" destroying the vat outright) that could mislead anyone reading
   the CSV directly.
 
-## [1.10.12] — 2026-08-15
+## [1.10.12] - 2026-08-15
 
 ### Fixed
 
@@ -323,7 +476,7 @@ below has been confirmed at a running game yet: every item carries a row in
   Overgrown Forest Trail.** The trail's challenge card only ever seeded on the Primeval Woods
   side, so a player who teleported straight to the Foraging Path found the East exit sealed with
   no clearable path anywhere. The trail card now also seeds on the Foraging Path side, and (with
-  framework 2.23.2) hacking it clear from EITHER side opens travel in both directions at once —
+  framework 2.23.2) hacking it clear from EITHER side opens travel in both directions at once, 
   only one clearance is needed. The cleared trail still regrows after about 10 days, closing the
   route until it's hacked clear again. Requires CSFF Mod Framework 2.23.2+.
 - Fixed a framework-side stripped-DA cache collision between the trail gate's two directional
@@ -332,106 +485,106 @@ below has been confirmed at a running game yet: every item carries a row in
 - Trail card text no longer assumes you're approaching from Primeval Woods ("open the way
   west" → "reopen the way through"); English and Chinese rows updated together.
 
-## [1.10.11] — 2026-08-14
+## [1.10.11] - 2026-08-14
 
 ### Fixed
 
 - **Removed 26 `AccessTools.Field: Could not find field … CardName` HarmonyX warnings per load.**
   `GameLoadPatch.CachedField` probed fields via `AccessTools.Field`, which logs a warning for
-  every type that legitimately lacks the field (the probe runs against every loaded data type —
+  every type that legitimately lacks the field (the probe runs against every loaded data type, 
   SpiceTag, QuestLog, NPCDuty, …). Switched to native `Type.GetField`, which returns null
   silently; all probed fields are public game fields, so lookup results are unchanged.
 
-## [1.10.10] — 2026-08-13
+## [1.10.10] - 2026-08-13
 
 ### Fixed
 - **Misty Falls (the Greenfalls copy at the west end of the foraging forest) showed two waterfall
   cards instead of one.** The cloned board seeded one from the vanilla environment template's
   default drops, then the cloned location card's inherited "Create a Waterfall if it is missing"
-  maintenance action re-spawned a second one on top of it — the same duplicate-respawn failure mode
+  maintenance action re-spawned a second one on top of it, the same duplicate-respawn failure mode
   already fixed for ACT's mining caves. `WorldMap/MapNodes.json` now declares `StripLegacyBoardUIDs`
   for Misty Falls so that maintenance action is stripped from the clone. The single remaining
   waterfall card is the hidden-path variant, which still functions as the secret route back to
-  Waterfall Caves — that connection is untouched.
+  Waterfall Caves, that connection is untouched.
 
-## [1.10.9] — 2026-08-09
+## [1.10.9] - 2026-08-09
 
 ### Fixed
 - **Forest Scout perk (1 Star) had zero mechanical effect since v1.10.7.** The v1.10.7 fix (below)
   correctly made the Overgrown Forest Trail gate apply to every character, not just Forest Scout
-  takers — but that left the perk itself granting nothing (no starting items, no stat modifiers),
+  takers, but that left the perk itself granting nothing (no starting items, no stat modifiers),
   so taking it vs. skipping it was behaviorally identical while still costing a Star. Added a
-  passive `+1 ForagingAid` bonus to the perk (`PassiveStatModifiers`, RM +1.0 — in line with vanilla's
+  passive `+1 ForagingAid` bonus to the perk (`PassiveStatModifiers`, RM +1.0, in line with vanilla's
   constant-aid convention) so the Star cost buys something. The trail/gate mechanic itself is
   unchanged from v1.10.7.
 
-## [1.10.8] — 2026-08-09
+## [1.10.8] - 2026-08-09
 
 ### Fixed
 - **"Mix into Hot Water" (Dandelion, Chamomile, Yarrow, Ginseng, Reishi, Lion's Mane) failed silently
   when the water wasn't hot enough.** The action requires the water to be at least 50% temperature,
-  but that requirement had no fail message — clicking the action with lukewarm/cold water did nothing
+  but that requirement had no fail message, clicking the action with lukewarm/cold water did nothing
   visible, which read as "the tea didn't appear" (player-reported). All six now show "Not hot enough."
   when the heat requirement isn't met. Root cause of the underlying "which direction do I drag" confusion:
   this requirement only evaluates correctly when the water/bowl is dragged onto the herb, not the reverse
-  (the herb has no temperature stat of its own) — that direction still silently fails since it isn't a
+  (the herb has no temperature stat of its own), that direction still silently fails since it isn't a
   bug, just makes the message correct either way.
 
-## [1.10.7] — 2026-08-09
+## [1.10.7] - 2026-08-09
 
 ### Fixed
 - **The Overgrown Forest Trail now blocks the route to the foraging forest by default, not only
   after equipping the Forest Scout perk.** The perk was never actually required to hack through the
-  trail (that's gated on tool tags — blade/axe/shovel/antler — on the trail's own
+  trail (that's gated on tool tags, blade/axe/shovel/antler, on the trail's own
   `CardInteraction`); it only controlled whether the overgrowth existed at all, which meant the
-  route was silently wide open on any save — including existing saves that install this mod
+  route was silently wide open on any save, including existing saves that install this mod
   without ever taking Forest Scout. Requires `CSFFModFramework` 2.21.1+ (new `SealTrigger` type
   `"Always"`).
 
-## [1.10.6] — 2026-08-10
+## [1.10.6] - 2026-08-10
 
 ### Fixed
-- **Bowl duplication when drinking Dandelion Tea, Chamomile Tea, or applying Herbal Salve** — reported
+- **Bowl duplication when drinking Dandelion Tea, Chamomile Tea, or applying Herbal Salve**, reported
   by a player (2 bowls became 4 after brewing and drinking two cups). Dandelion/Chamomile Tea are
   brewed via a "Mix into Hot Water" interaction that transforms the liquid *inside* the bowl without
   ever consuming the physical ClayBowl; Herbal Salve's blueprint never required a bowl ingredient at
   all (just ground yarrow + hemp seed oil). All three DismantleActions (Drink/Apply Salve) then
   additionally spawned a brand-new ClayBowl on top of the one that was never consumed. Removed the
-  redundant `ProducedCards` ClayBowl entry from all three — the original bowl already survives on its
+  redundant `ProducedCards` ClayBowl entry from all three, the original bowl already survives on its
   own once its contents are consumed. (The other 11 teas/tinctures in `CardData/Liquid/` were audited
-  and confirmed correct — either their blueprint consumes a ClayBowl as an ingredient, netting to zero
+  and confirmed correct, either their blueprint consumes a ClayBowl as an ingredient, netting to zero
   when one is returned on drink, or they use the vanilla-style liquid-card-transforms-into-bowl pattern.)
 
-## [1.10.5] — 2026-08-07
+## [1.10.5] - 2026-08-07
 
 ### Fixed
-- **Repaired drifted Chinese localization (`Localization/SimpCn.csv`)** — second confirmed drift
+- **Repaired drifted Chinese localization (`Localization/SimpCn.csv`)**, second confirmed drift
   incident (see `Documentation/Plans/Fleet/Chinese_Localization_Plan.md`). 88 keys with no Chinese row at
   all (Misty Falls environment, Mushroom Broth / Oil-Press Peanuts / Trail Mix blueprint chains,
-  Cleared/Overgrown Forest Trail, Forest Scout perk) were missing entirely — Chinese players saw
+  Cleared/Overgrown Forest Trail, Forest Scout perk) were missing entirely. Chinese players saw
   English `DefaultText` for all of them. A further 98 records had English or blank text sitting in
   the Chinese column (dried Golden/King Oyster, truffle family, herbal oils, Wooden Pantry, hemp
-  seeds, and others) — translated. All 1,175 legacy 2-column (`Key,Chinese`) rows normalized to the
+  seeds, and others), translated. All 1,175 legacy 2-column (`Key,Chinese`) rows normalized to the
   canonical 3-column `Key,English,Chinese` format, backfilling the English anchor from
   `SimpEn.csv` so future drift is machine-detectable (`Development_Tools/Check-LocalizationParity.ps1`).
   No existing Chinese translations were altered; all 1,203 original rows kept their exact order.
 - **Fixed 3 independently-truncated `SimpEn.csv`/`SimpCn.csv` rows** (`herbsfungiwildflowers_
   UsageDurability_OnFull`, `herbsfungidandeliondried_Eat_Desc`, `herbsfungicommonplantain_
-  UsageDurability_OnFull`) — an unquoted comma in the English text had silently truncated it in both
+  UsageDurability_OnFull`), an unquoted comma in the English text had silently truncated it in both
   files (different truncation point in each), so English players were also seeing a cut-off string.
   Restored the full text from each item's JSON `DefaultText` and quoted the field.
 
-## [1.10.4] — 2026-08-07
+## [1.10.4] - 2026-08-07
 
 ### Added
 - **76 perishable items and liquids now carry `tag_Preservable`** (dried/cooked mushrooms, berries,
-  herbs, teas, tinctures, salves, and the four ready pickle vats) — brings them in line with the 15
+  herbs, teas, tinctures, salves, and the four ready pickle vats), brings them in line with the 15
   items (dried mushrooms, hemp products, roasted peanuts) that already had it. This is a vanilla
   CardTag with no shipped vanilla users; third-party mods that bulk-match spoilage-rate effects onto
   it (e.g. freshness/preservation perk mods) now apply correctly to the rest of our perishable catalog
   instead of only 15 of 91 genuinely spoiling items.
 
-## [1.10.2] — 2026-07-27
+## [1.10.2] - 2026-07-27
 
 ### Changed
 - **All 84 tradeable items now have NPC trading values** (previously 0 = free at trading
@@ -440,24 +593,24 @@ below has been confirmed at a running game yet: every item carries a row in
   40–55, pickling gear 8–100, oil-press parts 25–80 and Oil Press Kit 400. Part of the
   fleet-wide trading reprice (CMC 1.31.0 carries the vanilla table; framework 2.18.0 applies it).
 
-## [1.10.1] — 2026-07-21
+## [1.10.1] - 2026-07-21
 
 ### Fixed
-- **Apothecary quest gate (Stimulant Tea / Anti-Nausea Tea)** — `ApothecaryQuestGatePatch` no longer unlocks both teas together when CMC's Apothecary herb-fetch quest (billberries/springberries/spirit mushrooms) completes; that was the wrong signal. Each tea now unlocks independently and only when the player actually obtains the corresponding H&F item (Ground Ginseng → Stimulant Tea, Dried Ginger → Anti-Nausea Tea), matching the mod's own soft-dependency design (works with or without CMC installed).
+- **Apothecary quest gate (Stimulant Tea / Anti-Nausea Tea)**, `ApothecaryQuestGatePatch` no longer unlocks both teas together when CMC's Apothecary herb-fetch quest (billberries/springberries/spirit mushrooms) completes; that was the wrong signal. Each tea now unlocks independently and only when the player actually obtains the corresponding H&F item (Ground Ginseng → Stimulant Tea, Dried Ginger → Anti-Nausea Tea), matching the mod's own soft-dependency design (works with or without CMC installed).
 
 ---
 
-## [1.10.0] — 2026-07-16
+## [1.10.0] - 2026-07-16
 
 ### Added
-- **Peanut Oil** — press 3 Raw Peanuts + a Clay Bowl on the Oil Press (new "Press Peanuts" recipe alongside the seed/truffle/herbal pressings). Edible, seasons food, joins the `tag_Oil` lamp-fuel pool.
-- **Peanut Butter** — grind Roasted Peanuts with any grinding tool (mortar & pestle, or batch-process in a grinding station). A dense, very drying fat-and-protein meal that keeps for two months.
-- **Forager's Trail Mix** — new Cooking-tab recipe: 2 Roasted Peanuts + 2 Dried Billberries → 2 portions of travel ration; lighter on thirst than plain roasted peanuts.
+- **Peanut Oil**, press 3 Raw Peanuts + a Clay Bowl on the Oil Press (new "Press Peanuts" recipe alongside the seed/truffle/herbal pressings). Edible, seasons food, joins the `tag_Oil` lamp-fuel pool.
+- **Peanut Butter**, grind Roasted Peanuts with any grinding tool (mortar & pestle, or batch-process in a grinding station). A dense, very drying fat-and-protein meal that keeps for two months.
+- **Forager's Trail Mix**, new Cooking-tab recipe: 2 Roasted Peanuts + 2 Dried Billberries → 2 portions of travel ration; lighter on thirst than plain roasted peanuts.
 - The peanut cycle no longer dead-ends at "roasted": all three new items consume shipped peanut content.
 
 ---
 
-## [1.9.4] — 2026-07-12
+## [1.9.4] - 2026-07-12
 *(Covers changes since the last published release on 2026-06-23.)*
 
 ### Added
@@ -480,17 +633,17 @@ below has been confirmed at a running game yet: every item carries a row in
 
 ---
 
-## [1.8.0] — 2026-06-21
+## [1.8.0] - 2026-06-21
 
 ### Added
 - **World map expansion**: Four new biomes are now accessible west of Primeval Woods
-  - **Foraging Path** — hub node; travel west from Primeval Woods to reach it
-  - **Pine Clearing** — north of Foraging Path (pine forest terrain)
-  - **Oak Clearing** — west of Foraging Path (oak forest terrain)
-  - **Alder Woods** — south of Foraging Path (alder forest terrain)
+  - **Foraging Path**, hub node; travel west from Primeval Woods to reach it
+  - **Pine Clearing**, north of Foraging Path (pine forest terrain)
+  - **Oak Clearing**, west of Foraging Path (oak forest terrain)
+  - **Alder Woods**, south of Foraging Path (alder forest terrain)
 
 ### Changed
-- **Perk costs rebalanced** — most crafting/gathering perks now cost Suns instead of Moons:
+- **Perk costs rebalanced**, most crafting/gathering perks now cost Suns instead of Moons:
   - Add Fungi: 2 Moons → 5 Suns
   - Alchemist: 4 Moons → 10 Suns
   - Culinary Kit: 1 Moon → 10 Suns
@@ -506,14 +659,14 @@ below has been confirmed at a running game yet: every item carries a row in
   - Hemp Farmer: 4 Moons → 2 Moons *(cheaper)*
   - Add Hemp: 3 → 4 Moons *(slightly more expensive)*
 - **Pickling**: harvest now yields an **Open Pickle Jar** alongside pickled goods; use the "Return Bowl" action to reclaim the clay bowl lid and reduce per-batch clay cost
-- **Pickle Vat consolidation** — generic "Closed Pickle Vat" removed; closing the vat now requires choosing a type (Frogs, Meat, Mushrooms, or Vegetables) up front
+- **Pickle Vat consolidation**, generic "Closed Pickle Vat" removed; closing the vat now requires choosing a type (Frogs, Meat, Mushrooms, or Vegetables) up front
 - Chinese localization expanded for Hemp Field, Chanterelle, Black Trumpet, Redcurrant, Lingonberry, and all four new map locations
 
 ### Fixed
-- Food tags corrected on Black Trumpet, Chanterelle, Puffball, Reishi, and Shiitake (and their cooked variants) — mushrooms now properly register in stew and cooking systems
+- Food tags corrected on Black Trumpet, Chanterelle, Puffball, Reishi, and Shiitake (and their cooked variants), mushrooms now properly register in stew and cooking systems
 
 ### Technical
-- All mod UniqueIDs migrated from `herbs_fungi_*` underscore format to `herbsfungi*` camelCase. **⚠ Save compatibility**: items from runs using v1.7.0 or earlier will not be recognized after updating — start a new character for full compatibility.
+- All mod UniqueIDs migrated from `herbs_fungi_*` underscore format to `herbsfungi*` camelCase. **⚠ Save compatibility**: items from runs using v1.7.0 or earlier will not be recognized after updating, start a new character for full compatibility.
 - Pickle vat action routing migrated to CSFFModFramework Tier 2 ActionRouter.
 - EA 0.65 compatibility; C# patches migrated to Tier 2 runtime APIs (ActionRouter, SpawnService).
 
@@ -580,7 +733,7 @@ below has been confirmed at a running game yet: every item carries a row in
 - Wild Ginger added to spice/herb roster
 
 ### Fixed
-- Truffle fat-cook patch — Dried Truffle Slices + fat in heat produces Cooked Truffle instead of ash
+- Truffle fat-cook patch. Dried Truffle Slices + fat in heat produces Cooked Truffle instead of ash
 
 ---
 

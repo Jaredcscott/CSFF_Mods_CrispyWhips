@@ -1,0 +1,44 @@
+{
+    "UniqueID": "herbs_fungi_spice_clotting_effect",
+    "SpiceName": {
+        "ParentObjectID": "herbs_fungi_spice_clotting_effect",
+        "LocalizationKey": "Herbs_And_Fungi_Spice_ClottingEffect_SpiceName",
+        "DefaultText": "Clotting Herbs"
+    },
+    "UseNameAsSuffix": false,
+    "DontShowSpiceIconOnCard": false,
+    "TagGroupID": {
+        "Active": true,
+        "Text": "herbs_fungi_spice_group_clotting"
+    },
+    "CustomSpiceIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CustomFadingDuration": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "CustomFadingRate": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "ScaleStatModifiersWithFading": false,
+    "AddedFlavours": [],
+    "AddedStatModifiers": [
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "ValueModifier": {"x": 8.0, "y": 8.0},
+            "RateModifier": {"x": 0.0, "y": 0.0},
+            "MinValueModifier": {"x": 0.0, "y": 0.0},
+            "MaxValueModifier": {"x": 0.0, "y": 0.0},
+            "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false,
+            "StatWarpData": "herbs_fungi_stat_clotting_effect",
+            "StatWarpType": 3
+        }
+    ]
+}

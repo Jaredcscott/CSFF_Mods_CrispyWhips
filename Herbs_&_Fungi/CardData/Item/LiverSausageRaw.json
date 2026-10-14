@@ -1,0 +1,420 @@
+{
+    "UniqueID": "herbs_fungi_liver_sausage_raw",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+        "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_CardName",
+        "DefaultText": "Raw Liver Sausage"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+        "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_CardDescription",
+        "DefaultText": "Liver, meat filling and dried yarrow stuffed into cleaned intestines. Cook it, boil it or hang it to dry."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+        "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Blueprint: Liver Sausage (Liver, Raw Rich Meat Filling or Raw Minced Meat, Cleaned Intestines and Dried Yarrow).\n\n<b>Next:</b> Heat it near a fire until the Cook bar fills (Liver Sausage), boil it in a pot of water (Boiled Liver Sausage), or dry it on a drying rack (Dried Liver Sausage). It can be eaten raw, at a risk of parasites."
+    },
+    "CardType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Sausage_Blood_Raw",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 100,
+    "TradingValue": 6,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Heatable",
+        "tag_Cookable",
+        "tag_Boilable",
+        "tag_Dryable"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "7f58c5cb8842308409aeab7464cf36e4",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "eaecdca41b9d7134487931836f0ec104",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "AlwaysUpdate": false,
+    "MaxStack": 4,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+            "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+                "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The raw liver sausage has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+            "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_UsageDurability_CardStatName",
+            "DefaultText": "Drying"
+        },
+        "MaxValue": 24.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+                "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_UsageDurability_OnFull_ActionDescription",
+                "DefaultText": "The liver sausage has dried."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_liver_sausage_dried",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "ModifyDurability": true
+            }
+        }
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+            "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_FuelCapacity_CardStatName",
+            "DefaultText": "Temperature"
+        },
+        "MaxValue": 200.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+            "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_SpecialDurability1_CardStatName",
+            "DefaultText": "Cook"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 0,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+                "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "The liver sausage is cooked."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_liver_sausage_cooked",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "ModifyDurability": true
+            }
+        }
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+            "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_SpecialDurability4_CardStatName",
+            "DefaultText": "Boil"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 0,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+                "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_SpecialDurability4_OnFull_ActionDescription",
+                "DefaultText": "The liver sausage is boiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_liver_sausage_boiled",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "ModifyDurability": true
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+                "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_DismantleActions_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_liver_sausage_raw",
+                "LocalizationKey": "Herbs_And_Fungi_LiverSausageRaw_DismantleActions_Eat_ActionDescription",
+                "DefaultText": "Eat the raw liver sausage."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ReceivingCardFlavourBonus": true,
+            "ActionSoundsWarpData": [
+                "Eating"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "f76360c14c95ac94193a357c220c7efd",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -24.0,
+                        "y": -24.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 50.0,
+                        "y": 50.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 70.0,
+                        "y": 70.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 52.0,
+                        "y": 52.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "09c2ec726d9e9f64f87eb675b8e5f005",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 240.0,
+                        "y": 240.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "f1d5fe40048674e408f56be22beaf6ae",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 126.0,
+                        "y": 126.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1c65f54ccf62e6f448c6c18fa8a21337",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 40.0,
+                        "y": 40.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3cca07dc92f73e44ea9e6ec72b77427b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 150.0,
+                        "y": 300.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -2.0,
+                        "y": -2.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "61fe13d94cbfc5148942e07745d577ce",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -24.0,
+                        "y": -24.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "b1d3fc8aeb9a3904c99633073503e48e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -24.0,
+                        "y": -24.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

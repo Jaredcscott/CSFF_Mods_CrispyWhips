@@ -1,0 +1,63 @@
+{
+  "target": "WildBerryPasty.png",
+  "sourceCard": "CardData/Item/WildBerryPasty.json",
+  "subject": "a baked golden-brown half-moon pasty with a glossy crust, twisted rope-crimped seam, a slit vent and a small stain of purple-red berry juice at the seam, a few blackcurrants and redcurrants resting against its lower edge",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the SHAPE reference only: a half-moon pasty with a thick twisted rope-crimped edge along its curved side. Draw one pasty of this same shape, proportions and crimped rope edge, but painted in a hand-painted watercolor-and-ink style like reference images 2 and 3, not the flat cartoon shading or grey shadow of reference image 1.\nReference image 2 is a PROP: a small cluster of dark purple-black blackcurrants with green leaves, drawn the same.\nReference image 3 is a PROP: a hanging cluster of bright red redcurrants with green leaves, drawn the same.\nThe pasty is BAKED: one whole golden-brown crust with a glossy egg-washed sheen and a few darker toasted patches, the twisted rope-crimped seam clearly visible, one small slit vent in the top, and a small stain of dark purple-red berry juice seeping from the seam. A few blackcurrants and a few redcurrants rest against its lower edge, small and subordinate to the pasty, showing what is inside.\nHand-painted watercolor-and-ink game item illustration of a baked golden-brown wild berry pasty with a few dark blackcurrants and bright red redcurrants resting beside it, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, one pasty as the single main object, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, cartoon, pixel art, neon colors, lens flare, more than one pasty, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, pale raw dough, burnt, charred, black crust, steam, smoke, plate, bowl, board, cloth, cut open, bite taken, sliced, jam jar, pie dish.",
+  "historyId": "i4fy3J2fd1t7xAQVi9dR",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790980266617_c287bf53_1790980267679_9b563223.png",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790980266617_c287bf53_1790980267679_9b563223.png",
+      "verdict": "accepted against the subject checklist: whole golden-brown crust with a glossy sheen, rope-crimped seam, one slit vent, a small purple-red juice stain at the seam, a few currants beside it"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish), then key_enclosed.py run twice, each confined by --box (318,585,342,614 then 388,543,428,572), to two small paper specks between the berries and a leaf (54 px, then 192 px over two regions). An unconfined run would have punched holes in the crust glints. find_key_holes.py lists one interior hole, ink-rimmed 0.75: a gap drawn between berries.",
+  "note": "One sample, generated for the plan feature 12 build (HerbsAndFungi 1.14.1 content update); accepted against its subject checklist by Claude, not yet seen by the owner. The job submitted three visualReferences but OpenArt attached only the first two (inputImages lists Pasty_Rye vanilla (subject shape), BlackcurrantFresh (prop)), so the third was not seen by the model although the prompt describes it. The vanilla Pasty_Rye reference is a vanilla game sprite exported with UnityPy (710x812), not a repo file.",
+  "composition": {
+    "ref": "Pasty_Rye (vanilla sprite)",
+    "role": "subject shape",
+    "finish": "keyed",
+    "action": "a baked, golden-brown half-moon pasty with a glossy crust, rope-crimped seam, one slit vent and a small stain of purple-red berry juice seeping from the seam, a few blackcurrants and redcurrants resting against its lower edge; same shape and placement as WildBerryPastyRaw"
+  },
+  "references": [
+    {
+      "role": "subject shape",
+      "fragment": "Pasty_Rye vanilla (subject shape)",
+      "image": "vanilla Sprite Pasty_Rye (exported from the game's asset files with UnityPy, 710x812; not a repo file)",
+      "sha256": "9f7eb3c91c8f36f95785431130830bd8ef1905aa56191047a3b6c1b436c2da83",
+      "id": "BEi0AqZMtMaR1tpOfIyg",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Pasty_Rye_1790980139976_fd8e7847.png",
+      "attached": true
+    },
+    {
+      "role": "prop",
+      "fragment": "BlackcurrantFresh (prop)",
+      "image": "HerbsAndFungi/Resource/Picture/BlackcurrantFresh.png",
+      "sha256": "2e259e5e480f24a1e843775da59665debadecdb00c53fb401af2e76f0256a51f",
+      "id": "T3Jjmk65gsvlYIFioKQC",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BlackcurrantFresh_1790980142069_7158a522.png",
+      "attached": true
+    },
+    {
+      "role": "prop",
+      "fragment": "RedcurrantFresh (prop)",
+      "image": "HerbsAndFungi/Resource/Picture/RedcurrantFresh.png",
+      "sha256": "1bd09b49fe5afafef87822cf38511d31328a02e1a23df862dad29ed865bb8495",
+      "id": "fhLeTV5aeKI11VNXxUPG",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/RedcurrantFresh_1790980142893_8b5bbe88.png",
+      "attached": false
+    }
+  ]
+}

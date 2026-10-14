@@ -1,0 +1,48 @@
+{
+  "target": "LionsMane.png",
+  "sourceCards": [
+    "CardData/Item/LionsManeMushroom.json",
+    "CardData/Item/SporePrintLionsMane.json"
+  ],
+  "kind": "item",
+  "subject": "one fresh lion's mane mushroom drawn bare: a single rounded cream-white clump about the size of a fist, made of hundreds of long soft hanging spines like a shaggy beard, the spines slightly yellowed at their tips and at the flat cut base where it was cut from a tree",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "BracketFungus_Fresh",
+      "id": "8f8S5GUPa3xK0L3XAcG0",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BracketFungus_Fresh_1791744838594_b4223080.png",
+      "role": "style"
+    },
+    {
+      "sprite": "ForestCaps_Item",
+      "id": "qvkp0ehg23gneSGCgPGq",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ForestCaps_Item_1791744965420_c0401ad6.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw one fresh lion's mane mushroom drawn bare: a single rounded cream-white clump about the size of a fist, made of hundreds of long soft hanging spines like a shaggy beard, the spines slightly yellowed at their tips and at the flat cut base where it was cut from a tree. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, log, bark, tree, wood, stump, cauliflower, coral, cap, stem, gills, bowl, plate.",
+  "historyId": "54XGaa4bRWQogiGgDNWi",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798890444_d375c751_1791798891416_890465f0.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798890444_d375c751_1791798891416_890465f0.png",
+      "historyId": "54XGaa4bRWQogiGgDNWi"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG)",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner."
+}

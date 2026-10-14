@@ -1,0 +1,46 @@
+{
+  "target": "PlantainPlantMature.png",
+  "sourceCard": null,
+  "subject": "one flowering common plantain plant on tilled soil: a rosette of broad ribbed leaves with several tall slender leafless stalks each topped with a narrow cylindrical green-brown flower spike",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "composition": "HerbsAndFungi/.art/compositions.json -> PlantainPlantMature",
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "PlantainFresh",
+      "image": "HerbsAndFungi/Resource/Picture/PlantainFresh.png",
+      "sha256": "8b6237ad1aa0322aabaa9cfbd2471d5be2a4886aa49be88e4b6812988b922894",
+      "id": "l9wjU58oKeweHH3p5QOq",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/PlantainFresh_1790971886278_cec2d3d7.png"
+    },
+    {
+      "role": "style",
+      "fragment": "YarrowPlantMature",
+      "image": "HerbsAndFungi/Resource/Picture/YarrowPlantMature.png",
+      "sha256": "4bec7b2b684f40c8ea8f460c0688ee2a534c953605ace290b043159c1e72015d",
+      "id": "5BxeIMUleXX98xPMcEeB",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/YarrowPlantMature_1790971888465_f0dd07e5.png"
+    }
+  ],
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a bunch of fresh common plantain leaves: draw this same plant, keeping its broad oval ribbed dark-green leaves, their veining, colours and painting style identical, changed only as follows: it is a living plant growing from a small, roughly oval patch of freshly tilled dark brown soil, not a cut bundle (no twine, no tied stems), shown as a rosette of broad oval ribbed leaves at the soil with several tall, slender, leafless green stalks rising from the centre, each topped with a narrow, dense, cylindrical green-brown flower spike like a small bottle brush.\nReference image 2 is a style and layout reference only: match its ink linework, shading and palette, and the size, shape and placement of its small oval tilled soil patch and the plant standing on it; do not copy its subject, its feathery leaf shape or its flat white flower clusters.\nHand-painted watercolor-and-ink game item illustration of one flowering common plantain plant growing from a small, roughly oval patch of freshly tilled dark brown soil, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, twine, tied bundle, cut stems, white flowers, yellow flowers, daisies, flat umbrella-shaped flower clusters, feathery fern-like leaves, pot, planter, grass.",
+  "historyId": "VWPL1vVdwXHiOZAPrsqX",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790971996310_abe59d9f_1790971996678_3ca81fdd.png",
+      "verdict": "accepted: broad ribbed leaf rosette with six tall stalks topped by narrow green-brown spikes, tilled soil"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish); key_enclosed.py default (3 regions, 391 px); then --pure 240 --min-area 6 --box 180,420,360,580 (2 regions, 70 px at the leaf bases).",
+  "note": "HerbsAndFungi 1.14.1 plan feature 8, generated for the build session by Claude from the herb's shipped image as the subject reference (/create-image-refs, item variant); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

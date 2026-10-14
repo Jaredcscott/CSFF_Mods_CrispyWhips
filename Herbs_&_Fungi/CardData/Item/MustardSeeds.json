@@ -1,0 +1,108 @@
+{
+    "UniqueID": "herbs_fungi_mustard_seeds",
+    "TradingValue": 10.0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_mustard_seeds",
+        "LocalizationKey": "Herbs_And_Fungi_MustardSeeds_CardName",
+        "DefaultText": "Mustard Seeds"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_mustard_seeds",
+        "LocalizationKey": "Herbs_And_Fungi_MustardSeeds_CardDescription",
+        "DefaultText": "A handful of small, hot wild mustard seeds. Not food on their own: drag them onto a plateable food to season it with a sharp, pungent bite. A handful seasons two plates."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_mustard_seeds",
+        "LocalizationKey": "Herbs_And_Fungi_MustardSeeds_CardHelpSection",
+        "DefaultText": "<b>Season:</b> Summer and autumn, on the Highland Meadow and the Foraging Path.\n\n<b>Uses:</b> Drag the seeds onto a plateable food (cooked meat, fish, eggs and the like) to season it, pungent with a bitter edge. Each drag uses up one of its two pinches."
+    },
+    "CardType": 0,
+    "ObjectWeight": 15,
+    "MaxStack": 10,
+    "AlwaysUpdate": false,
+    "DoesNotPile": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_MustardSeeds",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Foraged"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 2.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_mustard_seeds",
+            "LocalizationKey": "Herbs_And_Fungi_MustardSeeds_UsageDurability_CardStatName",
+            "DefaultText": "Pinches"
+        },
+        "MaxValue": 2.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_mustard_seeds",
+                "LocalizationKey": "Herbs_And_Fungi_MustardSeeds_OnZero_ActionDescription",
+                "DefaultText": "The mustard seeds are used up."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_mustard_seeds",
+                "LocalizationKey": "Herbs_And_Fungi_MustardSeeds_CardInteractions_Add_ActionName",
+                "DefaultText": "Add"
+            },
+            "DaytimeCost": 0,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Plateable"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddedSpiceTags": [],
+                "AddedSpiceTagsWarpData": [
+                    "herbs_fungi_spice_mustard"
+                ],
+                "AddedSpiceTagsWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": []
+}

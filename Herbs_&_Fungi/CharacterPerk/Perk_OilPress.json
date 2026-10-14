@@ -2,8 +2,6 @@
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
-    "AddedCardsWarpData": [],
-    "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
     "CheckingNotificationDetails": 0,
@@ -14,10 +12,10 @@
     "DisplayPriority": 2240.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "herbs_fungi_oil_press_kit"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
     "MoonsCost": 3,
     "NestedObjectives": [],

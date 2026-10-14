@@ -1,0 +1,172 @@
+{
+    "UniqueID": "herbs_fungi_elderflower_cordial",
+    "TradingValue": 12,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_elderflower_cordial",
+        "LocalizationKey": "herbsfungielderflowercordial_CardName",
+        "DefaultText": "Elderflower Cordial"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_elderflower_cordial",
+        "LocalizationKey": "herbsfungielderflowercordial_CardDescription",
+        "DefaultText": "A sweet, floral drink steeped from dried elderflowers. Soothing, and cooling on a warm day."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_HumanDrink",
+        "tag_Consumable",
+        "tag_Drinkable",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_ElderflowerCordial",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_elderflower_cordial",
+        "LocalizationKey": "herbsfungielderflowercordial_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_elderflower_cordial",
+            "LocalizationKey": "herbsfungielderflowercordial_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 1440.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_elderflower_cordial",
+                "LocalizationKey": "herbsfungielderflowercordial_Spoiled",
+                "DefaultText": "The elderflower cordial has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "9060e702466d6764eb64e5983e72215e",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_elderflower_cordial",
+                "LocalizationKey": "herbsfungielderflowercordial_Drink",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_elderflower_cordial",
+                "LocalizationKey": "herbsfungielderflowercordial_Drink_Desc",
+                "DefaultText": "Drink the elderflower cordial. Sweet and soothing."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "DrinkingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 10.0,
+                        "y": 10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -20.0,
+                        "y": -20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 100.0,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1
+}

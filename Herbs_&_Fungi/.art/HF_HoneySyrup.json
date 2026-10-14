@@ -1,0 +1,32 @@
+{
+  "target": "HF_HoneySyrup.png",
+  "sourceCards": [
+    "CardData/Item/HoneySyrup.json",
+    "CardData/Blueprint/Bp_HoneySyrup_Chamomile.json",
+    "CardData/Blueprint/Bp_HoneySyrup_Plantain.json"
+  ],
+  "kind": "clay bowl (vanilla Bowl_Clay_Water, liquid recoloured)",
+  "method": "Development_Tools/CardArt/liquid_bowl.py make_bowl() with the colour from .art/bowl_items.json, trimmed by trim_card_art; no generation, no credits",
+  "colour": "#d2911e",
+  "looks": "golden amber honey",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "previousGeneration": {
+    "subject": "a small plain terracotta clay bowl filled to the brim with thick glossy golden-amber honey syrup, a few dried chamomile flowers and a wooden honey spoon resting across the rim of the bowl, no lid, no handle",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "imageCount": 1,
+      "autoEnhancePrompt": false
+    },
+    "prompt": "create-image.md Step 3 template with the subject above; Avoid list extended with: wooden bowl, glass jar, lid, bees, honeycomb pieces",
+    "historyId": "caJJfVzGQOMMRillz4WW",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791099963335_9a7e7f56_1791099963773_421669f5.png",
+    "credits": 30,
+    "generated": "2026-10-04"
+  }
+}

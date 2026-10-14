@@ -1,0 +1,42 @@
+{
+  "target": "HF_GinsengTea.png",
+  "sourceCard": [
+    "CardData/Liquid/GinsengTea.json"
+  ],
+  "subject": "",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows the standard tea bowl: draw this same bowl, keeping its shape, terracotta colour, size, rim, steam and linework identical, changed only as follows: it is filled with warm amber tea, and one small pale forked ginseng root rests beside it in place of the chamomile flowers. Keep it a bowl, never a cup.\nHand-painted watercolor-and-ink game item illustration in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework, soft watercolor and gouache shading, warm muted natural palette, gentle light from the upper left, slight three-quarter angle, \nsingle object only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "8nopAqexsWM5oBU0tni5",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088853782_fea4edb9_1791088854248_06bc798b.png",
+  "credits": 150,
+  "generated": "2026-10-03",
+  "note": "Round 2 of the 2026-10-03 batch (regenerated from the owner's notes on round 1); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088853782_fea4edb9_1791088854248_06bc798b.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088853536_393ea890_1791088853872_718d6209.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088853121_27cb2128_1791088853450_3eeab1e4.png"
+    }
+  ],
+  "picked": "A",
+  "references": [
+    {
+      "label": "HF_ChamomileTea.png",
+      "role": "subject"
+    }
+  ]
+}

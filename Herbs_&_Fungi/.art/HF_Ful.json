@@ -1,0 +1,36 @@
+{
+  "target": "HF_Ful.png",
+  "sourceCards": [
+    "Ful"
+  ],
+  "kind": "item",
+  "subject": "a lumpy heap of thick brownish-green mashed broad beans glistening with a little golden oil, a few whole beans at the edge, drawn bare",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "Billberries_Pulp",
+    "id": "uR0ZmM3aaVFG1f6dBJkJ",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Billberries_Pulp_1791744837261_404740cc.png"
+  },
+  "prompt": "redraw from the owner note: subject rewritten as low and wide (about three times as wide as tall) or the sack lying on its long side with mushrooms from slits; 3:2 frame; padded to 2:3 with white before finishing",
+  "historyId": "oyhJeOfeofgMitZ1FU13",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791758129427_b17af704_1791758129467_c8f2ad1d.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "review": "owner-reviewed, redrawn 2026-10-11",
+  "firstSample": {
+    "historyId": "7gipxLjX0oAnYs67bs9U",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756587972_4fa2a99d_1791756588040_8389ab61.png"
+  },
+  "ownerReview": "2026-10-11 ? | notes: too tall",
+  "failedRedraw": {
+    "historyId": "ljO1SCXUBCB0bK4gXT03",
+    "why": "passing the first sample as a second reference made the model copy its shape; dropped"
+  }
+}

@@ -1,0 +1,148 @@
+{
+    "UniqueID": "herbs_fungi_mandrake_root",
+    "TradingValue": 25,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_mandrake_root",
+        "LocalizationKey": "herbsfungimandrakeroot_CardName",
+        "DefaultText": "Mandrake Root"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_mandrake_root",
+        "LocalizationKey": "herbsfungimandrakeroot_CardDescription",
+        "DefaultText": "A thick, forked root with a strange, almost human shape. Not food. Steep it in hot water for a sleeping draught."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_mandrake_root",
+        "LocalizationKey": "herbsfungimandrakeroot_CardHelpSection",
+        "DefaultText": "<b>Season:</b> Summer and autumn, at the Oak Clearing and the Old-Growth Grove.\n\n<b>Uses:</b> Steep it in a bowl of hot water to make a Mandrake Draught, a sleeping draught."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Herb"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_MandrakeRoot",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_mandrake_root",
+            "LocalizationKey": "herbsfungimandrakeroot_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 1440.0,
+        "RatePerDaytimePoint": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_mandrake_root",
+                "LocalizationKey": "herbsfungimandrakeroot_SpoilageTime_OnFull",
+                "DefaultText": "The mandrake root has rotted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_mandrake_root",
+                "LocalizationKey": "herbsfungimandrakeroot_Steep",
+                "DefaultText": "Steep in Hot Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_mandrake_root",
+                "LocalizationKey": "herbsfungimandrakeroot_Steep_Desc",
+                "DefaultText": "Steep the mandrake root in a bowl of hot water to make a Mandrake Draught."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_ContainerBowl"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_mandrake_root",
+                    "LocalizationKey": "herbsfungimandrakeroot_Steep_FailMessage",
+                    "DefaultText": "Not hot enough."
+                }
+            },
+            "WorksBothWays": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_mandrake_draught",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true
+            },
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [],
+    "ObjectWeight": 20,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

@@ -1,0 +1,148 @@
+{
+    "UniqueID": "herbs_fungi_bp_nut_tofu",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_nut_tofu",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_NutTofu_CardName",
+        "DefaultText": "Nut Tofu"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_nut_tofu",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_NutTofu_CardDescription",
+        "DefaultText": "Curdle a bowl of nut milk with salt and press it into nut tofu. The milk is used up."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_nut_tofu",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_NutTofu_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Nut Milk"
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasNutMilk",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_nut_milk",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredTabGroupWarpData": "GpTag_Bowl",
+                    "RequiredTabGroupWarpType": 3,
+                    "RequiredLiquidContent": {
+                        "IsActive": true,
+                        "RequiredLiquid": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "RequiredLiquidWarpData": "herbs_fungi_nut_milk",
+                        "RequiredLiquidWarpType": 3,
+                        "RequiredGroup": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "RequiredQuantity": {
+                            "x": 150.0,
+                            "y": 0.0
+                        }
+                    },
+                    "EffectOnIngredient": {
+                        "ModType": 0,
+                        "ModifyLiquid": true,
+                        "LiquidQuantityChange": {
+                            "x": -150.0,
+                            "y": -150.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_nut_tofu",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Cheese_Soft",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

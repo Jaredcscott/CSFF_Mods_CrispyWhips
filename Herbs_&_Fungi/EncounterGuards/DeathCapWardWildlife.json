@@ -1,0 +1,9 @@
+{
+  "Name": "DeathCapWardWildlife",
+  "GuardCardUids": [
+    "herbs_fungi_death_cap_ward_placed"
+  ],
+  "AgentUids": [],
+  "EncounterUids": [],
+  "SuppressChance": 45
+}

@@ -1,0 +1,139 @@
+{
+    "UniqueID": "herbs_fungi_peanut_meal",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_peanut_meal",
+        "LocalizationKey": "Herbs_And_Fungi_PeanutMeal_CardName",
+        "DefaultText": "Peanut Meal"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_peanut_meal",
+        "LocalizationKey": "Herbs_And_Fungi_PeanutMeal_CardDescription",
+        "DefaultText": "Roasted peanuts pounded to a coarse, oily meal. Stir it into a bowl of water to make nut milk."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_peanut_meal",
+        "LocalizationKey": "Herbs_And_Fungi_PeanutMeal_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Blueprint: Peanut Meal (Cooking tab, 2 Roasted Peanuts).\n\n<b>Uses:</b> Drag it onto a bowl of cool fresh water to Soak it into Nut Milk. The meal is used up; the water becomes milk."
+    },
+    "CardType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Flour_Acorn",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 75,
+    "TradingValue": 4,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "AlwaysUpdate": false,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_peanut_meal",
+            "LocalizationKey": "Herbs_And_Fungi_PeanutMeal_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 1920.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_peanut_meal",
+                "LocalizationKey": "Herbs_And_Fungi_PeanutMeal_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The peanut meal has gone rancid."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_peanut_meal",
+                "LocalizationKey": "Herbs_And_Fungi_PeanutMeal_Soak_ActionName",
+                "DefaultText": "Soak"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_peanut_meal",
+                "LocalizationKey": "Herbs_And_Fungi_PeanutMeal_Soak_ActionDescription",
+                "DefaultText": "Stir the peanut meal into the water to make nut milk."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "RequiredGivenContainerTagWarpData": [
+                "tag_ContainerBowl"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "WorksBothWays": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_nut_milk",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

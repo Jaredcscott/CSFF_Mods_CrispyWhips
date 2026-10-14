@@ -1,0 +1,124 @@
+{
+    "UniqueID": "herbs_fungi_fishcake_raw",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_fishcake_raw",
+        "LocalizationKey": "Herbs_And_Fungi_FishcakeRaw_CardName",
+        "DefaultText": "Raw Fishcake"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_fishcake_raw",
+        "LocalizationKey": "Herbs_And_Fungi_FishcakeRaw_CardDescription",
+        "DefaultText": "A patty of minced fish bound with flour and a pinch of dried dandelion. Cook it near a fire."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_fishcake_raw",
+        "LocalizationKey": "Herbs_And_Fungi_FishcakeRaw_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Blueprint: Fishcake (Fish Filling, flour and Dried Dandelion).\n\n<b>Next:</b> Heat it near a fire until the Cook bar fills and it becomes a Fishcake."
+    },
+    "CardType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Fishcake",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 90,
+    "TradingValue": 4,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Heatable",
+        "tag_Cookable"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "AlwaysUpdate": false,
+    "MaxStack": 6,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_fishcake_raw",
+            "LocalizationKey": "Herbs_And_Fungi_FishcakeRaw_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_fishcake_raw",
+                "LocalizationKey": "Herbs_And_Fungi_FishcakeRaw_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The raw fishcake has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_fishcake_raw",
+            "LocalizationKey": "Herbs_And_Fungi_FishcakeRaw_FuelCapacity_CardStatName",
+            "DefaultText": "Temperature"
+        },
+        "MaxValue": 200.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_fishcake_raw",
+            "LocalizationKey": "Herbs_And_Fungi_FishcakeRaw_SpecialDurability1_CardStatName",
+            "DefaultText": "Cook"
+        },
+        "MaxValue": 1.0,
+        "HidingOptions": 3,
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_fishcake_raw",
+                "LocalizationKey": "Herbs_And_Fungi_FishcakeRaw_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "The fishcake is cooked."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_fishcake",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "ModifyDurability": true
+            }
+        }
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": []
+}

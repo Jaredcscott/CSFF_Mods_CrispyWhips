@@ -1,0 +1,63 @@
+{
+  "target": "MushroomPasty.png",
+  "sourceCard": "CardData/Item/MushroomPasty.json",
+  "subject": "a baked golden-brown half-moon pasty with a glossy egg-washed crust, twisted rope-crimped seam and a slit vent, two golden chanterelles resting against its lower edge",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the SHAPE reference only: a half-moon pasty with a thick twisted rope-crimped edge along its curved side. Draw one pasty of this same shape, proportions and crimped rope edge, but painted in the hand-painted watercolor-and-ink style of reference image 3, not the flat cartoon shading or grey shadow of reference image 1.\nReference image 2 is a PROP: a golden chanterelle mushroom with a funnel-shaped wavy cap and a thick tapering stem, drawn the same.\nReference image 3 is a style reference only: match its ink linework, watercolor shading and palette; do not copy its subject or composition.\nThe pasty is BAKED: one whole golden-brown crust with a glossy egg-washed sheen and a few darker toasted patches, the twisted rope-crimped seam clearly visible, one small slit vent in the top. Two whole golden chanterelle mushrooms rest against its lower edge, small and subordinate to the pasty, showing what is inside.\nHand-painted watercolor-and-ink game item illustration of a baked golden-brown mushroom pasty with two golden chanterelle mushrooms resting beside it, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, one pasty as the single main object, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, cartoon, pixel art, neon colors, lens flare, more than one pasty, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, pale raw dough, burnt, charred, black crust, steam, smoke, plate, bowl, board, cloth, cut open, bite taken, sliced, mushroom stew, pot.",
+  "historyId": "Pb4czGoRUMER21o2yoMC",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790980261935_31ff4a8a_1790980262386_285674a2.png",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790980261935_31ff4a8a_1790980262386_285674a2.png",
+      "verdict": "accepted against the subject checklist: whole golden-brown crust, glossy sheen, a few darker toasted patches, no charring, rope-crimped seam, one slit vent, two whole chanterelles beside it"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish), then key_enclosed.py confined with --box 320,545,385,615 to the one paper gap between the chanterelle stems and the crust (683 px). An unconfined run would have punched holes in the crust's white glints, so it was not used unconfined. find_key_holes.py finds no pale-rimmed hole.",
+  "note": "One sample, generated for the plan feature 12 build (HerbsAndFungi 1.14.1 content update); accepted against its subject checklist by Claude, not yet seen by the owner. The job submitted three visualReferences but OpenArt attached only the first two (inputImages lists Pasty_Rye vanilla (subject shape), ChantFresh (prop)), so the third was not seen by the model although the prompt describes it. The vanilla Pasty_Rye reference is a vanilla game sprite exported with UnityPy (710x812), not a repo file.",
+  "composition": {
+    "ref": "Pasty_Rye (vanilla sprite)",
+    "role": "subject shape",
+    "finish": "keyed",
+    "action": "a baked, golden-brown half-moon pasty with a glossy crust and a few darker toasted patches, twisted rope-crimped seam, one slit vent, two golden chanterelles resting against its lower edge; same shape and placement as MushroomPastyRaw"
+  },
+  "references": [
+    {
+      "role": "subject shape",
+      "fragment": "Pasty_Rye vanilla (subject shape)",
+      "image": "vanilla Sprite Pasty_Rye (exported from the game's asset files with UnityPy, 710x812; not a repo file)",
+      "sha256": "9f7eb3c91c8f36f95785431130830bd8ef1905aa56191047a3b6c1b436c2da83",
+      "id": "BEi0AqZMtMaR1tpOfIyg",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Pasty_Rye_1790980139976_fd8e7847.png",
+      "attached": true
+    },
+    {
+      "role": "prop",
+      "fragment": "ChantFresh (prop)",
+      "image": "HerbsAndFungi/Resource/Picture/ChantFresh.png",
+      "sha256": "5a99af19d5890976f165d600334f0982471cfc825248e56fcca54a8a757908eb",
+      "id": "1ufg2pnyaGvd1sRsLXqx",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ChantFresh_1790980140495_2797d764.png",
+      "attached": true
+    },
+    {
+      "role": "style",
+      "fragment": "ChantCooked (style)",
+      "image": "HerbsAndFungi/Resource/Picture/ChantCooked.png",
+      "sha256": "e650d37b1632c42da4174bba95c83291a7728be211eb74c485711bdcbc2b2885",
+      "id": "qzwVc8KF1zlx0fL0olct",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ChantCooked_1790980141144_a01e3477.png",
+      "attached": false
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "about": "Images adjusted toward the vanilla style by Development_Tools/CardArt/vanillify.py instead of being regenerated. The original is in git history.",
+  "images": {
+    "Picture/ApothecaryShelf.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 65,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/DeathCap_Fresh.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 80,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/Ginger_Dried.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 66,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/Ginger_Fresh_Cut.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 66,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_BroadBeans.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 72,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_Chestnuts.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 80,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_ClearedForestTrail.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 42,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_DeathCapWard.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 71,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_DeathCapWardPlaced.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 66,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_Hazelnuts.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 47,
+      "score_after": 94,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/HF_HerbalSalve.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 79,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_HerbCheese.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 44,
+      "score_after": 94,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/HF_LinseedCake.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 44,
+      "score_after": 90,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/HF_Maggots.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 50,
+      "score_after": 91,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/HF_MandrakeRoot.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 50,
+      "score_after": 92,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/HF_OvergrownForestTrail.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 47,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_Sloes.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 74,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/WildFlowersFresh.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 44,
+      "score_after": 84,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/YarrowDried.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 78,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/YarrowFresh.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 80,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/HF_GruitBundle.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "raw finished generation (44ec70937, before its vanillify step)",
+      "score_after": 65,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/WildFlowersDried.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "raw finished generation (44ec70937, before its vanillify step)",
+      "score_after": 66,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    }
+  }
+}

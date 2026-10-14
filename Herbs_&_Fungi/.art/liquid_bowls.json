@@ -1,0 +1,167 @@
+{
+ "_note": "Liquid card pictures: vanilla Bowl_Clay_Water with the liquid recoloured. Owner 2026-10-11. Build with Development_Tools/CardArt/liquid_bowl.py make HerbsAndFungi --source <Bowl_Clay_Water.png> --link",
+ "bowls": [
+  {
+   "image": "HF_LQ_ChagaTea",
+   "card": "CardData/Liquid/ChagaTea.json",
+   "colour": "#5c3420",
+   "looks": "dark red-brown"
+  },
+  {
+   "image": "HF_LQ_ChicoryTea",
+   "card": "CardData/Liquid/ChicoryTea.json",
+   "colour": "#4e301e",
+   "looks": "coffee brown"
+  },
+  {
+   "image": "HF_LQ_FishSauce",
+   "card": "CardData/Liquid/FishSauce.json",
+   "colour": "#965f28",
+   "looks": "clear amber-brown"
+  },
+  {
+   "image": "HF_LQ_FishSauceYoung",
+   "card": "CardData/Liquid/FishSauceYoung.json",
+   "colour": "#968260",
+   "looks": "cloudy grey-tan"
+  },
+  {
+   "image": "HF_LQ_GinsengTea",
+   "card": "CardData/Liquid/GinsengTea.json",
+   "colour": "#be9b50",
+   "looks": "pale gold"
+  },
+  {
+   "image": "HF_LQ_GrapeMust",
+   "card": "CardData/Liquid/GrapeMust.json",
+   "colour": "#783250",
+   "looks": "cloudy purple-red"
+  },
+  {
+   "image": "HF_LQ_GrapeWine",
+   "card": "CardData/Liquid/GrapeWine.json",
+   "colour": "#5f1932",
+   "looks": "deep red-purple"
+  },
+  {
+   "image": "HF_LQ_GruitAle",
+   "card": "CardData/Liquid/GruitAle.json",
+   "colour": "#aa6e2d",
+   "looks": "amber"
+  },
+  {
+   "image": "HF_LQ_HerbalFerment",
+   "card": "CardData/Liquid/HerbalFerment.json",
+   "colour": "#a08c3c",
+   "looks": "golden green"
+  },
+  {
+   "image": "HF_LQ_HerbalFermentYoung",
+   "card": "CardData/Liquid/HerbalFermentYoung.json",
+   "colour": "#afa564",
+   "looks": "cloudy pale green-gold"
+  },
+  {
+   "image": "HF_LQ_HoppedAle",
+   "card": "CardData/Liquid/HoppedAle.json",
+   "colour": "#c38c2d",
+   "looks": "golden amber"
+  },
+  {
+   "image": "HF_LQ_LionsManeTea",
+   "card": "CardData/Liquid/LionsManeTea.json",
+   "colour": "#c3af87",
+   "looks": "pale cream-tan"
+  },
+  {
+   "image": "HF_LQ_MandrakeDraught",
+   "card": "CardData/Liquid/MandrakeDraught.json",
+   "colour": "#5a4655",
+   "looks": "murky violet-brown"
+  },
+  {
+   "image": "HF_LQ_NeedleAle",
+   "card": "CardData/Liquid/NeedleAle.json",
+   "colour": "#968737",
+   "looks": "green-amber"
+  },
+  {
+   "image": "HF_LQ_NutMilk",
+   "card": "CardData/Liquid/NutMilk.json",
+   "colour": "#e1d7be",
+   "looks": "off-white cream"
+  },
+  {
+   "image": "HF_LQ_PickleBrine",
+   "card": "CardData/Liquid/PickleBrine.json",
+   "colour": "#aaaa6e",
+   "looks": "cloudy yellow-green"
+  },
+  {
+   "image": "HF_LQ_ReishiTea",
+   "card": "CardData/Liquid/ReishiTea.json",
+   "colour": "#783223",
+   "looks": "dark red-brown, redder than chaga"
+  },
+  {
+   "image": "HF_LQ_SloeMust",
+   "card": "CardData/Liquid/SloeMust.json",
+   "colour": "#5f3c64",
+   "looks": "dusky purple"
+  },
+  {
+   "image": "HF_LQ_SloeWine",
+   "card": "CardData/Liquid/SloeWine.json",
+   "colour": "#501e3c",
+   "looks": "deep plum"
+  },
+  {
+   "image": "HF_LQ_SpicedBillberryWine",
+   "card": "CardData/Liquid/SpicedBillberryWine.json",
+   "colour": "#46285a",
+   "looks": "blue-purple"
+  },
+  {
+   "image": "HF_LQ_SpicedBirchWine",
+   "card": "CardData/Liquid/SpicedBirchWine.json",
+   "colour": "#c8b46e",
+   "looks": "pale straw"
+  },
+  {
+   "image": "HF_LQ_SpicedPickleBrine",
+   "card": "CardData/Liquid/SpicedPickleBrine.json",
+   "colour": "#b49650",
+   "looks": "cloudy orange-yellow"
+  },
+  {
+   "image": "HF_LQ_SpicedRyeAle",
+   "card": "CardData/Liquid/SpicedRyeAle.json",
+   "colour": "#825028",
+   "looks": "dark amber-brown"
+  },
+  {
+   "image": "HF_LQ_SpicedSpringberryWine",
+   "card": "CardData/Liquid/SpicedSpringberryWine.json",
+   "colour": "#aa3c4b",
+   "looks": "pink-red"
+  },
+  {
+   "image": "HF_LQ_SpicedWheatAle",
+   "card": "CardData/Liquid/SpicedWheatAle.json",
+   "colour": "#cda546",
+   "looks": "pale gold"
+  },
+  {
+   "image": "HF_LQ_VigorElixir",
+   "card": "CardData/Liquid/VigorElixir.json",
+   "colour": "#a54628",
+   "looks": "ruby orange"
+  },
+  {
+   "image": "HF_LQ_YarrowTea",
+   "card": "CardData/Liquid/YarrowTea.json",
+   "colour": "#b9af5f",
+   "looks": "pale yellow-green"
+  }
+ ]
+}

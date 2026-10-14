@@ -1,0 +1,150 @@
+{
+    "UniqueID": "herbs_fungi_camas_flour",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_camas_flour",
+        "LocalizationKey": "Herbs_And_Fungi_CamasFlour_CardName",
+        "DefaultText": "Camas Flour"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_camas_flour",
+        "LocalizationKey": "Herbs_And_Fungi_CamasFlour_CardDescription",
+        "DefaultText": "A sweet, brown flour ground from dried camas cakes. Mix it with water in a bowl to make dough."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_camas_flour",
+        "LocalizationKey": "Herbs_And_Fungi_CamasFlour_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Grinding a Camas Cake.\n\n<b>Uses:</b> Drag it onto a bowl or pot holding at least 150 of cool fresh water to Soak it into Camas Dough."
+    },
+    "CardType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Flour_Rye",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 75,
+    "TradingValue": 4,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Powder"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "AlwaysUpdate": false,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_camas_flour",
+            "LocalizationKey": "Herbs_And_Fungi_CamasFlour_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 3840.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_camas_flour",
+                "LocalizationKey": "Herbs_And_Fungi_CamasFlour_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The camas flour has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_camas_flour",
+                "LocalizationKey": "Herbs_And_Fungi_CamasFlour_Soak_ActionName",
+                "DefaultText": "Soak"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_camas_flour",
+                "LocalizationKey": "Herbs_And_Fungi_CamasFlour_Soak_ActionDescription",
+                "DefaultText": "Mix the flour with the water to make camas dough."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_WaterFresh"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksBothWays": true,
+            "RequiredGivenDurabilities": {
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.01
+                },
+                "RequiredLiquidQuantity": 150.0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_camas_dough",
+                "TransformIntoWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -300.0,
+                    "y": -300.0
+                }
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

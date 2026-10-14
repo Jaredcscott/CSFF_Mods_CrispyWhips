@@ -1,0 +1,143 @@
+{
+    "UniqueID": "herbs_fungi_bp_honeyed_nuts",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_honeyed_nuts",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HoneyedNuts_CardName",
+        "DefaultText": "Honeyed Nuts"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_honeyed_nuts",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HoneyedNuts_CardDescription",
+        "DefaultText": "Coat 3 roasted peanuts in honeycomb from a wild bees' nest to make 2 portions of honeyed nuts."
+    },
+    "CardType": 7,
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasRoastedPeanuts",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_roasted_peanuts",
+            "CardWarpType": 3
+        },
+        {
+            "ObjectiveName": "HasHoneycomb",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "33cf4067563dac649b026a87ba0766bd",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "33cf4067563dac649b026a87ba0766bd",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_roasted_peanuts",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 2,
+                "y": 2
+            },
+            "DroppedCardWarpData": "herbs_fungi_honeyed_nuts",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "RoastedPeanuts",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_honeyed_nuts",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HoneyedNuts_UnlockConditionsDesc",
+        "DefaultText": "Roasted Peanuts and Honeycomb Needed"
+    }
+}

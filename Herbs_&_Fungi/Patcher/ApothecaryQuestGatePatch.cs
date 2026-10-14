@@ -30,6 +30,19 @@ internal static class ApothecaryQuestGatePatch
     private static object _ginsengFlag;
     private static object _gingerFlag;
 
+    // One line per cause for the life of the process (CLAUDE.md "Silent Catch Blocks"): the
+    // StatsDict reads below are non-throwing (GetCachedField returns null, not an exception), so
+    // without this a renamed field silently kills the Anti-Nausea/Stimulant Tea gate with no log.
+    // Mirrors AcademyHerbalismBridgePatch's WarnOnce.
+    private static readonly HashSet<string> _warnedCauses = new();
+
+    private static void WarnOnce(string cause, string message, bool debugOnly = false)
+    {
+        if (!_warnedCauses.Add(cause)) return;
+        if (debugOnly) Plugin.Logger.LogDebug("[ApothecaryQuestGate] " + message);
+        else Plugin.Logger.LogWarning("[ApothecaryQuestGate] " + message);
+    }
+
     public static void ApplyPatch(Harmony harmony)
     {
         try
@@ -115,11 +128,23 @@ internal static class ApothecaryQuestGatePatch
             if (statRef == null) return;
 
             if (CardUtil.GetCachedField(gm.GetType(), "StatsDict")?.GetValue(gm) is not IDictionary statsDict)
+            {
+                WarnOnce("no-statsdict", $"GameManager.StatsDict was not found; the quest flag '{statUid}' cannot be set and the tea gate will not advance.");
                 return;
+            }
 
-            if (!statsDict.Contains(statRef)) return;
+            // Usual for a moment while a run builds its stats; a Debug line once in case it never arrives.
+            if (!statsDict.Contains(statRef))
+            {
+                WarnOnce($"not-in-run:{statUid}", $"'{statUid}' is not (yet) in GameManager.StatsDict; the quest flag was not set this spawn.", debugOnly: true);
+                return;
+            }
             var inGameStat = statsDict[statRef];
-            if (inGameStat == null) return;
+            if (inGameStat == null)
+            {
+                WarnOnce($"null-live:{statUid}", $"'{statUid}' has a null live instance; the quest flag cannot be set and the tea gate will not advance.");
+                return;
+            }
 
             // Idempotent per-save: the quest flag is a one-way latch. If this save already has it set,
             // do nothing (this replaces the old cross-save static booleans).

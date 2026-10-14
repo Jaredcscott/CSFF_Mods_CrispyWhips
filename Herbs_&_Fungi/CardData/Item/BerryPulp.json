@@ -1,0 +1,163 @@
+{
+    "UniqueID": "herbs_fungi_berry_pulp",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_berry_pulp",
+        "LocalizationKey": "Herbs_And_Fungi_BerryPulp_CardName",
+        "DefaultText": "Berry Pulp"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_berry_pulp",
+        "LocalizationKey": "Herbs_And_Fungi_BerryPulp_CardDescription",
+        "DefaultText": "Fresh berries mashed to a thick pulp. Spread it on a Drying Tray to make berry leather before it spoils."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_berry_pulp",
+        "LocalizationKey": "Herbs_And_Fungi_BerryPulp_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> 3 fresh berries of one kind, mashed (Cooking tab).\n\n<b>Uses:</b> Lay it on a Drying Tray; it dries into Berry Leather. Spoils in about six days if left undried."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Billberries_Pulp",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 25,
+    "TradingValue": 4.0,
+    "MaxStack": 20,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "SpiceTags": [],
+    "WhenCreatedSounds": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_berry_pulp",
+            "LocalizationKey": "Herbs_And_Fungi_BerryPulp_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_berry_pulp",
+                "LocalizationKey": "Herbs_And_Fungi_BerryPulp_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The berry pulp has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "Herbs_And_Fungi_BerryPulp_UsageDurability_CardStatName",
+            "DefaultText": "Dryness"
+        },
+        "MaxValue": 24.0,
+        "RatePerDaytimePoint": 0.02,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "LocalizationKey": "Herbs_And_Fungi_BerryPulp_UsageDurability_OnFull",
+                "DefaultText": "The berry pulp dried into leather!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_berry_leather",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "CardTagsWarpData": [
+        "tag_Dryable"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9d439001208b5a8449a5e5301515137f",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "7c9da6f50cc16e9428ccffb051c1454f",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

@@ -1,0 +1,154 @@
+{
+    "UniqueID": "herbs_fungi_horseradish_cut",
+    "TradingValue": 10,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_horseradish_cut",
+        "LocalizationKey": "herbsfungihorseradishcut_CardName",
+        "DefaultText": "Sliced Horseradish"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_horseradish_cut",
+        "LocalizationKey": "herbsfungihorseradishcut_CardDescription",
+        "DefaultText": "Thin slices of fresh horseradish, sharp enough to make your eyes water. Drag them onto a plateable food to season it, or let them dry so they keep."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_horseradish_cut",
+        "LocalizationKey": "herbsfungihorseradishcut_CardHelpSection",
+        "DefaultText": "<b>Uses:</b> Drag the slices onto a plateable food (cooked meat, fish, eggs and the like) to season it with Horseradish; that uses the slices up. Left alone they dry, slowly by themselves or quickly on a Drying Tray, into Dried Horseradish."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Dryable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_HorseradishSliced",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_horseradish_cut",
+            "LocalizationKey": "herbsfungihorseradishcut_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_horseradish_cut",
+                "LocalizationKey": "herbsfungihorseradishcut_SpoilageTime_OnFull",
+                "DefaultText": "The sliced horseradish has rotted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_horseradish_cut",
+            "LocalizationKey": "herbsfungihorseradishcut_UsageDurability_StatName",
+            "DefaultText": "Dry"
+        },
+        "MaxValue": 24.0,
+        "RatePerDaytimePoint": 0.02,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_horseradish_cut",
+                "LocalizationKey": "herbsfungihorseradishcut_UsageDurability_Dried",
+                "DefaultText": "The sliced horseradish has dried."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_horseradish_dried",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_horseradish_cut",
+                "LocalizationKey": "herbsfungihorseradishcut_Add",
+                "DefaultText": "Add"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_horseradish_cut",
+                "LocalizationKey": "herbsfungihorseradishcut_Add_Desc",
+                "DefaultText": "Season a plateable food with it."
+            },
+            "DaytimeCost": 0,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Plateable"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddedSpiceTags": [],
+                "AddedSpiceTagsWarpData": [
+                    "herbs_fungi_spice_horseradish"
+                ],
+                "AddedSpiceTagsWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "ObjectWeight": 15,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "6a15980a4255f024584c507d2c1e2c53",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "d730fb3433f3af3409aaf9a74af3ee6a",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

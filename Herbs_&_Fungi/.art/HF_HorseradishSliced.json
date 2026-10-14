@@ -1,0 +1,27 @@
+{
+  "target": "HF_HorseradishSliced.png",
+  "sourceCards": [
+    "HorseradishCut"
+  ],
+  "kind": "item",
+  "subject": "a small loose pile of thin round slices of fresh horseradish root, creamy white flesh with a thin pale brown skin round each edge",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "Turnroot_Fresh",
+    "id": "TXRpFzqq9IIQETeqJs5N",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Fresh_1791745247756_1cbfb0bb.png"
+  },
+  "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a game item illustration of a small loose pile of thin round slices of fresh horseradish root, creamy white flesh with a thin pale brown skin round each edge. Single subject, slight three-quarter angle, light from the upper left, a continuous dark ink outline around the whole subject, the subject large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, whole root, knife, board, bowl.",
+  "historyId": "rob27vDeOuAMpF9CbPvR",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756648212_1636d857_1791756648523_7ab4637b.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "review": "awaiting owner gallery review (one sample, owner 2026-10-11)"
+}

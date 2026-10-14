@@ -18,7 +18,7 @@
         "DefaultText": "<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.\n\n<b>Benefits:</b> Reduces fatigue, improves focus, boosts immunity."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "Thirst_Old",
+    "CardImageWarpData": "HF_LQ_GinsengTea",
     "CardImageWarpType": 3,
     "CardBackground": {"m_FileID": 0, "m_PathID": 0},
     "ShowImageAboveTitle": false,
@@ -137,6 +137,12 @@
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "ValueModifier": {"x": -30.0, "y": -30.0},
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "ValueModifier": {"x": 24.0, "y": 24.0},
+                    "StatWarpData": "herbs_fungi_stat_herbal_tonic",
                     "StatWarpType": 3
                 },
                 {

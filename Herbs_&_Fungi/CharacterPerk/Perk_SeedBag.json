@@ -12,7 +12,7 @@
     "DisplayPriority": 2000.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "herbs_fungi_hemp_seeds",
         "herbs_fungi_hemp_seeds",
         "175768370e92e154ca3e1c486fa5e1ba",
@@ -24,7 +24,10 @@
         "f0720ce316331f04cb2a5d680c8aab41",
         "f0720ce316331f04cb2a5d680c8aab41"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
+    "AddedCardsStats": [
+        { "Card": "b73cff900d872ed41b361ba086582581", "SpecialDurability2": 50 }
+    ],
     "HiddenUntilUnlocked": false,
     "MoonsCost": 0,
     "NestedObjectives": [],

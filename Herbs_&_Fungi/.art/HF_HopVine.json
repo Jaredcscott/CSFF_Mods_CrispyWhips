@@ -1,0 +1,69 @@
+{
+  "target": "HF_HopVine.png",
+  "sourceCards": [
+    "CardData/Location/HopsPlantGrowing.json",
+    "CardData/Location/HopsPlantMature.json"
+  ],
+  "kind": "full-bleed plant painting",
+  "subject": "a hop vine climbing a single tall thin wooden pole set in dark soil, broad three-lobed jagged dark green leaves along the twining vine and hanging clusters of pale green papery hop cones, the vine filling the frame from the soil to the top edge",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "Turnroot_Plant",
+      "id": "xBWLkJm3uuGuI1lWm6JR",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Plant_1791745248505_467c5843.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Nettle_Plant",
+      "id": "CrFyYUQsNSTRlUvg1GpD",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nettle_Plant_1791745097065_425816d8.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw a full-bleed game card painting of a hop vine climbing a single tall thin wooden pole set in dark soil, broad three-lobed jagged dark green leaves along the twining vine and hanging clusters of pale green papery hop cones, the vine filling the frame from the soil to the top edge. The painting fills the entire frame edge to edge with a dark shadowy forest undergrowth background, no white anywhere, the plant filling most of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, white background, vignette, sky, people, buildings, fence, trellis, ladder, grapes, flowers.",
+  "historyId": "KxDMsQpi5jBYTAwuIOr5",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798883904_97ca9619_1791798884045_723fc311.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798883904_97ca9619_1791798884045_723fc311.png",
+      "historyId": "KxDMsQpi5jBYTAwuIOr5"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py --full-bleed (512x768, nothing keyed)",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner.",
+  "previousGeneration": {
+    "subject": "a hop vine winding up a single tall thin wooden pole set in dark earth, broad jagged green leaves and hanging clusters of pale green papery hop cones",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "aspectRatio": "2:3",
+      "resolution": "1K",
+      "imageCount": 1,
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a full-bleed game card painting of a hop vine winding up a single tall thin wooden pole set in dark earth, broad jagged green leaves and hanging clusters of pale green papery hop cones, the plants filling the lower two-thirds of the frame, a dark shadowy forest undergrowth background, the painting filling the entire frame edge to edge with no white anywhere. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, blurry, white background, vignette border, sky, text, watermark, signature, logo, border, frame, people, buildings, fence, ladders, grapes.",
+    "historyId": "sSh7XRB78lDd63tdEyMm",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756645554_104efac4_1791756645638_00bb32e8.png",
+    "credits": 20,
+    "generated": "2026-10-11",
+    "styleReference": {
+      "sprite": "Wheat_Plant",
+      "id": "XbG5n9ctrbyDT9wWIC7Q",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wheat_Plant_1791745249738_e5dfe321.png"
+    }
+  }
+}

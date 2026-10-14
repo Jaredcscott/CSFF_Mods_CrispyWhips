@@ -1,0 +1,66 @@
+{
+  "target": "HF_HerbalOil_Fairyweed.png",
+  "sourceCards": [
+    "CardData/Item/HerbalOil_Fairyweed.json"
+  ],
+  "kind": "clay bowl (vanilla Bowl_Clay_Water, liquid recoloured)",
+  "method": "Development_Tools/CardArt/liquid_bowl.py make_bowl() with the colour from .art/bowl_items.json, trimmed by trim_card_art; no generation, no credits",
+  "colour": "#c08aae",
+  "looks": "pale violet-pink (the faint violet-pink oil of the earlier owner-picked generation, kept pinker than HF_SleepTea's lavender so the two read apart)",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "note": "owner gallery rework pass 2 2026-10-12: must match the HF_LQ; redrawn as the vanilla clay bowl recolour like HF_HerbalOil_Yarrow",
+  "ownerReview": "2026-10-12 regenerate | notes: must match the HF_LQ",
+  "previousGeneration": {
+    "sourceCard": [
+      "CardData/Item/HerbalOil_Fairyweed.json"
+    ],
+    "subject": "",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "imageCount": 3,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows the fairyweed bundle with round white puffball flowers on long green stems: draw exactly this same herb bundle (same stems, leaves and flowers), small, lying beside a bowl.\nReference image 2 shows the bowl style: draw the same plain round terracotta clay bowl with the same shape, colour and finish, no handle, no spoon, filled with faint violet-pink oil.\nHand-painted watercolor-and-ink game item illustration in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework, soft watercolor and gouache shading, warm muted natural palette, gentle light from the upper left, slight three-quarter angle, \nsingle object only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, drop shadow, text, watermark, signature, logo, border, frame.",
+    "historyId": "ZocUDYDrXSZdTlAe9YpH",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088807989_685d8123_1791088808547_6d9bb480.png",
+    "credits": 150,
+    "generated": "2026-10-03",
+    "note": "Round 2 of the 2026-10-03 batch (regenerated from the owner's notes on round 1); owner pick. No prediction recorded for this round.",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088807989_685d8123_1791088808547_6d9bb480.png"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088809252_327d3f5e_1791088809350_edf758b3.png"
+      },
+      {
+        "n": "C",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088811097_6a18f3c0_1791088811602_16e7f0bd.png"
+      }
+    ],
+    "picked": "A",
+    "references": [
+      {
+        "label": "Fairyweed_Item.png",
+        "role": "subject"
+      },
+      {
+        "label": "HF_HerbalOil_Chamomile.png",
+        "role": "style"
+      }
+    ],
+    "ownerReview": "2026-10-12 alter | notes: has white to remove",
+    "rework": {
+      "date": "2026-10-12",
+      "note": "owner gallery rework 2026-10-12: has white to remove",
+      "finishing": "thin paper slivers between the green stems and a sliver beside the bowl rim made transparent (light, low-chroma pixels inside boxes clear of the white flower head); white flower head and bowl untouched; picture otherwise kept as it was. Worked on the shipped trimmed PNG (scratchpad keyreg.py / dehalo.py / clearlight.py, or Development_Tools/CardArt/fill_holes.py), re-trimmed with trim_card_art. Re-deriving from resource_url brings the defect back: repeat these passes and read a dark preview.",
+      "credits": 0
+    }
+  }
+}

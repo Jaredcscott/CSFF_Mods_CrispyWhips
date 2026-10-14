@@ -1,0 +1,28 @@
+{
+  "target": "GinsengPlantMature.png",
+  "sourceCard": null,
+  "subject": "one mature ginseng plant growing from a small, roughly oval patch of freshly tilled dark brown soil: a whorl of three leaves spreading out at the same height, each leaf made of five broad, rounded-oval leaflets with finely toothed edges fanned out like an open hand, and rising from the centre of the whorl a single upright stalk topped with one tight round cluster of bright red berries; the soil patch ends well inside the frame",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one mature ginseng plant growing from a small, roughly oval patch of freshly tilled dark brown soil: a whorl of three leaves spreading out at the same height, each leaf made of five broad, rounded-oval leaflets with finely toothed edges fanned out like an open hand, and rising from the centre of the whorl a single upright stalk topped with one tight round cluster of bright red berries; the soil patch ends well inside the frame, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, flowers, several berry clusters, scattered berries, visible roots, narrow pointed leaflets, pot, planter, grass.",
+  "historyId": "imnF0dHUEYMuzdzcKcUn",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470730388_9a350a74_1790470730747_f5df1fd0.png",
+  "credits": 30,
+  "generated": "2026-09-26",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470730388_9a350a74_1790470730747_f5df1fd0.png",
+      "verdict": "accepted: whorl of three five-leaflet leaves, one upright stalk with a tight cluster of bright red berries, tilled soil"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish) left a large patch of white paper enclosed inside the leaf whorl. key_enclosed.py default keyed it (14 regions, 5451 px), then --min-area 6 --pure 238 --box 80,200,460,500 (264 px of slivers at leaflet bases; the box keeps the berry highlights out of reach), then the same with --box 60,495,470,660 (48 px on the soil rim). Re-deriving this image from resource_url with /process-card-art alone brings the defect back: repeat these passes (Development_Tools/CardArt/key_enclosed.py, fill_holes.py) and read a dark preview.",
+  "note": "One sample by instruction (HerbsAndFungi 1.14.0 content update, generated for the lead session building the card JSON); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

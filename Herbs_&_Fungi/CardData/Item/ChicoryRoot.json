@@ -1,0 +1,125 @@
+{
+    "UniqueID": "herbs_fungi_chicory_root",
+    "TradingValue": 8,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_chicory_root",
+        "LocalizationKey": "herbsfungichicoryroot_CardName",
+        "DefaultText": "Chicory Root"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_chicory_root",
+        "LocalizationKey": "herbsfungichicoryroot_CardDescription",
+        "DefaultText": "The long, pale taproot of the blue-flowered chicory. Too bitter and woody to eat; roasted dark by a fire it brews into a strong, bitter drink."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_chicory_root",
+        "LocalizationKey": "herbsfungichicoryroot_CardHelpSection",
+        "DefaultText": "<b>Season:</b> Summer and autumn, on the Highland Meadow and the Foraging Path.\n\n<b>Uses:</b> Roast it by a fire into Roasted Chicory, then steep that in a bowl of hot water for Chicory Brew. It cannot be eaten raw."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Heatable",
+        "tag_Cookable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_ChicoryRoot",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_chicory_root",
+            "LocalizationKey": "herbsfungichicoryroot_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 1440.0,
+        "RatePerDaytimePoint": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chicory_root",
+                "LocalizationKey": "herbsfungichicoryroot_SpoilageTime_OnFull",
+                "DefaultText": "The chicory root has rotted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_chicory_root",
+            "LocalizationKey": "herbsfungichicoryroot_SpecialDurability1_StatName",
+            "DefaultText": "Cook"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chicory_root",
+                "LocalizationKey": "herbsfungichicoryroot_SpecialDurability1_Cooked",
+                "DefaultText": "The chicory root is roasted dark and brittle."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_chicory_roasted",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        },
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "ObjectWeight": 25,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

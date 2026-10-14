@@ -12,7 +12,7 @@
     "DisplayPriority": 2200.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "herbs_fungi_morel_mushroom",
         "herbs_fungi_morel_mushroom",
         "herbs_fungi_golden_oyster",
@@ -23,7 +23,7 @@
         "herbs_fungi_lions_mane",
         "herbs_fungi_lions_mane"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
     "MoonsCost": 0,
     "NestedObjectives": [],
@@ -40,7 +40,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "Start with forageable fungi: Morels (spring), Golden & King Oysters (summer), Lion's Mane (fall, cognitive boost). Can be dried, cooked, or ground into medicinal powders.",
+        "DefaultText": "Start with forageable fungi: Morels, Golden & King Oysters, and Lion's Mane (cognitive boost). Can be dried, cooked, or ground into medicinal powders.",
         "LocalizationKey": "Herbs_And_Fungi_Perk_AddFungi_PerkDescription",
         "ParentObjectID": "herbs_fungi_perk_add_fungi"
     },

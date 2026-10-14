@@ -1,0 +1,67 @@
+{
+  "target": "YarrowPlantGrowing.png",
+  "sourceCard": null,
+  "subject": "a young clump of yarrow growing from a small round patch of dark brown soil: low feathery fern-like green leaves only",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of a young clump of yarrow growing from a small round patch of dark brown soil: low feathery fern-like green leaves only. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, flowers, buds, tall stems, pot, grass.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Nettle_Leaves (style)",
+      "id": "KFCUiSwyA0HLW4KfaxDa",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nettle_Leaves_1791745096221_64f1fc34.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Frostleaf_Item (style)",
+      "id": "BehyUooUjiJPXdE1y0Z2",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Frostleaf_Item_1791744966881_db19717a.png"
+    }
+  ],
+  "historyId": "3aMnc9qvPp9qi2BFblnq",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828163641_b0296421_1791828163728_699eff9f.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)",
+    "enclosed pure-white paper keyed on the trimmed image (key_enclosed.py misses it after the 2026-10-11 trim)",
+    "vanillify.py step [1, 24, None, 2, 70]"
+  ],
+  "vanilla_score": 75,
+  "previous": {
+    "target": "YarrowPlantGrowing.png",
+    "sourceCard": null,
+    "subject": "a small, roughly oval patch of freshly tilled dark brown soil with one low clump of young yarrow growing from it: soft feathery leaves finely divided into many tiny fern-like segments, fresh green, low to the ground; leaves only, with no flower stems and no flowers yet; the soil patch ends well inside the frame",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Hand-painted watercolor-and-ink game item illustration of a small, roughly oval patch of freshly tilled dark brown soil with one low clump of young yarrow growing from it: soft feathery leaves finely divided into many tiny fern-like segments, fresh green, low to the ground; leaves only, with no flower stems and no flowers yet; the soil patch ends well inside the frame, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, flowers, flower heads, buds, tall stems, white blossoms, pot, planter, grass.",
+    "historyId": "FNPAJH1v74k4HCby4H1Z",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470733088_2876473b_1790470733524_1167d10b.png",
+    "credits": 30,
+    "generated": "2026-09-26",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470733088_2876473b_1790470733524_1167d10b.png",
+        "verdict": "accepted: tilled soil patch, one low clump of feathery fern-like leaves; no flowers or flower stems"
+      }
+    ],
+    "picked": "A",
+    "finishing": "process_card_art.py (GIMP keyed finish), then key_enclosed.py default (153 px: paper between fronds), then --min-area 6 --pure 238 (303 px: small gaps between fronds and soil-rim pockets). Re-deriving this image from resource_url with /process-card-art alone brings the defect back: repeat these passes (Development_Tools/CardArt/key_enclosed.py, fill_holes.py) and read a dark preview.",
+    "note": "One sample by instruction (HerbsAndFungi 1.14.0 content update, generated for the lead session building the card JSON); accepted against its subject checklist by Claude, not yet seen by the owner."
+  }
+}

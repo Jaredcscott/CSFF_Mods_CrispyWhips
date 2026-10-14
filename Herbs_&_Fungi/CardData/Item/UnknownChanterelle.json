@@ -1,0 +1,435 @@
+{
+    "UniqueID": "herbs_fungi_unknown_chanterelle",
+    "TradingValue": 2,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+        "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_CardName",
+        "DefaultText": "Unknown Chanterelle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+        "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_CardDescription",
+        "DefaultText": "A golden, funnel-shaped mushroom that might be a Chanterelle, or might be its look-alike, the False Chanterelle. Identify it before you eat it."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+        "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_CardHelpSection",
+        "DefaultText": "<b>Found by:</b> foraging wherever Chanterelles grow; about one find in four is an Unknown Chanterelle.\n\n<b>Uses:</b> Identify it to learn what it is: with Herbalism skill 25 or more, by dragging a Botanical Field Guide onto it (the guide is not used up), or, with Community Mod Chest installed, once you have graduated the Academy's Herbalism course. It turns into a Chanterelle or a False Chanterelle. Eating it unidentified gives food poisoning."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Fungus",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "ChantFresh",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+        "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+            "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 720.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_SpoilageTime_Spoiled",
+                "DefaultText": "The unknown mushroom has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "ObjectWeight": 50,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_DismantleActions_IdentifyHerbalism_ActionName",
+                "DefaultText": "Identify (Herbalism)"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_DismantleActions_IdentifyHerbalism_ActionDescription",
+                "DefaultText": "Look closely at the gills, the cap and the smell. Needs Herbalism skill 25 or more."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 25.0,
+                        "y": 150.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Chanterelle",
+                    "CollectionWeight": 3,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_chanterelle",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "False Chanterelle",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_false_chanterelle",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_DismantleActions_IdentifyAcademy_ActionName",
+                "DefaultText": "Identify (Academy training)"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_DismantleActions_IdentifyAcademy_ActionDescription",
+                "DefaultText": "Your Academy herbalism course taught you how to tell a Chanterelle from its look-alike."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "herbs_fungi_stat_academy_herbalism",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Chanterelle",
+                    "CollectionWeight": 3,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_chanterelle",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "False Chanterelle",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_false_chanterelle",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_DismantleActions_EatUnidentified_ActionName",
+                "DefaultText": "Eat Unidentified"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_DismantleActions_EatUnidentified_ActionDescription",
+                "DefaultText": "Eat it without knowing what it is. It fills you a little, but it gives you food poisoning."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 15,
+                        "y": 15
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 22,
+                        "y": 22
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 12,
+                        "y": 12
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 25,
+                        "y": 25
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5,
+                        "y": 5
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0344bd36c91a41041947df8e879ffab5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 14,
+                        "y": 14
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "8080df0dc107caa47b9591fde9347e09",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8,
+                        "y": 8
+                    }
+                }
+            ]
+        }
+    ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_CardInteractions_IdentifyFieldGuide_ActionName",
+                "DefaultText": "Identify (Field Guide)"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_unknown_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_CardInteractions_IdentifyFieldGuide_ActionDescription",
+                "DefaultText": "Compare it with the drawings in the Botanical Field Guide. The guide is not used up."
+            },
+            "WorksBothWays": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "herbs_fungi_botanical_field_guide"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [],
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Chanterelle",
+                    "CollectionWeight": 3,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_chanterelle",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "False Chanterelle",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_false_chanterelle",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

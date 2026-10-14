@@ -1,0 +1,109 @@
+{
+    "UniqueID": "herbs_fungi_bp_turnroot_chips",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_turnroot_chips",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_TurnrootChips_CardName",
+        "DefaultText": "Turnroot Chips"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_turnroot_chips",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_TurnrootChips_CardDescription",
+        "DefaultText": "Cut dried turnroot into chips so it can be ground into flour."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_turnroot_chips",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_TurnrootChips_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Dried Turnroot"
+    },
+    "BlueprintUnlockTicksCost": 4.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasTurnrootDried",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "4b6de524b0a09194ead5663e6ad04c1f",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "4b6de524b0a09194ead5663e6ad04c1f",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_turnroot_chips",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Turnroot_Fresh",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

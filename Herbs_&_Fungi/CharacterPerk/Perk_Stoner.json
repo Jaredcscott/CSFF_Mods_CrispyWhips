@@ -12,7 +12,7 @@
     "DisplayPriority": 2200.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "herbs_fungi_herb_pipe",
         "herbs_fungi_hemp_flower_powder",
         "herbs_fungi_hemp_flower_powder",
@@ -36,7 +36,13 @@
         "herbs_fungi_hemp_flower_dried",
         "herbs_fungi_hemp_stalks"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
+    "AddedCardsStats": [
+        { "Card": "herbs_fungi_herb_pipe", "SpecialDurability2": 50 },
+        { "Card": "herbs_fungi_hemp_flower_powder", "SpecialDurability2": 50 },
+        { "Card": "herbs_fungi_hemp_flower_dried", "SpecialDurability2": 50 },
+        { "Card": "herbs_fungi_hemp_stalks", "SpecialDurability2": 50 }
+    ],
     "HiddenUntilUnlocked": false,
     "MoonsCost": 2,
     "NestedObjectives": [],

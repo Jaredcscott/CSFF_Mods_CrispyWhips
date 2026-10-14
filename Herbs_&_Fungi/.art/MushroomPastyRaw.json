@@ -1,0 +1,63 @@
+{
+  "target": "MushroomPastyRaw.png",
+  "sourceCard": "CardData/Item/MushroomPastyRaw.json",
+  "subject": "a raw unbaked half-moon pasty of pale cream-tan floury dough with a twisted rope-crimped seam and a slit vent, two golden chanterelles resting against its lower edge",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the SHAPE reference only: a half-moon pasty with a thick twisted rope-crimped edge along its curved side. Draw one pasty of this same shape, proportions and crimped rope edge, but painted in the hand-painted watercolor-and-ink style of reference image 3, not the flat cartoon shading or grey shadow of reference image 1.\nReference image 2 is a PROP: a golden chanterelle mushroom with a funnel-shaped wavy cap and a thick tapering stem, drawn the same.\nReference image 3 is a style reference only: match its ink linework, watercolor shading and palette; do not copy its subject or composition.\nThe pasty is RAW and unbaked: pale cream-tan floury dough with a smooth matte surface, a light dusting of flour and no browning at all, the twisted rope-crimped seam clearly visible, one small slit vent in the top. Two whole golden chanterelle mushrooms rest against its lower edge, small and subordinate to the pasty, showing what is inside.\nHand-painted watercolor-and-ink game item illustration of a raw unbaked pale dough mushroom pasty with two golden chanterelle mushrooms resting beside it, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, one pasty as the single main object, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, cartoon, pixel art, neon colors, lens flare, more than one pasty, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, golden-brown crust, browning, baked, glaze, steam, smoke, plate, bowl, board, cloth, cut open, bite taken, sliced, mushroom stew, pot.",
+  "historyId": "Zqvs6g4k3wav1IrTZ8iz",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790980259159_87afb929_1790980259563_82603277.png",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790980259159_87afb929_1790980259563_82603277.png",
+      "verdict": "accepted against the subject checklist: matte pale dough with no browning, rope-crimped seam, one slit vent, two whole chanterelles at the lower edge and subordinate; no plate, bowl, steam or cut-open face"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish), then key_enclosed.py confined with --box 340,570,400,640 to the one paper gap between the two chanterelle stems (434 px). An unconfined key_enclosed.py run also punched holes in the dough's white flour flecks and crust glints, so it was not used unconfined. find_key_holes.py finds no pale-rimmed hole.",
+  "note": "One sample, generated for the plan feature 12 build (HerbsAndFungi 1.14.1 content update); accepted against its subject checklist by Claude, not yet seen by the owner. The job submitted three visualReferences but OpenArt attached only the first two (inputImages lists Pasty_Rye vanilla (subject shape), ChantFresh (prop)), so the third was not seen by the model although the prompt describes it. The vanilla Pasty_Rye reference is a vanilla game sprite exported with UnityPy (710x812), not a repo file.",
+  "composition": {
+    "ref": "Pasty_Rye (vanilla sprite)",
+    "role": "subject shape",
+    "finish": "keyed",
+    "action": "a raw, unbaked half-moon pasty of pale floury dough, twisted rope-crimped seam, one slit vent, two golden chanterelles resting against its lower edge; shape from the vanilla Pasty_Rye sprite, the mushrooms from ChantFresh"
+  },
+  "references": [
+    {
+      "role": "subject shape",
+      "fragment": "Pasty_Rye vanilla (subject shape)",
+      "image": "vanilla Sprite Pasty_Rye (exported from the game's asset files with UnityPy, 710x812; not a repo file)",
+      "sha256": "9f7eb3c91c8f36f95785431130830bd8ef1905aa56191047a3b6c1b436c2da83",
+      "id": "BEi0AqZMtMaR1tpOfIyg",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Pasty_Rye_1790980139976_fd8e7847.png",
+      "attached": true
+    },
+    {
+      "role": "prop",
+      "fragment": "ChantFresh (prop)",
+      "image": "HerbsAndFungi/Resource/Picture/ChantFresh.png",
+      "sha256": "5a99af19d5890976f165d600334f0982471cfc825248e56fcca54a8a757908eb",
+      "id": "1ufg2pnyaGvd1sRsLXqx",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ChantFresh_1790980140495_2797d764.png",
+      "attached": true
+    },
+    {
+      "role": "style",
+      "fragment": "ChantCooked (style)",
+      "image": "HerbsAndFungi/Resource/Picture/ChantCooked.png",
+      "sha256": "e650d37b1632c42da4174bba95c83291a7728be211eb74c485711bdcbc2b2885",
+      "id": "qzwVc8KF1zlx0fL0olct",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ChantCooked_1790980141144_a01e3477.png",
+      "attached": false
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+    "UniqueID": "herbs_fungi_stat_cooling",
+    "GameName": {
+        "LocalizationKey": "Herbs_And_Fungi_Cooling_StatName",
+        "DefaultText": "Cooled"
+    },
+    "Description": {
+        "LocalizationKey": "Herbs_And_Fungi_Cooling_StatDescription",
+        "DefaultText": "A cold drink or treat still working in you. You feel cooler than the weather says, and it wears off over the next hours."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 96.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Cold",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "Herbs_And_Fungi_Cooling_Status_Mild_Name",
+                "DefaultText": "Cooled"
+            },
+            "Description": {
+                "LocalizationKey": "Herbs_And_Fungi_Cooling_Status_Mild_Description",
+                "DefaultText": "Something cold is cooling you. You feel a little cooler than the weather says, and it wears off over the next hours."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Cold",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 48},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -6.0, "y": -6.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "Herbs_And_Fungi_Cooling_Status_Strong_Name",
+                "DefaultText": "Well Chilled"
+            },
+            "Description": {
+                "LocalizationKey": "Herbs_And_Fungi_Cooling_Status_Strong_Description",
+                "DefaultText": "Several cold things taken close together. You feel much cooler than the weather says until it wears off."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Cold",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 49, "y": 96},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -12.0, "y": -12.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

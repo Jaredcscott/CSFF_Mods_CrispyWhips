@@ -1,0 +1,148 @@
+{
+    "UniqueID": "herbs_fungi_bp_lye_soak_fish_lean",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_lye_soak_fish_lean",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_LyeSoakFish_Lean_CardName",
+        "DefaultText": "Soak Fish in Lye (Lean Fish)"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_lye_soak_fish_lean",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_LyeSoakFish_Lean_CardDescription",
+        "DefaultText": "Steep dried lean fish in a bowl of lye to begin lutefisk. The lye is used up."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_lye_soak_fish_lean",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_LyeSoakFish_Lean_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Dried Lean Fish Meat"
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasDriedLeanFish",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "0e26aee350306af4eb4f0af0423481ee",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "0e26aee350306af4eb4f0af0423481ee",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredTabGroupWarpData": "GpTag_Bowl",
+                    "RequiredTabGroupWarpType": 3,
+                    "RequiredLiquidContent": {
+                        "IsActive": true,
+                        "RequiredLiquid": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "RequiredLiquidWarpData": "601e940f915b41f47849033d5efbceaf",
+                        "RequiredLiquidWarpType": 3,
+                        "RequiredGroup": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "RequiredQuantity": {
+                            "x": 100.0,
+                            "y": 0.0
+                        }
+                    },
+                    "EffectOnIngredient": {
+                        "ModType": 0,
+                        "ModifyLiquid": true,
+                        "LiquidQuantityChange": {
+                            "x": -100.0,
+                            "y": -100.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_lye_soaked_fish",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "FIshMeat",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

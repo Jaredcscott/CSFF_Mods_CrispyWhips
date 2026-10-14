@@ -12,7 +12,7 @@
     "DisplayPriority": 2235.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "herbs_fungi_herbal_salve",
         "herbs_fungi_herbal_salve",
         "herbs_fungi_herbal_tincture",
@@ -22,7 +22,7 @@
         "herbs_fungi_sleep_tea",
         "herbs_fungi_sleep_tea"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
     "MoonsCost": 1,
     "NestedObjectives": [],

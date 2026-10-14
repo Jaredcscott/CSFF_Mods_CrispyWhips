@@ -1,0 +1,271 @@
+{
+    "UniqueID": "herbs_fungi_herb_butter",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_herb_butter",
+        "LocalizationKey": "Herbs_And_Fungi_HerbButter_CardName",
+        "DefaultText": "Herb Butter"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_herb_butter",
+        "LocalizationKey": "Herbs_And_Fungi_HerbButter_CardDescription",
+        "DefaultText": "Butter worked through a ground mushroom or dried ginger. It tastes of the herb and keeps longer than plain butter."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_herb_butter",
+        "LocalizationKey": "Herbs_And_Fungi_HerbButter_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Drag Milk Butter or a Butter Chunk onto Black Trumpet Powder, Shiitake Powder, King Oyster Powder or Dried Ginger. The butter is used up. With Sirus23's Mod Collection, its fats (Butter, Cream and the like) work too.\n\n<b>Uses:</b> Eat it. It spoils far more slowly than plain butter."
+    },
+    "CardType": 0,
+    "ObjectWeight": 40,
+    "TradingValue": 120.0,
+    "MaxStack": 4,
+    "AlwaysUpdate": false,
+    "DoesNotPile": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_HerbButter",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_HumanFood",
+        "tag_Plateable",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Wax"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_herb_butter",
+            "LocalizationKey": "Herbs_And_Fungi_HerbButter_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 2400.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_butter",
+                "LocalizationKey": "Herbs_And_Fungi_HerbButter_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The herb butter has gone rancid."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herb_butter",
+                "LocalizationKey": "Herbs_And_Fungi_HerbButter_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_butter",
+                "LocalizationKey": "Herbs_And_Fungi_HerbButter_Eat_ActionDescription",
+                "DefaultText": "Eat the herb butter as it is. Rich and savoury, with the taste of the herb."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 12,
+                        "y": 12
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 13,
+                        "y": 13
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 17,
+                        "y": 17
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                }
+            ]
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "b98eb512d651f7e4999a66e0fe58e268",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "d730fb3433f3af3409aaf9a74af3ee6a",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

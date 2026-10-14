@@ -1,0 +1,4625 @@
+{
+  "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
+  "images": {
+    "Picture/ApothecaryShelf.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "aafc7489e4d1ce25feded46bfb69bb285c0c130f",
+      "at": "2026-10-12T20:01:59+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "no image ",
+          "sha1": "912b867db162f60b7e3915d8ea506d1fc378a958",
+          "at": "2026-10-12T08:41:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "no image ",
+          "sha1": "912b867db162f60b7e3915d8ea506d1fc378a958",
+          "at": "2026-10-12T09:09:43+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "no image Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "912b867db162f60b7e3915d8ea506d1fc378a958",
+          "at": "2026-10-12T16:54:48+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "627ee5a7a1951b191cde5b048c382ffdc19d8b93",
+          "at": "2026-10-12T19:08:55+00:00"
+        }
+      ]
+    },
+    "Picture/BlackcurrantDried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "b615b59d50bd58b512fa9c3f6c8ea1615fea0b33",
+      "at": "2026-10-12T17:26:55+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b615b59d50bd58b512fa9c3f6c8ea1615fea0b33",
+          "at": "2026-10-12T17:03:29+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b615b59d50bd58b512fa9c3f6c8ea1615fea0b33",
+          "at": "2026-10-12T17:09:55+00:00"
+        }
+      ]
+    },
+    "Picture/BlackcurrantFresh.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "869d13685c2b5b694ada450147afd2c683bb3381",
+      "at": "2026-10-12T17:17:56+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "869d13685c2b5b694ada450147afd2c683bb3381",
+          "at": "2026-10-12T08:48:03+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "869d13685c2b5b694ada450147afd2c683bb3381",
+          "at": "2026-10-12T16:54:49+00:00"
+        }
+      ]
+    },
+    "Picture/BlackTrumpetCooked.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bca2790240d83ef3817e331b0772a242118906b4",
+      "at": "2026-10-12T17:32:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bca2790240d83ef3817e331b0772a242118906b4",
+          "at": "2026-10-12T08:48:06+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "bca2790240d83ef3817e331b0772a242118906b4",
+          "at": "2026-10-12T17:01:58+00:00"
+        }
+      ]
+    },
+    "Picture/BlackTrumpetDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "152097673f98a791477be14f179738bc105820eb",
+      "at": "2026-10-12T17:21:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "152097673f98a791477be14f179738bc105820eb",
+          "at": "2026-10-12T08:48:08+00:00"
+        }
+      ]
+    },
+    "Picture/BlackTrumpetFresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ba521e224289ad9f1461c3acf5b0dde958d253da",
+      "at": "2026-10-12T17:21:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ba521e224289ad9f1461c3acf5b0dde958d253da",
+          "at": "2026-10-12T08:48:10+00:00"
+        }
+      ]
+    },
+    "Picture/BlackTrumpetGround.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c2e7fd79d9c22dca90378a38601fc74b0ac656da",
+      "at": "2026-10-12T17:21:00+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c2e7fd79d9c22dca90378a38601fc74b0ac656da",
+          "at": "2026-10-12T08:48:11+00:00"
+        }
+      ]
+    },
+    "Picture/ChagaDried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "81abfaaa25033f2a256861d8584dbfe6234129db",
+      "at": "2026-10-12T17:32:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "81abfaaa25033f2a256861d8584dbfe6234129db",
+          "at": "2026-10-12T17:03:30+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "81abfaaa25033f2a256861d8584dbfe6234129db",
+          "at": "2026-10-12T17:09:57+00:00"
+        }
+      ]
+    },
+    "Picture/ChagaFresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5a4be7598e8767c1203b7b5a633f114255b5fe85",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "7bfd821ffb23b281860dcfd79ed8584884bffef6",
+          "at": "2026-10-12T09:09:35+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5a4be7598e8767c1203b7b5a633f114255b5fe85",
+          "at": "2026-10-12T10:40:55+00:00"
+        }
+      ]
+    },
+    "Picture/ChagaGround.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "7f2d817aa57fe826e8422a4902267f4acef9b6f0",
+      "at": "2026-10-12T17:20:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "7f2d817aa57fe826e8422a4902267f4acef9b6f0",
+          "at": "2026-10-12T17:03:15+00:00"
+        }
+      ]
+    },
+    "Picture/ChamomileDried.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant ChamomilePlantGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "e02e234dabc0faad961bd234c523be676c30eff3",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e02e234dabc0faad961bd234c523be676c30eff3",
+          "at": "2026-10-12T08:48:29+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e02e234dabc0faad961bd234c523be676c30eff3",
+          "at": "2026-10-12T16:54:51+00:00"
+        }
+      ]
+    },
+    "Picture/ChamomileFresh.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant ChamomilePlantGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "3e2a3859b6e394519a1e1138888de560d9ffa18f",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3e2a3859b6e394519a1e1138888de560d9ffa18f",
+          "at": "2026-10-12T08:48:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "3e2a3859b6e394519a1e1138888de560d9ffa18f",
+          "at": "2026-10-12T16:54:00+00:00"
+        }
+      ]
+    },
+    "Picture/ChamomilePlantGrowing.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "12c8955b98ced513ad3675f5e7d840718b64f2e2",
+      "at": "2026-10-12T17:18:58+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "12c8955b98ced513ad3675f5e7d840718b64f2e2",
+          "at": "2026-10-12T16:58:58+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "12c8955b98ced513ad3675f5e7d840718b64f2e2",
+          "at": "2026-10-12T17:00:32+00:00"
+        }
+      ]
+    },
+    "Picture/ChamomilePlantMature.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant ChamomilePlantGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "ad70e34a82f10983d2cfc135f0056961f2dba08f",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ad70e34a82f10983d2cfc135f0056961f2dba08f",
+          "at": "2026-10-12T08:48:36+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ad70e34a82f10983d2cfc135f0056961f2dba08f",
+          "at": "2026-10-12T16:54:52+00:00"
+        }
+      ]
+    },
+    "Picture/ChantCooked.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "5211905409aa2993b184ed6d558d1e255907d6f3",
+      "at": "2026-10-12T17:11:04+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5211905409aa2993b184ed6d558d1e255907d6f3",
+          "at": "2026-10-12T16:56:42+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5211905409aa2993b184ed6d558d1e255907d6f3",
+          "at": "2026-10-12T16:56:42+00:00"
+        }
+      ]
+    },
+    "Picture/ChantDried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "b66ea2acd6bd508e8253fc47d4068b5a98b03563",
+      "at": "2026-10-12T17:20:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b66ea2acd6bd508e8253fc47d4068b5a98b03563",
+          "at": "2026-10-12T17:03:02+00:00"
+        }
+      ]
+    },
+    "Picture/ChantFresh.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "9b6894496beca370600a12c3407db128f5f4ffc9",
+      "at": "2026-10-12T17:20:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "9b6894496beca370600a12c3407db128f5f4ffc9",
+          "at": "2026-10-12T17:03:03+00:00"
+        }
+      ]
+    },
+    "Picture/ChickenCooked.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant ReadyChickenLog (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "e3dc6e27edbc195d210d19ab2ba42f7c86332268",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. ",
+          "sha1": "e3dc6e27edbc195d210d19ab2ba42f7c86332268",
+          "at": "2026-10-12T16:49:04+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. ",
+          "sha1": "e3dc6e27edbc195d210d19ab2ba42f7c86332268",
+          "at": "2026-10-12T16:49:04+00:00"
+        }
+      ]
+    },
+    "Picture/ChickenDried.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant ReadyChickenLog (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "4ae975667233d0b3f7787ede84329a9c728f22ef",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4ae975667233d0b3f7787ede84329a9c728f22ef",
+          "at": "2026-10-12T08:48:42+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "4ae975667233d0b3f7787ede84329a9c728f22ef",
+          "at": "2026-10-12T16:54:54+00:00"
+        }
+      ]
+    },
+    "Picture/ChickenFresh.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant ReadyChickenLog (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "426d5a21d86dbfd02ada5c6a58b4fb0423adaf0b",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "426d5a21d86dbfd02ada5c6a58b4fb0423adaf0b",
+          "at": "2026-10-12T08:48:43+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "426d5a21d86dbfd02ada5c6a58b4fb0423adaf0b",
+          "at": "2026-10-12T16:54:01+00:00"
+        }
+      ]
+    },
+    "Picture/CloudberryDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "867794c91716cbb939f32a55442a1c49f592f36c",
+      "at": "2026-10-12T19:04:09+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "371785749a0bac56e57a88ce184624c008a42ca0",
+          "at": "2026-10-12T08:48:44+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "371785749a0bac56e57a88ce184624c008a42ca0",
+          "at": "2026-10-12T16:57:01+00:00"
+        }
+      ]
+    },
+    "Picture/CloudberryFresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "98a9b96b74d9a48b5d918d80fbfbadd46d96206d",
+      "at": "2026-10-12T19:06:49+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e166fc035f9266409ddb4fd82084cbc35df3d7cf",
+          "at": "2026-10-12T16:57:50+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e166fc035f9266409ddb4fd82084cbc35df3d7cf",
+          "at": "2026-10-12T16:58:40+00:00"
+        }
+      ]
+    },
+    "Picture/CookedGoldenOyster.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "be454215a8ab78ce6b10d46c2d87a81dc081b4ef",
+      "at": "2026-10-12T17:21:04+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "be454215a8ab78ce6b10d46c2d87a81dc081b4ef",
+          "at": "2026-10-12T08:48:45+00:00"
+        }
+      ]
+    },
+    "Picture/CookedKingOyster.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "37279635c08b63a1fc90454329926da41a2b6c1c",
+      "at": "2026-10-12T17:21:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "37279635c08b63a1fc90454329926da41a2b6c1c",
+          "at": "2026-10-12T08:48:46+00:00"
+        }
+      ]
+    },
+    "Picture/DandelionDried.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant DandelionPlantGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "9f828208c0087505891272c39536f449bdd275fa",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9f828208c0087505891272c39536f449bdd275fa",
+          "at": "2026-10-12T08:48:47+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "9f828208c0087505891272c39536f449bdd275fa",
+          "at": "2026-10-12T16:56:47+00:00"
+        }
+      ]
+    },
+    "Picture/DandelionFresh.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant DandelionPlantGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "8ac4c02abd0fdcfca240dc400e3c293df16a430e",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8ac4c02abd0fdcfca240dc400e3c293df16a430e",
+          "at": "2026-10-12T08:48:47+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "8ac4c02abd0fdcfca240dc400e3c293df16a430e",
+          "at": "2026-10-12T16:55:02+00:00"
+        }
+      ]
+    },
+    "Picture/DandelionPlantGrowing.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "5d21ec95d4f3707808ed9620bd727a0cda5a0da7",
+      "at": "2026-10-12T17:29:48+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5d21ec95d4f3707808ed9620bd727a0cda5a0da7",
+          "at": "2026-10-12T16:54:03+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5d21ec95d4f3707808ed9620bd727a0cda5a0da7",
+          "at": "2026-10-12T16:54:04+00:00"
+        }
+      ]
+    },
+    "Picture/DandelionPlantMature.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "c6eba07b821febda93f6a9637f018012bee4b18c",
+      "at": "2026-10-12T17:35:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c6eba07b821febda93f6a9637f018012bee4b18c",
+          "at": "2026-10-12T08:48:49+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c6eba07b821febda93f6a9637f018012bee4b18c",
+          "at": "2026-10-12T16:56:48+00:00"
+        }
+      ]
+    },
+    "Picture/DeathCap_Fresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0bce12a521ee061d5f083a3c76fbad8bbbef53fb",
+      "at": "2026-10-12T20:37:09+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "31bdd8c2f730bc3be1817626cc0230284e1ae295",
+          "at": "2026-10-12T17:00:10+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "31bdd8c2f730bc3be1817626cc0230284e1ae295",
+          "at": "2026-10-12T17:01:34+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "132cfdfbfecb0e3945c4d80c313a3c21581db260",
+          "at": "2026-10-12T19:09:16+00:00"
+        }
+      ]
+    },
+    "Picture/DriedKingOyster.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "cb6aa699ff7cca43100d2b8d4ba326c3e244955c",
+      "at": "2026-10-12T17:32:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "cb6aa699ff7cca43100d2b8d4ba326c3e244955c",
+          "at": "2026-10-12T16:59:06+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "cb6aa699ff7cca43100d2b8d4ba326c3e244955c",
+          "at": "2026-10-12T17:00:38+00:00"
+        }
+      ]
+    },
+    "Picture/DriedMorelMushroom.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d5d3429c8d92326ae7d278544c69a49fe718de39",
+      "at": "2026-10-12T17:21:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d5d3429c8d92326ae7d278544c69a49fe718de39",
+          "at": "2026-10-12T08:48:52+00:00"
+        }
+      ]
+    },
+    "Picture/DryingStack.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "dc3810dd07aed99484b547f393cc62ee702c5f88",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "dc3810dd07aed99484b547f393cc62ee702c5f88",
+          "at": "2026-10-12T08:48:55+00:00"
+        }
+      ]
+    },
+    "Picture/DryingTray.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "338e28b04bcd5be7eb04c9daa4b6b5026e8bceb9",
+      "at": "2026-10-12T17:20:58+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "338e28b04bcd5be7eb04c9daa4b6b5026e8bceb9",
+          "at": "2026-10-12T08:48:56+00:00"
+        }
+      ]
+    },
+    "Picture/freshFunLog.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8acfb959b853afac33239ae76fe37086db67993f",
+      "at": "2026-10-14T04:31:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "55d7216025700fff420644b42af00656656a6d85",
+          "at": "2026-10-12T16:58:47+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "55d7216025700fff420644b42af00656656a6d85",
+          "at": "2026-10-12T17:00:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "55d7216025700fff420644b42af00656656a6d85",
+          "at": "2026-10-12T17:18:40+00:00"
+        }
+      ]
+    },
+    "Picture/Ginger_Dried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "76eeca43ae6b59756b91c926cf8434587df43a58",
+      "at": "2026-10-12T20:31:55+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "fb831d4306477ebb396922ae6d588a5dc56be725",
+          "at": "2026-10-12T16:56:53+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "fb831d4306477ebb396922ae6d588a5dc56be725",
+          "at": "2026-10-12T16:56:53+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "3a4b1e8427eee691bc9b37586ef206b87bfe4ee8",
+          "at": "2026-10-12T19:09:42+00:00"
+        }
+      ]
+    },
+    "Picture/Ginger_Fresh.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
+      "at": "2026-10-12T17:34:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
+          "at": "2026-10-12T08:49:00+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
+          "at": "2026-10-12T16:55:05+00:00"
+        }
+      ]
+    },
+    "Picture/Ginger_Fresh_Cut.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "7f57ac7ad296208d7d9a566af568f3d06229d163",
+      "at": "2026-10-12T20:31:56+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e1ba69c2ab4af591830f2b503ff6099236b2055f",
+          "at": "2026-10-12T16:54:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e1ba69c2ab4af591830f2b503ff6099236b2055f",
+          "at": "2026-10-12T16:54:31+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "eed465db38ba0cc026120bab6f8837be1dddc7ee",
+          "at": "2026-10-12T19:08:50+00:00"
+        }
+      ]
+    },
+    "Picture/GinsengDried.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant GinsengPlantGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "1473051c89399220d7c002119cdcfc738193ab63",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1473051c89399220d7c002119cdcfc738193ab63",
+          "at": "2026-10-12T16:58:48+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1473051c89399220d7c002119cdcfc738193ab63",
+          "at": "2026-10-12T17:00:18+00:00"
+        }
+      ]
+    },
+    "Picture/GinsengFresh.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant GinsengPlantGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "deb5caa0c5808e1268489064ac5edf02ed950317",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "deb5caa0c5808e1268489064ac5edf02ed950317",
+          "at": "2026-10-12T08:49:05+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "deb5caa0c5808e1268489064ac5edf02ed950317",
+          "at": "2026-10-12T16:57:27+00:00"
+        }
+      ]
+    },
+    "Picture/GinsengGround.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b1dad0239350d2c8b7c34620780efeaae0c6eae7",
+      "at": "2026-10-12T17:26:15+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b1dad0239350d2c8b7c34620780efeaae0c6eae7",
+          "at": "2026-10-12T08:49:06+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "b1dad0239350d2c8b7c34620780efeaae0c6eae7",
+          "at": "2026-10-12T17:01:51+00:00"
+        }
+      ]
+    },
+    "Picture/GinsengPlantGrowing.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "01f04bb56a763f495384634b1040c43e976b09a1",
+      "at": "2026-10-12T17:17:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "01f04bb56a763f495384634b1040c43e976b09a1",
+          "at": "2026-10-12T16:53:47+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "01f04bb56a763f495384634b1040c43e976b09a1",
+          "at": "2026-10-12T16:53:51+00:00"
+        }
+      ]
+    },
+    "Picture/GinsengPlantMature.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "35ce888bde61029724ab37a254b20318c606519e",
+      "at": "2026-10-12T17:33:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "35ce888bde61029724ab37a254b20318c606519e",
+          "at": "2026-10-12T17:02:55+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "35ce888bde61029724ab37a254b20318c606519e",
+          "at": "2026-10-12T17:08:27+00:00"
+        }
+      ]
+    },
+    "Picture/GoldOyster.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "90665eab3208783f6535e97a192b7e34f2da0294",
+      "at": "2026-10-12T17:28:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "90665eab3208783f6535e97a192b7e34f2da0294",
+          "at": "2026-10-12T16:59:28+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "90665eab3208783f6535e97a192b7e34f2da0294",
+          "at": "2026-10-12T17:01:08+00:00"
+        }
+      ]
+    },
+    "Picture/GoldOysterDried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "76b5f50b9fee52cd5061c0baf39a2f9d224c0a0e",
+      "at": "2026-10-12T17:32:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "76b5f50b9fee52cd5061c0baf39a2f9d224c0a0e",
+          "at": "2026-10-12T08:49:09+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "76b5f50b9fee52cd5061c0baf39a2f9d224c0a0e",
+          "at": "2026-10-12T16:57:28+00:00"
+        }
+      ]
+    },
+    "Picture/HempButter.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d12434a101def1622d18416c42c115059f8aed74",
+      "at": "2026-10-12T17:23:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d12434a101def1622d18416c42c115059f8aed74",
+          "at": "2026-10-12T08:49:10+00:00"
+        }
+      ]
+    },
+    "Picture/HempFlower.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant HempPlant / HempGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "19b045a9000ecb733bb81a0e2f165cd4df781b66",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "19b045a9000ecb733bb81a0e2f165cd4df781b66",
+          "at": "2026-10-12T16:59:30+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "19b045a9000ecb733bb81a0e2f165cd4df781b66",
+          "at": "2026-10-12T17:01:09+00:00"
+        }
+      ]
+    },
+    "Picture/HempFlowerDried.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant HempPlant / HempGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "70f1377ee9944140c97074cd356fdf6475dfbd60",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "70f1377ee9944140c97074cd356fdf6475dfbd60",
+          "at": "2026-10-12T17:03:07+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "70f1377ee9944140c97074cd356fdf6475dfbd60",
+          "at": "2026-10-12T17:09:12+00:00"
+        }
+      ]
+    },
+    "Picture/HempGrowing.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9f4b6ce7020c1cf8efdfa0651878e6377775f16e",
+      "at": "2026-10-12T17:22:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9f4b6ce7020c1cf8efdfa0651878e6377775f16e",
+          "at": "2026-10-12T08:49:13+00:00"
+        }
+      ]
+    },
+    "Picture/HempPlant.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "a959711d8fa8e5706826688791b925e58ef2d35a",
+      "at": "2026-10-12T17:16:07+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a959711d8fa8e5706826688791b925e58ef2d35a",
+          "at": "2026-10-12T08:49:15+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a959711d8fa8e5706826688791b925e58ef2d35a",
+          "at": "2026-10-12T16:57:30+00:00"
+        }
+      ]
+    },
+    "Picture/HempPowder.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "88cfe3466452b0e0ab928e901348a9a5f385d50f",
+      "at": "2026-10-12T17:18:02+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "88cfe3466452b0e0ab928e901348a9a5f385d50f",
+          "at": "2026-10-12T16:55:07+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "88cfe3466452b0e0ab928e901348a9a5f385d50f",
+          "at": "2026-10-12T16:55:07+00:00"
+        }
+      ]
+    },
+    "Picture/hempSeed.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ab5494bd8a0779da16ce23ce1c8059a6c4523d78",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ab5494bd8a0779da16ce23ce1c8059a6c4523d78",
+          "at": "2026-10-12T08:49:18+00:00"
+        }
+      ]
+    },
+    "Picture/hempSeedRoasted.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "80076f7b6927480c2fb3d672e905472872e21c8a",
+      "at": "2026-10-12T17:20:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "80076f7b6927480c2fb3d672e905472872e21c8a",
+          "at": "2026-10-12T17:03:07+00:00"
+        }
+      ]
+    },
+    "Picture/HempStalks.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d5271b8a195c2be812cce9c49a04d7adb542e85a",
+      "at": "2026-10-12T17:21:31+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "df9c3b48add959603cd386d01eb0ac11d9176b5a",
+          "at": "2026-10-12T09:09:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d5271b8a195c2be812cce9c49a04d7adb542e85a",
+          "at": "2026-10-12T10:40:58+00:00"
+        }
+      ]
+    },
+    "Picture/HerbPipe.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8bea778fbe6d97bf60ca9dfef9869d7c0f57b124",
+      "at": "2026-10-12T17:23:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8bea778fbe6d97bf60ca9dfef9869d7c0f57b124",
+          "at": "2026-10-12T08:49:23+00:00"
+        }
+      ]
+    },
+    "Picture/HF_AntiNauseaTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a94177f21bfc60cd576be7b0dadbd5e006875750",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "84ede7cac9a993734c34423857b16edc2d2469be",
+          "at": "2026-10-12T09:07:36+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "84ede7cac9a993734c34423857b16edc2d2469be",
+          "at": "2026-10-12T09:07:38+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a94177f21bfc60cd576be7b0dadbd5e006875750",
+          "at": "2026-10-12T10:41:00+00:00"
+        }
+      ]
+    },
+    "Picture/HF_BarkMeal.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d0d82b7b58b67392c0b503f9d1f61823adf0c746",
+      "at": "2026-10-12T17:21:24+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "609bc96df93d74b79195f5eca8bb11b2c1e44dd8",
+          "at": "2026-10-12T09:09:46+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d0d82b7b58b67392c0b503f9d1f61823adf0c746",
+          "at": "2026-10-12T10:41:01+00:00"
+        }
+      ]
+    },
+    "Picture/HF_BerryLeather.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d57becec86f348c56d4435ca8210378cefe7c1a5",
+      "at": "2026-10-12T17:23:18+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "01b2984a03269d154e8e5e50066d12452e502f42",
+          "at": "2026-10-12T09:09:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d57becec86f348c56d4435ca8210378cefe7c1a5",
+          "at": "2026-10-12T10:41:03+00:00"
+        }
+      ]
+    },
+    "Picture/HF_BotanicalFieldGuide.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9816e3b4c4d280f1756b92608a0fc8a2b1eecee4",
+      "at": "2026-10-12T17:21:00+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9816e3b4c4d280f1756b92608a0fc8a2b1eecee4",
+          "at": "2026-10-12T08:49:35+00:00"
+        }
+      ]
+    },
+    "Picture/HF_BroadBeans.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "fb5f84695277da2fc45dab93a527b2266bb4f3d2",
+      "at": "2026-10-12T20:36:00+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4530c28f4281e3208976ef55d409ed2c4e3ba648",
+          "at": "2026-10-12T08:49:37+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "4530c28f4281e3208976ef55d409ed2c4e3ba648",
+          "at": "2026-10-12T16:53:52+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "eaeea11dddc1af849136afefb9509963abdad8d4",
+          "at": "2026-10-12T19:09:30+00:00"
+        }
+      ]
+    },
+    "Picture/HF_CamasCake.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ebbb59fb8e46546b5e5595a2442589c2cfe6c9af",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ebbb59fb8e46546b5e5595a2442589c2cfe6c9af",
+          "at": "2026-10-12T08:49:37+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Carrot.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant HF_CarrotRow (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "b5960c115256dc1c2d230cff7161f6349d1ab816",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b5960c115256dc1c2d230cff7161f6349d1ab816",
+          "at": "2026-10-12T08:49:38+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b5960c115256dc1c2d230cff7161f6349d1ab816",
+          "at": "2026-10-12T16:53:53+00:00"
+        }
+      ]
+    },
+    "Picture/HF_CarrotRow.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e6bc1b8265aa722d3d18c0384ed6c7b1497ba129",
+      "at": "2026-10-14T04:37:09+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "931408ecb748394a5e192680f1c0f83864e8b3ca",
+          "at": "2026-10-12T08:49:41+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "931408ecb748394a5e192680f1c0f83864e8b3ca",
+          "at": "2026-10-12T17:24:44+00:00"
+        }
+      ]
+    },
+    "Picture/HF_ChamomileTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "56366b4cb33be47a06ccd3a26d74f60e71d0c2e2",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c147ff5842cecc47cba6d9d3e4a97824a1dd8a88",
+          "at": "2026-10-12T08:49:42+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "c147ff5842cecc47cba6d9d3e4a97824a1dd8a88",
+          "at": "2026-10-12T09:07:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "56366b4cb33be47a06ccd3a26d74f60e71d0c2e2",
+          "at": "2026-10-12T10:41:04+00:00"
+        }
+      ]
+    },
+    "Picture/HF_ChanterelleBroth.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "40f50c00ce6a472281b5f11329cc190c9a98267b",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "774cb4c92ef349d90d83b7c513b3a81b91483063",
+          "at": "2026-10-12T09:07:30+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "774cb4c92ef349d90d83b7c513b3a81b91483063",
+          "at": "2026-10-12T09:07:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "40f50c00ce6a472281b5f11329cc190c9a98267b",
+          "at": "2026-10-12T10:41:04+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Chestnuts.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c9c3f4c5755205b818962972e010bbfb1b46eb3f",
+      "at": "2026-10-12T20:37:10+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "457381a3262a4f4f2e43bc093393d786ad9c47c9",
+          "at": "2026-10-12T08:49:45+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "457381a3262a4f4f2e43bc093393d786ad9c47c9",
+          "at": "2026-10-12T16:54:10+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "b08f3d6c8d9e17330a6773fc54b00b80ea7cdf34",
+          "at": "2026-10-12T19:08:57+00:00"
+        }
+      ]
+    },
+    "Picture/HF_ChicoryRoot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c337223cb43ade0356648a249f060d16e0273c3a",
+      "at": "2026-10-12T17:22:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c337223cb43ade0356648a249f060d16e0273c3a",
+          "at": "2026-10-12T08:49:45+00:00"
+        }
+      ]
+    },
+    "Picture/HF_ClearedForestTrail.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "86fb8e8e13df6fd362b003407c12390b2bc298c8",
+      "at": "2026-10-14T04:37:11+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f0cf2c931ac161a6795cec61d896cda72345fae2",
+          "at": "2026-10-12T08:49:49+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "f0cf2c931ac161a6795cec61d896cda72345fae2",
+          "at": "2026-10-12T16:57:31+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "c2cb3811eed6fdcc2dfdee74eb9b14217600e0eb",
+          "at": "2026-10-12T19:09:43+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8b571228d3e5eead1cca268bb0be8396c744cbf7",
+          "at": "2026-10-12T20:01:24+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Crabapples.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "645f39be2a533b0214c2641c0a0564ade31a4f2f",
+      "at": "2026-10-12T17:22:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "645f39be2a533b0214c2641c0a0564ade31a4f2f",
+          "at": "2026-10-12T08:49:50+00:00"
+        }
+      ]
+    },
+    "Picture/HF_CrabapplesDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "65227ebd651a23c9a0a6859982e1438dabb291a8",
+      "at": "2026-10-12T17:21:52+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "65227ebd651a23c9a0a6859982e1438dabb291a8",
+          "at": "2026-10-12T08:49:51+00:00"
+        }
+      ]
+    },
+    "Picture/HF_CressBed.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b3f4ae15ce88972580ed772fe3ea6e0bacce72a8",
+      "at": "2026-10-14T04:37:13+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2d2b9ffda7247b450f244d019d7f6799f22dd3dd",
+          "at": "2026-10-12T08:49:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2d2b9ffda7247b450f244d019d7f6799f22dd3dd",
+          "at": "2026-10-12T17:24:44+00:00"
+        }
+      ]
+    },
+    "Picture/HF_DandelionTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5fee23820a08cf1a6221c751ea44a3fdaeb277a0",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bf0baf4e084db07b0870d52ee82c12e23fcd6d58",
+          "at": "2026-10-12T08:49:54+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "bf0baf4e084db07b0870d52ee82c12e23fcd6d58",
+          "at": "2026-10-12T09:07:26+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5fee23820a08cf1a6221c751ea44a3fdaeb277a0",
+          "at": "2026-10-12T10:41:05+00:00"
+        }
+      ]
+    },
+    "Picture/HF_DeathCapTincture.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3a2d144b52d0e35f0b9f2e6fc25d7a884aad209f",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "60adf7aaf3fdad9e76fd58843d2035f8d5e1c74b",
+          "at": "2026-10-12T08:49:55+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "60adf7aaf3fdad9e76fd58843d2035f8d5e1c74b",
+          "at": "2026-10-12T09:07:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3a2d144b52d0e35f0b9f2e6fc25d7a884aad209f",
+          "at": "2026-10-12T10:41:06+00:00"
+        }
+      ]
+    },
+    "Picture/HF_DeathCapWard.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f5bc554aa76ce70f78635607891d0abbe086bdde",
+      "at": "2026-10-12T20:35:58+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove ",
+          "sha1": "73daea722a307f42355c5e36b36d16a6177bc362",
+          "at": "2026-10-12T08:50:03+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "has white ",
+          "sha1": "26ff9deef1537950b786d4d6e931f489029ecbcd",
+          "at": "2026-10-12T10:41:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "has white ",
+          "sha1": "c2ee1050d364fbfa1dd2b80a2106638bd93756d5",
+          "at": "2026-10-12T14:18:27+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "has white Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c2ee1050d364fbfa1dd2b80a2106638bd93756d5",
+          "at": "2026-10-12T16:57:32+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "27fca88104cb1faaeea2472ebdbdf8b4cb59bb5d",
+          "at": "2026-10-12T19:05:19+00:00"
+        }
+      ]
+    },
+    "Picture/HF_DeathCapWardPlaced.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ddc23f799c88f7dcacc2fe16ad03811ce06c1d05",
+      "at": "2026-10-12T20:31:57+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "d08a1a4d282b82bf7c7505ecf45ac669bd23e26e",
+          "at": "2026-10-12T08:50:43+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "has white. ",
+          "sha1": "96c64fb4a70debe1cafceb9a397c4597ca47fb20",
+          "at": "2026-10-12T10:41:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "has white. Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0bcd7de824b2992cdd7edd400ca5c203ecce5b85",
+          "at": "2026-10-12T16:58:50+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "has white. Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0bcd7de824b2992cdd7edd400ca5c203ecce5b85",
+          "at": "2026-10-12T17:00:20+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "4d3e009cd9182a1cd438c35b82783388f4f11c68",
+          "at": "2026-10-12T19:08:52+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Dough.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d9b8ff86ee40350db912b5c28286da6334d2c792",
+      "at": "2026-10-12T17:22:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d9b8ff86ee40350db912b5c28286da6334d2c792",
+          "at": "2026-10-12T08:50:07+00:00"
+        }
+      ]
+    },
+    "Picture/HF_ElderflowerCordial.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f753154f6af214ac995e7a8ae57df06b9aa4b33e",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f753154f6af214ac995e7a8ae57df06b9aa4b33e",
+          "at": "2026-10-12T10:41:20+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Elderflowers.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "67660edabde6a3add5d3b0308360734be649504a",
+      "at": "2026-10-12T17:20:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "67660edabde6a3add5d3b0308360734be649504a",
+          "at": "2026-10-12T17:02:56+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Fiddleheads.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b0ad4afc2baf0b4a077b4eb7d6e8b6b3ffd2397b",
+      "at": "2026-10-12T17:22:22+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b0ad4afc2baf0b4a077b4eb7d6e8b6b3ffd2397b",
+          "at": "2026-10-12T08:50:08+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Fishcake.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4ed3dece8954d5ec1df933db609128bab2745acb",
+      "at": "2026-10-12T17:21:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4ed3dece8954d5ec1df933db609128bab2745acb",
+          "at": "2026-10-12T08:50:09+00:00"
+        }
+      ]
+    },
+    "Picture/HF_FishMash.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "159e1cba82353280ac8e998af3a5756949fed524",
+      "at": "2026-10-12T17:22:36+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "159e1cba82353280ac8e998af3a5756949fed524",
+          "at": "2026-10-12T08:50:10+00:00"
+        }
+      ]
+    },
+    "Picture/HF_ForagerSeasoning.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cc7701bc5ef51245d4e17b0e833570222f2dc873",
+      "at": "2026-10-12T17:21:50+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "047c10426da9cc0ad21a27b1956274ecbbda7e46",
+          "at": "2026-10-12T08:50:39+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cc7701bc5ef51245d4e17b0e833570222f2dc873",
+          "at": "2026-10-12T10:41:22+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Ful.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c79a8e2b0026affa4444355bd10d17c527b53a4d",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c79a8e2b0026affa4444355bd10d17c527b53a4d",
+          "at": "2026-10-12T08:50:14+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Grapes.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "e5cca9107f24e70939e361a08134fa98cd95cae3",
+      "at": "2026-10-12T17:18:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e5cca9107f24e70939e361a08134fa98cd95cae3",
+          "at": "2026-10-12T16:58:51+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e5cca9107f24e70939e361a08134fa98cd95cae3",
+          "at": "2026-10-12T17:00:20+00:00"
+        }
+      ]
+    },
+    "Picture/HF_GrowBagGoldenOyster.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "eef61d090699b6d1690ad9ace8b18c1bb075dd12",
+      "at": "2026-10-12T17:20:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "eef61d090699b6d1690ad9ace8b18c1bb075dd12",
+          "at": "2026-10-12T17:02:56+00:00"
+        }
+      ]
+    },
+    "Picture/HF_GrowBagGrowing.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6a0e7d1940260384160a84d017fd430eb0c5f63b",
+      "at": "2026-10-12T17:22:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6a0e7d1940260384160a84d017fd430eb0c5f63b",
+          "at": "2026-10-12T08:50:17+00:00"
+        }
+      ]
+    },
+    "Picture/HF_GrowBagKingOyster.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5d709b28d58136dea40de351e073cf990bdae86d",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5d709b28d58136dea40de351e073cf990bdae86d",
+          "at": "2026-10-12T08:50:18+00:00"
+        }
+      ]
+    },
+    "Picture/HF_GruitBundle.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "64474b046f3819ad6edee88edaba281d669f4541",
+      "at": "2026-10-14T04:26:33+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "1ab76ed9300e41d470c73c2af3d9b6bed99e14df",
+          "at": "2026-10-12T08:51:01+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1375e6baed3102ebe07c6601f3e3ca97a050113c",
+          "at": "2026-10-12T16:59:08+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1375e6baed3102ebe07c6601f3e3ca97a050113c",
+          "at": "2026-10-12T17:00:41+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "ad4a891b2fb9d3f848551a8095a5cb127f3689cb",
+          "at": "2026-10-12T19:04:59+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "white voids to remove ",
+          "sha1": "ae23e1a19edadfbf949167c21259d3952cedbecd",
+          "at": "2026-10-12T21:13:34+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "manual work needed please flag for manual rework ",
+          "sha1": "96b656d0938bfc08b0cea4eaa0de26b1676b0f1a",
+          "at": "2026-10-12T21:26:05+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Haggis.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ca74e33d88c63ae8f29c2da60b24dcd419f73a7a",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "365585d383fd6828bc8268089ebc6e65c5353c3f",
+          "at": "2026-10-12T09:09:54+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ca74e33d88c63ae8f29c2da60b24dcd419f73a7a",
+          "at": "2026-10-12T10:41:25+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Hazelnuts.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "dd15c8167cc94aff82d189d8ecdb35b789c1c8b1",
+      "at": "2026-10-12T19:06:39+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d9097652e77dc6753c6466364aa27886ddd1747d",
+          "at": "2026-10-12T08:51:05+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "d9097652e77dc6753c6466364aa27886ddd1747d",
+          "at": "2026-10-12T16:57:06+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HealersMossTincture.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d6aa26d1c3cdb2aa29f665c3157883e02bf671f0",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "3d23f6ae866d5a9b122e5caa05e2f22b6f7fe3c7",
+          "at": "2026-10-12T09:07:21+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "3d23f6ae866d5a9b122e5caa05e2f22b6f7fe3c7",
+          "at": "2026-10-12T09:07:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d6aa26d1c3cdb2aa29f665c3157883e02bf671f0",
+          "at": "2026-10-12T10:41:26+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HempPulp.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e5e759466cd4023994b5fb08b268b0a43071b7f5",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "da9b40da61fcb86bf11fe5d25fa2e88f0df3576e",
+          "at": "2026-10-12T08:51:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5e759466cd4023994b5fb08b268b0a43071b7f5",
+          "at": "2026-10-12T10:41:28+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HempPulpSoaked.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a1218a3f7924ce2a60c1967edc8189a2174851d8",
+      "at": "2026-10-12T17:22:33+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "too much white removed",
+          "sha1": "a2ba6a819fa8d612edc0b4361c149df21d93ec75",
+          "at": "2026-10-12T08:51:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a1218a3f7924ce2a60c1967edc8189a2174851d8",
+          "at": "2026-10-12T10:41:29+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HempSeedOil.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "be7767baa3ec1e223fb77a507c4e83d6469ea489",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bbb813fd413936af0bf69f3d092c5a0f4006e3c2",
+          "at": "2026-10-12T08:51:26+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "bbb813fd413936af0bf69f3d092c5a0f4006e3c2",
+          "at": "2026-10-12T09:07:20+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "be7767baa3ec1e223fb77a507c4e83d6469ea489",
+          "at": "2026-10-12T10:41:30+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalBathSoak.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "87f1ebe670e8a52c1dcd35467796a29ce53b793e",
+      "at": "2026-10-12T19:06:19+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "dcaea9c4d3d68e4b0cdab8d5659a98a891f7ff9b",
+          "at": "2026-10-12T08:51:29+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "has white. ",
+          "sha1": "04a59ce25bce92d9e307dba4154b6ee0baf2c748",
+          "at": "2026-10-12T10:41:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "has white. Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "952fb618f2343ac6b049ec97e708516937070fa6",
+          "at": "2026-10-12T16:59:30+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "has white. Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "952fb618f2343ac6b049ec97e708516937070fa6",
+          "at": "2026-10-12T17:01:09+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalOil_Appleweed.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a233f71278c024e6a5de0649ffcac61f8ba31f2c",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "ac69da1b37930a94c4fcc4b18f1541186ad10256",
+          "at": "2026-10-12T09:07:18+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "ac69da1b37930a94c4fcc4b18f1541186ad10256",
+          "at": "2026-10-12T09:07:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a233f71278c024e6a5de0649ffcac61f8ba31f2c",
+          "at": "2026-10-12T10:41:37+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalOil_Chamomile.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f71a186fceefe36781c7db4d5e3228796e41fea2",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b1a3e5e3907fead5a5451fa0ed77bfeb32353bca",
+          "at": "2026-10-12T08:51:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "b1a3e5e3907fead5a5451fa0ed77bfeb32353bca",
+          "at": "2026-10-12T09:07:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f71a186fceefe36781c7db4d5e3228796e41fea2",
+          "at": "2026-10-12T10:41:38+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalOil_Fairyweed.png": {
+      "status": "approved",
+      "notes": "must match the HF_LQRegenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "96c2ca37e57165333606edf05ae8b07100fae7bf",
+      "at": "2026-10-12T17:20:24+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "096464b2bbf52ede4679f4ef2bd4c3d4b4630e06",
+          "at": "2026-10-12T08:51:33+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "must match the HF_LQ",
+          "sha1": "5212da60497beddb9ad3955c6a4a27eef19ef19b",
+          "at": "2026-10-12T10:41:49+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "must match the HF_LQRegenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "96c2ca37e57165333606edf05ae8b07100fae7bf",
+          "at": "2026-10-12T16:54:11+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalOil_Frostleaf.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ff81b1369cc84fe4048e23f81588273ef0955b1f",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "a4bbc22a5bd62d96b28308c362de3d68eced4cc9",
+          "at": "2026-10-12T09:07:10+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "a4bbc22a5bd62d96b28308c362de3d68eced4cc9",
+          "at": "2026-10-12T09:07:11+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ff81b1369cc84fe4048e23f81588273ef0955b1f",
+          "at": "2026-10-12T10:41:50+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalOil_Ginseng.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c5e7a2eb8f3d733aab4cd8d115ee17f05d4de844",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2d8b0a9c58a8fae8fafa7324fc86bd24e9950fd4",
+          "at": "2026-10-12T08:51:34+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "2d8b0a9c58a8fae8fafa7324fc86bd24e9950fd4",
+          "at": "2026-10-12T09:07:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c5e7a2eb8f3d733aab4cd8d115ee17f05d4de844",
+          "at": "2026-10-12T10:41:51+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalOil_Hemp.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d8730fc921c08f5ba6af9b6598a5f3f1e373a2c6",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "473a2602b0d94c753f2a4202c08de03064a36aa9",
+          "at": "2026-10-12T09:07:14+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "473a2602b0d94c753f2a4202c08de03064a36aa9",
+          "at": "2026-10-12T09:07:14+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d8730fc921c08f5ba6af9b6598a5f3f1e373a2c6",
+          "at": "2026-10-12T10:41:52+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalOil_Yarrow.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0b32b0885e1ce9aff414a04cdb9e42714dea5390",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "f00f3d45af5374241c7d65fde91bc9f527e8e604",
+          "at": "2026-10-12T09:07:05+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "f00f3d45af5374241c7d65fde91bc9f527e8e604",
+          "at": "2026-10-12T09:07:05+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0b32b0885e1ce9aff414a04cdb9e42714dea5390",
+          "at": "2026-10-12T10:41:52+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalSalve.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c7eddce2c81074b4d4a343d197a623a0614d95d1",
+      "at": "2026-10-12T20:36:52+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0d3fa8a65cace6bcfd684e45da99908f97f9c489",
+          "at": "2026-10-12T16:51:46+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0d3fa8a65cace6bcfd684e45da99908f97f9c489",
+          "at": "2026-10-12T16:51:52+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "",
+          "sha1": "4b900649d5c57321e9d11318aca7bee55f2afd78",
+          "at": "2026-10-12T19:09:14+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbalTincture.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b28e7017a739700a8c352aceeac0444a9ac45790",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "533aa714dee59e97d8b8a76d96b2357f4646b1c0",
+          "at": "2026-10-12T08:51:38+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "533aa714dee59e97d8b8a76d96b2357f4646b1c0",
+          "at": "2026-10-12T09:07:02+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b28e7017a739700a8c352aceeac0444a9ac45790",
+          "at": "2026-10-12T10:41:53+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbButter.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bbc5457a6d0ff6587de90f0716c0c63475732c28",
+      "at": "2026-10-12T17:21:53+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "3f7264fe2b33e5b8137358753c60d5ae044e7569",
+          "at": "2026-10-12T08:51:40+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bbc5457a6d0ff6587de90f0716c0c63475732c28",
+          "at": "2026-10-12T10:41:55+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HerbCheese.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "909e448fcad0fc21f6e2b70ec3e1b4b1ca73e7af",
+      "at": "2026-10-12T19:06:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f24b979047dfb282c7e4934040e0095bf18b3b98",
+          "at": "2026-10-12T08:51:44+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "f24b979047dfb282c7e4934040e0095bf18b3b98",
+          "at": "2026-10-12T16:54:32+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HoneySyrup.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3d3de4a3e6d575f204887e5486c2534dd7c8771d",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "58e5246befdae44ffdfcfd8d2c9ad1e90f93f420",
+          "at": "2026-10-12T09:10:01+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3d3de4a3e6d575f204887e5486c2534dd7c8771d",
+          "at": "2026-10-12T10:41:56+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Hops.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "da293ea714dca7083bcd55e74ba426fa2f619539",
+      "at": "2026-10-12T17:21:53+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "6fa2fdf2bd2ccbae6b01fc7405a9d576f7a608b2",
+          "at": "2026-10-12T09:10:00+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "da293ea714dca7083bcd55e74ba426fa2f619539",
+          "at": "2026-10-12T10:41:58+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HopVine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "75cce5c45531140a1c51973b4d327ae95999ee90",
+      "at": "2026-10-14T04:37:13+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "f8ff6e14175893174bf5efa031a3538893643cae",
+          "at": "2026-10-12T09:10:00+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8c8b945da8b257af4916e81b3453224cd167154e",
+          "at": "2026-10-12T10:41:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8c8b945da8b257af4916e81b3453224cd167154e",
+          "at": "2026-10-12T17:24:45+00:00"
+        }
+      ]
+    },
+    "Picture/HF_HorseradishSliced.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f8ff1fac386e134b24acc82fd71031572ddd39f8",
+      "at": "2026-10-12T17:22:21+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f8ff1fac386e134b24acc82fd71031572ddd39f8",
+          "at": "2026-10-12T08:51:53+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Kale.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "34516e4c80c853a8a1e1b101c04a8c1029c63c8e",
+      "at": "2026-10-12T17:22:21+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "34516e4c80c853a8a1e1b101c04a8c1029c63c8e",
+          "at": "2026-10-12T08:51:54+00:00"
+        }
+      ]
+    },
+    "Picture/HF_KalePatch.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ecf0b2587d8ba71db2992f8dda1a2fa420751185",
+      "at": "2026-10-14T04:37:14+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5cc07d72190e9a5ecdf70bdea5abe7127598592",
+          "at": "2026-10-12T08:51:55+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5cc07d72190e9a5ecdf70bdea5abe7127598592",
+          "at": "2026-10-12T17:24:45+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Leek.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "42aa79ebbc15c4bdc6145ab3a568fe53774bb361",
+      "at": "2026-10-12T17:22:04+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "4379704e05ce1039e5a39b86a3e6624e83fe71f6",
+          "at": "2026-10-12T09:09:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "42aa79ebbc15c4bdc6145ab3a568fe53774bb361",
+          "at": "2026-10-12T10:42:00+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LeekBed.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "95b716771fdfe095edd5988b1967b31fc09f8234",
+      "at": "2026-10-14T04:37:15+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1de9b9d094083d0c44490600a936ba7baae5b1d7",
+          "at": "2026-10-12T08:51:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1de9b9d094083d0c44490600a936ba7baae5b1d7",
+          "at": "2026-10-12T17:24:45+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LinseedCake.png": {
+      "status": "approved",
+      "notes": "too low resolution",
+      "sha1": "b775fd4680c5a3704583b3b34db05abfed926da4",
+      "at": "2026-10-12T19:08:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "eb2295ea7c7f798f72f804a19ff1f85b3472cf86",
+          "at": "2026-10-12T08:52:01+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "eb2295ea7c7f798f72f804a19ff1f85b3472cf86",
+          "at": "2026-10-12T16:54:33+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LinseedOil.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8da2d28d992f3d458f4de566a35f174810d4b853",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "a61e724138223d91ba7d97bad360a143f703d4b7",
+          "at": "2026-10-12T09:06:58+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "a61e724138223d91ba7d97bad360a143f703d4b7",
+          "at": "2026-10-12T09:06:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8da2d28d992f3d458f4de566a35f174810d4b853",
+          "at": "2026-10-12T10:42:00+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LionsManeBroth.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "db4ee05b885b7cb599acf8bb7fead412d4275136",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "bfc46f255a4d6520547b9ce625b07c593f59fe1a",
+          "at": "2026-10-12T09:06:53+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "bfc46f255a4d6520547b9ce625b07c593f59fe1a",
+          "at": "2026-10-12T09:06:57+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "db4ee05b885b7cb599acf8bb7fead412d4275136",
+          "at": "2026-10-12T10:42:01+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_ChagaTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e8452bf77882639541f99426aad24904352071a0",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e8452bf77882639541f99426aad24904352071a0",
+          "at": "2026-10-12T08:52:03+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_ChicoryTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "573e768562e94f31332e32e029e9a31431eb4e44",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "573e768562e94f31332e32e029e9a31431eb4e44",
+          "at": "2026-10-12T08:52:03+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_FishSauce.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "80c707f11946ef6602040e19724cf4eb817b1b0b",
+      "at": "2026-10-12T17:24:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "80c707f11946ef6602040e19724cf4eb817b1b0b",
+          "at": "2026-10-12T08:52:03+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_FishSauceYoung.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e75539a84406449d5cd8ce0aad458955e631e5c0",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e75539a84406449d5cd8ce0aad458955e631e5c0",
+          "at": "2026-10-12T08:52:04+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_GinsengTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5259eeacbfc634b2d31130c8df0955ac6c7c4297",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5259eeacbfc634b2d31130c8df0955ac6c7c4297",
+          "at": "2026-10-12T08:52:04+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_GrapeMust.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8f6153f8594b960e52a9b053dce4cf3195598635",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8f6153f8594b960e52a9b053dce4cf3195598635",
+          "at": "2026-10-12T08:52:04+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_GrapeWine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e93a6baa986a99134271c793c18e5d3a1a42d916",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e93a6baa986a99134271c793c18e5d3a1a42d916",
+          "at": "2026-10-12T08:52:04+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_GruitAle.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "40406482e7216c609d811fdd6afc98935cabefb8",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "40406482e7216c609d811fdd6afc98935cabefb8",
+          "at": "2026-10-12T08:52:05+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_HerbalFerment.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "fb14cfb743bb70bec3fb931213b667eb796e2fbf",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "fb14cfb743bb70bec3fb931213b667eb796e2fbf",
+          "at": "2026-10-12T08:52:05+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_HerbalFermentYoung.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "effd26b86f7268166579ae8fb7fe2cfe66dcb297",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "effd26b86f7268166579ae8fb7fe2cfe66dcb297",
+          "at": "2026-10-12T08:52:05+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_HoppedAle.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6119bcbc5ff668f10899871c0eb8cea28c18f716",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6119bcbc5ff668f10899871c0eb8cea28c18f716",
+          "at": "2026-10-12T08:52:06+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_LionsManeTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b0f164511f40f3b686e829066b780db451893f3d",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b0f164511f40f3b686e829066b780db451893f3d",
+          "at": "2026-10-12T08:52:06+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_MandrakeDraught.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "99123235407972f3e8cfcab5e89b2059b04a66ee",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "99123235407972f3e8cfcab5e89b2059b04a66ee",
+          "at": "2026-10-12T08:52:06+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_NeedleAle.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9530784a189e4b1a3ef38a69f8d52310394ce827",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9530784a189e4b1a3ef38a69f8d52310394ce827",
+          "at": "2026-10-12T08:52:06+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_NutMilk.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a3522f396a3050c200cf2b8201cf36875be13580",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a3522f396a3050c200cf2b8201cf36875be13580",
+          "at": "2026-10-12T08:52:07+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_PickleBrine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f395ead67fd1eb4d544135155aa9a84782ad07a9",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f395ead67fd1eb4d544135155aa9a84782ad07a9",
+          "at": "2026-10-12T08:52:07+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_ReishiTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "586a4e014a5a407c6b2abe0be083912f34381fb4",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "586a4e014a5a407c6b2abe0be083912f34381fb4",
+          "at": "2026-10-12T08:52:07+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_SloeMust.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b0b3d1329be4f9a2710ce4c9418dc543e347bc21",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b0b3d1329be4f9a2710ce4c9418dc543e347bc21",
+          "at": "2026-10-12T08:52:07+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_SloeWine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5898e8f146e140d1875637b75209de27ecc6367d",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5898e8f146e140d1875637b75209de27ecc6367d",
+          "at": "2026-10-12T08:52:07+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_SpicedBillberryWine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a62dd8c74d9f3df6199ae8431e0513ac782d6261",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a62dd8c74d9f3df6199ae8431e0513ac782d6261",
+          "at": "2026-10-12T08:52:08+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_SpicedBirchWine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "446298ccaa226e8c228b2d0ccca5a5516e303e91",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "446298ccaa226e8c228b2d0ccca5a5516e303e91",
+          "at": "2026-10-12T08:52:08+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_SpicedPickleBrine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "15fa27cc6407410a5d954591a38c26f3340a093d",
+      "at": "2026-10-12T17:24:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "15fa27cc6407410a5d954591a38c26f3340a093d",
+          "at": "2026-10-12T08:52:08+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_SpicedRyeAle.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "26534d743c26def3a3338a6af4879156bbfc0b6c",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "26534d743c26def3a3338a6af4879156bbfc0b6c",
+          "at": "2026-10-12T08:52:09+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_SpicedSpringberryWine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b916fa1c12accb395621247552050c92061dad58",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b916fa1c12accb395621247552050c92061dad58",
+          "at": "2026-10-12T08:52:09+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_SpicedWheatAle.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "461795bbd80907feffe01a61294e8a664f0b74e4",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "461795bbd80907feffe01a61294e8a664f0b74e4",
+          "at": "2026-10-12T08:52:09+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_VigorElixir.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "03f39e1046c13622654807782dc8bcdaf1ff96cc",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "03f39e1046c13622654807782dc8bcdaf1ff96cc",
+          "at": "2026-10-12T08:52:10+00:00"
+        }
+      ]
+    },
+    "Picture/HF_LQ_YarrowTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a94dca5b149c76bf7b4bce1cbb44f782db9180db",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a94dca5b149c76bf7b4bce1cbb44f782db9180db",
+          "at": "2026-10-12T08:52:10+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Maggots.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9374f3a6c8128933cd17de20a579bbb8f6b3263f",
+      "at": "2026-10-12T19:06:06+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "30b60bd3dcdc219e8c8116a916c52d0dfebde70c",
+          "at": "2026-10-12T16:59:08+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "30b60bd3dcdc219e8c8116a916c52d0dfebde70c",
+          "at": "2026-10-12T17:00:42+00:00"
+        }
+      ]
+    },
+    "Picture/HF_MandrakeRoot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6fdbb1a467928acf3d363c667d2346b94409969e",
+      "at": "2026-10-12T19:06:21+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "04ce3d3c42d6044328efc146ecf14e2f0a150cf4",
+          "at": "2026-10-12T09:10:04+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c582b8b6ca1659d956a3dd723d28ef622ea8b56b",
+          "at": "2026-10-12T16:59:09+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c582b8b6ca1659d956a3dd723d28ef622ea8b56b",
+          "at": "2026-10-12T17:00:42+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Mossbed.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "09710eb49b33c1527893690f1af90fc87056e486",
+      "at": "2026-10-14T04:37:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "74aec0f168bd3249ece6b2c1e99979e75945a0dc",
+          "at": "2026-10-12T08:52:15+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "74aec0f168bd3249ece6b2c1e99979e75945a0dc",
+          "at": "2026-10-12T17:24:47+00:00"
+        }
+      ]
+    },
+    "Picture/HF_MushroomBroth.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a9e64f5835f88d3bfe8b9d1da0175279d6794cba",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "d7fb17a294d6a62588cffe6d5890b6f314e524eb",
+          "at": "2026-10-12T09:02:08+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "d7fb17a294d6a62588cffe6d5890b6f314e524eb",
+          "at": "2026-10-12T09:02:08+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a9e64f5835f88d3bfe8b9d1da0175279d6794cba",
+          "at": "2026-10-12T10:42:03+00:00"
+        }
+      ]
+    },
+    "Picture/HF_MustardSeeds.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b2bd8756bc448aac01bf8d5faf41df2b92509a7d",
+      "at": "2026-10-12T17:22:31+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "f5769a323192b5623383ce51f0961a412fcffd86",
+          "at": "2026-10-12T08:52:20+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b2bd8756bc448aac01bf8d5faf41df2b92509a7d",
+          "at": "2026-10-12T10:42:04+00:00"
+        }
+      ]
+    },
+    "Picture/HF_OvergrownForestTrail.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "665020951267d499bae449e5ea692f6556521dd9",
+      "at": "2026-10-14T04:47:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1e27b8212747fc1c11dda3d425ba7ca601f45fa8",
+          "at": "2026-10-12T08:52:22+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1e27b8212747fc1c11dda3d425ba7ca601f45fa8",
+          "at": "2026-10-12T16:57:07+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "d4b50713c114a62d9121f4df6f380358c1852028",
+          "at": "2026-10-12T19:09:44+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "over saturated adjust the tone to match vanilla ",
+          "sha1": "ce711f2a053e04d88d57d353076d98d791a73604",
+          "at": "2026-10-12T21:12:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "eb9bc5f717f2a8e13c95d7bb307b7d0549171ce3",
+          "at": "2026-10-12T21:22:10+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "Too dark, please lighten up to match the rest of the daylight images ",
+          "sha1": "d9ef341d7a0103906b62dec5b87f25a00b1f3122",
+          "at": "2026-10-14T04:37:50+00:00"
+        }
+      ]
+    },
+    "Picture/HF_PainReliefPowder.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8d31c9dce2ba1335c862b4947f666254528a7d6d",
+      "at": "2026-10-12T17:22:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other powders. ",
+          "sha1": "1df4a9eb019b655840af80bf6de5728d3cfaf0a0",
+          "at": "2026-10-12T09:06:31+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "see the images of other powders. ",
+          "sha1": "1df4a9eb019b655840af80bf6de5728d3cfaf0a0",
+          "at": "2026-10-12T09:06:39+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8d31c9dce2ba1335c862b4947f666254528a7d6d",
+          "at": "2026-10-12T10:42:05+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Paper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "39c49f46421a49b6c9e4467b6a76cb7ee406a97e",
+      "at": "2026-10-12T17:21:50+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "39c49f46421a49b6c9e4467b6a76cb7ee406a97e",
+          "at": "2026-10-12T08:52:24+00:00"
+        }
+      ]
+    },
+    "Picture/HF_PeanutOil.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e429f088211a87f9afab0c9e7812ee593adfe65d",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "18456266822876c7ad0b067ac9a612f4bd6e60dd",
+          "at": "2026-10-12T09:01:55+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "18456266822876c7ad0b067ac9a612f4bd6e60dd",
+          "at": "2026-10-12T09:01:56+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e429f088211a87f9afab0c9e7812ee593adfe65d",
+          "at": "2026-10-12T10:42:06+00:00"
+        }
+      ]
+    },
+    "Picture/HF_PineNutOil.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ea1cc03289395d7d693618d8f9311fe561b484c2",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8eb0d59a6fdf93de6519d60fa6acee5a614a3c23",
+          "at": "2026-10-12T08:52:26+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "8eb0d59a6fdf93de6519d60fa6acee5a614a3c23",
+          "at": "2026-10-12T09:01:58+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ea1cc03289395d7d693618d8f9311fe561b484c2",
+          "at": "2026-10-12T10:42:07+00:00"
+        }
+      ]
+    },
+    "Picture/HF_ReishiBroth.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "565f709b3b41c1b296d38ea54e8835eb270e06f2",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d136656f1da4c1dc4add87d8cdda23fc135c1626",
+          "at": "2026-10-12T08:52:28+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "d136656f1da4c1dc4add87d8cdda23fc135c1626",
+          "at": "2026-10-12T09:01:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "565f709b3b41c1b296d38ea54e8835eb270e06f2",
+          "at": "2026-10-12T10:42:07+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Rhubarb.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9dd0cf299d477560d0d2be2121e1ededb80d343a",
+      "at": "2026-10-12T17:22:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9dd0cf299d477560d0d2be2121e1ededb80d343a",
+          "at": "2026-10-12T08:52:29+00:00"
+        }
+      ]
+    },
+    "Picture/HF_RhubarbPatch.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c3b31610cb5cc1e3231abad57de1952973106ef0",
+      "at": "2026-10-14T04:32:08+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5f83ce0ade6e957665f7e4b069854fdb4d4fc8aa",
+          "at": "2026-10-12T08:52:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5f83ce0ade6e957665f7e4b069854fdb4d4fc8aa",
+          "at": "2026-10-12T17:24:47+00:00"
+        }
+      ]
+    },
+    "Picture/HF_SleepTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d358083d6c4bb8dffc8d38fccb28b46a5afc1ea0",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "03a8e8b50b6ab891e12b951f9db68138a23bbdfe",
+          "at": "2026-10-12T09:01:40+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "03a8e8b50b6ab891e12b951f9db68138a23bbdfe",
+          "at": "2026-10-12T09:01:47+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d358083d6c4bb8dffc8d38fccb28b46a5afc1ea0",
+          "at": "2026-10-12T10:42:08+00:00"
+        }
+      ]
+    },
+    "Picture/HF_Sloes.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "30c61c2536b84351e7ee63d1b640e833d35d2e10",
+      "at": "2026-10-12T20:36:19+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a049136707978954b8b96064267fd5ce0a1afa03",
+          "at": "2026-10-12T08:52:33+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a049136707978954b8b96064267fd5ce0a1afa03",
+          "at": "2026-10-12T16:57:08+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "115d235813188bbf056b96421d379d16e0a6a816",
+          "at": "2026-10-12T19:09:00+00:00"
+        }
+      ]
+    },
+    "Picture/HF_StimulantTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "abcfbeb4c1dd4a066436ba64183ba17a9855ff14",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "5bf750923c5603d95d895c836c6681afa0c94e03",
+          "at": "2026-10-12T09:01:49+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "5bf750923c5603d95d895c836c6681afa0c94e03",
+          "at": "2026-10-12T09:01:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "abcfbeb4c1dd4a066436ba64183ba17a9855ff14",
+          "at": "2026-10-12T10:42:08+00:00"
+        }
+      ]
+    },
+    "Picture/HF_TendonSoup.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bdf50e953233fdbe7dd3264de27468ab82a8f9a2",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bdf50e953233fdbe7dd3264de27468ab82a8f9a2",
+          "at": "2026-10-12T10:42:10+00:00"
+        }
+      ]
+    },
+    "Picture/HF_TruffleOil.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d66849b03b12dee73693bb42515f0b6a4cb45417",
+      "at": "2026-10-12T17:24:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6e8ae9a64f002c6f7000322c1ccd94b6979a44e9",
+          "at": "2026-10-12T08:52:34+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images like HF_LQ_",
+          "sha1": "6e8ae9a64f002c6f7000322c1ccd94b6979a44e9",
+          "at": "2026-10-12T09:01:52+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d66849b03b12dee73693bb42515f0b6a4cb45417",
+          "at": "2026-10-12T10:42:11+00:00"
+        }
+      ]
+    },
+    "Picture/HF_WildPears.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "82df72e93e27fc1a12dd51a55c0150fc2c4a957d",
+      "at": "2026-10-12T17:20:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "82df72e93e27fc1a12dd51a55c0150fc2c4a957d",
+          "at": "2026-10-12T08:52:35+00:00"
+        }
+      ]
+    },
+    "Picture/HF_WildPearsDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2103e82db7611a23a3f959245523d5d3d99142c6",
+      "at": "2026-10-12T17:23:00+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2103e82db7611a23a3f959245523d5d3d99142c6",
+          "at": "2026-10-12T08:52:36+00:00"
+        }
+      ]
+    },
+    "Picture/HF_WildPlums.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "372079a9b5e49e41235b17c73689663b041c15fa",
+      "at": "2026-10-12T17:17:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "372079a9b5e49e41235b17c73689663b041c15fa",
+          "at": "2026-10-12T08:52:37+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "372079a9b5e49e41235b17c73689663b041c15fa",
+          "at": "2026-10-12T16:52:43+00:00"
+        }
+      ]
+    },
+    "Picture/IncenseBundleLit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3b68b85913de4be75d135456afffe4bf32c58ec7",
+      "at": "2026-10-12T19:03:53+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "2f8de9aff0144c687b58c019a66c0092509988b5",
+          "at": "2026-10-12T08:52:40+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4e015bb568d91e8b124e4ecced41028cc0303b06",
+          "at": "2026-10-12T10:42:13+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "4e015bb568d91e8b124e4ecced41028cc0303b06",
+          "at": "2026-10-12T16:57:35+00:00"
+        }
+      ]
+    },
+    "Picture/KingOyster.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6e00ee44f08722a77311d8cef944d2becb9c9375",
+      "at": "2026-10-12T17:22:05+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6e00ee44f08722a77311d8cef944d2becb9c9375",
+          "at": "2026-10-12T08:52:41+00:00"
+        }
+      ]
+    },
+    "Picture/KingOysterGround.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "174fe53c80be91f7262abf80ab2a815a67ed485b",
+      "at": "2026-10-12T17:21:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "174fe53c80be91f7262abf80ab2a815a67ed485b",
+          "at": "2026-10-12T08:52:42+00:00"
+        }
+      ]
+    },
+    "Picture/LingonberryDried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "917ab4544e97d443b9a9f56ae5c025ac383faac1",
+      "at": "2026-10-12T17:17:19+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "917ab4544e97d443b9a9f56ae5c025ac383faac1",
+          "at": "2026-10-12T16:51:36+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "917ab4544e97d443b9a9f56ae5c025ac383faac1",
+          "at": "2026-10-12T16:51:36+00:00"
+        }
+      ]
+    },
+    "Picture/LingonberryFresh.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "b978370428f486b5103fc0b152cd494a036055a3",
+      "at": "2026-10-12T17:17:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b978370428f486b5103fc0b152cd494a036055a3",
+          "at": "2026-10-12T08:52:44+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b978370428f486b5103fc0b152cd494a036055a3",
+          "at": "2026-10-12T16:51:37+00:00"
+        }
+      ]
+    },
+    "Picture/LionsMane.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e645ab94132256da3a6a422c733a43e2aa4e0fef",
+      "at": "2026-10-12T17:21:14+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "e4a6f5d16f287d7cd49dd6933d12bfb42c90bb42",
+          "at": "2026-10-12T09:10:08+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e645ab94132256da3a6a422c733a43e2aa4e0fef",
+          "at": "2026-10-12T10:42:15+00:00"
+        }
+      ]
+    },
+    "Picture/LionsManeCooked.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "1825a361e752ded57136e09532a6e043255fccf9",
+      "at": "2026-10-12T17:32:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1825a361e752ded57136e09532a6e043255fccf9",
+          "at": "2026-10-12T16:59:15+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1825a361e752ded57136e09532a6e043255fccf9",
+          "at": "2026-10-12T17:00:58+00:00"
+        }
+      ]
+    },
+    "Picture/LionsManeDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3d76fb7db749670fe028b8f3fd5e01c7ee2902d6",
+      "at": "2026-10-12T17:21:18+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3d76fb7db749670fe028b8f3fd5e01c7ee2902d6",
+          "at": "2026-10-12T08:52:49+00:00"
+        }
+      ]
+    },
+    "Picture/LionsManeGround.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "c9f4d126056dcb17a298f017f70059cf9fd7afcd",
+      "at": "2026-10-12T17:18:05+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c9f4d126056dcb17a298f017f70059cf9fd7afcd",
+          "at": "2026-10-12T08:52:50+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c9f4d126056dcb17a298f017f70059cf9fd7afcd",
+          "at": "2026-10-12T16:55:09+00:00"
+        }
+      ]
+    },
+    "Picture/MorelCooked.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "08f6a164baccac7011ee2a7a462d9e8124e247dc",
+      "at": "2026-10-12T17:21:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "08f6a164baccac7011ee2a7a462d9e8124e247dc",
+          "at": "2026-10-12T08:52:51+00:00"
+        }
+      ]
+    },
+    "Picture/MushroomPasty.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "44763ad8ec1b1e5a756e83a3f1b25b6bfe4aea93",
+      "at": "2026-10-12T17:34:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "44763ad8ec1b1e5a756e83a3f1b25b6bfe4aea93",
+          "at": "2026-10-12T08:52:52+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "44763ad8ec1b1e5a756e83a3f1b25b6bfe4aea93",
+          "at": "2026-10-12T16:57:36+00:00"
+        }
+      ]
+    },
+    "Picture/MushroomPastyRaw.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "7185c4f1e57d0891112f6d804671b9092583be76",
+      "at": "2026-10-12T17:34:06+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "7185c4f1e57d0891112f6d804671b9092583be76",
+          "at": "2026-10-12T16:59:56+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "7185c4f1e57d0891112f6d804671b9092583be76",
+          "at": "2026-10-12T17:01:23+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Bag.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "bf9d4b6917391c1788bf738c91d703f6c90f3fb8",
+      "at": "2026-10-12T17:19:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "bf9d4b6917391c1788bf738c91d703f6c90f3fb8",
+          "at": "2026-10-12T16:59:57+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "bf9d4b6917391c1788bf738c91d703f6c90f3fb8",
+          "at": "2026-10-12T17:01:24+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Bag_Plate.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "725586be424df7fe4ac8b772bfa7e3edbb2c4f51",
+      "at": "2026-10-12T17:18:11+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "725586be424df7fe4ac8b772bfa7e3edbb2c4f51",
+          "at": "2026-10-12T08:52:54+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "725586be424df7fe4ac8b772bfa7e3edbb2c4f51",
+          "at": "2026-10-12T16:55:10+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Bag_Prepared.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "435f7e4fa67603274f0f1a19dc232f71b419597e",
+      "at": "2026-10-12T17:20:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "435f7e4fa67603274f0f1a19dc232f71b419597e",
+          "at": "2026-10-12T08:52:54+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Kit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e7aec65825a56d3a3ab2f5f78003617c329b087b",
+      "at": "2026-10-12T17:20:51+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e7aec65825a56d3a3ab2f5f78003617c329b087b",
+          "at": "2026-10-12T08:52:56+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Placed.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "dbc33fef2ce0efbc50aced453bf29b2ec8f3924d",
+      "at": "2026-10-12T17:18:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "dbc33fef2ce0efbc50aced453bf29b2ec8f3924d",
+          "at": "2026-10-12T16:58:52+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "dbc33fef2ce0efbc50aced453bf29b2ec8f3924d",
+          "at": "2026-10-12T17:00:22+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Screw.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "499e7ed71eb2443290c6d2ec4a0ff04c3c6420b2",
+      "at": "2026-10-12T17:19:28+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "499e7ed71eb2443290c6d2ec4a0ff04c3c6420b2",
+          "at": "2026-10-12T16:59:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "499e7ed71eb2443290c6d2ec4a0ff04c3c6420b2",
+          "at": "2026-10-12T17:01:10+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Utensils.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "98316322c7ecd5217076a1a7cd8def4a7fcd2655",
+      "at": "2026-10-12T17:20:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "98316322c7ecd5217076a1a7cd8def4a7fcd2655",
+          "at": "2026-10-12T17:03:08+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Wooden_Frame.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "39a276d5fa285a483c799ed46fe89cfbfa9c133c",
+      "at": "2026-10-12T17:18:28+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "39a276d5fa285a483c799ed46fe89cfbfa9c133c",
+          "at": "2026-10-12T08:52:59+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "39a276d5fa285a483c799ed46fe89cfbfa9c133c",
+          "at": "2026-10-12T16:57:37+00:00"
+        }
+      ]
+    },
+    "Picture/OilPress_Wooden_Legs.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "58ff784949c223e90837bc84a9588c8584138fc7",
+      "at": "2026-10-12T17:19:40+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "58ff784949c223e90837bc84a9588c8584138fc7",
+          "at": "2026-10-12T16:59:57+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "58ff784949c223e90837bc84a9588c8584138fc7",
+          "at": "2026-10-12T17:01:24+00:00"
+        }
+      ]
+    },
+    "Picture/Pantry_Wooden.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "81ad8051f6e1911ad181b105a4c9f69d25659b55",
+      "at": "2026-10-12T17:20:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "81ad8051f6e1911ad181b105a4c9f69d25659b55",
+          "at": "2026-10-12T17:03:22+00:00"
+        }
+      ]
+    },
+    "Picture/PeanutPlantGrowing.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "163ddec27c5007e9da7b1f02709e8d53719d18bb",
+      "at": "2026-10-12T17:18:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "163ddec27c5007e9da7b1f02709e8d53719d18bb",
+          "at": "2026-10-12T16:58:52+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "163ddec27c5007e9da7b1f02709e8d53719d18bb",
+          "at": "2026-10-12T17:00:22+00:00"
+        }
+      ]
+    },
+    "Picture/PeanutPlantMature.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant PeanutPlantGrowing (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "e460f4b674255349e54722e742a92d39f74a9a2f",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e460f4b674255349e54722e742a92d39f74a9a2f",
+          "at": "2026-10-12T08:50:49+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e460f4b674255349e54722e742a92d39f74a9a2f",
+          "at": "2026-10-12T16:56:55+00:00"
+        }
+      ]
+    },
+    "Picture/PeanutPod.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "42481f28069da13992246f80d11d8db54ac5865c",
+      "at": "2026-10-12T17:21:18+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "42481f28069da13992246f80d11d8db54ac5865c",
+          "at": "2026-10-12T08:53:03+00:00"
+        }
+      ]
+    },
+    "Picture/PeanutPodWashed.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9f8a08bfdbea4bdb52a2c90e2d36095003b1ad59",
+      "at": "2026-10-12T17:21:55+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9f8a08bfdbea4bdb52a2c90e2d36095003b1ad59",
+          "at": "2026-10-12T08:53:03+00:00"
+        }
+      ]
+    },
+    "Picture/Pickling_Jar.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "575728bed029ed1de6d750ef7fba6805abe1f4fe",
+      "at": "2026-10-12T17:16:14+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "575728bed029ed1de6d750ef7fba6805abe1f4fe",
+          "at": "2026-10-12T08:53:03+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "575728bed029ed1de6d750ef7fba6805abe1f4fe",
+          "at": "2026-10-12T16:57:38+00:00"
+        }
+      ]
+    },
+    "Picture/Pickling_Jar_Closed.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "b5c17e59dec3bed3b4d17dcf427fdd9f333eeea9",
+      "at": "2026-10-12T17:16:15+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b5c17e59dec3bed3b4d17dcf427fdd9f333eeea9",
+          "at": "2026-10-12T08:53:03+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b5c17e59dec3bed3b4d17dcf427fdd9f333eeea9",
+          "at": "2026-10-12T16:57:39+00:00"
+        }
+      ]
+    },
+    "Picture/Pickling_Jar_Fired.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "7490d6014c3ad32ac1b8397f3a5b48706d78af86",
+      "at": "2026-10-12T17:19:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "7490d6014c3ad32ac1b8397f3a5b48706d78af86",
+          "at": "2026-10-12T16:59:35+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "7490d6014c3ad32ac1b8397f3a5b48706d78af86",
+          "at": "2026-10-12T17:01:12+00:00"
+        }
+      ]
+    },
+    "Picture/Pickling_Jar_Sealed.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "545b104ad28afc41226ec36c5c8ef08e4452c63f",
+      "at": "2026-10-12T17:20:28+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "545b104ad28afc41226ec36c5c8ef08e4452c63f",
+          "at": "2026-10-12T17:02:59+00:00"
+        }
+      ]
+    },
+    "Picture/Pickling_Jar_Unfired.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "2689d05cf8c5af720075c9530af4f3961f7ab3e3",
+      "at": "2026-10-12T17:18:48+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "2689d05cf8c5af720075c9530af4f3961f7ab3e3",
+          "at": "2026-10-12T16:58:55+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "2689d05cf8c5af720075c9530af4f3961f7ab3e3",
+          "at": "2026-10-12T17:00:23+00:00"
+        }
+      ]
+    },
+    "Picture/PlantainDried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "792df7be6c5c675312aef7e348873dc7aba663e7",
+      "at": "2026-10-12T17:19:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "792df7be6c5c675312aef7e348873dc7aba663e7",
+          "at": "2026-10-12T16:59:37+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "792df7be6c5c675312aef7e348873dc7aba663e7",
+          "at": "2026-10-12T17:01:12+00:00"
+        }
+      ]
+    },
+    "Picture/PlantainFresh.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "53cd507a389811bfea91fff873bda1e7fe82f5ad",
+      "at": "2026-10-12T17:17:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "53cd507a389811bfea91fff873bda1e7fe82f5ad",
+          "at": "2026-10-12T16:53:05+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "53cd507a389811bfea91fff873bda1e7fe82f5ad",
+          "at": "2026-10-12T16:53:06+00:00"
+        }
+      ]
+    },
+    "Picture/PlantainPlantGrowing.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "68bd39bf8b5ce94de9782578d02f7ce1b1557a39",
+      "at": "2026-10-12T17:19:10+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "68bd39bf8b5ce94de9782578d02f7ce1b1557a39",
+          "at": "2026-10-12T16:59:15+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "68bd39bf8b5ce94de9782578d02f7ce1b1557a39",
+          "at": "2026-10-12T17:00:59+00:00"
+        }
+      ]
+    },
+    "Picture/PlantainPlantMature.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "51b1b1aa21dad549a6fc70c31f4ab960b7a0f530",
+      "at": "2026-10-12T17:19:11+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "51b1b1aa21dad549a6fc70c31f4ab960b7a0f530",
+          "at": "2026-10-12T16:59:17+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "51b1b1aa21dad549a6fc70c31f4ab960b7a0f530",
+          "at": "2026-10-12T17:00:59+00:00"
+        }
+      ]
+    },
+    "Picture/Press_Bed_Frame.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "48675e640a657c9bbb720ab6e2ff0460e7b16d83",
+      "at": "2026-10-12T17:19:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "48675e640a657c9bbb720ab6e2ff0460e7b16d83",
+          "at": "2026-10-12T16:59:37+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "48675e640a657c9bbb720ab6e2ff0460e7b16d83",
+          "at": "2026-10-12T17:01:13+00:00"
+        }
+      ]
+    },
+    "Picture/PuffBallCooked.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "a7c142a2b032905620547f4752b483da23348ec4",
+      "at": "2026-10-12T17:19:15+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a7c142a2b032905620547f4752b483da23348ec4",
+          "at": "2026-10-12T16:59:19+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a7c142a2b032905620547f4752b483da23348ec4",
+          "at": "2026-10-12T17:01:00+00:00"
+        }
+      ]
+    },
+    "Picture/PuffBallFresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f2bf44ae860a5284db96017fae554385cebd4185",
+      "at": "2026-10-12T17:21:51+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f2bf44ae860a5284db96017fae554385cebd4185",
+          "at": "2026-10-12T08:53:12+00:00"
+        }
+      ]
+    },
+    "Picture/RawMorel.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "fdf9832130cf18101665c0b5c25c4bcb59af5d08",
+      "at": "2026-10-12T17:20:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "fdf9832130cf18101665c0b5c25c4bcb59af5d08",
+          "at": "2026-10-12T08:53:14+00:00"
+        }
+      ]
+    },
+    "Picture/RawPeanuts.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f422fe570f8c3f72cbe21b161954f099ef7c9b05",
+      "at": "2026-10-12T17:22:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f422fe570f8c3f72cbe21b161954f099ef7c9b05",
+          "at": "2026-10-12T08:53:14+00:00"
+        }
+      ]
+    },
+    "Picture/ReadyChickenLog.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6e451e8ce20929fb09fe8ff12cf17d335d1e37fa",
+      "at": "2026-10-14T04:32:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b0c6072dedeb80ba1344391ce087258edf13f534",
+          "at": "2026-10-12T08:53:15+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b0c6072dedeb80ba1344391ce087258edf13f534",
+          "at": "2026-10-12T16:53:08+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b0c6072dedeb80ba1344391ce087258edf13f534",
+          "at": "2026-10-12T17:10:39+00:00"
+        }
+      ]
+    },
+    "Picture/ReadyGoldOysterLog.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3a459489138e0ef9d37507e2d0e44e080acc15e6",
+      "at": "2026-10-14T04:32:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "297cf253ba7c20d19c01df96f8d7ea6d828cb76b",
+          "at": "2026-10-12T08:53:15+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "297cf253ba7c20d19c01df96f8d7ea6d828cb76b",
+          "at": "2026-10-12T16:51:39+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "297cf253ba7c20d19c01df96f8d7ea6d828cb76b",
+          "at": "2026-10-12T17:17:21+00:00"
+        }
+      ]
+    },
+    "Picture/ReadyKingOysterLog.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "317d8afdc5d0de549bb5ddcfa8ffef2f2ee3e425",
+      "at": "2026-10-14T04:32:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "cb2a67af5596ffa133900185f4d85b8910baec15",
+          "at": "2026-10-12T17:03:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "cb2a67af5596ffa133900185f4d85b8910baec15",
+          "at": "2026-10-12T17:20:37+00:00"
+        }
+      ]
+    },
+    "Picture/ReadyLionsManeLog.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ef3b283d98fff4989ab54933575e6bdedb7b856e",
+      "at": "2026-10-14T04:32:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "3302898c36408e49277929c1ad8cf162de62ec7f",
+          "at": "2026-10-12T16:53:09+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "3302898c36408e49277929c1ad8cf162de62ec7f",
+          "at": "2026-10-12T16:53:09+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "3302898c36408e49277929c1ad8cf162de62ec7f",
+          "at": "2026-10-12T17:10:39+00:00"
+        }
+      ]
+    },
+    "Picture/ReadyReishiLog.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c151c4f3ede58e14d14b8c354dbfd5502f3327c4",
+      "at": "2026-10-14T04:32:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0b13287b9140eb3a2dfc871a36a5c6279aebaceb",
+          "at": "2026-10-12T08:53:17+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0b13287b9140eb3a2dfc871a36a5c6279aebaceb",
+          "at": "2026-10-12T16:56:57+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0b13287b9140eb3a2dfc871a36a5c6279aebaceb",
+          "at": "2026-10-12T17:11:15+00:00"
+        }
+      ]
+    },
+    "Picture/ReadyShiitakeLog.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "73255b32e1c5364594e0d1234eb5c59856bb167f",
+      "at": "2026-10-14T04:32:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "6e4b63d9ab7684c7fcebd2e362e79c6ef311c56f",
+          "at": "2026-10-12T17:02:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "6e4b63d9ab7684c7fcebd2e362e79c6ef311c56f",
+          "at": "2026-10-12T17:20:29+00:00"
+        }
+      ]
+    },
+    "Picture/RedcurrantDried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "ec283ebe963f88cbc9b7c601d1a7be10c7dc8572",
+      "at": "2026-10-12T17:32:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ec283ebe963f88cbc9b7c601d1a7be10c7dc8572",
+          "at": "2026-10-12T16:51:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ec283ebe963f88cbc9b7c601d1a7be10c7dc8572",
+          "at": "2026-10-12T16:51:34+00:00"
+        }
+      ]
+    },
+    "Picture/RedcurrantFresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6698df12f9d6f642676ad7e7f9d9e44ccc99f497",
+      "at": "2026-10-12T17:20:21+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6698df12f9d6f642676ad7e7f9d9e44ccc99f497",
+          "at": "2026-10-12T08:53:22+00:00"
+        }
+      ]
+    },
+    "Picture/ReishiDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6e81857864e9a7d67cf62834f8fd5391d8a7bad0",
+      "at": "2026-10-12T17:21:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6e81857864e9a7d67cf62834f8fd5391d8a7bad0",
+          "at": "2026-10-12T08:53:23+00:00"
+        }
+      ]
+    },
+    "Picture/ReishiFresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f1888349934bf114f93ad616164a963436c28252",
+      "at": "2026-10-12T17:21:18+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f1888349934bf114f93ad616164a963436c28252",
+          "at": "2026-10-12T08:53:24+00:00"
+        }
+      ]
+    },
+    "Picture/ReishiGround.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "f187fe28324ab8193a50c02a41ab3cdfd6594bcb",
+      "at": "2026-10-12T17:18:49+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "f187fe28324ab8193a50c02a41ab3cdfd6594bcb",
+          "at": "2026-10-12T16:58:56+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "f187fe28324ab8193a50c02a41ab3cdfd6594bcb",
+          "at": "2026-10-12T17:00:26+00:00"
+        }
+      ]
+    },
+    "Picture/RipePuffball.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a4bcc98bf0442e2834feb8df41c9a5861069cfb2",
+      "at": "2026-10-12T17:21:58+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a4bcc98bf0442e2834feb8df41c9a5861069cfb2",
+          "at": "2026-10-12T08:53:27+00:00"
+        }
+      ]
+    },
+    "Picture/RoastedPeanuts.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f3fe4df0df7cc80f8072c07b7fd01adeb3865489",
+      "at": "2026-10-12T17:20:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f3fe4df0df7cc80f8072c07b7fd01adeb3865489",
+          "at": "2026-10-12T08:53:28+00:00"
+        }
+      ]
+    },
+    "Picture/ShiitakeCooked.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "5e0648af7f439b13034fea2e003680dbc44c6f6a",
+      "at": "2026-10-12T17:16:01+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5e0648af7f439b13034fea2e003680dbc44c6f6a",
+          "at": "2026-10-12T08:53:29+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5e0648af7f439b13034fea2e003680dbc44c6f6a",
+          "at": "2026-10-12T16:57:14+00:00"
+        }
+      ]
+    },
+    "Picture/ShiitakeDried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "22a1de84bc278e120b2faf82a84846d53bec7780",
+      "at": "2026-10-12T17:20:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "22a1de84bc278e120b2faf82a84846d53bec7780",
+          "at": "2026-10-12T17:03:25+00:00"
+        }
+      ]
+    },
+    "Picture/ShiitakeFresh.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "7245b6aff342d7ce6236dc9994861ec7d2f90caf",
+      "at": "2026-10-12T17:17:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7245b6aff342d7ce6236dc9994861ec7d2f90caf",
+          "at": "2026-10-12T08:53:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "7245b6aff342d7ce6236dc9994861ec7d2f90caf",
+          "at": "2026-10-12T16:53:56+00:00"
+        }
+      ]
+    },
+    "Picture/ShiitakeGround.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "26b2926625f93cbe583180f16069fd6d8a964d4b",
+      "at": "2026-10-12T17:19:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "26b2926625f93cbe583180f16069fd6d8a964d4b",
+          "at": "2026-10-12T17:00:02+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "26b2926625f93cbe583180f16069fd6d8a964d4b",
+          "at": "2026-10-12T17:01:30+00:00"
+        }
+      ]
+    },
+    "Picture/Truffle_Cooked.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "8165705d711e939728d8463e1b9e35c61c2c6588",
+      "at": "2026-10-12T17:11:06+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "8165705d711e939728d8463e1b9e35c61c2c6588",
+          "at": "2026-10-12T16:55:21+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "8165705d711e939728d8463e1b9e35c61c2c6588",
+          "at": "2026-10-12T16:55:21+00:00"
+        }
+      ]
+    },
+    "Picture/Truffle_Dried.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "63445a3a2faa46dd3fa86b72b2d5963bc3784f05",
+      "at": "2026-10-12T17:20:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "63445a3a2faa46dd3fa86b72b2d5963bc3784f05",
+          "at": "2026-10-12T16:53:13+00:00"
+        }
+      ]
+    },
+    "Picture/Truffle_Dried_Cut.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "99715f54b28eb92cdb42ef91909f4ea84c345b99",
+      "at": "2026-10-12T17:16:02+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "99715f54b28eb92cdb42ef91909f4ea84c345b99",
+          "at": "2026-10-12T16:57:16+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "99715f54b28eb92cdb42ef91909f4ea84c345b99",
+          "at": "2026-10-12T16:57:16+00:00"
+        }
+      ]
+    },
+    "Picture/Truffle_Fresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "870d75f9baedf6eb52a2cf1adc6efa6297645bcd",
+      "at": "2026-10-12T17:20:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "870d75f9baedf6eb52a2cf1adc6efa6297645bcd",
+          "at": "2026-10-12T08:53:34+00:00"
+        }
+      ]
+    },
+    "Picture/TruffleButter.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c027defa6208a2231cdc6e4798cea74aa3d9a341",
+      "at": "2026-10-12T19:04:13+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "31c468738dc36c4fe1c96726048c1e0883e5358e",
+          "at": "2026-10-12T16:53:58+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "31c468738dc36c4fe1c96726048c1e0883e5358e",
+          "at": "2026-10-12T16:53:58+00:00"
+        }
+      ]
+    },
+    "Picture/TruffleSalt.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5cb2e35525ffc7563085f0bb77ea726af7d99a6b",
+      "at": "2026-10-12T17:26:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5cb2e35525ffc7563085f0bb77ea726af7d99a6b",
+          "at": "2026-10-12T08:53:38+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "5cb2e35525ffc7563085f0bb77ea726af7d99a6b",
+          "at": "2026-10-12T17:01:57+00:00"
+        }
+      ]
+    },
+    "Picture/WildBeesNest.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e3f3a060f27ab2f3fbca119bcef3abbdaecd1990",
+      "at": "2026-10-12T17:22:40+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "e93485d58b11d1ed56b9ce8106cc8f14271fd4d8",
+          "at": "2026-10-12T09:10:07+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e3f3a060f27ab2f3fbca119bcef3abbdaecd1990",
+          "at": "2026-10-12T10:42:17+00:00"
+        }
+      ]
+    },
+    "Picture/WildBerryPasty.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "447a1fdf611c7266cff25ee2f7f0132f601e8d9f",
+      "at": "2026-10-12T17:34:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "447a1fdf611c7266cff25ee2f7f0132f601e8d9f",
+          "at": "2026-10-12T16:57:48+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "447a1fdf611c7266cff25ee2f7f0132f601e8d9f",
+          "at": "2026-10-12T16:58:38+00:00"
+        }
+      ]
+    },
+    "Picture/WildBerryPastyRaw.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "d39fa9475213e2a262f1e748d02c5cec06199f7e",
+      "at": "2026-10-12T17:34:04+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "d39fa9475213e2a262f1e748d02c5cec06199f7e",
+          "at": "2026-10-12T16:59:43+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "d39fa9475213e2a262f1e748d02c5cec06199f7e",
+          "at": "2026-10-12T17:01:15+00:00"
+        }
+      ]
+    },
+    "Picture/WildFlowersDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5a34232c3374ed20c6769334616c1f4b8b916026",
+      "at": "2026-10-14T04:26:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d4656e989fa44d21f4fdc3457e70ef9a8669f789",
+          "at": "2026-10-12T08:53:43+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "d4656e989fa44d21f4fdc3457e70ef9a8669f789",
+          "at": "2026-10-12T16:58:05+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "",
+          "sha1": "3754875c1a6cce737c2b137e3bc25a736d9bc1de",
+          "at": "2026-10-12T19:04:57+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "white to remove in stems",
+          "sha1": "27c81c87fc1572c511b09b995965711eb9a2a597",
+          "at": "2026-10-12T20:36:18+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "manual work needed please flag for manual rework ",
+          "sha1": "e4622dbb3ff4fcda0073f9bb4099afacf8d3bf98",
+          "at": "2026-10-12T21:26:04+00:00"
+        }
+      ]
+    },
+    "Picture/WildFlowersFresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8b74ca8721e8d0fe99a7a64773047a262c479e66",
+      "at": "2026-10-12T21:22:12+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "6196883d013543956f870a4ff46f1b83402bf2c8",
+          "at": "2026-10-12T16:54:42+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "6196883d013543956f870a4ff46f1b83402bf2c8",
+          "at": "2026-10-12T16:54:42+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "5a14e7f9d5d043ea4d6b4c09c1cc1c054ecda506",
+          "at": "2026-10-12T19:05:08+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "white voids to remove be careful of the white flowers. ",
+          "sha1": "215a165f4fd04c856bfe5ecbbbf8d8cd1534dc85",
+          "at": "2026-10-12T21:13:13+00:00"
+        }
+      ]
+    },
+    "Picture/YarrowDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "10dc2f52b3087fc1bf2a6043060255e2404c5ebb",
+      "at": "2026-10-12T20:36:50+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0fbf55a97dd0bc6d750475b5c0dd6d3aeeb09d9d",
+          "at": "2026-10-12T08:53:45+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0fbf55a97dd0bc6d750475b5c0dd6d3aeeb09d9d",
+          "at": "2026-10-12T16:57:21+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "2e1480c01bd7434c1ddabc240ecadc45bee3acf7",
+          "at": "2026-10-12T19:09:50+00:00"
+        }
+      ]
+    },
+    "Picture/YarrowFresh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4b4d1a4fe55fe29cca0b36b39053be6095d6d70d",
+      "at": "2026-10-12T20:37:10+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "daeab13a2d27c23712e4779007d64780c27148b0",
+          "at": "2026-10-12T16:59:44+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "daeab13a2d27c23712e4779007d64780c27148b0",
+          "at": "2026-10-12T17:01:15+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "0f39f70a581d15e934368b815ce0500bfb65f8c6",
+          "at": "2026-10-12T19:09:32+00:00"
+        }
+      ]
+    },
+    "Picture/YarrowGround.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "2dd9d3ba68f83047eb44a0791856ca1a547b743f",
+      "at": "2026-10-12T17:29:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "2dd9d3ba68f83047eb44a0791856ca1a547b743f",
+          "at": "2026-10-12T16:54:46+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "2dd9d3ba68f83047eb44a0791856ca1a547b743f",
+          "at": "2026-10-12T16:54:46+00:00"
+        }
+      ]
+    },
+    "Picture/YarrowPlantGrowing.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1984ae97963179cd6b4c19fd904fbc1caf5cfe62",
+      "at": "2026-10-12T19:04:07+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a09f1fce11f981ad104d529d087474e9ffd9738f",
+          "at": "2026-10-12T16:59:20+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a09f1fce11f981ad104d529d087474e9ffd9738f",
+          "at": "2026-10-12T17:01:02+00:00"
+        }
+      ]
+    },
+    "Picture/YarrowPlantMature.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "45c1e270e20d94c98f954e5428659371e5c5c5ab",
+      "at": "2026-10-12T19:05:01+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "44e9b35da4b918752b076f7e1594668ebb969da4",
+          "at": "2026-10-12T16:57:49+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "44e9b35da4b918752b076f7e1594668ebb969da4",
+          "at": "2026-10-12T16:58:39+00:00"
+        }
+      ]
+    }
+  }
+}

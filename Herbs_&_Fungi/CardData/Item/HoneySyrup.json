@@ -1,0 +1,145 @@
+{
+    "UniqueID": "herbs_fungi_honey_syrup",
+    "TradingValue": 40,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_honey_syrup",
+        "LocalizationKey": "Herbs_And_Fungi_HoneySyrup_CardName",
+        "DefaultText": "Herbal Honey Syrup"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_honey_syrup",
+        "LocalizationKey": "Herbs_And_Fungi_HoneySyrup_CardDescription",
+        "DefaultText": "A clay bowl of thick honey syrup steeped with dried herbs. A spoonful eases a chest or throat infection for a while."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_honey_syrup",
+        "LocalizationKey": "Herbs_And_Fungi_HoneySyrup_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> 1 Honeycomb, 2 Dried Chamomile or 2 Dried Common Plantain, and a Clay Bowl (Medical tab).\n\n<b>Honeycomb:</b> take it from a Wild Bees' Nest, a beehive or a bee skep.\n\n<b>Uses:</b> Take a Spoonful to raise the Heather Effect, which slows a chest or throat infection. Three spoonfuls to a bowl; the empty bowl comes back. It stacks with heather tea and shares its cap."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Consumable",
+        "tag_Medicine"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "HF_HoneySyrup",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 3.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_honey_syrup",
+            "LocalizationKey": "Herbs_And_Fungi_HoneySyrup_UsageDurability_CardStatName",
+            "DefaultText": "Spoonfuls"
+        },
+        "MaxValue": 3.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_honey_syrup",
+                "LocalizationKey": "Herbs_And_Fungi_HoneySyrup_OnZero_ActionDescription",
+                "DefaultText": "The syrup is finished. The clay bowl is left."
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1},
+                            "FinishUnlocking": false,
+                            "DropChance": {"Active": false, "BaseDropChance": 0.0}
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_honey_syrup",
+                "LocalizationKey": "Herbs_And_Fungi_HoneySyrup_Spoonful_ActionName",
+                "DefaultText": "Take a Spoonful"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_honey_syrup",
+                "LocalizationKey": "Herbs_And_Fungi_HoneySyrup_Spoonful_ActionDescription",
+                "DefaultText": "Take a spoonful of the syrup. It soothes the chest and throat for a while."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["EatingAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "f93182e535c37404db52fb1475b0959e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 80.0, "y": 80.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0}
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {"x": -1.0, "y": -1.0}
+            }
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {"m_FileID": 0, "m_PathID": 0},
+            "FlavourWarpData": "b16daf50fa0b79443a2557e43f613bcc",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        }
+    ],
+    "WhenCreatedSoundsWarpData": ["Clay"],
+    "WhenCreatedSoundsWarpType": 3,
+    "ObjectWeight": 100.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

@@ -1,0 +1,72 @@
+{
+  "target": "ChagaFresh.png",
+  "sourceCards": [
+    "CardData/Item/Chaga.json"
+  ],
+  "kind": "item",
+  "subject": "a single chaga conk, a hard lumpy growth broken off a birch trunk: its outer crust is pitch black and deeply cracked into blocky fissures like burnt charcoal, it is broken open on one side to show rust-orange woody flesh inside, and a small strip of white birch bark with black flecks is still attached at its back; it is a hard irregular lump, not a mushroom, with no cap, no stem and no gills",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "BracketFungus_Fresh",
+      "id": "8f8S5GUPa3xK0L3XAcG0",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BracketFungus_Fresh_1791744838594_b4223080.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Wood",
+      "id": "FK08d2Abk6yduwa1cHvr",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wood_1791652739500_9b610d7b.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw a single chaga conk, a hard lumpy growth broken off a birch trunk: its outer crust is pitch black and deeply cracked into blocky fissures like burnt charcoal, it is broken open on one side to show rust-orange woody flesh inside, and a small strip of white birch bark with black flecks is still attached at its back; it is a hard irregular lump, not a mushroom, with no cap, no stem and no gills. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, mushroom cap, stem, gills, bowl, plate, whole tree trunk, moss.",
+  "historyId": "eSKXv3dsCRHSjiLLIiP8",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798776422_9a1be369_1791798776470_0d4bc204.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798776422_9a1be369_1791798776470_0d4bc204.png",
+      "historyId": "eSKXv3dsCRHSjiLLIiP8"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG)",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner.",
+  "previousGeneration": {
+    "subject": "a single chaga conk, a hard lumpy growth broken off a birch trunk: its outer crust is pitch black and deeply cracked into blocky fissures like burnt charcoal, it is broken open on one side to show rust-orange woody flesh inside, and a small strip of white birch bark with black flecks is still attached at its back; it is a hard irregular lump, not a mushroom, with no cap, no stem and no gills",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Hand-painted watercolor-and-ink game item illustration of a single chaga conk, a hard lumpy growth broken off a birch trunk: its outer crust is pitch black and deeply cracked into blocky fissures like burnt charcoal, it is broken open on one side to show rust-orange woody flesh inside, and a small strip of white birch bark with black flecks is still attached at its back; it is a hard irregular lump, not a mushroom, with no cap, no stem and no gills, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, mushroom cap, stem, stalk, gills, bowl, plate, whole tree trunk, moss.",
+    "historyId": "CzlB1R1CQDezDjU4rEpn",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470709434_7c202e51_1790470709879_454d79c1.png",
+    "credits": 30,
+    "generated": "2026-09-26",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470709434_7c202e51_1790470709879_454d79c1.png",
+        "verdict": "accepted: one conk, blocky cracked charcoal-black crust, broken face of rust-orange flesh, white birch bark strip with black flecks at the back; no cap, stem, gills, bowl or plate"
+      }
+    ],
+    "picked": "A",
+    "note": "One sample by instruction (HerbsAndFungi 1.14.0 content update, generated for the lead session building the card JSON); accepted against its subject checklist by Claude, not yet seen by the owner."
+  }
+}

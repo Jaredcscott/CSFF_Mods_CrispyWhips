@@ -1,0 +1,78 @@
+{
+    "UniqueID": "herbs_fungi_oat_field_mature",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_oat_field_mature",
+        "LocalizationKey": "herbsfungioatfieldmature_CardName",
+        "DefaultText": "Mature Oat Field"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_oat_field_mature",
+        "LocalizationKey": "herbsfungioatfieldmature_CardDescription",
+        "DefaultText": "A field of ripe oats ready for harvest."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_oat_field_mature",
+        "LocalizationKey": "herbsfungioatfieldmature_CardHelpSection",
+        "DefaultText": "<b>Harvest:</b> 8 to 12 Oats. Harvesting uses the field up."
+    },
+    "CardType": 2,
+    "ObjectWeight": 100.0,
+    "AlwaysUpdate": false,
+    "CardTags": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_oat_field_mature",
+                "LocalizationKey": "herbsfungioatfieldmature_DismantleActions_0_ActionName",
+                "DefaultText": "Harvest"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_oat_field_mature",
+                "LocalizationKey": "herbsfungioatfieldmature_DismantleActions_0_ActionDescription",
+                "DefaultText": "Cut and thresh the ripe oats."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_oats",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 8,
+                                "y": 12
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Wheat_Plant",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_MatureCropField",
+        "tag_GardenPlantMature"
+    ],
+    "CardTagsWarpType": 3
+}

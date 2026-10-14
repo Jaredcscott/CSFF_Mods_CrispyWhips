@@ -1,0 +1,55 @@
+{
+    "UniqueID": "herbs_fungi_spiced_pickle_brine",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_spiced_pickle_brine",
+        "LocalizationKey": "Herbs_And_Fungi_SpicedPickleBrine_CardName",
+        "DefaultText": "Spiced Pickle Brine"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_spiced_pickle_brine",
+        "LocalizationKey": "Herbs_And_Fungi_SpicedPickleBrine_CardDescription",
+        "DefaultText": "A salt-water brine steeped with dried wild garlic or dried ginger. Pickles fermented in it come out with a stronger taste. Only the Spiced Pickle blueprints accept it."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "HF_LQ_SpicedPickleBrine",
+    "CardImageWarpType": 3,
+    "CardBackground": {"m_FileID": 0, "m_PathID": 0},
+    "ShowImageAboveTitle": false,
+    "CardType": 9,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 0.33,
+    "TradingValue": 8,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [
+        {
+            "Flavour": {"m_FileID": 0, "m_PathID": 0},
+            "FlavourWarpData": "6a15980a4255f024584c507d2c1e2c53",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        }
+    ],
+    "EquipmentTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": true,
+    "SpoilageTime": {"Active": false},
+    "UsageDurability": {"Active": false},
+    "FuelCapacity": {"Active": false},
+    "Progress": {"Active": false},
+    "SpecialDurability1": {"Active": false},
+    "SpecialDurability2": {"Active": false},
+    "SpecialDurability3": {"Active": false},
+    "SpecialDurability4": {"Active": false},
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

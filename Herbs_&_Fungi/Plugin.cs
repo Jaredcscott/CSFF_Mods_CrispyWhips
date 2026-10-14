@@ -11,7 +11,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Herbs_And_Fungi";
     public const string PluginName = "Herbs and Fungi";
-    public const string PluginVersion = "1.13.7";
+    public const string PluginVersion = "1.14.4";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
@@ -29,7 +29,7 @@ internal class Plugin : ContentModPlugin
             "Performance",
             "ForageDropDensityScale",
             1.0f,
-            "Multiplier applied to all HerbsAndFungi-injected forage/dig drop chances (0.25-1.0 recommended). Lower this instead of uninstalling the mod if forage variety feels too dense.");
+            "Multiplier applied to all HerbsAndFungi-injected forage/dig drop chances (0.25-1.0 recommended; above 1.0 raises each chance to at most 100%). Lower this instead of uninstalling the mod if forage variety feels too dense.");
     }
 
     protected override void RegisterPatches(Harmony harmony)
@@ -37,6 +37,8 @@ internal class Plugin : ContentModPlugin
         TryApply("GameLoadPatch", () => Herbs_And_Fungi.Patcher.GameLoadPatch.ApplyPatch(harmony));
         TryApply("PickleVatRoutePatch", () => Herbs_And_Fungi.Patcher.PickleVatRoutePatch.ApplyPatch(harmony));
         TryApply("ApothecaryQuestGatePatch", () => Herbs_And_Fungi.Patcher.ApothecaryQuestGatePatch.ApplyPatch(harmony));
+        TryApply("ForagersNotebookPatch", () => Herbs_And_Fungi.Patcher.ForagersNotebookPatch.ApplyPatch(harmony));
+        TryApply("AcademyHerbalismBridgePatch", () => Herbs_And_Fungi.Patcher.AcademyHerbalismBridgePatch.ApplyPatch(harmony));
         // Forest Scout perk gating moved to WorldMap/MapNodes.json SealableGates (framework
         // CSFFModFramework.Injection.SealableGateService) — HFForestGatePatch.cs retired.
     }

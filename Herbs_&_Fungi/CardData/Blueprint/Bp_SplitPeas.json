@@ -1,0 +1,109 @@
+{
+    "UniqueID": "herbs_fungi_bp_split_peas",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_split_peas",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_SplitPeas_CardName",
+        "DefaultText": "Split Peas"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_split_peas",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_SplitPeas_CardDescription",
+        "DefaultText": "Split and hull dried peas so they can be ground into flour."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_split_peas",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_SplitPeas_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Dried Peas"
+    },
+    "BlueprintUnlockTicksCost": 4.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasPeasDried",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "b73cff900d872ed41b361ba086582581",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "b73cff900d872ed41b361ba086582581",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 2,
+                "y": 2
+            },
+            "DroppedCardWarpData": "herbs_fungi_split_peas",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Peas_Item_Dry",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

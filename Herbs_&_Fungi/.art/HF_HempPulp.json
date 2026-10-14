@@ -1,0 +1,48 @@
+{
+  "target": "HF_HempPulp.png",
+  "sourceCards": [
+    "CardData/Blueprint/Bp_HempPulp.json",
+    "CardData/Item/HempPulp.json"
+  ],
+  "kind": "item",
+  "subject": "one lumpy low heap of wet chopped hemp pulp, short pale green-tan fibrous strands and small chopped pieces of hemp stalk matted together, damp and glistening, about twice as wide as it is tall, drawn bare",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "Billberries_Pulp",
+      "id": "uR0ZmM3aaVFG1f6dBJkJ",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Billberries_Pulp_1791744837261_404740cc.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Flour_Rye",
+      "id": "tCvLaRmSzkD7dWZi4PaH",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flour_Rye_1791744964195_f9cf0ba0.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw one lumpy low heap of wet chopped hemp pulp, short pale green-tan fibrous strands and small chopped pieces of hemp stalk matted together, damp and glistening, about twice as wide as it is tall, drawn bare. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, wool, cotton, fleece, cloud, hay bale, bowl, plate, basket.",
+  "historyId": "dXYUFiYkMx7zh2FZnyKN",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798819301_d0d504b0_1791798819338_e812a330.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798819301_d0d504b0_1791798819338_e812a330.png",
+      "historyId": "dXYUFiYkMx7zh2FZnyKN"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "ownerReview": "2026-10-12 regenerate | notes: -",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG) from the 3:2 generation padded to 2:3 with white",
+  "note": "owner gallery rework 2026-10-12: (regenerate, no note). Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner."
+}

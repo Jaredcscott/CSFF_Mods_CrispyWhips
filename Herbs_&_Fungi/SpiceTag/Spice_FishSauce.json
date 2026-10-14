@@ -1,0 +1,46 @@
+{
+    "UniqueID": "herbs_fungi_spice_fish_sauce",
+    "SpiceName": {
+        "ParentObjectID": "herbs_fungi_spice_fish_sauce",
+        "LocalizationKey": "Herbs_And_Fungi_Spice_FishSauce_SpiceName",
+        "DefaultText": "Fish Sauce"
+    },
+    "UseNameAsSuffix": false,
+    "DontShowSpiceIconOnCard": false,
+    "TagGroupID": {
+        "Active": false,
+        "Text": ""
+    },
+    "CustomSpiceIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "MaxStack": 0,
+    "CustomFadingDuration": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "CustomFadingRate": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "ScaleStatModifiersWithFading": false,
+    "AddedFlavours": [
+        {
+            "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        },
+        {
+            "FlavourWarpData": "d455b33aa8ba42947a71cc5ba2b8be7c",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "FlavourWarpData": "6a15980a4255f024584c507d2c1e2c53",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "AddedStatModifiers": []
+}

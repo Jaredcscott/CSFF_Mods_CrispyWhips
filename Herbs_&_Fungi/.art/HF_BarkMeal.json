@@ -1,0 +1,68 @@
+{
+  "target": "HF_BarkMeal.png",
+  "sourceCards": [
+    "CardData/Item/BarkMeal.json"
+  ],
+  "kind": "item",
+  "subject": "one low wide conical heap of coarse grey-brown bark meal, pounded dried inner tree bark, about three times as wide as it is tall, gritty texture with small pale fibre flecks and a few tiny bark chips at its foot, drawn bare",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "Flour_Rye",
+      "id": "tCvLaRmSzkD7dWZi4PaH",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flour_Rye_1791744964195_f9cf0ba0.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Flour_Acorn",
+      "id": "xnmgLFYtHu9h9FPyuCXC",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flour_Acorn_1791744963215_d07c6852.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw one low wide conical heap of coarse grey-brown bark meal, pounded dried inner tree bark, about three times as wide as it is tall, gritty texture with small pale fibre flecks and a few tiny bark chips at its foot, drawn bare. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, bowl, plate, sack, spoon, tall pile, smooth sand.",
+  "historyId": "G6b1Vynt0VYDorQUUw4m",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798816840_f644fd80_1791798816898_fb272cee.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798816840_f644fd80_1791798816898_fb272cee.png",
+      "historyId": "G6b1Vynt0VYDorQUUw4m"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG) from the 3:2 generation padded to 2:3 with white",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner.",
+  "previousGeneration": {
+    "subject": "a single conical heap of coarse grey-brown bark meal, pounded dried inner tree bark, gritty with small pale fibrous flecks, drawn bare on nothing",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "aspectRatio": "3:2",
+      "resolution": "1K",
+      "imageCount": 1,
+      "autoEnhancePrompt": false
+    },
+    "prompt": "redraw from the owner note: subject rewritten as low and wide (about three times as wide as tall) or the sack lying on its long side with mushrooms from slits; 3:2 frame; padded to 2:3 with white before finishing",
+    "historyId": "kQlHv6BhWxVaplRvbhdW",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791758125456_c773785a_1791758125491_9eb12b4a.png",
+    "credits": 60,
+    "generated": "2026-10-11",
+    "styleReference": {
+      "sprite": "Flour_Rye",
+      "id": "tCvLaRmSzkD7dWZi4PaH",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flour_Rye_1791744964195_f9cf0ba0.png"
+    }
+  }
+}

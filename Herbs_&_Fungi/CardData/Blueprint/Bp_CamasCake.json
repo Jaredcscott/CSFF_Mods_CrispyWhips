@@ -1,0 +1,109 @@
+{
+    "UniqueID": "herbs_fungi_bp_camas_cake",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_camas_cake",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_CamasCake_CardName",
+        "DefaultText": "Camas Cake"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_camas_cake",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_CamasCake_CardDescription",
+        "DefaultText": "Mash two roasted camas bulbs and press them into a flat cake that dries hard, so it can be ground into flour."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_camas_cake",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_CamasCake_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Roasted Camas"
+    },
+    "BlueprintUnlockTicksCost": 4.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasCamasRoasted",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_camas_roasted",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_camas_roasted",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_camas_cake",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "FatCake_Bilberry",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,233 @@
+{
+    "UniqueID": "herbs_fungi_mushroom_pasty_raw",
+    "CardName": {
+        "LocalizationKey": "herbsfungimushroompastyraw_CardName",
+        "DefaultText": "Raw Mushroom Pasty"
+    },
+    "CardDescription": {
+        "LocalizationKey": "herbsfungimushroompastyraw_CardDescription",
+        "DefaultText": "Foraged mushrooms folded into greased dough. Needs cooking, preferably in an oven."
+    },
+    "CardType": 0,
+    "AlwaysUpdate": true,
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_Heatable",
+        "tag_FastlyCharsOnHighHeat",
+        "tag_Cookable",
+        "tag_Quality",
+        "tag_HumanFood",
+        "tag_SugarsMedium",
+        "tag_Plateable",
+        "tag_RawPasty"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "MushroomPastyRaw",
+    "CardImageWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbsfungimushroompastyraw_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "LocalizationKey": "herbsfungimushroompastyraw_SpoilageTime_Spoiled",
+                "DefaultText": "The raw mushroom pasty has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbsfungimushroompastyraw_FuelCapacity_StatName",
+            "DefaultText": "Temperature"
+        },
+        "MaxValue": 200.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbsfungimushroompastyraw_SpecialDurability1_StatName",
+            "DefaultText": "Cook"
+        },
+        "MaxValue": 1.0,
+        "HidingOptions": 3,
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "LocalizationKey": "herbsfungimushroompastyraw_SpecialDurability1_Baked",
+                "DefaultText": "The mushroom pasty is baked."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_mushroom_pasty",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "TransferSpecial2": true,
+                "ModifyDurability": true
+            }
+        }
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbsfungimushroompastyraw_SpecialDurability2_StatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": -0.5,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "ObjectWeight": 25.0,
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Winter Preservation",
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        }
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 0.5
+            },
+            "MultiplySpoilageRate": true,
+            "FuelRateModifier": {
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Summer Spoilage",
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        }
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 1.5
+            },
+            "MultiplySpoilageRate": true,
+            "FuelRateModifier": {
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Salt Preservation",
+            "Conditions": {
+                "ReceivingCardSpices": [
+                    {
+                        "TagWarpData": "6dc5a4f564e72b0458cf0352e84f318d",
+                        "TagWarpType": 3
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 0.75
+            },
+            "MultiplySpoilageRate": true,
+            "FuelRateModifier": {
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Juniper Preservation",
+            "Conditions": {
+                "ReceivingCardSpices": [
+                    {
+                        "TagWarpData": "4ba562e6aaf3b054a89af9ae7d84573e",
+                        "TagWarpType": 3
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 0.9
+            },
+            "MultiplySpoilageRate": true,
+            "FuelRateModifier": {
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Lose Quality on Open Fire",
+            "Conditions": {
+                "RequiredContainerTagsWarpData": [
+                    "tag_Fire"
+                ],
+                "RequiredContainerTagsWarpType": 3
+            },
+            "Special2RateModifier": {
+                "Active": true,
+                "FloatValue": -12.5
+            }
+        }
+    ]
+}

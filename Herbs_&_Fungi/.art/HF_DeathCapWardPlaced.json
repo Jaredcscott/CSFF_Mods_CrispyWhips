@@ -1,0 +1,18 @@
+{
+ "target": "HF_DeathCapWardPlaced.png",
+ "sourceCard": "CardData/Location/DeathCapWardPlaced.json",
+ "note": "No generation record existed on disk for this image before 2026-10-12; it was finished from the shipped PNG.",
+ "ownerReview": "2026-10-12 alter | notes: has white to remove | pass 2: 2026-10-12 alter | notes: has white",
+ "rework": {
+  "date": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: has white to remove",
+  "finishing": "paper enclosed between the crossed sticks above the soil (4 regions, 7362 px) keyed with a 200..236 ramp; mushrooms untouched. Worked on the shipped trimmed PNG (scratchpad keyreg.py / dehalo.py / clearlight.py, or Development_Tools/CardArt/fill_holes.py), re-trimmed with trim_card_art. Re-deriving from resource_url brings the defect back: repeat these passes and read a dark preview.",
+  "credits": 0
+ },
+ "rework2": {
+  "date": "2026-10-12",
+  "note": "owner gallery rework pass 2 2026-10-12: has white",
+  "finishing": "paper pockets between the hanging mushroom stems and beside the sticks keyed (same component test, 366 px; a 6 px pale streak on the centre stick left alone); then the light fringe outside the sticks' ink outline removed, sparing pale mushroom blobs and anything thinner than a half-filled 7x7 window (the hanging cords); defringe.py --drop 256 for the remaining edge tint. The soil's pale lower wash is the soil colour, not paper, and stays. Worked on the shipped trimmed PNG (no raw generation is recorded), scratchpad keypaper.py / rim3.py / rim5.py, re-palettized with trim_card_art. Checked on dark and magenta previews at 2x.",
+  "credits": 0
+ }
+}

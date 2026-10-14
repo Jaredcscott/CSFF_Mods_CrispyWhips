@@ -25,7 +25,7 @@
     "InventorySlotsWarpData": [],
     "InventorySlotsWarpType": 3,
     "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_HealersMossTincture",
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "Active": true,
@@ -101,7 +101,7 @@
             ]
         }
     ],
-    "ObjectWeight": 0.3,
+    "ObjectWeight": 350.0,
     "MaxStack": 5,
     "DroppedCardShadow": 1
 }

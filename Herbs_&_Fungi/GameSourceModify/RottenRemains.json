@@ -1,0 +1,59 @@
+{
+    "UniqueID": "25a487b16088c2046a51935973ba6a90",
+    "DismantleActionsWarpData": [
+        {
+            "ActionName": {
+                "ParentObjectID": "25a487b16088c2046a51935973ba6a90",
+                "LocalizationKey": "Herbs_And_Fungi_RottenRemains_CollectMaggots_ActionName",
+                "DefaultText": "Collect Maggots"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "25a487b16088c2046a51935973ba6a90",
+                "LocalizationKey": "Herbs_And_Fungi_RottenRemains_CollectMaggots_ActionDescription",
+                "DefaultText": "Pick the fly maggots out of the rot. There are none in winter."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_maggots",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 2
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "DismantleActionsWarpType": 4
+}

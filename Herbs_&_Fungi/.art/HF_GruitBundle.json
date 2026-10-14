@@ -1,0 +1,64 @@
+{
+  "target": "HF_GruitBundle.png",
+  "sourceCard": null,
+  "subject": "one bundle of dried brewing herbs tied around the middle with tan twine: grey-green bog myrtle leaf sprigs, dusty purple heather flower spikes and flat creamy-yellow yarrow flower heads, stems trimmed square at the bottom",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of one bundle of dried brewing herbs tied around the middle with tan twine: grey-green bog myrtle leaf sprigs, dusty purple heather flower spikes and flat creamy-yellow yarrow flower heads, stems trimmed square at the bottom. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, vase, bottle, bowl, loose herbs around it.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Nettle_Leaves (style)",
+      "id": "KFCUiSwyA0HLW4KfaxDa",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nettle_Leaves_1791745096221_64f1fc34.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Frostleaf_Item (style)",
+      "id": "BehyUooUjiJPXdE1y0Z2",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Frostleaf_Item_1791744966881_db19717a.png"
+    }
+  ],
+  "historyId": "EKEVERNrYuk6siR9Ew6K",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828013992_e3837de6_1791828014035_8ecaa00c.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)",
+    "enclosed pure-white paper keyed on the trimmed image (key_enclosed.py misses it after the 2026-10-11 trim)",
+    "vanillify.py step [2, 16, 60, 3, 80]"
+  ],
+  "vanilla_score": 72,
+  "previous": {
+    "target": "HF_GruitBundle.png",
+    "sourceCard": "GruitBundle",
+    "subject": "a small bundle of dried herbs tied with plain twine: grey-green dried bog myrtle leaves, a few pale yellow-white dried yarrow flower heads and dusty purple-pink dried heather sprigs, bound in the middle with one loop of natural tan twine, no ribbon, no tag",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "imageCount": 1,
+      "autoEnhancePrompt": false
+    },
+    "prompt": "create-image.md Step 3 template with the subject above; Avoid list extended with: ribbon, label",
+    "historyId": "Z1Oq02L7hv7ncVSp0aVh",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791141837931_a37c10a8_1791141838177_3d434512.png",
+    "credits": 30,
+    "generated": "2026-10-04",
+    "ownerReview": "2026-10-12 alter | notes: has white to remove",
+    "rework": {
+      "date": "2026-10-12",
+      "note": "owner gallery rework 2026-10-12: has white to remove",
+      "finishing": "no enclosed paper; the light semi-transparent paper halo along every leaf and flower edge (6128 px) recoloured to the neighbouring ink line and 1013 stray paper specks cleared. Worked on the shipped trimmed PNG (scratchpad keyreg.py / dehalo.py / clearlight.py, or Development_Tools/CardArt/fill_holes.py), re-trimmed with trim_card_art. Re-deriving from resource_url brings the defect back: repeat these passes and read a dark preview.",
+      "credits": 0
+    }
+  }
+}

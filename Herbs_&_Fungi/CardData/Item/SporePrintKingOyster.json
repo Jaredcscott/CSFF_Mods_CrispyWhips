@@ -1,0 +1,19 @@
+{
+    "UniqueID": "herbs_fungi_spore_print_king_oyster",
+    "TradingValue": 10,
+    "CardName": { "ParentObjectID": "herbs_fungi_spore_print_king_oyster", "LocalizationKey": "Herbs_And_Fungi_SporePrintKingOyster_CardName", "DefaultText": "King Oyster Spore Print" },
+    "CardDescription": { "ParentObjectID": "herbs_fungi_spore_print_king_oyster", "LocalizationKey": "Herbs_And_Fungi_SporePrintKingOyster_CardDescription", "DefaultText": "A pale spore print lifted from a ripe king oyster log. Pack it into a bored log, with a spoon auger and wood shavings, to start a new log without the 10 mushrooms." },
+    "CardHelpSection": { "ParentObjectID": "herbs_fungi_spore_print_king_oyster", "LocalizationKey": "Herbs_And_Fungi_SporePrintKingOyster_CardHelpSection", "DefaultText": "<b>Found:</b> A bonus from harvesting a ready king oyster log.\n\n<b>Uses:</b> Inoculate a new king oyster log from this single print (Inoculate from a Spore Print)." },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "KingOyster",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 2.0,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

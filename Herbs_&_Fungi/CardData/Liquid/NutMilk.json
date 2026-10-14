@@ -1,0 +1,217 @@
+{
+    "UniqueID": "herbs_fungi_nut_milk",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_nut_milk",
+        "LocalizationKey": "Herbs_And_Fungi_NutMilk_CardName",
+        "DefaultText": "Nut Milk"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_nut_milk",
+        "LocalizationKey": "Herbs_And_Fungi_NutMilk_CardDescription",
+        "DefaultText": "A pale, creamy milk of ground peanuts. Quenches thirst and carries a little food. It sours within a few days."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_nut_milk",
+        "LocalizationKey": "Herbs_And_Fungi_NutMilk_CardHelpSection",
+        "DefaultText": "<b>Preparation:</b> Soak Peanut Meal in a bowl of cool fresh water.\n\n<b>Uses:</b> Drink it for thirst and a little nourishment, or curdle it with salt into Nut Tofu (Cooking tab). Keeps about three days."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_LQ_NutMilk",
+    "CardImageWarpType": 3,
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 9,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 0.33,
+    "TradingValue": 8,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_HumanDrink",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_nut_milk",
+            "LocalizationKey": "Herbs_And_Fungi_NutMilk_SpoilageTime_CardStatName",
+            "DefaultText": "Bacteria"
+        },
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_nut_milk",
+                "LocalizationKey": "Herbs_And_Fungi_NutMilk_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The nut milk has soured."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "aa33d3104cc682c4e9a163e7df9a7e13",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "9060e702466d6764eb64e5983e72215e",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_nut_milk",
+                "LocalizationKey": "Herbs_And_Fungi_NutMilk_DismantleActions_Drink_ActionName",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_nut_milk",
+                "LocalizationKey": "Herbs_And_Fungi_NutMilk_DismantleActions_Drink_ActionDescription",
+                "DefaultText": "Drink the nut milk."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "DrinkingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 60.0,
+                        "y": 60.0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 25.0,
+                        "y": 25.0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 8.0,
+                        "y": 8.0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 6.0,
+                        "y": 6.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidEffectScaling": 2,
+                "LiquidQuantityChange": {
+                    "x": -300.0,
+                    "y": -300.0
+                },
+                "TransformIntoWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "a20b2d50b9a50e44f90231e3b3f8bcaf",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

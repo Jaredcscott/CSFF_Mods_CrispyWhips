@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_berry_preserve",
         "LocalizationKey": "Herbs_And_Fungi_BerryPreserve_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Dried Cloudberry, Dried Lingonberry, Dried Blackcurrant, Dried Redcurrant, Honeycomb - slow-simmered (Cooking tab).\n\n<b>Uses:</b> Eat for strong satiation. Keeps long-term."
+        "DefaultText": "<b>Made from:</b> Dried Cloudberry, Dried Lingonberry, Dried Blackcurrant, Dried Redcurrant, Honeycomb - slow-simmered (Cooking tab).\n\n<b>Honeycomb:</b> take it from a Wild Bees' Nest at Foraging Path, Pine Clearing, Oak Clearing or Alder Woods, or from a beehive or bee skep.\n\n<b>Uses:</b> Eat for strong satiation. Keeps long-term."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -114,6 +114,16 @@
     "CardInteractions": [],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_berry_preserve",
                 "LocalizationKey": "Herbs_And_Fungi_BerryPreserve_DismantleActions_Eat_ActionName",
@@ -211,8 +221,8 @@
                     "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 180,
-                        "y": 180
+                        "x": 433,
+                        "y": 433
                     },
                     "TriggerStat": {
                         "m_FileID": 0,

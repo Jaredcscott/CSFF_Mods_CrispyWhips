@@ -1,0 +1,167 @@
+{
+    "UniqueID": "herbs_fungi_false_chanterelle",
+    "TradingValue": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_false_chanterelle",
+        "LocalizationKey": "Herbs_And_Fungi_FalseChanterelle_CardName",
+        "DefaultText": "False Chanterelle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_false_chanterelle",
+        "LocalizationKey": "Herbs_And_Fungi_FalseChanterelle_CardDescription",
+        "DefaultText": "An orange look-alike of the Chanterelle, with true gills instead of soft ridges. Not good to eat: it gives food poisoning."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_false_chanterelle",
+        "LocalizationKey": "Herbs_And_Fungi_FalseChanterelle_CardHelpSection",
+        "DefaultText": "<b>Found by:</b> identifying an Unknown Chanterelle; about one in four turns out to be this look-alike.\n\n<b>Uses:</b> none. It is not food: eating it gives food poisoning. Leave it to rot or throw it away."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Fungus"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "ChantFresh",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_false_chanterelle",
+        "LocalizationKey": "Herbs_And_Fungi_FalseChanterelle_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_false_chanterelle",
+            "LocalizationKey": "Herbs_And_Fungi_FalseChanterelle_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 720.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_false_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_FalseChanterelle_SpoilageTime_Spoiled",
+                "DefaultText": "The false chanterelle has rotted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "ObjectWeight": 50,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_false_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_FalseChanterelle_DismantleActions_EatAnyway_ActionName",
+                "DefaultText": "Eat Anyway"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_false_chanterelle",
+                "LocalizationKey": "Herbs_And_Fungi_FalseChanterelle_DismantleActions_EatAnyway_ActionDescription",
+                "DefaultText": "It is barely food, and it gives you food poisoning."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5,
+                        "y": 5
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 10,
+                        "y": 10
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5,
+                        "y": 5
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "8080df0dc107caa47b9591fde9347e09",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8,
+                        "y": 8
+                    }
+                }
+            ]
+        }
+    ],
+    "CardInteractions": []
+}

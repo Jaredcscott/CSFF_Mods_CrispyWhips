@@ -1,0 +1,109 @@
+{
+    "UniqueID": "herbs_fungi_bp_bark_meal",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_bark_meal",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_BarkMeal_CardName",
+        "DefaultText": "Bark Meal"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_bark_meal",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_BarkMeal_CardDescription",
+        "DefaultText": "Pound oak bark into a coarse meal and press it into a cake. Famine food."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_bark_meal",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_BarkMeal_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Oak Bark"
+    },
+    "BlueprintUnlockTicksCost": 4.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasOakBark",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "73a825e728a80114fa8145888aba2778",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "73a825e728a80114fa8145888aba2778",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_bark_meal",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hempSeedRoasted",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

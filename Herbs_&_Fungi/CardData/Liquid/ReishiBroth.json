@@ -28,7 +28,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "HF_ReishiBroth",
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "Active": true,
@@ -134,10 +134,10 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": 20.0,
-                        "y": 20.0
+                        "x": 24.0,
+                        "y": 24.0
                     },
-                    "StatWarpData": "322eaed3c37a4cd4b8b088495db6a8ed",
+                    "StatWarpData": "herbs_fungi_stat_herbal_tonic",
                     "StatWarpType": 3
                 },
                 {

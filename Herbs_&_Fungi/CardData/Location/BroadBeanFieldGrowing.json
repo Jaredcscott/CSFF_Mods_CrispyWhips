@@ -1,0 +1,74 @@
+{
+    "UniqueID": "herbs_fungi_broad_bean_field_growing",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+        "LocalizationKey": "herbsfungibroadbeanfieldgrowing_CardName",
+        "DefaultText": "Growing Broad Bean Field"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+        "LocalizationKey": "herbsfungibroadbeanfieldgrowing_CardDescription",
+        "DefaultText": "Rows of grey-green bean plants with black-and-white flowers. The beans will be ready when the pods swell."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+        "LocalizationKey": "herbsfungibroadbeanfieldgrowing_CardHelpSection",
+        "DefaultText": "<b>Growth:</b> Takes 10 days to mature.\n\n<b>Harvest:</b> Once mature, harvest for 8 to 12 Broad Beans."
+    },
+    "CardType": 2,
+    "ObjectWeight": 100.0,
+    "AlwaysUpdate": true,
+    "CardTags": [],
+    "Progress": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+            "LocalizationKey": "herbsfungibroadbeanfieldgrowing_Progress_CardStatName",
+            "DefaultText": "Growth"
+        },
+        "MaxValue": 960.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+                "LocalizationKey": "herbsfungibroadbeanfieldgrowing_OnFull_ActionDescription",
+                "DefaultText": "The broad bean field is ready to harvest!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_broad_bean_field_mature",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+                "LocalizationKey": "herbsfungibroadbeanfieldgrowing_DismantleActions_0_ActionName",
+                "DefaultText": "Destroy"
+            },
+            "ConfirmPopup": true,
+            "DaytimeCost": 1,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Peas_Plant",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Gardenable",
+        "tag_GardenPlantGrowing"
+    ],
+    "CardTagsWarpType": 3
+}

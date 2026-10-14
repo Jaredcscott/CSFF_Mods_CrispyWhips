@@ -1,0 +1,12 @@
+{
+  "target": "HF_HempPulpSoaked.png",
+  "sourceCard": "CardData/Item/HempPulpSoaked.json",
+  "note": "No generation record existed on disk for this image before 2026-10-12; it was finished from the shipped PNG.",
+  "ownerReview": "2026-10-12 alter | notes: too much white removed",
+  "rework": {
+    "date": "2026-10-12",
+    "note": "owner gallery rework 2026-10-12: too much white removed",
+    "finishing": "see-through holes the paper key had cut into the pale pulp (top left) filled with fill_holes.py --box 50,10,240,175 --edge 5, colour taken from the shipped image composited on warm cream (#f6f1e4); 9024 px made opaque. Worked on the shipped trimmed PNG (scratchpad keyreg.py / dehalo.py / clearlight.py, or Development_Tools/CardArt/fill_holes.py), re-trimmed with trim_card_art. Re-deriving from resource_url brings the defect back: repeat these passes and read a dark preview.",
+    "credits": 0
+  }
+}

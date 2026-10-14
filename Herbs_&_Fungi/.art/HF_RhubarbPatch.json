@@ -1,0 +1,28 @@
+{
+  "target": "HF_RhubarbPatch.png",
+  "sourceCards": [
+    "RhubarbPlantGrowing",
+    "RhubarbPlantMature"
+  ],
+  "kind": "bleed",
+  "subject": "a rhubarb plant with huge broad crinkled green leaves on thick red stalks, growing from dark earth",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "Turnroot_Plant",
+    "id": "xBWLkJm3uuGuI1lWm6JR",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Plant_1791745248505_467c5843.png"
+  },
+  "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a full-bleed game card painting of a rhubarb plant with huge broad crinkled green leaves on thick red stalks, growing from dark earth, the plants filling the lower two-thirds of the frame, a dark shadowy forest undergrowth background, the painting filling the entire frame edge to edge with no white anywhere. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, blurry, white background, vignette border, sky, text, watermark, signature, logo, border, frame, flowers, people, baskets, fence.",
+  "historyId": "A43qWLt1DmiTaLgmFUMQ",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756715460_45867737_1791756715509_2cf52781.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "review": "awaiting owner gallery review (one sample, owner 2026-10-11)"
+}

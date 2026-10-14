@@ -12,7 +12,7 @@
     "DisplayPriority": 2230.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "herbs_fungi_chanterelle",
         "herbs_fungi_chanterelle",
         "herbs_fungi_black_trumpet",
@@ -22,7 +22,7 @@
         "herbs_fungi_puffball",
         "herbs_fungi_ginseng"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
     "MoonsCost": 0,
     "NestedObjectives": [],

@@ -1,0 +1,36 @@
+{
+  "target": "HF_GrowBagKingOyster.png",
+  "sourceCards": [
+    "GrowBagKingOysterMature"
+  ],
+  "kind": "item",
+  "subject": "one upright plump cloth sack tied shut at the top with cord, packed with pale wood shavings, thick king oyster mushrooms with fat white stems and small flat tan caps growing out of its top",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "ForestCaps_Item",
+    "id": "qvkp0ehg23gneSGCgPGq",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ForestCaps_Item_1791744965420_c0401ad6.png"
+  },
+  "prompt": "redraw from the owner note: subject rewritten as low and wide (about three times as wide as tall) or the sack lying on its long side with mushrooms from slits; 3:2 frame; padded to 2:3 with white before finishing",
+  "historyId": "Gd76Hdi8TC8XTh6ti0Wi",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791758133813_fafe79c0_1791758133861_ddf86e3e.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "review": "owner-reviewed, redrawn 2026-10-11",
+  "firstSample": {
+    "historyId": "BSPeShWmXpxW0GzrTtai",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756640685_c83519eb_1791756641364_43b92df1.png"
+  },
+  "ownerReview": "2026-10-11 alter | notes: mushrooms like this would grow from slits in the bag with the bag on the side long side flat.",
+  "failedRedraw": {
+    "historyId": "gq6QCZsa9GYuPiAFIixm",
+    "why": "passing the first sample as a second reference made the model copy its shape; dropped"
+  }
+}

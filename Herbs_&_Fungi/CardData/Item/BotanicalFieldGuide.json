@@ -1,0 +1,84 @@
+{
+    "UniqueID": "herbs_fungi_botanical_field_guide",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_botanical_field_guide",
+        "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_CardName",
+        "DefaultText": "Botanical Field Guide"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_botanical_field_guide",
+        "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_CardDescription",
+        "DefaultText": "A hand-bound book of hemp paper that records where and when the forest plants grow. Read it to look anything up."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_botanical_field_guide",
+        "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> six sheets of Hemp Paper and twine, from the Support tab.\n\n<b>Uses:</b> Choose Read to see where and when each plant can be found. The guide is not used up."
+    },
+    "ObjectWeight": 40.0,
+    "TradingValue": 60,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_BotanicalFieldGuide",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionName",
+                "DefaultText": "Read"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionDescription",
+                "DefaultText": "Where and when each plant of the forest turns up. Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter.\n\nPlaces\nOak woods: oak groves, thickets and clearings, Foraging Path, Oak Clearing, Misty Falls\nAlder woods: alder groves, thickets and clearings, Alder Woods\nPine woods: pine groves, thickets and clearings, Pine Clearing, Highland Meadow\nClearings: other clearings, Oak Clearing, Pine Clearing, Highland Meadow\nPine meadows: pine meadows, Highland Meadow\nNorth: the northern places above Grenfell Falls, Highland Meadow\nRiver banks: river places, Lake Island, Misty Falls\nWillow places: willow groves and thickets\nBirch stands: 17 birch-tree places\nOld-Growth Grove: west of Misty Falls, once this mod's six other places have been explored\n\nPlants\nMorel Mushroom: all year. Oak woods, alder woods, river banks, Highland Meadow, Old-Growth Grove.\nLion's Mane Mushroom: oak woods, alder woods.\nKing Oyster: all year. Oak woods, alder woods, pine woods.\nGolden Oyster: all year. Oak woods, alder woods, pine woods.\nChanterelle: oak woods, alder woods, Highland Meadow, birch stands.\nReishi Mushroom: oak woods, alder woods, pine woods.\nGiant Puffball: clearings, Foraging Path, Alder Woods.\nChicken of the Woods: willow places, oak woods, alder woods.\nBlack Trumpet: oak woods, alder woods, Highland Meadow.\nShiitake Mushroom: oak woods, alder woods, Primeval Woods, Highland Meadow.\nChaga: all year. Oak Clearing, Alder Woods, Pine Clearing, Highland Meadow, birch stands.\nDeath Cap (deadly): north, Foraging Path, Oak Clearing, Alder Woods, Pine Clearing.\nTruffle: spring to autumn, rarely, by digging up mud at a river, and by foraging the Old-Growth Grove; in any season with Dig for Truffles at the vanilla oak and alder groves, thickets and clearings (this mod's own places do not have it).\nWild Ginseng: Primeval Woods, Lost Woods, Green Grove, Green Glade, Oaken Grove, Foraging Path, Oak Clearing, Alder Woods, Pine Clearing, Highland Meadow.\nGinger: river banks, willow places, Foraging Path, Oak Clearing, Alder Woods, Pine Clearing, Highland Meadow.\nYarrow: commonest in pine meadows. Other clearings, Foraging Path, Alder Woods.\nWolfsbane (poisonous): river banks.\nWild Flowers: clearings, pine meadows, river banks, Foraging Path, Alder Woods.\nDandelion: clearings, river banks, oak woods, alder woods.\nCommon Plantain: clearings, river banks, Foraging Path, Alder Woods, 13 of the birch stands.\nChamomile: pine meadows, clearings, Foraging Path, Alder Woods, 16 of the birch stands.\nBlackcurrants: summer only. River banks, oak woods, alder woods, Highland Meadow, birch stands.\nRedcurrants: summer only. Oak woods, alder woods, clearings other than pine meadows, 12 of the birch stands.\nLingonberries: summer and autumn. Pine meadows, pine woods, north, Foraging Path, Oak Clearing, Alder Woods.\nCloudberries: north, pine meadows, Foraging Path, Oak Clearing, Alder Woods, Pine Clearing, Old-Growth Grove.\nHemp Seeds and Hemp Plants: Primeval Woods, Lake Island. Seeds also come from clearing the ground in Primeval Woods.\nPeanut Pods: oak woods, alder woods, clearings, pine woods.\nVelvet Shank: winter only. Oak woods, alder woods, willow places, Foraging Path, Oak Clearing, Alder Woods.\nWatercress: any place with a river.\nWater Lily Rhizome: any place with a river.\nCamas Bulb: spring and summer. Foraging Path, Highland Meadow.\nFiddleheads: spring only. Oak Clearing, Alder Woods.\nThistle Greens: spring and summer. Foraging Path, Highland Meadow.\nGoosefoot Greens: spring and summer. Foraging Path, Oak Clearing.\nRhubarb: spring and summer. Foraging Path, Alder Woods.\nHorseradish Root: spring and autumn. Alder Woods, Pine Clearing.\nMustard Seeds: summer and autumn. Foraging Path, Highland Meadow.\nChicory Root: summer and autumn. Foraging Path, Highland Meadow.\nMandrake Root: summer and autumn. Oak Clearing, Old-Growth Grove.\nTurnroot Greens: not foraged. About half the times you harvest a mature turnroot field by hand, spring to autumn.\nCrabapples: autumn only. Foraging Path, Oak Clearing.\nWild Pears: summer and autumn. Oak Clearing, Alder Woods.\nWild Plums: autumn only. Foraging Path, Pine Clearing.\nChestnuts: autumn only. Foraging Path, Oak Clearing.\nHazelnuts: autumn only. Foraging Path, Alder Woods.\nSloes: autumn only. Foraging Path, Highland Meadow.\nElderflowers: spring and summer. Foraging Path, Alder Woods.\nElderberries: autumn only. Foraging Path, Alder Woods.\nKale: Foraging Path, Highland Meadow.\nLeek: Foraging Path, Alder Woods.\nCarrot: Alder Woods, Highland Meadow.\nBroad Beans: spring and summer. Alder Woods, Highland Meadow.\nHops: summer and autumn. Oak Clearing, Alder Woods.\nGrapes: summer and autumn. Foraging Path, Oak Clearing.\nOats: summer and autumn. Foraging Path, Highland Meadow."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "AlwaysShow": true
+        }
+    ]
+}

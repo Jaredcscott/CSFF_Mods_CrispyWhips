@@ -1,0 +1,147 @@
+{
+    "UniqueID": "herbs_fungi_chicory_roasted",
+    "TradingValue": 12,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_chicory_roasted",
+        "LocalizationKey": "herbsfungichicoryroasted_CardName",
+        "DefaultText": "Roasted Chicory"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_chicory_roasted",
+        "LocalizationKey": "herbsfungichicoryroasted_CardDescription",
+        "DefaultText": "Chicory root roasted dark and brittle. It keeps well. Steep it in hot water for a bitter brew that keeps you awake."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_chicory_roasted",
+        "LocalizationKey": "herbsfungichicoryroasted_CardHelpSection",
+        "DefaultText": "<b>Uses:</b> Drag a bowl of hot water onto it (Steep in Hot Water) to make Chicory Brew. Not food on its own."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Truffle_Cooked",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_chicory_roasted",
+            "LocalizationKey": "herbsfungichicoryroasted_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 5760.0,
+        "RatePerDaytimePoint": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chicory_roasted",
+                "LocalizationKey": "herbsfungichicoryroasted_SpoilageTime_OnFull",
+                "DefaultText": "The roasted chicory has gone mouldy."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_chicory_roasted",
+                "LocalizationKey": "herbsfungichicoryroasted_Steep",
+                "DefaultText": "Steep in Hot Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chicory_roasted",
+                "LocalizationKey": "herbsfungichicoryroasted_Steep_Desc",
+                "DefaultText": "Steep the roasted chicory in a bowl of hot water."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_ContainerBowl"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_chicory_roasted",
+                    "LocalizationKey": "herbsfungichicoryroasted_Steep_FailMessage",
+                    "DefaultText": "Not hot enough."
+                }
+            },
+            "WorksBothWays": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_chicory_tea",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true
+            },
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [],
+    "ObjectWeight": 15,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "a20b2d50b9a50e44f90231e3b3f8bcaf",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

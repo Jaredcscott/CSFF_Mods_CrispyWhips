@@ -1,0 +1,27 @@
+{
+  "target": "HF_Carrot.png",
+  "sourceCards": [
+    "Carrot"
+  ],
+  "kind": "item",
+  "subject": "two whole fresh orange carrots lying side by side, each a long tapering orange root with fine pale rings across it, a short tuft of feathery green leafy tops at the crown, no soil",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "Fireroot_Item",
+    "id": "tRJFFwW2hh3XdGoSTEJK",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Item_1791697571643_a266b2a4.png"
+  },
+  "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a game item illustration of two whole fresh orange carrots lying side by side, each a long tapering orange root with fine pale rings across it, a short tuft of feathery green leafy tops at the crown, no soil. Single subject, slight three-quarter angle, light from the upper left, a continuous dark ink outline around the whole subject, the subject large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, sliced carrot, more than two carrots, soil clumps.",
+  "historyId": "3k1lEU8boIfymEQDXlWl",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756516795_1624e08c_1791756516842_1e80c183.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "review": "awaiting owner gallery review (one sample, owner 2026-10-11)"
+}

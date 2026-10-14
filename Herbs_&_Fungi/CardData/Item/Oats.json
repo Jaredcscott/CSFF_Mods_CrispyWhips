@@ -1,0 +1,409 @@
+{
+    "UniqueID": "herbs_fungi_oats",
+    "TradingValue": 5,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_oats",
+        "LocalizationKey": "herbsfungioats_CardName",
+        "DefaultText": "Oats"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_oats",
+        "LocalizationKey": "herbsfungioats_CardDescription",
+        "DefaultText": "A handful of oat grains in their husks. Chewable raw, better ground into oatmeal for porridge, and good animal feed."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_oats",
+        "LocalizationKey": "herbsfungioats_CardHelpSection",
+        "DefaultText": "<b>Found:</b> Foraging in summer and autumn at the Highland Meadow and the Foraging Path.\n\n<b>Uses:</b> Eat raw. Grind with a stone mortar, a grinding tool or a Grinding Mill into Oatmeal. Livestock feed. Holding them unlocks the Oat Field."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_HumanFood",
+        "tag_Feed"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Rye_Grain",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_oats",
+        "LocalizationKey": "herbsfungioats_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_oats",
+            "LocalizationKey": "herbsfungioats_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 5760.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_oats",
+                "LocalizationKey": "herbsfungioats_SpoilageTime_OnFull",
+                "DefaultText": "The oats have gone mouldy."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_oats",
+                "LocalizationKey": "Herbs_And_Fungi_Oats_Grind_ActionName",
+                "DefaultText": "Grind"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_oats",
+                "LocalizationKey": "Herbs_And_Fungi_Oats_Grind_ActionDescription",
+                "DefaultText": "Grind the oats into oatmeal."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Stone"
+            ],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_GrindingTool"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_oatmeal",
+                "TransformIntoWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_oats",
+                "LocalizationKey": "Herbs_And_Fungi_Oats_Grind_ActionName",
+                "DefaultText": "Grind"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_oats",
+                "LocalizationKey": "Herbs_And_Fungi_Oats_Grind_ActionDescription",
+                "DefaultText": "Grind the oats into oatmeal."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Stone"
+            ],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "9f657b781d6e789479bcf3e01f7b61d5"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_oatmeal",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_oats",
+                "LocalizationKey": "herbsfungioats_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_oats",
+                "LocalizationKey": "herbsfungioats_Eat_Desc",
+                "DefaultText": "Chew the raw oats. Dry, but they fill you up."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6,
+                        "y": 6
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6,
+                        "y": 6
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 10,
+                        "y": 10
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6,
+                        "y": 6
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -3,
+                        "y": -3
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0344bd36c91a41041947df8e879ffab5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 15,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "a20b2d50b9a50e44f90231e3b3f8bcaf",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

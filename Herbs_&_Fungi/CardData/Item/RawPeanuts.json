@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_raw_peanuts",
         "LocalizationKey": "Herbs_And_Fungi_RawPeanuts_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Shelling a Washed Peanut Pod.\n\n<b>Uses:</b> Eat raw for moderate nourishment, or place on a fire and use Roast for a richer nutritional boost. Keeps for about a month."
+        "DefaultText": "<b>Made from:</b> Shelling a Washed Peanut Pod.\n\n<b>Uses:</b> Eat raw for moderate nourishment. Put them in a lit fire and they roast into Roasted Peanuts in about 15 minutes. Plant 2 to grow a peanut plant, or press them into Peanut Oil at the Oil Press. Keeps for about a month."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -98,7 +98,36 @@
         "Active": false
     },
     "SpecialDurability1": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_raw_peanuts",
+            "LocalizationKey": "Herbs_And_Fungi_RawPeanuts_SpecialDurability1_CardStatName",
+            "DefaultText": "Cook"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_raw_peanuts",
+                "LocalizationKey": "Herbs_And_Fungi_RawPeanuts_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "The peanuts are roasted golden and fragrant."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "SpoilageTransferScale": {
+                    "Active": true,
+                    "FloatValue": 0.25
+                },
+                "TransformIntoWarpData": "herbs_fungi_roasted_peanuts",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3
     },
     "SpecialDurability2": {
         "Active": false
@@ -115,6 +144,16 @@
     "CardInteractions": [],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_raw_peanuts",
                 "LocalizationKey": "Herbs_And_Fungi_RawPeanuts_DismantleActions_Eat_ActionName",
@@ -226,36 +265,6 @@
             "ReceivingCardChanges": {
                 "ModType": 3
             }
-        },
-        {
-            "ActionName": {
-                "ParentObjectID": "herbs_fungi_raw_peanuts",
-                "LocalizationKey": "Herbs_And_Fungi_RawPeanuts_DismantleActions_Roast_ActionName",
-                "DefaultText": "Roast"
-            },
-            "ActionSounds": [],
-            "ActionTags": [],
-            "DaytimeCost": 8,
-            "UseMiniTicks": 0,
-            "ActionTagsWarpData": [],
-            "ActionTagsWarpType": 3,
-            "RequiredCardsOnBoard": [],
-            "RequiredReceivingContainerTag": [],
-            "RequiredReceivingContainerTagWarpData": [
-                "tag_Fire"
-            ],
-            "RequiredReceivingContainerTagWarpType": 3,
-            "StatModifications": [],
-            "ReceivingCardChanges": {
-                "ModType": 2,
-                "TransferSpoilage": true,
-                "SpoilageTransferScale": {
-                    "Active": true,
-                    "FloatValue": 0.25
-                },
-                "TransformIntoWarpData": "herbs_fungi_roasted_peanuts",
-                "TransformIntoWarpType": 3
-            }
         }
     ],
     "CardTagsWarpData": [
@@ -263,6 +272,7 @@
         "tag_HumanFood",
         "tag_Plateable",
         "tag_Heatable",
+        "tag_Cookable",
         "tag_Preservable"
     ],
     "CardTagsWarpType": 3,

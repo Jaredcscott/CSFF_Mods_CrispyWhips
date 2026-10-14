@@ -1,0 +1,126 @@
+{
+    "UniqueID": "herbs_fungi_fish_mash",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_fish_mash",
+        "LocalizationKey": "Herbs_And_Fungi_FishMash_CardName",
+        "DefaultText": "Salted Fish Mash"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_fish_mash",
+        "LocalizationKey": "Herbs_And_Fungi_FishMash_CardDescription",
+        "DefaultText": "Raw fish pounded with salt into a pungent paste. Stir it into a pot of water and leave it to ferment into fish sauce."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_fish_mash",
+        "LocalizationKey": "Herbs_And_Fungi_FishMash_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Two raw fish (lean or fatty) and one Salt, from the Cooking tab.\n\n<b>Uses:</b> Drag it onto a pot or bowl of water (at least a third of a pot) and the water becomes Young Fish Sauce; the mash is used up. Not food on its own."
+    },
+    "CardType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_FishMash",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 120,
+    "TradingValue": 6,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "AlwaysUpdate": false,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_fish_mash",
+            "LocalizationKey": "Herbs_And_Fungi_FishMash_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_fish_mash",
+                "LocalizationKey": "Herbs_And_Fungi_FishMash_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The fish mash has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_fish_mash",
+                "LocalizationKey": "Herbs_And_Fungi_FishMash_CardInteractions_Ferment_ActionName",
+                "DefaultText": "Stir into Water to Ferment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_fish_mash",
+                "LocalizationKey": "Herbs_And_Fungi_FishMash_CardInteractions_Ferment_ActionDescription",
+                "DefaultText": "Stir the fish mash into water and leave it to ferment into fish sauce. The mash is used up."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "397594d260e114749ab6e1a76a732fbb"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "RequiredGivenDurabilities": {
+                "RequiredLiquidQuantity": 100.0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_lq_fish_sauce_young",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "MaxStack": 6,
+    "DroppedCardShadow": 1
+}

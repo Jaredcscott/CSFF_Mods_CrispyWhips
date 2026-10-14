@@ -45,7 +45,8 @@
         "herbs_fungi_bp_oil_press_herbal_yarrow",
         "herbs_fungi_bp_oil_press_herbal_chamomile",
         "herbs_fungi_bp_oil_press_herbal_ginseng",
-        "herbs_fungi_bp_oil_press_flax"
+        "herbs_fungi_bp_oil_press_flax",
+        "herbs_fungi_bp_oil_press_pine_nuts"
     ],
     "ContainedBlueprintCardsWarpType": 3,
     "ContainedBlueprintsDontStartUnlocked": false,

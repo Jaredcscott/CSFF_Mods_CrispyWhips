@@ -1,0 +1,585 @@
+{
+    "UniqueID": "herbs_fungi_elderflower_dried",
+    "TradingValue": 12,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_elderflower_dried",
+        "LocalizationKey": "herbsfungielderflowerdried_CardName",
+        "DefaultText": "Dried Elderflowers"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_elderflower_dried",
+        "LocalizationKey": "herbsfungielderflowerdried_CardDescription",
+        "DefaultText": "Dried elderflower heads, sweet and faintly musky. Steep in hot water to brew an elderflower cordial."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_HumanFood",
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Plateable",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Elderflowers",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_elderflower_dried",
+        "LocalizationKey": "herbsfungielderflowerdried_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_elderflower_dried",
+            "LocalizationKey": "herbsfungielderflowerdried_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 3600.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_elderflower_dried",
+                "LocalizationKey": "herbsfungielderflowerdried_SpoilageTime_OnFull",
+                "DefaultText": "The dried elderflowers have crumbled away."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_elderflower_dried",
+                "LocalizationKey": "herbsfungielderflowerdried_MixTea",
+                "DefaultText": "Mix into Hot Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_elderflower_dried",
+                "LocalizationKey": "herbsfungielderflowerdried_MixTea_Desc",
+                "DefaultText": "Steep dried elderflowers in hot water to brew a fragrant cordial."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_ContainerBowl"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_elderflower_dried",
+                    "LocalizationKey": "herbsfungielderflowerdried_MixTea_FailMessage",
+                    "DefaultText": "Not hot enough."
+                }
+            },
+            "WorksBothWays": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_elderflower_cordial",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_elderflower_dried",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_elderflower_dried",
+                "LocalizationKey": "",
+                "DefaultText": "Stir it into hot water in a pot or bowl to thicken the stew and give it nourishment and flavour."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_CookingContainer"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.98,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 290.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 16
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[0].Message",
+                            "DefaultText": "Not enough liquid"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 8
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[1].Message",
+                            "DefaultText": "Too thick"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[2].Message",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true,
+                "AddSpicesFromOtherCard": true,
+                "UsageChange": {
+                    "x": 44.0,
+                    "y": 44.0
+                },
+                "ChargesChange": {
+                    "x": 33.3,
+                    "y": 33.3
+                },
+                "Special1Change": {
+                    "x": 2.0,
+                    "y": 2.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": true,
+                    "FloatValue": 300.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
+        }
+    ],
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_elderflower_dried",
+                "LocalizationKey": "herbsfungielderflowerdried_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_elderflower_dried",
+                "LocalizationKey": "herbsfungielderflowerdried_Eat_Desc",
+                "DefaultText": "Chew the dried elderflowers. Faintly sweet and perfumed."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6,
+                        "y": 6
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 18,
+                        "y": 18
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -18,
+                        "y": -18
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4,
+                        "y": 4
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 10,
+    "MaxStack": 25,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "36fc84b5b14bc204cbd938ed02204080",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "eaecdca41b9d7134487931836f0ec104",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "b16daf50fa0b79443a2557e43f613bcc",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

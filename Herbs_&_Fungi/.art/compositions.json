@@ -1,0 +1,109 @@
+{
+  "_comment": "ImageName -> what the picture is built from, for /create-image-refs. For an item, ref names the shipped image used as the subject reference and action is the one change made to it.",
+  "ChagaGround": {
+    "ref": "ReishiGround",
+    "role": "subject",
+    "action": "the powder is coarse, dark rust-brown chaga powder with a few tiny black crust flecks; same bare mound shape, size, placement and loose crumbs, no bowl",
+    "finish": "keyed",
+    "use": "CardImageWarpData in CardData/Item/ChagaGround.json"
+  },
+  "ChamomilePlantGrowing": {
+    "ref": "ChamomileFresh",
+    "role": "subject",
+    "action": "the same plant as a living young mound of hair-fine thread-like leaves growing from a ragged oval patch of tilled soil; leaves only, no flowers, no twine",
+    "finish": "keyed",
+    "use": "CardImageWarpData in Bp_ChamomilePlant.json and ChamomilePlantGrowing.json"
+  },
+  "ChamomilePlantMature": {
+    "ref": "ChamomileFresh",
+    "role": "subject",
+    "action": "the same plant as a living flowering plant growing from a small oval patch of tilled soil; feathery leaves at the base, slender branching stems tipped with about a dozen daisy-like flowers, no twine",
+    "finish": "keyed",
+    "use": "CardImageWarpData in ChamomilePlantMature.json"
+  },
+  "PlantainPlantGrowing": {
+    "ref": "PlantainFresh",
+    "role": "subject",
+    "action": "the same plant as a living low flat rosette of broad ribbed leaves growing from a small oval patch of tilled soil; leaves only, no spikes, no twine",
+    "finish": "keyed",
+    "use": "CardImageWarpData in Bp_PlantainPlant.json and PlantainPlantGrowing.json"
+  },
+  "PlantainPlantMature": {
+    "ref": "PlantainFresh",
+    "role": "subject",
+    "action": "the same plant as a living rosette of broad ribbed leaves growing from a small oval patch of tilled soil, with several tall leafless stalks topped by narrow green-brown flower spikes, no twine",
+    "finish": "keyed",
+    "use": "CardImageWarpData in PlantainPlantMature.json"
+  },
+  "DandelionPlantGrowing": {
+    "ref": "DandelionFresh",
+    "role": "subject",
+    "action": "the same plant as a living low flat rosette of jagged toothed leaves growing from a small oval patch of tilled soil; leaves only, no flowers",
+    "finish": "keyed",
+    "use": "CardImageWarpData in Bp_DandelionPlant.json and DandelionPlantGrowing.json"
+  },
+  "DandelionPlantMature": {
+    "ref": "DandelionFresh",
+    "role": "subject",
+    "action": "the same plant as a living rosette of toothed leaves growing from a small oval patch of tilled soil, with tall leafless stems each topped by one bright yellow flower head and a few closed buds, no twine",
+    "finish": "keyed",
+    "use": "CardImageWarpData in DandelionPlantMature.json"
+  },
+  "RipePuffball": {
+    "ref": "PuffBallFresh",
+    "role": "subject",
+    "action": "the same round puffball, ripe and dried out: dull papery olive-brown skin with cracks, a small ragged hole in the top with a puff of fine brown spore dust rising from it, a light dusting of the powder on the upper skin; same size and placement, no stem, no bowl",
+    "finish": "keyed",
+    "use": "CardImageWarpData in CardData/Item/RipePuffball.json"
+  },
+  "MushroomPastyRaw": {
+    "ref": "Pasty_Rye",
+    "role": "subject",
+    "action": "a raw, unbaked half-moon pasty of pale floury dough, twisted rope-crimped seam, one slit vent, two golden chanterelles resting against its lower edge; shape from the vanilla Pasty_Rye sprite, the mushrooms from ChantFresh",
+    "finish": "keyed",
+    "use": "CardImageWarpData in CardData/Item/MushroomPastyRaw.json",
+    "props": [
+      "ChantFresh (prop)"
+    ],
+    "style": [
+      "ChantCooked (style)"
+    ]
+  },
+  "MushroomPasty": {
+    "ref": "Pasty_Rye",
+    "role": "subject",
+    "action": "a baked, golden-brown half-moon pasty with a glossy crust and a few darker toasted patches, twisted rope-crimped seam, one slit vent, two golden chanterelles resting against its lower edge; same shape and placement as MushroomPastyRaw",
+    "finish": "keyed",
+    "use": "CardImageWarpData in CardData/Item/MushroomPasty.json",
+    "props": [
+      "ChantFresh (prop)"
+    ],
+    "style": [
+      "ChantCooked (style)"
+    ]
+  },
+  "WildBerryPastyRaw": {
+    "ref": "Pasty_Rye",
+    "role": "subject",
+    "action": "a raw, unbaked half-moon pasty of pale floury dough, twisted rope-crimped seam, one slit vent, a few blackcurrants and redcurrants resting against its lower edge; shape from the vanilla Pasty_Rye sprite, the berries from BlackcurrantFresh and RedcurrantFresh",
+    "finish": "keyed",
+    "use": "CardImageWarpData in CardData/Item/WildBerryPastyRaw.json",
+    "props": [
+      "BlackcurrantFresh (prop)",
+      "RedcurrantFresh (prop)"
+    ],
+    "style": []
+  },
+  "WildBerryPasty": {
+    "ref": "Pasty_Rye",
+    "role": "subject",
+    "action": "a baked, golden-brown half-moon pasty with a glossy crust, rope-crimped seam, one slit vent and a small stain of purple-red berry juice seeping from the seam, a few blackcurrants and redcurrants resting against its lower edge; same shape and placement as WildBerryPastyRaw",
+    "finish": "keyed",
+    "use": "CardImageWarpData in CardData/Item/WildBerryPasty.json",
+    "props": [
+      "BlackcurrantFresh (prop)",
+      "RedcurrantFresh (prop)"
+    ],
+    "style": []
+  }
+}

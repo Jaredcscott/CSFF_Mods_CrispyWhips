@@ -1,0 +1,18 @@
+{
+  "target": "HF_GruitAle.png",
+  "sourceCard": "GruitAle",
+  "subject": "a plain terracotta clay bowl full of cloudy amber-gold ale with a thin pale foam ring at the rim, and three small herb sprigs (grey-green bog myrtle, pale yellow yarrow flowers, purple heather) lying beside the bowl as small subordinate props, no handle, no cup",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "prompt": "create-image.md Step 3 template with the subject above; Avoid list extended with: wooden bowl, mug, tankard, barrel",
+  "historyId": "MYXSPtpbkVc5pelL4MDV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791141837627_c4af2b1c_1791141838453_8e9daa2b.png",
+  "credits": 30,
+  "generated": "2026-10-04"
+}

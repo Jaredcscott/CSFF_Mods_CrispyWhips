@@ -4,16 +4,27 @@
     "Action": "Forage",
     "ActionMode": "contains",
     "Drops": [
-      { "Card": "herbs_fungi_ginseng",         "Chance": 5.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_ginger",           "Chance": 6.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_yarrow",           "Chance": 6.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_wild_flowers",     "Chance": 12.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_common_plantain",  "Chance": 10.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_chamomile",        "Chance": 8.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_puffball",         "Chance": 8.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_lingonberry",      "Chance": 6.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_cloudberry",       "Chance": 3.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_death_cap",        "Chance": 1.0,  "Quantity": [1, 1] }
+      { "Card": "herbs_fungi_camas_bulb", "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_rhubarb", "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_mustard_seeds", "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_chicory_root", "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_goosefoot", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_thistle", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_ginseng",         "Chance": 5.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_ginger",           "Chance": 6.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_yarrow",           "Chance": 6.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_kale",             "Chance": 5.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_leek",             "Chance": 4.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_grapes",           "Chance": 3.0,  "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_oats",             "Chance": 4.0,  "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_wild_flowers",     "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"], "SeasonChance": { "Spring": 24.0 } },
+      { "Card": "herbs_fungi_common_plantain",  "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"], "SeasonChance": { "Spring": 20.0 } },
+      { "Card": "herbs_fungi_chamomile",        "Chance": 8.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_puffball",         "Chance": 8.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_lingonberry",      "Chance": 6.0,  "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_cloudberry",       "Chance": 3.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_death_cap",        "Chance": 1.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_velvet_shank", "Chance": 14.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
     ]
   },
   {
@@ -21,11 +32,18 @@
     "Action": "Forage",
     "ActionMode": "contains",
     "Drops": [
-      { "Card": "herbs_fungi_ginseng",    "Chance": 6.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_ginger",     "Chance": 5.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_lingonberry","Chance": 8.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_cloudberry", "Chance": 3.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_death_cap",  "Chance": 1.0, "Quantity": [1, 1] }
+      { "Card": "herbs_fungi_fiddleheads", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring"] },
+      { "Card": "herbs_fungi_mandrake_root", "Chance": 3.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_goosefoot", "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_ginseng",    "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_ginger",     "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_lingonberry","Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_hops",       "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_grapes",     "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 3.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_death_cap",  "Chance": 1.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_chaga",      "Chance": 2.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_velvet_shank", "Chance": 14.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
     ]
   },
   {
@@ -33,16 +51,25 @@
     "Action": "Forage",
     "ActionMode": "contains",
     "Drops": [
-      { "Card": "herbs_fungi_ginseng",        "Chance": 5.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_ginger",         "Chance": 6.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_yarrow",         "Chance": 6.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_wild_flowers",   "Chance": 12.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_common_plantain","Chance": 10.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_chamomile",      "Chance": 8.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_puffball",       "Chance": 8.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_lingonberry",    "Chance": 6.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_cloudberry",     "Chance": 3.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_death_cap",      "Chance": 1.0,  "Quantity": [1, 1] }
+      { "Card": "herbs_fungi_fiddleheads", "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring"] },
+      { "Card": "herbs_fungi_rhubarb", "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_horseradish_root", "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Autumn"] },
+      { "Card": "herbs_fungi_ginseng",        "Chance": 5.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_ginger",         "Chance": 6.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_yarrow",         "Chance": 6.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_carrot",       "Chance": 5.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_leek",         "Chance": 4.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_hops",         "Chance": 4.0,  "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_broad_beans",  "Chance": 4.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_wild_flowers",   "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"], "SeasonChance": { "Spring": 24.0 } },
+      { "Card": "herbs_fungi_common_plantain","Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"], "SeasonChance": { "Spring": 20.0 } },
+      { "Card": "herbs_fungi_chamomile",      "Chance": 8.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_puffball",       "Chance": 8.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_lingonberry",    "Chance": 6.0,  "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_cloudberry",     "Chance": 3.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_death_cap",      "Chance": 1.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_chaga",          "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_velvet_shank", "Chance": 14.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
     ]
   },
   {
@@ -50,10 +77,12 @@
     "Action": "Forage",
     "ActionMode": "contains",
     "Drops": [
-      { "Card": "herbs_fungi_ginseng",    "Chance": 5.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_ginger",     "Chance": 5.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_cloudberry", "Chance": 6.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_death_cap",  "Chance": 1.0,  "Quantity": [1, 1] }
+      { "Card": "herbs_fungi_horseradish_root", "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Spring", "Autumn"] },
+      { "Card": "herbs_fungi_ginseng",    "Chance": 5.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_ginger",     "Chance": 5.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 6.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_death_cap",  "Chance": 1.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_chaga",      "Chance": 2.0,  "Quantity": [1, 1] }
     ]
   },
   {
@@ -61,13 +90,445 @@
     "Action": "Forage",
     "ActionMode": "contains",
     "Drops": [
-      { "Card": "herbs_fungi_ginseng",        "Chance": 8.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_ginger",         "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_camas_bulb", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_thistle", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_mustard_seeds", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_chicory_root", "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_ginseng",        "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_ginger",         "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_kale",          "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_carrot",        "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_oats",          "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_broad_beans",   "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer"] },
       { "Card": "herbs_fungi_morel_mushroom", "Chance": 6.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_chanterelle",    "Chance": 6.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_shiitake",       "Chance": 5.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_black_trumpet",  "Chance": 4.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_blackcurrant",   "Chance": 5.0, "Quantity": [1, 1] }
+      { "Card": "herbs_fungi_chanterelle",    "Chance": 4.5, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"], "SeasonChance": { "Autumn": 9.0 } },
+      { "Card": "herbs_fungi_unknown_chanterelle", "Chance": 1.5, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"], "SeasonChance": { "Autumn": 3.0 } },
+      { "Card": "herbs_fungi_shiitake",       "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_black_trumpet",  "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"], "SeasonChance": { "Autumn": 8.0 } },
+      { "Card": "herbs_fungi_blackcurrant",   "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Summer"] },
+      { "Card": "herbs_fungi_chaga",          "Chance": 2.0, "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "8442ec3009ef4b348ba4224299b569de",
+      "48763d81ff15a3247af3a2a9db6adbb1",
+      "08a9ab83720ce8d43940b3948290fd63",
+      "9222a58ac48eabe4c96aa7c9419a3d53",
+      "eee1c12c127d4d244988a366cb173070",
+      "1ec714ca136119e499e7afb4a000867b",
+      "fce4bae0b4932964aa0833137f396e36",
+      "8b50be9a6a78ea9439b08c653a12a1e7",
+      "08633f82bef215c4a81234b68b23b89a",
+      "a292cbb4350f3e1479f06c75d5065e3e",
+      "d450c2919937ef54cb0bc67eb76d51c3",
+      "d478e681d8933624499b2d68120ff338",
+      "258c8da1f1c1a2e4881fdf676762505f",
+      "cbb6d9b3d2ca0f24d89e62653c27eb25",
+      "2332dfa5f177bfe45ac860c2a8e1792a",
+      "1ddd433a960e8a04cbcbb1dd6752c348",
+      "d62dae57fe6130841b450ba199f2c58e"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_chaga", "Chance": 2.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_blackcurrant", "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Summer"] },
+      { "Card": "herbs_fungi_chanterelle", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_unknown_chanterelle", "Chance": 2.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "eee1c12c127d4d244988a366cb173070",
+      "fce4bae0b4932964aa0833137f396e36",
+      "8b50be9a6a78ea9439b08c653a12a1e7",
+      "08633f82bef215c4a81234b68b23b89a",
+      "a292cbb4350f3e1479f06c75d5065e3e",
+      "d450c2919937ef54cb0bc67eb76d51c3",
+      "d478e681d8933624499b2d68120ff338",
+      "258c8da1f1c1a2e4881fdf676762505f",
+      "cbb6d9b3d2ca0f24d89e62653c27eb25",
+      "2332dfa5f177bfe45ac860c2a8e1792a",
+      "1ddd433a960e8a04cbcbb1dd6752c348",
+      "d62dae57fe6130841b450ba199f2c58e"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_redcurrant", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Summer"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "8442ec3009ef4b348ba4224299b569de",
+      "48763d81ff15a3247af3a2a9db6adbb1",
+      "08a9ab83720ce8d43940b3948290fd63",
+      "9222a58ac48eabe4c96aa7c9419a3d53",
+      "eee1c12c127d4d244988a366cb173070",
+      "1ec714ca136119e499e7afb4a000867b",
+      "fce4bae0b4932964aa0833137f396e36",
+      "8b50be9a6a78ea9439b08c653a12a1e7",
+      "08633f82bef215c4a81234b68b23b89a",
+      "a292cbb4350f3e1479f06c75d5065e3e",
+      "d450c2919937ef54cb0bc67eb76d51c3",
+      "d478e681d8933624499b2d68120ff338",
+      "258c8da1f1c1a2e4881fdf676762505f"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_common_plantain", "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "8442ec3009ef4b348ba4224299b569de",
+      "48763d81ff15a3247af3a2a9db6adbb1",
+      "08a9ab83720ce8d43940b3948290fd63",
+      "9222a58ac48eabe4c96aa7c9419a3d53",
+      "eee1c12c127d4d244988a366cb173070",
+      "1ec714ca136119e499e7afb4a000867b",
+      "fce4bae0b4932964aa0833137f396e36",
+      "8b50be9a6a78ea9439b08c653a12a1e7",
+      "08633f82bef215c4a81234b68b23b89a",
+      "a292cbb4350f3e1479f06c75d5065e3e",
+      "d450c2919937ef54cb0bc67eb76d51c3",
+      "258c8da1f1c1a2e4881fdf676762505f",
+      "cbb6d9b3d2ca0f24d89e62653c27eb25",
+      "2332dfa5f177bfe45ac860c2a8e1792a",
+      "1ddd433a960e8a04cbcbb1dd6752c348",
+      "d62dae57fe6130841b450ba199f2c58e"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_chamomile", "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Tags": ["tag_River"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_watercress", "Chance": 10.0, "Quantity": [1, 2], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_water_lily_rhizome", "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocOldGrowthGrove"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_mandrake_root", "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_truffle",        "Chance": 6.0,  "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_morel_mushroom", "Chance": 12.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry",     "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  }
+,
+  {
+    "Locations": { "Uids": [
+      "d478e681d8933624499b2d68120ff338"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_yarrow", "Chance": 18.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_lingonberry", "Chance": 18.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_wild_flowers", "Chance": 16.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_chamomile", "Chance": 18.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "20dc038ca0f9e3046aa2a401dba16b09", "4f1ceadde2272e74e9b08b7d40eb264c"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_velvet_shank", "Chance": 14.0, "Quantity": [1, 1], "Seasons": ["Winter"] },
+      { "Card": "herbs_fungi_chicken_of_woods", "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_ginger", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "a9c7fdb278b19414c9d311177402e60b", "5b8ba1433e086464297992c9a8a09dc0",
+      "4b5884ebbb8244a45a119a1701365b1c", "a019c1902ef42df4490429cf28534518",
+      "494b063d0a8ca66498dcd0e55b7f15be", "24b989bdc5b3c8a42a16ac3c0fb703a8",
+      "975248d7e988366438f877c451ca118d", "3c7144d78a55ebb45b0fdf1598cf6a04",
+      "cbb6d9b3d2ca0f24d89e62653c27eb25", "2332dfa5f177bfe45ac860c2a8e1792a",
+      "49c0c329d382aab498b4ff7903f4a38a", "a631af4cc22e93a43b70992c974fbbf0",
+      "20dc038ca0f9e3046aa2a401dba16b09", "4f1ceadde2272e74e9b08b7d40eb264c",
+      "e40f442246e85014c9a786342fb78a25", "e715a7bb358c727408ca2f454850bca0",
+      "1ddd433a960e8a04cbcbb1dd6752c348", "095037d3e1e05bb4680e47410f0e5075",
+      "7071f798052681d43a6d424cc62508db", "e1874f4598988d04bb4b68049766d7b1",
+      "d62dae57fe6130841b450ba199f2c58e", "9b72ab8ae43c10345a6d9168d3096b50",
+      "4a85ea00396fbe84bb494ddc7abe0de2", "f516c75849230e04e8b386d9f3b25d53",
+      "343475c3f2d73c84f8ffbbbe1f288414", "1761b5a45b73fee43a68f6dcec138ef6",
+      "6940d62a86fc2974da75ce0431ca44e8"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_morel_mushroom", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "ffbc6fdc5dc0eec43b100d0feb63b70d", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_ginger", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_blackcurrant", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Summer"] },
+      { "Card": "herbs_fungi_wild_flowers", "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_dandelion", "Chance": 14.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_common_plantain", "Chance": 14.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "eee1c12c127d4d244988a366cb173070", "fce4bae0b4932964aa0833137f396e36",
+      "8b50be9a6a78ea9439b08c653a12a1e7", "08633f82bef215c4a81234b68b23b89a",
+      "a292cbb4350f3e1479f06c75d5065e3e", "d450c2919937ef54cb0bc67eb76d51c3",
+      "d478e681d8933624499b2d68120ff338", "258c8da1f1c1a2e4881fdf676762505f",
+      "549ed5b85e9e484479c5e4978eb22e79", "2a0ed72a1373e4c459da8087043a5572",
+      "9c9ae12ea130d9d41abb0f195bcaccf4", "f97bf4f3c179b9e40a6035a63910b409",
+      "e85bc7ffb5604ef47b3b7f82eb395f39", "27e91c011daab4943a7c4db7b9b342cb",
+      "7d10f7361cd579a4d843d7a47ad04427", "950ae559bf16e524aab418c4f109164d",
+      "aa6121b81d11250459a9b609986b4394", "8c257d7b697c17e458e95eb5e7d11552",
+      "8eaa097869c21d94d8eac6188fab7028", "d68a69ef3eb90c94d8a05b8d44472119",
+      "33b838d1f3b1daa4bb0d5fd4921dcdfa", "fe3b15d5f9b8acc4f91ab2da9dce2ceb",
+      "b602040bffe7cd2478ffebe75d596962", "c5d461c899e25624a99e45496f18b48c",
+      "69947f55ba11e344cb6af02eedbfa4f4", "0047c4128e4efa548b394802e67e5bc5",
+      "97cc89834cddcce43b8e44b32ccd1975", "cbb6d9b3d2ca0f24d89e62653c27eb25",
+      "2332dfa5f177bfe45ac860c2a8e1792a", "1ddd433a960e8a04cbcbb1dd6752c348",
+      "095037d3e1e05bb4680e47410f0e5075", "7071f798052681d43a6d424cc62508db",
+      "e1874f4598988d04bb4b68049766d7b1", "d62dae57fe6130841b450ba199f2c58e",
+      "6940d62a86fc2974da75ce0431ca44e8", "cb861225c880cdf4f8d07bdf99abae51",
+      "8c6c0c29e4de0d741b40a2f19e8380b8", "c780ea86ceddfa949bd99e709c287d08",
+      "48cf028fc67cdb44cab666ebfa143789", "c021b70a40c0caa438322dbab799719e",
+      "569186c2715d16441bd502fdbedcb0e3", "fe69f0d7203eeda4c95b78b76d1deb36",
+      "c155e398639f55040b52d30305468336"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_king_oyster", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_golden_oyster", "Chance": 14.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_reishi", "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_lingonberry", "Chance": 16.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_peanut_pod", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "8442ec3009ef4b348ba4224299b569de", "48763d81ff15a3247af3a2a9db6adbb1",
+      "08a9ab83720ce8d43940b3948290fd63", "9222a58ac48eabe4c96aa7c9419a3d53",
+      "1ec714ca136119e499e7afb4a000867b", "4f23f1c0f6efed9439c68d9b0e9ec051",
+      "e8783dad39492f847ae400920fb920ba", "1627c16d685a1ce48bd5275a9be19d74",
+      "47b1d75f4127d7c4faa461529f937ae6", "716c18156d6816d40b26b4b81a6b9d22",
+      "f874739d449a5c948a0cfa9890fa344c", "b71c4ef8847555b4abcab5730a529145",
+      "f5db0a50fd23fe44abce34c36b281dcd", "f1f12161603a1674980559b8b1c67325",
+      "d3bccca6f0e37d649923ea9a996e8388", "b9107e4f48ff0d044bd31c7a51d13d40",
+      "3282546098b590d4ba2d40e96460720f", "b618bec5e3d2de64694f5cfb170626d4",
+      "49e2b4be940a84f4ca5c08024b5702b6", "2c3a29815c94ebe46a4bdbd1ccb754d0",
+      "4e870b81748a38f4d8922a3fac6cc69a", "a9c7fdb278b19414c9d311177402e60b",
+      "5b8ba1433e086464297992c9a8a09dc0", "4b5884ebbb8244a45a119a1701365b1c",
+      "a019c1902ef42df4490429cf28534518", "494b063d0a8ca66498dcd0e55b7f15be",
+      "24b989bdc5b3c8a42a16ac3c0fb703a8", "975248d7e988366438f877c451ca118d",
+      "3c7144d78a55ebb45b0fdf1598cf6a04", "49c0c329d382aab498b4ff7903f4a38a",
+      "a631af4cc22e93a43b70992c974fbbf0", "20dc038ca0f9e3046aa2a401dba16b09",
+      "4f1ceadde2272e74e9b08b7d40eb264c", "e40f442246e85014c9a786342fb78a25",
+      "e715a7bb358c727408ca2f454850bca0", "9b72ab8ae43c10345a6d9168d3096b50",
+      "4a85ea00396fbe84bb494ddc7abe0de2", "f516c75849230e04e8b386d9f3b25d53",
+      "343475c3f2d73c84f8ffbbbe1f288414", "1761b5a45b73fee43a68f6dcec138ef6",
+      "a37bdecbef22b354bbddd37732a54a03", "945a359be2dda5144a0a91ae81ba140f",
+      "6f1df28efe418cd4caeb66c8228583f1", "392726f7792a24849b9f3af9148c0871",
+      "5428355fcca1b464e9dfad18d69bf4f6", "e2fe83127f87959488d0bc35d65760a4",
+      "30a11e1f41c65774fbdb291aadd64ccf", "b32c74532ed8c634d991a6028bb435e2",
+      "5aba809c3bd15904d80260034b976c24", "7eb4ea3c101f2824686e53241133d0cc",
+      "d64538c6aa0ac014e83221fda09ea8eb"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_morel_mushroom", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lions_mane", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_king_oyster", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_golden_oyster", "Chance": 14.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_velvet_shank", "Chance": 14.0, "Quantity": [1, 1], "Seasons": ["Winter"] },
+      { "Card": "herbs_fungi_chanterelle", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_unknown_chanterelle", "Chance": 2.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_reishi", "Chance": 4.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_chicken_of_woods", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_black_trumpet", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_shiitake", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_blackcurrant", "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Summer"] },
+      { "Card": "herbs_fungi_redcurrant", "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Summer"] },
+      { "Card": "herbs_fungi_dandelion", "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_peanut_pod", "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "2332dfa5f177bfe45ac860c2a8e1792a", "095037d3e1e05bb4680e47410f0e5075"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_death_cap", "Chance": 1.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_lingonberry", "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Summer", "Autumn"] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "b618bec5e3d2de64694f5cfb170626d4"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng", "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_shiitake", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_hemp_seeds", "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_hemp_plant_mature", "Chance": 15.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "1ddd433a960e8a04cbcbb1dd6752c348"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_hemp_seeds", "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_hemp_plant_mature", "Chance": 15.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "392726f7792a24849b9f3af9148c0871", "f874739d449a5c948a0cfa9890fa344c",
+      "48763d81ff15a3247af3a2a9db6adbb1", "d3bccca6f0e37d649923ea9a996e8388"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng", "Chance": 5.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "hfLocOakClearing", "hfLocPineClearing",
+      "cmcLocMossyClearing"
+    ] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_puffball", "Chance": 10.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_yarrow", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_redcurrant", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Summer"] },
+      { "Card": "herbs_fungi_wild_flowers", "Chance": 20.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_dandelion", "Chance": 20.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_common_plantain", "Chance": 16.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_chamomile", "Chance": 14.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] },
+      { "Card": "herbs_fungi_peanut_pod", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "b618bec5e3d2de64694f5cfb170626d4"
+    ] },
+    "Action": "Clear",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_hemp_seeds", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": [
+      "f6ba7b43e3e920b49a84510ca27f527c"
+    ] },
+    "Action": "Dig up Mud",
+    "ActionMode": "exact",
+    "Drops": [
+      { "Card": "herbs_fungi_truffle", "Chance": 1.0, "Quantity": [1, 1], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["249814e3b0a31434d8c895e0e6908705"] },
+    "Action": "Harvest",
+    "ActionMode": "exact",
+    "Drops": [
+      { "Card": "herbs_fungi_turnroot_greens", "Chance": 50.0, "Quantity": [1, 2], "Seasons": ["Spring", "Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocForagingPath"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_crabapple", "Chance": 6.0, "Quantity": [1, 2], "Seasons": ["Autumn"] },
+      { "Card": "herbs_fungi_plum", "Chance": 5.0, "Quantity": [1, 2], "Seasons": ["Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocOakClearing"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_crabapple", "Chance": 5.0, "Quantity": [1, 2], "Seasons": ["Autumn"] },
+      { "Card": "herbs_fungi_pear", "Chance": 4.0, "Quantity": [1, 2], "Seasons": ["Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocAlderWoods"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_pear", "Chance": 4.0, "Quantity": [1, 2], "Seasons": ["Summer", "Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocPineClearing"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_plum", "Chance": 3.0, "Quantity": [1, 2], "Seasons": ["Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocForagingPath"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_chestnut", "Chance": 3.0, "Quantity": [1, 2], "Seasons": ["Autumn"] },
+      { "Card": "herbs_fungi_hazelnut", "Chance": 5.0, "Quantity": [1, 2], "Seasons": ["Autumn"] },
+      { "Card": "herbs_fungi_sloe", "Chance": 5.0, "Quantity": [1, 2], "Seasons": ["Autumn"] },
+      { "Card": "herbs_fungi_elderflower", "Chance": 4.0, "Quantity": [1, 2], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_elderberry", "Chance": 4.0, "Quantity": [1, 2], "Seasons": ["Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocOakClearing"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_chestnut", "Chance": 5.0, "Quantity": [1, 2], "Seasons": ["Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocAlderWoods"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_hazelnut", "Chance": 4.0, "Quantity": [1, 2], "Seasons": ["Autumn"] },
+      { "Card": "herbs_fungi_elderflower", "Chance": 5.0, "Quantity": [1, 2], "Seasons": ["Spring", "Summer"] },
+      { "Card": "herbs_fungi_elderberry", "Chance": 5.0, "Quantity": [1, 2], "Seasons": ["Autumn"] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocHighlandMeadow"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_sloe", "Chance": 3.0, "Quantity": [1, 2], "Seasons": ["Autumn"] }
     ]
   }
 ]

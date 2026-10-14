@@ -1,0 +1,44 @@
+{
+  "target": "HF_PainReliefPowder.png",
+  "sourceCard": "CardData/Liquid/PainReliefPowder.json",
+  "kind": "powder heap (recoloured from H&F ShiitakeGround, the shared heap shape)",
+  "method": "luminance-preserving recolour of Resource/Picture/ShiitakeGround.png to #a8a670 (pale tan-green), ink kept, trimmed by trim_card_art; no generation, no credits",
+  "colour": "#a8a670",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "ownerReview": "2026-10-12 alter | notes: see the images of other powders.",
+  "note": "owner gallery rework 2026-10-12: see the images of other powders.",
+  "previousGeneration": {
+    "subject": "a plain round terracotta clay bowl, no handle, no spoon, filled with a mound of fine pale tan-green herbal powder, a few dried leaves beside it",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 3,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Hand-painted watercolor-and-ink game item illustration of a plain round terracotta clay bowl, no handle, no spoon, filled with a mound of fine pale tan-green herbal powder, a few dried leaves beside it, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+    "historyId": "KkYAj7EP2HIYIs1xKbF6",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085484289_fe01b154_1791085484884_8de5d096.png",
+    "credits": 90,
+    "generated": "2026-10-03",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085483078_bdb1e001_1791085483540_6c85289a.png"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085484289_fe01b154_1791085484884_8de5d096.png"
+      },
+      {
+        "n": "C",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085484299_7ce9aaad_1791085484848_2752db19.png"
+      }
+    ],
+    "picked": "B",
+    "predicted": "A",
+    "note": "Owner pick from the 2026-10-03 batch picker. predicted was written before the owner looked. Finished by /process-card-art (keyed on white)."
+  }
+}

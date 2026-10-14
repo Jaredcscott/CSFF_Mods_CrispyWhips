@@ -1,0 +1,46 @@
+{
+  "target": "ChamomilePlantMature.png",
+  "sourceCard": null,
+  "subject": "one flowering chamomile plant on tilled soil: feathery leaves at the base and slender branching stems each tipped with a small daisy-like flower, about a dozen in all",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "composition": "HerbsAndFungi/.art/compositions.json -> ChamomilePlantMature",
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "ChamomileFresh",
+      "image": "HerbsAndFungi/Resource/Picture/ChamomileFresh.png",
+      "sha256": "844421f4cbf11d42c312e63e4924cc42de4aca4ce40fc6da10727e5e2e7bbe5d",
+      "id": "dRAOtCHfOjJrekLvPXxV",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ChamomileFresh_1790971885604_6f8f4ef9.png"
+    },
+    {
+      "role": "style",
+      "fragment": "YarrowPlantMature",
+      "image": "HerbsAndFungi/Resource/Picture/YarrowPlantMature.png",
+      "sha256": "4bec7b2b684f40c8ea8f460c0688ee2a534c953605ace290b043159c1e72015d",
+      "id": "5BxeIMUleXX98xPMcEeB",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/YarrowPlantMature_1790971888465_f0dd07e5.png"
+    }
+  ],
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a bunch of fresh chamomile: draw this same plant, keeping its botanical details, daisy-like flowers with white petals around a raised yellow centre, feathery thread-like leaf shape, colours and painting style identical, changed only as follows: it is a living plant growing from a small, roughly oval patch of freshly tilled dark brown soil, not a cut bundle (no twine, no tied stems), with feathery bright-green leaves at the base and several slender branching green stems each tipped with a small daisy-like chamomile flower, about a dozen flowers in all.\nReference image 2 is a style and layout reference only: match its ink linework, shading and palette, and the size, shape and placement of its small oval tilled soil patch and the plant standing on it; do not copy its subject, its leaf shape or its flat white flower clusters.\nHand-painted watercolor-and-ink game item illustration of one flowering chamomile plant growing from a small, roughly oval patch of freshly tilled dark brown soil, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, twine, tied bundle, cut stems, flat umbrella-shaped flower clusters, large single sunflower-like flowers, pot, planter, grass.",
+  "historyId": "6bNf42ITWtH3x3qKgtnz",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790971990573_066e9338_1790971991164_7d8fbd79.png",
+      "verdict": "accepted: daisy-like white-petalled flowers with yellow centres on slender branching stems, feathery base leaves, tilled soil; matches ChamomileFresh"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish); key_enclosed.py default (60 regions, 16100 px: a large column of paper behind the flowers, checked on a dark preview to leave the white petals alone); then --pure 235 --min-area 6 --box 100,440,420,600 (25 regions, 715 px among the lower leaves).",
+  "note": "HerbsAndFungi 1.14.1 plan feature 8, generated for the build session by Claude from the herb's shipped image as the subject reference (/create-image-refs, item variant); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

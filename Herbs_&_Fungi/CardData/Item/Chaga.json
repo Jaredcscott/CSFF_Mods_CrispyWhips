@@ -1,0 +1,118 @@
+{
+    "UniqueID": "herbs_fungi_chaga",
+    "TradingValue": 15,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_chaga",
+        "LocalizationKey": "herbsfungichaga_CardName",
+        "DefaultText": "Chaga"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_chaga",
+        "LocalizationKey": "herbsfungichaga_CardDescription",
+        "DefaultText": "A black, cracked conk that grows on birch, rust-orange inside and hard as wood. Too tough to eat. Dry it, grind it and steep it in hot water for a tea that strengthens the immune system. Found when foraging in any season."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Fungus",
+        "tag_Dryable",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "ChagaFresh",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_chaga",
+            "LocalizationKey": "herbsfungichaga_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 720.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chaga",
+                "LocalizationKey": "herbsfungichaga_SpoilageTime_Spoiled",
+                "DefaultText": "The chaga has crumbled to useless dust."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_chaga",
+            "LocalizationKey": "herbsfungichaga_UsageDurability_StatName",
+            "DefaultText": "Dry"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 24.0,
+        "RatePerDaytimePoint": 0.02,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chaga",
+                "LocalizationKey": "herbsfungichaga_UsageDurability_Dried",
+                "DefaultText": "The chaga has dried properly."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_chaga_dried",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "ObjectWeight": 50,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

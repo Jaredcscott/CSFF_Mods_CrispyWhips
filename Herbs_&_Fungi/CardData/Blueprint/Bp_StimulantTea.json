@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_stimulant_tea",
         "LocalizationKey": "Herbs_And_Fungi_Bp_StimulantTea_CardDescription",
-        "DefaultText": "Combine ground ginseng with dried ginger in a clay bowl to brew a stimulating blend. Boosts focus and reduces stress."
+        "DefaultText": "Combine ground ginseng with dried ginger in a clay bowl to brew a bracing blend. Reduces stress."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -23,14 +23,14 @@
     "TagsOnBoard": [],
     "StatValues": [
         {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
+            "ObjectiveName": "ApothecaryGinsengCollection",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 1.0, "y": 10.0 },
+                "StatWarpData": "herbs_fungi_quest_ginseng_collection",
+                "StatWarpType": 3
             },
-            "MinValue": 1.0,
-            "MaxValue": 10.0,
-            "StatWarpData": "herbs_fungi_quest_ginseng_collection",
-            "StatWarpType": 3
+            "ConstantlyChecking": false
         }
     ],
     "BlueprintStages": [
@@ -104,7 +104,20 @@
             "DroppedCardWarpType": 3
         }
     ],
-    "BlueprintStatModifications": [],
+    "BlueprintStatModifications": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ValueModifier": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+            "StatWarpType": 3
+        }
+    ],
     "WhenCreatedSoundsWarpData": [
         "Clay"
     ],

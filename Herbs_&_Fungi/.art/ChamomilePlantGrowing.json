@@ -1,0 +1,52 @@
+{
+  "target": "ChamomilePlantGrowing.png",
+  "sourceCard": null,
+  "subject": "a young low mound of very fine, thread-like, hair-thin chamomile leaves on tilled soil; leaves only, no flowers, no buds, no stems",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "composition": "HerbsAndFungi/.art/compositions.json -> ChamomilePlantGrowing",
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "ChamomileFresh",
+      "image": "HerbsAndFungi/Resource/Picture/ChamomileFresh.png",
+      "sha256": "844421f4cbf11d42c312e63e4924cc42de4aca4ce40fc6da10727e5e2e7bbe5d",
+      "id": "dRAOtCHfOjJrekLvPXxV",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ChamomileFresh_1790971885604_6f8f4ef9.png"
+    }
+  ],
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference image for one purpose.\nReference image 1 shows a bunch of fresh chamomile: draw this same plant, keeping its botanical details, colours and painting style identical, in particular its hair-fine, thread-like, airy leaves, changed only as follows: it is a living plant growing from a small, roughly oval patch of freshly tilled dark brown soil with a ragged edge, not a cut bundle (no twine, no tied stems), shown as a young low mound of very fine, thread-like, hair-thin bright-green chamomile leaves, delicate and wispy like dill or fennel fronds, much finer than a fern, sprouting in loose airy tufts from the centre of the soil; leaves only, with no flowers, no buds and no flower stems yet.\nHand-painted watercolor-and-ink game item illustration of one young chamomile plant growing from a small, roughly oval patch of freshly tilled dark brown soil, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, the soil patch about four fifths of the frame width and sitting in the lower middle of the frame, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, flowers, flower heads, buds, daisies, twine, tied bundle, cut stems, fern fronds, feather-shaped pinnate fronds, yarrow leaves, broad leaves, pot, planter, grass.",
+  "historyId": "tGKEnylKAK5C4BERI7tW",
+  "credits": 60,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "round": 1,
+      "historyId": "ps6kfEUX6sVoP2AxIjfA",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790971992430_735abe37_1790971992935_817d741a.png",
+      "verdict": "rejected: with YarrowPlantGrowing as the style reference the model copied yarrow's fern fronds, so it read as the Yarrow card; the round-1 prompt is retrievable by that historyId"
+    },
+    {
+      "n": "B1",
+      "round": 2,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790972234807_4c31bd95_1790972235466_9c70477a.png",
+      "verdict": "usable, not picked: thread-like dill-like leaves, but two tall fronds and a sparser mound than B2"
+    },
+    {
+      "n": "B2",
+      "round": 2,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790972234810_6d26fd2e_1790972235151_f34846bd.png",
+      "verdict": "accepted: fuller mound of hair-fine chamomile leaves, no flowers, ragged soil patch, distinct from Yarrow's fronds"
+    }
+  ],
+  "picked": "B2",
+  "finishing": "process_card_art.py (GIMP keyed finish); key_enclosed.py default (54 regions, 10154 px: pale-white shapes painted between the leaves); then --pure 205 --min-area 25 --box 40,150,490,470 (45 regions, 2183 px: the pale wash behind the fine leaves). Re-deriving from resource_url with /process-card-art alone leaves a pale haze inside the plant: repeat both passes and read a dark preview.",
+  "note": "HerbsAndFungi 1.14.1 plan feature 8, generated for the build session by Claude from the herb's shipped image as the subject reference (/create-image-refs, item variant); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

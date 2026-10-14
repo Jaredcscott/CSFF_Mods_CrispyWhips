@@ -1,0 +1,180 @@
+{
+    "UniqueID": "herbs_fungi_maggots",
+    "TradingValue": 2.0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_maggots",
+        "LocalizationKey": "Herbs_And_Fungi_Maggots_CardName",
+        "DefaultText": "Maggots"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_maggots",
+        "LocalizationKey": "Herbs_And_Fungi_Maggots_CardDescription",
+        "DefaultText": "A writhing handful of fly maggots picked from rotting remains. Laid on an infected open wound they eat away the rot and leave the wound cleaner."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_maggots",
+        "LocalizationKey": "Herbs_And_Fungi_Maggots_CardHelpSection",
+        "DefaultText": "<b>Found:</b> Collect Maggots on Rotten Remains, outside winter.\n\n<b>Uses:</b> Drag them onto an open wound (a bite, claw marks, a laceration or a burn) that has any infection with <b>Apply Maggots</b>: the wound's Infection falls by 180, more than a wash with water or bog myrtle tea and less than soap. It is unpleasant: your Stress rises by 15. The maggots are used up.\n\n<b>Keeping:</b> They crawl away within a day."
+    },
+    "CardType": 0,
+    "ObjectWeight": 5,
+    "MaxStack": 4,
+    "AlwaysUpdate": false,
+    "DoesNotPile": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Maggots",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_maggots",
+            "LocalizationKey": "Herbs_And_Fungi_Maggots_SpoilageTime_CardStatName",
+            "DefaultText": "Wandering Off"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_maggots",
+                "LocalizationKey": "Herbs_And_Fungi_Maggots_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The maggots have crawled away."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_maggots",
+                "LocalizationKey": "Herbs_And_Fungi_Maggots_Apply_ActionName",
+                "DefaultText": "Apply Maggots"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_maggots",
+                "LocalizationKey": "Herbs_And_Fungi_Maggots_Apply_ActionDescription",
+                "DefaultText": "Lay the maggots on the wound and bind them in while they eat the rot away."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 2,
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_OpenWound"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "RequiredGivenDurabilities": {
+                "RequiredUsagePercent": {
+                    "Active": true,
+                    "FloatValue": 0.01,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_maggots",
+                    "LocalizationKey": "Herbs_And_Fungi_Maggots_Apply_FailMessage",
+                    "DefaultText": "There is no infection here for them to clean."
+                }
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "UsageChange": {
+                    "x": -180.0,
+                    "y": -180.0
+                }
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ]
+        }
+    ],
+    "DismantleActions": []
+}

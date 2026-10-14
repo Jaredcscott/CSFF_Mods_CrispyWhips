@@ -1,0 +1,28 @@
+{
+  "target": "HF_CarrotRow.png",
+  "sourceCards": [
+    "CarrotPlantGrowing",
+    "CarrotPlantMature"
+  ],
+  "kind": "bleed",
+  "subject": "a short row of carrot plants with thick feathery bright green tops growing from dark tilled earth, the orange shoulders of two or three carrots just showing at the soil line",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "Turnroot_Plant",
+    "id": "xBWLkJm3uuGuI1lWm6JR",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Plant_1791745248505_467c5843.png"
+  },
+  "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a full-bleed game card painting of a short row of carrot plants with thick feathery bright green tops growing from dark tilled earth, the orange shoulders of two or three carrots just showing at the soil line, the plants filling the lower two-thirds of the frame, a dark shadowy forest undergrowth background, the painting filling the entire frame edge to edge with no white anywhere. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, blurry, white background, vignette border, sky, text, watermark, signature, logo, border, frame, pulled carrots, baskets, people, tools, fence.",
+  "historyId": "7b9N5l5nh8buexQwKRQn",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756521005_1713edab_1791756521353_34dbd7c6.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "review": "awaiting owner gallery review (one sample, owner 2026-10-11)"
+}

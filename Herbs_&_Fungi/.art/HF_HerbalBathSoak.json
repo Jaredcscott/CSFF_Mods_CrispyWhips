@@ -1,0 +1,62 @@
+{
+  "target": "HF_HerbalBathSoak.png",
+  "sourceCard": null,
+  "subject": "a small round bundle of dried herbs tied with tan twine: cream-white chamomile flowers with yellow centres and flat cream yarrow heads set against dark green dried leaves, every pale flower outlined in dark ink",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of a small round bundle of dried herbs tied with tan twine: cream-white chamomile flowers with yellow centres and flat cream yarrow heads set against dark green dried leaves, every pale flower outlined in dark ink. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, bathtub, water, bowl, steam, loose petals.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Nettle_Leaves (style)",
+      "id": "KFCUiSwyA0HLW4KfaxDa",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nettle_Leaves_1791745096221_64f1fc34.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Frostleaf_Item (style)",
+      "id": "BehyUooUjiJPXdE1y0Z2",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Frostleaf_Item_1791744966881_db19717a.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Fairyweed_Item (style)",
+      "id": "Wb0GLQvzK24ukRm1aa4T",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fairyweed_Item_1791744904622_eefe970e.png"
+    }
+  ],
+  "historyId": "ZwtbTeTcVor19teQWZS4",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828016839_927fdfbe_1791828016899_0223954d.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)",
+    "vanillify.py step [1, 24, None, 2, 70]"
+  ],
+  "vanilla_score": 92,
+  "previous": {
+    "target": "HF_HerbalBathSoak.png",
+    "sourceCard": "CardData/Item/BathSoak.json",
+    "note": "No generation record existed on disk for this image before 2026-10-12; it was finished from the shipped PNG.",
+    "ownerReview": "2026-10-12 alter | notes: has white to remove | pass 2: 2026-10-12 alter | notes: has white",
+    "rework": {
+      "date": "2026-10-12",
+      "note": "owner gallery rework 2026-10-12: has white to remove",
+      "finishing": "paper pockets between the stems and flower heads (16 regions >= 60 px at min channel >= 230, 3125 px) keyed; chamomile petals left opaque; then the light edge halo recoloured to the ink. Worked on the shipped trimmed PNG (scratchpad keyreg.py / dehalo.py / clearlight.py, or Development_Tools/CardArt/fill_holes.py), re-trimmed with trim_card_art. Re-deriving from resource_url brings the defect back: repeat these passes and read a dark preview.",
+      "credits": 0
+    },
+    "rework2": {
+      "date": "2026-10-12",
+      "note": "owner gallery rework pass 2 2026-10-12: has white",
+      "finishing": "paper slivers between the stems and under the yarrow heads keyed (10 named components at darkest channel >= 225, 192 px); then the light fringe outside the stems' and leaves' ink outlines removed, protecting every cream or yellow pixel (the chamomile petals and yarrow heads) and thin structures; defringe.py --drop 256. No petal was keyed. Worked on the shipped trimmed PNG (no raw generation is recorded), scratchpad keypaper.py / rim3.py / rim5.py, re-palettized with trim_card_art. Checked on dark and magenta previews at 2x.",
+      "credits": 0
+    }
+  }
+}

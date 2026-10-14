@@ -1,0 +1,93 @@
+{
+    "UniqueID": "herbs_fungi_pea_dough",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_pea_dough",
+        "LocalizationKey": "Herbs_And_Fungi_PeaDough_CardName",
+        "DefaultText": "Pea Dough"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_pea_dough",
+        "LocalizationKey": "Herbs_And_Fungi_PeaDough_CardDescription",
+        "DefaultText": "A stiff, pale yellow dough of pea flour and water. It keeps for about a day."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_pea_dough",
+        "LocalizationKey": "Herbs_And_Fungi_PeaDough_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Soaking Pea Flour in fresh water.\n\n<b>Uses:</b> Blueprint: Pea Bread (2 Pea Dough) shapes a loaf that bakes near a fire into Pea Bread."
+    },
+    "CardType": 0,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Dough",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 75,
+    "TradingValue": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "AlwaysUpdate": false,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_pea_dough",
+            "LocalizationKey": "Herbs_And_Fungi_PeaDough_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_pea_dough",
+                "LocalizationKey": "Herbs_And_Fungi_PeaDough_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The pea dough has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

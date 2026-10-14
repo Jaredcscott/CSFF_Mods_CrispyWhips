@@ -1,0 +1,13 @@
+{
+  "target": "HF_ElderflowerCordial.png",
+  "sourceCards": [
+    "CardData/Liquid/ElderflowerCordial.json"
+  ],
+  "kind": "clay bowl (vanilla Bowl_Clay_Water, liquid recoloured)",
+  "method": "Development_Tools/CardArt/liquid_bowl.py make_bowl() with the colour from .art/bowl_items.json, trimmed by trim_card_art; no generation, no credits",
+  "colour": "#d2c878",
+  "looks": "pale lemon straw",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: new bowl split from a shared picture so this card shows its own colour (was HF_ChamomileTea)"
+}

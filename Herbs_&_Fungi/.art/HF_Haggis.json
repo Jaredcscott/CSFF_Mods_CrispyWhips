@@ -1,0 +1,60 @@
+{
+  "target": "HF_Haggis.png",
+  "sourceCards": [
+    "CardData/Item/Haggis.json"
+  ],
+  "kind": "item",
+  "subject": "one cooked haggis drawn bare: a round, slightly flattened ball of boiled sheep stomach casing, about as wide as it is tall, mottled dark brown and grey-brown, its surface wrinkled and glistening with fine veins and streaks of fat, gathered at the top into a small knot tied with twine, and a ragged cut opening on its front showing dark brown spiced oatmeal and offal crumble with a little spilling out",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "sprite": "Sausage_Cooked",
+      "id": "43Lq2CUDMKXPkCcIe9bS",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Sausage_Cooked_1791745174273_ba736119.png",
+      "role": "style"
+    },
+    {
+      "sprite": "Liver_Cooked",
+      "id": "VDu0p7eDJdBMDBjBf4qx",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Liver_Cooked_1791745030318_81ca9f65.png",
+      "role": "style"
+    }
+  ],
+  "prompt": "Use the attached reference images for style only. Reference images 1 and 2 are sprites from the game Card Survival: Fantasy Forest: match their rendering exactly - a semi-realistic digital painting posterized into a few flat tonal bands of colour, like a traced and posterized photograph, naturalistic proportions and surface texture, a crisp thin dark outline around the silhouette, a muted, slightly dark natural palette with strong light and dark contrast; do not copy their subject or composition.\nDraw one haggis drawn bare: a plump round cooked sheep stomach pouch about the size of a small loaf, its skin pale brown-grey, taut and faintly veined, gathered and tied shut at one end with a short piece of twine, one small split in its side showing dark brown crumbly oat-and-offal filling. One subject, seen from a slight high three-quarter angle, light from the upper left, large and centred with a white margin on every side, never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cartoon, cute, chibi, kawaii, face, eyes, smile, clip art, sticker, flat vector art, thick black cel-shading lines, glossy plastic look, airbrushed, 3D render, photo, watercolor wash, paper texture, pastel colours, neon colours, footprints, tracks, prints in the ground, cropped, blurry, text, watermark, signature, logo, border, frame, scenery behind the subject, grey background, off-white background, checkerboard, transparency grid, plate, bowl, dish, cloth, sack, bag, fabric, pumpkin, onion, garnish.",
+  "historyId": "zsWES5d3GbeckYtpK3WQ",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791799002134_2e2521ce_1791799002396_05fedf99.png",
+  "credits": 40,
+  "generated": "2026-10-12",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798816741_eb97c776_1791798816810_0881a1b8.png",
+      "historyId": "BOYYR5b0xbm7mqvtcv6z",
+      "verdict": "smooth pale egg-shaped pouch with flat cel shading, read as a sack (failed the tacky note)"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791799002134_2e2521ce_1791799002396_05fedf99.png",
+      "historyId": "zsWES5d3GbeckYtpK3WQ",
+      "verdict": "mottled textured posterized casing with a ragged cut showing the filling",
+      "references": [
+        "Liver_Cooked",
+        "Meat_Cooked"
+      ],
+      "subject": "one cooked haggis drawn bare: a round, slightly flattened ball of boiled sheep stomach casing, about as wide as it is tall, mottled dark brown and grey-brown, its surface wrinkled and glistening with fine veins and streaks of fat, gathered at the top into a small knot tied with twine, and a ragged cut opening on its front showing dark brown spiced oatmeal and offal crumble with a little spilling out"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B",
+  "ownerReview": "2026-10-12 regenerate | notes: tacky needs to be regenerated.",
+  "finishing": "process_card_art.py keyed finish (trimmed palette PNG)",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.. Redrawn without the old picture as a reference, two vanilla sprites as style references, subject rewritten; one sample, accepted against its subject by Claude, not yet seen by the owner. Sample A failed its note, so one retry (B) was made with a rewritten subject and shipped.",
+  "promptNote": "Top-level prompt is sample A's. Sample B (shipped) used the same template with candidates[1].subject, style refs Liver_Cooked + Meat_Cooked, 'rich surface texture' in the style line, 'filling about two thirds of the frame ... wide white margin' framing, and 'smooth flat shading, egg shape' added to Avoid."
+}

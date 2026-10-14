@@ -1,0 +1,42 @@
+{
+  "target": "HF_LionsManeTea.png",
+  "sourceCard": [
+    "CardData/Liquid/LionsManeTea.json"
+  ],
+  "subject": "",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows the standard tea bowl: draw this same bowl, keeping its shape, terracotta colour, size, rim, steam and linework identical, changed only as follows: it is filled with pale golden tea, and one small shaggy white lion's mane mushroom rests beside it in place of the chamomile flowers. Keep it a bowl, never a cup.\nHand-painted watercolor-and-ink game item illustration in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework, soft watercolor and gouache shading, warm muted natural palette, gentle light from the upper left, slight three-quarter angle, \nsingle object only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "FmZVgTLKzi6Y1mWHpRmE",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088855409_6234368e_1791088855517_ce3ee33e.png",
+  "credits": 150,
+  "generated": "2026-10-03",
+  "note": "Round 2 of the 2026-10-03 batch (regenerated from the owner's notes on round 1); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088856483_79f29923_1791088856909_94f2df48.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088855409_6234368e_1791088855517_ce3ee33e.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088855210_368656e6_1791088856339_098fb33e.png"
+    }
+  ],
+  "picked": "B",
+  "references": [
+    {
+      "label": "HF_ChamomileTea.png",
+      "role": "subject"
+    }
+  ]
+}

@@ -18,7 +18,7 @@
         "DefaultText": "<b>Preparation:</b> Mix ground lion's mane with hot water in a bowl.\n\n<b>Benefits:</b> Boosts focus, immune support, cognitive enhancement."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "Thirst_Old",
+    "CardImageWarpData": "HF_LQ_LionsManeTea",
     "CardImageWarpType": 3,
     "CardBackground": {"m_FileID": 0, "m_PathID": 0},
     "ShowImageAboveTitle": false,
@@ -135,8 +135,8 @@
                 },
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "ValueModifier": {"x": 20.0, "y": 20.0},
-                    "StatWarpData": "322eaed3c37a4cd4b8b088495db6a8ed",
+                    "ValueModifier": {"x": 24.0, "y": 24.0},
+                    "StatWarpData": "herbs_fungi_stat_herbal_tonic",
                     "StatWarpType": 3
                 },
                 {

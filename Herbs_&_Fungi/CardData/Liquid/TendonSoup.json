@@ -1,0 +1,229 @@
+{
+    "UniqueID": "herbs_fungi_tendon_soup",
+    "TradingValue": 20,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_tendon_soup",
+        "LocalizationKey": "Herbs_And_Fungi_TendonSoup_CardName",
+        "DefaultText": "Tendon Soup"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_tendon_soup",
+        "LocalizationKey": "Herbs_And_Fungi_TendonSoup_CardDescription",
+        "DefaultText": "A bowl of thick, savoury soup simmered from tendon until it turns soft and gelatinous, with dried yarrow for a bitter edge."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_tendon_soup",
+        "LocalizationKey": "Herbs_And_Fungi_TendonSoup_CardHelpSection",
+        "DefaultText": "<b>Made by:</b> Blueprint: Tendon Soup (2 Tendon, a Clay Bowl and Dried Yarrow).\n\n<b>Uses:</b> Drink for hydration and a solid meal (values are tunable placeholders).\n\n<b>Benefits:</b> Hydrating and filling, mildly calming. Savoury and bitter."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_HumanDrink",
+        "tag_Consumable",
+        "tag_Drinkable",
+        "tag_HumanFood",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_TendonSoup",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_tendon_soup",
+            "LocalizationKey": "Herbs_And_Fungi_TendonSoup_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_tendon_soup",
+                "LocalizationKey": "Herbs_And_Fungi_TendonSoup_Spoiled",
+                "DefaultText": "The tendon soup has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "9060e702466d6764eb64e5983e72215e",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_tendon_soup",
+                "LocalizationKey": "Herbs_And_Fungi_TendonSoup_Drink",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_tendon_soup",
+                "LocalizationKey": "Herbs_And_Fungi_TendonSoup_Drink_Desc",
+                "DefaultText": "Drink the thick tendon soup."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "DrinkingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 28.0,
+                        "y": 28.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 60.0,
+                        "y": 60.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 140.0,
+                        "y": 140.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "09c2ec726d9e9f64f87eb675b8e5f005",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 60.0,
+                        "y": 60.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    }
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false,
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "ObjectWeight": 50,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

@@ -1,0 +1,42 @@
+{
+  "target": "HF_OvergrownForestTrail.png",
+  "sourceCard": [
+    "CardData/Location/OvergrownForestTrail.json"
+  ],
+  "subject": "",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows an overgrown forest trail: redraw exactly this same scene from the same camera position with the same trees and light, but make the undergrowth more obstructive: tall, dense leafy bushes and shrubs, chest to head high, crowd in from both sides and meet across the path so it is almost completely blocked. Bushes and shrubs, not vines.\nThe painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "ac2HCkug5RNyMFolD0X2",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791091820986_e0c1a9f3_1791091821969_0ae90f22.png",
+  "credits": 150,
+  "generated": "2026-10-03",
+  "note": "Round 4 of the 2026-10-03 batch (regenerated from the owner's notes on rounds 1 and 2); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791091820287_2a30ab7c_1791091821011_d1046365.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791091823925_3fb69584_1791091824581_84cb693e.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791091820986_e0c1a9f3_1791091821969_0ae90f22.png"
+    }
+  ],
+  "picked": "C",
+  "references": [
+    {
+      "label": "HF_OvergrownForestTrail__v1.png",
+      "role": "subject"
+    }
+  ]
+}

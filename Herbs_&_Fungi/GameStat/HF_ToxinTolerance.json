@@ -1,0 +1,134 @@
+{
+    "UniqueID": "herbs_fungi_stat_toxin_tolerance",
+    "GameName": {
+        "LocalizationKey": "Herbs_And_Fungi_ToxinTolerance_StatName",
+        "DefaultText": "Toxin Tolerance"
+    },
+    "Description": {
+        "LocalizationKey": "Herbs_And_Fungi_ToxinTolerance_StatDescription",
+        "DefaultText": "Small, careful tastes of a mild poison have taught your body to shrug off the next one. A bout of food poisoning clears faster while this lasts, and it wears off over the next two days."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 192.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "ShieldCross",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "Herbs_And_Fungi_ToxinTolerance_Status_Mild_Name",
+                "DefaultText": "Toxin Tolerance"
+            },
+            "Description": {
+                "LocalizationKey": "Herbs_And_Fungi_ToxinTolerance_Status_Mild_Description",
+                "DefaultText": "Your body is learning to shrug off a mild poison. Food poisoning fades faster for now."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "ShieldCross",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 96},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "8080df0dc107caa47b9591fde9347e09",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -1.0, "y": -1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "Herbs_And_Fungi_ToxinTolerance_Status_Strong_Name",
+                "DefaultText": "Strong Toxin Tolerance"
+            },
+            "Description": {
+                "LocalizationKey": "Herbs_And_Fungi_ToxinTolerance_Status_Strong_Description",
+                "DefaultText": "Several slivers taken close together. Food poisoning fades much faster until the tolerance wears down."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "ShieldCross",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 97, "y": 192},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "8080df0dc107caa47b9591fde9347e09",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -2.0, "y": -2.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

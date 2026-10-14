@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_golden_oyster",
         "LocalizationKey": "Herbs_And_Fungi_GoldenOyster_CardDescription",
-        "DefaultText": "Brilliant yellow oysters found in summer heat. Prized for their nutty cashew-like flavor."
+        "DefaultText": "Brilliant yellow oysters that fruit on hardwood in any season. Prized for their nutty cashew-like flavor."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -20,7 +20,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_golden_oyster",
         "LocalizationKey": "Herbs_And_Fungi_GoldenOyster_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Summer\n\n<b>Habitat:</b> Hardwood logs and stumps in warm weather.\n\n<b>Flavor:</b> Unique cashew-like nutty taste."
+        "DefaultText": "<b>Season:</b> Year-round\n\n<b>Habitat:</b> Hardwood logs and stumps.\n\n<b>Flavor:</b> Unique cashew-like nutty taste."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -214,17 +214,18 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_golden_oyster",
                 "LocalizationKey": "",
-                "DefaultText": "Drop into the boiling liquid to cook."
+                "DefaultText": "Stir it into hot water in a pot or bowl to thicken the stew and give it nourishment and flavour."
             },
             "WorksInverted": true,
             "CompatibleCards": {
                 "TriggerCards": [],
-                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
                 "TriggerCardsWarpType": 3,
                 "TriggerTags": [],
-                "TriggerTagsWarpData": [
-                    "tag_StewContainer"
-                ],
+                "TriggerTagsWarpData": [],
                 "TriggerTagsWarpType": 3
             },
             "DaytimeCost": 0,
@@ -240,6 +241,11 @@
             "RequiredReceivingContainerTag": [],
             "RequiredNOTReceivingContainerTag": [],
             "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_CookingContainer"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
             "RequiredGivenDurabilities": {
                 "RequiredSpoilagePercent": {
                     "Active": false,
@@ -260,24 +266,24 @@
                     }
                 },
                 "RequiredFuelPercent": {
-                    "Active": false,
-                    "FloatValue": 0.0,
-                    "MaxValue": 0.0,
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
                     "ScaleRequirementPerPortionOfLiquid": {
                         "Active": false,
                         "FloatValue": 0.0
                     }
                 },
                 "RequiredProgressPercent": {
-                    "Active": false,
+                    "Active": true,
                     "FloatValue": 0.0,
-                    "MaxValue": 0.0,
+                    "MaxValue": 0.99,
                     "ScaleRequirementPerPortionOfLiquid": {
                         "Active": false,
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 0.0,
+                "RequiredLiquidQuantity": 290.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,
@@ -314,16 +320,173 @@
                         "FloatValue": 0.0
                     }
                 },
-                "HideActionIfNotMet": true,
+                "HideActionIfNotMet": false,
                 "FailMessage": {
                     "ParentObjectID": "",
                     "LocalizationKey": "",
                     "DefaultText": ""
                 },
-                "SpecificFailMessages": []
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 16
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[0].Message",
+                            "DefaultText": "Not enough liquid"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 8
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[1].Message",
+                            "DefaultText": "Too thick"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[2].Message",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
             },
             "GivenCardChanges": {
-                "ModType": 0
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true,
+                "AddSpicesFromOtherCard": true,
+                "UsageChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                },
+                "ChargesChange": {
+                    "x": 16.66,
+                    "y": 16.66
+                },
+                "Special1Change": {
+                    "x": 10.0,
+                    "y": 10.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": true,
+                    "FloatValue": 300.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "herbsfungipasty_FillPasty_ActionName",
+                "DefaultText": "Fill a Pasty"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "herbsfungipasty_FillPasty_ActionDescription",
+                "DefaultText": "Press the filling into greased rye or wheat dough to make a raw pasty."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "a86020a3a07610147a0c4b2af3b4720f",
+                    "eb36276836af6f843a999b6693cf7906"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": []
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [
+                "GrindingLeaves"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 10.0,
+                        "y": 100.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4.0,
+                        "y": 4.0
+                    },
+                    "ApplyEachTick": true
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "ApplyEachTick": true
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "ApplyEachTick": true
+                }
+            ],
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_mushroom_pasty_raw",
+                "TransformIntoWarpType": 3,
+                "TransferSpoilage": true,
+                "TransferSpecial2": true
             },
             "ReceivingCardChanges": {
                 "ModType": 3
@@ -333,6 +496,16 @@
     ],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_golden_oyster",
                 "LocalizationKey": "Herbs_And_Fungi_GoldenOyster_DismantleActions_Eat_ActionName",

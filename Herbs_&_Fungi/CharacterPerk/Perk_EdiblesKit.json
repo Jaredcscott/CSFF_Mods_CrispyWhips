@@ -12,7 +12,7 @@
     "DisplayPriority": 2400.0,
     "EditorOnly": false,
     "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "0eb3634f696991b4d97b91626270e035",
         "0eb3634f696991b4d97b91626270e035",
         "0eb3634f696991b4d97b91626270e035",
@@ -25,7 +25,11 @@
         "fe07d4d800bcc8646a0ff2513c78d5df",
         "a968f3eaffc6b9743b82982b5af2ab8c"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
+    "AddedCardsStats": [
+        { "Card": "herbs_fungi_hemp_flower_dried", "SpecialDurability2": 50 },
+        { "Card": "fe07d4d800bcc8646a0ff2513c78d5df", "SpecialDurability2": 50 }
+    ],
     "HiddenUntilUnlocked": false,
     "MoonsCost": 0,
     "NestedObjectives": [],

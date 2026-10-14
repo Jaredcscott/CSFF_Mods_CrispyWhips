@@ -1,0 +1,108 @@
+{
+    "UniqueID": "herbs_fungi_forager_seasoning",
+    "TradingValue": 60.0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_forager_seasoning",
+        "LocalizationKey": "Herbs_And_Fungi_ForagerSeasoning_CardName",
+        "DefaultText": "Forager's Seasoning"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_forager_seasoning",
+        "LocalizationKey": "Herbs_And_Fungi_ForagerSeasoning_CardDescription",
+        "DefaultText": "Three ground mushrooms and salt, blended into a pouch of savoury seasoning. Drag it onto a plateable food to season it; each pouch seasons three plates."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_forager_seasoning",
+        "LocalizationKey": "Herbs_And_Fungi_ForagerSeasoning_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> One Ground Black Trumpet, one Ground Shiitake, one Ground King Oyster and one Salt, from the Cooking tab.\n\n<b>Uses:</b> Drag it onto a plateable food (cooked meat, fish, eggs and the like) to season it with all three mushrooms' flavours at once. Each drag uses up one of its three pinches."
+    },
+    "CardType": 0,
+    "ObjectWeight": 15,
+    "MaxStack": 4,
+    "AlwaysUpdate": false,
+    "DoesNotPile": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_ForagerSeasoning",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Powder"
+    ],
+    "CardTagsWarpType": 3,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 3.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_forager_seasoning",
+            "LocalizationKey": "Herbs_And_Fungi_ForagerSeasoning_UsageDurability_CardStatName",
+            "DefaultText": "Pinches"
+        },
+        "MaxValue": 3.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_forager_seasoning",
+                "LocalizationKey": "Herbs_And_Fungi_ForagerSeasoning_OnZero_ActionDescription",
+                "DefaultText": "The pouch is empty."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_forager_seasoning",
+                "LocalizationKey": "Herbs_And_Fungi_ForagerSeasoning_CardInteractions_Add_ActionName",
+                "DefaultText": "Add"
+            },
+            "DaytimeCost": 0,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Plateable"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddedSpiceTags": [],
+                "AddedSpiceTagsWarpData": [
+                    "herbs_fungi_spice_forager_seasoning"
+                ],
+                "AddedSpiceTagsWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": []
+}

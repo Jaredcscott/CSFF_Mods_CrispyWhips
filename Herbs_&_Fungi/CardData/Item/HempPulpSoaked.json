@@ -1,0 +1,59 @@
+{
+    "UniqueID": "herbs_fungi_hemp_pulp_soaked",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_pulp_soaked",
+        "LocalizationKey": "Herbs_And_Fungi_HempPulpSoaked_CardName",
+        "DefaultText": "Soaked Hemp Pulp"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_pulp_soaked",
+        "LocalizationKey": "Herbs_And_Fungi_HempPulpSoaked_CardDescription",
+        "DefaultText": "Soft, sodden hemp fibre, ready to be pressed flat into paper."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_pulp_soaked",
+        "LocalizationKey": "Herbs_And_Fungi_HempPulpSoaked_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Hemp Pulp, left to soak for about a day.\n\n<b>Uses:</b> Press it into Paper from the Support tab."
+    },
+    "ObjectWeight": 90.0,
+    "TradingValue": 6,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_HempPulpSoaked",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": []
+}

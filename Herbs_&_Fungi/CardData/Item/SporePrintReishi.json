@@ -1,0 +1,19 @@
+{
+    "UniqueID": "herbs_fungi_spore_print_reishi",
+    "TradingValue": 10,
+    "CardName": { "ParentObjectID": "herbs_fungi_spore_print_reishi", "LocalizationKey": "Herbs_And_Fungi_SporePrintReishi_CardName", "DefaultText": "Reishi Spore Print" },
+    "CardDescription": { "ParentObjectID": "herbs_fungi_spore_print_reishi", "LocalizationKey": "Herbs_And_Fungi_SporePrintReishi_CardDescription", "DefaultText": "A pale spore print lifted from a ripe reishi log. Pack it into a bored log, with a spoon auger and wood shavings, to start a new log without the 10 mushrooms." },
+    "CardHelpSection": { "ParentObjectID": "herbs_fungi_spore_print_reishi", "LocalizationKey": "Herbs_And_Fungi_SporePrintReishi_CardHelpSection", "DefaultText": "<b>Found:</b> A bonus from harvesting a ready reishi log.\n\n<b>Uses:</b> Inoculate a new reishi log from this single print (Inoculate from a Spore Print)." },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "ReishiFresh",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 2.0,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

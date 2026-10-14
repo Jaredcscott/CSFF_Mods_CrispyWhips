@@ -1,0 +1,28 @@
+{
+  "target": "HF_LeekBed.png",
+  "sourceCards": [
+    "LeekPlantGrowing",
+    "LeekPlantMature"
+  ],
+  "kind": "bleed",
+  "subject": "a short row of leeks standing upright in dark tilled earth, white stems rising into fans of broad flat blue-green leaves",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "WildGarlic_Plant",
+    "id": "9eFd2YzJbr6g9NMpAtx0",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WildGarlic_Plant_1791745250287_6171e0fd.png"
+  },
+  "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a full-bleed game card painting of a short row of leeks standing upright in dark tilled earth, white stems rising into fans of broad flat blue-green leaves, the plants filling the lower two-thirds of the frame, a dark shadowy forest undergrowth background, the painting filling the entire frame edge to edge with no white anywhere. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, blurry, white background, vignette border, sky, text, watermark, signature, logo, border, frame, flowers, onions, people, fence.",
+  "historyId": "s9CVUxSI6q2OHPpKjyC8",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756699589_69b779d2_1791756700077_93dade6c.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "review": "awaiting owner gallery review (one sample, owner 2026-10-11)"
+}

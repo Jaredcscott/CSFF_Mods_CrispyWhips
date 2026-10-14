@@ -1,0 +1,229 @@
+{
+    "UniqueID": "herbs_fungi_stat_goosefoot_purge",
+    "GameName": {
+        "LocalizationKey": "Herbs_And_Fungi_GoosefootPurge_StatName",
+        "DefaultText": "Goosefoot Purge"
+    },
+    "Description": {
+        "LocalizationKey": "Herbs_And_Fungi_GoosefootPurge_StatDescription",
+        "DefaultText": "Goosefoot greens still working in your gut. Gut parasites are slowly driven out while it lasts, and it wears off over the next day."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 48.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "ShieldCross",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "Herbs_And_Fungi_GoosefootPurge_Status_Mild_Name",
+                "DefaultText": "Goosefoot Purge"
+            },
+            "Description": {
+                "LocalizationKey": "Herbs_And_Fungi_GoosefootPurge_Status_Mild_Description",
+                "DefaultText": "Goosefoot greens are working in your gut, slowly driving out parasites."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "ShieldCross",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 1,
+                "y": 24
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3cca07dc92f73e44ea9e6ec72b77427b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": -5.0,
+                        "y": -5.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "Herbs_And_Fungi_GoosefootPurge_Status_Strong_Name",
+                "DefaultText": "Strong Goosefoot Purge"
+            },
+            "Description": {
+                "LocalizationKey": "Herbs_And_Fungi_GoosefootPurge_Status_Strong_Description",
+                "DefaultText": "Several helpings of goosefoot close together. Gut parasites are driven out faster until it wears off."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "ShieldCross",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 25,
+                "y": 48
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3cca07dc92f73e44ea9e6ec72b77427b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

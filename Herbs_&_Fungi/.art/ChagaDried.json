@@ -1,0 +1,28 @@
+{
+  "target": "ChagaDried.png",
+  "sourceCard": "CardData/Item/ChagaDried.json",
+  "subject": "three hard, dry chunks of dried chaga lying together in a small loose group: each is an irregular angular lump with a matte black, deeply cracked outer crust and dull rust-brown broken faces showing the dry woody interior; no bark, no cap, no stem",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of three hard, dry chunks of dried chaga lying together in a small loose group: each is an irregular angular lump with a matte black, deeply cracked outer crust and dull rust-brown broken faces showing the dry woody interior; no bark, no cap, no stem, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, birch bark, mushroom cap, stem, gills, bowl, plate, powder, crumbs, glossy wet surface.",
+  "historyId": "rt1mHlXNV4PawYcVgEuq",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470707385_00848caa_1790470707528_baaf3531.png",
+  "credits": 30,
+  "generated": "2026-09-26",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470707385_00848caa_1790470707528_baaf3531.png",
+      "verdict": "accepted: three angular chunks, matte black cracked crust, dull rust-brown broken faces; no bark, cap, stem, bowl, plate or powder"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish), then key_enclosed.py --min-area 6 --pure 238 over the whole image (no white subject): 220 px of paper pockets along the ink rims keyed. Re-deriving this image from resource_url with /process-card-art alone brings the defect back: repeat these passes (Development_Tools/CardArt/key_enclosed.py, fill_holes.py) and read a dark preview.",
+  "note": "One sample by instruction (HerbsAndFungi 1.14.0 content update, generated for the lead session building the card JSON); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

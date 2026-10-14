@@ -1,0 +1,38 @@
+{
+  "target": "CloudberryFresh.png",
+  "sourceCard": null,
+  "subject": "a small loose heap of fresh cloudberries: plump raspberry-shaped berries of bright golden-orange, each made of glossy round segments, one or two with a short green sepal, nothing under them",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of a small loose heap of fresh cloudberries: plump raspberry-shaped berries of bright golden-orange, each made of glossy round segments, one or two with a short green sepal, nothing under them. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, bowl, plate, flowers, leaves on branches, cloth.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Billberries_Item (style)",
+      "id": "jCEJaopKgwrRUEDl9RfQ",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Billberries_Item_1791744835776_49ec6df1.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla JuniperBerries (style)",
+      "id": "YJJbrnP5eArS2wOGxpF0",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/JuniperBerries_1791745026897_4b05a6b2.png"
+    }
+  ],
+  "historyId": "0469bDhxfyt8TJ7hdRuY",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828009675_ce1ced2c_1791828009775_69367792.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)",
+    "vanillify.py step [1, 24, None, 2, 70]"
+  ],
+  "vanilla_score": 99
+}

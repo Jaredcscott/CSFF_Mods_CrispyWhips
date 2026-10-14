@@ -81,17 +81,18 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "",
-                "DefaultText": "Drop into the boiling liquid to cook."
+                "DefaultText": "Stir it into hot water in a pot or bowl to thicken the stew and give it nourishment and flavour."
             },
             "WorksInverted": true,
             "CompatibleCards": {
                 "TriggerCards": [],
-                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
                 "TriggerCardsWarpType": 3,
                 "TriggerTags": [],
-                "TriggerTagsWarpData": [
-                    "tag_StewContainer"
-                ],
+                "TriggerTagsWarpData": [],
                 "TriggerTagsWarpType": 3
             },
             "DaytimeCost": 0,
@@ -107,22 +108,152 @@
             "RequiredReceivingContainerTag": [],
             "RequiredNOTReceivingContainerTag": [],
             "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_CookingContainer"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
             "RequiredGivenDurabilities": {
-                "RequiredSpoilagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 0.0,
-                "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredSpecial4Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "HideActionIfNotMet": true,
-                "FailMessage": {"LocalizationKey": "", "DefaultText": ""},
-                "SpecificFailMessages": []
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.99,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 290.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 16
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[0].Message",
+                            "DefaultText": "Not enough liquid"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 8
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[1].Message",
+                            "DefaultText": "Too thick"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+                            "LocalizationKey": "LQ_Water_DurabilityTransferEffects[28].TargetConditionSpecificFailMessages[2].Message",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
             },
             "GivenCardChanges": {
-                "ModType": 0
+                "ModType": 1,
+                "AddFlavoursFromOtherCard": true,
+                "AddSpicesFromOtherCard": true,
+                "UsageChange": {
+                    "x": 96.0,
+                    "y": 96.0
+                },
+                "ChargesChange": {
+                    "x": 25.0,
+                    "y": 25.0
+                },
+                "Special1Change": {
+                    "x": 26.0,
+                    "y": 26.0
+                },
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": true,
+                    "FloatValue": 300.0
+                }
             },
             "ReceivingCardChanges": {
                 "ModType": 3
@@ -132,6 +263,16 @@
     ],
     "DismantleActions": [
         {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
             "ActionName": {
                 "LocalizationKey": "herbsfungicloudberrydried_Eat_ActionName",
                 "DefaultText": "Eat"

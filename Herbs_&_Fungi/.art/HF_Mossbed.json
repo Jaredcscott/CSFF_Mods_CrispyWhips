@@ -1,0 +1,28 @@
+{
+  "target": "HF_Mossbed.png",
+  "sourceCards": [
+    "MossbedGrowing",
+    "MossbedMature"
+  ],
+  "kind": "bleed",
+  "subject": "a low bed of damp dark earth carpeted with thick soft green moss, edged with a few small grey stones, in shady forest undergrowth",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1,
+    "autoEnhancePrompt": false
+  },
+  "styleReference": {
+    "sprite": "Nettle_Plant",
+    "id": "CrFyYUQsNSTRlUvg1GpD",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nettle_Plant_1791745097065_425816d8.png"
+  },
+  "prompt": "Use the attached reference image for one purpose only.\nReference image 1 is a style reference only: match its bold dark ink outline, flat posterized colour fills in a few tonal steps, small ink hatch marks, darker muted naturalistic palette; do not copy its subject or composition.\nDraw a full-bleed game card painting of a low bed of damp dark earth carpeted with thick soft green moss, edged with a few small grey stones, in shady forest undergrowth, the plants filling the lower two-thirds of the frame, a dark shadowy forest undergrowth background, the painting filling the entire frame edge to edge with no white anywhere. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, photo, photorealistic, 3D render, watercolor wash, soft gradients, anime, pixel art, neon colours, lens flare, blurry, white background, vignette border, sky, text, watermark, signature, logo, border, frame, mushrooms, flowers, people, buildings.",
+  "historyId": "cvPTpJZsFOlupCP4RuQ4",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791756706240_2c9928fb_1791756706535_cb0d9d09.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "review": "awaiting owner gallery review (one sample, owner 2026-10-11)"
+}

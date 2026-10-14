@@ -1,0 +1,123 @@
+{
+    "UniqueID": "herbs_fungi_bp_botanical_field_guide",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_botanical_field_guide",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_BotanicalFieldGuide_CardName",
+        "DefaultText": "Botanical Field Guide"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_botanical_field_guide",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_BotanicalFieldGuide_CardDescription",
+        "DefaultText": "Bind sheets of hemp paper with twine into a book of notes on where and when each forest plant grows."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_botanical_field_guide",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_BotanicalFieldGuide_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Hemp Paper"
+    },
+    "BlueprintUnlockTicksCost": 16.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasHempPaper",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_paper",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_paper",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_botanical_field_guide",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_BotanicalFieldGuide",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

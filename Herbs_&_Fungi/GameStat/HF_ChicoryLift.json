@@ -1,0 +1,295 @@
+{
+    "UniqueID": "herbs_fungi_stat_chicory_lift",
+    "GameName": {
+        "LocalizationKey": "Herbs_And_Fungi_ChicoryLift_StatName",
+        "DefaultText": "Chicory Lift"
+    },
+    "Description": {
+        "LocalizationKey": "Herbs_And_Fungi_ChicoryLift_StatDescription",
+        "DefaultText": "A cup of chicory brew still working in you. You tire more slowly while it lasts, and it wears off over a few hours."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 24.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Caffeine_Old",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "Herbs_And_Fungi_ChicoryLift_Status_Mild_Name",
+                "DefaultText": "Chicory Lift"
+            },
+            "Description": {
+                "LocalizationKey": "Herbs_And_Fungi_ChicoryLift_Status_Mild_Description",
+                "DefaultText": "A cup of chicory brew is keeping you awake. You tire more slowly and feel a little on edge."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Caffeine_Old",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 1,
+                "y": 12
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 2.5,
+                        "y": 2.5
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 0.75,
+                        "y": 0.75
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "Herbs_And_Fungi_ChicoryLift_Status_Strong_Name",
+                "DefaultText": "Jittery"
+            },
+            "Description": {
+                "LocalizationKey": "Herbs_And_Fungi_ChicoryLift_Status_Strong_Description",
+                "DefaultText": "Two cups of chicory brew close together. You are wide awake and jittery, and stress builds faster until it wears off."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Caffeine_Old",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 13,
+                "y": 24
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

@@ -1,0 +1,46 @@
+{
+  "target": "PlantainPlantGrowing.png",
+  "sourceCard": null,
+  "subject": "a low flat rosette of broad oval ribbed plantain leaves on tilled soil; leaves only, no flower spikes",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "composition": "HerbsAndFungi/.art/compositions.json -> PlantainPlantGrowing",
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "PlantainFresh",
+      "image": "HerbsAndFungi/Resource/Picture/PlantainFresh.png",
+      "sha256": "8b6237ad1aa0322aabaa9cfbd2471d5be2a4886aa49be88e4b6812988b922894",
+      "id": "l9wjU58oKeweHH3p5QOq",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/PlantainFresh_1790971886278_cec2d3d7.png"
+    },
+    {
+      "role": "style",
+      "fragment": "YarrowPlantGrowing",
+      "image": "HerbsAndFungi/Resource/Picture/YarrowPlantGrowing.png",
+      "sha256": "032d6a06f0ca18fc824bd59feda2abb8cffc9eda02a34db91a264b2edc5837f0",
+      "id": "3YuZqHsf6DVdD0sCnHq1",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/YarrowPlantGrowing_1790971887622_e84dbe0f.png"
+    }
+  ],
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a bunch of fresh common plantain leaves: draw this same plant, keeping its broad oval ribbed dark-green leaves, their veining, colours and painting style identical, changed only as follows: it is a living plant growing from a small, roughly oval patch of freshly tilled dark brown soil, not a cut bundle (no twine, no tied stems), shown as a low flat rosette of broad oval ribbed leaves spreading outward from one central point at the soil; leaves only, with no flower spikes and no tall stalks yet.\nReference image 2 is a style and layout reference only: match its ink linework, shading and palette, and the size, shape and placement of its small oval tilled soil patch in the frame; do not copy its subject or its feathery leaf shape.\nHand-painted watercolor-and-ink game item illustration of one young common plantain plant growing from a small, roughly oval patch of freshly tilled dark brown soil, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, flower spikes, flowers, tall stalks, twine, tied bundle, cut stems, feathery fern-like leaves, pot, planter, grass.",
+  "historyId": "5I4XGtIxV7Cp48yAxOBA",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790971995928_00545bac_1790971996593_8fdb8a97.png",
+      "verdict": "accepted: low rosette of broad ribbed oval leaves on tilled soil, no spikes; matches PlantainFresh"
+    }
+  ],
+  "picked": "A",
+  "finishing": "process_card_art.py (GIMP keyed finish) only; key_enclosed.py found 0 enclosed paper regions.",
+  "note": "HerbsAndFungi 1.14.1 plan feature 8, generated for the build session by Claude from the herb's shipped image as the subject reference (/create-image-refs, item variant); accepted against its subject checklist by Claude, not yet seen by the owner."
+}

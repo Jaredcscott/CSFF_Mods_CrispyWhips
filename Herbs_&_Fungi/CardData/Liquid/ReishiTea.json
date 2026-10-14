@@ -18,7 +18,7 @@
         "DefaultText": "<b>Preparation:</b> Mix ground reishi with hot water in a bowl.\n\n<b>Benefits:</b> Immune boost, stress relief, promotes calm."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "Thirst_Old",
+    "CardImageWarpData": "HF_LQ_ReishiTea",
     "CardImageWarpType": 3,
     "CardBackground": {"m_FileID": 0, "m_PathID": 0},
     "ShowImageAboveTitle": false,
@@ -137,6 +137,12 @@
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "ValueModifier": {"x": -40.0, "y": -40.0},
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "ValueModifier": {"x": 18.0, "y": 18.0},
+                    "StatWarpData": "herbs_fungi_stat_herbal_tonic",
                     "StatWarpType": 3
                 },
                 {

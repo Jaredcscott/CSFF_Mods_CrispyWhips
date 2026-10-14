@@ -18,7 +18,7 @@
         "DefaultText": "<b>Preparation:</b> Mix ground yarrow with hot water in a bowl.\n\n<b>Benefits:</b> Slows bleeding and dulls pain for about six hours, and quenches thirst. Both fade as the yarrow wears off."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "Thirst_Old",
+    "CardImageWarpData": "HF_LQ_YarrowTea",
     "CardImageWarpType": 3,
     "CardBackground": {"m_FileID": 0, "m_PathID": 0},
     "ShowImageAboveTitle": false,
@@ -28,7 +28,7 @@
     "ObjectWeight": 0.33,
     "TradingValue": 12,
     "CardTags": [],
-    "CardTagsWarpData": ["tag_Heatable", "tag_Quality", "tag_Preservable"],
+    "CardTagsWarpData": ["tag_Heatable", "tag_Quality", "tag_Preservable", "tag_x_AnimalRemedy"],
     "CardTagsWarpType": 3,
     "EquipmentTags": [],
     "AlwaysUpdate": true,

@@ -1,0 +1,262 @@
+{
+    "UniqueID": "herbs_fungi_herb_cheese",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_herb_cheese",
+        "LocalizationKey": "Herbs_And_Fungi_HerbCheese_CardName",
+        "DefaultText": "Herb Cheese"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_herb_cheese",
+        "LocalizationKey": "Herbs_And_Fungi_HerbCheese_CardDescription",
+        "DefaultText": "Cheese worked through a ground mushroom or dried ginger. It tastes of the herb and keeps longer than plain cheese."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_herb_cheese",
+        "LocalizationKey": "Herbs_And_Fungi_HerbCheese_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Drag Soft Cheese, Firm Cheese, Hard Cheese, Aged Cheese or Cheese Curds onto Black Trumpet Powder, Shiitake Powder, King Oyster Powder or Dried Ginger. The cheese is used up. With Sirus23's Mod Collection, its Sheep Cheese works too.\n\n<b>Uses:</b> Eat it. It spoils more slowly than any plain cheese."
+    },
+    "CardType": 0,
+    "ObjectWeight": 60,
+    "TradingValue": 140.0,
+    "MaxStack": 4,
+    "AlwaysUpdate": false,
+    "DoesNotPile": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_HerbCheese",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_HumanFood",
+        "tag_Plateable",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Wax"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_herb_cheese",
+            "LocalizationKey": "Herbs_And_Fungi_HerbCheese_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 12000.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_cheese",
+                "LocalizationKey": "Herbs_And_Fungi_HerbCheese_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The herb cheese has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herb_cheese",
+                "LocalizationKey": "Herbs_And_Fungi_HerbCheese_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_cheese",
+                "LocalizationKey": "Herbs_And_Fungi_HerbCheese_Eat_ActionDescription",
+                "DefaultText": "Eat the herb cheese as it is. Sharp and savoury, with the taste of the herb."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 12,
+                        "y": 12
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 13,
+                        "y": 13
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 17,
+                        "y": 17
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                }
+            ]
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "d730fb3433f3af3409aaf9a74af3ee6a",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ]
+}

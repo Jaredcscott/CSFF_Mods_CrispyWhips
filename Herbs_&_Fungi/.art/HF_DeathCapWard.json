@@ -1,0 +1,18 @@
+{
+ "target": "HF_DeathCapWard.png",
+ "sourceCard": "CardData/Item/DeathCapWard.json",
+ "note": "No generation record existed on disk for this image before 2026-10-12; it was finished from the shipped PNG.",
+ "ownerReview": "2026-10-12 alter | notes: has white to remove | pass 2: 2026-10-12 alter | notes: has white",
+ "rework": {
+  "date": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: has white to remove",
+  "finishing": "paper enclosed between the three crossed sticks (4 regions, 3512 px, near-white >= 236 and >= 300 px) keyed with a 200..236 ramp, colour un-premultiplied against white; mushroom highlights (all under 300 px) left opaque. Worked on the shipped trimmed PNG (scratchpad keyreg.py / dehalo.py / clearlight.py, or Development_Tools/CardArt/fill_holes.py), re-trimmed with trim_card_art. Re-deriving from resource_url brings the defect back: repeat these passes and read a dark preview.",
+  "credits": 0
+ },
+ "rework2": {
+  "date": "2026-10-12",
+  "note": "owner gallery rework pass 2 2026-10-12: has white",
+  "finishing": "paper pockets between the mushroom stems and beside the sticks (white components at darkest channel >= 228 whose 2 px ring is >= 35% dark ink, 597 px, grown 2 px) keyed with a 200..245 ramp and un-premultiplied against white; mushroom cap and stem highlights (ring mostly pale) left opaque; then the light 1-2 px fringe OUTSIDE the ink outline of the sticks and mushrooms removed (edge pixels with ink just inside them: pale ones dropped, mid ones given the ink colour); a 12 px pale speck at the foot of the centre stick removed. Worked on the shipped trimmed PNG (no raw generation is recorded), scratchpad keypaper.py / rim3.py / rim5.py, re-palettized with trim_card_art. Checked on dark and magenta previews at 2x.",
+  "credits": 0
+ }
+}
