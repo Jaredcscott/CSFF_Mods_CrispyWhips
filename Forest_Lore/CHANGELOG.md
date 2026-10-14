@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.3] - 2026-10-14
+
+### Added
+
+- **The lore sites drift slowly**, from the Ancient Cairn to the Tree Hollow, whose branches sway. Needs CSFF Mod Framework 2.28.3.
+
 ## [0.1.2] - 2026-10-13
 
 ### Fixed
