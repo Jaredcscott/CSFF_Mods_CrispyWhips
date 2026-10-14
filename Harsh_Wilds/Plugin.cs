@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.harsh_wilds";
     public const string PluginName = "Harsh Wilds";
-    public const string PluginVersion = "0.11.3";
+    public const string PluginVersion = "0.11.4";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }

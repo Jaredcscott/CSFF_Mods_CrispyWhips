@@ -1,6 +1,6 @@
 # Harsh Wilds
 
-**Version:** 0.11.3
+**Version:** 0.11.4
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release. Every chance, number and length is a first guess that has not been balanced against play. Where a feature is not yet confirmed in a running game, its section says so.

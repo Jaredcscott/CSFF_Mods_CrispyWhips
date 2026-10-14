@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.11.4 (2026-10-14)
+- Change: the Faerie Realm no longer drifts; location motion is off for now. The people, animals and spirits still breathe.
+
 ## 0.11.3 (2026-10-14)
 - New: the shaman, the bandits and the frost demon breathe; the lynx, musk ox, wisent, lake beast, lindwurm, the event animals and the spirits breathe too, on their cards and in their encounters; the Faerie Realm drifts slowly. Needs CSFF Mod Framework 2.28.3.
 
