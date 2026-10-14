@@ -1,41 +1,51 @@
 {
   "target": "FT_AlmondTree.png",
-  "sourceCard": "CardData/Location/FT_AlmondTree.json",
-  "subject": "a tiered tropical almond tree on a beach edge with broad leaves arranged in flat layers, some leaves turned red, green almonds gathered on the sand beneath it.",
+  "sourceCard": [
+    "CardData/Location/FT_AlmondTree.json",
+    "CardData/Item/FT_TropicalAlmondGarden.json"
+  ],
+  "subject": "one tropical almond tree (Terminalia catappa) at the top of a pale sandy beach: a stout smooth grey trunk leaning a little and forking low into a few thick crooked limbs reaching out nearly horizontally at uneven heights and lengths, a broad spreading crown of irregular natural clumps of large oval leaves, mostly deep green with clusters turned red and orange, gaps of sky between the clumps, fallen red leaves on the sand, a calm turquoise sea and pale sky",
   "model": "nano-banana-2",
   "mode": "image2image (vanilla CSFF sprites as style references)",
   "params": {
-    "imageCount": 2,
+    "imageCount": 1,
     "aspectRatio": "2:3",
     "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a tiered tropical almond tree on a beach edge with broad leaves arranged in flat layers, some leaves turned red, green almonds gathered on the sand beneath it.\nStyle: vanilla survival card game plant art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "prompt": "Use the attached reference images, each for one purpose. Both are STYLE references only, art from the game Card Survival: Fantasy Forest: reference image 1 shows how the game draws a tree, reference image 2 how it paints a full scene with water. Match their ink linework, flat shading and palette; do not copy their subjects or composition.\nSubject: a full-bleed painted beach scene with one tropical almond tree (Terminalia catappa) standing at the top of a pale sandy beach: a stout smooth grey trunk that leans a little and forks low into a few thick crooked limbs; the limbs reach out nearly horizontally at uneven heights and lengths, some longer on one side than the other, making a broad, spreading, flat-topped crown much wider than it is tall, built of irregular natural clumps of large oval leaves, mostly deep green with scattered clusters turned red and orange, with uneven gaps of sky between the clumps; a few green almond-shaped fruits among the leaves; a scatter of fallen red leaves on the sand; a calm turquoise sea and a pale sky behind.\nStyle: match the style references: the look of the game Card Survival: Fantasy Forest, flat posterized colour fills in a few tonal steps, thin dark ink outlines and small ink hatch marks, a muted naturalistic palette, slightly dark and saturated like the game's location cards, realistic proportions; not watercolour, not glossy. The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: evenly stacked tiers, regular layers, symmetrical branches, a pagoda shape, a christmas-tree or conifer shape, a palm tree, footprints, tracks, prints in the sand, people, boats, buildings, photo, photorealistic, 3D render, watercolour bleed, paper texture, soft airbrush gradients, neon colours, plain white background, vignette, white border, text, watermark, signature, border, frame.",
   "refs": [
     {
       "label": "vanilla TreeOak (style)",
       "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/TreeOak_1791700790914_80eaf8fd.png"
     },
     {
-      "label": "vanilla Tree1 (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tree1_1791700791469_422d956a.png"
+      "label": "vanilla Lake1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_1791745028417_e3f605e2.png"
     }
   ],
-  "historyId": "oKEche5KxkJkCUT9JsDw",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702104585_6abf6439_1791702104659_5c053be8.png",
-  "credits": 40,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (2 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_AlmondTree, FT_TropicalAlmondGarden.",
+  "historyId": "8zaYzSEMTfCGf8KDPq7z",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804731032_72023696_1791804731408_615bdc17.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "full-bleed",
+  "note": "owner gallery rework pass 2 2026-10-12: regenerate, \"the layers are odd\". The stiff pagoda of evenly stacked tiers is gone: limbs at uneven heights and lengths, irregular leaf clumps, Avoid list names evenly stacked tiers, symmetrical branches and a pagoda shape. Same full-bleed beach form. Ground checked: no footprints.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702104585_6abf6439_1791702104659_5c053be8.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702102998_42a66c3d_1791702103110_2114ada2.png"
+      "historyId": "8zaYzSEMTfCGf8KDPq7z",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804731032_72023696_1791804731408_615bdc17.png",
+      "verdict": "shipped: irregular spreading crown, no tiers, beach scene kept"
     }
   ],
   "picked": "A",
-  "predicted": "B"
+  "predicted": "A",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797787659_658c32a3_1791797787726_a7dec3ca.png",
+    "historyId": "l7y5ir9a2UukKPUeAMDD",
+    "generated": "2026-10-12",
+    "subject": "one tropical almond tree at the top of a sandy beach, a straight smooth grey trunk, branches spreading flat in three or four distinct horizontal tiers like the floors of a pagoda, broad oval leaves mostly deep green with clusters turned red and orange, fallen red leaves and green almond-shaped fruits on the pale sand, calm sea and pale sky behind",
+    "note": "the picture this pass 2 rework replaced",
+    "earlier": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702104585_6abf6439_1791702104659_5c053be8.png"
+  }
 }

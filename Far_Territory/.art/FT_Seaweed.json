@@ -15,7 +15,7 @@
   "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647414730_ae69c7dd_1791647415645_d05e6bb6.png",
   "credits": 90,
   "generated": "2026-10-10",
-  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art.",
+  "note": "owner gallery rework 2026-10-12: has white to remove. Re-keyed, no generation: 12 enclosed paper gaps between the fronds keyed with the shipped ramp (components picked by eye; 3 enclosed white highlights inside fronds left opaque), then defringe.py, then trimmed. Earlier note: Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art.",
   "candidates": [
     {
       "n": "A",
@@ -31,5 +31,6 @@
     }
   ],
   "picked": "C",
-  "predicted": "B"
+  "predicted": "B",
+  "reworked": "2026-10-12"
 }

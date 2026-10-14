@@ -3,37 +3,48 @@
   "sourceCard": [
     "CardData/Location/FT_FishTrapPlaced.json"
   ],
-  "subject": "a fish trap set for fishing: a cylindrical cage of thin peeled twigs bound in rings of brown twine, its open funnel mouth of inward-turned twigs facing the viewer, lashed with twine to a single upright wooden stake standing beside it with a sharpened lower end; the twigs dark and wet, a few drops of water falling from its lower edge, a strand of green weed caught in the twigs, and one small silver fish visible inside the cage.",
+  "subject": "the same twig fish trap as FT_FishTrap, set in the sea: lying fully submerged on the pale sandy bottom of a small oval pool of clear shallow blue-green sea water seen from slightly above, the whole trap under the surface and seen through it, ripple lines and light glints over it, nothing sticking out, empty, no fish",
   "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "mode": "image2image (subject reference + vanilla style)",
   "params": {
     "imageCount": 1,
     "aspectRatio": "2:3",
     "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "(see historyId; the item or scene template of this folder's 2026-10-11 sidecars with the subject above)",
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a woven twig fish trap: draw this same trap, keeping its materials, colours, proportions and construction identical (the long cylinder of grey twigs bound with rope hoops, the funnel mouth at one end, the closed cone at the other), changed only as follows: it is set in the sea, lying fully submerged on the pale sandy bottom of a small oval pool of clear shallow blue-green sea water seen from slightly above. The whole trap is under the surface, with water over it and all around it: its twigs are seen through the water, a little softened and tinted blue-green, with gentle ripple lines and a few small white light glints drawn on the water surface across the top of it. Nothing of the trap sticks out of the water. The trap is empty.\nReference image 2 is a STYLE reference only (art from the game Card Survival: Fantasy Forest): match its ink linework, flat shading, palette and the way it draws water; do not copy its subject or composition.\nStyle: the look of the game Card Survival: Fantasy Forest, flat posterized colour fills in a few tonal steps, thin dark ink outlines and small ink hatch marks, a continuous dark outline around the oval of water, a muted naturalistic palette; not watercolour, not glossy.\nSingle subject, centred, the oval of water with the trap in it filling most of the frame with a white margin on every side, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no scenery beyond the oval. No text, no watermark, no signature, no border, no frame.\nAvoid: fish, any fish inside or outside the trap, small fish, the trap floating, the trap above the water, any part of the trap out of the water, a stake, a pole, a rope tied to the shore, seaweed, shells, people, footprints, tracks, photo, photorealistic, 3D render, watercolour bleed, paper texture, soft airbrush gradients, neon colours, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, border, frame.",
   "refs": [
     {
-      "label": "vanilla LogPiece (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LogPiece_1791697573880_2de4c7fa.png"
+      "label": "FT_FishTrap (subject)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FT_FishTrap_1791797985475_0fb326a2.png"
     },
     {
-      "label": "vanilla Bowl_Clay (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_1791697575163_a3345586.png"
+      "label": "vanilla Lake1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_1791745028417_e3f605e2.png"
     }
   ],
-  "historyId": "suvlYRnYIyClUlafMuLp",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743169824_acace581_1791743169914_5b94d3eb.png",
+  "historyId": "vjPqiSfk5PgYZ0dudxAW",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804738152_0f2ea65a_1791804738972_41d3e60d.png",
   "credits": 20,
-  "generated": "2026-10-11",
-  "note": "Owner asked 2026-10-11 for one sample per card, redos to follow; replaces the base-game stand-in (FunnelTrap). Finished by /process-card-art (white paper keyed). Used by FT_FishTrapPlaced.",
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework pass 2 2026-10-12: regenerate, \"needs to be fully in the water with no small fish\". The trap now lies wholly under the water of the oval pool, twigs seen through the surface; no fish anywhere (Avoid list), and the stake was dropped too. FT_FishTrap kept as the subject reference so it is the same trap.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743169824_acace581_1791743169914_5b94d3eb.png"
+      "historyId": "vjPqiSfk5PgYZ0dudxAW",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804738152_0f2ea65a_1791804738972_41d3e60d.png",
+      "verdict": "shipped: fully submerged, no fish, same trap"
     }
   ],
   "picked": "A",
-  "predicted": "A"
+  "predicted": "A",
+  "previous": {
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798056166_e8cc3a87_1791798056224_55c61980.png",
+    "historyId": "aVGY4UFsx3UpNMAuKVXS",
+    "generated": "2026-10-12",
+    "subject": "the same fish trap as FT_FishTrap, set in the sea: lying half sunk in a small oval patch of clear shallow blue-green water over pale sand, funnel mouth to the viewer, wet darker twigs below the waterline, one short wooden stake beside it tied to the cage, ripples, a small silver fish inside; one finished object, nothing loose",
+    "note": "the picture this pass 2 rework replaced",
+    "earlier": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743169824_acace581_1791743169914_5b94d3eb.png"
+  }
 }

@@ -1,0 +1,63 @@
+{
+  "about": "Images adjusted toward the vanilla style by Development_Tools/CardArt/vanillify.py instead of being regenerated. The original is in git history.",
+  "images": {
+    "Picture/FT_CliffboundCove.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 45,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/FT_CoralInlet.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 45,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/FT_SeaCoralInlet.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        2,
+        14,
+        50,
+        3,
+        90
+      ],
+      "score_before": 43,
+      "score_after": 80,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/FT_Seaweed.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 51,
+      "score_after": 100,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/FT_TidePool.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        2,
+        14,
+        50,
+        3,
+        90
+      ],
+      "score_before": 53,
+      "score_after": 100,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    }
+  }
+}

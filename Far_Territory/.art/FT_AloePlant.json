@@ -1,41 +1,42 @@
 {
   "target": "FT_AloePlant.png",
-  "sourceCard": "CardData/Location/FT_AloePlant.json",
-  "subject": "an aloe vera plant: a rosette of thick spiny grey-green leaves rising from dry ground.",
+  "sourceCard": [
+    "CardData/Location/FT_AloePlant.json",
+    "CardData/Item/FT_AloeGarden.json"
+  ],
+  "subject": "one aloe vera plant growing wild in pale sand at the top of a tropical beach: a low rosette of thick fleshy pointed grey-green leaves with pale flecks and small pale teeth, dark beach rocks and a dry palm frond on the sand, two leaning coconut palms and a strip of turquoise sea behind",
   "model": "nano-banana-2",
   "mode": "image2image (vanilla CSFF sprites as style references)",
   "params": {
-    "imageCount": 2,
+    "imageCount": 1,
     "aspectRatio": "2:3",
     "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: an aloe vera plant: a rosette of thick spiny grey-green leaves rising from dry ground.\nStyle: vanilla survival card game plant art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, flowers, pot, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style full-bleed scene template, style refs + Subject + \"The painted scene reaches every edge of the frame\" + Avoid list incl. footprints, tracks, plain white background)",
   "refs": [
     {
-      "label": "vanilla Springberries_Plant (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Springberries_Plant_1791700789781_c8c7ea21.png"
+      "label": "vanilla Turnroot_Plant (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Plant_1791745248505_467c5843.png"
     },
     {
       "label": "vanilla Fireroot_Plant (style)",
       "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Plant_1791700790415_5376148c.png"
     }
   ],
-  "historyId": "ped7t9tG2CxNlmLx968R",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702217399_c86c640a_1791702217556_f3bd49a8.png",
-  "credits": 40,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (2 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_AloeGarden, FT_AloePlant.",
+  "historyId": "0I3y0whWTa4MgZC4fFaS",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797791463_52316c9a_1791797791556_f18efa08.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "full-bleed",
+  "note": "owner gallery rework 2026-10-12: scene is wrong. Aloe grows on the shore and coastal upland boards (Landfall Strand, Bleak Strand, Coral Inlet, Palm Fringe, the uplands and Eastgrass Plain), so the scene moved from dry grassland to a tropical beach. The model drew the sand salmon-pink (\"coral sand\"); it was recoloured locally to pale tan (hue 38, saturation x0.62 on the pink band only) before finishing, no extra credits.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702217256_7ff58b3d_1791702217368_fe63d713.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702217399_c86c640a_1791702217556_f3bd49a8.png"
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797791463_52316c9a_1791797791556_f18efa08.png"
     }
   ],
-  "picked": "B",
-  "predicted": "B"
+  "picked": "A",
+  "predicted": "A",
+  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702217399_c86c640a_1791702217556_f3bd49a8.png"
 }

@@ -369,3 +369,16 @@
 | 2026-10-11 | FT_FishTrapSet (one sample, owner: redos later; /process-card-art; 1 card(s) repointed) | nano-banana-2 image2image | 1K | 20 | suvlYRnYIyClUlafMuLp | OK |
 | 2026-10-11 | FT_PathSinkholeDown (one sample, owner: redos later; /process-card-art --full-bleed; 1 card(s) repointed) | nano-banana-2 image2image | 1K | 20 | 3aVUGVg0kugh9RTVyXwQ | OK |
 | 2026-10-11 | FT_PathSinkholeUp (one sample, owner: redos later; /process-card-art --full-bleed; 1 card(s) repointed) | nano-banana-2 image2image | 1K | 20 | liTFln56Qz3E0AElmvCR | OK |
+| 2026-10-12 | FT_AlmondTree (owner gallery rework: poor quality; full-bleed) | nano-banana-2 image2image | 1K | 20 | l7y5ir9a2UukKPUeAMDD | OK |
+| 2026-10-12 | FT_AloePlant (owner gallery rework: scene is wrong; full-bleed) | nano-banana-2 image2image | 1K | 20 | 0I3y0whWTa4MgZC4fFaS | OK |
+| 2026-10-12 | FT_Bat (owner gallery rework: scene is off; full-bleed) | nano-banana-2 image2image | 1K | 20 | tWBvMyzQjQDNH9xWjera | OK |
+| 2026-10-12 | FT_PathSwimToStack (owner gallery rework: no steps in the water; full-bleed) | nano-banana-2 image2image | 1K | 20 | Pp4HAssXFcOOFvFTGMg5 | OK |
+| 2026-10-12 | FT_Yam (owner gallery rework: looks like poop; keyed) | nano-banana-2 image2image | 1K | 20 | LPZ2P0Rkb5X2hVpMBWDp | OK |
+| 2026-10-12 | FT_FishTrapSet (owner gallery rework: no kit needed just place the trap directly; keyed) | nano-banana-2 image2image | 1K | 20 | aVGY4UFsx3UpNMAuKVXS | OK |
+| 2026-10-12 | FT_LightlessHall (owner gallery rework, local: just simple black nothing else, just blackness) | none (local edit) | - | 0 | - | OK |
+| 2026-10-12 | FT_CoconutWater (owner gallery rework, local: shuld match the coconut shell bowl but with milk in it.) | none (local edit) | - | 0 | - | OK |
+| 2026-10-12 | FT_Ginger (owner gallery rework, local: dont we already have ginger in H&F lets use the same image.) | none (local edit) | - | 0 | - | OK |
+| 2026-10-12 | FT_Seaweed (owner gallery rework, local: has white to remove.) | none (local edit) | - | 0 | - | OK |
+| 2026-10-12 | (wasted job: a placeholder prompt "x" submitted by mistake during the rework; image not used) | nano-banana-2 image2image | 1K | 20 | 23K7d857rf7rrFWLRwG5 | WASTED |
+| 2026-10-12 | FT_AlmondTree (owner gallery rework pass 2: regenerate, irregular spreading crown) | nano-banana-2 image2image | 1K | 20 | 8zaYzSEMTfCGf8KDPq7z | OK |
+| 2026-10-12 | FT_FishTrapSet (owner gallery rework pass 2: regenerate, fully submerged, no fish) | nano-banana-2 image2image | 1K | 20 | vjPqiSfk5PgYZ0dudxAW | OK |

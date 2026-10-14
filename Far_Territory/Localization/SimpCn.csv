@@ -1,0 +1,1869 @@
+Far_Territory_Env_LandingBeach_CardName,Seaward Sands,向海沙滩
+Far_Territory_Env_Shore_CardName,Driftwood Shore,漂流木海岸
+Far_Territory_Seashells_CardName,Seashells,贝壳
+Far_Territory_Seashells_CardDescription,"A handful of empty shells, ridged and chalky. Ground with a stone they crumble into bonemeal for gardens and fields.",一把空贝壳，带着棱纹，质地像白垩。用石头研磨后会碎成骨粉，可用于菜园和田地。
+Far_Territory_Seashells_CI_Grind,Grind,研磨
+Far_Territory_Seashells_CI_Grind_Desc,Crush the shells into a coarse powder.,把贝壳压碎成粗粉。
+Far_Territory_Driftwood_CardName,Driftwood Log,漂流木
+Far_Territory_Driftwood_CardDescription,"A whole trunk the river brought down and the tide threw back, bleached and smooth. Hauled clear of the water it is an ordinary log.",一整根树干，被河水冲下、又被潮水抛回岸边，已被晒白磨光。拖离水边后，它就是一根普通的原木。
+Far_Territory_Driftwood_DA_HaulOut,Haul Out,拖上岸
+Far_Territory_Driftwood_DA_HaulOut_Desc,Drag the log up out of the wet so it can be carried and worked like any other.,把原木从湿地里拖上来，这样就能像其他原木一样搬运和加工。
+Far_Territory_LandingBeach_CardName,Seaward Sands,向海沙滩
+Far_Territory_LandingBeach_CardDescription,"A wide beach of pale sand where the land finally runs out. Gulls work the tideline, and the open sea stretches away to the south and east.",一片宽阔的淡色沙滩，陆地在此终于到了尽头。海鸥在潮线上觅食，开阔的大海向南方和东方延伸而去。
+Far_Territory_LandingBeach_Gleanings,Gleanings,拾获物
+Far_Territory_LandingBeach_DA_Forage,Forage,觅食
+Far_Territory_LandingBeach_DA_Forage_Desc,Search the tideline for anything the water left behind.,在潮线一带搜寻海水留下的东西。
+Far_Territory_LandingBeach_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_LandingBeach_DA_West,West,西方
+Far_Territory_LandingBeach_DA_West_Fade,Travelling West...,向西移动……
+Far_Territory_ShellSand_CardName,Shell-Strewn Sand,贝壳沙滩
+Far_Territory_ShellSand_CardDescription,A stretch of sand where every tide leaves a fresh scatter of shells. Comb it and it fills again given time.,一片沙滩，每次潮水都会留下一层新的贝壳。搜刮干净后，过段时间又会重新铺满。
+Far_Territory_ShellSand_Shells,Shells,贝壳
+Far_Territory_ShellSand_DA_Comb,Comb the Sand,筛沙
+Far_Territory_ShellSand_DA_Comb_Desc,Sift the sand by hand for shells worth keeping.,用手筛拣沙子，找出值得留下的贝壳。
+Far_Territory_ShellSand_DA_Comb_Fail,The tide has not brought more yet,潮水还没有带来更多贝壳
+Far_Territory_Shore_CardName,Driftwood Shore,漂流木海岸
+Far_Territory_Shore_CardDescription,"Past the river's mouth the bank gives way to a low shore of shingle and wrack. The sea is close enough to hear, and whatever the river carries down ends up here.",过了河口，河岸渐渐变成一片铺满卵石和海草残骸的低矮海岸。近得能听见海声，河水冲下来的一切最终都会落在这里。
+Far_Territory_Shore_Gleanings,Gleanings,拾获物
+Far_Territory_Shore_DA_Forage,Forage,觅食
+Far_Territory_Shore_DA_Forage_Desc,Search the tideline for anything the water left behind.,在潮线一带搜寻海水留下的东西。
+Far_Territory_Shore_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_RiverMouth_CardDescription,"The river slows and spreads here before it meets the sea, and the water turns brackish. Reeds crowd the mud, and the mosquitoes are as bad as anywhere upstream.",河水在这里放缓、散开，随后汇入大海，水也变得咸涩。泥滩上芦苇丛生，蚊子和上游任何地方一样恼人。
+Far_Territory_RiverMouth_CardHelpSection,"<b>Estuary, Riverbank:</b>
+
+<b>Conditions:</b> Brackish water, humid soil.
+
+<b>Flora:</b> Reeds.
+
+<b>Fauna:</b> Mosquitoes, river fish.","<b>河口，河岸：</b>
+
+<b>条件：</b>咸淡水，潮湿土壤。
+
+<b>植物：</b>芦苇。
+
+<b>动物：</b>蚊子，河鱼。"
+Far_Territory_RiverMouth_CardName,Brackwater Mouth,咸水河口
+Far_Territory_Env_RiverMouth_CardName,Brackwater Mouth,咸水河口
+Far_Territory_Env_LandfallStrand_CardName,Landfall Strand,登陆海滩
+Far_Territory_LandfallStrand_CardName,Landfall Strand,登陆海滩
+Far_Territory_LandfallStrand_CardDescription,"A curve of white sand where the island meets the sea. Palms lean over the beach, and green, broken country rises inland.",一道弯弯的白沙滩，海岛在此与大海相接。棕榈树斜倚在沙滩上方，内陆是起伏破碎的绿色山野。
+Far_Territory_LandfallStrand_Gleanings,Gleanings,拾获物
+Far_Territory_LandfallStrand_DA_Forage,Forage,觅食
+Far_Territory_LandfallStrand_DA_Forage_Desc,Search the tideline for anything the water left behind.,在潮线一带搜寻海水留下的东西。
+Far_Territory_LandfallStrand_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_MooredBoatMainland_CardName,Misty Coast,迷雾海滨
+Far_Territory_MooredBoatMainland_CardDescription,"A stony shore under low mist, dark firs crowding down to the water and a weathered driftwood post standing at the waterline with a rope wound round it. Far out to the south-east, on a clear day, there is land.",低雾笼罩下的一片石滩，幽暗的冷杉一直挤到水边，水线处立着一根饱经风霜的漂流木桩，上面缠着绳子。天气晴朗时，可以望见遥远的东南方有一片陆地。
+Far_Territory_MooredBoatMainland_DA_SetSail,Set Sail for the Island,启航前往海岛
+Far_Territory_MooredBoatMainland_DA_SetSail_Desc,Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours.,冲过碎浪，划过开阔的海面前往海岛。航程大约需要六小时。
+Far_Territory_MooredBoatMainland_DA_SetSail_Fade,Sailing for the island...,正在驶向海岛……
+Far_Territory_MooredBoatIsland_CardName,Homeward Sand,归乡沙滩
+Far_Territory_MooredBoatIsland_CardDescription,"Fine white sand slopes gently into clear shallows here, the easiest place on this shore to come in through the surf. Back to the north-west, past the open water, lies the mainland coast.",细腻的白沙缓缓没入清澈的浅水，这里是这片海岸上最容易穿过浪花靠岸的地方。往西北方向，越过开阔的海面，便是大陆海岸。
+Far_Territory_MooredBoatIsland_DA_SetSail,Set Sail for the Mainland,启航返回大陆
+Far_Territory_MooredBoatIsland_DA_SetSail_Desc,Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours.,把边架独木舟推回浪中，划回大陆的海滩。航程大约需要六小时。
+Far_Territory_MooredBoatIsland_DA_SetSail_Fade,Sailing for the mainland...,正在驶向大陆……
+Far_Territory_Outrigger_CardName,Outrigger Canoe,边架独木舟
+Far_Territory_Outrigger_CardDescription,"A narrow dugout canoe lashed by two poles to a slim log float, a paddle laid along its bottom. It carries you across the open water between the mainland coast and the island.",一艘狭长的独木舟，用两根横杆绑在一根细长的浮木上，舟底平放着一支桨。它能载你横渡大陆海岸与海岛之间的开阔海面。
+Far_Territory_SeaShore_CardName,The Sea,大海
+Far_Territory_SeaShore_CardDescription,"Green water breaking on white sand, warm to the knee. You can wash in it, or hold your breath and dive for what lies on the bottom.",碧绿的海水拍打着白沙，暖意没到膝盖。你可以在这里洗澡，或者屏住呼吸潜到海底寻找东西。
+Far_Territory_SeaShore_DA_Wash,Wash in the Sea,海中洗澡
+Far_Territory_SeaShore_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand.",涉水入海，洗去旅途风尘、汗水和沙粒。
+Far_Territory_SeaShore_DA_Dive,Dive for Shells,潜水拾贝
+Far_Territory_SeaShore_DA_Dive_Desc,Hold your breath and feel along the bottom for shells and weed.,屏住呼吸，沿着海底摸寻贝壳和海藻。
+Far_Territory_TidePool_CardName,Tide Pool,潮池
+Far_Territory_TidePool_CardDescription,"A bowl in the rocks the sea left full: crabs in the crevices, prawns in the shallows, weed on the walls. Pick it clean and it slowly restocks.",礁石间一个被海水灌满的石坑：螃蟹藏在缝隙里，虾在浅处游动，海藻贴满石壁。采摘一空后，它会慢慢恢复。
+Far_Territory_TidePool_Catch,Catch,渔获
+Far_Territory_TidePool_DA_Forage,Forage the Pool,搜寻潮池
+Far_Territory_TidePool_DA_Forage_Desc,Turn over the weed and reach into the crevices for crabs and prawns.,翻开海藻，把手伸进石缝里摸螃蟹和虾。
+Far_Territory_TidePool_DA_Forage_Fail,The pool is picked clean for now,潮池暂时已被搜刮一空
+Far_Territory_Seaweed_CardName,Seaweed,海藻
+Far_Territory_Seaweed_CardDescription,"Glossy green strands off the rocks, salty and a little slick. Edible as it comes, if you do not mind the chew.",从礁石上采下的油亮绿色海藻，咸咸的，有点滑。直接就能吃，只要你不介意嚼劲。
+Far_Territory_Seaweed_Spoilage,Spoilage,变质
+Far_Territory_Seaweed_Spoiled,The seaweed has spoiled.,海藻已经变质了。
+Far_Territory_Seaweed_DA_Eat,Eat Raw,生吃
+Far_Territory_Seaweed_DA_Eat_Desc,Chew the weed as it is.,直接嚼食海藻。
+Far_Territory_Crab_CardName,Shore Crab,岸蟹
+Far_Territory_Crab_CardDescription,"A palm-sized crab, hard-shelled and quick. The claws hold the meat.",一只巴掌大的螃蟹，壳硬，动作敏捷。肉都在蟹钳里。
+Far_Territory_Crab_Spoilage,Spoilage,变质
+Far_Territory_Crab_Spoiled,The shore crab has spoiled.,岸蟹已经变质了。
+Far_Territory_Crab_DA_Eat,Eat Raw,生吃
+Far_Territory_Crab_DA_Eat_Desc,Crack the shell and eat the meat as it is.,敲开蟹壳，直接吃里面的肉。
+Far_Territory_Prawn_CardName,Rock Prawn,岩虾
+Far_Territory_Prawn_CardDescription,"A clear-bodied prawn from the shallows of the pool. Little, but sweet.",潮池浅水里捞来的一只身体透明的虾。个头不大，但味道鲜甜。
+Far_Territory_Prawn_Spoilage,Spoilage,变质
+Far_Territory_Prawn_Spoiled,The rock prawn has spoiled.,岩虾已经变质了。
+Far_Territory_Prawn_DA_Eat,Eat Raw,生吃
+Far_Territory_Prawn_DA_Eat_Desc,Peel it and eat it as it is.,剥掉壳直接吃。
+Far_Territory_Env_CoralInlet_CardName,Coral Inlet,珊瑚水湾
+Far_Territory_CoralInlet_CardName,Coral Inlet,珊瑚水湾
+Far_Territory_CoralInlet_CardDescription,"A sheltered inlet where the reef breaks the swell. The water lies clear and still over coral and sand, and the tide lays weed and shells along the beach.",一处避风的水湾，礁石挡住了涌浪。海水清澈平静，下面是珊瑚和沙地，潮水把海藻和贝壳铺在沙滩上。
+Far_Territory_CoralInlet_Gleanings,Gleanings,拾获物
+Far_Territory_CoralInlet_DA_Forage,Forage,觅食
+Far_Territory_CoralInlet_DA_Forage_Desc,"Search the tideline for shells, weed and anything else the reef let through.",在潮线一带搜寻贝壳、海藻以及礁石放进来的其他东西。
+Far_Territory_CoralInlet_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_SeaCoralInlet_CardName,The Reef Water,礁石水域
+Far_Territory_SeaCoralInlet_CardDescription,"Clear, warm water over the reef, so still you can see the coral below. You can wash in it, or hold your breath and dive for what lies on the bottom.",礁石上方清澈温暖的海水，平静得能看见下面的珊瑚。你可以在这里洗澡，或者屏住呼吸潜到海底寻找东西。
+Far_Territory_SeaCoralInlet_DA_Wash,Wash in the Sea,海中洗澡
+Far_Territory_SeaCoralInlet_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand.",涉水入海，洗去旅途风尘、汗水和沙粒。
+Far_Territory_SeaCoralInlet_DA_Dive,Dive for Shells,潜水拾贝
+Far_Territory_SeaCoralInlet_DA_Dive_Desc,Hold your breath and feel along the bottom for shells and weed.,屏住呼吸，沿着海底摸寻贝壳和海藻。
+Far_Territory_LandfallStrand_DA_South,South,南方
+Far_Territory_LandfallStrand_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_Env_BoulderShore_CardName,Boulder Shore,巨石海岸
+Far_Territory_BoulderShore_CardName,Boulder Shore,巨石海岸
+Far_Territory_BoulderShore_CardDescription,"A shore of dark, weed-hung boulders where the swell breaks white. Pools of trapped seawater sit between the rocks, and far to the east an islet streaked white by gulls stands out of the sea.",一片挂满海藻的黑色巨石海岸，涌浪在这里拍出白色浪花。石块之间积着一洼洼海水，远处东方，一座被海鸥染出白纹的小岛矗立在海中。
+Far_Territory_BoulderShore_Gleanings,Gleanings,拾获物
+Far_Territory_BoulderShore_DA_Forage,Forage,觅食
+Far_Territory_BoulderShore_DA_Forage_Desc,"Pick over the rocks and pools for shells, flint and anything the swell left wedged between the boulders.",在礁石和水洼间翻找贝壳、燧石，以及涌浪卡在巨石之间的任何东西。
+Far_Territory_BoulderShore_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_RootwaterThicket_CardName,Rootwater Thicket,根水丛林
+Far_Territory_RootwaterThicket_CardName,Rootwater Thicket,根水丛林
+Far_Territory_RootwaterThicket_CardDescription,"A drowned wood of stilt-rooted trees standing in brown, brackish water. Crabs scuttle over the mud between the roots, and the sea seeps in and out beneath the canopy.",一片被淹没的树林，长着高跷般支根的树木立在褐色的咸淡水中。螃蟹在根间的泥滩上爬来爬去，海水在树冠下渗进渗出。
+Far_Territory_RootwaterThicket_Gleanings,Gleanings,拾获物
+Far_Territory_RootwaterThicket_DA_Forage,Forage,觅食
+Far_Territory_RootwaterThicket_DA_Forage_Desc,"Wade among the roots for crabs, sticks and the weed the tide leaves hanging in them.",在树根间涉水寻找螃蟹、树枝以及潮水挂在根上的海藻。
+Far_Territory_RootwaterThicket_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_BleakStrand_CardName,Bleak Strand,荒凉海滩
+Far_Territory_BleakStrand_CardName,Bleak Strand,荒凉海滩
+Far_Territory_BleakStrand_CardDescription,"A long, empty beach of grey sand under a bare headland, littered with sea-worn flint and bleached wood. To the north an islet of white-streaked rock stands off the shore.",光秃秃的岬角下一片空旷绵长的灰色沙滩，散落着被海水磨圆的燧石和晒白的木头。北边的近岸处立着一座带白色条纹的岩石小岛。
+Far_Territory_BleakStrand_Gleanings,Gleanings,拾获物
+Far_Territory_BleakStrand_DA_Forage,Forage,觅食
+Far_Territory_BleakStrand_DA_Forage_Desc,"Walk the empty tideline for flint, shells and stones.",沿着空荡的潮线寻找燧石、贝壳和石头。
+Far_Territory_BleakStrand_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_PalmFringe_CardName,Palm Fringe,棕榈林缘
+Far_Territory_PalmFringe_CardName,Palm Fringe,棕榈林缘
+Far_Territory_PalmFringe_CardDescription,"Where the beach gives way to the jungle: leaning palms, scrub and dry fronds over pale sand. Inland, the green closes in.",沙滩在这里让位于丛林：倾斜的棕榈、灌木和干枯的叶子覆盖在淡色的沙地上。再往内陆，绿意便四面合拢。
+Far_Territory_PalmFringe_Gleanings,Gleanings,拾获物
+Far_Territory_PalmFringe_DA_Forage,Forage,觅食
+Far_Territory_PalmFringe_DA_Forage_Desc,"Search the scrub at the edge of the trees for sticks, dry leaves and stones.",在林边的灌木丛中寻找树枝、枯叶和石头。
+Far_Territory_PalmFringe_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_CliffboundCove_CardName,Cliffbound Cove,崖环海湾
+Far_Territory_CliffboundCove_CardName,Cliffbound Cove,崖环海湾
+Far_Territory_CliffboundCove_CardDescription,"A little hidden beach walled in by cliffs. The cove is deep and calm, and across the open water to the north-east an islet of white-streaked rock breaks the horizon.",一片被悬崖环绕的隐秘小沙滩。海湾幽深平静，隔着东北方开阔的海面，一座带白色条纹的岩石小岛划破了海平线。
+Far_Territory_CliffboundCove_Gleanings,Gleanings,拾获物
+Far_Territory_CliffboundCove_DA_Forage,Forage,觅食
+Far_Territory_CliffboundCove_DA_Forage_Desc,"Search the small beach for shells, stones and the odd crab under the weed.",在小沙滩上寻找贝壳、石头，偶尔还能在海藻下找到螃蟹。
+Far_Territory_CliffboundCove_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_GullStack_CardName,Gull Stack,海鸥石柱
+Far_Territory_GullStack_CardName,Gull Stack,海鸥石柱
+Far_Territory_GullStack_CardDescription,"A stack of rock rising sheer from the sea, white with the droppings of the gulls that nest on every ledge. Nothing grows here but salt-crusted grass, and the only way back is to swim.",一根从海中陡然耸起的石柱，每处岩架上都有海鸥筑巢，石头被鸟粪染得雪白。这里除了结着盐壳的草什么也不长，唯一的回去方式就是游泳。
+Far_Territory_GullStack_Gleanings,Gleanings,拾获物
+Far_Territory_GullStack_DA_Forage,Forage,觅食
+Far_Territory_GullStack_DA_Forage_Desc,"Climb about the ledges for feathers, shells and stones, keeping clear of the nesting gulls.",在岩架间攀爬寻找羽毛、贝壳和石头，注意避开筑巢的海鸥。
+Far_Territory_GullStack_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_SeaBoulderShore_CardName,The Rocky Swell,岩礁涌浪
+Far_Territory_SeaBoulderShore_CardDescription,"Warm water surging in and out between the boulders. You can wash in a sheltered gap between the rocks, or hold your breath and dive along them for what clings there.",温暖的海水在巨石之间涌进涌出。你可以在石缝间避风的地方洗澡，或者屏住呼吸沿着礁石潜水，寻找附着其上的东西。
+Far_Territory_SeaBoulderShore_DA_Wash,Wash in the Sea,海中洗澡
+Far_Territory_SeaBoulderShore_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand.",涉水入海，洗去旅途风尘、汗水和沙粒。
+Far_Territory_SeaBoulderShore_DA_Dive,Dive Along the Rocks,沿礁潜水
+Far_Territory_SeaBoulderShore_DA_Dive_Desc,"Hold your breath and feel along the rocks for shells, weed and loose stones.",屏住呼吸，沿着礁石摸寻贝壳、海藻和松动的石头。
+Far_Territory_SeaBleakStrand_CardName,The Grey Surf,灰色浪涛
+Far_Territory_SeaBleakStrand_CardDescription,"Long grey rollers break on the strand and drag back over flint and shell. You can wash in the shallows, or dive out past the break.",灰色的长浪拍上海滩，又拖着燧石和贝壳退回去。你可以在浅水里洗澡，或者潜过碎浪区。
+Far_Territory_SeaBleakStrand_DA_Wash,Wash in the Sea,海中洗澡
+Far_Territory_SeaBleakStrand_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand.",涉水入海，洗去旅途风尘、汗水和沙粒。
+Far_Territory_SeaBleakStrand_DA_Dive,Dive Past the Break,越浪潜水
+Far_Territory_SeaBleakStrand_DA_Dive_Desc,"Swim out past the breaking surf and feel along the bottom for shells, flint and weed.",游过翻涌的碎浪，沿着海底摸寻贝壳、燧石和海藻。
+Far_Territory_SeaRootwaterThicket_CardName,The Brackish Shallows,咸水浅滩
+Far_Territory_SeaRootwaterThicket_CardDescription,"Brown water, half sea and half rain, lapping among the roots. You can wash in it, or grope along the muddy bottom between the roots.",半是海水半是雨水的褐色水流在树根间轻拍。你可以在这里洗澡，或者在根间泥泞的水底摸索。
+Far_Territory_SeaRootwaterThicket_DA_Wash,Wash in the Sea,海中洗澡
+Far_Territory_SeaRootwaterThicket_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand.",涉水入海，洗去旅途风尘、汗水和沙粒。
+Far_Territory_SeaRootwaterThicket_DA_Dive,Grope Among the Roots,根间摸索
+Far_Territory_SeaRootwaterThicket_DA_Dive_Desc,Duck under and feel along the muddy bottom between the roots for crabs and weed.,潜下水，在根间泥泞的水底摸寻螃蟹和海藻。
+Far_Territory_SeaCliffboundCove_CardName,The Cove Water,海湾水域
+Far_Territory_SeaCliffboundCove_CardDescription,"Deep, still water in the cliffs' shadow, clear down to a pale sandy floor. You can wash in it, or dive for what lies on the bottom.",悬崖阴影下深邃而平静的海水，清澈见底，直到淡色的沙底。你可以在这里洗澡，或者潜到海底寻找东西。
+Far_Territory_SeaCliffboundCove_DA_Wash,Wash in the Sea,海中洗澡
+Far_Territory_SeaCliffboundCove_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand.",涉水入海，洗去旅途风尘、汗水和沙粒。
+Far_Territory_SeaCliffboundCove_DA_Dive,Dive in the Cove,海湾潜水
+Far_Territory_SeaCliffboundCove_DA_Dive_Desc,Hold your breath and search the cove's sandy floor for shells and weed.,屏住呼吸，在海湾的沙底搜寻贝壳和海藻。
+Far_Territory_PathBoulderShoreGullStack_CardName,Swim to Gull Stack,游往海鸥石柱
+Far_Territory_PathBoulderShoreGullStack_CardDescription,"Gull Stack stands off the shore across open water, a hard swim away. Swimming there soaks you through and tires you, and you need daylight to see the rocks.",海鸥石柱矗立在近岸的开阔海面上，要奋力游上一阵才能到。游过去会让你浑身湿透、筋疲力尽，而且需要白天才能看清礁石。
+Far_Territory_PathBoulderShoreGullStack_DA_Travel,Swim to Gull Stack,游往海鸥石柱
+Far_Territory_PathBoulderShoreGullStack_DA_Travel_Desc,Swim across the open water to Gull Stack. It takes about half an hour and leaves you soaked and tired.,横渡开阔的海面游往海鸥石柱。大约需要半小时，会让你浑身湿透、筋疲力尽。
+Far_Territory_PathBoulderShoreGullStack_DA_Travel_Fade,Swimming to Gull Stack...,正在游往海鸥石柱……
+Far_Territory_PathGullStackBoulderShore_CardName,Swim to Boulder Shore,游往巨石海岸
+Far_Territory_PathGullStackBoulderShore_CardDescription,"Across the water lies Boulder Shore. Swimming back soaks you through and tires you, and you need daylight to see the rocks.",巨石海岸就在海的那一边。游回去会让你浑身湿透、筋疲力尽，而且需要白天才能看清礁石。
+Far_Territory_PathGullStackBoulderShore_DA_Travel,Swim to Boulder Shore,游往巨石海岸
+Far_Territory_PathGullStackBoulderShore_DA_Travel_Desc,Swim across the open water to Boulder Shore. It takes about half an hour and leaves you soaked and tired.,横渡开阔的海面游往巨石海岸。大约需要半小时，会让你浑身湿透、筋疲力尽。
+Far_Territory_PathGullStackBoulderShore_DA_Travel_Fade,Swimming to Boulder Shore...,正在游往巨石海岸……
+Far_Territory_PathBleakStrandGullStack_CardName,Swim to Gull Stack,游往海鸥石柱
+Far_Territory_PathBleakStrandGullStack_CardDescription,"Gull Stack stands off the shore across open water, a hard swim away. Swimming there soaks you through and tires you, and you need daylight to see the rocks.",海鸥石柱矗立在近岸的开阔海面上，要奋力游上一阵才能到。游过去会让你浑身湿透、筋疲力尽，而且需要白天才能看清礁石。
+Far_Territory_PathBleakStrandGullStack_DA_Travel,Swim to Gull Stack,游往海鸥石柱
+Far_Territory_PathBleakStrandGullStack_DA_Travel_Desc,Swim across the open water to Gull Stack. It takes about half an hour and leaves you soaked and tired.,横渡开阔的海面游往海鸥石柱。大约需要半小时，会让你浑身湿透、筋疲力尽。
+Far_Territory_PathBleakStrandGullStack_DA_Travel_Fade,Swimming to Gull Stack...,正在游往海鸥石柱……
+Far_Territory_PathGullStackBleakStrand_CardName,Swim to Bleak Strand,游往荒凉海滩
+Far_Territory_PathGullStackBleakStrand_CardDescription,"Across the water lies Bleak Strand. Swimming back soaks you through and tires you, and you need daylight to see the rocks.",荒凉海滩就在海的那一边。游回去会让你浑身湿透、筋疲力尽，而且需要白天才能看清礁石。
+Far_Territory_PathGullStackBleakStrand_DA_Travel,Swim to Bleak Strand,游往荒凉海滩
+Far_Territory_PathGullStackBleakStrand_DA_Travel_Desc,Swim across the open water to Bleak Strand. It takes about half an hour and leaves you soaked and tired.,横渡开阔的海面游往荒凉海滩。大约需要半小时，会让你浑身湿透、筋疲力尽。
+Far_Territory_PathGullStackBleakStrand_DA_Travel_Fade,Swimming to Bleak Strand...,正在游往荒凉海滩……
+Far_Territory_PathCliffboundCoveGullStack_CardName,Swim to Gull Stack,游往海鸥石柱
+Far_Territory_PathCliffboundCoveGullStack_CardDescription,"Gull Stack stands off the shore across open water, a hard swim away. Swimming there soaks you through and tires you, and you need daylight to see the rocks.",海鸥石柱矗立在近岸的开阔海面上，要奋力游上一阵才能到。游过去会让你浑身湿透、筋疲力尽，而且需要白天才能看清礁石。
+Far_Territory_PathCliffboundCoveGullStack_DA_Travel,Swim to Gull Stack,游往海鸥石柱
+Far_Territory_PathCliffboundCoveGullStack_DA_Travel_Desc,Swim across the open water to Gull Stack. It takes about half an hour and leaves you soaked and tired.,横渡开阔的海面游往海鸥石柱。大约需要半小时，会让你浑身湿透、筋疲力尽。
+Far_Territory_PathCliffboundCoveGullStack_DA_Travel_Fade,Swimming to Gull Stack...,正在游往海鸥石柱……
+Far_Territory_PathGullStackCliffboundCove_CardName,Swim to Cliffbound Cove,游往崖环海湾
+Far_Territory_PathGullStackCliffboundCove_CardDescription,"Across the water lies Cliffbound Cove. Swimming back soaks you through and tires you, and you need daylight to see the rocks.",崖环海湾就在海的那一边。游回去会让你浑身湿透、筋疲力尽，而且需要白天才能看清礁石。
+Far_Territory_PathGullStackCliffboundCove_DA_Travel,Swim to Cliffbound Cove,游往崖环海湾
+Far_Territory_PathGullStackCliffboundCove_DA_Travel_Desc,Swim across the open water to Cliffbound Cove. It takes about half an hour and leaves you soaked and tired.,横渡开阔的海面游往崖环海湾。大约需要半小时，会让你浑身湿透、筋疲力尽。
+Far_Territory_PathGullStackCliffboundCove_DA_Travel_Fade,Swimming to Cliffbound Cove...,正在游往崖环海湾……
+Far_Territory_PathLandfallStrandPalmFringe_CardName,Path to Palm Fringe,前往棕榈林缘
+Far_Territory_PathLandfallStrandPalmFringe_CardDescription,A few steps through the scrub at the top of the beach bring you to Palm Fringe.,穿过沙滩上方的灌木丛，走几步便到棕榈林缘。
+Far_Territory_PathLandfallStrandPalmFringe_DA_Travel,Walk to Palm Fringe,步行前往棕榈林缘
+Far_Territory_PathLandfallStrandPalmFringe_DA_Travel_Desc,Walk through the scrub to Palm Fringe. It is only a few steps.,穿过灌木丛前往棕榈林缘。只需走几步。
+Far_Territory_PathLandfallStrandPalmFringe_DA_Travel_Fade,Walking to Palm Fringe...,正在步行前往棕榈林缘……
+Far_Territory_PathPalmFringeLandfallStrand_CardName,Path to Landfall Strand,前往登陆海滩
+Far_Territory_PathPalmFringeLandfallStrand_CardDescription,A few steps through the scrub at the top of the beach bring you to Landfall Strand.,穿过沙滩上方的灌木丛，走几步便到登陆海滩。
+Far_Territory_PathPalmFringeLandfallStrand_DA_Travel,Walk to Landfall Strand,步行前往登陆海滩
+Far_Territory_PathPalmFringeLandfallStrand_DA_Travel_Desc,Walk through the scrub to Landfall Strand. It is only a few steps.,穿过灌木丛前往登陆海滩。只需走几步。
+Far_Territory_PathPalmFringeLandfallStrand_DA_Travel_Fade,Walking to Landfall Strand...,正在步行前往登陆海滩……
+Far_Territory_PathCoralInletRootwaterThicket_CardName,Path to Rootwater Thicket,前往根水丛林
+Far_Territory_PathCoralInletRootwaterThicket_CardDescription,"A long way round along the shore, over rocks and through mud, to Rootwater Thicket.",沿着海岸绕一大圈，翻过礁石、穿过泥滩，前往根水丛林。
+Far_Territory_PathCoralInletRootwaterThicket_DA_Travel,Walk to Rootwater Thicket,步行前往根水丛林
+Far_Territory_PathCoralInletRootwaterThicket_DA_Travel_Desc,Follow the shore the long way round to Rootwater Thicket. It takes about half an hour.,沿着海岸绕远路前往根水丛林。大约需要半小时。
+Far_Territory_PathCoralInletRootwaterThicket_DA_Travel_Fade,Walking to Rootwater Thicket...,正在步行前往根水丛林……
+Far_Territory_PathRootwaterThicketCoralInlet_CardName,Path to Coral Inlet,前往珊瑚水湾
+Far_Territory_PathRootwaterThicketCoralInlet_CardDescription,"A long way round along the shore, over rocks and through mud, to Coral Inlet.",沿着海岸绕一大圈，翻过礁石、穿过泥滩，前往珊瑚水湾。
+Far_Territory_PathRootwaterThicketCoralInlet_DA_Travel,Walk to Coral Inlet,步行前往珊瑚水湾
+Far_Territory_PathRootwaterThicketCoralInlet_DA_Travel_Desc,Follow the shore the long way round to Coral Inlet. It takes about half an hour.,沿着海岸绕远路前往珊瑚水湾。大约需要半小时。
+Far_Territory_PathRootwaterThicketCoralInlet_DA_Travel_Fade,Walking to Coral Inlet...,正在步行前往珊瑚水湾……
+Far_Territory_PathRootwaterThicketBleakStrand_CardName,Path to Bleak Strand,前往荒凉海滩
+Far_Territory_PathRootwaterThicketBleakStrand_CardDescription,"A long way round along the shore, over rocks and through mud, to Bleak Strand.",沿着海岸绕一大圈，翻过礁石、穿过泥滩，前往荒凉海滩。
+Far_Territory_PathRootwaterThicketBleakStrand_DA_Travel,Walk to Bleak Strand,步行前往荒凉海滩
+Far_Territory_PathRootwaterThicketBleakStrand_DA_Travel_Desc,Follow the shore the long way round to Bleak Strand. It takes about half an hour.,沿着海岸绕远路前往荒凉海滩。大约需要半小时。
+Far_Territory_PathRootwaterThicketBleakStrand_DA_Travel_Fade,Walking to Bleak Strand...,正在步行前往荒凉海滩……
+Far_Territory_PathBleakStrandRootwaterThicket_CardName,Path to Rootwater Thicket,前往根水丛林
+Far_Territory_PathBleakStrandRootwaterThicket_CardDescription,"A long way round along the shore, over rocks and through mud, to Rootwater Thicket.",沿着海岸绕一大圈，翻过礁石、穿过泥滩，前往根水丛林。
+Far_Territory_PathBleakStrandRootwaterThicket_DA_Travel,Walk to Rootwater Thicket,步行前往根水丛林
+Far_Territory_PathBleakStrandRootwaterThicket_DA_Travel_Desc,Follow the shore the long way round to Rootwater Thicket. It takes about half an hour.,沿着海岸绕远路前往根水丛林。大约需要半小时。
+Far_Territory_PathBleakStrandRootwaterThicket_DA_Travel_Fade,Walking to Rootwater Thicket...,正在步行前往根水丛林……
+Far_Territory_LandfallStrand_DA_East,East,东方
+Far_Territory_LandfallStrand_DA_East_Fade,Travelling East...,向东移动……
+Far_Territory_Canoe_CardName,Dugout Canoe,独木舟
+Far_Territory_Canoe_CardDescription,"A dugout canoe hollowed from a tree log, its seams patched with bark. On a flowing river it carries you and your load all the way down to Brackwater Mouth, the river's end, in about an hour. It cannot be paddled upstream, on a lake, a marsh or a frozen river, and it is heavy to carry.",一艘用树干挖空制成的独木舟，接缝处用树皮修补过。在流动的河上，它能载着你和你的货物一路顺流而下，直达河流尽头的咸水河口，约需一小时。它无法逆流划行，也不能在湖泊、沼泽或冰封的河上使用，而且搬运起来很重。
+Far_Territory_Canoe_DA_Paddle,Paddle Downstream,顺流而下
+Far_Territory_Canoe_DA_Paddle_Desc,"Push off into the current and let the river carry you down to Brackwater Mouth, where it meets the sea. About an hour.",撑离岸边进入水流，让河水把你带到入海处的咸水河口。约需一小时。
+Far_Territory_Canoe_DA_Paddle_Fade,Paddling downstream...,顺流划行中……
+Far_Territory_BpCanoe_CardName,Dugout Canoe,独木舟
+Far_Territory_BpCanoe_CardDescription,"A dugout canoe that paddles you down a flowing river to Brackwater Mouth. Requires a tree log, 2 oak bark and a cutting tool.",一艘能载你沿流动的河流顺流而下、直达咸水河口的独木舟。需要一根树干、2块橡树皮和一把切割工具。
+Far_Territory_BpCanoe_UnlockConditionsDesc,Unlocked after obtaining a Tree Log,获得树干后解锁
+Far_Territory_VineWoods_CardName,Vine Woods,藤蔓森林
+Far_Territory_VineWoods_CardDescription,"A tangled wood of vine-hung trees under a close green roof. The light comes down in coins, the air is thick and wet, and every trunk is wrapped in creepers. The sea breeze is a short walk to the west.",一片藤蔓缠绕的密林，头顶是浓密的绿色穹顶。阳光碎成一枚枚光斑洒落，空气湿热厚重，每根树干都裹满了藤蔓。往西走不远便能吹到海风。
+Far_Territory_VineWoods_Gleanings,Gleanings,拾遗
+Far_Territory_VineWoods_DA_Forage,Forage,觅食
+Far_Territory_VineWoods_DA_Forage_Desc,"Push through the undergrowth for sticks, fibres and stones, and the mud where the roots hold water.",钻进灌木丛寻找树枝、纤维和石头，以及树根蓄水处的泥巴。
+Far_Territory_VineWoods_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_VineWoods_DA_East,East,东方
+Far_Territory_VineWoods_DA_East_Fade,Travelling East...,向东移动……
+Far_Territory_VineWoods_DA_South,South,南方
+Far_Territory_VineWoods_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_Env_VineWoods_CardName,Vine Woods,藤蔓森林
+Far_Territory_WestgrassPlain_CardName,Westgrass Plain,西草平原
+Far_Territory_WestgrassPlain_CardDescription,"A wide, open plain of tall pale grass, bright after the woods. The wind runs through it in long waves, and the ground rises gently to the south.",一片开阔的平原，长满高高的淡色野草，走出树林后显得格外明亮。风吹过草地，掀起长长的草浪，地势向南缓缓升高。
+Far_Territory_WestgrassPlain_Gleanings,Gleanings,拾遗
+Far_Territory_WestgrassPlain_DA_Forage,Forage,觅食
+Far_Territory_WestgrassPlain_DA_Forage_Desc,"Walk the grass for tough fibres, loose stones and the odd stick.",在草地里寻找坚韧的纤维、散落的石头和偶尔可见的树枝。
+Far_Territory_WestgrassPlain_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_WestgrassPlain_DA_East,East,东方
+Far_Territory_WestgrassPlain_DA_East_Fade,Travelling East...,向东移动……
+Far_Territory_Env_WestgrassPlain_CardName,Westgrass Plain,西草平原
+Far_Territory_EastgrassPlain_CardName,Eastgrass Plain,东草平原
+Far_Territory_EastgrassPlain_CardDescription,"The eastern half of the grassland: knee-high grass dotted with scrub, with a grey beach showing beyond it to the east.",草原的东半部：齐膝高的野草间点缀着灌木，东边草地尽头露出一片灰色的海滩。
+Far_Territory_EastgrassPlain_Gleanings,Gleanings,拾遗
+Far_Territory_EastgrassPlain_DA_Forage,Forage,觅食
+Far_Territory_EastgrassPlain_DA_Forage_Desc,"Walk the grass for fibres, stones and dry twigs.",在草地里寻找纤维、石头和干树枝。
+Far_Territory_EastgrassPlain_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_Env_EastgrassPlain_CardName,Eastgrass Plain,东草平原
+Far_Territory_ReedMarsh_CardName,Reed Marsh,芦苇沼泽
+Far_Territory_ReedMarsh_CardDescription,"Low ground of standing water, black mud and tall reeds. The air hums with insects, and the way south goes deeper into the trees. A broken rock face rises to the east.",一片低洼地，积水、黑泥和高高的芦苇遍布其间。空气中满是虫鸣，往南则深入林中。东边耸立着一面破碎的岩壁。
+Far_Territory_ReedMarsh_Gleanings,Gleanings,拾遗
+Far_Territory_ReedMarsh_DA_Forage,Forage,觅食
+Far_Territory_ReedMarsh_DA_Forage_Desc,"Wade the edges for mud, reed fibres and sticks.",沿着沼泽边缘涉水，寻找泥巴、芦苇纤维和树枝。
+Far_Territory_ReedMarsh_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_ReedMarsh_DA_South,South,南方
+Far_Territory_ReedMarsh_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_Env_ReedMarsh_CardName,Reed Marsh,芦苇沼泽
+Far_Territory_GreenDeep_CardName,Green Deep,绿荫深处
+Far_Territory_GreenDeep_CardDescription,"The wood closed over completely: great trunks, a roof so thick it is dusk at noon, and a floor of leaf mould that gives underfoot. Paths of a kind lead off east and south.",树林在此完全合拢：参天的树干，浓密的树冠让正午也如黄昏，脚下的腐叶土踩上去软软下陷。有几条勉强算是小路的痕迹通向东边和南边。
+Far_Territory_GreenDeep_Gleanings,Gleanings,拾遗
+Far_Territory_GreenDeep_DA_Forage,Forage,觅食
+Far_Territory_GreenDeep_DA_Forage_Desc,"Search the dim forest floor for fallen sticks, fibres and mud.",在昏暗的林地上寻找掉落的树枝、纤维和泥巴。
+Far_Territory_GreenDeep_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_GreenDeep_DA_East,East,东方
+Far_Territory_GreenDeep_DA_East_Fade,Travelling East...,向东移动……
+Far_Territory_GreenDeep_DA_South,South,南方
+Far_Territory_GreenDeep_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_Env_GreenDeep_CardName,Green Deep,绿荫深处
+Far_Territory_MistyRidge_CardName,Misty Ridge,迷雾山脊
+Far_Territory_MistyRidge_CardDescription,"A high, windswept ridge of broken rock and stunted trees, wrapped in drifting cloud. Cliffs drop away to the west, and the green of the forest lies far below.",一道高耸的山脊，狂风呼啸，遍布碎石和矮小的树木，笼罩在飘动的云雾中。西边是陡峭的悬崖，森林的绿意远在下方。
+Far_Territory_MistyRidge_Gleanings,Gleanings,拾遗
+Far_Territory_MistyRidge_DA_Forage,Forage,觅食
+Far_Territory_MistyRidge_DA_Forage_Desc,"Pick over the rock and scrub for stones, flint and sticks.",在岩石和灌木间翻找石头、燧石和树枝。
+Far_Territory_MistyRidge_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_Env_MistyRidge_CardName,Misty Ridge,迷雾山脊
+Far_Territory_HiddenVale_CardName,Hidden Vale,隐秘山谷
+Far_Territory_HiddenVale_CardDescription,"A small green valley closed in on every side, with a quiet stream and soft ground. Nothing in it has been disturbed for a very long time.",一座四面合围的绿色小山谷，有一条安静的小溪和松软的土地。这里的一切已经很久很久没有被打扰过了。
+Far_Territory_HiddenVale_Gleanings,Gleanings,拾遗
+Far_Territory_HiddenVale_DA_Forage,Forage,觅食
+Far_Territory_HiddenVale_DA_Forage_Desc,"Search the valley floor for stones, sticks, fibres and mud.",在谷底寻找石头、树枝、纤维和泥巴。
+Far_Territory_HiddenVale_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_Env_HiddenVale_CardName,Hidden Vale,隐秘山谷
+Far_Territory_PathPalmFringeVineWoods_DA_Travel,Walk to Vine Woods,步行前往藤蔓森林
+Far_Territory_PathPalmFringeVineWoods_DA_Travel_Desc,Follow the trail inland from the scrub into the jungle. It takes about half an hour.,沿着小径从灌木丛深入丛林。大约需要半小时。
+Far_Territory_PathPalmFringeVineWoods_DA_Travel_Fade,Walking into the jungle...,走进丛林……
+Far_Territory_PathPalmFringeVineWoods_CardName,Path to Vine Woods,前往藤蔓森林
+Far_Territory_PathPalmFringeVineWoods_CardDescription,"A trail from the back of the beach into the jungle: a few steps of scrub, then the trees close over.",一条从海滩后方通往丛林的小径：穿过几步灌木丛，树木便在头顶合拢。
+Far_Territory_PathVineWoodsPalmFringe_DA_Travel,Walk to Palm Fringe,步行前往棕榈林缘
+Far_Territory_PathVineWoodsPalmFringe_DA_Travel_Desc,Follow the trail back out of the jungle to the palms and the sand. It takes about half an hour.,沿着小径走出丛林，回到棕榈树和沙滩。大约需要半小时。
+Far_Territory_PathVineWoodsPalmFringe_DA_Travel_Fade,Walking back to the beach...,走回海滩……
+Far_Territory_PathVineWoodsPalmFringe_CardName,Path to Palm Fringe,前往棕榈林缘
+Far_Territory_PathVineWoodsPalmFringe_CardDescription,A trail out of the jungle to the beach: the trees thin and the light comes up white.,一条走出丛林通往海滩的小径：树木渐稀，光线变得白亮。
+Far_Territory_PathCliffboundCoveMistyRidge_DA_Climb,Climb Up to Misty Ridge,爬上迷雾山脊
+Far_Territory_PathCliffboundCoveMistyRidge_DA_Climb_Desc,Scramble up the cliff to Misty Ridge. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,攀上悬崖前往迷雾山脊。技巧和稳固的抓手能降低坠落的可能；疲惫的攀爬者必定会坠落。大约需要一刻钟。
+Far_Territory_PathCliffboundCoveMistyRidge_DA_Climb_Fade,Climbing the cliff...,攀爬悬崖……
+Far_Territory_PathCliffboundCoveMistyRidge_CardName,Climb to Misty Ridge,爬上迷雾山脊
+Far_Territory_PathCliffboundCoveMistyRidge_CardDescription,"A steep stony scramble up the cliffs behind the cove to the ridge above. A fall hurts, and a tired climber is sure to fall.",一段陡峭的碎石攀爬路线，从海湾后的悬崖通往上方的山脊。坠落会受伤，疲惫的攀爬者必定会坠落。
+Far_Territory_PathMistyRidgeCliffboundCove_DA_Climb,Climb Down to Cliffbound Cove,爬下崖环海湾
+Far_Territory_PathMistyRidgeCliffboundCove_DA_Climb_Desc,Climb down the cliff to Cliffbound Cove. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,沿悬崖爬下前往崖环海湾。技巧和稳固的抓手能降低坠落的可能；疲惫的攀爬者必定会坠落。大约需要一刻钟。
+Far_Territory_PathMistyRidgeCliffboundCove_DA_Climb_Fade,Climbing down the cliff...,爬下悬崖……
+Far_Territory_PathMistyRidgeCliffboundCove_CardName,Climb down to Cliffbound Cove,爬下崖环海湾
+Far_Territory_PathMistyRidgeCliffboundCove_CardDescription,"A steep climb down the cliffs to a hidden cove. A fall hurts, and a tired climber is sure to fall.",一段陡峭的下崖路线，通往一处隐蔽的海湾。坠落会受伤，疲惫的攀爬者必定会坠落。
+Far_Territory_PathReedMarshMistyRidge_DA_Climb,Climb Up to Misty Ridge,爬上迷雾山脊
+Far_Territory_PathReedMarshMistyRidge_DA_Climb_Desc,Climb the broken rock face up to Misty Ridge. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,攀上破碎的岩壁前往迷雾山脊。技巧和稳固的抓手能降低坠落的可能；疲惫的攀爬者必定会坠落。大约需要一刻钟。
+Far_Territory_PathReedMarshMistyRidge_DA_Climb_Fade,Climbing the rock face...,攀爬岩壁……
+Far_Territory_PathReedMarshMistyRidge_CardName,Climb to Misty Ridge,爬上迷雾山脊
+Far_Territory_PathReedMarshMistyRidge_CardDescription,"A broken rock face above the marsh, steep but climbable, leads up to the ridge. A fall hurts, and a tired climber is sure to fall.",沼泽上方一面破碎的岩壁，陡峭但可以攀爬，通往山脊。坠落会受伤，疲惫的攀爬者必定会坠落。
+Far_Territory_PathMistyRidgeReedMarsh_DA_Climb,Climb Down to Reed Marsh,爬下芦苇沼泽
+Far_Territory_PathMistyRidgeReedMarsh_DA_Climb_Desc,Climb down the rock face to Reed Marsh. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,沿岩壁爬下前往芦苇沼泽。技巧和稳固的抓手能降低坠落的可能；疲惫的攀爬者必定会坠落。大约需要一刻钟。
+Far_Territory_PathMistyRidgeReedMarsh_DA_Climb_Fade,Climbing down the rock face...,爬下岩壁……
+Far_Territory_PathMistyRidgeReedMarsh_CardName,Climb down to Reed Marsh,爬下芦苇沼泽
+Far_Territory_PathMistyRidgeReedMarsh_CardDescription,"A rock face drops from the ridge to the marsh below. A fall hurts, and a tired climber is sure to fall.",一面岩壁从山脊直落下方的沼泽。坠落会受伤，疲惫的攀爬者必定会坠落。
+Far_Territory_CoralInlet_DA_East,East,东方
+Far_Territory_CoralInlet_DA_East_Fade,Travelling East...,向东移动……
+Far_Territory_RootwaterThicket_DA_South,South,南方
+Far_Territory_RootwaterThicket_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_BleakStrand_DA_West,West,西方
+Far_Territory_BleakStrand_DA_West_Fade,Travelling West...,向西移动……
+Far_Territory_CoconutGreen_Spoilage,Spoilage,变质
+Far_Territory_CoconutGreen_Spoiled,The coconut has gone bad in its husk.,这颗椰子在外皮里坏掉了。
+Far_Territory_CoconutGreen_CI_Husk,Husk the Coconut,剥椰子皮
+Far_Territory_CoconutGreen_CI_Husk_Desc,"Cut the husk off with a blade or an axe. The husk comes apart into fibre, and the hard nut inside is left.",用刀刃或斧头削去外皮。外皮会散成纤维，只留下里面坚硬的椰子。
+Far_Territory_CoconutGreen_CardName,Green Coconut,青椰子
+Far_Territory_CoconutGreen_CardDescription,"A coconut still in its thick fibrous husk, heavy as a stone. Cut the husk away with a blade or an axe.",一颗还裹着厚厚纤维外皮的椰子，沉得像块石头。用刀刃或斧头把外皮削掉。
+Far_Territory_Coconut_Spoilage,Spoilage,变质
+Far_Territory_Coconut_Spoiled,The coconut has gone bad.,这颗椰子坏掉了。
+Far_Territory_Coconut_CI_Crack,Crack Open,敲开
+Far_Territory_Coconut_CI_Crack_Desc,"Strike the nut open on its seam. You get the water, the white meat and half the shell to keep as a bowl.",沿着椰子的接缝将它敲开。你会得到椰子水、白色的椰肉，以及半个可以留作碗的椰壳。
+Far_Territory_Coconut_CardName,Husked Coconut,去皮椰子
+Far_Territory_Coconut_CardDescription,"A brown, hard-shelled coconut with the husk off. Strike it open with a hammer, stone or the back of an axe: the water, the meat and a shell bowl are inside.",一颗去了外皮的棕色硬壳椰子。用锤子、石头或斧背把它敲开：里面有椰子水、椰肉和一只椰壳碗。
+Far_Territory_CoconutWater_Spoilage,Spoilage,变质
+Far_Territory_CoconutWater_Spoiled,The coconut water has turned.,椰子水已经变质了。
+Far_Territory_CoconutWater_DA_Drink,Drink,饮用
+Far_Territory_CoconutWater_DA_Drink_Desc,Drink the coconut water.,喝下椰子水。
+Far_Territory_CoconutWater_CardName,Coconut Water,椰子水
+Far_Territory_CoconutWater_CardDescription,"The clear, faintly sweet water of a fresh coconut, caught in the cracked shell. It does not keep.",新鲜椰子里清澈、微甜的汁水，盛在敲开的椰壳里。放不了多久。
+Far_Territory_CoconutMeat_Spoilage,Spoilage,变质
+Far_Territory_CoconutMeat_Spoiled,The coconut meat has spoiled.,椰肉已经变质了。
+Far_Territory_CoconutMeat_DA_Eat,Eat,吃掉
+Far_Territory_CoconutMeat_DA_Eat_Desc,Eat the coconut meat raw.,生吃椰肉。
+Far_Territory_CoconutMeat_CardName,Coconut Meat,椰肉
+Far_Territory_CoconutMeat_CardDescription,"White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy.",从敲开的椰子里取出的果肉，洁白、紧实、富含油脂。生吃就很顶饱，还能提供不少体力。
+Far_Territory_CoconutShellBowl_CardName,Coconut Shell Bowl,椰壳碗
+Far_Territory_CoconutShellBowl_CardDescription,"Half a coconut shell, smoothed inside. It holds a drink and, left out in the open, catches rain.",半个椰壳，内侧已经磨光。可以盛饮品，放在露天还能接雨水。
+Far_Territory_PalmFrond_FuelCapacity,Fuel,燃料
+Far_Territory_PalmFrond_CardName,Palm Frond,棕榈叶
+Far_Territory_PalmFrond_CardDescription,"A long, tough leaf of the palm. Dry, it burns quickly as weak fuel.",棕榈树又长又韧的叶子。晒干后可作燃料，烧得很快，火力较弱。
+Far_Territory_Palm_DA_Climb,Climb the Palm,爬上椰子树
+Far_Territory_Palm_DA_Climb_Desc,"Shinny up the trunk and twist a coconut loose. Skill and a climbing aid make a fall less likely; a tired climber is sure to fall, and a fall shakes the nut loose where it is lost. Takes about half an hour.",顺着树干爬上去，拧下一颗椰子。技巧和攀爬辅助能降低坠落的可能；疲惫的攀爬者必定会坠落，坠落时椰子会脱手掉落而丢失。大约需要半小时。
+Far_Territory_Palm_DA_Climb_Fail,No coconut is ripe on this palm yet,这棵树上还没有成熟的椰子
+Far_Territory_Palm_CI_Fell,Fell the Palm,砍倒椰子树
+Far_Territory_Palm_CI_Fell_Desc,"Chop the palm down. Every nut still in the crown comes down with it, with the fronds, and a shoot will rise from the stump in time. The palm is gone for a month or more.",把椰子树砍倒。树冠上剩下的所有椰子都会连同棕榈叶一起落下，过段时间树桩上会长出新芽。这棵树会消失一个月或更久。
+Far_Territory_Palm_CardName,Coconut Palm,椰子树
+Far_Territory_Palm_CardDescription,"A tall, leaning palm with a crown of green nuts. Climb it to pick a coconut, or fell it for the lot. The crown slowly bears again.",一棵高高的、斜倚的椰子树，树冠上挂着青椰子。爬上去可以摘一颗椰子，砍倒则能全部收下。树冠会慢慢重新结果。
+Far_Territory_Palm_Coconuts,Coconuts,椰子
+Far_Territory_PalmCleared_CardName,Felled Palm,倒下的棕榈树
+Far_Territory_PalmCleared_CardDescription,A palm stump and a few strips of trunk. A green shoot will rise from it in about ten days.,一截棕榈树桩和几段树干残片。大约十天后会长出一株绿芽。
+Far_Territory_PalmCleared_Sprouting,Sprouting,发芽
+Far_Territory_PalmCleared_Sprouted,A shoot rises from the palm stump.,棕榈树桩上长出了新芽。
+Far_Territory_PalmYoung_CardName,Young Palm,棕榈幼树
+Far_Territory_PalmYoung_CardDescription,"A young palm, still waist high. It will grow into a full coconut palm in about a month, unless you cut it for its fronds.",一棵还只齐腰高的棕榈幼树。大约一个月后会长成一棵完整的椰子树，除非你把它砍下来取叶子。
+Far_Territory_PalmYoung_Growth,Growth,成长度
+Far_Territory_PalmYoung_Grown,The young palm has grown into a coconut palm.,棕榈幼树已经长成了椰子树。
+Far_Territory_PalmYoung_CI_Cut,Cut the Young Palm,砍下幼树
+Far_Territory_PalmYoung_CI_Cut_Desc,Cut the young palm down for its fronds. It will not grow back.,砍下棕榈幼树获取棕榈叶。它不会再长回来。
+Far_Territory_Pop_Goatfish_StatName,Population Goatfish,羊鱼数量
+Far_Territory_Pop_Goatfish_StatDescription,"Hidden: how many goatfish the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的羊鱼数量。每次捕获减少1000，每个时段恢复2；数量越多，越容易捕获。
+Far_Territory_Pop_Parrotfish_StatName,Population Parrotfish,鹦嘴鱼数量
+Far_Territory_Pop_Parrotfish_StatDescription,"Hidden: how many parrotfish the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的鹦嘴鱼数量。每次捕获减少1000，每个时段恢复2；数量越多，越容易捕获。
+Far_Territory_Pop_Bonefish_StatName,Population Bonefish,北梭鱼数量
+Far_Territory_Pop_Bonefish_StatDescription,"Hidden: how many bonefish the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的北梭鱼数量。每次捕获减少1000，每个时段恢复2；数量越多，越容易捕获。
+Far_Territory_Pop_Herring_StatName,Population Silver Herring,银鲱数量
+Far_Territory_Pop_Herring_StatDescription,"Hidden: how many silver herring the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的银鲱数量。每次捕获减少1000，每个时段恢复2；数量越多，越容易捕获。
+Far_Territory_Pop_Grouper_StatName,Population Reef Grouper,礁石斑鱼数量
+Far_Territory_Pop_Grouper_StatDescription,"Hidden: how many reef grouper the sea still holds. Each catch lowers it by 1000 and it regrows 1 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的礁石斑鱼数量。每次捕获减少1000，每个时段恢复1；数量越多，越容易捕获。
+Far_Territory_Pop_Threadfin_StatName,Population Threadfin,马鲅数量
+Far_Territory_Pop_Threadfin_StatDescription,"Hidden: how many threadfin the sea still holds. Each catch lowers it by 1000 and it regrows 1 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的马鲅数量。每次捕获减少1000，每个时段恢复1；数量越多，越容易捕获。
+Far_Territory_Pop_Mudskipper_StatName,Population Mudskipper,弹涂鱼数量
+Far_Territory_Pop_Mudskipper_StatDescription,"Hidden: how many mudskipper the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的弹涂鱼数量。每次捕获减少1000，每个时段恢复2；数量越多，越容易捕获。
+Far_Territory_Pop_Conch_StatName,Population Conch,海螺数量
+Far_Territory_Pop_Conch_StatDescription,"Hidden: how many conch the sea still holds. Each catch lowers it by 1000 and it regrows 1 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的海螺数量。每次捕获减少1000，每个时段恢复1；数量越多，越容易捕获。
+Far_Territory_Pop_Oyster_StatName,Population Oyster,牡蛎数量
+Far_Territory_Pop_Oyster_StatDescription,"Hidden: how many oyster the sea still holds. Each catch lowers it by 1000 and it regrows 0.5 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的牡蛎数量。每次捕获减少1000，每个时段恢复0.5；数量越多，越容易捕获。
+Far_Territory_Pop_Urchin_StatName,Population Sea Urchin,海胆数量
+Far_Territory_Pop_Urchin_StatDescription,"Hidden: how many sea urchin the sea still holds. Each catch lowers it by 1000 and it regrows 0.5 a tick; the fuller it is, the likelier a catch.",隐藏：海中尚存的海胆数量。每次捕获减少1000，每个时段恢复0.5；数量越多，越容易捕获。
+Far_Territory_Goatfish_CardName,Goatfish,羊鱼
+Far_Territory_Goatfish_CardDescription,"A slim yellow-barred fish that roots along the sand on two chin whiskers. Sweet, mild meat.",一种修长的黄纹鱼，靠下巴上的两根须子在沙中翻找食物。肉质鲜甜温和。
+Far_Territory_Goatfish_Spoilage,Spoilage,变质
+Far_Territory_Goatfish_Spoiled,The goatfish has spoiled.,这条羊鱼已经变质了。
+Far_Territory_Goatfish_DA_Eat,Eat Raw,生吃
+Far_Territory_Goatfish_DA_Eat_Desc,Eat the goatfish as it is.,直接生吃这条羊鱼。
+Far_Territory_Parrotfish_CardName,Parrotfish,鹦嘴鱼
+Far_Territory_Parrotfish_CardDescription,"A blunt-headed fish in blue and green, with a hard beak for scraping coral. Firm, white meat.",一种钝头鱼，身披蓝绿色，长着用来刮食珊瑚的硬喙。肉质紧实洁白。
+Far_Territory_Parrotfish_Spoilage,Spoilage,变质
+Far_Territory_Parrotfish_Spoiled,The parrotfish has spoiled.,这条鹦嘴鱼已经变质了。
+Far_Territory_Parrotfish_DA_Eat,Eat Raw,生吃
+Far_Territory_Parrotfish_DA_Eat_Desc,Eat the parrotfish as it is.,直接生吃这条鹦嘴鱼。
+Far_Territory_Bonefish_CardName,Bonefish,北梭鱼
+Far_Territory_Bonefish_CardDescription,"A silver, torpedo-bodied fish of the shallow flats. It fights hard and is full of fine bones, but the meat is good.",一种生活在浅滩的银色鱼，身形如鱼雷。挣扎起来很凶，满是细刺，但肉很好吃。
+Far_Territory_Bonefish_Spoilage,Spoilage,变质
+Far_Territory_Bonefish_Spoiled,The bonefish has spoiled.,这条北梭鱼已经变质了。
+Far_Territory_Bonefish_DA_Eat,Eat Raw,生吃
+Far_Territory_Bonefish_DA_Eat_Desc,Eat the bonefish as it is.,直接生吃这条北梭鱼。
+Far_Territory_SilverHerring_CardName,Silver Herring,银鲱
+Far_Territory_SilverHerring_CardDescription,"A small shoaling fish, bright as a coin. Oily, and quick to spoil.",一种成群游动的小鱼，亮得像枚硬币。油脂丰富，很快就会变质。
+Far_Territory_SilverHerring_Spoilage,Spoilage,变质
+Far_Territory_SilverHerring_Spoiled,The silver herring has spoiled.,这条银鲱已经变质了。
+Far_Territory_SilverHerring_DA_Eat,Eat Raw,生吃
+Far_Territory_SilverHerring_DA_Eat_Desc,Eat the silver herring as it is.,直接生吃这条银鲱。
+Far_Territory_ReefGrouper_CardName,Reef Grouper,礁石斑鱼
+Far_Territory_ReefGrouper_CardDescription,"A heavy, thick-lipped fish that lies in the reef shade. A great deal of meat on it.",一种肥厚的厚唇鱼，栖息在礁石的阴影里。身上肉很多。
+Far_Territory_ReefGrouper_Spoilage,Spoilage,变质
+Far_Territory_ReefGrouper_Spoiled,The reef grouper has spoiled.,这条礁石斑鱼已经变质了。
+Far_Territory_ReefGrouper_DA_Eat,Eat Raw,生吃
+Far_Territory_ReefGrouper_DA_Eat_Desc,Eat the reef grouper as it is.,直接生吃这条礁石斑鱼。
+Far_Territory_Threadfin_CardName,Threadfin,马鲅
+Far_Territory_Threadfin_CardDescription,"A pale fish of the brackish shallows, with long threads trailing from its fins. Rich and fatty.",一种生活在咸淡水浅滩的浅色鱼，鳍上拖着长长的丝状鳍条。肉质肥美丰腴。
+Far_Territory_Threadfin_Spoilage,Spoilage,变质
+Far_Territory_Threadfin_Spoiled,The threadfin has spoiled.,这条马鲅已经变质了。
+Far_Territory_Threadfin_DA_Eat,Eat Raw,生吃
+Far_Territory_Threadfin_DA_Eat_Desc,Eat the threadfin as it is.,直接生吃这条马鲅。
+Far_Territory_Mudskipper_CardName,Mudskipper,弹涂鱼
+Far_Territory_Mudskipper_CardDescription,A small fish that crawls out onto the mud and watches you with bulging eyes. More bone than meat.,一种会爬到泥滩上的小鱼，用鼓起的眼睛盯着你看。骨头比肉还多。
+Far_Territory_Mudskipper_Spoilage,Spoilage,变质
+Far_Territory_Mudskipper_Spoiled,The mudskipper has spoiled.,这条弹涂鱼已经变质了。
+Far_Territory_Mudskipper_DA_Eat,Eat Raw,生吃
+Far_Territory_Mudskipper_DA_Eat_Desc,Eat the mudskipper as it is.,直接生吃这条弹涂鱼。
+Far_Territory_Conch_CardName,Conch,海螺
+Far_Territory_Conch_CardDescription,"A spiralled shell the size of a fist, with a muscular foot inside. Tough but good when chewed long.",一只拳头大小的螺旋形贝壳，里面藏着肌肉发达的螺足。肉质坚韧，但久嚼之后滋味不错。
+Far_Territory_Conch_Spoilage,Spoilage,变质
+Far_Territory_Conch_Spoiled,The conch has spoiled.,这只海螺已经变质了。
+Far_Territory_Conch_DA_Eat,Eat Raw,生吃
+Far_Territory_Conch_DA_Eat_Desc,"Open the conch and eat what is inside, raw.",打开海螺，生吃里面的肉。
+Far_Territory_Oyster_CardName,Oyster,牡蛎
+Far_Territory_Oyster_CardDescription,"A rough, grey shell that opens on a plump, salty oyster.",一枚粗糙的灰色贝壳，打开后是一只饱满咸鲜的牡蛎。
+Far_Territory_Oyster_Spoilage,Spoilage,变质
+Far_Territory_Oyster_Spoiled,The oyster has spoiled.,这只牡蛎已经变质了。
+Far_Territory_Oyster_DA_Eat,Eat Raw,生吃
+Far_Territory_Oyster_DA_Eat_Desc,"Open the oyster and eat what is inside, raw.",打开牡蛎，生吃里面的肉。
+Far_Territory_SeaUrchin_CardName,Sea Urchin,海胆
+Far_Territory_SeaUrchin_CardDescription,"A black ball of spines. Opened with care, the orange roe inside is rich.",一团黑色的刺球。小心打开，里面橙色的海胆黄十分鲜美。
+Far_Territory_SeaUrchin_Spoilage,Spoilage,变质
+Far_Territory_SeaUrchin_Spoiled,The sea urchin has spoiled.,这只海胆已经变质了。
+Far_Territory_SeaUrchin_DA_Eat,Eat Raw,生吃
+Far_Territory_SeaUrchin_DA_Eat_Desc,"Open the sea urchin and eat what is inside, raw.",打开海胆，生吃里面的肉。
+Far_Territory_FishTrap_CardName,Fish Trap,捕鱼陷阱
+Far_Territory_FishTrap_CardDescription,A cage of twigs and twine with a funnel mouth. Stake it in the shallows of a calm shore and it catches fish while you are away.,一个用细枝和细线编成的笼子，开口呈漏斗状。把它插在平静海岸的浅水里，你不在时它也会捕鱼。
+Far_Territory_FishTrapPlaced_CardName,Fish Trap (Set),捕鱼陷阱（已放置）
+Far_Territory_FishTrapPlaced_CardDescription,A fish trap staked in the shallows. It springs every few hours; haul it out to take what it holds.,一个插在浅水中的捕鱼陷阱。每隔几小时触发一次；把它拖上岸就能取出里面的收获。
+Far_Territory_FishTrapPlaced_DA_HaulOut,Haul Out the Trap,拖出陷阱
+Far_Territory_FishTrapPlaced_DA_HaulOut_Desc,"Wade out and lift the trap, with whatever it caught, onto the shore.",涉水过去，把陷阱连同捕获的东西一起拖上岸。
+Far_Territory_FishTrapPlaced_Triggered,Trap Triggered!,陷阱触发了！
+Far_Territory_BpFishTrap_CardName,Fish Trap,捕鱼陷阱
+Far_Territory_BpFishTrap_CardDescription,A funnel-mouthed cage of twigs and twine for the shallows of a calm shore. Requires 4 twigs and 3 twine.,一只用树枝和细线编成的漏斗口笼子，可放在平静海岸的浅水中。需要4根树枝和3段细线。
+Far_Territory_BpFishTrap_UnlockConditionsDesc,Available from the start,初始可用
+Far_Territory_Fishing_NoLuck,No luck...,运气不佳……
+Far_Territory_SeaShore_CI_Fish,Fish with a Line,钓鱼
+Far_Territory_SeaShore_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.,从岸边抛下钓线，静静等待。能钓到什么，取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaShore_CI_Spear,Spear Fish,叉鱼
+Far_Territory_SeaShore_CI_Spear_Desc,Wade into the shallows and spear what swims by. Needs daylight and a steady arm.,蹚进浅水，叉住游过的鱼。需要白天和一只稳当的手。
+Far_Territory_SeaShore_CI_SetTrap,Set the Fish Trap,放置捕鱼陷阱
+Far_Territory_SeaShore_CI_SetTrap_Desc,Wade out and stake the trap in the shallows. It catches fish on its own while you are away.,蹚水出去，把陷阱插桩固定在浅水里。你不在时它也会自己捕鱼。
+Far_Territory_SeaCoralInlet_CI_Fish,Fish with a Line,钓鱼
+Far_Territory_SeaCoralInlet_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.,从岸边抛下钓线，静静等待。能钓到什么，取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaCoralInlet_CI_Spear,Spear Fish,叉鱼
+Far_Territory_SeaCoralInlet_CI_Spear_Desc,Wade into the shallows and spear what swims by. Needs daylight and a steady arm.,蹚进浅水，叉住游过的鱼。需要白天和一只稳当的手。
+Far_Territory_SeaCoralInlet_CI_SetTrap,Set the Fish Trap,放置捕鱼陷阱
+Far_Territory_SeaCoralInlet_CI_SetTrap_Desc,Wade out and stake the trap in the shallows. It catches fish on its own while you are away.,蹚水出去，把陷阱插桩固定在浅水里。你不在时它也会自己捕鱼。
+Far_Territory_SeaBoulderShore_CI_Fish,Fish with a Line,钓鱼
+Far_Territory_SeaBoulderShore_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.,从岸边抛下钓线，静静等待。能钓到什么，取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaBleakStrand_CI_Fish,Fish with a Line,钓鱼
+Far_Territory_SeaBleakStrand_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.,从岸边抛下钓线，静静等待。能钓到什么，取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaCliffboundCove_CI_Fish,Fish with a Line,钓鱼
+Far_Territory_SeaCliffboundCove_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.,从岸边抛下钓线，静静等待。能钓到什么，取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaCliffboundCove_CI_Spear,Spear Fish,叉鱼
+Far_Territory_SeaCliffboundCove_CI_Spear_Desc,Wade into the shallows and spear what swims by. Needs daylight and a steady arm.,蹚进浅水，叉住游过的鱼。需要白天和一只稳当的手。
+Far_Territory_SeaCliffboundCove_CI_SetTrap,Set the Fish Trap,放置捕鱼陷阱
+Far_Territory_SeaCliffboundCove_CI_SetTrap_Desc,Wade out and stake the trap in the shallows. It catches fish on its own while you are away.,蹚水出去，把陷阱插桩固定在浅水里。你不在时它也会自己捕鱼。
+Far_Territory_SeaRootwaterThicket_CI_Fish,Fish with a Line,钓鱼
+Far_Territory_SeaRootwaterThicket_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.,从岸边抛下钓线，静静等待。能钓到什么，取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaRootwaterThicket_CI_Spear,Spear Fish,叉鱼
+Far_Territory_SeaRootwaterThicket_CI_Spear_Desc,Wade into the shallows and spear what swims by. Needs daylight and a steady arm.,蹚进浅水，叉住游过的鱼。需要白天和一只稳当的手。
+Far_Territory_SeaRootwaterThicket_CI_SetTrap,Set the Fish Trap,放置捕鱼陷阱
+Far_Territory_SeaRootwaterThicket_CI_SetTrap_Desc,Wade out and stake the trap in the shallows. It catches fish on its own while you are away.,蹚水出去，把陷阱插桩固定在浅水里。你不在时它也会自己捕鱼。
+Far_Territory_WesternUplands_CardName,Western Uplands,西部高地
+Far_Territory_WesternUplands_CardDescription,"Where the jungle gives out, the land climbs into open, rolling hills of short grass and scattered boulders. The wind never stops here, the grass is thinner than the plain's, and to the south a ridge sits wrapped in cloud.",丛林到此为止，大地向上隆起，化作一片开阔起伏的丘陵，长着矮草，散落着巨石。这里的风从不停歇，草比平原上的稀疏，南边有一道山脊终年裹在云里。
+Far_Territory_WesternUplands_Gleanings,Gleanings,拾遗
+Far_Territory_WesternUplands_DA_Forage,Forage,觅食
+Far_Territory_WesternUplands_DA_Forage_Desc,"Search the thin grass and the boulders for fibres, stones, flint and sticks.",在稀疏的草丛和巨石间搜寻纤维、石头、燧石和树枝。
+Far_Territory_WesternUplands_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_WesternUplands_DA_East,East,东方
+Far_Territory_WesternUplands_DA_East_Fade,Travelling East...,向东移动……
+Far_Territory_Env_WesternUplands_CardName,Western Uplands,西部高地
+Far_Territory_EasternUplands_CardName,Eastern Uplands,东部高地
+Far_Territory_EasternUplands_CardDescription,"Higher, drier hills where bare grey stone breaks through the turf. The ground is loose underfoot, and to the south it darkens and a smudge of smoke hangs above the skyline.",更高、更干燥的丘陵，光秃的灰色岩石从草皮下钻出。脚下的地面松散，往南地色渐暗，天际线上悬着一抹烟痕。
+Far_Territory_EasternUplands_Gleanings,Gleanings,拾遗
+Far_Territory_EasternUplands_DA_Forage,Forage,觅食
+Far_Territory_EasternUplands_DA_Forage_Desc,"Turn over loose stone on the bare hillside for stones, flint and the odd stick.",在光秃的山坡上翻动松石，寻找石头、燧石和零星的树枝。
+Far_Territory_EasternUplands_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_EasternUplands_DA_South,South,南方
+Far_Territory_EasternUplands_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_Env_EasternUplands_CardName,Eastern Uplands,东部高地
+Far_Territory_FireMountain_CardName,Fire Mountain,火山
+Far_Territory_FireMountain_CardDescription,"A black, cracked mountain that steams and ticks in its own heat. The rock underfoot is warm to the touch, the slope shivers now and then, and it is far hotter here than anywhere else on the island. A crater opens on the southern shoulder.",一座漆黑龟裂的山，在自身的热气中冒着蒸汽、噼啪作响。脚下的岩石摸上去是温的，山坡不时颤动，这里比岛上任何地方都热得多。南侧山肩上张开着一个火山口。
+Far_Territory_FireMountain_Gleanings,Gleanings,拾遗
+Far_Territory_FireMountain_DA_Forage,Forage,觅食
+Far_Territory_FireMountain_DA_Forage_Desc,Pick over the cracked black rock for stone and flint.,在龟裂的黑色岩石间翻找石头和燧石。
+Far_Territory_FireMountain_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_FireMountain_DA_South,South,南方
+Far_Territory_FireMountain_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_Env_FireMountain_CardName,Fire Mountain,火山
+Far_Territory_SourCrater_CardName,Sour Crater,酸水火山口
+Far_Territory_SourCrater_CardDescription,"A bowl in the mountain's shoulder holding a still lake of milky yellow-green water that smells sharply sour. The rim is crusted with pale mineral, the air shimmers with heat from below, and nothing lives in the water.",山肩上的一个凹坑，盛着一汪静止的乳黄绿色湖水，散发着刺鼻的酸味。湖边结着一层淡色的矿物硬壳，空气因地下的热量而扭曲晃动，水中毫无生命。
+Far_Territory_SourCrater_Gleanings,Gleanings,拾遗
+Far_Territory_SourCrater_DA_Forage,Forage,觅食
+Far_Territory_SourCrater_DA_Forage_Desc,"Search the crusted rim and the muddy edge of the lake for stones, mud and sticks.",在结壳的湖边和泥泞的湖岸搜寻石头、泥巴和树枝。
+Far_Territory_SourCrater_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_SourCrater_CardName,Sour Crater,酸水火山口
+Far_Territory_WreckHollow_CardName,Wreck Hollow,沉船幽谷
+Far_Territory_WreckHollow_CardDescription,"A shallow hollow in the hillside where an old wooden ship lies keeled over on dry ground, far from any water. Its ribs are bare, its planking has gone grey and soft, and creeper and moss have taken the rest. Some long-ago voyage ended here.",山坡上的一处浅谷，一艘古老的木船侧翻在干地上，离任何水域都很远。船肋光秃，船板已变得灰白松软，其余部分被藤蔓和苔藓占据。某次遥远的航行在此终结。
+Far_Territory_WreckHollow_Gleanings,Gleanings,拾遗
+Far_Territory_WreckHollow_DA_Forage,Forage,觅食
+Far_Territory_WreckHollow_DA_Forage_Desc,"Search the rotting hull and the creeper around it for sticks, rope fibre and loose stones.",在腐朽的船体和周围的藤蔓中搜寻树枝、绳用纤维和松散的石头。
+Far_Territory_WreckHollow_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_WreckHollow_CardName,Wreck Hollow,沉船幽谷
+Far_Territory_FallenDwelling_CardName,Fallen Dwelling,倒塌的居所
+Far_Territory_FallenDwelling_CardDescription,"The tumbled walls of an old settlement of mud and wood, roofless and half swallowed by the valley floor. Nobody has lived here for a very long time: only the shape of a hearth and a low doorway remain.",一处泥木古老聚落的残垣断壁，没有屋顶，一半已被谷底吞没。这里已经很久很久没人住了：只剩下一个火塘的轮廓和一道低矮的门洞。
+Far_Territory_FallenDwelling_Gleanings,Gleanings,拾遗
+Far_Territory_FallenDwelling_DA_Forage,Forage,觅食
+Far_Territory_FallenDwelling_DA_Forage_Desc,"Dig through the fallen walls and the soft ground for mud, stones and old fibre.",在倒塌的墙壁和松软的地面中挖掘泥巴、石头和陈旧的纤维。
+Far_Territory_FallenDwelling_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_FallenDwelling_CardName,Fallen Dwelling,倒塌的居所
+Far_Territory_WestgrassPlain_DA_South,South,南方
+Far_Territory_WestgrassPlain_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_EastgrassPlain_DA_South,South,南方
+Far_Territory_EastgrassPlain_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_MistyRidge_DA_North,North,北方
+Far_Territory_MistyRidge_DA_North_Fade,Travelling North...,向北移动……
+Far_Territory_Shipwreck_CardName,Wrecked Ship,失事船只
+Far_Territory_Shipwreck_CardDescription,"The hull of a wooden ship, tipped on its side and open to the sky. The keel is split and the ribs show through the grey planking, and a tree has grown up through the deck. Whatever it carried, and whoever sailed it, is long gone.",一艘木船的船体，侧倒在地，朝天敞开。龙骨断裂，船肋从灰白的船板间露出，一棵树穿过甲板长了出来。无论它曾载过什么、由谁驾驶，都早已不在。
+Far_Territory_PathBleakStrandFireMountain_CardName,Path to Fire Mountain,前往火山
+Far_Territory_PathBleakStrandFireMountain_CardDescription,"A long, rising track leaves the grey beach and climbs across black rock toward the foot of the smoking mountain.",一条漫长的上坡小径离开灰色的海滩，越过黑色岩石，向那座冒烟的山脚攀去。
+Far_Territory_PathBleakStrandFireMountain_DA_Travel,Walk to Fire Mountain,步行前往火山
+Far_Territory_PathBleakStrandFireMountain_DA_Travel_Desc,Follow the track inland and up the black slope. It takes about half an hour.,沿小径深入内陆，登上黑色山坡。大约需要半小时。
+Far_Territory_PathBleakStrandFireMountain_DA_Travel_Fade,Climbing toward the mountain...,向山上攀登……
+Far_Territory_PathFireMountainBleakStrand_CardName,Path to Bleak Strand,前往荒凉海滩
+Far_Territory_PathFireMountainBleakStrand_CardDescription,A track winds down the mountain's black flank to a long grey beach.,一条小径沿着山的黑色侧翼蜿蜒而下，通往一片狭长的灰色海滩。
+Far_Territory_PathFireMountainBleakStrand_DA_Travel,Walk to Bleak Strand,步行前往荒凉海滩
+Far_Territory_PathFireMountainBleakStrand_DA_Travel_Desc,Follow the track down the slope to the beach. It takes about half an hour.,沿小径下坡走到海滩。大约需要半小时。
+Far_Territory_PathFireMountainBleakStrand_DA_Travel_Fade,Walking down to the beach...,向海滩走去……
+Far_Territory_PathReedMarshWreckHollow_CardName,Path to Wreck Hollow,前往沉船幽谷
+Far_Territory_PathReedMarshWreckHollow_CardDescription,A trampled gap in the reeds leads up into a hollow in the hillside where something large and wooden lies.,芦苇丛中一道被踩出的缺口，向上通往山坡上的一处浅谷，那里躺着某个巨大的木制之物。
+Far_Territory_PathReedMarshWreckHollow_DA_Travel,Enter Wreck Hollow,进入沉船幽谷
+Far_Territory_PathReedMarshWreckHollow_DA_Travel_Desc,Push through the gap and up into the hollow. It is only a few steps.,穿过缺口，向上进入浅谷。只有几步路。
+Far_Territory_PathReedMarshWreckHollow_DA_Travel_Fade,Pushing through the reeds...,穿过芦苇丛……
+Far_Territory_PathWreckHollowReedMarsh_CardName,Path to Reed Marsh,前往芦苇沼泽
+Far_Territory_PathWreckHollowReedMarsh_CardDescription,"The way back out of the hollow, down through the creeper to the reeds.",离开浅谷的回路，穿过藤蔓向下通往芦苇丛。
+Far_Territory_PathWreckHollowReedMarsh_DA_Travel,Leave for Reed Marsh,动身前往芦苇沼泽
+Far_Territory_PathWreckHollowReedMarsh_DA_Travel_Desc,Climb out of the hollow and down to the marsh. It is only a few steps.,爬出浅谷，下到沼泽。只有几步路。
+Far_Territory_PathWreckHollowReedMarsh_DA_Travel_Fade,Leaving the hollow...,离开浅谷……
+Far_Territory_PathHiddenValeFallenDwelling_CardName,Path to Fallen Dwelling,前往倒塌的居所
+Far_Territory_PathHiddenValeFallenDwelling_CardDescription,"A faint track through the long grass of the vale leads to a low, tumbled wall.",一条若隐若现的小径穿过山谷的长草，通往一道低矮的残墙。
+Far_Territory_PathHiddenValeFallenDwelling_DA_Travel,Enter Fallen Dwelling,进入倒塌的居所
+Far_Territory_PathHiddenValeFallenDwelling_DA_Travel_Desc,Follow the faint track to the fallen walls. It is only a few steps.,沿着若隐若现的小径走到倒塌的墙边。只有几步路。
+Far_Territory_PathHiddenValeFallenDwelling_DA_Travel_Fade,Following the faint track...,沿着模糊的小径前行……
+Far_Territory_PathFallenDwellingHiddenVale_CardName,Path to Hidden Vale,前往隐秘山谷
+Far_Territory_PathFallenDwellingHiddenVale_CardDescription,The faint track leads back out of the ruin into the vale.,这条若隐若现的小径从废墟通回山谷。
+Far_Territory_PathFallenDwellingHiddenVale_DA_Travel,Leave for Hidden Vale,动身前往隐秘山谷
+Far_Territory_PathFallenDwellingHiddenVale_DA_Travel_Desc,Follow the track back out into the vale. It is only a few steps.,沿小径回到山谷。只有几步路。
+Far_Territory_PathFallenDwellingHiddenVale_DA_Travel_Fade,Leaving the ruin...,离开废墟……
+Far_Territory_Env_SeaGrotto_CardName,Sea Grotto,海蚀岩洞
+Far_Territory_SeaGrotto_CardName,Sea Grotto,海蚀岩洞
+Far_Territory_SeaGrotto_CardDescription,"A low sea cave in the black rocks, its floor wet with every swell that finds its way in. Salt crusts the walls and the air is cold and loud with dripping water.",黑色礁石中一个低矮的海蚀洞，每一道涌进来的浪都会打湿洞底。岩壁上结着盐壳，空气寒冷，滴水声响个不停。
+Far_Territory_SeaGrotto_Gleanings,Gleanings,拾遗
+Far_Territory_SeaGrotto_DA_Forage,Forage,觅食
+Far_Territory_SeaGrotto_DA_Forage_Desc,Pick over the wet rocks at the back of the grotto for stones and what the swell leaves behind.,在岩洞深处湿漉漉的岩石间翻找石头和浪涌留下的东西。
+Far_Territory_SeaGrotto_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathBoulderShoreSeaGrotto_CardName,Path to Sea Grotto,前往海蚀岩洞
+Far_Territory_PathBoulderShoreSeaGrotto_CardDescription,"A low black opening at the foot of the rocks, wet to the lip, leads into a sea cave.",礁石脚下一个低矮的黑色洞口，湿到洞沿，通往一个海蚀洞。
+Far_Territory_PathBoulderShoreSeaGrotto_DA_Travel,Enter the Sea Grotto,进入海蚀岩洞
+Far_Territory_PathBoulderShoreSeaGrotto_DA_Travel_Desc,Duck under the lip of the rock into the sea cave. It is only a few steps.,弯腰钻过岩檐，进入海蚀洞。只有几步路。
+Far_Territory_PathBoulderShoreSeaGrotto_DA_Travel_Fade,Ducking into the grotto...,弯腰钻进岩洞……
+Far_Territory_PathSeaGrottoBoulderShore_CardName,Path to Boulder Shore,前往巨石海岸
+Far_Territory_PathSeaGrottoBoulderShore_CardDescription,A bright slot of daylight shows the way back out of the grotto.,一道明亮的日光缝隙指明了走出岩洞的路。
+Far_Territory_PathSeaGrottoBoulderShore_DA_Travel,Leave for Boulder Shore,动身前往巨石海岸
+Far_Territory_PathSeaGrottoBoulderShore_DA_Travel_Desc,Follow the light back out onto the rocks. It is only a few steps.,循着光亮回到礁石上。只有几步路。
+Far_Territory_PathSeaGrottoBoulderShore_DA_Travel_Fade,Leaving the grotto...,离开岩洞……
+Far_Territory_Env_WaveGrotto_CardName,Wave Grotto,浪涛岩洞
+Far_Territory_WaveGrotto_CardName,Wave Grotto,浪涛岩洞
+Far_Territory_WaveGrotto_CardDescription,A wet cave on the open coast where the sea runs in and out through a crack in the rock. Its floor is a shallow pool of weed and small creatures. There is no tide to time: it is simply wet.,开阔海岸上的一个潮湿洞穴，海水从岩缝中涌进涌出。洞底是一汪长满海藻和小生物的浅水池。这里不必掐算潮汐：它就是一直湿着。
+Far_Territory_WaveGrotto_Gleanings,Gleanings,拾遗
+Far_Territory_WaveGrotto_DA_Forage,Forage,觅食
+Far_Territory_WaveGrotto_DA_Forage_Desc,"Wade the shallow pool at the back of the cave for crabs, prawns, weed and urchins.",蹚过洞穴深处的浅水池，寻找螃蟹、对虾、海藻和海胆。
+Far_Territory_WaveGrotto_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathBleakStrandWaveGrotto_CardName,Path to Wave Grotto,前往浪涛岩洞
+Far_Territory_PathBleakStrandWaveGrotto_CardDescription,"A crack in the cliff, with the sea running in and out of it, opens into a wet cave.",悬崖上的一道裂缝，海水在其中涌进涌出，通向一个潮湿的洞穴。
+Far_Territory_PathBleakStrandWaveGrotto_DA_Travel,Enter the Wave Grotto,进入浪涛岩洞
+Far_Territory_PathBleakStrandWaveGrotto_DA_Travel_Desc,Wade in through the crack into the cave. It is only a few steps.,从裂缝蹚水进入洞穴。只有几步路。
+Far_Territory_PathBleakStrandWaveGrotto_DA_Travel_Fade,Wading into the cave...,蹚水走进洞穴……
+Far_Territory_PathWaveGrottoBleakStrand_CardName,Path to Bleak Strand,前往荒凉海滩
+Far_Territory_PathWaveGrottoBleakStrand_CardDescription,The crack of daylight shows the way back out to the strand.,那道透着日光的裂缝指明了回到海滩的路。
+Far_Territory_PathWaveGrottoBleakStrand_DA_Travel,Leave for Bleak Strand,动身前往荒凉海滩
+Far_Territory_PathWaveGrottoBleakStrand_DA_Travel_Desc,Wade back out through the crack to the strand. It is only a few steps.,从裂缝蹚水回到海滩。只有几步路。
+Far_Territory_PathWaveGrottoBleakStrand_DA_Travel_Fade,Leaving the cave...,离开洞穴……
+Far_Territory_Env_PlainGrotto_CardName,Plain Grotto,平原岩洞
+Far_Territory_PlainGrotto_CardName,Plain Grotto,平原岩洞
+Far_Territory_PlainGrotto_CardDescription,"A shallow cave in a grassy bank, dry and just deep enough to get out of the wind. Nothing lives here but beetles, and perhaps a lizard that is gone before you look.",草坡上的一个浅洞，干燥，深度刚好够避风。这里除了甲虫什么也不住，也许还有一只蜥蜴，你还没看清就溜走了。
+Far_Territory_PlainGrotto_Gleanings,Gleanings,拾遗
+Far_Territory_PlainGrotto_DA_Forage,Forage,觅食
+Far_Territory_PlainGrotto_DA_Forage_Desc,Turn over the loose stones and litter at the back of the cave.,翻动洞穴深处的松石和杂物。
+Far_Territory_PlainGrotto_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathWestgrassPlainPlainGrotto_CardName,Path to Plain Grotto,前往平原岩洞
+Far_Territory_PathWestgrassPlainPlainGrotto_CardDescription,A shallow cave opens in the bank at the edge of the plain.,平原边缘的土坡上开着一个浅洞。
+Far_Territory_PathWestgrassPlainPlainGrotto_DA_Travel,Enter the Plain Grotto,进入平原岩洞
+Far_Territory_PathWestgrassPlainPlainGrotto_DA_Travel_Desc,Step into the cave out of the wind. It is only a few steps.,走进洞里避风。只有几步路。
+Far_Territory_PathWestgrassPlainPlainGrotto_DA_Travel_Fade,Stepping into the cave...,走进洞穴……
+Far_Territory_PathPlainGrottoWestgrassPlain_CardName,Path to Westgrass Plain,前往西草平原
+Far_Territory_PathPlainGrottoWestgrassPlain_CardDescription,The grass of the plain shows bright at the mouth of the cave.,平原的草在洞口外亮晃晃的。
+Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel,Leave for Westgrass Plain,动身前往西草平原
+Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel_Desc,Step back out of the cave onto the plain. It is only a few steps.,走出洞穴回到平原。只有几步路。
+Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel_Fade,Leaving the cave...,离开洞穴……
+Far_Territory_Env_BatRoost_CardName,Bat Roost,蝙蝠栖洞
+Far_Territory_BatRoost_CardName,Bat Roost,蝙蝠栖洞
+Far_Territory_BatRoost_CardDescription,"A tall cave in the ridge, its roof black and shifting with sleeping bats. The floor beneath is deep in droppings, and pale crystals crust the walls where they have dripped for years.",山脊上一个高耸的洞穴，洞顶黑压压地挤满了沉睡的蝙蝠，不时蠕动。下方的地面积着厚厚的粪便，岩壁上多年滴落之处结着淡色的晶体。
+Far_Territory_BatRoost_Gleanings,Gleanings,拾遗
+Far_Territory_BatRoost_DA_Forage,Forage,觅食
+Far_Territory_BatRoost_DA_Forage_Desc,"Scrape the crystals from the wall and sift the floor under the roost, taking care not to wake the bats.",刮下岩壁上的晶体，筛一筛栖息处下方的地面，小心别惊醒蝙蝠。
+Far_Territory_BatRoost_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathMistyRidgeBatRoost_CardName,Path to Bat Roost,前往蝙蝠栖洞
+Far_Territory_PathMistyRidgeBatRoost_CardDescription,"A tall dark slit in the ridge, with a faint ammonia smell on the air, opens into a cave.",山脊上一道高而幽暗的裂口，空气中带着淡淡的氨味，通往一个洞穴。
+Far_Territory_PathMistyRidgeBatRoost_DA_Travel,Enter the Bat Roost,进入蝙蝠栖洞
+Far_Territory_PathMistyRidgeBatRoost_DA_Travel_Desc,"Slip through the slit into the roost, quietly. It is only a few steps.",悄悄从裂口溜进栖洞。只有几步路。
+Far_Territory_PathMistyRidgeBatRoost_DA_Travel_Fade,Slipping in among the bats...,溜进蝙蝠群中……
+Far_Territory_PathBatRoostMistyRidge_CardName,Path to Misty Ridge,前往迷雾山脊
+Far_Territory_PathBatRoostMistyRidge_CardDescription,A grey slit of daylight shows the way back out of the roost.,一道灰白的日光缝隙指明了走出栖洞的路。
+Far_Territory_PathBatRoostMistyRidge_DA_Travel,Leave for Misty Ridge,动身前往迷雾山脊
+Far_Territory_PathBatRoostMistyRidge_DA_Travel_Desc,Slip back out through the slit onto the ridge. It is only a few steps.,从裂口溜回山脊上。只有几步路。
+Far_Territory_PathBatRoostMistyRidge_DA_Travel_Fade,Leaving the roost...,离开栖洞……
+Far_Territory_Env_MonkeyDen_CardName,Monkey Den,猴穴
+Far_Territory_MonkeyDen_CardName,Monkey Den,猴穴
+Far_Territory_MonkeyDen_CardDescription,"A dry hollow among the roots of the ridge where a troop of macaques sleeps and eats. The floor is littered with the leavings of their meals: shells, feathers and gnawed bones.",山脊树根间的一处干燥凹地，一群猕猴在此睡觉进食。地上散落着它们吃剩的东西：贝壳、羽毛和啃过的骨头。
+Far_Territory_MonkeyDen_Gleanings,Gleanings,拾遗
+Far_Territory_MonkeyDen_DA_Forage,Forage,觅食
+Far_Territory_MonkeyDen_DA_Forage_Desc,Pick through the litter on the den floor for anything the troop has left behind.,在巢穴地面的杂物中翻找猴群留下的任何东西。
+Far_Territory_MonkeyDen_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathMistyRidgeMonkeyDen_CardName,Path to Monkey Den,前往猴穴
+Far_Territory_PathMistyRidgeMonkeyDen_CardDescription,"A hollow among the roots of the ridge, trampled bare and scattered with shells, is the mouth of a den.",山脊树根间的一处凹地，被踩得光秃，散落着贝壳，那就是巢穴的入口。
+Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel,Enter the Monkey Den,进入猴穴
+Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel_Desc,Crawl in among the roots to the den. It is only a few steps.,从树根间爬进巢穴。只有几步路。
+Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel_Fade,Crawling into the den...,爬进巢穴……
+Far_Territory_PathMonkeyDenMistyRidge_CardName,Path to Misty Ridge,前往迷雾山脊
+Far_Territory_PathMonkeyDenMistyRidge_CardDescription,The tangle of roots at the mouth of the den shows the way back out.,巢穴口纠缠的树根指明了出去的路。
+Far_Territory_PathMonkeyDenMistyRidge_DA_Travel,Leave the Monkey Den,离开猴穴
+Far_Territory_PathMonkeyDenMistyRidge_DA_Travel_Desc,Crawl back out through the roots onto the ridge. It is only a few steps.,从树根间爬回山脊上。只有几步路。
+Far_Territory_PathMonkeyDenMistyRidge_DA_Travel_Fade,Leaving the den...,离开巢穴……
+Far_Territory_Env_BlackGrotto_CardName,Black Grotto,黑色岩洞
+Far_Territory_BlackGrotto_CardName,Black Grotto,黑色岩洞
+Far_Territory_BlackGrotto_CardDescription,A cave mouth in the marsh bank that swallows the light a few steps in. The air is cold and still and smells of wet stone; beyond the first bend you cannot see your hands. Bring a lit torch or lantern to work here.,沼泽岸边的一个洞口，走进几步光线就被吞没。空气寒冷静止，带着湿石头的气味；过了第一个弯，就伸手不见五指。要在这里干活，须带上点燃的火炬或提灯。
+Far_Territory_BlackGrotto_Gleanings,Gleanings,拾遗
+Far_Territory_BlackGrotto_DA_Forage,Forage,觅食
+Far_Territory_BlackGrotto_DA_Forage_Desc,Feel along the walls and the floor by torchlight for what the dark has hidden.,借着火光沿岩壁和地面摸索，寻找黑暗中藏着的东西。
+Far_Territory_BlackGrotto_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathReedMarshBlackGrotto_CardName,Path to Black Grotto,前往黑色岩洞
+Far_Territory_PathReedMarshBlackGrotto_CardDescription,A cave mouth in the marsh bank swallows the light a few steps in.,沼泽岸边的一个洞口，走进几步光线就被吞没。
+Far_Territory_PathReedMarshBlackGrotto_DA_Travel,Enter the Black Grotto,进入黑色岩洞
+Far_Territory_PathReedMarshBlackGrotto_DA_Travel_Desc,Go in under the lip of the bank into the dark. It is only a few steps. You will want a light.,从岸檐下走进黑暗。只有几步路。你会需要照明。
+Far_Territory_PathReedMarshBlackGrotto_DA_Travel_Fade,Going into the dark...,走进黑暗……
+Far_Territory_PathBlackGrottoReedMarsh_CardName,Path to Reed Marsh,前往芦苇沼泽
+Far_Territory_PathBlackGrottoReedMarsh_CardDescription,A pale patch of daylight marks the way back out of the grotto.,一片微弱的日光标出了走出岩洞的路。
+Far_Territory_PathBlackGrottoReedMarsh_DA_Travel,Leave for Reed Marsh,动身前往芦苇沼泽
+Far_Territory_PathBlackGrottoReedMarsh_DA_Travel_Desc,Follow the pale light back out into the marsh. It is only a few steps.,循着微光回到沼泽。只有几步路。
+Far_Territory_PathBlackGrottoReedMarsh_DA_Travel_Fade,Leaving the grotto...,离开岩洞……
+Far_Territory_Env_Sinkhole_CardName,Sinkhole,天坑
+Far_Territory_Sinkhole_CardName,Sinkhole,天坑
+Far_Territory_Sinkhole_CardDescription,"A shaft fallen in on the high ground: a ragged hole in the turf with a floor of rubble a man's height below, and a low opening at its foot that leads further into the hill.",高地上塌陷的一口竖井：草皮上一个参差的大洞，下方一人高处是碎石铺成的底，底部有一个低矮的开口，通向山体深处。
+Far_Territory_Sinkhole_Gleanings,Gleanings,拾遗
+Far_Territory_Sinkhole_DA_Forage,Forage,觅食
+Far_Territory_Sinkhole_DA_Forage_Desc,Sort through the rubble at the foot of the shaft for stones and old bones.,在竖井底部的碎石中翻拣石头和旧骨头。
+Far_Territory_Sinkhole_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathWesternUplandsSinkhole_CardName,Climb down into the Sinkhole,爬下天坑
+Far_Territory_PathWesternUplandsSinkhole_CardDescription,"A ragged hole in the turf drops away to a rubble floor. A fall hurts, and a tired climber is sure to fall.",草皮上一个参差的大洞，向下直落到碎石地面。摔下去会受伤，而疲惫的攀爬者必定会摔下去。
+Far_Territory_PathWesternUplandsSinkhole_DA_Climb,Climb Down into the Sinkhole,爬下天坑
+Far_Territory_PathWesternUplandsSinkhole_DA_Climb_Desc,Climb down the rough wall of the shaft to the rubble floor. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,沿着竖井粗糙的岩壁爬到碎石地面。技能和牢靠的抓手能降低摔落的几率；疲惫的攀爬者必定会摔下去。大约需要一刻钟。
+Far_Territory_PathWesternUplandsSinkhole_DA_Climb_Fade,Climbing down the shaft...,沿竖井向下爬……
+Far_Territory_PathSinkholeWesternUplands_CardName,Climb up to Western Uplands,爬上西部高地
+Far_Territory_PathSinkholeWesternUplands_CardDescription,"The rough wall of the shaft rises to a ring of daylight. A fall hurts, and a tired climber is sure to fall.",竖井粗糙的岩壁向上延伸到一圈日光。摔下去会受伤，而疲惫的攀爬者必定会摔下去。
+Far_Territory_PathSinkholeWesternUplands_DA_Climb,Climb Up to Western Uplands,爬上西部高地
+Far_Territory_PathSinkholeWesternUplands_DA_Climb_Desc,Climb the rough wall of the shaft back up to the uplands. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,沿着竖井粗糙的岩壁爬回高地。技巧和稳当的抓手能降低失足的可能；疲惫的攀爬者必定会失足。大约需要一刻钟。
+Far_Territory_PathSinkholeWesternUplands_DA_Climb_Fade,Climbing up the shaft...,沿竖井向上攀爬……
+Far_Territory_Env_LavaTube_CardName,Lava Tube,熔岩隧洞
+Far_Territory_LavaTube_CardName,Lava Tube,熔岩隧洞
+Far_Territory_LavaTube_CardDescription,"A smooth round tunnel in the black rock, left by a flow of lava long cold. It is dry and dusty, and wide enough to walk upright, and runs into the hill past the reach of daylight.",黑色岩石中一条光滑浑圆的隧道，是早已冷却的熔岩流留下的。洞里干燥多尘，宽得足以直身行走，一路伸进山腹，直到日光照不到的地方。
+Far_Territory_LavaTube_Gleanings,Gleanings,拾获物
+Far_Territory_LavaTube_DA_Forage,Forage,觅食
+Far_Territory_LavaTube_DA_Forage_Desc,Break loose stones and flint from the walls of the tube.,从隧洞壁上敲下松动的石头和燧石。
+Far_Territory_LavaTube_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathEasternUplandsLavaTube_CardName,Path to Lava Tube,前往熔岩隧洞
+Far_Territory_PathEasternUplandsLavaTube_CardDescription,"A round black tunnel mouth opens in the rock of the uplands, smooth as the inside of a pipe.",高地的岩石上张开一个浑圆的黑色隧道口，光滑得像管子的内壁。
+Far_Territory_PathEasternUplandsLavaTube_DA_Travel,Enter the Lava Tube,进入熔岩隧洞
+Far_Territory_PathEasternUplandsLavaTube_DA_Travel_Desc,Walk into the tunnel out of the wind. It is only a few steps.,走进隧道，避开风。只有几步路。
+Far_Territory_PathEasternUplandsLavaTube_DA_Travel_Fade,Walking into the tunnel...,走进隧道……
+Far_Territory_PathLavaTubeEasternUplands_CardName,Path to Eastern Uplands,前往东部高地
+Far_Territory_PathLavaTubeEasternUplands_CardDescription,A round disc of daylight shows the way back out of the tube.,一圈圆圆的日光指明了走出隧洞的路。
+Far_Territory_PathLavaTubeEasternUplands_DA_Travel,Leave for Eastern Uplands,前往东部高地
+Far_Territory_PathLavaTubeEasternUplands_DA_Travel_Desc,Walk back out to the uplands. It is only a few steps.,走回外面的高地。只有几步路。
+Far_Territory_PathLavaTubeEasternUplands_DA_Travel_Fade,Leaving the tube...,离开隧洞……
+Far_Territory_CaveDarkness_CardName,Cave Darkness,洞中黑暗
+Far_Territory_CaveDarkness_CardDescription,"No daylight reaches this deep. Bring a lit torch, lantern or brazier to work here.",日光照不到这么深的地方。须带点燃的火炬、提灯或火盆才能在这里干活。
+Far_Territory_Env_DrippingHall_CardName,Dripping Hall,滴水洞厅
+Far_Territory_DrippingHall_CardName,Dripping Hall,滴水洞厅
+Far_Territory_DrippingHall_CardDescription,"A low, wet chamber behind the Black Grotto. Water drips from the roof all day into a clear spring pool in the rock, and the walls shine with it. No daylight reaches here: bring a lit torch or lantern to work.",黑色岩洞后方一间低矮潮湿的石室。洞顶整日滴水，落进岩石中一汪清澈的泉池，四壁都被水打得发亮。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_DrippingHall_Gleanings,Gleanings,拾获物
+Far_Territory_DrippingHall_DA_Forage,Forage,觅食
+Far_Territory_DrippingHall_DA_Forage_Desc,Search the wet floor and the edge of the pool by torchlight.,借着火炬的光搜寻湿漉漉的地面和池边。
+Far_Territory_DrippingHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_Squeeze_CardName,The Squeeze,窄隙
+Far_Territory_Squeeze_CardName,The Squeeze,窄隙
+Far_Territory_Squeeze_CardDescription,"A crack between two walls of wet rock that runs on and down, so tight in places that you push your pack ahead of you. A green-stained copper vein shows in one wall. No daylight reaches here: bring a lit torch or lantern to work.",两面湿岩之间的一道裂缝，一路向前向下延伸，有些地方窄得只能把背包推在身前。一面岩壁上露出一道染着绿锈的铜矿脉。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_Squeeze_Gleanings,Gleanings,拾获物
+Far_Territory_Squeeze_DA_Forage,Forage,觅食
+Far_Territory_Squeeze_DA_Forage_Desc,Pick over the rubble on the floor of the crack by torchlight.,借着火炬的光翻拣裂缝底部的碎石。
+Far_Territory_Squeeze_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_LowerHall_CardName,Lower Hall,下层洞厅
+Far_Territory_LowerHall_CardName,Lower Hall,下层洞厅
+Far_Territory_LowerHall_CardDescription,"A long, low chamber at the bottom of the cave, its floor littered with broken rock and flint. A shaft climbs to the Middle Hall, a squeeze runs off toward the Dripping Hall, a side opening glitters, and a copper vein shows in the wall. No daylight reaches here: bring a lit torch or lantern to work.",洞穴底部一间狭长低矮的石室，地上散落着碎石和燧石。一道竖井通往中层洞厅，一条窄隙伸向滴水洞厅，一个侧口闪闪发光，岩壁上还露出一道铜矿脉。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_LowerHall_Gleanings,Gleanings,拾获物
+Far_Territory_LowerHall_DA_Forage,Forage,觅食
+Far_Territory_LowerHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.,借着火炬的光翻拣地上的碎石。
+Far_Territory_LowerHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_GlitteringHall_CardName,Glittering Hall,闪烁洞厅
+Far_Territory_GlitteringHall_CardName,Glittering Hall,闪烁洞厅
+Far_Territory_GlitteringHall_CardDescription,"A high chamber whose walls are crusted with pale crystal that catches any light and throws it back. A copper vein runs through the crystal, and a shaft drops to dark water below. No daylight reaches here: bring a lit torch or lantern to work.",一间高耸的石室，四壁结满淡色的晶体，能捕捉任何光亮并反射回去。一道铜矿脉穿过晶体，一道竖井向下通往漆黑的水面。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_GlitteringHall_Gleanings,Gleanings,拾获物
+Far_Territory_GlitteringHall_DA_Forage,Forage,觅食
+Far_Territory_GlitteringHall_DA_Forage_Desc,"Prise loose what the crystal walls and the floor will give, by torchlight.",借着火炬的光，撬下晶壁和地面上能取下的东西。
+Far_Territory_GlitteringHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_DrownedHall_CardName,Drowned Hall,水淹洞厅
+Far_Territory_DrownedHall_CardName,Drowned Hall,水淹洞厅
+Far_Territory_DrownedHall_CardDescription,"A chamber half full of still sea water, reached from Cliffbound Cove by an underwater passage. Crabs and prawns move on the drowned ledges, and a shaft climbs into the rock above. No daylight reaches here: bring a lit torch or lantern to work.",一间半浸在静止海水中的石室，从崖环海湾经一条水下通道可达。螃蟹和虾在淹没的岩架上爬动，一道竖井向上通入上方的岩石。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_DrownedHall_Gleanings,Gleanings,拾获物
+Far_Territory_DrownedHall_DA_Forage,Forage,觅食
+Far_Territory_DrownedHall_DA_Forage_Desc,Grope along the drowned ledges and the shingle by torchlight.,借着火炬的光，沿着淹没的岩架和卵石滩摸索。
+Far_Territory_DrownedHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_MiddleHall_CardName,Middle Hall,中层洞厅
+Far_Territory_MiddleHall_CardName,Middle Hall,中层洞厅
+Far_Territory_MiddleHall_CardDescription,"A chamber halfway down the cave, joined by shafts to the halls above and below, with a narrow way off into blackness and a copper vein in the wall. No daylight reaches here: bring a lit torch or lantern to work.",位于洞穴半深处的一间石室，有竖井连通上下的洞厅，一条窄路通向一片漆黑，岩壁上还有一道铜矿脉。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_MiddleHall_Gleanings,Gleanings,拾获物
+Far_Territory_MiddleHall_DA_Forage,Forage,觅食
+Far_Territory_MiddleHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.,借着火炬的光翻拣地上的碎石。
+Far_Territory_MiddleHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_UpperHall_CardName,Upper Hall,上层洞厅
+Far_Territory_UpperHall_CardName,Upper Hall,上层洞厅
+Far_Territory_UpperHall_CardDescription,"The highest chamber, a few steps in from the Lava Tube, where the smooth tunnel gives way to broken rock and a copper vein. A shaft drops away into the dark below. No daylight reaches here: bring a lit torch or lantern to work.",最高的一间石室，从熔岩隧洞往里走几步便到，光滑的隧道在这里变成碎裂的岩石和一道铜矿脉。一道竖井向下没入黑暗。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_UpperHall_Gleanings,Gleanings,拾获物
+Far_Territory_UpperHall_DA_Forage,Forage,觅食
+Far_Territory_UpperHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.,借着火炬的光翻拣地上的碎石。
+Far_Territory_UpperHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_Env_LightlessHall_CardName,Lightless Hall,无光洞厅
+Far_Territory_LightlessHall_CardName,Lightless Hall,无光洞厅
+Far_Territory_LightlessHall_CardDescription,"A small chamber under the Sinkhole, utterly black and silent. A narrow way leads on toward the Middle Hall. No daylight reaches here: bring a lit torch or lantern to work.",天坑下方的一间小石室，漆黑一片，寂静无声。一条窄路通往中层洞厅。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_LightlessHall_Gleanings,Gleanings,拾获物
+Far_Territory_LightlessHall_DA_Forage,Forage,觅食
+Far_Territory_LightlessHall_DA_Forage_Desc,Feel over the bare floor by torchlight. There is little here.,借着火炬的光摸索光秃秃的地面。这里没什么东西。
+Far_Territory_LightlessHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
+Far_Territory_PathBlackGrottoDrippingHall_CardName,Path to Dripping Hall,前往滴水洞厅
+Far_Territory_PathBlackGrottoDrippingHall_CardDescription,A way on through the dark rock to the Dripping Hall.,穿过黑暗岩石通往滴水洞厅的路。
+Far_Territory_PathBlackGrottoDrippingHall_DA_Travel,Go to Dripping Hall,前往滴水洞厅
+Far_Territory_PathBlackGrottoDrippingHall_DA_Travel_Desc,Feel your way to the Dripping Hall by torchlight. It is only a few steps.,借着火炬的光摸索前往滴水洞厅。只有几步路。
+Far_Territory_PathBlackGrottoDrippingHall_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathDrippingHallBlackGrotto_CardName,Path to Black Grotto,前往黑色岩洞
+Far_Territory_PathDrippingHallBlackGrotto_CardDescription,A way back up toward the Black Grotto and the marsh beyond it.,一条往回通向黑色岩洞及其后方沼泽的路。
+Far_Territory_PathDrippingHallBlackGrotto_DA_Travel,Go to Black Grotto,前往黑色岩洞
+Far_Territory_PathDrippingHallBlackGrotto_DA_Travel_Desc,Feel your way to the Black Grotto by torchlight. It is only a few steps.,借着火炬的光摸索前往黑色岩洞。只有几步路。
+Far_Territory_PathDrippingHallBlackGrotto_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathDrippingHallSqueeze_CardName,Path to The Squeeze,前往窄隙
+Far_Territory_PathDrippingHallSqueeze_CardDescription,"A way on through the dark rock to the Squeeze. It winds a little way, low and wet.",穿过黑暗岩石通往窄隙的路。路有些曲折，低矮而潮湿。
+Far_Territory_PathDrippingHallSqueeze_DA_Travel,Go to The Squeeze,前往窄隙
+Far_Territory_PathDrippingHallSqueeze_DA_Travel_Desc,Feel your way to the Squeeze by torchlight. It takes about a quarter of an hour.,借着火炬的光摸索前往窄隙。大约需要一刻钟。
+Far_Territory_PathDrippingHallSqueeze_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathSqueezeDrippingHall_CardName,Path to Dripping Hall,前往滴水洞厅
+Far_Territory_PathSqueezeDrippingHall_CardDescription,"A way on through the dark rock to the Dripping Hall. It winds a little way, low and wet.",穿过黑暗岩石通往滴水洞厅的路。路有些曲折，低矮而潮湿。
+Far_Territory_PathSqueezeDrippingHall_DA_Travel,Go to Dripping Hall,前往滴水洞厅
+Far_Territory_PathSqueezeDrippingHall_DA_Travel_Desc,Feel your way to the Dripping Hall by torchlight. It takes about a quarter of an hour.,借着火炬的光摸索前往滴水洞厅。大约需要一刻钟。
+Far_Territory_PathSqueezeDrippingHall_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathSqueezeLowerHall_CardName,Narrow Crack to Lower Hall,经狭窄裂缝前往下层洞厅
+Far_Territory_PathSqueezeLowerHall_CardDescription,"A crack so tight you must crawl it on your belly, pushing your pack ahead. It leads to the Lower Hall. It is slow, filthy and hard on the hands.",一道窄得必须趴着爬行、把背包推在身前的裂缝，通往下层洞厅。爬起来又慢又脏，还很伤手。
+Far_Territory_PathSqueezeLowerHall_DA_Travel,Crawl through to Lower Hall,爬往下层洞厅
+Far_Territory_PathSqueezeLowerHall_DA_Travel_Desc,"Crawl the narrow crack to the Lower Hall. It takes about half an hour, costs 15 stamina, leaves you filthy and scrapes your hands.",爬过狭窄裂缝前往下层洞厅。大约需要半小时，消耗15点耐力，会弄得浑身脏污并擦伤双手。
+Far_Territory_PathSqueezeLowerHall_DA_Travel_Fade,Squeezing through the crack...,挤过裂缝……
+Far_Territory_PathLowerHallSqueeze_CardName,Narrow Crack,狭窄裂缝
+Far_Territory_PathLowerHallSqueeze_CardDescription,"A crack so tight you must crawl it on your belly, pushing your pack ahead. It leads to the Squeeze. It is slow, filthy and hard on the hands.",一道窄得必须趴着爬行、把背包推在身前的裂缝，通往窄隙。爬起来又慢又脏，还很伤手。
+Far_Territory_PathLowerHallSqueeze_DA_Travel,Crawl into the Squeeze,爬进窄隙
+Far_Territory_PathLowerHallSqueeze_DA_Travel_Desc,"Crawl the narrow crack to the Squeeze. It takes about half an hour, costs 15 stamina, leaves you filthy and scrapes your hands.",爬过狭窄裂缝前往窄隙。大约需要半小时，消耗15点耐力，会弄得浑身脏污并擦伤双手。
+Far_Territory_PathLowerHallSqueeze_DA_Travel_Fade,Squeezing through the crack...,挤过裂缝……
+Far_Territory_PathCliffboundCoveDrownedHall_CardName,Underwater Passage,水下通道
+Far_Territory_PathCliffboundCoveDrownedHall_CardDescription,A dark opening under the cove's still water leads into the rock. Swimming through soaks you and tires you; the way is short but it is all underwater.,海湾静水之下有一个黝黑的洞口，通入岩石深处。游过去会浑身湿透、疲惫不堪；路程虽短，却全在水下。
+Far_Territory_PathCliffboundCoveDrownedHall_DA_Travel,Swim to the Drowned Hall,游往水淹洞厅
+Far_Territory_PathCliffboundCoveDrownedHall_DA_Travel_Desc,Take a breath and swim down and in through the passage under the rock to the Drowned Hall. It takes about half an hour and leaves you soaked and tired.,深吸一口气，潜下水，穿过岩石下的通道游往水淹洞厅。大约需要半小时，会让你浑身湿透、疲惫不堪。
+Far_Territory_PathCliffboundCoveDrownedHall_DA_Travel_Fade,Swimming through the passage...,游过通道……
+Far_Territory_PathDrownedHallCliffboundCove_CardName,Underwater Passage Out,水下通道出口
+Far_Territory_PathDrownedHallCliffboundCove_CardDescription,The pool's dark water drops to a passage that comes up in Cliffbound Cove. Swimming through soaks you and tires you; the way is short but it is all underwater.,池中黝黑的水向下连着一条通道，出口在崖环海湾。游过去会浑身湿透、疲惫不堪；路程虽短，却全在水下。
+Far_Territory_PathDrownedHallCliffboundCove_DA_Travel,Swim out to Cliffbound Cove,游往崖环海湾
+Far_Territory_PathDrownedHallCliffboundCove_DA_Travel_Desc,Take a breath and swim down and out through the passage under the rock to Cliffbound Cove. It takes about half an hour and leaves you soaked and tired.,深吸一口气，潜下水，穿过岩石下的通道游出到崖环海湾。大约需要半小时，会让你浑身湿透、疲惫不堪。
+Far_Territory_PathDrownedHallCliffboundCove_DA_Travel_Fade,Swimming through the passage...,游过通道……
+Far_Territory_PathDrownedHallGlitteringHall_CardName,Climb up to Glittering Hall,爬上闪烁洞厅
+Far_Territory_PathDrownedHallGlitteringHall_CardDescription,"A shaft of wet rock climbs into the dark toward the Glittering Hall. A fall hurts, and a tired climber is sure to fall.",一道湿岩竖井向上伸入黑暗，通往闪烁洞厅。摔下去会受伤，疲惫的攀爬者必定会失足。
+Far_Territory_PathDrownedHallGlitteringHall_DA_Climb,Climb Up to Glittering Hall,爬上闪烁洞厅
+Far_Territory_PathDrownedHallGlitteringHall_DA_Climb_Desc,Climb the shaft to the Glittering Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,借着火炬的光沿竖井爬上闪烁洞厅。技巧和稳当的抓手能降低失足的可能；疲惫的攀爬者必定会失足。大约需要一刻钟。
+Far_Territory_PathDrownedHallGlitteringHall_DA_Climb_Fade,Climbing up the shaft...,沿竖井向上攀爬……
+Far_Territory_PathGlitteringHallDrownedHall_CardName,Climb down to Drowned Hall,爬下水淹洞厅
+Far_Territory_PathGlitteringHallDrownedHall_CardDescription,"A shaft of wet rock drops into the dark toward the Drowned Hall. A fall hurts, and a tired climber is sure to fall.",一道湿岩竖井向下没入黑暗，通往水淹洞厅。摔下去会受伤，疲惫的攀爬者必定会失足。
+Far_Territory_PathGlitteringHallDrownedHall_DA_Climb,Climb Down to Drowned Hall,爬下水淹洞厅
+Far_Territory_PathGlitteringHallDrownedHall_DA_Climb_Desc,Climb down the shaft to the Drowned Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,借着火炬的光沿竖井爬下水淹洞厅。技巧和稳当的抓手能降低失足的可能；疲惫的攀爬者必定会失足。大约需要一刻钟。
+Far_Territory_PathGlitteringHallDrownedHall_DA_Climb_Fade,Climbing down the shaft...,沿竖井向下攀爬……
+Far_Territory_PathGlitteringHallLowerHall_CardName,Path to Lower Hall,前往下层洞厅
+Far_Territory_PathGlitteringHallLowerHall_CardDescription,A way on through the dark rock to the Lower Hall.,穿过黑暗岩石通往下层洞厅的路。
+Far_Territory_PathGlitteringHallLowerHall_DA_Travel,Go to Lower Hall,前往下层洞厅
+Far_Territory_PathGlitteringHallLowerHall_DA_Travel_Desc,Feel your way to the Lower Hall by torchlight. It is only a few steps.,借着火炬的光摸索前往下层洞厅。只有几步路。
+Far_Territory_PathGlitteringHallLowerHall_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathLowerHallGlitteringHall_CardName,Path to Glittering Hall,前往闪烁洞厅
+Far_Territory_PathLowerHallGlitteringHall_CardDescription,A way on through the dark rock to the Glittering Hall.,穿过黑暗岩石通往闪烁洞厅的路。
+Far_Territory_PathLowerHallGlitteringHall_DA_Travel,Go to Glittering Hall,前往闪烁洞厅
+Far_Territory_PathLowerHallGlitteringHall_DA_Travel_Desc,Feel your way to the Glittering Hall by torchlight. It is only a few steps.,借着火炬的光摸索前往闪烁洞厅。只有几步路。
+Far_Territory_PathLowerHallGlitteringHall_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathLowerHallMiddleHall_CardName,Climb up to Middle Hall,爬上中层洞厅
+Far_Territory_PathLowerHallMiddleHall_CardDescription,"A shaft of wet rock climbs into the dark toward the Middle Hall. A fall hurts, and a tired climber is sure to fall.",一道湿岩竖井向上伸入黑暗，通往中层洞厅。摔下去会受伤，疲惫的攀爬者必定会失足。
+Far_Territory_PathLowerHallMiddleHall_DA_Climb,Climb Up to Middle Hall,爬上中层洞厅
+Far_Territory_PathLowerHallMiddleHall_DA_Climb_Desc,Climb the shaft to the Middle Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,借着火炬的光沿竖井爬上中层洞厅。技巧和稳当的抓手能降低失足的可能；疲惫的攀爬者必定会失足。大约需要一刻钟。
+Far_Territory_PathLowerHallMiddleHall_DA_Climb_Fade,Climbing up the shaft...,沿竖井向上攀爬……
+Far_Territory_PathMiddleHallLowerHall_CardName,Climb down to Lower Hall,爬下下层洞厅
+Far_Territory_PathMiddleHallLowerHall_CardDescription,"A shaft of wet rock drops into the dark toward the Lower Hall. A fall hurts, and a tired climber is sure to fall.",一道湿岩竖井向下没入黑暗，通往下层洞厅。摔下去会受伤，疲惫的攀爬者必定会失足。
+Far_Territory_PathMiddleHallLowerHall_DA_Climb,Climb Down to Lower Hall,爬下下层洞厅
+Far_Territory_PathMiddleHallLowerHall_DA_Climb_Desc,Climb down the shaft to the Lower Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,借着火炬的光沿竖井爬下下层洞厅。技巧和稳当的抓手能降低失足的可能；疲惫的攀爬者必定会失足。大约需要一刻钟。
+Far_Territory_PathMiddleHallLowerHall_DA_Climb_Fade,Climbing down the shaft...,沿竖井向下攀爬……
+Far_Territory_PathMiddleHallUpperHall_CardName,Climb up to Upper Hall,爬上上层洞厅
+Far_Territory_PathMiddleHallUpperHall_CardDescription,"A shaft of wet rock climbs into the dark toward the Upper Hall. A fall hurts, and a tired climber is sure to fall.",一道湿岩竖井向上伸入黑暗，通往上层洞厅。摔下去会受伤，疲惫的攀爬者必定会失足。
+Far_Territory_PathMiddleHallUpperHall_DA_Climb,Climb Up to Upper Hall,爬上上层洞厅
+Far_Territory_PathMiddleHallUpperHall_DA_Climb_Desc,Climb the shaft to the Upper Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,借着火炬的光沿竖井爬上上层洞厅。技巧和稳当的抓手能降低失足的可能；疲惫的攀爬者必定会失足。大约需要一刻钟。
+Far_Territory_PathMiddleHallUpperHall_DA_Climb_Fade,Climbing up the shaft...,沿竖井向上攀爬……
+Far_Territory_PathUpperHallMiddleHall_CardName,Climb down to Middle Hall,爬下中层洞厅
+Far_Territory_PathUpperHallMiddleHall_CardDescription,"A shaft of wet rock drops into the dark toward the Middle Hall. A fall hurts, and a tired climber is sure to fall.",一道湿岩竖井向下没入黑暗，通往中层洞厅。摔下去会受伤，疲惫的攀爬者必定会失足。
+Far_Territory_PathUpperHallMiddleHall_DA_Climb,Climb Down to Middle Hall,爬下中层洞厅
+Far_Territory_PathUpperHallMiddleHall_DA_Climb_Desc,Climb down the shaft to the Middle Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.,借着火炬的光沿竖井爬下中层洞厅。技巧和稳当的抓手能降低失足的可能；疲惫的攀爬者必定会失足。大约需要一刻钟。
+Far_Territory_PathUpperHallMiddleHall_DA_Climb_Fade,Climbing down the shaft...,沿竖井向下攀爬……
+Far_Territory_PathMiddleHallLightlessHall_CardName,Path to Lightless Hall,前往无光洞厅
+Far_Territory_PathMiddleHallLightlessHall_CardDescription,A way on through the dark rock to the Lightless Hall.,穿过黑暗岩石通往无光洞厅的路。
+Far_Territory_PathMiddleHallLightlessHall_DA_Travel,Go to Lightless Hall,前往无光洞厅
+Far_Territory_PathMiddleHallLightlessHall_DA_Travel_Desc,Feel your way to the Lightless Hall by torchlight. It is only a few steps.,借着火炬的光摸索前往无光洞厅。只有几步路。
+Far_Territory_PathMiddleHallLightlessHall_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathLightlessHallMiddleHall_CardName,Path to Middle Hall,前往中层洞厅
+Far_Territory_PathLightlessHallMiddleHall_CardDescription,A way on through the dark rock to the Middle Hall.,穿过黑暗岩石通往中层洞厅的路。
+Far_Territory_PathLightlessHallMiddleHall_DA_Travel,Go to Middle Hall,前往中层洞厅
+Far_Territory_PathLightlessHallMiddleHall_DA_Travel_Desc,Feel your way to the Middle Hall by torchlight. It is only a few steps.,借着火炬的光摸索前往中层洞厅。只有几步路。
+Far_Territory_PathLightlessHallMiddleHall_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathSinkholeLightlessHall_CardName,Path to Lightless Hall,前往无光洞厅
+Far_Territory_PathSinkholeLightlessHall_CardDescription,A way on through the dark rock to the Lightless Hall.,穿过黑暗岩石通往无光洞厅的路。
+Far_Territory_PathSinkholeLightlessHall_DA_Travel,Go to Lightless Hall,前往无光洞厅
+Far_Territory_PathSinkholeLightlessHall_DA_Travel_Desc,Feel your way to the Lightless Hall by torchlight. It is only a few steps.,借着火炬的光摸索前往无光洞厅。只有几步路。
+Far_Territory_PathSinkholeLightlessHall_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathLightlessHallSinkhole_CardName,Path to Sinkhole,前往天坑
+Far_Territory_PathLightlessHallSinkhole_CardDescription,A way back toward the grey light of the Sinkhole.,一条往回通向天坑灰白光亮的路。
+Far_Territory_PathLightlessHallSinkhole_DA_Travel,Go to Sinkhole,前往天坑
+Far_Territory_PathLightlessHallSinkhole_DA_Travel_Desc,Feel your way to the Sinkhole by torchlight. It is only a few steps.,借着火炬的光摸索前往天坑。只有几步路。
+Far_Territory_PathLightlessHallSinkhole_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathLavaTubeUpperHall_CardName,Path to Upper Hall,前往上层洞厅
+Far_Territory_PathLavaTubeUpperHall_CardDescription,A way on through the dark rock to the Upper Hall.,穿过黑暗岩石通往上层洞厅的路。
+Far_Territory_PathLavaTubeUpperHall_DA_Travel,Go to Upper Hall,前往上层洞厅
+Far_Territory_PathLavaTubeUpperHall_DA_Travel_Desc,Feel your way to the Upper Hall by torchlight. It is only a few steps.,借着火炬的光摸索前往上层洞厅。只有几步路。
+Far_Territory_PathLavaTubeUpperHall_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_PathUpperHallLavaTube_CardName,Path to Lava Tube,前往熔岩隧洞
+Far_Territory_PathUpperHallLavaTube_CardDescription,A way back toward the grey light of the Lava Tube.,一条往回通向熔岩隧洞灰白光亮的路。
+Far_Territory_PathUpperHallLavaTube_DA_Travel,Go to Lava Tube,前往熔岩隧洞
+Far_Territory_PathUpperHallLavaTube_DA_Travel_Desc,Feel your way to the Lava Tube by torchlight. It is only a few steps.,借着火炬的光摸索前往熔岩隧洞。只有几步路。
+Far_Territory_PathUpperHallLavaTube_DA_Travel_Fade,Going on through the dark...,在黑暗中摸索前行……
+Far_Territory_Banana_CardName,Banana,香蕉
+Far_Territory_Banana_CardDescription,"A short, fat island banana, yellow and sweet. Eaten raw it fills well. Set one in a garden plot and it takes root.",一根又短又粗的海岛香蕉，金黄香甜。生吃很能填饱肚子。种进菜园里就会扎根。
+Far_Territory_Banana_Spoilage,Spoilage,变质
+Far_Territory_Banana_Spoiled,The banana has spoiled.,香蕉已经变质了。
+Far_Territory_Banana_Planting,Planting,种植
+Far_Territory_Banana_Planted,The banana has taken root in the garden plot.,香蕉已在菜园里扎根。
+Far_Territory_Banana_DA_Eat,Eat,吃掉
+Far_Territory_Banana_DA_Eat_Desc,Peel the banana and eat it.,剥开香蕉吃掉。
+Far_Territory_BananaPlant_DA_Pick,Cut a Bunch,割下一串
+Far_Territory_BananaPlant_DA_Pick_Desc,Cut down a ripe bunch of bananas. Takes about fifteen minutes.,割下一串熟透的香蕉。大约需要十五分钟。
+Far_Territory_BananaPlant_DA_Pick_Fail,No bunch is ripe on this plant yet,这株香蕉上还没有成熟的果串
+Far_Territory_BananaPlant_CardName,Banana Plant,香蕉株
+Far_Territory_BananaPlant_CardDescription,"A broad-leaved banana plant, its heavy bunch hanging under the leaves. A new bunch ripens in time.",一株阔叶香蕉，沉甸甸的果串垂在叶下。过些时日会再结出新的一串。
+Far_Territory_BananaPlant_Yield,Ripe Bunches,成熟果串
+Far_Territory_BananaGrowing_CardName,Growing Banana,生长中的香蕉
+Far_Territory_BananaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there.",一株正在菜园里扎根的幼苗。它只有待在菜园里时才会生长，在那里大约20天后即可收获。
+Far_Territory_BananaGrowing_Growth,Growth,成长度
+Far_Territory_BananaGrowing_Ready,The banana is ready to harvest.,香蕉可以收获了。
+Far_Territory_BananaGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_BananaGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉。什么也得不到。
+Far_Territory_BananaGarden_CardName,Banana Plant (Garden),香蕉株（菜园）
+Far_Territory_BananaGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",一株菜园里种出的植株，可以收获了。植株会留在菜园中，继续长出下一茬作物。
+Far_Territory_BananaGarden_DA_Harvest,Harvest,收获
+Far_Territory_BananaGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株会留在菜园中，继续长出下一茬作物。
+Far_Territory_BananaGarden_DA_Uproot,Uproot,拔除
+Far_Territory_BananaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉。什么也得不到。
+Far_Territory_Mango_CardName,Mango,芒果
+Far_Territory_Mango_CardDescription,"A ripe mango, soft and fragrant, its flesh orange and dripping. Eaten raw it quenches a little thirst too. Set one in a garden plot and its stone takes root.",一个熟透的芒果，柔软芬芳，橙色的果肉汁水淋漓。生吃还能稍稍解渴。种进菜园里，它的果核就会扎根。
+Far_Territory_Mango_Spoilage,Spoilage,变质
+Far_Territory_Mango_Spoiled,The mango has spoiled.,芒果已经变质了。
+Far_Territory_Mango_Planting,Planting,种植
+Far_Territory_Mango_Planted,The mango has taken root in the garden plot.,芒果已在菜园里扎根。
+Far_Territory_Mango_DA_Eat,Eat,吃掉
+Far_Territory_Mango_DA_Eat_Desc,"Eat the mango, skin and all but the stone.",连皮吃掉芒果，只留下果核。
+Far_Territory_MangoTree_DA_Pick,Pick Mangoes,摘芒果
+Far_Territory_MangoTree_DA_Pick_Desc,Pick the ripe mangoes within reach. Takes about fifteen minutes.,摘下够得着的熟芒果。大约需要十五分钟。
+Far_Territory_MangoTree_DA_Pick_Fail,No mango is ripe on this tree yet,这棵树上还没有成熟的芒果
+Far_Territory_MangoTree_CardName,Mango Tree,芒果树
+Far_Territory_MangoTree_CardDescription,A spreading mango tree hung with fruit. Mangoes ripen on it a few at a time.,一棵枝叶舒展、挂满果实的芒果树。芒果每次只熟几个。
+Far_Territory_MangoTree_Yield,Ripe Mangoes,成熟芒果
+Far_Territory_MangoGrowing_CardName,Growing Mango,生长中的芒果树
+Far_Territory_MangoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",一株正在菜园里扎根的幼苗。它只有待在菜园里时才会生长，在那里大约30天后即可收获。
+Far_Territory_MangoGrowing_Growth,Growth,成长度
+Far_Territory_MangoGrowing_Ready,The mango is ready to harvest.,芒果可以收获了。
+Far_Territory_MangoGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_MangoGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_MangoGarden_CardName,Mango Sapling (Garden),芒果树苗（菜园）
+Far_Territory_MangoGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园里，继续长出下一批作物。
+Far_Territory_MangoGarden_DA_Harvest,Harvest,收获
+Far_Territory_MangoGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,收获作物。植株会留在菜园里，继续长出下一批作物。
+Far_Territory_MangoGarden_DA_Uproot,Uproot,拔除
+Far_Territory_MangoGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_TropicalAlmond_CardName,Tropical Almonds,榄仁
+Far_Territory_TropicalAlmond_CardDescription,Ridged green almonds from the beach almond tree. Crack the shell and eat the kernel raw. Set one in a garden plot and it takes root.,海滩榄仁树结的带棱绿色果实。敲开外壳即可生吃果仁。种进菜园就会扎根。
+Far_Territory_TropicalAlmond_Spoilage,Spoilage,变质
+Far_Territory_TropicalAlmond_Spoiled,The tropical almonds have spoiled.,榄仁已经变质了。
+Far_Territory_TropicalAlmond_Planting,Planting,种植
+Far_Territory_TropicalAlmond_Planted,The tropical almonds have taken root in the garden plot.,榄仁已在菜园中扎根。
+Far_Territory_TropicalAlmond_DA_Eat,Crack and Eat,敲开吃
+Far_Territory_TropicalAlmond_DA_Eat_Desc,Crack the shell on a stone and eat the kernel.,在石头上敲开外壳，吃掉果仁。
+Far_Territory_AlmondTree_DA_Pick,Gather Almonds,捡拾榄仁
+Far_Territory_AlmondTree_DA_Pick_Desc,Pick up the almonds lying under the tree. Takes about fifteen minutes.,捡起落在树下的榄仁。大约需要十五分钟。
+Far_Territory_AlmondTree_DA_Pick_Fail,No almonds lie under this tree yet,树下还没有落下榄仁
+Far_Territory_AlmondTree_CardName,Tropical Almond Tree,榄仁树
+Far_Territory_AlmondTree_CardDescription,A tiered beach almond tree with broad leaves. Its nuts fall and gather beneath it.,一棵枝叶层层分明、叶片宽大的海滩榄仁树。果实落下后会堆积在树下。
+Far_Territory_AlmondTree_Yield,Fallen Nuts,落果
+Far_Territory_TropicalAlmondGrowing_CardName,Growing Almond Tree,生长中的榄仁树
+Far_Territory_TropicalAlmondGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。
+Far_Territory_TropicalAlmondGrowing_Growth,Growth,成长度
+Far_Territory_TropicalAlmondGrowing_Ready,The almond tree is ready to harvest.,榄仁树可以收获了。
+Far_Territory_TropicalAlmondGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_TropicalAlmondGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_TropicalAlmondGarden_CardName,Almond Sapling (Garden),榄仁树苗（菜园）
+Far_Territory_TropicalAlmondGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园里，继续长出下一批作物。
+Far_Territory_TropicalAlmondGarden_DA_Harvest,Harvest,收获
+Far_Territory_TropicalAlmondGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,收获作物。植株会留在菜园里，继续长出下一批作物。
+Far_Territory_TropicalAlmondGarden_DA_Uproot,Uproot,拔除
+Far_Territory_TropicalAlmondGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_Jujube_CardName,Jujubes,枣子
+Far_Territory_Jujube_CardDescription,"A handful of small red jujubes, crisp and sweet like a tart apple. Eaten raw. Set some in a garden plot and they take root.",一把红色的小枣子，脆甜中带着酸苹果般的味道。可以生吃。种进菜园就会扎根。
+Far_Territory_Jujube_Spoilage,Spoilage,变质
+Far_Territory_Jujube_Spoiled,The jujubes have spoiled.,枣子已经变质了。
+Far_Territory_Jujube_Planting,Planting,种植
+Far_Territory_Jujube_Planted,The jujubes have taken root in the garden plot.,枣子已在菜园中扎根。
+Far_Territory_Jujube_DA_Eat,Eat,吃掉
+Far_Territory_Jujube_DA_Eat_Desc,Eat the jujubes.,吃掉枣子。
+Far_Territory_JujubeBush_DA_Pick,Pick Jujubes,采摘枣子
+Far_Territory_JujubeBush_DA_Pick_Desc,Pick the ripe jujubes from between the thorns. Takes about fifteen minutes.,从棘刺间摘下成熟的枣子。大约需要十五分钟。
+Far_Territory_JujubeBush_DA_Pick_Fail,No jujubes are ripe on this shrub yet,这丛灌木上还没有成熟的枣子
+Far_Territory_JujubeBush_CardName,Wild Jujube,野枣丛
+Far_Territory_JujubeBush_CardDescription,A thorny wild jujube shrub dotted with red fruit. More fruit ripens in time.,一丛长满棘刺的野枣灌木，点缀着红色的果实。过些时候还会有更多果实成熟。
+Far_Territory_JujubeBush_Yield,Ripe Jujubes,成熟枣子
+Far_Territory_JujubeGrowing_CardName,Growing Jujube,生长中的枣丛
+Far_Territory_JujubeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约20天后即可收获。
+Far_Territory_JujubeGrowing_Growth,Growth,成长度
+Far_Territory_JujubeGrowing_Ready,The jujube is ready to harvest.,枣丛可以收获了。
+Far_Territory_JujubeGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_JujubeGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_JujubeGarden_CardName,Jujube Shrub (Garden),枣丛（菜园）
+Far_Territory_JujubeGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园里，继续长出下一批作物。
+Far_Territory_JujubeGarden_DA_Harvest,Harvest,收获
+Far_Territory_JujubeGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,收获作物。植株会留在菜园里，继续长出下一批作物。
+Far_Territory_JujubeGarden_DA_Uproot,Uproot,拔除
+Far_Territory_JujubeGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_NipaFruit_CardName,Nipa Fruit,水椰果
+Far_Territory_NipaFruit_CardDescription,"A round, knobbly head of nipa palm fruit. Pry the segments apart and eat the soft white seeds raw. Set one in a garden plot and it takes root.",一颗圆而多瘤的水椰果球。掰开果瓣，就能生吃里面柔软的白色种子。种进菜园就会扎根。
+Far_Territory_NipaFruit_Spoilage,Spoilage,变质
+Far_Territory_NipaFruit_Spoiled,The nipa fruit has spoiled.,水椰果已经变质了。
+Far_Territory_NipaFruit_Planting,Planting,种植
+Far_Territory_NipaFruit_Planted,The nipa fruit has taken root in the garden plot.,水椰果已在菜园中扎根。
+Far_Territory_NipaFruit_DA_Eat,Eat the Seeds,吃种子
+Far_Territory_NipaFruit_DA_Eat_Desc,Pry the fruit apart and eat its soft white seeds.,掰开果实，吃掉里面柔软的白色种子。
+Far_Territory_NipaPalm_DA_Pick,Cut a Fruit Head,割果球
+Far_Territory_NipaPalm_DA_Pick_Desc,Wade in and cut a ripe fruit head from its stalk. Takes about fifteen minutes.,蹚水过去，从果柄上割下一颗成熟的果球。大约需要十五分钟。
+Far_Territory_NipaPalm_DA_Pick_Fail,No fruit head is ripe on this palm yet,这株水椰上还没有成熟的果球
+Far_Territory_NipaPalm_CardName,Nipa Palm,水椰
+Far_Territory_NipaPalm_CardDescription,"A stemless palm growing out of the brackish mud, its fronds rising straight from the ground. Fruit heads ripen low among them.",一种无茎的棕榈，生长在咸淡水交汇的泥滩中，叶片直接从地面挺立而出。果球低低地在叶丛间成熟。
+Far_Territory_NipaPalm_Yield,Fruit Heads,果球
+Far_Territory_NipaFruitGrowing_CardName,Growing Nipa Palm,生长中的水椰
+Far_Territory_NipaFruitGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。
+Far_Territory_NipaFruitGrowing_Growth,Growth,成长度
+Far_Territory_NipaFruitGrowing_Ready,The nipa palm is ready to harvest.,水椰可以收获了。
+Far_Territory_NipaFruitGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_NipaFruitGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_NipaFruitGarden_CardName,Nipa Palm (Garden),水椰（菜园）
+Far_Territory_NipaFruitGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园里，继续长出下一批作物。
+Far_Territory_NipaFruitGarden_DA_Harvest,Harvest,收获
+Far_Territory_NipaFruitGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,收获作物。植株会留在菜园里，继续长出下一批作物。
+Far_Territory_NipaFruitGarden_DA_Uproot,Uproot,拔除
+Far_Territory_NipaFruitGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_Yam_CardName,Yam,山药
+Far_Territory_Yam_CardDescription,"A long, earthy wild yam root. Eaten raw it is starchy, filling and dull. Set one in a garden plot and it sprouts.",一根细长、带着泥土气息的野山药块根。生吃粉糯顶饱，但味道寡淡。种进菜园就会发芽。
+Far_Territory_Yam_Spoilage,Spoilage,变质
+Far_Territory_Yam_Spoiled,The yam has spoiled.,山药已经变质了。
+Far_Territory_Yam_Planting,Planting,种植
+Far_Territory_Yam_Planted,The yam has taken root in the garden plot.,山药已在菜园中扎根。
+Far_Territory_Yam_DA_Eat,Eat Raw,生吃
+Far_Territory_Yam_DA_Eat_Desc,Scrape off the skin and chew the raw yam.,刮掉外皮，嚼食生山药。
+Far_Territory_WildYam_DA_Pick,Dig up a Yam,挖山药
+Far_Territory_WildYam_DA_Pick_Desc,Dig down beside the vine and work a tuber loose by hand. Takes about half an hour and dirties you.,在藤蔓旁往下挖，用手把块茎刨松取出。大约需要半小时，还会弄脏身子。
+Far_Territory_WildYam_DA_Pick_Fail,No tuber is big enough to dig yet,还没有长到能挖的块茎
+Far_Territory_WildYam_CardName,Wild Yam Vine,野山药藤
+Far_Territory_WildYam_CardDescription,A twining yam vine with heart-shaped leaves. Its tubers swell underground and can be dug up.,一株缠绕生长的山药藤，叶片呈心形。它的块茎在地下膨大，可以挖出来。
+Far_Territory_WildYam_Yield,Tubers,块茎
+Far_Territory_YamGrowing_CardName,Growing Yam,生长中的山药
+Far_Territory_YamGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约15天后即可收获。
+Far_Territory_YamGrowing_Growth,Growth,成长度
+Far_Territory_YamGrowing_Ready,The yam is ready to harvest.,山药可以收获了。
+Far_Territory_YamGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_YamGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_YamGarden_CardName,Yam Vine (Garden),山药藤（菜园）
+Far_Territory_YamGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant is used up.",菜园里种出的植株，可以收获了。收获后植株就没了。
+Far_Territory_YamGarden_DA_Harvest,Harvest,收获
+Far_Territory_YamGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.,收获作物。植株会被消耗掉。
+Far_Territory_YamGarden_DA_Uproot,Uproot,拔除
+Far_Territory_YamGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_SagoPith_CardName,Sago Pith,西米髓
+Far_Territory_SagoPith_CardDescription,"Pale, fibrous starch scraped from inside a sago palm's trunk. Eaten raw it is bland and heavy, but it fills an empty belly.",从西米棕榈树干里刮出的淡色纤维状淀粉。生吃寡淡又难消化，但能填饱空空的肚子。
+Far_Territory_SagoPith_Spoilage,Spoilage,变质
+Far_Territory_SagoPith_Spoiled,The sago pith has spoiled.,西米髓已经变质了。
+Far_Territory_SagoPith_DA_Eat,Eat,吃掉
+Far_Territory_SagoPith_DA_Eat_Desc,Chew a handful of the raw pith.,嚼食一把生的西米髓。
+Far_Territory_SagoShoot_CardName,Sago Shoot,西米棕榈嫩芽
+Far_Territory_SagoShoot_CardDescription,A young sucker cut from the base of a sago palm. Set it in a garden plot and it takes root.,从西米棕榈基部割下的一根幼嫩吸芽。种进菜园就会扎根。
+Far_Territory_SagoShoot_Spoilage,Spoilage,变质
+Far_Territory_SagoShoot_Spoiled,The sago shoot has spoiled.,西米棕榈嫩芽已经变质了。
+Far_Territory_SagoShoot_Planting,Planting,种植
+Far_Territory_SagoShoot_Planted,The sago shoot has taken root in the garden plot.,西米棕榈嫩芽已在菜园中扎根。
+Far_Territory_SagoGrowing_CardName,Growing Sago Palm,生长中的西米棕榈
+Far_Territory_SagoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。
+Far_Territory_SagoGrowing_Growth,Growth,成长度
+Far_Territory_SagoGrowing_Ready,The sago palm is ready to harvest.,西米棕榈可以收获了。
+Far_Territory_SagoGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_SagoGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_SagoGarden_CardName,Sago Palm (Garden),西米棕榈（菜园）
+Far_Territory_SagoGarden_CardDescription,A garden-grown sago palm with a trunk full of starch. Cut it down for the pith and a fresh shoot to plant again.,菜园里种出的西米棕榈，树干里满是淀粉。砍倒它可得到西米髓，以及一根可以重新种植的嫩芽。
+Far_Territory_SagoGarden_DA_Harvest,Harvest,收获
+Far_Territory_SagoGarden_DA_Harvest_Desc,Cut the young palm down and scrape out its pith. A shoot is kept to plant again. The plant is used up.,砍倒这株幼小的棕榈，刮出其中的西米髓。留下一根嫩芽以便重新种植。植株会被消耗掉。
+Far_Territory_SagoGarden_DA_Uproot,Uproot,拔除
+Far_Territory_SagoGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
+Far_Territory_SagoPalm_CardName,Sago Palm,西米棕榈
+Far_Territory_SagoPalm_CardDescription,"A swamp palm with a thick, soft trunk packed with starch. Fell it with an axe and split it to scrape out the pith. A new palm rises from its suckers in time.",一种沼泽棕榈，粗壮松软的树干里塞满了淀粉。用斧头砍倒并劈开树干，就能刮出西米髓。过些时候，新的棕榈会从它的吸芽中长起来。
+Far_Territory_SagoPalm_CI_Fell,Fell the Sago Palm,砍倒西米棕榈
+Far_Territory_SagoPalm_CI_Fell_Desc,"Chop the palm down, split the trunk and scrape out the starchy pith. You also take a few fronds and a shoot to plant. A young palm takes its place.",砍倒棕榈，劈开树干，刮出富含淀粉的西米髓。你还能取得几片棕榈叶和一根可种植的嫩芽。原地会长出一株幼小的棕榈。
+Far_Territory_SagoPalmYoung_CardName,Young Sago Palm,西米棕榈幼树
+Far_Territory_SagoPalmYoung_CardDescription,A young sago palm rising from the suckers of a felled one. It grows into a full sago palm in about a month.,从被砍倒的西米棕榈吸芽中长出的幼树。大约一个月后会长成一株完整的西米棕榈。
+Far_Territory_SagoPalmYoung_Growth,Growth,成长度
+Far_Territory_SagoPalmYoung_Grown,The young sago palm has grown into a sago palm.,西米棕榈幼树已长成西米棕榈。
+Far_Territory_Effect_Aloe_StatName,Aloe Salve,芦荟膏
+Far_Territory_Effect_Aloe_StatDescription,"Aloe gel spread on the skin. It cools what burns and helps a burn mend, and wears off over the following hours.",涂在皮肤上的芦荟凝胶。它能让灼痛处清凉下来，帮助烧伤愈合，效果会在接下来的几个小时内逐渐消退。
+Far_Territory_Effect_Aloe_Status_Mild_Name,Aloe Salve,芦荟膏
+Far_Territory_Effect_Aloe_Status_Mild_Description,Aloe gel on your skin dulls the sting of a burn and helps it mend.,皮肤上的芦荟凝胶减轻了烧伤的刺痛，并帮助伤处愈合。
+Far_Territory_Effect_Aloe_Status_Strong_Name,Thick Aloe Salve,厚涂芦荟膏
+Far_Territory_Effect_Aloe_Status_Strong_Description,A thick layer of aloe gel. Burns ease and mend faster while it lasts.,厚厚的一层芦荟凝胶。药效持续期间，烧伤缓解得更快，愈合也更快。
+Far_Territory_Effect_Cinchona_StatName,Cinchona Bitters,金鸡纳苦味
+Far_Territory_Effect_Cinchona_StatDescription,"Chewed cinchona bark still working in you. It brings a fever down and dulls aches, and wears off over the following hours.",嚼下的金鸡纳树皮仍在体内起效。它能退烧、缓解疼痛，效果会在接下来的几个小时内逐渐消退。
+Far_Territory_Effect_Cinchona_Status_Mild_Name,Cinchona Bitters,金鸡纳苦味
+Far_Territory_Effect_Cinchona_Status_Mild_Description,The bitter bark brings a fever down and dulls aches.,苦涩的树皮能退烧，并缓解疼痛。
+Far_Territory_Effect_Cinchona_Status_Strong_Name,Strong Cinchona Bitters,浓烈金鸡纳苦味
+Far_Territory_Effect_Cinchona_Status_Strong_Description,Doses taken close together. A fever falls fast while they last.,接连服下了好几剂。药效持续期间，发烧退得很快。
+Far_Territory_Effect_Kava_StatName,Kava Calm,卡瓦镇静
+Far_Territory_Effect_Kava_StatDescription,"Chewed kava root still working in you. It numbs the mouth, eases worry and dulls aches, and wears off over the following hours.",嚼下的卡瓦根仍在体内起效。它会让嘴巴发麻，缓解忧虑和疼痛，效果会在接下来的几个小时内逐渐消退。
+Far_Territory_Effect_Kava_Status_Mild_Name,Kava Calm,卡瓦镇静
+Far_Territory_Effect_Kava_Status_Mild_Description,A numb mouth and an easy mind. Worries fade a little faster.,嘴巴发麻，心情轻松。忧虑消散得稍快一些。
+Far_Territory_Effect_Kava_Status_Strong_Name,Heavy Kava Calm,卡瓦沉醉
+Far_Territory_Effect_Kava_Status_Strong_Description,"Too much kava: calm and numb, and drowsy with it.",卡瓦吃多了：平静又麻木，还昏昏欲睡。
+Far_Territory_Effect_Coffee_StatName,Coffee Buzz,咖啡提神
+Far_Territory_Effect_Coffee_StatDescription,"Raw coffee berries still working in you. They keep you awake, leave you a little on edge and thirsty, and wear off over the following hours.",生咖啡果仍在体内起效。它让你保持清醒，但也让你有些紧张和口渴，效果会在接下来的几个小时内逐渐消退。
+Far_Territory_Effect_Coffee_Status_Mild_Name,Coffee Buzz,咖啡提神
+Far_Territory_Effect_Coffee_Status_Mild_Description,"You feel more awake, a little on edge and a little thirsty.",你感觉更清醒了，但有点紧张，也有点口渴。
+Far_Territory_Effect_Coffee_Status_Strong_Name,Coffee Jitters,咖啡过量
+Far_Territory_Effect_Coffee_Status_Strong_Description,"Far too many berries. Wide awake, jittery and parched.",吃了太多咖啡果。毫无睡意，心慌手抖，口干舌燥。
+Far_Territory_Effect_Ginger_StatName,Ginger Warmth,姜之暖意
+Far_Territory_Effect_Ginger_StatDescription,"Chewed ginger still working in you. It settles a queasy stomach and dulls aches a little, and wears off over the following hours.",嚼下的姜仍在体内起效。它能平复恶心的肠胃，稍稍缓解疼痛，效果会在接下来的几个小时内逐渐消退。
+Far_Territory_Effect_Ginger_Status_Mild_Name,Ginger Warmth,姜之暖意
+Far_Territory_Effect_Ginger_Status_Mild_Description,A hot tingle in the mouth. A queasy stomach settles faster.,嘴里一阵辛辣的刺麻感。恶心的肠胃平复得更快。
+Far_Territory_GingerPlant_CardName,Ginger Plant,姜株
+Far_Territory_GingerPlant_CardDescription,"A clump of tall, narrow-leaved ginger stems over knotted roots in damp ground.",一丛高高的窄叶姜茎，生长在潮湿的土地上，下面是盘结的根茎。
+Far_Territory_GingerPlant_Yield,Ginger Roots,姜根
+Far_Territory_GingerPlant_DA_Dig,Dig up Ginger,挖姜
+Far_Territory_GingerPlant_DA_Dig_Desc,Dig a knob of ginger root from the clump. Takes about half an hour and dirties your hands.,从姜丛里挖出一块姜根。大约需要半小时，还会弄脏双手。
+Far_Territory_GingerPlant_DA_Dig_Fail,No ginger is ready to dig here yet,这里还没有可以挖的姜
+Far_Territory_KavaPlant_CardName,Kava Plant,卡瓦株
+Far_Territory_KavaPlant_CardDescription,A leafy shrub with jointed green stems. Its thick root is what people chew.,一株枝叶繁茂的灌木，绿色的茎上有一节节的关节。人们嚼食的正是它粗壮的根。
+Far_Territory_KavaPlant_Yield,Kava Roots,卡瓦根
+Far_Territory_KavaPlant_DA_Dig,Dig up Kava Root,挖卡瓦根
+Far_Territory_KavaPlant_DA_Dig_Desc,Dig a piece of root from the shrub. Takes about half an hour and dirties your hands.,从灌木下挖出一段根。大约需要半小时，还会弄脏双手。
+Far_Territory_KavaPlant_DA_Dig_Fail,No kava root is ready to dig here yet,这里还没有可以挖的卡瓦根
+Far_Territory_ChilliPlant_CardName,Chilli Plant,辣椒株
+Far_Territory_ChilliPlant_CardDescription,A small bushy plant hung with slim red chillies.,一株矮小茂密的植物，挂满了细长的红辣椒。
+Far_Territory_ChilliPlant_Yield,Ripe Chillies,成熟辣椒
+Far_Territory_ChilliPlant_DA_Pick,Pick Chillies,采摘辣椒
+Far_Territory_ChilliPlant_DA_Pick_Desc,Pick the ripe chillies. Takes about fifteen minutes.,摘下成熟的辣椒。大约需要十五分钟。
+Far_Territory_ChilliPlant_DA_Pick_Fail,No chilli is ripe on this plant yet,这株植物上还没有成熟的辣椒
+Far_Territory_LemongrassClump_CardName,Lemongrass,香茅
+Far_Territory_LemongrassClump_CardDescription,"A dense clump of tall, pale grass that smells of lemon when you crush a blade.",一丛茂密的高大淡色草，揉碎叶片就会散发出柠檬的香气。
+Far_Territory_LemongrassClump_Yield,Stalks,茎秆
+Far_Territory_LemongrassClump_DA_Cut,Cut Lemongrass,割香茅
+Far_Territory_LemongrassClump_DA_Cut_Desc,Pull a few stalks from the clump. Takes about fifteen minutes.,从草丛里拔几根茎秆。大约需要十五分钟。
+Far_Territory_LemongrassClump_DA_Cut_Fail,The clump has no stalks left to spare yet,这丛草还没有多余的茎秆可取
+Far_Territory_JasmineBush_CardName,Jasmine Bush,茉莉丛
+Far_Territory_JasmineBush_CardDescription,A sprawling bush starred with small white flowers that smell sweet at dusk.,一丛蔓生的灌木，缀满星星点点的白色小花，黄昏时散发出甜美的香气。
+Far_Territory_JasmineBush_Yield,Flowers,花朵
+Far_Territory_JasmineBush_DA_Pick,Pick Jasmine Flowers,采摘茉莉花
+Far_Territory_JasmineBush_DA_Pick_Desc,Pick a handful of open flowers. Takes about fifteen minutes.,摘下一把盛开的花朵。大约需要十五分钟。
+Far_Territory_JasmineBush_DA_Pick_Fail,No flowers are open on this bush yet,这丛灌木上还没有盛开的花
+Far_Territory_JasmineBush_DA_Cutting,Take a Jasmine Cutting,剪取茉莉插条
+Far_Territory_JasmineBush_DA_Cutting_Desc,Snap off a young shoot to plant. It costs the bush some of its flowers. Takes about fifteen minutes.,折下一根嫩枝用来种植。这会让灌木少开一些花。大约需要十五分钟。
+Far_Territory_JasmineBush_DA_Cutting_Fail,The bush has no shoot to spare yet,这丛灌木还没有多余的嫩枝
+Far_Territory_AloePlant_CardName,Aloe Vera,芦荟
+Far_Territory_AloePlant_CardDescription,"A rosette of thick, spiny grey-green leaves full of clear gel.",一簇莲座状的灰绿色厚叶，叶缘带刺，里面满是透明的凝胶。
+Far_Territory_AloePlant_Yield,Leaves,叶片
+Far_Territory_AloePlant_DA_Cut,Cut an Aloe Leaf,割芦荟叶
+Far_Territory_AloePlant_DA_Cut_Desc,Snap off one of the fleshy outer leaves. Takes about fifteen minutes.,折下一片肥厚的外层叶片。大约需要十五分钟。
+Far_Territory_AloePlant_DA_Cut_Fail,No leaf is big enough to cut yet,还没有长到能割的叶片
+Far_Territory_CinchonaTree_CardName,Cinchona Tree,金鸡纳树
+Far_Territory_CinchonaTree_CardDescription,A slim tree with glossy leaves and reddish bark that tastes very bitter.,一棵细瘦的树，叶片油亮，树皮微红，味道极苦。
+Far_Territory_CinchonaTree_Yield,Bark,树皮
+Far_Territory_CinchonaTree_DA_Peel,Peel Cinchona Bark,剥金鸡纳树皮
+Far_Territory_CinchonaTree_DA_Peel_Desc,Peel strips of bark from the trunk. Takes about half an hour.,从树干上剥下几条树皮。大约需要半小时。
+Far_Territory_CinchonaTree_DA_Peel_Fail,The trunk has no bark left to peel yet,树干上还没有可剥的树皮
+Far_Territory_CinchonaTree_DA_Seedling,Dig up a Cinchona Seedling,挖金鸡纳幼苗
+Far_Territory_CinchonaTree_DA_Seedling_Desc,Dig up one of the seedlings around the trunk to plant. It costs the tree some of its bark. Takes about half an hour and dirties your hands.,从树干周围挖起一株幼苗用来种植。这会让树少长一些树皮。大约需要半小时，还会弄脏双手。
+Far_Territory_CinchonaTree_DA_Seedling_Fail,No seedling is big enough to dig up yet,还没有长到能挖起的幼苗
+Far_Territory_CoffeeBush_CardName,Coffee Bush,咖啡丛
+Far_Territory_CoffeeBush_CardDescription,A glossy-leaved shrub with clusters of red berries along its branches.,一丛叶片油亮的灌木，枝条上结着一簇簇红色浆果。
+Far_Territory_CoffeeBush_Yield,Ripe Berries,成熟浆果
+Far_Territory_CoffeeBush_DA_Pick,Pick Coffee Berries,采摘咖啡果
+Far_Territory_CoffeeBush_DA_Pick_Desc,Pick the red berries. Takes about fifteen minutes.,摘下红色的浆果。大约需要十五分钟。
+Far_Territory_CoffeeBush_DA_Pick_Fail,No berry is ripe on this bush yet,这丛灌木上还没有成熟的浆果
+Far_Territory_Ginger_CardName,Ginger Root,姜根
+Far_Territory_Ginger_CardDescription,"A knobbly root with pale, fiery flesh. Chewed raw it settles a queasy stomach for a few hours and dulls aches a little. A strong, pungent spice. Set one in a garden plot and it sprouts.",一块多节的根茎，淡色的姜肉辛辣如火。生嚼可以平复恶心的肠胃几个小时，并稍稍缓解疼痛。一种浓烈辛辣的香料。种进菜园就会发芽。
+Far_Territory_Ginger_Spoilage,Spoilage,变质
+Far_Territory_Ginger_Spoiled,The ginger root has spoiled.,姜根已经变质了。
+Far_Territory_Ginger_Planting,Planting,种植
+Far_Territory_Ginger_Planted,The ginger root has taken root in the garden plot.,姜根已在菜园中扎根。
+Far_Territory_Ginger_DA_Chew,Chew,咀嚼
+Far_Territory_Ginger_DA_Chew_Desc,"Chew the raw root. Hot and sharp, it settles the stomach for a few hours (Ginger Warmth).",嚼食生姜根。又辣又冲，能平复肠胃几个小时（姜之暖意）。
+Far_Territory_KavaRoot_CardName,Kava Root,卡瓦根
+Far_Territory_KavaRoot_CardDescription,"A thick, woody root with an earthy, peppery bite. Chewed raw it numbs the mouth, eases worry and dulls aches for a few hours; too much leaves you drowsy. Set one in a garden plot and it sprouts.",一截粗壮的木质根，带着泥土气和胡椒般的辛辣。生嚼会让嘴里发麻，几个小时内缓解忧虑、减轻疼痛；嚼多了会让人昏昏欲睡。种进菜园就会发芽。
+Far_Territory_KavaRoot_Spoilage,Spoilage,变质
+Far_Territory_KavaRoot_Spoiled,The kava root has spoiled.,卡瓦根变质了。
+Far_Territory_KavaRoot_Planting,Planting,种植
+Far_Territory_KavaRoot_Planted,The kava root has taken root in the garden plot.,卡瓦根已在菜园里扎根。
+Far_Territory_KavaRoot_DA_Chew,Chew the Root,嚼根
+Far_Territory_KavaRoot_DA_Chew_Desc,Chew the raw root. Your mouth goes numb and your mind goes easy for a few hours (Kava Calm).,生嚼这截根。几个小时内嘴里发麻，心神放松（卡瓦镇静）。
+Far_Territory_Chilli_CardName,Chillies,辣椒
+Far_Territory_Chilli_CardDescription,"A few slim red chillies, fiercely hot. Eaten raw they burn the mouth and leave you thirsty. A strong, spicy flavour. Set them in a garden plot and their seeds sprout.",几根细长的红辣椒，辣得厉害。生吃会辣得满嘴火烧，让人口渴。浓烈的辛辣风味。种进菜园，辣椒籽就会发芽。
+Far_Territory_Chilli_Spoilage,Spoilage,变质
+Far_Territory_Chilli_Spoiled,The chillies has spoiled.,辣椒变质了。
+Far_Territory_Chilli_Planting,Planting,种植
+Far_Territory_Chilli_Planted,The chillies has taken root in the garden plot.,辣椒已在菜园里扎根。
+Far_Territory_Chilli_DA_Eat,Eat,吃掉
+Far_Territory_Chilli_DA_Eat_Desc,Eat the chillies raw. Your mouth burns and you want water.,生吃辣椒。满嘴火烧，直想喝水。
+Far_Territory_Lemongrass_CardName,Lemongrass,香茅
+Far_Territory_Lemongrass_CardDescription,"A bundle of pale, fibrous stalks that smell of lemon. Too tough to eat much of, but good for chewing. A herbal, slightly sour flavour. Set it in a garden plot and it roots.",一捆淡色的纤维质茎秆，散发柠檬香气。太硬，吃不了多少，但很适合咀嚼。带有草本气息，略带酸味。种进菜园就会生根。
+Far_Territory_Lemongrass_Spoilage,Spoilage,变质
+Far_Territory_Lemongrass_Spoiled,The lemongrass has spoiled.,香茅变质了。
+Far_Territory_Lemongrass_Planting,Planting,种植
+Far_Territory_Lemongrass_Planted,The lemongrass has taken root in the garden plot.,香茅已在菜园里扎根。
+Far_Territory_Lemongrass_DA_Chew,Chew,咀嚼
+Far_Territory_Lemongrass_DA_Chew_Desc,Chew the tender base of the stalks for their lemony juice.,咀嚼茎秆柔嫩的根部，品尝柠檬味的汁液。
+Far_Territory_JasmineFlowers_CardName,Jasmine Flowers,茉莉花
+Far_Territory_JasmineFlowers_CardDescription,"A handful of small white flowers with a heavy, sweet scent. A strong, floral flavour.",一把白色小花，香气浓郁甜腻。浓烈的花香风味。
+Far_Territory_JasmineFlowers_Spoilage,Spoilage,变质
+Far_Territory_JasmineFlowers_Spoiled,The jasmine flowers has spoiled.,茉莉花变质了。
+Far_Territory_JasmineFlowers_DA_Eat,Eat the Petals,吃花瓣
+Far_Territory_JasmineFlowers_DA_Eat_Desc,Eat the flowers. They taste much as they smell.,吃下这些花。吃起来和闻起来差不多。
+Far_Territory_JasmineCutting_CardName,Jasmine Cutting,茉莉插条
+Far_Territory_JasmineCutting_CardDescription,A young green shoot snapped from a jasmine bush. Set it in a garden plot and it roots.,从茉莉丛上折下的一根青嫩新枝。种进菜园就会生根。
+Far_Territory_JasmineCutting_Spoilage,Spoilage,变质
+Far_Territory_JasmineCutting_Spoiled,The jasmine cutting has spoiled.,茉莉插条变质了。
+Far_Territory_JasmineCutting_Planting,Planting,种植
+Far_Territory_JasmineCutting_Planted,The jasmine cutting has taken root in the garden plot.,茉莉插条已在菜园里扎根。
+Far_Territory_AloeLeaf_CardName,Aloe Vera Leaf,芦荟叶
+Far_Territory_AloeLeaf_CardDescription,"A thick, spiny leaf full of cool, clear gel. Spread on the skin it eases a burn's sting and helps it mend for a few hours. Set one in a garden plot and it roots.",一片厚实带刺的叶子，里面满是清凉透明的凝胶。涂在皮肤上，几个小时内能缓解烧伤的刺痛并帮助愈合。种进菜园就会生根。
+Far_Territory_AloeLeaf_Spoilage,Spoilage,变质
+Far_Territory_AloeLeaf_Spoiled,The aloe leaf has spoiled.,芦荟叶变质了。
+Far_Territory_AloeLeaf_Planting,Planting,种植
+Far_Territory_AloeLeaf_Planted,The aloe leaf has taken root in the garden plot.,芦荟叶已在菜园里扎根。
+Far_Territory_AloeLeaf_DA_Apply,Apply the Gel,涂抹凝胶
+Far_Territory_AloeLeaf_DA_Apply_Desc,Split the leaf and spread its gel on your skin. Burns sting less and mend faster for a few hours (Aloe Salve).,剖开叶子，把凝胶涂在皮肤上。几个小时内烧伤刺痛减轻、愈合加快（芦荟膏）。
+Far_Territory_CinchonaBark_CardName,Cinchona Bark,金鸡纳树皮
+Far_Territory_CinchonaBark_CardDescription,"Curled strips of reddish bark, bitter enough to make your eyes water. Chewed, it brings a fever down and dulls aches for a few hours.",一卷卷微红的树皮条，苦得让人眼泪直流。嚼下去能在几个小时内退烧、减轻疼痛。
+Far_Territory_CinchonaBark_Spoilage,Spoilage,变质
+Far_Territory_CinchonaBark_Spoiled,The cinchona bark has spoiled.,金鸡纳树皮变质了。
+Far_Territory_CinchonaBark_DA_Chew,Chew the Bark,嚼树皮
+Far_Territory_CinchonaBark_DA_Chew_Desc,Chew a strip of the bitter bark. A fever falls and aches dull for a few hours (Cinchona Bitters).,嚼一条苦涩的树皮。几个小时内退烧，疼痛减轻（金鸡纳苦味）。
+Far_Territory_CinchonaSeedling_CardName,Cinchona Seedling,金鸡纳幼苗
+Far_Territory_CinchonaSeedling_CardDescription,A young cinchona tree dug up with its roots. Set it in a garden plot and it takes root.,连根挖出的一株金鸡纳小树。种进菜园就会扎根。
+Far_Territory_CinchonaSeedling_Spoilage,Spoilage,变质
+Far_Territory_CinchonaSeedling_Spoiled,The cinchona seedling has spoiled.,金鸡纳幼苗变质了。
+Far_Territory_CinchonaSeedling_Planting,Planting,种植
+Far_Territory_CinchonaSeedling_Planted,The cinchona seedling has taken root in the garden plot.,金鸡纳幼苗已在菜园里扎根。
+Far_Territory_CoffeeBerries_CardName,Coffee Berries,咖啡果
+Far_Territory_CoffeeBerries_CardDescription,"A handful of red berries, sweetish around two hard beans. Eaten raw they keep you awake for a while but leave you jittery and thirsty. Set them in a garden plot and the beans sprout.",一把红色浆果，两颗硬豆外裹着微甜的果肉。生吃能让人清醒一阵，但会让人心慌口渴。种进菜园，咖啡豆就会发芽。
+Far_Territory_CoffeeBerries_Spoilage,Spoilage,变质
+Far_Territory_CoffeeBerries_Spoiled,The coffee berries has spoiled.,咖啡果变质了。
+Far_Territory_CoffeeBerries_Planting,Planting,种植
+Far_Territory_CoffeeBerries_Planted,The coffee berries has taken root in the garden plot.,咖啡果已在菜园里扎根。
+Far_Territory_CoffeeBerries_DA_Eat,Eat,吃掉
+Far_Territory_CoffeeBerries_DA_Eat_Desc,"Eat the berries, spitting out the beans. You feel more awake for a while (Coffee Buzz).",吃下浆果，吐掉豆子。一段时间内更加清醒（咖啡提神）。
+Far_Territory_GingerGrowing_CardName,Growing Ginger,生长中的姜
+Far_Territory_GingerGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约15天后即可收获。
+Far_Territory_GingerGrowing_Growth,Growth,成长度
+Far_Territory_GingerGrowing_Ready,The ginger is ready to harvest.,姜可以收获了。
+Far_Territory_GingerGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_GingerGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_GingerGarden_CardName,Ginger Plant (Garden),姜株（菜园）
+Far_Territory_GingerGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant is used up.",菜园里种出的植株，可以收获了。收获后植株耗尽。
+Far_Territory_GingerGarden_DA_Harvest,Harvest,收获
+Far_Territory_GingerGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.,采收作物。植株随之耗尽。
+Far_Territory_GingerGarden_DA_Uproot,Uproot,拔除
+Far_Territory_GingerGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_KavaGrowing_CardName,Growing Kava,生长中的卡瓦
+Far_Territory_KavaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。
+Far_Territory_KavaGrowing_Growth,Growth,成长度
+Far_Territory_KavaGrowing_Ready,The kava is ready to harvest.,卡瓦可以收获了。
+Far_Territory_KavaGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_KavaGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_KavaGarden_CardName,Kava Plant (Garden),卡瓦株（菜园）
+Far_Territory_KavaGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant is used up.",菜园里种出的植株，可以收获了。收获后植株耗尽。
+Far_Territory_KavaGarden_DA_Harvest,Harvest,收获
+Far_Territory_KavaGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.,采收作物。植株随之耗尽。
+Far_Territory_KavaGarden_DA_Uproot,Uproot,拔除
+Far_Territory_KavaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_ChilliGrowing_CardName,Growing Chilli,生长中的辣椒
+Far_Territory_ChilliGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约15天后即可收获。
+Far_Territory_ChilliGrowing_Growth,Growth,成长度
+Far_Territory_ChilliGrowing_Ready,The chilli is ready to harvest.,辣椒可以收获了。
+Far_Territory_ChilliGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_ChilliGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_ChilliGarden_CardName,Chilli Plant (Garden),辣椒株（菜园）
+Far_Territory_ChilliGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园中，继续长出下一茬。
+Far_Territory_ChilliGarden_DA_Harvest,Harvest,收获
+Far_Territory_ChilliGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株留在菜园中，继续长出下一茬。
+Far_Territory_ChilliGarden_DA_Uproot,Uproot,拔除
+Far_Territory_ChilliGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_LemongrassGrowing_CardName,Growing Lemongrass,生长中的香茅
+Far_Territory_LemongrassGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 10 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约10天后即可收获。
+Far_Territory_LemongrassGrowing_Growth,Growth,成长度
+Far_Territory_LemongrassGrowing_Ready,The lemongrass is ready to harvest.,香茅可以收获了。
+Far_Territory_LemongrassGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_LemongrassGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_LemongrassGarden_CardName,Lemongrass (Garden),香茅（菜园）
+Far_Territory_LemongrassGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园中，继续长出下一茬。
+Far_Territory_LemongrassGarden_DA_Harvest,Harvest,收获
+Far_Territory_LemongrassGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株留在菜园中，继续长出下一茬。
+Far_Territory_LemongrassGarden_DA_Uproot,Uproot,拔除
+Far_Territory_LemongrassGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_JasmineGrowing_CardName,Growing Jasmine,生长中的茉莉
+Far_Territory_JasmineGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约20天后即可收获。
+Far_Territory_JasmineGrowing_Growth,Growth,成长度
+Far_Territory_JasmineGrowing_Ready,The jasmine is ready to harvest.,茉莉可以收获了。
+Far_Territory_JasmineGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_JasmineGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_JasmineGarden_CardName,Jasmine Bush (Garden),茉莉丛（菜园）
+Far_Territory_JasmineGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园中，继续长出下一茬。
+Far_Territory_JasmineGarden_DA_Harvest,Harvest,收获
+Far_Territory_JasmineGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株留在菜园中，继续长出下一茬。
+Far_Territory_JasmineGarden_DA_Uproot,Uproot,拔除
+Far_Territory_JasmineGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_AloeGrowing_CardName,Growing Aloe,生长中的芦荟
+Far_Territory_AloeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约20天后即可收获。
+Far_Territory_AloeGrowing_Growth,Growth,成长度
+Far_Territory_AloeGrowing_Ready,The aloe is ready to harvest.,芦荟可以收获了。
+Far_Territory_AloeGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_AloeGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_AloeGarden_CardName,Aloe Vera (Garden),芦荟（菜园）
+Far_Territory_AloeGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园中，继续长出下一茬。
+Far_Territory_AloeGarden_DA_Harvest,Harvest,收获
+Far_Territory_AloeGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株留在菜园中，继续长出下一茬。
+Far_Territory_AloeGarden_DA_Uproot,Uproot,拔除
+Far_Territory_AloeGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_CinchonaGrowing_CardName,Growing Cinchona,生长中的金鸡纳树
+Far_Territory_CinchonaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。
+Far_Territory_CinchonaGrowing_Growth,Growth,成长度
+Far_Territory_CinchonaGrowing_Ready,The cinchona is ready to harvest.,金鸡纳树可以收获了。
+Far_Territory_CinchonaGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_CinchonaGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_CinchonaGarden_CardName,Cinchona Sapling (Garden),金鸡纳树苗（菜园）
+Far_Territory_CinchonaGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园中，继续长出下一茬。
+Far_Territory_CinchonaGarden_DA_Harvest,Harvest,收获
+Far_Territory_CinchonaGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株留在菜园中，继续长出下一茬。
+Far_Territory_CinchonaGarden_DA_Uproot,Uproot,拔除
+Far_Territory_CinchonaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_CoffeeGrowing_CardName,Growing Coffee,生长中的咖啡丛
+Far_Territory_CoffeeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。
+Far_Territory_CoffeeGrowing_Growth,Growth,成长度
+Far_Territory_CoffeeGrowing_Ready,The coffee is ready to harvest.,咖啡可以收获了。
+Far_Territory_CoffeeGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_CoffeeGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_CoffeeGarden_CardName,Coffee Bush (Garden),咖啡丛（菜园）
+Far_Territory_CoffeeGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop.",菜园里种出的植株，可以收获了。植株会留在菜园中，继续长出下一茬。
+Far_Territory_CoffeeGarden_DA_Harvest,Harvest,收获
+Far_Territory_CoffeeGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株留在菜园中，继续长出下一茬。
+Far_Territory_CoffeeGarden_DA_Uproot,Uproot,拔除
+Far_Territory_CoffeeGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_ChinaRoseBush_CardName,China Rose,月季
+Far_Territory_ChinaRoseBush_CardDescription,"A glossy-leaved shrub hung with big red flowers, each with a long golden spike at its heart.",一丛叶片油亮的灌木，挂满硕大的红花，每朵花心都伸出一根长长的金色花蕊。
+Far_Territory_ChinaRoseBush_Yield,Flowers,花朵
+Far_Territory_ChinaRoseBush_DA_Pick,Pick China Roses,采摘月季
+Far_Territory_ChinaRoseBush_DA_Pick_Desc,Pick a few of the open flowers. Takes about fifteen minutes.,摘几朵盛开的花。约需十五分钟。
+Far_Territory_ChinaRoseBush_DA_Pick_Fail,No flowers are open on this shrub yet,这丛灌木上还没有开放的花
+Far_Territory_ChinaRoseBush_DA_Cutting,Take a China Rose Cutting,剪取月季插条
+Far_Territory_ChinaRoseBush_DA_Cutting_Desc,Snap off a young green stem to plant. It costs the shrub some of its flowers. Takes about fifteen minutes.,折下一根青嫩的枝条用来栽种。这会让灌木少开一些花。约需十五分钟。
+Far_Territory_ChinaRoseBush_DA_Cutting_Fail,The shrub has no stem to spare yet,这丛灌木还没有多余的枝条
+Far_Territory_ChinaRose_CardName,China Rose,月季
+Far_Territory_ChinaRose_CardDescription,"A big red flower with a long golden spike. The petals can be eaten raw: tart, a little slimy and faintly floral.",一朵硕大的红花，伸出长长的金色花蕊。花瓣可以生吃：酸酸的，有点黏滑，带着淡淡的花香。
+Far_Territory_ChinaRose_Spoilage,Spoilage,变质
+Far_Territory_ChinaRose_Spoiled,The China rose has wilted and spoiled.,月季凋谢变质了。
+Far_Territory_ChinaRose_DA_Eat,Eat the Petals,吃花瓣
+Far_Territory_ChinaRose_DA_Eat_Desc,Eat the flower. Tart and a little slimy.,吃下这朵花。酸酸的，有点黏滑。
+Far_Territory_ChinaRoseCutting_CardName,China Rose Cutting,月季插条
+Far_Territory_ChinaRoseCutting_CardDescription,A young green stem snapped from a China rose. Set it in a garden plot and it roots.,从月季上折下的一根青嫩枝条。种进菜园就会生根。
+Far_Territory_ChinaRoseCutting_Spoilage,Spoilage,变质
+Far_Territory_ChinaRoseCutting_Spoiled,The China rose cutting has spoiled.,月季插条变质了。
+Far_Territory_ChinaRoseCutting_Planting,Planting,种植
+Far_Territory_ChinaRoseCutting_Planted,The China rose cutting has taken root in the garden plot.,月季插条已在菜园里扎根。
+Far_Territory_ChinaRoseGrowing_CardName,Growing China Rose,生长中的月季
+Far_Territory_ChinaRoseGrowing_CardDescription,"A young shrub taking hold in a garden plot. It grows only while it sits in the plot, and flowers after about 20 days there.",在菜园中扎根的幼小灌木。只有留在菜园里才会生长，约20天后开花。
+Far_Territory_ChinaRoseGrowing_Growth,Growth,成长度
+Far_Territory_ChinaRoseGrowing_Ready,The China rose is in flower.,月季开花了。
+Far_Territory_ChinaRoseGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_ChinaRoseGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_ChinaRoseGarden_CardName,China Rose (Garden),月季（菜园）
+Far_Territory_ChinaRoseGarden_CardDescription,A garden-grown China rose in flower. The shrub stays in the plot and flowers again.,菜园里种出的月季，正在开花。灌木会留在菜园中，再次开花。
+Far_Territory_ChinaRoseGarden_DA_Harvest,Harvest,收获
+Far_Territory_ChinaRoseGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株留在菜园中，继续长出下一茬。
+Far_Territory_ChinaRoseGarden_DA_Uproot,Uproot,拔除
+Far_Territory_ChinaRoseGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_SpiderLilyPlant_CardName,Spider Lily,蜘蛛兰
+Far_Territory_SpiderLilyPlant_CardDescription,"A clump of long, strap-shaped leaves around a stalk of thin white flowers splayed like a spider's legs. Every part of it is poisonous to eat.",一丛细长的带状叶片，簇拥着一根花茎，上面开着纤细的白花，像蜘蛛腿一样张开。整株植物的每个部分都有毒，不能食用。
+Far_Territory_SpiderLilyPlant_Yield,Leaves,叶片
+Far_Territory_SpiderLilyPlant_DA_Cut,Cut Spider Lily Leaves,割蜘蛛兰叶
+Far_Territory_SpiderLilyPlant_DA_Cut_Desc,Cut a few of the long leaves. Takes about fifteen minutes.,割下几片长叶。约需十五分钟。
+Far_Territory_SpiderLilyPlant_DA_Cut_Fail,No leaves are ready to cut here yet,这里还没有可以割的叶子
+Far_Territory_SpiderLilyPlant_DA_Bulb,Lift a Spider Lily Bulb,挖蜘蛛兰鳞茎
+Far_Territory_SpiderLilyPlant_DA_Bulb_Desc,Dig up one of the offset bulbs round the clump to plant. Takes about half an hour and dirties your hands.,从株丛周围挖出一个子鳞茎用来栽种。约需半小时，会弄脏双手。
+Far_Territory_SpiderLilyPlant_DA_Bulb_Fail,The clump has no bulb to spare yet,这丛植株还没有多余的鳞茎
+Far_Territory_SpiderLilyLeaves_CardName,Spider Lily Leaves,蜘蛛兰叶
+Far_Territory_SpiderLilyLeaves_CardDescription,"Long, thick, fleshy leaves. Poisonous to eat, but warmed and bound on the skin they ease aches for a few hours.",细长、厚实、肉质的叶子。有毒，不能食用，但加热后敷在皮肤上，几个小时内能缓解疼痛。
+Far_Territory_SpiderLilyLeaves_Spoilage,Spoilage,变质
+Far_Territory_SpiderLilyLeaves_Spoiled,The spider lily leaves have spoiled.,蜘蛛兰叶变质了。
+Far_Territory_SpiderLilyLeaves_DA_Poultice,Bind as a Poultice,敷成膏药
+Far_Territory_SpiderLilyLeaves_DA_Poultice_Desc,Warm the leaves until they soften and bind them on where it aches. Aches ease for a few hours (Lily Poultice). Takes about fifteen minutes.,把叶子加热至变软，敷在疼痛处。几个小时内疼痛缓解（兰叶热敷）。约需十五分钟。
+Far_Territory_SpiderLilyBulb_CardName,Spider Lily Bulb,蜘蛛兰鳞茎
+Far_Territory_SpiderLilyBulb_CardDescription,"A pale bulb with its roots still on, lifted from a spider lily clump. Poisonous. Set it in a garden plot and it grows.",一个苍白的鳞茎，根须尚在，是从蜘蛛兰株丛上挖下来的。有毒。种进菜园就会生长。
+Far_Territory_SpiderLilyBulb_Spoilage,Spoilage,变质
+Far_Territory_SpiderLilyBulb_Spoiled,The spider lily bulb has spoiled.,蜘蛛兰鳞茎变质了。
+Far_Territory_SpiderLilyBulb_Planting,Planting,种植
+Far_Territory_SpiderLilyBulb_Planted,The spider lily bulb has taken root in the garden plot.,蜘蛛兰鳞茎已在菜园里扎根。
+Far_Territory_SpiderLilyGrowing_CardName,Growing Spider Lily,生长中的蜘蛛兰
+Far_Territory_SpiderLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there.",在菜园中扎根的幼小株丛。只有留在菜园里才会生长，约15天后即可割取。
+Far_Territory_SpiderLilyGrowing_Growth,Growth,成长度
+Far_Territory_SpiderLilyGrowing_Ready,The spider lily is ready to cut.,蜘蛛兰可以割取了。
+Far_Territory_SpiderLilyGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_SpiderLilyGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_SpiderLilyGarden_CardName,Spider Lily (Garden),蜘蛛兰（菜园）
+Far_Territory_SpiderLilyGarden_CardDescription,"A garden-grown spider lily, ready to cut. The clump stays in the plot and grows new leaves.",菜园里种出的蜘蛛兰，可以割取了。株丛会留在菜园中，长出新叶。
+Far_Territory_SpiderLilyGarden_DA_Harvest,Harvest,收获
+Far_Territory_SpiderLilyGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株留在菜园中，继续长出下一茬。
+Far_Territory_SpiderLilyGarden_DA_Uproot,Uproot,拔除
+Far_Territory_SpiderLilyGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
+Far_Territory_WeevilLilyPlant_CardName,Weevil Lily,仙茅
+Far_Territory_WeevilLilyPlant_CardDescription,"A low clump of long, pleated leaves like young palm fronds, rising straight from the forest floor. The leaves are tough with fibre.",一丛低矮的长叶，叶面有褶，像幼嫩的棕榈叶，直接从林地上长出。叶子富含纤维，十分坚韧。
+Far_Territory_WeevilLilyPlant_Yield,Leaves,叶片
+Far_Territory_WeevilLilyPlant_DA_Cut,Cut Weevil Lily Leaves,割仙茅叶
+Far_Territory_WeevilLilyPlant_DA_Cut_Desc,Cut a few of the long pleated leaves. Takes about fifteen minutes.,割下几片带褶的长叶。约需十五分钟。
+Far_Territory_WeevilLilyPlant_DA_Cut_Fail,No leaves are ready to cut here yet,这里还没有可以割的叶子
+Far_Territory_WeevilLilyPlant_DA_Rhizome,Dig up a Weevil Lily Rhizome,挖仙茅根茎
+Far_Territory_WeevilLilyPlant_DA_Rhizome_Desc,Dig up a piece of the creeping root to plant. Takes about half an hour and dirties your hands.,挖出一段匍匐的根用来栽种。大约需要半小时，还会弄脏你的手。
+Far_Territory_WeevilLilyPlant_DA_Rhizome_Fail,The clump has no root to spare yet,这丛植株暂时还没有多余的根
+Far_Territory_WeevilLilyLeaves_CardName,Weevil Lily Leaves,仙茅叶
+Far_Territory_WeevilLilyLeaves_CardDescription,"Long, pleated leaves, tough with fibre. Stripped, each gives the base game's Fibers for twine.",细长的褶皱叶片，纤维坚韧。剥开后每片可得原版游戏的纤维，用来搓细线。
+Far_Territory_WeevilLilyLeaves_Spoilage,Spoilage,变质
+Far_Territory_WeevilLilyLeaves_Spoiled,The weevil lily leaves have rotted.,仙茅叶已经烂掉了。
+Far_Territory_WeevilLilyLeaves_DA_Strip,Strip into Fibers,剥取纤维
+Far_Territory_WeevilLilyLeaves_DA_Strip_Desc,Split the leaf along its pleats and scrape the fibre clean. Gives 1 Fibers. Takes about fifteen minutes.,顺着褶痕撕开叶片，把纤维刮干净。获得1份纤维。大约需要十五分钟。
+Far_Territory_WeevilLilyRhizome_CardName,Weevil Lily Rhizome,仙茅根茎
+Far_Territory_WeevilLilyRhizome_CardDescription,A knobbly piece of creeping root dug from a weevil lily. Set it in a garden plot and it grows.,从仙茅上挖下的一段疙疙瘩瘩的匍匐根。把它种进菜园就会生长。
+Far_Territory_WeevilLilyRhizome_Spoilage,Spoilage,变质
+Far_Territory_WeevilLilyRhizome_Spoiled,The weevil lily rhizome has spoiled.,仙茅根茎已经变质了。
+Far_Territory_WeevilLilyRhizome_Planting,Planting,种植
+Far_Territory_WeevilLilyRhizome_Planted,The weevil lily rhizome has taken root in the garden plot.,仙茅根茎已在菜园里扎根。
+Far_Territory_WeevilLilyGrowing_CardName,Growing Weevil Lily,生长中的仙茅
+Far_Territory_WeevilLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there.",一丛正在菜园里扎根的幼株。它只有待在菜园里时才会生长，在那里大约15天后即可收割。
+Far_Territory_WeevilLilyGrowing_Growth,Growth,成长度
+Far_Territory_WeevilLilyGrowing_Ready,The weevil lily is ready to cut.,仙茅可以收割了。
+Far_Territory_WeevilLilyGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_WeevilLilyGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，不会得到任何东西。
+Far_Territory_WeevilLilyGarden_CardName,Weevil Lily (Garden),仙茅（菜园）
+Far_Territory_WeevilLilyGarden_CardDescription,"A garden-grown weevil lily, ready to cut. The clump stays in the plot and grows new leaves.",菜园里种出的仙茅，可以收割了。这丛植株会留在菜园里，长出新叶。
+Far_Territory_WeevilLilyGarden_DA_Harvest,Harvest,收获
+Far_Territory_WeevilLilyGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株会留在菜园里，继续长出下一茬。
+Far_Territory_WeevilLilyGarden_DA_Uproot,Uproot,拔除
+Far_Territory_WeevilLilyGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，不会得到任何东西。
+Far_Territory_SnakeGrassPatch_CardName,Snake Grass,蛇草
+Far_Territory_SnakeGrassPatch_CardDescription,"A thick stand of stiff, upright blades banded dark and pale green like a snake's skin. Their fibre is long and strong.",一片茂密的直立硬叶，深绿与浅绿相间，宛如蛇皮。它们的纤维又长又结实。
+Far_Territory_SnakeGrassPatch_Yield,Blades,草叶
+Far_Territory_SnakeGrassPatch_DA_Cut,Cut Snake Grass,割蛇草
+Far_Territory_SnakeGrassPatch_DA_Cut_Desc,Cut a few of the stiff blades at the base. Takes about fifteen minutes.,从根部割下几片硬叶。大约需要十五分钟。
+Far_Territory_SnakeGrassPatch_DA_Cut_Fail,No blades are ready to cut here yet,这里暂时还没有可割的草叶
+Far_Territory_SnakeGrass_CardName,Snake Grass,蛇草
+Far_Territory_SnakeGrass_CardDescription,"A stiff, banded blade of snake grass. Stripped, it gives the base game's Fibers for twine. A cut blade set in a garden plot roots.",一片带有斑纹的蛇草硬叶。剥开后可得原版游戏的纤维，用来搓细线。割下的叶片种进菜园会生根。
+Far_Territory_SnakeGrass_Spoilage,Spoilage,变质
+Far_Territory_SnakeGrass_Spoiled,The snake grass has spoiled.,蛇草已经变质了。
+Far_Territory_SnakeGrass_Planting,Planting,种植
+Far_Territory_SnakeGrass_Planted,The snake grass has taken root in the garden plot.,蛇草已在菜园里扎根。
+Far_Territory_SnakeGrass_DA_Strip,Strip into Fibers,剥取纤维
+Far_Territory_SnakeGrass_DA_Strip_Desc,Crush the blade and scrape out its long fibres. Gives 2 Fibers. Takes about fifteen minutes.,把叶片压碎，刮出其中的长纤维。获得2份纤维。大约需要十五分钟。
+Far_Territory_SnakeGrassGrowing_CardName,Growing Snake Grass,生长中的蛇草
+Far_Territory_SnakeGrassGrowing_CardDescription,"Young blades taking hold in a garden plot. They grow only while they sit in the plot, and are ready to cut after about 10 days there.",正在菜园里扎根的嫩叶。它们只有待在菜园里时才会生长，在那里大约10天后即可收割。
+Far_Territory_SnakeGrassGrowing_Growth,Growth,成长度
+Far_Territory_SnakeGrassGrowing_Ready,The snake grass is ready to cut.,蛇草可以收割了。
+Far_Territory_SnakeGrassGrowing_DA_Uproot,Uproot,拔除
+Far_Territory_SnakeGrassGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，不会得到任何东西。
+Far_Territory_SnakeGrassGarden_CardName,Snake Grass (Garden),蛇草（菜园）
+Far_Territory_SnakeGrassGarden_CardDescription,"Garden-grown snake grass, ready to cut. The patch stays in the plot and grows new blades.",菜园里种出的蛇草，可以收割了。这片蛇草会留在菜园里，长出新叶。
+Far_Territory_SnakeGrassGarden_DA_Harvest,Harvest,收获
+Far_Territory_SnakeGrassGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.,采收作物。植株会留在菜园里，继续长出下一茬。
+Far_Territory_SnakeGrassGarden_DA_Uproot,Uproot,拔除
+Far_Territory_SnakeGrassGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，不会得到任何东西。
+Far_Territory_Effect_SpiderLily_StatName,Lily Poultice,兰叶热敷
+Far_Territory_Effect_SpiderLily_StatDescription,"Warm spider lily leaves bound on the skin. They ease aches, and wear off over the following hours.",温热的蜘蛛兰叶敷裹在皮肤上。能缓解酸痛，效果会在随后几个小时里逐渐消退。
+Far_Territory_Effect_SpiderLily_Status_Name,Lily Poultice,兰叶热敷
+Far_Territory_Effect_SpiderLily_Status_Description,Warm leaves bound on the skin. Aches ease while they last.,温热的叶片敷裹在皮肤上。效果持续期间，酸痛会减轻。
+Far_Territory_Enc_Macaque,Macaque,猕猴
+Far_Territory_Enc_TheMacaque,the macaque,猕猴
+Far_Territory_Enc_TheMacaqueBaresItsTeethAndShrieks,The macaque bares its teeth and shrieks.,猕猴龇着牙尖叫。
+Far_Territory_Enc_TheShriekRattlesYou,The shriek rattles you...,尖叫声让你心神不宁……
+Far_Territory_Enc_TheMacaqueLeapsAtYouAndBites,The macaque leaps at you and bites!,猕猴扑向你，咬了下去！
+Far_Territory_Enc_YouFailToDodgeItsBite,You fail to dodge its bite...,你没能躲过它这一口……
+Far_Territory_Enc_YouSuccessfullyDodgeTheBite,You successfully dodge the bite...,你成功躲过了这一口……
+Far_Territory_Enc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+Far_Territory_Enc_YouGotABadBiteMarkFromTheAttack,You got a bad bite mark from the attack!,你因这次攻击而留下了难看的咬痕！
+Far_Territory_Enc_TheMacaqueTriesToGetAway,The macaque tries to get away!,猕猴试图逃走！
+Far_Territory_Enc_TheMacaqueBoltsForTheTrees,The macaque bolts for the trees...,猕猴朝树林窜去……
+Far_Territory_Enc_TheMacaqueDartsInClose,The macaque darts in close.,猕猴猛地蹿近。
+Far_Territory_Enc_TheMacaqueFallsStill,The macaque falls still.,猕猴不动了。
+Far_Territory_Enc_TheMacaqueSwingsAwayIntoTheBranches,The macaque swings away into the branches...,猕猴荡进枝叶间，不见了……
+Far_Territory_Enc_YouRetreatAndEscape,You retreat and escape...,你脱身并撤退……
+Far_Territory_Enc_YouRunAwayFromTheMacaque,You run away from the macaque...,你从猕猴身边逃开了……
+Far_Territory_Enc_YouSeeAMacaque,You see a Macaque!,你看到了一只猕猴！
+Far_Territory_Enc_LeaveItAlone,Leave it alone,不管它
+Far_Territory_Enc_MonitorLizard,Monitor Lizard,巨蜥
+Far_Territory_Enc_TheMonitorLizard,the monitor lizard,巨蜥
+Far_Territory_Enc_TheMonitorLizardHissesAndLashesItsTail,The monitor lizard hisses and lashes its tail.,巨蜥嘶嘶作响，甩动着尾巴。
+Far_Territory_Enc_YouAreUnsettledByTheHiss,You are unsettled by the hiss...,嘶嘶声让你心里发毛……
+Far_Territory_Enc_TheMonitorLizardLungesToBiteYou,The monitor lizard lunges to bite you!,巨蜥猛扑过来想咬你！
+Far_Territory_Enc_TheMonitorLizardTurnsToEscape,The monitor lizard turns to escape!,巨蜥转身想逃！
+Far_Territory_Enc_TheMonitorLizardScramblesAway,The monitor lizard scrambles away...,巨蜥手忙脚乱地爬走了……
+Far_Territory_Enc_TheMonitorLizardCrawlsInClose,The monitor lizard crawls in close.,巨蜥爬近了。
+Far_Territory_Enc_TheMonitorLizardGoesLimp,The monitor lizard goes limp.,巨蜥瘫软不动了。
+Far_Territory_Enc_TheMonitorLizardSlipsAwayIntoTheScrub,The monitor lizard slips away into the scrub...,巨蜥溜进灌木丛中，不见了……
+Far_Territory_Enc_YouRunAwayFromTheMonitorLizard,You run away from the monitor lizard...,你从巨蜥身边逃开了……
+Far_Territory_Enc_YouSeeAMonitorLizard,You see a Monitor Lizard!,你看到了一只巨蜥！
+Far_Territory_Enc_Cobra,Cobra,眼镜蛇
+Far_Territory_Enc_TheCobra,the cobra,眼镜蛇
+Far_Territory_Enc_TheCobraRearsUpAndSpreadsItsHood,The cobra rears up and spreads its hood.,眼镜蛇立起身子，张开了颈褶。
+Far_Territory_Enc_YouFreezeAtTheSightOfTheHood,You freeze at the sight of the hood...,看到那张开的颈褶，你僵住了……
+Far_Territory_Enc_TheCobraStrikes,The cobra strikes!,眼镜蛇发起攻击！
+Far_Territory_Enc_TheCobraDropsLowToSlipAway,The cobra drops low to slip away!,眼镜蛇伏低身子，想要溜走！
+Far_Territory_Enc_TheCobraSlidesOffThroughTheGrass,The cobra slides off through the grass...,眼镜蛇穿过草丛滑走了……
+Far_Territory_Enc_TheCobraSwaysCloser,The cobra sways closer.,眼镜蛇摇晃着靠近了。
+Far_Territory_Enc_TheCobraLiesStill,The cobra lies still.,眼镜蛇一动不动地躺着。
+Far_Territory_Enc_TheCobraVanishesIntoTheGrass,The cobra vanishes into the grass...,眼镜蛇消失在草丛中……
+Far_Territory_Enc_YouBackAwayFromTheCobra,You back away from the cobra...,你从眼镜蛇身边退开了……
+Far_Territory_Enc_YouSeeACobra,You see a Cobra!,你看到了一条眼镜蛇！
+Far_Territory_Enc_Seagull,Seagull,海鸥
+Far_Territory_Enc_TheSeagull,the seagull,海鸥
+Far_Territory_Enc_TheSeagullSpreadsItsWingsAndScreams,The seagull spreads its wings and screams.,海鸥张开翅膀尖声大叫。
+Far_Territory_Enc_TheScreamingPutsYouOff,The screaming puts you off...,尖叫声让你分了神……
+Far_Territory_Enc_TheSeagullDivesAtYouAndBites,The seagull dives at you and bites!,海鸥朝你俯冲下来，啄了一口！
+Far_Territory_Enc_TheSeagullBeatsItsWingsToTakeOff,The seagull beats its wings to take off!,海鸥扑扇翅膀想要起飞！
+Far_Territory_Enc_TheSeagullLiftsIntoTheAir,The seagull lifts into the air...,海鸥腾空飞起……
+Far_Territory_Enc_TheSeagullHopsInClose,The seagull hops in close.,海鸥跳近了。
+Far_Territory_Enc_TheSeagullDropsToTheGround,The seagull drops to the ground.,海鸥跌落在地。
+Far_Territory_Enc_TheSeagullWheelsAwayOverTheSea,The seagull wheels away over the sea...,海鸥盘旋着飞向海面，远去了……
+Far_Territory_Enc_YouRunFromTheSeagull,You run from the seagull...,你从海鸥身边逃开了……
+Far_Territory_Enc_YouSeeASeagull,You see a Seagull!,你看到了一只海鸥！
+Far_Territory_Enc_Bat,Bat,蝙蝠
+Far_Territory_Enc_TheBat,the bat,蝙蝠
+Far_Territory_Enc_TheBatFluttersRoundYourHeadSqueaking,"The bat flutters round your head, squeaking.",蝙蝠绕着你的脑袋吱吱乱飞。
+Far_Territory_Enc_YouFlinchAtTheSqueaking,You flinch at the squeaking...,吱吱声让你一缩……
+Far_Territory_Enc_TheBatSwoopsInAndBites,The bat swoops in and bites!,蝙蝠猛扑过来，咬了一口！
+Far_Territory_Enc_TheBatFlitsBackTowardTheRoof,The bat flits back toward the roof!,蝙蝠飞快地掠回洞顶！
+Far_Territory_Enc_TheBatFluttersOffIntoTheDark,The bat flutters off into the dark...,蝙蝠扑扇着飞进了黑暗……
+Far_Territory_Enc_TheBatFlitsInClose,The bat flits in close.,蝙蝠掠近了。
+Far_Territory_Enc_TheBatFallsToTheFloor,The bat falls to the floor.,蝙蝠掉落在地上。
+Far_Territory_Enc_TheBatVanishesAmongTheOthersOnTheRoof,The bat vanishes among the others on the roof...,蝙蝠消失在洞顶的蝙蝠群中……
+Far_Territory_Enc_YouDuckAwayFromTheBat,You duck away from the bat...,你低头躲开了蝙蝠……
+Far_Territory_Enc_YouSeeABat,You see a Bat!,你看到了一只蝙蝠！
+Far_Territory_Macaque_AgentName,Macaque,猕猴
+Far_Territory_Monitor_AgentName,Monitor Lizard,巨蜥
+Far_Territory_Cobra_AgentName,Cobra,眼镜蛇
+Far_Territory_Seagull_AgentName,Seagull,海鸥
+Far_Territory_Bat_AgentName,Bat,蝙蝠
+Far_Territory_MacaqueCarcass_CardName,Macaque Carcass,猕猴尸体
+Far_Territory_MacaqueCarcass_CardDescription,"A dead macaque, small and wiry. Butcher it with a blade for a little meat and its bones before it spoils.",一只死去的猕猴，瘦小而精悍。趁它还没腐坏，用刀刃剔下少许肉和骨头。
+Far_Territory_MacaqueCarcass_Spoilage,Spoilage,变质
+Far_Territory_MacaqueCarcass_Spoiled,The carcass has rotted.,尸体已经腐烂了。
+Far_Territory_MacaqueCarcass_CI_Butcher,Butcher,剔肉
+Far_Territory_MacaqueCarcass_CI_Butcher_Desc,Cut the carcass up with a blade for its meat and bones.,用刀刃把尸体切开，取出肉和骨头。
+Far_Territory_MonitorCarcass_CardName,Monitor Lizard Carcass,巨蜥尸体
+Far_Territory_MonitorCarcass_CardDescription,"A dead monitor lizard, long and heavy in the tail. Butcher it with a blade for its pale meat and its bones before it spoils.",一只死去的巨蜥，身长尾重。趁它还没腐坏，用刀刃剔下白肉和骨头。
+Far_Territory_MonitorCarcass_Spoilage,Spoilage,变质
+Far_Territory_MonitorCarcass_Spoiled,The carcass has rotted.,尸体已经腐烂了。
+Far_Territory_MonitorCarcass_CI_Butcher,Butcher,剔肉
+Far_Territory_MonitorCarcass_CI_Butcher_Desc,Cut the carcass up with a blade for its meat and bones.,用刀刃把尸体切开，取出肉和骨头。
+Far_Territory_CobraCarcass_CardName,Cobra Carcass,眼镜蛇尸体
+Far_Territory_CobraCarcass_CardDescription,"A dead cobra, its hood folded flat. Butcher it with a blade for a strip of meat before it spoils.",一条死去的眼镜蛇，颈褶已平平地收起。趁它还没腐坏，用刀刃剔下一条肉。
+Far_Territory_CobraCarcass_Spoilage,Spoilage,变质
+Far_Territory_CobraCarcass_Spoiled,The carcass has rotted.,尸体已经腐烂了。
+Far_Territory_CobraCarcass_CI_Butcher,Butcher,剔肉
+Far_Territory_CobraCarcass_CI_Butcher_Desc,Cut the carcass up with a blade for its meat.,用刀刃把尸体切开，取出肉。
+Far_Territory_BatCarcass_CardName,Bat Carcass,蝙蝠尸体
+Far_Territory_BatCarcass_CardDescription,"A dead bat, mostly wing. Butcher it with a blade for a scrap of meat before it spoils.",一只死去的蝙蝠，几乎全是翅膀。趁它还没腐坏，用刀刃剔下一点碎肉。
+Far_Territory_BatCarcass_Spoilage,Spoilage,变质
+Far_Territory_BatCarcass_Spoiled,The carcass has rotted.,尸体已经腐烂了。
+Far_Territory_BatCarcass_CI_Butcher,Butcher,剔肉
+Far_Territory_BatCarcass_CI_Butcher_Desc,Cut the carcass up with a blade for its meat.,用刀刃把尸体切开，取出肉。
+Far_Territory_SeagullNest_CardName,Seagull Nest,海鸥巢
+Far_Territory_SeagullNest_CardDescription,"A rough nest of twigs and weed wedged on a ledge, ringed with droppings and loose feathers. Sometimes there are eggs in it, sometimes only old bones. The gulls lay again in time.",一个用树枝和海草胡乱搭成的巢，卡在岩架上，四周满是鸟粪和散落的羽毛。巢里有时有蛋，有时只剩旧骨头。海鸥过段时间还会再来产蛋。
+Far_Territory_SeagullNest_Laying,Laying,产蛋
+Far_Territory_SeagullNest_DA_Search,Search the Nest,搜查鸟巢
+Far_Territory_SeagullNest_DA_Search_Desc,"Reach up onto the ledge and go through the nest: nest twigs, feathers, up to three eggs, or only bird bones.",伸手够到岩架上翻找鸟巢：巢枝、羽毛、最多三枚蛋，或者只有鸟骨。
+Far_Territory_SeagullNest_DA_Search_Fail,The nest has been searched lately,这个鸟巢最近刚被翻过
+Far_Territory_SeaHazard_Shark,A shark came out of the blue and bit you before you could reach the shallows.,一条鲨鱼从深蓝中冲出，在你游到浅滩之前咬了你一口。
+Far_Territory_SeaHazard_Krait,A banded sea krait struck at your leg and slid away into the weed.,一条环纹海蛇朝你的腿咬了一口，随即滑进海草里不见了。
+Far_Territory_SeaHazard_UrchinSpine,You trod on an urchin and its spines broke off in your foot.,你踩到了一只海胆，它的刺断在了你的脚里。
+Far_Territory_SeaHazard_UrchinShod,"You trod on an urchin, but your footwear took the spines.",你踩到了一只海胆，好在鞋子挡住了它的刺。
+Far_Territory_Enc_Moose,Moose,驼鹿
+Far_Territory_Enc_TheMoose,the moose,驼鹿
+Far_Territory_Enc_TheMooseSwingsItsBroadAntlersAtYou,The moose swings its broad antlers at you!,驼鹿朝你挥动它宽大的鹿角！
+Far_Territory_Enc_YouFailToDodgeTheAttack,You fail to dodge the attack...,你未能躲过这一击……
+Far_Territory_Enc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功逃脱了……
+Far_Territory_Enc_YouGotANastyBruise,You got a nasty bruise.,你受了严重的淤伤。
+Far_Territory_Enc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration.",你的皮肤被划开了，造成了一个轻微撕裂伤。
+Far_Territory_Enc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.,你的左臂被击中了，现在疼痛难忍。
+Far_Territory_Enc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.,你的右臂被击中了，现在疼痛难忍。
+Far_Territory_Enc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.,你的左腿被击中了，现在疼痛难忍。
+Far_Territory_Enc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.,你的右腿被击中了，现在疼痛难忍。
+Far_Territory_Enc_YouGotANastyPunctureWound,You got a nasty puncture wound.,你受了严重的刺伤。
+Far_Territory_Enc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!,你的左腿有了一道很深的撕裂伤！
+Far_Territory_Enc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!,你的右腿有了一道很深的撕裂伤！
+Far_Territory_Enc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!,你的左臂有了一道很深的撕裂伤！
+Far_Territory_Enc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!,你的右臂有了一道很深的撕裂伤！
+Far_Territory_Enc_YouGotManyLacerations,You got many lacerations!,你得了许多伤口！
+Far_Territory_Enc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!,你的左臂断了！好疼啊！
+Far_Territory_Enc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!,你的右臂断了！好疼啊！
+Far_Territory_Enc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!,你的左腿断了！好疼啊！
+Far_Territory_Enc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!,你的右腿断了！好疼啊！
+Far_Territory_Enc_TheMooseTriesToKnockYouDown,The moose tries to knock you down!,驼鹿试图撞倒你！
+Far_Territory_Enc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!,你失去了平衡，仰面摔倒！
+Far_Territory_Enc_TheMooseChargesIntoYouAtFullSpeed,The moose charges into you at full speed!,驼鹿全速撞向你！
+Far_Territory_Enc_TheMooseRearsAndStampsDownWithItsFrontHo,The moose rears and stamps down with its front hooves!,驼鹿人立而起，用前蹄狠狠踏下！
+Far_Territory_Enc_YouFailToAvoidTheAttack,You fail to avoid the attack...,你未能闪避这次攻击……
+Far_Territory_Enc_ItStopsToCatchItsBreath,It stops to catch its breath...,它停下来喘气……
+Far_Territory_Enc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...,它转身试图逃跑……
+Far_Territory_Enc_TheMooseLowersItsHeadAndChargesAtYou,The moose lowers its head and charges at you!,驼鹿低下头朝你冲来！
+Far_Territory_Enc_TheMooseCollapsesToTheGround,The moose collapses to the ground.,驼鹿倒在了地上。
+Far_Territory_Enc_TheMooseCrashesAwayThroughTheWillows,The moose crashes away through the willows...,驼鹿撞开柳丛，轰然远去……
+Far_Territory_Enc_YouRetreatAndEscapeFromTheMoose,You retreat and escape from the moose...,你从驼鹿处脱身并撤退……
+Far_Territory_Enc_YouRunAwayFromTheMoose,You run away from the moose!,你从驼鹿身边逃开了！
+Far_Territory_Enc_YouSeeAMoose,You see a Moose!,你看到了一头驼鹿！
+Far_Territory_Enc_ABullMooseLiftsItsDrippingHeadFromTheRee,A bull moose lifts its dripping head from the reeds and stares at you.,一头公驼鹿从芦苇丛中抬起湿漉漉的头，盯着你。
+Far_Territory_Enc_Continue,Continue,继续
+Far_Territory_Env_WildryePlain_CardName,Wildrye Plain,野麦平原
+Far_Territory_Env_SedgeFen_CardName,Sedge Fen,莎草沼地
+Far_Territory_WildryePlain_CardName,Wildrye Plain,野麦平原
+Far_Territory_WildryePlain_CardDescription,"Open grassland far to the west of the forest: wild rye and meadowgrass to the knee, running on under a wide sky. Old bones lie in the grass where the big grazers have passed.",森林以西远处的开阔草原：齐膝的野麦和牧草在辽阔的天空下绵延不绝。大型食草动物走过的草丛里散落着旧骨头。
+Far_Territory_WildryePlain_Gleanings,Gleanings,拾遗
+Far_Territory_WildryePlain_DA_Forage,Forage,觅食
+Far_Territory_WildryePlain_DA_Forage_Desc,Walk the long grass for tough fibres and loose stones.,在长草间走动，寻找坚韧的纤维和散落的石头。
+Far_Territory_WildryePlain_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_WildryePlain_DA_West,West,西方
+Far_Territory_WildryePlain_DA_West_Fade,Travelling West...,向西移动……
+Far_Territory_WildryePlain_DA_Search,Search the Grazing Grounds,搜寻牧场
+Far_Territory_WildryePlain_DA_Search_Desc,"Walk out among the trampled grass and wallows where the herds graze, looking for what they leave behind.",走进兽群吃草的地方，在被踩倒的草丛和泥坑间寻找它们留下的东西。
+Far_Territory_SedgeFen_CardName,Sedge Fen,莎草沼地
+Far_Territory_SedgeFen_CardDescription,"Wet ground beyond the plain, all sedge, cattail and willow scrub, with black pools between the tussocks. Browsed willow stems and deep tracks in the mud show what feeds here.",平原另一头的湿地，长满了莎草、香蒲和柳树灌丛，草墩之间是一汪汪黑水。被啃过的柳枝和泥里深深的足迹，显示出有什么在这里觅食。
+Far_Territory_SedgeFen_Gleanings,Gleanings,拾遗
+Far_Territory_SedgeFen_DA_Forage,Forage,觅食
+Far_Territory_SedgeFen_DA_Forage_Desc,Pick through the sedge and willow scrub for fibres and willow twigs.,在莎草和柳树灌丛中翻找纤维和柳枝。
+Far_Territory_SedgeFen_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
+Far_Territory_PathWesternWildWoodsWildryePlain_CardName,Trail West,西行小径
+Far_Territory_PathWesternWildWoodsWildryePlain_CardDescription,"A game trail leading west out of the wild woods, beaten flat by big hooves. The trees thin along it toward open country.",一条从西部荒林向西延伸的兽径，被巨大的蹄子踩得平平整整。沿着它走，树木渐渐稀疏，通向开阔的原野。
+Far_Territory_PathWesternWildWoodsWildryePlain_DA_Travel,Walk West to Wildrye Plain,向西前往野麦平原
+Far_Territory_PathWesternWildWoodsWildryePlain_DA_Travel_Desc,"Follow the game trail west out of the forest to the open grassland. It is a long walk, about an hour and a half.",沿着兽径向西走出森林，前往开阔的草原。路途很长，大约需要一个半小时。
+Far_Territory_PathWesternWildWoodsWildryePlain_DA_Travel_Fade,Walking west out of the forest...,向西走出森林……
+Far_Territory_PathWildryePlainWesternWildWoods_CardName,Trail to the Forest,前往森林的小径
+Far_Territory_PathWildryePlainWesternWildWoods_CardDescription,"The game trail you came by, running east across the grass to the dark edge of the forest.",你来时走过的兽径，向东穿过草地，通往森林幽暗的边缘。
+Far_Territory_PathWildryePlainWesternWildWoods_DA_Travel,Walk East to the Western Wild Woods,向东返回西部荒林
+Far_Territory_PathWildryePlainWesternWildWoods_DA_Travel_Desc,"Follow the game trail back east to the Western Wild Woods. It is a long walk, about an hour and a half.",沿着兽径向东返回西部荒林。路途很长，大约需要一个半小时。
+Far_Territory_PathWildryePlainWesternWildWoods_DA_Travel_Fade,Walking back to the forest...,走回森林……
+Far_Territory_Moose_AgentName,Moose,驼鹿
+Far_Territory_MooseCarcass_CardName,Moose Carcass,驼鹿尸体
+Far_Territory_MooseCarcass_CardDescription,"A dead moose, huge and long-legged. Butcher it with a blade for a great deal of meat, its hide, its bones and, if it is a bull, an antler, before it spoils.",一头死去的驼鹿，体型庞大，四肢修长。趁它还没腐坏，用刀刃剔下大量的肉、兽皮、骨头，如果是公鹿，还有一只鹿角。
+Far_Territory_MooseCarcass_Spoilage,Spoilage,变质
+Far_Territory_MooseCarcass_Spoiled,The carcass has rotted.,尸体已经腐烂了。
+Far_Territory_MooseCarcass_CI_Butcher,Butcher,剔肉
+Far_Territory_MooseCarcass_CI_Butcher_Desc,"Cut the carcass up with a blade for its meat, hide, bones and antler. It is long work.",用刀刃把尸体切开，取出肉、兽皮、骨头和鹿角。这是个费时的活儿。
+Far_Territory_Effect_SpringWarmth_StatName,Spring Warmth,温泉暖意
+Far_Territory_Effect_SpringWarmth_StatDescription,"Heat soaked up from a hot spring, still in your bones. You feel warmer while it lasts, and it fades over the following hours.",从温泉里吸收的热量仍留在你的骨子里。持续期间你会感觉更暖和，并在随后几个小时里逐渐消退。
+Far_Territory_Effect_SpringWarmth_Status_Name,Spring Warmth,温泉暖意
+Far_Territory_Effect_SpringWarmth_Status_Description,Warm through from the hot spring. You feel the cold far less.,温泉让你暖透了全身。你对寒冷的感受大大减轻。
+Far_Territory_HotSpring_CardName,Hot Spring,温泉
+Far_Territory_HotSpring_CardDescription,"A pool of hot water steaming in a hollow of the rock, with a faint smell of eggs. The snow never lies around it. A soak washes the dirt away and warms you through, though you come out wet.",岩石凹陷处的一池热水，蒸汽升腾，带着淡淡的臭鸡蛋味。四周从不积雪。泡上一泡能洗去污垢、让你暖透全身，只是出来时浑身湿透。
+Far_Territory_HotSpring_DA_Bathe,Bathe in the Hot Spring,泡温泉
+Far_Territory_HotSpring_DA_Bathe_Desc,"Strip off and sink into the hot water for half an hour. It washes off the dirt and leaves you warm for hours afterwards, but you climb out wet.",脱下衣服，在热水里泡上半小时。能洗去污垢，之后几个小时都暖洋洋的，但爬出来时浑身湿透。
+Far_Territory_RockSaltSeam_CardName,Rock Salt Seam,岩盐矿脉
+Far_Territory_RockSaltSeam_CardDescription,"A band of grey-white rock salt in the cliff, crusted where the steam from the spring has wetted it and dried again. Chipped out, it is ordinary salt. The seam is slow to give more once worked.",崖壁上一道灰白色的岩盐带，温泉的蒸汽反复打湿又风干，结成了一层硬壳。凿下来就是普通的盐。开采过后，矿脉要过很久才能再出盐。
+Far_Territory_RockSaltSeam_SaltLeft,Salt left,剩余盐量
+Far_Territory_RockSaltSeam_DA_Chip,Chip out Salt,凿盐
+Far_Territory_RockSaltSeam_DA_Chip_Desc,Chip lumps of rock salt from the seam with a stone. Half an hour of hard work for a little salt.,用石头从矿脉上凿下岩盐块。辛苦干上半小时，只能得到一点盐。
+Far_Territory_RockSaltSeam_DA_Chip_Fail,The seam is worked out for now,矿脉暂时已经凿空了
+Far_Territory_RopeAndPitons_CardName,Rope and Pitons,绳子与岩钉
+Far_Territory_RopeAndPitons_CardDescription,"A coil of rope with a handful of iron spikes to hammer into cracks in the rock. Carried in your hand it makes every climb safer, and the steepest mountain paths cannot be climbed without it.",一卷绳子，外加一把可以敲进岩缝的铁钉。拿在手中能让每次攀爬都更安全，而最陡峭的山路没有它根本爬不上去。
+Far_Territory_BpRopeAndPitons_CardName,Rope and Pitons,绳子与岩钉
+Far_Territory_BpRopeAndPitons_CardDescription,"A rope and a set of iron spikes for climbing. Raises your Climbing Aid while carried in your hand, and opens the steep paths in the far mountains. Requires a rope, 2 metal nuggets and a hard hammering tool.",一条绳子和一套攀岩用的铁钉。拿在手中时提高你的攀爬援助，并能打通远方山脉中的陡峭山路。需要1条绳子、2个金属块和一件坚硬的锤击工具。
+Far_Territory_BpRopeAndPitons_UnlockConditionsDesc,Unlocked after obtaining a Rope,获得绳子后解锁
+Far_Territory_Env_ScreeSlope_CardName,Scree Slope,碎石坡
+Far_Territory_ScreeSlope_CardName,Scree Slope,碎石坡
+Far_Territory_ScreeSlope_CardDescription,"The foot of the mountains, north of the forest: a long slope of broken stone below grey cliffs, with snow lying in every hollow. The trees give out here, and above the cliffs the peaks are white all year.",山脉脚下，森林以北：灰色悬崖下一道绵长的碎石坡，每处凹地都积着雪。树木到这里就没了，悬崖之上的群峰终年雪白。
+Far_Territory_ScreeSlope_Gleanings,Gleanings,可拾之物
+Far_Territory_ScreeSlope_DA_Forage,Forage,觅食
+Far_Territory_ScreeSlope_DA_Forage_Desc,Pick over the loose scree for good stones and flint.,在松散的碎石中挑拣好石头和燧石。
+Far_Territory_ScreeSlope_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_ScreeSlope_DA_East,East,东方
+Far_Territory_ScreeSlope_DA_East_Fade,Travelling East...,向东移动……
+Far_Territory_Env_SteamingShelf_CardName,Steaming Shelf,蒸汽岩台
+Far_Territory_SteamingShelf_CardName,Steaming Shelf,蒸汽岩台
+Far_Territory_SteamingShelf_CardDescription,"A ledge under the cliffs where steam drifts out of the rock. A hot spring pools here, the snow melts back from it, and a seam of rock salt shows white in the wall above.",悬崖下的一处岩台，蒸汽从岩石中飘出。这里积着一池温泉，周围的雪都融化退去，上方的岩壁上露出一道白色的岩盐矿脉。
+Far_Territory_SteamingShelf_Gleanings,Gleanings,可拾之物
+Far_Territory_SteamingShelf_DA_Forage,Forage,觅食
+Far_Territory_SteamingShelf_DA_Forage_Desc,"Look along the warm, bare rock around the spring.",沿着温泉周围温暖裸露的岩石找一找。
+Far_Territory_SteamingShelf_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_Env_WindgapCol_CardName,Windgap Col,风隙垭口
+Far_Territory_WindgapCol_CardName,Windgap Col,风隙垭口
+Far_Territory_WindgapCol_CardDescription,"A high saddle between two peaks, deep in snow and scoured by the wind. Two cave mouths open in the rock on either side: one stained rust-red, one that glints.",两座山峰之间的高处鞍部，积雪深厚，狂风扫荡。两侧的岩石上各开着一个洞口：一个染成锈红色，一个闪闪发亮。
+Far_Territory_WindgapCol_Gleanings,Gleanings,可拾之物
+Far_Territory_WindgapCol_DA_Forage,Forage,觅食
+Far_Territory_WindgapCol_DA_Forage_Desc,Search the wind-scoured rock for loose stones and flint.,在被风刮过的岩石上搜寻松动的石头和燧石。
+Far_Territory_WindgapCol_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_Env_GreenstoneGrotto_CardName,Greenstone Grotto,绿石岩洞
+Far_Territory_GreenstoneGrotto_CardName,Greenstone Grotto,绿石岩洞
+Far_Territory_GreenstoneGrotto_CardDescription,"A cave at the foot of the cliffs, its walls streaked green. Two veins of greenstone run through the rock, ready for a pickaxe, and green chips lie among the rubble on the floor.",悬崖脚下的一个洞穴，洞壁布满绿色条纹。两道绿石矿脉贯穿岩层，可以用镐开采，地上的碎石间还散落着绿色碎片。
+Far_Territory_GreenstoneGrotto_Gleanings,Gleanings,可拾之物
+Far_Territory_GreenstoneGrotto_DA_Forage,Forage,觅食
+Far_Territory_GreenstoneGrotto_DA_Forage_Desc,Sift the rubble on the cave floor for stones and loose chips of greenstone.,在洞底的碎石中筛找石头和松散的绿石碎片。
+Far_Territory_GreenstoneGrotto_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_Env_RustGrotto_CardName,Rust Grotto,锈色岩洞
+Far_Territory_RustGrotto_CardName,Rust Grotto,锈色岩洞
+Far_Territory_RustGrotto_CardDescription,A cave under the col where water seeps red down the walls and leaves a crust of rust-brown ore behind. Lumps of it break away from the wall and lie dry on the floor.,垭口下方的一个洞穴，红色的水沿洞壁渗下，留下一层锈褐色的矿石硬壳。矿块会从洞壁上剥落，干燥地躺在地上。
+Far_Territory_RustGrotto_Gleanings,Gleanings,可拾之物
+Far_Territory_RustGrotto_DA_Forage,Forage,觅食
+Far_Territory_RustGrotto_DA_Forage_Desc,Gather the dry lumps of rust-brown ore that have broken off the walls.,收集从洞壁上剥落下来的干燥锈褐色矿块。
+Far_Territory_RustGrotto_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_Env_GlimmerGrotto_CardName,Glimmer Grotto,微光岩洞
+Far_Territory_GlimmerGrotto_CardName,Glimmer Grotto,微光岩洞
+Far_Territory_GlimmerGrotto_CardDescription,"A cave whose walls glitter in any light. Most of it is only stone, but now and then a round, rough stone turns up that sounds hollow when knocked: a geode, with crystals inside.",一个洞壁在任何光线下都闪闪发亮的洞穴。大部分只是石头，但偶尔会找到一块圆而粗糙、敲起来声音空洞的石头：那是晶洞，里面藏着晶体。
+Far_Territory_GlimmerGrotto_Gleanings,Gleanings,可拾之物
+Far_Territory_GlimmerGrotto_DA_Forage,Forage,觅食
+Far_Territory_GlimmerGrotto_DA_Forage_Desc,"Search the glittering rubble for stones, and for the odd geode.",在闪亮的碎石中寻找石头，偶尔还能找到晶洞。
+Far_Territory_GlimmerGrotto_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_PathFangvaleScreeSlope_CardName,Trail North,北行小径
+Far_Territory_PathFangvaleScreeSlope_CardDescription,"A goat trail leading north out of Fangvale, climbing toward the white peaks beyond the forest.",一条从狼牙谷向北延伸的山羊小道，朝着森林之外的雪白群峰攀升。
+Far_Territory_PathFangvaleScreeSlope_DA_Travel,Climb North to Scree Slope,向北攀登至碎石坡
+Far_Territory_PathFangvaleScreeSlope_DA_Travel_Desc,"Follow the trail up out of the forest to the foot of the mountains. A long, steep walk of about an hour and a half.",沿小径走出森林，前往山脉脚下。一段又长又陡的路，大约要走一个半小时。
+Far_Territory_PathFangvaleScreeSlope_DA_Travel_Fade,Climbing toward the mountains...,向山脉攀登……
+Far_Territory_PathScreeSlopeFangvale_CardName,Trail to the Forest,前往森林的小径
+Far_Territory_PathScreeSlopeFangvale_CardDescription,The goat trail winding back down the scree into the forest at Fangvale.,山羊小道沿着碎石坡蜿蜒而下，回到狼牙谷的森林。
+Far_Territory_PathScreeSlopeFangvale_DA_Travel,Walk Down to Fangvale,下山前往狼牙谷
+Far_Territory_PathScreeSlopeFangvale_DA_Travel_Desc,Follow the trail back down into the forest. About an hour going downhill.,沿小径下山回到森林。下坡路大约要走一个小时。
+Far_Territory_PathScreeSlopeFangvale_DA_Travel_Fade,Walking down to the forest...,走下山前往森林……
+Far_Territory_PathScreeSlopeWindgapCol_CardName,Cliff to Windgap Col,攀崖前往风隙垭口
+Far_Territory_PathScreeSlopeWindgapCol_CardDescription,"A sheer rock face above the scree, the only way up to the col. It cannot be climbed without rope and pitons, and even with them a fall hurts.",碎石坡上方的一面陡峭岩壁，是登上垭口的唯一途径。没有绳子与岩钉根本爬不上去，即便有了它们，摔下来也会受伤。
+Far_Territory_PathScreeSlopeWindgapCol_DA_Climb,Climb the Cliff to Windgap Col,攀崖前往风隙垭口
+Far_Territory_PathScreeSlopeWindgapCol_DA_Climb_Desc,"Climb the cliff to the col, driving pitons and running your rope through them. Needs Rope and Pitons in your hand. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes half an hour.",钉入岩钉、穿过绳子，攀上悬崖到达垭口。手中需要拿着绳子与岩钉。攀爬技能和良好的抓握点能降低摔落几率；疲惫的攀登者必定会摔落。需要半小时。
+Far_Territory_PathScreeSlopeWindgapCol_DA_Climb_Fade,Climbing the cliff...,攀爬悬崖……
+Far_Territory_PathWindgapColScreeSlope_CardName,Cliff down to Scree Slope,下崖前往碎石坡
+Far_Territory_PathWindgapColScreeSlope_CardDescription,"The cliff dropping away to the scree below. Going down needs no gear, but rope and pitons make a fall less likely.",悬崖直落向下方的碎石坡。下去不需要装备，但绳子与岩钉能降低摔落几率。
+Far_Territory_PathWindgapColScreeSlope_DA_Climb,Climb Down to Scree Slope,爬下碎石坡
+Far_Territory_PathWindgapColScreeSlope_DA_Climb_Desc,"Climb back down the cliff to the scree. Skill, good handholds and rope and pitons in your hand make a fall less likely; a tired climber is sure to fall. It takes half an hour.",沿悬崖爬回碎石坡。攀爬技能、良好的抓握点以及手中的绳子与岩钉都能降低摔落几率；疲惫的攀登者必定会摔落。需要半小时。
+Far_Territory_PathWindgapColScreeSlope_DA_Climb_Fade,Climbing down the cliff...,爬下悬崖……
+Far_Territory_PathScreeSlopeGreenstoneGrotto_CardName,Path to Greenstone Grotto,前往绿石岩洞
+Far_Territory_PathScreeSlopeGreenstoneGrotto_CardDescription,"A cave opens at the foot of the cliffs, its mouth streaked green.",悬崖脚下开着一个洞穴，洞口布满绿色条纹。
+Far_Territory_PathScreeSlopeGreenstoneGrotto_DA_Travel,Enter the Greenstone Grotto,进入绿石岩洞
+Far_Territory_PathScreeSlopeGreenstoneGrotto_DA_Travel_Desc,Step into the cave out of the wind. It is only a few steps.,走进洞穴避开寒风。只有几步路。
+Far_Territory_PathScreeSlopeGreenstoneGrotto_DA_Travel_Fade,Stepping into the cave...,走进洞穴……
+Far_Territory_PathGreenstoneGrottoScreeSlope_CardName,Way Out,出口
+Far_Territory_PathGreenstoneGrottoScreeSlope_CardDescription,Daylight and cold air at the cave mouth.,洞口透进天光和冷空气。
+Far_Territory_PathGreenstoneGrottoScreeSlope_DA_Travel,Leave for Scree Slope,离开前往碎石坡
+Far_Territory_PathGreenstoneGrottoScreeSlope_DA_Travel_Desc,Step back out onto the scree.,走回碎石坡上。
+Far_Territory_PathGreenstoneGrottoScreeSlope_DA_Travel_Fade,Leaving the cave...,离开洞穴……
+Far_Territory_PathWindgapColRustGrotto_CardName,Path to Rust Grotto,前往锈色岩洞
+Far_Territory_PathWindgapColRustGrotto_CardDescription,"A cave mouth on the col, stained rust-red where water runs out of it.",垭口上的一个洞口，流出的水把它染成了锈红色。
+Far_Territory_PathWindgapColRustGrotto_DA_Travel,Enter the Rust Grotto,进入锈色岩洞
+Far_Territory_PathWindgapColRustGrotto_DA_Travel_Desc,Step into the cave out of the wind. It is only a few steps.,走进洞穴避开寒风。只有几步路。
+Far_Territory_PathWindgapColRustGrotto_DA_Travel_Fade,Stepping into the cave...,走进洞穴……
+Far_Territory_PathRustGrottoWindgapCol_CardName,Way Out,出口
+Far_Territory_PathRustGrottoWindgapCol_CardDescription,Daylight and the howl of the wind at the cave mouth.,洞口透进天光，传来呼啸的风声。
+Far_Territory_PathRustGrottoWindgapCol_DA_Travel,Leave for Windgap Col,离开前往风隙垭口
+Far_Territory_PathRustGrottoWindgapCol_DA_Travel_Desc,Step back out onto the col.,走回垭口上。
+Far_Territory_PathRustGrottoWindgapCol_DA_Travel_Fade,Leaving the cave...,离开洞穴……
+Far_Territory_PathWindgapColGlimmerGrotto_CardName,Path to Glimmer Grotto,前往微光岩洞
+Far_Territory_PathWindgapColGlimmerGrotto_CardDescription,A cave mouth on the col that glints when the light catches it.,垭口上的一个洞口，光线照到时会闪闪发亮。
+Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel,Enter the Glimmer Grotto,进入微光岩洞
+Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel_Desc,Step into the cave out of the wind. It is only a few steps.,走进洞穴避开寒风。只有几步路。
+Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel_Fade,Stepping into the cave...,走进洞穴……
+Far_Territory_PathGlimmerGrottoWindgapCol_CardName,Way Out,出口
+Far_Territory_PathGlimmerGrottoWindgapCol_CardDescription,Daylight and the howl of the wind at the cave mouth.,洞口透进天光，传来呼啸的风声。
+Far_Territory_PathGlimmerGrottoWindgapCol_DA_Travel,Leave for Windgap Col,离开前往风隙垭口
+Far_Territory_PathGlimmerGrottoWindgapCol_DA_Travel_Desc,Step back out onto the col.,走回垭口上。
+Far_Territory_PathGlimmerGrottoWindgapCol_DA_Travel_Fade,Leaving the cave...,离开洞穴……
+Far_Territory_Env_FjordHead_CardName,Fjord Head,峡湾尽头
+Far_Territory_FjordHead_CardName,Fjord Head,峡湾尽头
+Far_Territory_FjordHead_CardDescription,"Where the meltwater off the col runs down into a long, deep inlet between sheer grey walls. Black water, a shingle beach strewn with kelp, and snowfields reaching down to the water's edge.",垭口流下的融雪水在此汇入一道狭长幽深的海湾，两侧是陡峭的灰色岩壁。漆黑的海水，散落着海带的卵石滩，雪原一直延伸到水边。
+Far_Territory_FjordHead_Gleanings,Gleanings,可拾之物
+Far_Territory_FjordHead_DA_Forage,Forage,觅食
+Far_Territory_FjordHead_DA_Forage_Desc,"Search the shingle for stones, kelp and shells.",在卵石滩上搜寻石头、海带和贝壳。
+Far_Territory_FjordHead_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_FjordHead_DA_Search,Search the Snowfield,搜索雪原
+Far_Territory_FjordHead_DA_Search_Desc,"Walk the snowfield above the shingle, looking for what the cold has left lying there.",走过卵石滩上方的雪原，寻找寒冷留下的东西。
+Far_Territory_Env_SealSkerry_CardName,Seal Skerry,海豹礁
+Far_Territory_SealSkerry_CardName,Seal Skerry,海豹礁
+Far_Territory_SealSkerry_CardDescription,"A low spit of dark rock at the fjord's mouth, worn smooth and stinking of fish. Seals haul out here to sleep, and the great tusked walrus lie among them.",峡湾口一道低矮的黑色岩嘴，被磨得光滑，散发着鱼腥味。海豹爬上岸来在这里睡觉，长着巨大獠牙的海象也躺在它们中间。
+Far_Territory_SealSkerry_Gleanings,Gleanings,可拾之物
+Far_Territory_SealSkerry_DA_Forage,Forage,觅食
+Far_Territory_SealSkerry_DA_Forage_Desc,"Pick over the wet rock for kelp, shells and old bones.",在湿滑的岩石上挑拣海带、贝壳和旧骨头。
+Far_Territory_SealSkerry_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_Env_PuffinCliffs_CardName,Puffin Cliffs,海鹦峭崖
+Far_Territory_PuffinCliffs_CardName,Puffin Cliffs,海鹦峭崖
+Far_Territory_PuffinCliffs_CardDescription,"Grassy ledges high above the fjord, riddled with burrows. Puffins whirr in and out from dawn to dusk, and the wind never stops.",高悬于峡湾之上的长草岩架，布满了洞穴。海鹦从早到晚呼呼地飞进飞出，风从不停歇。
+Far_Territory_PuffinCliffs_Gleanings,Gleanings,可拾之物
+Far_Territory_PuffinCliffs_DA_Forage,Forage,觅食
+Far_Territory_PuffinCliffs_DA_Forage_Desc,"Edge along the ledges for loose stones, feathers and the odd egg left in a burrow.",沿着岩架小心挪动，寻找松动的石头、羽毛，偶尔还有留在洞里的蛋。
+Far_Territory_PuffinCliffs_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
+Far_Territory_SeaFjord_DA_Wash,Wash in the Fjord,在峡湾清洗
+Far_Territory_SeaFjord_DA_Wash_Desc,Wade into the icy water and scrub yourself clean. It will leave you soaked and shivering.,走进冰冷的海水，把自己擦洗干净。你会浑身湿透、冻得发抖。
+Far_Territory_SeaFjord_DA_Watch,Watch the Water,眺望海面
+Far_Territory_SeaFjord_DA_Watch_Desc,"Sit a while on the rocks and look out over the fjord. Seals come and go, and far out there are sometimes whales.",在岩石上坐一会儿，眺望峡湾。海豹来来去去，远处有时还能看到鲸鱼。
+Far_Territory_SeaFjord_Whale,"Far out in the fjord a whale breaks the surface, blows a plume of mist and slides back under.",峡湾远处，一头鲸鱼浮出水面，喷出一道水雾，又滑回水下。
+Far_Territory_SeaFjord_Seals,Round grey heads bob up in the water and watch you back: seals.,几颗灰色的圆脑袋从水里冒出来，也在打量着你：是海豹。
+Far_Territory_SeaFjord_Nothing,"Only grey water, ice and the wind.",只有灰色的海水、冰和风。
+Far_Territory_SeaFjord_CardName,The Fjord,峡湾
+Far_Territory_SeaFjord_CardDescription,"Deep, black, ice-cold water between the cliffs, too cold to dive in. You can wash in it if you can stand it, or sit and watch it for seals and, far out, whales.",悬崖之间深邃、漆黑、冰冷刺骨的海水，冷得没法潜水。受得了的话可以在里面清洗，或者坐下来眺望，看看海豹，以及远处的鲸鱼。
+Far_Territory_SealCarcass_CardName,Seal Carcass,海豹尸体
+Far_Territory_SealCarcass_CardDescription,"A dead seal, sleek and heavy with blubber. Butcher it with a blade for its meat, fat, hide and bones before it spoils.",一头死去的海豹，皮毛光滑，满身脂肪，沉甸甸的。趁它还没腐坏，用刀刃剔肉，获取肉、脂肪、兽皮和骨头。
+Far_Territory_SealCarcass_Spoilage,Spoilage,变质
+Far_Territory_SealCarcass_Spoiled,The carcass has rotted.,尸体已经腐烂了。
+Far_Territory_SealCarcass_CI_Butcher,Butcher,剔肉
+Far_Territory_SealCarcass_CI_Butcher_Desc,"Cut the carcass up with a blade for its meat, fat, hide and bones.",用刀刃切开尸体，获取肉、脂肪、兽皮和骨头。
+Far_Territory_WalrusCarcass_CardName,Walrus Carcass,海象尸体
+Far_Territory_WalrusCarcass_CardDescription,"A dead walrus, a mountain of wrinkled hide and blubber with two long ivory tusks. Butcher it with a blade for a great deal of meat and fat, its hide, its bones and its tusks before it spoils.",一头死去的海象，满是褶皱的皮和脂肪堆得像座小山，还长着两根长长的象牙獠牙。趁它还没腐坏，用刀刃剔肉，获取大量的肉和脂肪，以及兽皮、骨头和獠牙。
+Far_Territory_WalrusCarcass_Spoilage,Spoilage,变质
+Far_Territory_WalrusCarcass_Spoiled,The carcass has rotted.,尸体已经腐烂了。
+Far_Territory_WalrusCarcass_CI_Butcher,Butcher,剔肉
+Far_Territory_WalrusCarcass_CI_Butcher_Desc,"Cut the carcass up with a blade for its meat, fat, hide, bones and tusks. It is long work.",用刀刃切开尸体，获取肉、脂肪、兽皮、骨头和獠牙。这活儿要干很久。
+Far_Territory_Enc_Seal,Seal,海豹
+Far_Territory_Enc_TheSeal,the seal,海豹
+Far_Territory_Enc_TheSealRearsUpAndBarksAtYou,The seal rears up and barks at you.,海豹直起身子，冲你吠叫。
+Far_Territory_Enc_TheBarkingMakesYouHesitate,The barking makes you hesitate...,吠叫声让你迟疑了……
+Far_Territory_Enc_TheSealLungesAndBites,The seal lunges and bites!,海豹猛扑上来咬了一口！
+Far_Territory_Enc_TheSealHumpsTowardTheWater,The seal humps toward the water!,海豹一拱一拱地朝水边挪去！
+Far_Territory_Enc_TheSealSlidesOffTheRocks,The seal slides off the rocks...,海豹从岩石上滑了下去……
+Far_Territory_Enc_TheSealShufflesInClose,The seal shuffles in close.,海豹慢吞吞地挪近了。
+Far_Territory_Enc_TheSealLiesStillOnTheRocks,The seal lies still on the rocks.,海豹一动不动地躺在岩石上。
+Far_Territory_Enc_TheSealSlipsIntoTheWaterAndIsGone,The seal slips into the water and is gone...,海豹滑入水中，消失不见了……
+Far_Territory_Enc_YouBackAwayFromTheSeal,You back away from the seal...,你从海豹身边退开……
+Far_Territory_Enc_YouSeeASeal,You see a Seal!,你看到了一头海豹！
+Far_Territory_Enc_Walrus,Walrus,海象
+Far_Territory_Enc_TheWalrus,the walrus,海象
+Far_Territory_Enc_TheWalrusRoarsAndSwingsItsGreatTusks,The walrus roars and swings its great tusks.,海象咆哮着挥舞它巨大的獠牙。
+Far_Territory_Enc_TheRoarShakesYou,The roar shakes you...,咆哮声让你心惊胆战……
+Far_Territory_Enc_TheWalrusHeavesItselfAtYouAndBites,The walrus heaves itself at you and bites!,海象猛地扑向你，咬了一口！
+Far_Territory_Enc_TheWalrusLurchesTowardTheWater,The walrus lurches toward the water!,海象摇摇晃晃地朝水边冲去！
+Far_Territory_Enc_TheWalrusHeavesItselfOffTheRocks,The walrus heaves itself off the rocks...,海象费力地挪下了岩石……
+Far_Territory_Enc_TheWalrusDragsItselfInClose,The walrus drags itself in close.,海象拖着身子挪近了。
+Far_Territory_Enc_TheWalrusSlumpsOnTheRocks,The walrus slumps on the rocks.,海象瘫倒在岩石上。
+Far_Territory_Enc_TheWalrusCrashesIntoTheWaterAndSinksFrom,The walrus crashes into the water and sinks from sight...,海象轰然扎进水里，沉得不见踪影……
+Far_Territory_Enc_YouRunFromTheWalrus,You run from the walrus...,你从海象身边逃开……
+Far_Territory_Enc_YouSeeAWalrus,You see a Walrus!,你看到了一头海象！
+Far_Territory_Enc_Puffin,Puffin,海鹦
+Far_Territory_Enc_ThePuffin,the puffin,海鹦
+Far_Territory_Enc_ThePuffinFlapsItsStubbyWingsAtYou,The puffin flaps its stubby wings at you.,海鹦冲你扑扇着短短的翅膀。
+Far_Territory_Enc_TheFlurryOfWingsStartlesYou,The flurry of wings startles you...,一阵扑腾的翅膀吓了你一跳……
+Far_Territory_Enc_ThePuffinNipsYouWithItsBrightBeak,The puffin nips you with its bright beak!,海鹦用它鲜艳的喙啄了你一下！
+Far_Territory_Enc_ThePuffinWhirrsItsWingsToTakeOff,The puffin whirrs its wings to take off!,海鹦呼呼地扇动翅膀准备起飞！
+Far_Territory_Enc_ThePuffinLiftsOffTheLedge,The puffin lifts off the ledge...,海鹦从岩架上飞了起来……
+Far_Territory_Enc_ThePuffinWaddlesInClose,The puffin waddles in close.,海鹦摇摇摆摆地走近了。
+Far_Territory_Enc_ThePuffinDropsToTheGround,The puffin drops to the ground.,海鹦跌落在地。
+Far_Territory_Enc_ThePuffinWhirrsAwayOverTheFjord,The puffin whirrs away over the fjord...,海鹦呼呼地飞过峡湾远去了……
+Far_Territory_Enc_YouLeaveThePuffinAlone,You leave the puffin alone...,你没去招惹那只海鹦……
+Far_Territory_Enc_YouSeeAPuffin,You see a Puffin!,你看到了一只海鹦！
+Far_Territory_Seal_AgentName,Seal,海豹
+Far_Territory_Walrus_AgentName,Walrus,海象
+Far_Territory_Puffin_AgentName,Puffin,海鹦
+Far_Territory_FjordHead_DA_South,South,南方
+Far_Territory_FjordHead_DA_South_Fade,Travelling South...,向南移动……
+Far_Territory_FjordHead_DA_East,East,东方
+Far_Territory_FjordHead_DA_East_Fade,Travelling East...,向东移动……
+Far_Territory_FjordHead_DA_North,North,北方
+Far_Territory_FjordHead_DA_North_Fade,Travelling North...,向北移动……
+Far_Territory_SeaShore_CI_Net,Cast the Net,撒网
+Far_Territory_SeaShore_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.,从岸边奋力撒出渔网，再把它拖回来。满网时同一种鱼会捞到两条而不是一条；能捞到什么取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaShore_CI_SetFunnelTrap,Set the Funnel Trap,放置鱼篓陷阱
+Far_Territory_SeaShore_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.,蹚水出去，把鱼篓陷阱固定在浅水里。你不在的时候，它会自己捕捉海里的鱼。
+Far_Territory_SeaCoralInlet_CI_Net,Cast the Net,撒网
+Far_Territory_SeaCoralInlet_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.,从岸边奋力撒出渔网，再把它拖回来。满网时同一种鱼会捞到两条而不是一条；能捞到什么取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaCoralInlet_CI_SetFunnelTrap,Set the Funnel Trap,放置鱼篓陷阱
+Far_Territory_SeaCoralInlet_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.,蹚水出去，把鱼篓陷阱固定在浅水里。你不在的时候，它会自己捕捉海里的鱼。
+Far_Territory_SeaBoulderShore_CI_Net,Cast the Net,撒网
+Far_Territory_SeaBoulderShore_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.,从岸边奋力撒出渔网，再把它拖回来。满网时同一种鱼会捞到两条而不是一条；能捞到什么取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaBleakStrand_CI_Net,Cast the Net,撒网
+Far_Territory_SeaBleakStrand_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.,从岸边奋力撒出渔网，再把它拖回来。满网时同一种鱼会捞到两条而不是一条；能捞到什么取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaCliffboundCove_CI_Net,Cast the Net,撒网
+Far_Territory_SeaCliffboundCove_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.,从岸边奋力撒出渔网，再把它拖回来。满网时同一种鱼会捞到两条而不是一条；能捞到什么取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaCliffboundCove_CI_SetFunnelTrap,Set the Funnel Trap,放置鱼篓陷阱
+Far_Territory_SeaCliffboundCove_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.,蹚水出去，把鱼篓陷阱固定在浅水里。你不在的时候，它会自己捕捉海里的鱼。
+Far_Territory_SeaRootwaterThicket_CI_Net,Cast the Net,撒网
+Far_Territory_SeaRootwaterThicket_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.,从岸边奋力撒出渔网，再把它拖回来。满网时同一种鱼会捞到两条而不是一条；能捞到什么取决于这片水域，以及海里每种鱼还剩多少。
+Far_Territory_SeaRootwaterThicket_CI_SetFunnelTrap,Set the Funnel Trap,放置鱼篓陷阱
+Far_Territory_SeaRootwaterThicket_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.,蹚水出去，把鱼篓陷阱固定在浅水里。你不在的时候，它会自己捕捉海里的鱼。
+Far_Territory_FunnelTrapPlaced_CardName,Funnel Trap (Set),鱼篓陷阱（已放置）
+Far_Territory_FunnelTrapPlaced_CardDescription,A funnel trap staked in the shallows. It springs every few hours; haul it out to take what it holds.,固定在浅水里的鱼篓陷阱。每隔几小时触发一次；把它拖上来就能取出里面的收获。
+Far_Territory_FunnelTrapPlaced_DA_HaulOut,Haul Out the Trap,收起陷阱
+Far_Territory_FunnelTrapPlaced_DA_HaulOut_Desc,Wade out and lift the funnel trap onto the shore. Whatever it caught spills out beside it.,蹚水出去，把鱼篓陷阱提上岸。捕到的东西会倒在它旁边。
+Far_Territory_FunnelTrapPlaced_Triggered,Trap Triggered!,陷阱触发了！

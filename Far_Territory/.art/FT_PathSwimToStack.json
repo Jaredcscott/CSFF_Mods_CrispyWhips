@@ -1,35 +1,43 @@
 {
   "target": "FT_PathSwimToStack.png",
-  "sourceCard": null,
-  "subject": "open green water between a beach and a distant white rock stack with gulls, a line of swimming ripples crossing the water toward it, seen from the water's edge, sunlit, no person",
+  "sourceCard": [
+    "CardData/Location/FT_PathBleakStrandGullStack.json",
+    "CardData/Location/FT_PathBoulderShoreGullStack.json",
+    "CardData/Location/FT_PathCliffboundCoveGullStack.json"
+  ],
+  "subject": "a hard swim across open sea seen from the wet sand at the water's edge: a narrow strip of pale sand, then wide open deep green-blue sea with gentle waves and a few white crests, nothing standing in the water, and far out a single tall pale grey rock stack with gulls circling its top under a pale cloudy sky",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
   "params": {
-    "imageCount": 3,
+    "imageCount": 1,
     "aspectRatio": "2:3",
-    "resolution": "2K",
+    "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted illustration of open green water between a beach and a distant white rock stack with gulls, a line of swimming ripples crossing the water toward it, seen from the water's edge, sunlit, no person, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
-  "historyId": "Br3sOiHnwo9cGP5wluDo",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647593749_cf98ce4a_1791647594635_65d55f01.png",
-  "credits": 90,
-  "generated": "2026-10-10",
-  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style full-bleed scene template, style refs + Subject + \"The painted scene reaches every edge of the frame\" + Avoid list incl. footprints, tracks, plain white background)",
+  "refs": [
+    {
+      "label": "vanilla Lake1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_1791745028417_e3f605e2.png"
+    },
+    {
+      "label": "vanilla Woods1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods1_1791745308283_a2624cc3.png"
+    }
+  ],
+  "historyId": "Pp4HAssXFcOOFvFTGMg5",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797786828_ce452c73_1791797786880_c59fccc3.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "full-bleed",
+  "note": "owner gallery rework 2026-10-12: no steps in the water. The old picture's rings of swimming ripples read as stepping stones; the new prompt bans steps, stepping stones, rocks in the water, causeways, sandbars and ripple rings.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647593749_cf98ce4a_1791647594635_65d55f01.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647597336_ca792a04_1791647597902_2b414d08.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647593406_90b1c546_1791647595219_5fd0a78c.png"
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797786828_ce452c73_1791797786880_c59fccc3.png"
     }
   ],
   "picked": "A",
-  "predicted": "B"
+  "predicted": "A",
+  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647593749_cf98ce4a_1791647594635_65d55f01.png"
 }

@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.1] - 2026-10-12
+
+### Added
+
+- **Simplified Chinese translation.** All 1,857 text rows (cards, actions, stats, help sections and travel messages) now have a Chinese version, so Chinese players no longer see English for this mod.
+
+### Changed
+
+- **New pictures for the Tropical Almond tree and the set Fish Trap, closer to the base game's card art.** The almond's crown now spreads in irregular natural clumps instead of evenly stacked tiers, on the same beach; the set Fish Trap lies fully under the water with no fish in it. No card data changed.
+
+### Fixed
+
+- **Placing Forest Lore's Standing Stones on Wildrye Plain no longer retries forever when it fails.** If the stones do not appear, the mod stops after three tries per session and logs one warning. The log now says "placed" only once the stones are really on the board.
+
 ## [0.1.0] - 2026-10-12
 
 First public release, as a pre-release: on GitHub, on Nexus Mods and in the Mod Update Manager suite. The changes since the earlier suite builds come first; everything the mod adds is under Added.

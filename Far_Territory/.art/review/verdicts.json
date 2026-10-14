@@ -1,0 +1,3439 @@
+{
+  "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
+  "images": {
+    "Picture/FT_AlmondTree.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "333eb8a0899f1f0ae3708dfe6944fc08fc4ef76e",
+      "at": "2026-10-14T04:31:39+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "poor quality",
+          "sha1": "e2fa403b2b5913b263b90e43039783caa9b053d7",
+          "at": "2026-10-12T08:28:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "the layers are odd ",
+          "sha1": "c8b0627591c16f4ae5468befc29a0ec2ada2cc97",
+          "at": "2026-10-12T10:46:07+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "the layers are odd ",
+          "sha1": "f7321228b5f319cf2beabc5587cdb95aa56c6dc5",
+          "at": "2026-10-12T14:17:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "the layers are odd ",
+          "sha1": "f7321228b5f319cf2beabc5587cdb95aa56c6dc5",
+          "at": "2026-10-12T17:21:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_AloeLeaf.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "29c5a736fd9e60bf160ce24c5983ed10ee7a76b1",
+      "at": "2026-10-12T17:24:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "29c5a736fd9e60bf160ce24c5983ed10ee7a76b1",
+          "at": "2026-10-12T08:28:33+00:00"
+        }
+      ]
+    },
+    "Picture/FT_AloePlant.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0a84a650c18562f7d7e5c9d33850b06ab15243cc",
+      "at": "2026-10-14T04:31:39+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "scene is wrong",
+          "sha1": "3626e6c5c4dd8f24abc5c6ab6a3b6bc942b9d7c4",
+          "at": "2026-10-12T08:28:39+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "12173a3896909c0f10b1c42bc68327ebe27bc7a6",
+          "at": "2026-10-12T10:39:09+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "12173a3896909c0f10b1c42bc68327ebe27bc7a6",
+          "at": "2026-10-12T17:21:29+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Banana.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3ef9e9d10f0bffcbf44348d74289e5fae7541d03",
+      "at": "2026-10-12T17:22:36+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3ef9e9d10f0bffcbf44348d74289e5fae7541d03",
+          "at": "2026-10-12T08:28:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_BananaPlant.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "240fcd4c4c1dbb43061ec458fe6c538a6fb6f247",
+      "at": "2026-10-14T04:31:39+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "171e917fb02289a71ad39afdfca7d6f7d0c49f56",
+          "at": "2026-10-12T08:28:41+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "171e917fb02289a71ad39afdfca7d6f7d0c49f56",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Bat.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "257ed238039349ea5f4b4dbb1a9a96fab860b9bf",
+      "at": "2026-10-14T04:31:40+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "scene is off",
+          "sha1": "e7ae5b720290b7ca66de6f0deb48d9eba1fea4b8",
+          "at": "2026-10-12T08:28:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0e4ea4eb2a0c06767890cdcb098a9fb1f8e4f899",
+          "at": "2026-10-12T10:39:10+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0e4ea4eb2a0c06767890cdcb098a9fb1f8e4f899",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_BatCarcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bbd0045d3a87ca6c6a79c191f004ccc66d5acdfb",
+      "at": "2026-10-12T17:24:39+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bbd0045d3a87ca6c6a79c191f004ccc66d5acdfb",
+          "at": "2026-10-12T08:28:49+00:00"
+        }
+      ]
+    },
+    "Picture/FT_BatRoost.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6846051a17944e7696b5267b8a8cafed2dc0f26b",
+      "at": "2026-10-14T04:31:40+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b8ce88ae8d96450dbeb72f90c3e2acbf55a19452",
+          "at": "2026-10-12T08:28:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b8ce88ae8d96450dbeb72f90c3e2acbf55a19452",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_BlackGrotto.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4ce98ab124f358a348c03a36eecd4f83f6efb15d",
+      "at": "2026-10-14T04:31:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e95571becc8bad7af1e82fc8d59becc46ec8a853",
+          "at": "2026-10-12T08:28:52+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e95571becc8bad7af1e82fc8d59becc46ec8a853",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_BleakStrand.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1a8bfd5967da591ab4e28fe0f8fa32cbb7f630ea",
+      "at": "2026-10-14T04:31:42+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c471733ffdb24e2ac28de04784bb205ba72d545b",
+          "at": "2026-10-12T08:28:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c471733ffdb24e2ac28de04784bb205ba72d545b",
+          "at": "2026-10-12T17:22:32+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Bonefish.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b03f3a63f25d1d9a0370181b8e751876047d7239",
+      "at": "2026-10-12T17:22:02+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b03f3a63f25d1d9a0370181b8e751876047d7239",
+          "at": "2026-10-12T08:28:54+00:00"
+        }
+      ]
+    },
+    "Picture/FT_BoulderShore.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e64e1d95ab65e530594ab825fb03a5e86a7f1d4b",
+      "at": "2026-10-14T04:31:42+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f5bf5c16a98011381ec9364200111f3504eced5a",
+          "at": "2026-10-12T08:28:55+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f5bf5c16a98011381ec9364200111f3504eced5a",
+          "at": "2026-10-12T17:21:19+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Canoe.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b28dc4aad09123f31228a1d5edebce092b7eaad7",
+      "at": "2026-10-12T17:22:52+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "there is an out rigger no? ",
+          "sha1": "b28dc4aad09123f31228a1d5edebce092b7eaad7",
+          "at": "2026-10-12T08:48:00+00:00"
+        },
+        {
+          "status": "reply",
+          "notes": "The Dugout Canoe is the river boat, hollowed from one log for rivers only, so its card has no outrigger. The outrigger is Far Territory's separate Outrigger Canoe card (FT_Outrigger), used for the sea crossing. If you want the river canoe to get an outrigger too, mark it again and say so; that is a card text change as well as art.",
+          "sha1": "b28dc4aad09123f31228a1d5edebce092b7eaad7",
+          "at": "2026-10-12T10:49:37+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "",
+          "sha1": "b28dc4aad09123f31228a1d5edebce092b7eaad7",
+          "at": "2026-10-12T14:04:41+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b28dc4aad09123f31228a1d5edebce092b7eaad7",
+          "at": "2026-10-12T14:17:22+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Chilli.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ae4c38025c72ca7f9ebf43ebf4d82abca6fd3356",
+      "at": "2026-10-12T17:22:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ae4c38025c72ca7f9ebf43ebf4d82abca6fd3356",
+          "at": "2026-10-12T08:29:12+00:00"
+        }
+      ]
+    },
+    "Picture/FT_ChilliPlant.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9ff83e3801bb7f70c41ecf628074b226cf599067",
+      "at": "2026-10-14T04:31:42+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "366485cf0ef0d6da492a28152cf07fa11870a4d3",
+          "at": "2026-10-12T08:29:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "366485cf0ef0d6da492a28152cf07fa11870a4d3",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_ChinaRose.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e5ff57e47b9e7dd807a236c6cf7876a0c0cadaf5",
+      "at": "2026-10-12T17:23:05+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5ff57e47b9e7dd807a236c6cf7876a0c0cadaf5",
+          "at": "2026-10-12T08:29:14+00:00"
+        }
+      ]
+    },
+    "Picture/FT_ChinaRoseBush.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4418ecae7fdb2835e7b8a76117ff2ac2c951999a",
+      "at": "2026-10-14T04:31:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "177757d7fc999571148830db14b3615b4f588a9a",
+          "at": "2026-10-12T08:29:14+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "177757d7fc999571148830db14b3615b4f588a9a",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_ChinaRoseCutting.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "dd29235e32ccd86bf9255efac84b1affb3ce13b3",
+      "at": "2026-10-12T17:24:39+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "dd29235e32ccd86bf9255efac84b1affb3ce13b3",
+          "at": "2026-10-12T08:29:15+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CinchonaBark.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2f140c5478193af92e9aa573aae081542fb73fb5",
+      "at": "2026-10-12T17:22:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2f140c5478193af92e9aa573aae081542fb73fb5",
+          "at": "2026-10-12T08:29:16+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CinchonaSeedling.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant FT_CinchonaTree (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "4e23331dea6a728acce84b62225c2063518ef0fe",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "4e23331dea6a728acce84b62225c2063518ef0fe",
+          "at": "2026-10-12T17:00:11+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "4e23331dea6a728acce84b62225c2063518ef0fe",
+          "at": "2026-10-12T17:01:36+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CinchonaTree.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "74b5e5c08a8e897b68585f48cb3052fb3f3abf44",
+      "at": "2026-10-14T04:31:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f296b7292c2828ed567eee5361cc275887c4452b",
+          "at": "2026-10-12T08:29:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f296b7292c2828ed567eee5361cc275887c4452b",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CliffboundCove.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c12ed4729f2f0fd4d4a984a31931b15a7c0ac472",
+      "at": "2026-10-14T04:47:49+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a0ceb8bb679bf71387bd516b5492b508c8298911",
+          "at": "2026-10-12T08:29:19+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a0ceb8bb679bf71387bd516b5492b508c8298911",
+          "at": "2026-10-12T16:53:45+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "273878e7dd42aeacfd7d91f0302ff791d1a62b2a",
+          "at": "2026-10-12T19:09:42+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "over saturated adjust the tone to match vanilla ",
+          "sha1": "e7a33f8eace1aefc4a11ba8053eb2fa5474b84be",
+          "at": "2026-10-12T21:12:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5a8680515b1ad6f22973046a96829d94da208f63",
+          "at": "2026-10-12T21:22:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "10fb36e237a6578c54363b710bdba0503a61fea7",
+          "at": "2026-10-14T04:31:43+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "Too dark, please lighten up to match the rest of the daylight images ",
+          "sha1": "10fb36e237a6578c54363b710bdba0503a61fea7",
+          "at": "2026-10-14T04:37:48+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Cobra.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0e8aca621d4dd16ae45d8ab7781430f3321610ee",
+      "at": "2026-10-14T04:35:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bf1e2ba108815a0fba0fa86137cd4124dcc6986f",
+          "at": "2026-10-12T08:29:20+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bf1e2ba108815a0fba0fa86137cd4124dcc6986f",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CobraCarcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a28202f681346a02bea493fb099fe4c6f2c0350e",
+      "at": "2026-10-12T17:24:39+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a28202f681346a02bea493fb099fe4c6f2c0350e",
+          "at": "2026-10-12T08:29:20+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Coconut.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f314316bff47dc27d726cd11adbe935390ecfb45",
+      "at": "2026-10-12T17:23:06+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f314316bff47dc27d726cd11adbe935390ecfb45",
+          "at": "2026-10-12T08:29:21+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CoconutGreen.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9f0ccb66fe599ea537634d45c66d268554e5fdcb",
+      "at": "2026-10-12T17:22:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9f0ccb66fe599ea537634d45c66d268554e5fdcb",
+          "at": "2026-10-12T08:29:23+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CoconutMeat.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e98a2d32211278c3632cc2c812c8bf1d73e7dba4",
+      "at": "2026-10-12T17:22:22+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e98a2d32211278c3632cc2c812c8bf1d73e7dba4",
+          "at": "2026-10-12T08:29:24+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CoconutShellBowl.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e5bc675e478b07e432778f750872a219c81e95c6",
+      "at": "2026-10-12T17:22:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5bc675e478b07e432778f750872a219c81e95c6",
+          "at": "2026-10-12T08:29:24+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CoconutWater.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "01b36f7c3541e88fc57f61bea40b839a99c2bfe4",
+      "at": "2026-10-12T17:22:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "72529f92a3986beb547ff56eff6db587e7bfc02e",
+          "at": "2026-10-12T08:29:25+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "shuld match the coconut shell bowl but with milk in it. ",
+          "sha1": "72529f92a3986beb547ff56eff6db587e7bfc02e",
+          "at": "2026-10-12T08:29:43+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "01b36f7c3541e88fc57f61bea40b839a99c2bfe4",
+          "at": "2026-10-12T10:39:11+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CoffeeBerries.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "81b447479430e3a2b7cfaee311726a04c9467453",
+      "at": "2026-10-12T17:22:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "81b447479430e3a2b7cfaee311726a04c9467453",
+          "at": "2026-10-12T08:29:27+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CoffeeBush.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a16958c08dd5c440af4946d98666fcc224c9a52b",
+      "at": "2026-10-14T04:35:19+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c3c060b7561ead4b4f8233525ecaa8c64f97c466",
+          "at": "2026-10-12T08:29:44+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c3c060b7561ead4b4f8233525ecaa8c64f97c466",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_CoralInlet.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d839e923a6a35315301b33ca993f92cfd2f3e223",
+      "at": "2026-10-14T04:47:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b08809d73d12526d0885b8f6a4296e181f7e1253",
+          "at": "2026-10-12T08:29:46+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b08809d73d12526d0885b8f6a4296e181f7e1253",
+          "at": "2026-10-12T16:54:29+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b08809d73d12526d0885b8f6a4296e181f7e1253",
+          "at": "2026-10-12T17:35:23+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "beca7eaffdec4d422ec43f209c1c6671b15028c5",
+          "at": "2026-10-12T19:08:49+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "over saturated adjust the tone to match vanilla ",
+          "sha1": "c93cd70c598bc71be9e57c6f5abc92e20f6e82b8",
+          "at": "2026-10-12T21:12:51+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1a996ba70960b5d6dbd45bf44326a8ce56ff4d18",
+          "at": "2026-10-12T21:25:57+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "Too dark, please lighten up to match the rest of the daylight images ",
+          "sha1": "2fa13c4331a45da154f5f599153344cc6d58e177",
+          "at": "2026-10-14T04:37:51+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Crab.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "5845250943b7aee806a5e73b40454b3bbae27485",
+      "at": "2026-10-12T17:20:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5845250943b7aee806a5e73b40454b3bbae27485",
+          "at": "2026-10-12T17:03:06+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Driftwood.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4631a21549b18d130ef840f6de0325488a9f7c7f",
+      "at": "2026-10-12T17:22:03+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4631a21549b18d130ef840f6de0325488a9f7c7f",
+          "at": "2026-10-12T08:29:50+00:00"
+        }
+      ]
+    },
+    "Picture/FT_DriftwoodShore.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bd2fd9e2104950d22da5f5da39426c655d22303f",
+      "at": "2026-10-14T04:35:21+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ba96fec14b8b44449e4bfaf16eba2b9efb220309",
+          "at": "2026-10-12T08:29:50+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "ba96fec14b8b44449e4bfaf16eba2b9efb220309",
+          "at": "2026-10-12T17:02:03+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ba96fec14b8b44449e4bfaf16eba2b9efb220309",
+          "at": "2026-10-12T17:27:18+00:00"
+        }
+      ]
+    },
+    "Picture/FT_DrippingHall.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f36bd735484749e6aa9bd8ceb2217b743f941323",
+      "at": "2026-10-14T04:35:22+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e7086e583d8f455f5ecb27197b94c662577f2b47",
+          "at": "2026-10-12T08:29:52+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e7086e583d8f455f5ecb27197b94c662577f2b47",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_DrownedHall.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "7318ed49bcbde25de1d0c14646bde45fb67f6ecf",
+      "at": "2026-10-14T04:35:22+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d080d1b8ce493bfb3382a3b6f7d39509565be5a1",
+          "at": "2026-10-12T08:29:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d080d1b8ce493bfb3382a3b6f7d39509565be5a1",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_EasternUplands.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "39b0910a57dfee46ed139d5eb098612c3722a222",
+      "at": "2026-10-14T04:35:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "57aa0badbda255ad4a91a30f7760e95f94eba23a",
+          "at": "2026-10-12T08:29:54+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "57aa0badbda255ad4a91a30f7760e95f94eba23a",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_EastgrassPlain.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c7c626140b30519f59783207423bb749a8e889f3",
+      "at": "2026-10-14T04:35:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c310cff7502114cbf7b91712095460b298b6b0b2",
+          "at": "2026-10-12T08:29:55+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c310cff7502114cbf7b91712095460b298b6b0b2",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_FallenDwelling.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "30c5a9c6770cab185c116208156c07d8cdf3addf",
+      "at": "2026-10-14T04:35:24+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8611be32dc0ab3e47bfb760e4078dcf36ecb9ce8",
+          "at": "2026-10-12T08:29:56+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8611be32dc0ab3e47bfb760e4078dcf36ecb9ce8",
+          "at": "2026-10-12T17:21:52+00:00"
+        }
+      ]
+    },
+    "Picture/FT_FireMountain.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1eb0f213feece09aa6d390753b7d9f0eab3a1a46",
+      "at": "2026-10-14T04:35:24+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4333005411722611447c8d0fb455357af5951354",
+          "at": "2026-10-12T08:29:57+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4333005411722611447c8d0fb455357af5951354",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_FishTrap.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a5494a75d5b10e3d7151e262a17a0dcfffcf77c4",
+      "at": "2026-10-12T17:21:13+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a5494a75d5b10e3d7151e262a17a0dcfffcf77c4",
+          "at": "2026-10-12T08:29:59+00:00"
+        }
+      ]
+    },
+    "Picture/FT_FishTrapSet.png": {
+      "status": "approved",
+      "notes": "needs to be fully in the water with no small fish\n",
+      "sha1": "20e7c7720339c0fd9d8a39987aec8f12bc4eeff9",
+      "at": "2026-10-12T17:21:20+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "e007ef682640e82ad90d9255d885fb6a9f3a39d2",
+          "at": "2026-10-12T08:30:02+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "no kit needed just place the trap directly ",
+          "sha1": "e007ef682640e82ad90d9255d885fb6a9f3a39d2",
+          "at": "2026-10-12T08:30:15+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "no kit needed just place the trap directly ",
+          "sha1": "e007ef682640e82ad90d9255d885fb6a9f3a39d2",
+          "at": "2026-10-12T08:30:16+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "needs to be fully in the water with no small fish\n",
+          "sha1": "e0d8bb3726aaa7c364f15c2e1a6af69c601710ac",
+          "at": "2026-10-12T10:47:07+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "needs to be fully in the water with no small fish\n",
+          "sha1": "20e7c7720339c0fd9d8a39987aec8f12bc4eeff9",
+          "at": "2026-10-12T14:18:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_FjordHead.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0b99544882df50b3d84ebe6891e6de48075e8af9",
+      "at": "2026-10-14T04:35:24+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cabae70eabf88f925e956bfdaa07e0e16d7b8bf7",
+          "at": "2026-10-12T08:30:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cabae70eabf88f925e956bfdaa07e0e16d7b8bf7",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Ginger.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
+      "at": "2026-10-12T17:34:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "dont we already have ginger in H&F lets use the same image. ",
+          "sha1": "283648a34c3d0e308f61f35de22b1b917bbb69bf",
+          "at": "2026-10-12T08:30:36+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "dont we already have ginger in H&F lets use the same image. ",
+          "sha1": "283648a34c3d0e308f61f35de22b1b917bbb69bf",
+          "at": "2026-10-12T08:30:37+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
+          "at": "2026-10-12T10:39:20+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
+          "at": "2026-10-12T16:55:03+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GingerPlant.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0e0dcacdb13a003a0e17274a0d155efda368a243",
+      "at": "2026-10-14T04:35:25+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e0512e390910a1a1060d6bf92dd037b44bfff99f",
+          "at": "2026-10-12T08:30:21+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e0512e390910a1a1060d6bf92dd037b44bfff99f",
+          "at": "2026-10-12T17:22:44+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GlimmerGrotto.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a2786c6bea720e00091004d00f30063e312c02aa",
+      "at": "2026-10-14T04:35:25+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "07e06835468d68c3f6242160c6fec0c729edb161",
+          "at": "2026-10-12T08:30:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "07e06835468d68c3f6242160c6fec0c729edb161",
+          "at": "2026-10-12T17:24:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GlitteringHall.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3de8f07eb2442cfdc77549be535056048133c34f",
+      "at": "2026-10-14T04:35:26+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6c73b0d9d8cd06c10c144ec51280f3636cbca941",
+          "at": "2026-10-12T08:30:41+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6c73b0d9d8cd06c10c144ec51280f3636cbca941",
+          "at": "2026-10-12T17:22:29+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Goatfish.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2e966346497feefb6b67f76c367ac8eba33fe7b6",
+      "at": "2026-10-12T17:21:04+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2e966346497feefb6b67f76c367ac8eba33fe7b6",
+          "at": "2026-10-12T08:30:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GreenDeep.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cb9c4efef81113e9a62c720967ad39fb2e358763",
+      "at": "2026-10-14T04:35:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6c44ef2f772d5486d666bd1f07303ffce2379911",
+          "at": "2026-10-12T08:30:43+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6c44ef2f772d5486d666bd1f07303ffce2379911",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GreenstoneGrotto.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f0e7dfb544cd5df7a3dcea81534394c35c195321",
+      "at": "2026-10-14T04:35:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "99f6c9bfc49e3572774f9bbe81ac3cd7b6efbd08",
+          "at": "2026-10-12T08:30:44+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "99f6c9bfc49e3572774f9bbe81ac3cd7b6efbd08",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Grouper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5f564bc42ec7f34a99aa8a13648a07633c975969",
+      "at": "2026-10-12T17:24:40+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5f564bc42ec7f34a99aa8a13648a07633c975969",
+          "at": "2026-10-12T08:30:45+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GrowingGrass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "fd339e22f2d9de59aa27721893fe4f242de0de87",
+      "at": "2026-10-14T04:35:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ba50124c31f0badfb7a13deed17ed2200e7a64b6",
+          "at": "2026-10-12T08:30:46+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ba50124c31f0badfb7a13deed17ed2200e7a64b6",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GrowingPalm.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "511872b00f9054038ffe0ed3253b5e4cf948c134",
+      "at": "2026-10-14T04:35:28+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1e9d6ab7a4795922ed8ebf096df36dbd69e3840b",
+          "at": "2026-10-12T08:30:46+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1e9d6ab7a4795922ed8ebf096df36dbd69e3840b",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GrowingSapling.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6524b9c91f624f0ed486195dfc6abec55bdb6c87",
+      "at": "2026-10-14T04:35:28+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b32479b87209d7c40f92bb67634ae14fea62af98",
+          "at": "2026-10-12T08:30:47+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b32479b87209d7c40f92bb67634ae14fea62af98",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GrowingShrub.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "071fcfa985052fb9a89443e579ad501fc24298f2",
+      "at": "2026-10-14T04:35:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6366843bbf910caa566ec8e1d4fed9fdd1684119",
+          "at": "2026-10-12T08:30:52+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6366843bbf910caa566ec8e1d4fed9fdd1684119",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GrowingStrap.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "960dfda147af821c88143f0d4c9ce04209f2bddf",
+      "at": "2026-10-14T04:35:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ddeba46456335d79379711cde8a3967509a7c6cc",
+          "at": "2026-10-12T08:30:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ddeba46456335d79379711cde8a3967509a7c6cc",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GrowingVine.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "02832bc9aa79cdbca1b6414080df13169839440d",
+      "at": "2026-10-14T04:35:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9e6a5db3fc06f0b6c99cb29f33a05bf848c9f5ec",
+          "at": "2026-10-12T08:30:54+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9e6a5db3fc06f0b6c99cb29f33a05bf848c9f5ec",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_GullStack.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "88d405fe000576738a53af8193ba3319b1d666ec",
+      "at": "2026-10-14T04:35:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "d2c012c96299e2397215a382dd5fb91e73ca75f2",
+          "at": "2026-10-12T17:03:19+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "d2c012c96299e2397215a382dd5fb91e73ca75f2",
+          "at": "2026-10-12T17:20:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Herring.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9d70c26c78e41ae2780daec9db01cb9a8784f408",
+      "at": "2026-10-12T17:20:58+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9d70c26c78e41ae2780daec9db01cb9a8784f408",
+          "at": "2026-10-12T08:30:55+00:00"
+        }
+      ]
+    },
+    "Picture/FT_HiddenVale.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3150614a5c0e61b7670ec4f6d6cfa1959cdbcd43",
+      "at": "2026-10-14T04:35:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8b06f0d63a329e03a2981470cf43b5bdded80212",
+          "at": "2026-10-12T08:30:56+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8b06f0d63a329e03a2981470cf43b5bdded80212",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_HomewardSand.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cd5fb374f02fef82d6149a917ec49bfe8a58865c",
+      "at": "2026-10-14T04:35:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "85d45f6377287e260742ed8b1a26d3d7c2708a9b",
+          "at": "2026-10-12T08:34:24+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "85d45f6377287e260742ed8b1a26d3d7c2708a9b",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_HotSpring.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4e695e512214ded89272df4e1fe399937b10b363",
+      "at": "2026-10-14T04:35:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ae8b58e6d068c4f25b4627f3d95a03cd9b3720bf",
+          "at": "2026-10-12T08:34:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ae8b58e6d068c4f25b4627f3d95a03cd9b3720bf",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_JasmineBush.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "69cfa20c28a27d3e4e4e5c972d8785c926d37c3f",
+      "at": "2026-10-14T04:35:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "df9395f75da1cce06e6da21217f634c91e9fd809",
+          "at": "2026-10-12T08:34:26+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "df9395f75da1cce06e6da21217f634c91e9fd809",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_JasmineCutting.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2e82614b145e6a5c50e1f39b298543faeaa48bfd",
+      "at": "2026-10-12T17:23:07+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2e82614b145e6a5c50e1f39b298543faeaa48bfd",
+          "at": "2026-10-12T08:34:26+00:00"
+        }
+      ]
+    },
+    "Picture/FT_JasmineFlowers.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1f0143abcd1e8a3b7fabc4b437505c0772cf07b0",
+      "at": "2026-10-12T17:21:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1f0143abcd1e8a3b7fabc4b437505c0772cf07b0",
+          "at": "2026-10-12T08:34:31+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Jujube.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "267fbdd2770d4688674bc63f7b506d9971f68926",
+      "at": "2026-10-12T17:23:07+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "267fbdd2770d4688674bc63f7b506d9971f68926",
+          "at": "2026-10-12T08:34:30+00:00"
+        }
+      ]
+    },
+    "Picture/FT_JujubeBush.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c5c6dd49421965480ed5d5cd229280a54710e2a3",
+      "at": "2026-10-14T04:35:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "55080483815cfe5d74f30b3b8c0fcbe6f620302a",
+          "at": "2026-10-12T08:34:29+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "55080483815cfe5d74f30b3b8c0fcbe6f620302a",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_KavaPlant.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "20ed20440fc8c52d7fb235ce63f3cf73835214a3",
+      "at": "2026-10-14T04:35:48+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "443a93b928d3430b2a8c2da487b5315db82e8205",
+          "at": "2026-10-12T08:34:29+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "443a93b928d3430b2a8c2da487b5315db82e8205",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_KavaRoot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a3996e572d534612ef6432c07b3bee6c11e5e039",
+      "at": "2026-10-12T17:24:40+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a3996e572d534612ef6432c07b3bee6c11e5e039",
+          "at": "2026-10-12T08:34:28+00:00"
+        }
+      ]
+    },
+    "Picture/FT_LandfallStrand.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6aa814357c01a99f6426ea729ff9179fe947a8f1",
+      "at": "2026-10-14T04:35:49+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "859382069970c515f373f1701082550797995b8d",
+          "at": "2026-10-12T08:34:32+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "859382069970c515f373f1701082550797995b8d",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_LandingBeach.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b036c03a5838c84673ced8f9b854b65370b0f23f",
+      "at": "2026-10-14T04:35:50+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6a1099c880c6f7a9d7ad15b6666cf416b268372c",
+          "at": "2026-10-12T08:34:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6a1099c880c6f7a9d7ad15b6666cf416b268372c",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_LavaTube.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cca7d8d0095e7694880c25b02ec44e39a776ef41",
+      "at": "2026-10-14T04:35:51+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1c85fdc3bb9616479dc577be340f3353f5dbcbf8",
+          "at": "2026-10-12T08:34:34+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1c85fdc3bb9616479dc577be340f3353f5dbcbf8",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Lemongrass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "51dd8f403dbd5e92ef21134fffb7573823ac5782",
+      "at": "2026-10-12T17:21:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "51dd8f403dbd5e92ef21134fffb7573823ac5782",
+          "at": "2026-10-12T08:34:35+00:00"
+        }
+      ]
+    },
+    "Picture/FT_LemongrassClump.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b65ef0635cd79a2b3d2124e4c4363e7e500bdf60",
+      "at": "2026-10-14T04:35:52+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "50bf0f8169482c736193ff0795fdfe8fdf1af357",
+          "at": "2026-10-12T08:34:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "50bf0f8169482c736193ff0795fdfe8fdf1af357",
+          "at": "2026-10-12T17:22:38+00:00"
+        }
+      ]
+    },
+    "Picture/FT_LightlessHall.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "995d7e1cba7c4fb105e7bded229eb2f3e5e4a29f",
+      "at": "2026-10-14T04:35:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bf6b071d8bfdf59ad9d897d43fdc6b6f42faa6dd",
+          "at": "2026-10-12T08:34:43+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "just simple black nothing else, just blackness. ",
+          "sha1": "bf6b071d8bfdf59ad9d897d43fdc6b6f42faa6dd",
+          "at": "2026-10-12T08:35:08+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "89184003eb8a9250e5f5dd9044168bfce23bb614",
+          "at": "2026-10-12T10:39:21+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "89184003eb8a9250e5f5dd9044168bfce23bb614",
+          "at": "2026-10-12T17:20:25+00:00"
+        }
+      ]
+    },
+    "Picture/FT_LowerHall.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b93f8945b6f85b93b4d7e7d729a8d29024e537a7",
+      "at": "2026-10-14T04:35:58+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2896435a1ceb964326b27f091080d64b98dd8858",
+          "at": "2026-10-12T08:34:42+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2896435a1ceb964326b27f091080d64b98dd8858",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Macaque.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b847099b7857eaebdbae11d7642c9c011724b808",
+      "at": "2026-10-14T04:35:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bd648d74f4549c0f7fe710e8ae4c5a2abcefc7ba",
+          "at": "2026-10-12T08:34:40+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bd648d74f4549c0f7fe710e8ae4c5a2abcefc7ba",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MacaqueCarcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e1f1d1bab0a8ef03e4d3a10c2d06da5645c5b330",
+      "at": "2026-10-12T17:23:09+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e1f1d1bab0a8ef03e4d3a10c2d06da5645c5b330",
+          "at": "2026-10-12T08:34:39+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Mango.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2ba830c474febb4dd49088358f120b72f6f5508b",
+      "at": "2026-10-12T17:24:40+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2ba830c474febb4dd49088358f120b72f6f5508b",
+          "at": "2026-10-12T08:34:38+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MangoTree.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5547c265ec2e48a8e6ce3d6445b459f3051f4731",
+      "at": "2026-10-14T04:36:00+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b6f9e6f861d6c9562e4b7473d591a012b4392c6a",
+          "at": "2026-10-12T08:34:46+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b6f9e6f861d6c9562e4b7473d591a012b4392c6a",
+          "at": "2026-10-12T17:24:40+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MiddleHall.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c81f056d7cdc4f0306c15f3563ca1fdd11cbd7b8",
+      "at": "2026-10-14T04:36:01+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "92e4f767ac907a9c9b538cf8afa9624c9dcb41f1",
+          "at": "2026-10-12T08:34:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "92e4f767ac907a9c9b538cf8afa9624c9dcb41f1",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MistyRidge.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "14f3bf7a3c6a12f244fef3ffb6c50b4190f7d78f",
+      "at": "2026-10-14T04:36:04+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0ba245fce0d63ea4795cd39abea545c339cd124b",
+          "at": "2026-10-12T08:35:10+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0ba245fce0d63ea4795cd39abea545c339cd124b",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MonitorCarcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4994a39edb05244d645675bec1cc6768528cdf3b",
+      "at": "2026-10-12T17:22:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4994a39edb05244d645675bec1cc6768528cdf3b",
+          "at": "2026-10-12T08:35:12+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MonitorLizard.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "dcfb9c3ac61b55ea3e50de5a08c863e966f64ff1",
+      "at": "2026-10-14T04:36:05+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ccf6351bf7cb90b591d582f3964ebcdaccc51133",
+          "at": "2026-10-12T08:35:14+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ccf6351bf7cb90b591d582f3964ebcdaccc51133",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MonkeyDen.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d06076ea9c6a0f6e7a0116bc4d64441f38a3619e",
+      "at": "2026-10-14T04:36:06+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2b58068fee8fedb4e45bb06fa369be373004db66",
+          "at": "2026-10-12T08:35:15+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2b58068fee8fedb4e45bb06fa369be373004db66",
+          "at": "2026-10-12T17:22:03+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MooredOutrigger.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1c7f7ac7d03fb24820125952d2190f0e918305e0",
+      "at": "2026-10-14T04:36:08+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "664d2626f1117795a0a967852b5ff946a6ad42a2",
+          "at": "2026-10-12T08:35:16+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "664d2626f1117795a0a967852b5ff946a6ad42a2",
+          "at": "2026-10-12T17:21:04+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Moose.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d85eaa6b6586fd670d484c1b534fe2d5bd615c59",
+      "at": "2026-10-14T04:36:09+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6299c25e6d0684ddc8019f5ab0931cca30f6f8c2",
+          "at": "2026-10-12T08:35:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6299c25e6d0684ddc8019f5ab0931cca30f6f8c2",
+          "at": "2026-10-12T17:22:35+00:00"
+        }
+      ]
+    },
+    "Picture/FT_MooseCarcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "98ead38d3b7c4e4fa60e05ebd628a66a1453e5ad",
+      "at": "2026-10-12T17:24:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "98ead38d3b7c4e4fa60e05ebd628a66a1453e5ad",
+          "at": "2026-10-12T08:35:19+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Mudskipper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c447b52afc6f26a597bda803c7308327993d1f90",
+      "at": "2026-10-12T17:23:10+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c447b52afc6f26a597bda803c7308327993d1f90",
+          "at": "2026-10-12T08:35:20+00:00"
+        }
+      ]
+    },
+    "Picture/FT_NipaFruit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9e677e7baacff86a98b5e39188b53a562e843ff9",
+      "at": "2026-10-12T17:24:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9e677e7baacff86a98b5e39188b53a562e843ff9",
+          "at": "2026-10-12T08:35:22+00:00"
+        }
+      ]
+    },
+    "Picture/FT_NipaPalm.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e951e4f6d23fd1ef854fea68941249a95f3f69cd",
+      "at": "2026-10-14T04:36:10+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cfba3f6aaf1c6173042038e789a79f0cd1d6851e",
+          "at": "2026-10-12T08:35:23+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cfba3f6aaf1c6173042038e789a79f0cd1d6851e",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Outrigger.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant FT_MooredOutrigger (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "7a86850cd9bdf62cfa26dd331d3407b016408ab6",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "7a86850cd9bdf62cfa26dd331d3407b016408ab6",
+          "at": "2026-10-12T16:54:05+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "7a86850cd9bdf62cfa26dd331d3407b016408ab6",
+          "at": "2026-10-12T16:54:06+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Palm.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "029711f936356de40d1a96276afbf0e5ffc9b921",
+      "at": "2026-10-14T04:36:11+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8f2b2fe48682a857882bea513df302eb1598562a",
+          "at": "2026-10-12T08:35:24+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8f2b2fe48682a857882bea513df302eb1598562a",
+          "at": "2026-10-12T17:22:29+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PalmCleared.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6b00c43b213507bbf90846411726685aeb52da7d",
+      "at": "2026-10-14T04:36:12+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "397292d3206b2e4cb6f3c5eea85a54f59feefb50",
+          "at": "2026-10-12T08:35:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "397292d3206b2e4cb6f3c5eea85a54f59feefb50",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PalmFringe.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cec18b2941832fb57bebaf44d79fc1250a017822",
+      "at": "2026-10-14T04:36:13+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "030c030cb73b60ac204d2de4f96d1c659ae083bb",
+          "at": "2026-10-12T08:35:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "030c030cb73b60ac204d2de4f96d1c659ae083bb",
+          "at": "2026-10-12T17:21:00+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PalmFrond.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1a9a29a188a0a1cd2158c5ad629d33e5e4567cfe",
+      "at": "2026-10-12T17:20:19+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1a9a29a188a0a1cd2158c5ad629d33e5e4567cfe",
+          "at": "2026-10-12T08:35:27+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PalmYoung.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a498e99e1116daa3a7406b44b775e87469c44f08",
+      "at": "2026-10-14T04:36:13+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ea5da0b0988e858fa429ac12d36201f5759e4771",
+          "at": "2026-10-12T08:35:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ea5da0b0988e858fa429ac12d36201f5759e4771",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Parrotfish.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f9a449103059ed9a7edf33bd53e2e5b3151f0f5d",
+      "at": "2026-10-12T17:24:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f9a449103059ed9a7edf33bd53e2e5b3151f0f5d",
+          "at": "2026-10-12T08:35:29+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathCaveDaylight.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3ab2454003d7200eeac2bcff2ec57a637cfb04e9",
+      "at": "2026-10-14T04:36:14+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "984a49067ad3b34874767b979c0e0730c5602c5f",
+          "at": "2026-10-12T08:35:30+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "984a49067ad3b34874767b979c0e0730c5602c5f",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathCaveMouth.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "731740899690f398cee66244a50991c97f202bc8",
+      "at": "2026-10-14T04:36:15+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a4501557d64fbda0f8a77f4c3736f0ec4c70663a",
+          "at": "2026-10-12T08:35:32+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a4501557d64fbda0f8a77f4c3736f0ec4c70663a",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathCaveShaft.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "40ad673220e58968c4ca5a749430afccb8f494f6",
+      "at": "2026-10-14T04:36:15+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8e318367b33f691c74b01c2b6986e8a703e4856e",
+          "at": "2026-10-12T08:35:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8e318367b33f691c74b01c2b6986e8a703e4856e",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathCaveWay.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6b02e7b02f1deb638173682e428340de28dab90d",
+      "at": "2026-10-14T04:36:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "86eaf5834b90f0c6b0e7136e99c1c0c402fea311",
+          "at": "2026-10-12T08:35:34+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "86eaf5834b90f0c6b0e7136e99c1c0c402fea311",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathCliffClimb.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "973f76af5fb57f5e33018fcdbf955df47518d405",
+      "at": "2026-10-14T04:36:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9a29336f04a21486f7000db8cabc23e63ff5d27d",
+          "at": "2026-10-12T08:35:40+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9a29336f04a21486f7000db8cabc23e63ff5d27d",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathCoralMud.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a1df9db9b2556bcac311ad8756aeecebacdf18b4",
+      "at": "2026-10-14T04:36:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "564d4a583c51e0b64fb6fb8a49787cb785df5834",
+          "at": "2026-10-12T08:35:41+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "564d4a583c51e0b64fb6fb8a49787cb785df5834",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathGameTrail.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "de1b0e8e2f5ed87d8dbb3b97cc10c06bfdeecb56",
+      "at": "2026-10-14T04:36:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a894506be2a6024500e6c108040d575a933c3530",
+          "at": "2026-10-12T08:35:43+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a894506be2a6024500e6c108040d575a933c3530",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathGoatTrail.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bdad92acca7c2d47894dee9317ce310e5e4c271b",
+      "at": "2026-10-14T04:36:18+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bf4aac0bb3adfbbd92e6a742391c4484f4fc779b",
+          "at": "2026-10-12T08:35:44+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bf4aac0bb3adfbbd92e6a742391c4484f4fc779b",
+          "at": "2026-10-12T17:22:44+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathJungleTrail.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2f919487f57a3df0082fa14ed6a4be124a0cd434",
+      "at": "2026-10-14T04:36:18+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e4cd9f4f0e1087277270fb8ad6f83030040e0696",
+          "at": "2026-10-12T08:35:44+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e4cd9f4f0e1087277270fb8ad6f83030040e0696",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathNarrowCrack.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9eddcbe2986ae5f07313f956748185dc1f3ff7a4",
+      "at": "2026-10-14T04:36:18+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2b69d31c78aac41f525481bb8f2ab1b7a145c7f7",
+          "at": "2026-10-12T08:35:45+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2b69d31c78aac41f525481bb8f2ab1b7a145c7f7",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathScrub.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "70ecdf19598d5b93167ecbe599d504c867dd9ab4",
+      "at": "2026-10-14T04:36:19+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3a6f6426846ec3d462890904984334409c81b69c",
+          "at": "2026-10-12T08:35:46+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3a6f6426846ec3d462890904984334409c81b69c",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathShoreMud.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "89ec20d54055059983b459eb6762b34018e984ce",
+      "at": "2026-10-14T04:36:19+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "97b6c98dedd4c477fb130c0c60e026f986327bf7",
+          "at": "2026-10-12T08:35:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "97b6c98dedd4c477fb130c0c60e026f986327bf7",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathSinkholeDown.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "44e89438059a4d83a4a97e156f20edecd6afa3f4",
+      "at": "2026-10-14T04:36:19+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "91c5b8a68c5bbd0ae4a485d07adf5d87fca13857",
+          "at": "2026-10-12T08:35:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "91c5b8a68c5bbd0ae4a485d07adf5d87fca13857",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathSinkholeUp.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "636b4c1ca55f025a53bf0ad97433763e2944f518",
+      "at": "2026-10-14T04:36:19+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8da43a2fae0b624c7e40a8747d8372c1a0e92c62",
+          "at": "2026-10-12T08:35:49+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8da43a2fae0b624c7e40a8747d8372c1a0e92c62",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathSwimToShore.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5eacf76ba42298630ebb66fb0f1ecfc83983d513",
+      "at": "2026-10-14T04:36:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3e983b0875ad0a8d9065cd1f76b7a69d3904aa49",
+          "at": "2026-10-12T08:35:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3e983b0875ad0a8d9065cd1f76b7a69d3904aa49",
+          "at": "2026-10-12T17:21:34+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathSwimToStack.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "392d6a9bdd2a2c20bfca6005e742ec0c525f21bc",
+      "at": "2026-10-14T04:36:22+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8ec081f75591286d13e0ee162674b484b047a4f6",
+          "at": "2026-10-12T08:35:50+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "no steps in the water",
+          "sha1": "8ec081f75591286d13e0ee162674b484b047a4f6",
+          "at": "2026-10-12T08:35:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "25e644e0e8cfda7f88b540917ea7bba860af26df",
+          "at": "2026-10-12T10:39:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "25e644e0e8cfda7f88b540917ea7bba860af26df",
+          "at": "2026-10-12T17:24:41+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathUnderwater.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "961c0a0cafebe3ae5273a08707551bcd893801ee",
+      "at": "2026-10-14T04:36:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8e0330e6b72cbf122bb1f6554764a37817e7f9b9",
+          "at": "2026-10-12T08:36:01+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8e0330e6b72cbf122bb1f6554764a37817e7f9b9",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PathUplandTrack.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "505c80fcabde929a0dd76b455d7823a066ede305",
+      "at": "2026-10-14T04:36:24+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cbb5b9f9d2d715079087ab3eaae6709a4ac3ae63",
+          "at": "2026-10-12T08:36:02+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cbb5b9f9d2d715079087ab3eaae6709a4ac3ae63",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PlainGrotto.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "138fa4caa6ff45cb55747f5a9813e3e0be852d0b",
+      "at": "2026-10-14T04:36:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ce0b4c767a38b43fcc013d0ab5691df515cf73d0",
+          "at": "2026-10-12T08:36:03+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ce0b4c767a38b43fcc013d0ab5691df515cf73d0",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Prawn.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "b76f73b001002e68a13ee63571ed3b03a28f82eb",
+      "at": "2026-10-12T17:28:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b76f73b001002e68a13ee63571ed3b03a28f82eb",
+          "at": "2026-10-12T17:00:11+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b76f73b001002e68a13ee63571ed3b03a28f82eb",
+          "at": "2026-10-12T17:01:36+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Puffin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b91dfef60388addcfadccd13887992a972839c92",
+      "at": "2026-10-14T04:36:28+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d7f3663d8c91bfb35e92ecd989fad2d9d2cbc08d",
+          "at": "2026-10-12T08:36:05+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d7f3663d8c91bfb35e92ecd989fad2d9d2cbc08d",
+          "at": "2026-10-12T17:22:30+00:00"
+        }
+      ]
+    },
+    "Picture/FT_PuffinCliffs.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "29725c18e00c6a22085f86dd2501292573fda097",
+      "at": "2026-10-14T04:36:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "54b8cde85b7f398e8ed84a4bbbabf9f5de24cbbd",
+          "at": "2026-10-12T08:36:07+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "54b8cde85b7f398e8ed84a4bbbabf9f5de24cbbd",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_ReedMarsh.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "858312c45380d5bbcdc99d1b7da23e5eee2ada04",
+      "at": "2026-10-14T04:36:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "13cb1bc31541935937e1f1a52d3c7ffac7a3a084",
+          "at": "2026-10-12T08:36:09+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "13cb1bc31541935937e1f1a52d3c7ffac7a3a084",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_RockSaltSeam.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "af6d4abb390b35383aa70d025ebb37b2940ff58c",
+      "at": "2026-10-12T17:24:42+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "af6d4abb390b35383aa70d025ebb37b2940ff58c",
+          "at": "2026-10-12T08:36:10+00:00"
+        }
+      ]
+    },
+    "Picture/FT_RootwaterThicket.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b3a509d0be841b545efc8c026d9584d1f5dee336",
+      "at": "2026-10-14T04:36:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cdcdb647c86246223adff226f15bad8746da9995",
+          "at": "2026-10-12T08:36:12+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cdcdb647c86246223adff226f15bad8746da9995",
+          "at": "2026-10-12T17:22:03+00:00"
+        }
+      ]
+    },
+    "Picture/FT_RopeAndPitons.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "dbf6faa97e1d8c67f2877d6e81f221cb7fda0aea",
+      "at": "2026-10-12T17:22:36+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "dbf6faa97e1d8c67f2877d6e81f221cb7fda0aea",
+          "at": "2026-10-12T08:36:12+00:00"
+        }
+      ]
+    },
+    "Picture/FT_RustGrotto.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "840249b339c873df6c63618729abbcaf27da0336",
+      "at": "2026-10-14T04:36:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6e1c8544b598c24836c205028efa27cd08b536cd",
+          "at": "2026-10-12T08:36:14+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6e1c8544b598c24836c205028efa27cd08b536cd",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SagoPalm.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e3494d0781d62d414917d62044901af48428ad39",
+      "at": "2026-10-14T04:36:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8df63e04ff0999bb019e4ae5f7fc16d56aeeb800",
+          "at": "2026-10-12T08:36:15+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8df63e04ff0999bb019e4ae5f7fc16d56aeeb800",
+          "at": "2026-10-12T17:22:59+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SagoPalmYoung.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "40eb879bc203c2054e0efffc9b1820e41c3d019a",
+      "at": "2026-10-14T04:36:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "09b28ee96007de2f24c1e0f08b1499945167617d",
+          "at": "2026-10-12T08:36:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "09b28ee96007de2f24c1e0f08b1499945167617d",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SagoPith.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9b2c1091decac8dd423a518fec404cb0bb8b649d",
+      "at": "2026-10-12T17:21:42+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9b2c1091decac8dd423a518fec404cb0bb8b649d",
+          "at": "2026-10-12T08:36:18+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SagoShoot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f62ca533e7998d0f2b3caf8080a191403945c0a8",
+      "at": "2026-10-12T17:21:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f62ca533e7998d0f2b3caf8080a191403945c0a8",
+          "at": "2026-10-12T08:36:19+00:00"
+        }
+      ]
+    },
+    "Picture/FT_ScreeSlope.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a259c882ff49c1b95a1ed648e50598680477faf2",
+      "at": "2026-10-14T04:36:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8bc2613779a7e4a3ba9e9e3c28719dddfd52dfc5",
+          "at": "2026-10-12T08:36:21+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8bc2613779a7e4a3ba9e9e3c28719dddfd52dfc5",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeaBleakStrand.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "54d5286a35c89f73716bcdc15730c69cdd571f22",
+      "at": "2026-10-14T04:36:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b571865fef78f072e6e3bd4b6d5cfb2494e20ed5",
+          "at": "2026-10-12T08:36:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b571865fef78f072e6e3bd4b6d5cfb2494e20ed5",
+          "at": "2026-10-12T17:21:18+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeaBoulderShore.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "25e8f49c6c0f042c0f9a806a93d15792b2dbf701",
+      "at": "2026-10-14T04:36:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "dc3d23f927e4c1d215260362446ca48980b003d4",
+          "at": "2026-10-12T08:36:22+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "dc3d23f927e4c1d215260362446ca48980b003d4",
+          "at": "2026-10-12T16:57:24+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Kept as is for consistency with approved variant FT_BoulderShore (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+          "sha1": "dc3d23f927e4c1d215260362446ca48980b003d4",
+          "at": "2026-10-12T17:35:54+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeaCliffboundCove.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8bf45ac784de0eff92cef8bb8fa759c4b74f695e",
+      "at": "2026-10-14T04:36:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c7830b1754a67dfe4f08f43ca7af6d24e77c1a93",
+          "at": "2026-10-12T08:36:23+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c7830b1754a67dfe4f08f43ca7af6d24e77c1a93",
+          "at": "2026-10-12T16:54:08+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c7830b1754a67dfe4f08f43ca7af6d24e77c1a93",
+          "at": "2026-10-12T17:35:13+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeaCoralInlet.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "07246e53afdb8e1bc9a828d6b1b8488075963f38",
+      "at": "2026-10-14T04:36:40+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "25c59debe5a0acaa840f9c8f1baa152baa2bc48f",
+          "at": "2026-10-12T08:36:24+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "25c59debe5a0acaa840f9c8f1baa152baa2bc48f",
+          "at": "2026-10-12T08:36:26+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "25c59debe5a0acaa840f9c8f1baa152baa2bc48f",
+          "at": "2026-10-12T16:54:09+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "25c59debe5a0acaa840f9c8f1baa152baa2bc48f",
+          "at": "2026-10-12T17:35:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8a79e7bbd1d81e1d0be0e039db854c1d881d84c8",
+          "at": "2026-10-12T19:04:18+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeaFjord.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "34ae6b20b286a20994adecfa722688e780c25afe",
+      "at": "2026-10-14T04:36:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8f07154a203349cfe2f7acb89ff84dc94b1b720f",
+          "at": "2026-10-12T08:36:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8f07154a203349cfe2f7acb89ff84dc94b1b720f",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeaGrotto.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3d8db1855ff825e14c67701b70f6492d5e2cf47f",
+      "at": "2026-10-14T04:36:42+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e57af3e50de747a2338cabed43445f94d1e86a58",
+          "at": "2026-10-12T08:36:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e57af3e50de747a2338cabed43445f94d1e86a58",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Seagull.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "83eb4dc213b6c9ce66743d36ebc7e297cee083b5",
+      "at": "2026-10-14T04:36:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7a6d40ef627d985a730bdccdb15fcd2f67d86b75",
+          "at": "2026-10-12T08:36:29+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7a6d40ef627d985a730bdccdb15fcd2f67d86b75",
+          "at": "2026-10-12T17:23:11+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeagullNest.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8a5deb553f4529ce085570fb2962c4ca8b8f23b3",
+      "at": "2026-10-12T17:21:05+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8a5deb553f4529ce085570fb2962c4ca8b8f23b3",
+          "at": "2026-10-12T08:36:30+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Seal.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1fcebfbf727d90e4399cefaff2d595c62c847392",
+      "at": "2026-10-14T04:36:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "16a4bdb0fc996c60ad1bc42cc4d73969712e415e",
+          "at": "2026-10-12T08:36:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "16a4bdb0fc996c60ad1bc42cc4d73969712e415e",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SealCarcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8c17f939982ec42d067f5f3d3d4af765d6680b3c",
+      "at": "2026-10-12T17:22:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8c17f939982ec42d067f5f3d3d4af765d6680b3c",
+          "at": "2026-10-12T08:36:33+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SealSkerry.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b4e05c96d319e88a39a385e1832c9ae1da5d6be4",
+      "at": "2026-10-14T04:36:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "686150a9a0a322431b3309940be94455b3fdf831",
+          "at": "2026-10-12T08:36:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "686150a9a0a322431b3309940be94455b3fdf831",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeaRootwaterThicket.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0d53a5db9c83bab1d27e138a2cdada5fbfac25c4",
+      "at": "2026-10-14T04:36:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "530d0d08b049d1a172ab3cf33c77bd41a6dc24a2",
+          "at": "2026-10-12T16:58:48+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "530d0d08b049d1a172ab3cf33c77bd41a6dc24a2",
+          "at": "2026-10-12T17:00:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Kept as is for consistency with approved variant FT_RootwaterThicket (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+          "sha1": "530d0d08b049d1a172ab3cf33c77bd41a6dc24a2",
+          "at": "2026-10-12T17:35:54+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Seashells.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3e2e50ad08f360e8c74f043a444b5ab41b9ddacc",
+      "at": "2026-10-12T17:22:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3e2e50ad08f360e8c74f043a444b5ab41b9ddacc",
+          "at": "2026-10-12T08:36:35+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SeaShore.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "86991cf165ef646738035d818ebac7efdff6eda4",
+      "at": "2026-10-14T04:36:47+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "afda317bca6eb8a5c4d99da6dfbd5579f13440c1",
+          "at": "2026-10-12T08:36:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "afda317bca6eb8a5c4d99da6dfbd5579f13440c1",
+          "at": "2026-10-12T17:22:59+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Seaweed.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d56139165df32bdc12e84d5fd1de179cf3c4b850",
+      "at": "2026-10-12T19:07:40+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d952ccd08d95d3b7ed5d25f4fba58afd8bac313e",
+          "at": "2026-10-12T08:36:38+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "has white to remove. ",
+          "sha1": "d952ccd08d95d3b7ed5d25f4fba58afd8bac313e",
+          "at": "2026-10-12T08:36:46+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "f749b476ba5c79052f827626c597f5d8febd1d04",
+          "at": "2026-10-12T16:59:28+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "f749b476ba5c79052f827626c597f5d8febd1d04",
+          "at": "2026-10-12T17:01:07+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SedgeFen.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "eb7fabeb64143b64e2d3e00ada0856551aa028c2",
+      "at": "2026-10-14T04:36:51+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3080cded9003d47d2f83ec051acd7e40c835df53",
+          "at": "2026-10-12T08:36:47+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3080cded9003d47d2f83ec051acd7e40c835df53",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_ShellSand.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cf31f1b830bccd177b6230fc4a3feff8248fa6b4",
+      "at": "2026-10-14T04:36:52+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "99b9afb8a3b19b7ae45d30c1a15fc6d05801fa86",
+          "at": "2026-10-12T08:36:47+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "99b9afb8a3b19b7ae45d30c1a15fc6d05801fa86",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Sinkhole.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f0d70f8c66449fa92e34325ab1cd06e26f4c1c86",
+      "at": "2026-10-14T04:36:52+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d5eb9c147112e531f2d2d69646786e131a36fbc5",
+          "at": "2026-10-12T08:36:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d5eb9c147112e531f2d2d69646786e131a36fbc5",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SnakeGrass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3ede0c9006a7a5e43ec8fb789faee1f985b29f9c",
+      "at": "2026-10-12T17:23:15+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3ede0c9006a7a5e43ec8fb789faee1f985b29f9c",
+          "at": "2026-10-12T08:36:50+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SnakeGrassPatch.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "63b16bcc4613701b5e589626fa7e093a34430a19",
+      "at": "2026-10-14T04:36:52+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6ed698237e68312cc30aff992e8de8cc3bad1271",
+          "at": "2026-10-12T08:36:51+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6ed698237e68312cc30aff992e8de8cc3bad1271",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SourCrater.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "48c522394ebb020fed3c51ffdee6400adeae1b87",
+      "at": "2026-10-14T04:36:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3940daad60fa54b6d37ea9327e99e5aa8914f69e",
+          "at": "2026-10-12T08:36:52+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3940daad60fa54b6d37ea9327e99e5aa8914f69e",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SpiderLilyBulb.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5156f0baa61c6ef4e410723b46bbff86205846b4",
+      "at": "2026-10-12T17:21:52+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5156f0baa61c6ef4e410723b46bbff86205846b4",
+          "at": "2026-10-12T08:36:53+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SpiderLilyLeaves.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9bb1793a7b7edf7047f1df72f2d139856e70ec50",
+      "at": "2026-10-12T17:23:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9bb1793a7b7edf7047f1df72f2d139856e70ec50",
+          "at": "2026-10-12T08:36:54+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SpiderLilyPlant.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1265066132c58b57f61a7fdc7c9bb442a2a9c0ab",
+      "at": "2026-10-14T04:36:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "34d90473862184357560a7ae788b856e527f88cf",
+          "at": "2026-10-12T08:36:54+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "34d90473862184357560a7ae788b856e527f88cf",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Squeeze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3becfed0c61266f53fd4c741e8c83396ffec256f",
+      "at": "2026-10-14T04:36:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "533afb9bc7a56a3b96cbde1750c94f996251c4bc",
+          "at": "2026-10-12T08:36:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "533afb9bc7a56a3b96cbde1750c94f996251c4bc",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_SteamingShelf.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ba32cedee06add9703139c14946f79e665fc4cd8",
+      "at": "2026-10-14T04:36:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "be31b1318d17436af5147934d7a511c222092bc7",
+          "at": "2026-10-12T08:36:58+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "be31b1318d17436af5147934d7a511c222092bc7",
+          "at": "2026-10-12T17:22:45+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Threadfin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a6e64ad4d89a3d7931bff5a8a2b1a33b4c3ffe8c",
+      "at": "2026-10-12T17:22:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a6e64ad4d89a3d7931bff5a8a2b1a33b4c3ffe8c",
+          "at": "2026-10-12T08:36:57+00:00"
+        }
+      ]
+    },
+    "Picture/FT_TidePool.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "192388bea0869accf96dcc70b2fc8c61763f8c30",
+      "at": "2026-10-14T04:36:55+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "6146f284a7dc666bc78da5d592d3c62cb3c11346",
+          "at": "2026-10-12T17:00:12+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "6146f284a7dc666bc78da5d592d3c62cb3c11346",
+          "at": "2026-10-12T17:01:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c9dc3ff9fe099f9f9a1fea80e3283dae351a8c98",
+          "at": "2026-10-12T19:07:44+00:00"
+        }
+      ]
+    },
+    "Picture/FT_TropicalAlmond.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "19bf26d72bc504f08d5d9e2199bbca7a4d87c419",
+      "at": "2026-10-12T17:23:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "19bf26d72bc504f08d5d9e2199bbca7a4d87c419",
+          "at": "2026-10-12T08:36:56+00:00"
+        }
+      ]
+    },
+    "Picture/FT_UpperHall.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a17149d27b2011d033c650f2160b7f79a28873b6",
+      "at": "2026-10-14T04:36:55+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f23849cf7f587b1ff8265c6f254ff4b4c5a96cb7",
+          "at": "2026-10-12T08:37:01+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f23849cf7f587b1ff8265c6f254ff4b4c5a96cb7",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_VineWoods.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c82ba90330addd3545982f76c748e0ee9ff5e232",
+      "at": "2026-10-14T04:36:57+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "06758e6483bfeaead29da74b858bcf3536caf800",
+          "at": "2026-10-12T08:37:02+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "06758e6483bfeaead29da74b858bcf3536caf800",
+          "at": "2026-10-12T17:22:59+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Walrus.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "aa57e851c19758878c1ac3b83f7963dcfc64bb14",
+      "at": "2026-10-14T04:36:57+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "df3acbd0368262e7065cd991da36f138270fd40a",
+          "at": "2026-10-12T08:37:03+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "df3acbd0368262e7065cd991da36f138270fd40a",
+          "at": "2026-10-12T17:22:36+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WalrusCarcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "399ad9a13265eb893fe81b15c92f34253f52d1b9",
+      "at": "2026-10-12T17:24:42+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "399ad9a13265eb893fe81b15c92f34253f52d1b9",
+          "at": "2026-10-12T08:37:04+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WaveGrotto.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e8fb08c15684975c0252711bf411296fa04ab362",
+      "at": "2026-10-14T04:36:57+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d411f095c3936a7b6d0eb5efc3096df4fef93039",
+          "at": "2026-10-12T08:37:05+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d411f095c3936a7b6d0eb5efc3096df4fef93039",
+          "at": "2026-10-12T17:24:42+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WeevilLilyLeaves.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bba5d9890926df401200c26da1a5c13e2f2baf4a",
+      "at": "2026-10-12T17:21:49+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bba5d9890926df401200c26da1a5c13e2f2baf4a",
+          "at": "2026-10-12T08:37:10+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WeevilLilyPlant.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e04233ff1e61eb18f36c154defedc1d75035cedd",
+      "at": "2026-10-14T04:36:58+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8ced90860131f705a3dead561229f41ec2268388",
+          "at": "2026-10-12T08:37:09+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8ced90860131f705a3dead561229f41ec2268388",
+          "at": "2026-10-12T17:22:33+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WeevilLilyRhizome.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c3718029f0c0520346ceb6b7edb85d5c06c9a906",
+      "at": "2026-10-12T17:22:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c3718029f0c0520346ceb6b7edb85d5c06c9a906",
+          "at": "2026-10-12T08:37:09+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WesternUplands.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a5614ad8455e07cdd935c302f30f67a16f88616e",
+      "at": "2026-10-14T04:36:58+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4cfabfb2810b98c71f00ad1c64b89cc302b283a5",
+          "at": "2026-10-12T08:37:08+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4cfabfb2810b98c71f00ad1c64b89cc302b283a5",
+          "at": "2026-10-12T17:22:45+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WestgrassPlain.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ce2b5b53e50a924d64e58e1161dda0025a5d55d2",
+      "at": "2026-10-14T04:36:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cedb3b9a11b7819ecb6aea2dffa79df17168e40d",
+          "at": "2026-10-12T08:37:07+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cedb3b9a11b7819ecb6aea2dffa79df17168e40d",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WildryePlain.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6fa733286c0cf8e806fb358e6db7ebc9e5f57bc8",
+      "at": "2026-10-14T04:36:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0155c642f2b5e495a3117e16eb01104eb9b98444",
+          "at": "2026-10-12T08:37:11+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0155c642f2b5e495a3117e16eb01104eb9b98444",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WildYam.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "70c5246c97ba2a2cba3aff113aad1b77bda3101e",
+      "at": "2026-10-14T04:36:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3a84dd0763c764e93a7219c717fe3abd3db1e64d",
+          "at": "2026-10-12T08:37:12+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3a84dd0763c764e93a7219c717fe3abd3db1e64d",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WindgapCol.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c950fc33aaceaff9f72a11849fb781876d3ce3f6",
+      "at": "2026-10-14T04:37:00+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9c0cd469c640359ef6a59b3632937c6d3c7467a6",
+          "at": "2026-10-12T08:37:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9c0cd469c640359ef6a59b3632937c6d3c7467a6",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FT_WreckHollow.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "dba9192b2171e17e79e0de49f5644e2ba7d1773a",
+      "at": "2026-10-14T04:37:00+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "4f1e9688345b424877f20a87b24d6b4435f44080",
+          "at": "2026-10-12T08:37:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4f1e9688345b424877f20a87b24d6b4435f44080",
+          "at": "2026-10-12T08:37:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4f1e9688345b424877f20a87b24d6b4435f44080",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FT_Yam.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "fa8c73cf11e81b7f6122ae2857d562f265fa794a",
+      "at": "2026-10-12T17:22:33+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks like poop, ",
+          "sha1": "9a1f93db724ca5493ac6178bac7a56d07b280685",
+          "at": "2026-10-12T08:37:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "fa8c73cf11e81b7f6122ae2857d562f265fa794a",
+          "at": "2026-10-12T10:39:27+00:00"
+        }
+      ]
+    }
+  }
+}

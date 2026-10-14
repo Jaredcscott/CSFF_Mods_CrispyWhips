@@ -1,45 +1,41 @@
 {
   "target": "FT_Bat.png",
-  "sourceCard": "Animals/Bat.json",
-  "subject": "one large fruit bat hanging upside down from a cave roof by its feet, leathery dark brown wings wrapped around its body, a fox-like face looking at the viewer, dark cave behind.",
+  "sourceCard": [
+    "Encounter/ft_encounter_bat.json"
+  ],
+  "subject": "an encounter with one large fruit bat flying straight at the viewer inside a tall dark cave, leathery dark brown wings spread wide with the finger bones showing, a fox-like reddish-brown face with its mouth open and small sharp teeth, more bats hanging on the black roof behind, a faint grey light from a crack; mid-swoop, attacking",
   "model": "nano-banana-2",
   "mode": "image2image (vanilla CSFF sprites as style references)",
   "params": {
-    "imageCount": 3,
+    "imageCount": 1,
     "aspectRatio": "2:3",
     "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one large fruit bat hanging upside down from a cave roof by its feet, leathery dark brown wings wrapped around its body, a fox-like face looking at the viewer, dark cave behind.\nStyle: vanilla survival card game wild animal art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, multiple animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style full-bleed scene template, style refs + Subject + \"The painted scene reaches every edge of the frame\" + Avoid list incl. footprints, tracks, plain white background)",
   "refs": [
-    {
-      "label": "vanilla Squirrel_Wild (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Squirrel_Wild_1791700791887_47ea37d8.png"
-    },
     {
       "label": "vanilla Tunnel_1 (style)",
       "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
+    },
+    {
+      "label": "vanilla Bear_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652871562_fdb75618.png"
     }
   ],
-  "historyId": "J5rlwcbTJP2c4Ay9AV1Y",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701131964_4d020728_1791701132336_4964c208.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (3 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by Bat, ft_encounter_bat.",
+  "historyId": "tWBvMyzQjQDNH9xWjera",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797706434_8fd8c59d_1791797706548_e1c66f1f.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "full-bleed",
+  "note": "owner gallery rework 2026-10-12: scene is off. The encounter text has the bat flutter round the player's head, swoop in and bite; the old picture showed a bat hanging asleep on the roof, so the new one shows it attacking.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701131964_4d020728_1791701132336_4964c208.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701130136_7e8d1691_1791701130186_7963f394.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701131248_003d7c0d_1791701131349_a7f75e8b.png"
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797706434_8fd8c59d_1791797706548_e1c66f1f.png"
     }
   ],
   "picked": "A",
-  "predicted": "A"
+  "predicted": "A",
+  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701131964_4d020728_1791701132336_4964c208.png"
 }

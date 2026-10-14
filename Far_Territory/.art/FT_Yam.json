@@ -1,45 +1,41 @@
 {
   "target": "FT_Yam.png",
-  "sourceCard": "CardData/Item/FT_Yam.json",
-  "subject": "one long wild yam root: a long, lumpy, brown tuber with rough earthy skin and a few small hairy roots. Whole, uncut.",
+  "sourceCard": [
+    "CardData/Item/FT_Yam.json"
+  ],
+  "subject": "one wild yam root lying on its side, clearly a root vegetable: a long smooth slightly curved cylinder about four times as long as it is wide, tapering to a narrow point at the left end, dark reddish-brown rough bark-like skin with fine rings and a few hairlike rootlets, the thick right end cut cleanly across showing a flat round face of pale creamy-white flesh",
   "model": "nano-banana-2",
   "mode": "image2image (vanilla CSFF sprites as style references)",
   "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
+    "imageCount": 1,
+    "aspectRatio": "3:2",
     "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one long wild yam root: a long, lumpy, brown tuber with rough earthy skin and a few small hairy roots. Whole, uncut.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: cut yam, leaves, vine, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template, \"Use the attached reference images, each for one purpose\" + Subject + flat posterized style + white paper + Avoid list incl. footprints)",
   "refs": [
-    {
-      "label": "vanilla Appleweed_Item (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Appleweed_Item_1791697570953_d5b7e93f.png"
-    },
     {
       "label": "vanilla Fireroot_Item (style)",
       "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Item_1791697571643_a266b2a4.png"
+    },
+    {
+      "label": "vanilla Turnroot_Fresh (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Fresh_1791745247756_1cbfb0bb.png"
     }
   ],
-  "historyId": "E0y2yGUCa9LdQEwjxSaL",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698669304_7b37bdb8_1791698669355_706abf0e.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26 (3 samples; predicted A, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_Yam. 2 enclosed pocket(s) of white paper that the border-connected key cannot reach (between legs, coils, leaflets or roots) were keyed afterwards with the same 200 to 250 ramp, limited to 3 px past each pocket; painted whites were left opaque.",
+  "historyId": "LPZ2P0Rkb5X2hVpMBWDp",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797793838_4638ed0f_1791797793867_e6690cf3.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: looks like poop. Generated at 3:2 (a wide subject) and padded to 2:3 with white before /process-card-art, per the redraw rule; proportion stated as a number.",
   "candidates": [
     {
       "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698668861_ee0cb695_1791698668931_02939ac3.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698669716_92cda081_1791698669751_5db32f70.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698669304_7b37bdb8_1791698669355_706abf0e.png"
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797793838_4638ed0f_1791797793867_e6690cf3.png"
     }
   ],
-  "picked": "C",
-  "predicted": "A"
+  "picked": "A",
+  "predicted": "A",
+  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698669304_7b37bdb8_1791698669355_706abf0e.png"
 }

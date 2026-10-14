@@ -22,6 +22,12 @@ namespace FarTerritory.Patcher;
 /// decided from an environment-scoped scan, never from a bare <c>AllCards</c> UID match. The board's saved
 /// cards are the latch: once the stones are on the board they stay saved with it, so a revisit finds them and
 /// spawns nothing. A short cool-down after a spawn stops a second one while the first is still being placed.</para>
+///
+/// <para>Bounds (code-quality 2026-10-11, G5 and G): <c>SpawnService.Spawn</c> returns null on success and failure
+/// alike (<c>GiveCard</c> is void), so "placed" is logged only once a later check finds the stones on the board,
+/// and a session spends at most <see cref="MaxSpawnAttempts"/> spawns before one warning stops it. The not-ready
+/// retry stays a retry but warns once after <see cref="NotReadyWarnChecks"/> checks in a row on the plain, so a
+/// renamed location card cannot silently cost Forest Lore players their landmark.</para>
 /// </summary>
 internal static class LandmarkSeed
 {
@@ -29,10 +35,17 @@ internal static class LandmarkSeed
     private const string GrasslandEnvUid = "ftEnvWildryePlain";
     private const string GrasslandLocationUid = "ftLocWildryePlain";
     private const int CooldownChecks = 3;
+    private const int MaxSpawnAttempts = 3;
+    private const int NotReadyWarnChecks = 12;
 
     private static bool _initialized;
     private static bool _absentLogged;
     private static int _cooldown;
+    private static int _spawnAttempts;
+    private static bool _awaitingConfirm;
+    private static bool _capWarned;
+    private static int _notReadyChecks;
+    private static bool _notReadyWarned;
 
     public static void Initialize()
     {
@@ -48,9 +61,9 @@ internal static class LandmarkSeed
             if (!string.Equals(GameQuery.CurrentEnvironmentUniqueId, GrasslandEnvUid, StringComparison.OrdinalIgnoreCase))
             {
                 _cooldown = 0;
+                _notReadyChecks = 0;
                 return;
             }
-            if (_cooldown > 0) { _cooldown--; return; }
 
             // Soft crossover: no Forest Lore, no card data, nothing to do.
             if (CardUtil.GetCardDataById(StonesUid) == null)
@@ -73,13 +86,47 @@ internal static class LandmarkSeed
                 else if (uid == StonesUid) stones++;
             }
 
-            // Not ready: the board's own card has not appeared yet. Retry on the next check.
-            if (locations == 0) return;
-            if (stones > 0) return;
+            if (stones > 0)
+            {
+                _cooldown = 0;
+                if (_awaitingConfirm)
+                {
+                    _awaitingConfirm = false;
+                    Plugin.ModLog.LogInfo($"[LandmarkSeed] Forest Lore's Standing Stones placed on Wildrye Plain.");
+                }
+                return;
+            }
+            if (_cooldown > 0) { _cooldown--; return; }
+
+            // Not ready: the board's own card has not appeared yet. Retry on the next check, warning once if it
+            // never appears.
+            if (locations == 0)
+            {
+                _notReadyChecks++;
+                if (_notReadyChecks >= NotReadyWarnChecks && !_notReadyWarned)
+                {
+                    _notReadyWarned = true;
+                    Plugin.ModLog.LogWarning($"[LandmarkSeed] '{GrasslandLocationUid}' has not appeared on Wildrye Plain after {_notReadyChecks} checks; the Standing Stones wait for it.");
+                }
+                return;
+            }
+            _notReadyChecks = 0;
+
+            if (_spawnAttempts >= MaxSpawnAttempts)
+            {
+                if (!_capWarned)
+                {
+                    _capWarned = true;
+                    Plugin.ModLog.LogWarning($"[LandmarkSeed] '{StonesUid}' did not appear on Wildrye Plain after {_spawnAttempts} spawns; giving up for this session.");
+                }
+                return;
+            }
 
             SpawnService.Spawn(StonesUid);
+            _spawnAttempts++;
+            _awaitingConfirm = true;
             _cooldown = CooldownChecks;
-            Plugin.ModLog.LogInfo($"[LandmarkSeed] Forest Lore's Standing Stones placed on Wildrye Plain.");
+            Plugin.ModLog.LogDebug($"[LandmarkSeed] spawn of '{StonesUid}' requested on Wildrye Plain (attempt {_spawnAttempts}).");
         }
         catch (Exception ex)
         {
