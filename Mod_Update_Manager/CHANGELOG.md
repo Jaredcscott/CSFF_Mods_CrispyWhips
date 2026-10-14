@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.67] - 2026-10-14
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.3, Herbs and Fungi 1.14.6, Advanced Copper Tools 1.18.6, Water Driven Infrastructure 1.12.8, Community Mod Chest 1.69.15, Homestead Perks 1.3.3, Repeat Action 2.2.2, Quick Transfer 1.9.1, Skill Speed Boost 1.11.1, and the pre-release Partner Overhaul 1.1.2, Harsh Wilds 0.11.4, Far Territory 0.1.4, Forest Lore 0.1.4, Utility Belt 0.1.3 and Sirus23 Mod Collection 1.22.3. The new versions keep the location cards still: people and animals still breathe and plants still sway. Herbs and Fungi 1.14.6 also stops Hemp Butter, raw pasties and a few other foods from rotting at once when they are made from an older ingredient.
+
+---
+
 ## [2.1.66] - 2026-10-14
 
 ### Changed

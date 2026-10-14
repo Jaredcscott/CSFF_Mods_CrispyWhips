@@ -1,8 +1,8 @@
 # Mod Update Manager
 
-**Version:** 2.1.66  
+**Version:** 2.1.67  
 **Author:** Jared (crispywhips)  
-**For:** Card Survival: Fantasy Forest (EA 0.68)
+**For:** Card Survival: Fantasy Forest (EA 0.69c)
 
 ## Overview
 
@@ -149,7 +149,7 @@ The mod list export builds a plain-text list of your installed mods (name, versi
 
 | Requirement | Notes |
 |-------------|-------|
-| Card Survival: Fantasy Forest | Steam version (EA 0.68) |
+| Card Survival: Fantasy Forest | Steam version (EA 0.69c) |
 | BepInEx 5.x | Mod loader |
 | Nexus Mods API key | Free with a Nexus account. Needed only for the Nexus checks on My Mods, unless you turn on **Check for updates without an API key** |
 | Internet | Needed only for update checks |
@@ -246,7 +246,7 @@ The newest such line shows under the changelog as **Tested: EA x.y**. It is gree
 ## Troubleshooting
 
 **The window does not open with F3**
-- Check `BepInEx/LogOutput.log` for errors and look for `Mod_Update_Manager v2.1.66 loaded.`
+- Check `BepInEx/LogOutput.log` for errors and look for `Mod_Update_Manager v2.1.67 loaded.`
 - Make sure BepInEx is installed correctly.
 
 **Install & Update shows "[Unknown]" for every mod**
