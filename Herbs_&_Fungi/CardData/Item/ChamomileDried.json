@@ -31,6 +31,8 @@
     "CardImageWarpData": "ChamomileDried",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_chamomile_dried",
         "LocalizationKey": "herbsfungichamomiledried_SpoilageTime_StatName",
         "Active": true,
@@ -524,6 +526,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chamomile_dried",
                 "LocalizationKey": "herbsfungichamomiledried_Eat",

@@ -25,6 +25,8 @@
     "CardImageWarpData": "HF_ChamomileTea",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_iced_chamomile_tea",
         "LocalizationKey": "herbsfungiicedchamomiletea_SpoilageTime_StatName",
         "Active": true,

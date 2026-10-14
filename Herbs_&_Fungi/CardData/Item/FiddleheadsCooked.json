@@ -31,6 +31,8 @@
     "CardImageWarpData": "Nettle_Mash",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_fiddleheads_cooked",
         "LocalizationKey": "Herbs_And_Fungi_FiddleheadsCooked_SpoilageTime_StatName",
         "Active": true,
@@ -75,6 +77,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_fiddleheads_cooked",
                 "LocalizationKey": "Herbs_And_Fungi_FiddleheadsCooked_Eat",

@@ -35,6 +35,8 @@
     "CardImageWarpData": "BlackTrumpetFresh",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_black_trumpet",
         "LocalizationKey": "herbsfungiblacktrumpet_SpoilageTime_StatName",
         "Active": true,
@@ -68,6 +70,8 @@
         }
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_black_trumpet",
         "LocalizationKey": "herbsfungiblacktrumpet_UsageDurability_StatName",
         "Active": true,
@@ -148,6 +152,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_black_trumpet",
                 "LocalizationKey": "herbsfungiblacktrumpet_EatRaw",

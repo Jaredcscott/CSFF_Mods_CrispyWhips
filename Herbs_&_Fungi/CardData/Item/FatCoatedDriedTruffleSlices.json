@@ -35,6 +35,8 @@
     "CardImageWarpData": "Truffle_Dried_Cut",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
         "LocalizationKey": "herbsfungidriedtrufflecutfatcoated_SpoilageTime_CardStatName",
         "Active": true,
@@ -138,6 +140,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
                 "LocalizationKey": "herbsfungidriedtrufflecutfatcoated_Eat",

@@ -31,6 +31,8 @@
     "CardImageWarpData": "Cattail_Roots",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_water_lily_rhizome",
         "LocalizationKey": "Herbs_And_Fungi_WaterLilyRhizome_SpoilageTime_StatName",
         "Active": true,

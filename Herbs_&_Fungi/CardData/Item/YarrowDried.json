@@ -604,6 +604,7 @@
     ],
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_yarrow_dried",
                 "LocalizationKey": "herbsfungiyarrowdried_Eat",
@@ -956,6 +957,8 @@
         }
     ],
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_yarrow_dried",
         "LocalizationKey": "herbsfungiyarrowdried_SpoilageTime_CardStatName",
         "Active": true,

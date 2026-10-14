@@ -124,6 +124,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_berry_leather",
                 "LocalizationKey": "Herbs_And_Fungi_BerryLeather_DismantleActions_Eat_ActionName",

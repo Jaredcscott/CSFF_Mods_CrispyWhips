@@ -136,6 +136,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_lutefisk",
                 "LocalizationKey": "Herbs_And_Fungi_Lutefisk_DismantleActions_Eat_ActionName",

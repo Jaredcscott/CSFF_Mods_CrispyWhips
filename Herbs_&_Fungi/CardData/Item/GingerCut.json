@@ -30,6 +30,8 @@
     "CardImageWarpData": "Ginger_Fresh_Cut",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_ginger_cut",
         "LocalizationKey": "herbsfungigingercut_SpoilageTime_StatName",
         "Active": true,
@@ -63,6 +65,8 @@
         }
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_ginger_cut",
         "LocalizationKey": "herbsfungigingercut_UsageDurability_StatName",
         "Active": true,
@@ -297,6 +301,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_ginger_cut",
                 "LocalizationKey": "herbsfungigingercut_Eat",

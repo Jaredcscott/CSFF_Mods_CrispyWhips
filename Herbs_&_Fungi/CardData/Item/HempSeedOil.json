@@ -135,6 +135,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_seed_oil",
                 "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_Eat_ActionName",

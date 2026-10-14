@@ -43,6 +43,8 @@
     "MaxStack": 1,
     "DroppedCardShadow": 2,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {

@@ -32,6 +32,7 @@
     "CardImageWarpType": 3,
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_ground",
                 "LocalizationKey": "herbsfungiblacktrumpetground_Eat",

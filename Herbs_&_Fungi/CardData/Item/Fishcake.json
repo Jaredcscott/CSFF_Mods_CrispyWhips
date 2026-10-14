@@ -136,6 +136,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_fishcake",
                 "LocalizationKey": "Herbs_And_Fungi_Fishcake_DismantleActions_Eat_ActionName",

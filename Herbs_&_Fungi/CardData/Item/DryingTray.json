@@ -293,6 +293,516 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_drying_tray",
+                "LocalizationKey": "Herbs_And_Fungi_DryingTray_CookingRecipes_DryMeat_ActionName",
+                "DefaultText": "Dry Meat Slowly (Quality +0.25)"
+            },
+            "CustomCookingText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CannotCookText": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CompatibleCards": [],
+            "CompatibleTags": [],
+            "ConditionsCard": 0,
+            "Conditions": {
+                "NotInBackground": false,
+                "InBackground": false,
+                "PlayerUsesCard": 0,
+                "RequiredEnvironment": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "InvertEnvironmentRequirement": false,
+                "RequiredEnvironmentTags": [],
+                "RequiredNOTEnvironmentTags": [],
+                "RequiredContainer": [],
+                "RequiredNOTContainer": [],
+                "RequiredContainerTags": [],
+                "RequiredNOTContainerTags": [],
+                "RequiredCardsOnBoard": [],
+                "RequiredTagsOnBoard": [],
+                "RequiredCardsNOTOnBoard": [],
+                "RequiredTagsNOTOnBoard": [],
+                "RequiredLiquidContainers": [],
+                "RequiredCardsInInventory": [],
+                "RequiredTagsInInventory": [],
+                "CardWasBuiltWith": [],
+                "CardWasNOTBuiltWith": [],
+                "RequiredPlayerOwnedCards": [],
+                "RequiredPlayerNOTOwnedCards": [],
+                "ReceivingRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "GivenRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "ReceivingContainerRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "GivenContainerRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                "ReceivingCardTags": [],
+                "GivenCardTags": [],
+                "RequiredEnvironmentWeight": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredStatValues": [],
+                "RequiredNPCStatValues": [],
+                "RequiredInGameTimes": []
+            },
+            "Duration": 1,
+            "DurationRdmVariation": 0,
+            "CookerChanges": {
+                "ModType": 0,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "IngredientChanges": {
+                "ModType": 1,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "SpoilageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UsageTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "FuelTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ProgressTransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special1TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special2TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special3TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "Special4TransferScale": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "AddFlavoursFromTargetCard": false,
+                "AddFlavoursFromOtherCard": false,
+                "AddSpicesFromTargetCard": false,
+                "AddSpicesFromOtherCard": false,
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "SpoilageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                },
+                "GetSpoilageFromOtherCard": false,
+                "UsageChange": {
+                    "x": 0.25,
+                    "y": 0.25
+                },
+                "GetUsageFromOtherCard": false,
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetFuelFromOtherCard": false,
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetProgressFromOtherCard": false,
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial1FromOtherCard": false,
+                "Special2Change": {
+                    "x": 0.25,
+                    "y": 0.25
+                },
+                "GetSpecial2FromOtherCard": false,
+                "Special3Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial3FromOtherCard": false,
+                "Special4Change": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "GetSpecial4FromOtherCard": false,
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": [],
+                "ScaleChangesPerPortionOfLiquid": {
+                    "Active": false,
+                    "FloatValue": 0.0
+                },
+                "UseOtherCardForLiquidQuantity": false
+            },
+            "FeedbackMode": 1,
+            "ProgressBar": 2,
+            "ProgressTowardsZero": false,
+            "HideCookingProgress": true,
+            "HideDurabilities": {
+                "MaskValue": 0
+            },
+            "HideResultNotification": false,
+            "RandomSingleDrop": false,
+            "CustomCompleteSound": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Notification": 0,
+            "CustomNotification": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ScaleDropsPerLiquidQuantity": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "Drops": [],
+            "StatModifications": [],
+            "UseCookerForCardDrops": false,
+            "DropsAsCollection": [],
+            "CompatibleCardsWarpData": [
+                "4093dde8982306b4d8a5a9108ac5f0bb",
+                "692c88d91a4fdf0498749339ae6d53f8",
+                "5dc9560f81be57c4b9e22780f8a5ad78",
+                "36860ef667fc70e499a0a9a40c7d56a0",
+                "2aebab781b32680488505b5d3a4d4c48",
+                "3e0478645b7f2f844a020f5e273fe6a3",
+                "7d9938e4be871234e9fa635825ac92f8",
+                "8d8d76a5cd03061468620cc8adba259b",
+                "699fbc1ecfaa48648a4dc3d7cb9a4f82",
+                "4c15287719fce024ea0986bbda731c58",
+                "c3aa52fe507984b4ea3ac3df7f20e6ea",
+                "3103c059d34608a4bb95c426d9ac77e0",
+                "c709607574554e040942d989881bb08c",
+                "9fc65684183943e49a402bc16aaa7909",
+                "272fe32c20eebef4d82290c7a31ac885",
+                "91168c5978471d54aaad816581f63ffd",
+                "dadc938eb0cb653428ebabbd671cb6f6",
+                "e292e8faac1041f4ab1da9bcf900e751",
+                "81900cc23c9ec504dba82785ebe4ffc7",
+                "1048cf27a1d44cc4cab746b8c82deefb",
+                "c7316260c15f62d4388ac38f348e30ba",
+                "feabefd4af242ff4c980b3ef6282c9fd",
+                "219ab8bcb5a7677468ee642754b89a1e",
+                "84d0e7f1c3991ac40ad70277e7119674",
+                "1cc530047705fca458ddcdf24153d6dd",
+                "d5e93724ef75fbb408e530df9e87fc3f",
+                "3526465cc526f074ca120bf2324ceae8",
+                "10af65312486dc0489499362f75ae8bc",
+                "1952653c957ceaf45aea2c8770035f16",
+                "fe07d4d800bcc8646a0ff2513c78d5df",
+                "545ea8617264fb549aafb59a8d0e7434",
+                "0b1846782db91ec48996a57cda4281c8",
+                "9ec32273450206143bf89a3db4badb54",
+                "54df01f1779a24945a4c24fe0851f5b9",
+                "5348869f82fde8140b4f91124c6f5222",
+                "34b5f8337972b154982553b9352da650",
+                "817f682d9869db649aa2b631a8807379",
+                "44a84ff12c3d43d4ea2c5c8162bf35c1",
+                "b477d8613038a2f45a83f24ab3d24d9d",
+                "0e4108f9784d20c4a9aafd550b20cf23",
+                "098ace4b5caa9684eaea835397a5abf6",
+                "51e9df54deb31b042a564c3eee5510a1",
+                "f0ae976a7a78a8748ac91c3c676141df"
+            ],
+            "CompatibleCardsWarpType": 3,
+            "CompatibleTagsWarpData": [],
+            "CompatibleTagsWarpType": 3
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_drying_tray",
                 "LocalizationKey": "Herbs_And_Fungi_DryingTray_CookingRecipes_DryDryable_ActionName",
                 "DefaultText": "Dry Herbs & Fungi (Quality +0.25)"
             },

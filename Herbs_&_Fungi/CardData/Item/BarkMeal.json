@@ -148,6 +148,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_bark_meal",
                 "LocalizationKey": "Herbs_And_Fungi_BarkMeal_DismantleActions_Eat_ActionName",

@@ -33,6 +33,8 @@
     "CardImageWarpData": "ChantFresh",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_unknown_chanterelle",
         "LocalizationKey": "Herbs_And_Fungi_UnknownChanterelle_SpoilageTime_StatName",
         "Active": true,

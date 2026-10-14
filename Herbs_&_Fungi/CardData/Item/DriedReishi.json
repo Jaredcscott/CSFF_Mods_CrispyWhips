@@ -397,6 +397,8 @@
         }
     ],
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_dried_reishi",
         "LocalizationKey": "herbsfungidriedreishi_SpoilageTime_StatName",
         "Active": true,
@@ -431,6 +433,7 @@
     },
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_reishi",
                 "LocalizationKey": "herbsfungidriedreishi_Eat",

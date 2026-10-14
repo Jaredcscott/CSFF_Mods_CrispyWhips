@@ -26,6 +26,8 @@
     "CardImageWarpData": "HF_DandelionTea",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_dandelion_tea",
         "LocalizationKey": "herbsfungidandeliontea_SpoilageTime_StatName",
         "Active": true,

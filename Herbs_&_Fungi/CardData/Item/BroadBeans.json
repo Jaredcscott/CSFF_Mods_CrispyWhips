@@ -34,6 +34,8 @@
     "CardImageWarpType": 3,
     "AlwaysUpdate": true,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_broad_beans",
         "LocalizationKey": "herbsfungibroadbeans_SpoilageTime_StatName",
         "Active": true,
@@ -271,6 +273,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_broad_beans",
                 "LocalizationKey": "herbsfungibroadbeans_Eat",

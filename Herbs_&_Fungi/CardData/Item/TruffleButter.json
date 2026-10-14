@@ -112,6 +112,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_truffle_butter",
                 "LocalizationKey": "Herbs_And_Fungi_TruffleButter_Eat_ActionName",

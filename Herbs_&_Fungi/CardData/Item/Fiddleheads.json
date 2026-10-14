@@ -31,6 +31,8 @@
     "CardImageWarpData": "HF_Fiddleheads",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_fiddleheads",
         "LocalizationKey": "Herbs_And_Fungi_Fiddleheads_SpoilageTime_StatName",
         "Active": true,
@@ -101,6 +103,7 @@
     },
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_fiddleheads",
                 "LocalizationKey": "Herbs_And_Fungi_Fiddleheads_EatRaw",

@@ -32,6 +32,8 @@
     "CardImageWarpData": "Truffle_Dried",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_dried_truffle",
         "LocalizationKey": "herbsfungidriedtruffle_SpoilageTime_CardStatName",
         "Active": true,
@@ -72,6 +74,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_truffle",
                 "LocalizationKey": "herbsfungidriedtruffle_Eat",

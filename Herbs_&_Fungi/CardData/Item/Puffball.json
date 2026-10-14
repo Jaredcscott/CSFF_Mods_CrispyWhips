@@ -34,6 +34,8 @@
     "CardImageWarpData": "PuffBallFresh",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_puffball",
         "LocalizationKey": "herbsfungipuffball_SpoilageTime_StatName",
         "Active": true,
@@ -127,6 +129,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_puffball",
                 "LocalizationKey": "herbsfungipuffball_EatRaw",

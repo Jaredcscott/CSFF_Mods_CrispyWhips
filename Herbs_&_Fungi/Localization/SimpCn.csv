@@ -366,6 +366,7 @@ Herbs_And_Fungi_Bp_HerbPipe_CardName,Herb Pipe,草药烟斗
 Herbs_And_Fungi_Bp_HerbPipe_UnlockConditionsDesc,Requires Unfinished Wood Carving,需要未完成的木雕
 Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_FailMessage,Remove drying trays from the stack first.,请先移除烘干架堆叠中的托盘。
 Herbs_And_Fungi_DryingTray_CookingRecipes_DryDryable_ActionName,Dry Herbs & Fungi (Quality +0.25),烘干草药与菌类（品质 +0.25）
+Herbs_And_Fungi_DryingTray_CookingRecipes_DryMeat_ActionName,Dry Meat Slowly (Quality +0.25),缓慢风干肉类（品质 +0.25）
 Herbs_And_Fungi_DryingTray_Transform_BlackTrumpet,Finish Drying,完成烘干
 Herbs_And_Fungi_DryingTray_Transform_Chanterelle,Finish Drying,完成烘干
 Herbs_And_Fungi_DryingTray_Transform_Complete,Drying complete!,烘干完成！

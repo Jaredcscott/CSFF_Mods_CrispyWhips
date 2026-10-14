@@ -57,6 +57,8 @@
         }
     },
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_dried_ginseng",
         "LocalizationKey": "herbsfungidriedginseng_SpoilageTime_StatName",
         "Active": true,
@@ -432,6 +434,7 @@
     ],
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_ginseng",
                 "LocalizationKey": "herbsfungidriedginseng_Eat",

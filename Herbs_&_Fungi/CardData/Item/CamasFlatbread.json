@@ -132,6 +132,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_camas_flatbread",
                 "LocalizationKey": "Herbs_And_Fungi_CamasFlatbread_DismantleActions_Eat_ActionName",

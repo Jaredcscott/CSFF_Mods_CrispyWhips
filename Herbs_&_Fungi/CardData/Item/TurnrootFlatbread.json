@@ -141,6 +141,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_turnroot_flatbread",
                 "LocalizationKey": "Herbs_And_Fungi_TurnrootFlatbread_DismantleActions_Eat_ActionName",

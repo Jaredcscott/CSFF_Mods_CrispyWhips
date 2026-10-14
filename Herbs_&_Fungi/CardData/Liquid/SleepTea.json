@@ -28,6 +28,8 @@
     "CardImageWarpData": "HF_SleepTea",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_sleep_tea",
         "LocalizationKey": "herbsfungisleeptea_SpoilageTime_StatName",
         "Active": true,

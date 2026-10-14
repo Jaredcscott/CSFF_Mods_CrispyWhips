@@ -32,6 +32,8 @@
     "CardImageWarpData": "PlantainFresh",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_watercress",
         "LocalizationKey": "Herbs_And_Fungi_Watercress_SpoilageTime_StatName",
         "Active": true,
@@ -112,6 +114,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_watercress",
                 "LocalizationKey": "Herbs_And_Fungi_Watercress_EatRaw",

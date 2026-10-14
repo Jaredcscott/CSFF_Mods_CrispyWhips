@@ -137,6 +137,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_nettle_bread",
                 "LocalizationKey": "Herbs_And_Fungi_NettleBread_DismantleActions_Eat_ActionName",

@@ -124,6 +124,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_honeyed_nuts",
                 "LocalizationKey": "Herbs_And_Fungi_HoneyedNuts_DismantleActions_Eat_ActionName",

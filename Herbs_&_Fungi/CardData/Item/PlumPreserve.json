@@ -124,6 +124,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_plum_preserve",
                 "LocalizationKey": "Herbs_And_Fungi_PlumPreserve_DismantleActions_Eat_ActionName",

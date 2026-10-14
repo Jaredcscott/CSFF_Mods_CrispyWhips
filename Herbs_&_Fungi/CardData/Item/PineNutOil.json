@@ -135,6 +135,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_pine_nut_oil",
                 "LocalizationKey": "Herbs_And_Fungi_PineNutOil_Eat_ActionName",

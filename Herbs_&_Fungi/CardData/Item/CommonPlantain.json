@@ -30,6 +30,8 @@
     "CardImageWarpType": 3,
     "AlwaysUpdate": true,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_common_plantain",
         "LocalizationKey": "herbsfungicommonplantain_SpoilageTime_StatName",
         "Active": true,
@@ -63,6 +65,8 @@
         }
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_common_plantain",
         "LocalizationKey": "herbsfungicommonplantain_UsageDurability_StatName",
         "Active": true,

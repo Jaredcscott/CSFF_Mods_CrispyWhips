@@ -5,6 +5,18 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.7] - 2026-10-14
+
+### Changed
+
+- **Meat dries more slowly on the Drying Tray.** It dried at the vanilla Drying Rack's speed with none of the rack's smoke upkeep, so Bird Meat was dried in 6 hours. Meat, fish, organs and sausages now dry at a quarter of that speed (about a day for Bird Meat). Herbs, mushrooms and berries dry as before. Thanks to Banana Monk for the report.
+
+### Fixed
+
+- **Spoilage shows the bacteria icon** on 98 cards that showed the hourglass, as vanilla food does.
+- **Drying shows the hammer icon** on 32 mushrooms, herbs and berries that showed a red icon that looked like the immune system's.
+- **Berries, mushrooms and herbs taste of something when eaten straight.** 106 Eat buttons never counted the food's flavours, so they only tasted of anything once eaten from a bowl. Vanilla food counts them either way, and so does this mod's now.
+
 ## [1.14.6] - 2026-10-14
 
 ### Changed

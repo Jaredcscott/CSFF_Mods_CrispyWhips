@@ -127,6 +127,8 @@
         "OverrideIconWarpType": 3
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "Active": true,
         "FloatValue": 0.0,
         "MaxValue": 24.0,

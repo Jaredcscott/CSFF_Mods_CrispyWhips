@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.6
+**Version:** 1.14.7
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -112,7 +112,7 @@ Everything above goes into a stew.
   - A bag can sit indoors, colonizes in about 2.5 days and gives 12 mushrooms and 1 to 2 shavings.
 
 ### Crafted Items and Structures
-- **Drying Tray**: a 6-slot tray for drying herbs, mushrooms, hemp flower or meat.
+- **Drying Tray**: a 6-slot tray for drying herbs, mushrooms, hemp flower or meat. Meat, fish, organs and sausages dry at a quarter of the speed (about a day for Bird Meat).
 - **Drying Stack**: furniture that holds up to 3 trays.
 - **Wooden Pantry**: cool storage that slows spoilage to 75% of normal. Wild animals can break into it.
 - **Apothecary Shelf**: filtered storage for herbs, fungi, powders and medicines, slowing spoilage more than the pantry. Wild Ginseng and Wild Flowers count as herbs. The Herbal Incense Bundle does not go on it.
@@ -230,7 +230,7 @@ All 16 perks appear in the **Situational** tab. The items from a perk land on th
 ### Drying and Preservation
 1. Craft a **Drying Tray** (Support tab).
 2. Optionally craft a **Drying Stack** (Furniture tab), which holds 3 trays.
-3. Put herbs, mushrooms, hemp flowers, ginger or meat on a tray.
+3. Put herbs, mushrooms, hemp flowers, ginger or meat on a tray. Meat dries slowly here, at a quarter of the herb speed; the vanilla Drying Rack is the faster way while you keep it smoking.
 4. Items dry in place and their quality builds up.
 5. Dried items keep longer and can be ground into medicinal powders.
 

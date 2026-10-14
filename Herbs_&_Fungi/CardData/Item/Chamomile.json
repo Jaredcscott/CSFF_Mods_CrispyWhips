@@ -34,6 +34,8 @@
     "CardImageWarpType": 3,
     "AlwaysUpdate": true,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_chamomile",
         "LocalizationKey": "herbsfungichamomile_SpoilageTime_StatName",
         "Active": true,
@@ -67,6 +69,8 @@
         }
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_chamomile",
         "LocalizationKey": "herbsfungichamomile_UsageDurability_StatName",
         "Active": true,
@@ -301,6 +305,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chamomile",
                 "LocalizationKey": "herbsfungichamomile_Eat",

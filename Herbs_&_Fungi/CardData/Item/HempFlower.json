@@ -30,6 +30,8 @@
     ],
     "CardTagsWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
@@ -56,6 +58,8 @@
         }
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {

@@ -30,6 +30,8 @@
     "CardImageWarpType": 3,
     "AlwaysUpdate": true,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_oatmeal",
         "LocalizationKey": "herbsfungioatmeal_SpoilageTime_StatName",
         "Active": true,

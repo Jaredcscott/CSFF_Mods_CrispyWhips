@@ -135,6 +135,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_peanut_oil",
                 "LocalizationKey": "Herbs_And_Fungi_PeanutOil_Eat_ActionName",

@@ -32,6 +32,8 @@
     "CardImageWarpData": "BlackTrumpetCooked",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
         "LocalizationKey": "herbsfungiblacktrumpetcooked_SpoilageTime_StatName",
         "Active": true,
@@ -76,6 +78,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
                 "LocalizationKey": "herbsfungiblacktrumpetcooked_Eat",

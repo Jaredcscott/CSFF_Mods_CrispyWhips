@@ -102,6 +102,7 @@
     "CardInteractions": [],
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_shaved_ice",
                 "LocalizationKey": "Herbs_And_Fungi_ShavedIce_DismantleActions_Eat_ActionName",

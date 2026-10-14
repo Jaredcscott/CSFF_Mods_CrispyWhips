@@ -31,6 +31,8 @@
     "CardImageWarpType": 3,
     "AlwaysUpdate": true,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_wild_flowers",
         "LocalizationKey": "herbsfungiwildflowers_SpoilageTime_StatName",
         "Active": true,
@@ -64,6 +66,8 @@
         }
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_wild_flowers",
         "LocalizationKey": "herbsfungiwildflowers_UsageDurability_StatName",
         "Active": true,

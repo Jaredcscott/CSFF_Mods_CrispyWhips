@@ -203,6 +203,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_linseed_oil",
                 "LocalizationKey": "Herbs_And_Fungi_LinseedOil_Eat_ActionName",

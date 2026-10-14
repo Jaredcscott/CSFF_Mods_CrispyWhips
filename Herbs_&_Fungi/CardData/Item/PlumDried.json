@@ -273,6 +273,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "LocalizationKey": "herbsfungiplumdried_Eat_ActionName",
                 "DefaultText": "Eat"

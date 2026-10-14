@@ -32,6 +32,7 @@
     "CardImageWarpType": 3,
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_king_oyster_ground",
                 "LocalizationKey": "Herbs_And_Fungi_KingOysterGround_Eat",

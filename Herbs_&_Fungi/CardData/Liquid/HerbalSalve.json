@@ -29,6 +29,8 @@
     "CardImageWarpData": "HF_HerbalSalve",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_herbal_salve",
         "LocalizationKey": "herbsfungiherbalsalve_SpoilageTime_StatName",
         "Active": true,

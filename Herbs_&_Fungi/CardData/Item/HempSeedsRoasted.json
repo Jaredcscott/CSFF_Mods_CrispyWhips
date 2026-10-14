@@ -208,6 +208,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
                 "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_DismantleActions_Eat_ActionName",

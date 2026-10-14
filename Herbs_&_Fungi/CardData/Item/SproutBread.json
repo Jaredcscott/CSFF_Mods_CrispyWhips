@@ -146,6 +146,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_sprout_bread",
                 "LocalizationKey": "Herbs_And_Fungi_SproutBread_DismantleActions_Eat_ActionName",

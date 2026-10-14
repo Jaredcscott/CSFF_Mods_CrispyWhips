@@ -136,6 +136,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_haggis",
                 "LocalizationKey": "Herbs_And_Fungi_Haggis_DismantleActions_Eat_ActionName",

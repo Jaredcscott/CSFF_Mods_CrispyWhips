@@ -35,6 +35,8 @@
     "CardImageWarpData": "ChickenFresh",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_chicken_of_woods",
         "LocalizationKey": "herbsfungichickenofwoods_SpoilageTime_StatName",
         "Active": true,
@@ -68,6 +70,8 @@
         }
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_chicken_of_woods",
         "LocalizationKey": "herbsfungichickenofwoods_UsageDurability_StatName",
         "Active": true,
@@ -136,6 +140,7 @@
     },
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chicken_of_woods",
                 "LocalizationKey": "herbsfungichickenofwoods_EatRaw",

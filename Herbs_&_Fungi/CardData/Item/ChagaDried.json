@@ -202,6 +202,8 @@
         }
     ],
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_chaga_dried",
         "LocalizationKey": "herbsfungichagadried_SpoilageTime_StatName",
         "Active": true,

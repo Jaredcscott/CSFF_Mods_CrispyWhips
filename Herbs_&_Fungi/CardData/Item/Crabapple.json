@@ -59,6 +59,8 @@
         "OverrideIconWarpType": 3
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
@@ -298,6 +300,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "LocalizationKey": "herbsfungicrabapple_Eat_ActionName",
                 "DefaultText": "Eat"

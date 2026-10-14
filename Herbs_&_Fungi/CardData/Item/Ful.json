@@ -128,6 +128,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_ful",
                 "LocalizationKey": "Herbs_And_Fungi_Ful_DismantleActions_Eat_ActionName",

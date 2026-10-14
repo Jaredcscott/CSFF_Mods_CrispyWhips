@@ -30,6 +30,8 @@
     "CardImageWarpData": "HF_DeathCapTincture",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_death_cap_tincture",
         "LocalizationKey": "herbsfungideathcaptincture_SpoilageTime_StatName",
         "Active": true,

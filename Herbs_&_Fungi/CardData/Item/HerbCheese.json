@@ -112,6 +112,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_cheese",
                 "LocalizationKey": "Herbs_And_Fungi_HerbCheese_Eat_ActionName",

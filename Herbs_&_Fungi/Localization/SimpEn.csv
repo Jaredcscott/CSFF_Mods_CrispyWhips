@@ -354,6 +354,7 @@ Herbs_And_Fungi_Bp_HerbPipe_CardName,Herb Pipe
 Herbs_And_Fungi_Bp_HerbPipe_UnlockConditionsDesc,Requires Unfinished Wood Carving
 Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_FailMessage,Remove drying trays from the stack first.
 Herbs_And_Fungi_DryingTray_CookingRecipes_DryDryable_ActionName,Dry Herbs & Fungi (Quality +0.25)
+Herbs_And_Fungi_DryingTray_CookingRecipes_DryMeat_ActionName,Dry Meat Slowly (Quality +0.25)
 Herbs_And_Fungi_DryingTray_Transform_BlackTrumpet,Finish Drying
 Herbs_And_Fungi_DryingTray_Transform_Chanterelle,Finish Drying
 Herbs_And_Fungi_DryingTray_Transform_Complete,Drying complete!

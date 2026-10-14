@@ -119,6 +119,7 @@
                     "TargetWarpType": 3
                 }
             ],
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_nut_tofu",
                 "LocalizationKey": "Herbs_And_Fungi_NutTofu_DismantleActions_Eat_ActionName",

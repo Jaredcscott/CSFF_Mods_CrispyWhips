@@ -33,6 +33,8 @@
     "CardImageWarpData": "GinsengFresh",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_ginseng",
         "LocalizationKey": "herbsfungiginseng_SpoilageTime_StatName",
         "Active": true,
@@ -66,6 +68,8 @@
         }
     },
     "UsageDurability": {
+        "OverrideIconWarpData": "Hammer",
+        "OverrideIconWarpType": 3,
         "ParentObjectID": "herbs_fungi_ginseng",
         "LocalizationKey": "herbsfungiginseng_UsageDurability_StatName",
         "Active": true,
@@ -295,6 +299,7 @@
     ],
     "DismantleActions": [
         {
+            "ReceivingCardFlavourBonus": true,
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_ginseng",
                 "LocalizationKey": "herbsfungiginseng_EatRaw",
