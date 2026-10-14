@@ -10,9 +10,12 @@ namespace Skill_Speed_Boost.Patcher;
 
 /// <summary>
 /// Single ChangeStatValue postfix that applies every runtime XP modifier: the global and
-/// per-skill SkillExpMultiplier, the morning bonus, area familiarity, synergies, level
-/// scaling, the daily first-use bonus, the well-rested bonus, and the one term that can push
-/// the total BELOW 1 - the low-condition penalty. Multiple iterator postfixes on
+/// per-skill SkillExpMultiplier, the morning and night bonuses, area familiarity, the station
+/// bonus, the season bonus, synergies, level scaling, the daily first-use bonus, the day streak, the rested-XP bank, the well-rested
+/// bonus, the In the Flow (Focus) bonus, and the one term that can push the total BELOW 1 - the low-condition penalty,
+/// then the one ADDITIVE term, the milestone burst, after the composed write, and last the XP overflow redirect
+/// (plan E1), which hands the part of a gain the game's clamp ate to a related skill. While XpReadoutEnabled is on it
+/// also names the terms that moved the multiplier and hands them to XpReadout (plan E3, a diagnostic, not a bonus). Multiple iterator postfixes on
 /// the same coroutine cannot compose — only the first wrapper consumes the original
 /// enumerator and observes the delta — so every dynamic skill bonus must be combined here.
 /// </summary>
@@ -30,12 +33,14 @@ internal static class MorningBonusPatch
     // first stat seen; every InGameStat shares the type.
     private static FieldInfo _currentBaseValueField;
     private static bool _baseFieldReflected;
+    private static MethodInfo _invalidateConditionValues;
+    private static bool _invalidateReflected;
 
     // D17: every failure on the XP path warns the FIRST time each cause occurs, then stays quiet. These
     // run on every skill-stat change, so unconditional logging would flood LogOutput.log; keying per
     // cause means a second, different failure still gets its own line instead of hiding behind the first.
     private static readonly HashSet<string> _warnedCauses = new(StringComparer.Ordinal);
-    private static bool _morningWindowFailureLogged;
+    private static bool _clockReadFailureLogged;
     private static bool _capHitLogged;
 
     // Daily first-use ledger: which skills have already taken their once-a-day bonus, and the
@@ -49,6 +54,15 @@ internal static class MorningBonusPatch
 
     private static int _statArgIndex = 0;
     private static int _modificationArgIndex = 2;
+    // ChangeStatValue's requested value (_Value): what the game ASKED to add, before its clamp into
+    // CurrentMinMaxValue. Read only by XP overflow (plan E1). -1 when no float parameter named like a
+    // value was found, which XP overflow reports once and then skips.
+    private static int _valueArgIndex = 1;
+
+    // How many GameManager.ApplyPerk calls are on the stack right now. ApplyPerkPrefix raises it and
+    // ApplyPerkFinalizer lowers it. A finalizer runs even when ApplyPerk throws, so a failed grant
+    // cannot leave it raised and every later gain unscaled. Read by IsRunSetup.
+    internal static int PerkGrantDepth;
 
     public static void ApplyPatch(Harmony harmony)
     {
@@ -69,11 +83,61 @@ internal static class MorningBonusPatch
             }
 
             harmony.Patch(method, postfix: new HarmonyMethod(typeof(MorningBonusPatch), nameof(ChangeStat_Post)));
+            PatchApplyPerk(harmony, gmType);
         }
         catch (Exception ex)
         {
             Logger.LogError($"[MorningBonus] Patch error: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
+    }
+
+    /// <summary>
+    /// A perk's StartingStatModifiers reach ChangeStatValue as Permanent changes through
+    /// GameManager.ApplyPerk, which every in-run grant calls: the game's own AddedInRunPerks action
+    /// branch, the mods that grant a perk mid-run by reflection (Sirus23's Pack Bond, CMC's graduate
+    /// perks) and the harness's cheat/perk. A prefix and a finalizer around
+    /// it mark that window. ApplyPerk is PRIVATE (root CLAUDE.md "Perks"), so it is resolved with
+    /// AccessTools.Method: a public-only lookup returns null and the exemption would vanish without a
+    /// word. A version that made it a coroutine would run the stat changes after the finalizer, so a
+    /// non-void ApplyPerk is refused with a warning rather than patched into a guard that never holds.
+    /// </summary>
+    private static void PatchApplyPerk(Harmony harmony, Type gmType)
+    {
+        try
+        {
+            var applyPerk = AccessTools.Method(gmType, "ApplyPerk");
+            if (applyPerk == null)
+            {
+                Logger.LogWarning("[MorningBonus] GameManager.ApplyPerk not found - a perk granted during a run has its starting skill bonus scaled as XP. The game has probably renamed it.");
+                return;
+            }
+            if (applyPerk.ReturnType != typeof(void))
+            {
+                Logger.LogWarning($"[MorningBonus] GameManager.ApplyPerk now returns {applyPerk.ReturnType.Name}, not void - a perk granted during a run has its starting skill bonus scaled as XP. The game has probably changed how it applies perks.");
+                return;
+            }
+
+            harmony.Patch(applyPerk,
+                prefix: new HarmonyMethod(typeof(MorningBonusPatch), nameof(ApplyPerkPrefix)),
+                finalizer: new HarmonyMethod(typeof(MorningBonusPatch), nameof(ApplyPerkFinalizer)));
+        }
+        catch (Exception ex)
+        {
+            Logger.LogWarning($"[MorningBonus] Patching GameManager.ApplyPerk failed - a perk granted during a run has its starting skill bonus scaled as XP: {ex.InnerException?.ToString() ?? ex.ToString()}");
+        }
+    }
+
+    static void ApplyPerkPrefix()
+    {
+        PerkGrantDepth++;
+    }
+
+    // Returning the exception unchanged keeps ApplyPerk's own failure behaviour; this only lowers the
+    // depth. The floor at 0 covers a prefix that never ran (another plugin's prefix threw first).
+    static Exception ApplyPerkFinalizer(Exception __exception)
+    {
+        if (PerkGrantDepth > 0) PerkGrantDepth--;
+        return __exception;
     }
 
     // IEnumerator coroutine postfix: yield the original first, then inspect the delta.
@@ -90,11 +154,27 @@ internal static class MorningBonusPatch
         bool firstUseOn = Plugin.DailyFirstUseBonusEnabled;
         bool wellRestedOn = Plugin.WellRestedBonusEnabled;
         bool lowConditionOn = Plugin.LowConditionPenaltyEnabled;
+        bool nightOn = Plugin.NightBonusEnabled;
+        bool stationBonusOn = Plugin.StationBonusEnabled;
+        bool streakOn = Plugin.StreakBonusEnabled;
+        bool seasonOn = Plugin.SeasonBonusEnabled;
+        bool envOn = Plugin.EnvironmentBonusEnabled;
+        bool toolOn = Plugin.ToolBonusEnabled;
+        bool actionOn = Plugin.ActionBonusEnabled;
+        bool perkOn = Plugin.PerkBonusEnabled;
+        bool flowOn = Plugin.FocusBonusEnabled;
+        bool bankOn = Plugin.RestedBankEnabled;
+        bool milestoneOn = Plugin.MilestoneBonusEnabled;
+        bool overflowOn = Plugin.XpOverflowEnabled;
 
         // Every bonus this postfix can apply must be represented here. A bonus missing from
         // this list is silently dead whenever it is the ONLY one enabled, with no log to say so.
+        // XP overflow (plan E1) above all: an overflow-only config runs exactly this path.
         if (stat == null || (!morningOn && !familiarityOn && !expMultOn && !synergiesOn
-            && !levelScalingOn && !firstUseOn && !wellRestedOn && !lowConditionOn))
+            && !levelScalingOn && !firstUseOn && !wellRestedOn && !lowConditionOn
+            && !nightOn && !stationBonusOn && !streakOn && !seasonOn && !envOn && !toolOn && !actionOn && !perkOn
+            && !flowOn && !bankOn && !milestoneOn && !overflowOn
+            && !Plugin.LogSkillXpGains && !Plugin.LogDailyXpSummary))
         {
             yield return enumerator;
             yield break;
@@ -116,7 +196,12 @@ internal static class MorningBonusPatch
         // are Permanent changes too, applied by InitializeStatsAndActions inside GameManager.Awake while
         // IsInitializing is true. They are not XP: scaling them turned a perk's +75 Herbalism into 150
         // on an 8x config (walkthrough T1.118). No skill is practised while a run is initializing.
-        if (IsRunInitializing(__instance))
+        // A perk granted DURING a run applies its StartingStatModifiers the same way, through
+        // GameManager.ApplyPerk, after IsInitializing has cleared, so IsRunSetup also skips while an
+        // ApplyPerk call is on the stack (PerkGrantDepth). This read is in the wrapper's FIRST
+        // MoveNext, which the game's inline coroutine runner executes inside ApplyPerk's own call
+        // (SkillSpeedBoost plan W0.1), so the depth is still raised when it is read.
+        if (IsRunSetup(__instance))
         {
             yield return enumerator;
             yield break;
@@ -137,7 +222,14 @@ internal static class MorningBonusPatch
 
         float delta = afterBase - beforeBase;
 
-        if (delta <= 0f) yield break;            // not an XP gain, or already at the maximum
+        // Not an XP gain, or already at the maximum. With XP overflow on (plan E1), a skill gain the clamp
+        // ate whole (the skill was at its maximum) is redirected to a group-mate first; with it off this
+        // is the 1.11.0 exit exactly.
+        if (delta <= 0f)
+        {
+            if (overflowOn) RedirectOverflow(stat, __args, 0f, Plugin.XpOverflowFraction);
+            yield break;
+        }
         if (!IsSkillStat(stat)) yield break;     // not a tracked skill
 
         // Resolve skill identity once — shared by expMult, synergies, and debug logging.
@@ -148,6 +240,11 @@ internal static class MorningBonusPatch
 
         // Compose multipliers from every active dynamic bonus.
         float multiplier = 1f;
+
+        // The XP readout toast (plan E3) names the terms below that moved the multiplier. A diagnostic,
+        // not a bonus, so it has no hoist and no guard term: with XpReadoutEnabled off this is one bool
+        // test, nothing is allocated, and every 'readout?.Note' beside a term below skips its arguments.
+        XpReadout.Terms readout = Plugin.XpReadoutEnabled ? new XpReadout.Terms() : null;
 
         // Global / per-skill SkillExpMultiplier — replaces the old load-time graph rewrite.
         if (expMultOn)
@@ -163,14 +260,26 @@ internal static class MorningBonusPatch
                 // intentionally don't apply when XP is disabled for this skill.
                 bool reverted = TrySetBaseValue(stat, beforeBase);
                 if (Plugin.LogSkillXpGains)
-                    LogXpGain(resolvedSkillName ?? uid, delta, 0f, beforeBase, afterBase, beforeBase, !reverted);
+                    LogXpGain(resolvedSkillName ?? uid, delta, 0f, beforeBase, afterBase, beforeBase, !reverted, AreaFamiliarityPatch.CurrentLocationUid);
+                if (Plugin.LogDailyXpSummary)
+                    XpDigest.Record(resolvedSkillName ?? uid, delta, (reverted ? beforeBase : afterBase) - beforeBase);
                 yield break;
             }
             if (expMult > 1) multiplier *= expMult;
+            readout?.Note(multiplier, "x" + expMult + " setting");
         }
 
-        if (morningOn && IsMorningWindow())
+        // MorningAppliesTo and NightAppliesTo (plan D1) only narrow these two terms to the skills
+        // MorningBonusSkills and NightBonusSkills list; an empty list, the default, is every skill.
+        if (morningOn && IsMorningWindow() && Plugin.MorningAppliesTo(resolvedSkillName))
             multiplier *= Plugin.MorningBonusMultiplier;
+        readout?.Note(multiplier, "morning");
+
+        // Same clock as the morning window (TryGetCurrentHour). If a player overlaps the two
+        // windows, both multiply, like every other pair of bonuses here: stacking, not arbitration.
+        if (nightOn && IsNightWindow() && Plugin.NightAppliesTo(resolvedSkillName))
+            multiplier *= Plugin.NightBonusMultiplier;
+        readout?.Note(multiplier, "night");
 
         if (familiarityOn)
         {
@@ -178,11 +287,50 @@ internal static class MorningBonusPatch
             if (!string.IsNullOrEmpty(locUid))
             {
                 multiplier *= AreaFamiliarityService.GetMultiplier(locUid);
+                readout?.Note(multiplier, "area familiarity", true);
                 // Mark this action as having gained skill XP so the ActionRoutine postfix
                 // increments the visit counter exactly once per action.
                 AreaFamiliarityPatch.NoteSkillXpGained();
             }
         }
+
+        // A structure the player named in StationBonusMap. It reads the same placed-structure UID
+        // familiarity reads, which AreaFamiliarityPatch tracks whenever EITHER feature is on, so
+        // this still works with familiarity switched off.
+        if (stationBonusOn)
+        {
+            var stationUid = AreaFamiliarityPatch.CurrentLocationUid;
+            if (!string.IsNullOrEmpty(stationUid))
+                multiplier *= Plugin.GetStationBonusMultiplier(stationUid);
+        }
+        readout?.Note(multiplier, "station");
+
+        // The current season's entry in SeasonBonusMap for this skill, or its every-skill entry.
+        if (seasonOn && !string.IsNullOrWhiteSpace(resolvedSkillName))
+            multiplier *= Plugin.GetSeasonBonusMultiplier(resolvedSkillName);
+        readout?.Note(multiplier, "season");
+
+        // The most specific EnvironmentBonusMap place that names where the player is. Read from the
+        // current environment's card directly, not through the ActionRoutine structure bridge.
+        if (envOn && !string.IsNullOrWhiteSpace(resolvedSkillName))
+            multiplier *= Plugin.GetEnvironmentBonusMultiplier(resolvedSkillName);
+        readout?.Note(multiplier, "place");
+
+        // The tool and the action of the running action, captured by AreaFamiliarityPatch around
+        // ActionRoutine (plan C3). Each is the highest matching entry, never a product of its keys.
+        if (toolOn && !string.IsNullOrWhiteSpace(resolvedSkillName))
+            multiplier *= Plugin.GetToolBonusMultiplier(resolvedSkillName);
+        readout?.Note(multiplier, "tool");
+
+        if (actionOn && !string.IsNullOrWhiteSpace(resolvedSkillName))
+            multiplier *= Plugin.GetActionBonusMultiplier(resolvedSkillName);
+        readout?.Note(multiplier, "action");
+
+        // The highest PerkBonusMap entry among the mapped perks the player holds, picked at character
+        // creation or granted during the run (plan C4). The higher perk wins; two never multiply.
+        if (perkOn && !string.IsNullOrWhiteSpace(resolvedSkillName))
+            multiplier *= Plugin.GetPerkBonusMultiplier(resolvedSkillName);
+        readout?.Note(multiplier, "graduate perk");
 
         if (synergiesOn && !string.IsNullOrWhiteSpace(resolvedSkillName))
         {
@@ -190,12 +338,21 @@ internal static class MorningBonusPatch
             if (synergyMult > 1f)
             {
                 multiplier *= synergyMult;
+                readout?.Note(multiplier, "synergy combo");
                 if (Plugin.SkillSynergiesDebugLog)
                     Logger.LogInfo($"[Synergy] {resolvedSkillName}: {synergyMult:F2}x | {SkillSynergies.GetSynergyDebugInfo()}");
             }
         }
 
-        float maxVal = SafeGetMaxValue(stat);
+        // A maximum that cannot be read has nothing to cap the composed write at, and an uncapped write
+        // can push a skill past its maximum, so the game's own gain stands instead (no write, no
+        // overflow, no milestone). StatAccess.GetMaxValue returns NaN without throwing, so warn here.
+        float maxVal = StatAccess.GetMaxValue(stat);
+        if (float.IsNaN(maxVal))
+        {
+            WarnOnce("max-unreadable", $"The maximum of skill '{resolvedSkillName ?? uid}' could not be read (CurrentMinMaxValue, MaxValue and the model's MinMaxValue all failed, likely a game update). Its XP gains keep the game's own amount and no bonus applies to them.");
+            yield break;
+        }
 
         if (levelScalingOn && maxVal > 0f)
         {
@@ -205,26 +362,57 @@ internal static class MorningBonusPatch
             float levelBonus = Plugin.LevelScalingMaxBonus * ShapeLevelFraction(levelFraction);
             if (levelBonus > 0f)
                 multiplier *= (1f + levelBonus);
+            readout?.Note(multiplier, "skill level");
         }
 
         // First gain for this skill today. Claimed only after the gain has already been
         // confirmed as real skill XP, and after the per-skill "disabled" early-out above, so a
-        // skill set to 0x never burns its daily claim.
-        if (firstUseOn)
+        // skill set to 0x never burns its daily claim. The same per-skill key keys the rested bank and the milestone marks.
+        string firstUseKey = !string.IsNullOrWhiteSpace(resolvedSkillName) ? resolvedSkillName : uid;
+        // A low-condition penalty of 0x means no XP at all: do not burn the once-a-day claims below for a gain
+        // that is about to be zeroed (the penalty term itself is applied further down).
+        bool penaltyZeroesGain = lowConditionOn && Plugin.LowConditionMultiplier <= 0f
+            && PlayerConditionService.IsAnyConditionBelow(Plugin.LowConditionThreshold);
+        if (firstUseOn && !penaltyZeroesGain)
         {
-            string firstUseKey = !string.IsNullOrWhiteSpace(resolvedSkillName) ? resolvedSkillName : uid;
             if (!string.IsNullOrEmpty(firstUseKey) && ClaimFirstUseOfDay(firstUseKey))
                 multiplier *= Plugin.DailyFirstUseMultiplier;
+            readout?.Note(multiplier, "first use today");
         }
+
+        // Consecutive in-game days with skill XP. The day is claimed here, after the gain is
+        // confirmed real and after the per-skill 0x early-out, the same point first-use claims
+        // at, so today already counts as day 1 of a fresh streak.
+        if (streakOn && !penaltyZeroesGain)
+        {
+            int streakDays = SkillStreakService.NoteActivity(GameQuery.CurrentDay);
+            float streakBonus = SkillStreakService.StreakBonus(streakDays, Plugin.StreakBonusMaxDays, Plugin.StreakBonusPerDay);
+            if (streakBonus > 0f)
+                multiplier *= 1f + streakBonus;
+            readout?.Note(multiplier, streakDays + "-day streak");
+        }
+
+        // The rested-XP bank (plan D3): full days this skill went unused bank gains, and this gain
+        // spends one. Claimed at the same point as first use and the streak, after the per-skill 0x
+        // early-out, so a skill set to 0x never spends its bank.
+        if (bankOn && !penaltyZeroesGain) multiplier *= RestedBankService.Consume(firstUseKey, GameQuery.CurrentDay);
+        readout?.Note(multiplier, "rested bank");
 
         if (wellRestedOn && PlayerConditionService.IsWellRested(Plugin.WellRestedThreshold))
             multiplier *= Plugin.WellRestedMultiplier;
+        readout?.Note(multiplier, "well rested");
+
+        // Focus in its top band, In the Flow, read from Focus's own statuses (plan C5).
+        if (flowOn && PlayerConditionService.IsInFlow())
+            multiplier *= Plugin.FocusBonusMultiplier;
+        readout?.Note(multiplier, "in the flow");
 
         // The one PENALTY in the stack: a sub-1.0 factor while any condition stat is low. It is
         // the reason the write below has to be direction-aware - every other term here can only
         // ever push the multiplier up.
         if (lowConditionOn && PlayerConditionService.IsAnyConditionBelow(Plugin.LowConditionThreshold))
             multiplier *= Plugin.LowConditionMultiplier;
+        readout?.Note(multiplier, "low condition");
 
         // Ceiling on the composed total. Every bonus above is multiplicative, so a player who
         // turns several on at once can reach a figure none of the individual sliders suggests
@@ -247,6 +435,7 @@ internal static class MorningBonusPatch
                     "Set LogMultiplierCapHits=true to log every hit.");
             }
             multiplier = cap;
+            readout?.Note(multiplier, "capped");
         }
 
         // A composed multiplier BELOW 1 is a penalty (low-condition suppression), so this cannot skip
@@ -263,8 +452,92 @@ internal static class MorningBonusPatch
                 writeFailed = !TrySetBaseValue(stat, target);
         }
 
+        // The milestone burst (plan D4): ADDITIVE, after the composed write, so no multiplier scales
+        // it and MaxComposedMultiplier does not cap it; the [XpGain] line below reports the base with
+        // it. A breakpoint is measured on the trained base the gain ended at, and pays once per
+        // character (MilestoneService keeps the mark per save slot). Skipped when the write above
+        // failed, since a second write to the same field would fail too. A skill set to 0x never gets
+        // here: the 0x early-out has already returned.
+        if (milestoneOn && !writeFailed && !string.IsNullOrEmpty(firstUseKey))
+        {
+            float reached = target;
+            if (MilestoneService.TryAward(firstUseKey, beforeBase, reached, out int milestoneIndex, out int milestoneAt, out float burst))
+            {
+                float burstTarget = Math.Min(reached + burst, maxVal);
+                bool paid = burstTarget > reached + 0.0001f && TrySetBaseValue(stat, burstTarget);
+                if (paid) target = burstTarget;
+                if (Plugin.LogSkillXpGains)
+                    Logger?.LogInfo(
+                        $"[Milestone] {firstUseKey}: reached {milestoneAt} (breakpoint {milestoneIndex}), " +
+                        (paid ? $"+{burstTarget - reached:F2} XP, base {reached:F2} -> {burstTarget:F2}" : $"no burst (base {reached:F2} is at its maximum or the write failed)"));
+            }
+        }
+
         if (Plugin.LogSkillXpGains)
-            LogXpGain(resolvedSkillName ?? uid, delta, multiplier, beforeBase, afterBase, target, writeFailed);
+            LogXpGain(resolvedSkillName ?? uid, delta, multiplier, beforeBase, afterBase, target, writeFailed, AreaFamiliarityPatch.CurrentLocationUid);
+
+        // LogDailyXpSummary: the same gain, into one line per skill per in-game day (XpDigest). Beside
+        // every LogXpGain call, so the digest totals exactly the gains the XP log reports, and "final"
+        // is the value LogXpGain reports as the base after (the game's own gain when the write failed).
+        if (Plugin.LogDailyXpSummary)
+            XpDigest.Record(resolvedSkillName ?? uid, delta, (writeFailed ? afterBase : target) - beforeBase);
+
+        // The XP readout toast (plan E3): shown when the set of terms changed, or the same set after
+        // XpReadoutMinSeconds. After the write and the logs, so it can never change what a gain gained.
+        if (readout != null) XpReadout.Notify(resolvedSkillName ?? uid, multiplier, readout, Plugin.XpReadoutMinSeconds);
+
+        // XP overflow (plan E1), after everything above: a gain that crossed the cap part way landed only
+        // delta of what was requested, and the rest goes to a group-mate. Flat, so it is measured on the
+        // game's own request and gain, never on the composed target.
+        if (overflowOn) RedirectOverflow(stat, __args, delta, Plugin.XpOverflowFraction);
+    }
+
+    /// <summary>
+    /// XP overflow (plan E1): hands the excess of one Permanent skill gain, the value ChangeStatValue was
+    /// asked to add minus <paramref name="gained"/>, to XpOverflowService. Nothing happens unless the
+    /// request was a gain, the excess is more than float noise, and the stat is a skill. Called only
+    /// while XpOverflowEnabled is on, so with it off ChangeStat_Post does exactly what 1.11.0 did.
+    /// </summary>
+    private static void RedirectOverflow(object stat, object[] args, float gained, float fraction)
+    {
+        if (!TryGetRequestedValue(args, out float requested)) return;
+        if (!(requested - Math.Max(gained, 0f) > 0.0001f)) return;
+        if (!IsSkillStat(stat)) return;
+
+        var uid = StatAccess.GetUniqueId(stat);
+        string skillName = null;
+        if (!string.IsNullOrEmpty(uid))
+            GameLoadPatch.SkillNamesByUniqueId.TryGetValue(uid, out skillName);
+        if (string.IsNullOrWhiteSpace(skillName))
+        {
+            WarnOnce("overflow-unnamed:" + (uid ?? "null"),
+                $"XP overflow: a skill stat ({uid ?? "no UniqueID"}) has no name from the load scan, so its excess XP has no group to go to.");
+            return;
+        }
+
+        XpOverflowService.Route(skillName, requested, gained, fraction);
+    }
+
+    /// <summary>
+    /// ChangeStatValue's requested value, by the parameter index FindChangeStatValue resolved by type and
+    /// name. False, with one warning per cause, when it cannot be read: XP overflow then does nothing.
+    /// </summary>
+    private static bool TryGetRequestedValue(object[] args, out float requested)
+    {
+        requested = 0f;
+        if (_valueArgIndex < 0)
+        {
+            WarnOnce("value-arg-missing", "ChangeStatValue has no float parameter named like a value, so XP overflow cannot see what a gain asked for and redirects nothing. The game's signature has probably changed.");
+            return false;
+        }
+        object raw = GetArg(args, _valueArgIndex);
+        if (raw is float value)
+        {
+            requested = value;
+            return true;
+        }
+        WarnOnce("value-arg-type", $"ChangeStatValue's value argument read as {raw?.GetType().Name ?? "null"}, not a float, so XP overflow redirects nothing.");
+        return false;
     }
 
     // ── Bonus shaping helpers ─────────────────────────────────────────────────
@@ -320,6 +593,7 @@ internal static class MorningBonusPatch
 
             _statArgIndex = 0;
             _modificationArgIndex = 2;
+            _valueArgIndex = -1;
             for (int i = 0; i < parameters.Length; i++)
             {
                 var name = parameters[i].Name ?? string.Empty;
@@ -334,6 +608,11 @@ internal static class MorningBonusPatch
                 {
                     _modificationArgIndex = i;
                 }
+                else if (parameters[i].ParameterType == typeof(float)
+                    && name.IndexOf("value", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    _valueArgIndex = i;
+                }
             }
 
             return method;
@@ -345,16 +624,6 @@ internal static class MorningBonusPatch
     private static object GetArg(object[] args, int index)
     {
         return args != null && index >= 0 && index < args.Length ? args[index] : null;
-    }
-
-    /// <summary>
-    /// StatAccess.GetMaxValue returns NaN on failure; the local code it replaced returned
-    /// float.MaxValue (i.e. "uncapped"). Translate at the call site to preserve that.
-    /// </summary>
-    private static float SafeGetMaxValue(object stat)
-    {
-        var v = StatAccess.GetMaxValue(stat);
-        return float.IsNaN(v) ? float.MaxValue : v;
     }
 
     /// <summary>
@@ -393,7 +662,7 @@ internal static class MorningBonusPatch
     /// Reads CurrentBaseValue. False, with one warning per cause, when it cannot be read; the caller
     /// then leaves the change exactly as the game applied it.
     /// </summary>
-    private static bool TryGetBaseValue(object stat, out float value)
+    internal static bool TryGetBaseValue(object stat, out float value)
     {
         value = 0f;
         if (!TryResolveBaseField(stat)) return false;
@@ -419,12 +688,13 @@ internal static class MorningBonusPatch
     /// Writes CurrentBaseValue. False, with one warning per cause, when the write fails; the gain the
     /// game applied then stands unscaled.
     /// </summary>
-    private static bool TrySetBaseValue(object stat, float value)
+    internal static bool TrySetBaseValue(object stat, float value)
     {
         if (!TryResolveBaseField(stat)) return false;
         try
         {
             _currentBaseValueField.SetValue(stat, value);
+            InvalidateConditionCache(stat);
             return true;
         }
         catch (Exception ex)
@@ -432,6 +702,46 @@ internal static class MorningBonusPatch
             WarnOnce("CurrentBaseValue-write", $"Writing CurrentBaseValue failed - XP bonuses are being dropped and the game's own gain kept: {ex.Message}");
             return false;
         }
+    }
+
+    /// <summary>
+    /// EA 0.69 caches each stat's value for conditions (skill gates on actions, dialog, blueprints)
+    /// and only the game's own stat changes clear it, so a raw CurrentBaseValue write must clear it
+    /// too or a condition read between the game's write and ours keeps the unscaled value. Called by
+    /// reflection so this mod needs no newer framework; builds before 0.69 have no such method and no
+    /// cache, which the warning says.
+    /// </summary>
+    private static void InvalidateConditionCache(object stat)
+    {
+        if (!_invalidateReflected)
+        {
+            _invalidateReflected = true;
+            _invalidateConditionValues = stat.GetType().GetMethod("InvalidateConditionValues", Flags, null, Type.EmptyTypes, null);
+        }
+        if (_invalidateConditionValues == null)
+        {
+            WarnOnce("InvalidateConditionValues-missing",
+                $"{stat.GetType().Name}.InvalidateConditionValues did not resolve - harmless before game EA 0.69; on 0.69 or later, " +
+                "skill gates may read a skill's level from before this mod's XP change until the skill next changes.");
+            return;
+        }
+        try { _invalidateConditionValues.Invoke(stat, null); }
+        catch (Exception ex)
+        {
+            WarnOnce("InvalidateConditionValues-call", $"Clearing the stat condition cache failed - skill gates may read a stale skill level: {ex.Message}");
+        }
+    }
+
+    /// <summary>
+    /// True while a Permanent change is a perk's starting bonus rather than practice: the run is
+    /// initializing (IsRunInitializing, 1.10.6), or a GameManager.ApplyPerk call is on the stack
+    /// (PerkGrantDepth, kept by ApplyPerkPrefix and ApplyPerkFinalizer). Each cause keeps its own
+    /// warnings: IsRunInitializing warns once per cause on a read failure, and PatchApplyPerk warns
+    /// at load when ApplyPerk cannot be patched.
+    /// </summary>
+    private static bool IsRunSetup(object gameManager)
+    {
+        return IsRunInitializing(gameManager) || PerkGrantDepth > 0;
     }
 
     private static PropertyInfo _isInitializingProperty;
@@ -471,16 +781,25 @@ internal static class MorningBonusPatch
 
     /// <summary>
     /// LogSkillXpGains: one line per gain that reached composition, the 1x no-op and the per-skill 0
-    /// revert included, so a gain handled at 1x and a gain never handled read differently.
+    /// revert included, so a gain handled at 1x and a gain never handled read differently. When the
+    /// gain happened at a placed structure the line ends with that structure's UniqueID, which is
+    /// the value a player copies into StationBonusMap. It is appended AFTER the fixed prefix so the
+    /// "[XpGain] Skill: game +N xM" shape harness scenarios match on is unchanged. After it comes
+    /// " in env UniqueID (asset name)", the environment the gain happened in, which is what a player
+    /// copies into EnvironmentBonusMap (plan C2; appended last, plan S4). Then " by action 'name' (key
+    /// k)" and " with tool UniqueID (tags ...)", the keys of ActionBonusMap and ToolBonusMap (plan C3).
     /// </summary>
-    private static void LogXpGain(string skill, float vanillaDelta, float multiplier, float beforeBase, float afterBase, float target, bool writeFailed)
+    private static void LogXpGain(string skill, float vanillaDelta, float multiplier, float beforeBase, float afterBase, float target, bool writeFailed, string locationUid)
     {
         float finalBase = writeFailed ? afterBase : target;
         float finalDelta = finalBase - beforeBase;
         Logger?.LogInfo(
             $"[XpGain] {skill ?? "(unresolved skill)"}: game +{vanillaDelta:F2} x{multiplier:F2} = {finalDelta:+0.00;-0.00;0.00}, " +
             $"base {beforeBase:F2} -> {finalBase:F2}" +
-            (writeFailed ? " (WRITE FAILED: the game's own gain was kept)" : ""));
+            (writeFailed ? " (WRITE FAILED: the game's own gain was kept)" : "") +
+            (string.IsNullOrEmpty(locationUid) ? "" : $" at structure {locationUid}") +
+            EnvironmentBonusService.DescribeForXpLog() +
+            AreaFamiliarityPatch.DescribeForXpLog());
     }
 
     // Resolved from the first ChangeStatValue argument seen: the int value of
@@ -554,55 +873,52 @@ internal static class MorningBonusPatch
         return false;
     }
 
-    private static bool IsMorningWindow()
+    private static bool IsMorningWindow() => IsCurrentHourInWindow(Plugin.MorningStartHour, Plugin.MorningEndHour);
+
+    private static bool IsNightWindow() => IsCurrentHourInWindow(Plugin.NightStartHour, Plugin.NightEndHour);
+
+    // Both windows go through ONE clock read, so the morning and night bonuses cannot drift apart on
+    // the hour arithmetic. That arithmetic is the one tracker T1.75 confirmed live (2026-09-23).
+    private static bool IsCurrentHourInWindow(float start, float end)
     {
+        return TryGetCurrentHour(out float hour) && IsHourInWindow(hour, start, end);
+    }
+
+    /// <summary>
+    /// True when a 0-24 clock hour falls inside [start, end). A window whose start is later than its
+    /// end wraps past midnight (22 to 2 is 22:00-02:00); a window whose start equals its end is empty.
+    /// Pure, with no game types, so SkillSpeedBoost-BonusLogic.Tests.ps1 compiles and runs it: keep
+    /// the body C# 5, which is what PowerShell 5.1's Add-Type compiles.
+    /// </summary>
+    internal static bool IsHourInWindow(float hour, float start, float end)
+    {
+        return start <= end
+            ? hour >= start && hour < end
+            : hour >= start || hour < end;
+    }
+
+    private static bool TryGetCurrentHour(out float hour)
+    {
+        hour = 0f;
         try
         {
-            var gm = CardUtil.GetGameManagerInstance();
-            if (gm == null) return false;
+            if (CardUtil.GetGameManagerInstance() == null) return false;
+            if (GameQuery.DayTimePoints < 0) return false;
 
-            // DayTimePoints — try several possible names for forward-compat.
-            var dtpObj = Reflect.GetMember(gm, "DayTimePoints", "CurrentDayTimePoints", "DaytimePoints");
-            float dtp = dtpObj != null ? CardUtil.ToFloat(dtpObj) : -1f;
-            if (dtp < 0f) return false;
-
-            // DaySettings.DailyPoints/DayStartingHour — read live rather than hardcoding
-            // 96/0. Matches GameManager.HourOfTheDayValue: DayStartingHour + 24 -
-            // dtp*(24/DailyPoints), wrapped to a 0-24 clock hour. DTP counts DOWN from
-            // DailyPoints (start of day) to 0 (end of day). Omitting DayStartingHour here
-            // previously produced an "hours since day start" axis instead of the actual
-            // clock hour the MorningStartHour/MorningEndHour config text promises
-            // (e.g. vanilla DayStartingHour=4 shifted the window 4 hours late).
-            var daySettings = Reflect.GetMember(gm, "DaySettings");
-            float dailyPoints = daySettings != null ? Reflect.GetFloat(daySettings, "DailyPoints", 96f) : 96f;
-            if (dailyPoints <= 0f) dailyPoints = 96f;
-            float dayStartingHour = daySettings != null ? Reflect.GetFloat(daySettings, "DayStartingHour", 0f) : 0f;
-
-            float pointToHours = 24f / dailyPoints;
-            float hour = Mod24(dayStartingHour + 24f - (dtp % dailyPoints) * pointToHours);
-
-            float start = Plugin.MorningStartHour;
-            float end   = Plugin.MorningEndHour;
-
-            // Support wrap-around windows (e.g. start=22, end=4)
-            return start <= end
-                ? hour >= start && hour < end
-                : hour >= start || hour < end;
+            // The framework's clock: the game's own GameManager.HourOfTheDayValue, with a DaySettings
+            // fallback if a game update removes it (corrected in the framework 2026-09-17). This mod
+            // used to recompute the same formula by hand; one copy now carries every clock fix.
+            hour = GameQuery.HourOfDay;
+            return true;
         }
         catch (Exception ex)
         {
-            if (!_morningWindowFailureLogged)
+            if (!_clockReadFailureLogged)
             {
-                _morningWindowFailureLogged = true;
-                Logger?.LogWarning($"[MorningBonus] IsMorningWindow reflection failed (morning bonus will silently stop applying): {ex.Message}");
+                _clockReadFailureLogged = true;
+                Logger?.LogWarning($"[MorningBonus] Reading the in-game clock failed (the morning and night bonuses will silently stop applying): {ex.Message}");
             }
         }
         return false;
-    }
-
-    private static float Mod24(float hour)
-    {
-        float h = hour % 24f;
-        return h < 0f ? h + 24f : h;
     }
 }

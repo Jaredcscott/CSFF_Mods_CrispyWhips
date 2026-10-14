@@ -1,281 +1,149 @@
 # Roadmap: Skill Speed Boost
-Version at time of writing: 1.10.1
-Date: 2026-09-06
-Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 2 open WARNING, 0 MINOR) after the 2026-09-06
-v1.10.1 remediation, which closed ten of the twelve items the 2026-09-05 re-consolidation opened.
-That 8/10 (0/0/7/5) was correct for v1.10.0 and is the record of what was fixed; the two survivors
-are Phase 0 item 5 below (blocked on an external tool) and a v1.9.7-scoped `feature-map.md`.
+Version at time of writing: 1.11.0 (built, unpublished; Nexus carries 1.10.6)
+Date: 2026-10-11
+Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 0 open MINOR, 1 WARNING = the E16 false positive)
 
 ## Current State
 
-**Theme**: A pure-C# utility mod that gives players fine-grained control over skill progression in
-CSFF - per-skill XP multipliers (0-10x), natural staleness decay (global or per-skill), and a stack
-of optional situational bonuses (morning window, area familiarity, synergy combos, level scaling,
-first-use-of-the-day, well-rested) with one-key difficulty presets over the whole thing. For players
-who want to tune the grind up or down without touching game content.
+**Theme**: A pure-C# utility mod giving players fine-grained control over skill progression in CSFF -
+per-skill XP multipliers (0-10x), staleness decay (global or per-skill), and a large stack of optional
+situational bonuses (morning/night windows, area familiarity with floor and fade, synergy combos,
+level scaling, first-use, well-rested, In-the-Flow, low-condition penalty, season/environment/tool/
+action/perk bonuses, day streak, rested-XP bank, milestone burst, XP overflow, on-screen readout,
+partner-skill follow, per-save progression) with one-key difficulty presets over the whole thing.
 
 **Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images / 0 localization rows.
-Ships 10 C# source files, ~1,989 lines (`Plugin`, `DifficultyProfiles`, `SkillSynergies`,
-`SkillConfigManager`, `GlobalUsing`, and `Patcher/{GameLoadPatch, MorningBonusPatch,
-AreaFamiliarityPatch, AreaFamiliarityService, PlayerConditionService}`). Every advertised feature is
-wired to live code. Player-facing text is entirely BepInEx `Config.Bind` descriptions, which is why
-the preflight "missing SimpEn.csv" (E16) is a standing, documented false positive - do not create a
-dummy CSV to silence it.
+Pure-C# / Harmony. Player-facing text is entirely BepInEx `Config.Bind` descriptions, which is why the
+preflight "missing SimpEn.csv" (E16) is a standing, documented false positive - do not create a dummy
+CSV to silence it.
 
-**Stability**: 10/10 - 0 CRITICAL, 0 DESIGN GAP, 2 open WARNING, 0 MINOR after the 2026-09-06
-v1.10.1 remediation. The v1.10.0 adversarial read (`.audit/critical-analysis.md`, 2026-09-05, verdict
-SHIPS WITH CAVEATS) **cleared the central risk** - all seven bonus flags present in BOTH the
-composition body and the early-out guard of the single `ChangeStatValue` composition point, a correct
-`IEnumerator` postfix, every advertised config key read by live code, the three new GameStat GUIDs
-real - and everything it found around that code has now been fixed: the build is deployed (v1.10.1),
-a preset is applied once per profile change rather than re-asserted every launch, all six previously
-silent well-rested read paths carry a per-cause breadcrumb, and the Pester gate now rejects the two
-bonus-authoring shapes it used to pass blind. `code-quality.md` was re-run against v1.10.0 by a peer
-session on 2026-09-06 (9/10, its three findings fixed in `7b67816e2`). Two items remain open: the
-stale `Assembly-CSharp-nstrip.dll` (blocked on the operator's external NStrip tool) and a
-v1.9.7-scoped `feature-map.md`.
+**Stability**: 10/10 - PASS. critical-analysis (2026-10-11, v1.11.0) verdict SOLID: 0 critical /
+0 mechanical / 0 design / 0 broken promises. code-quality (2026-10-11) 10/10, 0 crit / 0 warn across
+26 files. Every one of the 27 README / 30 FEATURES.md features is wired at the single `ChangeStatValue`
+composition point or a load/run-start postfix; all 20 bonus flags appear in BOTH the composition body
+and the early-out guard (`SkillSpeedBoost-BonusComposition.Tests.ps1`: 113 passed).
 
 **Open work**: **Zero open retrospectives** - `Documentation/Retrospectives/INDEX.md` has no entry for
-SkillSpeedBoost, SSB, or `crispywhips.skill_speed_boost`. Two warnings remain, neither blocking:
-(1) `lib/Assembly-CSharp-nstrip.dll` is dated 2026-04-26 against an EA 0.67h game - it compiles clean
-while any direct typed call into a game type would throw `MissingMethodException` at runtime, and it
-can only be regenerated with the operator's external NStrip tool (fleet-tracked as T1.71; v1.10.1
-added no new direct typed call, so no new exposure); (2) `.audit/feature-map.md` is still scoped to
-v1.9.7 and describes a smaller mod than the one that ships - re-run `/feature-map SkillSpeedBoost`.
-**Runtime verification is now unblocked, not done**: T1.74 and T1.75 can finally be run against a
-deployed build, and v1.10.1 adds two checks of its own - that an individual toggle edited after
-choosing a preset survives a restart, and that `LogOutput.log` carries no `[WellRested]` warning when
-the bonus is enabled.
+SkillSpeedBoost, SSB, or `crispywhips.skill_speed_boost`. **Feature complete**: the round-2 content
+plan drained on 2026-10-04 (archived to `Documentation/Design/SkillSpeedBoost_Content_Update_Round_2_As_Built.md`),
+no plan remains under `Documentation/Plans/SkillSpeedBoost/`, and the mod is a candidate for `Stable/`
+per `Stable/README.md`. The only non-blocking items are the release step (publish 1.11.0), one human
+playthrough (T1.316), and a fleet-wide external tooling gap (nstrip regeneration).
 
-**Framework compliance**: Tier 2, heavy and correct - 44 `CSFFModFramework.Api` call sites across
-`GameLoadPatch` (14), `MorningBonusPatch` (21), `PlayerConditionService` (5) and
-`AreaFamiliarityPatch` (4), using `Reflect` / `StatAccess` / `CardUtil`. The card-facing Tier 2
-services (`ActionRouter`, `SpawnService`, `TickEvents`, `EncounterGuards`, `ContentModPlugin`) are
-correctly absent - a 0-CardData mod that hooks the leaf `ChangeStatValue` coroutine has nothing to
-route or spawn. No deprecated patterns: no `DropCollectionGuardPatch`, no `PatchAll()`, no unfiltered
-hot-path prefix, no `ModLoaderVerison`/`ModEditorVersion`. **No further Tier-2 migration is owed.**
+**Framework compliance**: Tier 2, heavy and correct - uses `Reflect` / `StatAccess` / `CardUtil` across
+`GameLoadPatch`, `MorningBonusPatch`, `PlayerConditionService`, `AreaFamiliarityPatch` and the round-2
+services. The card-facing Tier 2 services (`ActionRouter`, `SpawnService`, `TickEvents`,
+`EncounterGuards`, `ContentModPlugin`) are correctly absent - a 0-CardData mod that hooks the leaf
+`ChangeStatValue` coroutine has nothing to route or spawn. No deprecated patterns: no
+`DropCollectionGuardPatch`, no `PatchAll()`, no unfiltered hot-path prefix, no
+`ModLoaderVerison`/`ModEditorVersion`. **No further Tier-2 migration is owed.**
 
 ---
 
-## Phase 0: Stabilize  *(items 1-4 DONE in v1.10.1, 2026-09-06; item 5 remains)*
+## Phase 0: Stabilize  *(nothing open)*
 
-> **Items 1-4 are closed.** v1.10.1 deployed the build, made preset application one-shot behind an
-> `AppliedProfile` latch, added per-cause breadcrumbs to all six previously silent well-rested read
-> paths, and hardened the composition gate against `var`-hoisted and inline bonus reads (each of the
-> three fixture breaks watched RED before the gate went green at 26/26). Durable record: the 1.10.1
-> commit and `CHANGELOG.md [1.10.1]`; item-by-item evidence in `.audit/summary.md` § Remediation pass.
->
-> **Item 5 is the only one left**, and it is the one that can break the mod silently for every player
-> tomorrow. It needs the operator's external NStrip tool - nothing in this repo can regenerate that
-> DLL.
-
-| # | Item | Type | Priority | Complexity |
-|---|------|------|----------|------------|
-| 1 | ~~**Deploy v1.10.0**, then re-check `.claude/mod-deploy-status.json`~~ **DONE 2026-09-06** - deployed v1.10.1; installed DLL 59,904 B byte-matches `bin/Release`, stale 1.9.7 `ModInfo.json` removed, zip refreshed to `_1-10-1`. T1.74/T1.75 unblocked. | Release hygiene | ~~P0~~ | Done |
-| 2 | ~~**Fix the A11 silent-null path**~~ **DONE 2026-09-06** - `_warnedCauses` per-cause latch + `WarnOnce` at all five null returns and the NaN branch; below-threshold stays silent. | Diagnostics | ~~P0~~ | Done |
-| 3 | ~~**Fix the M12 profile clobber**~~ **DONE 2026-09-06** - `Plugin.ApplyProfileOnce(force)` + `AppliedProfile` latch; `ApplyProfileSettings` returns `bool` so an unknown name cannot latch; both doc lines corrected in the same commit. | Correctness + Docs-Honesty | ~~P0~~ | Done |
-| 4 | ~~**Harden the A12 gate regex**~~ **DONE 2026-09-06** - brace-matched method body, guard split, `var`-hoist rejection, and an unguarded-`Plugin.X`-read check with an explicit non-flag allowlist. Breaks (a)/(b)/(c) each went RED on the correct named test; baseline 26/26 green. | Gate hardening | ~~P0~~ | Done |
-| 5 | Regenerate `lib/Assembly-CSharp-nstrip.dll` against the EA 0.67h game binary, then rebuild SSB | Game-update reference refresh | P0 | Medium (needs the user's external NStrip tool - not doable from this repo) |
-
-**Why 1 is first**: `BepInEx/plugins/Skill_Speed_Boost/ModInfo.json` reads `"Version": "1.9.7"` and
-its DLL is **38,912 B @ 2026-08-29 14:39** against `bin/Release/Skill_Speed_Boost.dll` at
-**54,784 B @ 2026-09-05 15:20**; `.claude/mod-deploy-status.json` still records
-`lastDeployedCommit: 787c3b250`, two commits before `e37f7ed03`. **Playthrough item T1.74 cannot be
-executed as written** until this is done: under 1.9.7 the six new config keys are not bound at all, so
-a tester edits keys BepInEx never created and correctly concludes "these settings do nothing",
-attributing a deploy gap to the code. T1.75 is blocked the same way. No player is affected -
-`Mod_Update_Manager/Resources/EmbeddedMods/Skill_Speed_Boost.zip` was opened and verified to carry
-`ModInfo.json` 1.10.0 with the matching 54,784-byte DLL - so this is a local-install gap, not a
-release defect. It costs one command and it is the precondition for every runtime item on this
-roadmap.
-
-**Why 2 is P0**: `PlayerConditionService.cs:50-53` promises "A read failure warns once per session
-(fleet silent-catch rule) so a future field rename is visible rather than looking like the player
-simply never qualifies." The latched `LogWarning` exists only in the `catch` at `:108-118`, and all
-five realistic drift paths return null **without throwing** (`CardUtil.GetCachedField` returns null
-and never throws - `CSFFModFramework/Util/CardUtil.cs:254-260`), so the catch never runs and
-well-rested silently never applies with zero log output. Same defect class `fd99f7f40` claimed to
-close as "the last silent early-return on the XP write path" - true for the write path, but the read
-path added by the immediately preceding commit has five more.
-
-**Why 3 is P0**: `Plugin.cs:362-363` re-applies the profile unconditionally at the end of `Awake()`,
-after every `Config.Bind` has read the player's file, and `DifficultyProfiles.cs:83-90` writes eight
-`ConfigEntry.Value` setters that BepInEx persists back to the `.cfg`. An individual toggle the player
-edits survives until the next launch and no further - and `README.md:267` and `FEATURES.md:107` both
-tell the player to make exactly that edit. Pre-1.10.0 the apply wrote only two keys; 1.10.0 raised it
-to eight in the same release that added the false advice. Code and docs ship together (Docs-Honesty).
-
-**Why 4 is P0 despite the gate being green**: the gate passes 23/23 and **does** catch its own
-regression - deleting `&& !wellRestedOn` from the guard drove it red, 22/1, with the correct message.
-But a fixture-copy break-and-watch-red (scratchpad only, no tracked file mutated) showed two blind
-spots that stay **GREEN 23/23**: an eighth bonus hoisted as `var newBonusOn = Plugin.X;`, and the same
-bonus read inline with no hoist. `:41` harvests only `bool\s+(\w+)\s*=\s*Plugin\.`, and the `:87`
-sanity floor (`>= 5`) still sees the seven existing `bool` flags. This matters more than its severity
-suggests because the guard is **unreachable in the default config** (`expMultOn` is always true while
-`EnablePerSkillMultipliers` defaults to `true`), so a guard-omission regression would never surface in
-ordinary play-testing - this gate is the only thing that would catch it. The open plan row N1 leans
-directly on it.
-
-**Why 5 stays P0**: SSB references the publicized nstrip DLL (`SkillSpeedBoost.csproj:38`), and its
-copy is dated **2026-04-26** while the plain `lib/Assembly-CSharp.dll` is 2026-09-03. Per CLAUDE.md a
-stale nstrip reference compiles clean and then throws `MissingMethodException` on the first direct
-typed call into a game type - invisible at build time, invisible in the log until a player hits it.
-Narrowing from the v1.10.0 read: **no new direct typed call into a game type was introduced in
-1.10.0** (`PlayerConditionService` reaches the game entirely through reflection and framework
-helpers), so no release-specific `MissingMethodException` surface was identified. This is a fleet-wide
-gap (tracker T1.71 covers eight mods), so batch it with the other nstrip regenerations rather than
-doing it alone.
+> Audit score is 10/10 with zero open CRITICAL, DESIGN GAP, MINOR or retrospectives. There is no
+> stabilization work. The sole pre-existing Phase-0 item (nstrip regeneration) is a fleet-wide external
+> tooling gap, carried below in the Maintenance Calendar and as fleet tracker T1.71, not a defect in
+> this mod's shipped bytes.
 
 ---
 
-## Phase 1: Foundation
+## Phase 1: Release & verification
 
-> Table stakes. All cheap, all mechanical, none of them add a feature.
+> The mod is built and green; these close out the current version.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Re-run `/critical-analysis SkillSpeedBoost` against 1.10.0 - **DONE 2026-09-05**, verdict SHIPS WITH CAVEATS; its findings are Phase 0 items 1-4 above | Audit refresh | - | Done |
-| Re-run `/code-quality SkillSpeedBoost` - still 2026-08-24 / v1.9.7, never run against the ~600 lines 1.10.0 added including all of `PlayerConditionService.cs` | Audit refresh | P1 | Medium |
-| Re-run `/feature-map SkillSpeedBoost` (its own header warns it must be regenerated after any version bump; it still says v1.9.7 / 7 features, the mod now advertises 13) | Audit refresh | P1 | Quick |
-| Docs sweep: `Blade_Multiplier` -> `Knife Fighting_Multiplier` (`FEATURES.md:57`, `:235`), "Foraging -> Herbal" -> a real chain (`:142`), "Club Fighting" -> `ClubFighting` (`README.md:143`), `FEATURES.md:5` to thirteen features, config example regenerated from `Plugin.cs:121-345`, EA 0.65 -> EA 0.67h (`README.md:5`, `:48`), `CSFF-JsonData_EA_0-65h` -> `_Current` (`SkillSynergies.cs:25`), `ActiveProfile` description regenerated from the `Profile` struct (`Plugin.cs:225-228`) | Docs honesty | P1 | Quick |
-| Run `/consolidate-ideas SkillSpeedBoost` - `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` still lists all seven Near-Term rows as open when six shipped in 1.10.0 | Backlog hygiene | P1 | Quick |
-| Play-verify T1.74 (the 1.10.0 bonuses) and T1.75 (morning window) | Runtime verification | P1 | Medium (human, in-game) |
-| Version hygiene: **already clean** - `ModInfo.json` / `Plugin.cs` `PluginVersion` / `README.md` header all read 1.10.0; `CHANGELOG.md` and README Version History both carry a 1.10.0 entry | Version hygiene | - | Done |
-| Localization: **N/A by design** - no CardData, no CSV. E16 is an adjudicated false positive | Localization | - | Not applicable |
-
-**Why the remaining refreshes are still P1**: the adversarial read is done, but `code-quality.md`
-and `feature-map.md` still describe a seven-feature v1.9.7 mod. Seven new config-driven bonuses now
-multiply into the same composed total, and the interaction surface (`MaxComposedMultiplier` vs. the
-presets vs. a per-skill 0x vs. the daily-first-use claim) is genuinely combinatorial for the first
-time. Bonus number eight (the Phase 2 low-condition penalty) has since shipped as v1.10.2 without that
-refresh, against a gate that is no longer blind to its shape: Phase 0 item 4 closed the
-authoring-shape blindness in v1.10.1, and invariant 4 now covers the sub-1.0 write path the
-penalty needed. The two refreshes stay P1 on their own merits - both artifacts still describe a
-seven-feature v1.9.7 mod, and the mod now advertises fourteen features.
+| Publish 1.11.0 to Nexus (Nexus holds 1.10.6) once ready | Release | P1 | Quick (`/nexus-publish upload SkillSpeedBoost`) |
+| Repackage the suite + bump MUM so the embed carries 1.11.0 (the `EmbeddedZipCurrency.Tests.ps1` pin still reads 1.10.6, self-expiring on the next `/package-mod-suite`) | Release | P1 | Quick |
+| T1.316 - human playthrough that the Partner's skills follow your settings (harness T1.316 already `pass`; a human run is the only unmeasured confirmation) | Runtime verification | P1 | Medium (human, in-game) |
+| Move SkillSpeedBoost into `Stable/` once published (feature complete, drained plan) | Workspace hygiene | P2 | Quick (`Development_Tools/Move-ModFolder.ps1`) |
 
 ---
 
-## Phase 2: Core Expansion
+## Phase 2: Deferred specs  *(decisions, not scheduled features)*
 
-> One clear next feature, and one decision that is worth more than any feature.
-
-### ~~Low-condition XP penalty (the "stick" knob)~~ SHIPPED v1.10.2, 2026-09-07
-**What shipped**: `LowConditionPenaltyEnabled` (default false) with `LowConditionThreshold` (60)
-and `LowConditionMultiplier` (0.5) multiply skill XP by a sub-1.0 factor while ANY of Energy,
-Satiation or Hydration is below the threshold percent of its live maximum - the exact inverse of
-the well-rested bonus at the same threshold. `PlayerConditionService.IsAnyConditionBelow` sits
-beside `IsWellRested` on the same cached reads, with its own `[LowCondition]` per-cause
-breadcrumbs so the two consumers cannot silence each other; the composition line AND the
-early-out guard entry are both in `MorningBonusPatch.ChangeStat_Post`; `Hardcore`, `Legacy` and
-`Immersive` now switch it on, which is the stick those three presets never had.
-**What the plan did not anticipate**: the write path discarded every sub-1.0 composed multiplier.
-`if (multiplier <= 1f) yield break;` and a write gated on `capped > after` were both correct while
-every term could only raise the total, and both would have thrown this penalty away in full, with
-no log and no exception - the composition line and the guard entry alone would have shipped a dead
-feature behind a green gate. Both are now a tolerance comparison, and the gate carries invariant 4
-to keep them from coming back (32/32; three planted breaks watched RED on a fixture copy).
-**Owed**: nothing in code. In-game acceptance is tracker **T1.78** (the penalty reduces a real
-gain) and **T1.79** (default config unchanged against 1.10.1).
+> No plan doc exists; these are the carried-forward backlog from `.audit/ideas.md`. Each is a decision
+> owner Jared must make before any code, re-verified unbuilt this pass.
 
 ### Decision: `SkillXpModifierService` - one public extension point
-**What**: A single registration surface, `SkillXpModifierService.Register(Func<string skillName,
-float multiplier> provider)`, with every registered provider folded into `ChangeStat_Post`'s composed
-multiplier as one more loop.
-**Why**: Highest leverage on the whole roadmap. Every cross-mod idea in Phase 3 currently wants its
-own bespoke public setter on SSB; this collapses all of them into consumer-side-only changes with
-zero further SSB edits. It also supersedes the older informal "promote `SkillSynergies` to public"
-idea.
-**Requires**: Three decisions from Jared before any code - provider ordering and how providers
-interact with `MaxComposedMultiplier` (1.10.0 made this a live question, not a hypothetical);
-per-tick delegate cost vs. caching at action start; and how stable the API is promised to be.
+**What**: `SkillXpModifierService.Register(Func<string skillName, float multiplier>)`, each provider
+folded into `ChangeStat_Post`'s composed multiplier as one more loop.
+**Why**: Highest leverage on the roadmap. Every cross-mod idea in Phase 3 currently wants its own
+bespoke public setter; this collapses all of them into consumer-side-only changes with zero further SSB
+edits, and supersedes the older informal "promote `SkillSynergies` to public".
+**Requires**: three owner decisions - provider ordering vs. `MaxComposedMultiplier`, per-tick delegate
+cost vs. caching at action start, and the API-stability commitment.
 **Complexity**: Medium.
 
-### Decision: does SSB get a save hook?
-**What**: Not a feature - the single question that is independently blocking three separate ideas
-(Consecutive-Day Streak, Rested-XP Bank, and the level-milestone one-shot bonus). Today nothing SSB
-accrues survives a reload: synergy combos live in memory, the daily-first-use ledger re-arms on load
-(CHANGELOG 1.10.0), and area familiarity persists only because it got its own TSV file.
-**Why**: Answer it once and three parked ideas become buildable together; leave it unanswered and
-each stays parked forever, re-litigated by every planning pass. A "no" is a perfectly good answer -
-it just needs to be written down so those three rows can move to Ideas with a rejection reason.
-**Requires**: nothing. **Complexity**: Quick (the decision; the implementation is Complex).
+### Decision: Area Familiarity decay
+**What**: Fade familiarity after N unvisited in-game days, mirroring the mod's own staleness philosophy.
+The last-visit days already live in `AreaFamiliarityDays.tsv` (shipped with the round-2 fade), so the
+schema groundwork is done.
+**Why**: Familiarity is the only monotonic thing in a mod whose entire thesis is that unused things
+fade; `AreaFamiliarityMinBonus` set the floor but nothing yet lowers a learned location.
+**Requires**: a decision on decay rate and floor; mind the TSV rollback rule.
+**Complexity**: Medium.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> All soft-dependency only. SSB must stay fully functional with none of these installed.
+> All soft-dependency only. SSB must stay fully functional with none of these installed. Every row
+> becomes a consumer-side-only change once `SkillXpModifierService` exists.
 
 ### RepeatAction: confirm multipliers fire on automated repeats
 **What**: Verify SSB's bonuses apply on RA-driven repeat actions, then decide on an
 `ExcludeAutomatedFromSynergy` toggle so AFK looping cannot farm the +50% synergy combo.
-**Why**: RA shipped 2.1.0 on 2026-09-05, so its dispatch path is newly worth re-checking; and the
-synergy combo is the one SSB bonus with an obvious automation exploit.
-**Requires**: T1.74/T1.75 verification first (know the bonuses work before asking whether they
-over-work). **Complexity**: Medium.
+**Why**: the synergy combo is the one SSB bonus with an obvious automation exploit.
+**Requires**: none. **Complexity**: Medium.
 
 ### Station-anchored themed XP bonus (ACT / WDI / CMC)
-**What**: A `StudyLocationUID` -> multiplier config map, resolved through the
-`AreaFamiliarityPatch.CurrentLocationUid` the mod already tracks. Any CT2 station qualifies by config
-- CMC's Study Desk, an ACT forge, a WDI workshop - with no partner-mod code change at all.
-**Why**: It is pure config on SSB's side and needs nothing from the other mods, which makes it the
-lowest-coordination cross-mod win available. **Requires**: none (though it is much cleaner as a
-`SkillXpModifierService` consumer). **Complexity**: Medium.
+**What**: Already shipped as the `StationBonusMap` config (any CT2 station UID resolves through
+`AreaFamiliarityPatch.CurrentLocationUid`). Remaining work is only documenting the cross-mod recipes
+(a CMC Study Desk, an ACT forge, a WDI workshop) and, cleaner, routing it through
+`SkillXpModifierService` once that exists.
+**Requires**: none for config; the service for the clean form. **Complexity**: Quick (docs) / Medium.
 
 ### HerbsAndFungi "Focus Tonic" -> timed global XP flag
-**What**: An H&F consumable sets a timed flag; SSB folds it in as one more multiplier for a duration.
-**Why**: The first concrete consumer of `SkillXpModifierService`, and the one that proves the API
-shape is right before others build on it. **Requires**: the Phase 2 `SkillXpModifierService`
-decision. **Complexity**: Medium.
-
-### Area Familiarity decay
-**What**: Fade familiarity after N unvisited in-game days, mirroring the mod's own staleness
-philosophy. Needs a `lastVisitedDay` column in `AreaFamiliarity.tsv`.
-**Why**: Familiarity is the only monotonic thing in a mod whose entire thesis is that unused things
-fade. 1.10.0's `AreaFamiliarityMinBonus` set the floor; nothing lowers a learned location.
-**Requires**: a decision on decay rate and floor, plus care around the TSV schema change (v1.7.5
-already flagged that path as fragile). **Complexity**: Medium.
+**What**: An H&F consumable sets a timed flag; SSB folds it in as one more multiplier for a duration -
+the first concrete consumer of `SkillXpModifierService`.
+**Requires**: the Phase 2 `SkillXpModifierService` decision. **Complexity**: Medium.
 
 ---
 
 ## Phase 4: Polish
 
-> A 0-CardData mod has no art or animation phase. Polish here means text, diagnostics, and docs.
+> A 0-CardData mod has no art or animation phase. Polish here means config text, diagnostics, and docs.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Config-description pass | 1.10.0 added roughly a dozen config keys at once. Re-read every `Config.Bind` description as a player would: it is the mod's ONLY player-facing text, and there is no CSV or card description to correct it | Quick |
-| FEATURES.md preset grid | **Verified present this pass** (FEATURES.md:117 area) - the seven presets each list their full toggle row. Nothing owed; re-check it after adding preset number eight or toggle number seven, since the grid is the only place a player can compare them | Quick |
-| Document the config-write side effect | Choosing a profile now writes all six toggles into the player's `.cfg`, so an individual key must be set AFTER picking a profile. CHANGELOG says it; README/FEATURES troubleshooting should too, since "my setting reverted" is the shape of the support question it will generate | Quick |
-| Area Familiarity UI feedback | Players cannot see their familiarity level without reading a TSV. A perk-card display via framework perk injection is the likely approach - **needs a decision from Jared** on whether it clutters the perk list | Medium |
+| Config-description pass | Re-read every `Config.Bind` description as a player would - it is the mod's ONLY player-facing text, with no CSV or card description to correct it | Quick |
+| Document the config-write side effect | Choosing a profile writes its toggles into the player's `.cfg`, so an individual key must be set AFTER picking a profile; README/FEATURES troubleshooting should say so, since "my setting reverted" is the shape of the support question it generates | Quick |
+| Area Familiarity UI feedback | Players cannot see their familiarity level without reading a TSV; a perk-card display is the likely approach - **needs an owner decision** on whether it clutters the perk list | Medium |
 
 ---
 
 ## Long-term Vision
 
-SSB's natural endpoint is **the fleet's skill-progression substrate, not just a slider pack**. 1.10.0
-finished the "every knob a solo player wants" arc - eleven advertised features, all off or no-op by
-default, with presets that set the whole stack coherently. There is little left to add for a player
-tuning their own game, and adding more risks a config surface nobody can hold in their head. The next
-axis is outward: `SkillXpModifierService` turns SSB into the one place any mod in this repo can say
-"this thing should teach you faster," and every cross-mod idea already on the backlog is waiting on
-exactly that one surface.
+SSB's natural endpoint is **the fleet's skill-progression substrate, not just a slider pack**. The
+solo-player arc is finished - the mod now ships every knob a single player could want, all off or no-op
+by default, with presets that set the whole stack coherently. The next axis is outward:
+`SkillXpModifierService` turns SSB into the one place any mod in this repo can say "this thing should
+teach you faster," and every cross-mod idea on the backlog waits on exactly that one surface.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):
-- **Per-action context capture (tool quality / action difficulty / biome)** - three separate ideas
-  that share one prerequisite investigation: does the tool or action captured in
-  `ActionRoutine_Post` reliably pair with the following `ChangeStatValue` tick? Resolve that once and
-  all three ride the same plumbing; leave it unresolved and none of them are buildable.
+- **Per-action context capture (tool quality / action difficulty / biome)** - the `ActionRoutine_Post`
+  -> `ChangeStatValue` bridge already pairs reliably (shipped for tool/action bonuses); deeper
+  per-action signals ride the same plumbing.
 - **Live `NoveltyCooldownDuration` re-tune without a reload** - would delete the "takes effect after
-  reloading" caveat that every staleness and profile change carries. `Plugin.cs` still carries the
-  "hot-reload of deep stat graph proved unstable" comment; the investigation is whether the two
-  novelty fields specifically were the unstable part, or the full graph rewrite was.
-- **Night-Owl bonus + time-window arbitration** - explicitly **blocked** on the T1.75 morning-window
-  confirmation, since both share `IsMorningWindow`'s clock math. One playthrough item unblocks the
-  whole time-of-day family, including per-skill windows.
+  reloading" caveat; investigate whether the two novelty fields specifically are the unstable part of
+  the deep stat-graph hot-reload, or the full graph rewrite was.
 
-These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (which needs a `/consolidate-ideas` pass
-- see Phase 1) and in `SkillSpeedBoost/.audit/ideas.md` (current as of 2026-09-05).
+Any of these worth building belongs in a new plan under `Documentation/Plans/SkillSpeedBoost/` (or its
+Considered table, with the reason, if ruled out); never create a stub under `Documentation/Ideas/`,
+which keeps no backlog since 2026-10-01.
 
 ---
 
@@ -284,10 +152,10 @@ These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (which needs a `/co
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod SkillSpeedBoost` and update this roadmap |
-| Game version update | **Regenerate `lib/Assembly-CSharp-nstrip.dll` with NStrip** (a plain DLL copy does NOT fix this mod), rebuild, then `/update-mod-version` and `/diagnose-log` |
+| Game version update | **Regenerate `lib/Assembly-CSharp-nstrip.dll` with NStrip** (a plain DLL copy does NOT fix this mod; fleet tracker T1.71), rebuild, then `/update-mod-version` and `/diagnose-log` |
 | After adding any new XP bonus | Confirm it appears in BOTH the composition body and the early-out guard, then run `Development_Tools/Tests/SkillSpeedBoost-BonusComposition.Tests.ps1` |
 | After fixing a critical issue | Run `/critical-analysis SkillSpeedBoost` to verify the fix |
-| After Phase 2 complete | Run `/export-to-repo SkillSpeedBoost` and bump the minor version |
+| After a version bump | Run `/export-to-repo SkillSpeedBoost`, then `/nexus-publish upload SkillSpeedBoost` |
 
 ---
 
@@ -295,14 +163,14 @@ These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (which needs a `/co
 
 ```
 /audit-mod SkillSpeedBoost         - full health check, updates .audit/
-/critical-analysis SkillSpeedBoost - adversarial review (STALE: last run 2026-08-24 vs v1.9.7)
-/code-quality SkillSpeedBoost      - C# reliability scan (STALE: last run 2026-08-24 vs v1.9.7)
-/feature-map SkillSpeedBoost       - regenerate the feature table (STALE: scoped v1.9.7)
-/consolidate-ideas SkillSpeedBoost - reconcile IDEAS.md against what 1.10.0 shipped
+/critical-analysis SkillSpeedBoost - adversarial review
+/code-quality SkillSpeedBoost      - C# reliability scan
+/feature-map SkillSpeedBoost       - regenerate the feature table
 /build-mod SkillSpeedBoost         - build Release DLL
 /deploy-mods SkillSpeedBoost       - build + deploy to game
 /update-mod-version SkillSpeedBoost <ver> - bump version in all 3 files
 /export-to-repo SkillSpeedBoost    - push to public repo
+/nexus-publish upload SkillSpeedBoost - upload the release zip to Nexus
 ```
 
 *(`/repair-items` and `/repair-blueprints` are not applicable - this mod ships no JSON content.)*
@@ -378,3 +246,84 @@ These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (which needs a `/co
   here can see:** whether a hunt under a pinned penalty actually gets its bonus in a running game.
   That is T1.83, filed `pending` before this record was written, alongside T1.82 (1.10.3, now with the
   cave check) and T1.76-T1.80 (1.10.2), all still pending.
+
+### 2026-09-28 - Content_Update_Plan (1.11.0)
+- **Verdict:** 4 features of 4 BUILT as v1.11.0 in `f72ec14a5` (Night-Owl Bonus, Station Bonus,
+  Area Familiarity fade, Day Streak); 0 code rows remain. The release tail is done except the MUM
+  repackage, which was deliberately NOT run (see Disposition). 4 verification rows filed and all 4
+  confirmed by harness on the running game (T1.123-T1.126, session r44), so no verification debt is
+  left on this plan.
+- **Disposition:** ARCHIVE to `Documentation/Design/SkillSpeedBoost_Content_Update_1_11_0_As_Built.md`
+  (plan verbatim, plus an "As built" section recording every departure) and DELETE from
+  `Documentation/Plans/SkillSpeedBoost/`, per `Documentation/Plans/README.md` step 4, matching this
+  mod's two earlier archives. The plan's "Considered, not selected" rows and its two open questions
+  (`SkillXpModifierService` timing, Area Familiarity UI feedback) stay unbuilt and are carried with
+  their reasons in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md`, which now marks the four features
+  shipped. MUM: `Development_Tools/Tests/EmbeddedZipCurrency.Tests.ps1` pins
+  `'Skill_Speed_Boost' = '1.10.6'` (self-expiring) because four other sessions held uncommitted
+  suite-mod builds and `Pack-Suite.ps1` edits when this shipped; the next `/package-mod-suite` embeds
+  1.11.0 and expires the pin.
+- **Pruned:** the whole plan doc (450 lines), archived rather than dropped; the
+  `Documentation/Plans/SkillSpeedBoost/` scope folder is gone again. The one live forward-pointer, the
+  reconciliation note in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md`, was repointed in the same
+  commit; the plan-authoring fleet mission record still names the old path and was left alone as a
+  dated record.
+- **Evidence:** re-derived on disk and in the running game, not taken from the plan. `f72ec14a5`
+  carries the four features (`IsNightWindow`, `Plugin.GetStationBonusMultiplier`,
+  `AreaFamiliarityService.DecayedVisits` under its flag, `SkillStreakService.NoteActivity`, each
+  called from `MorningBonusPatch.ChangeStat_Post`) and `ModInfo.json` at 1.11.0.
+  `SkillSpeedBoost-BonusComposition.Tests.ps1` plus the new `SkillSpeedBoost-BonusLogic.Tests.ps1`:
+  128/128, watched red first on 11 planted breaks in a scratchpad fixture copy (17 failures, every
+  break caught; one first-draft break was an equivalent mutant and was replaced). Release build 0
+  warnings; the deployed DLL is byte-identical to the committed one. Harness walkthrough
+  `TestHarness/client/reports/walkthrough-20260928-091722` on SSB 1.11.0, TestHarness 1.3.0, EA 0.68b:
+  T1.123 24/24, T1.124 24/24, T1.125 26/26, T1.126 35/35. **Built differently from the plan:** the
+  station bonus needed the structure tracker's early-out opened (the plan would have shipped it dead
+  with familiarity off, and T1.124 proves the player-default case live), and the fade's last-visit
+  days live in a sibling `AreaFamiliarityDays.tsv` rather than a third column, because the 1.10.6
+  loader drops three-column rows and then saves over the file. **What no check here can see:**
+  whether the default numbers (1.5x at night, +2% a day for 10 days, 14 days of grace) feel right in
+  play; they are tunable starting points, which the CHANGELOG says.
+
+### 2026-10-04 - MASTER_PLAN (Content Update round 2)
+- **Verdict:** 18 features of 18 BUILT into the unpublished 1.11.0 (A1, A2, A3, B1, B2, B3, C1 to C5,
+  D1 to D4, E1 to E3, in `f8d8fe21c` through `0fa97ed4b`); 0 code rows remain, the pack's only open
+  prompts were the harness batch (Prompt 2) and the release tail (Prompt 11), both release work rather
+  than code. 17 verification rows filed: 16 confirmed `pass` by harness runs on the running game
+  (T1.300 to T1.304 recorded 2026-10-04 03:30, T1.305 to T1.315 recorded 2026-10-04 04:18 from session
+  csff-mods-6e's run of 2026-10-03), 1 `pending` (T1.316, E2, never run in game; also W0.5's live half).
+  8 ideas stay ruled out with their reasons and 12 earlier-shipped rows are listed, both in the As-Built's
+  Considered table. The owner-only question (may SSB ship its first data file) is recorded as decided on
+  its default, the no-data-file toast E3 shipped.
+- **Disposition:** ARCHIVE to `Documentation/Design/SkillSpeedBoost_Content_Update_Round_2_As_Built.md`
+  (condensed: selection with commits and rows, Considered table with reasons, Wave 0 answers, every
+  as-built choice, engine facts S9, risk register, the open T1.316 readings and release tail) and DELETE
+  `MASTER_PLAN.md` and `MASTER_PLAN_Implementation_Prompts.md` from `Documentation/Plans/SkillSpeedBoost/`,
+  per `Documentation/Plans/README.md` step 4, matching this mod's three earlier archives. The full plan
+  and pack text resolve at `0fa97ed4b`. SkillSpeedBoost is now feature complete under `Stable/README.md`.
+- **Pruned:** the whole plan (809 lines) and the 2-prompt pack, archived rather than dropped; the
+  `Documentation/Plans/SkillSpeedBoost/` folder is gone again. Live forward-pointers repointed to the
+  As-Built in the same commit: the `source` field of tracker rows T1.300 to T1.316, the two plan-path
+  citations in each of 14 scenarios under `TestHarness/client/scenarios/SSB/` (T1.312 to T1.314 cite the
+  plan by section id only, which the As-Built keeps), the T1.316 row of
+  `Playthrough_Test/Playthrough_Checklist.html`, the SkillSpeedBoost row of
+  `Documentation/Ideas/IDEAS_OVERVIEW.md` and the two citations in
+  `Documentation/Plans/UtilityBelt/MASTER_PLAN.md`. Left alone as dated records: the three earlier SSB
+  As-Built files, this log's earlier entries and the 2026-10-01 `Documentation/Reports/Plan_Review/plan-review.html`
+  snapshot.
+- **Evidence:** re-derived this session, not taken from the plan. Tracker read through
+  `.claude/playthrough-test-status.json`: all 17 ids present (16 in `confirmedItems` at `pass`, T1.316 in
+  `items` at `pending`). Gates on the tree at `0fa97ed4b` plus this close-out, one Pester run at a time:
+  `SkillSpeedBoost-BonusComposition.Tests.ps1` 113 passed / 0 failed, `SkillSpeedBoost-BonusLogic.Tests.ps1`
+  699 / 0, `Preflight-MechChecks.Tests.ps1` 5 / 0. Section H: every one of the 72 `Config.Bind` keys is named
+  in README or FEATURES; every backticked setting name in README, FEATURES, CHANGELOG and the ModInfo
+  Description exists in source (the two exceptions are a deliberate misspelling example in FEATURES and a
+  1.9.x method name in an old CHANGELOG entry); every class added by the plan (`ScopedBonusConfig`,
+  `SkillListConfig`, `SynergyGroupConfig`, `SeasonBonusService`, `EnvironmentBonusService`, `PerkBonusService`,
+  `ProgressionStore`, `RestedBankService`, `MilestoneService`, `XpOverflowService`, `XpReadout`, `XpDigest`,
+  `PartnerSkillPatch`) has a call site outside its own file; version 1.11.0 agrees across `ModInfo.json`,
+  `Plugin.cs` and the README, and `.claude/nexus-publish-status.json` still reads 1.10.6. `.audit/feature-map.md`
+  (gitignored here) was regenerated for 1.11.0. **What no check here can see:** whether the E2 Partner path
+  scales a real partner gain in game (T1.316), and whether the round-2 default magnitudes feel right in play.
+  **Not done, and why:** the E2 build is not deployed, T1.316 is not run, and the MUM repackage and deploy are
+  not run, because the shared game lane was held by another session; Nexus publication is the owner's call.

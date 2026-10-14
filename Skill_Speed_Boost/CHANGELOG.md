@@ -1,9 +1,64 @@
-# Skill Speed Boost — Changelog
+# Skill Speed Boost: Changelog
 
 All notable changes to this mod are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
+
+## [1.11.1] - 2026-10-12
+
+1.11.0 was never released on Nexus, so its notes below ship in this release too.
+
+### Fixed
+
+- **Skill gates see the boosted level straight away on EA 0.69.** EA 0.69 caches each skill's value for the checks that unlock actions, dialog and blueprints. A check made mid-gain could keep the old level until the skill next changed. The mod now refreshes that cache whenever it adjusts a skill.
+- **A gain the low-condition penalty stops completely no longer uses up your daily bonuses.** With `LowConditionMultiplier` at 0, a blocked gain still spent the skill's first use of the day, day-streak day and rested-bank XP. Those are now kept for a gain that counts.
+- **The XP log options keep the mod running.** With every XP bonus off but `LogSkillXpGains` or `LogDailyXpSummary` on, the mod stopped early and logged nothing.
+- **One failed patch no longer stops the rest.** The startup line says how many applied, and the framework is now marked as required.
+- **A bonus can no longer push a skill past its maximum when the maximum cannot be read.** If a game update hides a skill's maximum, that skill keeps the game's own gain and the log says why once.
+- **Skills from other mods keep their per-skill settings when their name has an apostrophe, quote, bracket or equals sign.** BepInEx refuses those characters in a setting name, so such skills silently lost their staleness and multiplier settings. The setting name now leaves them out.
+- **A structure bonus can no longer carry into a new run.** Quitting mid-action at a structure could apply that structure's familiarity and station bonus to a later gain somewhere else.
+- **Modders:** the morning and night windows now read the framework's shared clock.
+
+## [1.11.0] - 2026-09-27
+
+Eleven optional bonuses, optional XP overflow and XP readout, synergy tuning and groups, and a daily XP summary log. Every new setting defaults to off, empty or the old built-in value, so an existing config behaves as on 1.10.6. One exception: with skill synergies on and Community Mod Chest installed, its Melee Fighting skill now counts in the Combat group. Empty `SynergyGroupOverrides` to keep the old groups.
+
+### Added
+
+- **Night-owl bonus.** `NightBonusEnabled` gives `NightBonusMultiplier` (1.5) from `NightStartHour` (22) to `NightEndHour` (2), wrapping past midnight. If it overlaps the morning window, an hour inside both gets both.
+- **Station bonus.** `StationBonusMap` (empty by default) gives extra XP at structures you name, as `id=multiplier` pairs such as `forge_id=1.25;desk_id=1.1`. It counts while you work at the structure, works for any mod's structures and does not need area familiarity.
+- **Familiarity fade.** `AreaFamiliarityDecayEnabled` fades a location's bonus after `AreaFamiliarityDecayAfterDays` (14) days away, by `AreaFamiliarityDecayPerDay` (1) actions a day. Your recorded visits are never overwritten, so working there again, or turning the fade off, restores the full bonus. Rolling back to 1.10.6 loses nothing.
+- **Day streak.** `StreakBonusEnabled` adds `StreakBonusPerDay` (+2%) for each consecutive in-game day with skill XP, up to `StreakBonusMaxDays` (10), so +20% at the defaults. A day without XP, loading an older save or a new character restarts it.
+- **Season bonus.** `SeasonBonusMap` gives faster or slower XP in the seasons you name, such as `Winter:Woodworking=1.25;Summer=1.1`. Leave the skill out, or write `*`, for every skill. A skill's own entry beats the every-skill entry, and values below 1 slow it.
+- **Environment bonus.** `EnvironmentBonusMap` does the same for kinds of place, such as `Env_Cave*:Knapping=1.2;Env_Grove*=1.1`. It does not grow with visits.
+- **Tool and action bonuses.** `ToolBonusMap` and `ActionBonusMap` give faster or slower XP with the tools and from the actions you name, such as `tag_Axe=1.1` or `Grind=1.2`. A tool is the card a drag-and-drop action uses, so grinding Acorns counts the mortar.
+- **Perk bonus.** `PerkBonusEnabled` turns on `PerkBonusMap`, faster or slower XP while you hold a perk you name, whether picked at character creation or granted during the run. It ships with Community Mod Chest's seven Academy graduate perks at 1.25 each, which do nothing without that mod. When several held perks name one skill, the highest applies.
+- **In the Flow bonus.** `FocusBonusEnabled` multiplies XP by `FocusBonusMultiplier` (1.2) while your Focus is in its top band (72 and up on the current game). Anything that raises Focus becomes a learning aid, such as Advanced Copper Tools' Focus Tea, Herbs & Fungi's Lion's Mane Broth or Community Mod Chest's inn cat.
+- **Morning and night skill lists.** `MorningBonusSkills` and `NightBonusSkills` limit those bonuses to the skills you list. Empty means every skill.
+- **Rested-XP bank.** `RestedBankEnabled` banks `RestedBankGainsPerDay` (3) gains for each full day a skill goes unused, up to `RestedBankMaxGains` (10). Each gain spends one and is multiplied by `RestedBankMultiplier` (2.0). A skill's first gain ever banks nothing, and neither does loading an earlier save.
+- **Milestone burst.** `MilestoneBonusEnabled` adds `MilestoneBonusXp` (1) skill point the first time a skill reaches each `MilestoneEvery` (25) breakpoint, once per character. Nothing scales it and `MaxComposedMultiplier` does not cap it. It never passes a skill's maximum.
+- **XP overflow.** `XpOverflowEnabled` sends `XpOverflowFraction` (0.5) of the XP a maxed skill cannot take to the least trained related skill below its maximum. Only the receiver's own multiplier applies.
+- **XP readout.** `XpReadoutEnabled` shows a short message near the time wheel naming the bonuses that applied, such as `Skill XP x1.50: morning, well rested`. It appears when the bonuses change and again after `XpReadoutMinSeconds` (60). It changes no XP.
+- **Partner skills follow your settings.** `PartnerSkillsFollowSettings` gives the Partner companion's skills your staleness settings and your XP multiplier. Situational bonuses never apply to the Partner. Combat Experience is not a skill this mod tracks, so it keeps the game's rules.
+- **Per-save progression.** `PerSaveProgression` keeps area familiarity, its fade, the day streak and the rested bank separately for each save slot. The first save you load with it on gets a copy of the shared files, and new games start empty. `PerSaveResetOnNewGame` (default on) clears what a deleted game left in a slot. The shared files are never changed, so turning it off goes back to them.
+- **Synergy tuning.** `SynergyBonusPerAction` (0.1), `SynergyMaxCombo` (5) and `SynergyComboTimeoutMinutes` (5) are now settings, and `SynergyTimeoutUnit` counts the timeout in `RealMinutes` (default) or `GameMinutes`. The in-game clock moves in 15-minute steps, so use 30 or more.
+- **Synergy that needs a change of skill.** `SynergyRequireDifferentSkill` grows a combo only when you switch to a different skill of the group. Repeating one skill, by hand or through RepeatAction, holds the combo.
+- **Synergy groups.** `SynergyGroupOverrides` adds, moves or removes a skill's groups, as `Skill Name=GroupA,GroupB`. The default puts Community Mod Chest's Melee Fighting in Combat.
+- **Daily XP summary.** `LogDailyXpSummary` writes one line per skill per in-game day: its gains, the game's total, the total after this mod and the average multiplier.
+- **`LogSkillXpGains` shows more.** Each `[XpGain]` line now ends with the structure, environment, action and tool, which are the values to copy into the bonus maps.
+
+### Changed
+
+- **Presets.** Casual and Grinder now also turn on the night bonus, streak, rested bank, milestone burst and XP overflow. Immersive turns on the streak. Casual, Grinder and Immersive turn on the perk bonus and In the Flow bonus. Every preset writes `SynergyRequireDifferentSkill` off. A preset you chose earlier is not re-applied: choose it again, or clear `AppliedProfile`.
+- The mod now notes which structure you work at whenever area familiarity, the station bonus or `LogSkillXpGains` is on.
+
+### Fixed
+
+- **Staleness settings apply without leaving the game.** Changing `EnableSkillStaleness`, a `<Skill>_UseStaleness` or a `<Skill>_StalenessMultiplier` while playing, or choosing a preset, now applies to every skill at once. The settings are also applied again at the start of every run. Before, an in-game change did nothing until a restart.
+- **Turning staleness back on restores each skill's own values.** The mod records them before it first changes them. If another mod changes them afterwards (WikiMod's staleness setting does), its value is the one restored.
+- **The docs no longer say loading a save applies a setting.** Loading a save never re-read the config: BepInEx reads the `.cfg` file once, at startup. An in-game change applies at once, and a file edit needs a full restart.
+- **A perk granted during a run is no longer multiplied by your XP settings.** 1.10.6 fixed the perks a run starts with. A perk granted later, such as the Sirus23 collection's Pack Bond, still counted as XP: at a multiplier of 8, a perk's +75 Woodworking took the skill from 0 to its maximum of 150.
 
 ## [1.10.6] - 2026-09-25
 
@@ -260,7 +315,7 @@ config file behaves exactly as it did on 1.9.7 until you change something.
 
 ---
 
-## [1.9.7] — 2026-08-24
+## [1.9.7] - 2026-08-24
 
 ### Changed
 
@@ -268,7 +323,7 @@ config file behaves exactly as it did on 1.9.7 until you change something.
   capture window for the player-reported vanilla bug (a large stat penalty, e.g. the -150
   Stealth hit from an extinguished campfire, allegedly misapplied as a positive XP gain) closed
   without a reproduction against this mod's code path. No behavior change from this mod either
-  way — the diagnostics were informational only, and removing them restores the pre-1.9.6 log
+  way: the diagnostics were informational only, and removing them restores the pre-1.9.6 log
   output.
 - **Silent-catch reflection breadcrumbs upgraded `LogDebug` → `LogWarning`** in
   `MorningBonusPatch` (`SetCurrentValue`, `IsMorningWindow`) and `AreaFamiliarityPatch`
@@ -276,23 +331,23 @@ config file behaves exactly as it did on 1.9.7 until you change something.
   field-rename that silently breaks bonus application or area-familiarity tracking is now
   actually visible in `LogOutput.log` by default instead of invisible.
 
-## [1.9.6] — 2026-08-09
+## [1.9.6] - 2026-08-09
 
 ### Diagnostic
 
-- Added temporary `LogInfo` diagnostics to `MorningBonusPatch.ChangeStat_Post` to investigate a player-reported vanilla bug (EA 0.66a+) where a large stat penalty (e.g. the -150 Stealth hit from an extinguished campfire) is allegedly misapplied as a positive XP gain. Logs the raw before/after/delta on any skill-stat change of magnitude ≥50 before this mod's XP-bonus math runs, and separately logs if a bonus is then compounded on top of it. No behavior change — informational only, to confirm or rule out this mod as a contributor before deciding on a fix. Will be removed/demoted once the report is resolved.
+- Added temporary `LogInfo` diagnostics to `MorningBonusPatch.ChangeStat_Post` to investigate a player-reported vanilla bug (EA 0.66a+) where a large stat penalty (e.g. the -150 Stealth hit from an extinguished campfire) is allegedly misapplied as a positive XP gain. Logs the raw before/after/delta on any skill-stat change of magnitude ≥50 before this mod's XP-bonus math runs, and separately logs if a bonus is then compounded on top of it. No behavior change: informational only, to confirm or rule out this mod as a contributor before deciding on a fix. Will be removed/demoted once the report is resolved.
 
 ---
 
-## [1.9.5] — 2026-07-16
+## [1.9.5] - 2026-07-16
 
 ### Fixed
 
-- **Morning Bonus window offset** — `IsMorningWindow` computed "hours since day start" instead of the actual in-game clock hour, omitting `DaySettings.DayStartingHour`. With the vanilla day starting at 04:00, the default `MorningStartHour=5`/`MorningEndHour=9` window was firing 09:00–13:00 instead of the advertised early-morning hours, and the config text's "12 = midday" anchor was wrong. `IsMorningWindow` now reads `DaySettings.DayStartingHour`/`DailyPoints` live and matches `GameManager.HourOfTheDayValue`'s conversion, so `MorningStartHour`/`MorningEndHour` are true clock hours (0 = midnight, 12 = noon).
+- **Morning Bonus window offset**: `IsMorningWindow` computed "hours since day start" instead of the actual in-game clock hour, omitting `DaySettings.DayStartingHour`. With the vanilla day starting at 04:00, the default `MorningStartHour=5`/`MorningEndHour=9` window was firing 09:00–13:00 instead of the advertised early-morning hours, and the config text's "12 = midday" anchor was wrong. `IsMorningWindow` now reads `DaySettings.DayStartingHour`/`DailyPoints` live and matches `GameManager.HourOfTheDayValue`'s conversion, so `MorningStartHour`/`MorningEndHour` are true clock hours (0 = midnight, 12 = noon).
 
 ---
 
-## [1.9.3] — 2026-07-12
+## [1.9.3] - 2026-07-12
 
 ### Changed
 
@@ -302,7 +357,7 @@ config file behaves exactly as it did on 1.9.7 until you change something.
 
 ### Fixed
 
-- **Area familiarity patch** — now correctly filters to CT2 (placed structure) cards before granting familiarity XP. The prior version did not filter by `CardType`, granting spurious XP from non-structure cards in some cases.
+- **Area familiarity patch**: now correctly filters to CT2 (placed structure) cards before granting familiarity XP. The prior version did not filter by `CardType`, granting spurious XP from non-structure cards in some cases.
 
 ---
 

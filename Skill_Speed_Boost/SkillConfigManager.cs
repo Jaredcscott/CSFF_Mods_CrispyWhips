@@ -39,12 +39,13 @@ public static class SkillConfigManager
     private static void RegisterSkillEntries(ConfigFile config, string skill)
     {
         var skillKey = NormalizeSkillKey(skill);
+        var configName = ConfigKeyName(skill);
 
         if (!_skillMultipliers.ContainsKey(skillKey))
         {
             _skillMultipliers[skillKey] = config.Bind(
                 "Per-Skill Multipliers",
-                $"{skill}_Multiplier",
+                $"{configName}_Multiplier",
                 1,
                 new ConfigDescription(
                     $"XP multiplier for {skill}. 0 = disable skill leveling. 1 = use global (default). 2-10 = per-skill override.",
@@ -57,24 +58,38 @@ public static class SkillConfigManager
         {
             _skillStalenessToggles[skillKey] = config.Bind(
                 "Per-Skill Staleness",
-                $"{skill}_UseStaleness",
+                $"{configName}_UseStaleness",
                 true,
                 $"Enable staleness decay for {skill}. AND-ed with global EnableSkillStaleness. Default true."
             );
+            // Bound once per skill (the ContainsKey guard above), so the handler is attached once.
+            _skillStalenessToggles[skillKey].SettingChanged += OnStalenessSettingChanged;
         }
 
         if (!_skillStalenessRates.ContainsKey(skillKey))
         {
             _skillStalenessRates[skillKey] = config.Bind(
                 "Per-Skill Staleness Multipliers",
-                $"{skill}_StalenessMultiplier",
+                $"{configName}_StalenessMultiplier",
                 1.0f,
                 new ConfigDescription(
                     $"Staleness decay rate for {skill}. 1.0 = default (3 in-game hours). 2.0 = 2x faster decay. 0.5 = half speed.",
                     new AcceptableValueRange<float>(0.1f, 5.0f)
                 )
             );
+            _skillStalenessRates[skillKey].SettingChanged += OnStalenessSettingChanged;
         }
+    }
+
+    /// <summary>
+    /// A per-skill staleness toggle or rate changed while the game is running: re-apply staleness
+    /// to every skill at once, as EnableSkillStaleness's own handler in Plugin.Awake does. BepInEx
+    /// reads the .cfg file once, at startup, so an edit made to the file on disk still needs a
+    /// relaunch; this covers a change made in-game (a configuration manager, a preset).
+    /// </summary>
+    private static void OnStalenessSettingChanged(object sender, System.EventArgs args)
+    {
+        Patcher.GameLoadPatch.ReapplyStaleness("per-skill staleness setting changed");
     }
 
     /// <summary>
@@ -94,6 +109,20 @@ public static class SkillConfigManager
         }
 
         return Plugin.SkillExpMultiplier;
+    }
+
+    // BepInEx rejects a config key containing any of these (ConfigDefinition.CheckInvalidConfigChars),
+    // so a mod skill named, say, "Smith's Lore" would throw at Bind and lose its per-skill settings.
+    // No vanilla or CMC skill name contains one, so their existing keys are unchanged.
+    private static readonly char[] InvalidConfigChars = { '=', '\n', '\t', '\\', '"', '\'', '[', ']' };
+
+    internal static string ConfigKeyName(string skill)
+    {
+        if (skill.IndexOfAny(InvalidConfigChars) < 0) return skill;
+        var sb = new System.Text.StringBuilder(skill.Length);
+        foreach (char c in skill)
+            if (System.Array.IndexOf(InvalidConfigChars, c) < 0) sb.Append(c);
+        return sb.ToString();
     }
 
     public static void RegisterDynamicSkill(ConfigFile config, string skillName)
