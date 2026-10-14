@@ -1,3 +1,7 @@
+// Host-free: no BepInEx or UnityEngine reference (it reads and writes the one preferences file and logs
+// through MumLog, which Plugin.Awake points at the BepInEx log). Development_Tools/Tests/
+// MUM-CompiledLogic.Tests.ps1 compiles this file (with ModSorter and InstalledModInfo) and drives it
+// against scratch files.
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,13 +18,16 @@ namespace mod_update_manager
     }
 
     /// <summary>
-    /// Persists per-mod ignore/favorite/notes preferences to a JSON file
+    /// Persists per-mod ignore/favorite/notes preferences to a JSON file, and beside them two global string
+    /// keys: the My Mods search filter (_searchFilter) and sort order (_sortMode). A mod is read only from an
+    /// object-valued key, so a string value is never read as a mod.
     /// </summary>
     public class ModPreferences
     {
         private readonly string _filePath;
         private Dictionary<string, ModPreferenceEntry> _prefs;
         private string _globalSearchFilter = "";
+        private ModSortMode _sortMode = ModSorter.DefaultMode;
 
         public ModPreferences(string filePath)
         {
@@ -42,6 +49,18 @@ namespace mod_update_manager
         public void SetSearchFilter(string filter)
         {
             _globalSearchFilter = filter ?? "";
+            Save();
+        }
+
+        /// <summary>
+        /// The My Mods sort order, persisted globally like the search filter. A file with no choice saved,
+        /// or one this build cannot read, gives the default (name).
+        /// </summary>
+        public ModSortMode GetSortMode() => _sortMode;
+
+        public void SetSortMode(ModSortMode mode)
+        {
+            _sortMode = Enum.IsDefined(typeof(ModSortMode), mode) ? mode : ModSorter.DefaultMode;
             Save();
         }
 
@@ -127,6 +146,7 @@ namespace mod_update_manager
                 if (!File.Exists(_filePath)) return;
                 var json = File.ReadAllText(_filePath);
                 _globalSearchFilter = ReadString(json, "_searchFilter") ?? "";
+                _sortMode = ModSorter.ParseKey(ReadString(json, "_sortMode"));
                 var objectPattern = new Regex("\"([^\"]+)\"\\s*:\\s*\\{([^{}]*)\\}", RegexOptions.Singleline);
                 foreach (Match m in objectPattern.Matches(json))
                 {
@@ -142,7 +162,7 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"Could not load mod preferences: {ex}");
+                MumLog.Warning($"Could not load mod preferences: {ex}");
             }
         }
 
@@ -163,6 +183,14 @@ namespace mod_update_manager
                     first = false;
                 }
 
+                // The default order is not written, so a file nobody changed the sort of stays as it was.
+                if (_sortMode != ModSorter.DefaultMode)
+                {
+                    sb.Append(first ? "" : ",");
+                    sb.Append($"\n  \"_sortMode\": \"{ModSorter.KeyOf(_sortMode)}\"");
+                    first = false; // the mod entries after it need their comma
+                }
+
                 foreach (var kvp in _prefs)
                 {
                     if (!kvp.Value.Ignored && !kvp.Value.Favorited && string.IsNullOrEmpty(kvp.Value.Notes))
@@ -180,7 +208,7 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"Could not save mod preferences: {ex}");
+                MumLog.Warning($"Could not save mod preferences: {ex}");
             }
         }
 

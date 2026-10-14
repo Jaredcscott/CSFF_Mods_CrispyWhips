@@ -70,7 +70,7 @@ namespace mod_update_manager
                 catch (Exception ex)
                 {
                     // A failure here must degrade to "nothing to report", never break the tab.
-                    try { Plugin.Logger?.LogWarning($"Dependency validation failed: {ex.Message}"); } catch { }
+                    try { Plugin.Logger?.LogWarning($"Dependency validation failed: {ex}"); } catch { }
                     _cache = new List<DependencyIssue>();
                     LastScanSummary = "Dependency scan failed - see the log.";
                 }
@@ -186,7 +186,10 @@ namespace mod_update_manager
                 if (dllPath.StartsWith(pluginsRoot, StringComparison.OrdinalIgnoreCase))
                     return dllPath.Substring(pluginsRoot.Length).TrimStart('\\', '/');
             }
-            catch { }
+            catch (Exception ex)
+            {
+                try { Plugin.Logger?.LogDebug($"Dependency scan: could not shorten the display name of '{dllPath}': {ex.Message}"); } catch { }
+            }
             return Path.GetFileName(dllPath);
         }
     }

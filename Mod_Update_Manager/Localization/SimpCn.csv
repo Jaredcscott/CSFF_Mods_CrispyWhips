@@ -9,3 +9,239 @@ Mod_Update_Manager_MissingOptionalDependencyBadge,[Missing optional dependency],
 Mod_Update_Manager_MissingHardDependency,"Requires ""{0}""{1}, which is not installed. BepInEx will refuse to load this plugin until it is.","需要 ""{0}""{1}，但它尚未安装。在安装之前，BepInEx 将拒绝加载该插件。"
 Mod_Update_Manager_MissingSoftDependency,"Optionally uses ""{0}""{1}, which is not installed. This plugin still loads, but some of its features may be inactive.","可选地使用 ""{0}""{1}，但它尚未安装。该插件仍可加载，但部分功能可能无法使用。"
 Mod_Update_Manager_DependencyMinVersion, v{0} or newer, v{0} 或更高版本
+Mod_Update_Manager_TestedBuild,Tested: EA {0},已测试版本：EA {0}
+Mod_Update_Manager_TestedBuildOlder,Tested: EA {0} - older than the game you are running ({1}),已测试版本：EA {0}，早于你正在运行的游戏版本（{1}）
+Mod_Update_Manager_ConflictGuidConfirmed,[Same plugin GUID],[插件 GUID 相同]
+Mod_Update_Manager_ConflictHeuristic, (heuristic - check manually), （按名称推测，请手动核实）
+Mod_Update_Manager_OpenWindowOnUpdates,Open this window once if the startup check finds updates,若启动检查发现更新，则自动打开一次此窗口
+Mod_Update_Manager_RetryFailed,Retry failed ({0}),重试失败项（{0}）
+Mod_Update_Manager_KeyChecking,Checking the key with Nexus...,正在向 Nexus 验证密钥……
+Mod_Update_Manager_KeyAccepted,Key accepted,密钥有效
+Mod_Update_Manager_KeyRejected,Key rejected - check that the whole key was copied,密钥被拒绝，请确认已完整复制整个密钥
+Mod_Update_Manager_KeyRateLimited,Nexus is rate limiting requests - the key was saved but not checked. Try again later.,Nexus 正在限制请求频率，密钥已保存但尚未验证，请稍后再试。
+Mod_Update_Manager_KeyUnreachable,Could not reach Nexus - the key was saved but not checked.,无法连接到 Nexus，密钥已保存但尚未验证。
+Mod_Update_Manager_KeyInconclusive,Nexus answered with HTTP {0} - the key was saved but not checked.,Nexus 返回了 HTTP {0}，密钥已保存但尚未验证。
+Mod_Update_Manager_SelfLine,Mod Update Manager v{0} - update it manually from its Nexus page to get the latest suite versions.,模组更新管理器 v{0}：请手动前往其 Nexus 页面更新，即可获取最新的模组套件版本。
+Mod_Update_Manager_SelfNexusPage,Nexus page,Nexus 页面
+Mod_Update_Manager_InstallIncompleteDetail,[Install Incomplete] {0}: its folder could not be put back. Your previous copy is in {1}; apply again after restarting.,[安装不完整] {0}：其文件夹未能放回原处。你之前的版本位于 {1}；请重启游戏后再次应用。
+Mod_Update_Manager_SuiteLeftoverRestoreFailed,"FAILED: {0} - an earlier interrupted update left your copy in {1}, and it could not be moved back ({2}).",失败：{0} - 之前一次被中断的更新把你的版本留在了 {1}，且无法移回原处（{2}）。
+Mod_Update_Manager_SuiteLeftoverDeleteFailed,FAILED: {0} - the copy an earlier update replaced ({1}) could not be deleted; restart the game and apply again. Your installed copy was not changed.,失败：{0} - 之前一次更新替换下来的旧版本（{1}）无法删除；请重启游戏后再次应用。你已安装的版本未被更改。
+Mod_Update_Manager_SuiteStagingDeleteFailed,FAILED: {0} - a staging folder from an earlier update ({1}) could not be deleted; your installed copy was not changed.,失败：{0} - 之前一次更新留下的暂存文件夹（{1}）无法删除；你已安装的版本未被更改。
+Mod_Update_Manager_SuiteWorkRootRefused,FAILED: {0} - its staging folder would be inside BepInEx/plugins; nothing was changed.,失败：{0} - 其暂存文件夹将位于 BepInEx/plugins 之内；未做任何更改。
+Mod_Update_Manager_SuiteChecking,Checking {0}...,正在检查 {0}……
+Mod_Update_Manager_SuiteExtracting,Extracting {0} ({1} of {2} files),正在解压 {0}（{1} / {2} 个文件）
+Mod_Update_Manager_SuiteVerifying,Verifying {0} ({1} of {2} files),正在校验 {0}（{1} / {2} 个文件）
+Mod_Update_Manager_SuiteRemoving,Removing the replaced copy of {0} ({1} of {2} files),正在删除 {0} 被替换下来的旧版本（{1} / {2} 个文件）
+Mod_Update_Manager_InstalledElsewhere,[Installed elsewhere],[已安装于其他文件夹]
+Mod_Update_Manager_InstalledElsewhereDetail,Found in {0} - Apply Updates skips this mod so a second copy is not added beside it.,已在 {0} 中发现此模组已安装的版本。应用更新会跳过它，以免在旁边再多装一份。
+Mod_Update_Manager_DetailsCut,... (full text on the Nexus page),……（完整内容见 Nexus 页面）
+Mod_Update_Manager_AlsoInstalling,also installing: {0} requires it,同时安装：{0} 需要它
+Mod_Update_Manager_AlsoInstallingMany,also installing: {0} require it,同时安装：{0} 都需要它
+Mod_Update_Manager_ClearRequired,Clear,清除
+Mod_Update_Manager_RequiredClearedHard,"{0} was cleared, so BepInEx will refuse to load {1} until {0} is installed.",已清除 {0}，因此在安装它之前，BepInEx 将拒绝加载 {1}。
+Mod_Update_Manager_RequiredClearedSoft,"{0} was cleared: {1} will still load, but some of its features may be inactive without it.",已清除 {0}：{1} 仍可加载，但没有它，部分功能可能无法使用。
+Mod_Update_Manager_FrameworkSkew,"The installed framework (v{0}) is older than the one this bundle was packed with (v{1}), while {2} installed content mod(s) are at least as new as the versions packed with it. Update the framework from this tab.",已安装的框架（v{0}）早于此套件打包时所用的框架（v{1}），而另外 {2} 个已安装的内容模组却不低于随套件打包的版本。请在此标签页更新框架。
+Mod_Update_Manager_SuiteStopped,"The framework did not install, so nothing after it was touched.",框架未能安装，因此其后的模组均未改动。
+Mod_Update_Manager_InstallUpdateHeader,Install & Update,安装与更新
+Mod_Update_Manager_KeepPreviousVersion,Keep the previous version when updating a suite mod,更新套件模组时保留上一个版本
+Mod_Update_Manager_KeptVersions,Versions kept:,保留版本数：
+Mod_Update_Manager_KeepDiskNote,"Each kept copy takes as much disk space as that mod's folder: about 232 MB for all fifteen suite mods together (measured 2026-10-13 on a developer install, without the framework's SpriteCache). They are kept in BepInEx/mum_work/kept/, where the game never loads them.",每个保留的版本占用的磁盘空间与该模组文件夹相当：十五个套件模组合计约 232 MB（2026-10-13 在开发者安装上测得，不含框架的 SpriteCache）。它们保存在 BepInEx/mum_work/kept/ 中，游戏不会从那里加载。
+Mod_Update_Manager_Previous,[Previous: {0}],[上一版本：{0}]
+Mod_Update_Manager_RollBack,Roll back,回滚
+Mod_Update_Manager_SuitePruning,Removing an older kept copy of {0} ({1} of {2} files),正在删除 {0} 较早的保留版本（{1} / {2} 个文件）
+Mod_Update_Manager_SuiteRolledBack,{0} rolled back to v{1}.,{0} 已回滚到 v{1}。
+Mod_Update_Manager_RollbackNoWorkFolder,FAILED: {0} - there is no work folder to roll back through this session; nothing was changed.,失败：{0} - 本次游戏无法使用回滚所需的工作文件夹；未做任何更改。
+Mod_Update_Manager_RollbackKeptMissing,FAILED: {0} - the kept copy v{1} is not there or is incomplete; your installed copy was not changed.,失败：{0} - 保留的 v{1} 版本不存在或不完整；你已安装的版本未做更改。
+Mod_Update_Manager_UsePublicWithoutKey,Check for updates without an API key (one request per check to Nexus's public endpoint),无需 API 密钥也检查更新（每次检查向 Nexus 公共接口发送一次请求）
+Mod_Update_Manager_PublicNotListed,Nexus's answer did not list this mod; with an API key it is checked on its own.,Nexus 的答复中没有列出此模组；设置 API 密钥后会单独检查它。
+Mod_Update_Manager_PublicFailedNoKey,Nexus's public answer could not be read; with an API key each mod is checked on its own.,无法读取 Nexus 公共接口的答复；设置 API 密钥后会逐个单独检查各模组。
+Mod_Update_Manager_NotPublished,Not published on Nexus (status: {0}); no update is offered.,未在 Nexus 上发布（状态：{0}）；不提供更新。
+Mod_Update_Manager_DiscoveryFeedTab,New and updated,新增与更新
+Mod_Update_Manager_DiscoveryFeedHeader,"Showing {0} of the {1} most recently updated mods on Nexus. Left out: {2} already installed or mapped, {3} marked adult or not rated.",显示 Nexus 上最近更新的 {1} 个模组中的 {0} 个。已排除：{2} 个已安装或已关联，{3} 个被标记为成人内容或未评级。
+Mod_Update_Manager_DiscoveryFeedLoading,Asking Nexus for the most recently updated mods...,正在向 Nexus 查询最近更新的模组……
+Mod_Update_Manager_DiscoveryFeedFailed,"Nexus's list could not be read, so nothing is shown. Press Refresh to try again.",无法读取 Nexus 的列表，因此不显示任何内容。请点击“刷新”重试。
+Mod_Update_Manager_DiscoveryFeedBlocked,"This list needs an API key, or Check for updates without an API key turned on in the Settings tab.",此列表需要 API 密钥，或在“设置”选项卡中开启“无需 API 密钥也检查更新”。
+Mod_Update_Manager_DiscoveryFeedRefresh,Refresh,刷新
+Mod_Update_Manager_DiscoveryFeedOpenPage,Open Nexus Page,打开 Nexus 页面
+Mod_Update_Manager_DiscoveryFeedNote,Also adds a New and updated filter to My Mods. Opening it sends one request to Nexus's public list; nothing is downloaded.,同时在“我的模组”中加入“新增与更新”筛选。打开它会向 Nexus 的公共列表发送一次请求，不会下载任何内容。
+Mod_Update_Manager_EndorseButton,Endorse,认可
+Mod_Update_Manager_EndorseConfirm,Endorse {0} on Nexus with your account?,要用你的账号在 Nexus 上认可 {0} 吗？
+Mod_Update_Manager_EndorseYes,Yes,是
+Mod_Update_Manager_EndorseNo,No,否
+Mod_Update_Manager_EndorseSending,Sending the endorsement to Nexus...,正在向 Nexus 发送认可……
+Mod_Update_Manager_EndorseDone,"Endorsed on Nexus. To take it back, use the mod's Nexus page.",已在 Nexus 上认可。如需撤销，请前往该模组的 Nexus 页面。
+Mod_Update_Manager_EndorseRefused,"Nexus refused the endorsement (HTTP {0}). Nexus accepts one only from an account that has downloaded this mod, at least 15 minutes ago, and is not its author, for a version its page lists.",Nexus 拒绝了此次认可（HTTP {0}）。Nexus 只接受已下载此模组满 15 分钟、且不是模组作者的账号的认可，所认可的版本也必须是模组页面上列出的版本。
+Mod_Update_Manager_EndorseKeyRejected,"Nexus did not accept your API key, so nothing was endorsed.",Nexus 不接受你的 API 密钥，因此没有进行任何认可。
+Mod_Update_Manager_EndorseRateLimited,"Nexus is rate limiting requests, so nothing was endorsed. Try again later.",Nexus 正在限制请求频率，因此没有进行任何认可。请稍后再试。
+Mod_Update_Manager_EndorseUnconfirmed,"Nexus answered with HTTP {0}, so whether the endorsement was saved is not known. Check the mod's Nexus page.",Nexus 返回了 HTTP {0}，因此无法确定认可是否已保存。请查看该模组的 Nexus 页面。
+Mod_Update_Manager_EndorseUnreachable,"Could not reach Nexus, so whether the endorsement was saved is not known. Check the mod's Nexus page.",无法连接到 Nexus，因此无法确定认可是否已保存。请查看该模组的 Nexus 页面。
+Mod_Update_Manager_EndorseNotSent,"Nothing was sent: this mod's Nexus ID, its installed version or your API key cannot be sent as written.",未发送任何内容：此模组的 Nexus ID、已安装版本或你的 API 密钥无法按原样发送。
+Mod_Update_Manager_EnableEndorse,Show an Endorse button on mods with a Nexus ID (asks before sending anything; needs an API key),在有 Nexus ID 的模组上显示“认可”按钮（发送前会先询问；需要 API 密钥）
+Mod_Update_Manager_SortButton,Sort: {0},排序：{0}
+Mod_Update_Manager_SortName,Name,名称
+Mod_Update_Manager_SortUpdates,Update status first,有更新的优先
+Mod_Update_Manager_SortEndorsements,Endorsements,认可数
+Mod_Update_Manager_SortAuthor,Author,作者
+Mod_Update_Manager_VersionNewChanged,NEW: {0} to {1},新：{0} 升级至 {1}
+Mod_Update_Manager_VersionNewInstalled,NEW: installed {0},新：已安装 {0}
+Mod_Update_Manager_VersionMarkSeen,Mark all as seen,全部标为已读
+Mod_Update_Manager_VersionHistory,History,历史
+Mod_Update_Manager_VersionHistoryHide,Hide History,隐藏历史
+Mod_Update_Manager_VersionHistoryEmpty,No recorded changes for this mod yet.,此模组暂无变更记录。
+Mod_Update_Manager_VersionLineChanged,{0}  {1} to {2}  ({3}),{0}  {1} 至 {2}（{3}）
+Mod_Update_Manager_VersionLineFirstSeen,{0}  first seen {1}  ({2}),{0}  首次发现 {1}（{2}）
+Mod_Update_Manager_VersionSourceScan,startup scan,启动扫描
+Mod_Update_Manager_VersionSourceApply,suite Apply,套件应用
+Mod_Update_Manager_ProfilesHeader,Profiles,配置档案
+Mod_Update_Manager_ProfilesNote,"Save the installed mods under a name, then compare that list with what is installed later. Nothing is installed or changed; a profile is a small text file in BepInEx/config/ModUpdateManager_Profiles that you can copy to a friend.",将已安装的模组按名称保存，之后可与当时的安装情况对比。不会安装或更改任何内容；档案是 BepInEx/config/ModUpdateManager_Profiles 中的小型文本文件，可复制给朋友。
+Mod_Update_Manager_ProfileNameLabel,Profile name:,档案名称：
+Mod_Update_Manager_ProfileSave,Save profile,保存档案
+Mod_Update_Manager_ProfileCompare,Compare,对比
+Mod_Update_Manager_ProfileDelete,Delete,删除
+Mod_Update_Manager_ProfileNone,No saved profiles yet.,尚无已保存的档案。
+Mod_Update_Manager_ProfileBadName,"Use only letters, numbers, spaces, hyphens and underscores in a profile name (60 characters at most).",档案名称只能包含字母、数字、空格、连字符和下划线（最多 60 个字符）。
+Mod_Update_Manager_ProfileSaved,Saved profile '{0}' ({1} mods).,已保存档案“{0}”（{1} 个模组）。
+Mod_Update_Manager_ProfileSaveFailed,The profile could not be saved (see the log).,无法保存档案（请查看日志）。
+Mod_Update_Manager_ProfileSummary,"Compared with '{0}': {1} difference(s), {2} the same.",与“{0}”对比：{1} 处不同，{2} 处相同。
+Mod_Update_Manager_ProfileUnreadable,{0} line(s) of the profile could not be read and were skipped.,档案中有 {0} 行无法读取，已跳过。
+Mod_Update_Manager_ProfileMissing,Missing here: {0} (the profile has {1}),此处缺少：{0}（档案中为 {1}）
+Mod_Update_Manager_ProfileExtra,"Extra here: {0} ({1} is installed, the profile does not have it)",此处多出：{0}（已安装 {1}，档案中没有）
+Mod_Update_Manager_ProfileOlder,"Older here: {0} ({1} installed, the profile has {2})",此处较旧：{0}（已安装 {1}，档案中为 {2}）
+Mod_Update_Manager_ProfileNewer,"Newer here: {0} ({1} installed, the profile has {2})",此处较新：{0}（已安装 {1}，档案中为 {2}）
+Mod_Update_Manager_LoadedYes,Loaded by BepInEx,已由 BepInEx 加载
+Mod_Update_Manager_LoadedNo,No plugin loaded from this folder,未从此文件夹加载任何插件
+Mod_Update_Manager_LoadedUnknown,Load status unknown,加载状态未知
+Mod_Update_Manager_LoadedFrameworkYes,Framework data loaded from here,框架数据已从此处加载
+Mod_Update_Manager_LoadedFrameworkNo,Framework did not load data from this folder (another copy may have been used),框架未从此文件夹加载数据（可能使用了另一份副本）
+Mod_Update_Manager_LoadOrderHeader,"Load order, as enumerated by BepInEx:",加载顺序（按 BepInEx 枚举顺序）：
+Mod_Update_Manager_LoadOrderLine,{0}. {1} v{2} ({3}),{0}. {1} v{2}（{3}）
+Mod_Update_Manager_LoadOrderNone,BepInEx reports no loaded plugins.,BepInEx 未报告任何已加载的插件。
+Mod_Update_Manager_LoadOrderUnknown,The load order could not be read from BepInEx.,无法从 BepInEx 读取加载顺序。
+Mod_Update_Manager_LoadOrderShow,Show load order,显示加载顺序
+Mod_Update_Manager_LoadOrderHide,Hide load order,隐藏加载顺序
+Mod_Update_Manager_TabMyMods,My Mods,我的模组
+Mod_Update_Manager_TabConflicts,Conflicts,冲突
+Mod_Update_Manager_TabSettings,Settings,设置
+Mod_Update_Manager_StatusInitial,Press Check Updates to scan for mod updates,点击“检查更新”以扫描模组更新
+Mod_Update_Manager_GameVersionLine,Card Survival: Fantasy Forest · {0},卡牌生存：奇幻森林 · {0}
+Mod_Update_Manager_ProgressFormat,Progress: {0},进度：{0}
+Mod_Update_Manager_CheckUpdates,Check for Updates,检查更新
+Mod_Update_Manager_RefreshModList,Refresh Mod List,刷新模组列表
+Mod_Update_Manager_Close,Close,关闭
+Mod_Update_Manager_ConfigureKeyPrompt,Configure your Nexus API key in Settings to check for updates,请在设置中配置 Nexus API 密钥以检查更新
+Mod_Update_Manager_FilterLabel,Filter:,筛选：
+Mod_Update_Manager_VersionFormat,v{0},版本 {0}
+Mod_Update_Manager_VersionArrowFormat,v{0} → v{1},版本 {0} → {1}
+Mod_Update_Manager_VersionOkFormat,v{0} [OK],v{0} [正常]
+Mod_Update_Manager_RateLimitedFormat,{0} mod(s) were rate limited by Nexus and were not checked.,有 {0} 个模组被 Nexus 限流，未能检查。
+Mod_Update_Manager_FavoritesOnly,Favorites only,仅显示收藏
+Mod_Update_Manager_ShowIgnored,Show ignored,显示已忽略
+Mod_Update_Manager_NoUpdates,No updates available! All configured mods are up to date.,没有可用更新！所有已配置的模组都是最新的。
+Mod_Update_Manager_UpdatesAvailableFormat,{0} mod(s) have updates available:,有 {0} 个模组可更新：
+Mod_Update_Manager_UpdatesAvailableMajorFormat,{0} mod(s) have updates available ({1} major):,有 {0} 个模组可更新（其中 {1} 个为重大更新）：
+Mod_Update_Manager_NoneChecked,No mods have been checked yet.,尚未检查任何模组。
+Mod_Update_Manager_UnmappedHeader,These mods don't have a Nexus Mod ID configured:,这些模组尚未配置 Nexus 模组 ID：
+Mod_Update_Manager_UnmappedHelp1,"Add mappings in the Settings tab, add 'NexusModId' to their ModInfo.json,",请在“设置”页添加映射，或在其 ModInfo.json 中添加“NexusModId”，
+Mod_Update_Manager_UnmappedHelp2,or enter the Nexus ID directly below each mod.,或直接在每个模组下方输入 Nexus ID。
+Mod_Update_Manager_AllMapped,All mods have been mapped!,所有模组都已映射！
+Mod_Update_Manager_KnownFormat,Known: #{0},已知：#{0}
+Mod_Update_Manager_NexusIdLabel,Nexus ID:,Nexus ID：
+Mod_Update_Manager_SaveMapping,Save Mapping,保存映射
+Mod_Update_Manager_MappedStatusFormat,Mapped {0} -> Nexus #{1}. Re-check to verify.,已将 {0} 映射到 Nexus #{1}。请重新检查以验证。
+Mod_Update_Manager_FindIdHint,(Find the ID in the Nexus URL: /mods/##),（可在 Nexus 网址中找到 ID：/mods/##）
+Mod_Update_Manager_ConflictsDisabled,Conflict warnings are disabled in Settings.,冲突警告已在设置中关闭。
+Mod_Update_Manager_NoModsInstalled,No mods installed.,未安装任何模组。
+Mod_Update_Manager_NoConflicts,No conflicts detected!,未检测到冲突！
+Mod_Update_Manager_ConflictsFoundFormat,Found {0} potential conflict(s):,发现 {0} 个潜在冲突：
+Mod_Update_Manager_ConflictPairFormat,{0} {1} <-> {2},{0} {1} 与 {2}
+Mod_Update_Manager_ConflictHeuristicLineFormat,[{0}] {1} <-> {2}{3},[{0}] {1} 与 {2}{3}
+Mod_Update_Manager_ResolutionFormat,Resolution: {0},解决办法：{0}
+Mod_Update_Manager_StatsHeader,Update Statistics,更新统计
+Mod_Update_Manager_StatsTotal,Total Mods:,模组总数：
+Mod_Update_Manager_StatsUpToDate,Up to Date:,已是最新：
+Mod_Update_Manager_StatsNeedUpdates,Need Updates:,需要更新：
+Mod_Update_Manager_StatsCritical,Critical / Major Updates:,关键 / 重大更新：
+Mod_Update_Manager_StatsUnableToCheck,Unable to Check:,无法检查：
+Mod_Update_Manager_FavoritesIgnoredFormat,Favorites: {0}  |  Ignored: {1},收藏：{0}  |  已忽略：{1}
+Mod_Update_Manager_NextBackgroundCheck,Next background check:,下次后台检查：
+Mod_Update_Manager_ExportHeader,Export Mod List,导出模组列表
+Mod_Update_Manager_ExportNote,Generates a formatted list for bug reports or compatibility discussions.,生成格式化列表，可用于错误报告或兼容性讨论。
+Mod_Update_Manager_GenerateExport,Generate Export,生成导出
+Mod_Update_Manager_CopyToClipboard,Copy to Clipboard,复制到剪贴板
+Mod_Update_Manager_ApiKeySaved,API key saved!,API 密钥已保存！
+Mod_Update_Manager_ApiConfigHeader,API Configuration,API 配置
+Mod_Update_Manager_NexusApiKeyLabel,Nexus API Key:,Nexus API 密钥：
+Mod_Update_Manager_Save,Save,保存
+Mod_Update_Manager_ApiKeyHelp,Get your API key from: https://www.nexusmods.com/users/myaccount?tab=api+access,在此获取 API 密钥：https://www.nexusmods.com/users/myaccount?tab=api+access
+Mod_Update_Manager_BehaviorHeader,Behavior Settings,行为设置
+Mod_Update_Manager_CheckOnStartup,Check for updates on game startup,游戏启动时检查更新
+Mod_Update_Manager_ShowOnlyUpdates,Show only mods with updates in main list,主列表仅显示有更新的模组
+Mod_Update_Manager_AddMappingHeader,Add Mod Mapping,添加模组映射
+Mod_Update_Manager_AddMappingNote,Map a local mod to its Nexus Mods page,将本地模组映射到其 Nexus Mods 页面
+Mod_Update_Manager_ModNameLabel,Mod Name:,模组名称：
+Mod_Update_Manager_AddMapping,Add Mapping,添加映射
+Mod_Update_Manager_AddedMappingFormat,Added mapping: {0} -> {1},已添加映射：{0} -> {1}
+Mod_Update_Manager_CurrentMappings,Current Mappings:,当前映射：
+Mod_Update_Manager_MappingLineFormat,{0} → Nexus ID: {1},{0} → Nexus ID：{1}
+Mod_Update_Manager_Remove,Remove,移除
+Mod_Update_Manager_BackgroundHeader,Background Checking,后台检查
+Mod_Update_Manager_EnablePeriodic,Enable periodic update checking,启用定期检查更新
+Mod_Update_Manager_CheckIntervalLabel,Check Interval (min):,检查间隔（分钟）：
+Mod_Update_Manager_NextCheckFormat,Next check: {0},下次检查：{0}
+Mod_Update_Manager_AnalysisHeader,Analysis & Warnings,分析与警告
+Mod_Update_Manager_ShowConflictWarnings,Show potential mod conflict warnings,显示潜在的模组冲突警告
+Mod_Update_Manager_PerformanceHeader,Performance,性能
+Mod_Update_Manager_CacheResponses,Cache API responses,缓存 API 响应
+Mod_Update_Manager_CachedResponsesFormat,Cached responses: {0},已缓存的响应：{0}
+Mod_Update_Manager_EnableDiscovery,Enable slow Nexus ID discovery,启用缓慢的 Nexus ID 探索
+Mod_Update_Manager_DiscoveryProgressFormat,"Discovery progress: scanned through #{0}, found {1}",探索进度：已扫描至 #{0}，已发现 {1} 个
+Mod_Update_Manager_SuiteHeader,Crispywhips Mod Suite,Crispywhips 模组套件
+Mod_Update_Manager_SuiteIntro,Install or update all included mods in one click. A game restart is required after applying changes.,一键安装或更新所有内置模组。应用更改后需要重启游戏。
+Mod_Update_Manager_CategoryFormat,[{0}],类别：{0}
+Mod_Update_Manager_InstalledVersionFormat,Installed: {0},已安装：{0}
+Mod_Update_Manager_SuiteVersionFormat,Suite: {0},套件：{0}
+Mod_Update_Manager_BadgeUpToDate,[Up to Date],[已是最新]
+Mod_Update_Manager_BadgeUpdateAvailable,[Update Available],[有可用更新]
+Mod_Update_Manager_BadgeNotInstalled,[Not Installed],[未安装]
+Mod_Update_Manager_BadgeUnknown,[Unknown],[未知]
+Mod_Update_Manager_RestartBanner,Mods installed. Restart Card Survival: Fantasy Forest to load the changes.,模组已安装。请重启《卡牌生存：奇幻森林》以加载更改。
+Mod_Update_Manager_QuitGame,Quit Game (then relaunch from Steam),退出游戏（然后从 Steam 重新启动）
+Mod_Update_Manager_SelectOutOfDate,Select Out of Date / Not Installed,选择过期 / 未安装的模组
+Mod_Update_Manager_SelectAll,Select All,全选
+Mod_Update_Manager_ApplyFormat,Apply Updates to {0} Selected Mod(s),对 {0} 个所选模组应用更新
+Mod_Update_Manager_SuiteFailedFormat,FAILED: {0} - {1},失败：{0} - {1}
+Mod_Update_Manager_SuiteDoneFormat,"Done: {0} installed, {1} failed.",完成：已安装 {0} 个，失败 {1} 个。
+Mod_Update_Manager_SuiteSkippedFormat,"Skipped {0}, left as installed (see the log for why): {1}.",已跳过 {0} 个，保持原有安装（原因见日志）：{1}。
+Mod_Update_Manager_NoModsMatch,No mods found matching criteria.,没有找到符合条件的模组。
+Mod_Update_Manager_ByAuthorFormat,by {0},作者：{0}
+Mod_Update_Manager_MajorUpdateAvailable,MAJOR UPDATE AVAILABLE,有重大更新
+Mod_Update_Manager_UpdateAvailable,UPDATE AVAILABLE,有可用更新
+Mod_Update_Manager_Unignore,Unignore,取消忽略
+Mod_Update_Manager_Ignore,Ignore,忽略
+Mod_Update_Manager_HideChangelog,Hide Changelog,隐藏更新日志
+Mod_Update_Manager_Changelog,Changelog,更新日志
+Mod_Update_Manager_ChangelogFetching,Fetching changelog...,正在获取更新日志...
+Mod_Update_Manager_ChangelogUnavailableFormat,Changelog unavailable: {0},更新日志不可用：{0}
+Mod_Update_Manager_ChangelogNone,No changelog entries found for this mod.,未找到此模组的更新日志条目。
+Mod_Update_Manager_ChangelogClickHint,Click Changelog button to load.,点击“更新日志”按钮以加载。
+Mod_Update_Manager_HideNotes,Hide Notes,隐藏备注
+Mod_Update_Manager_NotesFormat,Notes: {0},备注：{0}
+Mod_Update_Manager_AddNotes,Add Notes,添加备注
+Mod_Update_Manager_Cancel,Cancel,取消
+Mod_Update_Manager_FilterAll,All,全部
+Mod_Update_Manager_FilterUpdates,Updates Available,有可用更新
+Mod_Update_Manager_FilterUpToDate,Up to Date,已是最新
+Mod_Update_Manager_FilterUnmapped,Unmapped,未映射
+Mod_Update_Manager_CheckerScanning,Scanning installed mods...,正在扫描已安装的模组...
+Mod_Update_Manager_CheckerFoundFormat,Found {0} installed mods,发现 {0} 个已安装的模组
+Mod_Update_Manager_CheckerNoKey,No API key configured - cannot check for updates,未配置 API 密钥，无法检查更新
+Mod_Update_Manager_CheckerCompleteFormat,Check complete! {0} updates available.,检查完成！有 {0} 个更新可用。
+Mod_Update_Manager_CheckerNoRateLimited,No rate-limited mods to re-check.,没有需要重新检查的被限流模组。
+Mod_Update_Manager_CheckerRecheckStillFormat,Re-check complete: {0} mod(s) still rate limited.,重新检查完成：仍有 {0} 个模组被限流。
+Mod_Update_Manager_CheckerRecheckAll,Re-check complete: all previously rate-limited mods checked successfully.,重新检查完成：之前被限流的模组均已成功检查。
+Mod_Update_Manager_CheckerCheckingFormat,Checking {0} {1}...,正在检查 {0} 个{1}...
+Mod_Update_Manager_CheckerContextModsWithIds,mods with Nexus IDs,有 Nexus ID 的模组
+Mod_Update_Manager_CheckerContextRateLimited,rate-limited mod(s),被限流的模组
+Mod_Update_Manager_CheckerProgressFormat,Checking mods... ({0}/{1}),正在检查模组...（{0}/{1}）
+Mod_Update_Manager_CheckerVersionUnknown,Mod version could not be determined,无法确定模组版本
+Mod_Update_Manager_CheckerNoNexusId,No Nexus Mod ID configured,未配置 Nexus 模组 ID

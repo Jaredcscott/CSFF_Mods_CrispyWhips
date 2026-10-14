@@ -42,8 +42,8 @@ namespace mod_update_manager
     public class NexusApiClient
     {
         private const string BASE_URL = "https://api.nexusmods.com/v1";
-        private const string GAME_DOMAIN = "cardsurvivalfantasyforest";
-        private const int CACHE_EXPIRY_HOURS = 24;
+        private const string GAME_DOMAIN = NexusPublicQuery.GameDomain;
+        private const int CACHE_EXPIRY_HOURS = ResponseCachePolicy.ExpiryHours;
 
         // UnityWebRequest has no timeout by default. Every caller waits on the callback (the
         // update check polls _checksCompleted, discovery spins on a flag), so one request that
@@ -51,6 +51,11 @@ namespace mod_update_manager
         // button greyed out and the scheduler stalled, with nothing in the log. A timeout turns
         // that into an ordinary failed check.
         private const int REQUEST_TIMEOUT_SECONDS = 30;
+
+        // A 429 is retried once after this many real seconds before the mod lands in the "rate
+        // limited" bucket and its manual Re-check button. A starting value, not a tuned one: if
+        // Nexus's window is longer, the retry 429s too and the mod ends up where it did before.
+        private const int RATE_LIMIT_RETRY_DELAY_SECONDS = 5;
 
         private string _apiKey;
         private MonoBehaviour _coroutineRunner;
@@ -186,14 +191,40 @@ namespace mod_update_manager
             return match.Success ? Unescape(match.Groups[1].Value) : null;
         }
 
-        private static string Unescape(string s)
+        private static string Unescape(string s) => JsonText.Unescape(s);
+
+        /// <summary>
+        /// Sets the headers that say what is asking (NexusRequestHeaders: User-Agent, Application-Name,
+        /// Application-Version) on a request. Every request Mod Update Manager sends, here and in
+        /// NexusPublicClient, goes through this, so all of them carry the same three.
+        /// </summary>
+        internal static void SetIdentityHeaders(UnityWebRequest request)
         {
-            if (s == null) return null;
-            return s.Replace("\\\\", "\\")
-                    .Replace("\\\"", "\"")
-                    .Replace("\\n", "\n")
-                    .Replace("\\r", "\r")
-                    .Replace("\\t", "\t");
+            foreach (var header in NexusRequestHeaders.Identity(Plugin.PluginVersion))
+                request.SetRequestHeader(header.Key, header.Value);
+        }
+
+        /// <summary>
+        /// The cached answer for a mod when the cache policy lets it stand in for a request (caching on,
+        /// an entry under the expiry, and no button bypass). The public query uses it to leave a mod out.
+        /// </summary>
+        public bool TryGetCachedAnswer(string modId, bool bypassCache, out NexusModResponse response)
+        {
+            response = null;
+            if (string.IsNullOrEmpty(modId)) return false;
+            var hasEntry = _responseCache.TryGetValue(modId, out var cached);
+            var ageHours = hasEntry ? (System.DateTime.UtcNow - cached.timestamp).TotalHours : 0d;
+            if (!ResponseCachePolicy.ShouldUseCache(_cachingEnabled, hasEntry, ageHours, bypassCache)) return false;
+            response = cached.response;
+            return true;
+        }
+
+        /// <summary>Keeps an answer the public query gave, as a per-mod request's answer is kept.</summary>
+        public void CacheAnswer(string modId, NexusModResponse response)
+        {
+            if (!_cachingEnabled || string.IsNullOrEmpty(modId) || response == null) return;
+            _responseCache[modId] = (response, System.DateTime.UtcNow);
+            _diskCacheDirty = true;
         }
 
         /// <summary>
@@ -264,12 +295,14 @@ namespace mod_update_manager
 
         /// <summary>
         /// Fetches mod information from Nexus Mods (with caching). The callback's third
-        /// parameter is true only when this specific attempt failed with HTTP 429 - callers
-        /// that need to track rate-limited mods (see N5, "Re-check rate-limited") MUST key
-        /// off this flag, never off the error string, which is display text and not a
-        /// stable identifier.
+        /// parameter is true only when the request AND its one automatic retry both failed with
+        /// HTTP 429 - callers that need to track rate-limited mods (see N5, "Re-check
+        /// rate-limited") MUST key off this flag, never off the error string, which is display
+        /// text and not a stable identifier. <paramref name="bypassCache"/> is true for a check
+        /// the player asked for with a button: the cached answer is not used and the fresh one
+        /// replaces it. Startup, scheduled and discovery lookups pass false.
         /// </summary>
-        public void GetModInfo(string modId, Action<NexusModResponse, string, bool> callback)
+        public void GetModInfo(string modId, Action<NexusModResponse, string, bool> callback, bool bypassCache = false)
         {
             if (!HasApiKey)
             {
@@ -278,19 +311,15 @@ namespace mod_update_manager
             }
 
             // Check cache first
-            if (_cachingEnabled && _responseCache.ContainsKey(modId))
+            var hasEntry = _responseCache.TryGetValue(modId, out var cached);
+            var ageHours = hasEntry ? (System.DateTime.UtcNow - cached.timestamp).TotalHours : 0d;
+            if (ResponseCachePolicy.ShouldUseCache(_cachingEnabled, hasEntry, ageHours, bypassCache))
             {
-                var cached = _responseCache[modId];
-                if (IsCacheValid(cached.timestamp))
-                {
-                    callback(cached.response, null, false);
-                    return;
-                }
-                else
-                {
-                    _responseCache.Remove(modId);
-                }
+                callback(cached.response, null, false);
+                return;
             }
+            if (hasEntry && !IsCacheValid(cached.timestamp))
+                _responseCache.Remove(modId);
 
             _coroutineRunner.StartCoroutine(GetModInfoCoroutine(modId, callback));
         }
@@ -299,89 +328,124 @@ namespace mod_update_manager
         {
             var url = $"{BASE_URL}/games/{GAME_DOMAIN}/mods/{modId}.json";
 
-            using (var request = UnityWebRequest.Get(url))
+            // Attempt 0 is the request; attempt 1 is the single retry after a 429, sent with the same
+            // URL and headers once the first request is disposed.
+            for (int attempt = 0; ; attempt++)
             {
-                request.timeout = REQUEST_TIMEOUT_SECONDS;
-                request.SetRequestHeader("apikey", _apiKey);
-                request.SetRequestHeader("Accept", "application/json");
-                request.SetRequestHeader("User-Agent", $"Mod_Update_Manager/{Plugin.PluginVersion}");
-
-                yield return request.SendWebRequest();
-
-                if (!request.isNetworkError && !request.isHttpError)
+                using (var request = UnityWebRequest.Get(url))
                 {
-                    try
+                    request.timeout = REQUEST_TIMEOUT_SECONDS;
+                    request.SetRequestHeader("apikey", _apiKey);
+                    request.SetRequestHeader("Accept", "application/json");
+                    SetIdentityHeaders(request);
+
+                    yield return request.SendWebRequest();
+
+                    if (!request.isNetworkError && !request.isHttpError)
                     {
-                        var response = ParseNexusModResponse(request.downloadHandler.text);
-                        if (_cachingEnabled)
+                        try
                         {
-                            _responseCache[modId] = (response, System.DateTime.UtcNow);
-                            _diskCacheDirty = true;
+                            var response = ParseNexusModResponse(request.downloadHandler.text);
+                            if (_cachingEnabled)
+                            {
+                                _responseCache[modId] = (response, System.DateTime.UtcNow);
+                                _diskCacheDirty = true;
+                            }
+                            callback(response, null, false);
                         }
-                        callback(response, null, false);
+                        catch (Exception ex)
+                        {
+                            callback(null, $"Failed to parse response: {ex}", false);
+                        }
+                        yield break;
                     }
-                    catch (Exception ex)
+
+                    if (request.responseCode == 429 && attempt == 0)
                     {
-                        callback(null, $"Failed to parse response: {ex}", false);
+                        Plugin.Logger.LogInfo($"Nexus rate limit hit checking mod {modId}; retrying once in {RATE_LIMIT_RETRY_DELAY_SECONDS}s.");
+                    }
+                    else
+                    {
+                        var errorMsg = $"API request failed: {request.error}";
+                        bool isRateLimited = false;
+                        if (request.responseCode == 401)
+                        {
+                            errorMsg = "Invalid API key";
+                        }
+                        else if (request.responseCode == 404)
+                        {
+                            errorMsg = "Mod not found on Nexus";
+                        }
+                        else if (request.responseCode == 429)
+                        {
+                            errorMsg = "Rate limited - try again later";
+                            isRateLimited = true;
+                            Plugin.Logger.LogWarning($"Nexus rate limit hit again on the retry for mod {modId}; it can be re-checked from the My Mods tab.");
+                        }
+                        callback(null, errorMsg, isRateLimited);
+                        yield break;
                     }
                 }
-                else
-                {
-                    var errorMsg = $"API request failed: {request.error}";
-                    bool isRateLimited = false;
-                    if (request.responseCode == 401)
-                    {
-                        errorMsg = "Invalid API key";
-                    }
-                    else if (request.responseCode == 404)
-                    {
-                        errorMsg = "Mod not found on Nexus";
-                    }
-                    else if (request.responseCode == 429)
-                    {
-                        errorMsg = "Rate limited - try again later";
-                        isRateLimited = true;
-                        Plugin.Logger.LogWarning("Nexus rate limit hit — some mods will not be checked this session.");
-                    }
-                    callback(null, errorMsg, isRateLimited);
-                }
+
+                // Realtime: CSFF runs at timeScale 0 while it waits for the player and during
+                // FadeToBlack, where WaitForSeconds would never finish (CLAUDE.md, Coroutine Timing).
+                yield return new WaitForSecondsRealtime(RATE_LIMIT_RETRY_DELAY_SECONDS);
             }
         }
 
         /// <summary>
-        /// Validates the API key by making a test request
+        /// Checks the API key with one request to Nexus's validate endpoint. Called only from the
+        /// Settings tab's Save button, never at startup. The callback gets the verdict and the HTTP
+        /// status behind it (0 when none arrived); an empty key is rejected without a request.
         /// </summary>
-        public void ValidateApiKey(Action<bool, string> callback)
+        public void ValidateApiKey(Action<ApiKeyResult, long> callback)
         {
             if (!HasApiKey)
             {
-                callback(false, "No API key provided");
+                callback(ApiKeyResult.Rejected, 0);
                 return;
             }
 
             _coroutineRunner.StartCoroutine(ValidateApiKeyCoroutine(callback));
         }
 
-        private IEnumerator ValidateApiKeyCoroutine(Action<bool, string> callback)
+        private IEnumerator ValidateApiKeyCoroutine(Action<ApiKeyResult, long> callback)
         {
             var url = $"{BASE_URL}/users/validate.json";
-            
+
             using (var request = UnityWebRequest.Get(url))
             {
                 request.timeout = REQUEST_TIMEOUT_SECONDS;
-                request.SetRequestHeader("apikey", _apiKey);
-                request.SetRequestHeader("Accept", "application/json");
+
+                // A key with a stray control character (a pasted line break) cannot be sent as a
+                // header and SetRequestHeader throws; that is a key Nexus would never accept, so say
+                // so instead of letting the coroutine die with the Settings tab waiting on it. Only
+                // the exception's type is logged: the key never reaches the log.
+                bool headersSet = true;
+                try
+                {
+                    request.SetRequestHeader("apikey", _apiKey);
+                    request.SetRequestHeader("Accept", "application/json");
+                    SetIdentityHeaders(request);
+                }
+                catch (Exception ex)
+                {
+                    headersSet = false;
+                    Plugin.Logger.LogDebug($"API key check not sent: the key could not be set as a header ({ex.GetType().Name}).");
+                }
+
+                if (!headersSet)
+                {
+                    callback(ApiKeyResult.Rejected, 0);
+                    yield break;
+                }
 
                 yield return request.SendWebRequest();
 
-                if (!request.isNetworkError && !request.isHttpError)
-                {
-                    callback(true, "API key valid");
-                }
-                else
-                {
-                    callback(false, $"API key validation failed: {request.error}");
-                }
+                // The status and the network flag are all this reads. A validate reply is expected
+                // to carry details of the account behind the key, so its body is never read,
+                // logged or shown, whatever it holds.
+                callback(ApiKeyCheck.Classify(request.responseCode, request.isNetworkError), request.responseCode);
             }
         }
 
@@ -416,14 +480,14 @@ namespace mod_update_manager
                 request.timeout = REQUEST_TIMEOUT_SECONDS;
                 request.SetRequestHeader("apikey", _apiKey);
                 request.SetRequestHeader("Accept", "application/json");
-                request.SetRequestHeader("User-Agent", $"Mod_Update_Manager/{Plugin.PluginVersion}");
+                SetIdentityHeaders(request);
                 yield return request.SendWebRequest();
 
                 if (!request.isNetworkError && !request.isHttpError)
                 {
                     try
                     {
-                        callback(ParseChangelogs(request.downloadHandler.text), null);
+                        callback(ChangelogParser.Parse(request.downloadHandler.text), null);
                     }
                     catch (Exception ex)
                     {
@@ -437,37 +501,63 @@ namespace mod_update_manager
             }
         }
 
-        // Parses {"1.2.0": ["note", "note"], "1.1.0": [...]} → sorted list newest-first
-        private static List<(string, List<string>)> ParseChangelogs(string json)
+        /// <summary>
+        /// Endorses one mod on Nexus with the player's account (plan feature 17): one POST to
+        /// /v1/games/cardsurvivalfantasyforest/mods/(id)/endorse.json carrying the API key, the identity
+        /// headers and the body {"Version": version}, all built by NexusEndorse from the contract in
+        /// Documentation/Research/Mod_Update_Manager/W0-1_Nexus_Read_Paths.md section 4.1 and section 7.
+        /// Called only from the Yes button of a My Mods row's "Endorse ... on Nexus with your account?"
+        /// question (UpdateManagerUI.StartEndorse); never at startup, from a check, a schedule or a loop, and
+        /// sent once, with no retry. The callback gets the outcome, read from the HTTP status and the network
+        /// flag alone (NexusEndorse.Classify), and that status (0 when none arrived). Nothing is sent without
+        /// a key, or when the id or the version cannot be sent (NotSent).
+        /// </summary>
+        public void EndorseMod(string modId, string version, Action<EndorseOutcome, long> callback)
         {
-            var result = new List<(string, List<string>)>();
-            // Match top-level "version": [ ... ] pairs
-            var versionPattern = new System.Text.RegularExpressions.Regex(
-                "\"([^\"]+)\"\\s*:\\s*\\[([^\\[\\]]*)\\]", System.Text.RegularExpressions.RegexOptions.Singleline);
-            var entryPattern = new System.Text.RegularExpressions.Regex(
-                "\"((?:\\\\.|[^\"])*)\"");
-
-            foreach (System.Text.RegularExpressions.Match m in versionPattern.Matches(json))
+            if (!HasApiKey || !NexusEndorse.TryBuild(BASE_URL, modId, version, out var url, out var body))
             {
-                var version = m.Groups[1].Value;
-                var arrayBody = m.Groups[2].Value;
-                var entries = new List<string>();
-                foreach (System.Text.RegularExpressions.Match e in entryPattern.Matches(arrayBody))
-                {
-                    var text = e.Groups[1].Value
-                        .Replace("\\\"", "\"")
-                        .Replace("\\\\", "\\")
-                        .Replace("\\n", " ")
-                        .Trim();
-                    if (!string.IsNullOrEmpty(text))
-                        entries.Add(text);
-                }
-                result.Add((version, entries));
+                callback(EndorseOutcome.NotSent, 0);
+                return;
             }
 
-            // Sort newest-first using version comparison
-            result.Sort((a, b) => VersionComparer.Compare(b.Item1, a.Item1));
-            return result;
+            _coroutineRunner.StartCoroutine(EndorseModCoroutine(url, body, callback));
+        }
+
+        private IEnumerator EndorseModCoroutine(string url, string body, Action<EndorseOutcome, long> callback)
+        {
+            // No download handler: Nexus's reply body is not kept, so nothing here can read, log or show it.
+            // A key with a stray control character cannot be set as a header (SetRequestHeader throws); then
+            // nothing is sent, and only the exception's type is logged, never the key.
+            UnityWebRequest request = null;
+            try
+            {
+                request = new UnityWebRequest(url, NexusEndorse.Method)
+                {
+                    uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(body)),
+                    timeout = REQUEST_TIMEOUT_SECONDS
+                };
+                foreach (var header in NexusEndorse.ContentHeaders(_apiKey))
+                    request.SetRequestHeader(header.Key, header.Value);
+                SetIdentityHeaders(request);
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"Endorse not sent: the request could not be built ({ex.GetType().Name}).");
+                request?.Dispose();
+                request = null;
+            }
+
+            if (request == null)
+            {
+                callback(EndorseOutcome.NotSent, 0);
+                yield break;
+            }
+
+            using (request)
+            {
+                yield return request.SendWebRequest();
+                callback(NexusEndorse.Classify(request.responseCode, request.isNetworkError), request.responseCode);
+            }
         }
     }
 }

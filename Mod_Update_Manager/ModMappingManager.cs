@@ -1,8 +1,9 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using BepInEx;
 
+// Host-free (no BepInEx, no UnityEngine; logging goes through MumLog) so
+// Development_Tools/Tests/MUM-CompiledLogic.Tests.ps1 can compile it and drive LoadMappings.
 namespace mod_update_manager
 {
     /// <summary>
@@ -54,6 +55,8 @@ namespace mod_update_manager
                             }
                         }
                     }
+
+                    RetireRegistryDuplicates();
                 }
                 else
                 {
@@ -63,8 +66,63 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Failed to load mod mappings: {ex}");
+                MumLog.Error($"Failed to load mod mappings: {ex}");
             }
+        }
+
+        /// <summary>
+        /// Drops rows that only repeat what KnownModRegistry already says. Through 2.1.58 every
+        /// successful update check copied the mod's Nexus ID into this file, and a row here outranks
+        /// the registry (UpdateChecker.GetNexusModId, UpdateManagerUI.GetNexusIdForMod), so each such
+        /// row froze that mod's ID against any later registry correction.
+        ///
+        /// Never touches a row whose value differs from the registry (the player's own override), a
+        /// row for a mod the registry does not know, or the "self" sentinel. Rows are grouped by the
+        /// registry ID their key resolves to, and a group is dropped only when EVERY row in it equals
+        /// the registry: with {"Herbs And Fungi": "22", "Herbs_And_Fungi": "999"} dropping the first
+        /// would hand the mod to the second row, so both stay and no lookup changes.
+        ///
+        /// What this cannot see: with the opt-in slow Nexus discovery on, a discovered ID sits between
+        /// this file and the registry in that lookup order, so a dropped row lets a DIFFERING
+        /// discovered ID through. Discovery is off by default.
+        ///
+        /// Rewrites the file only when something was dropped, so an ordinary load changes nothing on
+        /// disk.
+        /// </summary>
+        private void RetireRegistryDuplicates()
+        {
+            var groups = new Dictionary<string, List<ModMapping>>(StringComparer.OrdinalIgnoreCase);
+            foreach (var mapping in _mappings.Values)
+            {
+                var known = KnownModRegistry.GetNexusModId(mapping.LocalModName);
+                if (known == null || known == "self") continue;
+                if (!groups.TryGetValue(known, out var rows))
+                    groups[known] = rows = new List<ModMapping>();
+                rows.Add(mapping);
+            }
+
+            var retired = new List<string>();
+            foreach (var group in groups)
+            {
+                bool allDuplicate = true;
+                foreach (var row in group.Value)
+                {
+                    if (!string.Equals((row.NexusModId ?? "").Trim(), group.Key.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        allDuplicate = false;
+                        break;
+                    }
+                }
+                if (!allDuplicate) continue;
+                foreach (var row in group.Value)
+                    retired.Add(row.LocalModName);
+            }
+
+            if (retired.Count == 0) return;
+            foreach (var key in retired)
+                _mappings.Remove(key);
+            SaveMappings();
+            MumLog.Info($"Dropped {retired.Count} mapping row(s) that duplicated the built-in registry: {string.Join(", ", retired)}.");
         }
 
         /// <summary>
@@ -77,11 +135,11 @@ namespace mod_update_manager
                 var mappingsList = new List<ModMapping>(_mappings.Values);
                 var json = SimpleJson.SerializeMappings(mappingsList);
                 File.WriteAllText(_mappingsPath, json);
-                Plugin.Logger.LogDebug($"Saved {_mappings.Count} mod mappings");
+                MumLog.Debug($"Saved {_mappings.Count} mod mappings");
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Failed to save mod mappings: {ex}");
+                MumLog.Error($"Failed to save mod mappings: {ex}");
             }
         }
 
@@ -99,11 +157,11 @@ namespace mod_update_manager
             {
                 var json = SimpleJson.SerializeMappings(defaultMappings);
                 File.WriteAllText(_mappingsPath, json);
-                Plugin.Logger.LogDebug($"Created default mod mappings file at: {_mappingsPath}");
+                MumLog.Debug($"Created default mod mappings file at: {_mappingsPath}");
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Failed to create default mappings: {ex}");
+                MumLog.Error($"Failed to create default mappings: {ex}");
             }
         }
 

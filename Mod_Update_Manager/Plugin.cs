@@ -7,7 +7,12 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.1.61";
+    public const string PluginVersion = "2.1.64";
+
+    // PluginMetadataReader is host-free, so it carries BepInEx's DependencyFlags.SoftDependency value as
+    // a constant of its own. A division by a constant zero is a compile error, so this line fails the
+    // build, rather than the dependency reader, if BepInEx's own value ever differs from that constant.
+    private const int SoftDependencyFlagMatchesBepInEx = 1 / (PluginMetadataReader.SoftDependencyFlag == (int)BepInDependency.DependencyFlags.SoftDependency ? 1 : 0);
 
     internal new static ManualLogSource Logger;
     public static Plugin Instance { get; private set; }
@@ -18,6 +23,7 @@ internal class Plugin : BaseUnityPlugin
     private NexusApiClient _nexusClient;
     private ModMappingManager _mappingManager;
     private ModPreferences _preferences;
+    private VersionLedger _versionLedger;
     private UpdateChecker _updateChecker;
     private UpdateManagerUI _ui;
     private NexusModDiscovery _modDiscovery;
@@ -27,10 +33,20 @@ internal class Plugin : BaseUnityPlugin
 
     private bool _initialCheckDone = false;
 
+    // True from the moment OnGameDataLoaded starts the startup check until that check completes.
+    // It is the only completion UpdateWindowPolicy lets open the window.
+    private bool _startupCheckInFlight = false;
+    private bool _autoOpenedThisSession = false;
+
     private void Awake()
     {
         Instance = this;
         Logger = base.Logger;
+        // Before anything is constructed: ModMappingManager logs from its constructor.
+        MumLog.Debug = m => Logger.LogDebug(m);
+        MumLog.Info = m => Logger.LogInfo(m);
+        MumLog.Warning = m => Logger.LogWarning(m);
+        MumLog.Error = m => Logger.LogError(m);
         Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
 
         // Initialize configuration
@@ -39,20 +55,24 @@ internal class Plugin : BaseUnityPlugin
         // Initialize core components
         _mappingManager = new ModMappingManager(_config.ModMappingsPath);
         _preferences = new ModPreferences(_config.PreferencesPath);
+        _versionLedger = new VersionLedger(_config.VersionLogPath);
         _nexusClient = new NexusApiClient(_config.NexusApiKey.Value, this, _config.ResponseCachePath, _config.CachingEnabled.Value);
         _modDiscovery = new NexusModDiscovery(
             _nexusClient,
             Path.GetDirectoryName(_config.ModMappingsPath),
             _config.DiscoveryMaxScanId.Value,
             _config.DiscoveryMaxConsecutiveMisses.Value);
-        _updateChecker = new UpdateChecker(_nexusClient, _mappingManager, _modDiscovery, _preferences);
+        // The public query is the first request of every check; without a key it runs only when the
+        // player turned on UsePublicEndpointWithoutKey, read again at each check.
+        _updateChecker = new UpdateChecker(_nexusClient, _mappingManager, _modDiscovery, _preferences,
+            new NexusPublicClient(), () => _config.UsePublicEndpointWithoutKey.Value);
 
         _conflictDetector = new ConflictDetector();
         _updateScheduler = new UpdateScheduler(_updateChecker, this);
 
         // Create UI component
         _ui = gameObject.AddComponent<UpdateManagerUI>();
-        _ui.Initialize(_config, _updateChecker, _mappingManager, _conflictDetector, _updateScheduler, _nexusClient, _modDiscovery, _preferences);
+        _ui.Initialize(_config, _updateChecker, _mappingManager, _conflictDetector, _updateScheduler, _nexusClient, _modDiscovery, _preferences, _versionLedger);
 
         // Read embedded suite versions and installed versions for the Suite tab
         try
@@ -150,6 +170,28 @@ internal class Plugin : BaseUnityPlugin
         // Scan installed mods
         _updateChecker.ScanMods();
 
+        // Once per launch: what changed since the last one (the NEW chips and the History lists).
+        try
+        {
+            var changes = _versionLedger.Observe(_updateChecker.InstalledMods);
+            Logger.LogDebug($"Version log: {changes.Count} change(s) since the last launch");
+        }
+        catch (System.Exception ex)
+        {
+            Logger.LogWarning($"Version log not updated this launch: {ex}");
+        }
+
+        // The scan is what shows a suite mod installed under another folder, so the Install & Update
+        // rows are classified again with it (Awake read them before any scan existed).
+        try
+        {
+            SuiteVersionReader.RefreshAll(_updateChecker.InstalledMods);
+        }
+        catch (System.Exception ex)
+        {
+            Logger.LogError($"SuiteVersionReader.RefreshAll failed after the mod scan (the Install & Update rows keep their earlier status): {ex}");
+        }
+
         // Optional Nexus mod discovery walks IDs slowly and can use API quota.
         if (_config.HasApiKey && _config.EnableNexusDiscovery.Value)
         {
@@ -158,32 +200,43 @@ internal class Plugin : BaseUnityPlugin
         }
 
         // Start background checking if enabled
-        if (_config.EnableBackgroundChecking.Value && _config.HasApiKey)
+        if (_config.EnableBackgroundChecking.Value && _config.CanCheckForUpdates)
         {
             _updateScheduler.Start(_config.CheckIntervalMinutes.Value);
             Logger.LogDebug($"Background update checking enabled (interval: {_config.CheckIntervalMinutes.Value} minutes)");
         }
 
         // If configured, automatically check for updates
-        if (_config.CheckOnStartup.Value && _config.HasApiKey && !_initialCheckDone)
+        if (_config.CheckOnStartup.Value && _config.CanCheckForUpdates && !_initialCheckDone)
         {
             _initialCheckDone = true;
+            _startupCheckInFlight = true;
             Logger.LogDebug("Starting automatic update check...");
-            _updateChecker.CheckAllMods(this);
+            _updateChecker.CheckAllMods(this, bypassCache: false);
         }
-        else if (!_config.HasApiKey)
+        else if (!_config.CanCheckForUpdates)
         {
-            Logger.LogDebug($"No Nexus API key configured. Press {_config.ToggleUIKey.Value} to open the dashboard, then the Settings tab, to configure your API key.");
+            Logger.LogDebug($"No Nexus API key configured and checks without a key are off. Press {_config.ToggleUIKey.Value} to open the dashboard, then the Settings tab, to configure your API key.");
         }
     }
 
     private void OnAllChecksComplete(System.Collections.Generic.List<InstalledModInfo> mods)
     {
+        // Only the startup check may open the window, and only once: scheduled checks and the
+        // Re-check button refresh the counts and leave the window and its tab alone.
+        var startupCheck = _startupCheckInFlight;
+        _startupCheckInFlight = false;
+
         var updateCount = mods.FindAll(m => m.NeedsUpdate).Count;
         if (updateCount > 0)
         {
             Logger.LogDebug($"Found {updateCount} mod(s) with updates available!");
-            _ui.Show();
+        }
+
+        if (UpdateWindowPolicy.ShouldAutoOpen(_config.OpenWindowOnUpdates.Value, startupCheck, _autoOpenedThisSession, updateCount))
+        {
+            _autoOpenedThisSession = true;
+            _ui.ShowForUpdates();
         }
     }
 

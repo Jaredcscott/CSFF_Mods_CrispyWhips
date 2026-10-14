@@ -116,7 +116,7 @@ namespace mod_update_manager
 
                 // Subscribe to completion event
                 _updateChecker.OnAllChecksComplete += OnCheckCompleted;
-                _updateChecker.CheckAllMods(_coroutineRunner);
+                _updateChecker.CheckAllMods(_coroutineRunner, bypassCache: false);
             }
         }
 

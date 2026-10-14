@@ -1,3 +1,7 @@
+// Host-free: no BepInEx or UnityEngine reference. Development_Tools/Tests/MUM-CompiledLogic.Tests.ps1
+// compiles this file and drives it, on made-up input and on the DLLs inside the real embedded ZIPs.
+// Log lines go through MumLog (Plugin.Awake points it at BepInEx's logger), and the one BepInEx value
+// it needs is carried as SoftDependencyFlag, which Plugin.cs pins to BepInEx's own at compile time.
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -98,33 +102,70 @@ namespace mod_update_manager
         private const string AttrDependency = "BepInDependency";
 
         /// <summary>
+        /// The value of BepInEx's DependencyFlags.SoftDependency (HardDependency is 1). Carried here
+        /// because this file may not reference BepInEx; Plugin.cs divides by zero at compile time
+        /// (a build error) if BepInEx's own value ever differs, so it cannot drift unseen.
+        /// </summary>
+        public const int SoftDependencyFlag = 2;
+
+        /// <summary>
         /// Returns what the assembly at <paramref name="dllPath"/> declares, or null if it is not a
-        /// managed assembly or could not be parsed. Never throws.
+        /// managed assembly or could not be parsed. Never throws. Reads only the metadata region of
+        /// the file, never the whole of it.
         /// </summary>
         public static PluginMetadata Read(string dllPath)
         {
             try
             {
-                return new Parser(dllPath).Parse();
+                // FileShare.ReadWrite: never block, and never be blocked by, whoever else has the
+                // file open. FileAccess.Read: we never write and never take a write lock.
+                using (var fs = new FileStream(dllPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    return new Parser(fs, dllPath).Parse();
             }
             catch (Exception ex)
             {
-                // Soft-fail per DLL: a native DLL, an obfuscated/packed assembly, or a file another
-                // process is rewriting must skip quietly rather than break the Conflicts tab.
-                // The logger itself is null-guarded, so the soft-fail path can never become the
-                // thing that throws.
-                try
-                {
-                    Plugin.Logger?.LogDebug($"PluginMetadataReader: skipped '{dllPath}' ({ex.GetType().Name}: {ex.Message})");
-                }
-                catch { }
-                return null;
+                return SoftFail(dllPath, ex);
             }
+        }
+
+        /// <summary>
+        /// Returns what the assembly held in <paramref name="image"/> declares, the same as
+        /// <see cref="Read(string)"/> does for a file: null if it is not a managed assembly or could
+        /// not be parsed. Never throws. <paramref name="label"/> is what the result's DllPath says and
+        /// what a skipped image is named by in the log (for a DLL inside a ZIP, say which). This is how
+        /// the suite's embedded ZIPs are read without writing their DLLs anywhere.
+        /// </summary>
+        public static PluginMetadata Read(byte[] image, string label)
+        {
+            try
+            {
+                if (image == null) throw new ArgumentNullException(nameof(image));
+                using (var ms = new MemoryStream(image, false))
+                    return new Parser(ms, label).Parse();
+            }
+            catch (Exception ex)
+            {
+                return SoftFail(label, ex);
+            }
+        }
+
+        // Soft-fail per DLL: a native DLL, an obfuscated/packed assembly, or a file another process is
+        // rewriting must skip quietly rather than break the Conflicts tab. MumLog's sinks are never
+        // null, so the soft-fail path can never become the thing that throws.
+        private static PluginMetadata SoftFail(string label, Exception ex)
+        {
+            try
+            {
+                MumLog.Debug($"PluginMetadataReader: skipped '{label}' ({ex.GetType().Name}: {ex.Message})");
+            }
+            catch { }
+            return null;
         }
 
         private sealed class Parser
         {
-            private readonly string _path;
+            private readonly Stream _source;       // the file or the in-memory image, seekable
+            private readonly string _path;         // its label: the file path, or what the caller named the image
             private byte[] _md;                 // the CLI metadata region, offset 0 == metadata root
             private int _stringsBase, _blobBase;
             private int _stringsSize, _blobSize;
@@ -134,7 +175,7 @@ namespace mod_update_manager
             private readonly Dictionary<int, int> _tableOffset = new Dictionary<int, int>();
             private int _caTagBits, _catTagBits, _mrpTagBits;
 
-            public Parser(string path) { _path = path; }
+            public Parser(Stream source, string path) { _source = source; _path = path; }
 
             public PluginMetadata Parse()
             {
@@ -149,69 +190,67 @@ namespace mod_update_manager
 
             private void ReadMetadataRegion()
             {
-                // FileShare.ReadWrite: never block, and never be blocked by, whoever else has the
-                // file open. FileAccess.Read: we never write and never take a write lock.
-                using (var fs = new FileStream(_path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                // The file (opened read-only by Read) or the in-memory image. Only the CLI metadata
+                // region is read from it, never the whole of it.
+                var fs = _source;
+                var head = ReadAt(fs, 0, (int)Math.Min(fs.Length, 4096));
+                if (head.Length < 0x40 || head[0] != 'M' || head[1] != 'Z')
+                    throw new InvalidDataException("not a PE image");
+
+                int peOff = (int)U32(head, 0x3C);
+                if (peOff <= 0 || peOff + 24 > head.Length)
+                    throw new InvalidDataException("bad PE offset");
+                if (head[peOff] != 'P' || head[peOff + 1] != 'E' || head[peOff + 2] != 0 || head[peOff + 3] != 0)
+                    throw new InvalidDataException("no PE signature");
+
+                int coff = peOff + 4;
+                int numSections = U16(head, coff + 2);
+                int optSize = U16(head, coff + 16);
+                int opt = coff + 20;
+                if (numSections <= 0 || numSections > 96)
+                    throw new InvalidDataException("implausible section count");
+
+                int magic = U16(head, opt);
+                int dataDirs;
+                if (magic == 0x10B) dataDirs = opt + 96;
+                else if (magic == 0x20B) dataDirs = opt + 112;
+                else throw new InvalidDataException("unknown optional header magic");
+
+                int sectionTable = opt + optSize;
+                int need = sectionTable + numSections * 40;
+                if (need > head.Length)
+                    head = ReadAt(fs, 0, (int)Math.Min(fs.Length, need));
+                if (dataDirs + 15 * 8 > head.Length || need > head.Length)
+                    throw new InvalidDataException("headers truncated");
+
+                var sections = new int[numSections][];
+                for (int i = 0; i < numSections; i++)
                 {
-                    var head = ReadAt(fs, 0, (int)Math.Min(fs.Length, 4096));
-                    if (head.Length < 0x40 || head[0] != 'M' || head[1] != 'Z')
-                        throw new InvalidDataException("not a PE image");
-
-                    int peOff = (int)U32(head, 0x3C);
-                    if (peOff <= 0 || peOff + 24 > head.Length)
-                        throw new InvalidDataException("bad PE offset");
-                    if (head[peOff] != 'P' || head[peOff + 1] != 'E' || head[peOff + 2] != 0 || head[peOff + 3] != 0)
-                        throw new InvalidDataException("no PE signature");
-
-                    int coff = peOff + 4;
-                    int numSections = U16(head, coff + 2);
-                    int optSize = U16(head, coff + 16);
-                    int opt = coff + 20;
-                    if (numSections <= 0 || numSections > 96)
-                        throw new InvalidDataException("implausible section count");
-
-                    int magic = U16(head, opt);
-                    int dataDirs;
-                    if (magic == 0x10B) dataDirs = opt + 96;
-                    else if (magic == 0x20B) dataDirs = opt + 112;
-                    else throw new InvalidDataException("unknown optional header magic");
-
-                    int sectionTable = opt + optSize;
-                    int need = sectionTable + numSections * 40;
-                    if (need > head.Length)
-                        head = ReadAt(fs, 0, (int)Math.Min(fs.Length, need));
-                    if (dataDirs + 15 * 8 > head.Length || need > head.Length)
-                        throw new InvalidDataException("headers truncated");
-
-                    var sections = new int[numSections][];
-                    for (int i = 0; i < numSections; i++)
+                    int b = sectionTable + i * 40;
+                    sections[i] = new[]
                     {
-                        int b = sectionTable + i * 40;
-                        sections[i] = new[]
-                        {
-                            (int)U32(head, b + 12),  // virtual address
-                            (int)U32(head, b + 8),   // virtual size
-                            (int)U32(head, b + 20),  // raw pointer
-                            (int)U32(head, b + 16)   // raw size
-                        };
-                    }
-
-                    // Data directory 14 == CLI header. Absent on a native DLL.
-                    int cliRva = (int)U32(head, dataDirs + 14 * 8);
-                    if (cliRva == 0)
-                        throw new InvalidDataException("unmanaged assembly (no CLI header)");
-
-                    var cli = ReadAt(fs, RvaToOffset(sections, cliRva), 72);
-                    int mdRva = (int)U32(cli, 8);
-                    long mdSize = U32(cli, 12);
-                    if (mdRva == 0 || mdSize < 24 || mdSize > MaxMetadataBytes)
-                        throw new InvalidDataException($"implausible metadata size {mdSize}");
-
-                    _md = ReadAt(fs, RvaToOffset(sections, mdRva), (int)mdSize);
+                        (int)U32(head, b + 12),  // virtual address
+                        (int)U32(head, b + 8),   // virtual size
+                        (int)U32(head, b + 20),  // raw pointer
+                        (int)U32(head, b + 16)   // raw size
+                    };
                 }
+
+                // Data directory 14 == CLI header. Absent on a native DLL.
+                int cliRva = (int)U32(head, dataDirs + 14 * 8);
+                if (cliRva == 0)
+                    throw new InvalidDataException("unmanaged assembly (no CLI header)");
+
+                var cli = ReadAt(fs, RvaToOffset(sections, cliRva), 72);
+                int mdRva = (int)U32(cli, 8);
+                long mdSize = U32(cli, 12);
+                if (mdRva == 0 || mdSize < 24 || mdSize > MaxMetadataBytes)
+                    throw new InvalidDataException($"implausible metadata size {mdSize}");
+
+                _md = ReadAt(fs, RvaToOffset(sections, mdRva), (int)mdSize);
             }
 
-            private static byte[] ReadAt(FileStream fs, long offset, int count)
+            private static byte[] ReadAt(Stream fs, long offset, int count)
             {
                 if (offset < 0 || count < 0 || offset + count > fs.Length)
                     throw new InvalidDataException("read past end of file");
@@ -476,7 +515,7 @@ namespace mod_update_manager
                 // catch on a reflection-adjacent parse path must not read as a clean negative).
                 if (skippedRows > 0)
                 {
-                    try { Plugin.Logger?.LogDebug($"PluginMetadataReader: skipped {skippedRows} malformed CustomAttribute row(s) in '{_path}'"); } catch { }
+                    try { MumLog.Debug($"PluginMetadataReader: skipped {skippedRows} malformed CustomAttribute row(s) in '{_path}'"); } catch { }
                 }
 
                 return result;
@@ -623,10 +662,10 @@ namespace mod_update_manager
                     if (kinds[1] == ArgKind.Int32 && args[1] is int)
                     {
                         // BepInDependency(string, DependencyFlags). Flags is a [Flags] enum, so test
-                        // the bit rather than compare equality, and take the value from BepInEx's own
-                        // enum instead of hardcoding it.
+                        // the bit rather than compare equality. SoftDependencyFlag is BepInEx's own enum
+                        // value, pinned to it at compile time by Plugin.cs.
                         int flags = (int)args[1];
-                        dep.IsHard = (flags & (int)BepInEx.BepInDependency.DependencyFlags.SoftDependency) == 0;
+                        dep.IsHard = (flags & SoftDependencyFlag) == 0;
                     }
                     else if (kinds[1] == ArgKind.String)
                     {

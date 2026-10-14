@@ -1,11 +1,247 @@
-Mod_Update_Manager_Name,Mod Update Manager,模组更新管理器
-Mod_Update_Manager_Desc,Manages mod updates for Card Survival: Fantasy Forest.,管理卡牌生存：奇幻森林的模组更新。
-Mod_Update_Manager_InstallIncomplete,[Install Incomplete],[安装不完整]
-Mod_Update_Manager_RecheckRateLimited,Re-check Rate-Limited,Re-check Rate-Limited
-Mod_Update_Manager_FrameworkStale,"Framework update available: ""{0}"" installed v{1}, latest v{2} available. Switch to the All or Updates Available filter above to update it - an outdated framework can break content mods.","Framework update available: ""{0}"" installed v{1}, latest v{2} available. Switch to the All or Updates Available filter above to update it - an outdated framework can break content mods."
-Mod_Update_Manager_DependencyHeader,Dependencies ({0} unsatisfied),Dependencies ({0} unsatisfied)
-Mod_Update_Manager_MissingDependencyBadge,[Missing dependency],[Missing dependency]
-Mod_Update_Manager_MissingOptionalDependencyBadge,[Missing optional dependency],[Missing optional dependency]
-Mod_Update_Manager_MissingHardDependency,"Requires ""{0}""{1}, which is not installed. BepInEx will refuse to load this plugin until it is.","Requires ""{0}""{1}, which is not installed. BepInEx will refuse to load this plugin until it is."
-Mod_Update_Manager_MissingSoftDependency,"Optionally uses ""{0}""{1}, which is not installed. This plugin still loads, but some of its features may be inactive.","Optionally uses ""{0}""{1}, which is not installed. This plugin still loads, but some of its features may be inactive."
-Mod_Update_Manager_DependencyMinVersion, v{0} or newer, v{0} or newer
+Mod_Update_Manager_Name,Mod Update Manager
+Mod_Update_Manager_Desc,Manages mod updates for Card Survival: Fantasy Forest.
+Mod_Update_Manager_InstallIncomplete,[Install Incomplete]
+Mod_Update_Manager_RecheckRateLimited,Re-check Rate-Limited
+Mod_Update_Manager_FrameworkStale,"Framework update available: ""{0}"" installed v{1}, latest v{2} available. Switch to the All or Updates Available filter above to update it - an outdated framework can break content mods."
+Mod_Update_Manager_DependencyHeader,Dependencies ({0} unsatisfied)
+Mod_Update_Manager_MissingDependencyBadge,[Missing dependency]
+Mod_Update_Manager_MissingOptionalDependencyBadge,[Missing optional dependency]
+Mod_Update_Manager_MissingHardDependency,"Requires ""{0}""{1}, which is not installed. BepInEx will refuse to load this plugin until it is."
+Mod_Update_Manager_MissingSoftDependency,"Optionally uses ""{0}""{1}, which is not installed. This plugin still loads, but some of its features may be inactive."
+Mod_Update_Manager_DependencyMinVersion, v{0} or newer
+Mod_Update_Manager_TestedBuild,Tested: EA {0}
+Mod_Update_Manager_TestedBuildOlder,Tested: EA {0} - older than the game you are running ({1})
+Mod_Update_Manager_ConflictGuidConfirmed,[Same plugin GUID]
+Mod_Update_Manager_ConflictHeuristic, (heuristic - check manually)
+Mod_Update_Manager_OpenWindowOnUpdates,Open this window once if the startup check finds updates
+Mod_Update_Manager_RetryFailed,Retry failed ({0})
+Mod_Update_Manager_KeyChecking,Checking the key with Nexus...
+Mod_Update_Manager_KeyAccepted,Key accepted
+Mod_Update_Manager_KeyRejected,Key rejected - check that the whole key was copied
+Mod_Update_Manager_KeyRateLimited,Nexus is rate limiting requests - the key was saved but not checked. Try again later.
+Mod_Update_Manager_KeyUnreachable,Could not reach Nexus - the key was saved but not checked.
+Mod_Update_Manager_KeyInconclusive,Nexus answered with HTTP {0} - the key was saved but not checked.
+Mod_Update_Manager_SelfLine,Mod Update Manager v{0} - update it manually from its Nexus page to get the latest suite versions.
+Mod_Update_Manager_SelfNexusPage,Nexus page
+Mod_Update_Manager_InstallIncompleteDetail,[Install Incomplete] {0}: its folder could not be put back. Your previous copy is in {1}; apply again after restarting.
+Mod_Update_Manager_SuiteLeftoverRestoreFailed,"FAILED: {0} - an earlier interrupted update left your copy in {1}, and it could not be moved back ({2})."
+Mod_Update_Manager_SuiteLeftoverDeleteFailed,FAILED: {0} - the copy an earlier update replaced ({1}) could not be deleted; restart the game and apply again. Your installed copy was not changed.
+Mod_Update_Manager_SuiteStagingDeleteFailed,FAILED: {0} - a staging folder from an earlier update ({1}) could not be deleted; your installed copy was not changed.
+Mod_Update_Manager_SuiteWorkRootRefused,FAILED: {0} - its staging folder would be inside BepInEx/plugins; nothing was changed.
+Mod_Update_Manager_SuiteChecking,Checking {0}...
+Mod_Update_Manager_SuiteExtracting,Extracting {0} ({1} of {2} files)
+Mod_Update_Manager_SuiteVerifying,Verifying {0} ({1} of {2} files)
+Mod_Update_Manager_SuiteRemoving,Removing the replaced copy of {0} ({1} of {2} files)
+Mod_Update_Manager_InstalledElsewhere,[Installed elsewhere]
+Mod_Update_Manager_InstalledElsewhereDetail,Found in {0} - Apply Updates skips this mod so a second copy is not added beside it.
+Mod_Update_Manager_DetailsCut,... (full text on the Nexus page)
+Mod_Update_Manager_AlsoInstalling,also installing: {0} requires it
+Mod_Update_Manager_AlsoInstallingMany,also installing: {0} require it
+Mod_Update_Manager_ClearRequired,Clear
+Mod_Update_Manager_RequiredClearedHard,"{0} was cleared, so BepInEx will refuse to load {1} until {0} is installed."
+Mod_Update_Manager_RequiredClearedSoft,"{0} was cleared: {1} will still load, but some of its features may be inactive without it."
+Mod_Update_Manager_FrameworkSkew,"The installed framework (v{0}) is older than the one this bundle was packed with (v{1}), while {2} installed content mod(s) are at least as new as the versions packed with it. Update the framework from this tab."
+Mod_Update_Manager_SuiteStopped,"The framework did not install, so nothing after it was touched."
+Mod_Update_Manager_InstallUpdateHeader,Install & Update
+Mod_Update_Manager_KeepPreviousVersion,Keep the previous version when updating a suite mod
+Mod_Update_Manager_KeptVersions,Versions kept:
+Mod_Update_Manager_KeepDiskNote,"Each kept copy takes as much disk space as that mod's folder: about 232 MB for all fifteen suite mods together (measured 2026-10-13 on a developer install, without the framework's SpriteCache). They are kept in BepInEx/mum_work/kept/, where the game never loads them."
+Mod_Update_Manager_Previous,[Previous: {0}]
+Mod_Update_Manager_RollBack,Roll back
+Mod_Update_Manager_SuitePruning,Removing an older kept copy of {0} ({1} of {2} files)
+Mod_Update_Manager_SuiteRolledBack,{0} rolled back to v{1}.
+Mod_Update_Manager_RollbackNoWorkFolder,FAILED: {0} - there is no work folder to roll back through this session; nothing was changed.
+Mod_Update_Manager_RollbackKeptMissing,FAILED: {0} - the kept copy v{1} is not there or is incomplete; your installed copy was not changed.
+Mod_Update_Manager_UsePublicWithoutKey,Check for updates without an API key (one request per check to Nexus's public endpoint)
+Mod_Update_Manager_PublicNotListed,Nexus's answer did not list this mod; with an API key it is checked on its own.
+Mod_Update_Manager_PublicFailedNoKey,Nexus's public answer could not be read; with an API key each mod is checked on its own.
+Mod_Update_Manager_NotPublished,Not published on Nexus (status: {0}); no update is offered.
+Mod_Update_Manager_DiscoveryFeedTab,New and updated
+Mod_Update_Manager_DiscoveryFeedHeader,"Showing {0} of the {1} most recently updated mods on Nexus. Left out: {2} already installed or mapped, {3} marked adult or not rated."
+Mod_Update_Manager_DiscoveryFeedLoading,Asking Nexus for the most recently updated mods...
+Mod_Update_Manager_DiscoveryFeedFailed,"Nexus's list could not be read, so nothing is shown. Press Refresh to try again."
+Mod_Update_Manager_DiscoveryFeedBlocked,"This list needs an API key, or Check for updates without an API key turned on in the Settings tab."
+Mod_Update_Manager_DiscoveryFeedRefresh,Refresh
+Mod_Update_Manager_DiscoveryFeedOpenPage,Open Nexus Page
+Mod_Update_Manager_DiscoveryFeedNote,Also adds a New and updated filter to My Mods. Opening it sends one request to Nexus's public list; nothing is downloaded.
+Mod_Update_Manager_EndorseButton,Endorse
+Mod_Update_Manager_EndorseConfirm,Endorse {0} on Nexus with your account?
+Mod_Update_Manager_EndorseYes,Yes
+Mod_Update_Manager_EndorseNo,No
+Mod_Update_Manager_EndorseSending,Sending the endorsement to Nexus...
+Mod_Update_Manager_EndorseDone,"Endorsed on Nexus. To take it back, use the mod's Nexus page."
+Mod_Update_Manager_EndorseRefused,"Nexus refused the endorsement (HTTP {0}). Nexus accepts one only from an account that has downloaded this mod, at least 15 minutes ago, and is not its author, for a version its page lists."
+Mod_Update_Manager_EndorseKeyRejected,"Nexus did not accept your API key, so nothing was endorsed."
+Mod_Update_Manager_EndorseRateLimited,"Nexus is rate limiting requests, so nothing was endorsed. Try again later."
+Mod_Update_Manager_EndorseUnconfirmed,"Nexus answered with HTTP {0}, so whether the endorsement was saved is not known. Check the mod's Nexus page."
+Mod_Update_Manager_EndorseUnreachable,"Could not reach Nexus, so whether the endorsement was saved is not known. Check the mod's Nexus page."
+Mod_Update_Manager_EndorseNotSent,"Nothing was sent: this mod's Nexus ID, its installed version or your API key cannot be sent as written."
+Mod_Update_Manager_EnableEndorse,Show an Endorse button on mods with a Nexus ID (asks before sending anything; needs an API key)
+Mod_Update_Manager_SortButton,Sort: {0}
+Mod_Update_Manager_SortName,Name
+Mod_Update_Manager_SortUpdates,Update status first
+Mod_Update_Manager_SortEndorsements,Endorsements
+Mod_Update_Manager_SortAuthor,Author
+Mod_Update_Manager_VersionNewChanged,NEW: {0} to {1}
+Mod_Update_Manager_VersionNewInstalled,NEW: installed {0}
+Mod_Update_Manager_VersionMarkSeen,Mark all as seen
+Mod_Update_Manager_VersionHistory,History
+Mod_Update_Manager_VersionHistoryHide,Hide History
+Mod_Update_Manager_VersionHistoryEmpty,No recorded changes for this mod yet.
+Mod_Update_Manager_VersionLineChanged,{0}  {1} to {2}  ({3})
+Mod_Update_Manager_VersionLineFirstSeen,{0}  first seen {1}  ({2})
+Mod_Update_Manager_VersionSourceScan,startup scan
+Mod_Update_Manager_VersionSourceApply,suite Apply
+Mod_Update_Manager_ProfilesHeader,Profiles
+Mod_Update_Manager_ProfilesNote,"Save the installed mods under a name, then compare that list with what is installed later. Nothing is installed or changed; a profile is a small text file in BepInEx/config/ModUpdateManager_Profiles that you can copy to a friend."
+Mod_Update_Manager_ProfileNameLabel,Profile name:
+Mod_Update_Manager_ProfileSave,Save profile
+Mod_Update_Manager_ProfileCompare,Compare
+Mod_Update_Manager_ProfileDelete,Delete
+Mod_Update_Manager_ProfileNone,No saved profiles yet.
+Mod_Update_Manager_ProfileBadName,"Use only letters, numbers, spaces, hyphens and underscores in a profile name (60 characters at most)."
+Mod_Update_Manager_ProfileSaved,Saved profile '{0}' ({1} mods).
+Mod_Update_Manager_ProfileSaveFailed,The profile could not be saved (see the log).
+Mod_Update_Manager_ProfileSummary,"Compared with '{0}': {1} difference(s), {2} the same."
+Mod_Update_Manager_ProfileUnreadable,{0} line(s) of the profile could not be read and were skipped.
+Mod_Update_Manager_ProfileMissing,Missing here: {0} (the profile has {1})
+Mod_Update_Manager_ProfileExtra,"Extra here: {0} ({1} is installed, the profile does not have it)"
+Mod_Update_Manager_ProfileOlder,"Older here: {0} ({1} installed, the profile has {2})"
+Mod_Update_Manager_ProfileNewer,"Newer here: {0} ({1} installed, the profile has {2})"
+Mod_Update_Manager_LoadedYes,Loaded by BepInEx
+Mod_Update_Manager_LoadedNo,No plugin loaded from this folder
+Mod_Update_Manager_LoadedUnknown,Load status unknown
+Mod_Update_Manager_LoadedFrameworkYes,Framework data loaded from here
+Mod_Update_Manager_LoadedFrameworkNo,Framework did not load data from this folder (another copy may have been used)
+Mod_Update_Manager_LoadOrderHeader,"Load order, as enumerated by BepInEx:"
+Mod_Update_Manager_LoadOrderLine,{0}. {1} v{2} ({3})
+Mod_Update_Manager_LoadOrderNone,BepInEx reports no loaded plugins.
+Mod_Update_Manager_LoadOrderUnknown,The load order could not be read from BepInEx.
+Mod_Update_Manager_LoadOrderShow,Show load order
+Mod_Update_Manager_LoadOrderHide,Hide load order
+Mod_Update_Manager_TabMyMods,My Mods
+Mod_Update_Manager_TabConflicts,Conflicts
+Mod_Update_Manager_TabSettings,Settings
+Mod_Update_Manager_StatusInitial,Press Check Updates to scan for mod updates
+Mod_Update_Manager_GameVersionLine,Card Survival: Fantasy Forest · {0}
+Mod_Update_Manager_ProgressFormat,Progress: {0}
+Mod_Update_Manager_CheckUpdates,Check for Updates
+Mod_Update_Manager_RefreshModList,Refresh Mod List
+Mod_Update_Manager_Close,Close
+Mod_Update_Manager_ConfigureKeyPrompt,Configure your Nexus API key in Settings to check for updates
+Mod_Update_Manager_FilterLabel,Filter:
+Mod_Update_Manager_VersionFormat,v{0}
+Mod_Update_Manager_VersionArrowFormat,v{0} → v{1}
+Mod_Update_Manager_VersionOkFormat,v{0} [OK]
+Mod_Update_Manager_RateLimitedFormat,{0} mod(s) were rate limited by Nexus and were not checked.
+Mod_Update_Manager_FavoritesOnly,Favorites only
+Mod_Update_Manager_ShowIgnored,Show ignored
+Mod_Update_Manager_NoUpdates,No updates available! All configured mods are up to date.
+Mod_Update_Manager_UpdatesAvailableFormat,{0} mod(s) have updates available:
+Mod_Update_Manager_UpdatesAvailableMajorFormat,{0} mod(s) have updates available ({1} major):
+Mod_Update_Manager_NoneChecked,No mods have been checked yet.
+Mod_Update_Manager_UnmappedHeader,These mods don't have a Nexus Mod ID configured:
+Mod_Update_Manager_UnmappedHelp1,"Add mappings in the Settings tab, add 'NexusModId' to their ModInfo.json,"
+Mod_Update_Manager_UnmappedHelp2,or enter the Nexus ID directly below each mod.
+Mod_Update_Manager_AllMapped,All mods have been mapped!
+Mod_Update_Manager_KnownFormat,Known: #{0}
+Mod_Update_Manager_NexusIdLabel,Nexus ID:
+Mod_Update_Manager_SaveMapping,Save Mapping
+Mod_Update_Manager_MappedStatusFormat,Mapped {0} -> Nexus #{1}. Re-check to verify.
+Mod_Update_Manager_FindIdHint,(Find the ID in the Nexus URL: /mods/##)
+Mod_Update_Manager_ConflictsDisabled,Conflict warnings are disabled in Settings.
+Mod_Update_Manager_NoModsInstalled,No mods installed.
+Mod_Update_Manager_NoConflicts,No conflicts detected!
+Mod_Update_Manager_ConflictsFoundFormat,Found {0} potential conflict(s):
+Mod_Update_Manager_ConflictPairFormat,{0} {1} <-> {2}
+Mod_Update_Manager_ConflictHeuristicLineFormat,[{0}] {1} <-> {2}{3}
+Mod_Update_Manager_ResolutionFormat,Resolution: {0}
+Mod_Update_Manager_StatsHeader,Update Statistics
+Mod_Update_Manager_StatsTotal,Total Mods:
+Mod_Update_Manager_StatsUpToDate,Up to Date:
+Mod_Update_Manager_StatsNeedUpdates,Need Updates:
+Mod_Update_Manager_StatsCritical,Critical / Major Updates:
+Mod_Update_Manager_StatsUnableToCheck,Unable to Check:
+Mod_Update_Manager_FavoritesIgnoredFormat,Favorites: {0}  |  Ignored: {1}
+Mod_Update_Manager_NextBackgroundCheck,Next background check:
+Mod_Update_Manager_ExportHeader,Export Mod List
+Mod_Update_Manager_ExportNote,Generates a formatted list for bug reports or compatibility discussions.
+Mod_Update_Manager_GenerateExport,Generate Export
+Mod_Update_Manager_CopyToClipboard,Copy to Clipboard
+Mod_Update_Manager_ApiKeySaved,API key saved!
+Mod_Update_Manager_ApiConfigHeader,API Configuration
+Mod_Update_Manager_NexusApiKeyLabel,Nexus API Key:
+Mod_Update_Manager_Save,Save
+Mod_Update_Manager_ApiKeyHelp,Get your API key from: https://www.nexusmods.com/users/myaccount?tab=api+access
+Mod_Update_Manager_BehaviorHeader,Behavior Settings
+Mod_Update_Manager_CheckOnStartup,Check for updates on game startup
+Mod_Update_Manager_ShowOnlyUpdates,Show only mods with updates in main list
+Mod_Update_Manager_AddMappingHeader,Add Mod Mapping
+Mod_Update_Manager_AddMappingNote,Map a local mod to its Nexus Mods page
+Mod_Update_Manager_ModNameLabel,Mod Name:
+Mod_Update_Manager_AddMapping,Add Mapping
+Mod_Update_Manager_AddedMappingFormat,Added mapping: {0} -> {1}
+Mod_Update_Manager_CurrentMappings,Current Mappings:
+Mod_Update_Manager_MappingLineFormat,{0} → Nexus ID: {1}
+Mod_Update_Manager_Remove,Remove
+Mod_Update_Manager_BackgroundHeader,Background Checking
+Mod_Update_Manager_EnablePeriodic,Enable periodic update checking
+Mod_Update_Manager_CheckIntervalLabel,Check Interval (min):
+Mod_Update_Manager_NextCheckFormat,Next check: {0}
+Mod_Update_Manager_AnalysisHeader,Analysis & Warnings
+Mod_Update_Manager_ShowConflictWarnings,Show potential mod conflict warnings
+Mod_Update_Manager_PerformanceHeader,Performance
+Mod_Update_Manager_CacheResponses,Cache API responses
+Mod_Update_Manager_CachedResponsesFormat,Cached responses: {0}
+Mod_Update_Manager_EnableDiscovery,Enable slow Nexus ID discovery
+Mod_Update_Manager_DiscoveryProgressFormat,"Discovery progress: scanned through #{0}, found {1}"
+Mod_Update_Manager_SuiteHeader,Crispywhips Mod Suite
+Mod_Update_Manager_SuiteIntro,Install or update all included mods in one click. A game restart is required after applying changes.
+Mod_Update_Manager_CategoryFormat,[{0}]
+Mod_Update_Manager_InstalledVersionFormat,Installed: {0}
+Mod_Update_Manager_SuiteVersionFormat,Suite: {0}
+Mod_Update_Manager_BadgeUpToDate,[Up to Date]
+Mod_Update_Manager_BadgeUpdateAvailable,[Update Available]
+Mod_Update_Manager_BadgeNotInstalled,[Not Installed]
+Mod_Update_Manager_BadgeUnknown,[Unknown]
+Mod_Update_Manager_RestartBanner,Mods installed. Restart Card Survival: Fantasy Forest to load the changes.
+Mod_Update_Manager_QuitGame,Quit Game (then relaunch from Steam)
+Mod_Update_Manager_SelectOutOfDate,Select Out of Date / Not Installed
+Mod_Update_Manager_SelectAll,Select All
+Mod_Update_Manager_ApplyFormat,Apply Updates to {0} Selected Mod(s)
+Mod_Update_Manager_SuiteFailedFormat,FAILED: {0} - {1}
+Mod_Update_Manager_SuiteDoneFormat,"Done: {0} installed, {1} failed."
+Mod_Update_Manager_SuiteSkippedFormat,"Skipped {0}, left as installed (see the log for why): {1}."
+Mod_Update_Manager_NoModsMatch,No mods found matching criteria.
+Mod_Update_Manager_ByAuthorFormat,by {0}
+Mod_Update_Manager_MajorUpdateAvailable,MAJOR UPDATE AVAILABLE
+Mod_Update_Manager_UpdateAvailable,UPDATE AVAILABLE
+Mod_Update_Manager_Unignore,Unignore
+Mod_Update_Manager_Ignore,Ignore
+Mod_Update_Manager_HideChangelog,Hide Changelog
+Mod_Update_Manager_Changelog,Changelog
+Mod_Update_Manager_ChangelogFetching,Fetching changelog...
+Mod_Update_Manager_ChangelogUnavailableFormat,Changelog unavailable: {0}
+Mod_Update_Manager_ChangelogNone,No changelog entries found for this mod.
+Mod_Update_Manager_ChangelogClickHint,Click Changelog button to load.
+Mod_Update_Manager_HideNotes,Hide Notes
+Mod_Update_Manager_NotesFormat,Notes: {0}
+Mod_Update_Manager_AddNotes,Add Notes
+Mod_Update_Manager_Cancel,Cancel
+Mod_Update_Manager_FilterAll,All
+Mod_Update_Manager_FilterUpdates,Updates Available
+Mod_Update_Manager_FilterUpToDate,Up to Date
+Mod_Update_Manager_FilterUnmapped,Unmapped
+Mod_Update_Manager_CheckerScanning,Scanning installed mods...
+Mod_Update_Manager_CheckerFoundFormat,Found {0} installed mods
+Mod_Update_Manager_CheckerNoKey,No API key configured - cannot check for updates
+Mod_Update_Manager_CheckerCompleteFormat,Check complete! {0} updates available.
+Mod_Update_Manager_CheckerNoRateLimited,No rate-limited mods to re-check.
+Mod_Update_Manager_CheckerRecheckStillFormat,Re-check complete: {0} mod(s) still rate limited.
+Mod_Update_Manager_CheckerRecheckAll,Re-check complete: all previously rate-limited mods checked successfully.
+Mod_Update_Manager_CheckerCheckingFormat,Checking {0} {1}...
+Mod_Update_Manager_CheckerContextModsWithIds,mods with Nexus IDs
+Mod_Update_Manager_CheckerContextRateLimited,rate-limited mod(s)
+Mod_Update_Manager_CheckerProgressFormat,Checking mods... ({0}/{1})
+Mod_Update_Manager_CheckerVersionUnknown,Mod version could not be determined
+Mod_Update_Manager_CheckerNoNexusId,No Nexus Mod ID configured

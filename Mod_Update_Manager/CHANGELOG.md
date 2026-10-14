@@ -1,9 +1,76 @@
-# Mod Update Manager — Changelog
+# Mod Update Manager: Changelog
 
 All notable changes to this mod are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
+
+## [2.1.64] - 2026-10-13
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.2, Herbs and Fungi 1.14.4, Advanced Copper Tools 1.18.4, Water Driven Infrastructure 1.12.5, Community Mod Chest 1.69.12, Homestead Perks 1.3.2, Repeat Action 2.2.2, Quick Transfer 1.9.1, Skill Speed Boost 1.11.1, and the pre-release Partner Overhaul 1.1.2, Harsh Wilds 0.11.2, Far Territory 0.1.1, Forest Lore 0.1.2, Utility Belt 0.1.2 and Sirus23 Mod Collection 1.22.2.
+- **The suite is described as 15 mods.** The mod description, the README and the feature list said 9; the Install & Update tab has listed 15 rows since the six pre-release mods joined.
+- **Utility Belt's row names what it bundles:** Repeat Action, Quick Transfer and Skill Speed Boost. The README says the same.
+- **Disk cost of keeping previous versions, re-measured for all 15 mods:** about 232 MB (231,828,844 bytes, without the framework's `SpriteCache`, measured 2026-10-13), of which Far Territory is 73.6 MB. The old figure was about 131 MB for nine mods.
+
+### Fixed
+
+- **More failures leave a log line.** A failed conflict scan, a failed install step, and a few path or folder checks now write a line naming the mod or path. Nothing about what is installed or how an install proceeds changed.
+
+---
+
+## [2.1.63] - 2026-10-11
+
+2.1.62 was built but never published on Nexus, so its changes are listed here with this release.
+
+### Added
+
+- **Six newer mods in the Install & Update tab.** Forest Lore, Far Territory, Harsh Wilds, Partner Overhaul, Sirus23 Mod Collection and Utility Belt now have rows labelled **(Pre-release)**. They install like any other suite mod, and Apply adds the CSFF Mod Framework when it is missing or older. Utility Belt includes its own Repeat Action; with both installed, BepInEx runs only the newer copy.
+- **A Sort button on My Mods.** **Sort:** cycles Name (the default), Update status first, Endorsements and Author. Favorites stay on top in every order, and your choice is remembered between sessions. It sends nothing to Nexus.
+- **NEW chips and a History button on My Mods rows.** A row shows **NEW: old to new** when a mod's installed version changed since the game last started, until you press **Mark all as seen**. **History** lists a mod's recorded changes, up to 20, with the date and whether they came from the startup scan or a suite Apply. The first start after updating records what is installed and shows nothing.
+- **Read-only profiles in Settings.** Save your installed mods under a name, list saved profiles, and compare one with the current install (missing, extra, older, newer). A profile is a small text file you can copy to a friend. Profiles install and remove nothing.
+- **"Loaded?" status and a load-order list.** Each My Mods row says whether BepInEx loaded a plugin from that mod's folder and, with the framework installed, whether it loaded the mod's data from there. **Show load order** on the Conflicts tab lists the loaded plugins. An unreadable list shows "unknown", never "not loaded".
+- **The window speaks Chinese when the game does.** The whole window, status line and per-mod messages come from `Localization/SimpCn.csv` in a Chinese game. A line the window font cannot draw is shown in English instead of empty boxes. English players see no change.
+- **An Endorse button on My Mods rows (opt-in).** Turn on `EnableEndorseButton` (off by default) and, with an API key set, rows with a Nexus ID get an **Endorse** button. It asks "Endorse (mod name) on Nexus with your account?" first, and only **Yes** sends one request that endorses that mod with your Nexus account. The mod's test suite checks the request it builds, and mutation testing shows each check failing when its rule is broken. Not yet seen working against Nexus or in a running game.
+- **A "New and updated" filter on My Mods (opt-in).** With `EnableNexusDiscovery` on, it lists the most recently updated CSFF mods on Nexus that you do not have, with an **Open Nexus Page** button. It makes one list request when you first open it in a session and again on **Refresh**, never at startup. `DiscoveryFeedSize` (1 to 50, default 10) sets how many it asks for and shows. Not yet seen in a running game.
+- **"Tested: EA x.y" under a mod's changelog.** When a mod's Nexus release notes have a "Compatible with" line naming a game build, the newest one shows under the changelog: green for your game version or newer, orange when older. It repeats what the author wrote; nothing is tested.
+- **Confirmed conflicts.** Two plugin DLLs that register the same BepInEx plugin ID are found by reading the DLLs and listed first as `[Same plugin GUID]`. The name-based hints are muted and marked "(heuristic - check manually)".
+- **Saving your Nexus API key checks it.** Save now shows "Key accepted", "Key rejected" or "Could not reach Nexus" under the field, instead of a bad key failing later on every row. The key is saved either way, and Nexus's reply is never read, saved or shown.
+- **The README lists exactly what leaves your machine.** A Network section names each request, when it is sent and what it carries.
+- **The Install & Update tab shows Mod Update Manager's own line,** with its version and a **Nexus page** button. It updates only from its Nexus page and cannot replace its own file; newer suite versions arrive inside each new release.
+- **The "?" panel shows the bundled mod's own description,** read from inside Mod Update Manager, so it matches each bundle. `DetailsMaxChars` (default 2500) cuts long text with a pointer to the Nexus page.
+- **A suite mod installed under another folder is seen before Apply adds a second copy.** A suite mod found in a folder like `plugins/Herbs_And_Fungi_1-14-0/Herbs_And_Fungi/` reads `[Installed elsewhere]` with that folder. Apply skips it and neither Select button picks it, because two copies can mix code and data from different versions.
+- **A suite mod that needs another one brings it along.** Ticking Community Mod Chest also installs Advanced Copper Tools and the framework, whichever is missing or older than the bundled copy. The row is ticked for you, with a **Clear** button that says what will happen if you leave it out. If the framework fails, nothing after it is touched; if another mod fails, the mods that need it are skipped and **Retry failed** selects them again. Not yet seen in a running game.
+- **A note when the installed framework is older than this bundle's.** The tab says so when your framework is older than the one packed into this release while some content mods are current, and points at the framework's row. It is a note only; nothing is selected for you.
+- **Keep the previous version, and Roll back (off by default).** `KeepPreviousSuiteVersion` makes Apply keep the copy it replaces in `BepInEx/mum_work/kept/`, out of the game's reach. A row with a kept copy shows `[Previous: <version>]` and a **Roll back** button. `KeptVersions` (1 to 3, default 1) sets how many are held. Measured at 131,396,835 bytes for all nine suite mods on a developer install (2026-10-01, without `SpriteCache`); 2.1.64 re-measures it for all 15. The mod's test suite builds kept copies, prunes, rolls back and refuses made-up bad paths on scratch folders, and mutation testing shows each check failing when its rule is broken; a rollback in a
+  running game has not been checked yet.
+- **An update check asks Nexus once, and can run without an API key.** One public request now names every mod being checked, with no key. Only a mod it cannot settle is asked about separately, which needs a key. A mod it cannot settle is never shown as up to date, and a hidden or removed mod is offered no update. **Check for updates without an API key** (`UsePublicEndpointWithoutKey`, off by default) lets a player with no key check too. Not yet seen in a running game.
+- **Every request says what is asking,** with `Application-Name: Mod_Update_Manager` and `Application-Version` headers, as Nexus's API policy asks.
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.0, Herbs and Fungi 1.14.1, Advanced Copper Tools 1.18.1, Water Driven Infrastructure 1.12.2, Community Mod Chest 1.69.6, Homestead Perks 1.3.1, Repeat Action 2.2.1, Quick Transfer 1.9.0, Skill Speed Boost 1.11.0, and the pre-release Partner Overhaul 1.1.0, Harsh Wilds 0.10.0, Far Territory 0.1.0, Forest Lore 0.1.0, Utility Belt 0.1.1 and Sirus23 Mod Collection 1.22.0. Some of these mods' newest changelog sections were still marked Unreleased when packed, so they are embedded under the version shown; each mod's own changelog lists everything up to it. Among the larger changes:
+  - Herbs and Fungi: Chaga and Chaga Tea, Plant Ginseng, Plant Yarrow and Plant Peanuts blueprints, spent mushroom logs that give back wood, teas that dose you once when you drink them, and immune boosts that wear off instead of stacking.
+  - Advanced Copper Tools: an Iron Large Saw, a Copper Shield, panning for stream tin, copper fires that behave like fires, any lamp oil for the lantern, brazier and oil flask, and sheets that keep the metal they were made from.
+  - Community Mod Chest: friendship with the Miller, the Weaver and the Apothecary (chatting, trading and gifts), evenings at the Inn, new pigments and dyeable garments, and the Miller and Weaver keeping their Inn evenings and Academy afternoons.
+  - Quick Transfer: a Tag Filter and a Prioritize Most Spoiled option.
+  - CSFF Mod Framework: three new options for mod authors. No suite mod uses them yet, so play is unchanged.
+
+  Water Driven Infrastructure 1.11.3, Homestead Perks 1.2.4, Repeat Action 2.1.6 and Skill Speed Boost 1.10.6 are re-embedded at the same versions as 2.1.61.
+
+### Fixed
+
+- **Status lines from the update check now show in Chinese in a Chinese game.** They stayed English because the font check ran outside the moment Unity allows it. The font is now read once when the window first draws. English players see no change. Not yet seen in a running Chinese game.
+- **Apply Updates never leaves a mod half-replaced.** Each mod is unpacked and checked in a staging folder, and the installed copy is swapped out only once the new one is complete. A file held open by another program or locked by antivirus now leaves your installed copy exactly as it was, and says so. `[Install Incomplete]` now means only the rare case where the mod's folder could not be put back; your previous copy is kept and the next Apply restores it.
+- **The update's working folders are outside `BepInEx/plugins/`.** A half-unpacked copy left inside `plugins/` would have been loaded and listed as a second copy of the mod. Staging and replaced copies now live in `BepInEx/mum_work/`, where nothing loads them. If a folder cannot move between the two (for example when `plugins` is a link to another drive), that session unpacks inside `plugins/` instead and the log says so once. Leftovers from earlier builds are cleaned up the next time that mod is applied.
+- **Apply Updates no longer freezes the game while it installs.** Installing all nine suite mods used to stop the game drawing for 1.7 to 4.8 seconds on a busy machine. Apply now works a few files at a time, the window keeps drawing and the status line says what it is doing. A batch takes a little longer on the clock. A game closed partway still leaves either the old copy or the new one, whole.
+- **A rate-limited update check is retried once by itself,** after five seconds. Only a second refusal needs the Re-check Rate-Limited button.
+- **Mapping rows that only repeat the built-in list are removed.** Rows earlier versions wrote into `ModUpdateManager_Mappings.json` overrode the built-in list, so a later correction to it would not have reached you. Rows you set to a different ID, and rows for mods the list does not know, are kept.
+- **The window opens by itself at most once per session, and a check no longer moves you to another tab.** Only the startup check can open it, and only when it finds an update. `OpenWindowOnUpdates` (on by default) turns even that off.
+- **A version whose release notes hold square brackets is no longer missing from the changelog panel.** The panel used to skip any version with a `[` or `]` in a note. Escaped characters in Nexus replies, such as a curly apostrophe or a quotation mark, are now read correctly too.
+- **A mod that failed in an Apply can be retried without restarting the game.** The restart banner now shows **Retry failed (N)**, which applies the failed rows again. A mod whose installed copy is newer than the bundled one, or whose bundled copy cannot be read, is still skipped.
+- **Check for Updates now really asks Nexus.** The Check for Updates and Re-check Rate-Limited buttons could answer from the 24-hour cache, so a release from this morning did not show. Both now always ask Nexus, which spends API quota even when the cache holds an answer. The startup and background checks still use the cache when `CachingEnabled` is on.
 
 ## [2.1.61] - 2026-09-26
 
@@ -485,7 +552,7 @@ read back from the embedded ZIPs rather than inferred.)*
   `README.md`'s feature list now enumerates the shipped four-tab layout
   (Install & Update / My Mods / Conflicts / Settings) instead of the pre-2.1.5 flat tab set.
 
-## [2.1.32] — 2026-08-31
+## [2.1.32] - 2026-08-31
 
 *(Rollup entry, added retroactively 2026-09-01: versions 2.1.25-2.1.31 (2026-08-24 to 2026-08-30)
 shipped as suite-refresh and version-string steps with no changelog entries, under placeholder
@@ -508,49 +575,49 @@ flagged the gap.)*
 
 ---
 
-## [2.1.24] — 2026-08-24
+## [2.1.24] - 2026-08-24
 
 ### Changed
 
-- **Refreshed the embedded mod suite bundle** to pick up two fleet releases that shipped after the 2.1.23 repackage: Community Mod Chest 1.68.1 (Quiet Village character perk — stands down the Watch and keeps NPCs home — plus an NPC scheduler performance pass) and CSFF Mod Framework 2.25.7 (fixes a Portal Hub travel map-overlap/board-corruption bug introduced upstream, adds the `Reflect.IsAlive` helper CMC's scheduler pass relies on). The other 7 bundled mods (Advanced Copper Tools, Herbs & Fungi, Quick Transfer, Repeat Action, Skill Speed Boost, Water-Driven Infrastructure, Homestead Perks) are unchanged from 2.1.23.
+- **Refreshed the embedded mod suite bundle** to pick up two fleet releases that shipped after the 2.1.23 repackage: Community Mod Chest 1.68.1 (Quiet Village character perk : stands down the Watch and keeps NPCs home : plus an NPC scheduler performance pass) and CSFF Mod Framework 2.25.7 (fixes a Portal Hub travel map-overlap/board-corruption bug introduced upstream, adds the `Reflect.IsAlive` helper CMC's scheduler pass relies on). The other 7 bundled mods (Advanced Copper Tools, Herbs & Fungi, Quick Transfer, Repeat Action, Skill Speed Boost, Water-Driven Infrastructure, Homestead Perks) are unchanged from 2.1.23.
 
 ---
 
-## [2.1.23] — 2026-08-23
+## [2.1.23] - 2026-08-23
 
 ### Changed
 
-- **Repackaged the embedded mod suite bundle** used by the Install & Update tab — refreshed all 9 embedded suite ZIPs with each mod's latest release as of 2026-08-23: Advanced Copper Tools 1.16.1, Community Mod Chest 1.67.6, Herbs & Fungi 1.10.14, Quick Transfer 1.7.7, Repeat Action 2.0.2, Skill Speed Boost 1.9.7, Water-Driven Infrastructure 1.10.19, Homestead Perks 1.2.3, and CSFF Mod Framework 2.25.3 — replacing the versions bundled since 2.1.18/2.1.22. Embedded DLL payload grew from ~38.6 MB to ~39.6 MB.
+- **Repackaged the embedded mod suite bundle** used by the Install & Update tab : refreshed all 9 embedded suite ZIPs with each mod's latest release as of 2026-08-23: Advanced Copper Tools 1.16.1, Community Mod Chest 1.67.6, Herbs & Fungi 1.10.14, Quick Transfer 1.7.7, Repeat Action 2.0.2, Skill Speed Boost 1.9.7, Water-Driven Infrastructure 1.10.19, Homestead Perks 1.2.3, and CSFF Mod Framework 2.25.3 : replacing the versions bundled since 2.1.18/2.1.22. Embedded DLL payload grew from ~38.6 MB to ~39.6 MB.
 
 ---
 
-## [2.1.22] — 2026-08-16
+## [2.1.22] - 2026-08-16
 
 ### Added
 
-- **Homestead Perks joins the suite** — the Install & Update tab now lists a 9th installable/updatable mod alongside the existing 8: Homestead Perks (thirteen character-creation perks granting placeable structure kits — Homestead, Cabin, Mud Hut, Well, Cellar, Log Bed, Furnace, Forge, Oven, Rain Cistern, Tanning Pit, Pit Trap, and Path kits), registered in the Content category with its own embedded suite ZIP.
+- **Homestead Perks joins the suite** : the Install & Update tab now lists a 9th installable/updatable mod alongside the existing 8: Homestead Perks (thirteen character-creation perks granting placeable structure kits : Homestead, Cabin, Mud Hut, Well, Cellar, Log Bed, Furnace, Forge, Oven, Rain Cistern, Tanning Pit, Pit Trap, and Path kits), registered in the Content category with its own embedded suite ZIP.
 
 Versions 2.1.19–2.1.21 that preceded this were intermediate version-string-only steps with no independent content; this entry covers the full jump from 2.1.18.
 
 ---
 
-## [2.1.18] — 2026-08-11
+## [2.1.18] - 2026-08-11
 
 ### Changed
 
-- **Repackaged the embedded mod suite bundle** used by the Install & Update tab — refreshed all 8 embedded suite ZIPs with each mod's latest release as of 2026-08-09: Community Mod Chest 1.46.4 (new village WorldMap nodes), Advanced Copper Tools 1.15.7, Herbs & Fungi 1.10.9, Quick Transfer 1.7.6, Skill Speed Boost 1.9.6, Water-Driven Infrastructure 1.10.5, Repeat Action 2.0.1, and CSFF Mod Framework 2.21.3. Installing or updating via the suite tab no longer extracts stale copies (embedded DLL payload grew from ~35 MB to ~39.8 MB). This repackage shipped as 2.1.16; versions 2.1.17 and 2.1.18 that followed (2026-08-09 to 2026-08-11) are version-string-only rebuilds with no further bundle or code changes.
+- **Repackaged the embedded mod suite bundle** used by the Install & Update tab : refreshed all 8 embedded suite ZIPs with each mod's latest release as of 2026-08-09: Community Mod Chest 1.46.4 (new village WorldMap nodes), Advanced Copper Tools 1.15.7, Herbs & Fungi 1.10.9, Quick Transfer 1.7.6, Skill Speed Boost 1.9.6, Water-Driven Infrastructure 1.10.5, Repeat Action 2.0.1, and CSFF Mod Framework 2.21.3. Installing or updating via the suite tab no longer extracts stale copies (embedded DLL payload grew from ~35 MB to ~39.8 MB). This repackage shipped as 2.1.16; versions 2.1.17 and 2.1.18 that followed (2026-08-09 to 2026-08-11) are version-string-only rebuilds with no further bundle or code changes.
 
 ---
 
-## [2.1.15] — 2026-08-07
+## [2.1.15] - 2026-08-07
 
 ### Fixed
 
-- **Chinese localization never shipped.** The `.csproj` had no `Content Include` for `Localization/*.csv`, so `bin/Release/Localization/` was empty regardless of what existed in source — and the two Chinese strings that did exist were stranded in `SimpEn.csv`'s unused 3rd column (the loader reads `SimpEn.csv` only in English mode). Added the `Localization\*.csv` content item and created `Localization/SimpCn.csv` with both rows.
+- **Chinese localization never shipped.** The `.csproj` had no `Content Include` for `Localization/*.csv`, so `bin/Release/Localization/` was empty regardless of what existed in source : and the two Chinese strings that did exist were stranded in `SimpEn.csv`'s unused 3rd column (the loader reads `SimpEn.csv` only in English mode). Added the `Localization\*.csv` content item and created `Localization/SimpCn.csv` with both rows.
 
 ---
 
-## [2.1.14] — 2026-08-04
+## [2.1.14] - 2026-08-04
 
 ### Fixed
 
@@ -558,32 +625,32 @@ Versions 2.1.19–2.1.21 that preceded this were intermediate version-string-onl
 
 ### Changed
 
-- `FEATURES_IMPLEMENTED.md` and `IMPLEMENTATION_SUMMARY.md` (internal dev docs) refreshed to reflect the Install & Update suite installer shipped in v2.1.5 — both had drifted stale and still described it as unshipped/planned.
+- `FEATURES_IMPLEMENTED.md` and `IMPLEMENTATION_SUMMARY.md` (internal dev docs) refreshed to reflect the Install & Update suite installer shipped in v2.1.5 : both had drifted stale and still described it as unshipped/planned.
 
 ---
 
-## [2.1.9] — 2026-07-12
+## [2.1.9] - 2026-07-12
 
 ### Fixed
 
-- **Embedded suite ZIPs were missing several content-folder types**, so mods installed via the "Install & Update" tab loaded incomplete. The packaging script (`Pack-Suite.ps1`) only copied `CardData`, `CharacterPerk`, `Localization`, `GameStat`, `WorldMap`, and `EncounterGuards`. It now copies the full set that the production deploy uses — adding `PerkGroup`, `ScriptableObject`, `Animals`, `NPCAgent`, `NPCStat`, `NPCDuty`, `Encounter`, `GameSourceModify`, and `Data`. This restores Water-Driven Infrastructure's mill-race map linkages (`Data/MillRaceMapEdges.json`) and any companion/NPC action data that the previous bundle silently dropped.
+- **Embedded suite ZIPs were missing several content-folder types**, so mods installed via the "Install & Update" tab loaded incomplete. The packaging script (`Pack-Suite.ps1`) only copied `CardData`, `CharacterPerk`, `Localization`, `GameStat`, `WorldMap`, and `EncounterGuards`. It now copies the full set that the production deploy uses : adding `PerkGroup`, `ScriptableObject`, `Animals`, `NPCAgent`, `NPCStat`, `NPCDuty`, `Encounter`, `GameSourceModify`, and `Data`. This restores Water-Driven Infrastructure's mill-race map linkages (`Data/MillRaceMapEdges.json`) and any companion/NPC action data that the previous bundle silently dropped.
 - Re-packaged all suite ZIPs against current mod builds, so the bundled CSFF Mod Framework now includes the latest companion-related fixes (e.g. the `NPCAgentActivationService` `UnityEngine.Object` guard). Installing the framework via MUM no longer breaks Sirus23 Mod Collection companions.
 
 ---
 
-## [2.1.5] — 2026-07-12
+## [2.1.5] - 2026-07-12
 
 ### Added
 
-- **Install & Update tab** (now the default tab on open) — one-click install or update of the entire crispywhips in-house mod suite (CSFFModFramework, Advanced Copper Tools, Herbs & Fungi, Water-Driven Infrastructure, Community Mod Chest, Repeat Action, Quick Transfer, Skill Speed Boost). Each mod's ZIP is embedded directly inside the MUM DLL — no internet connection or manual download required. Per-mod rows show installed vs. bundled version and a status badge (`[Up to Date]` / `[Update Available]` / `[Not Installed]`). **Select Out of Date / Not Installed** or **Select All** and then **Apply Updates** extracts chosen mods to `BepInEx/plugins/`, preserving the framework's `SpriteCache/`. A restart-required banner (with a one-click game-quit button) appears after applying. Sirus23 Mod Collection is not part of this bundle.
-- `MiniZip.cs` — minimal custom ZIP reader for Mono compatibility. `System.IO.Compression` is unavailable in the game's runtime; suite ZIPs are packed with no-compression (`Stored` method) so this reader only needs to parse ZIP structure and copy bytes.
-- `ModSuiteExtractor.cs` — extraction engine; reads entries from `MiniZip`, maps paths, and writes files to the plugins directory.
-- `SuiteModRegistry.cs` — registry of mods in the bundle: folder name, display name, bundled-resource key, Nexus ID.
-- `SuiteVersionReader.cs` — reads version metadata from the `ModInfo.json` embedded inside each suite ZIP so the UI can compare installed vs. bundled versions without extracting.
+- **Install & Update tab** (now the default tab on open) : one-click install or update of the entire crispywhips in-house mod suite (CSFFModFramework, Advanced Copper Tools, Herbs & Fungi, Water-Driven Infrastructure, Community Mod Chest, Repeat Action, Quick Transfer, Skill Speed Boost). Each mod's ZIP is embedded directly inside the MUM DLL : no internet connection or manual download required. Per-mod rows show installed vs. bundled version and a status badge (`[Up to Date]` / `[Update Available]` / `[Not Installed]`). **Select Out of Date / Not Installed** or **Select All** and then **Apply Updates** extracts chosen mods to `BepInEx/plugins/`, preserving the framework's `SpriteCache/`. A restart-required banner (with a one-click game-quit button) appears after applying. Sirus23 Mod Collection is not part of this bundle.
+- `MiniZip.cs` : minimal custom ZIP reader for Mono compatibility. `System.IO.Compression` is unavailable in the game's runtime; suite ZIPs are packed with no-compression (`Stored` method) so this reader only needs to parse ZIP structure and copy bytes.
+- `ModSuiteExtractor.cs` : extraction engine; reads entries from `MiniZip`, maps paths, and writes files to the plugins directory.
+- `SuiteModRegistry.cs` : registry of mods in the bundle: folder name, display name, bundled-resource key, Nexus ID.
+- `SuiteVersionReader.cs` : reads version metadata from the `ModInfo.json` embedded inside each suite ZIP so the UI can compare installed vs. bundled versions without extracting.
 
 ### Changed
 
-- **Tab layout restructured**: "Install & Update" is now tab 0 (default). "My Mods" tab gains an inline filter toolbar — All / Updates Available / Up to Date / Unmapped — replacing the old separate tabs for each filter state. Analytics moved into the Settings tab.
+- **Tab layout restructured**: "Install & Update" is now tab 0 (default). "My Mods" tab gains an inline filter toolbar : All / Updates Available / Up to Date / Unmapped : replacing the old separate tabs for each filter state. Analytics moved into the Settings tab.
 - Startup log is now silent unless an error occurs; reduced Info noise on clean loads.
 
 ---

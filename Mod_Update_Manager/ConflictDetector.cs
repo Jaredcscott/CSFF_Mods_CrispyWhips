@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using BepInEx;
 
 namespace mod_update_manager
 {
     /// <summary>
-    /// Detects potential conflicts between mods
+    /// Detects potential conflicts between mods, in two tiers the Conflicts tab keeps apart:
+    /// GUID-confirmed (two plugin DLLs register the same [BepInPlugin] GUID, read from their
+    /// metadata by PluginMetadataReader) and name-heuristic (mod names that match a pattern or a
+    /// hand-listed pair, which a renamed folder or a translated name can get wrong).
     /// </summary>
     public class ConflictDetector
     {
@@ -16,6 +21,7 @@ namespace mod_update_manager
             public ConflictType Type { get; set; }
             public string Description { get; set; }
             public ConflictSeverity Severity { get; set; }
+            public ConflictSource Source { get; set; }
         }
 
         public enum ConflictType
@@ -24,7 +30,8 @@ namespace mod_update_manager
             FileOverlap,
             VersionMismatch,
             LoadOrderIssue,
-            ApiVersionMismatch
+            ApiVersionMismatch,
+            DuplicatePluginGuid
         }
 
         public enum ConflictSeverity
@@ -34,8 +41,23 @@ namespace mod_update_manager
             Critical
         }
 
+        public enum ConflictSource
+        {
+            /// <summary>Two DLLs register the literal same BepInEx plugin GUID.</summary>
+            GuidConfirmed,
+            /// <summary>Matched on mod names only; shown with "(heuristic - check manually)".</summary>
+            NameHeuristic
+        }
+
         private List<(string modNamePattern, string functionality)> _functionalities;
         private Dictionary<string, List<string>> _knownConflicts;
+
+        // DrawModConflicts calls DetectConflicts on every OnGUI pass and the GUID tier reads every
+        // plugin DLL from disk, so the whole result is cached per scanned mod list.
+        // UpdateChecker.ScanMods replaces that list and calls Invalidate, next to
+        // DependencyValidator.Invalidate.
+        private static List<ConflictInfo> _cache;
+        private static List<InstalledModInfo> _cacheFor;
 
         public ConflictDetector()
         {
@@ -45,20 +67,76 @@ namespace mod_update_manager
             InitializeFunctionalities();
         }
 
+        /// <summary>Drops the cached result so the next read rescans the plugins folder.</summary>
+        public static void Invalidate()
+        {
+            _cache = null;
+            _cacheFor = null;
+        }
+
         /// <summary>
-        /// Check for conflicts between installed mods
+        /// Check for conflicts between installed mods: GUID-confirmed ones first, then the name
+        /// heuristics. Never throws; a failed GUID scan degrades to the heuristic tier alone.
         /// </summary>
         public List<ConflictInfo> DetectConflicts(List<InstalledModInfo> mods)
         {
-            var conflicts = new List<ConflictInfo>();
+            if (_cache != null && ReferenceEquals(_cacheFor, mods))
+                return _cache;
 
-            // Check for duplicate functionalities
-            conflicts.AddRange(DetectDuplicateFunctionality(mods));
+            var guidTier = new List<ConflictInfo>();
+            string guidSummary;
+            try
+            {
+                guidTier = DetectDuplicatePluginGuids(out guidSummary);
+            }
+            catch (Exception ex)
+            {
+                guidSummary = $"GUID scan failed ({ex.Message})";
+                try { Plugin.Logger?.LogDebug($"ConflictDetector: the plugin GUID scan threw: {ex}"); } catch { }
+            }
 
-            // Check for known conflicts
-            conflicts.AddRange(DetectKnownConflicts(mods));
+            var heuristicTier = new List<ConflictInfo>();
+            heuristicTier.AddRange(DetectDuplicateFunctionality(mods));
+            heuristicTier.AddRange(DetectKnownConflicts(mods));
 
-            return conflicts;
+            _cache = guidTier.Concat(heuristicTier).ToList();
+            _cacheFor = mods;
+
+            // Info, not Debug: with nothing found the tab says only "No conflicts detected!", and
+            // this line is what tells "scanned and clean" from "never scanned". Once per scan.
+            try { Plugin.Logger?.LogInfo($"Conflict scan: {guidSummary}; {heuristicTier.Count} name-heuristic match(es)."); } catch { }
+            return _cache;
+        }
+
+        private static List<ConflictInfo> DetectDuplicatePluginGuids(out string summary)
+        {
+            var pluginsRoot = Path.Combine(Paths.BepInExRootPath, "plugins");
+            var guidsByDll = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+            int scanned = 0, unreadable = 0;
+            if (Directory.Exists(pluginsRoot))
+            {
+                foreach (var dll in Directory.GetFiles(pluginsRoot, "*.dll", SearchOption.AllDirectories))
+                {
+                    scanned++;
+                    var meta = PluginMetadataReader.Read(dll);
+                    if (meta == null) { unreadable++; continue; }
+                    if (meta.PluginGuids.Count == 0) continue;
+                    guidsByDll[dll.Substring(pluginsRoot.Length).TrimStart('\\', '/')] = new List<string>(meta.PluginGuids);
+                }
+            }
+
+            var collisions = PluginGuidCollisions.Find(guidsByDll);
+            summary = $"{scanned} DLL(s) read ({unreadable} unreadable), {guidsByDll.Count} declare a plugin GUID, " +
+                      $"{collisions.Count} GUID-confirmed collision(s)";
+            return collisions.Select(c => new ConflictInfo
+            {
+                ModA = c.DllA,
+                ModB = c.DllB,
+                Type = ConflictType.DuplicatePluginGuid,
+                Description = $"Both register the BepInEx plugin GUID \"{c.Guid}\".",
+                Severity = ConflictSeverity.Warning,
+                Source = ConflictSource.GuidConfirmed
+            }).ToList();
         }
 
         /// <summary>
@@ -77,7 +155,8 @@ namespace mod_update_manager
                         ModB = modB.Name,
                         Type = ConflictType.SameFunctionality,
                         Description = $"{modA.Name} and {modB.Name} provide the same functionality",
-                        Severity = ConflictSeverity.Warning
+                        Severity = ConflictSeverity.Warning,
+                        Source = ConflictSource.NameHeuristic
                     };
                 }
             }
@@ -94,7 +173,8 @@ namespace mod_update_manager
                     ModB = modB.Name,
                     Type = ConflictType.SameFunctionality,
                     Description = $"Both mods provide {funcA} functionality",
-                    Severity = ConflictSeverity.Warning
+                    Severity = ConflictSeverity.Warning,
+                    Source = ConflictSource.NameHeuristic
                 };
             }
 
@@ -116,6 +196,9 @@ namespace mod_update_manager
                     $"Load order may be important. Try reordering the mods.",
                 ConflictType.ApiVersionMismatch =>
                     $"API version mismatch. Ensure all mods are updated for the current game version.",
+                ConflictType.DuplicatePluginGuid =>
+                    "BepInEx loads only one of these, the newest version. If they are two copies of one mod, remove the older; " +
+                    "if one is a small copy bundled inside another mod's folder, it is usually harmless.",
                 _ => "Unknown conflict type. Please check the mod descriptions."
             };
         }
@@ -151,7 +234,8 @@ namespace mod_update_manager
                                 ModB = kvp.Value[j].Name,
                                 Type = ConflictType.SameFunctionality,
                                 Description = $"Both mods provide {kvp.Key} functionality",
-                                Severity = ConflictSeverity.Warning
+                                Severity = ConflictSeverity.Warning,
+                                Source = ConflictSource.NameHeuristic
                             });
                         }
                     }
@@ -181,7 +265,8 @@ namespace mod_update_manager
                                 ModB = conflictingMod,
                                 Type = ConflictType.SameFunctionality,
                                 Description = $"Known conflict: {modName} and {conflictingMod}",
-                                Severity = ConflictSeverity.Critical
+                                Severity = ConflictSeverity.Critical,
+                                Source = ConflictSource.NameHeuristic
                             });
                         }
                     }
@@ -199,8 +284,9 @@ namespace mod_update_manager
 
         private void InitializeKnownConflicts()
         {
-            // Add known conflicting mod pairs
-            // These are examples and would be expanded in practice
+            // Hand-listed pairs, matched by mod NAME and therefore shown in the heuristic tier. Its
+            // one pair stays name-keyed because UIScale was not on the reference install
+            // (2026-09-26), so its GUID could not be read; only CardSizeReduce was.
             _knownConflicts.Add("CardSizeReduce", new List<string> { "UIScale" });
         }
 

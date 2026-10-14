@@ -6,6 +6,19 @@ using System.Text.RegularExpressions;
 namespace mod_update_manager
 {
     /// <summary>
+    /// ModInfo.json structure (extended to support NexusModId). Lives beside SimpleJson, which
+    /// reads and writes it, so this file stays host-free for MUM-CompiledLogic.Tests.ps1.
+    /// </summary>
+    public class ModInfoJson
+    {
+        public string Name { get; set; }
+        public string Author { get; set; }
+        public string Version { get; set; }
+        public string NexusModId { get; set; }  // Optional field for Nexus integration
+        public string Description { get; set; }  // Player-facing text; the suite tab's details panel shows the embedded copy's
+    }
+
+    /// <summary>
     /// Simple JSON serialization/deserialization without external dependencies
     /// </summary>
     public static class SimpleJson
@@ -120,6 +133,7 @@ namespace mod_update_manager
             sb.AppendLine($"  \"Name\": \"{EscapeString(modInfo.Name ?? "")}\",");
             sb.AppendLine($"  \"Author\": \"{EscapeString(modInfo.Author ?? "")}\",");
             sb.AppendLine($"  \"Version\": \"{EscapeString(modInfo.Version ?? "")}\",");
+            sb.AppendLine($"  \"Description\": \"{EscapeString(modInfo.Description ?? "")}\",");
             sb.AppendLine($"  \"NexusModId\": \"{EscapeString(modInfo.NexusModId ?? "")}\"");
             sb.AppendLine("}");
             return sb.ToString();
@@ -136,6 +150,7 @@ namespace mod_update_manager
                 Name = dict.ContainsKey("Name") ? dict["Name"] : null,
                 Author = dict.ContainsKey("Author") ? dict["Author"] : null,
                 Version = dict.ContainsKey("Version") ? dict["Version"] : null,
+                Description = dict.ContainsKey("Description") ? dict["Description"] : null,
                 NexusModId = dict.ContainsKey("NexusModId") ? dict["NexusModId"] : null
             };
         }
@@ -160,11 +175,7 @@ namespace mod_update_manager
         private static string UnescapeString(string s)
         {
             if (s == null) return "";
-            return s.Replace("\\\\", "\\")
-                    .Replace("\\\"", "\"")
-                    .Replace("\\n", "\n")
-                    .Replace("\\r", "\r")
-                    .Replace("\\t", "\t");
+            return JsonText.Unescape(s);
         }
     }
 }
