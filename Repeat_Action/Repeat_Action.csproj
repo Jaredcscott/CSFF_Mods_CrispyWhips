@@ -62,5 +62,9 @@
         <Reference Include="UnityEngine.TextRenderingModule" HintPath="lib\UnityEngine.TextRenderingModule.dll">
             <Private>False</Private>
         </Reference>
+        <!-- AudioClip, for Play Completion Sound's SoundManager.DefaultCookingComplete -->
+        <Reference Include="UnityEngine.AudioModule" HintPath="lib\UnityEngine.AudioModule.dll">
+            <Private>False</Private>
+        </Reference>
     </ItemGroup>
 </Project>

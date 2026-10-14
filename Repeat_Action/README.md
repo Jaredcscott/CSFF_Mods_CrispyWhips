@@ -1,227 +1,213 @@
 # Repeat Action
 
-**Version:** 2.1.6
+**Version:** 2.2.2
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (Early Access)
 
-> Each release is compiled against the game build current at the time - see `CHANGELOG.md` for the
-> exact build a given version was built on.
+Press `Shift+R` to repeat your last action as many times as you set, with safety stops so a long batch never runs you into trouble. Each release is built against the game build current at the time; `CHANGELOG.md` names it.
 
-A quality-of-life mod that lets you automatically repeat your last action multiple times with a single keypress.
+**Requires:** BepInEx 5.x only. No other mod is needed.
+**Languages:** English, plus Simplified Chinese notifications when the game is in Chinese.
 
-## Features
+## Install
 
-- **Repeat Last Action**: Press `Shift+R` to repeat your most recent action (Forage, Clear, Chop, Travel, etc.)
-- **Dual Keybindings**: Two fully configurable modifier+key pairs — `LeftShift+R` and `RightShift+R` by default — so you can use either hand
-- **Adjustable Count**: Press `Shift+Plus(= key)` or `Shift+Minus` to increase/decrease how many times to repeat (1-50). **Hold** either key for rapid adjustment, or **scroll the mouse wheel** while holding Shift. Either Shift key works.
-- **Unlimited Mode**: Lower the count below 1 and it becomes **Unlimited** - the repeat runs until a safety stop, a requirement failure, or you cancel. A configurable backstop (default 500 iterations) keeps a never-failing action from looping forever.
-- **Visual Feedback**: On-screen notifications show which kind of action is being repeated (action / stack / drag-drop / group) and its progress, and a fill bar under the notification tracks the run from start to finish (a moving sweep in Unlimited mode). The bar vanishes when the run ends; turn it off with `Show Progress Bar = false`
-- **Count Indicator** *(off by default)*: Turn on `Show Count Indicator` for a small persistent "Repeat: x5" label in the top-right corner whenever a card popup is open. It updates live as you change the count and hides when no popup is open
-- **Safety Stop**: Automatically stops when one of your status conditions starts blocking actions (starving, dehydrated, exhausted), reporting the game's own message for it (configurable)
-- **Stat Thresholds**: Configurable per-stat stop conditions — set a Satiation, Hydration, or Stamina % floor and the repeat halts before you hit critical levels. `Extra Stat Thresholds` extends this to **any** stat, vanilla or modded, as `guid:percent` pairs (see [Extra stat thresholds](#extra-stat-thresholds))
-- **Tool-Break Stop**: Stops automatically when a drag-drop tool transforms (e.g. axe wears out mid-run)
-- **Inventory-Full Stop** *(off by default)*: Stops once every container you are carrying is full. Off by default because many actions drop their output on the ground rather than into your inventory; it is also ignored entirely when you carry no container.
-- **Custom Blocklist**: Add your own comma-separated action names to `Extra Blocked Actions` to keep the mod from ever capturing them
-- **Cancel Anytime**: Press `Shift+R` again while repeating to cancel
-- **Travel Support**: Repeat a direction action (North/South/East/West) to keep moving — the mod finds the matching direction on each new location card and stops cleanly when there's no path forward
-- **Drag-Drop Support**: Repeat drag-drop actions like making twine, soaking reeds, or chopping trees with tools
-- **Stack Support**: Repeat stack-button actions on card piles
-- **Group Actions, Two Ways**: Group actions (Eat All, group harvests) replay as one whole-group sweep per iteration by default. Turn on `Per-Card Group Repeat` to process exactly one card of the captured group per iteration instead, so the count is a hard per-card cap and the run stops with "no more targets" when the group runs out. Either way, each iteration rebuilds the group exactly as the game's own button would, so every card's requirements, flavour, spices and time cost are counted afresh
-- **Event-Aware**: With `Stop On Low Stats` enabled, the run stops when a critical stat condition starts blocking actions (dehydration, starvation, etc.); other popups pause the run until you dismiss them
-- **Honest Stop Reasons**: When a repeat stops early, the notification shows the game's own reason (e.g. a missing requirement), not a guess
-- **Verbose Run Diagnostics** *(off by default)*: When on, `BepInEx/LogOutput.log` records every decision a run makes while it is active - which safety gate tripped and with what values, which card could not be found, what the game's availability check said - so you can read why a run stopped without enabling BepInEx debug logging. Never logs outside a run
+1. Install [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest.
+2. Extract this mod into `BepInEx/plugins/`.
+3. Launch the game.
 
-## Installation
+## Quick start
 
-### Requirements
-- [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
+1. Do any action once: Forage, Chop, Eat, Craft, a drag-and-drop.
+2. Press `Shift+R` to repeat it 5 times.
+3. Raise or lower the count first with `Shift+Plus` and `Shift+Minus`, or `Shift+Mouse Wheel`. Hold a key to change it fast.
+4. Press `Shift+R` again at any time to cancel.
 
-Repeat Action is fully standalone as of 2.0.0 — it no longer uses CSFFModFramework.
+Either Shift key works. Lower the count below 1 and it becomes **Unlimited**: the run goes until a stop condition ends it or you cancel. A backstop of 500 iterations (`Maximum Unlimited Iterations`) keeps a never-failing action from looping forever.
 
-### Steps
-1. Install [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
-2. Download this mod and extract to your `BepInEx/plugins/` folder
-3. Launch the game
+## Keys
 
-## Usage
+| Keys | What it does |
+|------|--------------|
+| `Shift+R` | Repeat the last action, or cancel a run |
+| `Shift+Plus`, `Shift+Minus`, `Shift+Mouse Wheel` | Raise or lower the count (keypad `+` and `-` work too) |
+| `Shift+P` | Pin the action `Shift+R` would repeat now |
+| `Shift+F` | Repeat the pinned action (does not cancel a run) |
+| `Shift+G` | Pause a run after its current iteration; press again to resume |
+| `Shift+K` | Start or stop recording a sequence |
+| `Shift+M` | Play the chosen sequence |
+| `Shift+U` | Choose the next recorded sequence |
+| `Shift+N` | Load the next preset (does nothing during a run) |
 
-1. Perform any action in-game (Forage, Clear, Collect, etc.)
-2. Press `Shift+R` to repeat that action 5 times by default
-3. Use `Shift+Plus` or `Shift+Minus` to adjust repeat count before triggering
-4. Press `Shift+R` again to cancel mid-repeat
+All keys are settings. The count keys are `Count Up Key`, `Count Up Key (Alt)`, `Count Down Key` and `Count Down Key (Alt)`; `None` disables one. If you rebind a count key, update Quick Transfer too (see Compatibility).
 
-### Default Keybinds
+## What it repeats
 
-| Key Combination | Action |
-|----------------|--------|
-| `LeftShift+R` or `RightShift+R` | Repeat last action / Cancel repeat |
-| `Shift+Plus` (`Shift+=`) | Increase repeat count |
-| `Shift+Minus` | Decrease repeat count (below 1 = Unlimited) |
-| `Shift+Mouse Wheel` | Increase / decrease repeat count |
+Any action you click in a card's popup or do by drag-and-drop: Forage, Chop, Eat, Cook, Craft, Plant, Harvest, Mine, Pour, Feed, Train and so on, including actions added by mods. A repeat only runs while the card and the game still allow the action, exactly as if you clicked the button again. When it can no longer run, the run stops and the notification gives the game's own reason. Stopping early is normal.
 
-Both Shift keys work for all controls. The two keybinding pairs are independently configurable.
+- **Travel:** repeats a direction (North, South, East, West) and finds it on each new location card. It stops when there is no path.
+- **Drag-and-drop:** repeats actions like making twine or chopping with a tool. A repeat takes the dragged item from the container the last one came from, then from anywhere in your location.
+- **Stacks and groups:** group actions such as Eat All repeat as one whole-group sweep per iteration. Turn on `Per-Card Group Repeat` to do one card of the group per iteration, so the count is a hard cap and the run stops with "no more targets" when the group is used up.
+- **Rest and Relax** never replace the action you are repeating, so resting between chops keeps `Shift+R` on the chop. `Extra Rest-Like Actions` adds more names (for example `eat, drink`).
+- **Not repeated:** Continue on event popups, anything in `Extra Blocked Actions`, and blueprint Build. Build is not captured, so it can be neither repeated nor recorded.
 
-## Configuration
+## Pin, pause, record, presets
 
-Edit `BepInEx/config/crispywhips.repeat_action.cfg` to customize:
+- **Pinned action.** `Shift+P` pins the action `Shift+R` would repeat. `Shift+F` repeats it later with the current count, even after other actions or travel. One pin at a time. It lasts until you pin another, it turns out to be gone when you fire it, or you quit.
+- **Pause.** `Shift+G` pauses after the current iteration. While paused you can eat, rest or craft by hand, and the run keeps its remaining count and its action. Time spent paused does not count toward `Stop After In-Game Hours`. `Shift+R` cancels a paused run.
+- **Recorded sequences.** Press `Shift+K`, do a few actions ("plant, water, harvest"), then press `Shift+K` again. `Shift+M` plays the steps in order, repeated by the current count. A step that cannot run stops the play and names it ("step 2 of 3 (Water): ..."); no step is skipped. Your 10 most recent recordings are kept when you quit, except ones containing a Rest, a liquid pour, or an action the card does not list as its own button, which last for the session ("kept for this session"). A saved drag-and-drop step takes the first item of its kind it finds. Loading a save while recording drops the recording. You cannot record and run at the same time. Not yet confirmed in a running game.
+- **Repeat Presets.** Write named sets of settings in `Repeat Presets` and `Shift+N` loads the next one. Format: `name: key=value, key=value; name: key=value`.
 
-```ini
-[Keybindings]
-# Primary keybinding (left-hand usage)
-Repeat Action Key = R
-Repeat Modifier Key = LeftShift
-
-# Alternate keybinding (right-hand usage)
-Repeat Action Key (Alt) = R
-Repeat Modifier Key (Alt) = RightShift
-
-[Repeat Settings]
-# Default number of times to repeat an action (0 = Unlimited)
-Default Repeat Count = 5
-
-# Maximum number of times an action can be repeated
-Maximum Repeat Count = 50
-
-# Hard ceiling for Unlimited mode - a backstop, not the usual way a run ends
-Maximum Unlimited Iterations = 500
-
-# Group actions: false = one whole-group sweep per iteration (original behavior);
-# true = exactly one card of the captured group per iteration
-Per-Card Group Repeat = false
-
-# Comma-separated action names to never repeat, merged with the built-in "continue"
-Extra Blocked Actions =
-
-# Log an Info-level line for every stop/abort decision while a run is active (off = summary lines only)
-Verbose Run Diagnostics = false
-
-[Display]
-# Show on-screen notifications when repeating actions
-Show Notifications = true
-
-# Small persistent "Repeat: x5" label in the top-right corner while a card popup is open
-Show Count Indicator = false
-
-# Fill bar under the progress notification while a run is active (sweep in Unlimited mode)
-Show Progress Bar = true
-
-[Safety]
-# Stop repeating when one of your status conditions blocks actions (starving, dehydrated, ...)
-Stop On Low Stats = true
-
-# Stop repeating when a drag-drop tool transforms (e.g. axe wears out and changes state)
-Stop On Tool Break = true
-
-# Stop once every container you are carrying is full (ignored if you carry no container)
-Stop On Inventory Full = false
-
-# Per-stat stop floors (0 = disabled); stop repeating when stat drops below this % of max
-Stamina Stop Threshold (%) = 0
-Satiation Stop Threshold (%) = 0
-Hydration Stop Threshold (%) = 0
-
-# Stop floors for ANY stat (vanilla or modded): comma-separated guid:percent pairs, empty = none
-Extra Stat Thresholds =
-
-[Timeout Settings]
-# Maximum seconds to wait for the game to be ready before aborting the repeat sequence
-Action Completion Timeout (seconds) = 30
 ```
+Repeat Presets = Chop: count=20, Stop At Nightfall=true; Snack: count=3, Lock To Original Target=true
+```
+
+  `count` sets the repeat count (0 is Unlimited). Any other key is the name of a true/false, whole-number or decimal setting outside `Keybindings`, held to that setting's own limits. List settings (`Extra Stat Thresholds`, `Extra Blocked Actions`, `Extra Rest-Like Actions`, `Stop At Quantity`) cannot be set by a preset. A preset overwrites values you set by hand. A pair that cannot be applied is skipped and noted in the log.
+
+## Stop conditions
+
+All of these end a run cleanly. Everything below is off unless noted.
+
+| Setting | Stops the run when |
+|---------|--------------------|
+| `Stop On Low Stats` (on) | A status such as starving, dehydrated or exhausted blocks actions. The notification gives the game's own message |
+| `Stamina`, `Satiation`, `Hydration Stop Threshold (%)` | That stat falls below your percentage |
+| `Extra Stat Thresholds` | Any stat, vanilla or modded, crosses a floor or ceiling (see below) |
+| `Stop On Tool Break` (on) | The tool you drag breaks: its usage bar runs out and it turns into another card or disappears. A dragged card the action itself uses up, such as food, never counts. Cards whose bar counts uses (soap, rennet) count when the last use runs out |
+| `Use Spare Tool On Break` | Changes the above: the run carries on with another tool of the same kind in your location (carried, in a container here, or on the board). With none, it stops |
+| `Stop Below Tool Durability (%)` | The dragged tool has less than that share of its full durability left. At 20, a knife with 2 of 10 uses left is used and one with 1 left stops the run |
+| `Stop On Inventory Full` | Every container you carry is full. Ignored if you carry none. Off by default because many actions drop output on the ground |
+| `Stop At Nightfall` | Dusk falls (17:00, or 19:00 in summer). Only a run that has been in daylight stops, so one started at night runs on |
+| `Stop At Season Change` | The season changes during the run |
+| `Stop After Encounter` | An encounter interrupted the run. The run stops before its next iteration |
+| `Stop After In-Game Hours` (0 = off) | The run has used that much game time. It counts whole 15-minute ticks and judges the next iteration by the longest so far, so a run with uneven iterations can stop one early |
+| `Stop At Quantity` | Your location holds enough of a card (see below) |
+
+Other stop reasons you may see: the target card was used up, the spot is depleted, a requirement is no longer met, "locked target is gone", "game ended" (you loaded a save or went to the menu), or the Unlimited backstop. If you cannot tell why a run stopped, turn on `Verbose Run Diagnostics`; `BepInEx/LogOutput.log` then records every decision a run makes, only while a run is active.
+
+An encounter that your repeated action starts holds the run until you have dealt with it, however long that takes, then the run carries on. The mod never answers or skips an encounter for you. An encounter already open between two iterations does not hold the run.
+
+## Run control
+
+- **Lock To Original Target:** a run stays on the exact card you clicked and stops with "locked target is gone" when it is used up. Normally it moves to another card of the same kind. It never locks the item you drag onto the card. A travel repeat stops after one move while this is on.
+- **Iteration Delay (seconds):** up to 30 real seconds between iterations, never after the last. Cancelling still works during it.
+- **Refuel From Pinned Action:** when a stat floor would stop a run, the run uses your pinned action once (say, Eat on a food you pinned) and carries on if the stat is back above its floor. The refuel is not counted as an iteration, and only the pinned action is ever used. Without a card of the pinned kind, the run stops with "(pinned action unavailable)"; if the stat is still low afterwards, "(refuel did not help)". `Maximum Refuels Per Run` (3, from 1 to 20) caps it. It never answers a ceiling, and a rest cannot be pinned, so it does not recover Stamina. A pinned stack or group action may use up the whole stack or group. Both defaults are a first guess and may change.
+- **Remember Last Count:** keeps the count you last set across game restarts instead of returning to `Default Repeat Count`. To go back, turn the setting off.
+- **Extra Blocked Actions:** comma-separated action names the mod never captures.
 
 ### Extra stat thresholds
 
-`Extra Stat Thresholds` takes comma-separated `guid:percent` pairs. `guid` is the stat's UniqueID and
-`percent` (1-100) is the share of the stat's **current maximum** below which the run stops, exactly like
-the three fixed floors above. Entries are checked in the order written, after the fixed floors, and the
-first one crossed ends the run with the stat's own name in the notification ("Body Temperature below 30%").
+`Extra Stat Thresholds` takes comma-separated entries written with a stat's UniqueID. The percent is a share of the stat's current maximum.
+
+- `id:percent` (1 to 100) is a floor: stop when the stat falls below it.
+- `id:>percent` (1 to 99) is a ceiling: stop when the stat rises above it, for stats where high is the danger. A ceiling of 100 or more is skipped.
+
+Entries are checked in order after the fixed floors, and the first one crossed ends the run, naming the stat. A stat already past its limit stops the run before the first iteration.
 
 ```ini
-# Stop when Body Temperature drops under 30% of its maximum, or Morale under 25%
-Extra Stat Thresholds = 888d2d2a99e3f044291c6748a0fa8d78:30, 4a27fb5da9326b545a5ef73f2b80316e:25
+Extra Stat Thresholds = 888d2d2a99e3f044291c6748a0fa8d78:30, 3b79a4c6d7e151044a1c56fbbd401d78:>60, 547f09c7ea6d11d4bbf6714255b0dfd5:>70
 ```
 
-| Vanilla stat | UniqueID |
-|--------------|----------|
-| Body Temperature | `888d2d2a99e3f044291c6748a0fa8d78` |
-| Morale | `4a27fb5da9326b545a5ef73f2b80316e` |
-| Stamina (same as the fixed floor) | `1cfd30cf13b69b949a0ac521f55a59a2` |
-| Satiation (same as the fixed floor) | `930cf914322e9f145af1315d96f85a28` |
-| Hydration (same as the fixed floor) | `95ca7c21ffad5e647acc3d9cb5bfcde6` |
+| Stat | UniqueID | Notes |
+|------|----------|-------|
+| Body Temperature | `888d2d2a99e3f044291c6748a0fa8d78` | floor |
+| Morale | `4a27fb5da9326b545a5ef73f2b80316e` | floor |
+| Stamina | `1cfd30cf13b69b949a0ac521f55a59a2` | same as the fixed floor |
+| Satiation | `930cf914322e9f145af1315d96f85a28` | same as the fixed floor |
+| Hydration | `95ca7c21ffad5e647acc3d9cb5bfcde6` | same as the fixed floor |
+| Stress | `3b79a4c6d7e151044a1c56fbbd401d78` | ceiling; maximum 240, so `:>60` stops past 144 |
+| Nausea | `547f09c7ea6d11d4bbf6714255b0dfd5` | ceiling; maximum 24, so `:>70` stops at 17 or more. Vomiting starts at 20, so keep a ceiling well below that |
 
-For a **modded** stat, use the `UniqueID` from that mod's `GameStat/*.json` file. A malformed entry is
-skipped without affecting the others, and a UniqueID that matches no stat simply never fires; turn on
-`Verbose Run Diagnostics` to see either case reported in `BepInEx/LogOutput.log` during a run. Floors
-suit stats that drain toward zero; a stat where *high* is the danger (e.g. Stress) has no "below" floor
-that helps.
+Values are from the game's data for EA 0.68b. For a modded stat, copy the `UniqueID` from that mod's `GameStat/*.json`. A malformed entry is skipped without affecting the others; a UniqueID matching no stat never fires.
+
+### Stop at quantity
+
+`Stop At Quantity` takes comma-separated `id:count` entries (count 1 or more). The run stops once your location holds at least that many of the card, and the notification names it ("Rye Bread Slice reached 10"). With several entries, the first one reached ends the run.
+
+It counts every card of that kind on the board where you are and in what you carry, including inside a carried bag, each card of a pile once. Cards in other locations do not count. It checks before every iteration and after each one, so a run that already has enough does not start. It counts cards, not liquid amounts. Pair it with Unlimited to repeat until you have enough.
+
+```ini
+Stop At Quantity = a1620f9713805d941b515c2b60a04169:10, b8885e78517570b4293c573871625e11:20
+```
+
+To find a card's UniqueID, open its `CardData/**/*.json` (for a modded card, in that mod's folder) and copy the `"UniqueID"` value. Vanilla examples for EA 0.68b:
+
+| Card | UniqueID |
+|------|----------|
+| Fibers | `b8885e78517570b4293c573871625e11` |
+| Stone | `a7384e5147b23a642809451cc4ef24fb` |
+| Long Stick | `3db4c94184af274409f0d3eb16870f64` |
+| Twigs | `fa8834c3111a71f47bdd23d66b33cf61` |
+| Firewood | `758be01db25eb4649a288d64b7600b9b` |
+| Wooden Plank | `57460207bbf77fa4fb6720aed5d84851` |
+| Rope | `a7a58aa687df66e47a42fc13e0fdbeaa` |
+| Flint | `bef002cfd45b3e8459864746f403cf73` |
+| Clay | `68c14d265ea6c874ba79444d2e1ef7b3` |
+| Charcoal | `51c751469bd15ce46804e399479d1764` |
+| Clay Bowl | `a968f3eaffc6b9743b82982b5af2ab8c` |
+| Fresh Leaves | `cf466b58520dcd047b7c3db67293c316` |
+| Rye Bread Slice | `a1620f9713805d941b515c2b60a04169` |
+| Wheat Bread Slice | `1cc70e04beedcc14c9308c0122d4e011` |
+
+## Feedback and display
+
+- **Notifications** show the kind of action being repeated and its progress. They name actions and cards in your game language. `Show Notifications` turns them off.
+- **Progress bar** under the notification tracks the run (a moving sweep in Unlimited mode). `Show Progress Bar = false` hides it.
+- **Count indicator** (off; `Show Count Indicator`): a small label in the top-right corner while a card popup is open. It shows the count ("Repeat: x5"), the action `Shift+R` would repeat ("Next: Eat", or "Next: none"), "Pinned: ..." while an action is pinned, "Paused" while paused, and the preset name after `Shift+N`. It moves below the popup's close button if it would cover it.
+- **Completion sound** (off; `Play Completion Sound`): a short game sound when a run that did at least one iteration ends on its own. Not played when you cancel.
+- **Chinese notifications:** with the game in Simplified Chinese, every notification is in Chinese. The translation has not been reviewed by a native speaker, and the font check was done on Windows only. Reasons the game itself gives appear in the game's own words.
+- **Typing-safe:** while a text box has the cursor (renaming a card, Edit Description, blueprint or guide search), this mod's keys and the mouse wheel are ignored. Whether they work again right after you confirm with Enter is not yet confirmed in a running game.
+
+## Settings
+
+Edit `BepInEx/config/crispywhips.repeat_action.cfg`. Every number is limited to the range in its comment, and a value outside it is moved to the nearest end when the game starts. A `Default Repeat Count` above `Maximum Repeat Count` stays in the file, but the count starts at the maximum.
+
+| Setting | Default |
+|---------|---------|
+| `Default Repeat Count` (0 to 10000; 0 = Unlimited) | 5 |
+| `Maximum Repeat Count` (1 to 10000) | 50 |
+| `Maximum Unlimited Iterations` (1 to 10000) | 500 |
+| `Action Completion Timeout (seconds)` (1 to 300) | 30 |
+| `Iteration Delay (seconds)` (0 to 30) | 0 |
+| `Stop After In-Game Hours` (0 to 240) | 0 |
+| `Stamina`, `Satiation`, `Hydration Stop Threshold (%)` (0 to 100) | 0 |
+| `Stop Below Tool Durability (%)` (0 to 99) | 0 |
+| `Maximum Refuels Per Run` (1 to 20) | 3 |
+| `Stop On Low Stats`, `Stop On Tool Break`, `Show Notifications`, `Show Progress Bar` | on |
+| Every other true/false setting above | off |
+| `Last Count` and `Saved Sequences` | managed by the mod, do not edit |
 
 ## Compatibility
 
-- **Quick Transfer**: This mod uses `Shift` as its modifier key, while Quick Transfer uses `Ctrl`, so they work together without conflict.
-- **Other Mods**: Should be compatible with most mods. If you experience issues, please report them.
-- **Dependencies:** None — fully standalone. No dependency on the framework or any content mod, and no other mod depends on Repeat Action.
-
-## Supported Actions
-
-**All player-initiated actions are captured by default.** The mod records any action you click in a card's popup or via drag-and-drop, then replays it. **A repeat succeeds only while the card and game conditions still match the original action's requirements** — if an action can no longer execute (card consumed, location depleted, conditions no longer met), the repeat stops cleanly and the on-screen notification tells you why. Stopping early is expected behavior, not a bug.
-
-Examples of actions that work: Forage, Clear, Eat, Drink, Cook, Boil, Roast, Fry, Bake, Smoke, Dry, Make, Build, Plant, Harvest, Mine, Chop, Craft, Grind, Dig, Butcher, Skin, Tan, Sew, Smith, Repair, Fill, Pour, Brew, Ferment, Wash, Feed, Water, Till, Train, and any mod-added action.
-
-### How replay works (2.0.0)
-
-Each iteration, the mod re-finds your target card (by its card type, so a consumed-and-respawned target of the same kind still counts), re-finds the action on that live card, runs **the game's own availability check** (the same one that greys out buttons), and then dispatches through the game's own action pipeline — exactly as if you had clicked the button again. The iteration counts as done when the game finishes the action.
-
-| Action Category | Behavior |
-|-----------------|-----------|
-| **Eat / Drink** | Stops when the item or container is used up and no identical one is available |
-| **Travel (N/S/E/W)** | Finds the matching direction action on each new location card; stops when there's no path forward |
-| **Drag-drop (Twine, Wash, etc.)** | Re-finds given and receiving cards each iteration; stops when either is gone |
-| **Rest / Relax** | Never overwrites your primary action — resting between chops keeps `Shift+R` on the chop |
-
-### Not Supported
-
-| Action | Reason |
-|--------|--------|
-| **Continue** (event popup) | One-shot event outcome; auto-advancing through events would be harmful |
-| Anything you list in `Extra Blocked Actions` | Your own additions to the blocklist, matched as whole words, case-insensitive |
-
-> **Tip:** All other actions captured through the card popup or drag-and-drop will be repeatable. If an action stops early, check the on-screen notification for the reason.
+- **Quick Transfer.** Version 1.9.0 and later steps aside from this mod's keys, so `Shift+Plus` and `Shift+Minus` change only the repeat count. Quick Transfer's own Shift preset is then nudged with `Alt+Plus` and `Alt+Minus`. With `Ctrl+Shift+Plus` or `Minus`, Quick Transfer changes nothing while this mod still counts. Quick Transfer's `Yield Count Keys To Repeat Action` (on by default) controls this, and 1.9.0 follows rebound count keys. Version 1.8.1 and earlier also react to Shift+Plus and Shift+Minus, so one press changes both mods' settings: update Quick Transfer, or turn off its `Enable Modifier Presets`. Quick Transfer's on-screen amount hint shows whenever Shift is held; it is only a hint.
+- **Utility Belt.** A run never picks up a card you locked there (its `L` key) as a target, ingredient or tool. The card you used for the first repeat stays eligible. Utility Belt's `RepeatAction` options work with this mod: `Auto-Pull Materials` fetches a card the game wants in your hand and retries the repeat once, `Store Products In` moves what a run makes into a container you picked, and `Equip Spare Tool On Break` puts on a spare when a worn tool breaks. Without a worn-tool spare, a run whose worn tool breaks stops with "requirements no longer met". Repeat Action does not depend on Utility Belt.
+- **Other mods:** should work with most. Please report problems.
 
 ## Troubleshooting
 
-**Q: The action doesn't repeat**
-- Make sure you're pressing `Shift+R` (not just `R`)
-- The action must be a player-initiated action (not a passive/automatic one)
-- A notification saying "'ActionName' is not supported" means the action is not replayable - either it matched the blocklist (the built-in event-popup "Continue", plus anything you added to `Extra Blocked Actions`) or it was a non-repeatable one-off (e.g. discard, finish-game)
-- Check the config file to verify keybinds
+- **Nothing repeats.** Press `Shift+R`, not `R`. The action must be one you did yourself, not an automatic one. "'Name' is not supported" means the action is blocked (Continue, your own blocklist) or a one-off such as discard.
+- **A run stops early.** Read the notification: it gives the reason. Common ones are a used-up card, a depleted spot, a stat below its floor, a broken or worn tool, a full inventory, or a stop condition you turned on. Turn on `Verbose Run Diagnostics` for details.
+- **A run stops on Stamina.** The mod does not rest for you. Rest by hand, then press `Shift+R` again; resting does not replace the repeated action.
+- **The mod does not load.** Check that BepInEx is installed correctly and read `BepInEx/LogOutput.log`.
 
-**Q: Repeat stops early / an action "doesn't actually repeat"**
+## For mod authors
 
-The mod never forces an action through — each iteration re-runs the game's own requirement checks. Stopping early is expected whenever the card or game state no longer matches the original action:
-- The target card was consumed or destroyed (eating the last of an item, burning the last fuel)
-- The location or resource is depleted (Forage/Dig/Clear on an exhausted spot)
-- A required stat dropped too low (check "Stop On Low Stats", the per-stat threshold settings and `Extra Stat Thresholds`)
-- The card no longer meets the action's conditions (field not grown, container empty, wrong card state)
-- A one-shot action reached its limit (Skin, Pick Up hide, etc. — these can only happen once per card)
-- For drag-drop, if the source card is used up the mod stops with "source used up"
-- For travel, if there's no path in that direction the mod stops with "no more targets"
-- With "Stop On Inventory Full" enabled, every container you carry is full ("inventory full")
-- In Unlimited mode, the `Maximum Unlimited Iterations` backstop was reached
+Repeat Action raises public events other mods can subscribe to. With no subscriber they are never raised and nothing changes.
 
-In all of these cases the repeat stops cleanly — the on-screen notification shows the specific reason, using the game's own requirement message where available (e.g. a missing stat or tool).
+- `Repeat_Action.Patcher.ActionPatch.OnRequirementsUnmet` (`Action<RequirementsUnmetArgs>`): raised when a repeat is refused for want of a card (a drag-drop whose dragged card is used up, or the game's availability check refusing the action). The args carry the action, the cards it acts on, and the cards and tags the game reports missing. A subscriber that moved a card into reach sets `RetryRequested`; the run waits for the game to settle and retries that dispatch once, without raising the event again.
+- `Repeat_Action.Patcher.ActionPatch.OnIterationStarting` (`Action<int,int,string>`: run serial, iteration, run label) and `OnIterationDone` (`Action<int,int,bool,string>`: serial, iteration, whether it was the iteration's last step, label): raised around each step's own dispatch.
 
-Still unsure why a run stopped? Turn on `Verbose Run Diagnostics` in the config and run it again: `BepInEx/LogOutput.log` will then name the exact gate, card lookup or availability check that ended the run, with the values it saw.
+## Recent versions
 
-**Q: Repeat stops with a stamina/requirement message**
-- The mod does not auto-rest for you (2.0.0 removed the automatic rest-between-iterations). Rest manually, then press `Shift+R` again — resting does not overwrite your last repeated action.
+Full history in `CHANGELOG.md`.
 
-**Q: Mod not loading**
-- Verify BepInEx is installed correctly
-- Check `BepInEx/LogOutput.log` for errors
+- **2.2.2:** version number only.
+- **2.2.1:** repeat presets, recorded sequences, bindable count keys, Chinese notifications, Refuel From Pinned Action, spare-tool and pour fixes.
+- **2.2.0:** pinned action, pause, and the Nightfall, Season Change, Encounter, In-Game Hours, Quantity and Tool Durability stops.
 
 ## Credits
 
-Created by crispywhips
+Created by crispywhips.
 
 ## License
 
-MIT License - Feel free to modify and redistribute.
+MIT License. Feel free to modify and redistribute.

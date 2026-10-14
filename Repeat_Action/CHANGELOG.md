@@ -1,4 +1,67 @@
-# Repeat Action — Changelog
+# Repeat Action: Changelog
+
+## [2.2.2] - 2026-10-12
+
+Version number only. Everything new since the last Nexus release (2.1.6) is listed under 2.2.1 and 2.2.0 below.
+
+## [2.2.1] - 2026-10-06
+
+2.2.0 reached players inside Utility Belt 0.1.0, so everything built after that is listed here.
+
+### Added
+
+- **Repeat presets.** Write named sets of settings in `Repeat Presets` (for example `Chop: count=20, Stop At Nightfall=true; Snack: count=3, Lock To Original Target=true`) and press `Shift+N` (`Next Preset Key`) to load the next one. A preset can set `count` (0 is Unlimited) and any true/false, whole-number or decimal setting outside `Keybindings`, but not list settings. A preset overwrites values you set by hand. Empty by default.
+- **Recorded sequences.** Press `Shift+K` (`Record Sequence Key`), do a few actions, press `Shift+K` again, then `Shift+M` (`Play Sequence Key`) plays them in order, repeated by the current count. A step that cannot run stops the play and names it; no step is skipped. `Shift+U` (`Next Sequence Key`) switches recording. Your 10 most recent recordings are kept in `Saved Sequences`, except ones with a Rest, a liquid pour or an action the card does not list as its own button, which last only for the session. Not yet confirmed by a person in a running game.
+- **Bindable count keys.** `Count Up Key`, `Count Up Key (Alt)`, `Count Down Key` and `Count Down Key (Alt)` replace the four fixed keys (defaults unchanged; `None` disables one). Quick Transfer 1.9.0 follows rebound keys; with an older Quick Transfer, update both. Not yet confirmed in a running game.
+- **Chinese notifications, and names in your game language.** With the game in Simplified Chinese, all notifications are in Chinese. In every language, notifications now name actions and cards the way the game shows them in that language. The Chinese has not been reviewed by a native speaker; corrections are welcome. The font check was done on Windows only.
+- **Refuel From Pinned Action** (`Refuel From Pinned Action`, off; `Maximum Refuels Per Run`, 3). When a stat floor would stop a run, the run uses your pinned action once (such as Eat) and carries on if the stat is back over its floor. The refuel is not counted as an iteration. If no card of the pinned kind is left, or the stat is still low, the run stops and says why. It never answers a ceiling, a rest cannot be pinned (so it does not recover Stamina), and a pinned stack or group action may use up the whole stack or group. Both defaults are a first guess.
+- **Utility Belt integration.** With Utility Belt installed, a run never picks a card you locked there. Utility Belt can also fetch a card the game wants in your hand and retry the repeat once (Auto-Pull Materials), and move what a run makes into a container you picked (Store Products In). Repeat Action has no dependency on Utility Belt.
+- **Modder API.** Public events `Repeat_Action.Patcher.ActionPatch.OnRequirementsUnmet` (with `RetryRequested`), `OnIterationStarting` and `OnIterationDone` let other mods react to a repeat. Never raised without a subscriber.
+
+### Changed
+
+- **Build is no longer listed among repeatable actions.** Pressing Build on a blueprint (a structure or a station recipe such as the Herbs & Fungi Oil Press) was never captured, so it can be neither repeated nor recorded. The mod did not change; the docs and the `Saved Sequences` description said more than it did. The mod's description now mentions Pause and Resume and presets.
+
+### Fixed
+
+- **Stop On Tool Break and Use Spare Tool On Break now notice a tool breaking.** A worn-out dragged tool used to be missed, so the run just took the next tool or stopped with "source used up". A run now stops with "tool changed", or carries on with a spare if Use Spare Tool On Break is on. A dragged card the action itself uses up, such as food on a fire, is never treated as a broken tool.
+- **The count indicator no longer covers the popup's close button.** It moves just below the button when it would.
+- **The Repeat keys work again right after you confirm a rename with Enter.** They used to stay dead until you clicked elsewhere. Not yet confirmed in a running game.
+- **A repeated pour keeps pouring into the container you chose and stops when the liquid can no longer move.** Before, a change in the target (wine freezing, say) made the run pour into another container, and it could pour a container into itself. It now stops with "liquid can no longer be transferred".
+
+## [2.2.0] - 2026-09-28
+
+Built against EA 0.68b. Every new setting is off (or 0) by default, so apart from `Shift+P` and `Shift+F` nothing changes unless you turn something on.
+
+### Added
+
+- **Pinned action (`Shift+P` to pin, `Shift+F` to fire).** Pin the action `Shift+R` would repeat, then repeat it later with the current count, even after other actions or travel. One pin at a time; it lasts until you pin another, it is gone when you fire it (the run stops with "pin cleared"), or you quit. `Shift+F` never cancels a run. Keys: `Pin Action Key`, `Fire Pinned Action Key`.
+- **Pause and resume (`Shift+G`, `Pause Key`).** Pauses a run after its current iteration so you can eat, rest or craft by hand. The run keeps its remaining count and action. `Shift+R` cancels a paused run; loading a save ends it ("game ended"). Time spent paused does not count toward `Stop After In-Game Hours`.
+- **`Stop At Nightfall`** stops a run at dusk (17:00, or 19:00 in summer). Only a run that has been in daylight stops.
+- **`Stop At Season Change`** stops a run when the season changes.
+- **`Stop After In-Game Hours`** (up to 240) ends a run after that much game time, so with Unlimited you can "chop for 3 hours". It counts whole 15-minute ticks and can stop one iteration early when iterations vary in length.
+- **`Stop At Quantity`** ends a run once your location holds enough of a card, as `uniqueid:count` entries ("Rye Bread Slice reached 10").
+- **`Stop After Encounter`** ends a run before its next iteration once an encounter interrupted it. The mod never answers an encounter for you.
+- **`Stop Below Tool Durability (%)`** (up to 99) stops a drag-drop run before it uses a tool with less than that share of its durability left.
+- **`Use Spare Tool On Break`** carries on with another tool of the same kind in your location when the dragged tool breaks, instead of stopping.
+- **`Extra Stat Thresholds` accepts ceilings.** `id:>percent` stops the run when a stat rises above that share of its maximum, for stats where high is the danger (Stress, Nausea). Entries without `>` are floors as before.
+- **`Extra Rest-Like Actions`** lists more actions that, like Rest and Relax, never replace the action `Shift+R` repeats (for example `eat, drink`).
+- **`Lock To Original Target`** keeps a run on the exact card you clicked and stops with "locked target is gone" when it is used up.
+- **`Iteration Delay (seconds)`** (up to 30) adds a real-time pause between iterations.
+- **`Remember Last Count`** keeps the count you last set across game restarts.
+- **`Play Completion Sound`** plays a short game sound when a run ends on its own.
+- **The count indicator names the action.** With `Show Count Indicator` on, a second line shows "Next: <action>" (or "Next: none"), and a third shows "Pinned: <action>" while one is pinned.
+- `Verbose Run Diagnostics` now also reports each Iteration Delay pause and what the Nightfall and Season Change stops saw.
+
+### Fixed
+
+- **Finishing an encounter no longer replaces the action `Shift+R` repeats.** Nothing is recorded while an encounter is in progress.
+- **An Eat or Drink repeat no longer moves on to a different food** (a poisonous one included) once yours runs out. The same-name search now only follows location cards, which is what lets travel find North on each new location.
+- **Typing in a text box no longer fires the Repeat keys.** A capital R, P or F or a plus sign typed into a card rename, Edit Description or a search box used to start, pin or fire a run or change the count. While a text box has the cursor, the mod ignores its keys and the mouse wheel.
+- **A repeated drag-drop keeps drawing the dragged item from where the last one came from** (the bag or chest, or the board if it was loose), before looking elsewhere in your location.
+- **A default count above the maximum no longer starts above it, and three settings now have limits.** `Default Repeat Count` is 0 to 10000, `Maximum Repeat Count` 1 to 10000 and `Action Completion Timeout (seconds)` 1 to 300. A value outside its range moves to the nearest end when the game starts.
+- **Loading a save during a run now ends the run** ("game ended") instead of repeating the action in the loaded game. Your pinned action is kept.
+- **Docs:** the README no longer claims Repeat Action and Quick Transfer never conflicted. Quick Transfer 1.8.1 and earlier also react to `Shift+Plus` and `Shift+Minus`; Quick Transfer 1.9.0 steps aside. Keypad `+` and `-` are now in the keys table. The Event-Aware text now says an encounter your action starts holds the run until you deal with it.
 
 ## [2.1.6] - 2026-09-25
 
@@ -75,19 +138,19 @@ Built against EA 0.67h.
 - **Liquid transfers now re-check `CannotBeTransferred` on every replayed iteration.** The vanilla flag is enforced on the drag path only, so a programmatic replay never consulted it (CLAUDE.md §Programmatic Card Movement). Defence in depth: the reachable paths were already covered by the drag-hover gate and the mod's UID re-resolution, so this is not a fix for an observed bug.
 - **Diagnostics.** A per-stat stop whose vanilla stat GUID fails to resolve now leaves a debug breadcrumb instead of silently never firing, and a dispatch funnel that can no longer be found on `GameManager` is reported as an error at startup rather than surfacing later as a failed repeat.
 
-## [2.0.2] — 2026-08-16
+## [2.0.2] - 2026-08-16
 
 ### Changed
 
-- **Version-sync / game-data refresh bump.** No source changes to `ActionPatch.cs` or `Plugin.cs` — `lib/Assembly-CSharp.dll` was refreshed against the EA 0.66h game update (per CLAUDE.md's Game-Update Reference Refresh rule; RepeatAction compiles directly against the plain assembly) and the mod rebuilt clean. No player-visible behavior change.
+- **Version-sync / game-data refresh bump.** No source changes to `ActionPatch.cs` or `Plugin.cs`, `lib/Assembly-CSharp.dll` was refreshed against the EA 0.66h game update (per CLAUDE.md's Game-Update Reference Refresh rule; RepeatAction compiles directly against the plain assembly) and the mod rebuilt clean. No player-visible behavior change.
 
-## [2.0.1] — 2026-08-08
+## [2.0.1] - 2026-08-08
 
 ### Fixed
 
-- **EA 0.66bb compatibility.** Repeat stopped working after the game update — the game's `CardAction.CollectActionModifiers` gained an `InGameNPC` parameter, so the mod's availability check threw `MissingMethodException` on every dispatch. Rebuilt against the 0.66bb game assembly and updated the call. No behavior change otherwise.
+- **EA 0.66bb compatibility.** Repeat stopped working after the game update, the game's `CardAction.CollectActionModifiers` gained an `InGameNPC` parameter, so the mod's availability check threw `MissingMethodException` on every dispatch. Rebuilt against the 0.66bb game assembly and updated the call. No behavior change otherwise.
 
-## [2.0.0] — 2026-07-20
+## [2.0.0] - 2026-07-20
 
 ### Changed
 
@@ -100,21 +163,21 @@ Built against EA 0.67h.
 
 ### Removed
 
-- **Automatic rest-between-iterations** (Smart Travel pre-rest, Smart Chopping rest). If a repeat stops for stamina, rest manually and press `Shift+R` — rest/relax still never overwrites your captured primary action.
-- **CSFFModFramework dependency** — the mod is now fully standalone.
+- **Automatic rest-between-iterations** (Smart Travel pre-rest, Smart Chopping rest). If a repeat stops for stamina, rest manually and press `Shift+R`, rest/relax still never overwrites your captured primary action.
+- **CSFFModFramework dependency**, the mod is now fully standalone.
 - Obsolete config entries: `Gate 1 Timeout (frames)`, `Pre-Travel Rest Timeout (seconds)` (harmless if still present in your cfg).
 
 ### Fixed
 
-- Repeat now works for the broad class of actions that produce output without consuming their card (craft, process, harvest-style actions) — previously these stopped after one iteration with "Stopped - no effect".
-- Stat-threshold safety stops (Stamina/Satiation/Hydration floors) now actually work — 1.x read runtime stat values from a location where they don't exist, so thresholds silently never triggered.
+- Repeat now works for the broad class of actions that produce output without consuming their card (craft, process, harvest-style actions), previously these stopped after one iteration with "Stopped - no effect".
+- Stat-threshold safety stops (Stamina/Satiation/Hydration floors) now actually work, 1.x read runtime stat values from a location where they don't exist, so thresholds silently never triggered.
 - Travel repeat re-finds the direction action on the new location card each step instead of relying on the old location's popup.
 
-## [1.6.3] — 2026-07-12
+## [1.6.3] - 2026-07-12
 
 ### Changed
 
-- Reflection for game type lookup now uses CSFFModFramework `Api.Reflect` — the local per-(Type, name) member cache is replaced by the framework's shared reflection utility. CSFFModFramework is now declared a `SoftDependency`; the mod still loads without it.
+- Reflection for game type lookup now uses CSFFModFramework `Api.Reflect`, the local per-(Type, name) member cache is replaced by the framework's shared reflection utility. CSFFModFramework is now declared a `SoftDependency`; the mod still loads without it.
 
 ### Fixed
 
@@ -122,27 +185,27 @@ Built against EA 0.67h.
 
 ---
 
-## [1.6.2] — 2026-07-10
+## [1.6.2] - 2026-07-10
 
 ### Fixed
 
-- **Thresh (and similar transform-type actions)** — improved handling when the card's model is briefly unavailable after a transform action; these cases now correctly count as consumed/transformed rather than "no effect". Clearer notification when all stackable bundles have been processed.
+- **Thresh (and similar transform-type actions)**, improved handling when the card's model is briefly unavailable after a transform action; these cases now correctly count as consumed/transformed rather than "no effect". Clearer notification when all stackable bundles have been processed.
 - Upgraded key diagnostic logs for transform detection from Debug (invisible by default) to Info, making it easier to diagnose action-capture issues via `BepInEx/LogOutput.log`.
 
-## [1.6.0] — 2026-06-21
+## [1.6.0] - 2026-06-21
 
 ### Changed
 
-- **All player-initiated actions are now supported by default.** The mod previously required each action to match a keyword from a maintained allowlist — only ~70 specific keywords were captured. It now uses a structural gate to identify player actions and captures everything except a tiny blocklist. Cooking, building, planting, fishing, animal care, and any mod-added action now work without needing to be individually whitelisted.
-- The only blocked action is **Continue** on event popups — auto-advancing through story events would cause unrecoverable side effects.
+- **All player-initiated actions are now supported by default.** The mod previously required each action to match a keyword from a maintained allowlist, only ~70 specific keywords were captured. It now uses a structural gate to identify player actions and captures everything except a tiny blocklist. Cooking, building, planting, fishing, animal care, and any mod-added action now work without needing to be individually whitelisted.
+- The only blocked action is **Continue** on event popups, auto-advancing through story events would cause unrecoverable side effects.
 
 ### Added
 
-- **Stop On Tool Break** safety option — repeat sequence stops automatically when a drag-drop tool transforms (e.g. an axe wears out and changes card state mid-batch).
-- **Per-stat stop thresholds** — configurable stop floors (0–100%) for Stamina, Satiation, and Hydration. Repeat halts early if any enabled stat drops below its threshold.
-- **Timeout settings** — configure how long the mod waits for an action to complete (`Action Completion Timeout`, default 30s) and how many frames to wait for an action to register after a button click (`Gate 1 Timeout`, default 60 frames).
+- **Stop On Tool Break** safety option, repeat sequence stops automatically when a drag-drop tool transforms (e.g. an axe wears out and changes card state mid-batch).
+- **Per-stat stop thresholds**, configurable stop floors (0–100%) for Stamina, Satiation, and Hydration. Repeat halts early if any enabled stat drops below its threshold.
+- **Timeout settings**, configure how long the mod waits for an action to complete (`Action Completion Timeout`, default 30s) and how many frames to wait for an action to register after a button click (`Gate 1 Timeout`, default 60 frames).
 
 ### Fixed
 
-- **EA 0.65 compatibility** — updated for the current game version. Prior release targeted EA 0.63.
+- **EA 0.65 compatibility**, updated for the current game version. Prior release targeted EA 0.63.
 - Many actions that were silently skipped due to missing allowlist keywords now work: Cook, Boil, Roast, Fry, Bake, Smoke, Dry, Build, Plant, Collect, Care (animal husbandry), Disassemble, Rip, Deconstruct, and all mod-added actions (H&F herb dosing, WDI fishing/smelting, ACT forge actions, etc.).
