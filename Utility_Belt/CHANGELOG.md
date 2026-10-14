@@ -2,7 +2,7 @@
 
 All notable changes to this mod are documented here.
 
-## [0.1.3] - Unreleased
+## [0.1.3] - 2026-10-14
 
 ### Added
 - `Card Size`: each of eight card rows (location, base, hand, blueprint, open container, equipment, trade inventory, trade offer) can be `Normal`, `Smaller` (one row of smaller cards; `Smaller Size`, 0.7 by default), `TwoRows` (two rows of half-size cards) or `TwoRowsWhenCrowded` (two rows only while the row holds more cards than `Crowded Above`, 9 by default). Every row is `Normal` by default. Two rows use the game's own multi-row layout, and a row set back to `Normal` returns to exactly how the game drew it. This replaces the Card Size Reduce mod and its ModCore requirement.
