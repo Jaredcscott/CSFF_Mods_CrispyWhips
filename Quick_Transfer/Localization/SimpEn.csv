@@ -1,7 +1,18 @@
 QuickTransfer_Overlay_Amount,Quick Transfer: {0}
+QuickTransfer_Overlay_AmountTag,Quick Transfer: {0} ({1})
 QuickTransfer_Overlay_All,All
 QuickTransfer_Overlay_Half,Half
+QuickTransfer_Overlay_AllButOne,All but one
 QuickTransfer_Overlay_ComboCtrl,(Ctrl)
 QuickTransfer_Overlay_ComboShift,(Shift)
 QuickTransfer_Overlay_ComboCtrlShift,(Ctrl+Shift)
 QuickTransfer_Overlay_PresetsReset,Presets reset: {0} / {1} / {2}
+QuickTransfer_Overlay_Stopped,Batch stopped: the destination changed
+QuickTransfer_Overlay_Moved,Moved {0} of {1}
+QuickTransfer_Overlay_MovedAll,Moved {0}
+QuickTransfer_Overlay_Undid,Undid {0}
+QuickTransfer_Overlay_NothingToUndo,Nothing to undo
+QuickTransfer_Overlay_ContainerOff,{0}: bulk transfer off
+QuickTransfer_Overlay_ContainerOn,{0}: bulk transfer on
+QuickTransfer_Overlay_Remembered,Remembered {0} for {1}
+QuickTransfer_Overlay_Forgot,Forgot the remembered amount for {0}

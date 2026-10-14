@@ -1,7 +1,18 @@
 QuickTransfer_Overlay_Amount,Quick Transfer: {0},快速转移：{0}
+QuickTransfer_Overlay_AmountTag,Quick Transfer: {0} ({1}),快速转移：{0} ({1})
 QuickTransfer_Overlay_All,All,全部
 QuickTransfer_Overlay_Half,Half,一半
+QuickTransfer_Overlay_AllButOne,All but one,除一张外全部
 QuickTransfer_Overlay_ComboCtrl,(Ctrl),(Ctrl键)
 QuickTransfer_Overlay_ComboShift,(Shift),(Shift键)
 QuickTransfer_Overlay_ComboCtrlShift,(Ctrl+Shift),(Ctrl+Shift键)
 QuickTransfer_Overlay_PresetsReset,Presets reset: {0} / {1} / {2},预设已重置：{0} / {1} / {2}
+QuickTransfer_Overlay_Stopped,Batch stopped: the destination changed,批量转移已停止：目标已改变
+QuickTransfer_Overlay_Moved,Moved {0} of {1},已转移：{0} / {1}
+QuickTransfer_Overlay_MovedAll,Moved {0},已转移：{0}
+QuickTransfer_Overlay_Undid,Undid {0},已撤销：{0}
+QuickTransfer_Overlay_NothingToUndo,Nothing to undo,没有可撤销的操作
+QuickTransfer_Overlay_ContainerOff,{0}: bulk transfer off,{0}：批量转移已关闭
+QuickTransfer_Overlay_ContainerOn,{0}: bulk transfer on,{0}：批量转移已开启
+QuickTransfer_Overlay_Remembered,Remembered {0} for {1},已记住{0}（{1}）
+QuickTransfer_Overlay_Forgot,Forgot the remembered amount for {0},已忘记{0}的记忆数量
