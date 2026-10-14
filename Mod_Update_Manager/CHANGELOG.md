@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.66] - 2026-10-14
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.3, Herbs and Fungi 1.14.5, Advanced Copper Tools 1.18.5, Water Driven Infrastructure 1.12.7, Community Mod Chest 1.69.14, Homestead Perks 1.3.3, Repeat Action 2.2.2, Quick Transfer 1.9.1, Skill Speed Boost 1.11.1, and the pre-release Partner Overhaul 1.1.2, Harsh Wilds 0.11.3, Far Territory 0.1.3, Forest Lore 0.1.3, Utility Belt 0.1.3 and Sirus23 Mod Collection 1.22.3. The new versions of Water Driven Infrastructure, Far Territory and Community Mod Chest make the animated water in their card art calmer: about half the speed and less strong.
+
+---
+
 ## [2.1.65] - 2026-10-14
 
 ### Changed
