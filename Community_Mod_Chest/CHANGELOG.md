@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.15] - 2026-10-14
+
+### Changed
+
+- **The village locations stay still again.** The slow drift on the Village, its paths, buildings and interiors (1.69.13) is off for now. The villagers, guards and cats still breathe.
+
 ## [1.69.14] - 2026-10-14
 
 - **Calmer river under the River Bridge:** its animated water now moves at about half the speed and less strongly.
