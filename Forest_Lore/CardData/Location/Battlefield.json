@@ -1,0 +1,182 @@
+{
+    "UniqueID": "fl_battlefield",
+    "CardName": {
+        "ParentObjectID": "fl_battlefield",
+        "LocalizationKey": "Forest_Lore_Battlefield_CardName",
+        "DefaultText": "Old Battlefield"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fl_battlefield",
+        "LocalizationKey": "Forest_Lore_Battlefield_CardDescription",
+        "DefaultText": "Heather and thin grass over a field where a battle was fought before anyone now living came here. Bones lie in the roots, and here and there something green and pitted shows through the turf: blades and fittings gone to verdigris. Most of it was picked over long ago. What is left is a few handfuls of ground, and once those are turned the field is only a quiet field."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardImageWarpData": "FL_Battlefield",
+    "CardImageWarpType": 3,
+    "CardType": 2,
+    "UniqueOnBoard": false,
+    "CannotBeTransferred": true,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": true,
+    "CanBeTrashed": false,
+    "DoesNotPile": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 6.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_battlefield",
+            "LocalizationKey": "Forest_Lore_Battlefield_SpecialDurability1_CardStatName",
+            "DefaultText": "Ground Unsearched"
+        },
+        "MaxValue": 6.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_battlefield",
+                "LocalizationKey": "Forest_Lore_Battlefield_Search_ActionName",
+                "DefaultText": "Search the Field"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_battlefield",
+                "LocalizationKey": "Forest_Lore_Battlefield_Search_ActionDescription",
+                "DefaultText": "Work through a stretch of the field on your knees, turning the heather and sifting the earth for bone and old metal."
+            },
+            "DaytimeCost": 2,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.01,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "674b640f46671f1418af4559b259b442",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 100.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "ccb5e7b33b7b66f4793ef3b62ba3b70b",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 2
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 70.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "TransferRules": {
+                                "Special2": 3,
+                                "Special2Value": 40.0,
+                                "Special4": 3,
+                                "Special4Value": 130.0
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 40.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "95da1742320318348b0fa4f03e81c2f3",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 6.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "CookingRecipes": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

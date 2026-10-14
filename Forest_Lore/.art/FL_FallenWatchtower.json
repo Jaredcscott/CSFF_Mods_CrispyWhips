@@ -1,0 +1,36 @@
+{
+  "target": "FL_FallenWatchtower.png",
+  "sourceCard": [
+    "CardData/Location/FallenWatchtower.json"
+  ],
+  "subject": "the ruin of a dry-laid stone watchtower that collapsed in one piece at the edge of a field, the walls fallen outward in a believable rubble slope, charred black timber beams jutting from the stones, weathered lichen on the rock, realistic proportions, natural muted colours and clean ink linework",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of the ruin of a dry-laid stone watchtower that collapsed in one piece at the edge of a field, the walls fallen outward in a believable rubble slope, charred black timber beams jutting from the stones, weathered lichen on the rock, realistic proportions, natural muted colours and clean ink linework, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "E30Iy0vBoGbSi0nlnRzS",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088518260_03403d71_1791088519080_c10ce9ef.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Round 2 of the 2026-10-03 batch (regenerated from the owner's notes on round 1); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088514855_8c28da09_1791088515541_37fb084a.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088518260_03403d71_1791088519080_c10ce9ef.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088515036_15c42dfa_1791088515692_75e99132.png"
+    }
+  ],
+  "picked": "B"
+}

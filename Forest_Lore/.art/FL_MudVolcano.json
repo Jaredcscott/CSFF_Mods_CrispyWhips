@@ -1,0 +1,26 @@
+{
+  "target": "FL_MudVolcano.png",
+  "sourceCard": "CardData/Location/MudVolcano.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images.\nReference images 1 and 2 are style references only: match their flat posterized colour fills in a few hard-edged tonal steps, thin dark ink outlines, small ink tick and hatch marks for texture, and muted naturalistic palette of moss greens, earth browns and grey stone; do not copy their subjects.\nSubject: a mud volcano in a mossy forest clearing: in the middle of the picture a low grey cone of dried mud no taller than a hut, its sides streaked with old grey mud flows, its wide crater a round pool of grey mud with a few small matte bubbles, a thin wisp of pale vapour rising from it. Around the cone a ring of smooth wet grey mud ground with fine dry cracks and nothing else on it, then thick green moss, ferns and grasses in the foreground, low trees and an overcast pale sky behind. No footprints, no tracks, no prints in the ground or snow, no marks or holes in the mud.\nA full-bleed painted game card scene filling the whole 2:3 portrait canvas edge to edge, realistic proportions, flat cel-like colour, no soft gradients, no watercolour bleed, no paper texture, no glow, no glossy highlights, no people, no animals, no text, no border, no frame.\nAvoid: footprints, tracks, prints in the ground or snow, paw or hoof marks, puddles, glossy bubbles, watercolour, soft painterly shading, lava, fire, orange glow, photo, 3D render, pixel art, white margin, text, watermark",
+  "refs": [
+    {
+      "label": "Bear_Wild (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652688284_55f644be.png"
+    },
+    {
+      "label": "BoggyMeadows (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BoggyMeadows_1791652690798_6fe8c747.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653768073_8530b639_1791653768705_caee2b34.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art, footprints removed). Finished by /process-card-art --full-bleed."
+}

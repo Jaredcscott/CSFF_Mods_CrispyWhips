@@ -1,0 +1,83 @@
+{
+    "UniqueID": "fl_cave_paintings",
+    "CardName": {
+        "ParentObjectID": "fl_cave_paintings",
+        "LocalizationKey": "Forest_Lore_CavePaintings_CardName",
+        "DefaultText": "Cave Paintings"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fl_cave_paintings",
+        "LocalizationKey": "Forest_Lore_CavePaintings_CardDescription",
+        "DefaultText": "The walls of this chamber are covered in paint gone the colour of dried blood and old rust. Hunters with long spears ring a herd of deer, a bear rears over a man with his arms flung up, and a line of fish swims along the foot of the wall. Handprints crowd the edges, small ones among them. Nobody has added to it in a very long time."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardImageWarpData": "FL_CavePaintings",
+    "CardImageWarpType": 3,
+    "CardType": 2,
+    "UniqueOnBoard": false,
+    "CannotBeTransferred": true,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": true,
+    "CanBeTrashed": false,
+    "DoesNotPile": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_cave_paintings",
+                "LocalizationKey": "Forest_Lore_CavePaintings_Study_ActionName",
+                "DefaultText": "Study the Paintings"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_cave_paintings",
+                "LocalizationKey": "Forest_Lore_CavePaintings_Study_ActionDescription",
+                "DefaultText": "Hold a light close to the wall and follow the hunting scenes from one end of the chamber to the other."
+            },
+            "DaytimeCost": 1,
+            "AlwaysShow": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "CookingRecipes": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

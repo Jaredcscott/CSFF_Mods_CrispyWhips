@@ -1,0 +1,37 @@
+{
+  "target": "FL_SaltCrust.png",
+  "sourceCard": [
+    "CardData/Location/SaltCrust.json"
+  ],
+  "subject": "a flat white crust of salt at the dried edge of a grey muddy spring, cracked into glittering plates, a shallow grey pool beyond, overcast light, not snow, not ice",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a flat white crust of salt at the dried edge of a grey muddy spring, cracked into glittering plates, a shallow grey pool beyond, overcast light, not snow, not ice, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface, snow, ice, tall crystals, sacks, people.",
+  "historyId": "cXrLaOGK6VjXJ0GDp8mF",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151924202_552ce30e_1791151925254_e3046762.png",
+  "credits": 90,
+  "generated": "2026-10-04",
+  "note": "Owner pick from the 2026-10-04 batch picker (Prompt 8). predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151925810_c0659efc_1791151926393_5c4d32b9.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151925153_c677a3fa_1791151925951_b1f0f131.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151924202_552ce30e_1791151925254_e3046762.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "A"
+}

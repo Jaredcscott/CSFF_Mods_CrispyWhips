@@ -1,0 +1,149 @@
+{
+    "UniqueID": "fl_mud_volcano",
+    "CardName": {
+        "ParentObjectID": "fl_mud_volcano",
+        "LocalizationKey": "Forest_Lore_MudVolcano_CardName",
+        "DefaultText": "Mud Volcano"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fl_mud_volcano",
+        "LocalizationKey": "Forest_Lore_MudVolcano_CardDescription",
+        "DefaultText": "A low grey cone no taller than a hut, its crater a pool of mud that heaves and plops and gives off a slow warmth. The ground around it is soft and warm underfoot, and the moss grows thick. Scoop from the rim and the mud wells up again."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardImageWarpData": "FL_MudVolcano",
+    "CardImageWarpType": 3,
+    "CardType": 2,
+    "UniqueOnBoard": false,
+    "CannotBeTransferred": true,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": true,
+    "CanBeTrashed": false,
+    "DoesNotPile": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "AffectStatsOnlyWhenNotInBackground": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 2000.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_mud_volcano",
+            "LocalizationKey": "Forest_Lore_MudVolcano_SpoilageTime_CardStatName",
+            "DefaultText": "Mud Welled Up"
+        },
+        "MaxValue": 2000.0,
+        "RatePerDaytimePoint": 2.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "RepeatActionOnZero": false,
+        "ResetWhenLoadedAtZero": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_mud_volcano",
+                "LocalizationKey": "Forest_Lore_MudVolcano_Harvest_ActionName",
+                "DefaultText": "Scoop Mud"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_mud_volcano",
+                "LocalizationKey": "Forest_Lore_MudVolcano_Harvest_ActionDescription",
+                "DefaultText": "Kneel at the rim and scoop warm mud from the crater."
+            },
+            "DaytimeCost": 1,
+            "ActionSoundsWarpData": [
+                "DigMud"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": true,
+                    "FloatValue": 0.115,
+                    "MaxValue": 1.0
+                },
+                "FailMessage": {
+                    "ParentObjectID": "fl_mud_volcano",
+                    "LocalizationKey": "Forest_Lore_MudVolcano_Harvest_FailMessage",
+                    "DefaultText": "The crater is spent for now; mud has not welled up again."
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": -240.0,
+                    "y": -240.0
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "22427beeefed8a9469a997bdce087332",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 100.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveStatEffects": [
+        {
+            "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 8.0,
+                "y": 8.0
+            }
+        }
+    ],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "CookingRecipes": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

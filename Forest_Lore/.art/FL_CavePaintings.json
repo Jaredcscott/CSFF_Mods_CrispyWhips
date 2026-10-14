@@ -1,0 +1,30 @@
+{
+  "target": "FL_CavePaintings.png",
+  "sourceCard": "CardData/Location/CavePaintings.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 and reference image 2 are style references only: match their flat posterized colour fills, thin dark ink outlines, small ink tick marks and muted palette; do not copy their subjects. Reference image 3 is the composition reference: keep its subject and layout exactly, and redraw it in reference 1's style.\n\nSubject: a cave wall covered in prehistoric paintings, seen straight on, framed by rough grey rock around the edges. The paint is dull rust red, the colour of dried blood and old rust, flat and slightly flaked. Upper left, a few red handprints. Upper right, a small stick man with his arms flung up. Middle row, three red deer with antlers walking left and a large red bear on the right. Lower left, three stick hunters holding long spears. Lower right, two rows of small red fish. Small red handprints crowd the lower edge, some of them child-sized. The rock wall is pale grey. No people in the scene, no torches, no text.\n\nStyle: Card Survival Fantasy Forest game card art. Flat posterized colour fills in a few hard-edged tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture, no border or frame. Thin dark ink outlines and small ink hatch and tick marks for texture on the rock. Muted naturalistic palette of grey stone and rust red. Nothing glossy, no fantasy glow. Full-bleed painted scene filling the whole 2:3 portrait card edge to edge.",
+  "refs": [
+    {
+      "label": "Bear_Wild (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652691630_2575370d.png"
+    },
+    {
+      "label": "BearCave_Entrance (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BearCave_Entrance_1791652695663_00847adc.png"
+    },
+    {
+      "label": "FL_CavePaintings (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FL_CavePaintings_1791652703078_b5e614ca.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652998412_06a2a13b_1791652999260_a0a35b8c.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art --full-bleed."
+}

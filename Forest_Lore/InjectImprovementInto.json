@@ -1,0 +1,15 @@
+[
+  { "TargetEnvUID": "1ec714ca136119e499e7afb4a000867b", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "fce4bae0b4932964aa0833137f396e36", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "2c3a29815c94ebe46a4bdbd1ccb754d0", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "549ed5b85e9e484479c5e4978eb22e79", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "950ae559bf16e524aab418c4f109164d", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "0047c4128e4efa548b394802e67e5bc5", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "e40f442246e85014c9a786342fb78a25", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "6940d62a86fc2974da75ce0431ca44e8", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "b32c74532ed8c634d991a6028bb435e2", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "cb861225c880cdf4f8d07bdf99abae51", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "569186c2715d16441bd502fdbedcb0e3", "ImprovementUID": "fl_imp_carved_stairs" },
+  { "TargetEnvUID": "d68a69ef3eb90c94d8a05b8d44472119", "ImprovementUID": "fl_imp_ladder_top" },
+  { "TargetEnvUID": "6c508761e14c85d47b65d76a4148db30", "ImprovementUID": "fl_imp_ladder_foot" }
+]

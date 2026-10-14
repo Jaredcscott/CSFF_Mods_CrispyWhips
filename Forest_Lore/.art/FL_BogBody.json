@@ -1,0 +1,40 @@
+{
+  "target": "FL_BogBody.png",
+  "sourceCard": "CardData/Location/BogBody.json",
+  "subject": "Draw this scene: the cut face of a peat bog, a low wall of dark brown peat with straight spade cuts. Lying curled on his side in the peat is a bog body, a man dead for two thousand years: his skin shrunken, creased and leathery, almost black, pulled tight over the bones; his arms and legs thin as sticks with knobbly joints, his hands bony and claw-like with long thin fingers, his face sunken with closed eyes, a few strands of reddish hair on his head, a corroded green copper band clasped round one thin upper arm. Nothing about him looks alive: he is desiccated and dark like old leather. Wet black peat around him, a fringe of heather and bog grass along the top of the cut, dim grey light. The body lies across the middle of the frame.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference images are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks, muted naturalistic palette and their dark, damp bog lighting; do not copy their exact composition.\nDraw this scene: the cut face of a peat bog, a low wall of dark brown peat with straight spade cuts. Lying curled on his side in the peat is a bog body, a man dead for two thousand years: his skin shrunken, creased and leathery, almost black, pulled tight over the bones; his arms and legs thin as sticks with knobbly joints, his hands bony and claw-like with long thin fingers, his face sunken with closed eyes, a few strands of reddish hair on his head, a corroded green copper band clasped round one thin upper arm. Nothing about him looks alive: he is desiccated and dark like old leather. Wet black peat around him, a fringe of heather and bog grass along the top of the cut, dim grey light. The body lies across the middle of the frame.\nFull-bleed survival card game scene in exactly that style, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, healthy skin, pink skin, plump muscular arm, living person, open eyes, blood, gore, skeleton, spade, people standing.",
+  "historyId": "pUtcziQxRGO9wCjiZQI7",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798685045_e06b620a_1791798685106_cbb8aa91.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "Swamp1",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Swamp1_1791693751649_15bef096.png"
+    },
+    {
+      "role": "style",
+      "label": "BoggyMeadows",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BoggyMeadows_1791697553603_15fe9a26.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798685045_e06b620a_1791798685106_cbb8aa91.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: arm looks alive, must be skinny and desiccated, almost black; redrawn as the whole curled bog body, near-black leathery skin over bone, no old image as reference"
+}

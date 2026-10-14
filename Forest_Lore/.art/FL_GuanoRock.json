@@ -1,0 +1,37 @@
+{
+  "target": "FL_GuanoRock.png",
+  "sourceCard": [
+    "CardData/Location/GuanoRock.json"
+  ],
+  "subject": "a single bare rock standing in a calm grey lake, its top crusted thick and chalky white with bird droppings (not snow), a few dark lake birds perched and nesting on it, a far shore of pines behind",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a single bare rock standing in a calm grey lake, its top crusted thick and chalky white with bird droppings (not snow), a few dark lake birds perched and nesting on it, a far shore of pines behind, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface, snow, ice, lighthouse, boat, people.",
+  "historyId": "ea58jO9StLc33ddI66m5",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151903360_b1b35cc5_1791151904202_98730ae9.png",
+  "credits": 90,
+  "generated": "2026-10-04",
+  "note": "Owner pick from the 2026-10-04 batch picker (Prompt 8). predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151905366_6ce08f95_1791151906234_43eaf2a6.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151905515_dfdbb15f_1791151905967_8065e371.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151903360_b1b35cc5_1791151904202_98730ae9.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "A"
+}

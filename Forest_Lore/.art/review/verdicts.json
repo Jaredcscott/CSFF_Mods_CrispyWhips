@@ -1,0 +1,565 @@
+{
+  "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
+  "images": {
+    "Picture/FL_AncientCairn.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "37d1ac41070dfc0342c14f3d85d5792713bf7aa3",
+      "at": "2026-10-14T04:31:21+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "be1cb1e4b15c3db5a672b7971f76f45cb19a15e2",
+          "at": "2026-10-12T08:37:26+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "be1cb1e4b15c3db5a672b7971f76f45cb19a15e2",
+          "at": "2026-10-12T17:22:32+00:00"
+        }
+      ]
+    },
+    "Picture/FL_Battlefield.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b817bfe44f23b91736ed2099f1df2560db9aed84",
+      "at": "2026-10-14T04:31:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ea10991af4040b1b200cbd56612503ec31577273",
+          "at": "2026-10-12T08:37:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ea10991af4040b1b200cbd56612503ec31577273",
+          "at": "2026-10-12T17:21:12+00:00"
+        }
+      ]
+    },
+    "Picture/FL_BogBody.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f1849e02e79d64e73399a6826cb646da757f9095",
+      "at": "2026-10-14T04:31:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "37058764e95270b0ba5ba10d13386bfc4a4261a0",
+          "at": "2026-10-12T08:37:28+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "arm looks alive, must be skinneyt and desicated. Almost black. ",
+          "sha1": "37058764e95270b0ba5ba10d13386bfc4a4261a0",
+          "at": "2026-10-12T08:37:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "291b2352961b29d16afe284e2c228aabfbb7da50",
+          "at": "2026-10-12T10:39:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "291b2352961b29d16afe284e2c228aabfbb7da50",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_BoneMounds.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f6440d0b42aba1ebce7eef125989c323ba29b7f3",
+      "at": "2026-10-14T04:31:24+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2ee1b95cc40a9d3f2c9663a99119935e35ce1dee",
+          "at": "2026-10-12T08:37:51+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2ee1b95cc40a9d3f2c9663a99119935e35ce1dee",
+          "at": "2026-10-12T17:22:22+00:00"
+        }
+      ]
+    },
+    "Picture/FL_CarvedStairs.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9c262d1cb517dd5f2553e996483d1727f25afb97",
+      "at": "2026-10-14T04:31:25+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "062660f8d51d4c5759be14f109c4143ef68d1f64",
+          "at": "2026-10-12T16:59:27+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "062660f8d51d4c5759be14f109c4143ef68d1f64",
+          "at": "2026-10-12T17:01:06+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "3956001a66e17d9ed4db1a83f2e0ef2e9cad45d3",
+          "at": "2026-10-12T19:09:40+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a8aa0d49d0511397361045e95445cff538eba1ab",
+          "at": "2026-10-12T20:01:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_CaveExit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3270a0a748a91fa4b0ed914bfaed7139ee326af7",
+      "at": "2026-10-14T04:31:25+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7303ccec683de1199b59f9b1ad20a71645f67a01",
+          "at": "2026-10-12T08:37:54+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7303ccec683de1199b59f9b1ad20a71645f67a01",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_CaveLake.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3a7555bd00d4bba4cee7e50045940ca9d8ccc2aa",
+      "at": "2026-10-14T04:31:26+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4129eb625d47801db1a59bd78d81892dca7e81da",
+          "at": "2026-10-12T08:37:55+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4129eb625d47801db1a59bd78d81892dca7e81da",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_CaveMouth.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4dbe65adc3396d418b7ceffee6acacfd801e17f3",
+      "at": "2026-10-14T04:31:26+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "81f1768c91f5283449808c3365a0a86e2bc63076",
+          "at": "2026-10-12T08:37:56+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "81f1768c91f5283449808c3365a0a86e2bc63076",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_CavePaintings.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e4c113e1aef5b36aab9bd356fdf97f3c732080b1",
+      "at": "2026-10-14T04:31:26+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "",
+          "sha1": "fe4344ecc01c6d641049b3caaaf5f4725ad5d7a1",
+          "at": "2026-10-12T08:37:57+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "fe4344ecc01c6d641049b3caaaf5f4725ad5d7a1",
+          "at": "2026-10-12T08:37:58+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "fe4344ecc01c6d641049b3caaaf5f4725ad5d7a1",
+          "at": "2026-10-12T17:22:58+00:00"
+        }
+      ]
+    },
+    "Picture/FL_CircleStone.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1d158860787dd1f6de4a98b2de4a2d8867dd8198",
+      "at": "2026-10-14T04:31:26+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6d5e4ef7afec119713b9777d1e58f7a1c8af5bfb",
+          "at": "2026-10-12T08:37:58+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6d5e4ef7afec119713b9777d1e58f7a1c8af5bfb",
+          "at": "2026-10-12T17:21:52+00:00"
+        }
+      ]
+    },
+    "Picture/FL_FallenWatchtower.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "933afef01d0919e6d5ae1757a18891416ba68316",
+      "at": "2026-10-14T04:31:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "25367383b295e999e95b983e699165af7db7526b",
+          "at": "2026-10-12T08:38:00+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "25367383b295e999e95b983e699165af7db7526b",
+          "at": "2026-10-12T17:21:17+00:00"
+        }
+      ]
+    },
+    "Picture/FL_GrindingSlab.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e74a11cc5daa07a9b689684b5e74aa94d8ab5c87",
+      "at": "2026-10-14T04:31:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b6ed5e78acd6fdc1dab95496ffc96e449930ef2d",
+          "at": "2026-10-12T08:38:01+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b6ed5e78acd6fdc1dab95496ffc96e449930ef2d",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_GuanoRock.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "47cf207003356ee70675ccea52ef13aadf41a3ce",
+      "at": "2026-10-14T04:31:28+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5cee40aa07b08fa623af328ab92f0a8245d1fe9d",
+          "at": "2026-10-12T08:38:02+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5cee40aa07b08fa623af328ab92f0a8245d1fe9d",
+          "at": "2026-10-12T16:56:50+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "9303bee09721fe360ff01cfe9892914f7d0023bf",
+          "at": "2026-10-12T19:09:41+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4ccd63041af091617af6103e1ca850c94055acf1",
+          "at": "2026-10-12T20:01:56+00:00"
+        }
+      ]
+    },
+    "Picture/FL_Homestead.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bc1bf9f950e7bd0997afa27864474b3c29969038",
+      "at": "2026-10-14T04:31:28+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "look AI generated match game art style please",
+          "sha1": "8937deeb699e17f0d5d1e42b634ec1172cbb813f",
+          "at": "2026-10-12T08:38:16+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5ba4fd0592e1dc28f7039c879330dd4182546185",
+          "at": "2026-10-12T10:39:30+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5ba4fd0592e1dc28f7039c879330dd4182546185",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_LadderFoot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "469efb26d956578919d7433c201358ab2789611c",
+      "at": "2026-10-14T04:31:28+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "433ea9429e3255eefb40691889a3b044d47d4fac",
+          "at": "2026-10-12T08:38:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "433ea9429e3255eefb40691889a3b044d47d4fac",
+          "at": "2026-10-12T17:22:28+00:00"
+        }
+      ]
+    },
+    "Picture/FL_LadderTop.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d343227b46be31ecb2becd891ede747bddc63f7a",
+      "at": "2026-10-14T04:31:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "afe4781af05c3608ab09b76306bac85f2f8a938d",
+          "at": "2026-10-12T08:38:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "afe4781af05c3608ab09b76306bac85f2f8a938d",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_MudVolcano.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "01fcc0aa27a2cf25c740da6e430e34d83b94c914",
+      "at": "2026-10-14T04:31:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1edb1bfdb842194ae3afb6ae8dfa679ab721908e",
+          "at": "2026-10-12T08:38:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1edb1bfdb842194ae3afb6ae8dfa679ab721908e",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_OverhangingRock.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a0d320ccdeeb37a0d997df5f258dc979b8fa91c2",
+      "at": "2026-10-14T04:31:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "61f8513638e2c6333040f594ff2470f48fb0aed5",
+          "at": "2026-10-12T08:38:26+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "61f8513638e2c6333040f594ff2470f48fb0aed5",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_Petrospheres.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "88e9e70bd22a2a0ff714586e1694473c0a80623d",
+      "at": "2026-10-14T04:31:29+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "look AI generated match game art style please",
+          "sha1": "00c58e8c7be304f163bb98aa9e3df65821134cc1",
+          "at": "2026-10-12T08:38:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "586488c90f3c555a474f6c2f1e9f7ec00bffd11c",
+          "at": "2026-10-12T10:39:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "586488c90f3c555a474f6c2f1e9f7ec00bffd11c",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_RuinedHomestead.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "23f70a3fcb7cdd03585391b535555031cc052d72",
+      "at": "2026-10-14T04:31:30+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "look AI generated match game art style please",
+          "sha1": "6fc46dc31d61cee4067039b141e14f68ced3bb5f",
+          "at": "2026-10-12T08:38:23+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "880b0608bee773ad0c6c1db2fd1fa5426a90aa8b",
+          "at": "2026-10-12T10:39:32+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "880b0608bee773ad0c6c1db2fd1fa5426a90aa8b",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_SaltCrust.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3ba2120a4d277f5fdeee4d7c4f1cd629a49b0662",
+      "at": "2026-10-14T04:31:30+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "deb3a2f1b2c9d9c0bc2a7994cd1da95b475eec05",
+          "at": "2026-10-12T08:38:29+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "deb3a2f1b2c9d9c0bc2a7994cd1da95b475eec05",
+          "at": "2026-10-12T17:22:37+00:00"
+        }
+      ]
+    },
+    "Picture/FL_Squeeze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "be45fad77eb56b2e3657f8006a4dee106fd68fd1",
+      "at": "2026-10-14T04:31:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "313306ac82dfda17114282bb26e0e9a5a4d5d4a7",
+          "at": "2026-10-12T08:38:30+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "313306ac82dfda17114282bb26e0e9a5a4d5d4a7",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_StandingStones.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "233940cbad8eb8143c0c928b38cdbc6631963d4a",
+      "at": "2026-10-14T04:31:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "25179fd26623c26a24575884718b12ba2d53cf59",
+          "at": "2026-10-12T08:38:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "25179fd26623c26a24575884718b12ba2d53cf59",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_TarSeep.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5dfe98cb99ee741d9d2128061a568266024bd5d4",
+      "at": "2026-10-14T04:31:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5b45563c83b1db7bb5f0eab84c929bba090a7c40",
+          "at": "2026-10-12T08:38:32+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5b45563c83b1db7bb5f0eab84c929bba090a7c40",
+          "at": "2026-10-12T17:22:43+00:00"
+        }
+      ]
+    },
+    "Picture/FL_TreeHollow.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ece79b3fea60cd64609bbec329ba45280de7dfd5",
+      "at": "2026-10-14T04:31:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7b135287da3a083cc4fe10c5261616714ebc6aef",
+          "at": "2026-10-12T08:38:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7b135287da3a083cc4fe10c5261616714ebc6aef",
+          "at": "2026-10-12T17:22:44+00:00"
+        }
+      ]
+    }
+  }
+}

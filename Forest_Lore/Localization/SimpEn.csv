@@ -1,0 +1,217 @@
+Forest_Lore_BarrowWood_CardName,Barrow Wood
+Forest_Lore_Env_BarrowWood_CardName,Barrow Wood
+Forest_Lore_AncientCairn_CardName,Ancient Cairn
+Forest_Lore_AncientCairn_CardDescription,"A long mound of grey stones under the oaks, grown over with grass and bramble. Someone was laid in it long before anyone now living came to this forest, and the stones were heaped high so that they would stay. The mouth of the tomb faces the morning sun. Once its goods are taken, the cairn stands open and quiet, and it does not fill again."
+Forest_Lore_AncientCairn_Progress_CardStatName,Entrance Cleared
+Forest_Lore_AncientCairn_SpecialDurability1_CardStatName,Grave Goods
+Forest_Lore_AncientCairn_ClearEntrance_ActionName,Clear the Entrance
+Forest_Lore_AncientCairn_ClearEntrance_ActionDescription,Tear away the bramble and roll back the fallen stones from the tomb's mouth.
+Forest_Lore_AncientCairn_OpenTomb_ActionName,Open the Tomb
+Forest_Lore_AncientCairn_OpenTomb_ActionDescription,Reach into the dark chamber and bring out what was buried with the dead.
+Forest_Lore_StandingStones_CardName,Standing Stones
+Forest_Lore_StandingStones_CardDescription,"A ring of tall grey stones stands in a clearing of the wood, each leaning a little toward the one beside it, the north faces gone green with moss. On one stone, low down where the light finds it, someone cut runes long ago: Halfdan was here. The ground at the centre of the ring looks as if something was set down there and never taken up."
+Forest_Lore_StandingStones_SpecialDurability1_CardStatName,Centre Unsearched
+Forest_Lore_StandingStones_Read_ActionName,Read the Stones
+Forest_Lore_StandingStones_Read_ActionDescription,Walk the ring and read the runes on the low stone: Halfdan was here.
+Forest_Lore_StandingStones_Search_ActionName,Search the Centre
+Forest_Lore_StandingStones_Search_ActionDescription,Kneel in the middle of the ring and dig through the turf with your hands.
+Forest_Lore_CircleStone_CardName,Circle Stone
+Forest_Lore_CircleStone_CardDescription,"A great grey stone as tall as a man, with a hole worn clean through it near the top, wide enough to put an arm through. Small stones have been pushed into the grass at its foot, one at a time, by people who are not here now. The oaks have leaned around it."
+Forest_Lore_CircleStone_SpecialDurability1_CardStatName,Foot Unsearched
+Forest_Lore_CircleStone_Read_ActionName,Read the Stone
+Forest_Lore_CircleStone_Read_ActionDescription,Look through the hole and along the line it makes toward the sunrise.
+Forest_Lore_CircleStone_Search_ActionName,Search Beneath the Stone
+Forest_Lore_CircleStone_Search_ActionDescription,"Feel under the stone's foot, where people used to leave things."
+Forest_Lore_Petrospheres_CardName,Line of Petrospheres
+Forest_Lore_Petrospheres_CardDescription,"A row of round stones, each the size of a loaf, set along a bank in a straight line. Every one is carved all over with spirals and knobs, and the carving is the same on each. Nothing in the forest says what they were for."
+Forest_Lore_Petrospheres_SpecialDurability1_CardStatName,Line Unsearched
+Forest_Lore_Petrospheres_Read_ActionName,Read the Line
+Forest_Lore_Petrospheres_Read_ActionDescription,Follow the row of carved stones and trace the patterns with a finger.
+Forest_Lore_Petrospheres_Search_ActionName,Search Along the Line
+Forest_Lore_Petrospheres_Search_ActionDescription,Look in the grass and between the carved stones.
+Forest_Lore_TreeHollow_CardName,Tree Hollow
+Forest_Lore_TreeHollow_CardDescription,"An ancient oak, hollow from root to crown, its trunk split open on one side wide enough to crawl through. Inside, the wood is dry and the floor is deep with old leaves. The rain does not reach it, and neither does much of the sun. It has stood like this for longer than anyone can say, and it will not fall."
+Forest_Lore_TreeHollow_Nap_ActionName,Nap
+Forest_Lore_TreeHollow_Nap_Interrupt0,Its flooding!
+Forest_Lore_TreeHollow_Nap_Interrupt2,I'm too thirsty to sleep...
+Forest_Lore_TreeHollow_Nap_Interrupt3,I'm too hot to sleep...
+Forest_Lore_TreeHollow_Nap_Interrupt4,I'm too cold to sleep...
+Forest_Lore_TreeHollow_Nap_Interrupt5,I'm losing too much blood...
+Forest_Lore_TreeHollow_Nap_Interrupt6,I'm not feeling well...
+Forest_Lore_TreeHollow_Nap_Interrupt7,I'm not feeling well...
+Forest_Lore_TreeHollow_Nap_Interrupt8,I really need to Pee!
+Forest_Lore_TreeHollow_Nap_Interrupt9,I really need to Poop!
+Forest_Lore_TreeHollow_Nap_FadeMessage,Taking a nap...
+Forest_Lore_TreeHollow_Sleep_ActionName,Sleep
+Forest_Lore_TreeHollow_Sleep_Interrupt0,Its flooding!
+Forest_Lore_TreeHollow_Sleep_Interrupt2,I'm too thirsty to sleep...
+Forest_Lore_TreeHollow_Sleep_Interrupt3,I'm too hot to sleep...
+Forest_Lore_TreeHollow_Sleep_Interrupt4,I'm too cold to sleep...
+Forest_Lore_TreeHollow_Sleep_Interrupt5,I'm losing too much blood...
+Forest_Lore_TreeHollow_Sleep_Interrupt6,I'm not feeling well...
+Forest_Lore_TreeHollow_Sleep_Interrupt7,I'm not feeling well...
+Forest_Lore_TreeHollow_Sleep_Interrupt8,I really need to Pee!
+Forest_Lore_TreeHollow_Sleep_Interrupt9,I really need to Poop!
+Forest_Lore_TreeHollow_Sleep_FadeMessage,Sleeping...
+Forest_Lore_Battlefield_CardName,Old Battlefield
+Forest_Lore_Battlefield_CardDescription,"Heather and thin grass over a field where a battle was fought before anyone now living came here. Bones lie in the roots, and here and there something green and pitted shows through the turf: blades and fittings gone to verdigris. Most of it was picked over long ago. What is left is a few handfuls of ground, and once those are turned the field is only a quiet field."
+Forest_Lore_Battlefield_SpecialDurability1_CardStatName,Ground Unsearched
+Forest_Lore_Battlefield_Search_ActionName,Search the Field
+Forest_Lore_Battlefield_Search_ActionDescription,"Work through a stretch of the field on your knees, turning the heather and sifting the earth for bone and old metal."
+Forest_Lore_FallenWatchtower_CardName,Fallen Watchtower
+Forest_Lore_FallenWatchtower_CardDescription,"At the edge of the field a watchtower came down in one piece and was left where it fell: a tumble of dry-laid stone with the black ribs of its timbers sticking out. Whoever kept watch here saw the battle coming. The heap has not moved in all the years since, and what is in it can be had for the lifting."
+Forest_Lore_FallenWatchtower_SpecialDurability1_CardStatName,Rubble Left
+Forest_Lore_FallenWatchtower_Clear_ActionName,Clear the Rubble
+Forest_Lore_FallenWatchtower_Clear_ActionDescription,Lever the fallen stones apart and drag out the timbers that are still sound.
+Forest_Lore_OldBattlefield_CardName,Old Battlefield
+Forest_Lore_Env_OldBattlefield_CardName,Old Battlefield
+Forest_Lore_RuinedHomestead_CardName,Ruined Homestead
+Forest_Lore_RuinedHomestead_CardDescription,"A homestead at the edge of the river meadow, long since left to the weather. The roof has fallen in, the fence is down and grass grows over the threshold, but the walls still stand. Salvage what is left in the wreck first; then patch the walls and roof with planks and rope, and the place will keep the rain off again."
+Forest_Lore_RuinedHomestead_Progress_CardStatName,Repairs Done
+Forest_Lore_RuinedHomestead_SpecialDurability1_CardStatName,Salvage Left
+Forest_Lore_RuinedHomestead_Repair_ActionName,Repair the Homestead
+Forest_Lore_RuinedHomestead_Repair_ActionDescription,Work a plank or a length of rope into the broken walls and roof.
+Forest_Lore_RuinedHomestead_Salvage_ActionName,Salvage the Ruin
+Forest_Lore_RuinedHomestead_Salvage_ActionDescription,"Pull the sound sticks, cord, stones and timber out of the fallen roof and the broken fence."
+Forest_Lore_RuinedHomestead_RaiseRoof_ActionName,Raise the Roof
+Forest_Lore_RuinedHomestead_RaiseRoof_ActionDescription,Lift the patched roof back onto the walls and make the homestead whole.
+Forest_Lore_Homestead_CardName,Homestead
+Forest_Lore_Homestead_CardDescription,"The old homestead, patched up and dry again. The mended roof keeps off the rain and the sun, there is room by the hearth wall to sleep, and its shelves and corners will hold your things. It is a house again, and it stays where it stands."
+Forest_Lore_Homestead_Nap_ActionName,Nap
+Forest_Lore_Homestead_Nap_Interrupt0,Its flooding!
+Forest_Lore_Homestead_Nap_Interrupt2,I'm too thirsty to sleep...
+Forest_Lore_Homestead_Nap_Interrupt3,I'm too hot to sleep...
+Forest_Lore_Homestead_Nap_Interrupt4,I'm too cold to sleep...
+Forest_Lore_Homestead_Nap_Interrupt5,I'm losing too much blood...
+Forest_Lore_Homestead_Nap_Interrupt6,I'm not feeling well...
+Forest_Lore_Homestead_Nap_Interrupt7,I'm not feeling well...
+Forest_Lore_Homestead_Nap_Interrupt8,I really need to Pee!
+Forest_Lore_Homestead_Nap_Interrupt9,I really need to Poop!
+Forest_Lore_Homestead_Nap_FadeMessage,Taking a nap...
+Forest_Lore_Homestead_Sleep_ActionName,Sleep
+Forest_Lore_Homestead_Sleep_Interrupt0,Its flooding!
+Forest_Lore_Homestead_Sleep_Interrupt2,I'm too thirsty to sleep...
+Forest_Lore_Homestead_Sleep_Interrupt3,I'm too hot to sleep...
+Forest_Lore_Homestead_Sleep_Interrupt4,I'm too cold to sleep...
+Forest_Lore_Homestead_Sleep_Interrupt5,I'm losing too much blood...
+Forest_Lore_Homestead_Sleep_Interrupt6,I'm not feeling well...
+Forest_Lore_Homestead_Sleep_Interrupt7,I'm not feeling well...
+Forest_Lore_Homestead_Sleep_Interrupt8,I really need to Pee!
+Forest_Lore_Homestead_Sleep_Interrupt9,I really need to Poop!
+Forest_Lore_Homestead_Sleep_FadeMessage,Sleeping...
+Forest_Lore_GrindingSlab_CardName,Grinding Slab
+Forest_Lore_GrindingSlab_CardDescription,"A broad, worn stone by the homestead door, hollowed in the middle by years of grinding. Put rye, edible acorns or another millable thing into the hollow and work it with the hand stone to grind it into flour or powder, as a saddle quern does. It is far too heavy to carry away."
+Forest_Lore_GrindingSlab_Progress_CardStatName,Milling
+Forest_Lore_GrindingSlab_SpecialDurability2_CardStatName,Quality
+Forest_Lore_GrindingSlab_Mill_ActionName,Mill
+Forest_Lore_GrindingSlab_Mill_ActionDescription,Work the hand stone back and forth over what lies in the slab's hollow.
+Forest_Lore_AbandonedHomestead_CardName,Abandoned Homestead
+Forest_Lore_Env_AbandonedHomestead_CardName,Abandoned Homestead
+Forest_Lore_MudSprings_CardName,Mud Springs
+Forest_Lore_Env_MudSprings_CardName,Mud Springs
+Forest_Lore_MudVolcano_CardName,Mud Volcano
+Forest_Lore_MudVolcano_CardDescription,"A low grey cone no taller than a hut, its crater a pool of mud that heaves and plops and gives off a slow warmth. The ground around it is soft and warm underfoot, and the moss grows thick. Scoop from the rim and the mud wells up again."
+Forest_Lore_MudVolcano_SpoilageTime_CardStatName,Mud Welled Up
+Forest_Lore_MudVolcano_Harvest_ActionName,Scoop Mud
+Forest_Lore_MudVolcano_Harvest_ActionDescription,Kneel at the rim and scoop warm mud from the crater.
+Forest_Lore_MudVolcano_Harvest_FailMessage,The crater is spent for now; mud has not welled up again.
+Forest_Lore_SaltCrust_CardName,Salt Crust
+Forest_Lore_SaltCrust_CardDescription,"A white rind where the mud has dried at the edge of the springs, crusted and glittering, bitter to the tongue. Salt is hard to come by here, and the crust grows back only slowly."
+Forest_Lore_SaltCrust_SpoilageTime_CardStatName,Crust Left
+Forest_Lore_SaltCrust_Harvest_ActionName,Scrape Salt
+Forest_Lore_SaltCrust_Harvest_ActionDescription,Scrape the white crust into a heap with a flat stone.
+Forest_Lore_SaltCrust_Harvest_FailMessage,The crust is scraped bare for now; it has not formed again.
+Forest_Lore_TarSeep_CardName,Tar Seep
+Forest_Lore_TarSeep_CardDescription,"Black tar wells up through the moss in a slow, warm pool, smelling of smoke and old pitch. It is thick enough to carry off in your hands while it is hot, and the pool fills again over days."
+Forest_Lore_TarSeep_SpoilageTime_CardStatName,Tar Welled Up
+Forest_Lore_TarSeep_Harvest_ActionName,Collect Tar
+Forest_Lore_TarSeep_Harvest_ActionDescription,Ladle hot tar from the edge of the seep before it cools.
+Forest_Lore_TarSeep_Harvest_FailMessage,The seep is dry for now; tar has not welled up again.
+Forest_Lore_CaveMouth_CardName,Cave Mouth
+Forest_Lore_CaveMouth_CardDescription,"A dark opening low under the rock overhang, its edges worn smooth. Cool, still air breathes out of it, smelling of wet stone, and a track of old footprints runs in and does not come out."
+Forest_Lore_CaveMouth_Enter_ActionName,Enter the Caves
+Forest_Lore_CaveMouth_Enter_ActionDescription,Duck under the rock and go down into the dark.
+Forest_Lore_CaveMouth_Enter_FadeMessage,Entering the caves...
+Forest_Lore_CaveExit_CardName,Cave Exit
+Forest_Lore_CaveExit_CardDescription,"A slope of fallen stone climbs to a pale slot of daylight, the way back up to the pines."
+Forest_Lore_CaveExit_Leave_ActionName,Leave the Caves
+Forest_Lore_CaveExit_Leave_ActionDescription,Climb back up to the daylight.
+Forest_Lore_CaveExit_Leave_FadeMessage,Leaving the caves...
+Forest_Lore_CaveLake_CardName,Cave Lake
+Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Like any pond's, the water is not safe to drink."
+Forest_Lore_CaveLake_Fill_ActionName,Fill
+Forest_Lore_CaveLake_Fill_ActionDescription,Draw unsafe lake water into the container.
+Forest_Lore_CaveLake_Fish_ActionName,Fish
+Forest_Lore_CaveLake_Fish_ActionDescription,Drop a line into the dark water and wait for a bite.
+Forest_Lore_CaveLake_Fish_NoLuck,No luck...
+Forest_Lore_CaveLake_Spearfish_ActionName,Spearfish
+Forest_Lore_CaveLake_Spearfish_ActionDescription,Stand on the stone shelf and spear what moves below.
+Forest_Lore_CaveLake_Spearfish_NoLuck,Nothing but dark water...
+Forest_Lore_CaveLake_Drink_ActionName,Drink
+Forest_Lore_CaveLake_Drink_ActionDescription,Cup your hands and drink. The water is cold and not safe.
+Forest_Lore_CaveLake_Wash_ActionName,Wash yourself
+Forest_Lore_CaveLake_Wash_ActionDescription,Strip off the dirt and sweat in the cold water.
+Forest_Lore_RockShelter_CardName,Rock Shelter
+Forest_Lore_Env_RockShelter_CardName,Rock Shelter
+Forest_Lore_PaintedChamber_CardName,Painted Chamber
+Forest_Lore_Env_PaintedChamber_CardName,Painted Chamber
+Forest_Lore_Ossuary_CardName,Ossuary
+Forest_Lore_Env_Ossuary_CardName,Ossuary
+Forest_Lore_SunkenLake_CardName,Sunken Lake
+Forest_Lore_Env_SunkenLake_CardName,Sunken Lake
+Forest_Lore_OverhangingRock_CardName,Overhanging Rock
+Forest_Lore_OverhangingRock_CardDescription,"A great shelf of grey rock juts out over a dry ledge, its underside black with the smoke of fires lit by people who crouched here out of the weather long ago. The ground beneath it stays dry in the heaviest rain, and the stone keeps the sun off your back. It has sheltered travellers for longer than anyone can say, and it will not fall."
+Forest_Lore_OverhangingRock_Nap_ActionName,Nap
+Forest_Lore_OverhangingRock_Nap_Interrupt0,Its flooding!
+Forest_Lore_OverhangingRock_Nap_Interrupt2,I'm too thirsty to sleep...
+Forest_Lore_OverhangingRock_Nap_Interrupt3,I'm too hot to sleep...
+Forest_Lore_OverhangingRock_Nap_Interrupt4,I'm too cold to sleep...
+Forest_Lore_OverhangingRock_Nap_Interrupt5,I'm losing too much blood...
+Forest_Lore_OverhangingRock_Nap_Interrupt6,I'm not feeling well...
+Forest_Lore_OverhangingRock_Nap_Interrupt7,I'm not feeling well...
+Forest_Lore_OverhangingRock_Nap_Interrupt8,I really need to Pee!
+Forest_Lore_OverhangingRock_Nap_Interrupt9,I really need to Poop!
+Forest_Lore_OverhangingRock_Nap_FadeMessage,Taking a nap...
+Forest_Lore_OverhangingRock_Sleep_ActionName,Sleep
+Forest_Lore_OverhangingRock_Sleep_Interrupt0,Its flooding!
+Forest_Lore_OverhangingRock_Sleep_Interrupt2,I'm too thirsty to sleep...
+Forest_Lore_OverhangingRock_Sleep_Interrupt3,I'm too hot to sleep...
+Forest_Lore_OverhangingRock_Sleep_Interrupt4,I'm too cold to sleep...
+Forest_Lore_OverhangingRock_Sleep_Interrupt5,I'm losing too much blood...
+Forest_Lore_OverhangingRock_Sleep_Interrupt6,I'm not feeling well...
+Forest_Lore_OverhangingRock_Sleep_Interrupt7,I'm not feeling well...
+Forest_Lore_OverhangingRock_Sleep_Interrupt8,I really need to Pee!
+Forest_Lore_OverhangingRock_Sleep_Interrupt9,I really need to Poop!
+Forest_Lore_OverhangingRock_Sleep_FadeMessage,Sleeping...
+Forest_Lore_CavePaintings_CardName,Cave Paintings
+Forest_Lore_CavePaintings_CardDescription,"The walls of this chamber are covered in paint gone the colour of dried blood and old rust. Hunters with long spears ring a herd of deer, a bear rears over a man with his arms flung up, and a line of fish swims along the foot of the wall. Handprints crowd the edges, small ones among them. Nobody has added to it in a very long time."
+Forest_Lore_CavePaintings_Study_ActionName,Study the Paintings
+Forest_Lore_CavePaintings_Study_ActionDescription,Hold a light close to the wall and follow the hunting scenes from one end of the chamber to the other.
+Forest_Lore_BoneMounds_CardName,Bone Mounds
+Forest_Lore_BoneMounds_CardDescription,"Bones are heaped against the walls of this chamber in long mounds: long bones stacked like firewood, skulls set in rows along the top, the older layers sunk and gone grey. Whoever came here brought their dead down into the dark and left them. Most of what could be carried off has been, but the lower heaps have never been turned."
+Forest_Lore_BoneMounds_SpecialDurability1_CardStatName,Mounds Unsifted
+Forest_Lore_BoneMounds_Sift_ActionName,Sift the Mounds
+Forest_Lore_BoneMounds_Sift_ActionDescription,Kneel and sift through the lower heaps for bones still whole enough to use.
+Forest_Lore_Squeeze_CardName,The Squeeze
+Forest_Lore_Squeeze_CardDescription,"Between the Ossuary and the Sunken Lake the roof comes down to a slot in the rock, and the way on is a crawl on your belly, pushing what you carry ahead of you. Very little fits through with you: a light load of tools and food, and no more. If you carry too much, the way on is not offered, from either side, until you carry less."
+Forest_Lore_Squeeze_SizeUp_ActionName,Size Up the Squeeze
+Forest_Lore_Squeeze_SizeUp_ActionDescription,Put your head and one arm into the slot and judge how much of what you carry would fit through.
+Forest_Lore_GuanoRock_CardName,Guano Rock
+Forest_Lore_Env_GuanoRock_CardName,Guano Rock
+Forest_Lore_GuanoLedge_CardName,Guano Ledge
+Forest_Lore_GuanoLedge_CardDescription,"A bare rock stands white in the lake, crusted thick with the droppings of the birds that nest on it, strong-smelling and good for the fields. More is laid down every day."
+Forest_Lore_GuanoLedge_SpoilageTime_CardStatName,Guano Laid
+Forest_Lore_GuanoLedge_Harvest_ActionName,Scrape Guano
+Forest_Lore_GuanoLedge_Harvest_ActionDescription,Scrape the dried droppings from the rock into a heap.
+Forest_Lore_GuanoLedge_Harvest_FailMessage,The rock is scraped clean for now; the birds have not laid it down again.
+Forest_Lore_BogBody_CardName,Bog Body
+Forest_Lore_BogBody_CardDescription,"A shape in the cut face of the peat: a man, curled on his side, brown and creased as old leather, his skin and hair kept by the acid of the bog long after everything else about him was forgotten. A corroded green band is still clasped about one arm. He lies where the cutters found him and will not be found twice."
+Forest_Lore_BogBody_SpecialDurability1_CardStatName,Body Unsearched
+Forest_Lore_BogBody_Search_ActionName,Search the Body
+Forest_Lore_BogBody_Search_ActionDescription,Ease the peat away from the body and see what he was buried with.
+Forest_Lore_CarvedStairs_CardName,Carved Stairs
+Forest_Lore_CarvedStairs_CardDescription,"Steps cut into the slope with a pick and a shovel and faced with stone. While you are here the climb is easier, so a fall is less likely. Skill still counts."
+Forest_Lore_LadderTop_CardName,Fairy Hole Ladder (Top)
+Forest_Lore_LadderTop_CardDescription,"A ladder lashed fast at the lip of the Fairy Hole. While you stand here the climb down is easier, so a fall is less likely. Skill still counts, and a ladder fixed at the foot helps the climb back up."
+Forest_Lore_LadderFoot_CardName,Fairy Hole Ladder (Foot)
+Forest_Lore_LadderFoot_CardDescription,"The foot of a ladder set against the shaft wall under the Fairy Hole. While you stand here the climb up is easier, so a fall is less likely. Skill still counts, and a ladder fixed at the lip helps the climb down."

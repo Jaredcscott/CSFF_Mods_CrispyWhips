@@ -1,0 +1,40 @@
+{
+  "target": "FL_Petrospheres.png",
+  "sourceCard": "CardData/Location/Petrospheres.json",
+  "subject": "Draw this scene: a grassy bank in a forest above a slow dark river. Along the top of the bank runs one straight line of six round grey stone balls, each about the size of a loaf of bread, evenly spaced and receding from the foreground into the middle distance; every ball is carved all over with the same raised spirals and knobs. Short green grass and moss around them, the river below on one side, dark spruce and a few birch trees behind, soft green daylight.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference images are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks, muted naturalistic palette and their dark, saturated forest lighting; do not copy their exact composition.\nDraw this scene: a grassy bank in a forest above a slow dark river. Along the top of the bank runs one straight line of six round grey stone balls, each about the size of a loaf of bread, evenly spaced and receding from the foreground into the middle distance; every ball is carved all over with the same raised spirals and knobs. Short green grass and moss around them, the river below on one side, dark spruce and a few birch trees behind, soft green daylight.\nFull-bleed survival card game scene in exactly that style, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, people, standing stones, huge boulders, stones of different shapes, bridge.",
+  "historyId": "jmTSsmB7eXoYjhvQOwsj",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798690794_62c3cbfa_1791798690860_abec8369.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "Woods1",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods1_1791745308283_a2624cc3.png"
+    },
+    {
+      "role": "style",
+      "label": "Lake1",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_1791745028417_e3f605e2.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798690794_62c3cbfa_1791798690860_abec8369.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: look AI generated match game art style please"
+}

@@ -1,0 +1,40 @@
+{
+  "target": "FL_Homestead.png",
+  "sourceCard": "CardData/Location/Homestead.json",
+  "subject": "Draw this scene: a small old log homestead standing at the edge of a river meadow, repaired and lived in again. Low walls of dark weathered horizontal logs, a steep roof mended with patches of fresh pale planks among old grey shingles, a short stone chimney, one plank door and one small shuttered window, a stack of split firewood against the side wall, a mended rail fence and a few dug vegetable beds in front. Tall dark spruce trees behind, meadow grass in front, green daylight. The house stands in the middle of the frame, seen from a slight three-quarter angle.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference images are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks, muted naturalistic palette and their dark, saturated forest lighting, and draw the log walls the way reference image 1 does; do not copy its exact composition.\nDraw this scene: a small old log homestead standing at the edge of a river meadow, repaired and lived in again. Low walls of dark weathered horizontal logs, a steep roof mended with patches of fresh pale planks among old grey shingles, a short stone chimney, one plank door and one small shuttered window, a stack of split firewood against the side wall, a mended rail fence and a few dug vegetable beds in front. Tall dark spruce trees behind, meadow grass in front, green daylight. The house stands in the middle of the frame, seen from a slight three-quarter angle.\nFull-bleed survival card game scene in exactly that style, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, people, animals, second house, glass windows, painted walls.",
+  "historyId": "iuCn1IEUA6gOVan5u22t",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798693071_616d0b19_1791798693405_77ce8793.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "Cabin_Outside",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cabin_Outside_1791652696629_82aef3a7.png"
+    },
+    {
+      "role": "style",
+      "label": "Woods1",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods1_1791745308283_a2624cc3.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798693071_616d0b19_1791798693405_77ce8793.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: look AI generated match game art style please"
+}

@@ -1,0 +1,38 @@
+{
+  "target": "FL_CaveExit.png",
+  "sourceCard": [
+    "CardData/Location/CaveExit.json"
+  ],
+  "subject": "inside a dark cave looking up a slope of fallen grey stones toward one narrow pale slot of daylight high at the top, a glimpse of green pine branches in the light, rough rock walls",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of inside a dark cave looking up a slope of fallen grey stones toward one narrow pale slot of daylight high at the top, a glimpse of green pine branches in the light, rough rock walls, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface, stairs, ladder, torch, wide open sky, people.",
+  "historyId": "8KGSvDiVTGokazRrI6r9",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151868553_e9c61777_1791151869273_c1bb1aab.png",
+  "credits": 90,
+  "generated": "2026-10-04",
+  "note": "Owner pick from the 2026-10-04 batch picker (Prompt 8). predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151869056_cd0296a0_1791151870254_f68d8600.png",
+      "verdict": "white paper border at the frame edge"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151868553_e9c61777_1791151869273_c1bb1aab.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151865531_b3da1f64_1791151866570_7f27d120.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

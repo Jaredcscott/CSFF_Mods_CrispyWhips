@@ -1,0 +1,24 @@
+{
+    "DismantleActionsWarpData": [
+        {
+            "ProducedCardsWarpData": [
+                {},
+                {},
+                {
+                    "StatsDropChanceModifiersWarpData": [
+                        {
+                            "StatWarpData": "33f8297bdbbdf7a47b9944f633fdcad8",
+                            "StatWarpType": 3,
+                            "StatRange": { "x": 0.0, "y": 288.0 },
+                            "InterpWeightRange": { "x": 0, "y": 50 },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "StatsDropChanceModifiersWarpType": 4
+                }
+            ],
+            "ProducedCardsWarpType": 5
+        }
+    ],
+    "DismantleActionsWarpType": 5
+}

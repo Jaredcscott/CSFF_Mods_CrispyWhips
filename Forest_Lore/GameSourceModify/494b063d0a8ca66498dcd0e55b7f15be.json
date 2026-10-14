@@ -1,0 +1,29 @@
+{
+    "CardInteractionsWarpData": [
+        {},
+        {},
+        {
+            "ProducedCardsWarpData": [
+                {
+                    "DroppedCardsWarpData": [
+                        {
+                            "DroppedCardWarpData": "fl_bog_body",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 3.0
+                            }
+                        }
+                    ],
+                    "DroppedCardsWarpType": 4
+                }
+            ],
+            "ProducedCardsWarpType": 5
+        }
+    ],
+    "CardInteractionsWarpType": 5
+}

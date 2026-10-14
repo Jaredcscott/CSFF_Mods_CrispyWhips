@@ -1,0 +1,54 @@
+{
+  "target": "FL_BoneMounds.png",
+  "sourceCard": [
+    "CardData/Location/BoneMounds.json"
+  ],
+  "subject": "an underground cave chamber with low rounded heaps of old grey-brown bones piled loosely against the rock walls, jumbled and untidy like spoil heaps, half sunk into the earth floor, bones lying at every angle, a few skulls tumbled among them at odd angles and partly buried, irregular uneven mounds of different sizes, dust and earth over the older parts, dim light from one side",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of an underground cave chamber with low rounded heaps of old grey-brown bones piled loosely against the rock walls, jumbled and untidy like spoil heaps, half sunk into the earth floor, bones lying at every angle, a few skulls tumbled among them at odd angles and partly buried, irregular uneven mounds of different sizes, dust and earth over the older parts, dim light from one side, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface, neat stacks, rows of skulls, bones stacked like firewood, symmetrical, orderly, walls of bone, ossuary shelves, candles, torches, gold, blood, people.",
+  "historyId": "wrbuOiPD0ZRSgqvMXlWN",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791152822968_572cf4ec_1791152823656_cdd7cdf3.png",
+  "credits": 90,
+  "generated": "2026-10-04",
+  "note": "Round 2 of the 2026-10-04 batch (Prompt 8), regenerated from the owner's round-1 note: \"too AI generated less orderly more moundlike\". Owner pick; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791152822968_572cf4ec_1791152823656_cdd7cdf3.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791152826772_d43d4a08_1791152827095_70ab30d3.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791152825092_07e80f61_1791152826067_ecdde144.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B",
+  "round1": {
+    "historyId": "bboYPurDUUMEdounWCij",
+    "prompt": "Hand-painted illustration of an underground cave chamber with long low mounds of old grey bones heaped against the rock walls, long bones stacked like firewood, a row of skulls set along the top of each mound, the lower layers sunk and darker, dim light from one side, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface, candles, torches, gold, coffins, blood, people.",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151865103_823ee4ee_1791151865473_22cd4c71.png"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151862465_423f2c7a_1791151863097_5321f3cb.png"
+      }
+    ],
+    "picked": "none",
+    "predicted": "A",
+    "owner_note": "too AI generated less orderly more moundlike"
+  }
+}

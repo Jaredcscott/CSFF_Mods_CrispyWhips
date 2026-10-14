@@ -1,0 +1,217 @@
+Forest_Lore_BarrowWood_CardName,Barrow Wood,古冢森林
+Forest_Lore_Env_BarrowWood_CardName,Barrow Wood,古冢森林
+Forest_Lore_AncientCairn_CardName,Ancient Cairn,远古石冢
+Forest_Lore_AncientCairn_CardDescription,"A long mound of grey stones under the oaks, grown over with grass and bramble. Someone was laid in it long before anyone now living came to this forest, and the stones were heaped high so that they would stay. The mouth of the tomb faces the morning sun. Once its goods are taken, the cairn stands open and quiet, and it does not fill again.",橡树下一道长长的灰石土丘，长满了青草和荆棘。早在如今活着的任何人来到这片森林之前，就有人被安葬于此，石块堆得高高的，好让它们长存。墓口朝向朝阳。墓中的陪葬品一旦被取走，石冢便敞开着，静默无声，再也不会被填满。
+Forest_Lore_AncientCairn_Progress_CardStatName,Entrance Cleared,入口清理
+Forest_Lore_AncientCairn_SpecialDurability1_CardStatName,Grave Goods,陪葬品
+Forest_Lore_AncientCairn_ClearEntrance_ActionName,Clear the Entrance,清理入口
+Forest_Lore_AncientCairn_ClearEntrance_ActionDescription,Tear away the bramble and roll back the fallen stones from the tomb's mouth.,扯掉荆棘，把墓口前塌落的石块推开。
+Forest_Lore_AncientCairn_OpenTomb_ActionName,Open the Tomb,开启墓室
+Forest_Lore_AncientCairn_OpenTomb_ActionDescription,Reach into the dark chamber and bring out what was buried with the dead.,把手伸进黑暗的墓室，取出与死者同葬的东西。
+Forest_Lore_StandingStones_CardName,Standing Stones,立石阵
+Forest_Lore_StandingStones_CardDescription,"A ring of tall grey stones stands in a clearing of the wood, each leaning a little toward the one beside it, the north faces gone green with moss. On one stone, low down where the light finds it, someone cut runes long ago: Halfdan was here. The ground at the centre of the ring looks as if something was set down there and never taken up.",林间空地上立着一圈高大的灰色石头，每块都微微倾向身旁的那块，朝北的一面已被青苔染绿。其中一块石头的低处，光线照得到的地方，很久以前有人刻下了如尼文：哈夫丹到此一游。石阵中央的地面看上去像是曾有什么东西被放在那里，却再也没人拿走。
+Forest_Lore_StandingStones_SpecialDurability1_CardStatName,Centre Unsearched,中央未搜索
+Forest_Lore_StandingStones_Read_ActionName,Read the Stones,解读石阵
+Forest_Lore_StandingStones_Read_ActionDescription,Walk the ring and read the runes on the low stone: Halfdan was here.,绕着石阵走一圈，读出那块低矮石头上的如尼文：哈夫丹到此一游。
+Forest_Lore_StandingStones_Search_ActionName,Search the Centre,搜索中央
+Forest_Lore_StandingStones_Search_ActionDescription,Kneel in the middle of the ring and dig through the turf with your hands.,跪在石阵正中，用双手刨开草皮。
+Forest_Lore_CircleStone_CardName,Circle Stone,环石
+Forest_Lore_CircleStone_CardDescription,"A great grey stone as tall as a man, with a hole worn clean through it near the top, wide enough to put an arm through. Small stones have been pushed into the grass at its foot, one at a time, by people who are not here now. The oaks have leaned around it.",一块和人一般高的巨大灰石，靠近顶部有一个磨得光滑通透的孔洞，宽得足以伸进一条手臂。它脚下的草丛里被人一颗一颗地按进了小石子，而那些人如今已不在此处。周围的橡树都向它倾身环绕。
+Forest_Lore_CircleStone_SpecialDurability1_CardStatName,Foot Unsearched,石脚未搜索
+Forest_Lore_CircleStone_Read_ActionName,Read the Stone,解读石头
+Forest_Lore_CircleStone_Read_ActionDescription,Look through the hole and along the line it makes toward the sunrise.,透过孔洞望去，顺着它指向日出的方向看。
+Forest_Lore_CircleStone_Search_ActionName,Search Beneath the Stone,搜索石下
+Forest_Lore_CircleStone_Search_ActionDescription,"Feel under the stone's foot, where people used to leave things.",在石头脚下摸索，人们过去常把东西留在那里。
+Forest_Lore_Petrospheres_CardName,Line of Petrospheres,石球列
+Forest_Lore_Petrospheres_CardDescription,"A row of round stones, each the size of a loaf, set along a bank in a straight line. Every one is carved all over with spirals and knobs, and the carving is the same on each. Nothing in the forest says what they were for.",一排圆石沿着土坡排成一条直线，每块都有一条面包大小。每一块表面都刻满了螺旋纹和凸纽，而且每块上的雕刻都一模一样。森林里没有任何东西能说明它们曾作何用。
+Forest_Lore_Petrospheres_SpecialDurability1_CardStatName,Line Unsearched,石列未搜索
+Forest_Lore_Petrospheres_Read_ActionName,Read the Line,解读石列
+Forest_Lore_Petrospheres_Read_ActionDescription,Follow the row of carved stones and trace the patterns with a finger.,沿着这排雕刻石走，用手指描摹上面的纹样。
+Forest_Lore_Petrospheres_Search_ActionName,Search Along the Line,沿石列搜索
+Forest_Lore_Petrospheres_Search_ActionDescription,Look in the grass and between the carved stones.,在草丛里和雕刻石之间寻找。
+Forest_Lore_TreeHollow_CardName,Tree Hollow,树洞
+Forest_Lore_TreeHollow_CardDescription,"An ancient oak, hollow from root to crown, its trunk split open on one side wide enough to crawl through. Inside, the wood is dry and the floor is deep with old leaves. The rain does not reach it, and neither does much of the sun. It has stood like this for longer than anyone can say, and it will not fall.",一棵古老的橡树，从根到冠都已中空，树干一侧裂开，宽得足以爬进去。里面的木头很干燥，地上积着厚厚的陈年落叶。雨淋不到这里，阳光也照不进多少。它这样屹立的时间已久得无人说得清，而且它不会倒下。
+Forest_Lore_TreeHollow_Nap_ActionName,Nap,小憩
+Forest_Lore_TreeHollow_Nap_Interrupt0,Its flooding!,被淹了！
+Forest_Lore_TreeHollow_Nap_Interrupt2,I'm too thirsty to sleep...,太渴了我睡不着……
+Forest_Lore_TreeHollow_Nap_Interrupt3,I'm too hot to sleep...,太热了我睡不着……
+Forest_Lore_TreeHollow_Nap_Interrupt4,I'm too cold to sleep...,太冷了我睡不着……
+Forest_Lore_TreeHollow_Nap_Interrupt5,I'm losing too much blood...,我严重失血……
+Forest_Lore_TreeHollow_Nap_Interrupt6,I'm not feeling well...,我不太舒服……
+Forest_Lore_TreeHollow_Nap_Interrupt7,I'm not feeling well...,我不太舒服……
+Forest_Lore_TreeHollow_Nap_Interrupt8,I really need to Pee!,我膀胱要炸了！
+Forest_Lore_TreeHollow_Nap_Interrupt9,I really need to Poop!,我真的需要拉屎！
+Forest_Lore_TreeHollow_Nap_FadeMessage,Taking a nap...,打盹中……
+Forest_Lore_TreeHollow_Sleep_ActionName,Sleep,睡觉
+Forest_Lore_TreeHollow_Sleep_Interrupt0,Its flooding!,被淹了！
+Forest_Lore_TreeHollow_Sleep_Interrupt2,I'm too thirsty to sleep...,太渴了我睡不着……
+Forest_Lore_TreeHollow_Sleep_Interrupt3,I'm too hot to sleep...,太热了我睡不着……
+Forest_Lore_TreeHollow_Sleep_Interrupt4,I'm too cold to sleep...,太冷了我睡不着……
+Forest_Lore_TreeHollow_Sleep_Interrupt5,I'm losing too much blood...,我严重失血……
+Forest_Lore_TreeHollow_Sleep_Interrupt6,I'm not feeling well...,我不太舒服……
+Forest_Lore_TreeHollow_Sleep_Interrupt7,I'm not feeling well...,我不太舒服……
+Forest_Lore_TreeHollow_Sleep_Interrupt8,I really need to Pee!,我膀胱要炸了！
+Forest_Lore_TreeHollow_Sleep_Interrupt9,I really need to Poop!,我真的需要拉屎！
+Forest_Lore_TreeHollow_Sleep_FadeMessage,Sleeping...,睡眠中……
+Forest_Lore_Battlefield_CardName,Old Battlefield,古战场
+Forest_Lore_Battlefield_CardDescription,"Heather and thin grass over a field where a battle was fought before anyone now living came here. Bones lie in the roots, and here and there something green and pitted shows through the turf: blades and fittings gone to verdigris. Most of it was picked over long ago. What is left is a few handfuls of ground, and once those are turned the field is only a quiet field.",一片长着帚石南和稀疏青草的原野，早在如今活着的任何人来到此地之前，这里曾发生过一场战斗。草根间躺着白骨，草皮下不时露出一些发绿、布满凹痕的东西：早已生满铜绿的刀刃和配件。大部分东西很久以前就被人捡走了。剩下的只有寥寥几小块地，一旦把它们翻遍，这里就只是一片安静的原野。
+Forest_Lore_Battlefield_SpecialDurability1_CardStatName,Ground Unsearched,地面未搜索
+Forest_Lore_Battlefield_Search_ActionName,Search the Field,搜索战场
+Forest_Lore_Battlefield_Search_ActionDescription,"Work through a stretch of the field on your knees, turning the heather and sifting the earth for bone and old metal.",跪在地上翻遍一片原野，拨开帚石南，筛查泥土中的骨头和旧金属。
+Forest_Lore_FallenWatchtower_CardName,Fallen Watchtower,倒塌的瞭望塔
+Forest_Lore_FallenWatchtower_CardDescription,"At the edge of the field a watchtower came down in one piece and was left where it fell: a tumble of dry-laid stone with the black ribs of its timbers sticking out. Whoever kept watch here saw the battle coming. The heap has not moved in all the years since, and what is in it can be had for the lifting.",原野边缘，一座瞭望塔整个倒塌下来，就那么留在了倒下的地方：一堆干砌的乱石，黑色的木梁像肋骨一样支棱出来。在此守望的人曾看见那场战斗的到来。这么多年过去，这堆废墟一动未动，里面的东西只需搬开就能拿到。
+Forest_Lore_FallenWatchtower_SpecialDurability1_CardStatName,Rubble Left,剩余碎石
+Forest_Lore_FallenWatchtower_Clear_ActionName,Clear the Rubble,清理碎石
+Forest_Lore_FallenWatchtower_Clear_ActionDescription,Lever the fallen stones apart and drag out the timbers that are still sound.,把倒塌的石头撬开，拖出仍然完好的木梁。
+Forest_Lore_OldBattlefield_CardName,Old Battlefield,古战场
+Forest_Lore_Env_OldBattlefield_CardName,Old Battlefield,古战场
+Forest_Lore_RuinedHomestead_CardName,Ruined Homestead,农庄废墟
+Forest_Lore_RuinedHomestead_CardDescription,"A homestead at the edge of the river meadow, long since left to the weather. The roof has fallen in, the fence is down and grass grows over the threshold, but the walls still stand. Salvage what is left in the wreck first; then patch the walls and roof with planks and rope, and the place will keep the rain off again.",河边草甸边缘的一座农庄，早已任凭风吹雨打。屋顶塌了，篱笆倒了，门槛上长满了草，但墙壁仍然立着。先把废墟里剩下的东西回收出来；再用木板和绳子修补墙壁和屋顶，这地方就又能挡雨了。
+Forest_Lore_RuinedHomestead_Progress_CardStatName,Repairs Done,修缮进度
+Forest_Lore_RuinedHomestead_SpecialDurability1_CardStatName,Salvage Left,剩余可回收物
+Forest_Lore_RuinedHomestead_Repair_ActionName,Repair the Homestead,修缮农庄
+Forest_Lore_RuinedHomestead_Repair_ActionDescription,Work a plank or a length of rope into the broken walls and roof.,把一块木板或一段绳子用到破损的墙壁和屋顶上。
+Forest_Lore_RuinedHomestead_Salvage_ActionName,Salvage the Ruin,回收废墟
+Forest_Lore_RuinedHomestead_Salvage_ActionDescription,"Pull the sound sticks, cord, stones and timber out of the fallen roof and the broken fence.",从塌落的屋顶和破损的篱笆中拆出完好的树枝、细线、石头和木料。
+Forest_Lore_RuinedHomestead_RaiseRoof_ActionName,Raise the Roof,架起屋顶
+Forest_Lore_RuinedHomestead_RaiseRoof_ActionDescription,Lift the patched roof back onto the walls and make the homestead whole.,把修补好的屋顶抬回墙上，让农庄恢复完整。
+Forest_Lore_Homestead_CardName,Homestead,农庄
+Forest_Lore_Homestead_CardDescription,"The old homestead, patched up and dry again. The mended roof keeps off the rain and the sun, there is room by the hearth wall to sleep, and its shelves and corners will hold your things. It is a house again, and it stays where it stands.",这座老农庄已经修补好，重新变得干燥。修好的屋顶能挡住雨水和阳光，靠壁炉的墙边有地方睡觉，架子和角落里也能存放你的东西。它又成了一座房子，并且会一直立在原地。
+Forest_Lore_Homestead_Nap_ActionName,Nap,小憩
+Forest_Lore_Homestead_Nap_Interrupt0,Its flooding!,被淹了！
+Forest_Lore_Homestead_Nap_Interrupt2,I'm too thirsty to sleep...,太渴了我睡不着……
+Forest_Lore_Homestead_Nap_Interrupt3,I'm too hot to sleep...,太热了我睡不着……
+Forest_Lore_Homestead_Nap_Interrupt4,I'm too cold to sleep...,太冷了我睡不着……
+Forest_Lore_Homestead_Nap_Interrupt5,I'm losing too much blood...,我严重失血……
+Forest_Lore_Homestead_Nap_Interrupt6,I'm not feeling well...,我不太舒服……
+Forest_Lore_Homestead_Nap_Interrupt7,I'm not feeling well...,我不太舒服……
+Forest_Lore_Homestead_Nap_Interrupt8,I really need to Pee!,我膀胱要炸了！
+Forest_Lore_Homestead_Nap_Interrupt9,I really need to Poop!,我真的需要拉屎！
+Forest_Lore_Homestead_Nap_FadeMessage,Taking a nap...,打盹中……
+Forest_Lore_Homestead_Sleep_ActionName,Sleep,睡觉
+Forest_Lore_Homestead_Sleep_Interrupt0,Its flooding!,被淹了！
+Forest_Lore_Homestead_Sleep_Interrupt2,I'm too thirsty to sleep...,太渴了我睡不着……
+Forest_Lore_Homestead_Sleep_Interrupt3,I'm too hot to sleep...,太热了我睡不着……
+Forest_Lore_Homestead_Sleep_Interrupt4,I'm too cold to sleep...,太冷了我睡不着……
+Forest_Lore_Homestead_Sleep_Interrupt5,I'm losing too much blood...,我严重失血……
+Forest_Lore_Homestead_Sleep_Interrupt6,I'm not feeling well...,我不太舒服……
+Forest_Lore_Homestead_Sleep_Interrupt7,I'm not feeling well...,我不太舒服……
+Forest_Lore_Homestead_Sleep_Interrupt8,I really need to Pee!,我膀胱要炸了！
+Forest_Lore_Homestead_Sleep_Interrupt9,I really need to Poop!,我真的需要拉屎！
+Forest_Lore_Homestead_Sleep_FadeMessage,Sleeping...,睡眠中……
+Forest_Lore_GrindingSlab_CardName,Grinding Slab,研磨石板
+Forest_Lore_GrindingSlab_CardDescription,"A broad, worn stone by the homestead door, hollowed in the middle by years of grinding. Put rye, edible acorns or another millable thing into the hollow and work it with the hand stone to grind it into flour or powder, as a saddle quern does. It is far too heavy to carry away.",农庄门边一块宽大而磨损的石头，中间被多年的研磨磨出了一个凹槽。把黑麦、可食用的橡子或其他可研磨的东西放进凹槽，用手磨盘来回研磨，就能磨成面粉或粉末，就像大石臼一样。它太重了，根本搬不走。
+Forest_Lore_GrindingSlab_Progress_CardStatName,Milling,研磨
+Forest_Lore_GrindingSlab_SpecialDurability2_CardStatName,Quality,品质
+Forest_Lore_GrindingSlab_Mill_ActionName,Mill,研磨
+Forest_Lore_GrindingSlab_Mill_ActionDescription,Work the hand stone back and forth over what lies in the slab's hollow.,用手磨盘在石板凹槽里的东西上来回研磨。
+Forest_Lore_AbandonedHomestead_CardName,Abandoned Homestead,废弃的农庄
+Forest_Lore_Env_AbandonedHomestead_CardName,Abandoned Homestead,废弃的农庄
+Forest_Lore_MudSprings_CardName,Mud Springs,泥泉
+Forest_Lore_Env_MudSprings_CardName,Mud Springs,泥泉
+Forest_Lore_MudVolcano_CardName,Mud Volcano,泥火山
+Forest_Lore_MudVolcano_CardDescription,"A low grey cone no taller than a hut, its crater a pool of mud that heaves and plops and gives off a slow warmth. The ground around it is soft and warm underfoot, and the moss grows thick. Scoop from the rim and the mud wells up again.",一座不比小屋高的低矮灰色锥丘，火山口是一池泥浆，翻腾着、咕嘟作响，散发出缓缓的暖意。周围的地面踩上去松软温暖，苔藓长得很厚。从边沿舀走泥浆后，泥浆又会重新涌上来。
+Forest_Lore_MudVolcano_SpoilageTime_CardStatName,Mud Welled Up,泥浆涌出
+Forest_Lore_MudVolcano_Harvest_ActionName,Scoop Mud,舀泥
+Forest_Lore_MudVolcano_Harvest_ActionDescription,Kneel at the rim and scoop warm mud from the crater.,跪在边沿，从火山口舀出温热的泥浆。
+Forest_Lore_MudVolcano_Harvest_FailMessage,The crater is spent for now; mud has not welled up again.,火山口暂时舀空了；泥浆还没有重新涌上来。
+Forest_Lore_SaltCrust_CardName,Salt Crust,盐壳
+Forest_Lore_SaltCrust_CardDescription,"A white rind where the mud has dried at the edge of the springs, crusted and glittering, bitter to the tongue. Salt is hard to come by here, and the crust grows back only slowly.",泉边泥浆干涸处的一层白色硬壳，结成痂状，闪闪发光，尝起来发苦。在这里盐很难得，而这层盐壳只会慢慢长回来。
+Forest_Lore_SaltCrust_SpoilageTime_CardStatName,Crust Left,剩余盐壳
+Forest_Lore_SaltCrust_Harvest_ActionName,Scrape Salt,刮盐
+Forest_Lore_SaltCrust_Harvest_ActionDescription,Scrape the white crust into a heap with a flat stone.,用一块扁平的石头把白色盐壳刮成一堆。
+Forest_Lore_SaltCrust_Harvest_FailMessage,The crust is scraped bare for now; it has not formed again.,盐壳暂时刮光了；还没有重新结成。
+Forest_Lore_TarSeep_CardName,Tar Seep,焦油渗口
+Forest_Lore_TarSeep_CardDescription,"Black tar wells up through the moss in a slow, warm pool, smelling of smoke and old pitch. It is thick enough to carry off in your hands while it is hot, and the pool fills again over days.",黑色的焦油从苔藓下缓缓涌出，积成一个温热的池子，散发着烟味和陈年沥青的气味。趁热时它稠得可以用手捧走，几天后池子又会重新积满。
+Forest_Lore_TarSeep_SpoilageTime_CardStatName,Tar Welled Up,焦油涌出
+Forest_Lore_TarSeep_Harvest_ActionName,Collect Tar,采集焦油
+Forest_Lore_TarSeep_Harvest_ActionDescription,Ladle hot tar from the edge of the seep before it cools.,趁焦油冷却之前，从渗口边缘舀出热焦油。
+Forest_Lore_TarSeep_Harvest_FailMessage,The seep is dry for now; tar has not welled up again.,渗口暂时干了；焦油还没有重新涌上来。
+Forest_Lore_CaveMouth_CardName,Cave Mouth,洞口
+Forest_Lore_CaveMouth_CardDescription,"A dark opening low under the rock overhang, its edges worn smooth. Cool, still air breathes out of it, smelling of wet stone, and a track of old footprints runs in and does not come out.",悬垂的岩石下方一个低矮的黑暗洞口，边缘磨得光滑。凉爽而静止的空气从中呼出，带着湿石头的气味，一串古老的脚印走了进去，却没有走出来。
+Forest_Lore_CaveMouth_Enter_ActionName,Enter the Caves,进入洞穴
+Forest_Lore_CaveMouth_Enter_ActionDescription,Duck under the rock and go down into the dark.,弯腰钻到岩石下，走进黑暗深处。
+Forest_Lore_CaveMouth_Enter_FadeMessage,Entering the caves...,正在进入洞穴……
+Forest_Lore_CaveExit_CardName,Cave Exit,洞穴出口
+Forest_Lore_CaveExit_CardDescription,"A slope of fallen stone climbs to a pale slot of daylight, the way back up to the pines.",一道塌落的石坡向上通往一道苍白的日光缝隙，那是回到松林的路。
+Forest_Lore_CaveExit_Leave_ActionName,Leave the Caves,离开洞穴
+Forest_Lore_CaveExit_Leave_ActionDescription,Climb back up to the daylight.,爬回有日光的地方。
+Forest_Lore_CaveExit_Leave_FadeMessage,Leaving the caves...,正在离开洞穴……
+Forest_Lore_CaveLake_CardName,Cave Lake,洞中湖
+Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Like any pond's, the water is not safe to drink.",一汪静止的黑色湖水填满了洞底，冰冷而清澈，一侧边缘有一道浅色石台可供跪下。无论上面天气如何，它从不结冰，也从不泛滥。你可以在这里饮水、给容器取水、清洗身体，还能钓鱼或叉捕鳗鱼和小龙虾。和任何池塘一样，这里的水喝了并不安全。
+Forest_Lore_CaveLake_Fill_ActionName,Fill,取水
+Forest_Lore_CaveLake_Fill_ActionDescription,Draw unsafe lake water into the container.,往容器里灌入不安全的湖水。
+Forest_Lore_CaveLake_Fish_ActionName,Fish,钓鱼
+Forest_Lore_CaveLake_Fish_ActionDescription,Drop a line into the dark water and wait for a bite.,把钓线放进黑暗的水中，等待鱼儿咬钩。
+Forest_Lore_CaveLake_Fish_NoLuck,No luck...,运气不佳……
+Forest_Lore_CaveLake_Spearfish_ActionName,Spearfish,叉鱼
+Forest_Lore_CaveLake_Spearfish_ActionDescription,Stand on the stone shelf and spear what moves below.,站在石台上，叉刺水下游动的东西。
+Forest_Lore_CaveLake_Spearfish_NoLuck,Nothing but dark water...,只有一片漆黑的水……
+Forest_Lore_CaveLake_Drink_ActionName,Drink,饮用
+Forest_Lore_CaveLake_Drink_ActionDescription,Cup your hands and drink. The water is cold and not safe.,双手捧水来喝。水很冰凉，并不安全。
+Forest_Lore_CaveLake_Wash_ActionName,Wash yourself,洗个澡
+Forest_Lore_CaveLake_Wash_ActionDescription,Strip off the dirt and sweat in the cold water.,在冰冷的水中洗去污垢和汗水。
+Forest_Lore_RockShelter_CardName,Rock Shelter,岩石庇护所
+Forest_Lore_Env_RockShelter_CardName,Rock Shelter,岩石庇护所
+Forest_Lore_PaintedChamber_CardName,Painted Chamber,彩绘洞室
+Forest_Lore_Env_PaintedChamber_CardName,Painted Chamber,彩绘洞室
+Forest_Lore_Ossuary_CardName,Ossuary,藏骨堂
+Forest_Lore_Env_Ossuary_CardName,Ossuary,藏骨堂
+Forest_Lore_SunkenLake_CardName,Sunken Lake,下陷湖
+Forest_Lore_Env_SunkenLake_CardName,Sunken Lake,下陷湖
+Forest_Lore_OverhangingRock_CardName,Overhanging Rock,悬岩
+Forest_Lore_OverhangingRock_CardDescription,"A great shelf of grey rock juts out over a dry ledge, its underside black with the smoke of fires lit by people who crouched here out of the weather long ago. The ground beneath it stays dry in the heaviest rain, and the stone keeps the sun off your back. It has sheltered travellers for longer than anyone can say, and it will not fall.",一大片灰色岩架突出在一处干燥的岩台上方，底面被很久以前在此躲避风雨、蹲伏生火之人的烟熏得漆黑。即便大雨倾盆，岩下的地面依然干燥，石头也为你遮挡住背上的阳光。它庇护旅人的时间已久得无人说得清，而且它不会倒塌。
+Forest_Lore_OverhangingRock_Nap_ActionName,Nap,小憩
+Forest_Lore_OverhangingRock_Nap_Interrupt0,Its flooding!,被淹了！
+Forest_Lore_OverhangingRock_Nap_Interrupt2,I'm too thirsty to sleep...,太渴了我睡不着……
+Forest_Lore_OverhangingRock_Nap_Interrupt3,I'm too hot to sleep...,太热了我睡不着……
+Forest_Lore_OverhangingRock_Nap_Interrupt4,I'm too cold to sleep...,太冷了我睡不着……
+Forest_Lore_OverhangingRock_Nap_Interrupt5,I'm losing too much blood...,我严重失血……
+Forest_Lore_OverhangingRock_Nap_Interrupt6,I'm not feeling well...,我不太舒服……
+Forest_Lore_OverhangingRock_Nap_Interrupt7,I'm not feeling well...,我不太舒服……
+Forest_Lore_OverhangingRock_Nap_Interrupt8,I really need to Pee!,我膀胱要炸了！
+Forest_Lore_OverhangingRock_Nap_Interrupt9,I really need to Poop!,我真的需要拉屎！
+Forest_Lore_OverhangingRock_Nap_FadeMessage,Taking a nap...,打盹中……
+Forest_Lore_OverhangingRock_Sleep_ActionName,Sleep,睡觉
+Forest_Lore_OverhangingRock_Sleep_Interrupt0,Its flooding!,被淹了！
+Forest_Lore_OverhangingRock_Sleep_Interrupt2,I'm too thirsty to sleep...,太渴了我睡不着……
+Forest_Lore_OverhangingRock_Sleep_Interrupt3,I'm too hot to sleep...,太热了我睡不着……
+Forest_Lore_OverhangingRock_Sleep_Interrupt4,I'm too cold to sleep...,太冷了我睡不着……
+Forest_Lore_OverhangingRock_Sleep_Interrupt5,I'm losing too much blood...,我严重失血……
+Forest_Lore_OverhangingRock_Sleep_Interrupt6,I'm not feeling well...,我不太舒服……
+Forest_Lore_OverhangingRock_Sleep_Interrupt7,I'm not feeling well...,我不太舒服……
+Forest_Lore_OverhangingRock_Sleep_Interrupt8,I really need to Pee!,我膀胱要炸了！
+Forest_Lore_OverhangingRock_Sleep_Interrupt9,I really need to Poop!,我真的需要拉屎！
+Forest_Lore_OverhangingRock_Sleep_FadeMessage,Sleeping...,睡眠中……
+Forest_Lore_CavePaintings_CardName,Cave Paintings,洞穴壁画
+Forest_Lore_CavePaintings_CardDescription,"The walls of this chamber are covered in paint gone the colour of dried blood and old rust. Hunters with long spears ring a herd of deer, a bear rears over a man with his arms flung up, and a line of fish swims along the foot of the wall. Handprints crowd the edges, small ones among them. Nobody has added to it in a very long time.",这间洞室的墙壁上布满了颜料，颜色已褪成干血和旧锈般的色泽。手持长矛的猎人围住一群鹿，一头熊人立而起，扑向一个高举双臂的人，一排鱼沿着墙脚游动。边缘挤满了手印，其中也有小小的手印。已经很久很久没有人在上面添画了。
+Forest_Lore_CavePaintings_Study_ActionName,Study the Paintings,研究壁画
+Forest_Lore_CavePaintings_Study_ActionDescription,Hold a light close to the wall and follow the hunting scenes from one end of the chamber to the other.,把光源凑近墙壁，从洞室一端到另一端追看那些狩猎场景。
+Forest_Lore_BoneMounds_CardName,Bone Mounds,骨头堆
+Forest_Lore_BoneMounds_CardDescription,"Bones are heaped against the walls of this chamber in long mounds: long bones stacked like firewood, skulls set in rows along the top, the older layers sunk and gone grey. Whoever came here brought their dead down into the dark and left them. Most of what could be carried off has been, but the lower heaps have never been turned.",骨头沿着这间洞室的墙壁堆成一道道长堆：长骨像柴火一样垛起，头骨沿着顶部排成一行行，较老的层次已经下沉、变得灰白。不管是谁来过这里，他们都把死者带进黑暗中留了下来。能搬走的东西大多已被搬走，但下层的骨堆从未被翻动过。
+Forest_Lore_BoneMounds_SpecialDurability1_CardStatName,Mounds Unsifted,骨堆未筛
+Forest_Lore_BoneMounds_Sift_ActionName,Sift the Mounds,翻检骨堆
+Forest_Lore_BoneMounds_Sift_ActionDescription,Kneel and sift through the lower heaps for bones still whole enough to use.,跪下来翻检下层的骨堆，寻找仍然完整、还能用的骨头。
+Forest_Lore_Squeeze_CardName,The Squeeze,窄隙
+Forest_Lore_Squeeze_CardDescription,"Between the Ossuary and the Sunken Lake the roof comes down to a slot in the rock, and the way on is a crawl on your belly, pushing what you carry ahead of you. Very little fits through with you: a light load of tools and food, and no more. If you carry too much, the way on is not offered, from either side, until you carry less.",在藏骨堂和下陷湖之间，洞顶压低成岩石中的一道窄缝，前进只能趴着匍匐爬行，把携带的东西推在前面。能随你一起过去的东西很少：只有少量的工具和食物，不能再多。如果你携带太多，无论从哪一侧，前进的选项都不会出现，直到你减轻负重为止。
+Forest_Lore_Squeeze_SizeUp_ActionName,Size Up the Squeeze,估量窄隙
+Forest_Lore_Squeeze_SizeUp_ActionDescription,Put your head and one arm into the slot and judge how much of what you carry would fit through.,把头和一只手臂探进缝隙，判断你携带的东西有多少能通过。
+Forest_Lore_GuanoRock_CardName,Guano Rock,鸟粪岩
+Forest_Lore_Env_GuanoRock_CardName,Guano Rock,鸟粪岩
+Forest_Lore_GuanoLedge_CardName,Guano Ledge,鸟粪岩架
+Forest_Lore_GuanoLedge_CardDescription,"A bare rock stands white in the lake, crusted thick with the droppings of the birds that nest on it, strong-smelling and good for the fields. More is laid down every day.",一块光秃秃的岩石白花花地立在湖中，上面厚厚地结满了在此筑巢的鸟儿的粪便，气味浓烈，很适合给田地施肥。每天都有新的鸟粪堆积起来。
+Forest_Lore_GuanoLedge_SpoilageTime_CardStatName,Guano Laid,鸟粪堆积
+Forest_Lore_GuanoLedge_Harvest_ActionName,Scrape Guano,刮鸟粪
+Forest_Lore_GuanoLedge_Harvest_ActionDescription,Scrape the dried droppings from the rock into a heap.,把岩石上干燥的鸟粪刮成一堆。
+Forest_Lore_GuanoLedge_Harvest_FailMessage,The rock is scraped clean for now; the birds have not laid it down again.,岩石暂时刮干净了；鸟儿还没有重新积下鸟粪。
+Forest_Lore_BogBody_CardName,Bog Body,沼泽干尸
+Forest_Lore_BogBody_CardDescription,"A shape in the cut face of the peat: a man, curled on his side, brown and creased as old leather, his skin and hair kept by the acid of the bog long after everything else about him was forgotten. A corroded green band is still clasped about one arm. He lies where the cutters found him and will not be found twice.",泥炭切面里的一个形状：一个男人侧身蜷着，像旧皮革一样褐色而布满褶皱，在关于他的其他一切早已被遗忘之后，沼泽的酸性仍保存着他的皮肤和头发。他的一只手臂上还套着一圈锈蚀发绿的臂环。他躺在挖泥炭的人发现他的地方，不会被发现第二次。
+Forest_Lore_BogBody_SpecialDurability1_CardStatName,Body Unsearched,尸体未搜索
+Forest_Lore_BogBody_Search_ActionName,Search the Body,搜索尸体
+Forest_Lore_BogBody_Search_ActionDescription,Ease the peat away from the body and see what he was buried with.,小心地把泥炭从尸体旁拨开，看看他随葬了什么。
+Forest_Lore_CarvedStairs_CardName,Carved Stairs,凿刻石阶
+Forest_Lore_CarvedStairs_CardDescription,"Steps cut into the slope with a pick and a shovel and faced with stone. While you are here the climb is easier, so a fall is less likely. Skill still counts.",用镐和铲子在山坡上凿出的台阶，表面砌着石块。你在这里时攀爬会更容易，因此不太容易摔落。技能仍然起作用。
+Forest_Lore_LadderTop_CardName,Fairy Hole Ladder (Top),仙灵洞梯子（顶端）
+Forest_Lore_LadderTop_CardDescription,"A ladder lashed fast at the lip of the Fairy Hole. While you stand here the climb down is easier, so a fall is less likely. Skill still counts, and a ladder fixed at the foot helps the climb back up.",一架牢牢绑在仙灵洞口边缘的梯子。你站在这里时向下攀爬会更容易，因此不太容易摔落。技能仍然起作用，而在底部固定一架梯子有助于爬回上来。
+Forest_Lore_LadderFoot_CardName,Fairy Hole Ladder (Foot),仙灵洞梯子（底部）
+Forest_Lore_LadderFoot_CardDescription,"The foot of a ladder set against the shaft wall under the Fairy Hole. While you stand here the climb up is easier, so a fall is less likely. Skill still counts, and a ladder fixed at the lip helps the climb down.",一架靠在仙灵洞下方竖井壁上的梯子的底端。你站在这里时向上攀爬会更容易，因此不太容易摔落。技能仍然起作用，而在洞口边缘固定一架梯子有助于向下攀爬。

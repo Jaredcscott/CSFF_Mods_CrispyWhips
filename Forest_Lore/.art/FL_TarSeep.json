@@ -1,0 +1,30 @@
+{
+  "target": "FL_TarSeep.png",
+  "sourceCard": "CardData/Location/TarSeep.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images.\nReference images 1 and 2 are style references only: match their flat posterized colour fills in a few hard-edged tonal steps, thin dark ink outlines, small ink tick and hatch marks for texture, and muted naturalistic palette of moss greens, earth browns and grey stone; do not copy their subjects.\nReference image 3 is the composition to keep: keep this exact subject and layout (a round pool of black tar in the middle of a mossy forest floor, mossy banks around it, tree trunks and ferns behind) but redraw it entirely in the style of references 1 and 2.\nSubject: a slow round pool of thick black tar welling up through green moss on the forest floor, its surface wrinkled in folds, dark brown-black at the edges, a faint wisp of warm vapour above it, no fire.\nA full-bleed painted game card scene filling the whole 2:3 portrait canvas edge to edge, realistic proportions, flat cel-like colour, no soft gradients, no watercolour bleed, no paper texture, no glow, no glossy highlights, no people, no text, no border, no frame.\nAvoid: shiny reflections, golden light, fire, watercolour, soft painterly shading, photo, 3D render, pixel art, white margin, text, watermark",
+  "refs": [
+    {
+      "label": "Bear_Wild (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652688284_55f644be.png"
+    },
+    {
+      "label": "TreeOak (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/TreeOak_1791652691598_646241c4.png"
+    },
+    {
+      "label": "FL_TarSeep (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FL_TarSeep_1791652701159_a320fdcd.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652964195_41ce67e1_1791652965464_8760ce18.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art --full-bleed."
+}

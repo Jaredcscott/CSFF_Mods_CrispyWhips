@@ -1,0 +1,217 @@
+[
+  {
+    "EnvironmentUID": "flEnvBarrowWood",
+    "LocationUID": "flLocBarrowWood",
+    "CloneOfEnvironmentUID": "43848cba2ea28554da29bf5996c1f4dd",
+    "DisplayName": "Barrow Wood",
+    "NameLocalizationKey": "Forest_Lore_BarrowWood_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_BarrowWood_CardName",
+    "Coords": { "x": -60.0, "y": 0.0, "z": 30.0, "w": 0.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": false,
+    "ExtraDropUIDs": ["fl_ancient_cairn", "fl_standing_stones", "fl_circle_stone", "fl_petrospheres", "fl_tree_hollow"],
+    "Connections": [
+      {
+        "EnvironmentUID": "69bfd218f65d27a4e80c9b8365091f93",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "flEnvOldBattlefield",
+    "LocationUID": "flLocOldBattlefield",
+    "CloneOfEnvironmentUID": "0dc7431ce6e2eda4fac5be625525108a",
+    "DisplayName": "Old Battlefield",
+    "NameLocalizationKey": "Forest_Lore_OldBattlefield_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_OldBattlefield_CardName",
+    "Coords": { "x": -30.0, "y": 0.0, "z": 100.0, "w": 0.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": false,
+    "ExtraDropUIDs": ["fl_battlefield", "fl_fallen_watchtower"],
+    "Connections": [
+      {
+        "EnvironmentUID": "d5ed3b56f92b3bf44b6220ddc246d9e9",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "flEnvHomestead",
+    "LocationUID": "flLocHomestead",
+    "CloneOfEnvironmentUID": "f721bd7ef006504499ad3d05e2c60400",
+    "DisplayName": "Abandoned Homestead",
+    "NameLocalizationKey": "Forest_Lore_AbandonedHomestead_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_AbandonedHomestead_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": -40.0, "w": 0.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": false,
+    "ExtraDropUIDs": ["fl_ruined_homestead", "fl_grinding_slab"],
+    "Connections": [
+      {
+        "EnvironmentUID": "f721bd7ef006504499ad3d05e2c60400",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "flEnvMudSprings",
+    "LocationUID": "flLocMudSprings",
+    "CloneOfEnvironmentUID": "d8e541c1f5e55654596255c7fdf708ed",
+    "DisplayName": "Mud Springs",
+    "NameLocalizationKey": "Forest_Lore_MudSprings_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_MudSprings_CardName",
+    "Coords": { "x": -20.0, "y": 0.0, "z": -70.0, "w": 0.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": false,
+    "ExtraDropUIDs": ["fl_mud_volcano", "fl_salt_crust", "fl_tar_seep"],
+    "Connections": [
+      {
+        "EnvironmentUID": "503644b3ad275fe43825de47dc5b244f",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "flEnvSunkenLake",
+    "LocationUID": "flLocSunkenLake",
+    "CloneOfEnvironmentUID": "17d6cfe8ff886b643afee74dc18760a7",
+    "DisplayName": "Sunken Lake",
+    "NameLocalizationKey": "Forest_Lore_SunkenLake_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_SunkenLake_CardName",
+    "Coords": { "x": -66.0, "y": 0.0, "z": 90.0, "w": 1.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": ["fl_sunken_lake", "fl_squeeze"],
+    "StripLegacyBoardUIDs": [
+      "b956acdc408dbbe498aa17ab8830d5e1",
+      "d65ae569ebecad94c96896687c376fa3",
+      "e02259f0e9b90114484b2c6ec43b546d",
+      "977cc7d7233e1844b8c5aeed108e1e47"
+    ],
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "flEnvOssuary",
+    "LocationUID": "flLocOssuary",
+    "CloneOfEnvironmentUID": "17d6cfe8ff886b643afee74dc18760a7",
+    "DisplayName": "Ossuary",
+    "NameLocalizationKey": "Forest_Lore_Ossuary_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_Ossuary_CardName",
+    "Coords": { "x": -64.0, "y": 0.0, "z": 90.0, "w": 1.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": ["fl_bone_mounds", "fl_squeeze"],
+    "StripLegacyBoardUIDs": [
+      "b956acdc408dbbe498aa17ab8830d5e1",
+      "d65ae569ebecad94c96896687c376fa3",
+      "e02259f0e9b90114484b2c6ec43b546d",
+      "977cc7d7233e1844b8c5aeed108e1e47"
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "flEnvSunkenLake",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ],
+    "ConnectionGates": [
+      {
+        "ConnectionUID": "flEnvSunkenLake",
+        "Granularity": "Edge",
+        "GateConditions": [
+          {
+            "Type": "StatThreshold",
+            "UID": "21574a6120f4d3c4b913c69987e2ff06",
+            "Comparison": "LessOrEqual",
+            "Value": 1000.0
+          }
+        ],
+        "GateLogic": "ALL",
+        "HideTravelDA": true,
+        "RestoreDAOnUnlock": true
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "flEnvPaintedChamber",
+    "LocationUID": "flLocPaintedChamber",
+    "CloneOfEnvironmentUID": "17d6cfe8ff886b643afee74dc18760a7",
+    "DisplayName": "Painted Chamber",
+    "NameLocalizationKey": "Forest_Lore_PaintedChamber_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_PaintedChamber_CardName",
+    "Coords": { "x": -62.0, "y": 0.0, "z": 90.0, "w": 1.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": ["fl_cave_exit", "fl_cave_paintings"],
+    "StripLegacyBoardUIDs": [
+      "b956acdc408dbbe498aa17ab8830d5e1",
+      "d65ae569ebecad94c96896687c376fa3",
+      "e02259f0e9b90114484b2c6ec43b546d",
+      "977cc7d7233e1844b8c5aeed108e1e47"
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "flEnvOssuary",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "flEnvRockShelter",
+    "LocationUID": "flLocRockShelter",
+    "CloneOfEnvironmentUID": "654e8fa8e5ead544f8a7def1746c3f5f",
+    "DisplayName": "Rock Shelter",
+    "NameLocalizationKey": "Forest_Lore_RockShelter_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_RockShelter_CardName",
+    "Coords": { "x": -60.0, "y": 0.0, "z": 90.0, "w": 0.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": false,
+    "ExtraDropUIDs": ["fl_cave_mouth", "fl_overhanging_rock"],
+    "Connections": [
+      {
+        "EnvironmentUID": "96141badf2c018a4c9d053a72a1d0a89",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "flEnvPaintedChamber",
+        "PathCardUID": "fl_cave_mouth",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0, "y": 0, "z": 0, "w": 1 },
+        "HideConnection": true
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "flEnvGuanoRock",
+    "LocationUID": "flLocGuanoRock",
+    "CloneOfEnvironmentUID": "e7465815231f2f844957267fc74b71bf",
+    "DisplayName": "Guano Rock",
+    "NameLocalizationKey": "Forest_Lore_GuanoRock_CardName",
+    "EnvNameLocalizationKey": "Forest_Lore_Env_GuanoRock_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": 90.0, "w": 0.0 },
+    "HideFromMap": false,
+    "StripAllInheritedDrops": false,
+    "ExtraDropUIDs": ["fl_guano_rock"],
+    "Connections": [
+      {
+        "EnvironmentUID": "9b5f925efe81b284ca921f1d33e141a1",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ]
+  }
+]

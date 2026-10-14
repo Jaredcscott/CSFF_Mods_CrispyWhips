@@ -1,0 +1,17 @@
+{
+  "target": "FL_CaveMouth.png",
+  "sourceCard": "CardData/Location/CaveMouth.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "not recorded: the batch agent stopped at a usage limit before writing its record",
+  "refs": [],
+  "resource_url": null,
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art, footprints removed). Finished by /process-card-art --full-bleed."
+}

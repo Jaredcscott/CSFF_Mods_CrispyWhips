@@ -1,0 +1,258 @@
+{
+    "UniqueID": "fl_ruined_homestead",
+    "CardName": {
+        "ParentObjectID": "fl_ruined_homestead",
+        "LocalizationKey": "Forest_Lore_RuinedHomestead_CardName",
+        "DefaultText": "Ruined Homestead"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fl_ruined_homestead",
+        "LocalizationKey": "Forest_Lore_RuinedHomestead_CardDescription",
+        "DefaultText": "A homestead at the edge of the river meadow, long since left to the weather. The roof has fallen in, the fence is down and grass grows over the threshold, but the walls still stand. Salvage what is left in the wreck first; then patch the walls and roof with planks and rope, and the place will keep the rain off again."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardImageWarpData": "FL_RuinedHomestead",
+    "CardImageWarpType": 3,
+    "CardType": 2,
+    "UniqueOnBoard": false,
+    "CannotBeTransferred": true,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": true,
+    "CanBeTrashed": false,
+    "DoesNotPile": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_ruined_homestead",
+            "LocalizationKey": "Forest_Lore_RuinedHomestead_Progress_CardStatName",
+            "DefaultText": "Repairs Done"
+        },
+        "MaxValue": 6.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 4.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_ruined_homestead",
+            "LocalizationKey": "Forest_Lore_RuinedHomestead_SpecialDurability1_CardStatName",
+            "DefaultText": "Salvage Left"
+        },
+        "MaxValue": 4.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_ruined_homestead",
+                "LocalizationKey": "Forest_Lore_RuinedHomestead_Repair_ActionName",
+                "DefaultText": "Repair the Homestead"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_ruined_homestead",
+                "LocalizationKey": "Forest_Lore_RuinedHomestead_Repair_ActionDescription",
+                "DefaultText": "Work a plank or a length of rope into the broken walls and roof."
+            },
+            "DaytimeCost": 2,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "57460207bbf77fa4fb6720aed5d84851",
+                    "a7a58aa687df66e47a42fc13e0fdbeaa"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.99
+                },
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ChargesChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_ruined_homestead",
+                "LocalizationKey": "Forest_Lore_RuinedHomestead_Salvage_ActionName",
+                "DefaultText": "Salvage the Ruin"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_ruined_homestead",
+                "LocalizationKey": "Forest_Lore_RuinedHomestead_Salvage_ActionDescription",
+                "DefaultText": "Pull the sound sticks, cord, stones and timber out of the fallen roof and the broken fence."
+            },
+            "DaytimeCost": 4,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.01,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 3
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 100.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 100.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 2
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 60.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 40.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_ruined_homestead",
+                "LocalizationKey": "Forest_Lore_RuinedHomestead_RaiseRoof_ActionName",
+                "DefaultText": "Raise the Roof"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_ruined_homestead",
+                "LocalizationKey": "Forest_Lore_RuinedHomestead_RaiseRoof_ActionDescription",
+                "DefaultText": "Lift the patched roof back onto the walls and make the homestead whole."
+            },
+            "DaytimeCost": 4,
+            "RequiredReceivingDurabilities": {
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 1.0,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "fl_homestead",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "CookingRecipes": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

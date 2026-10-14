@@ -1,0 +1,30 @@
+{
+  "target": "FL_Battlefield.png",
+  "sourceCard": "CardData/Location/Battlefield.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 and reference image 2 are style references only: match their flat posterized colour fills, thin dark ink outlines, small ink tick marks and muted palette; do not copy their subjects. Reference image 3 is the composition reference: keep its subject and layout exactly, and redraw it in reference 1's style.\n\nSubject: an old battlefield on open heathland. Rolling moor of purple heather and thin pale grass under an overcast grey sky, a dark line of forest on the far horizon. In the centre foreground a hollow in the turf where tangled roots hold old weathered bones, a long thigh bone and ribs, and two pieces of corroded bronze, a sword hilt and a fitting, pitted and verdigris green, half sunk in the earth. Heather clumps and mossy stones frame the lower corners. No people, no armour sets, no skulls, no blood.\n\nStyle: Card Survival Fantasy Forest game card art. Flat posterized colour fills in a few hard-edged tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture, no border or frame. Thin dark ink outlines and small ink hatch and tick marks for texture. Muted naturalistic palette of heather purple, moss greens, earth browns and grey stone. Realistic proportions, nothing glossy, no fantasy glow, no text. Full-bleed painted scene filling the whole 2:3 portrait card edge to edge.",
+  "refs": [
+    {
+      "label": "Bear_Wild (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652691630_2575370d.png"
+    },
+    {
+      "label": "BoggyMeadows (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BoggyMeadows_1791652694216_7bb6cd27.png"
+    },
+    {
+      "label": "FL_Battlefield (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FL_Battlefield_1791652699645_d4daf6f5.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652984293_b1fce745_1791652985286_83b7279b.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art --full-bleed."
+}

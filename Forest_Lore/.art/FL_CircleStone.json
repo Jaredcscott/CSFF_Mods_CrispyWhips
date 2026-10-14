@@ -1,0 +1,36 @@
+{
+  "target": "FL_CircleStone.png",
+  "sourceCard": [
+    "CardData/Location/CircleStone.json"
+  ],
+  "subject": "one tall grey standing stone with a smooth hole worn through near the top, standing alone in a plain open meadow of short grass, no small stones around its base, no flowers, soft overcast light",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of one tall grey standing stone with a smooth hole worn through near the top, standing alone in a plain open meadow of short grass, no small stones around its base, no flowers, soft overcast light, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "0csSfTiSG1ou79n3iYCr",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088626327_3a189e2c_1791088627416_2e9ccb5f.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Round 2 of the 2026-10-03 batch (regenerated from the owner's notes on round 1); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088626426_680ff5c4_1791088626862_a2e18650.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088624711_42e8649b_1791088625068_6fb60d1f.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088626327_3a189e2c_1791088627416_2e9ccb5f.png"
+    }
+  ],
+  "picked": "C"
+}

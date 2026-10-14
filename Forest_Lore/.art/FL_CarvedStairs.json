@@ -1,0 +1,37 @@
+{
+  "target": "FL_CarvedStairs.png",
+  "sourceCard": [
+    "CardData/EnvImprovement/Imp_CarvedStairs.json"
+  ],
+  "subject": "a steep earthen hillside with a narrow flight of plain steps dug into the slope, each step faced with one flat grey stone, climbing between pine roots and boulders, uneven and hand-made, realistic proportions, daylight",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a steep earthen hillside with a narrow flight of plain steps dug into the slope, each step faced with one flat grey stone, climbing between pine roots and boulders, uneven and hand-made, realistic proportions, daylight, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface, handrail, railing, carved ornament, castle stairs, people.",
+  "historyId": "YOPALyk18zvzMGnA2f9q",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151808260_cf3cb938_1791151809466_a33ddd0a.png",
+  "credits": 90,
+  "generated": "2026-10-04",
+  "note": "Owner pick from the 2026-10-04 batch picker (Prompt 8). predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151807570_6f0525d0_1791151808340_a42b96b5.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151808260_cf3cb938_1791151809466_a33ddd0a.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151806914_1268ba5e_1791151807741_70e95927.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "A"
+}

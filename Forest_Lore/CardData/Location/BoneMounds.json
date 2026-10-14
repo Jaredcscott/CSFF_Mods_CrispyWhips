@@ -1,0 +1,144 @@
+{
+    "UniqueID": "fl_bone_mounds",
+    "CardName": {
+        "ParentObjectID": "fl_bone_mounds",
+        "LocalizationKey": "Forest_Lore_BoneMounds_CardName",
+        "DefaultText": "Bone Mounds"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fl_bone_mounds",
+        "LocalizationKey": "Forest_Lore_BoneMounds_CardDescription",
+        "DefaultText": "Bones are heaped against the walls of this chamber in long mounds: long bones stacked like firewood, skulls set in rows along the top, the older layers sunk and gone grey. Whoever came here brought their dead down into the dark and left them. Most of what could be carried off has been, but the lower heaps have never been turned."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardImageWarpData": "FL_BoneMounds",
+    "CardImageWarpType": 3,
+    "CardType": 2,
+    "UniqueOnBoard": false,
+    "CannotBeTransferred": true,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": true,
+    "CanBeTrashed": false,
+    "DoesNotPile": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_bone_mounds",
+            "LocalizationKey": "Forest_Lore_BoneMounds_SpecialDurability1_CardStatName",
+            "DefaultText": "Mounds Unsifted"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_bone_mounds",
+                "LocalizationKey": "Forest_Lore_BoneMounds_Sift_ActionName",
+                "DefaultText": "Sift the Mounds"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_bone_mounds",
+                "LocalizationKey": "Forest_Lore_BoneMounds_Sift_ActionDescription",
+                "DefaultText": "Kneel and sift through the lower heaps for bones still whole enough to use."
+            },
+            "DaytimeCost": 2,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.01,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "674b640f46671f1418af4559b259b442",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 3
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 100.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "ccb5e7b33b7b66f4793ef3b62ba3b70b",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 4
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 100.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "CookingRecipes": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

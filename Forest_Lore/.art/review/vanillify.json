@@ -1,0 +1,21 @@
+{
+  "about": "Images adjusted toward the vanilla style by Development_Tools/CardArt/vanillify.py instead of being regenerated. The original is in git history.",
+  "images": {
+    "Picture/FL_CarvedStairs.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 53,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/FL_GuanoRock.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 58,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    }
+  }
+}

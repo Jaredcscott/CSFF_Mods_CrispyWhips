@@ -1,0 +1,34 @@
+{
+  "target": "FL_LadderTop.png",
+  "sourceCard": "CardData/EnvImprovement/Imp_LadderTop.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images.\nReference images 1 and 2 are style references only: match their flat posterized colour fills in a few hard-edged tonal steps, thin dark ink outlines, small ink tick and hatch marks for texture, and muted naturalistic palette of moss greens, earth browns and grey stone; do not copy their subjects.\nReference image 3 is the composition to keep: keep this exact subject and layout (the dark round shaft opening in rocky forest ground seen from above, the pole ladder lashed to a stake at the lip going down into the dark, pines and boulders around) but redraw it entirely in the style of references 1 and 2.\nReference image 4 shows the same ladder seen from the bottom of the shaft: draw the ladder identically - two straight peeled wooden poles with round rungs lashed on with rope at every joint.\nSubject: the top of a ladder at the lip of a deep dark round hole in rocky ground among pine trees, seen from above, the top rungs of a simple wooden pole ladder lashed with rope to a wooden stake at the lip and going down into darkness, daylight.\nA full-bleed painted game card scene filling the whole 2:3 portrait canvas edge to edge, realistic proportions, flat cel-like colour, no soft gradients, no watercolour bleed, no paper texture, no glow, no glossy highlights, no people, no text, no border, no frame.\nAvoid: watercolour, soft painterly shading, warm golden light, photo, 3D render, pixel art, white margin, text, watermark",
+  "refs": [
+    {
+      "label": "Bear_Wild (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652688284_55f644be.png"
+    },
+    {
+      "label": "Woods3 (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods3_1791652689123_a95860de.png"
+    },
+    {
+      "label": "FL_LadderTop (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FL_LadderTop_1791652693466_96a60788.png"
+    },
+    {
+      "label": "FL_LadderFoot (same ladder)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FL_LadderFoot_1791652694550_cbfabb1c.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791652947425_ba73ccf2_1791652948038_71d8a0b2.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art --full-bleed."
+}

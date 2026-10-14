@@ -1,0 +1,64 @@
+{
+  "target": "FL_Squeeze.png",
+  "sourceCard": [
+    "CardData/Location/Squeeze.json"
+  ],
+  "subject": "",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference image.\nReference image 1 shows a low crawl-through slot in grey cave rock: draw exactly this scene, the same low slot, the same grey rock and the same darkness beyond, but with the rolled cloth bundle REMOVED: the rock floor in front of the slot is bare, with only a few small loose stones.\nThe painted scene reaches every edge of the frame, with no white paper edge and no border around it. No text, no watermark, no signature, no border, no frame.\nAvoid: bedroll, bundle, blanket, bag, cloth, tall passage, door, ladder, torch, people, photo, photorealistic, 3D render, pixel art, neon colors, lens flare, blurry, plain white background, vignette, white border, white margin, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "9JW609H8J9nJL3uZuaIa",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791152822644_d80d5c97_1791152823077_dfea88e6.png",
+  "credits": 150,
+  "generated": "2026-10-04",
+  "note": "Round 2 of the 2026-10-04 batch (Prompt 8), regenerated from the owner's round-1 note: \"remove the bed roll\". Owner pick; predicted was written before the owner looked. Finished by /process-card-art --full-bleed. The edit copied sample C's white paper margin and ink frame line, so every round-2 sample was cropped inside it locally (scratchpad crop_border.py) before the owner saw it; the shipped image is the cropped B.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791152821287_5b765578_1791152821549_417433c6.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791152822644_d80d5c97_1791152823077_dfea88e6.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791152821442_9c0269d9_1791152822205_d70615cf.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "A",
+  "round1": {
+    "historyId": "xT2ZMIIbxQFUwB0Hqsgm",
+    "prompt": "Hand-painted illustration of a narrow low horizontal slot in grey cave rock where the roof comes down almost to the floor, only high enough to crawl through on your belly, darkness beyond, a small rolled cloth bundle resting at the opening for scale, dim light, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface, tall passage, door, ladder, torch, people.",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151925194_88f16861_1791151925565_2c02ad23.png"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151925612_f8fadaea_1791151926385_60784c83.png"
+      },
+      {
+        "n": "C",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791151924409_7e2c6335_1791151925046_89cd7ad5.png"
+      }
+    ],
+    "picked": "C",
+    "predicted": "B",
+    "owner_note": "remove the bed roll"
+  },
+  "references": [
+    {
+      "label": "FL_Squeeze__v3.png",
+      "role": "subject"
+    }
+  ]
+}

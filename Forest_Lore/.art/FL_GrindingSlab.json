@@ -1,0 +1,42 @@
+{
+  "target": "FL_GrindingSlab.png",
+  "sourceCard": [
+    "CardData/Location/GrindingSlab.json"
+  ],
+  "subject": "",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a worn stone grinding slab with a hollow and a round hand stone: draw exactly this slab and hand stone, close up, resting on bare swept earth with a few small pebbles and grass tufts. Isolated: no building, no hut, no door, no wall, no fence, nothing in the background but soft blurred earth and grass.\nThe painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "W3iENjndOktzcpVdAvRd",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791090084406_026aa7cc_1791090085284_0a12f0f3.png",
+  "credits": 150,
+  "generated": "2026-10-03",
+  "note": "Round 3 of the 2026-10-03 batch (regenerated from the owner's notes on rounds 1 and 2); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791090084406_026aa7cc_1791090085284_0a12f0f3.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791090086374_db2bc285_1791090086852_56249a3f.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791090085643_e82e8c18_1791090086514_bb0d8598.png"
+    }
+  ],
+  "picked": "A",
+  "references": [
+    {
+      "label": "FL_GrindingSlab__v1.png",
+      "role": "subject"
+    }
+  ]
+}

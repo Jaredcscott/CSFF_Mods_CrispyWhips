@@ -1,0 +1,35 @@
+{
+  "target": "FL_RuinedHomestead.png",
+  "sourceCard": "CardData/Location/RuinedHomestead.json",
+  "subject": "the same log homestead as FL_Homestead, ruined: roof fallen in with broken rafters, fence down, tall grass over the doorstep, walls still standing, a slow river at the meadow edge",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 shows a repaired log homestead. Draw this same house from the same viewpoint, in the same flat posterized style with thin dark ink outlines, the same log walls, chimney, door and window, the same spruce trees behind, changed only as follows: it is a ruin, long abandoned: the roof has fallen in, with a large gaping hole, bare broken rafters and old grey shingles slipping off, no fresh pale planks anywhere; the rail fence is broken and lying in the grass; tall unmown grass and weeds grow over the doorstep and up the walls; no firewood stack and no vegetable beds; a glimpse of a slow river at the edge of the meadow. The log walls still stand. Overcast grey-green daylight.\nFull-bleed survival card game scene, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, people, animals, smoke, fire, fresh planks, second house.",
+  "historyId": "5oUy7oxRLI5lf8BFWgTV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800033482_91a8622b_1791800033549_aacb3e23.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "subject (the new repaired homestead)",
+      "label": "FL_Homestead",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798693071_616d0b19_1791798693405_77ce8793.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800033482_91a8622b_1791800033549_aacb3e23.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: look AI generated match game art style please; drawn as the same house as the new FL_Homestead, ruined, so the two cards read as one building"
+}

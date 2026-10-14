@@ -1,0 +1,29 @@
+{
+  "target": "FL_CaveLake.png",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the finished picture: redraw it EXACTLY, the same underground cave lake, the same black still lake, the same pale flat stone shelf path along the left side, the same rock walls, colours, framing and flat ink style, and the dark passage at the far end of the shelf on the left in the same place.\nThe ONLY change: the shape of that dark passage opening. Make it an ordinary natural crack-like gap between broken boulders: a jagged, angular, irregular opening with straight broken rock edges and uneven corners, its top formed by a tilted slab of fallen rock, lopsided and wider at the bottom, like a gap where rock blocks have split apart. No curved rounded top, no smooth tunnel lining, no visible receding tunnel rings. Black inside. The path still runs straight into it.\nReference image 2 is a style reference only: match its ink linework, flat colour fills and palette; do not copy its subject.\nThe painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: arch, arched top, rounded doorway, horseshoe shape, mine tunnel, carved tunnel, a tunnel on the right side, two openings, a narrow vertical slit, light from the opening, people, animals, footprints, tracks, prints in the ground, glowing crystals, photo, photorealistic, 3D render, anime, text, watermark, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "redo3 v1 output (layout)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791676450298_16ae9077_1791676451162_e8f33d65.png"
+    },
+    {
+      "label": "Bear_Wild (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652691630_2575370d.png"
+    },
+    {
+      "label": "v1 only: FL_CaveLake staging2 (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FL_CaveLake_1791676378381_a3b8ce65.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791676769890_f0da86d3_1791676770059_a8509901.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Final Touches review (third round, redrawn from the owner's notes)."
+}
