@@ -1,0 +1,20 @@
+{
+  "_about": "Card motion layer (CSFFModFramework 2.28.3+, CardMotionLoader): sprite name -> built-in profile. npc and animal breathe, plant sways, location drifts slowly inside its frame. No image files.",
+  "Sprites": {
+    "hw_event_blackbear": "animal",
+    "hw_event_heron": "animal",
+    "hw_event_selkie": "animal",
+    "hw_lakebeast": "animal",
+    "hw_lindwurm": "animal",
+    "hw_lynx": "animal",
+    "hw_muskox": "animal",
+    "hw_spirit_blood": "animal",
+    "hw_spirit_dragon": "animal",
+    "hw_spirit_goat": "animal",
+    "hw_wisent": "animal",
+    "hw_faerie_realm": "location",
+    "hw_agent_shaman": "npc",
+    "hw_bandit": "npc",
+    "hw_frostdemon": "npc"
+  }
+}

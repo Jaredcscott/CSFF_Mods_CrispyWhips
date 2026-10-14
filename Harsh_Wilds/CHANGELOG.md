@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.11.3 (2026-10-14)
+- New: the shaman, the bandits and the frost demon breathe; the lynx, musk ox, wisent, lake beast, lindwurm, the event animals and the spirits breathe too, on their cards and in their encounters; the Faerie Realm drifts slowly. Needs CSFF Mod Framework 2.28.3.
+
 ## 0.11.2 (2026-10-13)
 - Fix: spirit sickness no longer keeps rolling for good after one angry spirit. It now rolls once a day only while the angry Lynx, Goat or Blood Spirit card is actually waiting. A save made mid-anger on an earlier build stops rolling until a spirit is angered again.
 - Fix: the crop blight now spreads for its full two days. After its first spread it did almost nothing, because a spread that fell due in the middle of a wait, craft or walk was scaled down to zero. It now lands about eight spreads over two days, as the README says. Checked in a test harness, not yet in real play.
