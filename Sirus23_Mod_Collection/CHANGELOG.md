@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.4] - 2026-10-14
+
+### Fixed
+
+- **Spoilage shows the bacteria icon** on 11 foods, treats and carcasses that showed the hourglass, as vanilla food does.
+
 ## [1.22.3] - 2026-10-14
 
 ### Added

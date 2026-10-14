@@ -70,6 +70,8 @@
         }
     ],
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "Active": true,
         "FloatValue": 768.0,
         "MaxValue": 768.0,

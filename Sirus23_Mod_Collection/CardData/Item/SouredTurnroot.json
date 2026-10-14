@@ -22,6 +22,8 @@
     ],
     "CardTagsWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "Active": true,
         "FloatValue": 168.0,
         "MaxValue": 168.0,

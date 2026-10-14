@@ -31,6 +31,8 @@
     "CardImageWarpData": "HawkCarcass",
     "CardImageWarpType": 3,
     "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
         "Active": true,
         "FloatValue": 288.0,
         "CardStatName": {
