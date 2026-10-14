@@ -36,30 +36,30 @@
          No DLL lives in this folder, so MSBuild's candidate-file search cannot shadow a HintPath. -->
     <ItemGroup>
         <Reference Include="BepInEx">
-            <HintPath>..\..\CSFFModFramework\lib\BepInEx.dll</HintPath>
+            <HintPath>..\CSFFModFramework\lib\BepInEx.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="0Harmony">
-            <HintPath>..\..\CSFFModFramework\lib\0Harmony.dll</HintPath>
+            <HintPath>..\CSFFModFramework\lib\0Harmony.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="Assembly-CSharp">
-            <HintPath>..\..\CSFFModFramework\lib\Assembly-CSharp.dll</HintPath>
+            <HintPath>..\CSFFModFramework\lib\Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
-        <Reference Include="UnityEngine" HintPath="..\..\CSFFModFramework\lib\UnityEngine.dll">
+        <Reference Include="UnityEngine" HintPath="..\CSFFModFramework\lib\UnityEngine.dll">
             <Private>False</Private>
         </Reference>
-        <Reference Include="UnityEngine.CoreModule" HintPath="..\..\CSFFModFramework\lib\UnityEngine.CoreModule.dll">
+        <Reference Include="UnityEngine.CoreModule" HintPath="..\CSFFModFramework\lib\UnityEngine.CoreModule.dll">
             <Private>False</Private>
         </Reference>
-        <Reference Include="UnityEngine.InputLegacyModule" HintPath="..\..\CSFFModFramework\lib\UnityEngine.InputLegacyModule.dll">
+        <Reference Include="UnityEngine.InputLegacyModule" HintPath="..\CSFFModFramework\lib\UnityEngine.InputLegacyModule.dll">
             <Private>False</Private>
         </Reference>
-        <Reference Include="UnityEngine.UI" HintPath="..\..\CSFFModFramework\lib\UnityEngine.UI.dll">
+        <Reference Include="UnityEngine.UI" HintPath="..\CSFFModFramework\lib\UnityEngine.UI.dll">
             <Private>False</Private>
         </Reference>
-        <Reference Include="Unity.TextMeshPro" HintPath="..\..\CSFFModFramework\lib\Unity.TextMeshPro.dll">
+        <Reference Include="Unity.TextMeshPro" HintPath="..\CSFFModFramework\lib\Unity.TextMeshPro.dll">
             <Private>False</Private>
         </Reference>
     </ItemGroup>
@@ -72,11 +72,11 @@
     <Target Name="BuildBundledModules" BeforeTargets="BeforeBuild">
         <MSBuild Projects="..\RepeatAction\Repeat_Action.csproj" Properties="Configuration=Release" Targets="Build" />
         <MSBuild Projects="..\QuickTransfer\Quick_Transfer.csproj" Properties="Configuration=Release" Targets="Build" />
-        <MSBuild Projects="..\..\SkillSpeedBoost\Skill_Speed_Boost.csproj" Properties="Configuration=Release" Targets="Build" />
+        <MSBuild Projects="..\SkillSpeedBoost\Skill_Speed_Boost.csproj" Properties="Configuration=Release" Targets="Build" />
     </Target>
     <Target Name="CopyBundledModules" AfterTargets="Build">
         <Copy SourceFiles="..\RepeatAction\bin\Release\Repeat_Action.dll" DestinationFolder="$(OutDir)" />
         <Copy SourceFiles="..\QuickTransfer\bin\Release\Quick_Transfer.dll" DestinationFolder="$(OutDir)" />
-        <Copy SourceFiles="..\..\SkillSpeedBoost\bin\Release\Skill_Speed_Boost.dll" DestinationFolder="$(OutDir)" />
+        <Copy SourceFiles="..\SkillSpeedBoost\bin\Release\Skill_Speed_Boost.dll" DestinationFolder="$(OutDir)" />
     </Target>
 </Project>
