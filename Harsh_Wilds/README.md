@@ -323,6 +323,8 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
 
 Full notes in `CHANGELOG.md`. Latest:
 
+- **0.11.4:** the Faerie Realm stays still; the people, animals and spirits still breathe.
+- **0.11.3:** the shaman, the bandits, the frost demon, the animals and the spirits breathe, on their cards and in their encounters.
 - **0.11.2:** fixes for spirit sickness rolling forever, the crop blight stalling, and the Fallen Bandit's weight.
 - **0.11.1:** the dancing plague roll is one in two as promised, and Witchfire ash can be scattered.
 - **0.11.0:** the Faerie, Moon and Underworld realms, the fairy king and queen, the athame and casting bones, the wolverine, the wandering shaman, and more.

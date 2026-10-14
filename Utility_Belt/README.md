@@ -2,7 +2,7 @@
 
 **Version:** 0.1.3
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.68b)
+**For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** BepInEx 5 (Quick Transfer and Skill Speed Boost also need CSFF Mod Framework)
 
 Utility Belt gathers small quality-of-life mods into one download. It is in early development. It includes **Repeat Action** (repeat your last action with one key), **Quick Transfer** (move several cards at once) and **Skill Speed Boost** (tune how fast skills train), plus its own small options for display, hotkeys and inventory. Utility Belt adds no cards, items or blueprints.

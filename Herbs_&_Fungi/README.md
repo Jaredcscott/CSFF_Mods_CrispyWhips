@@ -2,7 +2,7 @@
 
 **Version:** 1.14.6
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.68)
+**For:** Card Survival: Fantasy Forest (EA 0.69c)
 
 ---
 
@@ -456,7 +456,7 @@ This needs CSFFModFramework 2.28.0. It and seasonal forage at the mod's own loca
 ### Requirements
 - **BepInEx 5.x**
 - **CSFFModFramework** 2.28.0 or newer
-- **Card Survival: Fantasy Forest** EA 0.68
+- **Card Survival: Fantasy Forest** EA 0.69c
 
 ### Installation
 1. Install BepInEx 5.x.
@@ -503,7 +503,8 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
-- **1.14.5**: the Smouldering Incense Bundle has animated card art.
+- **1.14.6**: Hemp Butter, raw pasties, Inactive Hemp Butter and Sliced Horseradish keep their ingredient's freshness instead of rotting the moment they are made; the forest trails stay still.
+- **1.14.5**: the Smouldering Incense Bundle and the Wild Bees' Nest have animated card art, and the berry and chamomile plants sway.
 - **1.14.4**: starter-kit perks hand items over as ordinary starting items, teas and remedies have realistic weights, and `ForageDropDensityScale` above 1.0 tops out at a certain drop.
 - **1.14.3**: the Mushroom Basket perk's basket and mushrooms land properly.
 - **1.14.2**: dozens of new wild foods, crops, dishes, drinks and medicines, the Old-Growth Grove, Fungal Bloom, Partners eating this mod's food, and new card art.

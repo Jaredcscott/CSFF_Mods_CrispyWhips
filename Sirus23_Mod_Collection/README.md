@@ -2,7 +2,7 @@
 
 **Version:** 1.22.3
 **Author:** Sirus, Jared
-**For:** Card Survival: Fantasy Forest (EA 0.68)
+**For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFF Mod Framework 2.28.0 or later. Older frameworks back to 2.14.1 still load the mod, but the Wild Owl, the Hawk and the features marked "needs 2.28.0" below do not work fully.
 
 **Language:** English, Simplified Chinese
@@ -21,6 +21,8 @@ Animal companions, a working sheep farm and felt clothing, by Sirus and Jared.
 **Installation:** extract into `BepInEx/plugins/`, or install through Mod Update Manager. CSFF Mod Framework must also be installed. The mod has no config options.
 
 **Compatibility:** Herbs and Fungi, Partner Overhaul, Harsh Wilds and Far Territory each add something when installed (see Working with Other Mods). Without them nothing changes.
+
+**Card motion:** the companions, young animals, wild owl and hawk, ferret, truffle hog and sheep breathe softly on their cards. This needs CSFF Mod Framework 2.28.3.
 
 **Status notes:** a number called a first guess may change after playtesting. "Not yet confirmed in the game" means no one has checked that feature in a running game.
 

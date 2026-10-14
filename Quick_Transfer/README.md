@@ -2,7 +2,7 @@
 
 **Version:** 1.9.1
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.68b)
+**For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Language:** English and Chinese (on-screen text)
 **Requires:** BepInEx 5.4.23.4+ and CSFFModFramework
 

@@ -2,7 +2,7 @@
 
 **Version:** 1.11.1
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.68)
+**For:** Card Survival: Fantasy Forest (EA 0.69c)
 
 ---
 
@@ -91,7 +91,7 @@ Everything except staleness decay, area familiarity and the per-skill multiplier
 ### Requirements
 - [BepInEx 5.4.23.4+](https://github.com/BepInEx/BepInEx/releases)
 - **CSFFModFramework** (required). The staleness settings, area familiarity and the XP bonuses run on its shared code, so without it they do not work.
-- Card Survival: Fantasy Forest (EA 0.68)
+- Card Survival: Fantasy Forest (EA 0.69c)
 
 ### Steps
 1. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.

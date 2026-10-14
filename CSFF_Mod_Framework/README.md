@@ -5,7 +5,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
 - **Version:** 2.28.3
-- **Game version:** EA 0.68b
+- **Game version:** EA 0.69c
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese
 
@@ -57,6 +57,12 @@ These parts moved here from Advanced Copper Tools in 2.28.0 under the same IDs, 
 The tag shows in the character creation lists, the selected-perk panel, the character select card and the in-game character sheet, including their tooltips. It is display only: perk names in saves and stat reports are unchanged.
 
 It is confirmed on the character sheet and in the WikiMod tooltip; the character creation lists are not yet confirmed in a running game. Switch it off with `ShowModOriginTag`.
+
+**Card motion.** Mods can ask for a little movement on their art: NPCs and animals breathe softly and plants sway. The framework bends the card's own picture, so there are no extra image files and no extra texture memory, and with 24 moving cards on the board it measured about a tenth of a millisecond per frame.
+
+It has been seen working on board cards and in the inspection popup. The encounter picture is not yet confirmed in a running game. Switch it off with `CardMotion`.
+
+**Animated card art.** A mod can give a card a looping GIF, such as a fire that flickers while it is lit or a water wheel that turns. An animation tied to a stat (a kettle that steams only while hot) starts and stops as the stat changes, and the still picture comes back when no animation applies.
 
 ### Bug fixes
 
@@ -120,6 +126,8 @@ Settings live in `BepInEx/config/crispywhips.CSFFModFramework.cfg`, created on f
 | Wildlife | `WildlifeRaidStressPenalty` | `2` | Stress added by a successful raid |
 | Wildlife | `BearRaidChance` | `0.5` | Needs raids on. Chance (0 to 1) that a fight with the brown bear also spoils one food item in an open container where you are. Sealed containers are safe, and fights with people never trigger it |
 | Wildlife | `BearRaidEscalationDays` | `0` (off) | Needs raids on. After this many days in a row with a raid where you are, the next raid is a brown bear fight. Guarded places, such as the Community Mod Chest village, stop it. The count resets on loading a save |
+| Visuals | `CardMotion` | `true` | The breathing and swaying on mod art that asks for it. `false` keeps every card still |
+| Visuals | `CardMotionUpdatesPerSecond` | `20` | How often moving cards are redrawn (5 to 60). Lower costs less |
 | Perks | `ShowModOriginTag` | `true` | Shows the mod tag after modded perk names. `false` hides it |
 | Animals | `AnimalsEnabled` | `true` | Loads the roaming animals mods declare. `false` removes them all |
 | Quests | `EnableQuestInjection` | `false` | Leave off. Attaching mod quest logs to characters once reset blueprint research in a player's save, and the cause was never found |
@@ -169,7 +177,7 @@ Any other ScriptableObject type loads from `ScriptableObject/<TypeName>/`. Objec
 
 Most of these types need nothing more, because the game itself picks them up at run start: `CookingRecipeGroup`, `BookmarkGroup`, `ConstructionCardGroup`, `NPCCharacterPerk`, `SelfTriggeredAction`, a `FlavourTag`, and a `GameModifierPackage` referenced from a character's `EasyPackageWarpData`. The exceptions have their own files below.
 
-`Resource/` holds pictures (`Resource/Picture/*.png`), audio, GIFs (`Resource/GIF/*.gif` with `CardData/Gif/*.json`) and asset bundles. `Localization/` holds the CSV text (`SimpEn.csv`, `SimpCn.csv`).
+`Resource/` holds pictures (`Resource/Picture/*.png`), audio, GIFs (`Resource/GIF/*.gif` with `CardData/Gif/*.json`) and asset bundles. `CardData/Motion/*.json` maps sprite names to a card motion profile: `"Sprites": { "<sprite>": "npc" }` with `npc`, `animal`, `plant`, `location` or `still`, or inline numbers (`Breathe`, `Sway`, `Drift`, `Period`), and an optional `"Profiles"` object names your own. No image files are needed. `Localization/` holds the CSV text (`SimpEn.csv`, `SimpCn.csv`).
 
 ### WarpData
 
@@ -529,6 +537,8 @@ Localization, audio, perks and blueprint tabs come last. Read that file for the 
 | `Stubs/LitJson/` | Source of the bundled `LitJSON.dll` (v0.19.0.0) |
 
 ## Recent releases
+
+**2.28.3.** Card motion (NPCs and animals breathe, plants sway), animations tied to a stat follow it while the card is on the board, and the Portal Hub and its Exit are animated.
 
 **2.28.2.** Card swaps and stat-gated actions work on EA 0.69c, and a tame attempt's plain fail counts toward the odds.
 

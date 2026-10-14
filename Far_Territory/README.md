@@ -411,6 +411,9 @@ BepInEx/
 
 See `CHANGELOG.md` for the full list.
 
+- **0.1.4:** the island's locations stay still; the animals still breathe and the plants still sway.
+- **0.1.3:** calmer animated sea: about half the speed and less strong.
+- **0.1.2:** the animals breathe on their cards and in encounters, the trees and plants sway, and the Sea, the Swim to shore cards, the grottos and the Hot Spring have animated card art.
 - **0.1.1:** Simplified Chinese translation, and new pictures for the Tropical Almond tree and the set Fish Trap.
 - **0.1.0:** first public release, as a pre-release.
 

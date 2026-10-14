@@ -2,7 +2,7 @@
 
 **Version:** 1.12.8
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.68b)
+**For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
 
 ---
@@ -366,7 +366,7 @@ A Partner works only the stations you mark. The Forge and Workshop also take van
 
 ## Installation
 
-**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.0 or later, and Card Survival: Fantasy Forest (EA 0.68b). Advanced Copper Tools is optional: it adds Blast melting for its metal items, the lit Copper Brazier as winter heat, bronze gears and the plumbed bathtub.
+**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.0 or later, and Card Survival: Fantasy Forest (EA 0.69c). Advanced Copper Tools is optional: it adds Blast melting for its metal items, the lit Copper Brazier as winter heat, bronze gears and the plumbed bathtub.
 
 1. Install BepInEx 5.x if you have not already.
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
@@ -463,6 +463,8 @@ Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they nev
 
 Full notes are in CHANGELOG.md.
 
+- **1.12.8:** the winter Fishpond stays still again.
+- **1.12.7:** calmer animated water: about half the speed and less strong.
 - **1.12.6:** animated card art for the Sawmill, Grinding Mill, Forge, Workshop and Overshot Wheel.
 - **1.12.5:** the Forge and Workshops no longer heat themselves with no fuel; Bronze Gear piles can be spread out.
 - **1.12.3:** Blast no longer warms the world, melted metal keeps its own quality, Partners only work marked stations, and WDI's own nails, solder and sheets give way to the shared ones.

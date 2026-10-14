@@ -221,6 +221,9 @@ Four BepInEx options in the `Debug` section of this mod's file in `BepInEx/confi
 
 Full history is in `CHANGELOG.md`.
 
+- **1.69.15:** the village locations stay still; the villagers, guards and cats still breathe.
+- **1.69.14:** calmer river under the River Bridge.
+- **1.69.13:** the villagers, guards and cats breathe; the lit Scented Candle, Ceramic Lamp and Incense Burners and the River Bridge have animated card art.
 - **1.69.12:** Iris Vane keeps hunting after an arrest, the Apothecary walks to the village in the morning, one Shadow per game, six items weigh what they look like.
 - **1.69.11:** the jail tunnel can only be dug while the Watch is really away.
 - **1.69.10:** every village building's Enter button no longer opens the Inn.

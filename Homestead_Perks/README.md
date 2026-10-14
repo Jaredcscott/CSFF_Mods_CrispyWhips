@@ -94,6 +94,7 @@ Carried items count toward the 4000 Encumbrance cap. At the cap, vanilla blocks 
 ## Version history
 
 Full list in CHANGELOG.md.
+- 1.3.3: the Rustic Stool and the Bookshelf have pictures (the game ships both blank).
 - 1.3.2: card art cropped to the subject, like vanilla's.
 - 1.3.1: Homestead Kit materials made usable; 28 new perks and kits; placement guards.
 - 1.3.0: Rustic Table Kit, Bookshelf Kit and Sledge.

@@ -133,6 +133,8 @@ Three chambers lie in a line, reachable only through the Cave Mouth and not draw
 ## Version history
 
 Full notes are in CHANGELOG.md.
+- **0.1.4:** the lore sites stay still; the Tree Hollow's branches still sway.
+- **0.1.3:** the lore sites drift slowly and the Tree Hollow's branches sway.
 - **0.1.2:** the Fairy Hole Ladder (Foot) now helps the climb up The Shaft.
 - **0.1.1:** the Climbing Aids can be built, Chinese translation, redrawn pictures.
 - **0.1.0:** first release.

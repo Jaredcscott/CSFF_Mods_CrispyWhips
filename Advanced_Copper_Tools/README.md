@@ -3,7 +3,7 @@
 **Quality of Life & Advanced Metalworking**
 **Version:** 1.18.6
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.68)
+**For:** Card Survival: Fantasy Forest (EA 0.69c)
 
 ---
 
@@ -628,7 +628,7 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 
 ## Installation
 
-**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.0 or later (it ships the Metal Sheet, Metal Nail and Tin Solder this mod builds with), and Card Survival: Fantasy Forest (EA 0.68).
+**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.0 or later (it ships the Metal Sheet, Metal Nail and Tin Solder this mod builds with), and Card Survival: Fantasy Forest (EA 0.69c).
 
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
@@ -681,7 +681,8 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 Full detail for every version is in `CHANGELOG.md`.
 
-- **1.18.5:** the lit Copper Brazier, Metal Lantern and Lantern Oilwell have animated card art.
+- **1.18.6:** the mine locations stay still (the slow drift added in 1.18.5 is off for now).
+- **1.18.5:** animated card art for the lit Copper Brazier, Metal Lantern and Lantern Oilwell, and for warm copper: the Bathtub steams, the Small Copper Stove and Tea Blending Station glow, the Cauldron's lid rattles and the Tea Kettle steams.
 - **1.18.4:** the Wheelbarrow and Tea Blending Station perks list their item as a starting item instead of equipment that cannot be worn. Taking apart copper gear returns Metal Sheets at quality 50. Item weights match the base game.
 - **1.18.3:** recipe and help text name everything each recipe takes, in English and Chinese.
 - **1.18.2:** the mines produce copper at the game's own pace, a worn Wearable Metal Pan weighs nothing, and the new Copper Sap Bucket collects tap sap and resin.
