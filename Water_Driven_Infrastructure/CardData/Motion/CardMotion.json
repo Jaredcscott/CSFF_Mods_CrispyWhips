@@ -1,6 +1,4 @@
 {
   "_about": "Card motion layer (CSFFModFramework 2.28.3+, CardMotionLoader): sprite name -> built-in profile. npc and animal breathe, plant sways, location drifts slowly inside its frame. No image files.",
-  "Sprites": {
-    "FishpondWinter": "location"
-  }
+  "Sprites": {}
 }

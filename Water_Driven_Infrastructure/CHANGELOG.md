@@ -2,6 +2,12 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.8] - 2026-10-14
+
+### Changed
+
+- **The winter fishpond stays still again.** Location motion is off for now; the animated water is unchanged.
+
 ## [1.12.7] - 2026-10-14
 
 ### Changed
