@@ -32,9 +32,13 @@ internal static class LifecycleTemplateBuilder
         // --- on-stage window actions -------------------------------------------------
         if (!m.HasActivityWindow)
         {
-            // Always-active species: one fire-once teleport out of the Spirit World.
+            // Always-active species: one fire-once teleport out of the Spirit World. A species with
+            // Spawn.Conditions is parked in the Spirit World each time a condition retires it, so its
+            // appear action re-arms instead (ResetWhenConditionsAreFalse, the windowed species' own
+            // option): exists 0 makes the alive gate false, and restoring exists fires it again.
+            // Without conditions it stays OnlyOnce, exactly as shipped.
             actions.Add(NewAction($"csffmfw_{m.SpeciesId}_appear", "Appear at home range", homeEnv,
-                repeatOptions: 0 /* OnlyOnce */, window: null, aliveGate: stats));
+                repeatOptions: m.SpawnConditions.Count > 0 ? 2 : 0 /* OnlyOnce */, window: null, aliveGate: stats));
         }
         else
         {
@@ -53,10 +57,15 @@ internal static class LifecycleTemplateBuilder
         // --- death: blood in the dead band → drop carcass, then retire off-stage ------
         // MoveTiming 1 (move AFTER drops) so the carcass lands where the agent died.
         // No NPCStatModifications on this action — see the class doc invariant.
+        // ResetWhenConditionsAreFalse, NOT Repeat: blood stays in the dead band for the whole
+        // respawn delay (nothing here writes it), and InGameNPC.CheckForActions re-arms a Repeat
+        // action every tick, so Repeat dropped one carcass PER TICK until the ticker healed the
+        // agent (421 Fallen Bandits in 3 days, harness T2.467). Option 2 fires once on entering
+        // the band and re-arms only after blood leaves it (respawn heal), i.e. once per death.
         if (stats?.Blood != null)
         {
             var death = NewAction($"csffmfw_{m.SpeciesId}_death", "Collapse and drop carcass", spiritWorld,
-                repeatOptions: 1 /* Repeat */, window: null);
+                repeatOptions: 2 /* ResetWhenConditionsAreFalse */, window: null);
             death.MoveTiming = (NPCActionMoveTiming)1;   // move AFTER drops
             AddStatCondition(death, stats.Blood, 0f, DutyBuilder.SpeciesStats.DeadBloodMax);
             death.DroppedCards = BuildCarcassDrops(m, carcass);
@@ -162,7 +171,7 @@ internal static class LifecycleTemplateBuilder
         if (aliveGate?.Blood != null)
             AddStatCondition(action, aliveGate.Blood, DutyBuilder.SpeciesStats.DeadBloodMax + 1f, 999999f);
 
-        Log.Debug($"Animals: built lifecycle action '{actionId}' → {(destination != null ? destination.name : "(none)")}"
+        Log.DebugSampled("Animals: built lifecycle action", $"Animals: built lifecycle action '{actionId}' → {(destination != null ? destination.name : "(none)")}"
                 + (window is { } win ? $" (hours {win.Start}-{win.End})" : " (unconditional)"));
         return action;
     }

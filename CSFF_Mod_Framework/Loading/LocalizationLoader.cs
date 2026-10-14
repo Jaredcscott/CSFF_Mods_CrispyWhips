@@ -59,7 +59,70 @@ internal static class LocalizationLoader
             totalStrings += modCount;
         }
 
+        foreach (var pair in _derivedRows)
+            WriteDerivedRow(pair.Key, pair.Value, currentTexts);
+
         Log.Info($"LocalizationLoader: {totalStrings} total strings loaded");
+    }
+
+    // Rows built at runtime from two loaded rows: a template row formatted with a name row (the
+    // generated animal encounter's "You see a {0}!"). Re-derived on every language load, after the CSVs,
+    // so both halves are in the same language.
+    private sealed class DerivedRow
+    {
+        public string TemplateKey;
+        public string VowelTemplateKey;
+        public string NameKey;
+        public string FallbackName;
+    }
+
+    private static readonly Dictionary<string, DerivedRow> _derivedRows = new();
+
+    /// <summary>
+    /// Registers <paramref name="key"/> as <c>string.Format(template, name)</c>, where the template is the
+    /// current language's <paramref name="templateKey"/> row (or <paramref name="vowelTemplateKey"/>'s when the
+    /// name starts with an English vowel, for "an Owl") and the name is <paramref name="nameKey"/>'s row, or
+    /// <paramref name="fallbackName"/> when that key is empty or has no row. Writes the row now and again on
+    /// every language load. Returns <paramref name="englishTemplate"/> formatted with
+    /// <paramref name="fallbackName"/>, for a <c>DefaultText</c> that stays English whatever the language.
+    /// </summary>
+    internal static string RegisterDerivedRow(string key, string templateKey, string vowelTemplateKey,
+        string nameKey, string fallbackName, string englishTemplate, string englishVowelTemplate)
+    {
+        var row = new DerivedRow { TemplateKey = templateKey, VowelTemplateKey = vowelTemplateKey, NameKey = nameKey, FallbackName = fallbackName };
+        _derivedRows[key] = row;
+        var currentTexts = GetCurrentTexts();
+        if (currentTexts != null) WriteDerivedRow(key, row, currentTexts);
+        return FormatDerived(englishTemplate, englishVowelTemplate, fallbackName) ?? fallbackName;
+    }
+
+    private static string WriteDerivedRow(string key, DerivedRow row, Dictionary<string, string> currentTexts)
+    {
+        if (!currentTexts.TryGetValue(row.TemplateKey, out var template) || string.IsNullOrEmpty(template))
+        {
+            Log.Warn($"LocalizationLoader: derived row '{key}' skipped: template row '{row.TemplateKey}' is not loaded");
+            return null;
+        }
+        currentTexts.TryGetValue(row.VowelTemplateKey, out var vowelTemplate);
+        string name = !string.IsNullOrEmpty(row.NameKey) && currentTexts.TryGetValue(row.NameKey, out var n) && !string.IsNullOrEmpty(n)
+            ? n
+            : row.FallbackName;
+        string text = FormatDerived(template, vowelTemplate, name);
+        if (text != null) currentTexts[key] = text;
+        return text;
+    }
+
+    private static string FormatDerived(string template, string vowelTemplate, string name)
+    {
+        if (string.IsNullOrEmpty(name)) return null;
+        bool vowel = "AEIOUaeiou".IndexOf(name[0]) >= 0;
+        string chosen = vowel && !string.IsNullOrEmpty(vowelTemplate) ? vowelTemplate : template;
+        try { return string.Format(chosen, name); }
+        catch (FormatException ex)
+        {
+            Log.Warn($"LocalizationLoader: template '{chosen}' could not be formatted with '{name}': {ex.Message}");
+            return null;
+        }
     }
 
     // No header row — CSV format: Key,English[,Chinese]
@@ -114,6 +177,43 @@ internal static class LocalizationLoader
             }
         }
         return count;
+    }
+
+    /// <summary>
+    /// The keys a mod's English localization files define, read the way <see cref="LoadLocalizationDir"/>
+    /// reads them for English: every <c>*SimpEn*.csv</c> in the mod's Localization folder, the same record
+    /// splitting and key trimming, and a key counts only when its English column is non-empty (the loader
+    /// registers nothing otherwise). Null when the mod has no such file. Used by the Animals validator to
+    /// check that a localization key a manifest names has a row to resolve to.
+    /// </summary>
+    internal static HashSet<string> ReadEnglishKeys(string modDir)
+    {
+        var locDir = Path.Combine(modDir, "Localization");
+        if (!Directory.Exists(locDir)) return null;
+
+        HashSet<string> keys = null;
+        foreach (var file in Directory.GetFiles(locDir, "*.csv"))
+        {
+            if (Path.GetFileNameWithoutExtension(file).IndexOf("SimpEn", StringComparison.OrdinalIgnoreCase) < 0) continue;
+            keys ??= new HashSet<string>(StringComparer.Ordinal);
+            try
+            {
+                foreach (var record in ReadCsvRecords(file))
+                {
+                    if (string.IsNullOrWhiteSpace(record)) continue;
+                    var columns = SplitCsvLine(record);
+                    if (columns.Count < 2) continue;
+                    var key = columns[0].Trim();
+                    if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(columns[1].Trim())) continue;
+                    keys.Add(key);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"LocalizationLoader: could not read English keys from {file}: {Log.ExceptionText(ex)}");
+            }
+        }
+        return keys;
     }
 
     /// <summary>

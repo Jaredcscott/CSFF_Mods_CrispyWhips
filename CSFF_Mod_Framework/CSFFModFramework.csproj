@@ -82,7 +82,8 @@
     <ItemGroup>
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="CardData\Hub\**\*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="CardData\**\*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="SmeltingRecipes.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="CharacterPerk\**\*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Localization\**\*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Resource\Picture\**\*" CopyToOutputDirectory="PreserveNewest" />

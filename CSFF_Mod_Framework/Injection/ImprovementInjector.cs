@@ -75,16 +75,30 @@ internal static class ImprovementInjector
 
         var cardLookup = BuildCardLookup(allData);
         int injected = 0;
+        // Rows skipped for a UID that does not resolve (framework README "Unresolved references").
+        // Warn when the game or a loaded mod should have supplied the UID (an authoring error, plan W0-11
+        // finding 1); Debug when a partner mod that is not installed explains it (plan section 32). Every
+        // miss is counted, and the Info summary names the UIDs.
+        int skipped = 0;
+        var missed = new List<string>();
         foreach (var (modName, targetUid, impUid) in entries)
         {
             if (!cardLookup.TryGetValue(targetUid, out var targetObj) || targetObj is not CardData target)
             {
-                Log.Warn($"ImprovementInjector: {modName}: TargetEnvUID '{targetUid}' not found in registry — skipped");
+                if (UnresolvedUid.ExpectedPresent(targetUid))
+                    Log.Warn($"ImprovementInjector: {modName}: TargetEnvUID '{targetUid}' not found in registry - skipped");
+                else
+                    Log.Debug($"ImprovementInjector: {modName}: TargetEnvUID '{targetUid}' does not resolve (a partner mod not installed?) - skipped");
+                skipped++; missed.Add(targetUid);
                 continue;
             }
             if (!cardLookup.TryGetValue(impUid, out var impObj) || impObj is not CardData improvement)
             {
-                Log.Warn($"ImprovementInjector: {modName}: ImprovementUID '{impUid}' not found in registry — skipped");
+                if (UnresolvedUid.ExpectedPresent(impUid))
+                    Log.Warn($"ImprovementInjector: {modName}: ImprovementUID '{impUid}' not found in registry - skipped");
+                else
+                    Log.Debug($"ImprovementInjector: {modName}: ImprovementUID '{impUid}' does not resolve (a partner mod not installed?) - skipped");
+                skipped++; missed.Add(impUid);
                 continue;
             }
 
@@ -102,11 +116,14 @@ internal static class ImprovementInjector
 
             Loading.FrameworkDirtyTracker.MarkDirty(target);
             injected++;
+            // Kept as plain Debug (not sampled): harness scenario T2.187 greps each target's own
+            // "added to '<target>'" line as proof the improvement reached it.
             Log.Debug($"ImprovementInjector: {modName}: '{impUid}' added to '{targetUid}' ({arr.Length} -> {next.Length} improvements)");
         }
 
-        if (injected > 0)
-            Log.Info($"ImprovementInjector: {injected} improvement(s) injected across target location card(s)");
+        if (injected > 0 || skipped > 0)
+            Log.Info($"ImprovementInjector: {injected} improvement(s) injected across target location card(s)"
+                   + (skipped > 0 ? $", {skipped} row(s) skipped for an unresolved UID: {UnresolvedUid.Sample(missed)}" : ""));
     }
 
     private static Dictionary<string, object> BuildCardLookup(IEnumerable allData)

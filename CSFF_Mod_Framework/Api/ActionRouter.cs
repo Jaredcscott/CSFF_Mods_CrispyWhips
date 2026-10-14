@@ -21,7 +21,8 @@ public enum ActionTiming
     /// popup state, and side effects), then run <see cref="ActionHandler.After"/> —
     /// the single framework-owned IEnumerator wrap point. An optional
     /// <see cref="ActionHandler.Before"/> still runs in the prefix (e.g. requirement
-    /// pre-checks, capturing values into <see cref="ActionContext.Tag"/>).
+    /// pre-checks, capturing values into <see cref="ActionContext.Tag"/>). By the time
+    /// <c>After</c> runs, <see cref="ActionContext.Produced"/> holds the cards the action created.
     /// </summary>
     AfterWrapped,
 }
@@ -55,6 +56,74 @@ public sealed class ActionContext
 
     /// <summary>Handler scratch slot — set it in Before, read it in After.</summary>
     public object Tag { get; set; }
+
+    /// <summary>
+    /// The in-game cards the game created while this action was in flight, in spawn order
+    /// (2.28.0, plan feature 11). Filled for <see cref="ActionTiming.AfterWrapped"/> dispatches
+    /// only and complete when <see cref="ActionHandler.After"/> runs; empty in <c>Before</c> and
+    /// for <c>Cancel</c>/<c>Before</c> timings. <see cref="ProducedUids"/> holds each card's
+    /// UniqueID at the same index. Replaces the Before/After instance-ID snapshot diff.
+    ///
+    /// <para><b>Window.</b> Every <see cref="SpawnService.CardSpawned"/> (vanilla
+    /// <c>GameManager.OnCardSpawned</c>) raised between the wrapped action's first step and its
+    /// end. Measured on EA 0.68b (plan W0-4, 2026-10-09): a <c>ProducedCards</c> drop, the
+    /// inventory contents and default liquid of a dropped container (after the container
+    /// itself), a new liquid from <c>CurrentLiquidDrop</c>, a transform, a drag's products, and a
+    /// <c>SpawnService.Spawn</c> made from <c>Before</c> of an action that lasts more than a frame
+    /// all land INSIDE the window, so no later "settled" pass is needed.</para>
+    ///
+    /// <para><b>Attribution.</b> A spawn goes to the most recently started routed action still in
+    /// flight, so when one wrapped action runs inside another the inner one gets its own
+    /// products and the outer one does not see them (innermost first). A stack button action's
+    /// first card dispatches on <c>PerformStackActionRoutine</c> and the other members on nested
+    /// routes, so each member's handler sees its own member's products. A nested action that no
+    /// <c>AfterWrapped</c> handler wraps counts as part of the action that runs it.</para>
+    ///
+    /// <para><b>Over-collection (by contract, not filtered).</b> The window is a time window, not
+    /// a causal one: a card ANOTHER card creates while this action passes its ticks (a campfire
+    /// burning out into its extinguished form, a cooking recipe finishing, an NPC's drop) is
+    /// collected too. Match the cards you expect by UniqueID; never assume every entry is
+    /// yours.</para>
+    ///
+    /// <para><b>Never collected.</b> Spawns that never raise <c>OnCardSpawned</c>: a liquid
+    /// merged into the same liquid already in a container, save-data drops (into another
+    /// environment, from a background source, or <c>CurrentSaveDataDrop</c>), auto-solved event
+    /// cards, and save loads. Spawns that can land AFTER the window: event-card drops of a
+    /// NESTED routed action (the root action spawns them), <c>AddedCardsInOtherEnvs</c> into the
+    /// current environment, and a <c>GiveCard</c>/<c>SpawnService.Spawn</c> started from
+    /// <c>After</c> or from an action that ends in the same frame.</para>
+    /// </summary>
+    public IReadOnlyList<object> Produced => _producedView ?? (IReadOnlyList<object>)Array.Empty<object>();
+
+    /// <summary>UniqueIDs of <see cref="Produced"/>, index for index.</summary>
+    public IReadOnlyList<string> ProducedUids => _producedUidsView ?? (IReadOnlyList<string>)Array.Empty<string>();
+
+    /// <summary>Cap on one context's collection, so a context whose action was abandoned mid-flight cannot grow without bound.</summary>
+    internal const int MaxProduced = 512;
+
+    private List<object> _produced;
+    private List<string> _producedUids;
+    private System.Collections.ObjectModel.ReadOnlyCollection<object> _producedView;
+    private System.Collections.ObjectModel.ReadOnlyCollection<string> _producedUidsView;
+
+    /// <summary>Spawns refused because <see cref="MaxProduced"/> was reached.</summary>
+    internal int ProducedOverflow;
+
+    /// <summary>Appends one spawn; false (and counted) once the cap is reached. Pure.</summary>
+    internal bool AddProduced(object card, string uid)
+    {
+        if (_produced == null)
+        {
+            _produced = new List<object>(4);
+            _producedUids = new List<string>(4);
+            _producedView = _produced.AsReadOnly();
+            _producedUidsView = _producedUids.AsReadOnly();
+        }
+        if (_produced.Count >= MaxProduced) { ProducedOverflow++; return false; }
+        _produced.Add(card);
+        _producedUids.Add(uid);
+        return true;
+    }
 }
 
 /// <summary>
@@ -168,6 +237,7 @@ public static class ActionRouter
             return null;
         }
         handler.Name ??= handler.CardUid ?? "handler";
+        if (handler.Timing == ActionTiming.AfterWrapped) EnsureProducedHook();
 
         lock (_handlers)
         {
@@ -175,7 +245,7 @@ public static class ActionRouter
             _snapshot = _handlers.ToArray();
         }
         EnsurePatched();
-        Log.Debug($"[ActionRouter] registered '{handler.Name}' ({_snapshot.Length} total)");
+        Log.DebugSampled("[ActionRouter] registered", $"[ActionRouter] registered '{handler.Name}' ({_snapshot.Length} total)");
         return handler;
     }
 
@@ -537,6 +607,87 @@ public static class ActionRouter
         __result = RunWrapped(__result, ws);
     }
 
+    // ── ActionContext.Produced collection (2.28.0, plan feature 11) ──────────
+    // Contexts of wrapped actions now in flight, oldest first. A spawn is attributed to the LAST
+    // entry (the most recently started action still running), which is the innermost one when a
+    // routed action nests in another. Entries are removed wherever they sit when their wrapper
+    // ends, because two unrelated actions need not finish in LIFO order. Main thread only.
+    private static readonly List<ActionContext> _inFlight = new();
+    private const int MaxInFlight = 64;
+    private static bool _producedHooked;
+    private static bool _inFlightEvictWarned;
+    private static bool _producedOverflowWarned;
+
+    /// <summary>Number of wrapped actions now collecting spawns (diagnostics and the offline gate).</summary>
+    internal static int InFlightCount => _inFlight.Count;
+
+    // Once per process (pattern (b) of root CLAUDE.md "Per-Run Event Registration"): the latch
+    // returns before either subscription, so a re-fired OnGMInitialized never stacks a second
+    // CardSpawned handler. OnGMInitialized clears contexts left behind by an action the inline
+    // coroutine runner abandoned in the previous run (its wrapper never reached its end).
+    private static void EnsureProducedHook()
+    {
+        if (_producedHooked) return;
+        _producedHooked = true;
+        try
+        {
+            SpawnService.CardSpawned += OnCardSpawnedWhileInFlight;
+            GameManager.OnGMInitialized += ResetCollecting;
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[ActionRouter] could not hook CardSpawned; ActionContext.Produced stays empty: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    private static void OnCardSpawnedWhileInFlight(object card, string uid)
+    {
+        if (_inFlight.Count == 0) return;
+        if (!CollectSpawn(card, uid) && !_producedOverflowWarned)
+        {
+            _producedOverflowWarned = true;
+            var top = _inFlight[_inFlight.Count - 1];
+            Log.Warn($"[ActionRouter] ActionContext.Produced reached {ActionContext.MaxProduced} cards for "
+                   + $"'{top.ActionName ?? top.ActionKey}' on {top.CardUid} ({top.Route}); further spawns are not "
+                   + "collected for it. Usually an action the game abandoned mid-flight; warned once per process.");
+        }
+    }
+
+    /// <summary>
+    /// Starts collecting spawns for <paramref name="ctx"/>. Returns true when the in-flight list
+    /// was full and its OLDEST context (most likely abandoned) was dropped to make room. Pure:
+    /// no Unity or logging calls, so the offline gate can drive it.
+    /// </summary>
+    internal static bool BeginCollecting(ActionContext ctx)
+    {
+        bool evicted = false;
+        if (_inFlight.Count >= MaxInFlight) { _inFlight.RemoveAt(0); evicted = true; }
+        _inFlight.Add(ctx);
+        return evicted;
+    }
+
+    /// <summary>Stops collecting for <paramref name="ctx"/> wherever it sits in the in-flight list. Pure, idempotent.</summary>
+    internal static void EndCollecting(ActionContext ctx)
+    {
+        for (int i = _inFlight.Count - 1; i >= 0; i--)
+        {
+            if (ReferenceEquals(_inFlight[i], ctx)) { _inFlight.RemoveAt(i); return; }
+        }
+    }
+
+    /// <summary>
+    /// Attributes one spawn to the innermost in-flight context. True when collected or when
+    /// nothing is in flight; false only when that context is at its cap. Pure.
+    /// </summary>
+    internal static bool CollectSpawn(object card, string uid)
+    {
+        if (_inFlight.Count == 0 || card == null) return true;
+        return _inFlight[_inFlight.Count - 1].AddProduced(card, uid);
+    }
+
+    /// <summary>Forgets every in-flight context (run start). Pure.</summary>
+    internal static void ResetCollecting() => _inFlight.Clear();
+
     // MoveNext is stepped manually (rather than `while (original.MoveNext()) yield return ...`)
     // so a throw from the WRAPPED GAME'S OWN coroutine can be caught outside the yield: C#
     // iterators cannot yield inside a try block that has a catch clause.
@@ -550,7 +701,7 @@ public static class ActionRouter
     //     is logged once with the route, action and card attached, and After handlers are skipped.
     //   - It does NOT clear the busy-lock. A C# iterator that throws is finished: every later
     //     MoveNext returns false, so the rest of GameManager.ActionRoutine never runs, including
-    //     `RootAction = null` (.decomp/GameManager.cs line 5222) and the return to
+    //     `RootAction = null` (.decomp/GameManager.cs line 5646 on EA 0.68b) and the return to
     //     GameStates.SELECT. If the throwing action was the root action, RootAction stays set and
     //     every click still answers "I can't do two things at once..." until a restart.
     //     ChangeEnvironmentCrashGuard and AddInstancedEnvCrashGuard differ in the way that
@@ -585,28 +736,46 @@ public static class ActionRouter
     private static IEnumerator RunWrapped(IEnumerator original, WrapState ws)
     {
         bool completedCleanly = true;
-        if (original != null)
+        // Collect spawns from the action's first step to its end (ActionContext.Produced). The
+        // finally covers a wrapper that is disposed early; a wrapper the coroutine runner simply
+        // drops is never disposed, which BeginCollecting's cap and the run-start reset bound.
+        if (ws.Ctx != null && BeginCollecting(ws.Ctx) && !_inFlightEvictWarned)
         {
-            while (true)
+            _inFlightEvictWarned = true;
+            Log.Warn($"[ActionRouter] {MaxInFlight} wrapped actions were in flight at once; the oldest stopped collecting "
+                   + "ActionContext.Produced. Usually actions the game abandoned mid-flight; warned once per process.");
+        }
+        try
+        {
+            if (original != null)
             {
-                bool moved;
-                try
+                while (true)
                 {
-                    moved = original.MoveNext();
+                    bool moved;
+                    try
+                    {
+                        moved = original.MoveNext();
+                    }
+                    catch (Exception ex)
+                    {
+                        completedCleanly = false;
+                        Log.Error($"[ActionRouter] wrapped action coroutine threw. The exception was contained so anything "
+                            + $"waiting on this action can finish, but the game's own action did not complete: if it was the "
+                            + $"root action, every later click answers \"I can't do two things at once...\" until a restart. "
+                            + $"Route='{ws.Ctx?.Route}' Action='{ws.Ctx?.ActionName ?? ws.Ctx?.ActionKey}' "
+                            + $"Card='{ws.Ctx?.CardUid}'. Exception: {ex}");
+                        break;
+                    }
+                    if (!moved) break;
+                    yield return original.Current;
                 }
-                catch (Exception ex)
-                {
-                    completedCleanly = false;
-                    Log.Error($"[ActionRouter] wrapped action coroutine threw. The exception was contained so anything "
-                        + $"waiting on this action can finish, but the game's own action did not complete: if it was the "
-                        + $"root action, every later click answers \"I can't do two things at once...\" until a restart. "
-                        + $"Route='{ws.Ctx?.Route}' Action='{ws.Ctx?.ActionName ?? ws.Ctx?.ActionKey}' "
-                        + $"Card='{ws.Ctx?.CardUid}'. Exception: {ex}");
-                    break;
-                }
-                if (!moved) break;
-                yield return original.Current;
             }
+        }
+        finally
+        {
+            // Closed BEFORE the After handlers run, so a spawn an After handler starts is never
+            // credited to the action it follows.
+            if (ws.Ctx != null) EndCollecting(ws.Ctx);
         }
 
         // The action didn't finish normally — skip After handlers, whose contract assumes

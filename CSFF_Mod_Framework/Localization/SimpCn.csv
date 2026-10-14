@@ -11,3 +11,59 @@ CSFFMFW_Perk_Wayfinder_PerkDescription,You begin with a Portal Kit. Place it any
 CSFFMFW_BpPortalKit_CardName,Portal Kit,传送门套件
 CSFFMFW_BpPortalKit_CardDescription,"Bind a witch stone into fresh fur and dried wolfsbane, sealed with animal fat. Assembles a portable Portal Hub kit.",将巫石绑入新鲜毛皮与干乌头中，并用动物脂肪密封。制成一套便携式传送枢纽套件。
 CSFFMFW_BpPortalKit_UnlockConditionsDesc,Witch Stone Needed,需要巫石
+CSFFMFW_Animal_Approach,Approach,接近
+CSFFMFW_Animal_EncounterEventTitle,You see a {0}!,你看到了{0}！
+CSFFMFW_Animal_EncounterEventTitleVowel,You see an {0}!,你看到了{0}！
+Advanced_Copper_Tools_CopperNails_CardName,Metal Nail,金属钉
+Advanced_Copper_Tools_CopperNails_CardDescription,"A small metal nail, perfect for joining wood. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron.",一枚小金属钉，非常适合连接木材。它的金属与制作它的材料相同：铜、幽灵青铜、锡、锡青铜、白青铜或铁。
+Advanced_Copper_Tools_Bp_CopperNails_CardName,Forged Copper Nail,锻造铜钉
+Advanced_Copper_Tools_Bp_CopperNails_CardDescription,"Hammer a copper, tin or bronze nugget into a nail of the same metal.",将铜、锡或青铜金属块锤打成同种金属的钉子。
+Advanced_Copper_Tools_Bp_CopperNails_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
+Advanced_Copper_Tools_CopperNails_CardHelpSection,"<b>Crafted:</b> From a copper, tin or bronze nugget using a hammer, or six at a time by casting a heated copper, tin or bronze bar (one mud brick and one clay as the mould); iron nails are forged from 4 iron nuggets with a hammer (Forge Iron Nails, 4 nails). The nail is the metal of its nugget or bar.
+
+<b>Uses:</b> Construction and crafting. A nail of any metal works the same in every recipe, iron included.
+
+<b>Smelts:</b> Returns 1 nugget of its own metal in a furnace at 1100°C or hotter.","<b>制作：</b>用锤子将铜、锡或青铜金属块锤成钉子，或将加热的铜、锡或青铜金属锭浇铸（用1块泥砖和1份黏土作模）一次得到六枚；铁钉用锤子把4块铁块锻造而成（锻造铁钉，产出4枚）。钉子的金属与所用金属块或金属锭相同。
+
+<b>用途：</b>建筑和手工制作材料。任何金属的钉子（包括铁钉）在所有配方中作用相同。
+
+<b>熔炼：</b>在1100°C或更高温度的熔炉中返还1块同种金属的金属块。"
+Advanced_Copper_Tools_MetalSheet_CardDescription,"A flat metal sheet, hammered thin. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron.",一块锤打成薄片的金属片。它的金属与制作它的材料相同：铜、幽灵青铜、锡、锡青铜、白青铜或铁。
+Advanced_Copper_Tools_MetalSheet_CardName,Metal Sheet,金属片
+Bp_MetalSheet_CardDescription,Hammer a heated lump of metal flat into a copper sheet.,将加热的金属锭锤打成铜片。
+Bp_MetalSheet_CardName,Metal Sheet,金属片
+Bp_MetalSheet_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
+Advanced_Copper_Tools_CopperNails_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_MetalSheet_AlternateNames[0].Name,Copper Sheet,铜片
+Advanced_Copper_Tools_MetalSheet_AlternateNames[1].Name,Ghost Bronze Sheet,幽灵青铜片
+Advanced_Copper_Tools_MetalSheet_AlternateNames[2].Name,Tin Sheet,锡片
+Advanced_Copper_Tools_MetalSheet_AlternateNames[3].Name,Tin Bronze Sheet,锡青铜片
+Advanced_Copper_Tools_MetalSheet_AlternateNames[4].Name,White Bronze Sheet,白青铜片
+Advanced_Copper_Tools_MetalSheet_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Bp_IronSheet_CardName,Iron Sheet,铁板
+Advanced_Copper_Tools_Bp_IronSheet_CardDescription,"Hammer 6 iron nuggets flat into an Iron Sheet (a Metal Sheet of Metal Type 200), ready for iron-grade tools and armor.",把6块铁块锤打成一块铁片（金属类型200的金属片），可用于打造铁质工具和铠甲。
+Advanced_Copper_Tools_Bp_IronSheet_UnlockConditionsDesc,Iron Nugget Needed,需要铁块
+Advanced_Copper_Tools_TinSolder_CardName,Tin Solder,锡焊料
+Advanced_Copper_Tools_TinSolder_CardDescription,A tin solder stick. Useful for joining metal parts or sealing seams.,锡焊料棒。用于连接金属零件或密封接缝。
+Advanced_Copper_Tools_Bp_IronNails_CardName,Forge Iron Nails,锻造铁钉
+Advanced_Copper_Tools_Bp_IronNails_CardDescription,Forge 4 iron nuggets into 4 Iron Nails (Metal Nails of Metal Type 200).,用4块铁块锻造4枚铁钉（金属类型200的金属钉）。
+Advanced_Copper_Tools_Bp_IronNails_UnlockConditionsDesc,Dried Bog Iron Needed,需要干沼铁
+Advanced_Copper_Tools_Bp_TinSolder_CardName,Forge Tin Solder,锻造锡焊料
+Advanced_Copper_Tools_Bp_TinSolder_CardDescription,Melt a tin-grade metal nugget into solder sticks.,将锡块熔铸成焊料棒。
+Advanced_Copper_Tools_Bp_TinSolder_UnlockConditionsDesc,Tin Nugget Needed,需要锡块
+Advanced_Copper_Tools_Bp_BronzeSheet_CardName,Bronze Sheet,青铜片
+Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription,"Hammer a heated Ghost Bronze, Tin, Tin Bronze or White Bronze bar flat into a sheet of the same metal, ready for alloy armor.",将加热的幽灵青铜、锡、锡青铜或白青铜锭锤打成同种金属的薄片，可用于打造合金铠甲。
+Advanced_Copper_Tools_Bp_BronzeSheet_UnlockConditionsDesc,Heated Bronze-Grade Metal Bar Needed,需要加热的青铜级金属锭
+Advanced_Copper_Tools_MetalSheet_SpecialDurability2.CardStatName,Metal Quality,金属质量
+Advanced_Copper_Tools_MetalSheet_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_CopperNails_AlternateNames[0].Name,Copper Nail,铜钉
+Advanced_Copper_Tools_CopperNails_AlternateNames[1].Name,Ghost Bronze Nail,幽灵青铜钉
+Advanced_Copper_Tools_CopperNails_AlternateNames[2].Name,Tin Nail,锡钉
+Advanced_Copper_Tools_CopperNails_AlternateNames[3].Name,Tin Bronze Nail,锡青铜钉
+Advanced_Copper_Tools_CopperNails_AlternateNames[4].Name,White Bronze Nail,白青铜钉
+Advanced_Copper_Tools_CopperNails_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_Bp_CastCopperNails_CardName,Cast Copper Nails,铸造铜钉
+Advanced_Copper_Tools_Bp_CastCopperNails_CardDescription,"Cast a heated copper, tin or bronze bar into six nails of the same metal.",将加热的铜、锡或青铜金属锭浇铸成六枚同种金属的钉子。
+Advanced_Copper_Tools_Bp_CastCopperNails_UnlockConditionsDesc,Heated Metal Bar Needed,需要加热的金属锭
+Advanced_Copper_Tools_MetalSheet_AlternateNames[5].Name,Iron Sheet,铁片
+Advanced_Copper_Tools_CopperNails_AlternateNames[5].Name,Iron Nail,铁钉

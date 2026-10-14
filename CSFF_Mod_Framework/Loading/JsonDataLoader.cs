@@ -121,7 +121,7 @@ internal static class JsonDataLoader
     // coexistence — ModCore scans this folder convention on EVERY plugin regardless of manifest
     // tags, so renaming would just cause it to duplicate the new name too) apart from "two of
     // OUR OWN mods used the same name" (a real authoring mistake worth a loud warning).
-    private static readonly HashSet<string> _ourNonUidRegistrations = new(StringComparer.OrdinalIgnoreCase);
+    private static readonly Dictionary<string, string> _ourNonUidRegistrations = new(StringComparer.OrdinalIgnoreCase);
 
     public static void LoadAll(List<ModManifest> mods)
     {
@@ -133,6 +133,7 @@ internal static class JsonDataLoader
         NonUidWarpObjects.Clear();
         ExtraDataStore.Clear();
         _ourNonUidRegistrations.Clear();
+        AuthoringLint.BeginLoad(VanillaCardTagNames());
         _skippedTypes.Clear();
 
         var sw = Stopwatch.StartNew();
@@ -168,6 +169,9 @@ internal static class JsonDataLoader
             for (int i = 0; i < workItems.Count; i++) results[i] = ParseFile(workItems[i]);
         var parseMs = sw.ElapsedMilliseconds;
 
+        // Framework-hosted UIDs another mod still ships (plan feature 31): skip the framework's copy.
+        var skipHosted = FindHostedUidConflicts(workItems, results);
+
         // ── Stage 3: materialize (serial, main thread) ───────────────────────────
         // All Unity APIs (ScriptableObject.CreateInstance, JsonUtility.FromJsonOverwrite, Init),
         // the non-thread-safe framework caches, and the game-registry writes happen here, in the
@@ -182,6 +186,8 @@ internal static class JsonDataLoader
         {
             var item = workItems[i];
             var r = results[i];
+
+            if (skipHosted != null && skipHosted.Contains(i)) continue;
 
             if (r.ReadOrParseError != null)
             {
@@ -271,6 +277,8 @@ internal static class JsonDataLoader
                 // any WarpData reference (e.g. CardData.WeaponMovesWarpData) resolving it by name
                 // would silently fail with zero log output.
                 t0 = Stopwatch.GetTimestamp();
+                // Asked BEFORE Register, which overwrites the name: did a vanilla CardTag hold it?
+                bool vanillaTagName = obj is CardTag && AuthoringLint.IsVanillaTagName(obj.name);
                 bool wasNew = ContentRegistry.Register(obj);
                 // ContentRegistry.Register always overwrites regardless of wasNew — our instance
                 // is canonical in OUR OWN Database dict the moment this line runs, independent of
@@ -284,11 +292,20 @@ internal static class JsonDataLoader
                 // filesystem convention on every plugin regardless of manifest tags; renaming would
                 // just make it duplicate the new name too).
                 if (wasNew) nonUidRegistered++;
-                else if (_ourNonUidRegistrations.Contains(obj.name))
-                    Log.Warn($"JsonDataLoader: '{obj.name}' ({item.TypeName}) name collides with an existing registration — {item.Mod.Name}'s copy overwrites it (rename to avoid shadowing vanilla or another mod)");
+                else if (_ourNonUidRegistrations.TryGetValue(obj.name, out var previousMod))
+                {
+                    // A different mod's file: the authoring lint reports it as one Warn per mod. The
+                    // same mod twice, or the lint switched off, keeps the per-name Warn.
+                    if (AuthoringLint.IsEnabled && !string.Equals(previousMod, item.Mod.Name, StringComparison.Ordinal))
+                        AuthoringLint.RecordNameCollision(item.Mod.Name, previousMod, item.TypeName, obj.name);
+                    else
+                        Log.Warn($"JsonDataLoader: '{obj.name}' ({item.TypeName}) name collides with an existing registration — {item.Mod.Name}'s copy overwrites it (rename to avoid shadowing vanilla or another mod)");
+                }
+                else if (vanillaTagName && AuthoringLint.IsEnabled)
+                    AuthoringLint.RecordVanillaTagName(item.Mod.Name, obj.name);
                 else
                     Log.Debug($"JsonDataLoader: '{obj.name}' ({item.TypeName}) was already registered by another loader (ModCore/ModLoader independently scanning this folder) — {item.Mod.Name}'s instance is now canonical, no action needed");
-                _ourNonUidRegistrations.Add(obj.name);
+                _ourNonUidRegistrations[obj.name] = item.Mod.Name;
                 registerTicks += Stopwatch.GetTimestamp() - t0;
 
                 // Record for WarpResolver's non-UID pass so this SO's OWN *WarpData body fields
@@ -329,6 +346,72 @@ internal static class JsonDataLoader
 
     private static double TicksToMs(long ticks) => ticks * 1000.0 / Stopwatch.Frequency;
 
+    /// <summary>
+    /// The framework hosts some content cards other mods build with (Metal Sheet, Metal Nail and Tin
+    /// Solder with their blueprints, plan feature 31, moved out of Advanced Copper Tools). An older
+    /// release of the mod they came from still ships the same UniqueIDs. Loading both is the
+    /// two-mods-one-UID state: the framework (first in load order) wins AllUniqueObjects and AllData,
+    /// LoadedObjectsByUniqueId keeps the mod's copy (last wins), and ForeignInstanceReconciler then
+    /// treats the framework's instance as foreign and removes it from AllData, so the UID ends with no
+    /// AllData entry and its blueprint loses its tab and research (root CLAUDE.md "Blueprint Research
+    /// Persistence"). So when any other mod ships a UID the framework also ships, the framework's copy
+    /// is skipped and the mod's copy loads alone, exactly as before the move. One Info line names them.
+    /// Returns the indices of the framework work items to skip, or null when there are none.
+    /// </summary>
+    private static HashSet<int> FindHostedUidConflicts(List<WorkItem> workItems, ParseResult[] results)
+    {
+        Dictionary<string, string> modByUid = null;
+        for (int i = 0; i < workItems.Count; i++)
+        {
+            var item = workItems[i];
+            if (IsFrameworkManifest(item.Mod)) continue;
+            var uid = results[i]?.UniqueId;
+            if (string.IsNullOrEmpty(uid) || results[i].ReadOrParseError != null) continue;
+            modByUid ??= new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            if (!modByUid.ContainsKey(uid)) modByUid[uid] = item.Mod.Name;
+        }
+        if (modByUid == null) return null;
+
+        HashSet<int> skip = null;
+        Dictionary<string, List<string>> uidsByMod = null;
+        for (int i = 0; i < workItems.Count; i++)
+        {
+            if (!IsFrameworkManifest(workItems[i].Mod)) continue;
+            var uid = results[i]?.UniqueId;
+            if (string.IsNullOrEmpty(uid) || !modByUid.TryGetValue(uid, out var modName)) continue;
+            (skip ??= new HashSet<int>()).Add(i);
+            uidsByMod ??= new Dictionary<string, List<string>>(StringComparer.Ordinal);
+            if (!uidsByMod.TryGetValue(modName, out var list)) uidsByMod[modName] = list = new List<string>();
+            list.Add(uid);
+        }
+        if (uidsByMod == null) return null;
+
+        var parts = new List<string>();
+        foreach (var kvp in uidsByMod)
+            parts.Add($"{kvp.Key} ({kvp.Value.Count}: {string.Join(", ", kvp.Value)})");
+        Log.Info("JsonDataLoader: framework-hosted UniqueIDs also shipped by another mod; loading that mod's copy and "
+               + "skipping the framework's, so each UID keeps one instance. An update of that mod drops its copies: "
+               + string.Join("; ", parts));
+        return skip;
+    }
+
+    private static bool IsFrameworkManifest(ModManifest mod)
+        => mod != null && string.Equals(mod.Name, ModDiscovery.FrameworkManifestName, StringComparison.Ordinal);
+
+    // CardTag names the typed cache holds before any mod object registers (Database.InitFromGame ran
+    // first), restricted to persistent game assets: Unity gives an object loaded from disk a positive
+    // instance id and one created at runtime (ScriptableObject.CreateInstance, as ModCore's duplicates of
+    // a mod's ScriptableObject/CardTag/ files are) a negative one, so a mod tag ModCore made first does not
+    // read as vanilla. The harness row for plan section 19 checks both signs on a live boot.
+    private static List<string> VanillaCardTagNames()
+    {
+        var names = new List<string>();
+        foreach (var so in Database.GetAllOfType(typeof(CardTag)))
+            if (so != null && !string.IsNullOrEmpty(so.name) && so.GetInstanceID() > 0)
+                names.Add(so.name);
+        return names;
+    }
+
     /// <summary>Resolve a mod content dir, falling back to the nested <c>Data/&lt;subDir&gt;</c> layout.</summary>
     private static string ResolveDir(ModManifest mod, string subDir)
     {
@@ -343,6 +426,10 @@ internal static class JsonDataLoader
     /// Resolve the directory's SO Type (serial — ReflectionCache is not thread-safe) and append a
     /// <see cref="WorkItem"/> per eligible JSON file, applying the .extras.json and Trigger/ skip filters.
     /// </summary>
+    /// <summary>CardData/ subfolders whose JSON belongs to another loader, not CardData SOs.</summary>
+    private static readonly HashSet<string> NonCardDataSubdirs =
+        new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "Trigger", "Gif" };
+
     private static void CollectFiles(ModManifest mod, string dir, string typeName, List<WorkItem> into)
     {
         if (dir == null) return;
@@ -368,7 +455,9 @@ internal static class JsonDataLoader
             // consumed by TriggerLoader, not CardData SOs. Loading them as CardData creates phantom
             // CT0 entries that pollute AllData and confuse WarpResolver.
             var parentDirName = Path.GetFileName(Path.GetDirectoryName(file) ?? "");
-            if (parentDirName.Equals("Trigger", StringComparison.OrdinalIgnoreCase)) continue;
+            // CardData/Gif/ likewise holds GifLoader animation definitions (no UniqueID), which
+            // loaded as phantom CardData with an empty UniqueID. Keep NonCardDataSubdirs in sync.
+            if (NonCardDataSubdirs.Contains(parentDirName)) continue;
 
             into.Add(new WorkItem(mod, file, type, typeName));
         }

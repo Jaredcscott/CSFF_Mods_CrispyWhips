@@ -24,7 +24,7 @@ namespace CSFFModFramework.Patching.Performance;
 // discards wholesale, and not player-detectable. Full mechanism, call-site
 // discriminator census, and empirical exactness checks (RepeatActionOnZero/
 // OnFull usage, RestrictToSpecificValues × rate overlap) are in
-// Documentation/Plans/Fleet/Game_Performance_Options_2026-08-25.md, `tick-batching`
+// Documentation/Research/CSFFModFramework/Game_Performance_Options.md, `tick-batching`
 // explorer — this file is the build, not the spec; cite that doc, don't
 // re-derive it here.
 //
@@ -43,6 +43,13 @@ internal static class CatchUpTickBatching
     private static int _batchMinTicks;
 
     internal static bool Armed { get; private set; }
+
+    // Diagnostics only (round-2 plan feature 23): the TestHarness sets this by `reflect` to replay the
+    // same stale route at batch size 0 (exact per-tick) and then 16, which the cfg cannot do in a
+    // running game. -1 = no override. NEVER read from the cfg, so no player reaches it. A field, not a
+    // property, so a reflected SetValue needs no accessor. It cannot enable batching when the cfg
+    // disabled it (the hooks are installed only for CatchUpBatchTicks > 0).
+    internal static int BatchSizeOverride = -1;
 
     // Set by ApplyRates_Prefix at the start of each chunk's call; consulted by
     // every other hook below for the remainder of that same synchronous call.
@@ -200,12 +207,13 @@ internal static class CatchUpTickBatching
         _chunkCursor = 0;
         _armedEnvData = null;
 
-        if (_batchK <= 0 || envData == null) return; // 0 = disabled
+        int k = BatchSizeOverride >= 0 ? BatchSizeOverride : _batchK;
+        if (k <= 0 || envData == null) return; // 0 = disabled
 
         int gap = now - envData.LastUpdatedTick;
         if (gap <= _batchMinTicks) return; // don't bother chunking a trivial replay
 
-        int numChunks = (gap + _batchK - 1) / _batchK; // ceil(gap / K)
+        int numChunks = (gap + k - 1) / k; // ceil(gap / K)
         if (numChunks <= 0 || numChunks >= gap) return; // nothing to compress
 
         // Remainder distribution so chunk sizes sum to exactly `gap`.
@@ -218,7 +226,7 @@ internal static class CatchUpTickBatching
         envData.LastUpdatedTick = now - numChunks;
         _armedEnvData = envData;
         Armed = true;
-        Util.Log.Debug($"CatchUpTickBatching: armed {numChunks} chunk(s) for {gap} ticks (K={_batchK}).");
+        Util.Log.Debug($"CatchUpTickBatching: armed {numChunks} chunk(s) for {gap} ticks (K={k}).");
     }
 
     private static bool IsCatchingUp(GameManager gm) => gm != null && gm.IsCatchingUp;

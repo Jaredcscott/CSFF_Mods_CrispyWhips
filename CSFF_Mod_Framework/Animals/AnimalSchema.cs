@@ -1,3 +1,5 @@
+using CSFFModFramework.Loading;
+
 namespace CSFFModFramework.Animals;
 
 /// <summary>
@@ -17,6 +19,9 @@ internal sealed class AnimalManifest
     // Provenance
     public string SourceMod;
     public string SourceFile;
+    /// <summary>The mod's folder (set by <see cref="AnimalLoader"/>), where the validator looks for the
+    /// Localization/SimpEn.csv row a named localization key must have. Null = not checked.</summary>
+    public string SourceModDir;
 
     // Top level
     public int SchemaVersion = -1;          // -1 = key missing
@@ -56,6 +61,17 @@ internal sealed class AnimalManifest
     /// exists flag is restored (fresh wild spawn eligible). Only meaningful with
     /// SuppressWhileCardOnBoard. 0 = never respawns after suppression.</summary>
     public int SuppressedRespawnTicks;
+    /// <summary>Spawn.Conditions (2.27.0): the ConnectionGates condition objects, all of which must
+    /// hold for the wild agent to be in the world. While any is false the lifecycle ticker keeps
+    /// it retired through the same exists-0 path the suppressor card uses. Empty = no conditions.</summary>
+    public List<WorldMapLoader.GateConditionDefinition> SpawnConditions = new();
+    /// <summary>Entries of Spawn.Conditions that were not JSON objects (reported by the validator).</summary>
+    public int SpawnConditionsMalformed;
+    /// <summary>Spawn.ConditionRespawnTicks (2.27.0): DTP ticks after the conditions hold again
+    /// until the agent is restored. 0 = on the first tick they hold. Only for species without
+    /// SuppressWhileCardOnBoard, whose SuppressedRespawnTicks is the single restore delay.</summary>
+    public int ConditionRespawnTicks;
+    public bool HasConditionRespawnTicks;
 
     // ActivityWindow (M1: SpiritWorld roost; M2: on-stage roost + HiddenWhileRoosting)
     public bool HasActivityWindow;
@@ -167,6 +183,14 @@ internal sealed class AnimalManifest
 
     // Encounter (M1 subset: Ref/ApproachButton; M5: full generation + Aggression)
     public bool ApproachButton = true;
+    /// <summary>Optional CSV key for THIS species' Approach button text (the bandit's case), used on both the
+    /// generated and the Ref path. Null = the framework row <c>CSFFMFW_Animal_Approach</c>. It is a button
+    /// label, not a generation field, so it never requests an encounter on its own.</summary>
+    public string ApproachLabelLocalizationKey;
+    /// <summary>Optional CSV key for the generated encounter's EnemyName (shown in the fight log). Null = the
+    /// lowercased DisplayName as plain text, which no language can change. A generation field: the Ref path
+    /// keeps the referenced encounter's own EnemyName.</summary>
+    public string EncounterEnemyNameLocalizationKey;
     public string EncounterRef;
     /// <summary>Runtime BodyTemplate name (e.g. "Combat_ BTDuck", leading space is vanilla's).
     /// On the generated path this becomes Encounter.EnemyBodyTemplate; on the Ref path it OVERRIDES
@@ -282,6 +306,14 @@ internal sealed class AnimalManifest
         /// <summary>Allow the search to reach inside the vanilla land traps (their container tag
         /// is derived live by TrapIntegrator). This is what makes the animal take BAIT.</summary>
         public bool InTrapContainers = true;
+        /// <summary>Optional (2.28.0+): containers the search may reach into, by card UID and by runtime
+        /// CardTag name. Added to the trap tags when <see cref="InTrapContainers"/> is set. Both empty with
+        /// InTrapContainers false means every container (vanilla's own empty-list rule).</summary>
+        public List<string> ContainerCards = new();
+        public List<string> ContainerTags = new();
+        /// <summary>Optional (2.28.0+): the item must sit inside an allowed container, never loose on the
+        /// board (<c>LookInContainersSettings.ContainerIsRequired</c>).</summary>
+        public bool ContainerRequired;
     }
 
     /// <summary>Recognized-but-not-yet-implemented sections found in the file, with the milestone
@@ -340,8 +372,20 @@ internal sealed class AnimalManifest
             if (TryGetNumber(spawn, "DeathRespawnTicks", out var drt)) m.DeathRespawnTicks = (int)drt;
             m.SuppressWhileCardOnBoard = GetString(spawn, "SuppressWhileCardOnBoard");
             if (TryGetNumber(spawn, "SuppressedRespawnTicks", out var srt)) m.SuppressedRespawnTicks = (int)srt;
+            if (GetList(spawn, "Conditions") is { } conditions)
+                foreach (var entry in conditions)
+                {
+                    if (entry is Dictionary<string, object> cd) m.SpawnConditions.Add(WorldMapLoader.ParseGateCondition(cd));
+                    else m.SpawnConditionsMalformed++;
+                }
+            if (TryGetNumber(spawn, "ConditionRespawnTicks", out var crt))
+            {
+                m.ConditionRespawnTicks = (int)crt;
+                m.HasConditionRespawnTicks = true;
+            }
             if (spawn.ContainsKey("Population"))          m.DeferredSections.Add("Spawn.Population (M4)");
-            if (spawn.ContainsKey("WinterDespawn"))       m.DeferredSections.Add("Spawn.WinterDespawn (M4)");
+            // A winter-only or not-in-winter animal is Spawn.Conditions with a Season entry.
+            if (spawn.ContainsKey("WinterDespawn"))       m.DeferredSections.Add("Spawn.WinterDespawn (M4; use Spawn.Conditions with a Season entry)");
             if (spawn.ContainsKey("InitialRespawnTicks")) m.DeferredSections.Add("Spawn.InitialRespawnTicks (M4)");
         }
 
@@ -456,6 +500,8 @@ internal sealed class AnimalManifest
         {
             m.EncounterRef = GetString(enc, "Ref");
             if (enc.TryGetValue("ApproachButton", out var ab) && ab is bool abVal) m.ApproachButton = abVal;
+            m.ApproachLabelLocalizationKey = GetString(enc, "ApproachLabelLocalizationKey");
+            m.EncounterEnemyNameLocalizationKey = GetString(enc, "EnemyNameLocalizationKey");
 
             m.EncounterBodyTemplate = GetString(enc, "BodyTemplate");
             if (TryGetNumber(enc, "Blood", out var eBlood)) m.EncounterBlood = eBlood;
@@ -488,10 +534,10 @@ internal sealed class AnimalManifest
             }
 
             // Generation is requested whenever there's no Ref and at least one real key beyond
-            // Ref/ApproachButton/Aggression (Aggression alone with no other generation key and no
-            // Ref is a validator error, not an implicit generation request -- there'd be nothing
-            // to generate an encounter FROM).
-            if (m.EncounterRef == null && HasRealKeysBeyond(enc, "Ref", "ApproachButton", "Aggression"))
+            // Ref/ApproachButton/ApproachLabelLocalizationKey/Aggression (Aggression alone with no other
+            // generation key and no Ref is a validator error, not an implicit generation request --
+            // there'd be nothing to generate an encounter FROM; the label key only names the button's text).
+            if (m.EncounterRef == null && HasRealKeysBeyond(enc, "Ref", "ApproachButton", "ApproachLabelLocalizationKey", "Aggression"))
                 m.HasEncounterGeneration = true;
         }
 
@@ -538,6 +584,13 @@ internal sealed class AnimalManifest
                                 if (c is string cd && !string.IsNullOrEmpty(cd)) da.ItemCards.Add(cd);
                         da.Affect = GetString(a, "Affect") ?? "Destroy";
                         if (a.TryGetValue("InTrapContainers", out var itc) && itc is bool itcVal) da.InTrapContainers = itcVal;
+                        if (GetList(a, "ContainerCards") is { } containerCards)
+                            foreach (var c in containerCards)
+                                if (c is string cc && !string.IsNullOrEmpty(cc)) da.ContainerCards.Add(cc);
+                        if (GetList(a, "ContainerTags") is { } containerTags)
+                            foreach (var t in containerTags)
+                                if (t is string ct && !string.IsNullOrEmpty(ct)) da.ContainerTags.Add(ct);
+                        if (a.TryGetValue("ContainerRequired", out var cr) && cr is bool crVal) da.ContainerRequired = crVal;
                         duty.Actions.Add(da);
                     }
                 }

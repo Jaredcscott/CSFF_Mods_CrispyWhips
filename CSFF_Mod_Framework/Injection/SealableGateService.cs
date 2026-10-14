@@ -96,6 +96,7 @@ internal static class SealableGateService
         }
         _initialized = true;
 
+        int unresolved = 0;
         foreach (var def in defs)
         {
             if (def?.SealableGates == null) continue;
@@ -110,8 +111,24 @@ internal static class SealableGateService
                 };
                 _gates.Add(state);
                 RegisterClearHandler(state);
+
+                // Unresolved references (framework README "Unresolved references"): the row is kept,
+                // because dropping a sealable gate would remove its seal. A SealTrigger on a UID that
+                // does not resolve reads false (never seals); a ChallengeCardUID that does not resolve
+                // still logs its Error at the first seed.
+                string owner = $"SealableGateService: {def.SourceMod} gate '{g.ConnectionUID}'";
+                unresolved += ConnectionGateService.LogUnresolvedUids(owner, g.ConnectionUID, g.NeighborCt8UID,
+                    g.ChallengeCardUID, g.ClearedTransformInto, g.MarkerEnvUID);
+                if (g.SeedOnEnvUIDs != null)
+                    unresolved += ConnectionGateService.LogUnresolvedUids(owner, g.SeedOnEnvUIDs.ToArray());
+                if (g.DirectionalGates != null)
+                    foreach (var side in g.DirectionalGates)
+                        if (side != null) unresolved += ConnectionGateService.LogUnresolvedUids(owner, side.WatchEnvUID, side.Ct8Uid);
+                unresolved += ConnectionGateService.LogUnresolvedConditionUids(owner, g.SealTrigger);
             }
         }
+        if (unresolved > 0)
+            Log.Info($"SealableGateService: {_gates.Count} gate(s) registered, {unresolved} unresolved UID(s) kept inert (Debug-logged)");
         if (_gates.Count == 0) return;
 
         foreach (var state in _gates)

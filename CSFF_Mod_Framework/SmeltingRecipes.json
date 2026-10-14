@@ -1,0 +1,14 @@
+[
+  {
+    "Item": "advanced_copper_tools_copper_nails",
+    "InheritMetal": true,
+    "NuggetReturn": 1,
+    "Duration": 8
+  },
+  {
+    "Item": "advanced_copper_tools_metal_sheet",
+    "InheritMetal": true,
+    "NuggetReturn": 6,
+    "Duration": 8
+  }
+]

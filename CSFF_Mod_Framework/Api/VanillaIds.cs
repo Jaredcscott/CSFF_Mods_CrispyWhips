@@ -95,8 +95,13 @@ public static class VanillaIds
     /// <summary>Carnivore-edible foods: meats, fish, bones.</summary>
     public static IReadOnlyList<string> AnimalFoods => Group("AnimalFoods");
 
-    /// <summary>Wildlife bear combat encounter event cards.</summary>
+    /// <summary>Bear combat Encounter UniqueIDs (type Encounter, not CardData): what
+    /// EncounterPopup.StartEncounter receives as its encounter (Combat_EncounterBear).</summary>
     public static IReadOnlyList<string> BearEncounters => Group("BearEncounters");
+
+    /// <summary>Bear NPCAgent UniqueIDs (type NPCAgent): the agents a live bear fight is
+    /// started with (Agent_Bear).</summary>
+    public static IReadOnlyList<string> BearAgents => Group("BearAgents");
 
     // ── Loading ──────────────────────────────────────────────────────────────
 

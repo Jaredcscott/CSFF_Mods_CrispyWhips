@@ -166,9 +166,23 @@ internal static class EncounterBuilder
         if (!AnimalAssetFactory.SetUniqueId(enc, uid)) return null;
 
         string displayName = m.DisplayName ?? m.SpeciesId;
-        enc.EncounterTitle = new LocalizedString { ParentObjectID = "", LocalizationKey = "IGNOREKEY", DefaultText = displayName };
+        // The fight title follows the species name's own row (the one the agent card's AgentName reads), so a
+        // Chinese player sees the Chinese name; with no LocalizationKey it stays the plain DisplayName.
+        enc.EncounterTitle = new LocalizedString
+        {
+            ParentObjectID = "",
+            LocalizationKey = string.IsNullOrEmpty(m.LocalizationKey) ? "IGNOREKEY" : m.LocalizationKey,
+            DefaultText = displayName,
+        };
         enc.EncounterStartingLog = new EncounterLogMessage("");
-        enc.EnemyName = new LocalizedString { ParentObjectID = "", LocalizationKey = "IGNOREKEY", DefaultText = displayName.ToLowerInvariant() };
+        // EnemyName reads lowercase in the fight log ("a lynx"), which a species name's row would not, so it
+        // has its own optional key; absent, it stays the lowercased DisplayName as plain text.
+        enc.EnemyName = new LocalizedString
+        {
+            ParentObjectID = "",
+            LocalizationKey = string.IsNullOrEmpty(m.EncounterEnemyNameLocalizationKey) ? "IGNOREKEY" : m.EncounterEnemyNameLocalizationKey,
+            DefaultText = displayName.ToLowerInvariant(),
+        };
         enc.UsesPlural = false;
 
         enc.EnemyCover = new Vector2((float)m.EncounterCoverMin, (float)m.EncounterCoverMax);
@@ -323,6 +337,16 @@ internal static class EncounterBuilder
     private static EncounterStartingOptions BuildStartingOptions(AnimalManifest m)
     {
         var options = new EncounterStartingOptions();
+        // The start popup's title strip (EncounterStartPopup.Setup reads StartingOptions.EventTitle, never
+        // EncounterTitle). Vanilla fills it per species ("You see a Bear!"); left empty, the strip is blank in
+        // every language. A derived row keeps it in the game's language: the framework's template formatted
+        // with the species name's own row.
+        string titleKey = "CSFFMFW_Animal_EventTitle_" + m.SpeciesId;
+        string english = Loading.LocalizationLoader.RegisterDerivedRow(titleKey,
+            "CSFFMFW_Animal_EncounterEventTitle", "CSFFMFW_Animal_EncounterEventTitleVowel",
+            m.LocalizationKey, m.DisplayName ?? m.SpeciesId, "You see a {0}!", "You see an {0}!");
+        options.EventTitle = new LocalizedString { ParentObjectID = "", LocalizationKey = titleKey, DefaultText = english };
+        options.EventDescription = new LocalizedString { ParentObjectID = "", LocalizationKey = "IGNOREKEY", DefaultText = "" };
         _eventSetupField ??= AccessTools.Field(typeof(EncounterStartingOptions), "EventSetup");
         if (_eventSetupField != null)
             _eventSetupField.SetValue(options, m.EncounterForceFight

@@ -11,3 +11,55 @@ CSFFMFW_Perk_Wayfinder_PerkDescription,You begin with a Portal Kit. Place it any
 CSFFMFW_BpPortalKit_CardName,Portal Kit
 CSFFMFW_BpPortalKit_CardDescription,"Bind a witch stone into fresh fur and dried wolfsbane, sealed with animal fat. Assembles a portable Portal Hub kit."
 CSFFMFW_BpPortalKit_UnlockConditionsDesc,Witch Stone Needed
+CSFFMFW_Animal_Approach,Approach
+CSFFMFW_Animal_EncounterEventTitle,You see a {0}!
+CSFFMFW_Animal_EncounterEventTitleVowel,You see an {0}!
+Advanced_Copper_Tools_CopperNails_CardName,Metal Nail
+Advanced_Copper_Tools_CopperNails_CardDescription,"A small metal nail, perfect for joining wood. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron."
+Advanced_Copper_Tools_Bp_CopperNails_CardName,Forged Copper Nail
+Advanced_Copper_Tools_Bp_CopperNails_CardDescription,"Hammer a copper, tin or bronze nugget into a nail of the same metal."
+Advanced_Copper_Tools_Bp_CopperNails_UnlockConditionsDesc,Copper Nugget Needed
+Advanced_Copper_Tools_CopperNails_CardHelpSection,"<b>Crafted:</b> From a copper, tin or bronze nugget using a hammer, or six at a time by casting a heated copper, tin or bronze bar (one mud brick and one clay as the mould); iron nails are forged from 4 iron nuggets with a hammer (Forge Iron Nails, 4 nails). The nail is the metal of its nugget or bar.
+
+<b>Uses:</b> Construction and crafting. A nail of any metal works the same in every recipe, iron included.
+
+<b>Smelts:</b> Returns 1 nugget of its own metal in a furnace at 1100°C or hotter."
+Advanced_Copper_Tools_MetalSheet_CardDescription,"A flat metal sheet, hammered thin. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron."
+Advanced_Copper_Tools_MetalSheet_CardName,Metal Sheet
+Bp_MetalSheet_CardDescription,Hammer a heated lump of metal flat into a copper sheet.
+Bp_MetalSheet_CardName,Metal Sheet
+Bp_MetalSheet_UnlockConditionsDesc,Heated Lump of Metal Needed
+Advanced_Copper_Tools_CopperNails_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_MetalSheet_AlternateNames[0].Name,Copper Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[1].Name,Ghost Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[2].Name,Tin Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[3].Name,Tin Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[4].Name,White Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_TinSolder_CardName,Tin Solder
+Advanced_Copper_Tools_TinSolder_CardDescription,A tin solder stick. Useful for joining metal parts or sealing seams.
+Advanced_Copper_Tools_Bp_IronNails_CardName,Forge Iron Nails
+Advanced_Copper_Tools_Bp_IronNails_CardDescription,Forge 4 iron nuggets into 4 Iron Nails (Metal Nails of Metal Type 200).
+Advanced_Copper_Tools_Bp_IronNails_UnlockConditionsDesc,Dried Bog Iron Needed
+Advanced_Copper_Tools_Bp_TinSolder_CardName,Forge Tin Solder
+Advanced_Copper_Tools_Bp_TinSolder_CardDescription,Melt a tin-grade metal nugget into solder sticks.
+Advanced_Copper_Tools_Bp_TinSolder_UnlockConditionsDesc,Tin Nugget Needed
+Advanced_Copper_Tools_Bp_IronSheet_CardName,Iron Sheet
+Advanced_Copper_Tools_Bp_IronSheet_CardDescription,"Hammer 6 iron nuggets flat into an Iron Sheet (a Metal Sheet of Metal Type 200), ready for iron-grade tools and armor."
+Advanced_Copper_Tools_Bp_IronSheet_UnlockConditionsDesc,Iron Nugget Needed
+Advanced_Copper_Tools_Bp_BronzeSheet_CardName,Bronze Sheet
+Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription,"Hammer a heated Ghost Bronze, Tin, Tin Bronze or White Bronze bar flat into a sheet of the same metal, ready for alloy armor."
+Advanced_Copper_Tools_Bp_BronzeSheet_UnlockConditionsDesc,Heated Bronze-Grade Metal Bar Needed
+Advanced_Copper_Tools_MetalSheet_SpecialDurability2.CardStatName,Metal Quality
+Advanced_Copper_Tools_MetalSheet_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_CopperNails_AlternateNames[0].Name,Copper Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[1].Name,Ghost Bronze Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[2].Name,Tin Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[3].Name,Tin Bronze Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[4].Name,White Bronze Nail
+Advanced_Copper_Tools_CopperNails_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_Bp_CastCopperNails_CardName,Cast Copper Nails
+Advanced_Copper_Tools_Bp_CastCopperNails_CardDescription,"Cast a heated copper, tin or bronze bar into six nails of the same metal."
+Advanced_Copper_Tools_Bp_CastCopperNails_UnlockConditionsDesc,Heated Metal Bar Needed
+Advanced_Copper_Tools_MetalSheet_AlternateNames[5].Name,Iron Sheet
+Advanced_Copper_Tools_CopperNails_AlternateNames[5].Name,Iron Nail

@@ -381,16 +381,206 @@ public static class CardUtil
             if (gm == null) return false;
             var character = RequiredMember(gm, "CurrentPlayerCharacter", nameof(IsPerkEquipped));
             if (character == null) return false;
-            if (RequiredMember(character, "CharacterPerks", nameof(IsPerkEquipped)) is not IEnumerable perks) return false;
-            foreach (var perk in perks)
-            {
-                if (perk == null) continue;
-                if (perkUID.Equals(GetMemberValue(perk, "UniqueID") as string, StringComparison.Ordinal))
-                    return true;
-            }
+            return PerkListHolds(RequiredMember(character, "CharacterPerks", nameof(IsPerkEquipped)), perkUID);
         }
         catch (Exception ex) { Log.Debug($"CardUtil.IsPerkEquipped({perkUID}): {ex}"); }
         return false;
+    }
+
+    /// <summary>
+    /// True when a perk list (anything enumerable whose entries carry a <c>UniqueID</c>) holds
+    /// <paramref name="perkUID"/>. False for a null or non-enumerable list. Shared by
+    /// <see cref="IsPerkEquipped"/>, <see cref="IsPerkHeld"/> and <see cref="GrantInRunPerk"/>.
+    /// </summary>
+    private static bool PerkListHolds(object list, string perkUID)
+    {
+        if (list is not IEnumerable perks) return false;
+        foreach (var perk in perks)
+        {
+            if (perk == null) continue;
+            if (perkUID.Equals(GetMemberValue(perk, "UniqueID") as string, StringComparison.Ordinal))
+                return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Returns true if the player holds the perk by EITHER route: it is in the character's
+    /// <c>CharacterPerks</c> (picked at character creation, what <see cref="IsPerkEquipped"/> reads)
+    /// or in <c>GameManager.InRunAddedPerks</c> (granted during the run, by a CardAction's
+    /// <c>AddedInRunPerksWarpData</c> or by <see cref="GrantInRunPerk"/>). An in-run grant never enters
+    /// <c>CharacterPerks</c>, so <see cref="IsPerkEquipped"/> answers false for it, permanently and
+    /// with no log line; this is the question to ask about a perk that may have been granted in-run.
+    /// The framework's declarative <c>PerkEquipped</c> / <c>HasPerk</c> conditions use it (2.28.0).
+    /// False on any missing link (no GameManager) or reflection failure; a renamed member warns once.
+    /// </summary>
+    public static bool IsPerkHeld(string perkUID)
+    {
+        if (string.IsNullOrEmpty(perkUID)) return false;
+        try
+        {
+            var gm = GetGameManagerInstance();
+            if (gm == null) return false;
+            // No character yet is normal (a value of null, no warning) and must not hide an in-run entry.
+            var character = RequiredMember(gm, "CurrentPlayerCharacter", nameof(IsPerkHeld));
+            if (character != null
+                && PerkListHolds(RequiredMember(character, "CharacterPerks", nameof(IsPerkHeld)), perkUID))
+                return true;
+            return PerkListHolds(RequiredMember(gm, "InRunAddedPerks", nameof(IsPerkHeld)), perkUID);
+        }
+        catch (Exception ex) { Log.Debug($"CardUtil.IsPerkHeld({perkUID}): {ex}"); }
+        return false;
+    }
+
+    // ── In-run perk grant ─────────────────────────────────────────────────────
+
+    // Every early return on the grant path is a non-throwing miss (a null lookup, a signature that
+    // changed), so each CAUSE warns once instead of the grant silently doing nothing.
+    private static readonly HashSet<string> _perkGrantWarnedCauses = new();
+
+    private static bool WarnPerkGrantOnce(string cause, string message)
+    {
+        if (_perkGrantWarnedCauses.Add(cause)) Log.Warn(message);
+        return false;
+    }
+
+    // GameManager.ApplyPerk, resolved once per process (see GrantInRunPerk).
+    private static bool       _applyPerkResolved;
+    private static MethodInfo _applyPerk;
+
+    /// <summary>
+    /// Resolves vanilla <c>GameManager.ApplyPerk</c>. Returns null on success, or a short cause naming
+    /// what did not match, in which case <paramref name="method"/> is null and the caller must not
+    /// grant.
+    ///
+    /// <para>Decompile reference (EA 0.68b): <c>private void ApplyPerk(CharacterPerk _Perk, bool
+    /// _ApplyStartingStatMods, List&lt;GameStat&gt; _AlreadyModifiedStats)</c>, <c>.decomp/GameManager.cs</c>
+    /// line 3633. It is PRIVATE, which is why the lookup is <c>AccessTools.Method</c>: a
+    /// <c>GetMethod</c> or <c>GetMethods</c> call restricted to <c>BindingFlags.Public</c> returns null
+    /// and the grant then skips the apply with no log line (the defect CMC GraduatePerkPatch and
+    /// Sirus23 CompanionHuntPatch shipped until 1.69.3 / 1.22.0). It returns <c>void</c>, so a bare
+    /// <c>Invoke</c> runs the whole body; a return type of <c>IEnumerator</c> would instead need
+    /// <c>StartCoroutine</c> (CLAUDE.md "Runtime Card Removal"), and the check below refuses that rather
+    /// than invoke a method whose body would never run.</para>
+    ///
+    /// <para>Pure reflection over <paramref name="gameManagerType"/> with no Unity call, so the
+    /// workspace gate drives it against a replica of the decompiled signature.</para>
+    /// </summary>
+    internal static string ResolveApplyPerk(Type gameManagerType, out MethodInfo method)
+    {
+        method = null;
+        if (gameManagerType == null) return "GameManager type unavailable";
+
+        MethodInfo m;
+        try { m = AccessTools.Method(gameManagerType, "ApplyPerk"); }
+        catch (Exception ex) { return $"the lookup threw {ex.GetType().Name}: {ex.Message}"; }
+        if (m == null) return "no ApplyPerk method";
+        if (m.ReturnType != typeof(void))
+            return $"ApplyPerk returns {m.ReturnType.Name}, not void (it would need StartCoroutine)";
+
+        var p = m.GetParameters();
+        if (p.Length != 3) return $"ApplyPerk takes {p.Length} parameters, not 3";
+        if (p[0].ParameterType.Name != "CharacterPerk")
+            return $"ApplyPerk parameter 0 is {p[0].ParameterType.Name}, not CharacterPerk";
+        if (p[1].ParameterType != typeof(bool))
+            return $"ApplyPerk parameter 1 is {p[1].ParameterType.Name}, not bool";
+        if (p[2].ParameterType.IsValueType)
+            return $"ApplyPerk parameter 2 is {p[2].ParameterType.Name}, not a reference type";
+
+        method = m;
+        return null;
+    }
+
+    /// <summary>
+    /// The grant itself, after every lookup succeeded: dedup on the list, append, then apply. Returns
+    /// null when the perk is held in <paramref name="inRunList"/> afterwards (already there, or granted
+    /// and applied now) and a short cause when it is not. A failed apply takes the entry back out of
+    /// the list, so a later call retries instead of mistaking an unapplied perk for a held one.
+    ///
+    /// <para>Mirrors vanilla's own grant (<c>.decomp/GameManager.cs</c> line 5321: <c>if
+    /// (!InRunAddedPerks.Contains(p)) { InRunAddedPerks.Add(p); ApplyPerk(p, _ApplyStartingStatMods:
+    /// true, null); }</c>). The dedup is by UniqueID, a superset of vanilla's reference test.</para>
+    /// </summary>
+    internal static string ApplyInRunGrant(object gm, MethodInfo applyPerk, IList inRunList, object perk, string perkUid)
+    {
+        if (PerkListHolds(inRunList, perkUid)) return null;
+        if (applyPerk == null) return "ApplyPerk was not resolved";
+
+        inRunList.Add(perk);
+        try
+        {
+            applyPerk.Invoke(gm, new object[] { perk, true, null });
+            return null;
+        }
+        catch (Exception ex)
+        {
+            inRunList.Remove(perk);
+            return $"ApplyPerk threw: {Log.ExceptionText(ex.InnerException ?? ex)}";
+        }
+    }
+
+    /// <summary>
+    /// Grants a <c>CharacterPerk</c> to the running game, the way the game's own
+    /// <c>AddedInRunPerksWarpData</c> CardAction path does: the perk joins
+    /// <c>GameManager.InRunAddedPerks</c> (which the game saves and re-applies on load) and its
+    /// modifiers are applied now through vanilla's private <c>ApplyPerk(perk, true, null)</c>. Returns
+    /// true when the perk is held in-run afterwards (granted now, or already granted: the call is
+    /// idempotent) and false when it is not, with one warning per failing cause (no run in progress,
+    /// unknown UID, a changed game signature).
+    ///
+    /// <para>Ship a perk meant only for runtime grant with <c>"CharacterPerkPerkGroup": "None"</c>, so
+    /// it never appears at character creation. The grant is invisible to <see cref="IsPerkEquipped"/>
+    /// by design of the game; ask <see cref="IsPerkHeld"/>.</para>
+    ///
+    /// <para>The dedup is on <c>InRunAddedPerks</c> only, as vanilla's is: a perk the character already
+    /// holds from creation would be applied a second time (its passive modifiers stacking), so a caller
+    /// that may target one tests <see cref="IsPerkHeld"/> first.</para>
+    /// </summary>
+    public static bool GrantInRunPerk(string perkUid)
+    {
+        if (string.IsNullOrEmpty(perkUid))
+            return WarnPerkGrantOnce("empty-uid", "CardUtil.GrantInRunPerk: called with an empty perk UniqueID, so nothing was granted.");
+        try
+        {
+            // Unity's == on the MonoBehaviour static type, so a destroyed GameManager reads null.
+            var gm = GetGameManagerInstance() as MonoBehaviour;
+            if (gm == null)
+                return WarnPerkGrantOnce("no-gm", $"CardUtil.GrantInRunPerk('{perkUid}'): there is no live GameManager (no run in progress), so nothing was granted.");
+
+            var perk = Data.GameRegistry.GetByUid<CharacterPerk>(perkUid);
+            if (perk == null)
+                return WarnPerkGrantOnce("perk:" + perkUid, $"CardUtil.GrantInRunPerk: no CharacterPerk with UniqueID '{perkUid}' is loaded, so nothing was granted.");
+
+            if (RequiredMember(gm, "InRunAddedPerks", nameof(GrantInRunPerk)) is not IList inRunList)
+                return WarnPerkGrantOnce("list", $"CardUtil.GrantInRunPerk('{perkUid}'): GameManager.InRunAddedPerks is missing or is not a list, so nothing was granted.");
+
+            // Resolution is by type, so one attempt per process is final.
+            if (!_applyPerkResolved)
+            {
+                _applyPerkResolved = true;
+                var cause = ResolveApplyPerk(typeof(GameManager), out _applyPerk);
+                if (cause != null)
+                    WarnPerkGrantOnce("resolve",
+                        $"CardUtil.GrantInRunPerk: vanilla GameManager.ApplyPerk could not be resolved ({cause}). "
+                        + "A perk granted without it would sit in InRunAddedPerks unapplied until the next load, so no in-run perk is granted on this game version.");
+            }
+
+            var failure = ApplyInRunGrant(gm, _applyPerk, inRunList, perk, perkUid);
+            if (failure != null)
+            {
+                // The one-time resolve warning above already named an unresolved ApplyPerk.
+                if (_applyPerk != null)
+                    WarnPerkGrantOnce("apply:" + perkUid, $"CardUtil.GrantInRunPerk('{perkUid}'): {failure}. The perk was not granted.");
+                return false;
+            }
+
+            Log.Debug($"CardUtil.GrantInRunPerk: '{perkUid}' is held in-run.");
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return WarnPerkGrantOnce("threw:" + perkUid, $"CardUtil.GrantInRunPerk('{perkUid}') failed: {Log.ExceptionText(ex)}");
+        }
     }
 
     /// <summary>
@@ -703,7 +893,12 @@ public static class CardUtil
 
     /// <summary>
     /// Returns all loaded CardData ScriptableObjects where <paramref name="predicate"/> returns true.
-    /// Iterates the framework's SO cache — call only after LoadMainGameData fires.
+    /// Iterates the framework's typed SO cache: the vanilla CardData snapshot taken at the start of
+    /// the framework's load, plus (since 2.28.0) every CardData the framework adds to the game's
+    /// AllData, at the moment it adds it: mod JSON cards and WorldMap clones. Complete from the end
+    /// of the framework's own LoadMainGameData postfix, so a content mod's LoadMainGameData postfix,
+    /// a <c>FrameworkEvents.GameDataReady</c> handler or any in-run call sees mod cards. Before
+    /// 2.28.0 it returned vanilla cards only, whenever it was called.
     /// For UniqueID lookups, <see cref="FindCardsByUniqueIds"/> is faster (O(1) per ID).
     /// </summary>
     public static IEnumerable<object> FindCardsWhere(Func<object, bool> predicate)
@@ -845,7 +1040,7 @@ public static class CardUtil
     /// <list type="number">
     ///   <item>Public/writable property setter.</item>
     ///   <item>Non-public property setter invoked via reflection.</item>
-    ///   <item>Auto-property backing field <c>&lt;CardModel&gt;k__BackingField</c>.</item>
+    ///   <item>Backing field <c>CardModelValue</c> (or the older auto-property <c>&lt;CardModel&gt;k__BackingField</c>).</item>
     /// </list>
     /// Returns true if any tier succeeded.
     /// </summary>
@@ -857,9 +1052,14 @@ public static class CardUtil
         if (ct != _lastCardType)
         {
             _lastCardType = ct;
-            _modelSetProp = ct.GetProperty("CardModel", All);
+            // Resolve the property on its DECLARING type: reflected through a subclass
+            // (InGameDraggableCard), an inherited private setter is invisible, so CanWrite reads
+            // false and GetSetMethod returns null. The game's backing field was renamed from the
+            // auto-property's <CardModel>k__BackingField to CardModelValue (live DLL, 2026-10-13).
+            _modelSetProp = ReflectionHelpers.FindProperty(ct, "CardModel");
             _modelSetter  = _modelSetProp?.GetSetMethod(nonPublic: true);
-            _modelBackingField = ReflectionHelpers.FindField(ct, "<CardModel>k__BackingField");
+            _modelBackingField = ReflectionHelpers.FindField(ct, "CardModelValue")
+                              ?? ReflectionHelpers.FindField(ct, "<CardModel>k__BackingField");
             _setupCardSourceMethod = ct.GetMethods(All).FirstOrDefault(m =>
                 m.Name == "SetupCardSource" && m.GetParameters().Length >= 1
                 && m.GetParameters()[0].ParameterType.IsInstanceOfType(cardData));
@@ -902,6 +1102,8 @@ public static class CardUtil
         }
         catch (Exception ex) { Log.Debug($"CardUtil.TrySetCardModel: Path 3 (backing field) on {ct.Name} threw: {ex}"); }
 
+        if (_modelSetProp?.CanWrite != true && _modelSetter == null && _modelBackingField == null)
+            WarnMissingMember(ct, "CardModel setter or backing field", nameof(TrySetCardModel));
         return false;
     }
 
@@ -1141,6 +1343,261 @@ public static class CardUtil
         if (cvField != null) { cvField.SetValue(dur, value); return true; }
         return false;
     }
+
+    // ── Liquid quantity (2.28.0) ──────────────────────────────────────────────
+    #region Liquid quantity
+
+    // One warning per CAUSE for the life of the process. Every failure exit of GetLiquidQuantity and
+    // ModifyLiquid goes through WarnLiquidOnce, or is a documented silent exit carrying a "silent-ok"
+    // marker with its reason; the shape gate Development_Tools/Tests/Framework-LiquidQuantity.Tests.ps1
+    // reads this region for exactly that.
+    private static readonly HashSet<string> _liquidWarnedCauses = new();
+
+    private static void WarnLiquidOnce(string causeKey, string message)
+    {
+        if (_liquidWarnedCauses.Add(causeKey)) Log.Warn(message);
+    }
+
+    /// <summary>
+    /// How much liquid <paramref name="card"/> holds, in the game's own units (a Clay Bowl holds up to
+    /// 300): the quantity of a container's <c>ContainedLiquid</c>, or of the card itself when it IS a
+    /// liquid. 0 when the card holds no liquid (an empty container, or any card that is not a container),
+    /// which is a normal answer and not a failure. <see cref="float.NaN"/> when the card is null or
+    /// destroyed, with one warning per cause (check with <see cref="float.IsNaN(float)"/>). It reads the
+    /// game's own <c>CurrentLiquidQuantity</c>, so it agrees with what the game shows and with
+    /// <see cref="ModifyLiquid"/>. Takes the typed game card: a caller that holds an <c>object</c> casts it.
+    /// </summary>
+    public static float GetLiquidQuantity(InGameCardBase card)
+    {
+        try
+        {
+            if (!card || card.Destroyed)
+            {
+                WarnLiquidOnce("get-no-card", "CardUtil.GetLiquidQuantity was given a null or destroyed card, so it returned NaN. Logged once.");
+                return float.NaN;
+            }
+            var holder = LiquidHolder(card);
+            return holder ? holder.CurrentLiquidQuantity : 0f;
+        }
+        catch (Exception ex)
+        {
+            WarnLiquidOnce("get-threw:" + Log.CauseKey(ex),
+                $"CardUtil.GetLiquidQuantity threw {ex.GetType().Name} reading the card, so it returned NaN: {Log.ExceptionText(ex)}");
+            return float.NaN;
+        }
+    }
+
+    /// <summary>
+    /// Changes the liquid in <paramref name="card"/> by <paramref name="delta"/> (negative drains, positive
+    /// adds) through the game's own <c>GameManager.ChangeCardDurability</c>, so it takes the path a vanilla
+    /// drink takes instead of writing <c>CurrentLiquidQuantity</c> directly, which is what
+    /// <see cref="ModifyDurabilityStat"/> with that name does (no clamp, no feedback, no empty handling).
+    /// The game clamps the result to 0 and the container's capacity, plays its change feedback and, when the
+    /// liquid is taken to zero or below, removes the liquid card the way vanilla does: its empty action
+    /// destroys it, the container reads empty and the game's "container empty" notification plays.
+    ///
+    /// <para><b>It acts on the liquid card, never on the container.</b> <paramref name="card"/> may be a
+    /// container (its <c>ContainedLiquid</c> is changed) or the liquid itself. The game's change routine
+    /// reads its empty flag on the card it is handed, so handing it the container would lower the quantity
+    /// but leave an empty liquid card sitting in the bowl; vanilla's own liquid changes
+    /// (<c>GameManager.ApplyCardStateChange</c>) hand it the liquid for the same reason.</para>
+    ///
+    /// <para>It changes liquid that is there. It does not create a liquid or swap one, so pouring into an
+    /// empty container stays the game's own add-card or pour path, and a positive amount stops at the
+    /// container's capacity.</para>
+    ///
+    /// <para>Returns true when the change was handed to the game, and for a zero amount on a card that
+    /// holds liquid (nothing to do). The decompile shows the game's routine applying the quantity before
+    /// its first yield, so <see cref="GetLiquidQuantity"/> read right after returns the new value (the
+    /// harness scenario TestHarness/client/scenarios/FW/T2.1207_fw_cardutil_liquid_quantity.json reads it
+    /// back); the rest of the routine (passive effects, the empty handling, slot sorting) finishes over the
+    /// next frames, so a container drained to zero reads 0 at once and loses its liquid card a few frames
+    /// later. Returns false, with one warning per cause, for a null or destroyed card, a NaN or infinite
+    /// amount, no run in progress, a game version whose <c>ChangeCardDurability</c> no longer matches
+    /// (pinned by Framework-ReflectedSignatures.Tests.ps1) and a call that throws. Returns false WITHOUT a
+    /// warning when the card holds no liquid, so a caller asking whether a drink happened gets its
+    /// answer.</para>
+    /// </summary>
+    public static bool ModifyLiquid(InGameCardBase card, float delta)
+    {
+        try
+        {
+            if (!card || card.Destroyed)
+            {
+                WarnLiquidOnce("modify-no-card", "CardUtil.ModifyLiquid was given a null or destroyed card, so nothing was changed. Logged once.");
+                return false;
+            }
+            if (float.IsNaN(delta) || float.IsInfinity(delta))
+            {
+                WarnLiquidOnce("modify-bad-amount", "CardUtil.ModifyLiquid was given a NaN or infinite amount, so nothing was changed. Logged once.");
+                return false;
+            }
+
+            var holder = LiquidHolder(card);
+            if (!holder)
+            {
+                // silent-ok: an empty container holds no liquid to change; false is the answer a caller asking "did a drink happen" needs.
+                return false;
+            }
+            if (Mathf.Approximately(delta, 0f)) return true;
+
+            // Unity's == on the game's own type, so a destroyed manager and no manager (the main menu) both read null.
+            var gm = GetGameManagerInstance() as GameManager;
+            if (gm == null)
+            {
+                WarnLiquidOnce("modify-no-run", "CardUtil.ModifyLiquid was called with no run in progress (no live GameManager), so nothing was changed. Logged once.");
+                return false;
+            }
+
+            // Resolution is by type, so one attempt per process is final.
+            if (!_changeDurabilityResolved)
+            {
+                _changeDurabilityResolved = true;
+                _changeDurabilityCause = ResolveChangeCardDurability(typeof(GameManager), out _changeDurability);
+            }
+            if (_changeDurability == null)
+            {
+                WarnLiquidOnce("modify-method",
+                    $"CardUtil.ModifyLiquid: vanilla GameManager.ChangeCardDurability could not be used ({_changeDurabilityCause}), so no liquid is changed on this game version. "
+                    + "Re-read .decomp/GameManager.cs and Framework-ReflectedSignatures.Tests.ps1.");
+                return false;
+            }
+
+            if (!TryChangeCardDurability(gm, _changeDurability, holder, delta, DurabilitiesTypes.Liquid, InGameNPCOrPlayer.Null, out var causeKey, out var cause))
+            {
+                WarnLiquidOnce("modify-" + causeKey, "CardUtil.ModifyLiquid: " + cause);
+                return false;
+            }
+            return true;
+        }
+        catch (Exception ex)
+        {
+            WarnLiquidOnce("modify-threw:" + Log.CauseKey(ex),
+                $"CardUtil.ModifyLiquid threw {ex.GetType().Name}, so the liquid was not changed: {Log.ExceptionText(ex)}");
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// The card the quantity lives on: <paramref name="card"/> itself when it IS a liquid, else the liquid
+    /// it contains, else null (an empty container, or a card that holds no liquid). Unity's truthiness test
+    /// and the game's own <c>Destroyed</c> flag, so a liquid that was removed reads as none.
+    /// </summary>
+    private static InGameCardBase LiquidHolder(InGameCardBase card)
+    {
+        if (card.IsLiquid) return card;
+        var contained = card.ContainedLiquid;
+        return contained && !contained.Destroyed ? contained : null;
+    }
+
+    // GameManager.ChangeCardDurability, resolved once per process (see ModifyLiquid).
+    private static bool       _changeDurabilityResolved;
+    private static MethodInfo _changeDurability;
+    private static string     _changeDurabilityCause;
+
+    /// <summary>
+    /// Resolves vanilla <c>GameManager.ChangeCardDurability</c>. Returns null on success, or a short cause
+    /// naming what did not match, in which case <paramref name="method"/> is null and the caller must not
+    /// call it.
+    ///
+    /// <para>Decompile reference (EA 0.68b): <c>public CoroutineController ChangeCardDurability(InGameCardBase
+    /// _Card, float _Amt, DurabilitiesTypes _Type, InGameNPCOrPlayer _User, bool _NPC = false)</c>,
+    /// <c>.decomp/GameManager.cs</c>. It starts its own coroutine (<c>StartCoroutineEx</c>) and returns the
+    /// controller, or null when the amount is about zero, so a bare <c>Invoke</c> is correct and a null
+    /// return is not a failure. That is why the return type is checked and not only the name: a typed call
+    /// would compile unchanged if an update made this method return an <c>IEnumerator</c>, and the bare call
+    /// would then build the state machine and run none of its body (root CLAUDE.md "Runtime Card Removal").
+    /// The lookup is by name over every instance and static member, so a changed access modifier still
+    /// resolves and a static variant is refused with its own cause.</para>
+    ///
+    /// <para>Pure reflection over <paramref name="gameManagerType"/> with no Unity call, and parameter
+    /// types are compared by name, so the workspace gate drives it against replicas of the decompiled
+    /// signature (Framework-LiquidQuantity.Tests.ps1).</para>
+    /// </summary>
+    internal static string ResolveChangeCardDurability(Type gameManagerType, out MethodInfo method)
+    {
+        method = null;
+        if (gameManagerType == null) return "GameManager type unavailable";
+
+        var found = new List<MethodInfo>();
+        try
+        {
+            foreach (var candidate in gameManagerType.GetMethods(
+                         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic))
+                if (candidate.Name == "ChangeCardDurability") found.Add(candidate);
+        }
+        catch (Exception ex) { return $"the lookup threw {ex.GetType().Name}: {ex.Message}"; }
+        if (found.Count == 0) return "no ChangeCardDurability method";
+        if (found.Count > 1) return $"{found.Count} methods are named ChangeCardDurability, so the right one cannot be chosen";
+
+        var m = found[0];
+        if (m.IsStatic) return "ChangeCardDurability is static, and the framework calls it on the GameManager instance";
+        if (m.ReturnType == typeof(IEnumerator))
+            return "ChangeCardDurability returns IEnumerator, not CoroutineController (it would need StartCoroutine)";
+        if (m.ReturnType.Name != "CoroutineController")
+            return $"ChangeCardDurability returns {m.ReturnType.Name}, not CoroutineController";
+
+        var p = m.GetParameters();
+        if (p.Length != 5) return $"ChangeCardDurability takes {p.Length} parameters, not 5";
+        if (p[0].ParameterType.Name != "InGameCardBase")
+            return $"ChangeCardDurability parameter 0 is {p[0].ParameterType.Name}, not InGameCardBase";
+        if (p[1].ParameterType != typeof(float))
+            return $"ChangeCardDurability parameter 1 is {p[1].ParameterType.Name}, not float";
+        if (p[2].ParameterType.Name != "DurabilitiesTypes" || !p[2].ParameterType.IsEnum)
+            return $"ChangeCardDurability parameter 2 is {p[2].ParameterType.Name}, not the DurabilitiesTypes enum";
+        if (p[3].ParameterType.Name != "InGameNPCOrPlayer")
+            return $"ChangeCardDurability parameter 3 is {p[3].ParameterType.Name}, not InGameNPCOrPlayer";
+        if (p[4].ParameterType != typeof(bool))
+            return $"ChangeCardDurability parameter 4 is {p[4].ParameterType.Name}, not bool";
+
+        method = m;
+        // silent-ok: success is reported as a null cause (the CardUtil.ResolveApplyPerk convention); ModifyLiquid warns on a non-null one.
+        return null;
+    }
+
+    /// <summary>
+    /// Calls the resolved <c>ChangeCardDurability</c> as <c>(card, amount, durabilityType, user, false)</c>:
+    /// the last argument is the game's <c>_NPC</c> flag, false for a liquid card. True when the call
+    /// returned without throwing, whatever it returned (a null controller means an amount of about zero and
+    /// is not a failure). On false the two out parameters carry a stable key for the cause and its warning
+    /// text, which the caller logs once. Takes and returns no game types so the gate can drive it on
+    /// replicas of the decompiled declaration (Framework-LiquidQuantity.Tests.ps1), which is what proves
+    /// the five arguments are in the order the game declares them: a boxed argument array has no compile
+    /// check.
+    /// </summary>
+    internal static bool TryChangeCardDurability(object gameManager, MethodInfo method, object card, float amount,
+        object durabilityType, object user, out string causeKey, out string cause)
+    {
+        causeKey = null;
+        cause = null;
+        if (gameManager == null)
+        {
+            causeKey = "no-game-manager";
+            cause = "there is no GameManager to call ChangeCardDurability on, so nothing was changed.";
+            return false;
+        }
+        if (method == null)
+        {
+            causeKey = "not-resolved";
+            cause = "ChangeCardDurability was not resolved, so nothing was changed.";
+            return false;
+        }
+        try
+        {
+            // The method starts its own coroutine and returns its controller (null for an amount of about
+            // zero), so a bare Invoke runs the change and the result is not needed.
+            method.Invoke(gameManager, new object[] { card, amount, durabilityType, user, false });
+            return true;
+        }
+        catch (Exception ex)
+        {
+            causeKey = "threw:" + Log.CauseKey(ex);
+            cause = "GameManager.ChangeCardDurability threw, so the liquid was not changed: " + Log.ExceptionText(ex);
+            return false;
+        }
+    }
+
+    #endregion
 
     // ── Stat-preserving in-place transform (Tier 1) ──────────────────────────
 

@@ -4,10 +4,11 @@ namespace CSFFModFramework.Api;
 
 /// <summary>
 /// Read-only query API for current game state: time, season, weather, moon phase, environment,
-/// and cards in the player's current environment.
+/// and cards in the player's current environment, plus the cards the player is wearing
+/// (<see cref="EquippedCards"/>).
 ///
 /// Available after <see cref="FrameworkEvents.GameDataReady"/>. All properties return safe
-/// defaults (0, null, false) before the game manager is initialized.
+/// defaults (0, null, false, an empty list) before the game manager is initialized.
 /// </summary>
 public static class GameQuery
 {
@@ -537,6 +538,168 @@ public static class GameQuery
             if (ct != null && Convert.ToInt32(ct) == cardType) results.Add(card);
         }
         return results;
+    }
+
+    // ── Equipment ─────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// The cards the player is wearing right now: one per equipment slot that holds a card, in slot
+    /// order, as the game's own <c>GraphicsManager.GetEquippedCards(false)</c> reports them. What an
+    /// equipped card CONTAINS (a worn belt's tools, a flask's liquid) is not included. Replaces the
+    /// <c>CharacterWindow.EquipmentSlotsLine.Slots[i].AssignedCard</c> walk several mods open-coded.
+    ///
+    /// <para><b>A copy, allocated on every read.</b> The game's method fills ONE list that the
+    /// <c>GraphicsManager</c> owns and returns it, and refills it on every call, which
+    /// <c>GameManager</c> makes from its own carry-weight, extra-durability and in-hand or in-equipment
+    /// checks (eight call sites in EA 0.68b). Holding that list means it changes under you the next time
+    /// the game asks. This list is yours: add to it, sort it, keep it, and read the property again for
+    /// fresh state.</para>
+    ///
+    /// <para>Returns an empty list, with one warning per cause in the log, when the equipment cannot be
+    /// read: no <c>GraphicsManager</c> (the main menu, or a run still loading, where that is expected,
+    /// and a bug anywhere else), or a game version whose <c>GetEquippedCards</c> no longer matches. So
+    /// an empty list with no new warning means nothing is worn. A caller that polls should wait for a
+    /// run first: with no manager, every read searches the scene for one (<c>MBSingleton.Instance</c>).
+    /// The signature is pinned by <c>Framework-ReflectedSignatures.Tests.ps1</c>.</para>
+    /// </summary>
+    public static List<InGameCardBase> EquippedCards
+    {
+        get
+        {
+            var copy = new List<InGameCardBase>();
+            object graphicsManager;
+            try { graphicsManager = LiveGraphicsManager(); }
+            catch (Exception ex)
+            {
+                WarnEquippedOnce("manager-lookup:" + Log.CauseKey(ex),
+                    "the GraphicsManager lookup threw, so the equipped cards could not be read and an empty list was returned: "
+                    + Log.ExceptionText(ex));
+                return copy;
+            }
+
+            if (!TryReadEquipped(graphicsManager, copy, out var causeKey, out var cause))
+                WarnEquippedOnce(causeKey, cause);
+            return copy;
+        }
+    }
+
+    // Kept in its own non-inlined method so the compile-time GraphicsManager members are bound when
+    // THIS method is JIT-compiled, inside the guarded call above (the TryVanillaClockHour shape). A
+    // destroyed instance fails Unity's truthiness test, so it is reported as absent, not returned.
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static object LiveGraphicsManager()
+    {
+        var manager = MBSingleton<GraphicsManager>.Instance;
+        return manager ? (object)manager : null;
+    }
+
+    // GraphicsManager.GetEquippedCards(bool), resolved once per runtime type of the manager. The cause
+    // from a failed resolve is kept so every later read reports the same cause.
+    private static Type _equippedOwner;
+    private static MethodInfo _equippedMethod;
+    private static string _equippedResolveCause;
+    private static readonly HashSet<string> _equippedWarned = new();
+
+    private static void WarnEquippedOnce(string causeKey, string message)
+    {
+        if (_equippedWarned.Add(causeKey ?? message))
+            Log.Warn("[GameQuery] EquippedCards: " + message);
+    }
+
+    /// <summary>
+    /// Copies the cards of <c>graphicsManager.GetEquippedCards(false)</c> into <paramref name="into"/>.
+    /// True when the copy is complete. On false, <paramref name="into"/> is left EMPTY (never half
+    /// filled) and the two out parameters carry a stable key for the cause and its warning text, which
+    /// the caller logs once. Takes and returns no game types so the gate can drive it on replicas of the
+    /// decompiled declaration (Framework-EquippedCards.Tests.ps1).
+    /// </summary>
+    internal static bool TryReadEquipped(object graphicsManager, IList into, out string causeKey, out string cause)
+    {
+        causeKey = null;
+        cause = null;
+        if (graphicsManager == null)
+        {
+            causeKey = "no-graphics-manager";
+            cause = "GraphicsManager is not available, so an empty list was returned. Expected on the main menu or while a run is "
+                  + "loading; anywhere else it means the game's UI manager no longer exists.";
+            return false;
+        }
+
+        var owner = graphicsManager.GetType();
+        if (!object.ReferenceEquals(owner, _equippedOwner))
+        {
+            _equippedOwner = owner;
+            _equippedMethod = ResolveGetEquippedCards(owner, out _equippedResolveCause);
+        }
+        if (_equippedMethod == null)
+        {
+            causeKey = "method:" + owner.FullName;
+            cause = _equippedResolveCause;
+            return false;
+        }
+
+        object result;
+        try { result = _equippedMethod.Invoke(graphicsManager, new object[] { false }); }
+        catch (Exception ex)
+        {
+            causeKey = "threw:" + Log.CauseKey(ex);
+            cause = "GraphicsManager.GetEquippedCards(false) threw, so an empty list was returned (CharacterWindow or its "
+                  + "EquipmentSlotsLine not built yet is the usual cause): " + Log.ExceptionText(ex);
+            return false;
+        }
+
+        if (result is not IEnumerable cards)
+        {
+            causeKey = "returned-null:" + owner.FullName;
+            cause = "GraphicsManager.GetEquippedCards(false) returned null, so an empty list was returned.";
+            return false;
+        }
+
+        try
+        {
+            foreach (var card in cards)
+                if (card != null) into.Add(card);
+        }
+        catch (Exception ex)
+        {
+            into.Clear();
+            causeKey = "copy:" + Log.CauseKey(ex);
+            cause = "the cards GraphicsManager.GetEquippedCards(false) returned could not be copied into the result list, so an "
+                  + "empty list was returned: " + Log.ExceptionText(ex);
+            return false;
+        }
+        return true;
+    }
+
+    // Public or not, but exactly (bool) and a list: a coroutine or a second parameter is a different
+    // method and a bare Invoke would not do what the name says. Null with the cause when it is not that.
+    private static MethodInfo ResolveGetEquippedCards(Type owner, out string cause)
+    {
+        cause = null;
+        MethodInfo method;
+        try
+        {
+            method = owner.GetMethod("GetEquippedCards", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+                                     null, new[] { typeof(bool) }, null);
+        }
+        catch (Exception ex)
+        {
+            cause = $"{owner.FullName}.GetEquippedCards(bool) could not be looked up ({Log.ExceptionText(ex)}), so an empty list was returned.";
+            return null;
+        }
+        if (method == null)
+        {
+            cause = $"{owner.FullName} has no GetEquippedCards(bool) in this game version, so an empty list was returned. "
+                  + "The method this reads was renamed or its parameters changed; see Framework-ReflectedSignatures.Tests.ps1.";
+            return null;
+        }
+        if (!typeof(IList).IsAssignableFrom(method.ReturnType))
+        {
+            cause = $"{owner.FullName}.GetEquippedCards(bool) now returns {method.ReturnType.FullName}, not a list, so an empty list was returned. "
+                  + "An IEnumerator return would be a coroutine that a bare Invoke never runs.";
+            method = null;
+        }
+        return method;
     }
 
     // ── Internal setup ────────────────────────────────────────────────────────

@@ -134,9 +134,16 @@ internal static class ForeignInstanceReconciler
             Log.Warn($"[LoaderCoexistence] AllData dedup failed: {Log.ExceptionText(ex)}");
         }
 
+        // The framework's typed cache took its snapshot while the foreign duplicates were already
+        // loaded, and our instances joined it as they entered AllData; drop the duplicates there too,
+        // so CardUtil.FindCardsWhere and name lookups see one instance per UID (plan section 29).
+        int typedReplaced = 0;
+        try { typedReplaced = Data.Database.SupersedeInstances(foreignByInstance); }
+        catch (Exception ex) { Log.Warn($"[LoaderCoexistence] typed-cache dedup failed: {Log.ExceptionText(ex)}"); }
+
         var loader = Discovery.ModDiscovery.PikachuLoaderName ?? "another mod loader";
         Log.Info($"[LoaderCoexistence] {loader} created {rebound} duplicate object(s) for framework-loaded UIDs — "
                + $"framework instances are now canonical (registry rebound: {rebound}, index list swapped: {swapped}, "
-               + $"database entries removed: {removed})");
+               + $"database entries removed: {removed}, typed cache entries replaced: {typedReplaced})");
     }
 }

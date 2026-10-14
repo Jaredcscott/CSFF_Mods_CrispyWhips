@@ -265,6 +265,14 @@ internal static class TrapIntegrator
     /// <c>PartridgeTied*</c>), and folding them into a food pool would have a species happily
     /// eating other animals' catches — including, for a species whose own catch card is a live
     /// form, itself.</para></summary>
+    /// <summary>A tag that names an ANIMAL, not food: the Pit Trap's filter accepts
+    /// <c>tag_LargeAnimal</c> and <c>tag_WildBigAnimal</c> because a fallen animal lies in it. Read
+    /// live 2026-10-07 (EA 0.68b): every other tag the four traps accept is <c>tag_Feed*</c> or
+    /// <c>tag_Bait</c>. Folded into a feed duty's pool, which may take from the open board, these two
+    /// let a Sirus23 owl eat the player's Dog Friend and unpenned sheep at night (harness T2.482).</summary>
+    internal static bool IsCatchTag(CardTag tag)
+        => tag != null && tag.name != null && tag.name.EndsWith("Animal", StringComparison.Ordinal);
+
     public static CardTag[] VanillaBaitTags()
     {
         var tags = new List<CardTag>();
@@ -275,7 +283,7 @@ internal static class TrapIntegrator
             if (filters == null) continue;
 
             foreach (var filter in filters)
-                if (!filter.NOT && filter.Tag != null && !tags.Contains(filter.Tag))
+                if (!filter.NOT && filter.Tag != null && !IsCatchTag(filter.Tag) && !tags.Contains(filter.Tag))
                     tags.Add(filter.Tag);
         }
         return tags.ToArray();

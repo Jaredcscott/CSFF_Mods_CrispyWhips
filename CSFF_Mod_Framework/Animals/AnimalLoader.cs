@@ -39,6 +39,7 @@ internal static class AnimalLoader
                         continue;
                     }
                     manifest = AnimalManifest.FromDict(root, mod.Name, label);
+                    manifest.SourceModDir = mod.DirectoryPath;
                 }
                 catch (Exception ex)
                 {

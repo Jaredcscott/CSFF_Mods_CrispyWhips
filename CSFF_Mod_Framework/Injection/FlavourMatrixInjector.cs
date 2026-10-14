@@ -144,7 +144,12 @@ internal static class FlavourMatrixInjector
             }
         }
 
-        if (filesLoaded > 0 || filesSkipped > 0)
+        // A skipped file (an unresolved FlavourTag among them) is counted at Info, so a reporter's log
+        // shows it with VerboseLogging off (framework README "Unresolved references"); a clean load
+        // stays at Debug.
+        if (filesSkipped > 0)
+            Log.Info($"[FlavourMatrixInjector] resolved {filesLoaded} synergy pair(s) from JSON ({filesSkipped} skipped).");
+        else if (filesLoaded > 0)
             Log.Debug($"[FlavourMatrixInjector] resolved {filesLoaded} synergy pair(s) from JSON ({filesSkipped} skipped).");
     }
 

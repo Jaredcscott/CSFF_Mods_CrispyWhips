@@ -102,6 +102,11 @@ internal static class GameRegistry
             }
         }
 
+        // Renamed UID: a mod's UidAliases.json maps the old name to the live one.
+        var renamed = Loading.UidAliasService.Resolve(uid);
+        if (renamed != null && dict != null && dict.Contains(renamed))
+            return dict[renamed] as UniqueIDScriptable;
+
         return null;
     }
 
@@ -195,6 +200,10 @@ internal static class GameRegistry
     /// <summary>
     /// Additive write: append <paramref name="obj"/> to <c>GameLoad.Instance.DataBase.AllData</c>
     /// if not already present. No-op if AllData isn't reachable yet.
+    /// <para>An object this adds also joins the framework's typed cache at the same moment
+    /// (<see cref="Database.RegisterAddedToAllData"/>), so <c>Database.GetAllOfType</c> and
+    /// <c>CardUtil.FindCardsWhere</c> see everything the framework put into AllData, not only the
+    /// snapshot <see cref="Database.InitFromGame"/> took before any mod content existed.</para>
     /// </summary>
     public static bool TryAddToAllData(UniqueIDScriptable obj)
     {
@@ -215,13 +224,15 @@ internal static class GameRegistry
                 return false; // fallback O(n) scan for UID-less objects (should be rare)
             }
             allData.Add(obj);
-            return true;
         }
         catch (Exception ex)
         {
             Log.Warn($"GameRegistry: failed to register {obj.name} in AllData: {Log.ExceptionText(ex)}");
+            return false;
         }
-        return false;
+
+        Database.RegisterAddedToAllData(obj);
+        return true;
     }
 
     /// <summary>

@@ -161,6 +161,7 @@ internal static class TameInteractionBuilder
             {
                 var failPassive = NewCollection($"{m.SpeciesId}_{ix.Name}_fail", passiveWeight);
                 SetDroppedCards(failPassive, Array.Empty<CardDrop>());
+            failPassive.RevealInventory = true; // see FailCounts: an empty collection is otherwise weight 0
                 collections.Add(failPassive);
             }
         }
@@ -168,6 +169,7 @@ internal static class TameInteractionBuilder
         {
             var fail = NewCollection($"{m.SpeciesId}_{ix.Name}_fail", ix.FailWeight);
             SetDroppedCards(fail, Array.Empty<CardDrop>());
+            fail.RevealInventory = true; // see FailCounts: an empty collection is otherwise weight 0
             collections.Add(fail);
         }
 
@@ -181,6 +183,10 @@ internal static class TameInteractionBuilder
             ?? Database.GetTypedSO(typeof(GameStat), skillRef) as GameStat;
     }
 
+    // FailCounts: GameManager.GetCollectionDropsReport (and CardAction's selection) gives BaseWeight 0 and
+    // skips any collection with no potential drops, no encounter and RevealInventory false, so an empty
+    // passive-fail collection is never selected and the real odds become success vs fail-attack only.
+    // RevealInventory = true keeps it in the total; on an agent with no hidden inventory it has no other effect.
     private static CardsDropCollection NewCollection(string name, int weight) => new()
     {
         CollectionName = name,

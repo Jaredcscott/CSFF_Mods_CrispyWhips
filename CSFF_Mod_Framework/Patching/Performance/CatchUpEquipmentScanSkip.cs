@@ -3,51 +3,63 @@ using HarmonyLib;
 
 namespace CSFFModFramework.Patching.Performance;
 
-// Phase 2 of the catch-up performance plan (Documentation/Plans/CSFFModFramework/
-// CatchUp_Performance_Plan.md). Every card the catch-up loop processes already
-// passed GameManager.ApplyRates' `!IndependentFromEnv` guard, and a card in an
-// Equipment/Item slot is IndependentFromEnv by definition
-// (.decomp/InGameCardBase.cs:1061-1063) — so CharacterScreen.HasCardEquipped
-// should provably return false for every card the catch-up loop's 8 rate
-// getters query it with (.decomp/InGameCardBase.cs:1722-1724). Short-circuiting
-// it during IsCatchingUp would remove ~27,000 linear equipment-slot scans per
-// catch-up tick on the measured heavy save.
+// Phase 2 of the catch-up performance work (Documentation/Design/CatchUp_Performance_As_Built.md).
+// Every card the catch-up loop processes already passed GameManager.ApplyRates' `!IndependentFromEnv`
+// guard (IsIndependentDuringCatchup), and a card in an Equipment/Item/Blueprint slot is
+// IndependentFromEnv by definition (.decomp/InGameCardBase.cs, the IndependentFromEnv getter), so
+// CharacterScreen.HasCardEquipped is false for every card the catch-up loop's rate getters query it
+// with. This ships the short-circuit: while GameManager.IsCatchingUp, a prefix answers false and skips
+// the linear equipment-slot scan, which on the measured heavy save was ~27,000 scans per catch-up tick.
 //
-// NOT short-circuited yet. Per CLAUDE.md Debugging Discipline ("diagnostics
-// before fixes") and the plan's own explicit gate, this ships first as a
-// LOG-ONLY verification pass: a postfix that flags any call during IsCatchingUp
-// whose result was actually TRUE (i.e. a case the short-circuit would get
-// wrong). One play session with zero hits confirms the assumption; only then
-// should ChangeEnvironment_Prefix-style short-circuit be added in a follow-up
-// build. Do not flip this to a real short-circuit without that verification —
-// the safety claim here is asserted from the travel-flow guard chain, not
-// exhaustively proven for every code path that might query equipment state
-// while IsCatchingUp is true.
+// The skip is behind [Performance] CatchUpEquipmentScanSkip (default true). The verify pass that gated
+// it (tracker T1.68: 26 travels, zero calls that returned TRUE during IsCatchingUp) stays as a log-only
+// postfix behind [Performance] LogCatchUpEquipmentScanHits: it observes the unsafe case whenever the
+// skip is OFF, because with the skip on the real result is never computed during catch-up.
 internal static class CatchUpEquipmentScanSkip
 {
-    private static bool _enabled;
+    private static bool _skipEnabled;
 
     public static void Configure(ConfigFile config, Harmony harmony)
     {
-        var enabledCfg = config.Bind(
+        var skipCfg = config.Bind(
+            "Performance", "CatchUpEquipmentScanSkip", true,
+            "While the game replays missed ticks on arrival (GameManager.IsCatchingUp), answer "
+            + "'not equipped' for CharacterScreen.HasCardEquipped without scanning the equipment slots. "
+            + "Safe because every card the replay processes is already known not to be equipped (an "
+            + "equipped card is independent of the environment and is skipped before any rate is read). "
+            + "Shortens long-absence travel. Set false to restore the vanilla scan.");
+        var logCfg = config.Bind(
             "Performance", "LogCatchUpEquipmentScanHits", true,
-            "Diagnostic for the Phase 2 catch-up performance verify pass (see "
-            + "Documentation/Design/CatchUp_Performance_As_Built.md). Logs "
-            + "an Info line any time CharacterScreen.HasCardEquipped returns true for a "
-            + "card while GameManager.IsCatchingUp is true — that would be the one case "
-            + "where a proposed catch-up short-circuit (not yet shipped) would give the "
-            + "wrong answer. A play session with zero hits is the ship gate for the "
-            + "actual short-circuit. Cheap (one bool check per call; only logs on the "
-            + "rare unsafe case), safe to leave on.");
-        _enabled = enabledCfg.Value;
-        if (!_enabled) return;
+            "Diagnostic for the catch-up equipment-scan skip (see "
+            + "Documentation/Design/CatchUp_Performance_As_Built.md). Logs an Info line any time "
+            + "CharacterScreen.HasCardEquipped returns true for a card while GameManager.IsCatchingUp "
+            + "is true: the one case where the skip would give the wrong answer. It can only observe "
+            + "while CatchUpEquipmentScanSkip is false, since the skip answers before the scan runs. "
+            + "Cheap (one bool check per call; only logs on the rare unsafe case), safe to leave on.");
+        _skipEnabled = skipCfg.Value;
+        bool logHits = logCfg.Value;
+        if (!_skipEnabled && !logHits) return;
 
-        var postfix = new HarmonyMethod(AccessTools.Method(typeof(CatchUpEquipmentScanSkip), nameof(HasCardEquipped_Postfix)));
-        bool ok = SafePatcher.TryPatch(harmony, typeof(CharacterScreen), "HasCardEquipped", postfix: postfix);
+        HarmonyMethod prefix = _skipEnabled
+            ? new HarmonyMethod(AccessTools.Method(typeof(CatchUpEquipmentScanSkip), nameof(HasCardEquipped_Prefix)))
+            : null;
+        HarmonyMethod postfix = logHits
+            ? new HarmonyMethod(AccessTools.Method(typeof(CatchUpEquipmentScanSkip), nameof(HasCardEquipped_Postfix)))
+            : null;
+        bool ok = SafePatcher.TryPatch(harmony, typeof(CharacterScreen), "HasCardEquipped", prefix: prefix, postfix: postfix);
         if (ok)
-            Util.Log.Debug("CatchUpEquipmentScanSkip: diagnostic enabled (log-only; no short-circuit shipped yet).");
+            Util.Log.Debug($"CatchUpEquipmentScanSkip: patched HasCardEquipped (skip={_skipEnabled}, log hits={logHits}).");
         else
-            Util.Log.Warn("CatchUpEquipmentScanSkip: failed to patch CharacterScreen.HasCardEquipped; diagnostic inactive.");
+            Util.Log.Warn("CatchUpEquipmentScanSkip: failed to patch CharacterScreen.HasCardEquipped; catch-up scan skip and diagnostic inactive.");
+    }
+
+    // Returning false skips the original; __result then stands as set. Outside catch-up the original runs.
+    private static bool HasCardEquipped_Prefix(ref bool __result)
+    {
+        var gm = MBSingleton<GameManager>.Instance;
+        if (gm == null || !gm.IsCatchingUp) return true;
+        __result = false;
+        return false;
     }
 
     private static void HasCardEquipped_Postfix(InGameCardBase _Card, bool __result)
@@ -60,7 +72,7 @@ internal static class CatchUpEquipmentScanSkip
         try { uid = _Card != null && _Card.CardModel != null ? _Card.CardModel.UniqueID : "?"; }
         catch (Exception ex) { Util.Log.Debug($"CatchUpEquipmentScanSkip: could not read CardModel.UniqueID: {ex.Message}"); }
 
-        Util.Log.Info($"CatchUpEquipmentScanSkip: HasCardEquipped returned TRUE during IsCatchingUp for '{uid}' — "
-                      + "a proposed short-circuit here would be UNSAFE for this call; do not ship it until this stops appearing.");
+        Util.Log.Info($"CatchUpEquipmentScanSkip: HasCardEquipped returned TRUE during IsCatchingUp for '{uid}'; "
+                      + "the catch-up equipment-scan skip is wrong for this call. Set [Performance] CatchUpEquipmentScanSkip=false and report it.");
     }
 }

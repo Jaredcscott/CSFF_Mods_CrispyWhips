@@ -1,75 +1,67 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.26.9
-Date: 2026-09-25 (refreshed by `/consolidate-audit` after source commit `c88041752`)
-Audit score: 5/10 - FAIL (capped; the `/audit-mod` rubric gives 9/10, and the BROKEN critical-analysis verdict on record, which read 2.26.5, caps it at 5/10)
+Version at time of writing: 2.28.0
+Date: 2026-10-11 (refreshed by `/consolidate-audit` after source commit `cf96e0d75`)
+Audit score: 9/10 - PASS (the prior 5/10 cap is lifted: the fresh 2026-10-11 critical-analysis against 2.28.0 returned SOLID and code-quality returned 10/10)
 
 > **This is the framework, not a content mod.** The content-mod roadmap template (Tier 2 migration,
 > theme expansion, art) mostly does not apply: the framework DEFINES Tier 2, and its own content is a
-> single minimal Portal Hub set that exists only to exercise the engine. So "expansion" here means new
-> ENGINE surfaces that downstream mods consume, and "polish" means removing the last dead API and
-> boilerplate. Player-facing content, recipes and balance belong in downstream mods, not here
-> (`Documentation/Ideas/CSFFModFramework/IDEAS.md` guardrails).
+> minimal Portal Hub reference set plus the shared Metal Sheet / Metal Nail / Tin Solder parts that
+> downstream mods build with. "Expansion" here means new ENGINE surfaces that downstream mods consume,
+> and "polish" means removing the last dead API and boilerplate. Player-facing content, recipes and
+> balance belong in downstream mods, not here (guardrails carried 2026-10-01 into
+> `Documentation/Plans/CSFFModFramework/MASTER_PLAN.md` section 0).
 
 ## Current State
 
 **Theme**: The standalone engine every CSFF suite mod depends on - mod discovery, data loading, WarpData
 resolution, sprite loading, blueprint/perk injection, localization, STA activation, NPC-agent
 diagnostics, WorldMap node + travel-DA injection, the Portal Hub cross-world system, the declarative
-Animal System (tame/companion, traps, tracks, encounters from a JSON manifest with no mod-side C#), and
-standalone GameModifierPackage / flavour-synergy injection.
+Animal System (tame/companion, traps, tracks, encounters from a JSON manifest with no mod-side C#),
+standalone GameModifierPackage / flavour-synergy injection, and the shared Metal Sheet / Metal Nail /
+Tin Solder cards and blueprints moved in from ACT in 2.28.0.
 
-**Content**: 1 item / 1 blueprint / 2 structures / 1 perk / 2 custom images (the Portal Hub reference set
-only, all under `CardData/Hub/`: Wayfinder perk -> Portal Kit item (CT0) -> placed Portal Hub (CT2,
-`csffmfwportalplaced`) -> Hub Exit (CT2, `653ab779572b47039c856911d02c9d51`); art `Portal_Kit.png`,
-`Portal_Placed.png`). 151 `.cs` engine files. Since 2.26.9 the Wayfinder perk and the Portal Kit
-blueprint are hidden when no installed mod ships a `MapMod.json` world.
+**Content**: 4 items / 8 blueprints / 2 structures / 1 perk / 19 custom images / 167 `.cs` engine files.
+The Portal Hub reference set (`CardData/Hub/`: Wayfinder perk -> Portal Kit item CT0 -> placed Portal
+Hub CT2 `csffmfwportalplaced` -> Hub Exit CT2 `csffmfw_hub_exit`, art `Portal_Kit.png`/`Portal_Placed.png`;
+Wayfinder + Portal Kit blueprint hidden when no installed mod ships a `MapMod.json` world), plus the
+`CardData/MetalParts/` set (3 items + 7 blueprints, registered in `BlueprintTabs.json` MetalCrafts, all
+with correct mask-transfer flags so the ACT White-Bronze defect is not re-imported).
 
-**Stability**: 5/10 - FAIL (capped). 1 CRITICAL-table item (C1, a fix-shipped retro awaiting `T2.186`),
-0 design gaps, 4 warnings, 7 minor. The 2026-09-25 critical-analysis (BROKEN at 2.26.5) and code-quality
-(4/10 at 2.26.5) re-runs found real defects; four same-day releases fixed every one of them in source
-except the latent W6 (disclosed in the README) and the noted W-17:
-2.26.6 `e3deae1c1` (seasonal drops removed through `CardUtil.TryRemoveCard`, `CardSpawned` relays vanilla
-`OnCardSpawned`, no phantom day on menu -> load, `CardFinder` sees Transform products, README corrected),
-2.26.7 `bc1c99448` (produced mod cards keep their designed stats, portal `AddCard` on 0.68b, GIFs play),
-2.26.8 `2e28db8e2` (19 reflected-invoke catches unwrap their cause, raid stress, day rollover on
-`CurrentDay`, new gate `Framework-ReflectedSignatures.Tests.ps1`), 2.26.9 `c88041752` (portal content
-hidden without worlds, portal return point survives reloads, Forge lookup dropped). The framework was
-deployed at 2026-09-25T14:43:49 (`.claude/mod-deploy-status.json`), so tracker rows `T2.266`-`T2.276`,
-all `pending`, are checkable on the installed build. The 5/10 cap lifts only when a critical-analysis
-pass reads 2.26.9 or later (fleet mission `csff-framework-critical-analysis-2269`).
+**Stability**: 9/10 - PASS. 0 CRITICAL, 0 design gaps, 6 warnings (all adjudicated non-defects: 6 D17
+false positives + 5 pending/open retro rows), 0 open minor. Build clean (0 errors, 0 warnings), all three
+version strings agree at 2.28.0, Chinese parity CLEAN (59/59), cross-mod index clean (17 mods / 2373 UIDs,
+0 foreign refs, 0 tag collisions). The 2026-10-11 critical-analysis (SOLID) and code-quality (10/10)
+found 0 defects and no advertised dead code.
 
-**Open work** (no 🔴 open retrospective; all 🟡 pending-verification / open-plan, none a current static defect):
-- `river-bridge-east-click-noop` (`T2.186`, `pending`) - fix shipped 2.25.30 (`c6973b394`), unchanged through 2.26.9; awaits one in-game click check.
-- `wikimod-old-save-load-crash` - fix shipped 2.25.25/2.25.26; a 2026-09-06 live log showed it working; closes on `T3.43` (`pending`).
-- `worldmap-clone-duplicate-terrain` - data-duplication premise measured FALSE 2026-09-11; remaining checks are presentation-layer and build-free (`T2.147`).
-- `cmc-village-conditional-drop-fixtures-missing` - root cause was this framework's `AlwaysUpdateService` forcing CT2 fixtures (fixed DG-F1, `96a33a8d6`, 2.25.28); walk-in and reload passed live (`T2.242`); one check left, a Portal Hub arrival into the Village (`T2.277`).
-- `questinjector-blueprint-reset-risk` (+ `RETRO_CLOSURE_PLAN_2026-07-23`, abandoned-for-now) - shipped, hard-gated OFF since 2.17.0, owes root-cause diagnostics before any re-enable.
-- `gate-red-baseline-rediscovery` - fix is to the TEST, queued as fleet mission `csff-gate-debt-preexisting` (not framework code).
-- `RETRO_CLOSURE_PLAN_2026-09-01` and its prompt pack (open plan spanning several of the above).
+**Open work** (no open retrospective; all pending-verification / open-plan, none a current static defect):
+- `river-bridge-east-click-noop` (`T2.186`, `pending`) - fix shipped 2.25.30, unchanged; awaits one in-game click check.
+- `worldmap-clone-duplicate-terrain` - `T2.147`/`T2.128` now read `pass`; INDEX row stale; ready for `/resolve-retro`.
+- `cmc-village-conditional-drop-fixtures-missing` - root cause was this framework's `AlwaysUpdateService` (fixed 2.25.28); `T2.277` confirmed 2026-10-07; ready for `/resolve-retro`.
+- `vanilla-pen-coop-null-tag-wedge` - Resolved by framework `NullTagOnBoardGuard` 2.28.0; `T2.1243` confirmed 2026-10-10; needs `/resolve-retro` to graduate.
+- `wikimod-old-save-load-crash` - fix shipped 2.25.25/2.25.26; a 2026-09-06 live log showed it working; not re-verified in-game.
+- `questinjector-blueprint-reset-risk` (+ `RETRO_CLOSURE_PLAN_2026-07-23`, abandoned-for-now) - shipped, hard-gated OFF, owes root-cause diagnostics before any re-enable.
 
 **Framework compliance**: This mod IS the framework - it DEFINES Tier 2 (`Api.ActionRouter`,
 `Api.SpawnService`, `Api.TickEvents`, `Api.ContentModPlugin`, `Api.EncounterGuards`, `Api.GameQuery`,
-`Api.StatAccess`). No deprecated pattern present: no `DropCollectionGuardPatch` reference in any `.cs`
-file, no manual perk/blueprint injection in a content mod's sense, no `ModLoaderVerison` or
-`ModEditorVersion` in its own manifest. Process-lifetime tick guards (`GameManager`-null early-outs),
-per-run handler-registration discipline, and (since 2.26.8) a Pester gate that resolves every hard-coded
-reflection target against the game DLL are in place.
+`Api.StatAccess`). No deprecated pattern present: no `DropCollectionGuardPatch`, no manual
+perk/blueprint injection in a content-mod sense, no `ModLoaderVerison`/`ModEditorVersion` in its own
+manifest. Process-lifetime tick guards (`GameManager`-null early-outs), per-run handler-registration
+discipline, and a Pester gate resolving every hard-coded reflection target against the game DLL are in
+place; `ChangeEnvironmentCrashGuard` is still applied LAST per the patch-order rule.
 
 ---
 
-## Phase 0: Stabilize
+## Phase 0: Stabilize  *(mostly cleared)*
 
-> Audit score is 5/10 (capped) and 🟡 retrospectives remain open. Almost all of this phase is runtime
-> verification of code that already shipped, not new code.
+> Audit score is 9/10 PASS with 0 CRITICAL and 0 design gaps. Nothing here is new code; what remains is
+> retro verification debt and evidence-gate closure.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **In-game checks for 2.26.6-2.26.9** on the deployed build: `T2.266` (H&F tea unlock via the spawn event), `T2.267` (CMC seasonal field removal), `T2.268` (no phantom day on menu -> load), `T2.269` (`CardFinder` sees a transformed card), `T2.270` (produced-card stats), `T2.271` (portal `AddCard` path), `T2.272` (day rollover over a long gap), `T2.273` (raid stress, raids opt-in), `T2.274` (boot-log read of the new warnings), `T2.275` (portal return after a reload), `T2.276` (portal content hidden without worlds). Per the 14:40 summary sync, the TestHarness can drive `T2.267`, `T2.268` and `T2.274`. | Runtime verification | P0 | Medium (harness + human play) |
-| **critical-analysis over 2.26.9**: the only thing that lifts the 5/10 cap. Registered as fleet mission `csff-framework-critical-analysis-2269`. | Audit re-run | P0 | Medium |
-| **C1 `river-bridge-east-click-noop`** in-game close on `T2.186`: quit-to-desktop relaunch, load save, reach River Clearing (bridge built, Pathfinder held), click East, grep `LogOutput.log` for `[TravelDaCacheResync]` FIRST | Retro close (runtime) | P0 | Quick (human play) |
-| `wikimod-old-save-load-crash` - close on `T3.43` (boards populate on an old save with WikiMod installed), then `/resolve-retro` | Retro close (runtime) | P1 | Quick (human play) |
-| `worldmap-clone-duplicate-terrain` - run the two build-free discriminators on `T2.147` (reload-in-place = visual vs data; pull `WikiMod.dll` = its dead `AddSlot` prefix); do NOT ship another board-data fix | Retro close (runtime) | P1 | Quick (human play) |
-| **W6** - register the portal travel and exit handlers from their own `OnGMInitialized` hook whenever any mod has `HasMapMod`, instead of hanging them off `WorldMapInjector.PrepareAll` (`Injection/WorldMapInjector.cs:1007-1013`, `:273`; `Loading/LoadOrchestrator.cs:260-269` vs `:318-319`). Latent: no in-house mod ships `MapMod.json` without map nodes, and README line 146 discloses the gap. | Latent fix | P2 | Quick |
+| Run `/resolve-retro` for `worldmap-clone-duplicate-terrain` (T2.147/T2.128 pass), `cmc-village-conditional-drop-fixtures-missing` (T2.277 confirmed) and `vanilla-pen-coop-null-tag-wedge` (T2.1243 confirmed) - all three have passing rows and only need the evidence gate + graduation; the INDEX rows are stale | Retro close (housekeeping) | P1 | Quick |
+| `river-bridge-east-click-noop` in-game close on `T2.186`: relaunch, load save, reach River Clearing, click East, grep `[TravelDaCacheResync]` first | Retro close (runtime) | P1 | Quick (human play) |
+| `wikimod-old-save-load-crash` - re-verify the 2.25.25/2.25.26 rescue on an old save with WikiMod installed, then `/resolve-retro` | Retro close (runtime) | P2 | Quick (human play) |
+| Tooling nicety: teach preflight D17 the out-param cause-capture shape (`causeKey=`/`cause=` inside the catch) so it stops re-flagging the six false positives (GameQuery 572/643/663, CardUtil 1585, WorldMapInjector 2078/2158) every pass | Tooling | P2 | Quick |
 
 ---
 
@@ -79,12 +71,13 @@ reflection target against the game DLL are in place.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Versions synced across `ModInfo.json` / `Plugin.cs` / `README.md` (all 2.26.9) | Version hygiene | P1 | Quick (done) |
-| Chinese localization parity (13 EN / 13 CN clean at the 2.26.5 pre-flight; 2.26.6 edited the Portal Kit row in both CSVs) | Localization | P1 | Quick (done) |
-| Refresh `lib/Assembly-CSharp.dll` on every game update and rebuild all mods (EA 0.68b refresh landed in `bddccaaf0`) | Game-version hygiene | P1 | Medium (per update) |
-| Keep `Development_Tools/Tests/Framework-ReflectedSignatures.Tests.ps1` current: every new hard-coded reflection target gets a row, so a game update that moves one goes red instead of silent (code-quality W-16) | Game-version hygiene | P1 | Quick (per change) |
-| Regenerate the 9 `Assembly-CSharp-nstrip.dll` binders with the external NStrip tool (authoring-surface only, not a runtime hazard per `Development_Tools/RefCheck/`) | Game-version hygiene | P1 | Medium (owner tool) |
-| Log hygiene: W9 (Info lines at `Util/CardUtil.cs:345`, `Patching/BugFixes/CardScaleCompat.cs:49`, `:77`), M3 (`Loading/BlueprintContainerSaveLoadFix.cs:150` faulted-coroutine catch at Debug), M4 (`Injection/NPCAgentActivationService.cs:144-163` survey runs with Verbose off) | Logging | P2 | Quick |
+| Versions synced across `ModInfo.json` / `Plugin.cs` / `README.md` (all 2.28.0) | Version hygiene | P1 | Quick (done) |
+| Chinese localization parity (59/59 clean) | Localization | P1 | Quick (done) |
+| Refresh `lib/Assembly-CSharp.dll` on every game update and rebuild all mods | Game-version hygiene | P1 | Medium (per update) |
+| Keep `Framework-ReflectedSignatures.Tests.ps1` current: every new hard-coded reflection target gets a row | Game-version hygiene | P1 | Quick (per change) |
+| Regenerate the 9 `Assembly-CSharp-nstrip.dll` binders with the external NStrip tool (authoring-surface only) | Game-version hygiene | P1 | Medium (owner tool) |
+| README by-name bullets for the 2.28.0 bug-fix classes (`NullTagOnBoardGuard`, `AgentEncounterGuardPatch`, `SaveStaleCardGuard`, `PerkStartingItemStats`) - optional; they are covered in CHANGELOG + root CLAUDE.md | Docs | P2 | Quick |
+| `OffEnvNpcAiThrottle.MoveNext_Prefix` fail-open logs at Debug per-call rather than warn-once - safe direction, opt-in; demote to a one-line note | Logging | P2 | Quick |
 
 ---
 
@@ -92,26 +85,25 @@ reflection target against the game DLL are in place.
 
 > New ENGINE seams downstream mods would consume. Each is blocked on a consumer, a design decision, or a
 > root-cause, NOT on missing engine plumbing (see `.audit/ideas.md` for the 2026-09-11 premise
-> corrections - several "dormant type needs an injector" ideas were refuted; the game self-enumerates
-> those types from `DataBase.AllData`).
+> corrections - the game self-enumerates the "dormant" DirToTypeName types from `DataBase.AllData`).
 
 ### Generalize `WildlifeRaidService` to `Api.Raid` / `Raids.json`
-**What**: keep the shipped engine but expose trigger / target-tag / effect through a registration seam or a declarative `Raids.json`, replacing the single hardcoded bear-spoils-food rule (`Wildlife/WildlifeRaidService.cs:23-27` constants).
-**Why**: the only raid rule today is baked in; a seam lets Sirus23 and future hostile-encounter mods add raids without C#. Both halves of the current rule were fixed in source in 2026-09-25 releases (rot in 2.26.6, stress in 2.26.8), so the engine is finally a sound base.
-**Requires**: `T2.273` (raid stress) passing first, so the generalization starts from a verified rule.
+**What**: expose trigger / target-tag / effect through a registration seam or declarative `Raids.json`, replacing the single hardcoded bear-spoils-food rule (now with `BearRaidEscalationDays`, 2.28.0).
+**Why**: the only raid rule today is baked in; a seam lets Sirus23 and future hostile-encounter mods add raids without C#. `T2.273` CONFIRMED 2026-10-05, so the engine is a verified base.
+**Requires**: a second rule's consumer (do not build speculatively).
 **Complexity**: Medium.
 
 ### Author-time gate-misconfig static check
 **What**: fold a `LockConditions` / `GateConditions` mutual-exclusion + `HideTravelDA:true` + `RestoreDAOnUnlock:false` permanent-red-X detector into the `F21-F27` WorldMap validators (`/audit-environments` + preflight).
-**Why**: this is the exact author-time shape behind C1's class of defect; catching it in the linter prevents the next one.
+**Why**: the exact author-time shape behind the river-bridge class of defect; catching it in the linter prevents the next one.
 **Requires**: none.
 **Complexity**: Medium.
 
-### Portal-only world mods (from W6)
-**What**: once the Phase 0 W6 fix lands, document `MapMod.json` alone as a complete world registration and drop the README's known-gap paragraph.
+### Portal-only world mods (from W6, latent)
+**What**: register the portal travel and exit handlers from their own `OnGMInitialized` hook whenever any mod has `HasMapMod`, instead of hanging them off `WorldMapInjector.PrepareAll`; then document `MapMod.json` alone as a complete world registration and drop the README known-gap paragraph.
 **Why**: lets a world mod ship a portal destination without authoring WorldMap nodes.
-**Requires**: the Phase 0 W6 fix.
-**Complexity**: Quick (docs, after the fix).
+**Requires**: a consumer mod that ships `MapMod.json` without map nodes (none in-house yet; README line 146 discloses the gap).
+**Complexity**: Quick.
 
 ---
 
@@ -120,15 +112,15 @@ reflection target against the game DLL are in place.
 > Cross-mod surfaces and the shipped-but-unexercised paths.
 
 ### `QuestInjector` re-enable path
-**What**: diagnose the blueprint-research-reset root cause that got `QuestInjector` hard-gated OFF (2.17.0), then a save-compat harness (add-content -> save -> remove-mod -> load) before any re-enable. Its repro row `T3.20` currently reads `skip`.
+**What**: diagnose the blueprint-research-reset root cause that got `QuestInjector` hard-gated OFF (2.17.0), then a save-compat harness (add-content -> save -> remove-mod -> load) before any re-enable. Its repro row `T3.20` reads `skip`.
 **Why**: unblocks quest-chain consumer mods (TradersAndNPCs, MagicAndSpirits); currently a documented dead path.
 **Requires**: re-author the deleted `_FwVerificationHarness/` fixture; owner play session.
 **Complexity**: Complex (spans sessions, needs runtime evidence).
 
-### Consumers for the self-activating group types, and for GIF cards
-**What**: `ConstructionCardGroup` / `CookingRecipeGroup` / `BookmarkGroup` self-activate from `AllData` (no injector needed - premise corrected 2026-09-11); the missing half is a consumer mod that ships the content. The same holds for GIF card animation: 2.26.7 made it work end to end (code-quality A-1), but no mod ships `CardData/Gif/`, so it is verified by build and trace only.
+### Consumers for the self-activating group types
+**What**: `ConstructionCardGroup` / `CookingRecipeGroup` / `BookmarkGroup` self-activate from `AllData` (no injector needed); the missing half is a consumer mod that ships the content. GIF card animation now has a consumer (WDI 1.12.1 ships a `CardData/Gif/` card).
 **Why**: turns already-working engine surfaces into player-visible content and gives each one its first runtime proof.
-**Requires**: a downstream mod (DecorationAndComfort / CookingExpanded ideas, or a first animated card in an existing mod per `Documentation/CSFF_GIF_Authoring.md`). `NPCCharacterPerk` already has one (CMC Village Guards); its acceptance is `T2.235`.
+**Requires**: a downstream mod (DecorationAndComfort / CookingExpanded ideas). `NPCCharacterPerk` already has one (CMC Village Guards; acceptance `T2.235`).
 **Complexity**: Medium (in the consumer, not here).
 
 ### General `PatchAll`-isolation seam
@@ -141,17 +133,14 @@ reflection target against the game DLL are in place.
 
 ## Phase 4: Polish
 
-> Remove the last dead weight and boilerplate.
+> Remove the last dead weight and boilerplate. The 2026-09-25 M1-M7 polish items were resolved or
+> absorbed across 2.26.6-2.28.0; what remains is optional.
 
 | Item | What | Complexity |
 |------|------|------------|
-| W2 - `Api.ContainerSort` | **Owner-decided 2026-09-17: LEAVE AS-IS** as documented-unused API. This is settled, not an open question - do NOT re-raise it as a finding needing resolution, and do NOT delete `Api/ContainerSort.cs` on the reasoning that it is unreferenced. Since 2.26.8 it reads the real in-game members, so it works if a mod ever calls it. | None (settled) |
-| M1 - `csffmfwportalkit` boilerplate | Optionally fill the 9 omitted standard fields (no runtime impact; loader defaults them) | Quick |
-| M2 - `csffmfw_perk_wayfinder` | Optionally declare `NoSafetyMode` explicitly (defaults false, non-functional today) | Quick |
-| M5 / M6 - stale class docs | `ChangeEnvironmentCrashGuard.cs:14-18` (says one exception class; the finalizer swallows all) and `ConnectionGatePatch.cs:19` (names `SetBlueprintStage(int)`; the patch binds `(int, InGameNPCOrPlayer)`) | Quick |
-| M7 - stale plan citations in comments | Repoint the comments that cite the deleted `CatchUp_Performance_Plan.md`, `Animal_System_Plan.md` and `Game_Performance_Options_2026-08-25.md` at their as-built docs or the deleting commit (list in `.audit/summary.md` M7) | Quick |
-| Optional shared default-instance helper | The ctor probe is already inside `InitializeSerializableDefaults` (`Util/ReflectionHelpers.cs:252`); a single helper for the three `Activator.CreateInstance` sites (`JsonDataLoader.cs:480`, `PassiveEffectNormalizer.cs:224`, `ReflectionHelpers.cs:252`) is a refactor, not a fix | Quick |
-| Refresh stale sub-reports | Re-run the four 2026-06-27 category audits, `mod-report.md` (2026-09-17) and `karpathy-plan.md` at the next `/full-mod-audit-chain`; this consolidation re-derived their open rows at HEAD, but the reports themselves still describe older trees | Quick |
+| W2 - `Api.ContainerSort` | **Owner-decided 2026-09-17: LEAVE AS-IS** as documented-unused API. Settled - do NOT re-raise, do NOT delete `Api/ContainerSort.cs`. | None (settled) |
+| Optional shared default-instance helper | A single helper for the three `Activator.CreateInstance` sites (`JsonDataLoader.cs`, `PassiveEffectNormalizer.cs`, `ReflectionHelpers.cs`); the ctor probe is already shared - this is a refactor, not a fix | Quick |
+| Refresh stale sub-reports | The four category audits (items/blueprints/images/perks) still carry 2026-06-27..2026-09-25 bodies; re-run at the next `/full-mod-audit-chain` (this consolidation re-derived their open rows at HEAD and re-stamped the 9/10 banner) | Quick |
 
 ---
 
@@ -163,21 +152,19 @@ The framework's endpoint is a fully declarative modding surface: every subsystem
 (drops, improvements, blueprints, perks, worldmap, portals, animals, modifiers, flavour, quests, raids)
 authorable from JSON with zero mod-side C#, and every shipped engine path exercised by at least one
 consumer or explicitly retired. The structural debt to retire before v3.0 is the set of
-shipped-but-unexercised paths (`QuestInjector`, `CharacterRosterInjector`, `SealableGates.ResealCondition`,
-and now GIF card animation), each either proven through a consumer or a save-compat harness, or removed.
-The former second debt, the last unused public API (`Api.ContainerSort`), is CLOSED as of 2026-09-17: the
-owner decided it stays as documented-unused API, so it is a standing disclosure rather than something to
-retire before v3.0. The 2026-09-25 re-audit adds one lesson to the vision: string-based reflection
-against a moving game build is the framework's largest silent-failure surface, and the reflected-signature
-gate added in 2.26.8 is the kind of guard every new reflection target should arrive with.
+shipped-but-unexercised paths (`QuestInjector`, `CharacterRosterInjector`, `SealableGates.ResealCondition`),
+each either proven through a consumer or a save-compat harness, or removed. `Api.ContainerSort` is CLOSED
+as documented-unused API by owner decision (2026-09-17). The largest silent-failure surface remains
+string-based reflection against a moving game build; the reflected-signature gate added in 2.26.8 is the
+kind of guard every new reflection target should arrive with.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):
 - `Api.Raid` / `Raids.json` declarative hostile-encounter engine - fits the existing `WildlifeRaidService` and the animal/encounter theme.
 - A scripted save-compat test harness as a first-class dev tool - closes every "never exercised in-game" path at once and is the precondition for re-enabling `QuestInjector`.
 - `LocalTickCounter` activation investigation - the one genuinely uninvestigated `DirToTypeName` type (all others self-activate).
 
-These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md`; the injector-refuted rows already carry
-their corrected "blocked on a consumer, do not write an injector" reasoning.
+These live in the "Considered, not selected" table of `Documentation/Plans/CSFFModFramework/MASTER_PLAN.md`;
+never create a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
 ---
 
@@ -187,8 +174,9 @@ their corrected "blocked on a consumer, do not write an injector" reasoning.
 |---------|--------|
 | After any engine-surface phase | Run `/audit-mod CSFFModFramework`, `/code-quality CSFFModFramework` and `/critical-analysis CSFFModFramework`, then update this roadmap |
 | Game version update | Refresh `lib/Assembly-CSharp.dll` on EVERY mod, regenerate the nstrip binders, `/decompile-assembly`, re-run `Development_Tools/RefCheck/` and `Framework-ReflectedSignatures.Tests.ps1`, re-run `/update-mod-version` |
-| After fixing a defect on a runtime-gated path | Do NOT certify from source - collect the in-game log evidence per the retro's gate (CLAUDE.md "the log says it worked but in-game it did not") and file a tracker row before the prose that cites it |
+| After fixing a defect on a runtime-gated path | Do NOT certify from source - collect the in-game log evidence per the retro's gate and file a tracker row before the prose that cites it |
 | After a framework change that content mods link | Rebuild every content mod clean (`-t:Rebuild`) to signature-check against the new reference |
+| When the MASTER_PLAN drains | The framework is feature complete - move it to `Stable/` per `Stable/README.md` |
 
 ---
 
@@ -205,7 +193,6 @@ their corrected "blocked on a consumer, do not write an injector" reasoning.
 ```
 
 ---
-
 ## Plan Reconciliation Log
 
 > Append-only: never reword, reorder or delete an entry. `/roadmap` Step 7 preserves
@@ -362,3 +349,74 @@ their corrected "blocked on a consumer, do not write an injector" reasoning.
 - **Pruned:** Prompt 1 from the pack before the pack was folded into the archive and deleted; nothing else. The plan left `Documentation/Plans/Fleet/` whole.
 - **Evidence:** Prompt 1: `dotnet build -c Release` 0 warnings 0 errors; the built `bin/Release/Community_Mod_Chest.dll` holds `TraitDiagnostics` (UTF-8) 0 times and `[TRAITDIAG]` (UTF-16-LE) 0 times, against controls `RiverSwimPatch` 1 and `[RiverSwimPatch]` 9; `grep -rn TraitDiagnostics --include=*.cs Community_Mod_Chest` 0 lines (control `RiverSwimPatch` 15); no file under `Documentation/Retrospectives/` cites `TRAITDIAG` or `EnableTraitDiagnostics`. Plan rows against code: `Community_Mod_Chest/GameStat/` holds all nine `CMC_Trait*.json` (eight trait stats plus `CMC_TraitSkinShelter.json`); `TraitsTickHandler.cs`, `TraitsActionHandler.cs` and `TraitDiagnostics.cs` absent from `Patcher/`; gates (a)-(e) plus the extended river swim test present as `TraitStat-CompositeBands`, `Perk-HeldTestNotAllPerks`, `PerkAidRate-HoldsTier`, `PerkStatClamp-Reachability`, `StatBase-NoVanillaSource` and `CMC-RiverSwim` `.Tests.ps1`; `CSFFModFramework/Patching/PerkOriginTagPatch.cs` and `Discovery/ModTag.cs` present, `[Perks] ShowModOriginTag` bound at `CSFFModFramework/Plugin.cs` and documented in its README config table; 12 `ModInfo.json` files carry `ShortName`; 21 Sirus23 JSON files reference `SaturationDairy` (by name or its UID `f4b08d0250e6099419e010a83578b9db`); `ModInfo.json` versions CMC 1.68.30, HerbsAndFungi 1.13.2, Sirus23 1.21.3, CSFFModFramework 2.26.0. Section 3.6 check: a JSON walk of 29,435 files (the vanilla EA 0.67i UniqueID and ScriptableObject exports plus every mod folder, 0 unparseable) found 0 `TriggerRange` objects whose `StatWarpData` is Infection_Gastrointestinal `1a8d37787d69c9b4aa05d332921f3763`, Infection_UpperRespiratory `3407bfc804966194e9e369a7cce6d07d`, Infection_Systemic `dc3cae53109fd5945b5279ec6291caae` or Infection_LowerRespiratory `fa47d156a14dac842bcdcbdbf8504e35` (by UID or name), with the same walk finding the control, vanilla `Tgr_Anxiety` on Stress at 240; `.decomp/` (949 `.cs`) names no infection stat (controls `HourOfTheDayValue` 4 files, `StatValueTrigger` 13), and no mod `.cs` references the four UIDs. Section 3.2: vanilla `CharacterPerk` SunsCost is only ever 0, 15 or 30 (71/38/20 of 129), and Swimmer's 5 matches the six other five-Sun CMC perks (CMC's SunsCost counts: 0 x20, 1 x21, 5 x7, 15 x5, and 10, 20, 25, 30, 100 once each), which include Abundant Growth's +1.2 Aid rate and Wide Hands' +15 skill offset; Swimmer now delivers what its price was set for. Section 3.1: `madness`, `insan` and `mania` absent from `Pk_Lunacy.json`, `CMC_TraitLunacy.json` and its CSV rows. Tracker: T2.239 and T1.84-T1.114 all present in `.claude/playthrough-test-status.json`, all `pending`, so lifecycle gate 2 holds; the 33 plan and pack path citations in it and the one in `Playthrough_Test/Playthrough_Checklist.html` were repointed at the archive in the same commit.
 - **Verification debt:** T2.239 (Nyctophobia and the tracer's log lines), T1.84-T1.88 (P1b), T1.89-T1.97 (P1c), T1.98-T1.101 (P7 medicine), T1.102-T1.109 (P2 condition traits), T1.110-T1.111 (P3 swim and Aid), T1.112 (P4 Sirus23 dairy), T1.113-T1.114 (P5 origin tag and clock hour), all `pending`. T2.239 part (5), T1.114 part (4) and the optional evidence in T1.102-T1.108 read `[TRAITDIAG]` lines that CMC 1.68.30 on the dev install still prints until the next CMC deploy and no later build prints; each of those rows carries a dated 2026-09-17 note saying so.
+
+### 2026-09-26 - Content_Update_Plan (2.27.0, closeout)
+- **Scope:** CSFFModFramework only. Consumer JSON (AdvancedCopperTools MetalType rows, HerbsAndFungi and CMC Seasons, Harsh Wilds Spawn.Conditions) ships in each consumer's own release and is not part of this plan.
+- **Verdict:** all three features built and committed in `fdb344e96` (framework 2.27.0): SmeltingRecipes.json `MetalType`, DropInjections.json per-drop `Seasons`, Animals/*.json `Spawn.Conditions` + `Spawn.ConditionRespawnTicks`. W0-1 GREEN, so feature 1 stays in 2.27.0.
+- **Disposition:** ARCHIVE to `Documentation/Design/CSFFModFramework_Content_Update_As_Built.md` (the plan whole, with its Progress note and open questions). Nothing ruled out; the section 0 deferrals keep their reasons in the archive.
+- **Pruned:** nothing from the plan body. The three harness rows were recorded and pruned from `Documentation/Playthrough_Test_Plan.md` and `Playthrough_Test/Playthrough_Checklist.html`.
+- **Evidence:** TestHarness run 2026-09-26 on EA 0.68b, harness 1.3.0: T2.360 PASS (2 nuggets, both Metal Type 200), T2.361 PASS (3 suppressors, -1000 in range, 0 at 0), T2.362 PASS on the second run (AgentExists 0 -> 1 -> 0, parked in Env_SpiritWorld; the first run failed only a name lookup). Gates: the three new Pester files and 17 Framework-ReflectedSignatures rows; recorded full gate `csff-mods-test-20260927T011309Z`.
+- **Verification debt:** T2.363 (an ACT iron item's nuggets feed an iron-gated ACT recipe; waits on ACT's MetalType rows), T2.364 (a consumer's seasoned forage drop in and out of season; H&F plans T2.296 for it), T2.365 (a Harsh Wilds threat switched off never appears).
+
+### 2026-10-04 - MASTER_PLAN
+- **Verdict:** counts: 30 selected feature rows and 28 pack prompts (13 open, 15 awaiting) checked. 1 verified done (feature 4, T2.1200-T2.1202 PASS in `confirmedItems`), 15 built and awaiting a harness or human row (features 1, 2, 3, 5, 6, 7, 8, 9, 10, 12, 13, 14, 21, 22, 27; the pack's 15 Awaiting prompts), 2 built with a remainder (feature 28: fix `38282c0e7`, T2.763 green on a deploy and an arrival row still unfiled; feature 29: code `50d3fdb91`, gate 20 passed 0 failed, CHANGELOG, README and row T2.1221 open), 12 open (11, 15, 16, 17, 18, 19, 20, 23, 24, 25, 26 and 30). No FAILED and no OBSOLETE rows; STALE-CLAIMs corrected: the plan's status block called sections 28 and 29 hand-ins with no work done, and a handoff paragraph described section 29 as uncommitted.
+- **Disposition:** KEEP IN PLACE (13 open pack prompts remain: 6, 20, 23 to 33; the pack's first prompt that needs no live-game lane is 23).
+- **Pruned:** the plan's 2026-10-03 handoff paragraph (landed work is in the commits and the pack, its in-flight section 29 is committed, its lane and usage-limit times had passed). Nothing else: the 2026-10-04 refresh against `287df0ac1` had already collapsed every built section and pruned every finished prompt, and this pass found no further verified-done text. Added to the plan: a dated audit paragraph in the status block, the Selected-table row for section 30 and built notes on rows 28 and 29, and a status bullet in section 29. The pack was not edited: its counts re-count correctly.
+- **Evidence:** `git cat-file -t` on every distinct 9-hex hash in the plan and the pack: all resolve to commits, 0 missing. Every `T<n>.<n>` id in the plan (35) and the pack (25) looked up across `items`, `droppedItems` and `confirmedItems` of `.claude/playthrough-test-status.json` (892 rows parsed): 0 missing; T2.1203-T2.1225 all `pending`, T2.1200-T2.1202 and T2.131 and T2.362 `pass`. 14 source and gate files the built rows name exist (including `Patching/AgentEncounterGuardPatch.cs`, `Loading/AuthoringLint.cs`, `Loading/PhaseTimings.cs`, `TestHarness/Game/ProbeS28.cs`). Config-key greps over `CSFFModFramework/*.cs`: the unbuilt keys `CompressModSprites`, `BearRaidEscalationDays`, `LogFrameTiming`, `LogCatchUpEndState`, `OffEnvNpcAiThrottle`, `OffEnvCardSkip`, `CatchUpTailTicks` and the `Settled` timing each match 0 files, with the built keys `CatchUpEquipmentScanSkip` (2 files), `GuardWikiModChineseInEnglish` (1) and `AuthoringLint` (4) as controls that prove the probe hits; `OffScreenCardThrottleFrames` still defaults to 3 (feature 16 open). `AuthoringLint.Rules` holds four rules and none is foreign-UID (feature 19 open). Section 29: `Framework-TypedCacheModCards.Tests.ps1` run alone, 20 passed 0 failed; `FindCardsWhere` in `CSFFModFramework/CHANGELOG.md` and `README.md` matches 0 (control: `GrantInRunPerk` matches in the CHANGELOG). Section 28: `PortalArrivalNextEnvGuard` is wired in `Plugin.cs` and `Portal/PortalService.cs`, and the CHANGELOG [2.28.0] entry exists. Section 30: the "Contamination check" block in `Injection/WorldMapInjector.cs` still compares the whole saved board's card count. `ModInfo.json` and `Plugin.cs` read 2.28.0 against 2.26.12 in `.claude/nexus-publish-status.json`. Nothing here was observed in a running game.
+- **Verification debt:** T2.1203 through T2.1225 (23 rows, all pending: features 5, 27, 6, 7, 8, 10, 2, 9, 12, 14, 22, 1, 3, 13, 21 and section 29's T2.1221, which cannot run until a lane turn), T2.763 (section 28's portal step, pending ACT row), and the cited T2.273, T2.296, T2.453, T2.454, T2.456. Section 28's second row (the Metal Mines trip, reload and trip again) and section 30's harness row have no tracker row yet.
+
+### 2026-10-04 - MASTER_PLAN (refresh after the framework harness batch)
+- **Verdict:** 17 pack Awaiting entries and 16 open prompts re-checked against the live `.claude/playthrough-test-status.json` and the 2026-10-04 harness reports. 6 verified done, every row PASS and the source re-read: feature 27 (Prompt 34, `5d32f670b`, T2.1205), 6 (Prompt 9, `409d0a475`, T2.1206), 8 (Prompt 11, `ae47e8057`, T2.1208, the regression leg; the allow-list acceptance is Sirus23 plan feature 8's), 14 (Prompt 16, `33133bf38`, T2.1214), 3 (Prompt 19, `aa803945f`, T2.1222) and 21 (Prompt 22, `8a209b269`, T2.1225). 11 still awaiting (features 1, 2, 5, 7, 9, 10, 12, 13, 22, 28, 29); features 2, 5, 9 and 22 each have one PASS row and an open leg. 16 open prompts unchanged (6, 20, 23 to 33, 35, 36, 37). 0 obsolete, 0 failed.
+- **Disposition:** KEEP IN PLACE (16 open prompts; the first that needs no live-game lane is 23).
+- **Pruned:** pack: the six Awaiting entries above, and every remaining Awaiting entry rewritten to its current state. Plan: sections 3, 6, 8, 14, 21 and 27 deleted (text at `git show 935f9e51d:Documentation/Plans/CSFFModFramework/MASTER_PLAN.md`), with a DONE note on each one's Selected-table row; sections 1, 2, 7, 9, 10, 12, 13 and 22 collapsed to the awaiting pointer (section 12 keeps one bullet Prompt 23 reads). Citations repointed: `Documentation/Plans/HerbsAndFungi/MASTER_PLAN_Implementation_Prompts.md` (an H&F prompt read section 8) and the `CSFFModFramework/CLAUDE.md` heading that cited section 21.
+- **Evidence:** `confirmedItems` holds T2.1203, T2.1205, T2.1206, T2.1208, T2.1210, T2.1212, T2.1214, T2.1215, T2.1222 and T2.1225 as PASS (autoplay, recorded in `b71c48631`, each note naming its report.md); the one framework commit after those runs, `d0877ba83`, touches `Loading/AuthoringLint.cs`, the framework DLL and the T2.1204, T2.1213, T2.1216 and T2.1219 scenarios, no cited source file of a verified feature. Source re-read: `SeasonChance` on 25 lines of `Injection/DropInjector.cs`; `EquippedCards` in `Api/GameQuery.cs`; `AddAlternateIngredientIn` in `Api/BlueprintAlternates.cs`; `slowest:` at `Loading/LoadOrchestrator.cs` line 423; `LoadImage(bytes, true)` at `Loading/SpriteResolver.cs` line 177; README "Unresolved references" and the `CSFFModFramework/CLAUDE.md` contract line; the five gates on disk. Not done, by criterion: T2.1212's PASS ran the load half only (its note says the scenario never runs the Basket-and-Chest leg), and T2.1215's report ran the wiring and fuel legs while the CHANGELOG still says the saving is not measured.
+- **Verification debt:** reruns after a redeploy from `d0877ba83`: T2.1204, T2.1213, T2.1216 and T2.1219 (FAIL, scenario or lint fixed), T2.1207, T2.1209, T2.1217 and T2.1218 (PASS, gone STALE); T2.362 re-run on the `StatAccess` build; never run: T2.763, T2.1211, T2.1220, T2.1221, T2.1223, T2.1224, T2.1226. No open row yet for feature 9's Basket-and-Chest leg or feature 22's per-hop timing leg (their rows T2.1212 and T2.1215 are in `confirmedItems`).
+
+### 2026-10-05 - MASTER_PLAN (section 28 verified)
+- **Verdict:** section 28 VERIFIED DONE: T2.1226 PASS (harness 2026-10-05 02:46, report `TestHarness/client/reports/t2-1226-...-20261005-024627`, recorded FULL with a review.json) and T2.763's portal step PASS (02:25, report `t2-763-...-20261005-022504`), both on the `dcc250731` deploy.
+- **Disposition:** section 28 collapsed to a DONE stub (full text at `git show 6568f9754:Documentation/Plans/CSFFModFramework/MASTER_PLAN.md`), its Selected-table row marked DONE; pack Prompt 37 and its Awaiting entry removed.
+- **Evidence:** Player.log for the T2.1226 process: 0 `CalculateEnvironmentWeight`, 0 `NullReferenceException`; a CONTROL step proved the check reads that live file. LogOutput.log: 0 `[S28] W` lines; the guard's 'kept the portal arrival's destination' line on each arrival.
+- **Verification debt:** T2.763 stays pending for its person clauses (the look, the refusal text, old saves) and the ACT clauses its scenario does not assert (listed in its note); T2.275 (portal return after a reload) has no scenario.
+
+### 2026-10-05 - MASTER_PLAN (refresh against `05edd8f40`)
+- **Verdict:** 10 pack Awaiting entries and 15 open prompts re-checked against the live `.claude/playthrough-test-status.json`, the 2026-10-05 harness reports (`TestHarness/client/reports/`, `Playthrough_Test/results/harness-sweep-2026-10-05/`) and `Playthrough_Test/results/2026-10-05_harness_test_report.md`. 3 verified done: feature 7 (Prompt 10, `ee3240661`, T2.1207), 10 (Prompt 12, `01a531d37`, T2.1209) and 12 (Prompt 15, `10e37d03d` narrowed in `d0877ba83`, T2.1213), each row in `confirmedItems` (recorded in `c46ce710d`, batch walkthrough-20261004-214849 on the `dcc250731` deploy). 2 failed: feature 1 (Prompt 18; T2.1216-T2.1218 PASS, T2.1219 harness FAIL twice, untriaged, its bandit never reached the player's environment) and section 29 (T2.1221 harness FAIL twice: 600-656 objects missing from the typed cache, WDI's runtime mill-race clones added by `allDataList.Add` at `WaterDrivenInfrastructure/Patcher/GameLoadPatch.cs` lines 648 and 717). 5 still awaiting (features 5, 9, 2, 22, 13). 15 open prompts unchanged (6, 20, 23 to 33, 35, 36). 0 obsolete.
+- **Disposition:** KEEP IN PLACE (15 open prompts; the first that needs no live-game lane is 23).
+- **Pruned:** pack: Prompts 10, 12 and 15 removed from Awaiting; Prompt 18 and feature 29 moved to a new Failed list; Prompt 36 lost its scenario step (the scenario exists) and its plan-collapse step; Prompt 35's line citations corrected (block now near 1448-1470, `GetSealableGateSlack` at 2076). Plan: sections 7, 10 and 12 deleted (text at `git show 05edd8f40:Documentation/Plans/CSFFModFramework/MASTER_PLAN.md`), DONE notes on their Selected-table rows; section 12's rule-shape bullet (the `Rule` delegate and the `ScriptableObject/CardData/Lint/` fixture location) moved into section 19 and Prompt 23; section 1's pointer now names the Failed list; section 29 gained its FAIL bullet.
+- **Evidence:** `confirmedItems` T2.1204, T2.1207, T2.1209, T2.1213, T2.1216, T2.1217, T2.1218 with `confirmedOn` 2026-10-05T04:14:16Z (commit `c46ce710d`); the only framework commits since that deploy (`e68b6c4e6`, `694c468fd`, the UniqueIDIndex fix) touch none of those features' source files. T2.1221 reports `t2-1221-...-20261005-035753` (3974 vs 4574, 600 missing) and `Playthrough_Test/results/harness-sweep-2026-10-05/reports/t2-1221-report.md` (4029 vs 4666, 656 missing, first `water_sawmill_mill_race_north_124e6a3d`; steps 7-9 PASS). T2.1219 reports `...-20261005-000203` and `...-20261005-030605` (step 15: no bandit `withPlayer`; `DutySuppressed` 0). T2.1223 reports `...-20261004-205847` and `...-20261005-015312` failed their WikiMod-loaded control, so they are not evidence. T2.1227 harness PASS 2026-10-05 10:59 (batch 1b), not recorded. Source: `FindCardsWhere` matches 0 in `CSFFModFramework/CHANGELOG.md` and `README.md` (control `GrantInRunPerk` 1); the "Contamination check" in `Injection/WorldMapInjector.cs` still compares `cardCount > prep.Def.ExtraDropUIDs.Count + 1 + sealableSlack` (line 1469); no file under `CSFFModFramework` names `LogFrameTiming`, `CompressModSprites`, `BearRaidEscalationDays`, `LogCatchUpEndState`, `OffEnvNpcAiThrottle`, `OffEnvCardSkip` or `CatchUpTailTicks`.
+- **Verification debt:** T2.1229 (filed this pass: the T2.362 re-run on the `StatAccess` build, which the pack carried with no row), T2.1227 (PASS awaiting record), T2.1219 (rerun on the fixed scenario, then triage), T2.1221 (blocked on WDI's two clone adds), T2.1223 (needs WikiMod loaded), T2.1228, T2.1211, T2.1220, T2.1224.
+
+### 2026-10-07 - MASTER_PLAN (cleanup-plans fleet sweep)
+- **Verdict:** 30 features: 13 verified done and pruned (3, 4, 6, 7, 8, 9, 10, 12, 14, 21, 27, 28, 29; of these, sections 9, 28 and 29 and every Selected-table row left this pass, the rest had lost their sections earlier), 0 obsolete, 6 awaiting verification (2, 5, 13, 19, 22, 30), 1 failed (1, T2.1219), 5 stale claims corrected (section 29 "the fix is WDI's", T2.1223 "no run with WikiMod loaded", Considered `Api.Raid` "T2.273 pending", Considered ApplyPerk "feature 4 remains", sections 15 and 23 "nothing exists"), 10 open (11, 15, 16, 17, 18, 20, 23, 24, 25, 26). Pack: 12 open prompts before and after (6, 20, 24-33), 6 awaiting, failed 2 -> 1.
+- **Disposition:** KEEP IN PLACE - 10 open features of code or measurement work remain (12 open prompts), led by Prompt 6's live-game probes.
+- **Pruned:** plan sections 9, 28 and 29; the 13 done Selected rows (one summary line replaces them); Wave 0 answers W0-3, W0-8 and W0-11 and the feature 21 dispatcher note; Open questions 4, 5, 7 and 14 (resolved); risk rows of features 3, 4, 8, 12 and 21; done release-tail bullets (CLAUDE.md, Animals_Schema and localization edits, the new gates, the repointed `CatchUpTickBatching.cs` and `LoadOrchestrator.cs` citations); the status block's 2026-10-02 to 2026-10-06 history paragraphs (this log holds them). Sections 19 and 30 collapsed to pointers. Pack: the feature 29 Failed bullet; Prompt 27's done repoint sentence. Texts: `git show 189f8b99e:Documentation/Plans/CSFFModFramework/MASTER_PLAN.md` and the pack at the same commit. Plan 846 -> 662 lines, pack 194 -> 193.
+- **Evidence:** tracker `confirmedItems` holds T2.1221 (`confirmedOn` 2026-10-05T23:11Z, autoplay PASS from a 16:37 report), T2.1223 (2026-10-05T22:29Z, PASS with WikiMod installed), T2.1227 (2026-10-07), T2.1212, T2.1226, T2.273; section 29's closing fix is `0ee583f13` (`Loading/TypedCacheAllDataSync.cs`, `Database.RegisterAllDataStragglers`, gate `Framework-TypedCacheModCards` 22/22), an ancestor of the previous pin `72f04b7eb` that the 2026-10-06 refresh missed. HEAD carries every built file the awaiting items name (10 checked with `git cat-file -e`, none missing). Since the pin, no commit touches framework source (only `9f68b74dc` deleting `worldmap.txt`); the working tree's uncommitted framework edits (`LifecycleTemplateBuilder.cs`, `TrapIntegrator.cs`, `WarpResolver.cs`, `SmeltingRecipeInjector.cs`, `Plugin.cs`, CHANGELOG, new `Patching/BugFixes/PassiveMultiplierCancelFix.cs`) are another session's in-flight playthrough fixes, none a plan feature, not counted. Harness reports read: T2.1219 `...-20261007-074615` (steps 13, 15-19 FAIL, `DutySuppressed` 0), T2.1231 `...-20261006-195053` (no `mtlintforeignuid` loaded; the fixture is absent from the deployed `Master_Testing`, present at HEAD), T2.1232 `...-20261006-195113` (step 5, unanswered `endgame` popup). Citation sweep (Documentation/, tracker, `Playthrough_Test/`, `TestHarness/client/scenarios/`, `CSFFModFramework/`, memory) found one live read of a pruned section, HarshWilds pack Prompt 23 -> section 9, repointed by that pack's own audit this sweep; the rest are confirmed rows' scenario sources and two code comments.
+- **Verification debt:** T2.1229, T2.1219 (triage), T2.1220, T2.1211, T2.1228, T2.1223's person twin T2.1224, T2.1231, T2.1232.
+
+### 2026-10-09 - MASTER_PLAN
+- **Verdict:** 17 open features re-checked (pack: 12 open prompts, 7 awaiting entries, 1 failed entry, pinned at `189f8b99e`). 0 verified done, 0 obsolete. 7 built and awaiting verification (features 1, 2, 5, 13, 19, 22, 30): T2.1219 and T2.1220 harness PASS 2026-10-09, T2.1229 PASS x4, T2.1231 PASS x2, T2.1232 PASS 2026-10-07 and 2026-10-09, none recorded (the six-rig audit held them PARTIAL or a skeptic rejected a clause); T2.1211 harness FAIL 2026-10-09 on step 21 alone (untriaged), T2.1228 FAIL on a scenario defect (the timed "East" hidden by stats), T2.1224 run without WikiMod installed. 0 failed (feature 1 left the Failed list: T2.1219's 2026-10-07 FAIL was its scenario's bandit move). 10 open (features 11, 15, 16, 17, 18, 20, 23, 24, 25, 26) plus the release tail. 1 stale claim corrected (section 1's "harness leg failed" line).
+- **Disposition:** KEEP IN PLACE (12 open prompts; the first, Prompt 6, has no deps and needs the live-game lane; without it, the scenario fixes for T2.1229, T2.1231 and T2.1228 and the T2.1211 triage are the no-game work).
+- **Pruned:** nothing deleted from either file. Pack: the Failed list removed (Prompt 18 moved to Awaiting verification) and every Awaiting entry rewritten to its 2026-10-09 state; header refreshed against `51641ef64`. Plan: section 1's status line corrected, the Selected rows of features 1, 2 and 13 and the Considered row "Bear raid that could not fire" updated, the 2026-10-07 next-work list replaced by a 2026-10-09 one, and an Audit 2026-10-09 paragraph added.
+- **Evidence:** `git log 189f8b99e..HEAD -- CSFFModFramework/` returns 3 commits: `56ef680ed` (the last sweep), `e57d44cfc` (five fixes outside this plan's features: WarpResolver enum fields, smelting order, PassiveMultiplierCancelFix, animal food menu, carcass once) and `aa60ef1b0` (a `bin/Release` DLL); control: the same command over `TestHarness/ MasterTesting/` returns 12 commits, so the range is live. Every built claim's file re-read present (`Api/StatAccess.cs` `ResolveNpc` at line 259, `WikiModEnglishGuard.cs`, `AuthoringLint.cs` `ForeignUidRule` at 364, `PluginDependencyReader.cs`, `StripAllContaminationCheck.cs`, `WorldMapInjector.ReadSavedBoardUids` at 2131, `AgentEncounterGuardPatch.cs`, `FrameTimingDiagnostics.cs`, `CatchUpEndStateDiagnostics.cs`); `ActionContext.Produced`, `CompressModSprites`, `BearRaidEscalationDays`, `OffEnvNpcAiThrottle`, `OffEnvCardSkip` and `CatchUpTailTicks` grep to 0 in `CSFFModFramework/**/*.cs` (control: `BatchSizeOverride` and `HasCardEquipped` hit in the same grep). No MasterTesting JSON names the Waterskin `d9c9a691...`, so Prompt 6's fixture is unwritten. Tracker: all 9 of this plan's open rows read `pending` in `items`; `confirmedItems` gained none of them in `aa60ef1b0` or `51641ef64` (both commit messages list their ids). Harness reports read under `TestHarness/client/reports/` (t2-1219, -1220, -1211, -1224, -1228, -1229, -1231, -1232, -456, latest runs 2026-10-09) and the audit `autoplay-audit-20261009-083746.json`; skeptic reasons from `.claude/handoffs/playthrough-six-rig-run-2026-10-09.md`. Deployed framework DLL, `bin/Release` and rig 2 share md5 `88d31771a048c29fbb582522bd138cd2` (built 2026-10-08 17:09, after the last source commit). `git worktree list`: the main checkout only.
+- **Verification debt:** T2.1219, T2.1220 (feature 1); T2.1211, T2.1316 (feature 2); T2.1229 (feature 5); T2.1224 (feature 13); T2.1231 (feature 19); T2.1228 (feature 22); T2.1232 (section 30); T2.456 (the shipped bear raid fix feature 20 builds on, harness FAIL 2026-10-09, untriaged).
+
+### 2026-10-09 (later) - MASTER_PLAN, second /cleanup-plans pass
+- **Verdict:** NOT drained. 12 open prompts (6, 20, 24-33), 9 awaiting verification, 0 failed. Sections 31 (shared metal parts) and 32 (cross-mod quiet misses and lint precision, all six items) are built and collapsed to awaiting-verification pointers. Still open: features 11, 15, 23 (measurement runs), 16, 17, 18, 20, 24, 25, 26 and Wave 0 W0-4, W0-9, W0-10.
+- **Disposition:** KEEP IN PLACE - code work remains.
+- **Pruned:** W0-15 row (answered, Prompt 34 done); sections 31 and 32 prose to pointers; open question 14 reduced to a Resolved line (cited by Documentation/Research/CSFFModFramework/shared_metal_parts.md); T2.1211 "untriaged" corrected to a scenario timing fault. Pack prompt ids 34-36 were reused on 2026-10-09; the header now states the next free id is 38.
+- **Evidence:** audited against 1d9cbf121. Framework commits since 51641ef64: 5adabf1ab, 49f5736e0, 81c4f1b0a, 78aa8028d. CardData/MetalParts/ holds 3 cards and 7 blueprints; JsonDataLoader.FindHostedUidConflicts and Mods-UniqueIdOnePerMod.Tests.ps1 exist; section 32 pins in Framework-InjectorSkipUnresolved.Tests.ps1 and Framework-AuthoringLint.Tests.ps1. Grep finds no Produced/Settled in ActionRouter and no CompressModSprites, BearRaidEscalationDays, CatchUpTailTicks, OffEnvNpcAiThrottle or OffEnvCardSkip (open features unbuilt), while FrameTimingDiagnostics.cs and CatchUpEndStateDiagnostics.cs are found (control). Gates 30/30.
+- **Verification debt:** T2.1232, T2.1233-T2.1235 (harness PASS, unrecorded); T2.1220 (harness PASS, FIX-SCENARIO at the 2026-10-09 second review: escaped village-night Duty start encounters, possibly a real FAIL; T2.1219 recorded CONFIRMED the same day); T2.1211, T2.1228, T2.1229, T2.1231 (scenario fixes); T2.1224 (needs a WikiMod rig); T2.1316 (person); T2.1236-T2.1242 (Fleet plan).
+
+### 2026-10-11 - Fleet MASTER_PLAN (cross-mod decoupling), /cleanup-plans Fleet apply
+- Scope: Fleet (cross-mod plan; the same entry is recorded in the ROADMAP of every mod it names: Community_Mod_Chest, AdvancedCopperTools, WaterDrivenInfrastructure, HomesteadPerks, HerbsAndFungi, Sirus23_Mod_Collection, CSFFModFramework).
+- **Verdict:** DRAINED. Features 1-13 all built (1-3, 6, 7, 9, 12 in the commits `33ab18fe9`, `a3f965d43`, `76aac3d8a`, `cc0115b9e`, `fed7f7d0a`, `c6b2bad35`, `31034e212`, `e7b558ead`, `7219cd11d`), 0 open pack prompts, 0 unbuilt rows; every acceptance row recorded CONFIRMED (T2.789, T2.632, T2.997, T2.999, T2.998, T2.549, T2.557, T2.560, T2.1236 to T2.1242). Open question 4 settled by measurement, not by an owner choice.
+- **Disposition:** ARCHIVE - the plan moved to `Documentation/Design/Fleet_Cross_Mod_Decoupling_As_Built.md` with its Considered table and its drained prompt pack appended; the pack was deleted.
+- **Pruned:** plan sections 1, 2, 3, 6, 7, 9 and 12 (each BUILT and confirmed), the stale "awaiting verification" pointers, open question 4's default text (replaced by its measured outcome); pack Prompts 9 and 10 (Prompt 10 had already been built in `e7b558ead`, the pack was stale on that point).
+- **Evidence:** on dev lane rig 6 at HEAD (H&F, Harsh Wilds and Sirus23 deployed from the working tree, the rest synced from the real install), harness PASS for T2.557, T2.560, T2.632, T2.997 (both variants), T2.999 and T2.1236 to T2.1242; two independent skeptic reviews of all twelve rows (`.claude/handoffs/skeptic-review-2026-10-11-fleet/r-a.md`, `r-b.md`): 11 RECORD-PASS, and T2.560 FIX-SCENARIO (its brine leg dragged the non-draggable Liquid sub-card, so it passed on any build; fixed in the scenario and rerun PASS with a real refusal, "Dropping 'Pickle Brine' onto 'Wolf Companion' does nothing", beside the same container type with water running Give Water once). Three of the seven absent-partner pins had drifted since 2026-10-09 and were re-measured from real alone-boots (CMC 48 entries, five sprites now resolve; H&F plus twelve of its own map-node forward references; Harsh Wilds plus the Forest Lore `fl_mud_volcano` weight row; WDI now 0 lines), each entry checked against `Documentation/Interop_Registry.md`. End state: `grep BepInDependency(` over every `Plugin.cs` finds 13 files and none names anything but CSFFModFramework (the 13 matches are the control that the scan can hit). Open question 4 probe: with Sirus23 set aside the Wool-Quilted Cap and Vest each keep four requirement slots and the Wool one is null (measured), and a researched blueprint is left alone by `AcademyCourseService.HideWoolQuiltedIfNoWool` (read from code).
+- **Verification debt:** none open. One unplayed fact, deliberately without a row: what a craft of an already-researched Wool-Quilted recipe asks for after Sirus23 is removed (the game reads a null slot as no requirement, the fleet audit's reading of the code); CMC's README states it as unplayed. Releases still owed per mod under its own version rules (`.claude/nexus-publish-status.json` against `ModInfo.json`, read 2026-10-11): framework 2.28.0 (Nexus holds 2.26.12), CMC 1.69.6 (1.68.45), ACT 1.18.1 (1.16.10), WDI 1.12.2 (1.11.3), HSP 1.3.1 (1.2.4), H&F 1.14.1 (1.13.7) and Sirus23 1.22.0 (1.21.6); MUM not repacked for this change.
+
+### 2026-10-12 - MASTER_PLAN (round 2), closed by pack Prompt 33 (/cleanup-plans CSFFModFramework apply)
+- **Verdict:** DRAINED. Every feature in sections 1-32 is built or in "Considered, not selected" (16, 24, 25 and 26 measured out); 0 open code prompts, 0 unbuilt rows. Closed this session: T2.1211's owner question answered from the data (the fight popup's title strip is `StartingOptions.EventTitle`, which generated encounters left empty) and fixed in `7e291aa57`; feature 17's owner question answered by measurement in `7fd06e847` and the owner kept the option as shipped (default off); T2.1224 run with the owner's WikiMod 3.5.4.
+- **Disposition:** ARCHIVE - moved to `Documentation/Design/CSFFModFramework_Content_Update_Round2_As_Built.md` with the drained pack appended; the pack was deleted. The plan's Scope note (move the mod to `Stable/`) is superseded: the owner chose on 2026-10-12 to keep CSFFModFramework at the repo root.
+- **Pruned:** nothing further from the plan body (earlier passes had already collapsed every built section); added a CLOSED paragraph at its top, a DONE line on section 17, a "Feature 17 follow-up" block in section 15 Measurements, and a final-state list at the top of the appended pack.
+- **Evidence:** harness on dev rig 8 (framework at HEAD, owner's third-party mods installed): T2.1211 PASS (batch `walkthrough-20261012-025356`, AI judge PASS 0.85; step 21 reads `StartEventPopup.TitleText` 你看到了猫头鹰！ and step 22 finds it on screen, screenshot read), T2.1224 PASS 50/50 with no allowed failures (WikiMod control and guard line both held), T2.1249 the 2026-10-11 rerun; `autoplay.py audit` classes all three FULL. Feature 17 split from five measurement runs (reports `research-feature-17-tick-part-split-key-off-w0-7-save-20261012-*`): about 310 of 385 ms per off-location agent tick is vanilla agent actions, 25 ms AI selection. Release tail: 11 of 11 framework-linking projects rebuild with 0 errors and 0 warnings against the new DLL, each resolving a refreshed `lib/` copy (`dotnet build -v:d` "Resolved file path"). Gate: 184 of 185 test files, 6,183 passed, 56 failed plus one errored file, none in a framework or plan file (Skill Speed Boost 40, Mod Update Manager docs and the stale WDI embed 6, H&F renamed CT2 pins 2, a missing .NET 9 SDK 2, a new CMC zero-slot mini-inventory, WDI gear piling, two peer scenarios, an unmapped new skill, and `Harness-Feed` broken by `walkthrough.py` now calling `/popups`); `CMC-Round2.Tests.ps1` (872 tests) not run, its author ran it green at `0639bc894`. New gate `Framework-AnimalEncounterEventTitle.Tests.ps1` 4/4, watched red on the pre-fix shape.
+- **Verification debt:** T2.1211, T2.1224, T2.1249 (FULL, recorded by `autoplay.py record` once peers' uncommitted tracker and checklist edits land); T2.1316, T2.1245, T2.1247 (a person's look); T2.456 (the bear raid fix in the Considered table); the cited cross-plan rows T2.467, T2.482 (Harsh Wilds) and T2.543 (Sirus23). Release work owed: framework deploy to the real install, `/package-mod-suite`, Mod_Update_Manager deploy (`.claude/handoffs/csff-framework-plan-closeout-2026-10-12.md`).

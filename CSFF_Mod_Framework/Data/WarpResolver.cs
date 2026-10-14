@@ -26,7 +26,12 @@ internal static class WarpResolver
         var key = (type, name);
         if (!_fieldCache.TryGetValue(key, out var field))
         {
-            field = type.GetField(name, AllInstance);
+            // GetField with NonPublic never returns a PRIVATE field declared on a base class, so walk the
+            // hierarchy: CardAction.ActionSounds is private, and asked on DismantleCardAction or
+            // CardOnCardAction it read as missing, so ~270 mod actions' ActionSoundsWarpData never
+            // resolved (harness T2.274, 2026-10-05).
+            for (var t = type; field == null && t != null; t = t.BaseType)
+                field = t.GetField(name, AllInstance | BindingFlags.DeclaredOnly);
             _fieldCache[key] = field;
         }
         return field;
@@ -188,6 +193,37 @@ internal static class WarpResolver
         _currentUid = "";
     }
 
+    // Nested objects a walk could not create (their field stays null, so the element they sit in
+    // does nothing). Reported by WalkForPatch; ResolveAll keeps its per-line Debug output.
+    private static readonly HashSet<string> _createFailed = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// <see cref="Walk"/> for a GameSourceModify patch: the skipped-WarpData and could-not-create reports
+    /// that ResolveAll prints for JSON-loaded objects are printed for this patch too, at Warn, naming
+    /// <paramref name="context"/> (mod and file). Before 2.28.2 a GSM walk reported nothing, so a patch
+    /// that produced a dead entry gave its author no signal at all.
+    /// </summary>
+    internal static int WalkForPatch(object rtObj, Dictionary<string, object> json, string context)
+    {
+        var prevUid = _currentUid;
+        _currentUid = context;
+        _skippedNoWarpType.Clear();
+        _skippedNoField.Clear();
+        _createFailed.Clear();
+        try { return Walk(rtObj, json); }
+        finally
+        {
+            ReportSkipped(_skippedNoWarpType, "have no *WarpType of 3, 4, 5 or 6 beside them");
+            ReportSkipped(_skippedNoField, "name a field that does not exist on the object they sit in");
+            if (_createFailed.Count > 0)
+                Log.Warn($"GameSourceModify: {context}: {_createFailed.Count} nested object(s) could not be created, so those fields stay empty: {string.Join(", ", _createFailed)}");
+            _skippedNoWarpType.Clear();
+            _skippedNoField.Clear();
+            _createFailed.Clear();
+            _currentUid = prevUid;
+        }
+    }
+
     /// <summary>
     /// Walk a single runtime object against its JSON tree, resolving WarpData references.
     /// Can be called standalone (e.g. after GameSourceModify patches).
@@ -228,7 +264,8 @@ internal static class WarpResolver
             {
                 if (baseName == "TriggerCards" || baseName == "TriggerTags")
                     Log.Debug($"WarpResolver: field '{baseName}' not found on {rtType.Name}");
-                if (IsNonEmptyWarpValue(json[key])) _skippedNoField.Add($"{rtType.Name}.{baseName}");
+                if (IsNonEmptyWarpValue(json[key]))
+                    _skippedNoField.Add($"{rtType.Name}.{baseName} ({(Loading.JsonDataLoader.UniqueIdToModName.TryGetValue(_currentUid, out var fieldMod) ? fieldMod : (string.IsNullOrEmpty(_currentUid) ? "unknown mod" : _currentUid))})");
                 continue;
             }
 
@@ -359,7 +396,7 @@ internal static class WarpResolver
                         if (item is not Dictionary<string, object> elemDict || elemDict.Count == 0) continue;
                         try
                         {
-                            var newElem = Activator.CreateInstance(elemType);
+                            var newElem = NewSerializable(elemType);
                             // Before the walk so a JSON list lands in a real List<T>; after it for
                             // the nested objects the walk itself creates. See BackfillSerializedCollections.
                             BackfillSerializedCollections(newElem, 0);
@@ -424,8 +461,8 @@ internal static class WarpResolver
                 var rtNested = field.GetValue(rtObj);
                 if (rtNested == null && IsSerializableType(field.FieldType))
                 {
-                    try { rtNested = Activator.CreateInstance(field.FieldType); field.SetValue(rtObj, rtNested); resolved++; }
-                    catch (Exception ex) { Log.Debug($"WarpResolver: failed to create nested {field.FieldType.Name} for '{_currentUid}': {ex.GetType().Name} {ex.Message}"); continue; }
+                    try { rtNested = NewSerializable(field.FieldType); field.SetValue(rtObj, rtNested); resolved++; }
+                    catch (Exception ex) { _createFailed.Add($"{rtType.Name}.{field.Name} ({field.FieldType.Name})"); Log.Debug($"WarpResolver: failed to create nested {field.FieldType.Name} for '{_currentUid}': {ex.GetType().Name} {ex.Message}"); continue; }
                 }
                 if (rtNested != null)
                 {
@@ -463,7 +500,7 @@ internal static class WarpResolver
                             var elem = rtArr.GetValue(i);
                             if (elem == null && IsSerializableType(eType))
                             {
-                                try { elem = Activator.CreateInstance(eType); rtArr.SetValue(elem, i); resolved++; }
+                                try { elem = NewSerializable(eType); rtArr.SetValue(elem, i); resolved++; }
                                 catch (Exception ex) { Log.Debug($"WarpResolver: failed to create array element {eType.Name} for '{_currentUid}': {ex.GetType().Name} {ex.Message}"); continue; }
                             }
                             if (elem == null) continue;
@@ -482,7 +519,7 @@ internal static class WarpResolver
                     {
                         for (int i = rtList.Count; i < jsonArr.Count; i++)
                         {
-                            try { rtList.Add(Activator.CreateInstance(listElemType)); resolved++; }
+                            try { rtList.Add(NewSerializable(listElemType)); resolved++; }
                             catch (Exception ex) { Log.Debug($"WarpResolver: failed to create list element {listElemType.Name} for '{_currentUid}', aborting expansion: {ex.GetType().Name} {ex.Message}"); break; }
                         }
                     }
@@ -495,7 +532,7 @@ internal static class WarpResolver
                             var elem = rtList[i];
                             if (elem == null && listElemType != null && IsSerializableType(listElemType))
                             {
-                                try { elem = Activator.CreateInstance(listElemType); rtList[i] = elem; resolved++; }
+                                try { elem = NewSerializable(listElemType); rtList[i] = elem; resolved++; }
                                 catch (Exception ex)
                                 {
                                     // Surface the failure — silent skips here mean an author's
@@ -527,7 +564,7 @@ internal static class WarpResolver
                         var newArr = Array.CreateInstance(eType, jsonArr.Count);
                         for (int i = 0; i < jsonArr.Count; i++)
                         {
-                            try { newArr.SetValue(Activator.CreateInstance(eType), i); }
+                            try { newArr.SetValue(NewSerializable(eType), i); }
                             catch (Exception ex)
                             {
                                 Log.Debug($"WarpResolver: failed to create array element {eType.Name} for '{_currentUid}': {Log.ExceptionText(ex)}");
@@ -579,6 +616,22 @@ internal static class WarpResolver
                 if ((bool)field.GetValue(rtObj) != bv)
                 {
                     field.SetValue(rtObj, bv);
+                    resolved++;
+                }
+                continue;
+            }
+            // Enums arrive as JSON numbers, as Unity serializes them. An object this resolver built for a
+            // WarpType 4/6 append is populated ONLY by this walk (Unity never deserializes it), so without
+            // this branch every enum in it stayed at its default: H&F's appended Collect Maggots action
+            // carried ReceivingCardChanges.ModType 3 (Destroy) and loaded as None, leaving the remains
+            // on the board (T2.1019). On a FromJsonOverwrite-loaded object it rewrites the same value.
+            if (field.FieldType.IsEnum && (kvp.Value is double || kvp.Value is long))
+            {
+                long ev = kvp.Value is double d3 ? (long)d3 : (long)kvp.Value;
+                var enumVal = Enum.ToObject(field.FieldType, ev);
+                if (!Equals(field.GetValue(rtObj), enumVal))
+                {
+                    field.SetValue(rtObj, enumVal);
                     resolved++;
                 }
                 continue;
@@ -1005,7 +1058,7 @@ internal static class WarpResolver
                         continue;
                     }
                     if (!IsUnitySerializableClass(ft)) continue;
-                    cur = Activator.CreateInstance(ft);
+                    cur = NewSerializable(ft);
                     field.SetValue(obj, cur);
                 }
                 if (cur is IList items)
@@ -1052,8 +1105,23 @@ internal static class WarpResolver
     private static bool IsUnitySerializableClass(Type t)
         => t.IsClass && !t.IsAbstract && !t.IsGenericType && t != typeof(string)
            && t.IsSerializable && !typeof(Delegate).IsAssignableFrom(t)
-           && !typeof(UnityEngine.Object).IsAssignableFrom(t)
-           && t.GetConstructor(Type.EmptyTypes) != null;
+           && !typeof(UnityEngine.Object).IsAssignableFrom(t);
+
+    /// <summary>
+    /// A new instance of a serialized type the way Unity's deserializer makes one: through the
+    /// parameterless constructor when there is one, otherwise with no constructor run at all. The
+    /// game's OptionalValue family (OptionalFloatValue, OptionalRangeValue, OptionalIntValue, ...) has
+    /// only a (bool, value) constructor, so Activator.CreateInstance threw MissingMethodException,
+    /// logged at Debug, and left the field null: a PassiveEffect appended with WarpType 4 (or by a
+    /// GameSourceModify patch) lost its SpoilageRateModifier and did nothing (Chiwei's APE aging rack,
+    /// 2.28.2). The fields then come from the JSON walk, as Unity's would from the asset.
+    /// </summary>
+    internal static object NewSerializable(Type t)
+    {
+        if (t.IsValueType || t.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null) != null)
+            return Activator.CreateInstance(t, nonPublic: true);
+        return System.Runtime.Serialization.FormatterServices.GetUninitializedObject(t);
+    }
 
     /// <summary>
     /// Expand an array to a new size, preserving existing elements and creating
@@ -1066,7 +1134,7 @@ internal static class WarpResolver
             newArr.SetValue(existing.GetValue(i), i);
         for (int i = existing.Length; i < newSize; i++)
         {
-            try { newArr.SetValue(Activator.CreateInstance(elemType), i); }
+            try { newArr.SetValue(NewSerializable(elemType), i); }
             catch (Exception ex)
             {
                 Log.Debug($"WarpResolver: ExpandArray failed to create {elemType.Name} for '{_currentUid}': {Log.ExceptionText(ex)}");

@@ -11,6 +11,7 @@ internal static class SpriteLoader
         SpriteTextureCache.Initialize();
         int totalLoaded = 0;
         int skippedVanilla = 0;
+        int compressed = 0;
 
         foreach (var mod in mods)
         {
@@ -37,6 +38,9 @@ internal static class SpriteLoader
                             UnityEngine.Object.Destroy(texture);
                             continue;
                         }
+                        // [Performance] CompressModSprites: DXT5 while the CPU copy still exists
+                        // (Compress on a non-readable texture only logs an Error, W0-9).
+                        if (SpriteTextureCache.TryCompress(texture)) compressed++;
                         SpriteTextureCache.SaveAsync(file, bytes, texture);
                         // Apply frees CPU memory after we've handed the bytes off to
                         // the background writer.
@@ -64,6 +68,10 @@ internal static class SpriteLoader
                 Log.Debug($"SpriteLoader: loaded {modCount} sprites from {mod.Name}");
             totalLoaded += modCount;
         }
+
+        if (SpriteTextureCache.CompressEnabled)
+            Log.Info($"SpriteLoader: CompressModSprites on, {compressed} sprites compressed to DXT5 this load " +
+                     $"({SpriteTextureCache.CacheHits} cached entries reused)");
 
         var rescues = SpriteTextureCache.HashRescues;
         var rescueSuffix = rescues > 0 ? $", {rescues} rescued via hash" : string.Empty;

@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.26.12";
+    public const string PluginVersion = "2.28.2";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -34,6 +34,9 @@ public class Plugin : BaseUnityPlugin
             + "Off by default — enable only when investigating research-timer regressions.");
         Loading.LoadOrchestrator.EnableLoadDiagnostics = diagConfig.Value;
 
+        // Config: load-time authoring lint (default on: one Warn per affected mod, silent otherwise).
+        Loading.AuthoringLint.Configure(Config);
+
         // Config: wildlife raid system (opt-in; injects tag_NotSafeFromAnimals and
         // tag_NotSafeFromBears on vanilla open-storage containers at load time).
         var raidEnabled = Config.Bind("Wildlife", "WildlifeRaidsEnabled", false,
@@ -53,6 +56,14 @@ public class Plugin : BaseUnityPlugin
         Wildlife.WildlifeRaidService.DailyChance = raidChance.Value;
         Wildlife.WildlifeRaidService.BearRaidChance = bearRaidChance.Value;
         Wildlife.WildlifeRaidService.StressPenalty = raidStress.Value;
+        var bearEscalationDays = Config.Bind("Wildlife", "BearRaidEscalationDays", 0,
+            "Needs WildlifeRaidsEnabled. After this many in-game days in a row on which wildlife raided "
+            + "an open container in your location, the next raid is a fight with a brown bear instead of "
+            + "another spoiled item. 0 turns it off (the default); 3 is a reasonable start if you want it. "
+            + "The count is kept only while the game runs: loading a save or returning to the menu resets it. "
+            + "Encounter guards that keep wildlife out of a place (such as Community Mod Chest's village) "
+            + "also stop this bear.");
+        Wildlife.WildlifeRaidService.BearRaidEscalationDays = System.Math.Max(0, bearEscalationDays.Value);
         Wildlife.WildlifeRaidService.Init();
 
         // Config: declarative animal system (on by default — only activates when a mod
@@ -86,6 +97,11 @@ public class Plugin : BaseUnityPlugin
             + "Set false to hide the tags. A change needs a full quit to desktop and relaunch, because "
             + "this file is read once at startup.");
         Patching.PerkOriginTagPatch.Enabled = perkOriginTag.Value;
+
+        Loading.SpriteTextureCache.CompressEnabled = Config.Bind("Performance", "CompressModSprites", false,
+            "Compress cached mod sprites to DXT5 (about 4x less video memory and sprite cache; art can look slightly softer). "
+            + "Only sprites whose width and height are multiples of 4 are compressed. Takes effect at the next launch; "
+            + "the sprite cache rebuilds once on each change. Default false.").Value;
 
         Triggers.TriggerService.Init();
 
@@ -122,11 +138,11 @@ public class Plugin : BaseUnityPlugin
         // tick-count worst case. Self-tunes to machine speed and save weight.
         Patching.Performance.CatchUpBudgetClamp.Configure(Config, Harmony);
 
-        // Performance (diagnostic, log-only): verify pass for a proposed catch-up
-        // equipment-scan short-circuit — logs any case where the short-circuit
-        // would actually be unsafe. Does NOT short-circuit anything yet; see
-        // CatchUpEquipmentScanSkip.cs and Documentation/Plans/CSFFModFramework/
-        // CatchUp_Performance_Plan.md Phase 2 for the ship gate.
+        // Performance: while the game replays missed ticks on arrival, CharacterScreen.HasCardEquipped
+        // answers false without scanning the equipment slots (every card the replay processes is
+        // already known not to be equipped). Ships on, behind [Performance] CatchUpEquipmentScanSkip;
+        // the log-only verify postfix stays behind LogCatchUpEquipmentScanHits. See
+        // CatchUpEquipmentScanSkip.cs and Documentation/Design/CatchUp_Performance_As_Built.md.
         Patching.Performance.CatchUpEquipmentScanSkip.Configure(Config, Harmony);
 
         // Performance: K-chunked catch-up tick batching, composed with
@@ -142,6 +158,8 @@ public class Plugin : BaseUnityPlugin
         Loading.BlueprintContainerSaveLoadFix.ApplyFreshPlacementPatch(Harmony);
         Patching.LocalizationPatch.ApplyPatch(Harmony);
         Patching.BlueprintFlagFix.ApplyPatch(Harmony);
+        Loading.UniqueIdIndexRepair.ApplyPatch(Harmony);
+        Loading.TypedCacheAllDataSync.ApplyPatch(Harmony);
         Patching.BugFixes.WikiModQuickFindFix.ApplyPatch(Harmony);
         // Finalizer on Harmony's own PatchClassProcessor.Patch: when a WikiMod patch class cannot bind
         // to this game version, skip that ONE class instead of letting the throw abort WikiMod's whole
@@ -150,6 +168,10 @@ public class Plugin : BaseUnityPlugin
         // including its card hover tooltip). MUST stay synchronous here: BepInEx loads us 3rd and
         // WikiMod last, and WikiMod's Awake runs before our next frame, so a deferred install is too late.
         Patching.BugFixes.WikiModPatchAllRescue.Configure(Config, Harmony);
+        // Prefix on WikiMod's ApplyDurabilityTranslations (the one applier whose table is literal
+        // Chinese, plan W0-5): skipped unless the game is in Chinese. Installed when the WikiMod
+        // assembly loads, so it is in place before WikiMod's data pass.
+        Patching.BugFixes.WikiModEnglishGuard.Configure(Config, Harmony);
 
         // Bug-fix / compat patches
         // Finalizer that swallows third-party NREs in BlueprintModelsScreen.Show/Toggle
@@ -190,6 +212,20 @@ public class Plugin : BaseUnityPlugin
         // GameLoad.SaveGameByReference throws on its null CardModel inside ActionRoutine. This
         // prefix drops such broken entries before every save (player report 2026-09-19).
         Patching.BugFixes.SaveStaleCardGuard.ApplyPatch(Harmony);
+        // A portal arrival runs AddCard outside any action routine, so a stat-triggered action on
+        // the departure card can empty NextEnvironment mid-switch and leave the player in no
+        // environment (CalculateEnvironmentWeight NRE, T2.763). Restores it only while an arrival
+        // started by PortalService is in flight.
+        Patching.BugFixes.PortalArrivalNextEnvGuard.ApplyPatch(Harmony);
+        // Vanilla undoes a multiplying passive effect as a multiply only for Spoilage; for every other
+        // durability it subtracts the factor from the base rate and leaves the multiplier applied
+        // (Sirus23 Wolf Den Morale -1.40625 after leaving two dens, T2.543).
+        Patching.BugFixes.PassiveMultiplierCancelFix.ApplyPatch(Harmony);
+        // Vanilla Animal Enclosure and Chicken Coop ("Land Sickness Fix") ask TagIsOnBoard about a
+        // null CardTag; its instanced-env branch dereferences it and the NRE leaves RootAction set,
+        // so every later action answers "I can't do two things at once..." (retro
+        // vanilla-pen-coop-null-tag-wedge, 2026-10-09). Answers false, as its other branches do.
+        Patching.BugFixes.NullTagOnBoardGuard.ApplyPatch(Harmony);
 
         // WorldMap clone envs could show doubled forage terrain (two Ponds, two Pine Trees,
         // two Small Pine Trees) after a player's FIRST mid-session visit to an expansion tile —
@@ -202,13 +238,19 @@ public class Plugin : BaseUnityPlugin
         // slot items travel with the player; floor/placed items stay at source.
         Portal.PortalTravelPatch.ApplyPatch(Harmony);
 
-        // Wildlife: bear raid on encounter — fires WildlifeRaidService.OnBearEncounter()
-        // when Combat_EventBear_1_Explore starts. Self-no-ops when raids are disabled.
+        // Wildlife: bear raid on encounter - fires WildlifeRaidService.OnBearEncounter() when a
+        // bear fight (Combat_EncounterBear, started by Agent_Bear) begins. Self-no-ops when raids
+        // are disabled.
         Patching.WildlifeRaidPatch.ApplyPatch(Harmony);
 
         // Encounter guards (Tier 2): the single StartEncounter suppression prefix all
         // Api.EncounterGuards predicates flow through. Zero-cost when no guards exist.
         Patching.EncounterGuardPatch.ApplyPatch(Harmony);
+
+        // Encounter guards at the agent's source (2.28.0): postfixes NPCAction.ToAction and
+        // StartEncounterDutyAction.CanBePerformed so a guard that NAMES an agent or an encounter stops
+        // that agent's own attack. Zero-cost when no guard opts into agent starts.
+        Patching.AgentEncounterGuardPatch.ApplyPatch(Harmony);
 
         // Connection gates (Tier 2): re-evaluate ImprovementBuilt / PerkEquipped gates
         // when an improvement is completed, updating map connection visibility immediately.
@@ -235,6 +277,16 @@ public class Plugin : BaseUnityPlugin
         // crashes SortInventory() on first inspect. No-op for every vanilla NPCAgent.
         Animals.ModelCardInventoryFix.ApplyPatch(Harmony);
 
+        // Animals: a generated night attack (Encounter.Aggression) waits while the player's current
+        // action still has ticks left, instead of cancelling it; it fires on the action's last tick
+        // and plays after the action completes (a trip is no longer lost to an owl, 2026-09-27).
+        Animals.AttackWaitsForPlayerAction.ApplyPatch(Harmony);
+
+        // Perk starting items: a mod perk's AddedCardsStats / EquippedCardsStats gives its starting
+        // items real quality and type values instead of the card defaults (quality 0, plank ID 0,
+        // leather Skin Type 0). Zero-cost when no perk declares any.
+        Injection.PerkStartingItemStats.ApplyPatch(Harmony);
+
         // Opt-in diagnostic: logs GameLoad.AutoSaveGame calls (first 8) so beta
         // day/week/season checkpoint behavior can be inspected without changing it.
         Patching.Diagnostics.AutoSaveDiagnostics.Configure(Config, Harmony);
@@ -243,6 +295,12 @@ public class Plugin : BaseUnityPlugin
         // every travel and counts GiveCard invocations during CheckForTracks. Used
         // to investigate the 1–2 s freeze when entering a location with fresh tracks.
         Patching.Diagnostics.TrackingTimingDiagnostics.Configure(Config, Harmony);
+
+        // Opt-in diagnostics for the performance plan's measurement runs (features 15 and 23): a 60 s
+        // frame-time summary with the NPC tick split, and a per-card end-state block after each
+        // catch-up travel. Both install nothing unless their [Diagnostics] flag is true.
+        Patching.Diagnostics.FrameTimingDiagnostics.Configure(Config, Harmony);
+        Patching.Diagnostics.CatchUpEndStateDiagnostics.Configure(Config, Harmony);
 
         // Opt-in diagnostic: logs mod blueprints that BlueprintModelsScreen.FindTabFor
         // fails to resolve, and why — used to investigate mod blueprints appearing under
@@ -254,6 +312,12 @@ public class Plugin : BaseUnityPlugin
         // localize player reports of wildlife getting permanently stuck on mod-injected
         // WorldMap trail nodes. See WildlifeStuckDiagnostics' doc comment.
         Patching.Diagnostics.WildlifeStuckDiagnostics.Configure(Config);
+
+        // Performance (opt-in, default off): run AI selection for agents outside the player's
+        // environment every second tick. Patches CheckForDuties' compiler-generated MoveNext
+        // (never inlined), so it does not depend on order, but it goes after every other patch
+        // anyway, ahead of the crash guard that must stay last.
+        Patching.Performance.OffEnvNpcAiThrottle.Configure(Config, Harmony);
 
         // Finalizer that swallows WorldMapData.AddInstancedEnv's ArgumentException (two
         // instanced envs colliding on default map Coordinates) so GameManager.ChangeEnvironment
@@ -275,6 +339,7 @@ public class Plugin : BaseUnityPlugin
         Wildlife.WildlifeRaidService.PollUpdate();
         Triggers.TriggerService.PollUpdate();
         Api.TickEvents.PollUpdate();
+        Patching.Diagnostics.FrameTimingDiagnostics.OnFrame();
     }
 
     private void OnDestroy()

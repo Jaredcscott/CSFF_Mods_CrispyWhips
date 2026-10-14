@@ -18,6 +18,21 @@ namespace CSFFModFramework.Injection;
 /// Forge is deliberately not a target: its id here was a typo from ede83db72 until 2.26.9, so it never
 /// received these recipes, and the owner chose on 2026-09-25 to drop the lookup rather than start.
 /// Clones the vanilla "Smelt Small Tool" recipe as a template to inherit all conditions.
+///
+/// <para>Row schema: <c>{ "Item": "&lt;uid&gt;", "NuggetReturn": 3, "Duration": 32, "MetalType": 200 }</c>.
+/// <c>MetalType</c> (2.27.0, optional) is the Special4 value the returned nuggets carry (the metal
+/// type that metal-gated recipes read: see AdvancedCopperTools/CLAUDE.md). It is written as the
+/// drop's <c>TransferRules.Special4 = SetValue</c> with <c>Special4Value</c> = the number, which the
+/// engine turns into an active Special4 on the spawned nugget (<c>TransferedDurabilities</c>). A
+/// value that is not a number in (0, 1000] (MetalNugget's Special4 max) is dropped with a warning
+/// and the row returns untyped nuggets, as it did before the field existed. Without the field
+/// nothing about the drop changes.</para>
+///
+/// <para><c>InheritMetal</c> (2.28.0, optional, <c>true</c>/<c>false</c>): the nuggets take the smelted
+/// item's own Special2 (Metal Quality) and Special4 (Metal Type), through vanilla's melt rule
+/// <c>TransferRules.Special2 = Special4 = FromReceivingCard</c>. Use it for an item that carries those
+/// stats (ACT's Metal Sheet), so a bronze sheet returns bronze nuggets at the sheet's quality instead
+/// of untyped quality-0 ones. An explicit <c>MetalType</c> on the same row still wins for Special4.</para>
 /// </summary>
 internal static class SmeltingRecipeInjector
 {
@@ -31,6 +46,9 @@ internal static class SmeltingRecipeInjector
     {
         // 1. Collect all smelting recipe entries from mod JSON files
         var entries = new List<SmeltEntry>();
+        // Rows skipped for an empty Item, a NuggetReturn <= 0 or an Item that does not resolve; one log
+        // line each, counted in the Info summary (framework README "Unresolved references").
+        int skipped = 0;
         foreach (var mod in mods)
         {
             var path = Path.Combine(mod.DirectoryPath, "SmeltingRecipes.json");
@@ -55,10 +73,22 @@ internal static class SmeltingRecipeInjector
                         NuggetReturn = dict.TryGetValue("NuggetReturn", out var v2) ? ToInt(v2) : 0,
                         Duration = dict.TryGetValue("Duration", out var v3) ? ToInt(v3) : 32,
                     };
+                    if (dict.TryGetValue("MetalType", out var v4))
+                        entry.MetalType = ParseMetalType(v4, mod.Name, entry.ItemUid);
+                    if (dict.TryGetValue("InheritMetal", out var v5))
+                    {
+                        if (v5 is bool inherit) entry.InheritMetal = inherit;
+                        else Log.Warn($"SmeltingRecipeInjector: {mod.Name} SmeltingRecipes.json row '{entry.ItemUid}': InheritMetal '{v5}' is not true/false; ignored");
+                    }
                     if (!string.IsNullOrEmpty(entry.ItemUid) && entry.NuggetReturn > 0)
                     {
                         entries.Add(entry);
                         modCount++;
+                    }
+                    else
+                    {
+                        Log.Debug($"SmeltingRecipeInjector: {mod.Name} SmeltingRecipes.json row '{entry.ItemUid}' skipped: it needs an Item and a NuggetReturn above 0");
+                        skipped++;
                     }
                 }
                 Log.Debug($"SmeltingRecipeInjector: loaded {modCount} entries from {mod.Name}");
@@ -69,7 +99,11 @@ internal static class SmeltingRecipeInjector
             }
         }
 
-        if (entries.Count == 0) return;
+        if (entries.Count == 0)
+        {
+            if (skipped > 0) Log.Info($"SmeltingRecipeInjector: 0 recipes, {skipped} row(s) skipped");
+            return;
+        }
 
         // 2. Find the copper nugget CardData
         var nugget = UniqueIDScriptable.GetFromID<CardData>(NUGGET_UID);
@@ -112,7 +146,7 @@ internal static class SmeltingRecipeInjector
                 && !string.IsNullOrEmpty(cd.UniqueID)
                 && HasSmeltingContainerTag(cd, ref cardTagsFieldCached))
             {
-                cookingRecipesFieldCached ??= AccessTools.Field(cd.GetType(), "CookingRecipes");
+                cookingRecipesFieldCached ??= CardUtil.GetCachedField(cd.GetType(), "CookingRecipes");
                 if (cookingRecipesFieldCached != null && cookingRecipesFieldCached.GetValue(cd) is Array a && a.Length > 0)
                     customForges.Add(cd);
             }
@@ -130,7 +164,7 @@ internal static class SmeltingRecipeInjector
 
         static bool HasSmeltingContainerTag(CardData cd, ref FieldInfo cachedTagsField)
         {
-            cachedTagsField ??= AccessTools.Field(cd.GetType(), "CardTags");
+            cachedTagsField ??= CardUtil.GetCachedField(cd.GetType(), "CardTags");
             if (cachedTagsField == null) return false;
             if (cachedTagsField.GetValue(cd) is not Array tags) return false;
             for (int i = 0; i < tags.Length; i++)
@@ -153,7 +187,7 @@ internal static class SmeltingRecipeInjector
 
         foreach (var templateSource in templateSources)
         {
-            recipesFieldInfo = AccessTools.Field(templateSource.GetType(), "CookingRecipes");
+            recipesFieldInfo = CardUtil.GetCachedField(templateSource.GetType(), "CookingRecipes");
             var existing = recipesFieldInfo?.GetValue(templateSource) as Array;
             if (existing != null)
             {
@@ -161,13 +195,13 @@ internal static class SmeltingRecipeInjector
                 Log.Debug($"SmeltingRecipeInjector: CookingRecipe type = {cookingRecipeType.FullName}, template has {existing.Length} recipes from {templateSource.name} ({templateSource.UniqueID})");
 
                 // Log available fields on CookingRecipe type
-                var ccField = AccessTools.Field(cookingRecipeType, "CompatibleCards");
-                var ctField = AccessTools.Field(cookingRecipeType, "CompatibleTags");
+                var ccField = CardUtil.GetCachedField(cookingRecipeType, "CompatibleCards");
+                var ctField = CardUtil.GetCachedField(cookingRecipeType, "CompatibleTags");
                 Log.Debug($"SmeltingRecipeInjector: CompatibleCards field = {(ccField != null ? ccField.FieldType.FullName : "NOT FOUND")}");
                 Log.Debug($"SmeltingRecipeInjector: CompatibleTags field = {(ctField != null ? ctField.FieldType.FullName : "NOT FOUND")}");
 
                 // Find "Smelt Small Tool" or "Smelt Large Tool" (recipes with CompatibleTags containing copper tags)
-                var compatTagsField = AccessTools.Field(cookingRecipeType, "CompatibleTags");
+                var compatTagsField = CardUtil.GetCachedField(cookingRecipeType, "CompatibleTags");
                 for (int i = 0; i < existing.Length; i++)
                 {
                     var r = existing.GetValue(i);
@@ -208,34 +242,48 @@ internal static class SmeltingRecipeInjector
 
         // 6. Create custom recipes by cloning the template
         var newRecipes = new List<object>();
+        int typedRecipes = 0;
+        int inheritingRecipes = 0;
         foreach (var entry in entries)
         {
             if (!cardLookup.TryGetValue(entry.ItemUid, out var itemCard))
             {
+                // Warn, not Debug: SmeltingRecipes.json names a mod's own items, so a miss is an
+                // authoring error rather than an absent partner mod (plan W0-11 finding 1).
                 Log.Warn($"SmeltingRecipeInjector: item {entry.ItemUid} not found, skipping");
+                skipped++;
                 continue;
             }
 
             var recipe = CloneAndCustomize(cookingRecipeType, templateRecipe, itemCard, nugget,
-                                           entry.NuggetReturn, entry.Duration);
+                                           entry.NuggetReturn, entry.Duration, entry.MetalType,
+                                           entry.InheritMetal, out bool typed, out bool inherits);
             if (recipe != null)
+            {
                 newRecipes.Add(recipe);
+                if (typed) typedRecipes++;
+                if (inherits) inheritingRecipes++;
+            }
         }
 
         // 6b. Custom forges keep only their own JSON-defined CookingRecipes.
         // Vanilla forge recipes (Smelt Copper, Axe Head, etc.) are NOT copied —
         // they cause phantom cooking timers and unwanted crafting on custom forges.
 
-        if (newRecipes.Count == 0) return;
+        if (newRecipes.Count == 0)
+        {
+            if (skipped > 0) Log.Info($"SmeltingRecipeInjector: 0 recipes, {skipped} row(s) skipped");
+            return;
+        }
 
-        // 7. Append mod smelting recipes to each forge/furnace
+        // 7. Put mod smelting recipes AHEAD of each forge/furnace's own (see PlaceAhead)
         int injected = 0;
-        var cardsField = AccessTools.Field(cookingRecipeType, "CompatibleCards");
-        var tagsField = AccessTools.Field(cookingRecipeType, "CompatibleTags");
+        var cardsField = CardUtil.GetCachedField(cookingRecipeType, "CompatibleCards");
+        var tagsField = CardUtil.GetCachedField(cookingRecipeType, "CompatibleTags");
 
         foreach (var target in targets)
         {
-            var field = AccessTools.Field(target.GetType(), "CookingRecipes");
+            var field = CardUtil.GetCachedField(target.GetType(), "CookingRecipes");
             if (field == null) continue;
             var existing = field.GetValue(target) as Array ?? Array.CreateInstance(cookingRecipeType, 0);
 
@@ -260,12 +308,7 @@ internal static class SmeltingRecipeInjector
                 continue;
             }
 
-            var combined = Array.CreateInstance(cookingRecipeType, existing.Length + recipesToAdd.Count);
-            Array.Copy(existing, combined, existing.Length);
-            for (int i = 0; i < recipesToAdd.Count; i++)
-                combined.SetValue(recipesToAdd[i], existing.Length + i);
-
-            field.SetValue(target, combined);
+            field.SetValue(target, PlaceAhead(existing, recipesToAdd, cookingRecipeType));
             injected += recipesToAdd.Count;
 
             // The furnace is vanilla, so mark every target for NullReferenceCompactor.
@@ -277,6 +320,95 @@ internal static class SmeltingRecipeInjector
         }
 
         Log.Debug($"SmeltingRecipeInjector: {injected} total recipes injected across {targets.Count} forge(s)");
+        Log.Info($"SmeltingRecipeInjector: {newRecipes.Count} recipes, {typedRecipes} with a metal type, {inheritingRecipes} inheriting the item's metal"
+               + (skipped > 0 ? $", {skipped} row(s) skipped" : ""));
+    }
+
+    /// <summary>The Special4 the returned nuggets carry, or null (with a warning naming the mod and
+    /// item) when the value is not a number in (0, 1000]. MiniJson hands numbers over as double.</summary>
+    private static float? ParseMetalType(object raw, string modName, string itemUid)
+    {
+        if (raw is double d && d > 0 && d <= 1000) return (float)d;
+        Log.Warn($"SmeltingRecipeInjector: {modName} SmeltingRecipes.json row '{itemUid}': MetalType '{raw}' is not a number in (0, 1000]; "
+               + "the row returns untyped nuggets");
+        return null;
+    }
+
+    private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
+
+    private static void WarnOnce(string cause, string message)
+    {
+        if (_warned.Add(cause)) Log.Warn($"SmeltingRecipeInjector: {message}");
+    }
+
+    /// <summary>Writes <c>TransferRules.Special4 = SetValue</c> and <c>Special4Value</c> into the boxed
+    /// drop. Every other transfer keeps its default (NoTransfer). False, with one warning per cause,
+    /// when a member is missing, which leaves the drop exactly as it was built before 2.27.0.</summary>
+    private static bool SetMetalType(object boxedDrop, Type dropType, float metalType)
+    {
+        var rulesField = CardUtil.GetCachedField(dropType, "TransferRules");
+        if (rulesField == null)
+        {
+            WarnOnce("transferrules", $"{dropType.Name}.TransferRules is missing; MetalType rows return untyped nuggets");
+            return false;
+        }
+
+        var rulesType = rulesField.FieldType;
+        var special4Field = CardUtil.GetCachedField(rulesType, "Special4");
+        var special4ValueField = CardUtil.GetCachedField(rulesType, "Special4Value");
+        if (special4Field == null || special4ValueField == null || !special4Field.FieldType.IsEnum)
+        {
+            WarnOnce("special4", $"{rulesType.Name}.Special4 (an enum) or .Special4Value is missing; MetalType rows return untyped nuggets");
+            return false;
+        }
+        if (!Enum.IsDefined(special4Field.FieldType, "SetValue"))
+        {
+            WarnOnce("setvalue", $"{special4Field.FieldType.Name} has no SetValue member; MetalType rows return untyped nuggets");
+            return false;
+        }
+
+        // TransferToDrop is a struct inside the CardDrop struct: box it, write, and write the box
+        // back, or the writes land on a copy. SetValue is resolved BY NAME, so a reordered game
+        // enum fails the check above instead of writing the wrong member.
+        object rules = rulesField.GetValue(boxedDrop);
+        special4Field.SetValue(rules, Enum.Parse(special4Field.FieldType, "SetValue"));
+        special4ValueField.SetValue(rules, metalType);
+        rulesField.SetValue(boxedDrop, rules);
+        return true;
+    }
+
+    /// <summary>Writes <c>TransferRules.Special2 = Special4 = FromReceivingCard</c> into the boxed drop,
+    /// vanilla's own melt rule (MetalBarFinished, MoltenMetalCrucible*, Blank_MetalArrowHead all drop
+    /// their nuggets with it). In a cooking recipe the receiving card is the cooked ingredient
+    /// (<c>CookingRecipe.GetResult</c> passes it to <c>SetDroppedCards</c>), so the nuggets take the
+    /// smelted item's Metal Quality and Metal Type; a slot the item does not have active transfers as
+    /// inactive and the nugget keeps its default. False, with one warning per cause, when a member is
+    /// missing, leaving the drop as it was.</summary>
+    private static bool SetInheritMetal(object boxedDrop, Type dropType)
+    {
+        var rulesField = CardUtil.GetCachedField(dropType, "TransferRules");
+        if (rulesField == null)
+        {
+            WarnOnce("inherit-transferrules", $"{dropType.Name}.TransferRules is missing; InheritMetal rows return untyped nuggets");
+            return false;
+        }
+        var rulesType = rulesField.FieldType;
+        var special2Field = CardUtil.GetCachedField(rulesType, "Special2");
+        var special4Field = CardUtil.GetCachedField(rulesType, "Special4");
+        if (special2Field == null || special4Field == null || !special2Field.FieldType.IsEnum || !special4Field.FieldType.IsEnum
+            || !Enum.IsDefined(special4Field.FieldType, "FromReceivingCard"))
+        {
+            WarnOnce("inherit-members", $"{rulesType.Name}.Special2/Special4 or FromReceivingCard is missing; InheritMetal rows return untyped nuggets");
+            return false;
+        }
+
+        // Same boxing rule as SetMetalType: the struct is written through a box, then the box back.
+        object rules = rulesField.GetValue(boxedDrop);
+        var fromReceiving = Enum.Parse(special4Field.FieldType, "FromReceivingCard");
+        special2Field.SetValue(rules, fromReceiving);
+        special4Field.SetValue(rules, fromReceiving);
+        rulesField.SetValue(boxedDrop, rules);
+        return true;
     }
 
     /// <summary>
@@ -284,8 +416,12 @@ internal static class SmeltingRecipeInjector
     /// This inherits all Conditions, FeedbackMode, ProgressBar, etc. from the working vanilla recipe.
     /// </summary>
     private static object CloneAndCustomize(Type recipeType, object template, CardData item,
-                                             CardData nugget, int nuggetCount, int duration)
+                                             CardData nugget, int nuggetCount, int duration,
+                                             float? metalType, bool inheritMetal,
+                                             out bool typed, out bool inherits)
     {
+        typed = false;
+        inherits = false;
         try
         {
             // Deep clone via JSON round-trip (Unity's JsonUtility handles serializable classes)
@@ -294,7 +430,7 @@ internal static class SmeltingRecipeInjector
             JsonUtility.FromJsonOverwrite(json, recipe);
 
             // Override: CompatibleCards = [item] (match this specific mod item)
-            var compatCardsField = AccessTools.Field(recipeType, "CompatibleCards");
+            var compatCardsField = CardUtil.GetCachedField(recipeType, "CompatibleCards");
             if (compatCardsField != null)
             {
                 var arr = Array.CreateInstance(compatCardsField.FieldType.GetElementType() ?? typeof(CardData), 1);
@@ -310,7 +446,7 @@ internal static class SmeltingRecipeInjector
             }
 
             // Override: CompatibleTags = [] (don't match by tag — we match by specific card)
-            var compatTagsField = AccessTools.Field(recipeType, "CompatibleTags");
+            var compatTagsField = CardUtil.GetCachedField(recipeType, "CompatibleTags");
             if (compatTagsField != null)
             {
                 var elemType = compatTagsField.FieldType.GetElementType() ?? typeof(object);
@@ -322,7 +458,7 @@ internal static class SmeltingRecipeInjector
             if (durField != null) durField.SetValue(recipe, duration);
 
             // Override: Drops = [nugget x nuggetCount]
-            var dropsField = AccessTools.Field(recipeType, "Drops");
+            var dropsField = CardUtil.GetCachedField(recipeType, "Drops");
             if (dropsField != null)
             {
                 // CardDrop is a struct (ValueType). Reflection SetValue on a struct requires
@@ -347,6 +483,13 @@ internal static class SmeltingRecipeInjector
                 if (qtyField != null)
                     qtyField.SetValue(boxedDrop, new Vector2Int(nuggetCount, nuggetCount));
 
+                // Optional InheritMetal, then MetalType: both must land in the box before the box
+                // goes into the array, and MetalType runs second so its SetValue wins for Special4.
+                if (inheritMetal)
+                    inherits = SetInheritMetal(boxedDrop, dropsElemType);
+                if (metalType is { } mt)
+                    typed = SetMetalType(boxedDrop, dropsElemType, mt);
+
                 var dropsArr = Array.CreateInstance(dropsElemType, 1);
                 dropsArr.SetValue(boxedDrop, 0);
                 dropsField.SetValue(recipe, dropsArr);
@@ -363,7 +506,7 @@ internal static class SmeltingRecipeInjector
             }
 
             // Override: ActionName text
-            var nameField = AccessTools.Field(recipeType, "ActionName");
+            var nameField = CardUtil.GetCachedField(recipeType, "ActionName");
             if (nameField != null)
             {
                 var ls = nameField.GetValue(recipe);
@@ -380,7 +523,7 @@ internal static class SmeltingRecipeInjector
             // (see the class doc). It stays because players already smelt these items at 900 C
             // in the Furnace and the mod stations; raising it would change that.
             // ReceivingRequiredDurabilityRanges is nested inside the Conditions sub-object.
-            var conditionsField = AccessTools.Field(recipeType, "Conditions");
+            var conditionsField = CardUtil.GetCachedField(recipeType, "Conditions");
             if (conditionsField != null)
             {
                 object conditions = conditionsField.GetValue(recipe);
@@ -405,7 +548,7 @@ internal static class SmeltingRecipeInjector
             }
 
             // Clear StatModifications (don't copy vanilla skill XP effects)
-            var statModField = AccessTools.Field(recipeType, "StatModifications");
+            var statModField = CardUtil.GetCachedField(recipeType, "StatModifications");
             if (statModField != null && statModField.FieldType.IsArray)
             {
                 var elemType = statModField.FieldType.GetElementType() ?? typeof(object);
@@ -418,7 +561,7 @@ internal static class SmeltingRecipeInjector
             // All 25 vanilla consume-and-drop recipes (Make Charcoal, Burn Stone, etc.) use 0.
             // The cloned template "Heats up Nuggets and Lumps" uses 1 (heat only, keeps item) —
             // without this override the item is never consumed and drops nuggets every Duration tick forever.
-            var ingredChangesField = AccessTools.Field(recipeType, "IngredientChanges");
+            var ingredChangesField = CardUtil.GetCachedField(recipeType, "IngredientChanges");
             if (ingredChangesField != null)
             {
                 object ingredChanges = ingredChangesField.GetValue(recipe);
@@ -440,6 +583,25 @@ internal static class SmeltingRecipeInjector
             Log.Error($"SmeltingRecipeInjector: failed to create recipe for {item.UniqueID}: {Log.ExceptionText(ex)}");
             return null;
         }
+    }
+
+    /// <summary>
+    /// The station's new recipe array: the injected recipes first, then the existing ones in their order.
+    /// <c>CardData.GetRecipeForCard</c> returns the FIRST recipe that is valid for the ingredient and whose
+    /// conditions hold (.decomp/CardData.cs), and each injected recipe names exactly one card, so it must
+    /// sit ahead of the station's tag-wide recipes. Appended, it lost to the vanilla Furnace's recipe 0,
+    /// "Temperature 1100+" (CompatibleTags tag_SmeltsAt1100, cooker heat 1100 and up, heats the item and
+    /// never consumes it): 45 of ACT's 50 rows carry that tag, so above 1100 an iron helmet or a copper
+    /// cauldron sat in the furnace for ever and only a furnace held at 900-1099 smelted them (harness
+    /// T2.363: 10 ticks at 1200, recipe 0 ran every tick, no nugget; T2.442 the same for Tin Bracers).
+    /// </summary>
+    internal static Array PlaceAhead(Array existing, IList<object> injected, Type elementType)
+    {
+        var combined = Array.CreateInstance(elementType, injected.Count + existing.Length);
+        for (int i = 0; i < injected.Count; i++)
+            combined.SetValue(injected[i], i);
+        Array.Copy(existing, 0, combined, injected.Count, existing.Length);
+        return combined;
     }
 
     private static int ToInt(object v)
@@ -503,5 +665,10 @@ internal static class SmeltingRecipeInjector
         public string ItemUid;
         public int NuggetReturn;
         public int Duration;
+        /// <summary>Special4 of the returned nuggets; null = untyped (the pre-2.27.0 behaviour).</summary>
+        public float? MetalType;
+        /// <summary>2.28.0: the nuggets take the smelted item's own Special2 (Metal Quality) and
+        /// Special4 (Metal Type); an explicit <see cref="MetalType"/> still wins for Special4.</summary>
+        public bool InheritMetal;
     }
 }

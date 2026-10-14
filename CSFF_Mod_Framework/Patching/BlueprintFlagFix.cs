@@ -44,9 +44,9 @@ internal static class BlueprintFlagFix
         }
 
         // Patch FinishInitializing so mod blueprints are in AllBlueprintModels before save-state
-        // restoration. The game builds AllBlueprintModels from CardTabGroup.IncludedCards; since
-        // BlueprintInjector runs at journal-open time (not load time), mod blueprints are missing
-        // from AllBlueprintModels when FinishInitializing looks up UIDs to restore states.
+        // restoration. Belt-and-braces: the game builds AllBlueprintModels from DataBase.AllData,
+        // not from CardTabGroup.IncludedCards (see the file header; .decomp/GameManager.cs
+        // InitializeStatsAndActions), so tab injection at journal-open time does not affect it.
         try
         {
             // FinishInitializing may have overloads; grab the first one with the most parameters

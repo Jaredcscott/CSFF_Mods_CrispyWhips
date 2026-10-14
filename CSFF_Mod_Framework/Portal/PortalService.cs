@@ -352,7 +352,9 @@ internal static class PortalService
                 return false;
             }
 
-            host.StartCoroutine(enumerator);
+            // Tracked so a stat-triggered action that runs during the switch cannot empty
+            // NextEnvironment before RemoveCard copies it into CurrentEnvironment (plan section 28).
+            host.StartCoroutine(Patching.BugFixes.PortalArrivalNextEnvGuard.Track(enumerator));
             return true;
         }
         catch (Exception ex)

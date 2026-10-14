@@ -129,6 +129,13 @@ internal static class WorldMapLoader
         /// </summary>
         public List<string> StripLegacyBoardUIDs;
 
+        /// <summary>
+        /// Optional CardTag names removed from the clone's env card after cloning, so a vanilla duty
+        /// that picks an environment by tag (EA 0.69c bees: clover and heather clearings) does not
+        /// choose this clone. Null when not declared.
+        /// </summary>
+        public List<string> StripEnvTags;
+
         public string SourceMod;
 
     // ── New declarative fields (Framework v2.9) ────────────────────────────
@@ -196,7 +203,8 @@ internal static class WorldMapLoader
         /// reached (e.g. a challenge wall meant to block ALL players, including those on an
         /// existing save who install the mod without ever taking a specific perk).</summary>
         public string Type;
-        /// <summary>Perk UniqueID (PerkEquipped), improvement UniqueID (ImprovementBuilt), GameStat
+        /// <summary>Perk UniqueID (PerkEquipped; true for a perk granted during the run as well as one picked
+        /// at character creation, since 2.28.0), improvement UniqueID (ImprovementBuilt), GameStat
         /// UniqueID (StatThreshold), or a season name — "Spring"|"Summer"|"Autumn"|"Winter",
         /// case-insensitive (Season) — compared against <c>Api.GameQuery.CurrentSeason</c>.
         /// <para>Not the same shape as <see cref="ConditionalDropDefinition"/>'s "SeasonRange" (a
@@ -257,7 +265,8 @@ internal static class WorldMapLoader
         /// "SeasonRange" | "DayRange" | "FirstVisit" | "QuestActive".
         /// </summary>
         public string Type;
-        /// <summary>Perk UniqueID (HasPerk) or improvement UniqueID (ImprovementBuilt).</summary>
+        /// <summary>Perk UniqueID (HasPerk; held at character creation or granted in-run, since 2.28.0) or
+        /// improvement UniqueID (ImprovementBuilt).</summary>
         public string UID;
         /// <summary>Environment where the improvement must be built (ImprovementBuilt).</summary>
         public string EnvUID;
@@ -736,6 +745,9 @@ internal static class WorldMapLoader
         // Parse StripLegacyBoardUIDs array (optional; clears stale inherited cards from old saves)
         node.StripLegacyBoardUIDs = ParseStringList(dict, "StripLegacyBoardUIDs");
 
+        // Parse StripEnvTags array (optional; CardTag names removed from the clone env card)
+        node.StripEnvTags = ParseStringList(dict, "StripEnvTags");
+
         // Parse CapacityStats (optional; overrides SD1-4 on cloned CT8)
         node.CapacityStats = ParseCapacityStats(dict);
 
@@ -868,7 +880,9 @@ internal static class WorldMapLoader
             if (ci is Dictionary<string, object> cd) into.Add(ParseGateCondition(cd));
     }
 
-    private static GateConditionDefinition ParseGateCondition(Dictionary<string, object> cd) =>
+    /// <summary>Also parses <c>Spawn.Conditions</c> in <c>Animals/*.json</c> (2.27.0), so a gate and
+    /// an animal read the same condition shape through one parser.</summary>
+    internal static GateConditionDefinition ParseGateCondition(Dictionary<string, object> cd) =>
         new()
         {
             Type       = GetString(cd, "Type"),

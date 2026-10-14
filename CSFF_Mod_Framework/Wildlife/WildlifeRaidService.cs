@@ -58,6 +58,30 @@ internal static class WildlifeRaidService
     public static float BearRaidChance { get; set; } = 0.5f;
     public static float StressPenalty { get; set; } = 2f;
 
+    /// <summary>
+    /// Plan feature 20 (opt-in, default 0 = off): after this many consecutive in-game days with a
+    /// successful raid, the next raid is a <c>Combat_EncounterBear</c> fight instead of
+    /// <see cref="RaidOnce"/>. The count lives for the session only and resets on every
+    /// <c>GameManager.OnGMInitialized</c> (a save reload or menu round trip), plan Open question 12.
+    /// </summary>
+    public static int BearRaidEscalationDays { get; set; } = 0;
+
+    // Combat_EncounterBear, the Encounter every vanilla brown bear fight starts (see
+    // WildlifeRaidPatch.FallbackBearEncounterUID for the history of this constant).
+    internal const string EscalationEncounterUID = "4ce4b386231d17741aa540b11fd8e832";
+
+    private static int _consecutiveRaidDays;
+    private static bool _escalationPending;
+    private static bool _runHooked;
+
+    /// <summary>
+    /// Set immediately before the escalation's throwaway action starts and cleared by the first
+    /// <c>EncounterPopup.StartEncounter</c> after it (WildlifeRaidPatch) or when the action ends.
+    /// While set, that postfix treats the start as the escalation and never chains a second raid
+    /// from it through <see cref="OnBearEncounter"/>.
+    /// </summary>
+    internal static bool EscalationStartInFlight { get; private set; }
+
     private static bool _ready;
     private static bool _loadCompleteProcessed;
     private static int _lastDayTimePoints = int.MinValue;
@@ -73,6 +97,24 @@ internal static class WildlifeRaidService
         // We piggy-back on the Plugin's Update() via <see cref="PollUpdate"/>; all init happens there.
         _ready = false;
         _loadCompleteProcessed = false;
+
+        // Per-run reset. Init runs once per process (Plugin.Awake) and the latch keeps it to one
+        // subscription, so a reload never stacks a second handler (root CLAUDE.md "Per-Run Event
+        // Registration", pattern b); the handler itself only clears per-run state.
+        if (!_runHooked)
+        {
+            _runHooked = true;
+            GameManager.OnGMInitialized += OnRunStart;
+        }
+    }
+
+    private static void OnRunStart()
+    {
+        if (_consecutiveRaidDays > 0 || _escalationPending)
+            Log.Debug($"[WildlifeRaid] run start: raid-day streak {_consecutiveRaidDays} and pending bear escalation={_escalationPending} reset.");
+        _consecutiveRaidDays = 0;
+        _escalationPending = false;
+        EscalationStartInFlight = false;
     }
 
     /// <summary>Call from Plugin.Update(). Cheap no-op until ready; then checks day rollover.</summary>
@@ -89,6 +131,19 @@ internal static class WildlifeRaidService
         {
             try { TryRaid(); }
             catch (Exception ex) { Log.Warn($"[WildlifeRaid] raid attempt failed: {Log.ExceptionText(ex)}"); }
+        }
+
+        // The rollover is seen mid-action (CurrentDay advances inside SpendDaytimePoints, which runs
+        // in the Sleep or Rest action), so the bear waits here for the first idle frame (W0-10).
+        if (_escalationPending)
+        {
+            try { TryStartEscalation(); }
+            catch (Exception ex)
+            {
+                _escalationPending = false;
+                EscalationStartInFlight = false;
+                Log.Warn($"[WildlifeRaid] bear escalation start failed: {Log.ExceptionText(ex)}");
+            }
         }
     }
 
@@ -157,23 +212,37 @@ internal static class WildlifeRaidService
             if (target == null) continue;
             var tagsField = target.GetType().GetField("CardTags", Flags);
             if (tagsField == null) continue;
-            if (!(tagsField.GetValue(target) is IList list)) continue;
 
-            injected += TryInjectTag(list, _notSafeTagAsset, NotSafeTagName, uid);
-            injected += TryInjectTag(list, _notSafeBearTagAsset, NotSafeBearTagName, uid);
+            injected += TryInjectTag(target, tagsField, _notSafeTagAsset, NotSafeTagName, uid);
+            injected += TryInjectTag(target, tagsField, _notSafeBearTagAsset, NotSafeBearTagName, uid);
         }
         if (injected > 0) Log.Debug($"[WildlifeRaid] injected NotSafe tags on {injected} vanilla container slot(s).");
     }
 
-    private static int TryInjectTag(IList list, object tagAsset, string tagName, string uid)
+    // CardData.CardTags is a CardTag[] (.decomp/CardData.cs). An array passes `is IList`, but its Add always throws
+    // NotSupportedException, so until this was fixed every injection failed into a Debug line and no vanilla
+    // container was ever raidable (harness T2.273, 2026-10-05). The tag goes in as a new, longer array assigned
+    // back to the field.
+    private static int TryInjectTag(object target, FieldInfo tagsField, object tagAsset, string tagName, string uid)
     {
         if (tagAsset == null) return 0;
-        foreach (var t in list)
+        var elemType = tagsField.FieldType.IsArray ? tagsField.FieldType.GetElementType() : null;
+        if (elemType == null || !elemType.IsInstanceOfType(tagAsset))
         {
-            if (t is UnityEngine.Object uo && uo.name == tagName) return 0; // already present
+            Log.Warn($"[WildlifeRaid] cannot add '{tagName}' to {uid}: CardTags is {tagsField.FieldType.Name}, not an array of the tag's type");
+            return 0;
         }
-        try { list.Add(tagAsset); return 1; }
-        catch (Exception ex) { Log.Debug($"[WildlifeRaid] inject '{tagName}' failed on {uid}: {Log.ExceptionText(ex)}"); return 0; }
+        var current = tagsField.GetValue(target) as Array;
+        int count = current?.Length ?? 0;
+        for (int i = 0; i < count; i++)
+        {
+            if (current.GetValue(i) is UnityEngine.Object uo && uo && uo.name == tagName) return 0; // already present
+        }
+        var grown = Array.CreateInstance(elemType, count + 1);
+        if (count > 0) Array.Copy(current, grown, count);
+        grown.SetValue(tagAsset, count);
+        try { tagsField.SetValue(target, grown); return 1; }
+        catch (Exception ex) { Log.Warn($"[WildlifeRaid] inject '{tagName}' failed on {uid}: {Log.ExceptionText(ex)}"); return 0; }
     }
 
     // ----------------------------------------------------------- raid ------
@@ -188,16 +257,132 @@ internal static class WildlifeRaidService
 
     private static void TryRaid()
     {
-        if (UnityEngine.Random.value > DailyChance) return;
-        RaidOnce(bearRaid: false);
+        // A bear that has not found its idle frame yet still owns this streak: no raid on top of it.
+        if (_escalationPending) return;
+
+        if (UnityEngine.Random.value > DailyChance)
+        {
+            BreakStreak("no raid roll");
+            return;
+        }
+
+        if (BearRaidEscalationDays > 0 && _consecutiveRaidDays >= BearRaidEscalationDays)
+        {
+            // The bear comes for food, so it needs something a raid could have hit today.
+            if (FindRaidCandidates(bearRaid: false).Count == 0)
+            {
+                BreakStreak("no open container with food in your location");
+                return;
+            }
+            _escalationPending = true;
+            Log.Info($"[WildlifeRaid] {_consecutiveRaidDays} day(s) of raids in a row: a brown bear is coming for the food.");
+            return;
+        }
+
+        if (RaidOnce(bearRaid: false)) _consecutiveRaidDays++;
+        else BreakStreak("raid found nothing to spoil");
     }
 
-    private static void RaidOnce(bool bearRaid)
+    private static void BreakStreak(string why)
     {
-        var allCards = CollectAllCards();
-        if (allCards.Count == 0) return;
+        if (_consecutiveRaidDays > 0)
+            Log.Debug($"[WildlifeRaid] raid-day streak {_consecutiveRaidDays} broken: {why}.");
+        _consecutiveRaidDays = 0;
+    }
 
+    // GameManager.EncounterToStart is private. A value already there would win over the
+    // escalation's drop (the drop is ignored while it is set, GameManager.cs 5160-5178) and that
+    // other fight would then be read as the escalation, so the start waits for it to clear.
+    private static readonly FieldInfo _encounterToStartField = AccessTools.Field(typeof(GameManager), "EncounterToStart");
+    private static readonly HashSet<string> _escalationWarned = new();
+
+    private static void WarnEscalationOnce(string cause, string message)
+    {
+        if (_escalationWarned.Add(cause)) Log.Warn($"[WildlifeRaid] bear escalation: {message}.");
+    }
+
+    /// <summary>
+    /// Starts the escalation bear at W0-10's safe point: no action in flight, state SELECT, no
+    /// fight, no dialog, not initializing or catching up. The start is the vanilla form (the
+    /// encounter-duty, chase and save-resume starts all do this): a throwaway CardAction whose
+    /// only drop names the encounter, run through GameManager.PerformAction so it becomes the
+    /// root action and holds RootAction for the whole fight. A direct EncounterPopup.StartEncounter
+    /// call leaves RootAction null and lets an action run beside the fight (W0-10 runtime leg B).
+    /// EncounterNPC is left null, so every null-NPC encounter guard applies to it.
+    /// </summary>
+    private static void TryStartEscalation()
+    {
+        var gm = MBSingleton<GameManager>.Instance;
+        if (!gm) return;
+        if (GameManager.PerformingAction) return;
+        if (GameManager.CurrentState != GameStates.SELECT) return;
+        if (gm.IsInitializing || gm.IsCatchingUp) return;
+        var encounterPopup = MBSingleton<EncounterPopup>.Instance;
+        if (encounterPopup && encounterPopup.OngoingEncounter) return;
+        var dialogs = MBSingleton<DialogsPopup>.Instance;
+        if (dialogs && dialogs.IsInDialog) return;
+        if (_encounterToStartField == null)
+            WarnEscalationOnce("field", "GameManager.EncounterToStart not found; starting without the pending-encounter check");
+        else if (_encounterToStartField.GetValue(gm) is UnityEngine.Object pending && pending) return;
+
+        if (!(GameRegistry.GetByUid(EscalationEncounterUID) is Encounter encounter) || !encounter)
+        {
+            _escalationPending = false;
+            WarnEscalationOnce("encounter", $"Encounter '{EscalationEncounterUID}' (Combat_EncounterBear) not found; no bear started");
+            return;
+        }
+
+        var action = new CardAction(new LocalizedString
+        {
+            LocalizationKey = "IGNOREKEY",
+            DefaultText = "Bear raid escalation",
+        }, default(LocalizedString));
+        action.ProducedCards = new CardsDropCollection[1];
+        action.ProducedCards[0] = new CardsDropCollection
+        {
+            CollectionName = "BearRaidEscalation",
+            CollectionWeight = 1,
+        };
+        action.ProducedCards[0].DroppedEncounter = encounter;
+        action.ProducedCards[0].EncounterNPC = null;
+
+        _escalationPending = false;
+        EscalationStartInFlight = true;
+        Log.Debug("[WildlifeRaid] idle frame reached: starting the bear escalation action.");
+        gm.StartCoroutine(RunEscalation(action));
+    }
+
+    private static IEnumerator RunEscalation(CardAction action)
+    {
+        yield return GameManager.PerformAction(action, null, false, InGameNPCOrPlayer.PlayerAgent);
+        if (EscalationStartInFlight)
+        {
+            EscalationStartInFlight = false;
+            Log.Info($"[WildlifeRaid] bear escalation action ended without a fight starting; the {_consecutiveRaidDays}-day streak is kept.");
+        }
+    }
+
+    /// <summary>
+    /// Called by WildlifeRaidPatch's StartEncounter postfix for the first start after the
+    /// escalation action began. A start an encounter guard suppressed keeps the streak, so a
+    /// guarded place (CMC's village) starts nothing, every day; a real start resets it.
+    /// </summary>
+    internal static void OnEscalationStartObserved(bool suppressed)
+    {
+        EscalationStartInFlight = false;
+        if (suppressed)
+        {
+            Log.Info($"[WildlifeRaid] bear escalation stopped by an encounter guard; the {_consecutiveRaidDays}-day streak is kept.");
+            return;
+        }
+        Log.Info($"[WildlifeRaid] bear escalation started after {_consecutiveRaidDays} day(s) of raids; streak reset.");
+        _consecutiveRaidDays = 0;
+    }
+
+    private static List<object> FindRaidCandidates(bool bearRaid)
+    {
         var candidates = new List<object>();
+        var allCards = CollectAllCards();
         foreach (var c in allCards)
         {
             if (c == null) continue;
@@ -212,15 +397,21 @@ internal static class WildlifeRaidService
             if (CountFoodIn(c) <= 0) continue;
             candidates.Add(c);
         }
+        return candidates;
+    }
+
+    private static bool RaidOnce(bool bearRaid)
+    {
+        var candidates = FindRaidCandidates(bearRaid);
         if (candidates.Count == 0)
         {
             Log.Debug($"[WildlifeRaid] raid roll succeeded (bear={bearRaid}) but no eligible containers in player env.");
-            return;
+            return false;
         }
 
         var container = candidates[UnityEngine.Random.Range(0, candidates.Count)];
         var foodCard = PickRandomFoodInside(container);
-        if (foodCard == null) return;
+        if (foodCard == null) return false;
 
         var containerName = GetCardDisplayName(container) ?? "a container";
         var foodName = GetCardDisplayName(foodCard) ?? "some food";
@@ -231,7 +422,9 @@ internal static class WildlifeRaidService
             string timing = bearRaid ? "during the encounter" : "overnight";
             Log.Info($"[WildlifeRaid] {raider} raided {containerName} {timing} — {foodName} was spoiled.");
             ApplyStress(StressPenalty);
+            return true;
         }
+        return false;
     }
 
     private static bool HasTag(object cardDataModel, string tagName)

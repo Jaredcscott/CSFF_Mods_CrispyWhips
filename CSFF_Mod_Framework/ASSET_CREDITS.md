@@ -8,6 +8,8 @@ Artwork shipped in this package, with its source and terms.
 |---|---|---|---|
 | `Resource/Picture/Portal_Kit.png` | `csffmfwportalkit` (item), `csffmfw_bp_portal_kit` (blueprint) | Chiwei, community contribution received 2026-09-22 | see "Terms" below |
 | `Resource/Picture/Portal_Placed.png` | `csffmfwportalplaced` (placed structure), `csffmfw_hub_exit` | Chiwei, community contribution received 2026-09-22 | see "Terms" below |
+| `Resource/Picture/ACT_MetalNails_*.png` (six metals) | the Metal Nail (`advanced_copper_tools_copper_nails`), one per Metal Type | Chiwei, set `Advanced_Copper_Tools_0928` received 2026-09-28 (moved here from Advanced Copper Tools with the nail, framework 2.28.0) | see "Terms" below |
+| `Resource/Picture/CopperNails.png`, `Resource/Picture/IronNails.png` | the copper and iron nail blueprints (`Bp_CopperNails`, `Bp_CastCopperNails`, `Bp_IronNails`), and Water-Driven Infrastructure's copper rivet, which names `CopperNails` | Chiwei: byte copies of `ACT_MetalNails_Copper.png` and `ACT_MetalNails_Iron.png` (owner gallery review 2026-10-12, "use the chiwei image"), replacing earlier AI-generated nails of the same names | see "Terms" below |
 
 Both files replaced earlier framework art of the same name that had shipped since 2026-06-19.
 `Portal_Placed.png` was delivered at 896x1344 and downscaled to the 512x768 card canvas; the kit

@@ -66,6 +66,12 @@ internal static class ConditionalDropService
             foreach (var drop in def.ConditionalDrops)
             {
                 if (!drop.ForceStay || string.IsNullOrEmpty(drop.UID)) continue;
+                if (GameRegistry.GetByUid(drop.UID) is not CardData)
+                {
+                    // RegisterNode Warns about, skips and counts the same UID at run start.
+                    Log.Debug($"ConditionalDropService: ForceStay UID '{drop.UID}' (mod {def.SourceMod}) does not resolve at load, skipped");
+                    continue;
+                }
                 if (GameRegistry.GetByUid(drop.UID) is CardData card && card.AlwaysUpdate)
                 {
                     card.AlwaysUpdate = false;
@@ -99,6 +105,10 @@ internal static class ConditionalDropService
         var resolved = new List<CardData>(def.ConditionalDrops.Count);
         var kept     = new List<ConditionalDropDefinition>(def.ConditionalDrops.Count);
         int alwaysUpdatePatched = 0;
+        // Unresolved references (framework README "Unresolved references"): a drop UID that does not
+        // resolve skips the row (Warn, an authoring error); a condition UID that does not resolve keeps
+        // the row, because the condition then reads false and the drop never spawns (Debug).
+        int skipped = 0, inertConditions = 0;
 
         foreach (var drop in def.ConditionalDrops)
         {
@@ -107,8 +117,13 @@ internal static class ConditionalDropService
             if (card == null)
             {
                 Log.Warn($"ConditionalDropService: UID '{drop.UID}' not found in registry (mod {def.SourceMod}) — skipping drop");
+                skipped++;
                 continue;
             }
+            if (drop.Condition != null)
+                inertConditions += ConnectionGateService.LogUnresolvedUids(
+                    $"ConditionalDropService: {def.SourceMod} drop '{drop.UID}' condition {drop.Condition.Type}",
+                    drop.Condition.UID, drop.Condition.EnvUID, drop.Condition.QuestUID);
 
             // ApplyForceStayAtLoad already cleared AlwaysUpdate on every ForceStay card it could
             // resolve at load. Still true here means a card that pass missed, and any copy of it the
@@ -131,6 +146,9 @@ internal static class ConditionalDropService
 
         if (alwaysUpdatePatched > 0)
             Log.Info($"ConditionalDropService: patched AlwaysUpdate=false on {alwaysUpdatePatched} card(s) for '{def.EnvironmentUID}'");
+        if (skipped > 0 || inertConditions > 0)
+            Log.Info($"ConditionalDropService: '{def.EnvironmentUID}' registered {kept.Count} drop(s), {skipped} skipped for an unresolved UID, "
+                   + $"{inertConditions} unresolved condition UID(s) kept inert");
 
         if (kept.Count == 0) return;
 
@@ -274,7 +292,8 @@ internal static class ConditionalDropService
                 return true;
 
             case "hasperk":
-                return CardUtil.IsPerkEquipped(cond.UID);
+                // IsPerkHeld, not IsPerkEquipped (2.28.0): sees a perk granted during the run as well.
+                return CardUtil.IsPerkHeld(cond.UID);
 
             case "improvementbuilt":
                 return CardUtil.IsImprovementBuilt(cond.EnvUID, cond.UID);

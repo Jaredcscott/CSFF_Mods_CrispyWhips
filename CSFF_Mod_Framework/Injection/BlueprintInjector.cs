@@ -11,6 +11,9 @@ internal static class BlueprintInjector
     private static readonly List<(string uniqueId, string tabKey, string subTabKey)> _queued = new();
     // Track warnings already emitted to avoid log spam (InjectFromUI runs on every blueprint screen open)
     private static readonly HashSet<string> _warnedMissing = new(StringComparer.OrdinalIgnoreCase);
+    // Distinct unresolved references seen so far (blueprint UIDs skipped, tab keys re-homed), for the
+    // Info count (framework README "Unresolved references").
+    private static readonly HashSet<string> _unresolvedRefs = new(StringComparer.OrdinalIgnoreCase);
     // Once injection succeeds, skip redundant re-injection on subsequent NewBlueprintContent.Start calls
     private static bool _injected;
     private static bool _resourceTabScanDone;
@@ -31,10 +34,24 @@ internal static class BlueprintInjector
     private const int MaxUiInjectAttempts = 8;
     private static int _uiInjectAttempts;
 
+    // Subtabs a mod declares under "NewSubTabs" in BlueprintTabs.json (2.28.2). The game has no subtab a
+    // mod can own, so before this a mod wanting its own category (Chiwei's APE "Cheese Making") had to
+    // build the CardTabGroup in C# and then strip its blueprints back out of Support, where the pre-UI
+    // pass had already re-homed them. One instance per key, shared by every parent instance.
+    internal sealed class SubTabDecl
+    {
+        public string Key, Parent, DefaultText, Icon, After, Mod;
+    }
+    private static readonly List<SubTabDecl> _subTabDecls = new();
+    private static readonly Dictionary<string, CardTabGroup> _declaredSubTabs = new(StringComparer.OrdinalIgnoreCase);
+    internal const string NewSubTabsKey = "NewSubTabs";
+
     public static void InjectAll(IEnumerable allData, List<ModManifest> mods)
     {
         _queued.Clear();
+        _subTabDecls.Clear();
         _warnedMissing.Clear();
+        _unresolvedRefs.Clear();
         _injected = false;
         _resourceTabScanDone = false;
         _resourceTabGroups.Clear();
@@ -99,6 +116,11 @@ internal static class BlueprintInjector
             }
             foreach (var kvp in root)
             {
+                if (string.Equals(kvp.Key, NewSubTabsKey, StringComparison.OrdinalIgnoreCase))
+                {
+                    LoadSubTabDecls(kvp.Value, modName);
+                    continue;
+                }
                 if (kvp.Value is not List<object> ids) continue;
                 foreach (var id in ids)
                     if (id is string bpId) _queued.Add((bpId, kvp.Key, null));
@@ -108,6 +130,152 @@ internal static class BlueprintInjector
         catch (Exception ex)
         {
             Log.Error($"BlueprintInjector: failed to read {path}: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    /// <summary>
+    /// Reads <c>"NewSubTabs": [ { "Key": ..., "Parent": ..., "DefaultText": ..., "Icon": ..., "After": ... } ]</c>.
+    /// Key is the new subtab's LocalizationKey (blueprints are then listed under it like any vanilla key);
+    /// Parent is a main tab's LocalizationKey (<c>Tab_Base_TabName</c> = Survival, see README); Icon a
+    /// sprite name (vanilla or a mod's Resource/Picture); After an optional sibling subtab key to insert
+    /// behind (default: last). A framework older than 2.28.2 sees a list of objects with no string entry
+    /// and queues nothing for it, so shipping the key is safe on any version.
+    /// </summary>
+    internal static void LoadSubTabDecls(object value, string modName)
+    {
+        if (value is not List<object> entries)
+        {
+            Log.Warn($"BlueprintInjector: {modName}/BlueprintTabs.json \"{NewSubTabsKey}\" must be a list of objects - ignored");
+            return;
+        }
+        foreach (var entry in entries)
+        {
+            if (entry is not Dictionary<string, object> d) continue;
+            string Str(string name) => d.TryGetValue(name, out var v) ? v as string : null;
+            var decl = new SubTabDecl
+            {
+                Key = Str("Key"), Parent = Str("Parent"), DefaultText = Str("DefaultText"),
+                Icon = Str("Icon"), After = Str("After"), Mod = modName,
+            };
+            if (string.IsNullOrEmpty(decl.Key) || string.IsNullOrEmpty(decl.Parent))
+            {
+                Log.Warn($"BlueprintInjector: {modName}/BlueprintTabs.json \"{NewSubTabsKey}\" entry needs both Key and Parent - skipped");
+                continue;
+            }
+            if (_subTabDecls.Exists(x => string.Equals(x.Key, decl.Key, StringComparison.OrdinalIgnoreCase)))
+            {
+                Log.Debug($"BlueprintInjector: subtab '{decl.Key}' declared again by {modName} - first declaration kept");
+                continue;
+            }
+            _subTabDecls.Add(decl);
+        }
+    }
+
+    /// <summary>
+    /// <c>BlueprintModelsScreen.Show</c> prefix: puts declared subtabs into the live tab tree before Show
+    /// selects a tab and builds its subtab buttons, so the new subtab is there on the first open.
+    /// </summary>
+    public static void EnsureSubTabsFromUI(object uiRoot)
+    {
+        if (_subTabDecls.Count == 0 || uiRoot == null) return;
+        try
+        {
+            if (ReflectionHelpers.GetMemberValue(uiRoot, "BlueprintTabs") is not IEnumerable tabs) return;
+            var parents = new List<object>();
+            foreach (var t in tabs) if (t != null) parents.Add(t);
+            EnsureDeclaredSubTabs(parents, countMisses: false);
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"BlueprintInjector: subtab setup before Show failed: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    /// <summary>
+    /// Adds each declared subtab to every tab in <paramref name="tabGroups"/> whose LocalizationKey is its
+    /// Parent and which does not already hold a subtab with its Key. A subtab with that Key that already
+    /// exists (another plugin built it in C#, or an earlier pass) is adopted rather than duplicated, so the
+    /// framework and a mod's own C# injection agree on one object. Created subtabs are appended to
+    /// <paramref name="tabGroups"/> so the caller's key lookup sees them. Idempotent.
+    /// </summary>
+    private static void EnsureDeclaredSubTabs(List<object> tabGroups, bool countMisses)
+    {
+        if (_subTabDecls.Count == 0) return;
+
+        foreach (var decl in _subTabDecls)
+        {
+            var parents = new List<CardTabGroup>();
+            CardTabGroup existing = null;
+            if (_declaredSubTabs.TryGetValue(decl.Key, out var cached) && cached != null) existing = cached;
+            foreach (var obj in tabGroups)
+            {
+                if (obj is not CardTabGroup tab || tab == null) continue;
+                var key = tab.TabName.LocalizationKey;
+                if (string.Equals(key, decl.Parent, StringComparison.OrdinalIgnoreCase)) parents.Add(tab);
+                else if (existing == null && string.Equals(key, decl.Key, StringComparison.OrdinalIgnoreCase)) existing = tab;
+            }
+            if (parents.Count == 0)
+            {
+                // Counted only on a live-UI pass, where every main tab exists: then the Parent key is
+                // wrong, the subtab is skipped and its blueprints are re-homed to Support (counted too).
+                if (countMisses && _unresolvedRefs.Add($"subtab-parent:{decl.Key}"))
+                    Log.Debug($"BlueprintInjector: parent tab '{decl.Parent}' for subtab '{decl.Key}' ({decl.Mod}) does not resolve - subtab skipped");
+                continue;
+            }
+
+            foreach (var parent in parents)
+            {
+                parent.SubGroups ??= new List<CardTabGroup>();
+                var already = parent.SubGroups.Find(s => s != null && string.Equals(s.TabName.LocalizationKey, decl.Key, StringComparison.OrdinalIgnoreCase));
+                if (already != null) { existing ??= already; continue; }
+
+                existing ??= CreateSubTab(decl, parent);
+                if (existing == null) break;
+
+                int at = parent.SubGroups.Count;
+                if (!string.IsNullOrEmpty(decl.After))
+                {
+                    int sib = parent.SubGroups.FindIndex(s => s != null && string.Equals(s.TabName.LocalizationKey, decl.After, StringComparison.OrdinalIgnoreCase));
+                    if (sib >= 0) at = sib + 1;
+                }
+                parent.SubGroups.Insert(at, existing);
+                Log.Info($"[BlueprintInjector] subtab '{decl.Key}' ({decl.Mod}) added under '{decl.Parent}'");
+            }
+
+            if (existing != null)
+            {
+                _declaredSubTabs[decl.Key] = existing;
+                if (!tabGroups.Exists(t => ReferenceEquals(t, existing))) tabGroups.Add(existing);
+            }
+        }
+    }
+
+    private static CardTabGroup CreateSubTab(SubTabDecl decl, CardTabGroup parent)
+    {
+        try
+        {
+            var tab = ScriptableObject.CreateInstance<CardTabGroup>();
+            tab.name = decl.Key;
+            tab.TabName = new LocalizedString
+            {
+                LocalizationKey = decl.Key,
+                DefaultText = string.IsNullOrEmpty(decl.DefaultText) ? decl.Key : decl.DefaultText,
+                ParentObjectID = decl.Key,
+            };
+            Sprite icon = null;
+            if (!string.IsNullOrEmpty(decl.Icon))
+            {
+                icon = Loading.SpriteResolver.LookupSprite(decl.Icon);
+                if (icon == null && _warnedMissing.Add($"subtab-icon:{decl.Key}"))
+                    Log.Warn($"BlueprintInjector: icon '{decl.Icon}' for subtab '{decl.Key}' ({decl.Mod}) is not a loaded or shipped sprite - using the parent tab's icon");
+            }
+            tab.TabIcon = icon ?? parent.TabIcon;
+            return tab;
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"BlueprintInjector: could not create subtab '{decl.Key}' ({decl.Mod}): {Log.ExceptionText(ex)}");
+            return null;
         }
     }
 
@@ -187,6 +355,10 @@ internal static class BlueprintInjector
         var tabGroups = GetTabGroups(allData, lookup, cardTabGroupType, uiRoot, out var allDataTabCount, out var databaseTabCount, out var resourceTabCount, out var uiTabCount);
         if (tabGroups.Count == 0) return false;
 
+        int unresolvedBefore = _unresolvedRefs.Count;
+        EnsureDeclaredSubTabs(tabGroups, countMisses: uiRoot != null);
+
+
         // Build tab lookup by LocalizationKey
         var tabLookup = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
 
@@ -210,6 +382,10 @@ internal static class BlueprintInjector
             Log.Debug($"[BlueprintInjector] tabLookup: {tabLookup.Count} tabs from {tabGroups.Count} CardTabGroup objects (allData={allDataTabCount}, db={databaseTabCount}, res={resourceTabCount}, ui={uiTabCount})");
         int injected = 0;
         bool completed = true;
+        // Unresolved references (framework README "Unresolved references"), counted once each across
+        // passes through _unresolvedRefs: a blueprint UID that does not resolve is skipped (Warn), and a
+        // tab key that does not resolve is re-homed to the Support tab (Debug), never dropped, so the
+        // player keeps the blueprint.
 
         foreach (var (uniqueId, tabKey, subTabKey) in _queued)
         {
@@ -220,6 +396,7 @@ internal static class BlueprintInjector
             {
                 if (_warnedMissing.Add(uniqueId))
                     Log.Warn($"BlueprintInjector: blueprint '{uniqueId}' not found in AllData — skipping");
+                _unresolvedRefs.Add(uniqueId);
                 continue;
             }
 
@@ -229,8 +406,21 @@ internal static class BlueprintInjector
                 tabLookup.TryGetValue(subTabKey, out targetTab);
             if (targetTab == null && !string.IsNullOrEmpty(tabKey))
                 tabLookup.TryGetValue(tabKey, out targetTab);
+            // Re-home only on a live-UI pass. A pre-UI pass (NewBlueprintContent.Start) runs before a tab
+            // another plugin builds in its own prefix or Show hook can exist, and a blueprint it parked in
+            // Support stayed there after the real tab appeared: listed twice (APE's "Support residuals").
+            if (targetTab == null && uiRoot == null && (!string.IsNullOrEmpty(tabKey) || !string.IsNullOrEmpty(subTabKey)))
+            {
+                completed = false;
+                continue;
+            }
             if (targetTab == null)
+            {
                 tabLookup.TryGetValue("Tab_1_Survival_Subtab_2_Support_TabName", out targetTab);
+                if (targetTab != null && (!string.IsNullOrEmpty(tabKey) || !string.IsNullOrEmpty(subTabKey))
+                    && _unresolvedRefs.Add($"rehome:{uniqueId}"))
+                    Log.Debug($"BlueprintInjector: tab key '{subTabKey ?? tabKey}' for blueprint '{uniqueId}' does not resolve, re-homed to the Support tab");
+            }
 
             Log.Debug($"[BlueprintInjector] bp='{uniqueId}' tabKey='{tabKey ?? "<null>"}' → {(targetTab != null ? "FOUND" : "MISSING")}");
 
@@ -256,6 +446,8 @@ internal static class BlueprintInjector
             }
         }
 
+        if (_unresolvedRefs.Count > unresolvedBefore)
+            Log.Info($"[BlueprintInjector] {_unresolvedRefs.Count} unresolved reference(s) skipped or re-homed so far ({_unresolvedRefs.Count - unresolvedBefore} new this pass)");
         Log.Debug($"[BlueprintInjector] DoInject done: injected={injected}, completed={completed}, queued={_queued.Count}");
         return completed;
     }

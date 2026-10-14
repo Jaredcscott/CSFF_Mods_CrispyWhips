@@ -105,9 +105,11 @@ public static class Reflect
                 var setter = pi.GetSetMethod(nonPublic: true);
                 if (setter == null) return false;
                 setter.Invoke(instance, new[] { value });
+                StatAccess.InvalidateIfStatValue(instance, name);
                 return true;
             }
             ((FieldInfo)member).SetValue(instance, value);
+            StatAccess.InvalidateIfStatValue(instance, name);
             return true;
         }
         catch (Exception ex) { Log.Debug($"Reflect.SetMember: write failed for member '{name}' on {instance.GetType().Name}: {Log.ExceptionText(ex)}"); return false; }

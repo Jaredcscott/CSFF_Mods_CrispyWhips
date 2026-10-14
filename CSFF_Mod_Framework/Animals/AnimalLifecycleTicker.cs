@@ -1,4 +1,6 @@
 using CSFFModFramework.Api;
+using CSFFModFramework.Injection;
+using CSFFModFramework.Loading;
 using CSFFModFramework.Util;
 
 namespace CSFFModFramework.Animals;
@@ -24,6 +26,12 @@ namespace CSFFModFramework.Animals;
 /// immediate relocate as the safety net for a missed post-tame retirement). Once the card is
 /// gone, a second timer counts to <c>Spawn.SuppressedRespawnTicks</c>, then restores exists
 /// and heals blood — a fresh wild individual.</item>
+/// <item><b>Spawn conditions</b> (2.27.0): while any <c>Spawn.Conditions</c> entry is false the
+/// agent is suppressed the same way, parked in the Spirit World. When nothing suppresses it any
+/// more it is restored after <c>Spawn.ConditionRespawnTicks</c> (0 = the first tick), or after
+/// <c>SuppressedRespawnTicks</c> for a species that also has a suppressor card. Conditions are
+/// re-read every tick and never latched, so a stat a mod writes after run start is picked up
+/// on the next tick.</item>
 /// </list>
 ///
 /// <para>Timers persist across save/load for free because they live in the agent's own
@@ -42,6 +50,12 @@ internal static class AnimalLifecycleTicker
         public int DeathRespawnTicks;              // 0 = kill-respawn timer disabled
         public string SuppressCardUid;             // null = suppression disabled
         public int SuppressedRespawnTicks;
+        /// <summary>Spawn.Conditions; null = none. All must hold for the agent to be in the world.</summary>
+        public List<WorldMapLoader.GateConditionDefinition> Conditions;
+        public int ConditionRespawnTicks;
+        /// <summary>Where a condition retirement parks the agent: the Spirit World, never an
+        /// on-stage roost, so a retired animal is off every board.</summary>
+        public CardData SpiritWorldEnv;
         /// <summary>M4: the vanilla AgentTrapType stat, set only for species that opted into
         /// traps. Non-null enables the per-tick stamp clear below.</summary>
         public NPCStat TrapTypeStat;
@@ -54,7 +68,6 @@ internal static class AnimalLifecycleTicker
 
     private static readonly List<SpeciesLifecycle> _species = new();
     private static bool _subscribed;
-    private static FieldInfo _statsDictField;
 
     public static void Register(SpeciesLifecycle lifecycle)
     {
@@ -89,14 +102,16 @@ internal static class AnimalLifecycleTicker
                 if (!TryResolveNpc(s)) continue;
 
                 // Suppression takes precedence: a companion already on the board at run start
-                // (e.g. granted by a perk) means no wild individual should be on stage.
-                if (s.SuppressCardUid != null && CardOnBoard(s.SuppressCardUid))
+                // (e.g. granted by a perk), or a spawn condition that is false, means no wild
+                // individual should be on stage. A condition that turns true later is picked up
+                // by the tick; nothing here is latched.
+                if (SuppressionCause(s) is { } cause)
                 {
                     if (TryGetStat(s, s.Stats.Exists, out var existsStat) && existsStat.CurrentValue >= 1f)
                     {
                         existsStat.SetStatValueFromEditor(0f);
-                        Relocate(s);
-                        Log.Debug($"Animals: {s.SpeciesId}: suppressor card on board at run start — wild spawn suppressed until it departs");
+                        RetireOffStage(s, cause);
+                        Log.Debug($"Animals: {s.SpeciesId}: retired at run start (exists -> 0): {Describe(s, cause)}");
                     }
                     continue;
                 }
@@ -221,44 +236,123 @@ internal static class AnimalLifecycleTicker
 
     private static void TickSuppressedRespawn(SpeciesLifecycle s)
     {
-        if (s.SuppressCardUid == null) return;
-        if (!TryGetStat(s, s.Stats.Exists, out var exists)) return;
-        if (!TryGetStat(s, s.Stats.SuppressRespawnTimer, out var timer)) return;
-
-        bool suppressorPresent = CardOnBoard(s.SuppressCardUid);
-
-        if (exists.CurrentValue >= 1f || suppressorPresent)
+        if (s.SuppressCardUid == null && s.Conditions == null) return;
+        if (!TryGetStat(s, s.Stats.Exists, out var exists))
         {
-            // Safety net: suppressor on board while the wild agent still exists — a missed
-            // post-tame retirement (stale cache, predicate miss). Force-retire now.
-            if (exists.CurrentValue >= 1f && suppressorPresent)
+            WarnOnce(s, "exists", "its Exists stat has no live instance on the agent; suppression and spawn conditions are not applied");
+            return;
+        }
+        // The timer is only needed to count a restore delay, so its absence no longer skips the
+        // retire side (before 2.27.0 a missing timer instance skipped the force-retire too).
+        TryGetStat(s, s.Stats.SuppressRespawnTimer, out var timer);
+
+        var cause = SuppressionCause(s);
+
+        if (exists.CurrentValue >= 1f || cause != null)
+        {
+            // Retire: a suppressor card on board (the safety net for a missed post-tame
+            // retirement: stale cache, predicate miss) or a spawn condition gone false.
+            if (exists.CurrentValue >= 1f && cause != null)
             {
-                Log.Debug($"Animals: {s.SpeciesId}: wild agent still exists while suppressor card is on board — force-retiring");
+                Log.Debug($"Animals: {s.SpeciesId}: retired (exists -> 0): {Describe(s, cause)}");
                 exists.SetStatValueFromEditor(0f);
-                Relocate(s);
+                RetireOffStage(s, cause);
             }
-            if (timer.CurrentValue != 0f) timer.SetStatValueFromEditor(0f);
+            if (timer != null && timer.CurrentValue != 0f) timer.SetStatValueFromEditor(0f);
             return;
         }
 
-        if (s.SuppressedRespawnTicks <= 0) return;
+        // Retired and nothing suppresses it any more. A species with a suppressor card keeps its
+        // one delay (0 = never respawns, as shipped); a conditions-only species uses
+        // ConditionRespawnTicks, where 0 means now.
+        bool bySuppressor = s.SuppressCardUid != null;
+        int delay = bySuppressor ? s.SuppressedRespawnTicks : s.ConditionRespawnTicks;
+        if (bySuppressor && delay <= 0) return;
+        if (timer == null && delay > 0)
+        {
+            // A suppressor species keeps its shipped fault behaviour (stays retired); a
+            // conditions-only one comes back without its delay, the lesser harm.
+            WarnOnce(s, "timer", "its restore-delay timer stat has no live instance on the agent; "
+                + (bySuppressor ? "it stays retired" : "restoring without the delay"));
+            if (bySuppressor) return;
+            delay = 0;
+        }
+        if (delay <= 0)
+        {
+            Restore(s, exists, timer, "its spawn conditions hold again");
+            return;
+        }
 
         if (timer.CurrentValue <= 0f)
-            Log.Debug($"Animals: {s.SpeciesId}: suppressor card gone — {s.SuppressedRespawnTicks}-tick respawn timer started");
+            Log.Debug($"Animals: {s.SpeciesId}: {(bySuppressor ? "suppressor card gone" : "spawn conditions hold again")}: {delay}-tick respawn timer started");
 
         float elapsed = timer.CurrentValue + 1f;
-        if (elapsed >= s.SuppressedRespawnTicks)
+        if (elapsed >= delay)
         {
-            exists.SetStatValueFromEditor(1f);
-            if (TryGetStat(s, s.Stats.Blood, out var blood)) HealToMax(blood);
-            timer.SetStatValueFromEditor(0f);
-            Log.Debug($"Animals: {s.SpeciesId}: suppressed-respawn timer elapsed — a fresh wild agent is eligible to appear");
+            Restore(s, exists, timer, bySuppressor ? "suppressed-respawn timer elapsed" : "condition-respawn timer elapsed");
         }
         else
         {
             timer.SetStatValueFromEditor(elapsed);
-            Log.Debug($"Animals: {s.SpeciesId}: suppressed-respawn timer {elapsed:F0}/{s.SuppressedRespawnTicks}");
+            Log.Debug($"Animals: {s.SpeciesId}: {(bySuppressor ? "suppressed" : "condition")}-respawn timer {elapsed:F0}/{delay}");
         }
+    }
+
+    private static void Restore(SpeciesLifecycle s, InGameNPCStat exists, InGameNPCStat timer, string why)
+    {
+        exists.SetStatValueFromEditor(1f);
+        if (TryGetStat(s, s.Stats.Blood, out var blood)) HealToMax(blood);
+        if (timer != null) timer.SetStatValueFromEditor(0f);
+        Log.Debug($"Animals: {s.SpeciesId}: restored (exists -> 1, blood healed): {why}; a fresh wild agent is eligible to appear");
+    }
+
+    // ------------------------------------------------------ suppression cause ---
+
+    /// <summary>What keeps the wild agent retired right now: -1 for the suppressor card, the index
+    /// of the first false Spawn.Conditions entry, or null when nothing does. An index rather than
+    /// a string, so a species that stays retired for a whole season allocates nothing per tick.</summary>
+    private static int? SuppressionCause(SpeciesLifecycle s)
+    {
+        if (s.SuppressCardUid != null && CardOnBoard(s.SuppressCardUid)) return -1;
+        if (s.Conditions == null) return null;
+        for (int i = 0; i < s.Conditions.Count; i++)
+            if (!ConnectionGateService.EvalSingleGateCond(s.Conditions[i])) return i;
+        return null;
+    }
+
+    private static string Describe(SpeciesLifecycle s, int? cause)
+    {
+        if (cause is not { } i) return "nothing suppresses it";
+        if (i < 0) return $"suppressor card '{s.SuppressCardUid}' is on the board";
+        var c = s.Conditions[i];
+        string detail = c.Type?.Trim().ToLowerInvariant() switch
+        {
+            "statthreshold"    => $"StatThreshold '{c.UID}' {c.Comparison} {c.Value} is false",
+            "season"           => $"Season '{c.UID}' is false (current season '{GameQuery.CurrentSeason ?? "unknown"}')",
+            "improvementbuilt" => $"ImprovementBuilt '{c.UID}' in '{c.EnvUID}' is false",
+            _                  => $"{c.Type} '{c.UID}' is false",
+        };
+        return $"Spawn.Conditions[{i}] {detail}";
+    }
+
+    /// <summary>A suppressor retirement keeps its shipped destination (the roost); a condition
+    /// retirement goes to the Spirit World, so the animal is off every board.</summary>
+    private static void RetireOffStage(SpeciesLifecycle s, int? cause)
+    {
+        if (cause is >= 0 && s.SpiritWorldEnv != null && s.Npc != null)
+        {
+            var gm = MBSingleton<GameManager>.Instance;
+            if (gm != null) { gm.MoveNPC(s.Npc, new EnvID(s.SpiritWorldEnv, false)); return; }
+        }
+        Relocate(s);
+    }
+
+    private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
+
+    private static void WarnOnce(SpeciesLifecycle s, string cause, string problem)
+    {
+        if (_warned.Add(s.SpeciesId + ":" + cause))
+            Log.Warn($"Animals: {s.SpeciesId}: {problem}");
     }
 
     // -------------------------------------------------------------- helpers ---
@@ -273,19 +367,20 @@ internal static class AnimalLifecycleTicker
         return s.Npc != null;
     }
 
-    /// <summary>Fetches the live per-NPC stat instance. NPCStatsDict is a private field on
-    /// InGameNPC; InGameNPCStat's CurrentValue/SetStatValueFromEditor/MinMaxValue members are
-    /// public. (EA 0.66: the direct-float SetStatValue overload became a private IEnumerator
-    /// taking an extra NPCStatModifierTypes argument; SetStatValueFromEditor is the public
-    /// fire-and-forget wrapper that starts that same coroutine with modifier type Permanent —
-    /// despite the name, it carries no editor-only behavior, confirmed by decompile.)</summary>
+    /// <summary>Fetches the live per-NPC stat instance through <see cref="StatAccess.ResolveNpc(InGameNPC, NPCStat)"/>
+    /// (2.28.0; it used to read the private NPCStatsDict by reflection). A null stat (the species
+    /// declares none) or no resolved NPC yet is the normal "no" and stays silent here.
+    /// InGameNPCStat's CurrentValue/SetStatValueFromEditor/MinMaxValue members are public. (EA 0.66:
+    /// the direct-float SetStatValue overload became a private IEnumerator taking an extra
+    /// NPCStatModifierTypes argument; SetStatValueFromEditor is the public fire-and-forget wrapper
+    /// that starts that same coroutine with modifier type Permanent - despite the name, it carries no
+    /// editor-only behavior, confirmed by decompile.)</summary>
     private static bool TryGetStat(SpeciesLifecycle s, NPCStat stat, out InGameNPCStat instance)
     {
         instance = null;
         if (stat == null || s.Npc == null) return false;
-        _statsDictField ??= AccessTools.Field(typeof(InGameNPC), "NPCStatsDict");
-        if (_statsDictField?.GetValue(s.Npc) is not Dictionary<NPCStat, InGameNPCStat> dict) return false;
-        return dict.TryGetValue(stat, out instance) && instance != null;
+        instance = StatAccess.ResolveNpc(s.Npc, stat);
+        return instance != null;
     }
 
     private static void HealToMax(InGameNPCStat stat)

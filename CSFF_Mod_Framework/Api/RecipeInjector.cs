@@ -73,7 +73,20 @@ public static class RecipeInjector
             var recipeType = recipeArr.GetType().GetElementType();
             var compatCardsField = recipeType.GetField("CompatibleCards", Flags);
 
-            if (compatCardsField != null && AlreadyInjected(recipeArr, compatCardsField, spec.CompatibleCards))
+            // A partner card that is not installed reaches us as null. Drop those entries rather than
+            // writing a null slot into the recipe, and refuse a recipe left with no card and no tag: it
+            // would match nothing (framework plan section 32, item 3).
+            var cards = Compact(spec.CompatibleCards, out int droppedCards);
+            var tags = Compact(spec.CompatibleTags, out _);
+            if (droppedCards > 0)
+                Log.Debug($"[RecipeInjector] {label}: {droppedCards} of {spec.CompatibleCards.Count} CompatibleCards entr{(droppedCards == 1 ? "y is" : "ies are")} null (a partner card not installed?); dropped.");
+            if (droppedCards > 0 && cards.Count == 0 && tags.Count == 0)
+            {
+                Log.Debug($"[RecipeInjector] {label}: every CompatibleCards entry is null and no tag is given; recipe not injected.");
+                return false;
+            }
+
+            if (compatCardsField != null && AlreadyInjected(recipeArr, compatCardsField, cards))
             {
                 Log.Debug($"[RecipeInjector] {label}: recipe already injected; skipped.");
                 return false;
@@ -85,8 +98,8 @@ public static class RecipeInjector
             foreach (var fi in recipeType.GetFields(Flags))
                 fi.SetValue(newRecipe, fi.GetValue(template));
 
-            SetObjectArray(compatCardsField, newRecipe, spec.CompatibleCards);
-            SetObjectArray(recipeType.GetField("CompatibleTags", Flags), newRecipe, spec.CompatibleTags);
+            SetObjectArray(compatCardsField, newRecipe, cards);
+            SetObjectArray(recipeType.GetField("CompatibleTags", Flags), newRecipe, tags);
 
             recipeType.GetField("ConditionsCard", Flags)?.SetValue(newRecipe, spec.ConditionsCard);
             recipeType.GetField("Duration", Flags)?.SetValue(newRecipe, spec.Duration);
@@ -155,16 +168,34 @@ public static class RecipeInjector
         return false;
     }
 
+    // The non-null entries of values, in order (a destroyed UnityEngine.Object counts as null).
+    private static List<object> Compact(IReadOnlyList<object> values, out int dropped)
+    {
+        var kept = new List<object>();
+        dropped = 0;
+        if (values == null) return kept;
+        foreach (var v in values)
+        {
+            if (v == null || (v is UnityEngine.Object uo && uo == null)) { dropped++; continue; }
+            kept.Add(v);
+        }
+        return kept;
+    }
+
+    // Writes values into the array field, skipping any entry the element type cannot hold, so the
+    // array never carries a null slot.
     private static void SetObjectArray(FieldInfo field, object target, IReadOnlyList<object> values)
     {
         if (field == null || !field.FieldType.IsArray) return;
         var elementType = field.FieldType.GetElementType() ?? typeof(object);
 
-        values ??= Array.Empty<object>();
-        var arr = Array.CreateInstance(elementType, values.Count);
-        for (int i = 0; i < values.Count; i++)
-            if (values[i] != null && elementType.IsInstanceOfType(values[i]))
-                arr.SetValue(values[i], i);
+        var kept = new List<object>();
+        if (values != null)
+            foreach (var v in values)
+                if (v != null && elementType.IsInstanceOfType(v)) kept.Add(v);
+
+        var arr = Array.CreateInstance(elementType, kept.Count);
+        for (int i = 0; i < kept.Count; i++) arr.SetValue(kept[i], i);
 
         field.SetValue(target, arr);
     }

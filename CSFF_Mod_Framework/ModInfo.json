@@ -2,6 +2,6 @@
     "Name": "CSFF Mod Framework",
     "ShortName": "FW",
     "Author": "Jared",
-    "Version": "2.26.12",
-    "Description": "Standalone framework for CSFF mods. Provides mod discovery, data loading, map cache indexing, WarpData resolution, sprite loading, blueprint/perk injection, localization, STA activation, NPC agent diagnostics, WorldMap node injection, Portal Hub System (cross-mod world switching via portable Portal Hub), a declarative Animal System (tame/companion, traps/bait, spoor tracks, encounters - all authorable from a species JSON manifest with no mod-side C#), and standalone GameModifierPackage/flavour-synergy injection."
+    "Version": "2.28.2",
+    "Description": "Standalone framework for CSFF mods. Provides mod discovery, data loading, map cache indexing, WarpData resolution, sprite loading, blueprint/perk injection, localization, STA activation, NPC agent diagnostics, WorldMap node injection, Portal Hub System (cross-mod world switching via portable Portal Hub), a declarative Animal System (tame/companion, traps/bait, spoor tracks, encounters, spawn conditions - all authorable from a species JSON manifest with no mod-side C#), standalone GameModifierPackage/flavour-synergy injection, and the shared Metal Sheet, Metal Nail and Tin Solder (with their blueprints) that other mods build with."
 }

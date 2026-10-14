@@ -161,12 +161,22 @@ internal static class ConnectionGateService
         // previous run's.
         if (_initialized) { EvaluateAll(); return; }
 
+        int unresolved = 0;
         foreach (var def in defs)
         {
             if (def?.ConnectionGates == null) continue;
             foreach (var gate in def.ConnectionGates)
             {
                 if (string.IsNullOrEmpty(gate.ConnectionUID)) continue;
+                // Unresolved references (framework README "Unresolved references"): the row is kept,
+                // because dropping a gate would OPEN its connection. A condition on a UID that does
+                // not resolve reads false, and a target that does not resolve gates nothing.
+                string owner = $"ConnectionGateService: {def.SourceMod} gate '{gate.ConnectionUID}'";
+                unresolved += LogUnresolvedUids(owner, gate.ConnectionUID, gate.NeighborCt8UID);
+                if (gate.GateConditions != null)
+                    foreach (var c in gate.GateConditions) unresolved += LogUnresolvedConditionUids(owner, c);
+                if (gate.LockConditions != null)
+                    foreach (var c in gate.LockConditions) unresolved += LogUnresolvedConditionUids(owner, c);
                 bool isEdge = "Edge".Equals(gate.Granularity, StringComparison.OrdinalIgnoreCase);
                 _gates.Add(new GateEntry
                 {
@@ -182,9 +192,42 @@ internal static class ConnectionGateService
         }
 
         _initialized = true;
+        if (unresolved > 0)
+            Log.Info($"ConnectionGateService: {_gates.Count} gate(s) registered, {unresolved} unresolved UID(s) kept inert (Debug-logged)");
         StartPeriodicReeval();
         if (_gates.Count == 0) return;
         EvaluateAll();
+    }
+
+    /// <summary>Logs one Debug line for each non-empty UID that resolves to nothing in the registry and
+    /// returns how many did. Shared by the gate, sealable-gate and conditional-drop load checks.</summary>
+    internal static int LogUnresolvedUids(string owner, params string[] uids)
+    {
+        int unresolved = 0;
+        foreach (var uid in uids)
+        {
+            if (string.IsNullOrEmpty(uid) || GameRegistry.GetByUid(uid) != null) continue;
+            Log.Debug($"{owner}: UID '{uid}' does not resolve, kept inert");
+            unresolved++;
+        }
+        return unresolved;
+    }
+
+    /// <summary><see cref="LogUnresolvedUids"/> over the UIDs one gate condition names. "Season" holds a
+    /// season name and "Always" names nothing, so neither is checked.</summary>
+    internal static int LogUnresolvedConditionUids(string owner, GateConditionDefinition cond)
+    {
+        if (cond == null) return 0;
+        switch (cond.Type?.Trim().ToLowerInvariant())
+        {
+            case "perkequipped":
+            case "statthreshold":
+                return LogUnresolvedUids(owner, cond.UID);
+            case "improvementbuilt":
+                return LogUnresolvedUids(owner, cond.UID, cond.EnvUID);
+            default:
+                return 0;
+        }
     }
 
     // Process-lifetime periodic re-evaluation (2.20.0). Gate conditions read live game
@@ -395,7 +438,11 @@ internal static class ConnectionGateService
                 // silent open passages instead of the intended dig-through challenge).
                 return true;
             case "perkequipped":
-                return CardUtil.IsPerkEquipped(cond.UID);
+                // IsPerkHeld, not IsPerkEquipped (2.28.0): a perk granted during the run (a CardAction's
+                // AddedInRunPerks, CardUtil.GrantInRunPerk) never enters CharacterPerks, the only list
+                // IsPerkEquipped reads, so a gate naming one could never open. Shared by SealTrigger and
+                // the Animals Spawn.Conditions, which evaluate through this method.
+                return CardUtil.IsPerkHeld(cond.UID);
             case "improvementbuilt":
                 return CardUtil.IsImprovementBuilt(cond.EnvUID, cond.UID);
             case "statthreshold":
@@ -422,25 +469,19 @@ internal static class ConnectionGateService
         if (string.IsNullOrEmpty(cond.UID)) return false;
         try
         {
-            var gm = CardUtil.GetGameManagerInstance();
+            // No run (main menu): false is the right answer and not a fault, so no breadcrumb. Unity's
+            // == on the GameManager type, so a destroyed manager reads as no run too.
+            var gm = CardUtil.GetGameManagerInstance() as GameManager;
             if (gm == null) return false;
 
-            var stat = GameRegistry.GetByUid(cond.UID);
-            if (stat == null || stat.GetType().Name != "GameStat")
-            {
-                Log.Warn($"ConnectionGateService: StatThreshold UID '{cond.UID}' does not resolve to a GameStat");
-                return false;
-            }
-
-            var statsDictField = CardUtil.GetCachedField(gm.GetType(), "StatsDict");
-            if (statsDictField?.GetValue(gm) is not IDictionary statsDict) return false;
-            if (!statsDict.Contains(stat)) return false;
-            var statValueObj = statsDict[stat];
-            if (statValueObj == null) return false;
-
-            var currentValueObj = CardUtil.GetMemberValue(statValueObj, "SimpleCurrentValue");
-            if (currentValueObj == null) return false;
-            float value = Convert.ToSingle(currentValueObj);
+            // Every other false below is a fault that reads exactly like an unmet threshold, and
+            // since 2.27.0 an animal's Spawn.Conditions evaluates this every DTP tick, where a
+            // silent false retires the species for good. StatAccess.Resolve (2.28.0) does the
+            // UID -> GameStat definition -> live InGameStat hop this method used to open-code, and
+            // warns once per stat and cause (unknown UID, not a GameStat, not in this run).
+            var live = StatAccess.Resolve(cond.UID);
+            if (live == null) return false;
+            float value = live.SimpleCurrentValue;
 
             return cond.Comparison?.Trim().ToLowerInvariant() switch
             {

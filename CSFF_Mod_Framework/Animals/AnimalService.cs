@@ -50,6 +50,7 @@ internal static class AnimalService
         CompanionService.Reset();
         var result = AnimalLoader.LoadAll(mods);
 
+        int conditioned = 0;
         foreach (var manifest in result.Accepted)
         {
             var agent = AnimalAssetFactory.BuildAgent(manifest);
@@ -60,12 +61,14 @@ internal static class AnimalService
             }
             SpawnRegistrar.Queue(agent);
             _species.Add((manifest.SpeciesId, agent));
+            if (manifest.SpawnConditions.Count > 0) conditioned++;
         }
 
         if (_species.Count == 0 && result.Rejected == 0) return;
 
         Log.Info($"Animals: {_species.Count} species loaded from {result.Mods.Count} mod(s)"
                + (result.Rejected > 0 ? $", {result.Rejected} rejected (see errors above)" : "")
+               + (conditioned > 0 ? $", {conditioned} with spawn conditions" : "")
                + (TrackBuilder.AppliedCount > 0 ? $", {TrackBuilder.AppliedCount} leaving discoverable tracks" : "")
                + (TrapIntegrator.AppliedCount > 0 ? $", {TrapIntegrator.AppliedCount} catchable by vanilla traps" : "")
                + (EncounterBuilder.AppliedCount > 0 ? $", {EncounterBuilder.AppliedCount} generated encounter(s)" : "")

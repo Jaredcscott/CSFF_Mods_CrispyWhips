@@ -25,6 +25,19 @@ namespace CSFFModFramework.Animals;
 /// </summary>
 internal static class DutyBuilder
 {
+    /// <summary>Name prefix of every NPCDutyAction this builder creates.</summary>
+    internal const string GeneratedActionPrefix = "csffmfw_";
+
+    /// <summary>Name suffix of the generated night-attack StartEncounterDutyAction
+    /// (<c>csffmfw_&lt;species&gt;_attack_0_encounter</c>).</summary>
+    internal const string AttackActionSuffix = "_attack_0_encounter";
+
+    internal static bool IsGeneratedAttackAction(UnityEngine.Object action) =>
+        action != null
+        && action.name != null
+        && action.name.StartsWith(GeneratedActionPrefix, StringComparison.Ordinal)
+        && action.name.EndsWith(AttackActionSuffix, StringComparison.Ordinal);
+
     /// <summary>Resolved per-species stat context the generated duties gate on. Either the
     /// hand-authored stats named by the manifest's Agent.Stats map (Ref path) or the
     /// generated/shared instances wired by AnimalAssetFactory (generated path).</summary>
@@ -181,7 +194,8 @@ internal static class DutyBuilder
                 duty.MaxPerformPerDay = m.AggressionMaxPerDay;
                 SetDutyGate(duty, stats);
 
-                var start = NewAction<StartEncounterDutyAction>($"csffmfw_{m.SpeciesId}_attack_0_encounter");
+                // The name is this action's identity for AttackWaitsForPlayerAction (2.28.0).
+                var start = NewAction<StartEncounterDutyAction>($"{GeneratedActionPrefix}{m.SpeciesId}{AttackActionSuffix}");
                 start.DroppedEncounter = encounter;
                 start.SkipEncounterEvent = false;
                 start.CanStartFromDifferentLocation = !m.AggressionRequirePlayerInEnv;
@@ -367,7 +381,8 @@ internal static class DutyBuilder
                 return start;
             }
             case "AffectItems":
-                return BuildAffectItemsAction(soName + "_affect", a.ItemTags, a.ItemCards, a.InTrapContainers, m);
+                return BuildAffectItemsAction(soName + "_affect", a.ItemTags, a.ItemCards, a.InTrapContainers, m,
+                    a.ContainerCards, a.ContainerTags, a.ContainerRequired);
             default:
                 Log.Warn($"Animals: {m.SourceFile}: duty action type '{a.Type}' unsupported in this milestone — action skipped");
                 return null;
@@ -407,7 +422,8 @@ internal static class DutyBuilder
     /// write here would mean a second stat owner racing
     /// <see cref="AnimalLifecycleTicker"/>, which the generator invariants forbid.</para></summary>
     private static NPCDutyAction BuildAffectItemsAction(string soName, List<string> itemTags, List<string> itemCards,
-        bool inTrapContainers, AnimalManifest m)
+        bool inTrapContainers, AnimalManifest m,
+        List<string> containerCards = null, List<string> containerTags = null, bool containerRequired = false)
     {
         var pool = new List<CardOrTagQuantity>();
         foreach (var tagName in itemTags)
@@ -494,11 +510,40 @@ internal static class DutyBuilder
             if (trapTags.Length == 0)
                 Log.Warn($"Animals: {m.SourceFile}: no trap-container tag available — the feed duty will not reach bait inside traps");
         }
+
+        // Authored container scope (2.28.0+). ShouldLookInContainer matches on ANY allowed entry, so these
+        // add to the trap tags; a card entry wins outright over a tag entry (LookInContainersSettings).
+        // Resolution mirrors the item pool above: an unresolved entry is skipped with a warning here, though
+        // AnimalValidator rejects the whole duty for one first, so the warning is a backstop.
+        int authored = 0;
+        foreach (var tagName in containerTags ?? new List<string>())
+        {
+            if (Database.GetTypedSO(typeof(CardTag), tagName) is CardTag tag)
+            {
+                containers.AllowedContainers.Add(new CardOrTagRef { Target = tag });
+                authored++;
+            }
+            else
+                Log.Warn($"Animals: {m.SourceFile}: AffectItems ContainerTag '{tagName}' not found - omitted from the container list");
+        }
+        foreach (var cardUid in containerCards ?? new List<string>())
+        {
+            var card = GameRegistry.GetByUid<CardData>(cardUid);
+            if (card != null)
+            {
+                containers.AllowedContainers.Add(new CardOrTagRef { Target = card });
+                authored++;
+            }
+            else
+                Log.Warn($"Animals: {m.SourceFile}: AffectItems ContainerCard '{cardUid}' not found - omitted from the container list");
+        }
+        containers.ContainerIsRequired = containerRequired;
         _containersField?.SetValue(selection, containers);
 
         action.ItemSelection = selection;
         Log.Debug($"Animals: {m.SpeciesId}: AffectItems action '{soName}' — pool {pool.Count} entr(y/ies), "
-                + $"{containers.AllowedContainers.Count} allowed container tag(s), Destroy");
+                + $"{containers.AllowedContainers.Count} allowed container entr(y/ies) ({authored} authored), "
+                + $"ContainerRequired {containerRequired}, Destroy");
         return action;
     }
 

@@ -191,10 +191,20 @@ internal static class ReflectionHelpers
             if (prop != null)
             {
                 var setter = prop.GetSetMethod(nonPublic: true);
-                if (setter != null) { setter.Invoke(instance, new[] { value }); return true; }
+                if (setter != null)
+                {
+                    setter.Invoke(instance, new[] { value });
+                    Api.StatAccess.InvalidateIfStatValue(instance, name);
+                    return true;
+                }
             }
             var field = FindField(t, name);
-            if (field != null) { field.SetValue(instance, value); return true; }
+            if (field != null)
+            {
+                field.SetValue(instance, value);
+                Api.StatAccess.InvalidateIfStatValue(instance, name);
+                return true;
+            }
         }
         catch (Exception ex) { Log.Debug($"ReflectionHelpers.SetMemberValue: write failed for member '{name}' on {instance.GetType().Name}: {Log.ExceptionText(ex)}"); }
         return false;

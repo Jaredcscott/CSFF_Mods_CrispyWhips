@@ -1,5 +1,7 @@
 using System.Text.RegularExpressions;
 using CSFFModFramework.Data;
+using CSFFModFramework.Loading;
+using CSFFModFramework.Util;
 
 namespace CSFFModFramework.Animals;
 
@@ -38,6 +40,7 @@ internal static class AnimalValidator
         ValidateActivityWindow(m, errors);
         ValidateMovement(m, errors);
         ValidateSpawnLifecycle(m, errors);
+        ValidateSpawnConditions(m, errors);
         ValidateCarcass(m, errors);
         ValidateTracks(m, errors);
         ValidateTraps(m, errors);
@@ -47,7 +50,73 @@ internal static class AnimalValidator
         ValidateCustomDuties(m, errors);
         ValidateHourCoverage(m, errors);
 
+        // Warnings only, and only for a manifest that is accepted: a rejected one is reported once already.
+        if (errors.Count == 0)
+        {
+            WarnAboutLocalizationKeys(m);
+            WarnAboutUnscopedContainerSearch(m);
+        }
+
         return errors;
+    }
+
+    /// <summary>An <c>AffectItems</c> action with <c>InTrapContainers: false</c> and no
+    /// <c>ContainerCards</c> or <c>ContainerTags</c> builds an EMPTY allowed-container list, which vanilla's
+    /// <c>LookInContainersSettings.ContainerCompatible</c> reads as "every container": the animal can take
+    /// food out of the player's chests, shelves and pantries. That may be what the author wants, but it is
+    /// the default they get by omission, so say so once per action.</summary>
+    private static void WarnAboutUnscopedContainerSearch(AnimalManifest m)
+    {
+        foreach (var duty in m.CustomDuties)
+            foreach (var a in duty.Actions)
+                if (a.Type == "AffectItems" && !a.InTrapContainers && a.ContainerCards.Count == 0 && a.ContainerTags.Count == 0)
+                    Log.Warn($"Animals: {m.SourceFile}: duty '{duty.Name}' AffectItems has InTrapContainers false and no ContainerCards or ContainerTags, "
+                           + "so its raider may take food out of EVERY container, the player's storage included. Name the containers it may open with ContainerCards/ContainerTags");
+    }
+
+    // Warn-once state for WarnAboutLocalizationKeys: "<mod folder>|<key>" already reported, and each mod's
+    // English keys, read from its CSVs once. Both live for the process, like the manifests they describe.
+    private static readonly HashSet<string> WarnedLocalizationKeys = new(StringComparer.OrdinalIgnoreCase);
+    private static readonly Dictionary<string, HashSet<string>> EnglishKeysByModDir = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>The two localization keys a manifest may name (<c>Encounter.ApproachLabelLocalizationKey</c>,
+    /// <c>Encounter.EnemyNameLocalizationKey</c>) fall back to built-in English when the key has no row, which
+    /// is exactly the silent shape this feature replaced: the text shows and no language can change it. So
+    /// warn, once per mod and key, when the mod's own <c>Localization/SimpEn.csv</c> has no row for a key the
+    /// manifest names. A key that is named but never used (no button, or a Ref'd encounter that keeps its own
+    /// EnemyName) is a separate warning: nothing would ever read it.</summary>
+    private static void WarnAboutLocalizationKeys(AnimalManifest m)
+    {
+        if (!string.IsNullOrEmpty(m.ApproachLabelLocalizationKey))
+        {
+            if (!m.ApproachButton)
+                Log.Warn($"Animals: {m.SourceFile}: Encounter.ApproachLabelLocalizationKey '{m.ApproachLabelLocalizationKey}' is ignored because Encounter.ApproachButton is false (no Approach button is built)");
+            else
+                WarnIfNoEnglishRow(m, "Encounter.ApproachLabelLocalizationKey", m.ApproachLabelLocalizationKey);
+        }
+
+        if (!string.IsNullOrEmpty(m.EncounterEnemyNameLocalizationKey))
+        {
+            if (m.EncounterRef != null)
+                Log.Warn($"Animals: {m.SourceFile}: Encounter.EnemyNameLocalizationKey '{m.EncounterEnemyNameLocalizationKey}' is ignored because Encounter.Ref is set (a referenced encounter keeps its own EnemyName; the key applies to a generated encounter only)");
+            else
+                WarnIfNoEnglishRow(m, "Encounter.EnemyNameLocalizationKey", m.EncounterEnemyNameLocalizationKey);
+        }
+    }
+
+    private static void WarnIfNoEnglishRow(AnimalManifest m, string field, string key)
+    {
+        if (string.IsNullOrEmpty(m.SourceModDir)) return;
+
+        if (!EnglishKeysByModDir.TryGetValue(m.SourceModDir, out var keys))
+            EnglishKeysByModDir[m.SourceModDir] = keys = LocalizationLoader.ReadEnglishKeys(m.SourceModDir);
+
+        if (keys != null && keys.Contains(key)) return;
+        if (!WarnedLocalizationKeys.Add(m.SourceModDir + "|" + key)) return;
+
+        Log.Warn($"Animals: {m.SourceFile}: {field} '{key}' has no row in {m.SourceMod}/Localization/SimpEn.csv"
+               + (keys == null ? " (the mod has no English localization file at all)" : "")
+               + ", so English players see the framework's built-in fallback text (a Chinese player still gets the key's SimpCn.csv row, if the mod has one)");
     }
 
     private static void ValidateAgent(AnimalManifest m, List<string> errors)
@@ -162,6 +231,93 @@ internal static class AnimalValidator
         {
             if (m.AgentStatMap == null || !m.AgentStatMap.ContainsKey("Exists") || !m.AgentStatMap.ContainsKey("SuppressRespawnTimer"))
                 errors.Add("Field 'Spawn.SuppressWhileCardOnBoard': on the Agent.Ref path this requires Agent.Stats.Exists and Agent.Stats.SuppressRespawnTimer");
+        }
+    }
+
+    private static readonly string[] ConditionTypes = { "Always", "PerkEquipped", "ImprovementBuilt", "StatThreshold", "Season" };
+    private static readonly string[] SeasonNames = { "Spring", "Summer", "Autumn", "Winter" };
+    private static readonly string[] Comparisons = { "GreaterOrEqual", "LessOrEqual", "GreaterThan", "LessThan", "Equal" };
+
+    /// <summary>Spawn.Conditions (2.27.0). The evaluator (ConnectionGateService.EvalSingleGateCond)
+    /// reads an unknown type, a misspelt season, an unresolved stat and an unknown comparison as
+    /// false or as the default, never as an error, and a false condition retires the species every
+    /// tick. So each of those is rejected here, where the author sees it.
+    ///
+    /// <para>While conditions are declared, "exists 0 and every condition holds" means "restore".
+    /// That is only safe when nothing else retires the agent through exists, which is why a tame
+    /// that despawns the wild agent needs the suppressor card path, and why a suppressed species
+    /// needs a restore delay above 0 (0 there means "never comes back").</para></summary>
+    private static void ValidateSpawnConditions(AnimalManifest m, List<string> errors)
+    {
+        bool hasConditions = m.SpawnConditions.Count > 0;
+
+        if (m.SpawnConditionsMalformed > 0)
+            errors.Add($"Field 'Spawn.Conditions': {m.SpawnConditionsMalformed} entr(y/ies) are not JSON objects (expected {{\"Type\": ..., \"UID\": ...}})");
+
+        for (int i = 0; i < m.SpawnConditions.Count; i++)
+        {
+            var c = m.SpawnConditions[i];
+            string where = $"Spawn.Conditions[{i}]";
+            string type = ConditionTypes.FirstOrDefault(t => string.Equals(t, c.Type?.Trim(), StringComparison.OrdinalIgnoreCase));
+            if (type == null)
+            {
+                errors.Add($"Field '{where}.Type': expected {string.Join("|", ConditionTypes)}, got \"{c.Type}\"");
+                continue;
+            }
+
+            switch (type)
+            {
+                case "StatThreshold":
+                    if (string.IsNullOrEmpty(c.UID))
+                        errors.Add($"Field '{where}.UID': required for StatThreshold (a GameStat UniqueID)");
+                    else if (GameRegistry.GetByUid<GameStat>(c.UID) == null)
+                        errors.Add($"Field '{where}.UID': \"{c.UID}\" does not resolve to a loaded GameStat by UniqueID");
+                    if (!Comparisons.Contains(c.Comparison?.Trim(), StringComparer.OrdinalIgnoreCase))
+                        errors.Add($"Field '{where}.Comparison': expected {string.Join("|", Comparisons)}, got \"{c.Comparison}\"");
+                    break;
+                case "Season":
+                    if (!SeasonNames.Contains(c.UID?.Trim(), StringComparer.OrdinalIgnoreCase))
+                        errors.Add($"Field '{where}.UID': expected a season name {string.Join("|", SeasonNames)}, got \"{c.UID}\"");
+                    break;
+                case "PerkEquipped":
+                    if (string.IsNullOrEmpty(c.UID) || GameRegistry.GetByUid(c.UID) is not CharacterPerk)
+                        errors.Add($"Field '{where}.UID': \"{c.UID}\" does not resolve to a loaded CharacterPerk");
+                    break;
+                case "ImprovementBuilt":
+                    if (string.IsNullOrEmpty(c.UID) || GameRegistry.GetByUid<CardData>(c.UID) == null)
+                        errors.Add($"Field '{where}.UID': \"{c.UID}\" does not resolve to a CardData (the improvement)");
+                    if (string.IsNullOrEmpty(c.EnvUID) || GameRegistry.GetByUid<CardData>(c.EnvUID) == null)
+                        errors.Add($"Field '{where}.EnvUID': \"{c.EnvUID}\" does not resolve to a CardData (the environment it is built in)");
+                    break;
+            }
+        }
+
+        if (m.HasConditionRespawnTicks)
+        {
+            if (!hasConditions)
+                errors.Add("Field 'Spawn.ConditionRespawnTicks': only meaningful with 'Spawn.Conditions'");
+            if (m.ConditionRespawnTicks < 0)
+                errors.Add($"Field 'Spawn.ConditionRespawnTicks': expected >= 0, got {m.ConditionRespawnTicks}");
+        }
+        if (!hasConditions) return;
+
+        if (m.AgentRef != null && (m.AgentStatMap == null || !m.AgentStatMap.ContainsKey("Exists")))
+            errors.Add("Field 'Agent.Stats.Exists': required with 'Spawn.Conditions' on the Agent.Ref path (the agent is retired and restored through it)");
+        if (m.AgentRef != null && m.ConditionRespawnTicks > 0
+            && (m.AgentStatMap == null || !m.AgentStatMap.ContainsKey("SuppressRespawnTimer")))
+            errors.Add("Field 'Spawn.ConditionRespawnTicks': above 0 on the Agent.Ref path this requires Agent.Stats.SuppressRespawnTimer (the stat the delay counts on)");
+
+        if (m.SuppressWhileCardOnBoard != null)
+        {
+            if (m.ConditionRespawnTicks > 0)
+                errors.Add("Field 'Spawn.ConditionRespawnTicks': not allowed with 'Spawn.SuppressWhileCardOnBoard', whose 'SuppressedRespawnTicks' is this species' single restore delay");
+            if (m.SuppressedRespawnTicks <= 0)
+                errors.Add("Field 'Spawn.SuppressedRespawnTicks': must be above 0 with 'Spawn.Conditions' and 'Spawn.SuppressWhileCardOnBoard'. It is also the delay after a condition retirement, and 0 means the species never comes back");
+        }
+        else if (m.Interactions.Any(ix => ix.DespawnAgent))
+        {
+            errors.Add("Field 'Spawn.SuppressWhileCardOnBoard': required with 'Spawn.Conditions' when an Interaction despawns the wild agent (OnSuccess.DespawnAgent). "
+                     + "Without it the tame's retirement reads as a condition retirement, and the wild agent is restored the next tick its conditions hold");
         }
     }
 
@@ -542,6 +698,12 @@ internal static class AnimalValidator
                         foreach (var cardUid in a.ItemCards)
                             if (GameRegistry.GetByUid<CardData>(cardUid) == null)
                                 errors.Add($"Field '{aWhere}.ItemCards': \"{cardUid}\" does not resolve to a CardData");
+                        foreach (var containerTag in a.ContainerTags)
+                            if (Database.GetTypedSO(typeof(CardTag), containerTag) == null)
+                                errors.Add($"Field '{aWhere}.ContainerTags': \"{containerTag}\" does not resolve to a loaded CardTag (runtime asset name)");
+                        foreach (var containerUid in a.ContainerCards)
+                            if (GameRegistry.GetByUid<CardData>(containerUid) == null)
+                                errors.Add($"Field '{aWhere}.ContainerCards': \"{containerUid}\" does not resolve to a CardData");
                         if (!string.Equals(a.Affect, "Destroy", StringComparison.Ordinal))
                             errors.Add($"Field '{aWhere}.Affect': only \"Destroy\" is supported in v1, got \"{a.Affect}\"");
                         break;

@@ -11,6 +11,8 @@ internal static class ModDiscovery
         var skippedForLoader = new List<string>();
         var reclaimedFromLoader = new List<string>();
 
+        Loading.StaleContentCleaner.PruneRetired();
+
         foreach (var dir in PathUtil.GetModDirectories())
         {
             // Skip the framework's own directory
@@ -26,6 +28,10 @@ internal static class ModDiscovery
 
                 if (string.IsNullOrEmpty(manifest.Name))
                     manifest.Name = Path.GetFileName(dir);
+
+                // Copy-over update: retire files an older version left behind BEFORE probing/loading,
+                // so the feature flags and every loader see only the current release.
+                Loading.StaleContentCleaner.Run(dir, manifest.Name, manifest.Version);
 
                 // Probe features before the coexistence decision below — it needs
                 // HasFrameworkOnlyMarkers, and LoadOrchestrator needs the rest regardless.
@@ -135,7 +141,7 @@ internal static class ModDiscovery
         // above (it has no ModInfo.json for the user-mod contract), but its JSON must load.
         var fwManifest = new ModManifest
         {
-            Name = "CSFFModFramework",
+            Name = FrameworkManifestName,
             ShortName = ReadFrameworkShortName(frameworkDir),
             DirectoryPath = frameworkDir
         };
@@ -145,6 +151,9 @@ internal static class ModDiscovery
         Log.Debug($"Discovered {deduped.Count - 1} mod(s) + framework (total slots: {deduped.Count})");
         return deduped;
     }
+
+    /// <summary>Name of the synthetic manifest that stands for the framework's own folder.</summary>
+    internal const string FrameworkManifestName = "CSFFModFramework";
 
     // Tag for framework-owned perks (the Arcane Wayfinder) when the framework's ModInfo.json is
     // missing, unreadable, or declares no ShortName.

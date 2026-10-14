@@ -38,4 +38,26 @@ internal static class Log
     {
         if (Verbose) _source?.Log(LogLevel.Info, Prefix + msg);
     }
+
+    private static readonly System.Collections.Generic.Dictionary<string, int> _sampleCounts = new();
+    private const int SampleCap = 15;
+
+    /// <summary>
+    /// Like <see cref="Debug"/>, but for the confirmatory per-item traces of STABLE, finished
+    /// features (clone/inject/register loops) where the per-item detail is only useful while
+    /// debugging the feature itself. Emits at most <see cref="SampleCap"/> lines per label per
+    /// process, then one "further lines suppressed" note; the feature's own aggregate Info line
+    /// is expected to carry the full count. Keeps a verbose log readable without a per-loop
+    /// counter at each call site. Do NOT use for a feature's primary failure diagnostic
+    /// (e.g. WarpResolver): those stay on plain Debug so every line survives, and never for
+    /// a line a TestHarness scenario asserts on (Tests/Log-DebugSampledNotScenarioEvidence.Tests.ps1).
+    /// </summary>
+    public static void DebugSampled(string label, string msg)
+    {
+        if (!Verbose) return;
+        int n = _sampleCounts.TryGetValue(label, out var c) ? c : 0;
+        _sampleCounts[label] = n + 1;
+        if (n < SampleCap) _source?.Log(LogLevel.Info, Prefix + msg);
+        else if (n == SampleCap) _source?.Log(LogLevel.Info, Prefix + $"{label}: ... (further per-item lines suppressed this session; see the aggregate count)");
+    }
 }

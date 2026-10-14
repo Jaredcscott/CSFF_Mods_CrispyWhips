@@ -141,7 +141,12 @@ internal static class ModifierPackageInjector
             }
         }
 
-        if (resolved > 0 || skipped > 0)
+        // A skipped entry (an unresolved package UID among them) is counted at Info, so a reporter's
+        // log shows it with VerboseLogging off (framework README "Unresolved references"); a clean
+        // load stays at Debug.
+        if (skipped > 0)
+            Log.Info($"[ModifierPackageInjector] resolved {resolved} auto-apply package(s) ({skipped} skipped).");
+        else if (resolved > 0)
             Log.Debug($"[ModifierPackageInjector] resolved {resolved} auto-apply package(s) ({skipped} skipped).");
     }
 

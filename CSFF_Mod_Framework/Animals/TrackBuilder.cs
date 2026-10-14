@@ -214,7 +214,10 @@ internal static class TrackBuilder
     {
         try
         {
-            if (info == null || !_speciesByAgentUid.TryGetValue(info.TrackNPCID ?? "", out var species)) return;
+            // TrackNPCID is UniqueIDScriptable.SaveID, "<UniqueID>(<name>)" (.decomp/NPCTrackingInfo.cs),
+            // so LoadID strips the name before the UID lookup. Through 2.27.0 the raw id was looked
+            // up and this line never printed for any species.
+            if (info == null || !_speciesByAgentUid.TryGetValue(UniqueIDScriptable.LoadID(info.TrackNPCID ?? ""), out var species)) return;
             Log.Info($"Animals: {species}: LEFT TRACKS in '{env.SimpleEnvName}' — lifetime {info.TrackLifetime} ticks, "
                    + $"added chance {info.AddedChanceToDiscover:0.#} pts, direction {info.Direction}, id '{info.TrackID}'");
         }

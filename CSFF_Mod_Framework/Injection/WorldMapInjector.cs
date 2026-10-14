@@ -95,6 +95,13 @@ internal static class WorldMapInjector
 
     private static readonly List<PreparedNode> _prepared = new();
     private static bool _injectedIntoWorldMap;   // session-once fast path for stage 2
+
+    // Unresolved references (framework README "Unresolved references"): each row naming a UID that
+    // does not resolve is skipped with its own log line and counted here, for the PrepareAll summary
+    // (load stage: nodes, ExtraDropUIDs, recorded edges and VanillaExits) and the run-start injection
+    // summary (link stage: connection targets, PathCardUIDs, VanillaExits).
+    private static int _loadUnresolved;
+    private static int _linkUnresolved;
     private static bool _subscribed;
     private static Action _gmInitializedHandler;
     private static object _worldMapCached;
@@ -128,6 +135,7 @@ internal static class WorldMapInjector
         _prepared.Clear();
         _cloneEnvSpawnList.Clear();
         _injectedIntoWorldMap = false;
+        _loadUnresolved = 0;
         _worldMapCached = null;
         _fullMapDef = fullMap;
         _cachedGlobalTravelDaTemplate = null;
@@ -154,6 +162,15 @@ internal static class WorldMapInjector
         // P3 — grid-cell uniqueness across all mods. Runs BEFORE any clone work so a mod with a
         // colliding (x,z) is rejected atomically and skipped below (its items/perks still load).
         CoordRegistry.RegisterAll(allNodes);
+
+        // ForceStay cards that already exist (mod and vanilla UIDs) get AlwaysUpdate=false BEFORE
+        // PrepareNode runs, because PrepareNode's AppendExtraDrops swaps any still-AlwaysUpdate
+        // ExtraDrop for a "__envlocal" clone. A card listed in both ExtraDropUIDs and ForceStay
+        // ConditionalDrops (ACT's act_mine_daylight_shaft) then landed as the clone: code looking
+        // for the real UID never saw it, and ConditionalDrops spawned a second, real copy (T2.763
+        // step 6, 2026-10-04). AlwaysUpdateService has already run (load phase "AlwaysUpdate"). The
+        // late call below still covers ForceStay UIDs that only exist once PrepareNode clones them.
+        ConditionalDropService.ApplyForceStayAtLoad(allNodes.Where(n => !CoordRegistry.IsRejected(n.SourceMod)));
 
         foreach (var node in allNodes)
         {
@@ -276,7 +293,8 @@ internal static class WorldMapInjector
 
         string modeLabel = fullMap != null ? "full replacement" : "additive";
         Log.Info($"WorldMapInjector: prepared {_prepared.Count} node(s) [{modeLabel}], {Api.WorldMap.InjectedEdges.Count} travel edge(s) recorded; " +
-                 "WorldMapData node injection deferred to run start (WorldMapData is not loaded at data-load time)");
+                 "WorldMapData node injection deferred to run start (WorldMapData is not loaded at data-load time)" +
+                 (_loadUnresolved > 0 ? $"; {_loadUnresolved} unresolved reference(s) skipped" : ""));
 
         TrySubscribeGmInitialized();
     }
@@ -521,6 +539,7 @@ internal static class WorldMapInjector
             if (templateEnv == null)
             {
                 Log.Warn($"WorldMapInjector: CloneOfEnvironmentUID '{node.CloneOfEnvironmentUID}' (mod {node.SourceMod}) not found — skipping node '{node.EnvironmentUID}'");
+                _loadUnresolved++;
                 return null;
             }
 
@@ -547,6 +566,10 @@ internal static class WorldMapInjector
                     node.SourceMod, out var envClone, out locationCard))
                 return null;
             envCard = envClone;
+
+            // Remove declared tags from the clone env card before WorldMapData builds MapTags from it.
+            if (node.StripEnvTags != null && node.StripEnvTags.Count > 0)
+                CardCloneService.StripCardTags(envClone, node.StripEnvTags, node.SourceMod);
 
             // Override card face art when the mod declares a CardImage sprite name.
             if (!string.IsNullOrEmpty(node.CardImage))
@@ -579,7 +602,12 @@ internal static class WorldMapInjector
             // the board every session, because the in-memory session guard reset on each process
             // restart. See Documentation/Retrospectives/act-cave-mining-drops.md.)
             if (node.ExtraDropUIDs != null && node.ExtraDropUIDs.Count > 0)
+            {
+                // AppendExtraDrops skips (and Warns about) each UID that does not resolve; count them.
+                foreach (var extraUid in node.ExtraDropUIDs)
+                    if (GameRegistry.GetByUid(extraUid) is not CardData) _loadUnresolved++;
                 CardCloneService.AppendExtraDrops(envClone, node.ExtraDropUIDs);
+            }
 
             // Strip inherited "create X if missing" maintenance actions on the clone CT8 that
             // re-spawn any StripLegacyBoardUIDs card EVERY env entry (e.g. Caves_WaterfallCaves'
@@ -604,6 +632,7 @@ internal static class WorldMapInjector
             if (envCard == null)
             {
                 Log.Warn($"WorldMapInjector: EnvironmentUID '{node.EnvironmentUID}' (mod {node.SourceMod}) not found in registry — skipping");
+                _loadUnresolved++;
                 return null;
             }
 
@@ -662,6 +691,7 @@ internal static class WorldMapInjector
         // Pass 1 puts every MapEnvData into WorldMapData.Environments; pass 2 links connections
         // when all nodes are guaranteed to be findable.
         int injected = 0, already = 0, skipped = 0;
+        _linkUnresolved = 0;
         var registered = new System.Collections.Generic.List<(PreparedNode Prep, object MapEnvData, object TemplateNode)>();
 
         // Pass 1 — register node entries (no connections yet).
@@ -722,7 +752,14 @@ internal static class WorldMapInjector
                     foreach (var exit in prep.Def.VanillaExits)
                     {
                         var vanillaTarget = GameRegistry.GetByUid(exit.TargetVanillaEnvUID);
-                        if (vanillaTarget == null || IsInstancedEnvironment(vanillaTarget)) continue;
+                        if (vanillaTarget == null)
+                        {
+                            // Debug: the load stage already Warned about this target (RecordVanillaExitEdge).
+                            Log.Debug($"WorldMapInjector: VanillaExit target '{exit.TargetVanillaEnvUID}' on '{prep.Def.EnvironmentUID}' does not resolve: not linked");
+                            _linkUnresolved++;
+                            continue;
+                        }
+                        if (IsInstancedEnvironment(vanillaTarget)) continue;
 
                         var synthConn = new ConnectionDefinition
                         {
@@ -775,7 +812,7 @@ internal static class WorldMapInjector
                     if (idx >= 0 && envsFinal is Array envArr) envArr.SetValue(mapEnvData, idx);
                 }
 
-                Log.Debug($"WorldMapInjector: injected '{prep.Def.EnvironmentUID}' into WorldMapData with {linked}/{prep.Def.Connections.Count} connection(s) from {prep.Def.SourceMod}");
+                Log.DebugSampled("WorldMapInjector: injected env", $"WorldMapInjector: injected '{prep.Def.EnvironmentUID}' into WorldMapData with {linked}/{prep.Def.Connections.Count} connection(s) from {prep.Def.SourceMod}");
             }
             catch (Exception ex)
             {
@@ -788,7 +825,8 @@ internal static class WorldMapInjector
         if (skipped == 0) _injectedIntoWorldMap = true;
 
         string modeLabel = replacementMode ? " (full replacement)" : "";
-        Log.Info($"WorldMapInjector: {injected} node(s) injected{modeLabel}, {already} already present, {skipped} skipped");
+        Log.Info($"WorldMapInjector: {injected} node(s) injected{modeLabel}, {already} already present, {skipped} skipped" +
+                 (_linkUnresolved > 0 ? $", {_linkUnresolved} unresolved reference(s) skipped" : ""));
 
         // See RebuildPathfindingLookup's doc comment: WorldMapData.MapDict (the A* pathfinding
         // lookup) is snapshotted from Environments EARLIER in GameManager.FinishInitializing
@@ -1411,37 +1449,50 @@ internal static class WorldMapInjector
                             }
                         }
 
-                        // Contamination check: if the card count exceeds ExtraDropUIDs.Count + 1
-                        // (the +1 accounts for the CT8 in the initial seed before first player visit)
-                        // plus any SealableGates challenge card(s) legitimately seedable onto this env
-                        // (see GetSealableGateSlack), the entry was built up by the old session-scoped
-                        // watch-spawn path accumulating extra vein copies, or cross-cave contamination
-                        // (e.g. iron veins in tin cave). Force-reseed to restore exactly the declared
-                        // drops.
+                        // Contamination check: re-seed when the saved board holds a DECLARED drop it
+                        // should not, i.e. more copies of one of this node's ExtraDropUIDs / its CT8 /
+                        // a SealableGates challenge card seeded here than declared (the old
+                        // session-scoped watch-spawn path accumulating extra vein copies), or a card
+                        // another cave declares (cross-cave contamination, e.g. iron veins in the tin
+                        // cave). The decision is StripAllContaminationCheck.WipeReason.
                         //
-                        // Without the slack term, a hub env that legitimately hosts an uncleared
-                        // SealableGates challenge card (e.g. ACT's Tin Cave hub with an un-dug Iron/
-                        // Copper/Quarry wall sitting on its board alongside its 3 veins + CT8) reads as
-                        // "contaminated" on every subsequent run start, wiping the ENTIRE
-                        // EnvironmentsData entry — including CurrentlyBuiltImprovements, which is where
-                        // SealableGateService's Marker model stores "cleared" state for every gate
-                        // whose MarkerEnvUID is this env. That silently un-clears every already-dug
-                        // passage sharing the hub, reproducing "cave connections are collapsed again
-                        // after reload" even though the Marker model is documented as permanent.
-                        int sealableSlack = GetSealableGateSlack(prep.Def.EnvironmentUID);
+                        // It counts ONLY declared cards (plan section 30, framework 2.28.0). Until then
+                        // it compared the whole saved card count with ExtraDropUIDs.Count + 1 + slack,
+                        // so any card a player left in the cave (ACT's Iron Vein Cave has no head-room
+                        // at all; four StoneHeavy on the Rock Quarry's board make 9 against its 7, T2.1232) wiped the board at the
+                        // next run start and deleted the player's items.
+                        //
+                        // The challenge cards seeded here count as declared (once per gate): a hub env
+                        // that legitimately hosts an uncleared SealableGates challenge card (ACT's Tin
+                        // Cave hub with an un-dug Iron/Copper/Quarry wall) must not read as
+                        // contaminated, or the wipe takes CurrentlyBuiltImprovements with it, where
+                        // SealableGateService's Marker model stores "cleared" state, and every dug
+                        // passage sharing the hub collapses again after a reload.
                         if (cardCount > 0 && existingEntry != null
                             && prep.Def.StripAllInheritedDrops
-                            && prep.Def.ExtraDropUIDs != null && prep.Def.ExtraDropUIDs.Count > 0
-                            && cardCount > prep.Def.ExtraDropUIDs.Count + 1 + sealableSlack)
+                            && prep.Def.ExtraDropUIDs != null && prep.Def.ExtraDropUIDs.Count > 0)
                         {
-                            var dict = envDataField.GetValue(gmInstance) as System.Collections.IDictionary;
-                            var entryKey = dictKeyProp.GetValue(envId);
-                            if (dict != null && entryKey != null)
+                            var savedUids = ReadSavedBoardUids(existingEntry, envSaveDataType, prep.Def.EnvironmentUID);
+                            string wipeReason = null;
+                            if (savedUids != null)
                             {
-                                dict.Remove(entryKey);
-                                existingEntry = null;
-                                Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — EnvironmentsData has {cardCount} cards but max expected is {prep.Def.ExtraDropUIDs.Count + 1 + sealableSlack} — re-seeding to clear accumulation/cross-cave contamination");
-                                reseeded++;
+                                var declaredHere = StripAllContaminationCheck.DeclaredHere(
+                                    prep.Def.EnvironmentUID, prep.LocationCard?.UniqueID, prep.Def.ExtraDropUIDs, AllSealableGates());
+                                var declaredElsewhere = StripAllContaminationCheck.DeclaredElsewhere(
+                                    OtherCavesDeclaredUids(prep));
+                                wipeReason = StripAllContaminationCheck.WipeReason(savedUids, declaredHere, declaredElsewhere);
+                            }
+                            if (wipeReason != null)
+                            {
+                                var dict = envDataField.GetValue(gmInstance) as System.Collections.IDictionary;
+                                var entryKey = dictKeyProp.GetValue(envId);
+                                if (dict != null && entryKey != null)
+                                {
+                                    dict.Remove(entryKey);
+                                    existingEntry = null;
+                                    Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — saved board ({cardCount} cards) holds {wipeReason} — re-seeding to clear accumulation/cross-cave contamination");
+                                    reseeded++;
+                                }
                             }
                         }
                     }
@@ -2032,26 +2083,91 @@ internal static class WorldMapInjector
     }
 
     /// <summary>
-    /// Number of distinct <c>SealableGates</c> entries (across every prepared node, not just
-    /// <paramref name="envUid"/>'s own) that list <paramref name="envUid"/> in their
-    /// <c>SeedOnEnvUIDs</c> — i.e. how many extra challenge cards could legitimately be sitting
-    /// on this env's board at once. Each gate spawns at most one live copy of its own
-    /// <c>ChallengeCardUID</c> (guarded by <c>SealableGateService</c>'s seed-once bookkeeping),
-    /// so this is a safe upper bound, not just a typical-case estimate.
+    /// Every <c>SealableGates</c> entry across every prepared node (not just one env's own), as its
+    /// challenge card and the envs it seeds that card on, for
+    /// <see cref="StripAllContaminationCheck.DeclaredHere"/>: each gate spawns at most one live copy
+    /// of its <c>ChallengeCardUID</c> per seeded env (<c>SealableGateService</c>'s seed-once
+    /// bookkeeping), so one declared copy per gate is a safe upper bound.
     /// </summary>
-    private static int GetSealableGateSlack(string envUid)
+    private static List<(string ChallengeUid, IEnumerable<string> SeedOnEnvUids)> AllSealableGates()
     {
-        if (string.IsNullOrEmpty(envUid)) return 0;
-        int slack = 0;
+        var gates = new List<(string, IEnumerable<string>)>();
         foreach (var p in _prepared)
         {
-            var gates = p.Def?.SealableGates;
-            if (gates == null) continue;
-            foreach (var g in gates)
-                if (g?.SeedOnEnvUIDs != null && g.SeedOnEnvUIDs.Contains(envUid))
-                    slack++;
+            var defs = p.Def?.SealableGates;
+            if (defs == null) continue;
+            foreach (var g in defs)
+                if (g != null && !string.IsNullOrEmpty(g.ChallengeCardUID))
+                    gates.Add((g.ChallengeCardUID, (IEnumerable<string>)g.SeedOnEnvUIDs ?? Array.Empty<string>()));
         }
-        return slack;
+        return gates;
+    }
+
+    /// <summary>
+    /// The cards other caves declare, for <see cref="StripAllContaminationCheck.DeclaredElsewhere"/>:
+    /// the <c>ExtraDropUIDs</c> of every OTHER <c>StripAllInheritedDrops</c> node and every
+    /// <c>SealableGates</c> challenge card. A card a player can carry (an Item) is left out, so a
+    /// player's item never reads as cross-cave contamination even if some cave declares it.
+    /// </summary>
+    private static IEnumerable<string> OtherCavesDeclaredUids(PreparedNode self)
+    {
+        var uids = new List<string>();
+        foreach (var p in _prepared)
+        {
+            if (p == null || ReferenceEquals(p, self) || p.Def == null) continue;
+            if (p.Def.StripAllInheritedDrops && p.Def.ExtraDropUIDs != null)
+                uids.AddRange(p.Def.ExtraDropUIDs);
+        }
+        foreach (var g in AllSealableGates()) uids.Add(g.ChallengeUid);
+        return uids.Where(uid => !string.IsNullOrEmpty(uid)
+                              && (GameRegistry.GetByUid(uid) as CardData)?.CardType != CardTypes.Item);
+    }
+
+    private static bool _savedBoardUidsWarned;
+
+    /// <summary>
+    /// The UID of every card on a saved env board: its regular cards and its top-level containers
+    /// (the two lists <c>AllCardsCount(false)</c> counts), each <c>CardID</c> through
+    /// <c>UniqueIDScriptable.LoadID</c> as <see cref="TrimExcessDefaultDrops"/> reads it. Null, with
+    /// one warning per session, when the entry cannot be read that way, so the contamination check
+    /// keeps the board rather than falling back to counting every card.
+    /// </summary>
+    private static List<string> ReadSavedBoardUids(object entry, Type envSaveDataType, string envUid)
+    {
+        string cause = null;
+        var uids = new List<string>();
+        var regularProp = envSaveDataType?.GetProperty("GetRegularCards", BindingFlags.Instance | BindingFlags.Public);
+        var inventoryProp = envSaveDataType?.GetProperty("GetInventoryCards", BindingFlags.Instance | BindingFlags.Public);
+        if (regularProp == null || inventoryProp == null) cause = "GetRegularCards/GetInventoryCards not found on EnvironmentSaveDataByReference";
+        else
+        {
+            try
+            {
+                foreach (var prop in new[] { regularProp, inventoryProp })
+                {
+                    if (prop.GetValue(entry) is not IEnumerable cards) continue;
+                    foreach (var card in cards)
+                    {
+                        if (card == null) continue;
+                        var cardIdField = CardUtil.GetCachedField(card.GetType(), "CardID");
+                        if (cardIdField == null) { cause = $"no CardID field on {card.GetType().Name}"; break; }
+                        var rawId = cardIdField.GetValue(card) as string;
+                        if (string.IsNullOrEmpty(rawId)) continue;
+                        var uid = UniqueIDScriptable.LoadID(rawId);
+                        if (!string.IsNullOrEmpty(uid)) uids.Add(uid);
+                    }
+                    if (cause != null) break;
+                }
+            }
+            catch (Exception ex) { cause = Log.ExceptionText(ex); }
+        }
+        if (cause == null) return uids;
+        if (!_savedBoardUidsWarned)
+        {
+            _savedBoardUidsWarned = true;
+            Log.Warn($"WorldMapInjector: could not read the saved board's card UIDs for '{envUid}' ({cause}); the StripAll contamination check keeps every saved board this session");
+        }
+        return null;
     }
 
     /// <summary>
@@ -2327,6 +2443,7 @@ internal static class WorldMapInjector
         if (targetCard == null)
         {
             Log.Warn($"WorldMapInjector: connection EnvironmentUID '{conn.EnvironmentUID}' not found — skipping connection");
+            _linkUnresolved++;
             return false;
         }
 
@@ -2344,8 +2461,12 @@ internal static class WorldMapInjector
         if (!string.IsNullOrEmpty(conn.PathCardUID))
         {
             fwdPathCard = GameRegistry.GetByUid(conn.PathCardUID);
+            // Not a dangling reference: a miss falls through to the node's own location card below.
             if (fwdPathCard == null)
-                Log.Debug($"WorldMapInjector: PathCardUID '{conn.PathCardUID}' not found — connection will have no path card");
+            {
+                Log.Debug($"WorldMapInjector: PathCardUID '{conn.PathCardUID}' not found: the node's own location card is used instead");
+                _linkUnresolved++;
+            }
         }
         fwdPathCard ??= locationCard;
         if (fwdPathCard == null && envCard is CardData envCd)
@@ -2530,6 +2651,7 @@ internal static class WorldMapInjector
         if (targetCard == null)
         {
             Log.Warn($"WorldMapInjector: connection EnvironmentUID '{conn.EnvironmentUID}' not found — edge not recorded for map consumers");
+            _loadUnresolved++;
             return;
         }
 
@@ -2589,6 +2711,7 @@ internal static class WorldMapInjector
         if (targetCard == null)
         {
             Log.Warn($"WorldMapInjector: VanillaExit target '{exit.TargetVanillaEnvUID}' not found — edge not recorded for map consumers");
+            _loadUnresolved++;
             return;
         }
         if (IsInstancedEnvironment(targetCard)) return; // guarded loudly in the DA loop
@@ -2773,7 +2896,7 @@ internal static class WorldMapInjector
             return;
         }
         fi.SetValue(card, sprite);
-        Log.Debug($"WorldMapInjector: set CardImage '{spriteName}' on '{card.name}'");
+        Log.DebugSampled("WorldMapInjector: set CardImage", $"WorldMapInjector: set CardImage '{spriteName}' on '{card.name}'");
     }
 
     // ======================================================= travel DA injection ===
@@ -3082,7 +3205,7 @@ internal static class WorldMapInjector
 
         _daField_DismantleActions.SetValue(card, newCollection);
         int stripped = (daCollection is ICollection col) ? (col.Count - toKeep.Count) : 0;
-        Log.Debug($"WorldMapInjector: stripped {stripped} inherited travel DA(s) from clone CT8 '{card.UniqueID}'");
+        Log.DebugSampled("WorldMapInjector: stripped clone DA", $"WorldMapInjector: stripped {stripped} inherited travel DA(s) from clone CT8 '{card.UniqueID}'");
         return stripped;
     }
 
@@ -3164,6 +3287,8 @@ internal static class WorldMapInjector
             var tText = tName != null ? (FindField(tName.GetType(), "DefaultText")?.GetValue(tName) as string ?? "?") : "?";
             var hasReqStat = FindField(template.GetType(), "RequiredStatValues");
             var reqCount = (hasReqStat?.GetValue(template) as System.Collections.IEnumerable)?.Cast<object>().Count() ?? -1;
+            // Kept as plain Debug (not sampled): harness scenario T2.839 greps this exact
+            // "InjectTravelDA template for <dir> on '<uid>' = '<text>'" line as evidence.
             Log.Debug($"WorldMapInjector: InjectTravelDA template for {dirName} on '{targetLocCard.UniqueID}' = '{tText}' (RequiredStatValues before-strip={reqCount})");
         }
 
@@ -3191,7 +3316,7 @@ internal static class WorldMapInjector
                     : Activator.CreateInstance(ft);
                 reqStatField.SetValue(newDA, empty);
                 var afterCount = (reqStatField.GetValue(newDA) as System.Collections.IEnumerable)?.Cast<object>().Count() ?? -1;
-                Log.Debug($"WorldMapInjector: InjectTravelDA RequiredStatValues stripped on '{targetLocCard.UniqueID}' {dirName}: {afterCount} gate(s) remaining");
+                Log.DebugSampled("WorldMapInjector: InjectTravelDA gate strip", $"WorldMapInjector: InjectTravelDA RequiredStatValues stripped on '{targetLocCard.UniqueID}' {dirName}: {afterCount} gate(s) remaining");
             }
             else
             {
@@ -3234,7 +3359,7 @@ internal static class WorldMapInjector
             return false;
         }
         _daField_DismantleActions.SetValue(targetLocCard, newCollection);
-        Log.Debug($"WorldMapInjector: injected '{dirName}' travel DA on '{targetLocCard.UniqueID}' → '{destEnvUid}'");
+        Log.DebugSampled("WorldMapInjector: injected travel DA", $"WorldMapInjector: injected '{dirName}' travel DA on '{targetLocCard.UniqueID}' → '{destEnvUid}'");
         return true;
     }
 

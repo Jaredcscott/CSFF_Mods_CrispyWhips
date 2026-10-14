@@ -41,6 +41,7 @@ internal static class LoadOrchestrator
         {
             Log.Debug("=== CSFFModFramework Loading ===");
             var totalSw = Stopwatch.StartNew();
+            PhaseTimings.Clear();
             var sw = Stopwatch.StartNew();
 
             // Reset cross-service dirty tracker (per-load scope).
@@ -82,6 +83,9 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] GifLoader: no mod ships CardData/Gif/ JSON");
 
+            // 3b. Renamed-UID aliases must be known before any WarpData reference resolves.
+            RunPhase(sw, "UidAliasService", () => UidAliasService.LoadAll(mods));
+
             // 4. Load JSON data (cards, perks, etc.) — also caches JSON + UniqueIDs for downstream
             currentPhase = "JsonDataLoader";
             JsonDataLoader.LoadAll(mods);
@@ -92,12 +96,29 @@ internal static class LoadOrchestrator
             //     when [Perks] ShowModOriginTag is off.
             Patching.PerkOriginTagPatch.SetModTags(mods);
 
+            // 4a2. Authoring lint: shapes in the cached mod JSON that load and then do nothing.
+            //      Reads JsonDataLoader.ParsedJsonByUniqueId (no I/O); one Warn per affected mod.
+            //      The foreign-UID rule needs which mod folders declare a HardDependency on which
+            //      (BepInEx's PluginInfos), read only when the lint is on.
+            RunPhase(sw, "AuthoringLint", () =>
+            {
+                if (AuthoringLint.IsEnabled)
+                    AuthoringLint.SetModPlugins(mods.Select(m => (m.Name, m.DirectoryPath)), PluginDependencyReader.Read());
+                AuthoringLint.RunAll();
+            });
+
             // 4b. Supersede duplicate instances created by Pikachu ModLoader/ModCore for
             //     UIDs we own (they load every ModInfo.json mod inside a ClearDict prefix,
             //     so their duplicates win GetFromID — which resets blueprint research on
             //     save load and splits reference identity). MUST run before WarpResolver
             //     so warps link against the canonical instances.
             RunPhase(sw, "ForeignInstanceReconciler", () => ForeignInstanceReconciler.ReconcileAll());
+
+            // 4b2. Number every mod object registered after the game's SortUniqueObjectList. Mod cards
+            //      otherwise all keep UniqueIDIndex 0, and an environment's save board is keyed by that
+            //      index, so every mod room shared one board (and vanilla Env_BearCave's). After the
+            //      reconciler, which swaps instances in place and carries the index over.
+            RunPhase(sw, "UniqueIdIndexRepair", () => UniqueIdIndexRepair.RepairAll("after JSON load"));
 
             // 4c. Extract SpawnStatDefaults blocks from already-loaded card JSON.
             //     Reads JsonDataLoader.ParsedJsonByUniqueId (in-memory, no I/O) and
@@ -218,7 +239,8 @@ internal static class LoadOrchestrator
             //      queue them for spawn registration (GameManager.Awake prefix appends them to
             //      WorldSettings.NPCAgents). Runs before NPCAgentActivationService so generated
             //      agents get its validation/normalization pass. Design:
-            //      Documentation/Plans/CSFFModFramework/Animal_System_Plan.md.
+            //      Documentation/Design/Animal_System_M0-M2_As_Built.md and
+            //      Documentation/Design/Animal_System_M3-M6_As_Built.md.
             if (mods.Any(m => m.HasAnimals))
                 RunPhase(sw, "AnimalService", () => Animals.AnimalService.LoadAll(mods));
             else
@@ -340,6 +362,10 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] LocalizationLoader: no localization CSV found (framework or mods)");
 
+            // 9a. A mod card reusing a vanilla LocalizationKey with a Chinese DefaultText shows Chinese in
+            //     English (the game has no English CSV). Copy the vanilla English text for that key.
+            RunPhase(sw, "VanillaKeyDefaultTextRepair", () => VanillaKeyDefaultTextRepair.RepairAll(allData));
+
             // 10. Load audio clips from mod directories
             if (mods.Any(m => m.HasAudio))
                 RunPhase(sw, "AudioLoader", () => AudioLoader.LoadAll(mods));
@@ -359,6 +385,11 @@ internal static class LoadOrchestrator
                 PerkInjector.InjectAll(allData, mods);
                 PerkRelocationService.ClearOverrideEnvironments(allData, mods);
             });
+
+            // 11a2. Perk starting-item stats (2.28.0): read each mod perk's AddedCardsStats and
+            // EquippedCardsStats against its resolved AddedCards / EquippedCards; the new-game patches
+            // on GetStartingCardsFromArray and InitializePlayerCharacter apply them.
+            RunPhase(sw, "PerkStartingItemStats", () => PerkStartingItemStats.LoadAll(allData));
 
             // 11b2. Phase 5: attach mod QuestLogs to PlayerCharacter quest lists (Quests.json)
             //       and mod PlayerCharacters to the Gamemode select rosters (Characters.json).
@@ -398,6 +429,17 @@ internal static class LoadOrchestrator
             //      one frame via coroutine so any in-flight Init coroutines complete first.
             RunPhase(sw, "BlueprintContainerSaveLoadFix", () => BlueprintContainerSaveLoadFix.Schedule());
 
+            // 12b. Second numbering pass for anything registered by a later phase (clones number
+            //      themselves; this catches any other late RegisterID).
+            RunPhase(sw, "UniqueIdIndexRepair (final)", () => UniqueIdIndexRepair.RepairAll("end of load"));
+
+            // 12c. List in the typed cache anything that entered AllData without TryAddToAllData
+            //      (run again at GameManager.Awake for later mods' postfixes, e.g. WDI's clones).
+            RunPhase(sw, "TypedCacheAllDataSync", () => TypedCacheAllDataSync.Sync("end of load"));
+
+            // 12d. Last, so no injector above iterates the duplicate keys: let saves find renamed UIDs.
+            RunPhase(sw, "UidAliasService.Register", UidAliasService.RegisterInGameRegistry);
+
             // DIAG: Snapshot vanilla blueprint research state AFTER all processing
             if (EnableLoadDiagnostics)
                 DiagBlueprintResearch(allData, "AFTER all framework loading");
@@ -408,11 +450,12 @@ internal static class LoadOrchestrator
 
             totalSw.Stop();
             var totalMs = totalSw.ElapsedMilliseconds;
-            Log.Info($"=== CSFFModFramework Loading Complete ({totalMs}ms) ===");
+            var slowest = PhaseTimings.Slowest(3);
+            Log.Info($"=== CSFFModFramework Loading Complete ({totalMs}ms; slowest: {slowest}) ===");
             // Perf baseline: warm cache target ~3500ms, cold (first run) target ~11700ms.
             // Warn when significantly over baseline so regressions surface in LogOutput.log.
             if (totalMs > 15000)
-                Log.Warn($"[Perf] Load time {totalMs}ms exceeds 15s regression threshold (baseline ~3.5s warm / ~11.7s cold). Check [Timing] lines above for the slow phase.");
+                Log.Warn($"[Perf] Load time {totalMs}ms exceeds 15s regression threshold (baseline ~3.5s warm / ~11.7s cold). Slowest phases: {slowest}.");
 
             if (_anyRunPhaseFailed)
                 Log.Error("Framework: one or more phases failed — LoadSucceeded remains false.");
@@ -431,6 +474,7 @@ internal static class LoadOrchestrator
     private static void LogTiming(Stopwatch sw, string phase, int warnMs = 500)
     {
         var ms = sw.ElapsedMilliseconds;
+        PhaseTimings.Record(phase, ms);
         if (ms >= warnMs)
             Log.Warn($"[Timing SLOW] {phase}: {ms}ms");
         else

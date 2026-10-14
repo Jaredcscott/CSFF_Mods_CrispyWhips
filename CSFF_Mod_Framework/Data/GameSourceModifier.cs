@@ -22,6 +22,10 @@ internal static class GameSourceModifier
         // vanilla + mod UniqueIDScriptable by this point in the load sequence. Using it directly
         // eliminates one full allData sweep (~4000 items) and a dictionary allocation per load.
         int totalApplied = 0;
+        // Every unresolved target or _appendArrays UID: Warn when the game or a loaded mod should have
+        // supplied it, Debug when a missing partner mod explains it (UnresolvedUid.ExpectedPresent); all are
+        // counted and named in one Info line (framework README "Unresolved references").
+        _unresolved.Clear();
 
         foreach (var mod in mods)
         {
@@ -81,9 +85,15 @@ internal static class GameSourceModifier
                             ApplyPatch(target, json, mod.Name, file);
                             totalApplied++;
                         }
-                        else
+                        else if (UnresolvedUid.ExpectedPresent(targetUid))
                         {
                             Log.Warn($"GameSourceModify: no object found for '{targetUid}' ({file})");
+                            _unresolved.Add(targetUid);
+                        }
+                        else
+                        {
+                            Log.Debug($"GameSourceModify: [{mod.Name}] target '{targetUid}' does not resolve (a partner mod not installed?); {Path.GetFileName(file)} skipped");
+                            _unresolved.Add(targetUid);
                         }
                     }
                 }
@@ -94,8 +104,14 @@ internal static class GameSourceModifier
             }
         }
 
-        Log.Debug($"GameSourceModify: applied {totalApplied} patches across {mods.Count} mod(s)");
+        if (_unresolved.Count > 0)
+            Log.Info($"GameSourceModify: applied {totalApplied} patches across {mods.Count} mod(s), "
+                   + $"{_unresolved.Count} reference(s) skipped for an unresolved UID: {UnresolvedUid.Sample(_unresolved)}");
+        else
+            Log.Debug($"GameSourceModify: applied {totalApplied} patches across {mods.Count} mod(s)");
     }
+
+    private static readonly List<string> _unresolved = new();
 
     private static void ApplyPatch(UnityEngine.Object target, string json, string modName, string filePath)
     {
@@ -122,7 +138,7 @@ internal static class GameSourceModifier
         {
             if (root != null)
             {
-                WarpResolver.Walk(target, root);
+                WarpResolver.WalkForPatch(target, root, $"[{modName}] {Path.GetFileName(filePath)} -> {target.name}");
                 ApplyAppendArrays(target, root, modName);
             }
         }
@@ -216,7 +232,11 @@ internal static class GameSourceModifier
                 var resolved = GameRegistry.GetByUid(id);
                 if (resolved == null)
                 {
-                    Log.Warn($"GameSourceModify._appendArrays: '{id}' not found in registry (target: {target.name}.{fieldName})");
+                    if (UnresolvedUid.ExpectedPresent(id))
+                        Log.Warn($"GameSourceModify._appendArrays: '{id}' not found in registry (target: {target.name}.{fieldName})");
+                    else
+                        Log.Debug($"GameSourceModify._appendArrays: [{modName}] '{id}' does not resolve (a partner mod not installed?); not appended to {target.name}.{fieldName}");
+                    _unresolved.Add(id);
                     continue;
                 }
 

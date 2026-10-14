@@ -125,7 +125,7 @@ internal static class SpriteResolver
         Log.Debug($"SpriteResolver: fixed {perksFixed} perk icons, {cardsFixed} card images, {durabilityFixed} durability icons");
     }
 
-    private static Sprite LookupSprite(string name)
+    internal static Sprite LookupSprite(string name)
     {
         if (string.IsNullOrEmpty(name)) return null;
 
@@ -171,7 +171,10 @@ internal static class SpriteResolver
         {
             var bytes = File.ReadAllBytes(path);
             var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
-            if (!texture.LoadImage(bytes))
+            // markNonReadable=true frees the CPU copy (about 1.5 MB per 512x768 card) once the
+            // texture is uploaded. Nothing reads these pixels back: the sprite only goes into
+            // _diskSpriteCache and Database.SpriteDict (MASTER_PLAN W0-8, 2026-10-02).
+            if (!texture.LoadImage(bytes, true))
             {
                 UnityEngine.Object.Destroy(texture);
                 return null;

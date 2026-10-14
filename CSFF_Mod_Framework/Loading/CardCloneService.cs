@@ -101,7 +101,7 @@ internal static class CardCloneService
         Register(locationClone, sourceMod);
         Register(envClone, sourceMod);
 
-        Log.Debug($"CardCloneService: cloned '{templateEnv.name}' → env '{newEnvUid}' + location '{newLocationUid}' (\"{displayName}\", mod {sourceMod})");
+        Log.DebugSampled("CardCloneService: cloned", $"CardCloneService: cloned '{templateEnv.name}' → env '{newEnvUid}' + location '{newLocationUid}' (\"{displayName}\", mod {sourceMod})");
         return true;
     }
 
@@ -293,7 +293,7 @@ internal static class CardCloneService
                      $"(templateLoc='{templateLocation?.name}', drops={GetCollectionCount(dropCollection)}) " +
                      "— location card may spawn the template's location");
         else
-            Log.Debug($"CardCloneService: repointed {repointed} DefaultEnvCardDrops entry/entries on '{envClone.name}' → '{locationClone.name}'");
+            Log.DebugSampled("CardCloneService: repointed", $"CardCloneService: repointed {repointed} DefaultEnvCardDrops entry/entries on '{envClone.name}' → '{locationClone.name}'");
     }
 
     /// <summary>
@@ -347,7 +347,7 @@ internal static class CardCloneService
         }
 
         if (substituted > 0)
-            Log.Debug($"CardCloneService: neutralized {substituted} AlwaysUpdate=true DefaultEnvCardDrops entry/entries on '{envClone.name}' " +
+            Log.DebugSampled("CardCloneService: neutralized", $"CardCloneService: neutralized {substituted} AlwaysUpdate=true DefaultEnvCardDrops entry/entries on '{envClone.name}' " +
                       "— substituted env-local variants so they stay in the env instead of following the player");
     }
 
@@ -475,7 +475,7 @@ internal static class CardCloneService
 
         Register(clone, sourceMod);
         _envLocalVariants[card.UniqueID] = clone;
-        Log.Debug($"CardCloneService: ExtraDrop '{card.UniqueID}' is AlwaysUpdate=true (would follow the player) — " +
+        Log.DebugSampled("CardCloneService: ExtraDrop", $"CardCloneService: ExtraDrop '{card.UniqueID}' is AlwaysUpdate=true (would follow the player) — " +
                   $"substituted env-local clone '{variantUid}'");
         return clone;
     }
@@ -562,6 +562,38 @@ internal static class CardCloneService
         }
         _fieldCache[key] = found;
         return found;
+    }
+
+    /// <summary>
+    /// Removes the named <c>CardTag</c>s from a cloned env card (MapNodes <c>StripEnvTags</c>).
+    /// <c>Object.Instantiate</c> copies the template's <c>CardTags</c>, and <c>WorldMapData</c> builds
+    /// <c>MapTags</c> from every env card's tags, so a clone answers any vanilla duty that targets an
+    /// env by tag. EA 0.69c's bees (<c>MoveToEnvTag</c>, Random) pick a clover or heather clearing
+    /// that way and build a Beehive there, which put wild hives in the CMC Village (measured on a
+    /// live 0.69c run, 2026-10-13). Matching is by tag name; a listed name the clone does not carry
+    /// is warned about, since that is an authoring typo that would otherwise do nothing.
+    /// </summary>
+    internal static void StripCardTags(CardData envClone, IReadOnlyList<string> tagNames, string sourceMod)
+    {
+        if (envClone == null || tagNames == null || tagNames.Count == 0) return;
+        var tags = envClone.CardTags ?? new CardTag[0];
+        var kept = new List<CardTag>(tags.Length);
+        var removed = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var tag in tags)
+        {
+            bool strip = false;
+            if (tag != null)
+                foreach (var name in tagNames)
+                    if (string.Equals(tag.name, name, StringComparison.Ordinal)) { strip = true; break; }
+            if (strip) removed.Add(tag.name);
+            else kept.Add(tag);
+        }
+        if (removed.Count > 0) envClone.CardTags = kept.ToArray();
+        foreach (var name in tagNames)
+            if (!removed.Contains(name))
+                Log.Warn($"CardCloneService: StripEnvTags '{name}' is not a tag of clone env '{envClone.UniqueID}' (mod {sourceMod}); nothing stripped for it");
+        if (removed.Count > 0)
+            Log.Info($"CardCloneService: stripped {removed.Count} tag(s) from clone env '{envClone.UniqueID}': {string.Join(", ", removed)}");
     }
 
     /// <summary>
@@ -679,9 +711,11 @@ internal static class CardCloneService
     /// REFERENCE (<c>.decomp/GameManager.cs</c> 13723, 13780; scan mode 12694, 12746), so the env-local
     /// copy never satisfies "Pond is on the board", the inverted condition passes, and the action adds
     /// a vanilla Pond beside the clone's own. Two identical Ponds, capped at two because the vanilla
-    /// copy then satisfies its own condition. Tag-gated creators ("Create Large Tree" on
+    /// copy then satisfies its own condition. Tag-gated creators (the "Create Small Tree" family on
     /// <c>RequiredTagsOnBoard</c>) are NOT affected: <c>TagInCards</c> matches <c>HasTag</c>, which
-    /// the env-local copy shares.</para>
+    /// the env-local copy shares. "Create Large Tree" was tag-gated too until EA 0.69, which moved it
+    /// onto an inverted <c>RequiredCardsOnBoard</c> naming its own species (TreeLargeOak and so on),
+    /// so on 0.69 it is card-gated and guarded like the Pond.</para>
     ///
     /// <para><strong>The fix:</strong> for every inverted condition whose trigger card this env seeds
     /// as an env-local variant, APPEND a matching inverted condition on the variant, so the action

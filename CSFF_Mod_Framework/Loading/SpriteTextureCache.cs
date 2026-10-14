@@ -32,8 +32,53 @@ internal static class SpriteTextureCache
     private static readonly byte[] Magic = { 0x43, 0x53, 0x46, 0x46 }; // "CSFF" — per-file
     private static readonly byte[] BundleMagic = { 0x43, 0x53, 0x46, 0x42 }; // "CSFB" — bundle
     // FormatVersion 2 = adds 16-byte content-hash to the per-file header.
-    private const int FormatVersion = 2;
-    private const int BundleVersion = 1;
+    // FormatVersion 3 = (2.28.0) the cache may hold DXT5 entries ([Performance] CompressModSprites);
+    // bumped so every pre-option cache rebuilds once.
+    private const int FormatVersion = 3;
+    private const int BundleVersion = 2;
+
+    /// <summary>
+    /// [Performance] CompressModSprites. When true, a cache-miss decode is DXT5-compressed
+    /// (see <see cref="TryCompress"/>) and a cached entry whose format disagrees with this setting
+    /// is treated as a miss, so toggling the option rebuilds the affected entries in either direction.
+    /// </summary>
+    internal static bool CompressEnabled;
+
+    /// <summary>The format a sprite of this size is cached in under the current setting.</summary>
+    internal static bool CanCompress(int width, int height) =>
+        width > 0 && height > 0 && (width % 4) == 0 && (height % 4) == 0;
+
+    /// <summary>
+    /// Compresses a READABLE 32-bit RGBA-family texture to DXT5 in place. Must run before the texture is made
+    /// non-readable (W0-9: Compress on a non-readable texture only logs an Error). Sizes that are
+    /// not multiples of 4 stay RGBA32. Returns true when the texture is now compressed.
+    /// </summary>
+    internal static bool TryCompress(Texture2D texture)
+    {
+        if (!CompressEnabled || texture == null) return false;
+        // LoadImage leaves a decoded PNG as ARGB32 (measured on 2.28.0, 704 of 742 entries), not RGBA32.
+        var f = texture.format;
+        if ((f != TextureFormat.RGBA32 && f != TextureFormat.ARGB32 && f != TextureFormat.BGRA32)
+            || !CanCompress(texture.width, texture.height)) return false;
+        try
+        {
+            texture.Compress(true);
+            return texture.format == TextureFormat.DXT5;
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"SpriteTextureCache: DXT5 compress failed for {texture.name}: {Log.ExceptionText(ex)}");
+            return false;
+        }
+    }
+
+    /// <summary>True when a cached entry's stored format is what the current setting would produce.</summary>
+    private static bool FormatMatchesOption(int width, int height, TextureFormat format)
+    {
+        bool wantDxt = CompressEnabled && CanCompress(width, height);
+        if (wantDxt) return format == TextureFormat.DXT5;
+        return format != TextureFormat.DXT5;
+    }
 
     private static readonly List<Task> _pendingWrites = new();
     private static readonly object _pendingLock = new();
@@ -221,6 +266,8 @@ internal static class SpriteTextureCache
         texture = null;
         if (!_bundleIndex.TryGetValue(pngPath, out var entry))
             return false;
+        if (!FormatMatchesOption(entry.Width, entry.Height, entry.Format))
+            return false; // cached under the other CompressModSprites setting: re-decode
 
         var t1 = Stopwatch.GetTimestamp();
         long pngMtime;
@@ -308,6 +355,7 @@ internal static class SpriteTextureCache
         var format = (TextureFormat)BitConverter.ToInt32(buf, 48);
         int byteCount = BitConverter.ToInt32(buf, 52);
         if (buf.Length < HeaderSize + byteCount) { TryDelete(cachePath); return false; }
+        if (!FormatMatchesOption(width, height, format)) return false; // other CompressModSprites setting: re-decode
 
         var t1 = Stopwatch.GetTimestamp();
         long pngMtime;

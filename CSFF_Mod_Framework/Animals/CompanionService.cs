@@ -174,8 +174,6 @@ internal static class CompanionService
             Log.Info($"Animals: {speciesId}: companion spawned with {fixedCount} zeroed stat(s) — initialized to full immediately after tame.");
     }
 
-    private static FieldInfo _npcStatsDictField;
-
     private static void RetireAndRelocate(NPCAgent agent, DutyBuilder.SpeciesStats stats, CardData spiritWorld, string speciesId)
     {
         var gm = MBSingleton<GameManager>.Instance;
@@ -188,9 +186,8 @@ internal static class CompanionService
 
         if (stats?.Exists != null)
         {
-            _npcStatsDictField ??= AccessTools.Field(typeof(InGameNPC), "NPCStatsDict");
-            if (_npcStatsDictField?.GetValue(npc) is Dictionary<NPCStat, InGameNPCStat> dict
-                && dict.TryGetValue(stats.Exists, out var existsStat) && existsStat != null)
+            var existsStat = StatAccess.ResolveNpc(npc, stats.Exists);
+            if (existsStat != null)
             {
                 existsStat.SetStatValueFromEditor(0f);
                 Log.Info($"Animals: {speciesId}: wild agent retired (exists -> 0) after a successful tame.");

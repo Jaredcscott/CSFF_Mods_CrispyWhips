@@ -87,7 +87,7 @@ internal static class AnimalAssetFactory
         TameInteractionBuilder.Apply(agent, m, stats, encounter);
         CompanionService.Apply(agent, m, stats, spiritWorld);
 
-        RegisterTicker(m, agent, stats, roostEnv, trapped);
+        RegisterTicker(m, agent, stats, roostEnv, spiritWorld, trapped);
         return agent;
     }
 
@@ -190,9 +190,11 @@ internal static class AnimalAssetFactory
         if (m.DeathRespawnTicks > 0)
             stats.RespawnTimer = AddShared(instances, m, "AgentRespawnCounter",
                 minMaxOverride: new Vector2(0f, m.DeathRespawnTicks));
-        if (m.SuppressWhileCardOnBoard != null)
+        // The restore-delay store: the suppressor card's delay, or Spawn.ConditionRespawnTicks for a
+        // conditioned species without one (the validator never lets both be above 0).
+        if (m.SuppressWhileCardOnBoard != null || (m.SpawnConditions.Count > 0 && m.ConditionRespawnTicks > 0))
             stats.SuppressRespawnTimer = AddShared(instances, m, "AgentCounter",
-                minMaxOverride: new Vector2(0f, Math.Max(1, m.SuppressedRespawnTicks)),
+                minMaxOverride: new Vector2(0f, Math.Max(1, Math.Max(m.SuppressedRespawnTicks, m.ConditionRespawnTicks))),
                 rateOverride: 0f);
 
         return instances.ToArray();
@@ -267,14 +269,15 @@ internal static class AnimalAssetFactory
     }
 
     private static void RegisterTicker(AnimalManifest m, NPCAgent agent, DutyBuilder.SpeciesStats stats, CardData roostEnv,
-        bool trapped = false)
+        CardData spiritWorld, bool trapped = false)
     {
         bool wantsWindow = m.HasActivityWindow;
         bool wantsKillTimer = m.DeathRespawnTicks > 0;
         bool wantsSuppression = m.SuppressWhileCardOnBoard != null;
+        bool wantsConditions = m.SpawnConditions.Count > 0;
         // A trappable species needs the ticker even with no timers: it owns the leftover
         // AgentTrapType clear, which cannot live in an agent action without racing the catch.
-        if (!wantsWindow && !wantsKillTimer && !wantsSuppression && !trapped) return;
+        if (!wantsWindow && !wantsKillTimer && !wantsSuppression && !wantsConditions && !trapped) return;
 
         if (wantsKillTimer && (stats.Blood == null || stats.RespawnTimer == null))
         {
@@ -288,6 +291,15 @@ internal static class AnimalAssetFactory
         }
         if (wantsWindow && stats.Exists == null)
             Log.Warn($"Animals: {m.SourceFile}: ActivityWindow relocation works best with an Exists stat — relocating regardless of retirement state");
+        // The validator already requires both on the Ref path and the generated path wires them, so
+        // these fire only if a stat failed to resolve; say so rather than leave the species ungated.
+        if (wantsConditions && stats.Exists == null)
+        {
+            Log.Warn($"Animals: {m.SourceFile}: Spawn.Conditions needs an Exists stat to retire the agent through; conditions disabled, the species ignores them");
+            wantsConditions = false;
+        }
+        if (wantsConditions && !wantsSuppression && m.ConditionRespawnTicks > 0 && stats.SuppressRespawnTimer == null)
+            Log.Warn($"Animals: {m.SourceFile}: Spawn.ConditionRespawnTicks needs a SuppressRespawnTimer stat to count on; the agent is restored on the first tick its conditions hold");
 
         AnimalLifecycleTicker.Register(new AnimalLifecycleTicker.SpeciesLifecycle
         {
@@ -301,10 +313,24 @@ internal static class AnimalAssetFactory
             DeathRespawnTicks = wantsKillTimer ? m.DeathRespawnTicks : 0,
             SuppressCardUid = wantsSuppression ? m.SuppressWhileCardOnBoard : null,
             SuppressedRespawnTicks = m.SuppressedRespawnTicks,
+            Conditions = wantsConditions ? m.SpawnConditions : null,
+            ConditionRespawnTicks = m.ConditionRespawnTicks,
+            SpiritWorldEnv = spiritWorld,
             // M4: non-null only for trappable species — enables the leftover-stamp clear.
             TrapTypeStat = trapped ? Database.GetTypedSO(typeof(NPCStat), "AgentTrapType") as NPCStat : null,
         });
     }
+
+    /// <summary>The framework's own Localization row for the Approach button of every manifest animal
+    /// (<c>CSFFModFramework/Localization/SimpEn.csv</c> and <c>SimpCn.csv</c>; the Chinese is copied from
+    /// vanilla's <c>Agent_Bear_Interactions[0].ButtonName</c> row). A manifest's
+    /// <c>Encounter.ApproachLabelLocalizationKey</c> replaces it for one species.</summary>
+    internal const string ApproachButtonKey = "CSFFMFW_Animal_Approach";
+
+    /// <summary>What the button reads when no row is loaded for its key (a mod that names its own key and
+    /// forgot the row). The only place this English text is written: <c>Animals-ManifestHygiene.Tests.ps1</c>
+    /// check E fails on any other literal.</summary>
+    private const string ApproachFallbackText = "Approach";
 
     /// <summary>M5: adds/replaces the "Approach" (ButtonType.Encounter) interaction button,
     /// pointed at whatever <see cref="EncounterBuilder.Resolve"/> returned (Ref, generated, or the
@@ -319,7 +345,12 @@ internal static class AnimalAssetFactory
 
         var button = new NPCInteractionButton
         {
-            ButtonName = new LocalizedString { ParentObjectID = "", LocalizationKey = "IGNOREKEY", DefaultText = "Approach" },
+            ButtonName = new LocalizedString
+            {
+                ParentObjectID = "",
+                LocalizationKey = string.IsNullOrEmpty(m.ApproachLabelLocalizationKey) ? ApproachButtonKey : m.ApproachLabelLocalizationKey,
+                DefaultText = ApproachFallbackText,
+            },
             Conditions = EmptyCondition(),
             ButtonType = NPCButtonOptions.Encounter,
             DroppedEncounter = encounter,
