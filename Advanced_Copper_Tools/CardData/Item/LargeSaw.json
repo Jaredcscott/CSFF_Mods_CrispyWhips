@@ -11,7 +11,288 @@
     "DefaultText": "A large two-handled saw with a copper blade. Cuts trees much faster than an axe."
   },
   "CanBeRenamed": false,
-  "AlternateNames": [],
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[0].Name",
+        "DefaultText": "Large Copper Saw"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[0].Description",
+        "DefaultText": "A large two-handled saw with a copper blade. Fells a large pine or willow in one pull, a large birch or oak in two, and lasts about 100 pulls."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_LargeSaw_Copper",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[1].Name",
+        "DefaultText": "Large Ghost Bronze Saw"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[1].Description",
+        "DefaultText": "A large two-handled saw with a ghost bronze blade. Fells like copper (a large pine or willow in one pull, a large birch or oak in two) but wears slower: about 166 pulls."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_LargeSaw_GhostBronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[2].Name",
+        "DefaultText": "Large Tin Saw"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[2].Description",
+        "DefaultText": "A large two-handled saw with a soft tin blade. A large pine, willow or birch takes two pulls and a large oak three, and it wears fast: about 66 pulls."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_LargeSaw_Tin",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[3].Name",
+        "DefaultText": "Large Tin Bronze Saw"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[3].Description",
+        "DefaultText": "A large two-handled saw with a tin bronze blade. Fells like copper (a large pine or willow in one pull, a large birch or oak in two) and is the toughest: about 200 pulls."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_LargeSaw_Bronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[4].Name",
+        "DefaultText": "Large White Bronze Saw"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[4].Description",
+        "DefaultText": "A large two-handled saw with a hard white bronze blade. Fells a large pine, willow or birch in one pull and a large oak in two, but it is brittle: about 80 pulls."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_LargeSaw_WhiteBronze",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
   "LiquidSuffixName": {
     "ParentObjectID": "advanced_copper_tools_large_saw",
     "LocalizationKey": "",
@@ -20,7 +301,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 2 copper sheets, 4 copper nails, and 2 wood using a hammer.\n\n<b>Uses:</b> Cuts trees faster than an axe. Use as a cutting tool."
+    "DefaultText": "<b>Crafted:</b> From 3 metal sheets of one metal, 2 Wood, 2 copper nails and 1 tin solder using a hammer. The saw is the metal of its sheets.\n\n<b>Uses:</b> Cuts large trees faster than an axe. Copper, Ghost Bronze and Tin Bronze fell a large pine or willow in one pull and a large birch or oak in two; White Bronze fells a pine, willow or birch in one pull and an oak in two; Tin takes two pulls for a pine, willow or birch and three for an oak. A saw lasts about 100 pulls in copper, 166 in Ghost Bronze, 66 in Tin, 200 in Tin Bronze and 80 in White Bronze. Use as a cutting tool."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -30,13 +311,13 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "LargeSaw",
+  "CardImageWarpData": "ACT_LargeSaw_Copper",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 0,
   "CannotBeTransferred": false,
   "NotAutoSolvableEvent": false,
-  "ObjectWeight": 200.0,
+  "ObjectWeight": 375.0,
   "TradingValue": 300.0,
   "CardTags": [],
   "CardTagsWarpData": [
@@ -58,7 +339,7 @@
   "AlwaysUpdate": false,
   "CannotBeTrashed": false,
   "DoesNotPile": false,
-  "ToggleablePiling": false,
+  "ToggleablePiling": true,
   "DoesNotPinAutomatically": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
@@ -128,7 +409,29 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_large_saw",
+      "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
   },
   "CardInteractions": [],
   "DismantleActions": [],

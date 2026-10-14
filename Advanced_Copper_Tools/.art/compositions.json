@@ -1,0 +1,115 @@
+{
+  "_comment": "ImageName -> what the picture is built from, for /create-image-refs (Mode A, Item variant). subject names the shipped ImageName used as the SUBJECT reference (the same object, changed only as asked); style lists shipped ImageNames used as STYLE references only. subject_words describes the subject reference in the prompt; change is the one thing only this picture shows; item is the subject sentence for the /create-image step 3 template; avoid is appended to that template's Avoid list. finish is keyed or full-bleed (measured on the subject reference with process_card_art.py --check). No character or scene fragments: every ACT reference is shipped art the owner approved by shipping it.",
+  "BronzeHelmet": {
+    "subject": "CopperHelmet",
+    "style": [],
+    "subject_words": "a riveted metal nasal helmet with a pointed dome, a raised cross-shaped band over the crown, a riveted brow band, two rounded eye openings, a long nose guard and a brown leather chin strap with a buckle",
+    "change": "the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the rivets, the bands, the eye openings, the nose guard and the leather chin strap stay exactly the same",
+    "item": "a golden-brown bronze nasal helmet with a pointed dome, a raised cross-shaped band over the crown, a riveted brow band, two rounded eye openings, a long nose guard and a brown leather chin strap with a buckle, the bronze a warm dull gold-brown with darker brown shading",
+    "avoid": "orange copper, pink copper, shiny polished gold, bright yellow brass, green patina, plume, horns, crest, face mask, visor",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for CardData/Item/BronzeHelmet.json and CardData/Blueprint/Bp_BronzeHelmet.json (ACT 1.17.0 Content_Update_Plan feature 4/6)"
+  },
+  "BronzeArmor": {
+    "subject": "CopperArmor",
+    "style": ["BronzeHelmet"],
+    "subject_words": "a sleeveless metal breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord",
+    "change": "the metal is golden-brown bronze instead of copper, exactly the same muted khaki gold-brown bronze as the helmet in reference image 2, with darker olive-brown shading. The orange-red copper colour of reference image 1 is replaced everywhere on the metal: no orange, no amber, no pink and no copper tone anywhere. The shape, the rolled rim, the rivets and the leather straps with their cord lashing stay exactly the same",
+    "item": "a golden-brown bronze sleeveless breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord, the bronze a muted khaki gold-brown with darker olive-brown shading",
+    "avoid": "orange copper, orange metal, amber metal, pink copper, shiny polished gold, bright yellow brass, green patina, sleeves, pauldrons, spikes, emblem, engraving, chainmail, person wearing it",
+    "retry_note": "round 1 (K9BWBAwYcfVMl3B6QPum) kept an orange-amber metal (median hue 27, saturation 0.75 against 31-35 and 0.54-0.61 for the other three bronze pieces); round 2 adds the shipped BronzeHelmet as a style reference for the bronze colour and names the orange forms in Avoid",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for the ACT bronze breastplate item and Bp_BronzeBreastplate (ACT 1.17.0 Content_Update_Plan feature 4/6)"
+  },
+  "BronzeBracers": {
+    "subject": "CopperBracers",
+    "style": [],
+    "subject_words": "a matched pair of curved metal forearm bracers standing side by side, each a smooth tapered plate with rolled edges, with two brown leather straps looped through riveted leather tabs on its outer side",
+    "change": "the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the rolled edges, the riveted tabs and the leather straps stay exactly the same",
+    "item": "a matched pair of golden-brown bronze forearm bracers standing side by side, each a smooth curved tapered plate with rolled edges, with two brown leather straps looped through riveted leather tabs on its outer side, the bronze a warm dull gold-brown with darker brown shading",
+    "avoid": "orange copper, pink copper, shiny polished gold, bright yellow brass, green patina, gloves, gauntlet fingers, spikes, engraving, a single bracer, three bracers",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for the ACT bronze bracers item and Bp_BronzeGauntlets (ACT 1.17.0 Content_Update_Plan feature 4/6)"
+  },
+  "BronzeGreaves": {
+    "subject": "CopperGreaves",
+    "style": [],
+    "subject_words": "a matched pair of tall curved metal shin greaves standing side by side, each a long smooth plate that narrows to a notched lower end with a rolled edge, with three small riveted loops down one side and two brown leather straps",
+    "change": "the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the notched lower ends, the riveted loops and the leather straps stay exactly the same",
+    "item": "a matched pair of tall golden-brown bronze shin greaves standing side by side, each a long smooth curved plate that narrows to a notched lower end with a rolled edge, with three small riveted loops down one side and two brown leather straps, the bronze a warm dull gold-brown with darker brown shading",
+    "avoid": "orange copper, pink copper, shiny polished gold, bright yellow brass, green patina, boots, feet, knee spikes, engraving, a single greave",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for CardData/Item/BronzeGreaves.json and CardData/Blueprint/Bp_BronzeGreaves.json (ACT 1.17.0 Content_Update_Plan feature 4/6)"
+  },
+  "OreChest": {
+    "subject": "OreChest_round3",
+    "subject_source": "scratchpad candidate OreChest_refs/OreChest__3.png (round 3, historyId QIvRy4USZXJQ5ne8zkx0), chosen by the session (all-copper panels, matching the card's metal-crate text) from the two candidates, rounds 3 and 4, that the owner showed on 2026-09-27 with the brief 'remove the lid for the ore bin, its an open top container'",
+    "style": [],
+    "subject_words": "a heavy ore crate of hammered copper panels with copper corner and edge plates studded with rivets, two thick dark iron bands riveted across it, and wooden side handles",
+    "change": "it has NO LID. The rounded lid is removed completely, so it is an open-top bin: the four copper walls rise straight up and end in a flat, level top rim edged with a riveted copper strip, and the viewer looks slightly down into the open interior. The open bin is filled to just above the rim with a heap of rough grey-brown ore lumps of mixed sizes. The two dark iron bands run straight up the front and back walls and end at the rim instead of arching over a lid. Keep the copper panels, the rivet studs, the corner plates, the iron bands, the wooden side handles and the size of the box",
+    "item": "an open-top copper ore bin with no lid, heaped with rough grey-brown ore lumps inside, hammered copper panels with copper corner plates studded with rivets, two thick dark iron bands riveted up its walls to the rim, and wooden side handles",
+    "avoid": "lid, rounded lid, arched lid, domed lid, barrel lid, closed lid, hinged lid swung open, lid propped open, lid lying beside the bin, hinges, keyhole, lock, padlock, hasp, latch, leather straps, buckles, wooden planks, wooden panels, ore on the ground, spilled ore, coins, treasure, gems, glowing ore, shiny metallic ore",
+    "finish": "keyed",
+    "use": "CardImageWarpData of CardData/Item/OreChest.json, CardData/Location/OreChestPlaced.json and CardData/Blueprint/Bp_OreChest.json (ACT Content_Update_Plan feature 6). Owner brief 2026-09-27: an open-top container, no lid."
+  },
+  "act_salt_vein": {
+    "subject": "act_tin_vein",
+    "style": [],
+    "subject_words": "a close view of a dark cave rock wall of layered, angled rock slabs with a bright mineral seam running through the cracks",
+    "change": "the seam is rock salt instead of tin ore: chunky translucent white and pale pink salt crystals, blocky and cube-like, are crusted into the cracks and along the slab edges where the bright ore seam was, catching the light. No metal colour anywhere: no silver, no metallic sheen and no glowing light in the seam. Keep the rock itself, its shapes, its dark blue-grey slate colours, the composition and the flat posterised painted render exactly as in reference image 1",
+    "item": "a crusted seam of chunky translucent white and pale pink rock salt crystals embedded in dark blue-grey cave rock",
+    "avoid": "silver ore, metallic sheen, glowing seam, electric light, rust, orange, gold, gems, amethyst, quartz points, snow, ice, miner, pickaxe, tools, torch",
+    "finish": "full-bleed",
+    "use": "CardImageWarpData planned for CardData/Location/SaltVein.json (UniqueID act_salt_vein; ACT 1.17.0 Content_Update_Plan feature 6). Card text: A crusted seam of rock salt embedded in cave rock."
+  },
+  "act_rock_vein": {
+    "subject": "act_iron_vein",
+    "style": [],
+    "subject_words": "a close view of a dark cave rock wall of layered, angled rock slabs with a dark metallic ore seam running through it",
+    "change": "the face is plain quarry-grade grey stone instead of iron ore: thick blocky layers of grey stone stacked in the rock wall where the ore seam was, with clean straight fracture lines between the blocks. No ore anywhere, no metal colour, no metallic sheen and no rust-orange. Keep the surrounding rock, the composition, the dark blue-grey slate colours, the lighting and the flat posterised painted render exactly as in reference image 1",
+    "item": "a thick face of plain quarry-grade grey stone in thick blocky layers with clean fracture lines, embedded in dark blue-grey cave rock",
+    "avoid": "ore, metal, metallic sheen, glowing seam, rust, rust-orange, orange, gold, crystals, gems, miner, pickaxe, tools, torch, carved bricks, mortar",
+    "finish": "full-bleed",
+    "use": "CardImageWarpData planned for CardData/Location/RockVein.json (UniqueID act_rock_vein; ACT 1.17.0 Content_Update_Plan feature 6). Card text: A thick face of quarry-grade stone embedded in cave rock."
+  },
+  "LargeSaw_Iron": {
+    "subject": "LargeSaw",
+    "style": [],
+    "subject_words": "a long two-man crosscut saw with a wide slightly curved blade, a row of large jagged teeth along one edge, and a straight round cross handle at each end fixed to the blade with a riveted collar",
+    "change": "the blade is dark forged iron instead of copper: charcoal grey with a faint blue-black sheen and visible hammer marks. The two end handles and the riveted collars that fix them to the blade stay exactly as in reference image 1, the same shape and the same colour",
+    "item": "a long two-man crosscut saw with a wide slightly curved dark forged iron blade, charcoal grey with a faint blue-black sheen and visible hammer marks, a row of large jagged teeth along one edge, and a straight round cross handle at each end fixed to the blade with a riveted collar",
+    "avoid": "copper blade, orange blade, shiny chrome steel, bright silver, rust, bow saw frame, wooden frame, extra handles, a person",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for the ACT iron large saw item (ACT 1.17.0 Content_Update_Plan feature 6)"
+  },
+  "CopperShield": {
+    "subject": null,
+    "style": ["CopperBracers"],
+    "subject_words": null,
+    "change": null,
+    "item": "a round hand-held shield seen from the front, turned slightly at an angle: a wooden disc faced with hammered copper sheet, a ring of copper nail heads evenly spaced around the rim, and a raised domed copper boss in the centre",
+    "avoid": "spikes, painted emblem, crest, heraldry, text, kite shield, heater shield, square shield, sword, spear, arm, hand, person",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for the ACT copper shield item (ACT 1.17.0 Content_Update_Plan feature 6). New object: CopperBracers is a STYLE reference only"
+  },
+ "act_copper_lode": {
+ "subject": "act_iron_vein",
+ "style": [],
+ "subject_words": "a close view of a dark cave rock wall of layered, angled rock slabs with a bright ore seam running through the cracks",
+ "change": "the seam has collapsed: grey rubble heaped over the lower half, a rich vein of green-blue verdigris greenstone with orange copper flecks showing in the gaps",
+ "item": "a collapsed seam, rubble heaped over a rich copper lode",
+ "avoid": "photo, miner, pickaxe, tools, torch, gold, silver, gems, ",
+ "finish": "full-bleed",
+ "use": "CardImageWarpData of CardData/Location/CopperLode.json (ACT 1.18.0 plan C2)"
+},
+ "act_iron_lode": {
+ "subject": "act_iron_vein",
+ "style": [],
+ "subject_words": "a close view of a dark cave rock wall of layered, angled rock slabs with a bright ore seam running through the cracks",
+ "change": "the seam has collapsed: grey rubble heaped over the lower half, a rich vein of dark rust-brown and black bog iron showing in the gaps",
+ "item": "a collapsed seam, rubble heaped over a rich iron lode",
+ "avoid": "photo, miner, pickaxe, tools, torch, gold, silver, gems, ",
+ "finish": "full-bleed",
+ "use": "CardImageWarpData of CardData/Location/IronLode.json (ACT 1.18.0 plan C2)"
+}
+}

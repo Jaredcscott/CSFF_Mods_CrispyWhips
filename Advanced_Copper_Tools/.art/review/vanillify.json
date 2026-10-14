@@ -1,0 +1,99 @@
+{
+  "about": "Images adjusted toward the vanilla style by Development_Tools/CardArt/vanillify.py instead of being regenerated. The original is in git history.",
+  "images": {
+    "Picture/ACT_Perk_BuildingMaterials.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 54,
+      "score_after": 100,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/CauteryIron.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 46,
+      "score_after": 92,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/CauteryIron_Hot.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 50,
+      "score_after": 87,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/Copper_Chest.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 52,
+      "score_after": 100,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/CopperRimChamberpot.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 95,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/CopperWateringCan.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": [
+        3,
+        12,
+        45,
+        4,
+        90
+      ],
+      "score_before": 42,
+      "score_after": 100,
+      "why": "owner rework mark; adjusted instead of regenerated (owner rule 2026-10-12: keep when the adjusted image reaches vanilla match 70 and passes a visual check)"
+    },
+    "Picture/GrapplingHook.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "pre-vanillify original (e0de848b8^)",
+      "score_after": 73,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    },
+    "Picture/SaltCuredFish.png": {
+      "date": "2026-10-12",
+      "tool": "Development_Tools/CardArt/vanillify.py",
+      "step": "GENTLE (no flatten; tone, 3 px outline, shadow)",
+      "source": "raw finished generation (44ec70937, before its vanillify step)",
+      "score_after": 73,
+      "why": "owner gallery round 3: alter = keep content, improve quality; the flattened pass read as too low resolution, so this restarts from the original (owner chose the gentle local pass)"
+    }
+  }
+}

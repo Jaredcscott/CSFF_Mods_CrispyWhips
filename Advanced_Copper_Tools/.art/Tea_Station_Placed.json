@@ -1,0 +1,42 @@
+{
+  "target": "Tea_Station_Placed.png",
+  "sourceCard": "CardData/Location/TeaBlendingStation.json",
+  "subject": "the Chiwei copper stove (unlit, a copper kettle on its top) beside a wooden workbench with a stone slab top, a stone hand quern and clay bowls, and a wooden rail of hanging dried herbs",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history upDQdaLThIJVVthAjeR1",
+  "historyId": "upDQdaLThIJVVthAjeR1",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798034204_3e2a1eeb_1791798034252_bde195db.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "prop",
+      "image": "Resource/Picture/ACT_MetalStove_Off_Copper.png (Chiwei)",
+      "id": "l64vpoA5I1z575d0eQa0",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ACT_MetalStove_Off_Copper_1791797801718_1e83c6bb.png"
+    },
+    {
+      "role": "style",
+      "image": "vanilla Forge_Off (reference library)",
+      "id": "WNi65rbzcbMWvsAnHJhp",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Forge_Off_1791744966170_663a0baf.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798034204_3e2a1eeb_1791798034252_bde195db.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed; paper enclosed by the herb rail, its posts and the bench keyed with key_enclosed.py",
+  "note": "owner gallery rework 2026-10-12: lets use the Chiwei image for the stove"
+}

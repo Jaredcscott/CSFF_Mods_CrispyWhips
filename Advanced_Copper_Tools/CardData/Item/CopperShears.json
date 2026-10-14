@@ -1,0 +1,82 @@
+{
+  "UniqueID": "act_copper_shears",
+  "CardName": {
+    "ParentObjectID": "act_copper_shears",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperShears_CardName",
+    "DefaultText": "Copper Shears"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_copper_shears",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperShears_CardDescription",
+    "DefaultText": "Two copper blades joined by a springy copper bow. Drag them onto a tame sheep to shear its wool, as with iron shears. Copper is soft: they last 30 shearings and then break."
+  },
+  "CardType": 0,
+  "ObjectWeight": 300.0,
+  "TradingValue": 150.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Tool", "tag_Shears", "tag_Metal", "tag_SmeltsAt1100"],
+  "CardTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CopperShears",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 30.0,
+    "MaxValue": 30.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "act_copper_shears",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShears_UsageDurability.OnZero.ActionDescription",
+        "DefaultText": "The copper shears snapped at the bow."
+      },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true,
+    "CardStatName": {
+      "ParentObjectID": "act_copper_shears",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperShears_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    }
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

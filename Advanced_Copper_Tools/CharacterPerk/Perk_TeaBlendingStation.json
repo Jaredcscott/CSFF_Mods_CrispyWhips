@@ -2,8 +2,6 @@
   "ActionModifiers": [],
   "ActionObjectives": [],
   "AddedCards": [],
-  "AddedCardsWarpData": [],
-  "AddedCardsWarpType": 3,
   "AddedStartingHours": 0,
   "CardsOnBoardObjectives": [],
   "CheckingNotificationDetails": 0,
@@ -14,10 +12,10 @@
   "DisplayPriority": 2410.0,
   "EditorOnly": false,
   "EquippedCards": [],
-  "EquippedCardsWarpData": [
+  "AddedCardsWarpData": [
     "advanced_copper_tools_tea_station_kit"
   ],
-  "EquippedCardsWarpType": 3,
+  "AddedCardsWarpType": 3,
   "HiddenUntilUnlocked": false,
   "MoonsCost": 2,
   "NestedObjectives": [],
@@ -34,7 +32,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with a Tea Blending Station Kit. Place it to set up a 6-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils — perfect for crafting teas and tinctures.",
+    "DefaultText": "Start with a Tea Blending Station Kit. Place it to set up a 6-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils. Perfect for crafting teas and tinctures.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_tea_blending_station"
   },

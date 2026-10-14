@@ -1,0 +1,32 @@
+{
+  "target": "IronShield.png",
+  "sourceCard": "CardData/Item/IronShield.json",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "8iacg3MVIOQtHqHRRxNI",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790948953701_094cacb5_1790948953868_a2bad71e.png",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "composition": {
+    "subject": "CopperShield",
+    "change": "the same round shield with a dark forged iron face and a raised iron boss",
+    "finish": "keyed",
+    "use": "CardImageWarpData of act_iron_shield and its blueprint (ACT 1.18.0 B1)"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "CopperShield",
+      "image": "Resource/Picture/CopperShield.png",
+      "sha256": "c051916f217f5751bcf1c6caef4481e7dd1b173e7e77b6f0ed4e29b58fe626a7",
+      "id": "MvO8FwUWZt5sASE1Uz2V"
+    }
+  ],
+  "verdict": "ON-MODEL (shape, rim nails, boss and angle match the reference; only the metal changed), SHIPPED"
+}

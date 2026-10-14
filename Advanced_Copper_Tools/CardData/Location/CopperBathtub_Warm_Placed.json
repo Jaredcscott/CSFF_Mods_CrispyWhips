@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
     "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Take a warm bath to reduce dirtiness and improve mood. Keep the fire above half heat for a Hot Bath instead — the same benefits plus a bigger mood boost and a genuine Stress reduction. Add more firewood to keep it hot longer."
+    "DefaultText": "<b>Usage:</b> Take a warm bath to wash as clean as the river does, clear rashes and wolfsbane from your skin, and improve mood. Keep the fire above half heat for a Hot Bath instead: the same cleaning plus a bigger mood boost and a genuine Stress reduction. Any bath leaves you wet, so dry off at a stove or brazier. Add more firewood to keep it hot longer."
   },
   "CardType": 2,
   "MapStructureType": 0,
@@ -33,7 +33,8 @@
     "tag_Preservable",
     "tag_FireSource",
     "tag_Structure",
-    "tag_FuelCapacity"
+    "tag_FuelCapacity",
+    "tag_x_Bathtub"
   ],
   "CardTagsWarpType": 3,
   "WhenCreatedSoundsWarpData": [
@@ -424,7 +425,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription",
-        "DefaultText": "Scrub down with soap for a quick clean and mood boost that doesn't need the fire lit."
+        "DefaultText": "Scrub down with soap for a quick clean, as good as washing with soap anywhere else, and a mood boost that doesn't need the fire lit. Clears rashes and wolfsbane from your skin and leaves you wet."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,
@@ -459,7 +460,7 @@
       "StatModifications": [
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "ValueModifier": { "x": -100.0, "y": -100.0 },
+          "ValueModifier": { "x": -400.0, "y": -400.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },
@@ -473,6 +474,51 @@
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },
           "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -100.0, "y": -100.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -100.0, "y": -100.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "f8c19cb042ab86948a2cb5f9cb07e455",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": 100.0, "y": 100.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -50.0, "y": -50.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "cadd43716eaada54facd772f39eaa090",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -50.0, "y": -50.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "48296aba51d95204fbc4f805056ac66a",
           "StatWarpType": 3
         }
       ],
@@ -524,7 +570,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionDescription",
-        "DefaultText": "Take a relaxing warm bath. Greatly improves mood and body warmth."
+        "DefaultText": "Soak in the warm water. Very relaxing and warming, and as cleansing as washing in the river: it clears rashes and wolfsbane from your skin. You come out wet, so dry off at a stove or brazier."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -561,8 +607,8 @@
             "m_PathID": 0
           },
           "ValueModifier": {
-            "x": -200.0,
-            "y": -200.0
+            "x": -500.0,
+            "y": -500.0
           },
           "RateModifier": {
             "x": 0.0,
@@ -674,6 +720,126 @@
           },
           "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
           "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "f8c19cb042ab86948a2cb5f9cb07e455",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": 100.0,
+            "y": 100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "cadd43716eaada54facd772f39eaa090",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "48296aba51d95204fbc4f805056ac66a",
+          "StatWarpType": 3
         }
       ],
       "ReceivingCardChanges": {
@@ -698,7 +864,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionDescription",
-        "DefaultText": "Soak in piping-hot water. Greatly improves mood and body warmth, and melts away stress."
+        "DefaultText": "Soak in piping-hot water. Greatly improves mood and body warmth, melts away stress, and cleans as well as the river, clearing rashes and wolfsbane too. You come out wet, so dry off at a stove or brazier."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -731,7 +897,7 @@
       "StatModifications": [
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "ValueModifier": { "x": -200.0, "y": -200.0 },
+          "ValueModifier": { "x": -500.0, "y": -500.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },
@@ -781,6 +947,51 @@
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },
           "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -100.0, "y": -100.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -100.0, "y": -100.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "f8c19cb042ab86948a2cb5f9cb07e455",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": 100.0, "y": 100.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -50.0, "y": -50.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "cadd43716eaada54facd772f39eaa090",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -50.0, "y": -50.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "48296aba51d95204fbc4f805056ac66a",
           "StatWarpType": 3
         }
       ],

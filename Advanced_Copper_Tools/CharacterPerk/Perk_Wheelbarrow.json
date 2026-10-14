@@ -11,13 +11,11 @@
   "DifficultyRating": -500,
   "DisplayPriority": 2400.0,
   "EditorOnly": false,
-  "AddedCardsWarpData": [],
-  "AddedCardsWarpType": 3,
   "EquippedCards": [],
-  "EquippedCardsWarpData": [
+  "AddedCardsWarpData": [
     "advanced_copper_tools_wheelbarrow"
   ],
-  "EquippedCardsWarpType": 3,
+  "AddedCardsWarpType": 3,
   "HiddenUntilUnlocked": false,
   "MoonsCost": 3,
   "NestedObjectives": [],

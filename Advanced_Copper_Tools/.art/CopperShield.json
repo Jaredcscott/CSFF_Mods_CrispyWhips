@@ -1,0 +1,45 @@
+{
+  "target": "CopperShield.png",
+  "sourceCard": "CardData/Item/CopperShield.json",
+  "subject": "a round hand-held shield seen from the front, turned slightly at an angle: a wooden disc faced with hammered copper sheet, a ring of copper nail heads evenly spaced around the rim, and a raised domed copper boss in the centre",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a style reference only: match its ink linework, shading and palette; do not copy its subject or composition.\nHand-painted watercolor-and-ink game item illustration of a round hand-held shield seen from the front, turned slightly at an angle: a wooden disc faced with hammered copper sheet, a ring of copper nail heads evenly spaced around the rim, and a raised domed copper boss in the centre, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, spikes, painted emblem, crest, heraldry, text, kite shield, heater shield, square shield, sword, spear, arm, hand, person.",
+  "historyId": "cRAEFaLJ6ANDX3B6nkaP",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790469498552_f3518c59_1790469499106_181166e0.png",
+  "credits": 30,
+  "generated": "2026-09-26",
+  "composition": {
+    "subject": null,
+    "style": [
+      "CopperBracers"
+    ],
+    "subject_words": null,
+    "change": null,
+    "item": "a round hand-held shield seen from the front, turned slightly at an angle: a wooden disc faced with hammered copper sheet, a ring of copper nail heads evenly spaced around the rim, and a raised domed copper boss in the centre",
+    "avoid": "spikes, painted emblem, crest, heraldry, text, kite shield, heater shield, square shield, sword, spear, arm, hand, person",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for the ACT copper shield item (ACT 1.17.0 Content_Update_Plan feature 6). New object: CopperBracers is a STYLE reference only"
+  },
+  "references": [
+    {
+      "role": "style",
+      "fragment": "CopperBracers",
+      "image": "Resource/Picture/CopperBracers.png",
+      "sha256": "9b741987344135fa4ee6abcf935b2fa15d12eb56b79c84c98af85dbcd64734f6",
+      "id": "v8R5dT20ip5RtzVbeE7r",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CopperBracers_1790469146441_839b1b21.png"
+    }
+  ],
+  "finish": "keyed finish; no enclosed paper",
+  "verdict": "ON-MODEL, SHIPPED (new object, CopperBracers as style only): round shield seen from the front, slightly angled; hammered copper face, a ring of copper nail heads round the rim, raised domed boss in the centre, the wooden disc showing at the edge; no spikes, emblem, crest, text, kite or heater shape, no sword; linework and copper palette match CopperBracers",
+  "finished": "C:/Users/jared/AppData/Local/Temp/claude/c--Users-jared-Raptor-Studios-CSFF-Mods/1aacf203-6277-4478-8f52-3a0ce6bcee37/scratchpad/art/CopperShield_refs/CopperShield__1.png",
+  "shipped": "Resource/Picture/CopperShield.png (candidate 1, sha256 c051916f217f5751bcf1c6caef4481e7dd1b173e7e77b6f0ed4e29b58fe626a7)",
+  "note": "Generated for ACT 1.17.0 (Documentation/Design/ACT_Content_Update_As_Built.md features 4-6) by /create-image-refs Mode A (Item variant), count 1 per job. A new image, so an on-model candidate was copied straight to Resource/Picture (step 9); CardImageWarpData is wired by the session editing the card JSON. The 1 px light rim outside the ink outline is the keyer ramp start (darkest channel 200 = opaque) on an anti-aliased ink edge, the same as SaltCuredMeat.png from this pipeline; it is not paper."
+}

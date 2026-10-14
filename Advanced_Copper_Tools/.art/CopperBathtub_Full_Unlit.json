@@ -1,0 +1,36 @@
+{
+  "target": "CopperBathtub_Full_Unlit.png",
+  "sourceCard": "CardData/Item/CopperBathtub_Full.json, CardData/Location/CopperBathtub_Full_Placed.json, Perk_BathtubKit and Perk_CopperBathtub icons",
+  "subject": "the new empty bathtub filled with still cold pale grey-blue water, firebox dark",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history cbSWjHffnvcLrUWcpKfP",
+  "historyId": "cbSWjHffnvcLrUWcpKfP",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798214145_1a47dfc4_1791798214196_e2a670ee.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "subject (this batch's new CopperBathtub_Empty)",
+      "image": "generation hwaIpSSwVJvGIaKltAtD",
+      "id": "xsmWfMqKV41cGyAdFy4Q",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798034120_e7f4ae0a_1791798034189_6e3175fb.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798214145_1a47dfc4_1791798214196_e2a670ee.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed; 3:2 padded to 2:3 with white",
+  "note": "owner gallery rework 2026-10-12: we should rework this item to match the new stove"
+}

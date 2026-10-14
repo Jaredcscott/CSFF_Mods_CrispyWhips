@@ -8,6 +8,9 @@
     "advanced_copper_tools_wheel_assembly"
   ],
   "AddedCardsWarpType": 3,
+  "AddedCardsStats": [
+    { "Card": "advanced_copper_tools_bucket", "SpecialDurability2": 50, "SpecialDurability4": 100 }
+  ],
   "AddedStartingHours": 0,
   "CardsOnBoardObjectives": [],
   "CheckingNotificationDetails": 0,

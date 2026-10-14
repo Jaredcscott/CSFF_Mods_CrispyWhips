@@ -1,0 +1,135 @@
+{
+  "target": "ToolBelt.png",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "dKQ9dv7CpNfgSNrKb259",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791837666551_04affbe3_1791837666677_058cb756.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery round 4 (2026-10-12): closed circle, buckle fastened (previous generation as content reference). Not yet seen by the owner.",
+  "vanilla_score": 84,
+  "previous": {
+    "target": "ToolBelt.png",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "imageCount": 1,
+      "resolution": "1K",
+      "aspectRatio": "2:3",
+      "autoEnhancePrompt": false
+    },
+    "historyId": "WauAido9hQpCkRykZoRY",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791833197944_5a21a7b2_1791833198065_c0226d00.png",
+    "credits": 20,
+    "generated": "2026-10-12",
+    "note": "Owner gallery round 3 (2026-10-12): regenerate = new content. Two vanilla exemplars as style references, flat-ink prompt. Not yet seen by the owner.",
+    "finishing": [
+      "process_card_art.py",
+      "enclosed pure-white paper keyed on the trimmed image"
+    ],
+    "vanilla_score": 84,
+    "previous": {
+      "target": "ToolBelt.png",
+      "sourceCard": null,
+      "subject": "a broad brown leather tool belt laid in a gentle curve, closed with a hammered copper buckle and studded with copper rivets; tools hang securely from its loops the right way up: a small hammer with its wooden handle pushed DOWN through a loop and its metal head resting ON TOP of the loop, a sickle with its wooden handle down through a loop and its curved blade above the belt, a knife in a leather sheath point-down, and a small leather pouch",
+      "model": "nano-banana-2",
+      "mode": "image2image",
+      "params": {
+        "imageCount": 1,
+        "resolution": "1K",
+        "aspectRatio": "2:3",
+        "autoEnhancePrompt": false
+      },
+      "prompt": "Game card item illustration of a broad brown leather tool belt laid in a gentle curve, closed with a hammered copper buckle and studded with copper rivets; tools hang securely from its loops the right way up: a small hammer with its wooden handle pushed DOWN through a loop and its metal head resting ON TOP of the loop, a sickle with its wooden handle down through a loop and its curved blade above the belt, a knife in a leather sheath point-down, and a small leather pouch. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, tools hanging head-down, tools falling, loose tools beside the belt.",
+      "references": [
+        {
+          "role": "style",
+          "label": "vanilla Knife_Flint (style)",
+          "id": "srLsfbRhzXdoz1JBwH7G",
+          "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Knife_Flint_1791745027495_99236535.png"
+        },
+        {
+          "role": "style",
+          "label": "vanilla Axe_Stone (style)",
+          "id": "ebT0Y8iL0opmjcDS78lT",
+          "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Axe_Stone_1791744833851_a9858d24.png"
+        },
+        {
+          "role": "style",
+          "label": "vanilla Shirt (style)",
+          "id": "kFEFn1TDSAf2jNbgf24Y",
+          "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Shirt_1791745176094_cba1e0d0.png"
+        }
+      ],
+      "historyId": "jqBFmVtk23iUVDn08UvY",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828125357_e3a19382_1791828125389_bd859eef.png",
+      "credits": 20,
+      "generated": "2026-10-12",
+      "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+      "finishing": [
+        "process_card_art.py (GIMP key + trim)",
+        "enclosed pure-white paper keyed on the trimmed image (key_enclosed.py misses it after the 2026-10-11 trim)"
+      ],
+      "vanilla_score": 83,
+      "previous": {
+        "target": "ToolBelt.png",
+        "sourceCard": "CardData/Item/ToolBelt.json",
+        "subject": "a broad warm-brown leather tool belt in a wide open oval, closed with a plain rectangular hammered-copper buckle, six loops and pouches each holding one vanilla tool drawn as its sprite: the Hammer head-down, the knife fully inside its closed sheath, the copper Chisel, the copper Sickle hanging by its blade, the Whetstone in an open pouch, the fire striker and flint in a closed pouch",
+        "model": "nano-banana-2",
+        "mode": "image2image",
+        "params": {
+          "imageCount": 1,
+          "aspectRatio": "3:2",
+          "resolution": "1K",
+          "autoEnhancePrompt": false
+        },
+        "prompt": "full prompt text in OpenArt history ntAUwv2iseQWVWUkWj2X",
+        "historyId": "ntAUwv2iseQWVWUkWj2X",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791823987050_9b1f28e8_1791823987213_b311e86d.png",
+        "credits": 20,
+        "generated": "2026-10-12",
+        "references": [
+          "Hammer",
+          "SheathKnife",
+          "Chisel_Copper",
+          "Sickle_Copper (uploaded AWdZZPSydFzwbn17Nwnf)",
+          "Whetstone (Cazb1zQZ8TA2QZM3h2me)",
+          "FireStriker_Iron_Flint (ZfIMIqaJsZ0f6nfN6Scn)"
+        ],
+        "candidates": [
+          {
+            "n": "A",
+            "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791823987050_9b1f28e8_1791823987213_b311e86d.png",
+            "verdict": "accepted: matches the owner note"
+          }
+        ],
+        "picked": "A",
+        "predicted": "A",
+        "finish": "keyed; 3:2 padded to 2:3 with white; paper inside the belt keyed with key_enclosed.py (1 region), then trim_card_art.py; dark preview read: no halo",
+        "note": "owner gallery rework pass 3 2026-10-12: \"more vanilla tooling slots at least 6 tool slots\". The card now has 6 InventorySlots and also accepts sickles, spoon augers, fire strikers, the whetstone and metal/bone needles; the picture shows six vanilla tools.",
+        "finishing": "Generated 3:2, padded to 2:3 with white, process_card_art (keyed), then the paper inside the belt oval and the sickle curve keyed by a flood fill of enclosed near-white areas of 300 px or more (3 areas), then defringe.py, then trim_card_art --apply (477x285 palette, 24.7 KB).",
+        "previous": {
+          "subject": "a broad warm-brown leather belt in an open oval with a plain rectangular copper buckle, carrying three vanilla tools in leather loops: the vanilla Hammer, the vanilla SheathKnife (knife fully inside its closed leather sheath) and the vanilla Copper Chisel",
+          "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804617659_878b378c_1791804617703_d69d6c3d.png",
+          "historyId": "7zKeZIt4nv7RHsJDTbly",
+          "generated": "2026-10-12",
+          "note": "owner gallery rework pass 2 2026-10-12: more vanilla tools: the belt now carries the vanilla Hammer, SheathKnife and Copper Chisel (three of the tool kinds the belt accepts); the old belt image was not passed as a reference. OpenArt history lists only the first two input images, so the chisel reference may not have reached the model (the chisel drawn matches it regardless)",
+          "candidates": [
+            {
+              "n": "A",
+              "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804617659_878b378c_1791804617703_d69d6c3d.png"
+            }
+          ],
+          "picked": "A",
+          "predicted": "A"
+        }
+      }
+    }
+  }
+}

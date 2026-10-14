@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_wheel_assembly",
     "LocalizationKey": "Advanced_Copper_Tools_WheelAssembly_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From metal hub and wooden wheel. \n\n<b>Uses:</b> Component for wheelbarrow construction."
+    "DefaultText": "<b>Crafted:</b> From a wheel rim, a wheel hub, 1 wood and 1 tin solder with a hammer. \n\n<b>Uses:</b> Component for wheelbarrow construction."
   },
   "CardImage": {
     "m_FileID": 0,

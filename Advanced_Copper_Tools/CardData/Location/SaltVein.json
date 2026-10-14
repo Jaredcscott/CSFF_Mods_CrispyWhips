@@ -16,7 +16,7 @@
   "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "act_tin_vein",
+  "CardImageWarpData": "act_salt_vein",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 2,
@@ -97,7 +97,7 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [ "HittingStone" ],
       "ActionSoundsWarpType": 3,
-      "RequiredStatValues": [],
+      "RequiredStatValues": [ { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "79290cafb08e48f4d871704c20e69b1c", "StatWarpType": 3, "TriggerRange": { "x": 10.0, "y": 100.0 }, "NotifyWhenNotMet": true, "HideAllWhenNotMet": false } ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],
@@ -145,7 +145,7 @@
       "ActionDescription": {
         "ParentObjectID": "act_salt_vein",
         "LocalizationKey": "Advanced_Copper_Tools_SaltVein_MineRough_ActionDescription",
-        "DefaultText": "Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one salt per strike."
+        "DefaultText": "Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe, yielding one salt per strike."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -155,7 +155,7 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [ "HittingStone" ],
       "ActionSoundsWarpType": 3,
-      "RequiredStatValues": [],
+      "RequiredStatValues": [ { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "79290cafb08e48f4d871704c20e69b1c", "StatWarpType": 3, "TriggerRange": { "x": 10.0, "y": 100.0 }, "NotifyWhenNotMet": true, "HideAllWhenNotMet": false } ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],

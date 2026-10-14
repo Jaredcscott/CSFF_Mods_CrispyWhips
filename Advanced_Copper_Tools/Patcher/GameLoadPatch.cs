@@ -58,6 +58,8 @@ namespace Advanced_Copper_Tools.Patcher
                 VanillaFireKettlePatch.InjectKettleSlots(allData);
                 PatchNailInterchangeability(allData);
                 PatchSheetInterchangeability(allData);
+                HammerGroupPatch.Populate(allData);
+                MineDarknessPatch.Apply(allData);
             }
             catch (Exception ex)
             {
@@ -65,74 +67,50 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        // Makes every blueprint/improvement element that requires copper nails also accept iron
-        // nails, and — since WDI's rivets are the same fastener commodity under a different mod
-        // (root CLAUDE.md §Soft-dep doctrine, R-mechanism ALT) — WDI's Copper/Iron Rivet too.
-        // Additionally, iron-tier armor slots (which require iron nails) also accept copper nails
-        // and rivets, so players can use whichever fastener tier they have available. Delegates to
-        // the framework's shared helper (CSFFModFramework.Api.BlueprintAlternates), which
-        // accumulates across repeated calls for the same primary (framework 2.17.0+) instead of
-        // clobbering, so all alternates end up accepted on the same slot. WDI's UIDs are
-        // referenced directly as plain strings — AddAlternateIngredient no-ops when WDI isn't
-        // installed.
+        // Every nail slot in the game requires the one Metal Nail card (advanced_copper_tools_copper_nails,
+        // the UID kept from when it was the Copper Nail; ACT 1.18.0 folded the Iron Nail into it as Metal
+        // Type 200). A nail of any metal works in every recipe, so no nail slot reads the Metal Type. Each
+        // nail slot also accepts the retired act_iron_nail, which an old save can still hold for the quarter
+        // hour before it reforges itself into a Metal Nail. Delegates to the framework's shared helper
+        // (CSFFModFramework.Api.BlueprintAlternates), which logs its own summary line.
+        // WDI's rivets and Alloy Solder are no longer alternates: WaterDrivenInfrastructure 1.12.3 retired them
+        // for the shared Metal Nail and Tin Solder (they reforge themselves into those within a tick), so every
+        // WDI fastener slot names the shared cards and ACT has nothing of WDI's left to accept.
         private static void PatchNailInterchangeability(IEnumerable allData)
         {
-            const string CopperNailUid = "advanced_copper_tools_copper_nails";
-            const string IronNailUid = "act_iron_nail";
-            const string WdiCopperRivetUid = "water_sawmill_copper_rivet";
-            const string WdiIronRivetUid = "water_sawmill_iron_rivet";
+            const string MetalNailUid = "advanced_copper_tools_copper_nails";
+            const string RetiredIronNailUid = "act_iron_nail";
 
-            // BlueprintAlternates already logs its own Info-level summary line.
-            // Copper nail slots accept all fastener types.
             CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, CopperNailUid, IronNailUid, "ACT Copper Nail / Iron Nail");
-            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, CopperNailUid, WdiCopperRivetUid, "ACT Copper Nail / WDI Copper Rivet");
-            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, CopperNailUid, WdiIronRivetUid, "ACT Copper Nail / WDI Iron Rivet");
-            
-            // Iron nail slots (armor) also accept copper nails and rivets — all fasteners are
-            // cross-compatible regardless of metal tier or mod source.
-            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, IronNailUid, CopperNailUid, "ACT Iron Nail / Copper Nail");
-            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, IronNailUid, WdiCopperRivetUid, "ACT Iron Nail / WDI Copper Rivet");
-            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, IronNailUid, WdiIronRivetUid, "ACT Iron Nail / WDI Iron Rivet");
-            
-            PatchSolderInterchangeability(allData);
+                allData, MetalNailUid, RetiredIronNailUid, "ACT Metal Nail / retired Iron Nail");
         }
 
-        // Makes every blueprint/improvement element that requires tin solder also accept WDI's
-        // alloy solder. Both solders are generic fasteners; ACT's tin solder is crafted from tin
-        // ore (cave expedition cost), WDI's alloy solder is crafted from copper nuggets (cheaper).
-        // With both mods installed, a player can use whichever they have available. WDI's UID is
-        // referenced as a plain string — AddAlternateIngredient no-ops when WDI isn't installed.
-        private static void PatchSolderInterchangeability(IEnumerable allData)
-        {
-            const string TinSolderUid = "act_tin_solder";
-            const string WdiAlloySolderUid = "water_sawmill_alloy_solder";
+        // The iron recipes, the only blueprints whose sheet slot gates the Metal Sheet to Metal Type 200.
+        private static readonly string[] IronSheetBlueprintUids = {
+            "act_bp_iron_helmet",
+            "act_bp_iron_gauntlets",
+            "act_bp_iron_greaves",
+            "act_bp_iron_breastplate_m",
+            "act_bp_iron_breastplate_f",
+            "act_bp_iron_shield",
+            "act_bp_iron_large_saw",
+        };
 
-            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, TinSolderUid, WdiAlloySolderUid, "ACT Tin Solder / WDI Alloy Solder");
-        }
-
-        // Same-tier, cross-mod acceptance for sheet material: ACT's Copper/Iron Sheet slots also
-        // accept WDI's Cast Copper/Iron Sheet. Unlike nails (a generic fastener, interchangeable
-        // across tiers by ACT's own design), sheets stay tier-locked — Iron Sheet only pairs with
-        // WDI's Cast Iron Sheet, not the copper one — so iron-tier armor still requires iron-tier
-        // material. Soft: no-ops when WaterDrivenInfrastructure isn't installed.
+        // Sheets stay tier-locked, unlike nails: every sheet slot requires the one Metal Sheet card and
+        // its own Special4 (Metal Type) gate picks the metal. An alternate card passes that gate only by
+        // its OWN Special4, and a card whose Special4 is inactive passes every gate
+        // (.decomp/DurabilitiesConditions.cs skips an inactive stat), so the retired act_iron_sheet (Metal
+        // Type 200, held by an old save for the quarter hour before it reforges itself) is allow-listed to
+        // the iron recipes only (AddAlternateIngredientIn, framework 2.28.0).
+        // WDI's Cast Copper Sheet and Cast Iron Sheet are no longer alternates: WaterDrivenInfrastructure 1.12.3
+        // retired them for the shared Metal Sheet (they reforge themselves into it within a tick).
         private static void PatchSheetInterchangeability(IEnumerable allData)
         {
-            const string CopperSheetUid = "advanced_copper_tools_metal_sheet";
-            const string IronSheetUid = "act_iron_sheet";
-            const string WdiCastCopperSheetUid = "water_sawmill_cast_metal_sheet";
-            const string WdiCastIronSheetUid = "water_sawmill_cast_iron_sheet";
+            const string MetalSheetUid = "advanced_copper_tools_metal_sheet";
+            const string RetiredIronSheetUid = "act_iron_sheet";
 
-            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, CopperSheetUid, WdiCastCopperSheetUid, "ACT Copper Sheet / WDI Cast Copper Sheet");
-            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
-                allData, IronSheetUid, WdiCastIronSheetUid, "ACT Iron Sheet / WDI Cast Iron Sheet");
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredientIn(
+                allData, MetalSheetUid, RetiredIronSheetUid, IronSheetBlueprintUids, "ACT Metal Sheet (iron recipes) / retired Iron Sheet");
         }
 
         // Every ACT armor item, all three tiers. The save/reload + encounter repair below is not
@@ -147,11 +125,26 @@ namespace Advanced_Copper_Tools.Patcher
             "act_bronze_breastplate",
             "act_bronze_gauntlets",
             "act_bronze_greaves",
+            "act_ghostbronze_helmet",
+            "act_ghostbronze_breastplate",
+            "act_ghostbronze_gauntlets",
+            "act_ghostbronze_greaves",
+            "act_tin_helmet",
+            "act_tin_breastplate",
+            "act_tin_gauntlets",
+            "act_tin_greaves",
+            "act_whitebronze_helmet",
+            "act_whitebronze_breastplate",
+            "act_whitebronze_gauntlets",
+            "act_whitebronze_greaves",
             "act_iron_helmet",
             "act_iron_breastplate_f",
             "act_iron_breastplate_m",
             "act_iron_gauntlets",
             "act_iron_greaves",
+            "act_copper_shield",
+            "act_iron_shield",
+            "act_ghostbronze_shield",
         };
 
         private static readonly System.Collections.Generic.HashSet<string> ArmorUidSet =
@@ -162,7 +155,7 @@ namespace Advanced_Copper_Tools.Patcher
         private static Action _gmInitializedHandler;
 
         // Per-cause warn-once for the RepairArmorCards reflection chain. Reflect.GetMember
-        // returns null (no log) on a member-not-found — a game-update rename would otherwise
+        // returns null (no log) on a member-not-found; a game-update rename would otherwise
         // fail the whole armor-repair feature with zero log output. Keyed per cause, not a
         // single shared bool, so the first rename to trip doesn't silence a later, different one.
         private static readonly System.Collections.Generic.HashSet<string> _warnedArmorRepairCauses =
@@ -217,7 +210,7 @@ namespace Advanced_Copper_Tools.Patcher
 
             try
             {
-                var gmType = AccessTools.TypeByName("GameManager");
+                var gmType = CardUtil.FindGameType("GameManager");
                 var field = gmType?.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
                 if (field == null || field.FieldType != typeof(Action))
                 {
@@ -243,7 +236,7 @@ namespace Advanced_Copper_Tools.Patcher
             if (!_subscribedToGmInitialized || _gmInitializedHandler == null) return;
             try
             {
-                var gmType = AccessTools.TypeByName("GameManager");
+                var gmType = CardUtil.FindGameType("GameManager");
                 var field = gmType?.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
                 if (field != null && field.FieldType == typeof(Action))
                 {
@@ -291,7 +284,7 @@ namespace Advanced_Copper_Tools.Patcher
             var armorCards = Reflect.GetMember(gameManager, "ArmorCards") as System.Collections.IList;
             if (armorCards == null)
             {
-                WarnArmorRepairOnce("ArmorCards-null", "RepairArmorCards: GameManager.ArmorCards not found (reflection miss) — modded armor combat/save-load repair disabled. Possible field rename after a game update.");
+                WarnArmorRepairOnce("ArmorCards-null", "RepairArmorCards: GameManager.ArmorCards not found (reflection miss) - modded armor combat/save-load repair disabled. Possible field rename after a game update.");
                 return 0;
             }
 
@@ -325,7 +318,11 @@ namespace Advanced_Copper_Tools.Patcher
 
         private static int AddArmorFromList(IEnumerable cards, System.Collections.IList armorCards, System.Collections.Generic.List<object> modArmorCards)
         {
-            if (cards == null) return 0;
+            if (cards == null)
+            {
+                WarnArmorRepairOnce("AllCards-null", "AddArmorFromList: CardFinder.AllCards() returned null; board armor repair skipped (only equipped armor is repaired).");
+                return 0;
+            }
 
             int added = 0;
             foreach (var card in cards)
@@ -347,14 +344,23 @@ namespace Advanced_Copper_Tools.Patcher
         private static void RefreshArmorPassiveEffects(System.Collections.Generic.List<object> modArmorCards)
         {
             var host = Plugin.Instance;
-            if (host == null) return;
+            if (host == null)
+            {
+                WarnArmorRepairOnce("RefreshHost-null", "RefreshArmorPassiveEffects: Plugin.Instance was null; armor passive effects not refreshed on save-load.");
+                return;
+            }
 
             foreach (var card in modArmorCards)
             {
                 try
                 {
                     var update = AccessTools.Method(card.GetType(), "UpdatePassiveEffects");
-                    var routine = update?.Invoke(card, null) as IEnumerator;
+                    if (update == null)
+                    {
+                        WarnArmorRepairOnce("UpdatePassiveEffects-null", "RefreshArmorPassiveEffects: UpdatePassiveEffects not found (reflection miss) - armor passive effects not refreshed on save-load. Possible method rename after a game update.");
+                        continue;
+                    }
+                    var routine = update.Invoke(card, null) as IEnumerator;
                     if (routine != null) host.StartCoroutine(routine);
                 }
                 catch (Exception ex) { Logger?.LogError($"[ACT] RefreshPassiveEffects failed: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
@@ -405,8 +411,15 @@ namespace Advanced_Copper_Tools.Patcher
 
         private static string GetCardUid(object cardObject)
         {
+            // A null card or a null CardModel is routine (an empty equipment slot, a pooled card),
+            // so only a live model with no readable UniqueID is reported: that is a rename, and it
+            // would make every armor card silently miss ArmorUidSet.
             var model = Reflect.GetMember(cardObject, "CardModel");
-            return Reflect.GetMember(model, "UniqueID") as string;
+            if (model == null) return null;
+            var uid = Reflect.GetMember(model, "UniqueID") as string;
+            if (uid == null)
+                WarnArmorRepairOnce("UniqueID-null", "GetCardUid: CardModel.UniqueID not readable (reflection miss) - armor cards cannot be identified, repair disabled. Possible field rename after a game update.");
+            return uid;
         }
     }
 }

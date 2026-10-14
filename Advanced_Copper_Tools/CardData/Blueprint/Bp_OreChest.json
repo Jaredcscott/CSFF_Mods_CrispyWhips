@@ -3,12 +3,12 @@
   "CardName": {
     "ParentObjectID": "advanced_copper_tools_bp_ore_chest",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_OreChest_CardName",
-    "DefaultText": "Ore Chest"
+    "DefaultText": "Ore Bin"
   },
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_ore_chest",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_OreChest_CardDescription",
-    "DefaultText": "Build a high-capacity sealed metal crate for bulk ore, stone, and salt. Requires 6 metal sheets, 4 planks, 8 copper nails, and a hammer."
+    "DefaultText": "Build a high-capacity open-topped metal bin for mined ore: greenstone, bog iron, tin ore and flint. Requires 6 metal sheets, 4 planks, 8 copper nails, 1 tin solder, and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -101,7 +101,7 @@
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Copper_Chest",
+  "CardImageWarpData": "OreChest",
   "CardImageWarpType": 3,
   "BlueprintUnlockTicksCost": 64.0,
   "ResearchedNotification": 0

@@ -1,0 +1,42 @@
+{
+  "target": "Tea_Station_Kit.png",
+  "sourceCard": "CardData/Item/TeaBlendingStationKit.json (also Bp_TeaBlendingStation, Perk_TeaBlendingStation icon)",
+  "subject": "a kit box in the WDI kit layout, titled TEA STATION KIT, with the new tea station as its box art",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history z5NK5pENEFKLMN6mA89O",
+  "historyId": "z5NK5pENEFKLMN6mA89O",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798212071_2797db59_1791798212137_7cc79cd9.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "kit box layout",
+      "image": "WaterDrivenInfrastructure Resource/Picture/SawmillKit.png",
+      "id": "2UgsQnwYIa2DeVWlSmpx",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/SawmillKit_1791539240019_5e25906f.png"
+    },
+    {
+      "role": "subject (this batch's new Tea_Station_Placed)",
+      "image": "generation upDQdaLThIJVVthAjeR1",
+      "id": "ZRsvuQ4NrBZ5diYCVunZ",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798034204_3e2a1eeb_1791798034252_bde195db.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798212071_2797db59_1791798212137_7cc79cd9.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed",
+  "note": "owner gallery rework 2026-10-12: lets use the Chiwei image for the stove"
+}

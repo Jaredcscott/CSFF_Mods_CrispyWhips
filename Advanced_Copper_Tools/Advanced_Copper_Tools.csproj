@@ -32,6 +32,8 @@
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
         <Content Include="MapMod.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('MapMod.json')" />
         <Content Include="SmeltingRecipes.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('SmeltingRecipes.json')" />
+        <Content Include="GameStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameStat\%(Filename)%(Extension)" />
+        <Content Include="ScriptableObject\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="WorldMap\**\*.*" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 

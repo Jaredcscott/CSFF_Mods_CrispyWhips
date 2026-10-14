@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_cast_wheel_hub",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CastWheelHub_CardDescription",
-    "DefaultText": "Cast a wheel hub using a small molten crucible."
+    "DefaultText": "Cast a wheel hub from a small molten crucible in a mold of 2 mud bricks and 2 clay. The crucible is not used up."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

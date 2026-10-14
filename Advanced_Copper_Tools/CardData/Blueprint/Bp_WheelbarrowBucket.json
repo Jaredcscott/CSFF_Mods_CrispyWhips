@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_bucket",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardDescription",
-    "DefaultText": "Combine 8 metal sheets into a wheelbarrow bucket."
+    "DefaultText": "Combine 8 metal sheets and 1 tin solder into a wheelbarrow bucket. Requires a hammer. Takes copper, tin or bronze sheets, not iron."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -18,6 +18,7 @@
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
+  "IngredientDurabilityAveragesReplaceResultDurabilities": true,
   "CardsOnBoard": [
     {
       "ObjectiveName": "HasCopper",
@@ -60,7 +61,8 @@
             "MaskValue": 448
           },
           "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-          "RequiredCardWarpType": 3
+          "RequiredCardWarpType": 3,
+          "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 140.0 }
         },
         {
           "RequiredCard": {

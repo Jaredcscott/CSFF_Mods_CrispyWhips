@@ -8,13 +8,13 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_wheel_rim",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelRim_CardDescription",
-        "DefaultText": "Hammer a heated lump of metal into a wheel rim."
+        "DefaultText": "Hammer a copper bar into a wheel rim."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "advanced_copper_tools_bp_wheel_rim",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelRim_UnlockConditionsDesc",
-        "DefaultText": "Heated Lump of Metal Needed"
+        "DefaultText": "Copper Bar Needed"
     },
     "BuildingStatConditions": [],
     "StartUnlocked": false,

@@ -1,0 +1,145 @@
+{
+  "UniqueID": "act_bedwarming_pan_hot",
+  "CardName": {
+    "ParentObjectID": "act_bedwarming_pan_hot",
+    "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_Hot_CardName",
+    "DefaultText": "Hot Bedwarming Pan"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_bedwarming_pan_hot",
+    "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_Hot_CardDescription",
+    "DefaultText": "A copper pan full of glowing embers. Tuck it into your bed to sleep warmer. The embers die in about ten hours and the pan goes cold."
+  },
+  "CardType": 0,
+  "ObjectWeight": 150.0,
+  "TradingValue": 120.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Preservable", "tag_Bedding"],
+  "CardTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "BedwarmingPan_Hot",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["FireIgnite"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 40.0,
+    "CardStatName": {
+      "ParentObjectID": "act_bedwarming_pan_hot",
+      "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_Hot_FuelCapacity_CardStatName",
+      "DefaultText": "Embers"
+    },
+    "MaxValue": 40.0,
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "ShowPopupOnZero": false,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Flame",
+    "OverrideIconWarpType": 3,
+    "OnZero": {
+      "ActionName": {
+        "ParentObjectID": "act_bedwarming_pan_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_Hot_EmbersOut_ActionName",
+        "DefaultText": "Embers Die"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_bedwarming_pan_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_Hot_EmbersOut_ActionDescription",
+        "DefaultText": "The embers have burned down to grey ash and the pan has gone cold."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "act_bedwarming_pan",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Warmth when Sleeping",
+      "OnlyWhenEquipped": false,
+      "OnlyWhenInHand": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 2,
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+            "StatWarpType": 3,
+            "TriggerRange": { "x": 1.0, "y": 999.0 },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          },
+          {
+            "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+            "StatWarpType": 3,
+            "TriggerRange": { "x": -100.0, "y": 85.0 },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "StatModifiers": [
+        {
+          "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 3.0, "y": 3.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_render_hemp_oil",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_RenderHempOil_CardDescription",
-        "DefaultText": "Cook down hemp seed oil over a fire to produce clean lamp oil."
+        "DefaultText": "Cook down hemp seed oil into clean lamp oil."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {

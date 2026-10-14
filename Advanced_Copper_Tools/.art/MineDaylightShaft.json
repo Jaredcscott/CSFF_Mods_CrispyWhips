@@ -1,0 +1,68 @@
+{
+  "target": "MineDaylightShaft.png",
+  "sourceCard": "CardData/Location/MineDaylightShaft.json",
+  "subject": "inside a dark blue-grey mine tunnel, one thin column of pale daylight falling from a small ragged hole in the ceiling onto a small rubble heap; nothing else",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history J7Og3FldoJq9NrmxAWUS",
+  "historyId": "J7Og3FldoJq9NrmxAWUS",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798036674_c5efb1ed_1791798036745_6264bf64.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "style",
+      "image": "vanilla Tunnel_Shaft (reference library)",
+      "id": "J1XFtDinPxFyJP32gM94",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_Shaft_1791700797087_f5e37c6b.png"
+    },
+    {
+      "role": "style (sibling mine art)",
+      "image": "Resource/Picture/ACT_CollapsedWall.png",
+      "id": "jP3NYUp9FFdRqFHJhlaO",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ACT_CollapsedWall_1791797805476_ee346b03.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798036674_c5efb1ed_1791798036745_6264bf64.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed (like its sibling mine cards ACT_CollapsedWall and the veins)",
+  "note": "owner gallery rework 2026-10-12: tacky needs to be regenerated.",
+  "previous": {
+    "target": "MineDaylightShaft.png",
+    "sourceCard": "MineDaylightShaft",
+    "subject": "a single thin column of pale daylight falling straight down from one small ragged hole in a dark rock cave ceiling onto a little patch of grey rubble on the cave floor; the beam is narrow and soft pale gold; the rock around it is dark grey-brown stone in shadow; nothing else: no people, no tools, no lantern, no fire, no water, no plants",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Hand-painted watercolor-and-ink game item illustration of a single thin column of pale daylight falling straight down from one small ragged hole in a dark rock cave ceiling onto a little patch of grey rubble on the cave floor; the beam is narrow and soft pale gold; the rock around it is dark grey-brown stone in shadow; nothing else: no people, no tools, no lantern, no fire, no water, no plants, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, people, tools, lantern, fire, water, plants.",
+    "historyId": "POmDP0eK5wvJSqDWO64S",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790954776279_cf138fca_1790954776874_9380ec44.png",
+    "credits": 30,
+    "processed": {
+      "size": [
+        512,
+        768
+      ],
+      "transparent_pct": 45.2,
+      "opaque_white_border_pct": 0.0
+    },
+    "generated": "2026-10-02"
+  }
+}

@@ -1,15 +1,13 @@
-﻿Advanced_Copper_Tools_CopperNails_CardName,Copper Nail,铜钉
-Advanced_Copper_Tools_CopperNails_CardDescription,"A small copper nail, perfect for joining wood.",一枚小铜钉，非常适合连接木材。
-Advanced_Copper_Tools_Oil_CardName,Oil,油脂
+﻿Advanced_Copper_Tools_Oil_CardName,Oil,油脂
 Advanced_Copper_Tools_Oil_CardDescription,Rendered animal fat collected in a clay bowl. A rich food source that also burns as clean lamp fuel.,从动物脂肪中提炼、收集在陶碗中的油脂。既是富含营养的食物，也可作为清洁的灯油。
-Advanced_Copper_Tools_Oil_CardHelpSection,"<b>Crafted:</b> By rendering 2 animal fat in a clay bowl over any fire.
+Advanced_Copper_Tools_Oil_CardHelpSection,"<b>Crafted:</b> By rendering 2 animal fat or 2 fatty fish meat in a clay bowl.
 
-<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern or oil flask as lamp fuel.","<b>制作：</b> 在任何火源上将2块动物脂肪放入陶碗中熬制。
+<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern, brazier or oil flask as lamp fuel. Any other lamp oil in a clay bowl works as fuel too. Each bowl is worth 48 fuel: 12 hours in a lit oilwell, 24 in a ceramic lamp, 27.6 in a metal lantern.","<b>制作：</b> 将2块动物脂肪或2块肥鱼肉放入陶碗中熬制。
 
-<b>用途：</b> 饮用补充营养（返回空陶碗），或倒入提灯或油瓶作为灯油。"
+<b>用途：</b> 饮用补充营养（返回空陶碗），或倒入提灯、火盆或油瓶作为灯油。其他装在陶碗中的灯油同样可作燃料。每碗油价值48点燃料：在点燃的提灯油井中可燃烧12小时，在陶灯中可燃烧24小时，在金属提灯中可燃烧27.6小时。"
 Advanced_Copper_Tools_Oil_Drink_ActionName,Drink,饮用
 Advanced_Copper_Tools_Bp_Oil_CardName,Rendered Oil,熬制油脂
-Advanced_Copper_Tools_Bp_Oil_CardDescription,Render 2 animal fat in a clay bowl over a fire to produce cooking oil and lamp fuel.,将2块动物脂肪放入陶碗置于火上熬制，制成烹饪油和灯油。
+Advanced_Copper_Tools_Bp_Oil_CardDescription,Render 2 animal fat in a clay bowl to produce cooking oil and lamp fuel.,将2块动物脂肪放入陶碗熬制，制成烹饪油和灯油。
 Advanced_Copper_Tools_Bp_Oil_UnlockConditionsDesc,Animal Fat Needed,需要动物脂肪
 Advanced_Copper_Tools_MetalLantern_Refuel_ActionName,Refuel with Oil,用油补充燃料
 Advanced_Copper_Tools_MetalLantern_Refuel_ActionDescription,Poured oil into the lantern.,向提灯中倒入油脂。
@@ -31,11 +29,11 @@ Advanced_Copper_Tools_MetalLantern_Lit_Place_ActionDescription,Set the lit lante
 Advanced_Copper_Tools_MetalLantern_PickUp_ActionName,Pick Up,拾起
 Advanced_Copper_Tools_MetalLantern_PickUp_ActionDescription,Pick up the lantern and carry it.,拾起提灯并携带。
 Advanced_Copper_Tools_MetalLantern_PickUpLit_ActionDescription,Pick up the lit lantern and carry it.,拾起已点燃的提灯并携带。
-Advanced_Copper_Tools_MetalLantern_CardHelpSection,<b>Usage:</b> Add oil or other fuel to keep the lantern lit.,<b>用途：</b> 添加油脂，然后用任何火源点燃以照亮区域。
+Advanced_Copper_Tools_MetalLantern_CardHelpSection,"<b>Usage:</b> Add any lamp oil, then light from any fire source to illuminate the area. Each clay bowl of oil adds 55 fuel (the lantern turns oil into fuel 15% better than a ceramic lamp) and you get the bowl back; two bowls fill the lantern for 48 hours of light.",<b>用法：</b>加入任意灯油，然后用任何火源点燃以照亮周围。每碗油增加55点燃料（金属提灯的油转燃料效率比陶灯高15%），陶碗会退还；两碗即可装满提灯，持续照明48小时。
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription,A lit copper lantern burning oil to illuminate the area. Extinguish before refueling.,一盏正在燃烧油脂以照亮区域的铜提灯。补充燃料前需先熄灭。
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardHelpSection,<b>Usage:</b> Provides light to the surrounding area while lit. Extinguish to refuel.,<b>用途：</b> 点燃时为周围区域提供照明。熄灭后补充燃料。
 Advanced_Copper_Tools_Bucket_CardName,Wheelbarrow Bucket,手推车桶
-Advanced_Copper_Tools_Bucket_CardDescription,A sturdy metal bucket formed from metal lumps. The main cargo area of a wheelbarrow.,由金属锭制成的坚固金属桶。手推车的主要货仓部分。
+Advanced_Copper_Tools_Bucket_CardDescription,A sturdy metal bucket hammered from metal sheets. The main cargo area of a wheelbarrow.,由金属片锤打成的坚固金属桶。手推车的主要货仓部分。
 Advanced_Copper_Tools_Handles_CardName,Wheelbarrow Handles,手推车把手
 Advanced_Copper_Tools_Handles_CardDescription,Two sturdy wooden handles for gripping and lifting a wheelbarrow.,两根用于握持和提起手推车的坚固木把手。
 Advanced_Copper_Tools_WheelAssembly_CardName,Wheel Assembly,车轮总成
@@ -43,29 +41,27 @@ Advanced_Copper_Tools_WheelAssembly_CardDescription,A complete wheel with metal 
 Advanced_Copper_Tools_Wheelbarrow_CardName,Wheelbarrow,手推车
 Advanced_Copper_Tools_Wheelbarrow_CardDescription,A sturdy wheelbarrow for hauling heavy loads.,一辆用于搬运重物的坚固手推车。
 Advanced_Copper_Tools_Bp_Wheelbarrow_CardName,Wheelbarrow,手推车
-Advanced_Copper_Tools_Bp_Wheelbarrow_CardDescription,"Construct a wheelbarrow for hauling heavy loads. Requires a bucket, handles, and wheel assembly.",用桶、把手和车轮总成建造一辆手推车用于搬运重物。需要锤子。
-Advanced_Copper_Tools_Bp_CopperNails_CardName,Forged Copper Nail,锻造铜钉
-Advanced_Copper_Tools_Bp_CopperNails_CardDescription,Hammer a heated copper nugget into a copper nail.,将加热的铜块锤打成铜钉。
+Advanced_Copper_Tools_Bp_Wheelbarrow_CardDescription,"Construct a wheelbarrow for hauling heavy loads. Requires a bucket, handles, a wheel assembly and a Tin Solder.",用桶、把手、车轮总成和锡焊料建造一辆手推车用于搬运重物。
 Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardName,Wheelbarrow Bucket,手推车桶
-Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardDescription,Combine 8 metal sheets into a wheelbarrow bucket.,将8块金属片组合成一个手推车桶。
+Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardDescription,"Combine 8 metal sheets and 1 tin solder into a wheelbarrow bucket. Requires a hammer. Takes copper, tin or bronze sheets, not iron.",将8块金属片和1块焊锡组合成一个手推车桶。需要锤子。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_Handles_CardName,Wheelbarrow Handles,手推车把手
-Advanced_Copper_Tools_Bp_Handles_CardDescription,"Craft wheelbarrow handles from planks, small leather, and long sticks.",用木板、小块皮革和长棍制作手推车把手。
+Advanced_Copper_Tools_Bp_Handles_CardDescription,"Craft wheelbarrow handles from 3 planks, 2 small leather, 2 long sticks and 4 copper nails. Requires a knife and a hammer.",用3块木板、2块小皮革、2根长棍和4颗铜钉制作手推车把手。需要小刀和锤子。
 Advanced_Copper_Tools_Bp_WheelHub_CardName,Forged Wheel Hub,锻造轮毂
-Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Hammer 3 heated copper nuggets into a wheel hub.,将3个加热铜块锤打成轮毂。
+Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Hammer 3 copper nuggets into a wheel hub.,将3个铜块锤打成轮毂。
 Advanced_Copper_Tools_Bp_WheelAssembly_CardName,Wheel Assembly,车轮总成
-Advanced_Copper_Tools_Bp_WheelAssembly_CardDescription,Attach a metal hub to a wooden wheel to create a complete wheel assembly.,将金属轮毂安装到木轮上，制成完整的车轮总成。
+Advanced_Copper_Tools_Bp_WheelAssembly_CardDescription,"Join a wheel rim, a wheel hub and 1 wood with 1 tin solder to make a complete wheel assembly. Requires a hammer.",用轮缘、轮毂、1块木材和1块焊锡制成完整的车轮总成。需要锤子。
 Advanced_Copper_Tools_CopperStove_CardName,Small Copper Stove,小型铜炉
-Advanced_Copper_Tools_CopperStove_CardDescription,A small copper stove. Can be placed as a fireplace with 2 cooking slots.,一个小型铜炉。可以作为带2个烹饪槽的壁炉放置。
-Advanced_Copper_Tools_CopperStove_CardHelpSection,"<b>Crafted:</b> From 4 metal sheets and a cast stove top.
+Advanced_Copper_Tools_CopperStove_CardDescription,"A small copper stove. Placed, it holds cooking like a campfire: one cooking pot or two clay bowls. It keeps its fuel when picked up, and takes about 3 minutes to place or pick up.",一个小型铜炉。放置后可像营火一样容纳烹饪物：一口烹饪锅或两个陶碗。拾起时保留燃料，放置或拾起约需3分钟。
+Advanced_Copper_Tools_CopperStove_CardHelpSection,"<b>Crafted:</b> In two stages: cast the stove top from a small molten crucible, 2 mud bricks and 2 clay, then assemble it from 4 metal sheets of one metal, 4 copper nails and 1 tin solder with a hammer. The stove is the metal of its sheets.
 
-<b>Uses:</b> Place in environment as a fireplace with 2 cooking slots. Accepts oak wood, twigs, or charcoal as fuel. Also a component for the copper bathtub blueprint.","<b>制作：</b> 由4块金属片和一个铸造炉顶制成。
+<b>Uses:</b> Place in environment as a fireplace that holds 600 weight, like a campfire: one cooking pot or two clay bowls. Keeps its fuel and its metal when picked up, and gives Sanctuary while placed: +75 in copper or Tin Bronze, +80 in Ghost Bronze, +65 in Tin, +90 in White Bronze. Accepts oak wood, twigs, or charcoal as fuel. Also a component for the copper bathtub blueprint. Weighs 600; placing it and picking it up take about 3 minutes each.","<b>制作：</b> 分两步制作：先用小型熔融坩埚、2块泥砖和2份黏土铸造炉顶，再用4块同种金属片、4枚铜钉和1块锡焊料配合锤子组装。炉子的金属与所用金属片相同。
 
-<b>用途：</b> 在环境中作为带2个烹饪槽的壁炉放置。接受橡木、树枝或木炭作为燃料。也是铜制浴缸图纸的部件。"
+<b>用途：</b> 在环境中作为壁炉放置，可容纳600重量（与营火相同）：一口烹饪锅或两个陶碗。拾起时保留燃料和金属，放置时提供庇护度：铜或锡青铜+75，幽灵青铜+80，锡+65，白青铜+90。接受橡木、树枝或木炭作为燃料。也是铜制浴缸图纸的部件。重量600；放置和拾起各需约3分钟。"
 Advanced_Copper_Tools_Bp_CopperStove_CardName,Small Copper Stove,小型铜炉
-Advanced_Copper_Tools_Bp_CopperStove_CardDescription,Assemble a small stove from 4 metal sheets and a cast stove top.,用4块金属片和一个铸造炉顶组装一个小炉子。
-Advanced_Copper_Tools_Bp_CopperStove_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
+Advanced_Copper_Tools_Bp_CopperStove_CardDescription,"Stage 1: cast the stove top in a small molten crucible, 2 mud bricks and 2 clay. Stage 2: assemble the stove from 4 metal sheets of one metal, 4 copper nails and a tin solder with a hammer. The stove takes the sheets' metal. Takes copper, tin or bronze sheets, not iron.",第一阶段：用小型熔融坩埚、2块泥砖和2份黏土铸造炉顶。第二阶段：用4块同种金属片、4枚铜钉和1块锡焊料配合锤子组装炉子。炉子采用金属片的金属。只接受铜、锡或青铜片，不接受铁片。
+Advanced_Copper_Tools_Bp_CopperStove_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_Bp_CopperBathtub_CardName,Copper Bathtub,铜制浴缸
-Advanced_Copper_Tools_Bp_CopperBathtub_CardDescription,"Assemble a copper bathtub from a bucket, stove, planks, mud bricks, large cloth, sticks, and leather. Requires a hammer.",用桶、炉子、木板、泥砖、大块布料、棍子和皮革组装铜制浴缸。需要锤子。
+Advanced_Copper_Tools_Bp_CopperBathtub_CardDescription,"Assemble a copper bathtub from a bucket, stove, planks, mud bricks, large cloth, sticks, leather and a Tin Solder. Requires a hammer.",用桶、炉子、木板、泥砖、大块布料、棍子、皮革和锡焊料组装铜制浴缸。需要锤子。
 Advanced_Copper_Tools_Bp_CopperBathtub_UnlockConditionsDesc,Wheelbarrow Bucket and Copper Stove Needed,需要手推车桶和铜炉
 Advanced_Copper_Tools_CopperBathtub_Empty_CardName,Copper Bathtub Kit,铜制浴缸套件
 Advanced_Copper_Tools_CopperBathtub_Empty_CardDescription,An assembled copper bathtub kit. Place it in your camp to set it up then fill with water.,一套组装好的铜制浴缸套件。将其放置在营地中安装，然后注入水。
@@ -83,7 +79,7 @@ Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionDescription,Add fuel to t
 Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionName,Light Fire,点火
 Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionDescription,Light the stove to heat the water.,用火源点燃炉子以加热水。
 Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionName,Take Cold Bath,冷水浴
-Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionDescription,Wash in the cold water. Cleansing but not very comfortable.,在冷水中清洗。能清洁身体但不太舒适。
+Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionDescription,"Wash in the cold water. Cleans a little less than the river does, clears rashes and wolfsbane from your skin, and leaves you wet. Not very comfortable.",在冷水中清洗。清洁效果略逊于河水，能清除皮疹和乌头接触，但会让你浑身湿透，也不太舒适。
 Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionName,Empty Water,倒空水
 Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionDescription,Dump out all the water.,倒出所有的水。
 Advanced_Copper_Tools_CopperBathtub_Warm_CardName,Copper Bathtub (Warm),铜制浴缸（温水）
@@ -92,7 +88,7 @@ Advanced_Copper_Tools_CopperBathtub_Warm_FuelCapacity_CardStatName,Fuel,燃料
 Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionName,Add Firewood,添加柴火
 Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionDescription,Add more fuel to keep the water warm.,添加更多燃料以保持水温。
 Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionName,Warm Bath,温水浴
-Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionDescription,"Soak in the warm water. Very relaxing, cleansing, and warming.",浸泡在温水中。非常放松、清洁且令人温暖。
+Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionDescription,"Soak in the warm water. Very relaxing and warming, and as cleansing as washing in the river: it clears rashes and wolfsbane from your skin. You come out wet, so dry off at a stove or brazier.",浸泡在温水中。非常放松、令人温暖，清洁效果与在河中清洗相当，还能清除皮疹和乌头接触。出浴后身上是湿的，可在炉子或火盆旁烘干。
 Advanced_Copper_Tools_CopperBathtub_Warm_Empty_ActionName,Empty Water,倒空水
 Advanced_Copper_Tools_CopperBathtub_Warm_Empty_ActionDescription,Dump out all the water and extinguish the fire.,倒出所有的水并熄灭火焰。
 Advanced_Copper_Tools_CopperBathtub_Warm_AddKindling_ActionName,Add Kindling,添加引火物
@@ -101,19 +97,19 @@ Advanced_Copper_Tools_CopperBathtub_PickUp_ActionName,Pick Up,拾起
 Advanced_Copper_Tools_CopperBathtub_PickUp_ActionDescription,Pick up the bathtub to carry it in your inventory.,拾起浴缸并携带在背包中。
 Advanced_Copper_Tools_WheelRim_CardName,Wheel Rim,轮缘
 Advanced_Copper_Tools_WheelRim_CardDescription,A metal outer ring that provides strength and durability to a wheel. Essential for heavy-duty use.,为车轮提供强度和耐久度的金属外圈。重型使用所必需。
-Advanced_Copper_Tools_WheelRim_CardHelpSection,"<b>Crafted:</b> Forged from 3 heated copper nuggets.
+Advanced_Copper_Tools_WheelRim_CardHelpSection,"<b>Crafted:</b> Hammered from 1 copper bar.
 
-<b>Uses:</b> Reinforces wooden wheels for durability.","<b>制作：</b> 由3个加热铜块锻造而成。
+<b>Uses:</b> Reinforces wooden wheels for durability.","<b>制作：</b> 由1块铜锭锤打而成。
 
 <b>用途：</b> 增强木轮的耐久性。"
 Advanced_Copper_Tools_Bp_WheelRim_CardName,Forged Wheel Rim,锻造轮缘
-Advanced_Copper_Tools_Bp_WheelRim_CardDescription,Hammer a heated lump of metal into a wheel rim.,将加热的金属锭锤打成轮缘。
+Advanced_Copper_Tools_Bp_WheelRim_CardDescription,Hammer a copper bar into a wheel rim.,将一块铜锭锤打成轮缘。
 Advanced_Copper_Tools_Bp_CastWheelHub_CardName,Cast Wheel Hub,铸造轮毂
-Advanced_Copper_Tools_Bp_CastWheelHub_CardDescription,Cast a wheel hub using a small molten crucible.,用小型熔融坩埚铸造一个轮毂。
+Advanced_Copper_Tools_Bp_CastWheelHub_CardDescription,Cast a wheel hub from a small molten crucible in a mold of 2 mud bricks and 2 clay. The crucible is not used up.,用2块泥砖和2块粘土做模，以小型熔融坩埚浇铸一个轮毂。坩埚不会消耗。
 Advanced_Copper_Tools_Bp_CastWheelHub_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_CopperStove_Lit_CardName,Small Copper Stove (Lit),小型铜炉（已点燃）
 Advanced_Copper_Tools_CopperStove_Lit_CardDescription,A lit copper stove. Burns fuel and provides heat for cooking and warming nearby.,一个已点燃的铜炉。燃烧燃料，为烹饪和取暖提供热量。
-Advanced_Copper_Tools_CopperStove_Lit_CardHelpSection,<b>Usage:</b> A lit stove with 2 cooking slots. Warms you in cold weather. Consumes fuel over time. Goes out when fuel is empty or when manually extinguished.,<b>用途：</b> 带2个烹饪槽的已点燃炉子。在寒冷天气中为您取暖。随时间消耗燃料。当燃料耗尽或手动熄灭时熄火。
+Advanced_Copper_Tools_CopperStove_Lit_CardHelpSection,"<b>Usage:</b> A lit stove that holds 600 weight of cooking, like a campfire, and gives the same Sanctuary as its metal does unlit. Warms you in cold weather, dries you out, keeps bugs down and lights the area, but its fire makes you easier to spot. Consumes fuel over time: a full stove burns about 75 hours in copper or White Bronze, 83 in Ghost Bronze, 60 in Tin and 94 in Tin Bronze. Goes out when fuel is empty or when manually extinguished.",<b>用途：</b> 已点燃的炉子，可容纳600重量的烹饪物（与营火相同），并提供与其金属未点燃时相同的庇护度。在寒冷天气中为您取暖，还能烘干身体、驱除虫害并照亮周围，但炉火会让你更容易被发现。随时间消耗燃料：满燃料时铜或白青铜炉约可燃烧75小时，幽灵青铜83小时，锡60小时，锡青铜94小时。当燃料耗尽或手动熄灭时熄火。
 Advanced_Copper_Tools_CopperStove_Extinguish_ActionName,Fire Goes Out,火焰熄灭
 Advanced_Copper_Tools_CopperStove_Extinguish_ActionDescription,The fire goes out.,火焰熄灭了。
 Advanced_Copper_Tools_CopperStove_Extinguish_Manual_ActionName,Extinguish,熄灭
@@ -129,8 +125,8 @@ Advanced_Copper_Tools_CopperStove_CookCookables_ActionName,Cook Cookables,烹饪
 Advanced_Copper_Tools_CopperStove_HeatContainers_ActionName,Heat up Cooking and Water Containers and Heatables,加热烹饪和水容器及可加热物
 Advanced_Copper_Tools_CopperStove_BoilLiquids_ActionName,Heats up and Boils Liquids,加热并沸腾液体
 Advanced_Copper_Tools_CopperCauldron_CardName,Copper Cauldron,铜制大锅
-Advanced_Copper_Tools_CopperCauldron_CardDescription,A broad copper cauldron with a large open basin. Place it on a fireplace or fire pit to heat it up and cook or brew several items at once. Holds 30% more liquid than a clay cauldron. Food stored inside spoils 30% slower than normal.,一口宽口铜制大锅，具有宽大的开口盆。将其放置在壁炉或火坑上加热，可同时烹饪或酿造多种物品。容量比陶制大锅多30%。储存在内的食物变质速度比正常慢30%。
-Advanced_Copper_Tools_CopperCauldron_CardHelpSection,"<b>Usage:</b> Fill at a river or lake, then place on a fireplace or fire pit to heat up. Like the clay cauldron, it is too heavy for a campfire. Temperature must reach 100 before cooking or boiling begins. Holds up to 6240 ml of liquid. Copper slows food spoilage by 30% while stored inside.",<b>用途：</b> 在河流或湖泊中注水，然后放置在壁炉或火坑上加热。与粘土大锅一样，它太重，无法放在营火上。温度必须达到100才能开始烹饪或沸腾。最多可容纳6240毫升液体。铜质材料使储存在内的食物变质速度减慢30%。
+Advanced_Copper_Tools_CopperCauldron_CardDescription,A broad copper cauldron with a large open basin. Place it on a fireplace or fire pit to heat it up and cook or brew several items at once. 25% larger than a clay cauldron. Food stored inside spoils 30% slower than normal.,一口宽口铜制大锅，具有宽大的开口盆。将其放置在壁炉或火坑上加热，可同时烹饪或酿造多种物品。比陶制大锅大25%。储存在内的食物变质速度比正常慢30%。
+Advanced_Copper_Tools_CopperCauldron_CardHelpSection,"<b>Usage:</b> Fill at a river or lake, then place on a fireplace or fire pit to heat up. Weighs 600 and is 25% larger than a clay cauldron: 8000 weight of cooking and up to 6000 ml of liquid. Temperature must reach 100 before cooking or boiling begins. Copper slows food spoilage by 30% while stored inside.",<b>用途：</b> 在河流或湖泊中注水，然后放置在壁炉或火坑上加热。重量600，比陶制大锅大25%：可容纳8000重量的烹饪物和最多6000毫升液体。温度必须达到100才能开始烹饪或沸腾。铜质材料使储存在内的食物变质速度减慢30%。
 Advanced_Copper_Tools_CopperCauldron_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperCauldron_Dismantle_ActionDescription,Take apart the cauldron to recover its main components.,拆解大锅以回收其主要部件。
 Advanced_Copper_Tools_CopperCauldron_PickUp_ActionName,Pick Up,拾起
@@ -140,7 +136,7 @@ Advanced_Copper_Tools_CopperCauldron_CookBatch_ActionName,Cook,烹饪
 Advanced_Copper_Tools_CopperCauldron_BrewBatch_ActionName,Boil,煮沸
 Advanced_Copper_Tools_CopperCauldron_BrewBatch_CannotCookText,Needs liquid in the cauldron.,大锅内需要液体。
 Advanced_Copper_Tools_Bp_CopperCauldron_CardName,Copper Cauldron,铜制大锅
-Advanced_Copper_Tools_Bp_CopperCauldron_CardDescription,"Assemble a large copper cauldron from copper sheets, copper nails, and a hammer. Place the finished cauldron on a fireplace or fire pit to cook and brew with its 6240 ml basin.",用铜片、铜钉和锤子组装一口大型铜制大锅。将完成的大锅放置在壁炉或火坑上，用其6240毫升的盆进行烹饪和酿造。
+Advanced_Copper_Tools_Bp_CopperCauldron_CardDescription,"Assemble a large copper cauldron from 5 metal sheets, 4 copper nails, 1 tin solder and a hammer. Place the finished cauldron on a fireplace or fire pit to cook and brew with its 6000 ml basin. Takes copper, tin or bronze sheets, not iron.",用5块金属片、4颗铜钉、1块焊锡和锤子组装一口大型铜制大锅。将完成的大锅放置在壁炉或火坑上，用其6000毫升的盆进行烹饪和酿造。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_CopperCauldron_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
 Advanced_Copper_Tools_CopperStove_Progress_CardStatName,Charcoal,木炭
 Advanced_Copper_Tools_CopperStove_Special1_CardStatName,Ash Amount,灰烬量
@@ -150,22 +146,21 @@ Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_ActionName,Take Charcoal and A
 Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_ActionDescription,Collect charcoal and ash from the stove.,从炉子中收集木炭和灰烬。
 Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_FailMessage,Charcoal not ready yet.,木炭尚未就绪。
 Advanced_Copper_Tools_CopperStove_HasItems,Remove items from the stove first.,先将炉内物品移除。
-Advanced_Copper_Tools_Bp_CopperNails_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
 Advanced_Copper_Tools_Bp_Handles_UnlockConditionsDesc,Plank Needed,需要木板
-Advanced_Copper_Tools_Bp_PanBlank_CardDescription,Hammer 4 heated copper nuggets into a pan blank.,将4个加热铜块锤打成锅坯。
+Advanced_Copper_Tools_Bp_PanBlank_CardDescription,"Hammer a metal sheet into a pan blank. Takes copper, tin or bronze sheets, not iron.",将一块金属片锤打成锅坯。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_PanBlank_CardName,Forged Pan Blank,锻造锅坯
-Advanced_Copper_Tools_Bp_PanBlank_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
+Advanced_Copper_Tools_Bp_PanBlank_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_Bp_WheelAssembly_UnlockConditionsDesc,Wheel Hub Needed,需要轮毂
 Advanced_Copper_Tools_Bp_Wheelbarrow_UnlockConditionsDesc,Wheelbarrow Bucket Needed,需要手推车桶
 Advanced_Copper_Tools_Bp_WheelbarrowBucket_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_Bp_WheelHub_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
-Advanced_Copper_Tools_Bp_WheelRim_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
-Advanced_Copper_Tools_Bucket_CardHelpSection,"<b>Crafted:</b> Hammered from 8 metal sheets.
+Advanced_Copper_Tools_Bp_WheelRim_UnlockConditionsDesc,Copper Bar Needed,需要铜锭
+Advanced_Copper_Tools_Bucket_CardHelpSection,"<b>Crafted:</b> Hammered from 8 metal sheets and 1 tin solder with a hammer.
 
-<b>Uses:</b> Component for wheelbarrow or bathtub construction.","<b>制作：</b> 由8块金属片锤打而成。
+<b>Uses:</b> Component for wheelbarrow or bathtub construction.","<b>制作：</b> 用锤子将8块金属片和1块焊锡锤打而成。
 
 <b>用途：</b> 手推车或浴缸建造的部件。"
-Advanced_Copper_Tools_CastStoveTop_CardDescription,A heavy metal stove top freed from its casting mold.,从铸造模具中取出的厚重金属炉顶。
+Advanced_Copper_Tools_CastStoveTop_CardDescription,A heavy metal stove top freed from its casting mold. The Small Copper Stove now casts its own top: cut this old one up for sheets.,从铸造模具中取出的厚重金属炉顶。小型铜炉现在自行铸造炉顶：可将这个旧炉顶切成金属片。
 Advanced_Copper_Tools_CastStoveTop_CardName,Stove Top,炉顶
 Advanced_Copper_Tools_CopperBathtub_CollectCharcoal_ActionDescription,Collect charcoal from the bathtub fire.,从浴缸炉中收集木炭。
 Advanced_Copper_Tools_CopperBathtub_CollectCharcoal_ActionName,Collect Charcoal,收集木炭
@@ -185,7 +180,7 @@ Advanced_Copper_Tools_CopperBathtub_FeedCharcoal_ActionName,Feed Charcoal,添加
 Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionDescription,Add firewood to heat the bath water.,添加柴火以加热洗澡水。
 Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionName,Feed Fuel,添加燃料
 Advanced_Copper_Tools_CopperBathtub_Full_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath.",<b>用途：</b> 向浴缸中添加柴火，然后用火源点燃以加热水，享受温水浴。
-Advanced_Copper_Tools_CopperBathtub_Full_Placed_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath.",<b>用途：</b> 向浴缸中添加柴火，然后用火源点燃以加热水，享受温水浴。
+Advanced_Copper_Tools_CopperBathtub_Full_Placed_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath. Or take a cold bath now: it cleans a little less than the river, clears rashes and wolfsbane, and leaves you wet.",<b>用途：</b> 向浴缸中添加柴火，然后用火源点燃以加热水，享受温水浴。也可以直接洗冷水浴：清洁效果略逊于河水，能清除皮疹和乌头接触，并让你身上变湿。
 Advanced_Copper_Tools_CopperBathtub_Full_FeedFirewood_ActionName,Feed Firewood,添加柴火
 Advanced_Copper_Tools_CopperBathtub_Full_Light_FailMessage,Need firewood to light.,需要柴火才能点火。
 Advanced_Copper_Tools_CopperBathtub_Full_LightTorch_ActionName,Light Fire,点火
@@ -201,12 +196,7 @@ Advanced_Copper_Tools_CopperBathtub_Warm_FeedFirewood_ActionName,Feed Firewood,�
 Advanced_Copper_Tools_CopperBathtub_Warm_OnZero_ActionDescription,The bath water has cooled down.,洗澡水已经冷却了。
 Advanced_Copper_Tools_CopperBathtub_Warm_Place_ActionDescription,Place the bathtub in the environment.,将浴缸放置在环境中。
 Advanced_Copper_Tools_CopperBathtub_Warm_Place_ActionName,Place,放置
-Advanced_Copper_Tools_CopperNails_CardHelpSection,"<b>Crafted:</b> From a lump of metal using a hammer.
-
-<b>Uses:</b> Construction and crafting materials.","<b>制作：</b>用锤子将金属块锤成铜钉。
-
-<b>用途：</b>建筑和手工制作材料。"
-Advanced_Copper_Tools_CopperStove_Dismantle_ActionDescription,Take apart the stove to recover the metal sheets and cast stove top.,拆解炉子以回收金属片和铸造炉顶。
+Advanced_Copper_Tools_CopperStove_Dismantle_ActionDescription,Take apart the stove to recover the metal sheets.,拆解炉子以回收金属片。
 Advanced_Copper_Tools_CopperStove_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionDescription,Add 3 twigs as fuel (24h),添加3根树枝作为燃料（24小时）
 Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionName,Feed Twigs,添加树枝
@@ -219,48 +209,45 @@ Advanced_Copper_Tools_CopperStove_PickUp_ActionDescription,Pick up the stove and
 Advanced_Copper_Tools_CopperStove_PickUp_ActionName,Pick Up,拾起
 Advanced_Copper_Tools_CopperStove_Place_ActionDescription,Place the stove in your environment.,将炉子放置在您的环境中。
 Advanced_Copper_Tools_CopperStove_Place_ActionName,Place,放置
-Advanced_Copper_Tools_CopperStove_Placed_CardHelpSection,"<b>Usage:</b> A placed copper stove functioning as a fireplace with 2 cooking slots. Accepts oak wood, twigs, or charcoal as fuel. Pick up to move.",<b>用法：</b>放置的铜炉作为带2个烹饪槽的壁炉使用。接受橡木、细枝或木炭作为燃料。拾取可搬运。
-Advanced_Copper_Tools_Handles_CardHelpSection,"<b>Crafted:</b> From 3 planks, 2 leather, and 2 long sticks with a knife.
+Advanced_Copper_Tools_CopperStove_Placed_CardHelpSection,"<b>Usage:</b> A placed metal stove functioning as a fireplace that holds 600 weight, like a campfire: one cooking pot or two clay bowls. Gives Sanctuary by metal: +75 copper or Tin Bronze, +80 Ghost Bronze, +65 Tin, +90 White Bronze. Accepts oak wood, twigs, or charcoal as fuel. Pick up to move; the fuel and the metal go with it.",<b>用法：</b>放置的金属炉作为壁炉使用，可容纳600重量（与营火相同）：一口烹饪锅或两个陶碗。按金属提供庇护度：铜或锡青铜+75，幽灵青铜+80，锡+65，白青铜+90。接受橡木、细枝或木炭作为燃料。拾取可搬运，燃料和金属随炉保留。
+Advanced_Copper_Tools_Handles_CardHelpSection,"<b>Crafted:</b> From 3 planks, 2 small leather, 2 long sticks and 4 copper nails with a knife and a hammer.
 
-<b>Uses:</b> Component for wheelbarrow construction.","<b>制作：</b> 使用刀从3块木板、2块皮革和2根长棍制作。
+<b>Uses:</b> Component for wheelbarrow construction.","<b>制作：</b> 使用小刀和锤子，由3块木板、2块小皮革、2根长棍和4颗铜钉制作。
 
 <b>用途：</b> 手推车建造的部件。"
 Advanced_Copper_Tools_Handles_Dismantle_ActionDescription,Take apart the handles to recover the long sticks.,拆解把手以回收长棍。
 Advanced_Copper_Tools_Handles_Dismantle_ActionName,Dismantle,拆解
-Advanced_Copper_Tools_MetalSheet_CardDescription,"A flat metal sheet, hammered thin.",一块锤打成薄片的金属片。
-Advanced_Copper_Tools_MetalSheet_CardName,Copper Sheet,铜片
-Advanced_Copper_Tools_WheelAssembly_CardHelpSection,"<b>Crafted:</b> From metal hub and wooden wheel.
+Advanced_Copper_Tools_WheelAssembly_CardHelpSection,"<b>Crafted:</b> From a wheel rim, a wheel hub, 1 wood and 1 tin solder with a hammer.
 
-<b>Uses:</b> Component for wheelbarrow construction.","<b>制作：</b> 由金属轮毂和木轮制成。
+<b>Uses:</b> Component for wheelbarrow construction.","<b>制作：</b> 使用锤子，由轮缘、轮毂、1块木材和1块焊锡制成。
 
 <b>用途：</b> 手推车建造的部件。"
 Advanced_Copper_Tools_WheelAssembly_Dismantle_ActionDescription,Take apart the wheel assembly to recover the rim and hub.,拆解车轮总成以回收轮缘和轮毂。
 Advanced_Copper_Tools_WheelAssembly_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_WheelAssembly_UsageDurability_CardStatName,Wheel Condition,车轮状况
-Advanced_Copper_Tools_Wheelbarrow_CardHelpSection,"<b>Crafted:</b> From bucket, handles, and wheel assembly.
+Advanced_Copper_Tools_Wheelbarrow_CardHelpSection,"<b>Crafted:</b> From a bucket, handles, a wheel assembly and 1 tin solder.
 
-<b>Uses:</b> Transport heavy loads. Can be dismantled to recover components.","<b>制作：</b> 由桶、把手和车轮总成制成。
+<b>Uses:</b> Transport heavy loads. Can be dismantled to recover components.","<b>制作：</b> 由桶、把手、车轮总成和1块焊锡制成。
 
 <b>用途：</b> 运输重物。可拆解以回收部件。"
 Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionDescription,"Take apart the wheelbarrow to recover the bucket, handles, and wheel assembly.",拆解手推车以回收桶、把手和车轮总成。
 Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_WheelHub_CardDescription,A metal center piece that connects the wooden wheel to the axle. Essential for smooth rotation.,将木轮连接到车轴的金属中心件。是顺畅旋转所必需的。
-Advanced_Copper_Tools_WheelHub_CardHelpSection,"<b>Crafted:</b> Forged from 3 heated copper nuggets, or cast from a molten crucible.
+Advanced_Copper_Tools_WheelHub_CardHelpSection,"<b>Crafted:</b> Hammered from 3 copper nuggets, or cast from a small molten crucible in a mold of 2 mud bricks and 2 clay.
 
-<b>Uses:</b> Component for wheel assembly.","<b>制作：</b> 由3个加热铜块锻造，或由熔融坩埚铸造。
+<b>Uses:</b> Component for wheel assembly.","<b>制作：</b> 由3个铜块锤打而成，或用2块泥砖和2块粘土做模、以小型熔融坩埚浇铸。
 
 <b>用途：</b> 车轮总成的部件。"
 Advanced_Copper_Tools_WheelHub_CardName,Wheel Hub,轮毂
 Bp_CastStoveTop_CardDescription,Cast a stove top mold using a small molten crucible.,使用小型熔融坩埚铸造一个炉顶模具。
 Bp_CastStoveTop_CardName,Cast Stove Top Mold,铸造炉顶模具
 Bp_CastStoveTop_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
-Bp_MetalSheet_CardDescription,Hammer a heated lump of metal flat into a copper sheet.,将加热的金属锭锤打成铜片。
-Bp_MetalSheet_CardName,Metal Sheet,金属片
-Bp_MetalSheet_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
-Bp_WearableMetalPan_CardDescription,"Attach a wooden grip, rope, small leather, and copper nails to a shaped pan to make it wearable.",将绳子和皮革附加到成形锅头上，使其可穿戴。
+Bp_WearableMetalPan_CardDescription,Bind a wooden grip (1 wood) to a shaped pan with 3 twine and 1 tin solder to make it wearable. Requires a shaping hammer.,用1块木材做木柄，以3根细线和1块锡焊料固定在成形锅头上，使其可穿戴。需要塑形锤。
 Bp_WearableMetalPan_CardName,Wearable Metal Pan,可穿戴金属平底锅
-Bp_WearableMetalPan_UnlockConditionsDesc,Shaped Metal Pan Needed,需要成形金属锅头
+Bp_WearableMetalPan_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_Bucket_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Bucket_SpecialDurability2.CardStatName,Metal Quality,金属质量
+Advanced_Copper_Tools_Bucket_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_CastStoveTop_AlternateNames[0].Name,Copper Stove Top,铜制炉顶
 Advanced_Copper_Tools_CastStoveTop_AlternateNames[1].Name,Ghost Bronze Stove Top,幽灵青铜炉顶
 Advanced_Copper_Tools_CastStoveTop_AlternateNames[2].Name,Tin Stove Top,锡炉顶
@@ -271,7 +258,7 @@ Advanced_Copper_Tools_CastStoveTop_SpecialDurability2.CardStatName,Metal Quality
 Advanced_Copper_Tools_CastStoveTop_SpecialDurability3.CardStatName,Quality,质量
 Advanced_Copper_Tools_CastStoveTop_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_StoveTopMold_CardName,Stove Top Mold,炉顶模具
-Advanced_Copper_Tools_StoveTopMold_CardDescription,A cast metal stove top still in its clay mold. Break with a hammer to free the casting.,一个仍在陶土模具中的铸造金属炉顶。用锤子敲击以取出铸件。
+Advanced_Copper_Tools_StoveTopMold_CardDescription,"A cast metal stove top still in its clay mold. Break with a hammer to free the casting; the Small Copper Stove now casts its own top, so this is an old part.",一个仍在陶土模具中的铸造金属炉顶。用锤子敲击以取出铸件；小型铜炉现在自行铸造炉顶，所以这是旧部件。
 Advanced_Copper_Tools_StoveTopMold_AlternateNames[0].Name,Copper Stove Top Mold,铜制炉顶模具
 Advanced_Copper_Tools_StoveTopMold_AlternateNames[1].Name,Ghost Bronze Stove Top Mold,幽灵青铜炉顶模具
 Advanced_Copper_Tools_StoveTopMold_AlternateNames[2].Name,Tin Stove Top Mold,锡炉顶模具
@@ -283,20 +270,13 @@ Advanced_Copper_Tools_StoveTopMold_SpecialDurability3.CardStatName,Quality,质�
 Advanced_Copper_Tools_StoveTopMold_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_StoveTopMold_Break_ActionName,Break Mold,打碎模具
 Advanced_Copper_Tools_StoveTopMold_Break_ActionDescription,Break the clay mold to free the stove top casting.,打碎陶土模具以取出炉顶铸件。
-Advanced_Copper_Tools_CopperNails_FuelCapacity.CardStatName,Temperature,温度
 GpTag_ClothAny_TabName,Cloth,布料
-Advanced_Copper_Tools_MetalSheet_AlternateNames[0].Name,Copper Sheet,铜片
-Advanced_Copper_Tools_MetalSheet_AlternateNames[1].Name,Ghost Bronze Sheet,幽灵青铜片
-Advanced_Copper_Tools_MetalSheet_AlternateNames[2].Name,Tin Sheet,锡片
-Advanced_Copper_Tools_MetalSheet_AlternateNames[3].Name,Tin Bronze Sheet,锡青铜片
-Advanced_Copper_Tools_MetalSheet_AlternateNames[4].Name,White Bronze Sheet,白青铜片
-Advanced_Copper_Tools_MetalSheet_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[0].Name,Copper Pan Head,铜制锅头
 Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[1].Name,Ghost Bronze Pan Head,幽灵青铜锅头
 Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[2].Name,Tin Pan Head,锡制锅头
 Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[3].Name,Tin Bronze Pan Head,锡青铜锅头
 Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[4].Name,White Bronze Pan Head,白青铜锅头
-Advanced_Copper_Tools_Shape_MetalPan_CardDescription,Ready to be assembled into a wearable pan.,已准备好组装成可穿戴平底锅。
+Advanced_Copper_Tools_Shape_MetalPan_CardDescription,Ready to be assembled into a wearable pan. It cannot pan gravel itself: the finished Wearable Metal Pan does that at a river.,已准备好组装成可穿戴平底锅。它本身不能淘洗砂砾：在河边淘洗要用组装好的可穿戴金属平底锅。
 Advanced_Copper_Tools_Shape_MetalPan_CardName,Shaped Metal Pan Head,成形金属锅头
 Advanced_Copper_Tools_Shape_MetalPan_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_Shape_MetalPan_Progress.CardStatName,Smelted,熔炼
@@ -312,8 +292,10 @@ Advanced_Copper_Tools_WearableMetalPan_AlternateNames[1].Name,Ghost Bronze Pan,�
 Advanced_Copper_Tools_WearableMetalPan_AlternateNames[2].Name,Tin Pan,锡制平底锅
 Advanced_Copper_Tools_WearableMetalPan_AlternateNames[3].Name,Tin Bronze Pan,锡青铜平底锅
 Advanced_Copper_Tools_WearableMetalPan_AlternateNames[4].Name,White Bronze Pan,白青铜平底锅
-Advanced_Copper_Tools_WearableMetalPan_CardDescription,"A sturdy metal cooking pan with a wooden grip, rope and leather straps, and copper nails. Can be worn like a quiver.",一口带有皮绳肩带的坚固金属烹饪锅。可以像箭袋一样穿戴。
+Advanced_Copper_Tools_WearableMetalPan_CardDescription,"A sturdy metal cooking pan with a wooden grip bound on with twine. Worn like a quiver, it weighs nothing itself, and up to 1600 weight of what it holds does not count toward your load. At a river it can pan gravel for tin, wearing the pan down.",一口用细线绑上木柄的坚固金属烹饪锅。可以像箭袋一样穿戴，穿戴时锅本身不计重量，锅内最多1600重量的物品也不计入负重。在河边可淘洗砂砾寻找锡矿，但会磨损锅身。
 Advanced_Copper_Tools_WearableMetalPan_CardName,Wearable Metal Pan,可穿戴金属平底锅
+Advanced_Copper_Tools_WearableMetalPan_PanTin_ActionName,Pan for Stream Tin,淘洗溪中锡矿
+Advanced_Copper_Tools_WearableMetalPan_PanTin_ActionDescription,Swirl river gravel in the pan for an hour. Now and then a heavy dark pebble of tin ore stays behind.,在河边用锅淘洗砂砾一小时。偶尔会留下一块沉重的深色锡矿石。
 Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Boil_ActionName,Boil,煮沸
 Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Burn_ActionName,Slowly Overcook (Burn),慢速过火（烧焦）
 Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Cook_ActionName,Cook,烹饪
@@ -332,9 +314,9 @@ Advanced_Copper_Tools_WearableMetalPan_UsageDurability.CardStatName,Durability,�
 Advanced_Copper_Tools_WearableMetalPan_UsageDurability.OnZero.ActionDescription,Pan Broken!,平底锅破损！
 Advanced_Copper_Tools_WheelHub_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_WheelRim_FuelCapacity.CardStatName,Temperature,温度
-Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription,"Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather (raw — tan before using in blueprints).",初始携带建造铜制浴缸所需的所有材料：桶、铜炉、4块木板、8块泥砖、1块大布料、4根长棍和3块皮革（原皮，用于蓝图前需制革）。
+Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription,"Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather (raw: tan before using in blueprints).",初始携带建造铜制浴缸所需的所有材料：桶、铜炉、4块木板、8块泥砖、1块大布料、4根长棍和3块皮革（原皮，用于蓝图前需制革）。
 Advanced_Copper_Tools_Perk_BathtubKit_PerkName,Bathtub Kit,浴缸套件
-Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription,"Start with essential building materials: 10 planks, 10 small leather (raw — tan before using in blueprints), 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger.",初始携带基本建筑材料：10块木板、10块小块生皮革（未鞍制——用于蓝图前需先鞍制）、10根长棍、20块泥砖、1块大布料和1根挖孔钻。
+Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription,"Start with essential building materials: 10 planks, 10 small leather (raw: tan before using in blueprints), 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger.",初始携带基本建筑材料：10块木板、10块小块生皮革（未鞍制——用于蓝图前需先鞍制）、10根长棍、20块泥砖、1块大布料和1根挖孔钻。
 Advanced_Copper_Tools_Perk_BuildingMaterials_PerkName,Building Materials,建筑材料
 Advanced_Copper_Tools_Perk_CopperBathtub_PerkDescription,Start with a copper bathtub. A luxurious way to stay clean and relax.,初始携带一个铜制浴缸。保持清洁和放松的豪华方式。
 Advanced_Copper_Tools_Perk_CopperBathtub_PerkName,Copper Bathtub,铜制浴缸
@@ -350,48 +332,77 @@ Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionName,Refill from Rive
 Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionDescription,Haul more water from the river to refill the warm bathtub.,从河流取更多水以补充温热浴缸。
 Advanced_Copper_Tools_LargeSaw_CardName,Large Copper Saw,大型铜锯
 Advanced_Copper_Tools_LargeSaw_CardDescription,A large two-handled saw with a copper blade. Cuts trees much faster than an axe.,一把带铜锯条的大型双手锯。比斧头更快地砍伐树木。
-Advanced_Copper_Tools_LargeSaw_CardHelpSection,"<b>Crafted:</b> From 2 copper sheets, 2 Wood, and 4 copper nails using a hammer.
+Advanced_Copper_Tools_LargeSaw_CardHelpSection,"<b>Crafted:</b> From 3 metal sheets of one metal, 2 Wood, 2 copper nails and 1 tin solder using a hammer. The saw is the metal of its sheets.
 
-<b>Uses:</b> Cuts trees faster than an axe. Use as a cutting tool.","<b>制作：</b> 由2块铜片、2块木材和4根铜钉使用锤子制成。
+<b>Uses:</b> Cuts large trees faster than an axe. Copper, Ghost Bronze and Tin Bronze fell a large pine or willow in one pull and a large birch or oak in two; White Bronze fells a pine, willow or birch in one pull and an oak in two; Tin takes two pulls for a pine, willow or birch and three for an oak. A saw lasts about 100 pulls in copper, 166 in Ghost Bronze, 66 in Tin, 200 in Tin Bronze and 80 in White Bronze. Use as a cutting tool.","<b>制作：</b> 由3块同种金属片、2块木材、2枚铜钉和1块锡焊料使用锤子制成。锯子的金属与所用金属片相同。
 
-<b>用途：</b> 比斧头更快地砍伐树木。可用作切割工具。"
+<b>用途：</b> 比斧头更快地砍伐大树。铜、幽灵青铜和锡青铜锯：大松树或大柳树一锯即倒，大桦树或大橡树需要两锯；白青铜锯：大松树、大柳树或大桦树一锯即倒，大橡树两锯；锡锯：大松树、大柳树或大桦树需要两锯，大橡树三锯。耐用次数约为：铜100锯，幽灵青铜166锯，锡66锯，锡青铜200锯，白青铜80锯。可用作切割工具。"
 Advanced_Copper_Tools_LargeSaw_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_LargeSaw_UsageDurability.OnZero.ActionDescription,Saw Broken!,锯子破损！
 Advanced_Copper_Tools_LargeSaw_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_Bp_LargeSaw_CardName,Large Copper Saw,大型铜锯
-Advanced_Copper_Tools_Bp_LargeSaw_CardDescription,Assemble a large saw from copper sheets and wood.,用铜片和木材组装一把大型锯。
+Advanced_Copper_Tools_Bp_LargeSaw_CardDescription,"Assemble a large saw from 3 metal sheets of one metal, 2 copper nails, 2 wood, 1 tin solder and a hammer. The saw takes the sheets' metal. Takes copper, tin or bronze sheets, not iron: the Iron Large Saw is its own recipe.",用3块同种金属片、2枚铜钉、2块木材、1块焊锡和一把锤子组装一把大型锯。锯子采用金属片的金属。只接受铜、锡或青铜片，不接受铁片：铁制大锯有自己的配方。
 Advanced_Copper_Tools_Bp_LargeSaw_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_IronLargeSaw_CardName,Iron Large Saw,大型铁锯
+Advanced_Copper_Tools_IronLargeSaw_CardDescription,"A large two-handled saw with a forged iron blade. Tougher than the copper saw, and it drops a large pine, willow or birch in one pull.",一把带锻铁锯条的大型双手锯。比铜锯更耐用，大松树、大柳树或大桦树一锯即倒。
+Advanced_Copper_Tools_IronLargeSaw_CardHelpSection,"<b>Crafted:</b> From 2 iron sheets, 4 metal nails and 2 wood using a hammer.
+
+<b>Uses:</b> Cuts large trees faster than the copper saw: a large pine, willow or birch falls in one pull and a large oak in two. Can be recycled in a furnace.","<b>制作：</b> 由2块铁板、4枚金属钉和2块木材使用锤子制成。
+
+<b>用途：</b> 砍伐大树比铜锯更快：大松树、大柳树或大桦树一锯即倒，大橡树需要两锯。可在熔炉中回收。"
+Advanced_Copper_Tools_IronLargeSaw_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_IronLargeSaw_UsageDurability.OnZero.ActionDescription,Saw Broken!,锯子破损！
+Advanced_Copper_Tools_IronLargeSaw_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Bp_IronLargeSaw_CardName,Iron Large Saw,大型铁锯
+Advanced_Copper_Tools_Bp_IronLargeSaw_CardDescription,"Forge a large saw from 2 iron sheets, 4 metal nails and 2 wood. Requires a hammer.",用2块铁板、4枚金属钉和2块木材锻造一把大型锯。需要锤子。
+Advanced_Copper_Tools_Bp_IronLargeSaw_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
+Advanced_Copper_Tools_CopperShield_CardName,Copper Shield,铜盾
+Advanced_Copper_Tools_CopperShield_CardDescription,"A wooden shield faced with hammered copper sheet. Held in hand like the wooden Shield, it guards the shield arm with 90 armor, 140 against spiritual attacks, and lasts much longer. Can be recycled in a furnace.",一面包覆锤制铜片的木盾。像木盾一样持在手中，为持盾的手臂提供90点护甲，抵挡精神伤时为140点，也耐用得多。可在熔炉中回收。
+Advanced_Copper_Tools_CopperShield_CardHelpSection,"<b>Crafted:</b> From 3 copper sheets, 1 plank, 4 copper nails, 1 medium leather and 1 tin solder using a hammer.
+
+<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 90 armor, 140 against spiritual attacks. It wears down slowly while equipped.","<b>制作：</b> 由3块铜片、1块木板、4枚铜钉、1块中型皮革和1块锡焊料使用锤子制成。
+
+<b>用途：</b> 装备后持在手中。它会把攻击引向持盾的手臂，并为该手臂提供90点护甲，抵挡精神伤时为140点。装备期间会缓慢磨损。"
+Advanced_Copper_Tools_CopperShield_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_CopperShield_UsageDurability.OnZero.ActionDescription,Shield Broken!,盾牌破损！
+Advanced_Copper_Tools_Bp_CopperShield_CardName,Copper Shield,铜盾
+Advanced_Copper_Tools_Bp_CopperShield_CardDescription,"Face a plank shield with 3 hammered copper sheets, nail them down with 4 copper nails, seal the edges with a tin solder and fit a leather grip. Requires a hammer.",用3块锤制铜片包覆木板盾面，以4颗铜钉钉牢，用1块焊锡封边后装上皮革握把。需要锤子。
+Advanced_Copper_Tools_Bp_CopperShield_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_Perk_LargeSaw_PerkName,Large Saw,大型锯
 Advanced_Copper_Tools_Perk_LargeSaw_PerkDescription,Start with a large copper saw for cutting trees quickly.,初始携带一把用于快速砍伐树木的大型铜锯。
 Advanced_Copper_Tools_MetalLantern_CardName,Metal Lantern,金属提灯
-Advanced_Copper_Tools_MetalLantern_CardDescription,A durable copper lantern crafted from metal sheets and glass. Burns fuel to provide light.,一盏由金属片和玻璃制成的耐用铜提灯。燃烧燃料以提供照明。
+Advanced_Copper_Tools_MetalLantern_CardDescription,"A durable lantern built from a metal sheet and an oilwell, with a copper wire frame and an oiled parchment shade. Burns fuel to provide light. The mines are dark: carry it lit, or set it down lit, to mine and dig underground.",一盏由金属片和提灯油井制成的耐用提灯，配有铜丝框架和涂油羊皮纸灯罩。燃烧燃料以提供照明。矿洞里一片漆黑：随身携带或放下点燃的提灯，才能在地下采矿和挖掘。
 Advanced_Copper_Tools_Bp_MetalLantern_CardName,Metal Lantern,金属提灯
-Advanced_Copper_Tools_Bp_MetalLantern_CardDescription,Assemble a sturdy copper lantern from a metal sheet and a hammered oilwell reservoir.,用一块金属片和一个锤制油井组装一盏坚固的铜提灯。
+Advanced_Copper_Tools_Bp_MetalLantern_CardDescription,"Assemble a lantern from 1 metal sheet and an oilwell, with a copper wire frame, an oiled parchment shade (a parchment and a fat) and a hammer. The lantern takes the sheet's metal. Takes copper, tin or bronze sheets, not iron.",用一块金属片和一个提灯油井，配合铜丝框架、涂油羊皮纸灯罩（羊皮纸和油脂）和锤子组装一盏提灯。提灯沿用金属片的金属类型。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_MetalLantern_UnlockConditionsDesc,Lantern Oilwell Needed,需要提灯油井
 Advanced_Copper_Tools_LanternOilwell_CardName,Lantern Oilwell,提灯油井
-Advanced_Copper_Tools_LanternOilwell_CardDescription,A small copper reservoir hammered into a cup shape to hold lamp oil. The fount component of a metal lantern.,一个小铜储油器，锤打成杯形以盛放灯油。金属提灯的油槽部件。
-Advanced_Copper_Tools_LanternOilwell_CardHelpSection,"<b>Crafted:</b> Hammered from a single copper sheet.
+Advanced_Copper_Tools_LanternOilwell_CardDescription,"A small metal reservoir hammered into a cup shape to hold lamp oil, with a twine wick. Holds 96 fuel (two bowls of oil). Light it on its own for a 24-hour lamp, or build it into a Metal Lantern.",一个锤打成杯形、带麻绳灯芯的小型金属储油器，可盛放灯油。容量96（两碗油）。可单独点燃作为持续24小时的油灯，也可用来制作金属提灯。
+Advanced_Copper_Tools_LanternOilwell_CardHelpSection,"<b>Crafted:</b> Hammered from a metal sheet with 1 twine and 1 tin solder.
 
-<b>Uses:</b> Sub-component for crafting a Metal Lantern.","<b>制作：</b> 由单块铜片锤打而成。
+<b>Fuel:</b> Pour in lamp oil (each clay bowl adds 48; two bowls fill it), then light it from any fire source. A full fill burns 24 hours and gives a small light. Extinguish it to refuel.
 
-<b>用途：</b> 制作金属提灯的子部件。"
-Advanced_Copper_Tools_LanternOilwell_FuelCapacity.CardStatName,Temperature,温度
+<b>Uses:</b> Also the fount of a Metal Lantern, which burns twice as long.","<b>制作：</b> 由1块金属片、1根细线和1块焊锡锤打而成。
+
+<b>燃料：</b> 倒入灯油（每碗增加48点，两碗装满），然后用任何火源点燃。满油可燃烧24小时并提供小范围照明。熄灭后可补充燃料。
+
+<b>用途：</b> 也是金属提灯的油槽部件，提灯的燃烧时间是它的两倍。"
+Advanced_Copper_Tools_LanternOilwell_FuelCapacity.CardStatName,Oil,灯油
 Advanced_Copper_Tools_Bp_LanternOilwell_CardName,Lantern Oilwell,提灯油井
-Advanced_Copper_Tools_Bp_LanternOilwell_CardDescription,"Hammer a copper sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick.",将一块铜片锤打成小杯形储油器，用麻绳作灯芯缠绕。
+Advanced_Copper_Tools_Bp_LanternOilwell_CardDescription,"Hammer a metal sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick and sealed with 1 tin solder. The oilwell takes the sheet's metal. Takes copper, tin or bronze sheets, not iron.",将一块金属片锤打成小杯形储油器，用麻绳作灯芯缠绕，并用1块焊锡封口。储油器采用金属片的金属。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_LanternOilwell_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_CopperTeaKettle_CardName,Copper Tea Kettle,铜制茶壶
 Advanced_Copper_Tools_CopperTeaKettle_CardDescription,"A copper kettle for holding and boiling water. Fill with water, then place on a fire or stove to boil it clean for tea.",一个用于盛水和煮水的铜壶。注入水后，放置在火源或炉子上煮沸，为泡茶做准备。
-Advanced_Copper_Tools_CopperTeaKettle_CardHelpSection,"<b>Usage:</b> Fill with water (clean or dirty), place on fire or stove to heat. Boiling cleans dirty water and prepares it for brewing tea.",<b>用途：</b> 注入水（干净或脏水），放置在火源或炉子上加热。煮沸可清洁脏水，并为冲泡茶叶做准备。
+Advanced_Copper_Tools_CopperTeaKettle_CardHelpSection,"<b>Usage:</b> Fill with water (clean or dirty), place on fire or stove to heat. Boiling cleans dirty water and prepares it for brewing tea. The water in it weighs nothing.",<b>用途：</b> 注入水（干净或脏水），放置在火源或炉子上加热。煮沸可清洁脏水，并为冲泡茶叶做准备。壶中的水没有重量。
 Advanced_Copper_Tools_CopperTeaKettle_FuelCapacity_CardStatName,Temperature,温度
 Advanced_Copper_Tools_Bp_CopperTeaKettle_CardName,Forged Copper Tea Kettle,锻造铜制茶壶
-Advanced_Copper_Tools_Bp_CopperTeaKettle_CardDescription,Hammer 3 metal sheets into a copper tea kettle for boiling water.,将3块金属片锤打成一个铜制茶壶用于煮水。
+Advanced_Copper_Tools_Bp_CopperTeaKettle_CardDescription,"Hammer 2 metal sheets into a copper tea kettle for boiling water, sealed with 1 tin solder.",将2块金属片锤打成一个铜制茶壶用于煮水，并用1块焊锡封口。
 Advanced_Copper_Tools_Bp_CopperTeaKettle_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_TeaBlendingStation_CardName,Tea Station,茶站
 Advanced_Copper_Tools_TeaBlendingStation_CardDescription,"A dedicated workbench with six herb-and-grinding slots, a built-in water tank (8 bowls capacity, tracked as Water Charges), and a copper stove. Drag a water container or shallow water source (river, pond) to add a charge. Light the stove to heat the water and speed up herb drying.",一个专用工作台，带有六个草药研磨槽、内置水箱（8碗容量，以水量格计）和铜炉。拖动水容器或浅水源（河流、池塘）以添加一格水量。点燃炉子以加热水并加速草药干燥。
 Advanced_Copper_Tools_Bp_TeaBlendingStation_CardName,Tea Station,茶站
 Advanced_Copper_Tools_Bp_TeaBlendingStation_CardDescription,"Build a tea station with an integrated copper tea kettle, copper stove, and rotary quern for grinding tea leaves. Requires 2 planks, 4 twine, 1 copper tea kettle, 1 copper stove, 1 rotary quern, and 15 large stones.",建造一个带有内置铜茶壶、铜炉和旋转磨盘的茶站，用于研磨茶叶。需要2块木板、4根麻绳、1个铜茶壶、1个铜炉、1个旋转磨盘和15块大型石头。
 Advanced_Copper_Tools_Bp_TeaBlendingStation_UnlockConditionsDesc,Copper Tea Kettle Needed,需要铜制茶壶
-Advanced_Copper_Tools_TeaBlendingStation_CardHelpSection,"<b>Slots (×6):</b> Place fresh herbs — they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. <b>Water Tank:</b> Drag a water container to add a Water Charge (up to 8), or drag a river, pond, or stream card directly (1 charge, 15 min). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing.","<b>槽位（共6个）：</b> 放置新鲜草药——它们会随时间被动晾干。使用「研磨全部」一次性研磨所有已干燥或可研磨的物品。
+Advanced_Copper_Tools_TeaBlendingStation_CardHelpSection,"<b>Slots (×6):</b> Place fresh herbs and they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. <b>Water Tank:</b> Drag a water container to add a Water Charge (up to 8), or drag a river, pond, or stream card directly (1 charge, 15 min). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing.","<b>槽位（共6个）：</b> 放置新鲜草药——它们会随时间被动晾干。使用「研磨全部」一次性研磨所有已干燥或可研磨的物品。
 
 <b>水箱：</b> 拖动水容器以添加一格水量（最多8格），或直接拖动河流、池塘或溪流卡（每次1格，15分钟）。拖动空陶碗以取出冷水。点燃炉子以加热水用于泡茶。"
 Advanced_Copper_Tools_TeaBlendingStation_Special1_CardStatName,Ash Amount,灰烬量
@@ -418,7 +429,7 @@ Advanced_Copper_Tools_TeaBlendingStation_DrawColdWater_ActionName,Draw Cold Wate
 Advanced_Copper_Tools_TeaBlendingStation_DrawColdWater_ActionDescription,Fill an empty clay bowl with cold water from the tank.,从水箱中向空陶碗注入冷水。
 Advanced_Copper_Tools_TeaBlendingStation_DrawHotWater_ActionName,Draw Boiled Water,取沸水
 Advanced_Copper_Tools_TeaBlendingStation_DrawHotWater_ActionDescription,Fill an empty clay bowl with boiled water from the heated tank.,从加热水箱中向空陶碗注入沸水。
-Advanced_Copper_Tools_TeaBlendingStation_NeedsWater,The water tank is empty — pour some water in first.,水箱已空——请先注入水。
+Advanced_Copper_Tools_TeaBlendingStation_NeedsWater,The water tank is empty. Pour some water in first.,水箱已空——请先注入水。
 Advanced_Copper_Tools_TeaBlendingStation_NotHotEnough,Either the tank is empty or the water is not hot enough yet.,水箱已空或水温尚未够热。
 Advanced_Copper_Tools_TeaBlendingStation_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_TeaBlendingStation_Dismantle_ActionDescription,Break the station down into its main components.,将站台拆解为其主要部件。
@@ -428,7 +439,7 @@ Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_ActionDescription,Colle
 Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_FailMessage,Charcoal not ready yet.,木炭尚未就绪。
 Advanced_Copper_Tools_TeaBlendingStation_Lit_CardName,Tea Station (Lit),茶站（已点燃）
 Advanced_Copper_Tools_TeaBlendingStation_Lit_CardDescription,"A lit tea station. The stove burns steadily, heating the built-in water tank. Fresh herbs in the six slots dry rapidly. Drag a water container or shallow water source to add a Water Charge; drag an empty clay bowl to draw boiled water once Water Temp reaches 50%. Fire will go out when fuel runs empty.",一个已点燃的茶站。炉子稳定燃烧，加热内置水箱。六个槽位中的新鲜草药迅速干燥。拖动水容器或浅水源以添加水量格；拖动空陶碗以在水温达到50%时取出沸水。燃料耗尽时火焰熄灭。
-Advanced_Copper_Tools_TeaBlendingStation_Lit_CardHelpSection,<b>Slots (×6):</b> Herbs dry faster while lit. Use 'Grind All' to mill dried or millable items. <b>Water Tank:</b> Drag a water container or river/pond card to add a Water Charge (max 8). Drag an empty clay bowl to draw boiled water — requires at least 1 Water Charge AND Water Temp ≥ 50%. Consumes fuel over time.,"<b>槽位（共6个）：</b> 点燃时草药干燥更快。使用「研磨全部」研磨已干燥或可研磨的物品。
+Advanced_Copper_Tools_TeaBlendingStation_Lit_CardHelpSection,<b>Slots (×6):</b> Herbs dry faster while lit. Use 'Grind All' to mill dried or millable items. <b>Water Tank:</b> Drag a water container or river/pond card to add a Water Charge (max 8). Drag an empty clay bowl to draw boiled water: requires at least 1 Water Charge AND Water Temp ≥ 50%. Consumes fuel over time.,"<b>槽位（共6个）：</b> 点燃时草药干燥更快。使用「研磨全部」研磨已干燥或可研磨的物品。
 
 <b>水箱：</b> 拖动水容器或河流/池塘卡以添加水量格（最多8格）。拖动空陶碗以取出沸水——需要至少1格水量且水温≥50%。随时间消耗燃料。"
 Advanced_Copper_Tools_TeaBlendingStation_Extinguish_ActionName,Fire Goes Out,火焰熄灭
@@ -442,22 +453,22 @@ Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionName,Pick Up,拾起
 Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionDescription,Pack up the station and carry it.,打包茶站并携带。
 Advanced_Copper_Tools_TeaBlendingStation_PickUp_FailMessage,Remove items from the station first.,请先将站台上的物品移除。
 Advanced_Copper_Tools_TeaStationKit_CardName,Tea Station Kit,茶站套件
-Advanced_Copper_Tools_TeaStationKit_CardDescription,"A disassembled tea station packed for transport. Place it in the environment to set it up — six herb slots, an integrated water tank, and a copper stove.",一个拆卸打包的茶叶调配台。放置在环境中安装——六个草药槽、集成水箱和铜炉。
+Advanced_Copper_Tools_TeaStationKit_CardDescription,"A disassembled tea station packed for transport. Place it in the environment to set it up: six herb slots, an integrated water tank, and a copper stove.",一个拆卸打包的茶叶调配台。放置在环境中安装——六个草药槽、集成水箱和铜炉。
 Advanced_Copper_Tools_TeaStationKit_CardHelpSection,"<b>Usage:</b> Use the Place action to set up the tea station. Fill the water tank by dragging full water bowls onto it, fuel the stove, and light it to heat the water.",<b>用途：</b> 使用放置动作安置茶站。通过拖动装满水的陶碗向水箱注水，添加燃料，然后点燃以加热水。
 Advanced_Copper_Tools_TeaStationKit_Place_ActionName,Place,放置
 Advanced_Copper_Tools_TeaStationKit_Place_ActionDescription,Set up the tea station in your environment.,在您的环境中安置茶站。
 Advanced_Copper_Tools_CopperPantry_CardName,Copper Chest,铜制箱子
-Advanced_Copper_Tools_CopperPantry_CardDescription,"A sealed copper chest with thick insulated walls. Keeps food dramatically colder, greatly slowing spoilage and keeping animals out.",一个密封的厚壁隔热铜箱。大幅降低食物温度，极大减缓腐坏速度并防止动物入侵。
+Advanced_Copper_Tools_CopperPantry_CardDescription,"A sealed copper chest with thick insulated walls. Keeps food dramatically colder, greatly slowing spoilage and keeping vanilla wildlife out.",一个密封的厚壁隔热铜箱。大幅降低食物温度，极大减缓腐坏速度并防止原版野生动物入侵。
 Advanced_Copper_Tools_CopperPantry_CardHelpSection,"<b>Spoilage:</b> Slows to 20% of normal rate.
 
-<b>Animal-safe:</b> Yes. Wildlife cannot raid this chest.","<b>腐败：</b> 腐败速度降至正常的20%。
+<b>Animals:</b> Vanilla wildlife cannot raid this chest. If Harsh Wilds is installed, its autumn black bear can still take meat or fish stored in a placed chest.","<b>腐败：</b> 腐败速度降至正常的20%。
 
-<b>防野兽：</b> 是。野生动物无法袭击此箱子。"
+<b>动物：</b> 原版野生动物无法袭击此箱子。若安装了严酷荒野，其秋季黑熊仍可能拿走已放置的箱子里存放的肉或鱼。"
 Advanced_Copper_Tools_CopperPantry_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 20% of normal rate.
 
-<b>Animal-safe:</b> Yes. Wildlife cannot raid this chest.","<b>腐败：</b> 腐败速度降至正常的20%。
+<b>Animals:</b> Vanilla wildlife cannot raid this chest. If Harsh Wilds is installed, its autumn black bear can still take meat or fish stored in a placed chest.","<b>腐败：</b> 腐败速度降至正常的20%。
 
-<b>防野兽：</b> 是。野生动物无法袭击此箱子。"
+<b>动物：</b> 原版野生动物无法袭击此箱子。若安装了严酷荒野，其秋季黑熊仍可能拿走已放置的箱子里存放的肉或鱼。"
 Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionName,Place,放置
 Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionDescription,Set the copper chest down in your environment.,将铜制箱子放置在您的环境中。
 Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionName,Dismantle,拆解
@@ -467,28 +478,28 @@ Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_ActionName,Pick
 Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_ActionDescription,Pick up the copper chest to carry it.,拾起铜制箱子并携带。
 Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_FailMessage,Empty the chest before picking it up.,拾起前先将箱子清空。
 Advanced_Copper_Tools_Bp_CopperPantry_CardName,Copper Chest,铜制箱子
-Advanced_Copper_Tools_Bp_CopperPantry_CardDescription,"Build a sealed copper chest with thick insulated walls. Dramatically slows food spoilage and keeps animals out. Requires 4 metal sheets, 4 planks, 6 copper nails, and a hammer.",建造一个带有厚实隔热墙的密封铜制箱子。大幅减缓食物腐败并阻止动物入侵。需要4块金属片、4块木板、6颗铜钉和一把锤子。
+Advanced_Copper_Tools_Bp_CopperPantry_CardDescription,"Build a sealed copper chest with thick insulated walls. Dramatically slows food spoilage and keeps vanilla wildlife out. Requires 4 metal sheets, 4 planks, 6 copper nails, 1 Tin Solder and a hammer.",建造一个带有厚实隔热墙的密封铜制箱子。大幅减缓食物腐败并阻止原版野生动物入侵。需要4块金属片、4块木板、6颗铜钉、1块锡焊料和一把锤子。
 Advanced_Copper_Tools_Bp_CopperPantry_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_Bp_RenderHempOil_CardName,Render Hemp Seed Oil,熬制麻籽油
-Advanced_Copper_Tools_Bp_RenderHempOil_CardDescription,Cook down hemp seed oil over a fire to produce clean lamp oil.,在火上熬煮麻籽油以制作清洁的灯油。
+Advanced_Copper_Tools_Bp_RenderHempOil_CardDescription,Cook down hemp seed oil into clean lamp oil.,熬煮麻籽油以制作清洁的灯油。
 Advanced_Copper_Tools_Bp_RenderHempOil_UnlockConditionsDesc,Hemp Seed Oil Needed,需要麻籽油
 Advanced_Copper_Tools_CopperOilFlask_CardName,Copper Oil Flask,铜制油瓶
-Advanced_Copper_Tools_CopperOilFlask_CardDescription,A hammered copper flask for storing lamp oil. Holds 6 charges of oil — enough to fully refuel a lantern twice. Drag onto a lantern to pour in one charge.,一个用于储存灯油的锤制铜瓶。可储存6格油量——足以为提灯完全补充两次燃料。拖到提灯上以倒入一格油量。
-Advanced_Copper_Tools_CopperOilFlask_CardHelpSection,"<b>Fill:</b> Drag Oil items onto the flask (6 items = full).
+Advanced_Copper_Tools_CopperOilFlask_CardDescription,"A hammered copper flask for storing lamp oil. Holds 4 bowls of oil (192 fuel), enough to fully refuel a lantern twice. Drag onto a lantern, oilwell or brazier to pour in one bowl's worth (48).",一个用于储存灯油的锤制铜瓶。可储存4碗油（192点燃料），足以为提灯完全补充两次燃料。拖到提灯、提灯油井或火盆上，可倒入一碗油的量（48点）。
+Advanced_Copper_Tools_CopperOilFlask_CardHelpSection,"<b>Fill:</b> Drag any lamp oil served in a clay bowl onto the flask (4 bowls = full). You get the bowl back.
 
-<b>Use:</b> Drag the flask onto a Metal Lantern to pour in one full charge of oil.","<b>注油：</b> 将油脂物品拖到油瓶上（6个 = 满格）。
+<b>Use:</b> Drag the flask onto a Metal Lantern, Lantern Oilwell or Copper Brazier to pour in one bowl's worth of oil (48 fuel).","<b>注油：</b> 将任意装在陶碗中的灯油拖到油瓶上（4碗 = 满格），陶碗会退还。
 
-<b>使用：</b> 将油瓶拖到金属提灯上以倒入一整格油量。"
+<b>使用：</b> 将油瓶拖到金属提灯、提灯油井或铜火盆上，倒入一碗油的量（48点燃料）。"
 Advanced_Copper_Tools_CopperOilFlask_FuelCapacity_CardStatName,Oil,油量
 Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionName,Fill with Oil,注入油脂
 Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionDescription,Poured oil into the flask.,向油瓶中倒入油脂。
 Advanced_Copper_Tools_MetalLantern_RefuelFlask_ActionName,Refuel from Flask,从油瓶补充燃料
 Advanced_Copper_Tools_MetalLantern_RefuelFlask_ActionDescription,Poured oil from the copper flask into the lantern.,从铜制油瓶向提灯中倒入油脂。
 Advanced_Copper_Tools_Bp_CopperOilFlask_CardName,Copper Oil Flask,铜制油瓶
-Advanced_Copper_Tools_Bp_CopperOilFlask_CardDescription,"Hammer two copper sheets into a sealed flask for storing lamp oil, wrapped with a leather carry strap. Holds enough for two full lantern refills. Requires 2 copper sheets, 1 medium leather, and a hammer.",将两块铜片锤打成密封油瓶用于储存灯油，并缠绕皮革提手。可存储两次完整提灯补充量。需要2块铜片、1块中型皮革和一把锤子。
+Advanced_Copper_Tools_Bp_CopperOilFlask_CardDescription,"Hammer two copper sheets into a sealed flask for storing lamp oil, wrapped with a leather carry strap. Holds enough for two full lantern refills. Requires 2 copper sheets, 1 medium leather, 1 Tin Solder and a hammer. Takes copper, tin or bronze sheets, not iron.",将两块铜片锤打成密封油瓶用于储存灯油，并缠绕皮革提手。可存储两次完整提灯补充量。需要2块铜片、1块中型皮革、1块锡焊料和一把锤子。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_CopperOilFlask_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkName,Tea Blending Station,茶站
-Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkDescription,"Start with a Tea Blending Station Kit. Place it to set up a 6-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils — perfect for crafting teas and tinctures.",初始携带一个茶站套件。放置后可设置一个6槽工作台，被动晾干草药，点燃后可烹饪、加热和煮沸——非常适合制作茶饮和酊剂。
+Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkDescription,"Start with a Tea Blending Station Kit. Place it to set up a 6-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils. Perfect for crafting teas and tinctures.",初始携带一个茶站套件。放置后可设置一个6槽工作台，被动晾干草药，点燃后可烹饪、加热和煮沸——非常适合制作茶饮和酊剂。
 Advanced_Copper_Tools_TeaBlendingStation_WaterCharges_CardStatName,Water Charges,水量格
 Advanced_Copper_Tools_CopperCauldron_FuelCapacity,Container Temperature,容器温度
 Advanced_Copper_Tools_CopperCauldron_Burn_ActionName,Slowly Overcook (Burn) and Reduce Quality,慢速过火（烧焦）并降低质量
@@ -500,7 +511,7 @@ Advanced_Copper_Tools_CopperHelmet_UsageDurability.CardStatName,Durability,耐�
 Advanced_Copper_Tools_CopperHelmet_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
 Advanced_Copper_Tools_Bp_CopperHelmet_CardName,Copper Helmet,铜制头盔
-Advanced_Copper_Tools_Bp_CopperHelmet_CardDescription,"Craft a hammered copper helmet for head protection. Requires 2 copper sheets, 4 copper nails, 1 small leather, 2 sinew, and a hammer.",制作一顶锤制铜头盔用于头部防护。需要2块铜片、4颗铜钉、1块小皮革、2根肌腱和一把锤子。
+Advanced_Copper_Tools_Bp_CopperHelmet_CardDescription,"Craft a hammered copper helmet for head protection. Requires 2 copper sheets, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder, and a hammer.",制作一顶锤制铜头盔用于头部防护。需要2块铜片、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
 Advanced_Copper_Tools_Bp_CopperHelmet_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_CopperGauntlets_CardName,Copper Bracers,铜制护臂
 Advanced_Copper_Tools_CopperGauntlets_CardDescription,Hammered copper bracers protecting both arms. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锤制铜护臂，保护双臂。可在熔炉中回收。必须装备在装备槽上才能生效。
@@ -508,23 +519,23 @@ Advanced_Copper_Tools_CopperGauntlets_UsageDurability.CardStatName,Durability,�
 Advanced_Copper_Tools_CopperGauntlets_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护臂以回收材料。
 Advanced_Copper_Tools_Bp_CopperGauntlets_CardName,Copper Bracers,铜制护臂
-Advanced_Copper_Tools_Bp_CopperGauntlets_CardDescription,"Craft hammered copper bracers for arm protection. Requires 2 heated lumps of metal, 4 copper nails, 1 small leather, 2 sinew, and a hammer.",制作锤制铜护臂用于手臂防护。需要2块加热金属锭、4颗铜钉、1块小皮革、2根肌腱和一把锤子。
-Advanced_Copper_Tools_Bp_CopperGauntlets_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
+Advanced_Copper_Tools_Bp_CopperGauntlets_CardDescription,"Craft hammered copper bracers for arm protection. Requires 2 copper bars, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder, and a hammer.",制作锤制铜护臂用于手臂防护。需要2块铜锭、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_CopperGauntlets_UnlockConditionsDesc,Copper Bar Needed,需要铜锭
 Advanced_Copper_Tools_CopperGreaves_CardName,Copper Greaves,铜制护腿
 Advanced_Copper_Tools_CopperGreaves_CardDescription,Hammered copper greaves protecting both legs. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锤制铜护腿，保护双腿。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperGreaves_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_CopperGreaves_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护腿以回收材料。
 Advanced_Copper_Tools_Bp_CopperGreaves_CardName,Copper Greaves,铜制护腿
-Advanced_Copper_Tools_Bp_CopperGreaves_CardDescription,"Craft hammered copper greaves for leg protection. Requires 2 heated lumps of metal, 4 copper nails, 1 small leather, 2 sinew, and a hammer.",制作锤制铜护腿用于腿部防护。需要2块加热金属锭、4颗铜钉、1块小皮革、2根肌腱和一把锤子。
-Advanced_Copper_Tools_Bp_CopperGreaves_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
+Advanced_Copper_Tools_Bp_CopperGreaves_CardDescription,"Craft hammered copper greaves for leg protection. Requires 2 copper bars, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder, and a hammer.",制作锤制铜护腿用于腿部防护。需要2块铜锭、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_CopperGreaves_UnlockConditionsDesc,Copper Bar Needed,需要铜锭
 Advanced_Copper_Tools_CopperBreastplate_CardName,Copper Armor,铜制铠甲
 Advanced_Copper_Tools_CopperBreastplate_CardDescription,A sturdy suit of copper armor offering strong torso protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铜制铠甲，提供强力躯干防护。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperBreastplate_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_CopperBreastplate_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
 Advanced_Copper_Tools_Bp_CopperBreastplate_CardName,Copper Armor,铜制铠甲
-Advanced_Copper_Tools_Bp_CopperBreastplate_CardDescription,"Craft sturdy copper armor for torso protection. Requires 4 copper sheets, 4 copper nails, 1 medium leather, 4 sinew, and a hammer.",制作坚固的铜制铠甲用于躯干防护。需要4块铜片、4颗铜钉、1块中型皮革、4根肌腱和一把锤子。
+Advanced_Copper_Tools_Bp_CopperBreastplate_CardDescription,"Craft sturdy copper armor for torso protection. Requires 4 copper sheets, 4 copper nails, 1 medium leather, 4 sinew, 1 tin solder, and a hammer.",制作坚固的铜制铠甲用于躯干防护。需要4块铜片、4颗铜钉、1块中型皮革、4根肌腱、1块焊锡和一把锤子。
 Advanced_Copper_Tools_Bp_CopperBreastplate_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_CopperBrazierKit_CardName,Copper Brazier Kit,铜制火盆套件
 Advanced_Copper_Tools_CopperBrazierKit_CardDescription,A portable copper brazier on a stick tripod. Set it up in your environment and fill with oil for a bright long-burning light source.,一个架在三脚架上的便携铜制火盆。在环境中安置并注入油脂，以获得明亮持久的光源。
@@ -532,7 +543,7 @@ Advanced_Copper_Tools_CopperBrazierKit_Place_ActionName,Place,放置
 Advanced_Copper_Tools_CopperBrazierKit_Place_ActionDescription,Set up the copper brazier in your environment.,在您的环境中安置铜制火盆。
 Advanced_Copper_Tools_CopperBrazier_CardName,Copper Brazier,铜制火盆
 Advanced_Copper_Tools_CopperBrazier_CardDescription,"A placed copper brazier, currently unlit. Fill with oil and light from any fire source to illuminate and warm the area.",一个已放置的铜制火盆，当前未点燃。注入油脂并用任何火源点燃，以照亮并温暖周围区域。
-Advanced_Copper_Tools_CopperBrazier_CardHelpSection,"<b>Usage:</b> Add oil, then light from any fire source. Burns brighter and longer than a clay brazier. Pack up to carry.",<b>用途：</b> 添加油脂，然后用任何火源点燃。比陶制火盆燃烧更明亮、持久。打包可携带。
+Advanced_Copper_Tools_CopperBrazier_CardHelpSection,"<b>Usage:</b> Add any lamp oil, then light from any fire source. Burns brighter and longer than a clay brazier. Pack up to carry.",<b>用途：</b> 添加任意灯油，然后用任何火源点燃。比陶制火盆燃烧更明亮、持久。打包可携带。
 Advanced_Copper_Tools_CopperBrazier_FuelCapacity_CardStatName,Oil,油量
 Advanced_Copper_Tools_CopperBrazier_Refuel_ActionName,Pour in Oil,倒入油脂
 Advanced_Copper_Tools_CopperBrazier_Refuel_ActionDescription,Poured oil into the brazier.,向火盆中倒入油脂。
@@ -547,15 +558,19 @@ Advanced_Copper_Tools_CopperBrazier_Extinguish_ActionName,Extinguish,熄灭
 Advanced_Copper_Tools_CopperBrazier_Extinguish_ActionDescription,Smother the flames.,扑灭火焰。
 Advanced_Copper_Tools_CopperBrazierLit_CardName,Lit Copper Brazier,已点燃的铜制火盆
 Advanced_Copper_Tools_CopperBrazierLit_CardDescription,A copper brazier burning oil with a bright warm flame. Burns through oil faster than a lantern but illuminates a larger area.,一个燃烧油脂散发明亮温暖火焰的铜制火盆。比提灯消耗油脂更快，但照亮范围更大。
-Advanced_Copper_Tools_CopperBrazierLit_CardHelpSection,<b>Usage:</b> Illuminates a wide area and boosts morale. Extinguish before refueling.,<b>用途：</b> 照亮大片区域并提升士气。补充燃料前需先熄灭。
+Advanced_Copper_Tools_CopperBrazierLit_CardHelpSection,"<b>Usage:</b> Illuminates a wide area. Like any open fire it dries you out, keeps bugs and mosquitoes down, and makes you easier to spot. Warm Up and Wait by Fire warm you beside it. Extinguish before refueling.",<b>用途：</b> 照亮大片区域。和任何明火一样，它能烘干身体、驱除虫子和蚊子，也会让你更容易被发现。可在旁边“取暖”或“守火等待”。补充燃料前需先熄灭。
 Advanced_Copper_Tools_CopperBrazierLit_FuelOut_ActionName,Brazier Burns Out,火盆燃尽
 Advanced_Copper_Tools_CopperBrazierLit_FuelOut_ActionDescription,The brazier runs out of oil.,火盆的油脂耗尽了。
+Advanced_Copper_Tools_CopperBrazierLit_WarmUp_ActionName,Warm Up,取暖
+Advanced_Copper_Tools_CopperBrazierLit_WarmUp_ActionDescription,Warm yourself by the brazier.,靠在火盆旁取暖。
+Advanced_Copper_Tools_CopperBrazierLit_WaitByFire_ActionName,Wait by Fire,守火等待
+Advanced_Copper_Tools_CopperBrazierLit_WaitByFire_ActionDescription,Pass time warming yourself by the brazier.,靠在火盆旁取暖以打发时间。
 Advanced_Copper_Tools_Bp_CopperBrazier_CardName,Copper Brazier,铜制火盆
-Advanced_Copper_Tools_Bp_CopperBrazier_CardDescription,"Craft a copper brazier from metal sheets, copper nails, and long sticks. Holds 4 charges of oil and burns brighter than a lantern.",用金属片、铜钉和长棍制作一个铜制火盆。可储存4格油量，比提灯燃烧更明亮。
+Advanced_Copper_Tools_Bp_CopperBrazier_CardDescription,"Craft a copper brazier from metal sheets, copper nails, long sticks and a Tin Solder. Holds two bowls of oil and burns brighter than a lantern.",用金属片、铜钉、长棍和锡焊料制作一个铜制火盆。可储存两碗油，比提灯燃烧更明亮。
 Advanced_Copper_Tools_Bp_CopperBrazier_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
 Advanced_Copper_Tools_CalmingTea_CardName,Calming Tea,安神茶
 Advanced_Copper_Tools_CalmingTea_CardDescription,A soothing brew of dried willow bark steeped in hot water. Quiets the nerves and eases stress.,用干柳树皮在热水中冲泡的舒缓茶饮。能安定神经、缓解压力。
-Advanced_Copper_Tools_CalmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station — dried willow bark plus a Water Charge, once the reservoir is hot.
+Advanced_Copper_Tools_CalmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station, from dried willow bark plus a Water Charge, once the reservoir is hot.
 
 <b>Uses:</b> Drink for hydration and a strong Stress reduction.","<b>冲泡：</b>在点燃的茶饮站——需要干柳树皮和一份水量，且水箱已加热。
 
@@ -563,7 +578,7 @@ Advanced_Copper_Tools_CalmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea St
 Advanced_Copper_Tools_CalmingTea_Drink_ActionName,Drink,饮用
 Advanced_Copper_Tools_WarmingTea_CardName,Warming Tea,暖身茶
 Advanced_Copper_Tools_WarmingTea_CardDescription,A pungent brew of dried wild garlic steeped in hot water. Chases off the cold from the inside.,用干野蒜在热水中冲泡的辛辣茶饮。能从体内驱散寒意。
-Advanced_Copper_Tools_WarmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station — dried wild garlic plus a Water Charge, once the reservoir is hot.
+Advanced_Copper_Tools_WarmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station, from dried wild garlic plus a Water Charge, once the reservoir is hot.
 
 <b>Uses:</b> Drink for hydration, a little food value, and a Body Temperature boost.","<b>冲泡：</b>在点燃的茶饮站——需要干野蒜和一份水量，且水箱已加热。
 
@@ -571,7 +586,7 @@ Advanced_Copper_Tools_WarmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea St
 Advanced_Copper_Tools_WarmingTea_Drink_ActionName,Drink,饮用
 Advanced_Copper_Tools_FocusTea_CardName,Focus Tea,凝神茶
 Advanced_Copper_Tools_FocusTea_CardDescription,"A sharp, faintly psychoactive brew of dried spirit mushrooms steeped in hot water. Clears the mind.",用干灵菇在热水中冲泡的辛烈茶饮，带有轻微致幻效果，能让头脑清醒。
-Advanced_Copper_Tools_FocusTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station — dried spirit mushrooms plus a Water Charge, once the reservoir is hot.
+Advanced_Copper_Tools_FocusTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station, from dried spirit mushrooms plus a Water Charge, once the reservoir is hot.
 
 <b>Uses:</b> Drink for hydration and a Focus and Energy boost.","<b>冲泡：</b>在点燃的茶饮站——需要干灵菇和一份水量，且水箱已加热。
 
@@ -582,8 +597,8 @@ Advanced_Copper_Tools_TeaBlendingStation_BrewNeedsWater_CannotCookText,Needs a h
 Advanced_Copper_Tools_TeaBlendingStation_BrewWarming_ActionName,Brew Warming Tea,冲泡暖身茶
 Advanced_Copper_Tools_TeaBlendingStation_BrewFocus_ActionName,Brew Focus Tea,冲泡凝神茶
 Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionName,Hot Bath,热水浴
-Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionDescription,"Soak in piping-hot water. Greatly improves mood and body warmth, and melts away stress.",浸泡在滚烫的热水中。大幅提升心情与体温，并消除压力。
-Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and improve mood. Keep the fire above half heat for a Hot Bath instead — the same benefits plus a bigger mood boost and a genuine Stress reduction. Add more firewood to keep it hot longer.,<b>用法：</b>泡个温水浴可以减少污垢、提升心情。若炉火维持在一半以上的热度，则可改为泡热水浴——效果相同，但心情提升更大，并能真正降低压力。多加柴火可以让水保持更久的高温。
+Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionDescription,"Soak in piping-hot water. Greatly improves mood and body warmth, melts away stress, and cleans as well as the river, clearing rashes and wolfsbane too. You come out wet, so dry off at a stove or brazier.",浸泡在滚烫的热水中。大幅提升心情与体温，消除压力，清洁效果与在河中清洗相当，同时清除皮疹和乌头接触。出浴后身上是湿的，可在炉子或火盆旁烘干。
+Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection,"<b>Usage:</b> Take a warm bath to wash as clean as the river does, clear rashes and wolfsbane from your skin, and improve mood. Keep the fire above half heat for a Hot Bath instead: the same cleaning plus a bigger mood boost and a genuine Stress reduction. Any bath leaves you wet, so dry off at a stove or brazier. Add more firewood to keep it hot longer.",<b>用法：</b>泡个温水浴，清洁效果与在河中清洗相当，能清除皮疹和乌头接触，还能提升心情。若炉火维持在一半以上的热度，则可改为泡热水浴：清洁效果相同，但心情提升更大，并能真正降低压力。任何一种沐浴都会让你身上变湿，可在炉子或火盆旁烘干。多加柴火可以让水保持更久的高温。
 Advanced_Copper_Tools_CopperOilFlask_AlternateNames[0].Name,Copper Oil Flask,铜制油壶
 Advanced_Copper_Tools_CopperOilFlask_AlternateNames[1].Name,Ghost Bronze Oil Flask,幽灵青铜油壶
 Advanced_Copper_Tools_CopperOilFlask_AlternateNames[2].Name,Tin Oil Flask,锡制油壶
@@ -597,12 +612,16 @@ Advanced_Copper_Tools_CopperCauldron_AlternateNames[3].Name,Tin Bronze Cauldron,
 Advanced_Copper_Tools_CopperCauldron_AlternateNames[4].Name,White Bronze Cauldron,白青铜大锅
 Advanced_Copper_Tools_CopperCauldron_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_CopperWateringCan_CardName,Copper Watering Can,铜制洒水壶
-Advanced_Copper_Tools_CopperWateringCan_CardDescription,"A hammered copper can with a rope-bound handle and a perforated spout. Fill it from any shallow water source and carry it for a quick drink, or empty it out when you're done.",一只锤打成型的铜壶，带绳绑手柄和带孔壶嘴。可在任何浅水源处装满，随身携带以便随时饮用，用完后倒空即可。
+Advanced_Copper_Tools_CopperWateringCan_CardDescription,"A hammered copper can with a rope-bound handle and a perforated spout. Fill it from any shallow water source and carry it for a quick drink, or empty it out when you're done. Drag it onto a garden plot to water it: each watering uses 300 ml, so a full can waters five times.",一只锤打成型的铜壶，带绳绑手柄和带孔壶嘴。可在任何浅水源处装满，随身携带以便随时饮用，用完后倒空即可。拖到菜地上即可浇水，每次浇水用水300毫升，装满一壶可浇五次。
 Advanced_Copper_Tools_CopperWateringCan_CardHelpSection,"<b>Fill:</b> Drag onto a river, pond, or other shallow water source.
 
-<b>Uses:</b> Drink in a pinch, or empty it out onto the ground when you're done. Holds 1500 ml.","<b>装水：</b>拖到河流、池塘或其他浅水源上即可。
+<b>Uses:</b> Drink in a pinch, or empty it out onto the ground when you're done. Holds 1500 ml.
 
-<b>用途：</b>紧急情况下饮用，或用完后倒空。容量1500毫升。"
+<b>Water:</b> Drag it onto a garden plot to water it. Each watering uses 300 ml, so a full can waters five times.","<b>装水：</b>拖到河流、池塘或其他浅水源上即可。
+
+<b>用途：</b>紧急情况下饮用，或用完后倒空。容量1500毫升。
+
+<b>浇水：</b>拖到菜地上即可浇水。每次浇水用水300毫升，装满一壶可浇五次。"
 Advanced_Copper_Tools_CopperWateringCan_Fill_ActionName,Fill from Water,从水源装水
 Advanced_Copper_Tools_CopperWateringCan_Fill_ActionDescription,Dip the can into the water to fill it.,把壶浸入水中装满。
 Advanced_Copper_Tools_CopperWateringCan_Drink_ActionName,Drink,饮用
@@ -610,39 +629,39 @@ Advanced_Copper_Tools_CopperWateringCan_Drink_FailMessage,The can is empty.,壶�
 Advanced_Copper_Tools_CopperWateringCan_Empty_ActionName,Empty Out,倒空
 Advanced_Copper_Tools_CopperWateringCan_Empty_ActionDescription,Pour the water out onto the ground.,把水倒在地上。
 Advanced_Copper_Tools_Bp_CopperWateringCan_CardName,Copper Watering Can,铜制洒水壶
-Advanced_Copper_Tools_Bp_CopperWateringCan_CardDescription,"Hammer two copper sheets into a spouted can with a rope-bound handle. Requires 2 copper sheets, 1 rope, and a hammer.",把两块铜板锤打成带壶嘴的水壶，并绑上绳制手柄。需要2块铜板、1根绳子和一把锤子。
+Advanced_Copper_Tools_Bp_CopperWateringCan_CardDescription,"Hammer two copper sheets into a spouted can with a rope-bound handle. Requires 2 copper sheets, 1 rope, 1 Tin Solder and a hammer.",把两块铜板锤打成带壶嘴的水壶，并绑上绳制手柄。需要2块铜板、1根绳子、1块锡焊料和一把锤子。
 Advanced_Copper_Tools_Bp_CopperWateringCan_UnlockConditionsDesc,Copper Sheet Needed,需要铜板
 Advanced_Copper_Tools_CopperRimChamberpot_CardName,Copper-Rim Chamberpot,铜边便壶
 Advanced_Copper_Tools_CopperRimChamberpot_CardDescription,A clay chamberpot with a hammered copper rim. Saves a cold trip outside at night. Holds four uses before it needs emptying.,一只带锤打铜边的陶制便壶，能省去夜里外出受冻的麻烦。使用四次后需要倒空。
 Advanced_Copper_Tools_CopperRimChamberpot_CardHelpSection,"<b>Use:</b> A small mood bump for not having to go outside. Fills up after 4 uses.
 
-<b>Empty:</b> Empty it out once full to use it again — the waste makes a pile of manure for the compost bin or fields.","<b>使用：</b>不必外出方便，小幅提升心情。使用4次后装满。
+<b>Empty:</b> Empty it out once full to use it again. The waste makes a pile of manure for the compost bin or fields.","<b>使用：</b>不必外出方便，小幅提升心情。使用4次后装满。
 
 <b>倒空：</b>装满后倒空即可再次使用——排泄物会留下一堆粪肥，可用于堆肥箱或田地。"
 Advanced_Copper_Tools_CopperRimChamberpot_SpecialDurability1.CardStatName,Fullness,充满度
 Advanced_Copper_Tools_CopperRimChamberpot_Use_ActionName,Use,使用
 Advanced_Copper_Tools_CopperRimChamberpot_Use_ActionDescription,No need to brave the cold and dark.,不必冒着严寒黑夜外出了。
-Advanced_Copper_Tools_CopperRimChamberpot_Use_FailMessage,It's full — empty it first.,已经满了——请先倒空。
+Advanced_Copper_Tools_CopperRimChamberpot_Use_FailMessage,It's full. Empty it first.,已经满了——请先倒空。
 Advanced_Copper_Tools_CopperRimChamberpot_Empty_ActionName,Empty,倒空
 Advanced_Copper_Tools_CopperRimChamberpot_Empty_ActionDescription,Empty it out so it can be used again. Leaves a pile of manure.,倒空后即可再次使用。会留下一堆粪肥。
 Advanced_Copper_Tools_CopperRimChamberpot_Empty_FailMessage,Already empty.,已经是空的了。
 Advanced_Copper_Tools_Bp_CopperRimChamberpot_CardName,Copper-Rim Chamberpot,铜边便壶
 Advanced_Copper_Tools_Bp_CopperRimChamberpot_CardDescription,"Hammer a copper rim onto a clay bowl to make a proper chamberpot. Requires 1 clay bowl, 1 copper sheet, and a hammer.",把铜边锤打固定在陶碗上，做成一只合格的便壶。需要1只陶碗、1块铜板和一把锤子。
 Advanced_Copper_Tools_Bp_CopperRimChamberpot_UnlockConditionsDesc,Copper Sheet Needed,需要铜板
-Advanced_Copper_Tools_IronSheet_CardName,Iron Sheet,铁板
-Advanced_Copper_Tools_IronSheet_CardDescription,"A flat iron sheet, hammered thin from iron nuggets. Tougher than any copper-tier metal.",由铁块锤打成的薄铁板，比任何铜系金属都更坚韧。
+Advanced_Copper_Tools_IronSheet_CardName,Iron Sheet (old),铁板（旧）
+Advanced_Copper_Tools_IronSheet_CardDescription,An iron sheet from before Iron Sheets became Metal Sheets. Within a quarter of an hour it becomes a Metal Sheet of iron (Metal Type 200) by itself; Reforge as Metal Sheet does it at once. Nothing makes this card any more.,铁板并入金属片之前的旧铁板。一刻钟内它会自行变成一块铁质金属片（金属类型200）；“重铸为金属片”可立即完成。已没有任何配方产出这张卡。
 Advanced_Copper_Tools_IronSheet_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_IronSheet_FuelCapacity.CardStatName,Temperature,温度
-Advanced_Copper_Tools_Bp_IronSheet_CardName,Iron Sheet,铁板
-Advanced_Copper_Tools_Bp_IronSheet_CardDescription,"Hammer iron nuggets flat into a sheet, ready for iron-grade tools and armor.",把铁块锤打成扁平的铁板，可用于打造铁质工具和铠甲。
-Advanced_Copper_Tools_Bp_IronSheet_UnlockConditionsDesc,Iron Nugget Needed,需要铁块
+Advanced_Copper_Tools_IronSheet_Progress.CardStatName,Reforging,重铸中
+Advanced_Copper_Tools_IronSheet_OnFull_ActionName,Becomes a Metal Sheet,变为金属片
+Advanced_Copper_Tools_IronSheet_OnFull_ActionDescription,An old card becomes the merged Metal Sheet of iron.,旧卡牌变为合并后的铁质金属片。
 Advanced_Copper_Tools_IronHelmet_CardName,Iron Helmet,铁头盔
 Advanced_Copper_Tools_IronHelmet_CardDescription,A forged iron helmet offering superior head protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锻造的铁头盔，头部防护优于铜制版本。可在熔炉中回收。必须装备在装备栏才能生效。
 Advanced_Copper_Tools_IronHelmet_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_IronHelmet_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_IronHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
 Advanced_Copper_Tools_Bp_IronHelmet_CardName,Iron Helmet,铁头盔
-Advanced_Copper_Tools_Bp_IronHelmet_CardDescription,Forge an iron helmet for superior head protection.,锻造一顶铁头盔，获得更强的头部防护。
+Advanced_Copper_Tools_Bp_IronHelmet_CardDescription,"Forge an iron helmet for superior head protection. Requires 2 iron sheets, 4 metal nails, 1 small leather, 2 sinew and a hammer.",锻造一顶铁头盔，获得更强的头部防护。需要2块铁片、4颗金属钉、1块小皮革、2根肌腱和一把锤子。
 Advanced_Copper_Tools_Bp_IronHelmet_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
 Advanced_Copper_Tools_IronGauntlets_CardName,Iron Bracers,铁护臂
 Advanced_Copper_Tools_IronGauntlets_CardDescription,"Forged iron bracers protecting both arms, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的铁护臂，保护双臂，比铜制版本更坚韧。可在熔炉中回收。必须装备在装备栏才能生效。
@@ -650,7 +669,7 @@ Advanced_Copper_Tools_IronGauntlets_UsageDurability.CardStatName,Durability,耐�
 Advanced_Copper_Tools_IronGauntlets_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_IronGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护臂以回收材料。
 Advanced_Copper_Tools_Bp_IronGauntlets_CardName,Iron Bracers,铁护臂
-Advanced_Copper_Tools_Bp_IronGauntlets_CardDescription,Forge iron bracers for superior arm protection.,锻造铁护臂，获得更强的手臂防护。
+Advanced_Copper_Tools_Bp_IronGauntlets_CardDescription,"Forge iron bracers for superior arm protection. Requires 2 iron sheets, 4 metal nails, 1 small leather, 2 sinew and a hammer.",锻造铁护臂，获得更强的手臂防护。需要2块铁片、4颗金属钉、1块小皮革、2根肌腱和一把锤子。
 Advanced_Copper_Tools_Bp_IronGauntlets_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
 Advanced_Copper_Tools_IronGreaves_CardName,Iron Greaves,铁护胫
 Advanced_Copper_Tools_IronGreaves_CardDescription,"Forged iron greaves protecting both legs, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的铁护胫，保护双腿，比铜制版本更坚韧。可在熔炉中回收。必须装备在装备栏才能生效。
@@ -658,7 +677,7 @@ Advanced_Copper_Tools_IronGreaves_UsageDurability.CardStatName,Durability,耐久
 Advanced_Copper_Tools_IronGreaves_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_IronGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护胫以回收材料。
 Advanced_Copper_Tools_Bp_IronGreaves_CardName,Iron Greaves,铁护胫
-Advanced_Copper_Tools_Bp_IronGreaves_CardDescription,Forge iron greaves for superior leg protection.,锻造铁护胫，获得更强的腿部防护。
+Advanced_Copper_Tools_Bp_IronGreaves_CardDescription,"Forge iron greaves for superior leg protection. Requires 2 iron sheets, 4 metal nails, 1 small leather, 2 sinew and a hammer.",锻造铁护胫，获得更强的腿部防护。需要2块铁片、4颗金属钉、1块小皮革、2根肌腱和一把锤子。
 Advanced_Copper_Tools_Bp_IronGreaves_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
 Advanced_Copper_Tools_IronBreastplateM_CardName,Iron Armor (Male),铁铠甲（男款）
 Advanced_Copper_Tools_IronBreastplateM_CardDescription,A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铁铠甲，躯干防护优于铜制版本。可在熔炉中回收。必须装备在装备栏才能生效。
@@ -666,7 +685,7 @@ Advanced_Copper_Tools_IronBreastplateM_UsageDurability.CardStatName,Durability,�
 Advanced_Copper_Tools_IronBreastplateM_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_IronBreastplateM_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
 Advanced_Copper_Tools_Bp_IronBreastplateM_CardName,Iron Armor (Male),铁铠甲（男款）
-Advanced_Copper_Tools_Bp_IronBreastplateM_CardDescription,Forge a suit of iron armor for superior torso protection.,锻造一套铁铠甲，获得更强的躯干防护。
+Advanced_Copper_Tools_Bp_IronBreastplateM_CardDescription,"Forge a suit of iron armor for superior torso protection. Requires 4 iron sheets, 4 metal nails, 1 medium leather, 4 sinew and a hammer.",锻造一套铁铠甲，获得更强的躯干防护。需要4块铁片、4颗金属钉、1块中型皮革、4根肌腱和一把锤子。
 Advanced_Copper_Tools_Bp_IronBreastplateM_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
 Advanced_Copper_Tools_IronBreastplateF_CardName,Iron Armor (Female),铁铠甲（女款）
 Advanced_Copper_Tools_IronBreastplateF_CardDescription,A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铁铠甲，躯干防护优于铜制版本。可在熔炉中回收。必须装备在装备栏才能生效。
@@ -674,19 +693,19 @@ Advanced_Copper_Tools_IronBreastplateF_UsageDurability.CardStatName,Durability,�
 Advanced_Copper_Tools_IronBreastplateF_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_IronBreastplateF_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
 Advanced_Copper_Tools_Bp_IronBreastplateF_CardName,Iron Armor (Female),铁铠甲（女款）
-Advanced_Copper_Tools_Bp_IronBreastplateF_CardDescription,Forge a suit of iron armor for superior torso protection.,锻造一套铁铠甲，获得更强的躯干防护。
+Advanced_Copper_Tools_Bp_IronBreastplateF_CardDescription,"Forge a suit of iron armor for superior torso protection. Requires 4 iron sheets, 4 metal nails, 1 medium leather, 4 sinew and a hammer.",锻造一套铁铠甲，获得更强的躯干防护。需要4块铁片、4颗金属钉、1块中型皮革、4根肌腱和一把锤子。
 Advanced_Copper_Tools_Bp_IronBreastplateF_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
 Advanced_Copper_Tools_Bp_RenderFishOil_CardName,Rendered Fish Oil,熬制鱼油
-Advanced_Copper_Tools_Bp_RenderFishOil_CardDescription,Render 2 fatty fish meat in a clay bowl over a fire to produce cooking oil and lamp fuel.,在火上用陶碗熬制2块肥鱼肉，制成食用油和灯油。
+Advanced_Copper_Tools_Bp_RenderFishOil_CardDescription,Render 2 fatty fish meat in a clay bowl to produce cooking oil and lamp fuel.,用陶碗熬制2块肥鱼肉，制成食用油和灯油。
 Advanced_Copper_Tools_Bp_RenderFishOil_UnlockConditionsDesc,Fatty Fish Meat Needed,需要肥鱼肉
 Advanced_Copper_Tools_CopperVeinCave_CardName,Copper Vein Cave,铜矿洞
 Advanced_Copper_Tools_Env_CopperVeinCave_CardName,Copper Vein Cave,铜矿洞
 Advanced_Copper_Tools_CopperVein_CardName,Copper Vein,铜矿脉
 Advanced_Copper_Tools_CopperVein_CardDescription,"Mine with a pickaxe for best results, or chip away with an axe, hammer, shovel, or antler. Produces greenstone.",嵌入洞穴岩石中的铜矿脉。用镐开采效率最佳，也可用斧头、锤子、铲子或鹿角凿击。
 Advanced_Copper_Tools_CopperVein_Mine_ActionName,Mine Copper,开采铜矿
-Advanced_Copper_Tools_CopperVein_Mine_ActionDescription,Strike the vein with a pickaxe to extract greenstone.,用镐敲击矿脉以提取铜矿石。
+Advanced_Copper_Tools_CopperVein_Mine_ActionDescription,"Strike the vein with a pickaxe to extract greenstone. Hard work, as in the game's own mine: it needs Stamina, and the better your Smithing, the more often a second piece comes loose.",用镐敲击矿脉以提取铜矿石。与原版矿井一样费力：需要耐力，金工技能越高，越常多敲下一块。
 Advanced_Copper_Tools_CopperVein_MineRough_ActionName,Chip Away,凿击
-Advanced_Copper_Tools_CopperVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one greenstone per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一块铜矿石。
+Advanced_Copper_Tools_CopperVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe, yielding one greenstone per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一块铜矿石。
 Advanced_Copper_Tools_TinVeinCave_CardName,Metal Mines,锡矿洞
 Advanced_Copper_Tools_Env_TinVeinCave_CardName,Metal Mines,锡矿洞
 Advanced_Copper_Tools_IronVeinCave_CardName,Iron Vein Cave,铁矿洞
@@ -694,46 +713,34 @@ Advanced_Copper_Tools_Env_IronVeinCave_CardName,Iron Vein Cave,铁矿洞
 Advanced_Copper_Tools_TinVein_CardName,Tin Vein,锡矿脉
 Advanced_Copper_Tools_TinVein_CardDescription,"Mine with a pickaxe for best results, or chip away with an axe, hammer, shovel, or antler.",嵌入洞穴岩石中的锡矿脉。用镐开采效率最佳，也可用斧头、锤子、铲子或鹿角凿击。
 Advanced_Copper_Tools_TinVein_Mine_ActionName,Mine Tin,开采锡矿
-Advanced_Copper_Tools_TinVein_Mine_ActionDescription,Strike the vein with a pickaxe to extract tin ore.,用镐敲击矿脉以提取锡矿石。
+Advanced_Copper_Tools_TinVein_Mine_ActionDescription,"Strike the vein with a pickaxe to extract tin ore. Hard work, as in the game's own mine: it needs Stamina, and the better your Smithing, the more often a second piece comes loose.",用镐敲击矿脉以提取锡矿石。与原版矿井一样费力：需要耐力，金工技能越高，越常多敲下一块。
 Advanced_Copper_Tools_TinVein_MineRough_ActionName,Chip Away,凿击
-Advanced_Copper_Tools_TinVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one tin ore per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一块锡矿石。
+Advanced_Copper_Tools_TinVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe, yielding one tin ore per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一块锡矿石。
 Advanced_Copper_Tools_IronVein_CardName,Iron Vein,铁矿脉
 Advanced_Copper_Tools_IronVein_CardDescription,A seam of bog iron embedded in cave rock. Mine with a pickaxe for best results or chip away with an axe.,嵌入洞穴岩石中的沼铁矿脉。用镐开采效率最佳，也可用斧头、锤子、铲子或鹿角凿击。
 Advanced_Copper_Tools_IronVein_Mine_ActionName,Mine Iron,开采铁矿
-Advanced_Copper_Tools_IronVein_Mine_ActionDescription,Strike the vein with a pickaxe to extract bog iron.,用镐敲击矿脉以提取干燥沼铁。
+Advanced_Copper_Tools_IronVein_Mine_ActionDescription,"Strike the vein with a pickaxe to extract bog iron. Hard work, as in the game's own mine: it needs Stamina, and the better your Smithing, the more often a second piece comes loose.",用镐敲击矿脉以提取干燥沼铁。与原版矿井一样费力：需要耐力，金工技能越高，越常多敲下一块。
 Advanced_Copper_Tools_IronVein_MineRough_ActionName,Chip Away,凿击
-Advanced_Copper_Tools_IronVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one piece of bog iron per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一块干燥沼铁。
+Advanced_Copper_Tools_IronVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe, yielding one piece of bog iron per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一块干燥沼铁。
 Advanced_Copper_Tools_TinOre_CardName,Tin Ore,锡矿石
-Advanced_Copper_Tools_TinOre_CardDescription,A crude tin ore chunk. Smelt it in a forge or furnace at 900°C to produce a tin-grade metal nugget.,一块原始锡矿石。在锻炉或熔炉中加热至900℃以上，可冶炼出一块锡块。
-Advanced_Copper_Tools_IronNail_CardName,Iron Nail,铁钉
-Advanced_Copper_Tools_IronNail_CardDescription,A hand-forged iron nail. Stronger than copper. Interchangeable with copper nails in all constructions.,手工锻造的铁钉。比铜更坚固，可替代铜钉用于所有建筑。
-Advanced_Copper_Tools_IronNail_CardHelpSection,"<b>Crafted:</b> From 2 iron nuggets using a hammer (yields 4).
+Advanced_Copper_Tools_TinOre_CardDescription,"A crude tin ore chunk. Mined from a tin vein, or panned from river gravel with a metal pan. Smelt it in a forge or furnace at 900°C to produce a tin-grade metal nugget.",一块原始锡矿石。可从锡矿脉开采，也可在河边用金属锅从砂砾中淘得。在锻炉或熔炉中加热至900℃以上，可冶炼出一块锡块。
+Advanced_Copper_Tools_IronNail_CardName,Iron Nail (old),铁钉（旧）
+Advanced_Copper_Tools_IronNail_CardDescription,An iron nail from before Iron Nails became Metal Nails. Within a quarter of an hour it becomes a Metal Nail of iron (Metal Type 200) by itself; Reforge as Metal Nail does it at once. Nothing makes this card any more.,铁钉并入金属钉之前的旧铁钉。一刻钟内它会自行变成一枚铁质金属钉（金属类型200）；“重铸为金属钉”可立即完成。已没有任何配方产出这张卡。
+Advanced_Copper_Tools_IronNail_CardHelpSection,"<b>Retired:</b> Iron nails are now the Metal Nail card at Metal Type 200 (named Iron Nail). This old card turns into one by itself within a quarter of an hour, or at once with Reforge as Metal Nail.
 
-<b>Uses:</b> Construction and crafting — accepted anywhere copper nails are required.
+<b>Uses:</b> Until then it is still accepted wherever a nail is required.","<b>已停用：</b>铁钉现在是金属类型为200的金属钉（名为铁钉）。这张旧卡会在一刻钟内自行变成金属钉，或用“重铸为金属钉”立即完成。
 
-<b>Smelts:</b> Returns 1 iron nugget in a furnace at 1100C+.","<b>制作：</b> 用锤子将2块铁块锻造而成（产出4枚）。
-
-<b>用途：</b> 建筑与手工制作——可在任何需要铜钉的地方使用。
-
-<b>熏炼：</b> 在1100℃以上的熏炉中可熏炼返还1块铁块。"
-Advanced_Copper_Tools_TinSolder_CardName,Tin Solder,锡焊料
-Advanced_Copper_Tools_TinSolder_CardDescription,A tin solder stick. Useful for joining metal parts or sealing seams.,锡焊料棒。用于连接金属零件或密封接缝。
-Advanced_Copper_Tools_Bp_IronNails_CardName,Forge Iron Nails,锻造铁钉
-Advanced_Copper_Tools_Bp_IronNails_CardDescription,Forge iron-grade metal nuggets into a set of iron nails.,用铁块锻造一批铁钉。
-Advanced_Copper_Tools_Bp_IronNails_UnlockConditionsDesc,Dried Bog Iron Needed,需要干沼铁
-Advanced_Copper_Tools_Bp_TinSolder_CardName,Forge Tin Solder,锻造锡焊料
-Advanced_Copper_Tools_Bp_TinSolder_CardDescription,Melt a tin-grade metal nugget into solder sticks.,将锡块熔铸成焊料棒。
-Advanced_Copper_Tools_Bp_TinSolder_UnlockConditionsDesc,Tin Nugget Needed,需要锡块
+<b>用途：</b>在此之前，它仍可用于任何需要钉子的地方。"
 Advanced_Copper_Tools_CollapsedWallCopper_CardName,Collapsed Rock Face,坍塌的岩壁
-Advanced_Copper_Tools_CollapsedWallCopper_CardDescription,"The passage north to the copper vein cave is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open.",通往北边铜矿洞的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
+Advanced_Copper_Tools_CollapsedWallCopper_CardDescription,"The passage north to the copper vein cave is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way. Once cleared, it stays open.",通往北边铜矿洞的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
 Advanced_Copper_Tools_CollapsedWallCopper_Dig_ActionName,Dig Through,挖通
 Advanced_Copper_Tools_CollapsedWallCopper_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage to the copper vein cave.",用镐、铲子、斧头、鹿角或小刀凿开坍塌的岩石，打通通往铜矿洞的通道。
 Advanced_Copper_Tools_CollapsedWallIron_CardName,Collapsed Rock Face,坍塌的岩壁
-Advanced_Copper_Tools_CollapsedWallIron_CardDescription,"The passage south to the iron vein cave is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open.",通往南边铁矿洞的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
+Advanced_Copper_Tools_CollapsedWallIron_CardDescription,"The passage south to the iron vein cave is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way. Once cleared, it stays open.",通往南边铁矿洞的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
 Advanced_Copper_Tools_CollapsedWallIron_Dig_ActionName,Dig Through,挖通
 Advanced_Copper_Tools_CollapsedWallIron_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage to the iron vein cave.",用镐、铲子、斧头、鹿角或小刀凿开坍塌的岩石，打通通往铁矿洞的通道。
 Advanced_Copper_Tools_CollapsedWallTin_CardName,Collapsed Rock Face,坍塌的岩壁
-Advanced_Copper_Tools_CollapsedWallTin_CardDescription,"A cave-in blocks the eastern passage beyond the waterfall. Dig through it with a pickaxe, shovel, axe, antler, or knife to access the tin, copper, and iron vein caves — once cleared, the passage stays open.",瀑布东侧的通道被一场塌方堵住了。用镐、铲子、斧头、鹿角或小刀挖通它，即可进入锡矿洞、铜矿洞和铁矿洞——一旦清除，通道将保持畅通。
+Advanced_Copper_Tools_CollapsedWallTin_CardDescription,"A cave-in blocks the eastern passage beyond the waterfall. Dig through it with a pickaxe, shovel, axe, antler, or knife to access the tin, copper, and iron vein caves. Once cleared, the passage stays open.",瀑布东侧的通道被一场塌方堵住了。用镐、铲子、斧头、鹿角或小刀挖通它，即可进入锡矿洞、铜矿洞和铁矿洞——一旦清除，通道将保持畅通。
 Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionName,Dig Through,挖通
 Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the eastern passage to the cave network beyond the falls.",用镐、铲子、斧头、鹿角或小刀凿开坍塌的岩石，打通瀑布东侧通往洞穴网络的通道。
 Advanced_Copper_Tools_SaltMineCave_CardName,Salt Mine,盐矿洞
@@ -745,47 +752,47 @@ Advanced_Copper_Tools_SaltVein_CardDescription,"A crusted seam of rock salt embe
 Advanced_Copper_Tools_SaltVein_Mine_ActionName,Mine Salt,开采盐矿
 Advanced_Copper_Tools_SaltVein_Mine_ActionDescription,Strike the vein with a pickaxe to extract salt.,用镐敲击矿脉以提取盐。
 Advanced_Copper_Tools_SaltVein_MineRough_ActionName,Chip Away,凿击
-Advanced_Copper_Tools_SaltVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one salt per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一份盐。
+Advanced_Copper_Tools_SaltVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe, yielding one salt per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一份盐。
 Advanced_Copper_Tools_RockVein_CardName,Rock Vein,石矿脉
-Advanced_Copper_Tools_RockVein_CardDescription,"A thick face of quarry-grade stone embedded in cave rock. Mine with a pickaxe, or chip away with an axe, hammer, shovel, or antler — either way yields 3 stone and 3 heavy stone per strike. Depletes after 6 strikes.",嵌入洞穴岩石中的大片采石岩层。用镐开采，或用斧头、锤子、铲子或鹿角凿击——每次敲击都能获得3块石料和3块沉重石料，共可敲击6次。
+Advanced_Copper_Tools_RockVein_CardDescription,"A thick face of quarry-grade stone embedded in cave rock. Mine with a pickaxe, or chip away with an axe, hammer, shovel, or antler. Either way yields 3 stone and 3 heavy stone per strike. Depletes after 6 strikes.",嵌入洞穴岩石中的大片采石岩层。用镐开采，或用斧头、锤子、铲子或鹿角凿击——每次敲击都能获得3块石料和3块沉重石料，共可敲击6次。
 Advanced_Copper_Tools_RockVein_Mine_ActionName,Mine Stone,开采石料
 Advanced_Copper_Tools_RockVein_Mine_ActionDescription,Strike the rock face with a pickaxe to break loose 3 stone and 3 heavy stone.,用镐敲击岩层，敲下3块石料和3块沉重石料。
 Advanced_Copper_Tools_RockVein_MineRough_ActionName,Chip Away,凿击
 Advanced_Copper_Tools_RockVein_MineRough_ActionDescription,"Strike the rock face with an axe, hammer, shovel, or antler to break loose 3 stone and 3 heavy stone.",用斧头、锤子、铲子或鹿角凿击岩层，敲下3块石料和3块沉重石料。
 Advanced_Copper_Tools_CollapsedWallSalt_CardName,Collapsed Rock Face,坍塌的岩壁
-Advanced_Copper_Tools_CollapsedWallSalt_CardDescription,"The passage east to the salt mine is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open.",通往东边盐矿洞的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
+Advanced_Copper_Tools_CollapsedWallSalt_CardDescription,"The passage east to the salt mine is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way. Once cleared, it stays open.",通往东边盐矿洞的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
 Advanced_Copper_Tools_CollapsedWallSalt_Dig_ActionName,Dig Through,挖通
 Advanced_Copper_Tools_CollapsedWallSalt_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage to the salt mine.",用镐、铲子、斧头、鹿角或小刀凿开坍塌的岩石，打通通往盐矿洞的通道。
 Advanced_Copper_Tools_CollapsedWallQuarry_CardName,Collapsed Rock Face,坍塌的岩壁
-Advanced_Copper_Tools_CollapsedWallQuarry_CardDescription,"The passage east to the rock quarry is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open.",通往东边采石场的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
+Advanced_Copper_Tools_CollapsedWallQuarry_CardDescription,"The passage east to the rock quarry is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way. Once cleared, it stays open.",通往东边采石场的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
 Advanced_Copper_Tools_CollapsedWallQuarry_Dig_ActionName,Dig Through,挖通
 Advanced_Copper_Tools_CollapsedWallQuarry_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage to the rock quarry.",用镐、铲子、斧头、鹿角或小刀凿开坍塌的岩石，打通通往采石场的通道。
 Advanced_Copper_Tools_CollapsedWallSaltQuarry_CardName,Collapsed Rock Face,坍塌的岩壁
-Advanced_Copper_Tools_CollapsedWallSaltQuarry_CardDescription,"The passage between the salt mine and the rock quarry is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open.",盐矿洞与采石场之间的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
+Advanced_Copper_Tools_CollapsedWallSaltQuarry_CardDescription,"The passage between the salt mine and the rock quarry is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way. Once cleared, it stays open.",盐矿洞与采石场之间的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
 Advanced_Copper_Tools_CollapsedWallSaltQuarry_Dig_ActionName,Dig Through,挖通
 Advanced_Copper_Tools_CollapsedWallSaltQuarry_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage between the salt mine and the rock quarry.",用镐、铲子、斧头、鹿角或小刀凿开坍塌的岩石，打通盐矿洞与采石场之间的通道。
-Advanced_Copper_Tools_OreChest_CardName,Ore Chest,矿石箱
-Advanced_Copper_Tools_OreChest_CardDescription,"A high-capacity sealed metal crate built for hauling bulk mining raws. No spoilage protection, just a lot of space.",一个大容量密封金属箱，专为搬运大宗矿产原料而造。没有防腐蚀保护，只有充足的空间。
-Advanced_Copper_Tools_OreChest_CardHelpSection,"<b>Capacity:</b> 6000 weight, built for ore/stone/salt stacks.
+Advanced_Copper_Tools_OreChest_CardName,Ore Bin,矿石箱
+Advanced_Copper_Tools_OreChest_CardDescription,"A high-capacity open-topped metal bin for mined ore: Greenstone, bog iron, Tin Ore and Flint, and nothing else. No spoilage protection, just a lot of space.",一个大容量敞口金属箱，专门存放开采的矿石：绿石、沼铁、锡矿石和燧石，别无他物。没有防腐蚀保护，只有充足的空间。
+Advanced_Copper_Tools_OreChest_CardHelpSection,"<b>Holds:</b> mined ore only: Greenstone, bog iron (fresh, dried, roasted or crushed), Tin Ore and Flint.
 
-<b>Animal-safe:</b> Yes. Wildlife cannot raid this crate.","<b>容量：</b>6000重量，专为矿石/石头/盐堆放设计。
+<b>Capacity:</b> 6000 weight. No spoilage protection.","<b>可存放：</b>仅限开采的矿石：绿石、沼铁（新鲜、干燥、烘烤或碎沼铁）、锡矿石和燧石。
 
-<b>防动物：</b>是。野生动物无法侵扰此箱。"
+<b>容量：</b>6000重量。没有防腐蚀保护。"
 Advanced_Copper_Tools_OreChest_DismantleActions_Place_ActionName,Place,放置
-Advanced_Copper_Tools_OreChest_DismantleActions_Place_ActionDescription,Set the ore chest down in your environment.,将矿石箱放置在你所在的环境中。
+Advanced_Copper_Tools_OreChest_DismantleActions_Place_ActionDescription,Set the ore bin down in your environment.,将矿石箱放置在你所在的环境中。
 Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_ActionName,Dismantle,拆解
-Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_ActionDescription,Take the ore chest apart to recover some of the sheets.,拆解矿石箱以回收部分金属板。
-Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_FailMessage,Empty the crate first.,请先清空箱子。
-Advanced_Copper_Tools_OreChest_Placed_CardHelpSection,"<b>Capacity:</b> 15000 weight, built for ore/stone/salt stacks.
+Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_ActionDescription,Take the ore bin apart to recover some of the sheets.,拆解矿石箱以回收部分金属板。
+Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_FailMessage,Empty the bin first.,请先清空箱子。
+Advanced_Copper_Tools_OreChest_Placed_CardHelpSection,"<b>Holds:</b> mined ore only: Greenstone, bog iron (fresh, dried, roasted or crushed), Tin Ore and Flint.
 
-<b>Animal-safe:</b> Yes. Wildlife cannot raid this crate.","<b>容量：</b>15000重量，专为矿石/石头/盐堆放设计。
+<b>Capacity:</b> 15000 weight. No spoilage protection.","<b>可存放：</b>仅限开采的矿石：绿石、沼铁（新鲜、干燥、烘烤或碎沼铁）、锡矿石和燧石。
 
-<b>防动物：</b>是。野生动物无法侵扰此箱。"
+<b>容量：</b>15000重量。没有防腐蚀保护。"
 Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_ActionName,Pick Up,拾起
-Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_ActionDescription,Pick up the ore chest to carry it.,拾起矿石箱以便携带。
-Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_FailMessage,Empty the crate before picking it up.,拾起前请先清空箱子。
-Advanced_Copper_Tools_Bp_OreChest_CardName,Ore Chest,矿石箱
-Advanced_Copper_Tools_Bp_OreChest_CardDescription,"Build a high-capacity sealed metal crate for bulk ore, stone, and salt. Requires 6 metal sheets, 4 planks, 8 copper nails, and a hammer.",建造一个大容量密封金属箱，用于存放大宗矿石、石头和盐。需要6块金属板、4块木板、8根铜钉和一把锤子。
+Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_ActionDescription,Pick up the ore bin to carry it.,拾起矿石箱以便携带。
+Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_FailMessage,Empty the bin before picking it up.,拾起前请先清空箱子。
+Advanced_Copper_Tools_Bp_OreChest_CardName,Ore Bin,矿石箱
+Advanced_Copper_Tools_Bp_OreChest_CardDescription,"Build a high-capacity open-topped metal bin for mined ore: greenstone, bog iron, tin ore and flint. Requires 6 metal sheets, 4 planks, 8 copper nails, 1 tin solder, and a hammer.",建造一个大容量敞口金属箱，用于存放开采的矿石：绿石、沼铁、锡矿石和燧石。需要6块金属板、4块木板、8根铜钉、1块锡焊料和一把锤子。
 Advanced_Copper_Tools_Bp_OreChest_UnlockConditionsDesc,Copper Sheet Needed,需要铜板
 Advanced_Copper_Tools_SaltCuredMeat_CardName,Salt-Cured Meat,腌肉
 Advanced_Copper_Tools_SaltCuredMeat_CardDescription,"Raw meat packed in salt and left to cure. A filling, slow-spoiling travel ration - though the salt will leave you thirsty.",用盐腌制的生肉。是一种饱腹感强、不易变质的旅行口粮——不过吃了会让你口渴。
@@ -796,42 +803,387 @@ Advanced_Copper_Tools_SaltCuredMeat_Eat_Desc,"Eat the salt-cured meat. Filling, 
 Advanced_Copper_Tools_Bp_SaltCuredMeat_CardName,Salt-Cured Meat,腌肉
 Advanced_Copper_Tools_Bp_SaltCuredMeat_CardDescription,Pack raw meat in salt to cure it into a slow-spoiling travel ration. Requires 1 raw meat and 2 salt.,用盐腌制生肉，制成不易变质的旅行口粮。需要1块生肉和2份盐。
 Advanced_Copper_Tools_Bp_SaltCuredMeat_UnlockConditionsDesc,Salt Needed,需要盐
-Advanced_Copper_Tools_BronzeHelmet_CardName,Bronze Helmet,青铜头盔
-Advanced_Copper_Tools_BronzeHelmet_CardDescription,"A hammered bronze helmet, tougher than copper but lighter than iron. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的青铜头盔，比铜更坚固，比铁更轻便。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_BronzeHelmet_CardName,Tin Bronze Helmet,锡青铜头盔
+Advanced_Copper_Tools_BronzeHelmet_CardDescription,"A hammered tin bronze helmet, tougher than copper and lighter than iron; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的锡青铜头盔，比铜更坚固，比铁更轻便，是最耐用的青铜。可在熔炉中回收。必须装备在装备栏中才能生效。
 Advanced_Copper_Tools_BronzeHelmet_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_BronzeHelmet_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_BronzeHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
-Advanced_Copper_Tools_BronzeGauntlets_CardName,Bronze Bracers,青铜护腕
-Advanced_Copper_Tools_BronzeGauntlets_CardDescription,"Hammered bronze bracers protecting both arms, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的青铜护腕，保护双臂，比铜更坚固。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_BronzeGauntlets_CardName,Tin Bronze Bracers,锡青铜护腕
+Advanced_Copper_Tools_BronzeGauntlets_CardDescription,"Hammered tin bronze bracers protecting both arms, tougher than copper; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的锡青铜护腕，保护双臂，比铜更坚固，是最耐用的青铜。可在熔炉中回收。必须装备在装备栏中才能生效。
 Advanced_Copper_Tools_BronzeGauntlets_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_BronzeGauntlets_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_BronzeGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护腕以回收材料。
-Advanced_Copper_Tools_BronzeGreaves_CardName,Bronze Greaves,青铜护胫
-Advanced_Copper_Tools_BronzeGreaves_CardDescription,"Hammered bronze greaves protecting both legs, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的青铜护胫，保护双腿，比铜更坚固。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_BronzeGreaves_CardName,Tin Bronze Greaves,锡青铜护胫
+Advanced_Copper_Tools_BronzeGreaves_CardDescription,"Hammered tin bronze greaves protecting both legs, tougher than copper; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的锡青铜护胫，保护双腿，比铜更坚固，是最耐用的青铜。可在熔炉中回收。必须装备在装备栏中才能生效。
 Advanced_Copper_Tools_BronzeGreaves_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_BronzeGreaves_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_BronzeGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护胫以回收材料。
-Advanced_Copper_Tools_BronzeBreastplate_CardName,Bronze Armor,青铜铠甲
-Advanced_Copper_Tools_BronzeBreastplate_CardDescription,"A sturdy suit of bronze armor, offering torso protection between copper and iron tiers. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",坚固的青铜铠甲，提供介于铜和铁之间的躯干防护。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_BronzeBreastplate_CardName,Tin Bronze Armor,锡青铜铠甲
+Advanced_Copper_Tools_BronzeBreastplate_CardDescription,"A sturdy suit of tin bronze armor, offering torso protection between copper and iron; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",坚固的锡青铜铠甲，提供介于铜和铁之间的躯干防护，是最耐用的青铜。可在熔炉中回收。必须装备在装备栏中才能生效。
 Advanced_Copper_Tools_BronzeBreastplate_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_BronzeBreastplate_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_BronzeBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
-Advanced_Copper_Tools_Bp_BronzeHelmet_CardName,Bronze Helmet,青铜头盔
-Advanced_Copper_Tools_Bp_BronzeHelmet_CardDescription,Craft a bronze helmet for head protection between copper and iron tiers. Requires a bronze-grade metal sheet.,打造一顶青铜头盔，提供介于铜和铁之间的头部防护。需要一块青铜级金属板。
-Advanced_Copper_Tools_Bp_BronzeHelmet_UnlockConditionsDesc,Bronze Sheet Needed,需要青铜板
-Advanced_Copper_Tools_Bp_BronzeGauntlets_CardName,Bronze Bracers,青铜护腕
-Advanced_Copper_Tools_Bp_BronzeGauntlets_CardDescription,Craft bronze bracers for arm protection between copper and iron tiers. Requires a bronze-grade metal sheet.,打造一副青铜护腕，提供介于铜和铁之间的手臂防护。需要一块青铜级金属板。
-Advanced_Copper_Tools_Bp_BronzeGauntlets_UnlockConditionsDesc,Bronze Sheet Needed,需要青铜板
-Advanced_Copper_Tools_Bp_BronzeGreaves_CardName,Bronze Greaves,青铜护胫
-Advanced_Copper_Tools_Bp_BronzeGreaves_CardDescription,Craft bronze greaves for leg protection between copper and iron tiers. Requires a bronze-grade metal sheet.,打造一副青铜护胫，提供介于铜和铁之间的腿部防护。需要一块青铜级金属板。
-Advanced_Copper_Tools_Bp_BronzeGreaves_UnlockConditionsDesc,Bronze Sheet Needed,需要青铜板
-Advanced_Copper_Tools_Bp_BronzeBreastplate_CardName,Bronze Armor,青铜铠甲
-Advanced_Copper_Tools_Bp_BronzeBreastplate_CardDescription,Craft a suit of bronze torso armor between copper and iron tiers. Requires bronze-grade metal sheets.,打造一套青铜躯干铠甲，提供介于铜和铁之间的防护。需要青铜级金属板。
-Advanced_Copper_Tools_Bp_BronzeBreastplate_UnlockConditionsDesc,Bronze Sheet Needed,需要青铜板
+Advanced_Copper_Tools_Bp_BronzeHelmet_CardName,Tin Bronze Helmet,锡青铜头盔
+Advanced_Copper_Tools_Bp_BronzeHelmet_CardDescription,"Craft a tin bronze helmet for head protection between copper and iron tiers. Requires 2 Tin Bronze Sheets, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder and a hammer.",打造一顶锡青铜头盔，提供介于铜和铁之间的头部防护。需要2块锡青铜片、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_BronzeHelmet_UnlockConditionsDesc,Tin Bronze Sheet Needed,需要锡青铜片
+Advanced_Copper_Tools_Bp_BronzeGauntlets_CardName,Tin Bronze Bracers,锡青铜护腕
+Advanced_Copper_Tools_Bp_BronzeGauntlets_CardDescription,"Craft tin bronze bracers for arm protection between copper and iron tiers. Requires 2 Tin Bronze Sheets, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder and a hammer.",打造一副锡青铜护腕，提供介于铜和铁之间的手臂防护。需要2块锡青铜片、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_BronzeGauntlets_UnlockConditionsDesc,Tin Bronze Sheet Needed,需要锡青铜片
+Advanced_Copper_Tools_Bp_BronzeGreaves_CardName,Tin Bronze Greaves,锡青铜护胫
+Advanced_Copper_Tools_Bp_BronzeGreaves_CardDescription,"Craft tin bronze greaves for leg protection between copper and iron tiers. Requires 2 Tin Bronze Sheets, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder and a hammer.",打造一副锡青铜护胫，提供介于铜和铁之间的腿部防护。需要2块锡青铜片、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_BronzeGreaves_UnlockConditionsDesc,Tin Bronze Sheet Needed,需要锡青铜片
+Advanced_Copper_Tools_Bp_BronzeBreastplate_CardName,Tin Bronze Armor,锡青铜铠甲
+Advanced_Copper_Tools_Bp_BronzeBreastplate_CardDescription,"Craft a suit of tin bronze torso armor between copper and iron tiers. Requires 4 Tin Bronze Sheets, 4 copper nails, 1 medium leather, 4 sinew, 1 tin solder and a hammer.",打造一套锡青铜躯干铠甲，提供介于铜和铁之间的防护。需要4块锡青铜片、4颗铜钉、1块中型皮革、4根肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_BronzeBreastplate_UnlockConditionsDesc,Tin Bronze Sheet Needed,需要锡青铜片
+Advanced_Copper_Tools_GhostBronzeHelmet_CardName,Ghost Bronze Helmet,幽灵青铜头盔
+Advanced_Copper_Tools_GhostBronzeHelmet_CardDescription,"Bronze alloyed with witchstone, pale and cold to the touch. Wards the head against spiritual attacks (+12.5) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",掺入巫石的青铜，色泽苍白，触手冰凉。保护头部抵御精神伤害（+12.5），并让恐惧消退得更快。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_GhostBronzeHelmet_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_GhostBronzeHelmet_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_GhostBronzeHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
+Advanced_Copper_Tools_Bp_GhostBronzeHelmet_CardName,Ghost Bronze Helmet,幽灵青铜头盔
+Advanced_Copper_Tools_Bp_GhostBronzeHelmet_CardDescription,"Craft a Ghost Bronze Helmet that wards off spiritual attacks. Requires 2 Ghost Bronze Sheets, 4 copper nails, leather, sinew, 1 tin solder and a hammer.",打造可抵御精神伤害的幽灵青铜头盔。需要2块幽灵青铜片、4颗铜钉、皮革、肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_GhostBronzeHelmet_UnlockConditionsDesc,Ghost Bronze Sheet Needed,需要幽灵青铜片
+Advanced_Copper_Tools_GhostBronzeBreastplate_CardName,Ghost Bronze Armor,幽灵青铜铠甲
+Advanced_Copper_Tools_GhostBronzeBreastplate_CardDescription,"Bronze alloyed with witchstone, pale and cold to the touch. Wards the torso against spiritual attacks (+12.5) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",掺入巫石的青铜，色泽苍白，触手冰凉。保护躯干抵御精神伤害（+12.5），并让恐惧消退得更快。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_GhostBronzeBreastplate_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_GhostBronzeBreastplate_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_GhostBronzeBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
+Advanced_Copper_Tools_Bp_GhostBronzeBreastplate_CardName,Ghost Bronze Armor,幽灵青铜铠甲
+Advanced_Copper_Tools_Bp_GhostBronzeBreastplate_CardDescription,"Craft Ghost Bronze Armor that wards off spiritual attacks. Requires 4 Ghost Bronze Sheets, 4 copper nails, leather, sinew, 1 tin solder and a hammer.",打造可抵御精神伤害的幽灵青铜铠甲。需要4块幽灵青铜片、4颗铜钉、皮革、肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_GhostBronzeBreastplate_UnlockConditionsDesc,Ghost Bronze Sheet Needed,需要幽灵青铜片
+Advanced_Copper_Tools_GhostBronzeGauntlets_CardName,Ghost Bronze Bracers,幽灵青铜护腕
+Advanced_Copper_Tools_GhostBronzeGauntlets_CardDescription,"Bronze alloyed with witchstone, pale and cold to the touch. Wards both arms against spiritual attacks (+7.5 each) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",掺入巫石的青铜，色泽苍白，触手冰凉。保护双臂抵御精神伤害（每处+7.5），并让恐惧消退得更快。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_GhostBronzeGauntlets_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_GhostBronzeGauntlets_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_GhostBronzeGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护腕以回收材料。
+Advanced_Copper_Tools_Bp_GhostBronzeGauntlets_CardName,Ghost Bronze Bracers,幽灵青铜护腕
+Advanced_Copper_Tools_Bp_GhostBronzeGauntlets_CardDescription,"Craft Ghost Bronze Bracers that wards off spiritual attacks. Requires 2 Ghost Bronze Sheets, 4 copper nails, leather, sinew, 1 tin solder and a hammer.",打造可抵御精神伤害的幽灵青铜护腕。需要2块幽灵青铜片、4颗铜钉、皮革、肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_GhostBronzeGauntlets_UnlockConditionsDesc,Ghost Bronze Sheet Needed,需要幽灵青铜片
+Advanced_Copper_Tools_GhostBronzeGreaves_CardName,Ghost Bronze Greaves,幽灵青铜护胫
+Advanced_Copper_Tools_GhostBronzeGreaves_CardDescription,"Bronze alloyed with witchstone, pale and cold to the touch. Wards both legs against spiritual attacks (+7.5 each) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",掺入巫石的青铜，色泽苍白，触手冰凉。保护双腿抵御精神伤害（每处+7.5），并让恐惧消退得更快。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_GhostBronzeGreaves_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_GhostBronzeGreaves_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_GhostBronzeGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护胫以回收材料。
+Advanced_Copper_Tools_Bp_GhostBronzeGreaves_CardName,Ghost Bronze Greaves,幽灵青铜护胫
+Advanced_Copper_Tools_Bp_GhostBronzeGreaves_CardDescription,"Craft Ghost Bronze Greaves that wards off spiritual attacks. Requires 2 Ghost Bronze Sheets, 4 copper nails, leather, sinew, 1 tin solder and a hammer.",打造可抵御精神伤害的幽灵青铜护胫。需要2块幽灵青铜片、4颗铜钉、皮革、肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_GhostBronzeGreaves_UnlockConditionsDesc,Ghost Bronze Sheet Needed,需要幽灵青铜片
+Advanced_Copper_Tools_TinHelmet_CardName,Tin Helmet,锡头盔
+Advanced_Copper_Tools_TinHelmet_CardDescription,"Hammered from soft tin: a little tougher than copper and the lightest metal helmet to carry, but it dents sooner. Needs no solder. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用柔软的锡锤打而成：比铜略坚固，是携带时最轻的金属头盔，但更容易凹损。无需焊锡。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_TinHelmet_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_TinHelmet_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_TinHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
+Advanced_Copper_Tools_Bp_TinHelmet_CardName,Tin Helmet,锡头盔
+Advanced_Copper_Tools_Bp_TinHelmet_CardDescription,"Craft a light Tin Helmet, a small step up from copper. Requires 2 Tin Sheets, 2 copper nails, leather, sinew and a hammer; needs no solder.",打造轻便的锡头盔，比铜略强。需要2块锡片、2颗铜钉、皮革、肌腱和一把锤子，无需焊锡。
+Advanced_Copper_Tools_Bp_TinHelmet_UnlockConditionsDesc,Tin Sheet Needed,需要锡片
+Advanced_Copper_Tools_TinBreastplate_CardName,Tin Armor,锡铠甲
+Advanced_Copper_Tools_TinBreastplate_CardDescription,"Hammered from soft tin: a little tougher than copper and the lightest metal armor to carry, but it dents sooner. Needs no solder. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用柔软的锡锤打而成：比铜略坚固，是携带时最轻的金属铠甲，但更容易凹损。无需焊锡。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_TinBreastplate_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_TinBreastplate_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_TinBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
+Advanced_Copper_Tools_Bp_TinBreastplate_CardName,Tin Armor,锡铠甲
+Advanced_Copper_Tools_Bp_TinBreastplate_CardDescription,"Craft a light Tin Armor, a small step up from copper. Requires 4 Tin Sheets, 2 copper nails, leather, sinew and a hammer; needs no solder.",打造轻便的锡铠甲，比铜略强。需要4块锡片、2颗铜钉、皮革、肌腱和一把锤子，无需焊锡。
+Advanced_Copper_Tools_Bp_TinBreastplate_UnlockConditionsDesc,Tin Sheet Needed,需要锡片
+Advanced_Copper_Tools_TinGauntlets_CardName,Tin Bracers,锡护腕
+Advanced_Copper_Tools_TinGauntlets_CardDescription,"Hammered from soft tin: a little tougher than copper and the lightest metal bracers to carry, but it dents sooner. Needs no solder. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用柔软的锡锤打而成：比铜略坚固，是携带时最轻的金属护腕，但更容易凹损。无需焊锡。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_TinGauntlets_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_TinGauntlets_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_TinGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护腕以回收材料。
+Advanced_Copper_Tools_Bp_TinGauntlets_CardName,Tin Bracers,锡护腕
+Advanced_Copper_Tools_Bp_TinGauntlets_CardDescription,"Craft a light Tin Bracers, a small step up from copper. Requires 2 Tin Sheets, 2 copper nails, leather, sinew and a hammer; needs no solder.",打造轻便的锡护腕，比铜略强。需要2块锡片、2颗铜钉、皮革、肌腱和一把锤子，无需焊锡。
+Advanced_Copper_Tools_Bp_TinGauntlets_UnlockConditionsDesc,Tin Sheet Needed,需要锡片
+Advanced_Copper_Tools_TinGreaves_CardName,Tin Greaves,锡护胫
+Advanced_Copper_Tools_TinGreaves_CardDescription,"Hammered from soft tin: a little tougher than copper and the lightest metal greaves to carry, but it dents sooner. Needs no solder. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用柔软的锡锤打而成：比铜略坚固，是携带时最轻的金属护胫，但更容易凹损。无需焊锡。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_TinGreaves_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_TinGreaves_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_TinGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护胫以回收材料。
+Advanced_Copper_Tools_Bp_TinGreaves_CardName,Tin Greaves,锡护胫
+Advanced_Copper_Tools_Bp_TinGreaves_CardDescription,"Craft a light Tin Greaves, a small step up from copper. Requires 2 Tin Sheets, 2 copper nails, leather, sinew and a hammer; needs no solder.",打造轻便的锡护胫，比铜略强。需要2块锡片、2颗铜钉、皮革、肌腱和一把锤子，无需焊锡。
+Advanced_Copper_Tools_Bp_TinGreaves_UnlockConditionsDesc,Tin Sheet Needed,需要锡片
+Advanced_Copper_Tools_WhiteBronzeHelmet_CardName,White Bronze Helmet,白青铜头盔
+Advanced_Copper_Tools_WhiteBronzeHelmet_CardDescription,"High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3), but the hard metal is brittle and wears out sooner. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",高锡青铜，抛光如镜。防护几乎与铁相当，并能增强勇气（+3），但坚硬的金属较脆，耐久更低。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_WhiteBronzeHelmet_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_WhiteBronzeHelmet_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_WhiteBronzeHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
+Advanced_Copper_Tools_Bp_WhiteBronzeHelmet_CardName,White Bronze Helmet,白青铜头盔
+Advanced_Copper_Tools_Bp_WhiteBronzeHelmet_CardDescription,"Craft White Bronze Helmet, nearly as protective as iron. Requires 2 White Bronze Sheets, 4 copper nails, leather, sinew, 1 tin solder and a hammer.",打造防护几乎与铁相当的白青铜头盔。需要2块白青铜片、4颗铜钉、皮革、肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_WhiteBronzeHelmet_UnlockConditionsDesc,White Bronze Sheet Needed,需要白青铜片
+Advanced_Copper_Tools_WhiteBronzeBreastplate_CardName,White Bronze Armor,白青铜铠甲
+Advanced_Copper_Tools_WhiteBronzeBreastplate_CardDescription,"High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3), but the hard metal is brittle and wears out sooner. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",高锡青铜，抛光如镜。防护几乎与铁相当，并能增强勇气（+3），但坚硬的金属较脆，耐久更低。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_WhiteBronzeBreastplate_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_WhiteBronzeBreastplate_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_WhiteBronzeBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
+Advanced_Copper_Tools_Bp_WhiteBronzeBreastplate_CardName,White Bronze Armor,白青铜铠甲
+Advanced_Copper_Tools_Bp_WhiteBronzeBreastplate_CardDescription,"Craft White Bronze Armor, nearly as protective as iron. Requires 4 White Bronze Sheets, 4 copper nails, leather, sinew, 1 tin solder and a hammer.",打造防护几乎与铁相当的白青铜铠甲。需要4块白青铜片、4颗铜钉、皮革、肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_WhiteBronzeBreastplate_UnlockConditionsDesc,White Bronze Sheet Needed,需要白青铜片
+Advanced_Copper_Tools_WhiteBronzeGauntlets_CardName,White Bronze Bracers,白青铜护腕
+Advanced_Copper_Tools_WhiteBronzeGauntlets_CardDescription,"High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3), but the hard metal is brittle and wears out sooner. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",高锡青铜，抛光如镜。防护几乎与铁相当，并能增强勇气（+3），但坚硬的金属较脆，耐久更低。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_WhiteBronzeGauntlets_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_WhiteBronzeGauntlets_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_WhiteBronzeGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护腕以回收材料。
+Advanced_Copper_Tools_Bp_WhiteBronzeGauntlets_CardName,White Bronze Bracers,白青铜护腕
+Advanced_Copper_Tools_Bp_WhiteBronzeGauntlets_CardDescription,"Craft White Bronze Bracers, nearly as protective as iron. Requires 2 White Bronze Sheets, 4 copper nails, leather, sinew, 1 tin solder and a hammer.",打造防护几乎与铁相当的白青铜护腕。需要2块白青铜片、4颗铜钉、皮革、肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_WhiteBronzeGauntlets_UnlockConditionsDesc,White Bronze Sheet Needed,需要白青铜片
+Advanced_Copper_Tools_WhiteBronzeGreaves_CardName,White Bronze Greaves,白青铜护胫
+Advanced_Copper_Tools_WhiteBronzeGreaves_CardDescription,"High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3), but the hard metal is brittle and wears out sooner. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",高锡青铜，抛光如镜。防护几乎与铁相当，并能增强勇气（+3），但坚硬的金属较脆，耐久更低。可在熔炉中回收。必须装备在装备栏中才能生效。
+Advanced_Copper_Tools_WhiteBronzeGreaves_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_WhiteBronzeGreaves_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_WhiteBronzeGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护胫以回收材料。
+Advanced_Copper_Tools_Bp_WhiteBronzeGreaves_CardName,White Bronze Greaves,白青铜护胫
+Advanced_Copper_Tools_Bp_WhiteBronzeGreaves_CardDescription,"Craft White Bronze Greaves, nearly as protective as iron. Requires 2 White Bronze Sheets, 4 copper nails, leather, sinew, 1 tin solder and a hammer.",打造防护几乎与铁相当的白青铜护胫。需要2块白青铜片、4颗铜钉、皮革、肌腱、1块焊锡和一把锤子。
+Advanced_Copper_Tools_Bp_WhiteBronzeGreaves_UnlockConditionsDesc,White Bronze Sheet Needed,需要白青铜片
 Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionName,Wash with Soap,用肥皂清洗
-Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription,Scrub down with soap for a quick clean and mood boost that doesn't need the fire lit.,用肥皂快速清洗，获得清洁感和心情提升，无需让炉火保持燃烧。
+Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription,"Scrub down with soap for a quick clean, as good as washing with soap anywhere else, and a mood boost that doesn't need the fire lit. Clears rashes and wolfsbane from your skin and leaves you wet.",用肥皂快速清洗，清洁效果与别处用肥皂清洗相同，还能获得心情提升，无需让炉火保持燃烧。能清除皮疹和乌头接触，并让你身上变湿。
 Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_FailMessage,Need water in the bathtub first.,浴缸里需要先有水。
-Advanced_Copper_Tools_Bp_BronzeSheet_CardName,Bronze Sheet,青铜片
-Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription,"Hammer a heated bronze-grade metal bar flat into a sheet, ready for bronze armor.",将加热的青铜级金属锭锤打成薄片，可用于打造青铜铠甲。
-Advanced_Copper_Tools_Bp_BronzeSheet_UnlockConditionsDesc,Heated Bronze-Grade Metal Bar Needed,需要加热的青铜级金属锭
-Advanced_Copper_Tools_MetalSheet_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_GpTag_ShapingHammer_TabName,Hammering Tool,锤击工具
+Advanced_Copper_Tools_CopperShield_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperShield_Dismantle_ActionDescription,Break apart the shield to recover materials.,拆解盾牌以回收材料。
+Advanced_Copper_Tools_IronShield_CardName,Iron Shield,铁盾
+Advanced_Copper_Tools_IronShield_CardDescription,"A wooden shield faced with forged iron sheet and a raised iron boss. Held in hand like the wooden Shield, it guards the shield arm with 110 armor, 160 against spiritual attacks, the best block of any shield. Can be recycled in a furnace.",用锻铁片和凸起的铁盾脐包覆的木盾。像木盾一样持在手中，护住持盾手臂，护甲110，对灵体攻击为160，是所有盾牌中格挡最强的。可在熔炉中回收。
+Advanced_Copper_Tools_IronShield_CardHelpSection,"<b>Crafted:</b> From 3 iron sheets, 1 plank, 4 metal nails and 1 medium leather using a hammer.
+
+<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 110 armor, 160 against spiritual attacks. It wears down slowly while equipped.","<b>制作：</b>使用锤子，用3块铁片、1块木板、4枚金属钉和1块中块皮革制成。
+
+<b>用途：</b>装备后持在手中。它把攻击引向持盾手臂，并为该手臂提供110护甲，对灵体攻击为160。装备时缓慢磨损。"
+Advanced_Copper_Tools_IronShield_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_IronShield_UsageDurability.OnZero.ActionDescription,Shield Broken!,盾牌破损！
+Advanced_Copper_Tools_IronShield_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_IronShield_Dismantle_ActionDescription,Break apart the shield to recover materials.,拆解盾牌以回收材料。
+Advanced_Copper_Tools_Bp_IronShield_CardName,Iron Shield,铁盾
+Advanced_Copper_Tools_Bp_IronShield_CardDescription,"Face a plank shield with forged iron sheets, nail them down and fit a leather grip.",用锻铁片包覆木板盾面，钉牢后装上皮革握把。
+Advanced_Copper_Tools_Bp_IronShield_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
+Advanced_Copper_Tools_GhostBronzeShield_CardName,Ghost Bronze Shield,幽灵青铜盾
+Advanced_Copper_Tools_GhostBronzeShield_CardDescription,"A wooden shield faced with pale Ghost Bronze sheet, cold to the touch. Held in hand like the wooden Shield, it guards the shield arm with 95 armor, 175 against spiritual attacks, a better ward against them than any other shield. Can be recycled in a furnace.",用苍白冰冷的幽灵青铜片包覆的木盾。像木盾一样持在手中，护住持盾手臂，护甲95，对灵体攻击为175，抵御灵体攻击胜过其他任何盾牌。可在熔炉中回收。
+Advanced_Copper_Tools_GhostBronzeShield_CardHelpSection,"<b>Crafted:</b> From 3 Ghost Bronze sheets, 1 plank, 4 copper nails, 1 medium leather and 1 tin solder using a hammer.
+
+<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 95 armor, 175 against spiritual attacks. It wears down slowly while equipped.","<b>制作：</b>使用锤子，用3块幽灵青铜片、1块木板、4枚铜钉、1块中块皮革和1份锡焊料制成。
+
+<b>用途：</b>装备后持在手中。它把攻击引向持盾手臂，并为该手臂提供95护甲，对灵体攻击为175。装备时缓慢磨损。"
+Advanced_Copper_Tools_GhostBronzeShield_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_GhostBronzeShield_UsageDurability.OnZero.ActionDescription,Shield Broken!,盾牌破损！
+Advanced_Copper_Tools_GhostBronzeShield_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_GhostBronzeShield_Dismantle_ActionDescription,Break apart the shield to recover materials.,拆解盾牌以回收材料。
+Advanced_Copper_Tools_Bp_GhostBronzeShield_CardName,Ghost Bronze Shield,幽灵青铜盾
+Advanced_Copper_Tools_Bp_GhostBronzeShield_CardDescription,"Face a plank shield with 3 pale Ghost Bronze sheets, nail them down with 4 copper nails, seal the edges with a tin solder and fit a leather grip. Requires a hammer. Wards off spiritual attacks.",用3块苍白的幽灵青铜片包覆木板盾面，以4颗铜钉钉牢，用1块焊锡封边后装上皮革握把，可抵御灵体攻击。需要锤子。
+Advanced_Copper_Tools_Bp_GhostBronzeShield_UnlockConditionsDesc,Ghost Bronze Sheet Needed,需要幽灵青铜片
+Advanced_Copper_Tools_SaltCuredFish_CardName,Salt-Cured Fish,腌鱼
+Advanced_Copper_Tools_SaltCuredFish_CardDescription,"Lean fish packed in coarse salt and left to cure. A light, slow-spoiling travel ration that keeps far longer than dried fish - though the salt will leave you thirsty.",用粗盐腌制的瘦鱼。是一种清淡、不易变质的旅行口粮，比鱼干保存得久得多，不过吃了会让你口渴。
+Advanced_Copper_Tools_SaltCuredFish_SpoilageTime_StatName,Spoilage,腐坏程度
+Advanced_Copper_Tools_SaltCuredFish_SpoilageTime_OnFull,The salt-cured fish has finally spoiled.,这条腌鱼终于变质了。
+Advanced_Copper_Tools_SaltCuredFish_Eat,Eat,吃
+Advanced_Copper_Tools_SaltCuredFish_Eat_Desc,"Eat the salt-cured fish. Light, but salty.",吃掉这条腌鱼。味道清淡，但很咸。
+Advanced_Copper_Tools_Bp_SaltCuredFish_CardName,Salt-Cured Fish,腌鱼
+Advanced_Copper_Tools_Bp_SaltCuredFish_CardDescription,Pack lean fish in salt to cure it into a slow-spoiling travel ration. Requires 1 lean fish and 2 salt.,用盐腌制瘦鱼，制成不易变质的旅行口粮。需要1条瘦鱼和2份盐。
+Advanced_Copper_Tools_Bp_SaltCuredFish_UnlockConditionsDesc,Salt Needed,需要盐
+Advanced_Copper_Tools_LargeSaw_AlternateNames[0].Name,Large Copper Saw,大型铜锯
+Advanced_Copper_Tools_LargeSaw_AlternateNames[0].Description,"A large two-handled saw with a copper blade. Fells a large pine or willow in one pull, a large birch or oak in two, and lasts about 100 pulls.",一把带铜锯条的大型双手锯。大松树或大柳树一锯即倒，大桦树或大橡树需要两锯，约可使用100锯。
+Advanced_Copper_Tools_LargeSaw_AlternateNames[1].Name,Large Ghost Bronze Saw,大型幽灵青铜锯
+Advanced_Copper_Tools_LargeSaw_AlternateNames[1].Description,"A large two-handled saw with a ghost bronze blade. Fells like copper (a large pine or willow in one pull, a large birch or oak in two) but wears slower: about 166 pulls.",一把带幽灵青铜锯条的大型双手锯。砍伐速度与铜锯相同（大松树或大柳树一锯即倒，大桦树或大橡树需要两锯），但磨损更慢：约可使用166锯。
+Advanced_Copper_Tools_LargeSaw_AlternateNames[2].Name,Large Tin Saw,大型锡锯
+Advanced_Copper_Tools_LargeSaw_AlternateNames[2].Description,"A large two-handled saw with a soft tin blade. A large pine, willow or birch takes two pulls and a large oak three, and it wears fast: about 66 pulls.",一把带软锡锯条的大型双手锯。大松树、大柳树或大桦树需要两锯，大橡树需要三锯，且磨损很快：约可使用66锯。
+Advanced_Copper_Tools_LargeSaw_AlternateNames[3].Name,Large Tin Bronze Saw,大型锡青铜锯
+Advanced_Copper_Tools_LargeSaw_AlternateNames[3].Description,"A large two-handled saw with a tin bronze blade. Fells like copper (a large pine or willow in one pull, a large birch or oak in two) and is the toughest: about 200 pulls.",一把带锡青铜锯条的大型双手锯。砍伐速度与铜锯相同（大松树或大柳树一锯即倒，大桦树或大橡树需要两锯），且最为耐用：约可使用200锯。
+Advanced_Copper_Tools_LargeSaw_AlternateNames[4].Name,Large White Bronze Saw,大型白青铜锯
+Advanced_Copper_Tools_LargeSaw_AlternateNames[4].Description,"A large two-handled saw with a hard white bronze blade. Fells a large pine, willow or birch in one pull and a large oak in two, but it is brittle: about 80 pulls.",一把带坚硬白青铜锯条的大型双手锯。大松树、大柳树或大桦树一锯即倒，大橡树需要两锯，但较脆：约可使用80锯。
+Advanced_Copper_Tools_LargeSaw_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_CopperStove_AlternateNames[0].Name,Small Copper Stove,小型铜炉
+Advanced_Copper_Tools_CopperStove_AlternateNames[1].Name,Small Ghost Bronze Stove,小型幽灵青铜炉
+Advanced_Copper_Tools_CopperStove_AlternateNames[2].Name,Small Tin Stove,小型锡炉
+Advanced_Copper_Tools_CopperStove_AlternateNames[3].Name,Small Tin Bronze Stove,小型锡青铜炉
+Advanced_Copper_Tools_CopperStove_AlternateNames[4].Name,Small White Bronze Stove,小型白青铜炉
+Advanced_Copper_Tools_CopperStove_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_CopperStove_Placed_AlternateNames[0].Name,Small Copper Stove,小型铜炉
+Advanced_Copper_Tools_CopperStove_Placed_AlternateNames[1].Name,Small Ghost Bronze Stove,小型幽灵青铜炉
+Advanced_Copper_Tools_CopperStove_Placed_AlternateNames[2].Name,Small Tin Stove,小型锡炉
+Advanced_Copper_Tools_CopperStove_Placed_AlternateNames[3].Name,Small Tin Bronze Stove,小型锡青铜炉
+Advanced_Copper_Tools_CopperStove_Placed_AlternateNames[4].Name,Small White Bronze Stove,小型白青铜炉
+Advanced_Copper_Tools_CopperStove_Placed_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[0].Name,Small Copper Stove (Lit),小型铜炉（已点燃）
+Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[1].Name,Small Ghost Bronze Stove (Lit),小型幽灵青铜炉（已点燃）
+Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[2].Name,Small Tin Stove (Lit),小型锡炉（已点燃）
+Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[3].Name,Small Tin Bronze Stove (Lit),小型锡青铜炉（已点燃）
+Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[4].Name,Small White Bronze Stove (Lit),小型白青铜炉（已点燃）
+Advanced_Copper_Tools_CopperStove_Lit_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_CopperLode_CardName,Copper Lode,铜矿母脉
+Advanced_Copper_Tools_CopperLode_CardDescription,"A collapsed seam of copper ore, heaped under fallen rock. Clear the rubble with a pickaxe, shovel, axe, antler or knife (eighteen hard shifts), and it becomes a mother lode that never runs out. Mine it slowly with a pickaxe, or chip away with an axe, hammer, shovel or antler.",坍塌的铜矿脉，埋在落石之下。用镐、铲、斧、鹿角或刀清理碎石（十八次辛苦的劳作），它就会变成永不枯竭的母矿脉。用镐慢慢开采，或用斧头、锤子、铲子或鹿角凿击。
+Advanced_Copper_Tools_CopperLode_Rubble_CardStatName,Rubble,碎石
+Advanced_Copper_Tools_CopperLode_Clear_ActionName,Clear the Seam,清理矿缝
+Advanced_Copper_Tools_CopperLode_Clear_ActionDescription,"Dig the fallen rock off the seam with a pickaxe, shovel, axe, antler, or knife. Eighteen shifts clear it.",用镐、铲、斧、鹿角或刀把落石从矿缝上清走。十八次即可清理完毕。
+Advanced_Copper_Tools_CopperLode_Clear_FailMessage,The seam is already clear.,矿缝已经清理完毕。
+Advanced_Copper_Tools_CopperLode_Mine_ActionName,Mine Copper,开采铜矿
+Advanced_Copper_Tools_CopperLode_Mine_ActionDescription,"Strike the cleared lode with a pickaxe to extract greenstone. The lode never runs out. Hard work, as in the game's own mine: it needs Stamina, and the better your Smithing, the more often a second piece comes loose.",用镐敲击清理好的母矿脉以提取矿石。母矿脉永不枯竭。与原版矿井一样费力：需要耐力，金工技能越高，越常多敲下一块。
+Advanced_Copper_Tools_CopperLode_Mine_FailMessage,Clear the rubble first.,请先清理碎石。
+Advanced_Copper_Tools_CopperLode_MineRough_ActionName,Chip Away,凿击
+Advanced_Copper_Tools_CopperLode_MineRough_ActionDescription,"Strike the cleared lode with an axe, hammer, shovel, or antler. Slower than a pickaxe, and the lode never runs out.",用斧头、锤子、铲子或鹿角凿击清理好的母矿脉。比镐慢，母矿脉永不枯竭。
+Advanced_Copper_Tools_IronLode_CardName,Iron Lode,铁矿母脉
+Advanced_Copper_Tools_IronLode_CardDescription,"A collapsed seam of iron ore, heaped under fallen rock. Clear the rubble with a pickaxe, shovel, axe, antler or knife (eighteen hard shifts), and it becomes a mother lode that never runs out. Mine it slowly with a pickaxe, or chip away with an axe, hammer, shovel or antler.",坍塌的铁矿脉，埋在落石之下。用镐、铲、斧、鹿角或刀清理碎石（十八次辛苦的劳作），它就会变成永不枯竭的母矿脉。用镐慢慢开采，或用斧头、锤子、铲子或鹿角凿击。
+Advanced_Copper_Tools_IronLode_Rubble_CardStatName,Rubble,碎石
+Advanced_Copper_Tools_IronLode_Clear_ActionName,Clear the Seam,清理矿缝
+Advanced_Copper_Tools_IronLode_Clear_ActionDescription,"Dig the fallen rock off the seam with a pickaxe, shovel, axe, antler, or knife. Eighteen shifts clear it.",用镐、铲、斧、鹿角或刀把落石从矿缝上清走。十八次即可清理完毕。
+Advanced_Copper_Tools_IronLode_Clear_FailMessage,The seam is already clear.,矿缝已经清理完毕。
+Advanced_Copper_Tools_IronLode_Mine_ActionName,Mine Iron,开采铁矿
+Advanced_Copper_Tools_IronLode_Mine_ActionDescription,"Strike the cleared lode with a pickaxe to extract bog iron. The lode never runs out. Hard work, as in the game's own mine: it needs Stamina, and the better your Smithing, the more often a second piece comes loose.",用镐敲击清理好的母矿脉以提取矿石。母矿脉永不枯竭。与原版矿井一样费力：需要耐力，金工技能越高，越常多敲下一块。
+Advanced_Copper_Tools_IronLode_Mine_FailMessage,Clear the rubble first.,请先清理碎石。
+Advanced_Copper_Tools_IronLode_MineRough_ActionName,Chip Away,凿击
+Advanced_Copper_Tools_IronLode_MineRough_ActionDescription,"Strike the cleared lode with an axe, hammer, shovel, or antler. Slower than a pickaxe, and the lode never runs out.",用斧头、锤子、铲子或鹿角凿击清理好的母矿脉。比镐慢，母矿脉永不枯竭。
+Advanced_Copper_Tools_MineDarkness_CardName,Mine Darkness,矿洞黑暗
+Advanced_Copper_Tools_MineDarkness_CardDescription,"No daylight reaches this deep. Bring a lit lantern, brazier or torch to work here.",日光照不到这么深的地方。带上点燃的提灯、火盆或火把才能在这里干活。
+Advanced_Copper_Tools_MineDaylightShaft_CardName,Daylight Shaft,天光井
+Advanced_Copper_Tools_MineDaylightShaft_CardDescription,A small hole high in the rock lets in a thin shaft of daylight. From 8:00 to 16:00 it gives just enough light to see and dig by; at night the mine is pitch dark.,岩壁高处的一个小洞透进一缕细细的日光。8:00到16:00之间，它刚好能让你看清并挖掘；到了夜里，矿洞一片漆黑。
+Advanced_Copper_Tools_BedwarmingPan_CardName,Bedwarming Pan,暖床锅
+Advanced_Copper_Tools_BedwarmingPan_CardDescription,"A plain lidded copper pan on a long wooden handle. Drag it onto a burning fire to fill it with embers, then tuck it into your bed: it keeps you warmer while you sleep and is cold again by morning.","一只带盖的朴素铜锅,配有长木柄。把它拖到燃烧的火上装满炭火,然后塞进床里:它能让你睡得更暖,到早晨就凉了。"
+Advanced_Copper_Tools_BedwarmingPan_FillEmbers_ActionName,Fill with Embers,装入炭火
+Advanced_Copper_Tools_BedwarmingPan_FillEmbers_ActionDescription,Shoveled glowing embers from the fire into the pan and shut the lid.,"把火中发红的炭火铲进锅里,盖上了盖子。"
+Advanced_Copper_Tools_BedwarmingPan_Hot_CardName,Hot Bedwarming Pan,烫的暖床锅
+Advanced_Copper_Tools_BedwarmingPan_Hot_CardDescription,A copper pan full of glowing embers. Tuck it into your bed to sleep warmer. The embers die in about ten hours and the pan goes cold.,"一只装满炭火的铜锅。塞进床里就能睡得更暖。炭火大约十小时后熄灭,锅就凉了。"
+Advanced_Copper_Tools_BedwarmingPan_Hot_FuelCapacity_CardStatName,Embers,炭火
+Advanced_Copper_Tools_BedwarmingPan_Hot_EmbersOut_ActionName,Embers Die,炭火熄灭
+Advanced_Copper_Tools_BedwarmingPan_Hot_EmbersOut_ActionDescription,The embers have burned down to grey ash and the pan has gone cold.,"炭火已烧成灰白的灰烬,锅凉了。"
+Advanced_Copper_Tools_Bp_BedwarmingPan_CardName,Bedwarming Pan,暖床锅
+Advanced_Copper_Tools_Bp_BedwarmingPan_CardDescription,"Shape a copper sheet into a lidded pan, rivet it with copper nails and fit a long wooden handle.","把铜板塑成带盖的锅,用铜钉铆合,再装上长木柄。"
+Advanced_Copper_Tools_Bp_BedwarmingPan_UnlockConditionsDesc,Copper Sheet Needed,需要铜板
+Advanced_Copper_Tools_ToolBelt_Tag_InGameName,Tool Belt,工具腰带
+Advanced_Copper_Tools_ToolBelt_CardName,Copper-Buckled Tool Belt,铜扣工具腰带
+Advanced_Copper_Tools_ToolBelt_CardDescription,"A broad leather belt closed with a copper buckle, with six tool slots: loops for hammers, knives, chisels, sickles and spoon augers, a pouch for a whetstone or a fire striker, and a needle case. It has a Tool Belt slot of its own, so it never takes the place of a knife sheath, a spear sheath or any other gear. Tools carried in it weigh less and still count as on you. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.","一条宽皮带,用铜扣扣紧,有六个工具栏位:挂锤子、刀、凿子、镰刀和勺钻的环,放磨刀石或打火器的小袋,以及一个针盒。它有自己专属的工具腰带栏位,不会占用刀鞘、矛鞘或其他装备的位置。放在里面的工具更轻,并且仍算作带在身上。必须装备在装备栏才能生效。"
+Advanced_Copper_Tools_ToolBelt_CardHelpSection,"<b>Crafted:</b> From 1 copper sheet, 1 medium leather and 4 copper nails using a hammer.
+
+<b>Uses:</b> Equip it on the Tool Belt slot, one belt at a time. It does not use the slot of a knife sheath or a spear sheath, so you can wear all three. It holds hammers, knives, chisels, sickles and spoon augers, a whetstone or a fire striker, and needles, and takes 200 off their combined weight. A tool in it still counts as on you for an action that looks for one.
+
+<b>Blueprints:</b> a blueprint's ingredient slot does not take tools from your belt. Drag the hammer out of it onto the blueprint, as you always have.","<b>制作:</b>用锤子,以1块铜板、1张中等皮革和4枚铜钉制成。
+
+<b>用途:</b>装备在工具腰带栏位,同一时间只能装备一条。它不占用刀鞘或矛鞘的栏位,所以三者可以同时佩戴。它能放锤子、刀、凿子、镰刀和勺钻,一块磨刀石或一个打火器,以及针,并让它们的总重量减少200。放在里面的工具仍算作带在身上,供需要工具的动作使用。
+
+<b>蓝图:</b>蓝图的材料栏不会从腰带里取工具。请像往常一样把锤子从腰带里拖到蓝图上。"
+Advanced_Copper_Tools_Bp_ToolBelt_CardName,Copper-Buckled Tool Belt,铜扣工具腰带
+Advanced_Copper_Tools_Bp_ToolBelt_CardDescription,"Stitch a broad leather belt from 1 medium leather, rivet it with 4 copper nails and close it with a buckle hammered from 1 metal sheet. Requires a hammer.",用1块中型皮革缝制一条宽皮带，用4颗铜钉铆合，再扣上由1块金属片锤打出的扣子。需要锤子。
+Advanced_Copper_Tools_Bp_ToolBelt_UnlockConditionsDesc,Copper Sheet Needed,需要铜板
+Advanced_Copper_Tools_CauteryIron_CardName,Cautery Iron,烧灼铁
+Advanced_Copper_Tools_CauteryIron_CardDescription,"A slim copper rod with a flat oval head, set in a wooden handle. Drag it onto a burning fire to heat it. Pressed hot to an open cut it closes the wound at once, at the price of a burn and a sharp pain.",一根细长的铜棍，一端是扁平的椭圆形头，另一端装着木柄。拖到燃烧的火上加热。趁热按在开放的伤口上，伤口会立刻闭合，代价是一处烧伤和一阵剧痛。
+Advanced_Copper_Tools_CauteryIron_HeatInFire_ActionName,Heat in Fire,放入火中加热
+Advanced_Copper_Tools_CauteryIron_HeatInFire_ActionDescription,Held the flat head of the iron in the flames until it glowed.,把铁的扁头放在火焰里烧到发红。
+Advanced_Copper_Tools_CauteryIron_Hot_CardName,Hot Cautery Iron,烧红的烧灼铁
+Advanced_Copper_Tools_CauteryIron_Hot_CardDescription,A cautery iron with its head glowing red. Press it to an open laceration to Cauterize it: the cut closes at once and a burn takes its place. The iron cools in about an hour.,头部烧得通红的烧灼铁。按在开放的撕裂伤上即可烧灼：伤口立刻闭合，换来一处烧伤。铁大约一小时后冷却。
+Advanced_Copper_Tools_CauteryIron_Hot_FuelCapacity_CardStatName,Heat,热度
+Advanced_Copper_Tools_CauteryIron_Hot_Cooled_ActionName,Iron Cools,铁冷却了
+Advanced_Copper_Tools_CauteryIron_Hot_Cooled_ActionDescription,The glow has gone out of the iron and it is cold again.,铁上的红光已经褪去，又变冷了。
+Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionName,Cauterize,烧灼
+Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionDescription,"Pressed the glowing iron to the open cut. It hissed, and the edges sealed over.",把烧红的铁按在开放的伤口上。滋的一声，伤口边缘封住了。
+Advanced_Copper_Tools_Bp_CauteryIron_CardName,Cautery Iron,烧灼铁
+Advanced_Copper_Tools_Bp_CauteryIron_CardDescription,"Draw a copper bar into a slim rod, flatten one end into an oval head and set the other in a wooden handle.",把铜锭拉成细棍，一端压成椭圆形头，另一端装上木柄。
+Advanced_Copper_Tools_Bp_CauteryIron_UnlockConditionsDesc,Copper Bar Needed,需要铜锭
+Advanced_Copper_Tools_CauteryBurn_StatName,Cautery Burn,烧灼烫伤
+Advanced_Copper_Tools_CauteryBurn_StatDescription,A burn from a hot iron pressed to a wound. It hurts and the hurt fades over the following hours.,热铁按在伤口上留下的烫伤。很疼，疼痛会在接下来的几个小时里慢慢消退。
+Advanced_Copper_Tools_CauteryBurn_Status_Mild_Name,Sore Cautery Burn,隐隐作痛的烫伤
+Advanced_Copper_Tools_CauteryBurn_Status_Mild_Description,The burn where the iron closed the cut aches. It will ease over the next hours.,铁封住伤口的地方烫伤隐隐作痛。接下来几个小时会慢慢缓解。
+Advanced_Copper_Tools_CauteryBurn_Status_Strong_Name,Raw Cautery Burn,新鲜的烫伤
+Advanced_Copper_Tools_CauteryBurn_Status_Strong_Description,"A fresh burn, or more than one, from the hot iron. It is a sharp, steady pain until it wears down.",热铁留下的新鲜烫伤，可能不止一处。持续的剧痛，直到慢慢减退。
+Advanced_Copper_Tools_SapTapSpigot_SpecialDurability3CardStatName,Sap Flowing,树汁流动
+Advanced_Copper_Tools_SapTapSpigot_CardInteractions0ActionName,Refresh,刷新
+Advanced_Copper_Tools_SapTapSpigot_CookingRecipes0ActionName,Sap,树汁
+Advanced_Copper_Tools_SapTapSpigot_CookingRecipes1ActionName,Maintain,剩余
+Advanced_Copper_Tools_SapTapSpigot_CardName,Sap Tap (Spigot),树汁采集点（带龙头）
+Advanced_Copper_Tools_SapTapSpigot_CardDescription,"Produces sap for a limited period of time. Hang a Copper Sap Bucket (or any other liquid container) inside to gather it; the bucket holds a whole flow. A copper spigot is set in it, so the sap runs about three times as long between refreshes.",在有限的时间内产出树汁。在里面挂一只铜制树汁桶（或任何其他液体容器）来接住它；这只桶能装下一整轮的流量。一根铜龙头装在里面，树汁两次刷新之间能流大约三倍长的时间。
+Advanced_Copper_Tools_SapTapSpigot_RemoveSpigot_ActionName,Remove Spigot,取下龙头
+Advanced_Copper_Tools_SapTapSpigot_RemoveSpigot_ActionDescription,Drew the copper spigot out of the tap. The tap is a plain tap again and keeps whatever it was holding.,把铜龙头从采集点里拔了出来。它变回普通的采集点，里面的东西都还在。
+Advanced_Copper_Tools_ResinTapSpigot_SpecialDurability3CardStatName,Resin Flowing,松脂流动
+Advanced_Copper_Tools_ResinTapSpigot_CardInteractions0ActionName,Refresh,刷新
+Advanced_Copper_Tools_ResinTapSpigot_CookingRecipes0ActionName,Make Resin,产出松脂
+Advanced_Copper_Tools_ResinTapSpigot_CookingRecipes0CustomCookingText,Making Resin...,产出松脂中……
+Advanced_Copper_Tools_ResinTapSpigot_CardName,Resin Tap (Spigot),松脂采集点（带龙头）
+Advanced_Copper_Tools_ResinTapSpigot_CardDescription,"Produces resin for a limited period of time. Hang a Copper Sap Bucket inside and it gathers up to four lumps of resin, one every 18 hours; without one, a single lump forms in the tap. A copper spigot is set in it, so the resin runs about three times as long between refreshes.",在有限的时间内产出松脂。在里面挂一只铜制树汁桶，它会收集松脂，每18小时一块，最多四块；不挂桶的话，采集点里只会结出一块。一根铜龙头装在里面，松脂两次刷新之间能流大约三倍长的时间。
+Advanced_Copper_Tools_ResinTapSpigot_RemoveSpigot_ActionName,Remove Spigot,取下龙头
+Advanced_Copper_Tools_ResinTapSpigot_RemoveSpigot_ActionDescription,Drew the copper spigot out of the tap. The tap is a plain tap again and keeps whatever it was holding.,把铜龙头从采集点里拔了出来。它变回普通的采集点，里面的东西都还在。
+Advanced_Copper_Tools_CopperSpigot_CardName,Copper Spigot,铜龙头
+Advanced_Copper_Tools_CopperSpigot_CardDescription,A short forged copper spout with a tapered end. Drag it onto a Sap Tap or a Resin Tap and choose Fit Spigot: the tap then runs about three times as long between refreshes. Remove Spigot on the fitted tap gives it back.,一截锻造的短铜管，一端渐细。拖到树汁采集点或松脂采集点上，选择“装上龙头”：采集点两次刷新之间能多流约三倍的时间。已装上的采集点上可选“取下龙头”拿回它。
+Advanced_Copper_Tools_CopperSpigot_FitSpigot_ActionName,Fit Spigot,装上龙头
+Advanced_Copper_Tools_CopperSpigot_FitSpigot_ActionDescription,Drove the copper spigot into the tap. The sap will run slowly now.,把铜龙头敲进了采集点。树汁现在会流得慢一些。
+Advanced_Copper_Tools_Bp_CopperSpigot_CardName,Copper Spigot,铜龙头
+Advanced_Copper_Tools_Bp_CopperSpigot_CardDescription,"Cut a small tube from a copper sheet, taper one end and solder on a round collar.",从铜片上截下一小段管子，一端收细，再焊上一个圆环。
+Advanced_Copper_Tools_Bp_CopperSpigot_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_GrapplingHook_CardName,Grappling Hook,抓钩
+Advanced_Copper_Tools_GrapplingHook_CardDescription,"Three forged copper prongs on a coil of rope. Carried in your item row, it raises your Climbing Aid by 72, so every climb is more likely to succeed. It does nothing on the ground or packed inside a bag or basket. It does not wear out.",三根锻铜钩爪系在一卷绳子上。放在物品栏中携带时，攀爬援助提高72，每次攀爬都更容易成功。放在地上或装进包、篮子里则没有效果。它不会磨损。
+Advanced_Copper_Tools_Bp_GrapplingHook_CardName,Grappling Hook,抓钩
+Advanced_Copper_Tools_Bp_GrapplingHook_CardDescription,Hammer three copper nuggets into curved prongs and bind them to the end of a rope.,把三块铜块锤成弯曲的钩爪，绑在一根绳子的末端。
+Advanced_Copper_Tools_Bp_GrapplingHook_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
+Advanced_Copper_Tools_CopperShears_CardName,Copper Shears,铜剪毛刀
+Advanced_Copper_Tools_CopperShears_CardDescription,"Two copper blades joined by a springy copper bow. Drag them onto a tame sheep to shear its wool, as with iron shears. Copper is soft: they last 30 shearings and then break.",两片铜刀刃由一根有弹性的铜弓连在一起。拖到驯服的绵羊上即可剪毛，和铁剪毛刀一样。铜比较软：可剪30次，之后就会断。
+Advanced_Copper_Tools_CopperShears_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_CopperShears_UsageDurability.OnZero.ActionDescription,The copper shears snapped at the bow.,铜剪毛刀在弓处断了。
+Advanced_Copper_Tools_Bp_CopperShears_CardName,Copper Shears,铜剪毛刀
+Advanced_Copper_Tools_Bp_CopperShears_CardDescription,"Cut two blades from a copper sheet, hammer a springy bow between them and pin it with a copper nail. Requires a hammer.",从铜片上剪下两片刀刃，在它们之间锤出一根有弹性的弓，再用一根铜钉固定。需要锤子。
+Advanced_Copper_Tools_Bp_CopperShears_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_MetalLantern_AlternateNames[0].Name,Copper Lantern,铜提灯
+Advanced_Copper_Tools_MetalLantern_AlternateNames[1].Name,Ghost Bronze Lantern,幽灵青铜提灯
+Advanced_Copper_Tools_MetalLantern_AlternateNames[2].Name,Tin Lantern,锡提灯
+Advanced_Copper_Tools_MetalLantern_AlternateNames[3].Name,Tin Bronze Lantern,锡青铜提灯
+Advanced_Copper_Tools_MetalLantern_AlternateNames[4].Name,White Bronze Lantern,白青铜提灯
+Advanced_Copper_Tools_MetalLantern_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[0].Name,Lit Copper Lantern,已点燃的铜提灯
+Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[1].Name,Lit Ghost Bronze Lantern,已点燃的幽灵青铜提灯
+Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[2].Name,Lit Tin Lantern,已点燃的锡提灯
+Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[3].Name,Lit Tin Bronze Lantern,已点燃的锡青铜提灯
+Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[4].Name,Lit White Bronze Lantern,已点燃的白青铜提灯
+Advanced_Copper_Tools_MetalLantern_Lit_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[0].Name,Copper Lantern,铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[1].Name,Ghost Bronze Lantern,幽灵青铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[2].Name,Tin Lantern,锡提灯
+Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[3].Name,Tin Bronze Lantern,锡青铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[4].Name,White Bronze Lantern,白青铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[0].Name,Lit Copper Lantern,已点燃的铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[1].Name,Lit Ghost Bronze Lantern,已点燃的幽灵青铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[2].Name,Lit Tin Lantern,已点燃的锡提灯
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[3].Name,Lit Tin Bronze Lantern,已点燃的锡青铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[4].Name,Lit White Bronze Lantern,已点燃的白青铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_LanternOilwell_AlternateNames[0].Name,Copper Lantern Oilwell,铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_AlternateNames[1].Name,Ghost Bronze Lantern Oilwell,幽灵青铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_AlternateNames[2].Name,Tin Lantern Oilwell,锡提灯油井
+Advanced_Copper_Tools_LanternOilwell_AlternateNames[3].Name,Tin Bronze Lantern Oilwell,锡青铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_AlternateNames[4].Name,White Bronze Lantern Oilwell,白青铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_CastStoveTop_Salvage_ActionName,Cut Up,切开
+Advanced_Copper_Tools_CastStoveTop_Salvage_ActionDescription,The Small Copper Stove now casts its own top. Cut this old stove top into metal sheets of its metal.,小型铜炉现在自行铸造炉顶。把这个旧炉顶切成同种金属的金属片。
+Advanced_Copper_Tools_LanternOilwell_Lit_CardName,Lit Lantern Oilwell,已点燃的提灯油井
+Advanced_Copper_Tools_LanternOilwell_Lit_CardDescription,"A lit lantern oilwell burning lamp oil, giving a small carried light. Extinguish it before refueling.",一个点燃的提灯油井，燃烧灯油，提供小范围的便携照明。补充燃料前需先熄灭。
+Advanced_Copper_Tools_LanternOilwell_Lit_CardHelpSection,<b>Usage:</b> Burns 24 hours on a full fill and gives a small light while carried. Extinguish it to refuel; when the oil runs out it goes dark by itself.,<b>用法：</b>满油可燃烧24小时，携带时提供小范围照明。熄灭后可补充燃料；油耗尽时会自动熄灭。
+Advanced_Copper_Tools_LanternOilwell_Lit_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[0].Name,Lit Copper Lantern Oilwell,已点燃的铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[1].Name,Lit Ghost Bronze Lantern Oilwell,已点燃的幽灵青铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[2].Name,Lit Tin Lantern Oilwell,已点燃的锡提灯油井
+Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[3].Name,Lit Tin Bronze Lantern Oilwell,已点燃的锡青铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[4].Name,Lit White Bronze Lantern Oilwell,已点燃的白青铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_Refuel_ActionName,Refuel with Oil,用油补充燃料
+Advanced_Copper_Tools_LanternOilwell_Refuel_ActionDescription,Poured oil into the oilwell.,向提灯油井中倒入油脂。
+Advanced_Copper_Tools_LanternOilwell_RefuelFlask_ActionName,Refuel from Flask,从油瓶补充燃料
+Advanced_Copper_Tools_LanternOilwell_RefuelFlask_ActionDescription,Poured oil from the copper flask into the oilwell.,从铜制油瓶向提灯油井中倒入油脂。
+Advanced_Copper_Tools_LanternOilwell_Light_ActionName,Light Oilwell,点燃提灯油井
+Advanced_Copper_Tools_LanternOilwell_Light_ActionDescription,Light the oilwell with a flame.,用火焰点燃提灯油井。
+Advanced_Copper_Tools_LanternOilwell_NeedsFuel,The oilwell needs oil first.,提灯油井需要先加油。
+Advanced_Copper_Tools_LanternOilwell_Lit_FuelCapacity_CardStatName,Oil,油量
+Advanced_Copper_Tools_LanternOilwell_Lit_FuelOut_ActionName,Oilwell Burns Out,提灯油井燃尽
+Advanced_Copper_Tools_LanternOilwell_Lit_FuelOut_ActionDescription,The oilwell runs out of oil.,提灯油井的油脂耗尽了。
+Advanced_Copper_Tools_LanternOilwell_Extinguish_ActionName,Extinguish,熄灭
+Advanced_Copper_Tools_LanternOilwell_Extinguish_ActionDescription,Put out the oilwell.,熄灭提灯油井。
+Advanced_Copper_Tools_IronSheet_Reforge_ActionName,Reforge as Metal Sheet,重铸为金属片
+Advanced_Copper_Tools_IronSheet_Reforge_ActionDescription,"Turn this old Iron Sheet into a Metal Sheet of iron, the one card every iron recipe now takes.",把这块旧铁板变成一块铁质金属片，现在所有铁制配方都使用这张卡。
+Advanced_Copper_Tools_IronNail_Reforge_ActionName,Reforge as Metal Nail,重铸为金属钉
+Advanced_Copper_Tools_IronNail_Reforge_ActionDescription,"Turn this old Iron Nail into a Metal Nail of iron, the one nail card every recipe now takes.",把这枚旧铁钉变成一枚铁质金属钉，现在所有配方都使用这张钉子卡。
+Advanced_Copper_Tools_CopperSapBucket_CardName,Copper Sap Bucket,铜制树汁桶
+Advanced_Copper_Tools_CopperSapBucket_CardDescription,"A small copper bucket with a wire bail, made to hang under a tap. Put it in a Sap Tap and it catches the sap: it holds 900, a whole flow from a spigot tap. Put it in a Resin Tap (Spigot) and it gathers up to four lumps of resin, one every 18 hours.",一只带铜丝提梁的小铜桶，专为挂在采集点下面而做。放进树汁采集点，它就接住流出的树汁：能装900，正好是带龙头的采集点一整轮的流量。放进松脂采集点（带龙头），它会收集松脂，每18小时一块，最多四块。
+Advanced_Copper_Tools_CopperSapBucket_CardHelpSection,"<b>Sap:</b> Place the bucket in a Sap Tap (plain or with a Copper Spigot). The tap pours its sap into it. It holds 900, the whole three-day flow of a spigot tap.
+
+<b>Resin:</b> Place the bucket in a Resin Tap (Spigot). A lump of resin gathers in it every 18 hours while the resin flows, up to four. Use Scrape Out Resin to take them out one at a time. A plain Resin Tap does not fill the bucket.
+
+<b>Crafted:</b> 2 metal sheets, 1 tin solder and a hammer.","<b>树汁：</b>把桶放进树汁采集点（普通的或装了铜龙头的都行）。采集点会把树汁倒进桶里。它能装900，正好是带龙头的采集点三天的全部流量。
+
+<b>松脂：</b>把桶放进松脂采集点（带龙头）。松脂流动时，每18小时会在桶里积下一块松脂，最多四块。用“刮出松脂”一次取出一块。普通的松脂采集点不会往桶里装松脂。
+
+<b>制作：</b>2块金属片、1份锡焊料和一把锤子。"
+Advanced_Copper_Tools_CopperSapBucket_SpecialDurability1CardStatName,Resin,松脂
+Advanced_Copper_Tools_CopperSapBucket_ScrapeResin_ActionName,Scrape Out Resin,刮出松脂
+Advanced_Copper_Tools_CopperSapBucket_ScrapeResin_ActionDescription,Pried a lump of hardened resin out of the bucket.,从桶里撬出了一块凝固的松脂。
+Advanced_Copper_Tools_Bp_CopperSapBucket_CardName,Copper Sap Bucket,铜制树汁桶
+Advanced_Copper_Tools_Bp_CopperSapBucket_CardDescription,"Hammer two metal sheets into a small bucket, solder the seam and hang it from a wire bail. It hangs in a sap tap to catch the sap, or in a Resin Tap (Spigot) to gather resin. Requires 2 metal sheets, 1 tin solder and a hammer.",把两块金属片敲成一只小桶，焊好接缝，再挂上铜丝提梁。挂在树汁采集点里接树汁，或挂在松脂采集点（带龙头）里收集松脂。需要2块金属片、1份锡焊料和一把锤子。
+Advanced_Copper_Tools_Bp_CopperSapBucket_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_ResinTapSpigot_GatherResinBucket_ActionName,Gather Resin,收集松脂
+Advanced_Copper_Tools_ResinTapSpigot_GatherResinBucket_CustomCookingText,Gathering Resin...,收集松脂中……

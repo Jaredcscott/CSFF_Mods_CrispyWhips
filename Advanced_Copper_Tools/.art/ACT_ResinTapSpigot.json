@@ -1,0 +1,88 @@
+{
+  "target": "ACT_ResinTapSpigot.png",
+  "sourceCard": "CardData/Location/ResinTapSpigot.json",
+  "subject": "the same tapped dark pine trunk and copper spigot, the hanging round copper pot replaced by the new Copper Sap Bucket hung by its bail on the spigot hook, amber resin running into it",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history 44PPAOUOKyNVuWqArDoi",
+  "historyId": "44PPAOUOKyNVuWqArDoi",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804702079_c81786ad_1791804702342_aebf2fa4.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "scene (the shipped tap, kept except for the container)",
+      "image": "Resource/Picture/ACT_ResinTapSpigot.png (pre-bucket)",
+      "id": "CVqnM1chczxXUZLFxILj",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ACT_ResinTapSpigot_1791804639405_e86c5a70.png"
+    },
+    {
+      "role": "prop (the new Copper Sap Bucket)",
+      "image": "generation D9AzsScEQtF79BAY7Qa4",
+      "id": "bYpP7iuhDAsJ72OuKnad",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804531758_d6e85919_1791804531825_c9f765a4.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804702079_c81786ad_1791804702342_aebf2fa4.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "note": "owner gallery rework pass 2 2026-10-12: we need to rework the bucket and create a craft able item for the sap bucket (regenerate); the hanging container is now the craftable Copper Sap Bucket",
+  "previous": {
+    "target": "ACT_ResinTapSpigot.png",
+    "sourceCard": [
+      "CardData/Location/ResinTapSpigot.json"
+    ],
+    "subject": "",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "imageCount": 3,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a tapped tree trunk with a copper spile and a hanging bucket: redraw exactly this same picture with the same camera, bark, spile, hook, resin flow and painting style, changed only in this: the wooden bucket is replaced by a small squat copper container with a rounded body, a slightly flared rim and a thin copper loop handle, warm orange-brown hammered metal with a soft highlight, hanging from the hook, no wooden parts, no iron bands.\nThe painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, user interface.",
+    "historyId": "4E2oj0XmmaPHy9rfHWz5",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791092449423_9cad6495_1791092449753_d49dd655.png",
+    "credits": 150,
+    "generated": "2026-10-03",
+    "note": "Round 3 of the 2026-10-03 batch (regenerated from the owner's notes on rounds 1 and 2); owner pick. No prediction recorded for this round. Replaced 2026-10-03 by a later round (new spigot and small copper container); the earlier round's candidates are in the sidecar of that round's commit.",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791092449423_9cad6495_1791092449753_d49dd655.png"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791092450035_5ec6f45a_1791092450809_b2297a14.png"
+      },
+      {
+        "n": "C",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791092450909_ccb7d5d5_1791092451489_ab432240.png"
+      }
+    ],
+    "picked": "A",
+    "references": [
+      {
+        "label": "ResinTap.png",
+        "role": "subject"
+      },
+      {
+        "label": "CopperSpigot.png",
+        "role": "prop"
+      }
+    ]
+  }
+}

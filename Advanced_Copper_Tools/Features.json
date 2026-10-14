@@ -5,27 +5,28 @@
       "name": "Metal Sheet",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T1.7 (2026-07-21) act_starter_smelting_chain; unchanged since",
+      "evidence": "playtest T1.7 (2026-07-21) act_starter_smelting_chain; unchanged since. 1.18.0 per-metal pictures (Chiwei's 0928 set), gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.752). 1.18.0 (Chiwei 1004 row 4, owner decision 2026-10-05): the Iron Sheet folded in as Metal Type 200 (named Iron Sheet, its old art); Bp_IronSheet makes it (6 iron nuggets, mask 448 plus the replace flag); every iron recipe gates the Metal Sheet to 200; the retired act_iron_sheet reforges itself after one tick (Progress OnFull transform, INFERRED) or by Reforge as Metal Sheet; research note Documentation/Research/AdvancedCopperTools/sheet-nail-merge.md; not yet run in-game (tracker T2.781, T2.782)",
       "cards": [
         "advanced_copper_tools_metal_sheet",
         "advanced_copper_tools_bp_metal_sheet"
       ]
     },
     {
-      "name": "Copper Nails",
+      "name": "Metal Nails",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T1.7 (2026-07-21) act_starter_smelting_chain; unchanged since",
+      "evidence": "playtest T1.7 (2026-07-21) act_starter_smelting_chain. 1.18.0 Tier B (Documentation/Design/AdvancedCopperTools_Metal_Variant_Art_As_Built.md step 3): Metal Type (SD4) on the nail, Bp_CopperNails widened to nuggets up to 140 with mask 256 and the replace flag, Bp_CastCopperNails (1.18.0, Chiwei 1004 row 3, tracker T2.780: 1 heated bar up to 140 + mud brick + clay makes 6, same mask 256 carry), per-metal names and Chiwei's art, looks only; gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game. 1.18.0 (Chiwei 1004 row 4): the card is named Metal Nail and the Iron Nail folded in as Metal Type 200 (Bp_IronNails makes 4 from 4 iron nuggets, mask 256 plus the replace flag); the retired act_iron_nail reforges itself after one tick or by Reforge as Metal Nail and stays accepted in every nail slot until then; tracker T2.781, T2.782",
       "cards": [
         "advanced_copper_tools_copper_nails",
-        "advanced_copper_tools_bp_copper_nails"
+        "advanced_copper_tools_bp_copper_nails",
+        "advanced_copper_tools_bp_cast_copper_nails"
       ]
     },
     {
       "name": "Stove Top Mold / Cast Stove Top",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; unchanged since",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check. Retired as a craft step 2026-10-05 (Chiwei 1004): the Cast Stove Top Mold blueprint left its tab, both cards still load, and the Cast Stove Top gained a Cut Up button (2 sheets of its own metal), not yet run in-game (tracker T2.774). 1.18.0 per-metal pictures (Chiwei's 0928 set), gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.752)",
       "cards": [
         "advanced_copper_tools_stove_top_mold",
         "advanced_copper_tools_cast_stove_top",
@@ -36,7 +37,7 @@
       "name": "Wearable Metal Pan",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; unchanged since. Perk_MetalPanTester (dead dev perk, never unlockable) removed in 1.16.4",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check. 1.17.0 added Pan for Stream Tin (river-gated DA) to both pans; 1.18.0 removed it from the Shaped Metal Pan Head (tin sells far above a copper bar), so only the Wearable Metal Pan pans, not yet run in-game (tracker T2.322). Perk_MetalPanTester (dead dev perk, never unlockable) removed in 1.16.4. 1.18.0 (Chiwei's rebalance): weight 300, capacity 1600, ContentWeightReduction -1600, pan blank from 1 Metal Sheet, wearable recipe 3 twine + 1 wood, hammer slot GpTag_ACT_ShapingHammer, both unlocked by a Metal Sheet; static half gated by ACT-PanStoveWiring.Tests.ps1, not yet run in-game (tracker T2.459-T2.461). 1.18.0 per-metal pictures (Chiwei's 0928 set), gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.752); the Shaped Metal Pan Head draws one heated picture above 150 Temperature (cold rows FuelRange 0-150, heated 151-1300), not yet run in-game (tracker T2.759); 2026-10-09 the head gained vanilla metal-blank cooling passives (it never cooled out of a forge, T2.787 FAIL), rerun pending",
       "cards": [
         "advanced_copper_tools_wearable_metal_pan",
         "advanced_copper_tools_shape_metal_pan",
@@ -48,7 +49,7 @@
       "name": "Oil",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "Rendered Fish Oil art bug fixed 1.16.1 (2026-08-16); re-verification PENDING per playtest T2.114 (2026-08-17)",
+      "evidence": "Rendered Fish Oil art bug fixed 1.16.1 (2026-08-16); re-verification PENDING per playtest T2.114 (2026-08-17). 1.18.0 (Fleet plan feature 6): Render Hemp Seed Oil is hidden at run start when herbs_fungi_hemp_seed_oil does not resolve (Patcher/PartnerBlueprintGatePatch.cs, the Copper Shears gate widened to a table), not yet run in-game",
       "cards": [
         "advanced_copper_tools_oil",
         "advanced_copper_tools_bp_oil",
@@ -60,7 +61,7 @@
       "name": "Copper Oil Flask",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; unchanged since",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check. 1.17.0 fill CI widened from ACT Oil to any tag_Oil card, not yet run in-game (tracker T2.321)",
       "cards": [
         "advanced_copper_tools_copper_oil_flask",
         "advanced_copper_tools_bp_copper_oil_flask"
@@ -70,13 +71,14 @@
       "name": "Metal Lantern",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat",
+      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. 1.17.0 refuel CIs widened to any tag_Oil card, not yet run in-game (tracker T2.321). 1.18.0: oil 48 fuel, lantern 96 at -0.5, lightable Lantern Oilwell (96 at -1) and the 1 sheet + oilwell + wire + parchment + fat recipe, not yet run in-game (tracker T2.779)",
       "cards": [
         "advanced_copper_tools_metal_lantern",
         "advanced_copper_tools_metal_lantern_lit",
         "advanced_copper_tools_metal_lantern_placed",
         "advanced_copper_tools_metal_lantern_placed_lit",
         "advanced_copper_tools_lantern_oilwell",
+        "advanced_copper_tools_lantern_oilwell_lit",
         "advanced_copper_tools_bp_metal_lantern",
         "advanced_copper_tools_bp_lantern_oilwell"
       ]
@@ -85,7 +87,7 @@
       "name": "Copper Brazier",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. NOTE: blueprint double-registered in 2 BlueprintTabs.json subtabs (see feature-map Notes)",
+      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. 1.17.0 added fire passives, Warm Up / Wait by Fire and any-tag_Oil refuel, not yet run in-game (tracker T2.320, T2.321). NOTE: blueprint double-registered in 2 BlueprintTabs.json subtabs (see feature-map Notes)",
       "cards": [
         "advanced_copper_tools_copper_brazier_kit",
         "advanced_copper_tools_copper_brazier_placed",
@@ -97,7 +99,7 @@
       "name": "Large Copper Saw",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; SawEffectPatch.cs unchanged since 2026-06-22",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check. SawEffectPatch.cs moved to a UID map in 1.17.0 with the copper value still -25; regression step in tracker T2.323. 1.18.0 Tier B (Documentation/Design/AdvancedCopperTools_Metal_Variant_Art_As_Built.md step 3): Metal Type (SD4) taken from the sheets (mask 256, stack filter, replace flag), per-metal names, descriptions and Chiwei's art, and SawEffectPatch (now AfterWrapped) reads the saw's Metal Type for extra Progress and wear per pull (tunable placeholders); gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.760). 2026-10-05 (Chiwei 1004): 3 sheets, 2 wood, 2 copper nails, weight 375, not yet run in-game (tracker T2.777)",
       "cards": [
         "advanced_copper_tools_large_saw",
         "advanced_copper_tools_bp_large_saw"
@@ -128,7 +130,7 @@
       "name": "Copper Tea Kettle",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; VanillaFireKettlePatch.cs last touched 2026-07-23 (guard hardening only)",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; VanillaFireKettlePatch.cs last touched 2026-07-23 (guard hardening only). 2026-10-05 (Chiwei 1004): 2 sheets, content weight reduction -2400, not yet run in-game (tracker T2.778)",
       "cards": [
         "advanced_copper_tools_copper_tea_kettle",
         "advanced_copper_tools_bp_copper_tea_kettle"
@@ -138,7 +140,7 @@
       "name": "Copper Cauldron",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; shares VanillaFireKettlePatch.cs, unchanged since 2026-07-23",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; shares VanillaFireKettlePatch.cs, unchanged since 2026-07-23. 1.18.0 per-metal pictures (Chiwei's 0928 set), gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.752). 2026-10-05 (Chiwei 1004): weight 600, basket 8000, reduction -8000, liquid 6000, not yet run in-game (tracker T2.776)",
       "cards": [
         "advanced_copper_tools_copper_cauldron",
         "advanced_copper_tools_bp_copper_cauldron"
@@ -148,7 +150,7 @@
       "name": "Copper Stove",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat",
+      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. 1.17.0 added the fire passives (drying, light, bugs, Stealth), not yet run in-game (tracker T2.320). 1.18.0 (Chiwei's rebalance): 600 weight capacity in place of 2 slots, fuel kept across Pick Up and Place, +75 Sanctuary placed, unlocked by a Metal Sheet, Cast Stove Top Mold with no research; not yet run in-game (tracker T2.459, T2.460, T2.462). 1.18.0 Tier B (Documentation/Design/AdvancedCopperTools_Metal_Variant_Art_As_Built.md step 3): Metal Type (SD4) on all three stove cards taken from the sheets (mask 256, stack filter, stove-top mask 0, replace flag), TransferSpecial4 on all five transforms, per-metal names and Chiwei's art, Sanctuary and lit burn rate by Metal-Type-gated PassiveEffects (tunable placeholders); gated by ACT-PanStoveWiring.Tests.ps1 and ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.761). 2026-10-05 (Chiwei 1004, pack Prompt 27): two-stage blueprint (crucible, 2 mud bricks, 2 clay; then 4 sheets, 4 copper nails, hammer, solder) absorbing the Cast Stove Top, weight 600, Place and Pick Up one mini tick, Dismantle returns 4 sheets; fuel retention reviewed in Documentation/Research/AdvancedCopperTools/stove-fuel-through-place-and-pick-up.md, not yet run in-game (tracker T2.774 and T2.775)",
       "cards": [
         "advanced_copper_tools_copper_stove",
         "advanced_copper_tools_copper_stove_placed",
@@ -160,7 +162,7 @@
       "name": "Tea Blending Station",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.83 (2026-08-15) Grind All pour-quantity fix + T2.7 (2026-07-21) general. Includes the 3 brewed teas (CookingRecipe outputs, no independent blueprint)",
+      "evidence": "playtest T2.83 (2026-08-15) Grind All pour-quantity fix + T2.7 (2026-07-21) general. Includes the 3 brewed teas (CookingRecipe outputs, no independent blueprint). 1.18.0: Grind All keeps each herb's spoilage and quality as its hand grind does and charges its 2-tick DaytimeCost; not yet run in-game (tracker T2.753)",
       "cards": [
         "advanced_copper_tools_tea_station_kit",
         "advanced_copper_tools_tea_blending_station",
@@ -175,7 +177,7 @@
       "name": "Copper Bathtub",
       "status": "Implemented",
       "confidence": "MEDIUM",
-      "evidence": "base VERIFIED via T2.7 (2026-07-21); Wash with Soap CI added 1.16.0 (2026-08-16) still PENDING per T2.94",
+      "evidence": "base VERIFIED via T2.7 (2026-07-21); Wash with Soap CI added 1.16.0 (2026-08-16) still PENDING per T2.94; 1.18.0 bath and soap washes write the river's cleanliness set, unverified in game (T2.750); 2026-10-09 Fill with Water names GpTag_WaterAny (was the tag tag_WaterAny, which resolved to an empty group so a bowl of water never filled the tub, T2.785 FAIL), rerun pending",
       "cards": [
         "advanced_copper_tools_copper_bathtub_empty",
         "advanced_copper_tools_copper_bathtub_full",
@@ -217,7 +219,7 @@
       "name": "Cave System",
       "status": "Implemented",
       "confidence": "MEDIUM",
-      "evidence": "multiple PASS (T1.33, T1.63, T2.5, T2.51) but T2.52's own note documents an unresolved reseal-on-reload regression on SealableGates (candidate fix fwk 2.21.3 never re-confirmed)",
+      "evidence": "multiple PASS (T1.33, T1.63, T2.5, T2.51); mother lodes (act_copper_lode, act_iron_lode) added 1.18.0, unverified; but T2.52's own note documents an unresolved reseal-on-reload regression on SealableGates (candidate fix fwk 2.21.3 never re-confirmed)",
       "cards": [
         "actCopperCaveLoc",
         "actTinCaveLoc",
@@ -229,6 +231,8 @@
         "act_salt_vein",
         "act_rock_vein",
         "act_copper_vein",
+        "act_copper_lode",
+        "act_iron_lode",
         "act_tin_ore",
         "act_tin_solder",
         "act_iron_nail",
@@ -243,10 +247,21 @@
       ]
     },
     {
+      "name": "Dark Mines",
+      "status": "Implemented",
+      "confidence": "unverified",
+      "evidence": "brand new in 1.18.0 (2026-10-02, plan C3): act_mine_darkness (CT13, InDarkPlace +1) in four caves and act_mine_daylight_shaft in the Metal Mines (InDarkPlace +1 plus a Light +15 08:00-16:00 TimeOfDayMods entry added by Patcher/MineDarknessPatch.cs, which also sets IsDarkPlace on the five cave env cards); Light 10..100 on all 22 mine, clear and dig CIs; old-save delivery through MapNodes ConditionalDrops is inferred, not run; harness scenario TestHarness/client/scenarios/ACT/T2.763_act_dark_mines.json and person rows T2.763 and T2.764 pending",
+      "cards": [
+        "act_mine_darkness",
+        "act_mine_daylight_shaft",
+        "advanced_copper_tools_metal_lantern"
+      ]
+    },
+    {
       "name": "Iron Armor Set",
       "status": "Implemented",
       "confidence": "MEDIUM",
-      "evidence": "Breastplate M/F gendered split VERIFIED via T2.32 (2026-07-21); Helmet/Gauntlets/Greaves share the mechanic but have no dedicated test citation",
+      "evidence": "Breastplate M/F gendered split VERIFIED via T2.32 (2026-07-21); Helmet/Gauntlets/Greaves share the mechanic but have no dedicated test citation. 1.18.0 (Chiwei 1004 row 4): every iron recipe takes Metal Sheets of Metal Type 200 (element gate, FilterStackWithDurability 256 and the CardsOnBoard gate) and Metal Nails of any metal; dismantles return Metal Sheets and Nails stamped 200; not yet run in-game (tracker T2.781)",
       "cards": [
         "act_bp_iron_sheet",
         "act_iron_sheet",
@@ -263,10 +278,10 @@
       ]
     },
     {
-      "name": "Bronze Armor Set",
+      "name": "Alloy Armor Sets",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "brand new in 1.16.0 (2026-08-16); playtest T2.91 explicitly marks it unverified",
+      "evidence": "Tin Bronze (the old Bronze set, 1.16.0, own art in 1.17.0, tracker T2.325) plus Tin, Ghost Bronze and White Bronze new in 1.18.0 (2026-09-29); metal gates, dismantle stamps and smelting MetalType enforced by Development_Tools/Tests/ACT-AlloyArmor-MetalConsistency.Tests.ps1; in-game checks in the tracker from T2.439",
       "cards": [
         "act_bp_bronze_helmet",
         "act_bronze_helmet",
@@ -275,11 +290,35 @@
         "act_bp_bronze_greaves",
         "act_bronze_greaves",
         "act_bp_bronze_breastplate",
-        "act_bronze_breastplate"
+        "act_bronze_breastplate",
+        "act_bp_tin_helmet",
+        "act_tin_helmet",
+        "act_bp_tin_gauntlets",
+        "act_tin_gauntlets",
+        "act_bp_tin_greaves",
+        "act_tin_greaves",
+        "act_bp_tin_breastplate",
+        "act_tin_breastplate",
+        "act_bp_ghostbronze_helmet",
+        "act_ghostbronze_helmet",
+        "act_bp_ghostbronze_gauntlets",
+        "act_ghostbronze_gauntlets",
+        "act_bp_ghostbronze_greaves",
+        "act_ghostbronze_greaves",
+        "act_bp_ghostbronze_breastplate",
+        "act_ghostbronze_breastplate",
+        "act_bp_whitebronze_helmet",
+        "act_whitebronze_helmet",
+        "act_bp_whitebronze_gauntlets",
+        "act_whitebronze_gauntlets",
+        "act_bp_whitebronze_greaves",
+        "act_whitebronze_greaves",
+        "act_bp_whitebronze_breastplate",
+        "act_whitebronze_breastplate"
       ]
     },
     {
-      "name": "Ore Chest",
+      "name": "Ore Bin",
       "status": "Implemented",
       "confidence": "LOW",
       "evidence": "brand new in 1.16.0 (2026-08-16); playtest T2.92 unverified. Structural inspection confirms weight-based inventory is correctly non-zero",
@@ -293,17 +332,27 @@
       "name": "Salt-Cured Meat",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "brand new in 1.16.0 (2026-08-16), playtest T2.93 unverified; sprite fixed 1.16.1, re-check T2.114 also pending",
+      "evidence": "brand new in 1.16.0 (2026-08-16), playtest T2.93 unverified; sprite fixed 1.16.1, re-check T2.114 also pending; flavours (Savoury, Earthy, Salty) added in 1.18.0, T2.751 pending; tag_HumanFood added 2026-10-09 so an allied Partner's Eat Food duty takes it (T2.783 rerun pending)",
       "cards": [
         "advanced_copper_tools_salt_cured_meat",
         "advanced_copper_tools_bp_salt_cured_meat"
       ]
     },
     {
+      "name": "Salt-Cured Fish",
+      "status": "Implemented",
+      "confidence": "unverified",
+      "evidence": "brand new in 1.18.0 (2026-10-02), the fish twin of Salt-Cured Meat; Eat values and spoilage are tunable placeholders; a craft-and-eat harness scenario and a person row are pending; tag_HumanFood added 2026-10-09 so an allied Partner's Eat Food duty takes it (T2.783 rerun pending)",
+      "cards": [
+        "advanced_copper_tools_salt_cured_fish",
+        "advanced_copper_tools_bp_salt_cured_fish"
+      ]
+    },
+    {
       "name": "Copper Watering Can",
       "status": "Implemented",
-      "confidence": "HIGH",
-      "evidence": "no dedicated playtest citation; declarative on proven vanilla water-container CI/DA shapes, 0 preflight issues",
+      "confidence": "unverified",
+      "evidence": "waters a garden plot through the vanilla plot's own Water CI (one watering measured by harness 2026-10-02, Documentation/Research/AdvancedCopperTools/wave0-harness.md section 2: can 1500 to 1200, plot moisture 0 to 96); no person check yet; fill/drink/empty on proven vanilla water-container CI/DA shapes",
       "cards": [
         "advanced_copper_tools_copper_watering_can",
         "advanced_copper_tools_bp_copper_watering_can"
@@ -323,8 +372,105 @@
       "name": "Cross-Mod Fastener & Sheet Compatibility (WDI)",
       "status": "Implemented",
       "confidence": "MEDIUM",
-      "evidence": "custom C# via Api.BlueprintAlternates since 2026-06-21/2026-07-17, zero direct playtest evidence in ACT digest",
+      "evidence": "custom C# via Api.BlueprintAlternates since 2026-06-21/2026-07-17, zero direct playtest evidence in ACT digest. 1.18.0 (sheet and nail merge): WDI's Cast Iron Sheet and the retired act_iron_sheet go only into the seven iron recipes (AddAlternateIngredientIn), the Cast Copper Sheet into every sheet slot, the retired act_iron_nail and WDI's rivets into every nail slot",
       "cards": []
+    },
+    {
+      "name": "Iron Large Saw",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "new in 1.17.0 (2026-09-26): declarative item + blueprint cloned from the in-game-proven Large Copper Saw, SawEffectPatch UID map gives -50; build 0/0, gates green; no in-game run yet (tracker T2.323). 1.18.0 per-metal pictures (Chiwei's 0928 set), gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.752)",
+      "cards": [
+        "act_iron_large_saw",
+        "act_bp_iron_large_saw"
+      ]
+    },
+    {
+      "name": "Copper Shield",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "new in 1.17.0 (2026-09-26): shape cloned from the vanilla Shield, LArmArmor 90; runtime read 2026-09-27 (EA 0.68b): eTag_Shield resolves to the vanilla Shield's own tag instance, and the vanilla Shield's LArmArmorModifiers is DMG_Spiritual +50, copied onto the copper shield in 1.17.2; in GameLoadPatch.ArmorUids, gated by ACT-ArmorRepairCoverage.Tests.ps1 (tracker T2.324)",
+      "cards": [
+        "act_copper_shield",
+        "act_bp_copper_shield"
+      ]
+    },
+    {
+      "name": "Iron Shield and Ghost Bronze Shield",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "new in 1.18.0 (2026-10-02, plan B1): cloned from the Copper Shield at tunable placeholder numbers (Iron 110/+50, Ghost Bronze 95/+80); each blueprint gates its own sheet (iron, Metal Type 110 exact on both the element and CardsOnBoard); all three shields dismantle into their own metal; both in GameLoadPatch.ArmorUids; gated by ACT-ArmorRepairCoverage.Tests.ps1, ACT-AlloyArmor-MetalConsistency.Tests.ps1 and Perk-StartingItemStats.Tests.ps1; not yet run in game (see the tracker rows for the shields)",
+      "cards": [
+        "act_iron_shield",
+        "act_bp_iron_shield",
+        "act_ghostbronze_shield",
+        "act_bp_ghostbronze_shield"
+      ]
+    },
+    {
+      "name": "Bedwarming Pan",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "new in 1.18.0 (2026-10-02, plan D2): cold pan with a Fill with Embers CI on tag_Fire / tag_FireSource (WorksBothWays) transforming into a hot pan whose Fuel drains over 40 ticks and whose OnZero returns the cold pan; the hot pan carries vanilla ClothLarge's Warmth when Sleeping PassiveEffect at TemperaturePerceived +3 (tunable) and tag_Bedding, the runtime name of the BedLog and BedImprovised InventoryFilter tag measured in wave 0 (W0-7). No sleep with the pan was run yet (tracker row for a winter night with and without it).",
+      "cards": [
+        "act_bedwarming_pan",
+        "act_bedwarming_pan_hot",
+        "act_bp_bedwarming_pan"
+      ]
+    },
+    {
+      "name": "Copper-Buckled Tool Belt",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "2026-10-12 owner art review: 6 InventorySlots (null placeholders) and the InventoryFilter widened to vanilla sickles, spoon augers, fire strikers, whetstone and metal/bone needles. New in 1.18.0 (2026-10-02, plan D3): a CT0 equippable (InHandWhenEquipped) on a NEW ACT equipment tag act_eTag_ToolBelt (ScriptableObject/EquipmentTag, MaxEquipped 1; owner decision 2026-10-02 that the belt must not share the knife sheath's eTag_Pouch or the spear sheath's eTag_Belt); InventoryFilter CardFilters by vanilla GUID (metal, flint, bone and obsidian knives, three hammers, the chisel; positive filters are OR), weight capacity 1200, ContentWeightReduction -200, WeightReductionWhenEquipped -250 (tunable placeholders); blueprint needs a copper sheet, medium leather and 4 copper nails with a hammer; blueprint slots still need the tool dragged in (InspectionPopup.AutoFill ignores equipped cards). Not yet run in a game: the new tag's runtime resolution, the equip beside both sheaths and the Mark Trees check are the harness scenario T2.766 (tracker T2.766); no vanilla action needs a hammer on the player, so the hammer is covered by acceptance and weight only.",
+      "cards": [
+        "act_tool_belt",
+        "act_bp_tool_belt"
+      ]
+    },
+    {
+      "name": "Cautery Iron",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "new in 1.18.0 (2026-10-02, plan E2): cold act_cautery_iron with a Heat in Fire CI on tag_Fire / tag_FireSource (WorksBothWays) transforming into act_cautery_iron_hot, whose Fuel (Heat, 4, -1 a tick) running out returns the cold iron; the hot iron carries five Cauterize CIs (WorksInverted, the wound is the given card, by GUID: the two arm and two leg lacerations and the minor laceration, W0-11) that transform each wound into its Stitched twin in GivenCardChanges, produce W_FireBurn as vanilla's fire events do, add 60 to the new ACT effect stat act_stat_cautery_burn (statuses raise Pain by a global +15 / +30, never a base write) and 30 Stress; blueprint 1 vanilla MetalBarFinished gated to Metal Type 100 and 1 long stick. Gated by StatBase-NoVanillaSource, DurabilityStat-FieldNames, Csproj-ContentIncludes and the card-art gates; the harness scenario and tracker row are written and not yet run in a game (whether ProducedCards from a CardOnCardAction CI lands the burn is the scenario's first read).",
+      "cards": [
+        "act_cautery_iron",
+        "act_cautery_iron_hot",
+        "act_bp_cautery_iron",
+        "act_stat_cautery_burn"
+      ]
+    },
+    {
+      "name": "Copper Spigot",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "new in 1.18.0 (2026-10-02, plan E1, transform route chosen by W0-10): act_copper_spigot (1 Metal Sheet + 1 Tin Solder, Metal Tools tab) carries two WorksInverted Fit Spigot CIs, one per vanilla tap GUID, whose GivenCardChanges transform the tap into act_sap_tap_spigot or act_resin_tap_spigot (copies of the vanilla taps: one inventory slot, the tag_WaterContainer filter, both cooking recipes, the Refresh CI on tag_Cutter, Special3 draining at -0.3333 a point against -1), carrying TransferInventory and TransferSpecial3, and whose ReceivingCardChanges destroys the spigot; each copy has a Remove Spigot DA that transforms back to the vanilla tap with the same flags and produces the spigot. Gated by DurabilityStat-FieldNames, Blueprint-TabGroupNames, CardData-Integrity and the card-art gates; the harness scenario and tracker row are written and not yet run in a game (whether the real tap's bowl and sap survive the transform is the scenario's first read; if not, the plan builds the remote RemotePassiveEffects branch).",
+      "cards": [
+        "act_copper_spigot",
+        "act_bp_copper_spigot",
+        "act_sap_tap_spigot",
+        "act_resin_tap_spigot"
+      ]
+    },
+    {
+      "name": "Grappling Hook",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "new in 1.18.0 (2026-10-02, plan E3, carried branch chosen by W0-12): act_grappling_hook (CT0, no durability) carries one PassiveEffects entry with no OnlyWhenEquipped, OnlyWhenInHand or PlayerUsesCard condition raising ClimbingAid (33f8297bdbbdf7a47b9944f633fdcad8, range 0-288) by ValueModifier 72; act_bp_grappling_hook takes 3 MetalNugget at Special4 100 and 1 Rope with a hammering tool not spent, on the Metal Tools tab. No climb card is edited. Gated by CardData-Integrity, Blueprint-TabGroupNames and the card-art gates; the harness scenario and tracker row are written and not yet run in a game.",
+      "cards": [
+        "act_grappling_hook",
+        "act_bp_grappling_hook"
+      ]
+    },
+    {
+      "name": "Copper Shears (with Sirus23)",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "new in 1.18.0 (2026-10-02, plan F3, postfix branch chosen by W0-15): act_copper_shears (CT0) carries tag_Shears spelled as Sirus23_Mod_Collection/CardData/Item/Shears.json spells it, beside tag_Tool, tag_Metal and tag_SmeltsAt1100, with UsageDurability 30 and an OnZero destroy (Sirus's own shears have no OnZero, and the Shear CI checks no given-card durability, so without it the copper pair would never wear out); act_bp_copper_shears takes 1 Metal Sheet at Special4 0-100 and 1 Copper Nail with a hammering tool not spent, on the Metal Tools tab. Patcher/PartnerBlueprintGatePatch.cs (named CopperShearsGatePatch until the Fleet plan feature 6 table) postfixes GameManager.InitializeStatsAndActions and, when sh_shears does not resolve, sets the blueprint's BlueprintModelStates entry to Hidden and its UnlockableCards entry Disabled unless already Available; every null exit has a per-cause warn-once. Gated by ACT-CrossModTags (watched red on the real tree with Sirus23 left out), CardData-Integrity, Blueprint-TabGroupNames, DurabilityStat-FieldNames and the card-art gates; the harness scenario and tracker row are written and not yet run in a game.",
+      "cards": [
+        "act_copper_shears",
+        "act_bp_copper_shears"
+      ]
     }
   ]
 }

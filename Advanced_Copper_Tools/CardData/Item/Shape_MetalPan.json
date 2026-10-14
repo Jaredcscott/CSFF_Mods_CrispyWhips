@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_shape_metal_pan",
     "LocalizationKey": "Advanced_Copper_Tools_Shape_MetalPan_CardDescription",
-    "DefaultText": "Ready to be assembled into a wearable pan."
+    "DefaultText": "Ready to be assembled into a wearable pan. It cannot pan gravel itself: the finished Wearable Metal Pan does that at a river."
   },
   "AlternateNames": [
     {
@@ -23,7 +23,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -59,7 +59,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "ShapedMetalPan",
+        "CardImageWarpData": "ACT_MetalPan_Shaped_Copper",
         "CardImageWarpType": 3
       }
     },
@@ -75,7 +75,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -111,7 +111,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "ShapedMetalPan",
+        "CardImageWarpData": "ACT_MetalPan_Shaped_GhostBronze",
         "CardImageWarpType": 3
       }
     },
@@ -127,7 +127,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -163,7 +163,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "ShapedMetalPan",
+        "CardImageWarpData": "ACT_MetalPan_Shaped_Tin",
         "CardImageWarpType": 3
       }
     },
@@ -179,7 +179,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -215,7 +215,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "ShapedMetalPan",
+        "CardImageWarpData": "ACT_MetalPan_Shaped_Bronze",
         "CardImageWarpType": 3
       }
     },
@@ -231,7 +231,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -267,7 +267,267 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "ShapedMetalPan",
+        "CardImageWarpData": "ACT_MetalPan_Shaped_WhiteBronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 1300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[0].Name",
+        "DefaultText": "Copper Pan Head"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalPan_Shaped_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 1300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[1].Name",
+        "DefaultText": "Ghost Bronze Pan Head"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalPan_Shaped_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 1300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[2].Name",
+        "DefaultText": "Tin Pan Head"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalPan_Shaped_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 1300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[3].Name",
+        "DefaultText": "Tin Bronze Pan Head"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalPan_Shaped_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 1300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[4].Name",
+        "DefaultText": "White Bronze Pan Head"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalPan_Shaped_Heated",
         "CardImageWarpType": 3
       }
     }
@@ -276,11 +536,11 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "ShapedMetalPan",
+  "CardImageWarpData": "ACT_MetalPan_Shaped_Copper",
   "CardImageWarpType": 3,
   "CardType": 0,
   "ToggleablePiling": true,
-  "ObjectWeight": 40.0,
+  "ObjectWeight": 100.0,
   "TradingValue": 100.0,
   "MaxLiquidCapacity": 1200.0,
   "CardTagsWarpData": [
@@ -463,6 +723,7 @@
     "SortingList": []
   },
   "CardInteractions": [],
+  "DismantleActions": [],
   "PassiveStatEffects": [],
   "PassiveEffects": [
     {
@@ -584,6 +845,161 @@
       "ConsumableChargesModifier": {
         "Active": true,
         "FloatValue": 1.0
+      }
+    },
+    {
+      "EffectName": "Cool Down Fast ( Iron, not in Container capable of 1000+ temp )",
+      "OnlyWhenEquipped": false,
+      "Conditions": {
+        "RequiredNOTContainerTagsWarpData": [
+          "tag_SmeltingContainerIron"
+        ],
+        "RequiredNOTContainerTagsWarpType": 3,
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -300.0
+      }
+    },
+    {
+      "EffectName": "Cool Down Fast ( Iron, 1000+ Temp Container bellow 1000 )",
+      "OnlyWhenEquipped": false,
+      "Conditions": {
+        "RequiredContainerTagsWarpData": [
+          "tag_SmeltingContainerIron"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 999.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -300.0
+      }
+    },
+    {
+      "EffectName": "Cool Down Slow ( Always )",
+      "OnlyWhenEquipped": false,
+      "Conditions": {
+      },
+      "StatChanges": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -100.0
       }
     }
   ]

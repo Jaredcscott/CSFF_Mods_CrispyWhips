@@ -1,0 +1,525 @@
+{
+  "UniqueID": "act_resin_tap_spigot",
+  "CardName": {
+    "ParentObjectID": "act_resin_tap_spigot",
+    "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_CardName",
+    "DefaultText": "Resin Tap (Spigot)"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_resin_tap_spigot",
+    "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_CardDescription",
+    "DefaultText": "Produces resin for a limited period of time. Hang a Copper Sap Bucket inside and it gathers up to four lumps of resin, one every 18 hours; without one, a single lump forms in the tap. A copper spigot is set in it, so the resin runs about three times as long between refreshes."
+  },
+  "CardImageWarpData": "ACT_ResinTapSpigot",
+  "CardImageWarpType": 3,
+  "CardType": 2,
+  "AlwaysUpdate": true,
+  "ToggleablePiling": true,
+  "WhenCreatedSoundsWarpData": [
+    "PalmTree"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false,
+    "FloatValue": 28.0,
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": 1.0,
+    "OverrideIconWarpData": "Dirt4_Old",
+    "OverrideIconWarpType": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ProducedCards": [
+        {
+          "CollectionName": "Nothing",
+          "CollectionWeight": 250,
+          "DurabilitiesDropChanceModifier": {
+            "Usage": {
+              "DurabilityRange": {
+                "x": 30.0,
+                "y": 10000.0
+              },
+              "InterpWeightRange": {
+                "x": -1,
+                "y": -1
+              }
+            }
+          },
+          "DroppedCards": [
+            {
+              "Quantity": {
+                "x": 10,
+                "y": 10
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Fresh Leaves",
+          "CollectionWeight": 250,
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoardWarpData": "87a27097d8342834285831ac33d41c55",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": -50
+            },
+            {
+              "CardOnBoardWarpData": "cf466b58520dcd047b7c3db67293c316",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": -50
+            }
+          ],
+          "DurabilitiesDropChanceModifier": {
+            "Usage": {
+              "DurabilityRange": {
+                "x": 30.0,
+                "y": 10000.0
+              },
+              "InterpWeightRange": {
+                "x": -1,
+                "y": -1
+              }
+            }
+          },
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "cf466b58520dcd047b7c3db67293c316",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Sticks",
+          "CollectionWeight": 200,
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoardWarpData": "fa8834c3111a71f47bdd23d66b33cf61",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": -50
+            }
+          ],
+          "DurabilitiesDropChanceModifier": {
+            "Usage": {
+              "DurabilityRange": {
+                "x": 30.0,
+                "y": 10000.0
+              },
+              "InterpWeightRange": {
+                "x": -1,
+                "y": -1
+              }
+            }
+          },
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "fa8834c3111a71f47bdd23d66b33cf61",
+              "DroppedCardWarpType": 3,
+              "TransferRules": { "Special4": 3, "Special4Value": 2.0 },
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Wood",
+          "CollectionWeight": 150,
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoardWarpData": "692afc638c39e32428629da58f56136a",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": -50
+            }
+          ],
+          "DurabilitiesDropChanceModifier": {
+            "Usage": {
+              "DurabilityRange": {
+                "x": 30.0,
+                "y": 10000.0
+              },
+              "InterpWeightRange": {
+                "x": -1,
+                "y": -1
+              }
+            }
+          },
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": -96.0,
+          "y": -96.0
+        }
+      }
+    }
+  },
+  "UsageDurability": {
+    "Active": false,
+    "FloatValue": 14.0,
+    "MaxValue": 10000.0,
+    "HidingOptions": 2,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  },
+  "FuelCapacity": {
+    "Active": false,
+    "FloatValue": 21.0,
+    "MaxValue": 10000.0,
+    "HidingOptions": 2
+  },
+  "Progress": {
+    "Active": false,
+    "FloatValue": 50.0,
+    "MaxValue": 50.0,
+    "OverrideIconWarpData": "Spoilage",
+    "OverrideIconWarpType": 3,
+    "HasActionOnZero": true,
+    "OnZeroNotification": 1,
+    "OnZero": {
+      "ProducedCards": [
+        {
+          "CollectionName": "Large Tree",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "fa8834c3111a71f47bdd23d66b33cf61",
+              "DroppedCardWarpType": 3,
+              "TransferRules": { "Special4": 3, "Special4Value": 2.0 },
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "dc9db98b8ab8a434b89754c89d65aa73",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 6,
+                "y": 18
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04",
+        "TransformIntoWarpType": 3,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferSpecial2": true,
+        "TransferSpecial4": true
+      }
+    },
+    "OnFull": {}
+  },
+  "SpecialDurability2": {
+    "Active": false,
+    "FloatValue": 48.0,
+    "MaxValue": 96.0,
+    "HidingOptions": 2,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability3": {
+    "Active": true,
+    "FloatValue": 96.0,
+    "CardStatName": {
+      "ParentObjectID": "act_resin_tap_spigot",
+      "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_SpecialDurability3CardStatName",
+      "DefaultText": "Resin Flowing"
+    },
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": -0.3333333,
+    "HidingOptions": 3,
+    "OverrideIconWarpData": "Urine",
+    "OverrideIconWarpType": 3,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  },
+  "SpecialDurability4": {
+    "Active": false,
+    "FloatValue": 2.0,
+    "MaxValue": 2.0,
+    "HidingOptions": 2
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_resin_tap_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_CardInteractions0ActionName",
+        "DefaultText": "Refresh"
+      },
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 100.0
+          },
+          "NotifyWhenNotMet": true
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {
+          "FloatValue": 0.33,
+          "MaxValue": 1.0
+        }
+      },
+      "StatModifications": [
+        {
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 3.0,
+            "y": 3.0
+          }
+        },
+        {
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -43.0,
+            "y": -43.0
+          },
+          "ApplyEachTick": true
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special3Change": {
+          "x": 96.0,
+          "y": 96.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": -0.5,
+          "y": -0.5
+        },
+        "UsageChange": {
+          "x": -0.5,
+          "y": -0.5
+        }
+      },
+      "CompatibleCards": {
+        "TriggerTagsWarpData": [
+          "tag_Cutter"
+        ],
+        "TriggerTagsWarpType": 3
+      }
+    }
+  ],
+  "InventorySlots": [
+    null
+  ],
+  "InventoryFilter": {
+    "CardFilters": [
+      {
+        "CardWarpData": "fb5584f7cdb4ead47938ef3c74355b0b",
+        "CardWarpType": 3
+      },
+      {
+        "CardWarpData": "act_copper_sap_bucket",
+        "CardWarpType": 3
+      }
+    ]
+  },
+  "SpillsInventoryOnDestroy": true,
+  "CookingConditions": {
+    "NeedsSpecial3": true
+  },
+  "CookingRecipes": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_resin_tap_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_CookingRecipes0ActionName",
+        "DefaultText": "Make Resin"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "act_resin_tap_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_CookingRecipes0CustomCookingText",
+        "DefaultText": "Making Resin..."
+      },
+      "Duration": 72,
+      "Drops": [
+        {
+          "DroppedCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "DroppedCardWarpData": "fb5584f7cdb4ead47938ef3c74355b0b",
+          "DroppedCardWarpType": 3,
+          "Quantity": {
+            "x": 1,
+            "y": 1
+          },
+          "TransferRules": {
+            "SpoilageFrom": 1,
+            "UsageFrom": 1,
+            "FuelFrom": 1,
+            "ProgressFrom": 1,
+            "Special1From": 1,
+            "Special2From": 1,
+            "Special3From": 1,
+            "Special4From": 1
+          }
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_resin_tap_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_GatherResinBucket_ActionName",
+        "DefaultText": "Gather Resin"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "act_resin_tap_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_GatherResinBucket_CustomCookingText",
+        "DefaultText": "Gathering Resin..."
+      },
+      "CompatibleCardsWarpData": [
+        "act_copper_sap_bucket"
+      ],
+      "CompatibleCardsWarpType": 3,
+      "ConditionsCard": 1,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special1Range": {
+            "x": 0.0,
+            "y": 3.0
+          }
+        }
+      },
+      "Duration": 72,
+      "IngredientChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      },
+      "HideResultNotification": true
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_resin_tap_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_RemoveSpigot_ActionName",
+        "DefaultText": "Remove Spigot"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_resin_tap_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_ResinTapSpigot_RemoveSpigot_ActionDescription",
+        "DefaultText": "Drew the copper spigot out of the tap. The tap is a plain tap again and keeps whatever it was holding."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "a3073e6364a97d14191f2600ce48d59e",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Spigot",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "act_copper_spigot",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

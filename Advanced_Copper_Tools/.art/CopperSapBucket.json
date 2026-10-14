@@ -1,0 +1,42 @@
+{
+  "target": "CopperSapBucket.png",
+  "sourceCard": "CardData/Item/CopperSapBucket.json, CardData/Blueprint/Bp_CopperSapBucket.json",
+  "subject": "a small straight-sided copper pail, slightly wider at the rim, hammered dents, one vertical riveted seam down the front, a rolled rim, two riveted ear lugs and a thin copper wire bail handle; empty, upright, seen from slightly above",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history D9AzsScEQtF79BAY7Qa4",
+  "historyId": "D9AzsScEQtF79BAY7Qa4",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804531758_d6e85919_1791804531825_c9f765a4.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "style (vanilla metal vessel)",
+      "image": "vanilla Sprite CopperJar (EA 0.68b)",
+      "id": "owWYpEmJ5E8gj27jjf2x",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CopperJar_1791804429071_00fe96c4.png"
+    },
+    {
+      "role": "style (the spigot it hangs from)",
+      "image": "Resource/Picture/CopperSpigot.png",
+      "id": "cv6oHnnvrw7OhxGQIpPN",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/CopperSpigot_1791804429789_911b121b.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804531758_d6e85919_1791804531825_c9f765a4.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed; paper inside the bail keyed with key_enclosed.py (1 region), then trim_card_art.py; dark preview read: no halo",
+  "note": "owner gallery rework pass 2 2026-10-12: new item act_copper_sap_bucket (owner: we need to rework the bucket and create a craftable item for the sap bucket); this bucket is the prop reference for both redrawn spigot taps"
+}

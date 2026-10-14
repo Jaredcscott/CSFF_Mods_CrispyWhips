@@ -117,9 +117,9 @@
         {
           "CollectionName": "",
           "DroppedCards": [
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "act_iron_sheet", "DroppedCardWarpType": 3, "Quantity": { "x": 2, "y": 2 } },
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "act_iron_nail", "DroppedCardWarpType": 3, "Quantity": { "x": 4, "y": 4 } },
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "669497ecaa30b634c86bea6b61f31e63", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } },
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "advanced_copper_tools_metal_sheet", "DroppedCardWarpType": 3, "Quantity": { "x": 2, "y": 2 }, "TransferRules": {"Spoilage":0,"Usage":0,"Fuel":0,"Progress":0,"Special1":0,"Special2":3,"Special3":0,"Special4":3,"SpoilageValue":0.0,"UsageValue":0.0,"FuelValue":0.0,"ProgressValue":0.0,"Special1Value":0.0,"Special2Value":50.0,"Special3Value":0.0,"Special4Value":200.0,"SpoilageFrom":0,"UsageFrom":0,"FuelFrom":0,"ProgressFrom":0,"Special1From":0,"Special2From":0,"Special3From":0,"Special4From":0} },
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "advanced_copper_tools_copper_nails", "DroppedCardWarpType": 3, "Quantity": { "x": 4, "y": 4 }, "TransferRules": {"Spoilage":0,"Usage":0,"Fuel":0,"Progress":0,"Special1":0,"Special2":0,"Special3":0,"Special4":3,"SpoilageValue":0.0,"UsageValue":0.0,"FuelValue":0.0,"ProgressValue":0.0,"Special1Value":0.0,"Special2Value":0.0,"Special3Value":0.0,"Special4Value":200.0,"SpoilageFrom":0,"UsageFrom":0,"FuelFrom":0,"ProgressFrom":0,"Special1From":0,"Special2From":0,"Special3From":0,"Special4From":0} },
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "669497ecaa30b634c86bea6b61f31e63", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 },"TransferRules":{"Spoilage":0,"Usage":0,"Fuel":0,"Progress":0,"Special1":0,"Special2":3,"Special3":0,"Special4":3,"SpoilageValue":0.0,"UsageValue":0.0,"FuelValue":0.0,"ProgressValue":0.0,"Special1Value":0.0,"Special2Value":50.0,"Special3Value":0.0,"Special4Value":200.0,"SpoilageFrom":0,"UsageFrom":0,"FuelFrom":0,"ProgressFrom":0,"Special1From":0,"Special2From":0,"Special3From":0,"Special4From":0} },
             { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "e2d62c5b98d164745b276da572605efe", "DroppedCardWarpType": 3, "Quantity": { "x": 2, "y": 2 } }
           ]
         }

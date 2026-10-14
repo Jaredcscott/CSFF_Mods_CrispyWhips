@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_brazier_placed",
     "LocalizationKey": "Advanced_Copper_Tools_CopperBrazier_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Add oil, then light from any fire source. Burns brighter and longer than a clay brazier. Pack up to carry."
+    "DefaultText": "<b>Usage:</b> Add any lamp oil, then light from any fire source. Burns brighter and longer than a clay brazier. Pack up to carry."
   },
   "CardType": 2,
   "MapStructureType": 0,
@@ -94,15 +94,15 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionTagsWarpData": [],
+      "ActionTagsWarpData": ["RefuelAction", "PartnerAction3"],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["Drink"],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],
-        "TriggerCardsWarpData": ["advanced_copper_tools_oil"],
-        "TriggerCardsWarpType": 3
+        "TriggerTagsWarpData": ["tag_Oil"],
+        "TriggerTagsWarpType": 3
       },
       "StackCompatible": true,
       "DontCloseInspectionWindow": false,
@@ -111,8 +111,8 @@
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": {
-          "x": 24.0,
-          "y": 24.0
+          "x": 48.0,
+          "y": 48.0
         }
       },
       "GivenCardChanges": {
@@ -156,7 +156,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionTagsWarpData": [],
+      "ActionTagsWarpData": ["RefuelAction", "PartnerAction3"],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["Drink"],
       "ActionSoundsWarpType": 3,
@@ -173,15 +173,15 @@
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": {
-          "x": 24.0,
-          "y": 24.0
+          "x": 48.0,
+          "y": 48.0
         }
       },
       "GivenCardChanges": {
         "ModType": 1,
         "FuelChange": {
-          "x": -24.0,
-          "y": -24.0
+          "x": -48.0,
+          "y": -48.0
         }
       },
       "CompatibleNPCDuties": [

@@ -1,0 +1,55 @@
+{
+  "target": "CopperSpigot.png",
+  "sourceCard": "CardData/Item/CopperSpigot.json, CardData/Blueprint/Bp_CopperSpigot.json",
+  "subject": "only the copper spigot from the tapped-tree art, on its own: a round hammered copper flange disc, a short open spout angled slightly down, a small riveted bucket hook below it and a tapered peg on the back",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history ooeNHKU8Q3Tmuvfj3rOm",
+  "historyId": "ooeNHKU8Q3Tmuvfj3rOm",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798036349_01ae8c9f_1791798036381_1d9e7c6c.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "subject (the spigot fitted in the tapped tree)",
+      "image": "Resource/Picture/ACT_SapTapSpigot.png",
+      "id": "HD5VG3eaUtEsU52jvIav",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ACT_SapTapSpigot_1791797803950_890bdf6b.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798036349_01ae8c9f_1791798036381_1d9e7c6c.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed; 3:2 padded to 2:3 with white",
+  "note": "owner gallery rework 2026-10-12: needs to match the tapped tree images we also need the sap bucket",
+  "previous": {
+    "target": "CopperSpigot.png",
+    "sourceCard": "CardData/Item/CopperSpigot.json",
+    "subject": "a single small forged copper spigot: a short hollow warm reddish-brown copper spout with a plain round collar at one end and a tapered, narrowing end at the other, no handle, no valve, no ornament, plain bare copper",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "generated": "2026-10-02",
+    "historyId": "9jDGhZRH0znG74gWsRSj",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790961368117_d42c6c79_1790961368950_14d44628.png",
+    "finish": "keyed (process_card_art.py, 88.8 percent transparent, dark preview read: no halo, no paper)",
+    "use": "CardImageWarpData of act_copper_spigot and its blueprint (ACT 1.18.0 E1); the two tap copies keep the vanilla SapTap and ResinTap sprites",
+    "note": "credits not read from the generate result"
+  }
+}

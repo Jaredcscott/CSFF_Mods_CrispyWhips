@@ -1,0 +1,42 @@
+{
+  "target": "Tea_Station_Lit.png",
+  "sourceCard": "CardData/Location/TeaBlendingStationLit.json",
+  "subject": "the new Tea_Station_Placed picture with the stove lit (glow through the vent holes and top grate, the Chiwei lit stove as the glow reference) and a wisp of steam from the kettle",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history TyJYRXKlxpiIGPGCwl5b",
+  "historyId": "TyJYRXKlxpiIGPGCwl5b",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798214092_1b558cac_1791798214132_951d0580.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "subject (this batch's new Tea_Station_Placed)",
+      "image": "generation upDQdaLThIJVVthAjeR1",
+      "id": "ZRsvuQ4NrBZ5diYCVunZ",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798034204_3e2a1eeb_1791798034252_bde195db.png"
+    },
+    {
+      "role": "prop (fire glow)",
+      "image": "Resource/Picture/ACT_MetalStove_On_Copper.png (Chiwei)",
+      "id": "0wwvvL2sjqQgbIycWGJv",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ACT_MetalStove_On_Copper_1791797802407_3751887b.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798214092_1b558cac_1791798214132_951d0580.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed; enclosed rail paper keyed with key_enclosed.py",
+  "note": "owner gallery rework 2026-10-12: lets use the Chiwei image for the stove"
+}

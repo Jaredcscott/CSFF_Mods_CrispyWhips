@@ -1,0 +1,32 @@
+{
+  "target": "GhostBronzeShield.png",
+  "sourceCard": "CardData/Item/GhostBronzeShield.json",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "UYxRJYtBdYXFxYF1ksgV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790948953674_c8817405_1790948954123_cb1dee34.png",
+  "credits": 30,
+  "generated": "2026-10-02",
+  "composition": {
+    "subject": "CopperShield",
+    "change": "the same round shield in pale verdigris-grey Ghost Bronze",
+    "finish": "keyed",
+    "use": "CardImageWarpData of act_ghostbronze_shield and its blueprint (ACT 1.18.0 B1)"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "CopperShield",
+      "image": "Resource/Picture/CopperShield.png",
+      "sha256": "c051916f217f5751bcf1c6caef4481e7dd1b173e7e77b6f0ed4e29b58fe626a7",
+      "id": "MvO8FwUWZt5sASE1Uz2V"
+    }
+  ],
+  "verdict": "ON-MODEL (shape, rim nails, boss and angle match the reference; only the metal changed), SHIPPED"
+}

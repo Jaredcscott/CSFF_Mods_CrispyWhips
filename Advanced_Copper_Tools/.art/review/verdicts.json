@@ -1,0 +1,2495 @@
+{
+  "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
+  "images": {
+    "Picture/ACT_CalmingTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1f829cdce02da38f217447c08f1f32313f70f79a",
+      "at": "2026-10-12T17:24:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ff8bad3cef2536722efa49e1b74ee89a835819f1",
+          "at": "2026-10-12T08:10:08+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "ff8bad3cef2536722efa49e1b74ee89a835819f1",
+          "at": "2026-10-12T09:08:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1f829cdce02da38f217447c08f1f32313f70f79a",
+          "at": "2026-10-12T10:37:55+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_CollapsedWall.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "54b7fb3acfeb964dfae269310c7b66b128e03298",
+      "at": "2026-10-14T04:29:59+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c74ae183d8acd59f07d39e312b6969c6c6efe9e3",
+          "at": "2026-10-12T08:10:11+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c74ae183d8acd59f07d39e312b6969c6c6efe9e3",
+          "at": "2026-10-12T17:24:31+00:00"
+        }
+      ]
+    },
+    "Picture/act_copper_lode.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0258089807c025dba2dc94e0d716b044c8b842da",
+      "at": "2026-10-14T04:30:00+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a1d9bb1ef7ef647a69737d1f5e95900c06ac97d2",
+          "at": "2026-10-12T08:10:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a1d9bb1ef7ef647a69737d1f5e95900c06ac97d2",
+          "at": "2026-10-12T17:24:31+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_CopperVein.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "881138ed60b05826f2cadb4b3cc7854472308049",
+      "at": "2026-10-14T04:30:00+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4bb905285bce6006156fe975e7a37d04ff416f59",
+          "at": "2026-10-12T08:10:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4bb905285bce6006156fe975e7a37d04ff416f59",
+          "at": "2026-10-12T17:21:08+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_FocusTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "77db3f7ec85fcf48a0b86008e9aef2bc58084c97",
+      "at": "2026-10-12T17:24:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "58d736554c3c3c5c2cd882eb9113b4da8e69d1ba",
+          "at": "2026-10-12T09:08:34+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "58d736554c3c3c5c2cd882eb9113b4da8e69d1ba",
+          "at": "2026-10-12T09:08:34+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "77db3f7ec85fcf48a0b86008e9aef2bc58084c97",
+          "at": "2026-10-12T10:37:59+00:00"
+        }
+      ]
+    },
+    "Picture/act_iron_lode.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "514814fdf8e85deb2e7ac942224e1b1c7e8a4738",
+      "at": "2026-10-14T04:30:01+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a97ef849039d2dff743994d9e80f1a6c3b3ad5c2",
+          "at": "2026-10-12T08:10:32+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a97ef849039d2dff743994d9e80f1a6c3b3ad5c2",
+          "at": "2026-10-12T17:24:31+00:00"
+        }
+      ]
+    },
+    "Picture/act_iron_vein.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a3674488651ac4646f708f515a16193c9be66fc0",
+      "at": "2026-10-14T04:30:02+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a764ca9a36b033b5ec16fa818c11f7b9cef6f791",
+          "at": "2026-10-12T08:10:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a764ca9a36b033b5ec16fa818c11f7b9cef6f791",
+          "at": "2026-10-12T17:24:32+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_LargeSaw_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a991de48c8cd18c71e9df5b1a94331f231730d7f",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a991de48c8cd18c71e9df5b1a94331f231730d7f",
+          "at": "2026-10-12T08:10:37+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_LargeSaw_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8bc6c86f52f4325b55f7dc3b64f97ae75f2265cc",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8bc6c86f52f4325b55f7dc3b64f97ae75f2265cc",
+          "at": "2026-10-12T08:10:38+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_LargeSaw_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4a310cde5c6970b3139ac58d1402553758a8db59",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4a310cde5c6970b3139ac58d1402553758a8db59",
+          "at": "2026-10-12T08:10:40+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_LargeSaw_Iron.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "7dacff0b813a05cc3eb5c1ebd300892ebc0254d7",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7dacff0b813a05cc3eb5c1ebd300892ebc0254d7",
+          "at": "2026-10-12T08:10:41+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_LargeSaw_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "38b6c43a6eb8a27a9a7fb2e402b8ebb91547f1c1",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "38b6c43a6eb8a27a9a7fb2e402b8ebb91547f1c1",
+          "at": "2026-10-12T08:10:41+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_LargeSaw_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "12c03466910d1cf3ce58290e3f27d6f940e995f0",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "12c03466910d1cf3ce58290e3f27d6f940e995f0",
+          "at": "2026-10-12T08:10:43+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalCauldron_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "dda8b056bcdd69e79d45bfaf0808941f3066606b",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "dda8b056bcdd69e79d45bfaf0808941f3066606b",
+          "at": "2026-10-12T08:10:44+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalCauldron_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3836a2797665cf4a080a52cc4bf69517f71f1630",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3836a2797665cf4a080a52cc4bf69517f71f1630",
+          "at": "2026-10-12T08:10:45+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalCauldron_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "af6f9c5d52d5ca3faf0399df008df5f8acd96a80",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "af6f9c5d52d5ca3faf0399df008df5f8acd96a80",
+          "at": "2026-10-12T08:10:46+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalCauldron_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3ec5d16a2733bf89b2f61cb41e400a9ce8188bd3",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3ec5d16a2733bf89b2f61cb41e400a9ce8188bd3",
+          "at": "2026-10-12T08:10:47+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalCauldron_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d6683cbf12e4a8436126adc5031353bd0c8ce217",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d6683cbf12e4a8436126adc5031353bd0c8ce217",
+          "at": "2026-10-12T08:10:47+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Off_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e7e009f1a5965c84ed9757132cc6605363a08c7b",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e7e009f1a5965c84ed9757132cc6605363a08c7b",
+          "at": "2026-10-12T08:10:49+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Off_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3a880ee1e14e352ac23b325c70c08e8a10970e2f",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3a880ee1e14e352ac23b325c70c08e8a10970e2f",
+          "at": "2026-10-12T08:10:50+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Off_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5722cfb194b6e097c2b6292d8c07d2510f1efbc0",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5722cfb194b6e097c2b6292d8c07d2510f1efbc0",
+          "at": "2026-10-12T08:10:50+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Off_Iron.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "219959adad4db6a17ba9e046128cb2bf6095c6e9",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "11a711586a36c5fb5ef336c257e4c0987e3a4f95",
+          "at": "2026-10-12T08:10:53+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "needs to be the same size as the other images ",
+          "sha1": "11a711586a36c5fb5ef336c257e4c0987e3a4f95",
+          "at": "2026-10-12T08:11:06+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "219959adad4db6a17ba9e046128cb2bf6095c6e9",
+          "at": "2026-10-12T10:38:01+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Off_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a3457252066f5ed869d45cc502cb30a03ae1d6ee",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a3457252066f5ed869d45cc502cb30a03ae1d6ee",
+          "at": "2026-10-12T08:11:08+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Off_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b23ba7f7cf56319d315bb58a5c7003a43900f50e",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b23ba7f7cf56319d315bb58a5c7003a43900f50e",
+          "at": "2026-10-12T08:11:08+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_Off_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c3abb0dc7801ec1699a97a5f47f4a04afd624a95",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c3abb0dc7801ec1699a97a5f47f4a04afd624a95",
+          "at": "2026-10-12T08:11:14+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_Off_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3b6d60840685e052f90ed367f0222bb83b894138",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3b6d60840685e052f90ed367f0222bb83b894138",
+          "at": "2026-10-12T08:11:15+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_Off_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c299952add1bf40eb41195eab1c4ec667ac490f2",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c299952add1bf40eb41195eab1c4ec667ac490f2",
+          "at": "2026-10-12T08:11:15+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_Off_Iron.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "aea4bc79d5e67294f6b1d3f7236d0398f9932a11",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "must be same size ",
+          "sha1": "c6e532962203c9a09aaf59357138eafac7a2fb6a",
+          "at": "2026-10-12T08:11:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "aea4bc79d5e67294f6b1d3f7236d0398f9932a11",
+          "at": "2026-10-12T10:38:02+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_Off_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "724efac69219468dc0dcf19c81dcc47f4dc510d1",
+      "at": "2026-10-12T17:24:32+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "724efac69219468dc0dcf19c81dcc47f4dc510d1",
+          "at": "2026-10-12T08:11:28+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_Off_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6d40215fb73968148a946fe4e33e6a03519fbb8e",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6d40215fb73968148a946fe4e33e6a03519fbb8e",
+          "at": "2026-10-12T08:11:29+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_On_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2a6f9a28b83775d6e3a2cbb102c2cc4b87449d67",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2a6f9a28b83775d6e3a2cbb102c2cc4b87449d67",
+          "at": "2026-10-12T08:11:30+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_On_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "03217e802ab952a7ef6b933c371a712b3861dbe7",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "03217e802ab952a7ef6b933c371a712b3861dbe7",
+          "at": "2026-10-12T08:11:31+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_On_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "61c0770212f0d924750501ce1e91b0dd3e9c7c23",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "61c0770212f0d924750501ce1e91b0dd3e9c7c23",
+          "at": "2026-10-12T08:11:32+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_On_Iron.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a43d452b96a96ae8f9587bf1e132fba2ff3d7406",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "must be the same size ",
+          "sha1": "4aa04fb5693d19e5668151db3444d31a802a4de6",
+          "at": "2026-10-12T08:11:41+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a43d452b96a96ae8f9587bf1e132fba2ff3d7406",
+          "at": "2026-10-12T10:38:03+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_On_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "eacfed7d07d5e217902d54b116a6102f4dac5bcf",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "eacfed7d07d5e217902d54b116a6102f4dac5bcf",
+          "at": "2026-10-12T08:11:43+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_Oilwell_On_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6277a1deba356a54b9d1a0dedcfd669c31999466",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6277a1deba356a54b9d1a0dedcfd669c31999466",
+          "at": "2026-10-12T08:11:43+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_On_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d829d441407f65356750ac767f5de68fe2bab353",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d829d441407f65356750ac767f5de68fe2bab353",
+          "at": "2026-10-12T08:11:45+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_On_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f81b3a26f814692508b5fd873fab38c802ede7f6",
+      "at": "2026-10-12T17:22:55+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f81b3a26f814692508b5fd873fab38c802ede7f6",
+          "at": "2026-10-12T08:11:46+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_On_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2e1a0bf251db81bc652546b7e511afbd82a7f1ee",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2e1a0bf251db81bc652546b7e511afbd82a7f1ee",
+          "at": "2026-10-12T08:11:46+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_On_Iron.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bb6261afab2f327b1f148c0e6f2d4e6aa9ed9fca",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "must be the same size",
+          "sha1": "04ed791e00a57762fec0ff0b5aceb01c840dbac9",
+          "at": "2026-10-12T08:11:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bb6261afab2f327b1f148c0e6f2d4e6aa9ed9fca",
+          "at": "2026-10-12T10:38:04+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_On_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e5e5fbb7e1dd924560e56c2f0baf2c580f52bae9",
+      "at": "2026-10-12T17:22:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5e5fbb7e1dd924560e56c2f0baf2c580f52bae9",
+          "at": "2026-10-12T08:11:53+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalLantern_On_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "08fa1d6d6735e2e2b321dcd3d117386eb78b8168",
+      "at": "2026-10-12T17:22:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "08fa1d6d6735e2e2b321dcd3d117386eb78b8168",
+          "at": "2026-10-12T08:11:54+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalNails_Iron.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4b38ca5e356bf7ccb8f33ac6f8832116f2c4a4c0",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4b38ca5e356bf7ccb8f33ac6f8832116f2c4a4c0",
+          "at": "2026-10-12T08:12:01+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Shaped_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "53790aaed62f4b85e5d9c293e5dbbd5bbddf1dd2",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "53790aaed62f4b85e5d9c293e5dbbd5bbddf1dd2",
+          "at": "2026-10-12T08:12:02+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Shaped_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ca0f8395e97a5c8077d2c0d9a81fa3da05203c01",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ca0f8395e97a5c8077d2c0d9a81fa3da05203c01",
+          "at": "2026-10-12T08:12:03+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Shaped_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f78d69eb94aa7533069da2645f635d44de8e87e0",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f78d69eb94aa7533069da2645f635d44de8e87e0",
+          "at": "2026-10-12T08:12:04+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Shaped_Heated.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "45f72753a94037af641d249ca25b3c91b457fca1",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "45f72753a94037af641d249ca25b3c91b457fca1",
+          "at": "2026-10-12T08:12:05+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Shaped_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f403b967ef69ec80a8ae2ecbe6cd3dad8be46144",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f403b967ef69ec80a8ae2ecbe6cd3dad8be46144",
+          "at": "2026-10-12T08:12:05+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Shaped_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "33911514cee9e447e6958f1163ca81b59fbaab5f",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "33911514cee9e447e6958f1163ca81b59fbaab5f",
+          "at": "2026-10-12T08:12:07+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Wearable_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5951f338801f9080587dfadab8d6417dfe63af92",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5951f338801f9080587dfadab8d6417dfe63af92",
+          "at": "2026-10-12T08:12:08+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Wearable_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "703716a49f6dc2900522898596584bd9a5b0d71c",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "703716a49f6dc2900522898596584bd9a5b0d71c",
+          "at": "2026-10-12T08:12:08+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Wearable_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c117f7c8e9d9e6b4eea9152cd683ca5f6d715e50",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c117f7c8e9d9e6b4eea9152cd683ca5f6d715e50",
+          "at": "2026-10-12T08:12:10+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Wearable_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "fb53dc0bd9d747fc6f8c38dce05acb755bc6be8f",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "fb53dc0bd9d747fc6f8c38dce05acb755bc6be8f",
+          "at": "2026-10-12T08:12:10+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalPan_Wearable_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "fd43258ef7c864b0f8153998ff18e0f6bc73003e",
+      "at": "2026-10-12T17:24:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "fd43258ef7c864b0f8153998ff18e0f6bc73003e",
+          "at": "2026-10-12T08:12:11+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalSheet_Iron.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f57a1e295e2f676de8bba35215689aca894c3967",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f57a1e295e2f676de8bba35215689aca894c3967",
+          "at": "2026-10-12T08:12:13+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_Off_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "15840b7dd4e2635ff960de3f6f94a0de86ed1420",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "15840b7dd4e2635ff960de3f6f94a0de86ed1420",
+          "at": "2026-10-12T08:12:14+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_Off_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "445e192f6e2907684f71568c58ed1af153056b84",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "445e192f6e2907684f71568c58ed1af153056b84",
+          "at": "2026-10-12T08:12:14+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_Off_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2f6e1dfab085e4fc6d2b48c8bcef494e864a0298",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2f6e1dfab085e4fc6d2b48c8bcef494e864a0298",
+          "at": "2026-10-12T08:12:16+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_Off_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "567f6ff77a8d0ac310637f9d022f01db34dd5ace",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "567f6ff77a8d0ac310637f9d022f01db34dd5ace",
+          "at": "2026-10-12T08:12:17+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_Off_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1ff49e93f3d4233b60ed39cad85b2b8a310643fa",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1ff49e93f3d4233b60ed39cad85b2b8a310643fa",
+          "at": "2026-10-12T08:12:18+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_On_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cc2426df270b816e1c53acc07e8e6eb3c3493711",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cc2426df270b816e1c53acc07e8e6eb3c3493711",
+          "at": "2026-10-12T08:12:20+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_On_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "659fc0c8a67cc093fb501f028518dd2059fc9e45",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "659fc0c8a67cc093fb501f028518dd2059fc9e45",
+          "at": "2026-10-12T08:12:21+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_On_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a15dcf82cae270f9f6149b7cacd863a0fbdc460e",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a15dcf82cae270f9f6149b7cacd863a0fbdc460e",
+          "at": "2026-10-12T08:12:21+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_On_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6d1768bbc1746a9e73ed41606f4bdedf8eee8534",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6d1768bbc1746a9e73ed41606f4bdedf8eee8534",
+          "at": "2026-10-12T08:12:23+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStove_On_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c89f7e7dcf8705a1ae74a48573d8d6e2fc0da9eb",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c89f7e7dcf8705a1ae74a48573d8d6e2fc0da9eb",
+          "at": "2026-10-12T08:12:24+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStoveTop_Bronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "64b3d1018a16989744636fa3d4b659ded61724e0",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "64b3d1018a16989744636fa3d4b659ded61724e0",
+          "at": "2026-10-12T08:12:25+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStoveTop_Copper.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a0818252899e192e4b2fd8a92f34227278b971af",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a0818252899e192e4b2fd8a92f34227278b971af",
+          "at": "2026-10-12T08:12:26+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStoveTop_GhostBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "a4ddd2f74fb1252e04b8865f57a6a538e548af31",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a4ddd2f74fb1252e04b8865f57a6a538e548af31",
+          "at": "2026-10-12T08:12:26+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStoveTop_Tin.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "abfcfcd56973f27dec87eddabe77048091482bc2",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "abfcfcd56973f27dec87eddabe77048091482bc2",
+          "at": "2026-10-12T08:12:27+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_MetalStoveTop_WhiteBronze.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9cb3e23de155cd1b8f80fed1c36955d972c504f4",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9cb3e23de155cd1b8f80fed1c36955d972c504f4",
+          "at": "2026-10-12T08:12:29+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_Oil.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "40b1cc5791140c234951fa29e85aa2672b99b2ef",
+      "at": "2026-10-12T17:24:34+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "058f6fa93e44740f122f873c51885c4ccf2f75bf",
+          "at": "2026-10-12T09:08:27+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "058f6fa93e44740f122f873c51885c4ccf2f75bf",
+          "at": "2026-10-12T09:08:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "40b1cc5791140c234951fa29e85aa2672b99b2ef",
+          "at": "2026-10-12T10:38:05+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_Perk_BuildingMaterials.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2a6fd9a6e76207f7b031a2ecd349dae1dde99546",
+      "at": "2026-10-12T19:07:02+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5cfddf2b83c5c17e6ebb6c8a2c4376bf0f1c9310",
+          "at": "2026-10-12T08:12:31+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "5cfddf2b83c5c17e6ebb6c8a2c4376bf0f1c9310",
+          "at": "2026-10-12T17:01:58+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_ResinTapSpigot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d926ff3f9131883a8917c8300dc079de7ee83563",
+      "at": "2026-10-14T04:30:03+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "we need to rework the bucket and create a craft able item for the sap bucket. ",
+          "sha1": "c101393bb85fcb64d25d67362c96d3f9473a85f2",
+          "at": "2026-10-12T08:13:02+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "we need to rework the bucket and create a craft able item for the sap bucket. ",
+          "sha1": "a66613e9e35d03c127398ac4b760cddf89ab2875",
+          "at": "2026-10-12T14:17:15+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "we need to rework the bucket and create a craft able item for the sap bucket. ",
+          "sha1": "a66613e9e35d03c127398ac4b760cddf89ab2875",
+          "at": "2026-10-12T17:24:34+00:00"
+        }
+      ]
+    },
+    "Picture/act_rock_vein.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ac9b3fe5745283eae530b135086c07520606c85c",
+      "at": "2026-10-14T04:30:05+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "da0b48494b02f9763de6df6d1d20801ec9644ec0",
+          "at": "2026-10-12T08:13:03+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "da0b48494b02f9763de6df6d1d20801ec9644ec0",
+          "at": "2026-10-12T17:24:34+00:00"
+        }
+      ]
+    },
+    "Picture/act_salt_vein.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "89a9a28d82e07bda702a8c4b47a3626e5e1255f6",
+      "at": "2026-10-14T04:30:05+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e4af3054d82959e8bbc5f99db5b4cf3ec5755a2c",
+          "at": "2026-10-12T08:13:06+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e4af3054d82959e8bbc5f99db5b4cf3ec5755a2c",
+          "at": "2026-10-12T17:24:34+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_SapTapSpigot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "54d1500b9845c6c396d413fafe2f4e9cee168b6f",
+      "at": "2026-10-14T04:30:07+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "we need to rework the bucket and create a craft able item for the sap bucket. ",
+          "sha1": "e0c9df05dc109f48c680169d8d4a61f0298c48a6",
+          "at": "2026-10-12T08:13:23+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "we need to rework the bucket and create a craft able item for the sap bucket. ",
+          "sha1": "a2deb33fadac5dfbd5f2af0688996e2b541e48f6",
+          "at": "2026-10-12T14:17:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "we need to rework the bucket and create a craft able item for the sap bucket. ",
+          "sha1": "a2deb33fadac5dfbd5f2af0688996e2b541e48f6",
+          "at": "2026-10-12T17:24:34+00:00"
+        }
+      ]
+    },
+    "Picture/act_tin_ore.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0b908da9415dba4084eb0eea3f3922dda6fe36cb",
+      "at": "2026-10-12T17:21:22+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0b908da9415dba4084eb0eea3f3922dda6fe36cb",
+          "at": "2026-10-12T08:13:24+00:00"
+        }
+      ]
+    },
+    "Picture/act_tin_vein.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c35519b345f83ae2c755d53696f376ad5326b4b2",
+      "at": "2026-10-14T04:30:08+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7db1f09593e66f40e7f5dd522ae119109bf3c4e5",
+          "at": "2026-10-12T08:13:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7db1f09593e66f40e7f5dd522ae119109bf3c4e5",
+          "at": "2026-10-12T17:24:35+00:00"
+        }
+      ]
+    },
+    "Picture/ACT_WarmingTea.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "29e1bdec4c4d5c978aec7cbef556ba5bef234974",
+      "at": "2026-10-12T17:24:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "f19776b41d10d1618b0b35624771f57faa4b663e",
+          "at": "2026-10-12T09:08:25+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "see the images of other HF_LQ_",
+          "sha1": "f19776b41d10d1618b0b35624771f57faa4b663e",
+          "at": "2026-10-12T09:08:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "29e1bdec4c4d5c978aec7cbef556ba5bef234974",
+          "at": "2026-10-12T10:38:06+00:00"
+        }
+      ]
+    },
+    "Picture/BedwarmingPan.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ef91dbc605855d2933ca510469d2a91a33e40304",
+      "at": "2026-10-12T17:20:24+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ef91dbc605855d2933ca510469d2a91a33e40304",
+          "at": "2026-10-12T08:13:29+00:00"
+        }
+      ]
+    },
+    "Picture/BedwarmingPan_Hot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "56d82fe765ee428a90853fa26c0d7456336483ab",
+      "at": "2026-10-12T17:20:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "56d82fe765ee428a90853fa26c0d7456336483ab",
+          "at": "2026-10-12T08:13:30+00:00"
+        }
+      ]
+    },
+    "Picture/BronzeArmor.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "562b1ed18c92636d014047dd76ca31bd13d3f168",
+      "at": "2026-10-12T17:22:22+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "562b1ed18c92636d014047dd76ca31bd13d3f168",
+          "at": "2026-10-12T08:13:34+00:00"
+        }
+      ]
+    },
+    "Picture/BronzeBracers.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1785e9396108b487d104625c97cfa92760cd8ca5",
+      "at": "2026-10-12T17:21:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1785e9396108b487d104625c97cfa92760cd8ca5",
+          "at": "2026-10-12T08:13:35+00:00"
+        }
+      ]
+    },
+    "Picture/BronzeGreaves.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "06ff41748557ec8c8edf1799195734abb240c3e2",
+      "at": "2026-10-12T17:21:33+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "06ff41748557ec8c8edf1799195734abb240c3e2",
+          "at": "2026-10-12T08:13:35+00:00"
+        }
+      ]
+    },
+    "Picture/BronzeHelmet.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "647e623151edbf5d473fbb7b66704fd97eeaf330",
+      "at": "2026-10-12T17:27:06+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "647e623151edbf5d473fbb7b66704fd97eeaf330",
+          "at": "2026-10-12T08:13:37+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "647e623151edbf5d473fbb7b66704fd97eeaf330",
+          "at": "2026-10-12T17:01:59+00:00"
+        }
+      ]
+    },
+    "Picture/CauteryIron.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ce76642aac1261c2f7faec6ed7e0ef6e819ed782",
+      "at": "2026-10-12T19:06:10+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "170ed8146db59e672f9d53322e1370e74ee12410",
+          "at": "2026-10-12T08:13:38+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "170ed8146db59e672f9d53322e1370e74ee12410",
+          "at": "2026-10-12T16:55:24+00:00"
+        }
+      ]
+    },
+    "Picture/CauteryIron_Hot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "55cb64c8c4ae5c56fdc6d44959c17f3c3c622c1c",
+      "at": "2026-10-12T19:05:14+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e7be291fd6e0d0af1e106feac3cfdf1afef7e3ac",
+          "at": "2026-10-12T16:58:58+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e7be291fd6e0d0af1e106feac3cfdf1afef7e3ac",
+          "at": "2026-10-12T17:00:31+00:00"
+        }
+      ]
+    },
+    "Picture/Copper_Chest.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5257bc6a73a952f60c50d31726ce91c11f650755",
+      "at": "2026-10-12T19:07:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "94c1e9c0f49757aed0491a1594e229cd5dc5d4a1",
+          "at": "2026-10-12T16:59:51+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "94c1e9c0f49757aed0491a1594e229cd5dc5d4a1",
+          "at": "2026-10-12T17:01:19+00:00"
+        }
+      ]
+    },
+    "Picture/Copper_Lantern_Lit.png": {
+      "status": "alter",
+      "notes": "this has been replaced ",
+      "sha1": "50cf415b07665cf9d8abc0acb88858841a37f31b",
+      "at": "2026-10-12T08:32:18+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "50cf415b07665cf9d8abc0acb88858841a37f31b",
+          "at": "2026-10-12T08:13:46+00:00"
+        }
+      ]
+    },
+    "Picture/Copper_Lantern_Unlit.png": {
+      "status": "alter",
+      "notes": "this has been replaced ",
+      "sha1": "d50a0e18248d1d2c5da57ec6783f9ec9b37a4127",
+      "at": "2026-10-12T08:32:21+00:00"
+    },
+    "Picture/Copper_Oil_Flask.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "c1f4820fc1cbfd3b8721bc12ac471a5a7b0b5a06",
+      "at": "2026-10-12T17:20:40+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c1f4820fc1cbfd3b8721bc12ac471a5a7b0b5a06",
+          "at": "2026-10-12T17:03:18+00:00"
+        }
+      ]
+    },
+    "Picture/Copper_Tea_Kettle.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "782aa3f4f8c39c92e4b21dad351203a29bf5bebd",
+      "at": "2026-10-12T17:17:31+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "782aa3f4f8c39c92e4b21dad351203a29bf5bebd",
+          "at": "2026-10-12T16:52:25+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "782aa3f4f8c39c92e4b21dad351203a29bf5bebd",
+          "at": "2026-10-12T16:52:26+00:00"
+        }
+      ]
+    },
+    "Picture/CopperArmor.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d8ef765a7e9bef9a1caa506993899c58f749fba6",
+      "at": "2026-10-12T17:21:48+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d8ef765a7e9bef9a1caa506993899c58f749fba6",
+          "at": "2026-10-12T08:14:14+00:00"
+        }
+      ]
+    },
+    "Picture/CopperBathtub_Empty.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b02bd2b1d576b8c9c148745deb7bcb1d58cde676",
+      "at": "2026-10-12T17:21:23+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "717e380e411fa670c5d2cfc354e39e3aaa8448b3",
+          "at": "2026-10-12T08:14:15+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "we should rework this item to match the new  stove ",
+          "sha1": "717e380e411fa670c5d2cfc354e39e3aaa8448b3",
+          "at": "2026-10-12T08:15:19+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b02bd2b1d576b8c9c148745deb7bcb1d58cde676",
+          "at": "2026-10-12T10:38:07+00:00"
+        }
+      ]
+    },
+    "Picture/CopperBathtub_Full_Unlit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e7644bd89483afc55edc84599941daf060ef125d",
+      "at": "2026-10-12T17:21:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c6aaf555d522a4dc84a92ca68f2e0af8ad528889",
+          "at": "2026-10-12T08:14:16+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "we should rework this item to match the new  stove ",
+          "sha1": "c6aaf555d522a4dc84a92ca68f2e0af8ad528889",
+          "at": "2026-10-12T08:15:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e7644bd89483afc55edc84599941daf060ef125d",
+          "at": "2026-10-12T10:38:08+00:00"
+        }
+      ]
+    },
+    "Picture/CopperBathtub_Kit.png": {
+      "status": "approved",
+      "notes": "no drying rack but we do want a towel on a smaller rack near the stairs. ",
+      "sha1": "28e697a02dd0718d62834aa7b2e05ccfb10e7a2d",
+      "at": "2026-10-12T17:21:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "we should rework this item to match the new  stove ",
+          "sha1": "739dc455d06258a4b7af75d6c9c15868efda5ec3",
+          "at": "2026-10-12T08:15:16+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "we should rework this item to match the new  stove ",
+          "sha1": "739dc455d06258a4b7af75d6c9c15868efda5ec3",
+          "at": "2026-10-12T08:15:16+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "we should rework this item to match the new  stove ",
+          "sha1": "739dc455d06258a4b7af75d6c9c15868efda5ec3",
+          "at": "2026-10-12T08:15:16+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "no drying rack but we do want a towel on a smaller rack near the stairs. ",
+          "sha1": "08cc9b7b4fae521278ebc742fce286c7422be262",
+          "at": "2026-10-12T10:43:40+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "no drying rack but we do want a towel on a smaller rack near the stairs. ",
+          "sha1": "28e697a02dd0718d62834aa7b2e05ccfb10e7a2d",
+          "at": "2026-10-12T14:17:55+00:00"
+        }
+      ]
+    },
+    "Picture/CopperBathtub_Warm.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d1e3bc812d7f5a3f7f90c33ceb9ac15263fb0456",
+      "at": "2026-10-12T17:21:12+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "37407662e12eca5a12f74245a62c6f54e61cc775",
+          "at": "2026-10-12T08:14:22+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "we should rework this item to match the new  stove ",
+          "sha1": "37407662e12eca5a12f74245a62c6f54e61cc775",
+          "at": "2026-10-12T08:15:10+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d1e3bc812d7f5a3f7f90c33ceb9ac15263fb0456",
+          "at": "2026-10-12T10:38:21+00:00"
+        }
+      ]
+    },
+    "Picture/CopperBracers.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5e93c8e6663da10567329960dbfd3be58738dfca",
+      "at": "2026-10-12T17:21:49+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5e93c8e6663da10567329960dbfd3be58738dfca",
+          "at": "2026-10-12T08:14:23+00:00"
+        }
+      ]
+    },
+    "Picture/CopperBrazier_Lit.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant CopperBrazier_Unlit (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "8c929fa75f90a2af49a0c3cc667b8f0c4e7b9dc8",
+      "at": "2026-10-12T17:35:55+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "8c929fa75f90a2af49a0c3cc667b8f0c4e7b9dc8",
+          "at": "2026-10-12T16:53:01+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "8c929fa75f90a2af49a0c3cc667b8f0c4e7b9dc8",
+          "at": "2026-10-12T16:53:01+00:00"
+        }
+      ]
+    },
+    "Picture/CopperBrazier_Unlit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "16927a891cb728bfb76ea9992de416345fb6b648",
+      "at": "2026-10-12T17:22:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "16927a891cb728bfb76ea9992de416345fb6b648",
+          "at": "2026-10-12T08:14:28+00:00"
+        }
+      ]
+    },
+    "Picture/CopperCauldron.png": {
+      "status": "alter",
+      "notes": "this has been replaced with the new Chiwei art. ",
+      "sha1": "4afa146db2550cda31b330003e2345cd5a83a2af",
+      "at": "2026-10-12T08:15:25+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "this has been replaced with the new Chiwei art. ",
+          "sha1": "4afa146db2550cda31b330003e2345cd5a83a2af",
+          "at": "2026-10-12T08:14:50+00:00"
+        }
+      ]
+    },
+    "Picture/CopperGreaves.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "45589fdaf1e583ebd9a7eec6971facdfd9af0584",
+      "at": "2026-10-12T17:22:52+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "45589fdaf1e583ebd9a7eec6971facdfd9af0584",
+          "at": "2026-10-12T08:14:26+00:00"
+        }
+      ]
+    },
+    "Picture/CopperHelmet.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8b96691d460db1a9ab90bc189e1926269e1ea71a",
+      "at": "2026-10-12T17:22:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8b96691d460db1a9ab90bc189e1926269e1ea71a",
+          "at": "2026-10-12T08:15:28+00:00"
+        }
+      ]
+    },
+    "Picture/CopperRimChamberpot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "f25774ebc82af3102ffe224f8ef0d53866799960",
+      "at": "2026-10-12T20:38:17+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "88e86fcebc04ceff6d4dd7a16b90e9883c879d43",
+          "at": "2026-10-12T08:15:29+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "88e86fcebc04ceff6d4dd7a16b90e9883c879d43",
+          "at": "2026-10-12T16:56:46+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "63fd67d8ab1570b7dd480ddde56c07266f1a558b",
+          "at": "2026-10-12T19:09:24+00:00"
+        }
+      ]
+    },
+    "Picture/CopperSapBucket.png": {
+      "status": "approved",
+      "notes": "white at base of handle on the top right",
+      "sha1": "06b228e7edcfa08cc93d814d6c3947ccb6bdf23f",
+      "at": "2026-10-12T16:45:24+00:00"
+    },
+    "Picture/CopperShears.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "da7fa24977909f608631e83bc74b870851db64d8",
+      "at": "2026-10-12T17:17:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "da7fa24977909f608631e83bc74b870851db64d8",
+          "at": "2026-10-12T16:52:17+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "da7fa24977909f608631e83bc74b870851db64d8",
+          "at": "2026-10-12T16:52:17+00:00"
+        }
+      ]
+    },
+    "Picture/CopperShield.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "7ec1474ac1096e7f5b55e16dcd0e30b4d962830a",
+      "at": "2026-10-12T17:21:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7ec1474ac1096e7f5b55e16dcd0e30b4d962830a",
+          "at": "2026-10-12T08:15:49+00:00"
+        }
+      ]
+    },
+    "Picture/CopperSpigot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e5ee8f16b9d80c796c49f4cba5ab3dbff4ee22cd",
+      "at": "2026-10-12T17:22:01+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "needs to match the tapped tree images we also need the sap bucket",
+          "sha1": "0e3bd87073005bf7a0a38a37af3aa8ee7881790d",
+          "at": "2026-10-12T08:15:46+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5ee8f16b9d80c796c49f4cba5ab3dbff4ee22cd",
+          "at": "2026-10-12T10:38:22+00:00"
+        }
+      ]
+    },
+    "Picture/CopperStove.png": {
+      "status": "alter",
+      "notes": "lets use the Chiwei stove image ",
+      "sha1": "b5c9ce08f4dfcb8f998341e88e2f53a57a94e7e7",
+      "at": "2026-10-12T08:16:01+00:00"
+    },
+    "Picture/CopperStove_Placed_Lit.png": {
+      "status": "alter",
+      "notes": "lets use the Chiwei stove image ",
+      "sha1": "8fbe0cbee14be81eb016c1058039906dbe20d832",
+      "at": "2026-10-12T08:16:08+00:00"
+    },
+    "Picture/CopperStoveTop.png": {
+      "status": "regenerate",
+      "notes": "lets use the Chiwei stove image ",
+      "sha1": "1da10bd1f637ddb4729a284317c6f5521829c8d7",
+      "at": "2026-10-12T08:16:16+00:00"
+    },
+    "Picture/CopperWateringCan.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "371ac2707f790d3ff0bfb6c7f8ca0b1a8aaad7a6",
+      "at": "2026-10-12T19:07:26+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2bd2d05d88282d8dcb473805bc6d53450f23fe32",
+          "at": "2026-10-12T08:16:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "2bd2d05d88282d8dcb473805bc6d53450f23fe32",
+          "at": "2026-10-12T16:53:44+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "2bd2d05d88282d8dcb473805bc6d53450f23fe32",
+          "at": "2026-10-12T16:53:44+00:00"
+        }
+      ]
+    },
+    "Picture/GhostBronzeArmor.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0ff6452ed28f9dae2f079562d138f6c73dc4c949",
+      "at": "2026-10-12T17:20:51+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0ff6452ed28f9dae2f079562d138f6c73dc4c949",
+          "at": "2026-10-12T08:16:35+00:00"
+        }
+      ]
+    },
+    "Picture/GhostBronzeBracers.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0bec43a700206a2d3068734e3e491de2a9c30701",
+      "at": "2026-10-12T17:26:13+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0bec43a700206a2d3068734e3e491de2a9c30701",
+          "at": "2026-10-12T08:16:36+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "0bec43a700206a2d3068734e3e491de2a9c30701",
+          "at": "2026-10-12T17:01:51+00:00"
+        }
+      ]
+    },
+    "Picture/GhostBronzeGreaves.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "d275ce8f9a945c23e793a5af200266b727e47bd8",
+      "at": "2026-10-12T17:16:11+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d275ce8f9a945c23e793a5af200266b727e47bd8",
+          "at": "2026-10-12T08:16:37+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "d275ce8f9a945c23e793a5af200266b727e47bd8",
+          "at": "2026-10-12T16:57:25+00:00"
+        }
+      ]
+    },
+    "Picture/GhostBronzeHelmet.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "074d20f9f6338647c5e86e33362be870124d1e7d",
+      "at": "2026-10-12T17:30:03+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "074d20f9f6338647c5e86e33362be870124d1e7d",
+          "at": "2026-10-12T16:52:09+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "074d20f9f6338647c5e86e33362be870124d1e7d",
+          "at": "2026-10-12T16:52:10+00:00"
+        }
+      ]
+    },
+    "Picture/GhostBronzeShield.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant CopperShield / IronShield (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "79615b5b260d094e006f7f90d96c5f4c5e47a713",
+      "at": "2026-10-12T17:35:55+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "79615b5b260d094e006f7f90d96c5f4c5e47a713",
+          "at": "2026-10-12T16:59:55+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "79615b5b260d094e006f7f90d96c5f4c5e47a713",
+          "at": "2026-10-12T17:01:22+00:00"
+        }
+      ]
+    },
+    "Picture/GrapplingHook.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "909e3f207e6d7cf8afe24c321af2dc5c960ddb8f",
+      "at": "2026-10-12T20:36:01+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4a2afc59e76277a06d62196300f3c02a3c3fc9b3",
+          "at": "2026-10-12T08:16:41+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "4a2afc59e76277a06d62196300f3c02a3c3fc9b3",
+          "at": "2026-10-12T16:53:02+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "f8ee3036bfaeba7857ebbceed2982a3ef3748a0a",
+          "at": "2026-10-12T19:09:43+00:00"
+        }
+      ]
+    },
+    "Picture/IronArmor_F.png": {
+      "status": "approved",
+      "notes": "We need Female variants of all the alloys of metal. ",
+      "sha1": "7df3f3681b687459fc034aed26f151d34ade74e5",
+      "at": "2026-10-12T17:21:21+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "We need Female variants of all the alloys of metal. ",
+          "sha1": "7df3f3681b687459fc034aed26f151d34ade74e5",
+          "at": "2026-10-12T08:17:15+00:00"
+        }
+      ]
+    },
+    "Picture/IronArmor_M.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2343bff83b8c31b2d8f35b6c9b2f7597b40afa58",
+      "at": "2026-10-12T17:21:06+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2343bff83b8c31b2d8f35b6c9b2f7597b40afa58",
+          "at": "2026-10-12T08:16:46+00:00"
+        }
+      ]
+    },
+    "Picture/IronBracers.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c736f1bf617e5d6017a4cd1c54b1a1f69954f1eb",
+      "at": "2026-10-12T17:22:05+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c736f1bf617e5d6017a4cd1c54b1a1f69954f1eb",
+          "at": "2026-10-12T08:16:48+00:00"
+        }
+      ]
+    },
+    "Picture/IronGreaves.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "70d821874474db8e3829123bc0b5605d540f74ce",
+      "at": "2026-10-12T17:22:25+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "70d821874474db8e3829123bc0b5605d540f74ce",
+          "at": "2026-10-12T08:17:18+00:00"
+        }
+      ]
+    },
+    "Picture/IronHelmet.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c22cbf1bff7d83d06b57d723460c590e67feb320",
+      "at": "2026-10-12T17:21:42+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c22cbf1bff7d83d06b57d723460c590e67feb320",
+          "at": "2026-10-12T08:17:19+00:00"
+        }
+      ]
+    },
+    "Picture/IronShield.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d560e4f64c3f3c3d65f185de57ce4be81223dff1",
+      "at": "2026-10-12T17:21:27+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d560e4f64c3f3c3d65f185de57ce4be81223dff1",
+          "at": "2026-10-12T08:17:20+00:00"
+        }
+      ]
+    },
+    "Picture/Lantern_Oilwell.png": {
+      "status": "alter",
+      "notes": "lets use the Chiwei  image ",
+      "sha1": "2c2310aa428a7301e97804348785e06932e6bd85",
+      "at": "2026-10-12T08:32:57+00:00"
+    },
+    "Picture/LargeCopperBucket.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9ec8ffbcd2807979689fddfbcc75978baf6bbc9e",
+      "at": "2026-10-12T17:24:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9ec8ffbcd2807979689fddfbcc75978baf6bbc9e",
+          "at": "2026-10-12T08:17:32+00:00"
+        }
+      ]
+    },
+    "Picture/LargeSaw.png": {
+      "status": "alter",
+      "notes": "lets use the Chiwei  image ",
+      "sha1": "c51d222c63844f8cb995f19931f4ed1e1f031180",
+      "at": "2026-10-12T08:33:01+00:00"
+    },
+    "Picture/LargeSaw_Iron.png": {
+      "status": "alter",
+      "notes": "lets use the Chiwei  image ",
+      "sha1": "ded6a2f3a3b7b37e30f0f27b410902478400a446",
+      "at": "2026-10-12T08:33:00+00:00"
+    },
+    "Picture/MineDaylightShaft.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "7e313670e8df93626cb11adacdd8f505571aa1ae",
+      "at": "2026-10-14T04:32:25+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "tacky needs to be regenerated. ",
+          "sha1": "09bd3e89caa0af4611b49e64dfacca1539ef1923",
+          "at": "2026-10-12T09:09:04+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1eda09ae949b5a02c3c18ba471a8b56c3a1c28c4",
+          "at": "2026-10-12T10:38:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1eda09ae949b5a02c3c18ba471a8b56c3a1c28c4",
+          "at": "2026-10-12T17:24:35+00:00"
+        }
+      ]
+    },
+    "Picture/OreChest.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d7a23c9fefd45ec2b873850b229a7d729edab045",
+      "at": "2026-10-12T17:21:07+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d7a23c9fefd45ec2b873850b229a7d729edab045",
+          "at": "2026-10-12T08:17:40+00:00"
+        }
+      ]
+    },
+    "Picture/SaltCuredFish.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "71303a52abff9c1ba20fb38916f7f48f8350f4c7",
+      "at": "2026-10-12T21:34:07+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "fbbaeae906e38ee8c6e73efb5641f809fcd0cb4d",
+          "at": "2026-10-12T16:49:17+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "fbbaeae906e38ee8c6e73efb5641f809fcd0cb4d",
+          "at": "2026-10-12T16:51:33+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "ee5e0206eff21c6c2df8244b6740114bc9cc47ca",
+          "at": "2026-10-12T19:08:42+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "needs to be fish fillets use vanilla fish meat image. ",
+          "sha1": "0535d6e0770a2ef5f3ccfb7a33d5d38008cb419e",
+          "at": "2026-10-12T20:36:17+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "We should see it dried and salted. ",
+          "sha1": "395291b2f91abaa854009908ef233c0ac215b0de",
+          "at": "2026-10-12T21:26:26+00:00"
+        }
+      ]
+    },
+    "Picture/SaltCuredMeat.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "ee8a303cae685b1630b8aa06edb264aa2ceb5dfa",
+      "at": "2026-10-12T17:18:51+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ee8a303cae685b1630b8aa06edb264aa2ceb5dfa",
+          "at": "2026-10-12T16:58:56+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ee8a303cae685b1630b8aa06edb264aa2ceb5dfa",
+          "at": "2026-10-12T17:00:26+00:00"
+        }
+      ]
+    },
+    "Picture/ShapedMetalPan.png": {
+      "status": "alter",
+      "notes": "lets use the Chiwei  image ",
+      "sha1": "cee6263b4039d7fad11fe60d80fcf88251c01852",
+      "at": "2026-10-12T08:33:03+00:00"
+    },
+    "Picture/Tea_Station_Kit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "549908334009709975348b3818bfbed4d0e66368",
+      "at": "2026-10-12T17:21:22+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "lets use the Chiwei  image for the stove ",
+          "sha1": "2d44d89ef6b7021730167f38b9c77d2fd0c10868",
+          "at": "2026-10-12T08:17:56+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "549908334009709975348b3818bfbed4d0e66368",
+          "at": "2026-10-12T10:38:29+00:00"
+        }
+      ]
+    },
+    "Picture/Tea_Station_Lit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "18e341d7ec209806959512f4404345a856e2fd7d",
+      "at": "2026-10-12T17:21:19+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "lets use the Chiwei  image for the stove ",
+          "sha1": "3df351bf643e2a3c63d310cb92bb64606acb69f8",
+          "at": "2026-10-12T08:17:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "18e341d7ec209806959512f4404345a856e2fd7d",
+          "at": "2026-10-12T10:38:30+00:00"
+        }
+      ]
+    },
+    "Picture/Tea_Station_Placed.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "dc8f4941429c3a2606a78a5ccc5f7d1926dfc4d5",
+      "at": "2026-10-12T17:20:59+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "lets use the Chiwei  image for the stove ",
+          "sha1": "bb366a8df7dd3a3ba76cf49fa513ac710fcde960",
+          "at": "2026-10-12T08:18:01+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "dc8f4941429c3a2606a78a5ccc5f7d1926dfc4d5",
+          "at": "2026-10-12T10:38:31+00:00"
+        }
+      ]
+    },
+    "Picture/TinArmor.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "202484807e4f33229237738c04efa91c0d25510d",
+      "at": "2026-10-12T17:22:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "202484807e4f33229237738c04efa91c0d25510d",
+          "at": "2026-10-12T08:18:03+00:00"
+        }
+      ]
+    },
+    "Picture/TinBracers.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "778812e63f48abfb405892f112855ffcd6209574",
+      "at": "2026-10-12T17:21:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "778812e63f48abfb405892f112855ffcd6209574",
+          "at": "2026-10-12T08:18:04+00:00"
+        }
+      ]
+    },
+    "Picture/TinGreaves.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1351f07461d573ae5a571244fa6772efa2b69a7a",
+      "at": "2026-10-12T17:20:53+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1351f07461d573ae5a571244fa6772efa2b69a7a",
+          "at": "2026-10-12T08:18:04+00:00"
+        }
+      ]
+    },
+    "Picture/TinHelmet.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "2d09a8ca2c641dac6277e628b5b2985ab007a48b",
+      "at": "2026-10-12T17:29:38+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "2d09a8ca2c641dac6277e628b5b2985ab007a48b",
+          "at": "2026-10-12T16:55:19+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "2d09a8ca2c641dac6277e628b5b2985ab007a48b",
+          "at": "2026-10-12T16:55:19+00:00"
+        }
+      ]
+    },
+    "Picture/ToolBelt.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "55959ee9132fc6697b527a6f0299f03248fbf583",
+      "at": "2026-10-14T04:26:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f3f4f50f9fb74b2e6586a40feae04032eaa912d2",
+          "at": "2026-10-12T08:18:07+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "the knife needs a full sheath ",
+          "sha1": "f3f4f50f9fb74b2e6586a40feae04032eaa912d2",
+          "at": "2026-10-12T08:18:19+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "more vanilla tools ",
+          "sha1": "307d2f97a6727cf1239f6cf7523286134f0d92e9",
+          "at": "2026-10-12T10:44:00+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "more vanilla toolng slots 6 please",
+          "sha1": "8e7bc08a761dc8283ea761f60897cb3574323b1b",
+          "at": "2026-10-12T14:19:01+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "more vanilla toolng slots 6 please",
+          "sha1": "8e7bc08a761dc8283ea761f60897cb3574323b1b",
+          "at": "2026-10-12T14:21:03+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "more vanilla tooling slots at least 6 tool slots",
+          "sha1": "8e7bc08a761dc8283ea761f60897cb3574323b1b",
+          "at": "2026-10-12T16:44:52+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "good, the hammer and sickle tools are upside down and would fall out. ",
+          "sha1": "07e19f7664655f054df7be3911e70629cc4661e3",
+          "at": "2026-10-12T17:27:32+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "68556391e7038da50fcd268b20eaf9d59b533b7d",
+          "at": "2026-10-12T19:04:24+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "closer, now the belt needs to be a full circle, there is no latching. ",
+          "sha1": "e2a0e426c0a667a2bf1e3e1ccb5410d1a8b33e5c",
+          "at": "2026-10-12T20:37:54+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "manual work needed please flag for manual rework ",
+          "sha1": "4ac3384f6990b492d8db0a40bd76baca7f984f5c",
+          "at": "2026-10-12T21:26:14+00:00"
+        }
+      ]
+    },
+    "Picture/WearableMetalPan.png": {
+      "status": "alter",
+      "notes": "lets use the Chiwei  image for the stove ",
+      "sha1": "9901de2ec5b0e7b2314a7d750d85ae8202d0f3ed",
+      "at": "2026-10-12T08:33:10+00:00"
+    },
+    "Picture/WheelBarrowCP.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e178f2eb409fc55804c0a0651d6dc1188e5ba319",
+      "at": "2026-10-12T17:24:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e178f2eb409fc55804c0a0651d6dc1188e5ba319",
+          "at": "2026-10-12T08:18:23+00:00"
+        }
+      ]
+    },
+    "Picture/WheelBarrowHandles.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2dc6a78b341da75c50d369b1676aade9ba3844bd",
+      "at": "2026-10-12T17:24:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2dc6a78b341da75c50d369b1676aade9ba3844bd",
+          "at": "2026-10-12T08:18:24+00:00"
+        }
+      ]
+    },
+    "Picture/WheelBarrowWheelAssy.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "64032d586dae93221c29ad792f3201b56002b3f8",
+      "at": "2026-10-12T17:24:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "64032d586dae93221c29ad792f3201b56002b3f8",
+          "at": "2026-10-12T08:18:24+00:00"
+        }
+      ]
+    },
+    "Picture/WheelBarrowWheelHub.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e97ce29ebb9f93480f26ac2dbc2c113dd380dbed",
+      "at": "2026-10-12T17:24:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e97ce29ebb9f93480f26ac2dbc2c113dd380dbed",
+          "at": "2026-10-12T08:18:26+00:00"
+        }
+      ]
+    },
+    "Picture/WheelBarrowWheelRim.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4750815815b5593e857cad1831dab7f801eab879",
+      "at": "2026-10-12T17:24:35+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4750815815b5593e857cad1831dab7f801eab879",
+          "at": "2026-10-12T08:18:26+00:00"
+        }
+      ]
+    },
+    "Picture/WhiteBronzeArmor.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e5465a298a8995d7e49bb3fe0c21374bd587423f",
+      "at": "2026-10-12T17:21:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5465a298a8995d7e49bb3fe0c21374bd587423f",
+          "at": "2026-10-12T08:18:27+00:00"
+        }
+      ]
+    },
+    "Picture/WhiteBronzeBracers.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "74b4c789a6a9dbd6cb80af220be2578642be3b88",
+      "at": "2026-10-12T17:20:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "74b4c789a6a9dbd6cb80af220be2578642be3b88",
+          "at": "2026-10-12T08:18:31+00:00"
+        }
+      ]
+    },
+    "Picture/WhiteBronzeGreaves.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "9e12444193aac621ff64e28f340e8183a2d3662a",
+      "at": "2026-10-12T17:26:01+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "9e12444193aac621ff64e28f340e8183a2d3662a",
+          "at": "2026-10-12T17:03:14+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "9e12444193aac621ff64e28f340e8183a2d3662a",
+          "at": "2026-10-12T17:09:25+00:00"
+        }
+      ]
+    },
+    "Picture/WhiteBronzeHelmet.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "63e5aef90c83586912a64f05113a6c7b67d86727",
+      "at": "2026-10-12T17:29:51+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "63e5aef90c83586912a64f05113a6c7b67d86727",
+          "at": "2026-10-12T08:18:29+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "63e5aef90c83586912a64f05113a6c7b67d86727",
+          "at": "2026-10-12T16:54:22+00:00"
+        }
+      ]
+    }
+  }
+}

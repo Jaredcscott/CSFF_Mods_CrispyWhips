@@ -27,6 +27,12 @@
     "669497ecaa30b634c86bea6b61f31e63"
   ],
   "AddedCardsWarpType": 3,
+  "AddedCardsStats": [
+    { "Card": "advanced_copper_tools_bucket", "SpecialDurability2": 50, "SpecialDurability4": 100 },
+    { "Card": "57460207bbf77fa4fb6720aed5d84851", "SpecialDurability4": 1 },
+    { "Card": "3e94716876eae304787efa2ae0b43711", "SpecialDurability2": 50 },
+    { "Card": "669497ecaa30b634c86bea6b61f31e63", "SpecialDurability2": 50, "SpecialDurability4": 200 }
+  ],
   "AddedStartingHours": 0,
   "CardsOnBoardObjectives": [],
   "CheckingNotificationDetails": 0,

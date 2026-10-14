@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
     "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Lit_CardHelpSection",
-    "DefaultText": "<b>Slots (×6):</b> Herbs dry faster while lit. Use 'Grind All' to mill dried or millable items. <b>Water Tank:</b> Drag any container with water to add a Water Charge (max 8). Drag an empty clay bowl to draw boiled water — requires at least 1 Water Charge AND Water Temp ≥ 50%. Consumes fuel over time."
+    "DefaultText": "<b>Slots (×6):</b> Herbs dry faster while lit. Use 'Grind All' to mill dried or millable items. <b>Water Tank:</b> Drag a water container or river/pond card to add a Water Charge (max 8). Drag an empty clay bowl to draw boiled water: requires at least 1 Water Charge AND Water Temp ≥ 50%. Consumes fuel over time."
   },
   "CardImage": {
     "m_FileID": 0,

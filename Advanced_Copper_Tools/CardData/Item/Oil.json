@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_oil",
     "LocalizationKey": "Advanced_Copper_Tools_Oil_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> By rendering 2 animal fat in a clay bowl over any fire.\n\n<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern or oil flask as lamp fuel."
+    "DefaultText": "<b>Crafted:</b> By rendering 2 animal fat or 2 fatty fish meat in a clay bowl.\n\n<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern, brazier or oil flask as lamp fuel. Any other lamp oil in a clay bowl works as fuel too. Each bowl is worth 48 fuel: 12 hours in a lit oilwell, 24 in a ceramic lamp, 27.6 in a metal lantern."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -30,13 +30,13 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "Bowl_Clay",
+  "CardImageWarpData": "ACT_Oil",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 0,
   "CannotBeTransferred": false,
   "NotAutoSolvableEvent": false,
-  "ObjectWeight": 300.0,
+  "ObjectWeight": 400.0,
   "TradingValue": 30.0,
   "MaxStack": 4,
   "CardTags": [],
@@ -96,6 +96,16 @@
         "DefaultText": "Drink"
       },
       "ActionSounds": [],
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+          "TargetWarpType": 3
+        },
+        {
+          "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+          "TargetWarpType": 3
+        }
+      ],
       "ActionTags": [],
       "DaytimeCost": 0,
       "UseMiniTicks": 1,

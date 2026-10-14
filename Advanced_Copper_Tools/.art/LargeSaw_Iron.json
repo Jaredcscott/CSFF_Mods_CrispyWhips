@@ -1,0 +1,43 @@
+{
+  "target": "LargeSaw_Iron.png",
+  "sourceCard": "CardData/Item/IronLargeSaw.json",
+  "subject": "a long two-man crosscut saw with a wide slightly curved blade, a row of large jagged teeth along one edge, and a straight round cross handle at each end fixed to the blade with a riveted collar; change: the blade is dark forged iron instead of copper: charcoal grey with a faint blue-black sheen and visible hammer marks. The two end handles and the riveted collars that fix them to the blade stay exactly as in reference image 1, the same shape and the same colour",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a long two-man crosscut saw with a wide slightly curved blade, a row of large jagged teeth along one edge, and a straight round cross handle at each end fixed to the blade with a riveted collar: draw this same object, keeping its materials, colours, proportions and construction details identical, changed only as follows: the blade is dark forged iron instead of copper: charcoal grey with a faint blue-black sheen and visible hammer marks. The two end handles and the riveted collars that fix them to the blade stay exactly as in reference image 1, the same shape and the same colour.\nHand-painted watercolor-and-ink game item illustration of a long two-man crosscut saw with a wide slightly curved dark forged iron blade, charcoal grey with a faint blue-black sheen and visible hammer marks, a row of large jagged teeth along one edge, and a straight round cross handle at each end fixed to the blade with a riveted collar, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, copper blade, orange blade, shiny chrome steel, bright silver, rust, bow saw frame, wooden frame, extra handles, a person.",
+  "historyId": "J5uVkJt7851hhWe0UQRq",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790469494099_e6d0475f_1790469494863_2a8e8b57.png",
+  "credits": 30,
+  "generated": "2026-09-26",
+  "composition": {
+    "subject": "LargeSaw",
+    "style": [],
+    "subject_words": "a long two-man crosscut saw with a wide slightly curved blade, a row of large jagged teeth along one edge, and a straight round cross handle at each end fixed to the blade with a riveted collar",
+    "change": "the blade is dark forged iron instead of copper: charcoal grey with a faint blue-black sheen and visible hammer marks. The two end handles and the riveted collars that fix them to the blade stay exactly as in reference image 1, the same shape and the same colour",
+    "item": "a long two-man crosscut saw with a wide slightly curved dark forged iron blade, charcoal grey with a faint blue-black sheen and visible hammer marks, a row of large jagged teeth along one edge, and a straight round cross handle at each end fixed to the blade with a riveted collar",
+    "avoid": "copper blade, orange blade, shiny chrome steel, bright silver, rust, bow saw frame, wooden frame, extra handles, a person",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for the ACT iron large saw item (ACT 1.17.0 Content_Update_Plan feature 6)"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "LargeSaw",
+      "image": "Resource/Picture/LargeSaw.png",
+      "sha256": "9bd74b10d36eae671d2f3ca21b6d25fac1653e7338e5b1c79fa2d6fbf47525c5",
+      "id": "OhhpqXIk9gGowYMQy9hy",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/LargeSaw_1790469151411_d5733c9f.png"
+    }
+  ],
+  "finish": "keyed finish; no enclosed paper",
+  "verdict": "ON-MODEL, SHIPPED: same two-man saw, pose, curved blade and teeth; blade charcoal grey with a blue-black sheen and a mottled hammered surface; both end handles and riveted collars unchanged copper",
+  "finished": "C:/Users/jared/AppData/Local/Temp/claude/c--Users-jared-Raptor-Studios-CSFF-Mods/1aacf203-6277-4478-8f52-3a0ce6bcee37/scratchpad/art/LargeSaw_Iron_refs/LargeSaw_Iron__1.png",
+  "shipped": "Resource/Picture/LargeSaw_Iron.png (candidate 1, sha256 6a53d40fa3697829841b1d8f9964005f4b660e31cb33e4c41c7372b0fcc3d919)",
+  "note": "Generated for ACT 1.17.0 (Documentation/Design/ACT_Content_Update_As_Built.md features 4-6) by /create-image-refs Mode A (Item variant), count 1 per job. A new image, so an on-model candidate was copied straight to Resource/Picture (step 9); CardImageWarpData is wired by the session editing the card JSON. The 1 px light rim outside the ink outline is the keyer ramp start (darkest channel 200 = opaque) on an anti-aliased ink edge, the same as SaltCuredMeat.png from this pipeline; it is not paper."
+}

@@ -1,0 +1,392 @@
+{
+  "UniqueID": "act_ghostbronze_breastplate",
+  "CardName": {
+    "ParentObjectID": "act_ghostbronze_breastplate",
+    "LocalizationKey": "Advanced_Copper_Tools_GhostBronzeBreastplate_CardName",
+    "DefaultText": "Ghost Bronze Armor"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_ghostbronze_breastplate",
+    "LocalizationKey": "Advanced_Copper_Tools_GhostBronzeBreastplate_CardDescription",
+    "DefaultText": "Bronze alloyed with witchstone, pale and cold to the touch. Wards the torso against spiritual attacks (+12.5) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+  },
+  "CardType": 0,
+  "ObjectWeight": 420.0,
+  "WeightReductionWhenEquipped": -420.0,
+  "TradingValue": 185.0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "GhostBronzeArmor",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Metal",
+    "tag_SmeltsAt1100",
+    "tag_SpiritEnchantable"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [
+    "eTag_OuterTorso"
+  ],
+  "EquipmentTagsWarpType": 3,
+  "IsArmor": true,
+  "AffectStatsOnlyWhenEquipped": true,
+  "ArmorValues": {
+    "HeadArmor": 0.0,
+    "HeadArmorModifiers": [],
+    "HeadHitProbabilityModifier": 0.0,
+    "TorsoArmor": 35.0,
+    "TorsoArmorModifiers": [
+      {
+        "DmgType": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "DmgTypeWarpData": "DMG_Spiritual",
+        "DmgTypeWarpType": 3,
+        "Modifier": 12.5
+      }
+    ],
+    "TorsoHitProbabilityModifier": 0.0,
+    "LArmArmor": 0.0,
+    "LArmArmorModifiers": [],
+    "LArmHitProbabilityModifier": 0.0,
+    "RArmArmor": 0.0,
+    "RArmArmorModifiers": [],
+    "RArmHitProbabilityModifier": 0.0,
+    "LLegArmor": 0.0,
+    "LLegArmorModifiers": [],
+    "LLegHitProbabilityModifier": 0.0,
+    "RLegArmor": 0.0,
+    "RLegArmorModifiers": [],
+    "RLegHitProbabilityModifier": 0.0
+  },
+  "ArmorValueDurabilitiesMultiplier": [],
+  "AlwaysUpdate": true,
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 120.0,
+    "CardStatName": {
+      "ParentObjectID": "act_ghostbronze_breastplate",
+      "LocalizationKey": "Advanced_Copper_Tools_GhostBronzeBreastplate_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 120.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 1,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "act_ghostbronze_breastplate",
+        "LocalizationKey": "",
+        "DefaultText": "Armor Broken!"
+      },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_ghostbronze_breastplate",
+      "LocalizationKey": "",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 200.0,
+    "RatePerDaytimePoint": -25.0,
+    "HidingOptions": 3,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_ghostbronze_breastplate",
+        "LocalizationKey": "Advanced_Copper_Tools_GhostBronzeBreastplate_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_ghostbronze_breastplate",
+        "LocalizationKey": "Advanced_Copper_Tools_GhostBronzeBreastplate_Dismantle_ActionDescription",
+        "DefaultText": "Break apart the armor to recover materials."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 4,
+                "y": 4
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 0,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 0.0,
+                "Special4Value": 110.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 4,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "f362a7ba3ad932244b1e9c18569ac98e",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 0,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 0.0,
+                "Special4Value": 300.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "e2d62c5b98d164745b276da572605efe",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 4,
+                "y": 4
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Armor (+35)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 35.0,
+            "y": 35.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
+      "EffectName": "Spirit Ward: Fear (-0.25 per tick)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -0.25,
+            "y": -0.25
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    }
+  ]
+}

@@ -3,18 +3,18 @@
   "CardName": {
     "ParentObjectID": "act_bp_bronze_gauntlets",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeGauntlets_CardName",
-    "DefaultText": "Bronze Bracers"
+    "DefaultText": "Tin Bronze Bracers"
   },
   "CardDescription": {
     "ParentObjectID": "act_bp_bronze_gauntlets",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeGauntlets_CardDescription",
-    "DefaultText": "Craft bronze bracers for arm protection between copper and iron tiers. Requires a bronze-grade metal sheet."
+    "DefaultText": "Craft tin bronze bracers for arm protection between copper and iron tiers. Requires 2 Tin Bronze Sheets, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
     "ParentObjectID": "act_bp_bronze_gauntlets",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeGauntlets_UnlockConditionsDesc",
-    "DefaultText": "Bronze Sheet Needed"
+    "DefaultText": "Tin Bronze Sheet Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
@@ -36,7 +36,7 @@
         "Special1Range": { "x": 0.0, "y": 0.0 },
         "Special2Range": { "x": 0.0, "y": 0.0 },
         "Special3Range": { "x": 0.0, "y": 0.0 },
-        "Special4Range": { "x": 110.0, "y": 140.0 },
+        "Special4Range": { "x": 130.0, "y": 130.0 },
         "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
       },
       "CardWarpData": "advanced_copper_tools_metal_sheet",
@@ -55,7 +55,7 @@
           "DontSpend": false,
           "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
           "RequiredCardWarpType": 3,
-          "Special4": { "Active": true, "FloatValue": 110.0, "MaxValue": 140.0 }
+          "Special4": { "Active": true, "FloatValue": 130.0, "MaxValue": 130.0 }
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
@@ -120,7 +120,7 @@
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "CopperBracers",
+  "CardImageWarpData": "BronzeBracers",
   "CardImageWarpType": 3,
   "BlueprintUnlockTicksCost": 28.0,
   "ResearchedNotification": 0

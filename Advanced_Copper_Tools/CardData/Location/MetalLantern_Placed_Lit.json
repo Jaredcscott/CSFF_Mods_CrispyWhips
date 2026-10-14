@@ -10,6 +10,268 @@
     "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription",
     "DefaultText": "A lit copper lantern burning oil to illuminate the area. Extinguish before refueling."
   },
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[0].Name",
+        "DefaultText": "Lit Copper Lantern"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalLantern_On_Copper",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[1].Name",
+        "DefaultText": "Lit Ghost Bronze Lantern"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalLantern_On_GhostBronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[2].Name",
+        "DefaultText": "Lit Tin Lantern"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalLantern_On_Tin",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[3].Name",
+        "DefaultText": "Lit Tin Bronze Lantern"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalLantern_On_Bronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[4].Name",
+        "DefaultText": "Lit White Bronze Lantern"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalLantern_On_WhiteBronze",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
     "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardHelpSection",
@@ -26,21 +288,39 @@
   ],
   "CompatibleDutiesWarpType": 3,
   "CardTags": [],
-  "CardTagsWarpData": ["tag_Preservable", "tag_Structure", "tag_Light"],
+  "CardTagsWarpData": [
+    "tag_Preservable",
+    "tag_Structure",
+    "tag_Light"
+  ],
   "CardTagsWarpType": 3,
   "PassiveStatEffects": [
     {
       "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
       "StatWarpType": 3,
-      "ValueModifier": { "x": 20.0, "y": 20.0 }
+      "ValueModifier": {
+        "x": 20.0,
+        "y": 20.0
+      }
     }
   ],
   "LightSource": {
     "IsSourceOfLight": true,
     "Priority": 60.0,
-    "LightPos": { "x": 0.5, "y": 0.5 },
-    "LightSize": { "x": 0.35, "y": 0.45 },
-    "LightColor": { "r": 1.0, "g": 0.87220645, "b": 0.7783019, "a": 1.0 },
+    "LightPos": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "LightSize": {
+      "x": 0.35,
+      "y": 0.45
+    },
+    "LightColor": {
+      "r": 1.0,
+      "g": 0.87220645,
+      "b": 0.7783019,
+      "a": 1.0
+    },
     "LightFlickerFreq": 2.0,
     "LightFlickerStrength": 0.01
   },
@@ -48,9 +328,11 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "Copper_Lantern_Lit",
+  "CardImageWarpData": "ACT_MetalLantern_On_Copper",
   "CardImageWarpType": 3,
-  "WhenCreatedSoundsWarpData": ["FireIgnite"],
+  "WhenCreatedSoundsWarpData": [
+    "FireIgnite"
+  ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": false
@@ -60,14 +342,14 @@
   },
   "FuelCapacity": {
     "Active": true,
-    "FloatValue": 72.0,
+    "FloatValue": 96.0,
     "CardStatName": {
       "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
       "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Lit_FuelCapacity_CardStatName",
       "DefaultText": "Oil"
     },
-    "MaxValue": 72.0,
-    "RatePerDaytimePoint": -1.0,
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": -0.5,
     "HidingOptions": 1,
     "TextDisplay": 0,
     "NumberPrecision": 0,
@@ -106,7 +388,8 @@
         "TransformIntoWarpData": "advanced_copper_tools_metal_lantern_placed",
         "TransformIntoWarpType": 3,
         "TransferFuel": true,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferSpecial4": true
       }
     }
   },
@@ -123,7 +406,29 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+      "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
   },
   "DismantleActions": [
     {
@@ -156,7 +461,8 @@
         "TransformIntoWarpData": "advanced_copper_tools_metal_lantern_placed",
         "TransformIntoWarpType": 3,
         "TransferFuel": true,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferSpecial4": true
       }
     },
     {
@@ -189,7 +495,8 @@
         "TransformIntoWarpData": "advanced_copper_tools_metal_lantern_lit",
         "TransformIntoWarpType": 3,
         "TransferFuel": true,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferSpecial4": true
       }
     }
   ]

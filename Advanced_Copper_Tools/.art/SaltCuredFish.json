@@ -1,0 +1,70 @@
+{
+  "target": "SaltCuredFish.png",
+  "sourceCard": null,
+  "subject": "one whole lean fish cured in salt, lying on its side: stiff pale silvery-grey skin crusted with coarse white salt crystals, a few loose salt grains beside it, nothing under it",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of one whole lean fish cured in salt, lying on its side: stiff pale silvery-grey skin crusted with coarse white salt crystals, a few loose salt grains beside it, nothing under it. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, bowl, plate, dish, barrel, cloth, fillets.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Trout (style)",
+      "id": "RiFMn1AcGszu4St5HGbD",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Trout_1791697557182_73386fae.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla FIshMeat (style)",
+      "id": "UnZgziA6jqiO3czuKWna",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FIshMeat_1791744905469_93ba1dee.png"
+    }
+  ],
+  "historyId": "Yhnj7drX3ChSOptoGYzn",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828063060_b61de4f6_1791828063311_beb52ae1.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)",
+    "vanillify.py step [1, 24, None, 2, 70]"
+  ],
+  "vanilla_score": 81,
+  "previous": {
+    "target": "SaltCuredFish.png",
+    "sourceCard": "CardData/Item/SaltCuredFish.json",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "historyId": "HdH5LAvnEO8wzK2tkkh4",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790950020396_d0f1dc99_1790950020889_513e19ae.png",
+    "credits": 30,
+    "generated": "2026-10-02",
+    "composition": {
+      "subject": "SaltCuredMeat",
+      "change": "pale lean fish fillets packed in coarse grey salt in a plain terracotta clay bowl, in place of the red meat slab",
+      "finish": "keyed",
+      "use": "CardImageWarpData of advanced_copper_tools_salt_cured_fish and its blueprint (ACT 1.18.0 B2)"
+    },
+    "references": [
+      {
+        "role": "subject",
+        "fragment": "SaltCuredMeat",
+        "image": "Resource/Picture/SaltCuredMeat.png",
+        "sha256": "a7d9b8def251c737e698de91a432f35a4dc72fc782f404ea64e35f92e82a7f0f",
+        "id": "5tBetqvdlFp5rGIye7y9"
+      }
+    ],
+    "verdict": "ON-MODEL (same hand-painted style and coarse salt; two or three pale fillets in grey salt in a plain terracotta clay bowl, no wood, no handle), SHIPPED. Finished by /process-card-art (512x768, alpha, keyed; dark preview clean)."
+  }
+}

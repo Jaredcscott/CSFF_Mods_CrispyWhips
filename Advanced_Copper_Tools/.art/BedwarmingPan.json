@@ -1,0 +1,19 @@
+{
+  "target": "BedwarmingPan.png",
+  "sourceCard": "CardData/Item/BedwarmingPan.json",
+  "subject": "a plain lidded copper warming pan: a round shallow warm reddish-brown copper pan with a closed round lid pierced by a few small steam holes, on one long straight plain wooden handle, no embers, no smoke",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "generated": "2026-10-02",
+  "historyId": "GmXOJtXBNsjbBpZ6248l",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790957660008_30769bfc_1790957660646_dee87d13.png",
+  "finish": "keyed (process_card_art.py, preview read: no halo, no paper)",
+  "use": "CardImageWarpData of act_bedwarming_pan (cold card and its blueprint) / act_bedwarming_pan_hot (ACT 1.18.0 D2)",
+  "note": "credits not read from the generate result; the batch is two single-image 2K nano-banana-2 text2image runs"
+}

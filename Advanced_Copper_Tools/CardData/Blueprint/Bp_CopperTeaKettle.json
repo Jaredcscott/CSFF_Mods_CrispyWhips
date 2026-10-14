@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_copper_tea_kettle",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperTeaKettle_CardDescription",
-    "DefaultText": "Hammer 3 metal sheets into a copper tea kettle for boiling water."
+    "DefaultText": "Hammer 2 metal sheets into a copper tea kettle for boiling water, sealed with 1 tin solder."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -54,7 +54,7 @@
             "m_FileID": 0,
             "m_PathID": 0
           },
-          "RequiredQuantity": 3,
+          "RequiredQuantity": 2,
           "DontSpend": false,
           "AffectResultDurabilities": {
             "MaskValue": 448

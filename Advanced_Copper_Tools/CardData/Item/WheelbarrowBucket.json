@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_bucket",
     "LocalizationKey": "Advanced_Copper_Tools_Bucket_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> Hammered from 8 metal sheets.\n\n<b>Uses:</b> Component for wheelbarrow or bathtub construction."
+    "DefaultText": "<b>Crafted:</b> Hammered from 8 metal sheets and 1 tin solder with a hammer.\n\n<b>Uses:</b> Component for wheelbarrow or bathtub construction."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -54,7 +54,7 @@
   "AlwaysUpdate": false,
   "CannotBeTrashed": false,
   "DoesNotPile": false,
-  "ToggleablePiling": false,
+  "ToggleablePiling": true,
   "DoesNotPinAutomatically": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
@@ -139,6 +139,32 @@
               "Quantity": {
                 "x": 48,
                 "y": 48
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 1,
+                "Special3": 0,
+                "Special4": 1,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
               }
             }
           ]
@@ -150,13 +176,43 @@
     "Active": false
   },
   "SpecialDurability2": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_bucket",
+      "LocalizationKey": "Advanced_Copper_Tools_Bucket_SpecialDurability2.CardStatName",
+      "DefaultText": "Metal Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability3": {
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_bucket",
+      "LocalizationKey": "Advanced_Copper_Tools_Bucket_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [ 100.0, 110.0, 120.0, 130.0, 140.0 ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true
   },
   "CardInteractions": [],
   "DismantleActions": [],

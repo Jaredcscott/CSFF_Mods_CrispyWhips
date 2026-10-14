@@ -1,0 +1,12 @@
+{
+  "about": "Images the owner flagged for MANUAL rework (owner gallery 2026-10-12: 'manual work needed please flag for manual rework'). Automated passes (generation, keying, vanillify) are not to be tried again on these; a person edits them. Notes say what the automated passes could not fix.",
+  "images": {
+    "Picture/ToolBelt.png": {
+      "flagged": "2026-10-12",
+      "status": "fixed",
+      "notes": "Closed-circle belt (nano-banana-2, round 4). Four automated rounds: tools hung upside down, then an open belt, then the circle. Paper inside the ring was keyed by hand-run code; check the inner edge and the buckle.",
+      "fixed": "2026-10-12",
+      "resolution": "Owner supplied a new raw image (openart gpt-image-2.5 flare edit: hammer, knife, chisel, pouches, whetstone and hook on a closed belt). Finished with process_card_art.py (keyed and trimmed, 507x290 palette PNG, 22 KB), then the enclosed paper inside the ring keyed out directly on the trimmed image."
+    }
+  }
+}

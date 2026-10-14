@@ -1,0 +1,77 @@
+{
+  "target": "BronzeArmor.png",
+  "sourceCard": "CardData/Item/BronzeBreastplate.json",
+  "subject": "a sleeveless metal breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord; change: the metal is golden-brown bronze instead of copper, exactly the same muted khaki gold-brown bronze as the helmet in reference image 2, with darker olive-brown shading. The orange-red copper colour of reference image 1 is replaced everywhere on the metal: no orange, no amber, no pink and no copper tone anywhere. The shape, the rolled rim, the rivets and the leather straps with their cord lashing stay exactly the same",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a sleeveless metal breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord: draw this same object, keeping its materials, colours, proportions and construction details identical, changed only as follows: the metal is golden-brown bronze instead of copper, exactly the same muted khaki gold-brown bronze as the helmet in reference image 2, with darker olive-brown shading. The orange-red copper colour of reference image 1 is replaced everywhere on the metal: no orange, no amber, no pink and no copper tone anywhere. The shape, the rolled rim, the rivets and the leather straps with their cord lashing stay exactly the same.\nReference image 2 is a style reference only: match its ink linework, shading and palette; do not copy its subject or composition.\nHand-painted watercolor-and-ink game item illustration of a golden-brown bronze sleeveless breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord, the bronze a muted khaki gold-brown with darker olive-brown shading, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, orange copper, orange metal, amber metal, pink copper, shiny polished gold, bright yellow brass, green patina, sleeves, pauldrons, spikes, emblem, engraving, chainmail, person wearing it.",
+  "historyId": "HaPaXmFKwak35UkPtmou",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470135207_0b7684c4_1790470135765_7dafdde5.png",
+  "credits": 60,
+  "generated": "2026-09-26",
+  "composition": {
+    "subject": "CopperArmor",
+    "style": [
+      "BronzeHelmet"
+    ],
+    "subject_words": "a sleeveless metal breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord",
+    "change": "the metal is golden-brown bronze instead of copper, exactly the same muted khaki gold-brown bronze as the helmet in reference image 2, with darker olive-brown shading. The orange-red copper colour of reference image 1 is replaced everywhere on the metal: no orange, no amber, no pink and no copper tone anywhere. The shape, the rolled rim, the rivets and the leather straps with their cord lashing stay exactly the same",
+    "item": "a golden-brown bronze sleeveless breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord, the bronze a muted khaki gold-brown with darker olive-brown shading",
+    "avoid": "orange copper, orange metal, amber metal, pink copper, shiny polished gold, bright yellow brass, green patina, sleeves, pauldrons, spikes, emblem, engraving, chainmail, person wearing it",
+    "retry_note": "round 1 (K9BWBAwYcfVMl3B6QPum) kept an orange-amber metal (median hue 27, saturation 0.75 against 31-35 and 0.54-0.61 for the other three bronze pieces); round 2 adds the shipped BronzeHelmet as a style reference for the bronze colour and names the orange forms in Avoid",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for the ACT bronze breastplate item and Bp_BronzeBreastplate (ACT 1.17.0 Content_Update_Plan feature 4/6)"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "CopperArmor",
+      "image": "Resource/Picture/CopperArmor.png",
+      "sha256": "f00acad430d31c69eb726ab67f58c788cc86c2fde1d0ce81557d20378718d31d",
+      "id": "gz42YqFogxAaQVjEd2Ep",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CopperArmor_1790469145713_075a32dd.png"
+    },
+    {
+      "role": "style",
+      "fragment": "BronzeHelmet",
+      "image": "Resource/Picture/BronzeHelmet.png",
+      "sha256": "831e20b35f4b70c5da300864d5a979a94a19f13f9d24ef21c04d1ff410f78e6d",
+      "id": "CmckwM3ou0kbylTTSvOK",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/BronzeHelmet_1790469949933_5e7008a4.png"
+    }
+  ],
+  "finish": "keyed finish; the paper seen through the neck and shoulder openings (1693 px, 2 regions) was keyed with key_enclosed.py",
+  "candidates": [
+    {
+      "n": 1,
+      "historyId": "K9BWBAwYcfVMl3B6QPum",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790469482563_126aa726_1790469483473_375ea64e.png",
+      "verdict": "OFF-MODEL (metal colour): construction identical, but the metal stayed orange-amber (median hue 27.1, saturation 0.75) rather than the dull gold-brown of the other three bronze pieces (hue 31-35, saturation 0.54-0.61)",
+      "finished": "C:/Users/jared/AppData/Local/Temp/claude/c--Users-jared-Raptor-Studios-CSFF-Mods/1aacf203-6277-4478-8f52-3a0ce6bcee37/scratchpad/art/BronzeArmor_refs/BronzeArmor__1.png",
+      "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a sleeveless metal breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord: draw this same object, keeping its materials, colours, proportions and construction details identical, changed only as follows: the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the rolled rim, the rivets and the leather straps with their cord lashing stay exactly the same.\nHand-painted watercolor-and-ink game item illustration of a golden-brown bronze sleeveless breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord, the bronze a warm dull gold-brown with darker brown shading, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, orange copper, pink copper, shiny polished gold, bright yellow brass, green patina, sleeves, pauldrons, spikes, emblem, engraving, chainmail, person wearing it.",
+      "references": [
+        "CopperArmor (subject)"
+      ]
+    },
+    {
+      "n": 2,
+      "historyId": "HaPaXmFKwak35UkPtmou",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790470135207_0b7684c4_1790470135765_7dafdde5.png",
+      "verdict": "ON-MODEL, SHIPPED (retry with the shipped BronzeHelmet as a style reference): same cuirass, rolled rim, riveted shoulder straps and cord-lashed side straps; metal a muted khaki gold-brown bronze matching BronzeHelmet (hue 37.1, saturation 0.58); leather straps a warmer red-brown than the reference",
+      "finished": "C:/Users/jared/AppData/Local/Temp/claude/c--Users-jared-Raptor-Studios-CSFF-Mods/1aacf203-6277-4478-8f52-3a0ce6bcee37/scratchpad/art/BronzeArmor_refs/BronzeArmor__2k.png",
+      "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a sleeveless metal breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord: draw this same object, keeping its materials, colours, proportions and construction details identical, changed only as follows: the metal is golden-brown bronze instead of copper, exactly the same muted khaki gold-brown bronze as the helmet in reference image 2, with darker olive-brown shading. The orange-red copper colour of reference image 1 is replaced everywhere on the metal: no orange, no amber, no pink and no copper tone anywhere. The shape, the rolled rim, the rivets and the leather straps with their cord lashing stay exactly the same.\nReference image 2 is a style reference only: match its ink linework, shading and palette; do not copy its subject or composition.\nHand-painted watercolor-and-ink game item illustration of a golden-brown bronze sleeveless breastplate cuirass with a smooth front plate, a flared rolled lower rim, two brown leather shoulder straps fastened with dark rivets and tan cord lashing, and two brown leather side straps tied with tan cord, the bronze a muted khaki gold-brown with darker olive-brown shading, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, orange copper, orange metal, amber metal, pink copper, shiny polished gold, bright yellow brass, green patina, sleeves, pauldrons, spikes, emblem, engraving, chainmail, person wearing it.",
+      "references": [
+        "CopperArmor (subject)",
+        "BronzeHelmet (style)"
+      ]
+    }
+  ],
+  "shipped": "Resource/Picture/BronzeArmor.png (candidate 2, sha256 2b413c5ee7034650486c52042979ae5970a3040fd7b6148f0d0eaa54d7d801c6)",
+  "note": "Generated for ACT 1.17.0 (Documentation/Design/ACT_Content_Update_As_Built.md features 4-6) by /create-image-refs Mode A (Item variant), count 1 per job. A new image, so an on-model candidate was copied straight to Resource/Picture (step 9); CardImageWarpData is wired by the session editing the card JSON. The 1 px light rim outside the ink outline is the keyer ramp start (darkest channel 200 = opaque) on an anti-aliased ink edge, the same as SaltCuredMeat.png from this pipeline; it is not paper."
+}

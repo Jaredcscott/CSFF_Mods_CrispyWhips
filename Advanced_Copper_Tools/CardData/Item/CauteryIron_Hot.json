@@ -1,0 +1,614 @@
+{
+  "UniqueID": "act_cautery_iron_hot",
+  "CardName": {
+    "ParentObjectID": "act_cautery_iron_hot",
+    "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_CardName",
+    "DefaultText": "Hot Cautery Iron"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_cautery_iron_hot",
+    "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_CardDescription",
+    "DefaultText": "A cautery iron with its head glowing red. Press it to an open laceration to Cauterize it: the cut closes at once and a burn takes its place. The iron cools in about an hour."
+  },
+  "CardType": 0,
+  "ObjectWeight": 100.0,
+  "TradingValue": 80.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Preservable"
+  ],
+  "CardTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CauteryIron_Hot",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": [
+    "FireIgnite"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 4.0,
+    "CardStatName": {
+      "ParentObjectID": "act_cautery_iron_hot",
+      "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_FuelCapacity_CardStatName",
+      "DefaultText": "Heat"
+    },
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "ShowPopupOnZero": false,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Flame",
+    "OverrideIconWarpType": 3,
+    "OnZero": {
+      "ActionName": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cooled_ActionName",
+        "DefaultText": "Iron Cools"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cooled_ActionDescription",
+        "DefaultText": "The glow has gone out of the iron and it is cold again."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "act_cautery_iron",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionName",
+        "DefaultText": "Cauterize"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionDescription",
+        "DefaultText": "Pressed the glowing iron to the open cut. It hissed, and the edges sealed over."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "98f10547125d5614f951a14a11fba847"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksInverted": true,
+      "WorksBothWays": false,
+      "StatModifications": [
+        {
+          "StatWarpData": "act_stat_cautery_burn",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60.0,
+            "y": 60.0
+          }
+        },
+        {
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "9c0783e4bf0d0e54a8ecf80deed0f2d3",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "W_FireBurn",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "3ba0c209e55d7cb4d8da51697e34b584",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionName",
+        "DefaultText": "Cauterize"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionDescription",
+        "DefaultText": "Pressed the glowing iron to the open cut. It hissed, and the edges sealed over."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "a3efcd57c50f8a54aaa7739941f0445e"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksInverted": true,
+      "WorksBothWays": false,
+      "StatModifications": [
+        {
+          "StatWarpData": "act_stat_cautery_burn",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60.0,
+            "y": 60.0
+          }
+        },
+        {
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "1ffa21adc9c920d489e46bbf1c4dacea",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "W_FireBurn",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "3ba0c209e55d7cb4d8da51697e34b584",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionName",
+        "DefaultText": "Cauterize"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionDescription",
+        "DefaultText": "Pressed the glowing iron to the open cut. It hissed, and the edges sealed over."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "c699f1a089e6d7e489e25b617b1a6c38"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksInverted": true,
+      "WorksBothWays": false,
+      "StatModifications": [
+        {
+          "StatWarpData": "act_stat_cautery_burn",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60.0,
+            "y": 60.0
+          }
+        },
+        {
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "59574efce94dee04598945b7cf5f6cb7",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "W_FireBurn",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "3ba0c209e55d7cb4d8da51697e34b584",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionName",
+        "DefaultText": "Cauterize"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionDescription",
+        "DefaultText": "Pressed the glowing iron to the open cut. It hissed, and the edges sealed over."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "29c52b9a84b6113428d52b97a0e5610f"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksInverted": true,
+      "WorksBothWays": false,
+      "StatModifications": [
+        {
+          "StatWarpData": "act_stat_cautery_burn",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60.0,
+            "y": 60.0
+          }
+        },
+        {
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "c2da7a7155ab4654ca15c8f5e817b8c4",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "W_FireBurn",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "3ba0c209e55d7cb4d8da51697e34b584",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionName",
+        "DefaultText": "Cauterize"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_cautery_iron_hot",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_Hot_Cauterize_ActionDescription",
+        "DefaultText": "Pressed the glowing iron to the open cut. It hissed, and the edges sealed over."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "bba6c3d6db035214ba684d9b490e8355"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksInverted": true,
+      "WorksBothWays": false,
+      "StatModifications": [
+        {
+          "StatWarpData": "act_stat_cautery_burn",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60.0,
+            "y": 60.0
+          }
+        },
+        {
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "5cbc7d20860fff346ad6ed259ca51e8d",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "W_FireBurn",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "3ba0c209e55d7cb4d8da51697e34b584",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

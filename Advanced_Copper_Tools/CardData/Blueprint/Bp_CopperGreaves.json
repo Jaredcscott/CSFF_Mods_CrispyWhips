@@ -8,13 +8,13 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_copper_greaves",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperGreaves_CardDescription",
-    "DefaultText": "Craft hammered copper greaves for leg protection."
+    "DefaultText": "Craft hammered copper greaves for leg protection. Requires 2 copper bars, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder, and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
     "ParentObjectID": "advanced_copper_tools_bp_copper_greaves",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperGreaves_UnlockConditionsDesc",
-    "DefaultText": "Heated Lump of Metal Needed"
+    "DefaultText": "Copper Bar Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
@@ -66,7 +66,8 @@
             "m_PathID": 0
           },
           "RequiredCardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
-          "RequiredCardWarpType": 3
+          "RequiredCardWarpType": 3,
+          "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 100.0 }
         },
         {
           "RequiredCard": {

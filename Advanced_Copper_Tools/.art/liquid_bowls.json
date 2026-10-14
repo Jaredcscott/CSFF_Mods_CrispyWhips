@@ -1,0 +1,30 @@
+{
+ "_note": "Bowl pictures: vanilla Bowl_Clay_Water with the liquid recoloured (owner 2026-10-11 for liquids; owner gallery review 2026-10-12 for these four, 'see the images of other HF_LQ_'). ACT's teas and Oil are CardType 0 ITEMS (a bowl of tea, a bowl of fat), not CardType 9 liquids, so they sit under item_bowls: CardArt-LiquidBowl.Tests.ps1 requires every 'bowls' row to be a CT9 card, and liquid_bowl.py make only reads 'bowls'. Build them with liquid_bowl.make_bowl(<Bowl_Clay_Water.png>, colour) and trim_card_art.save (see RUN_LOG 2026-10-12). 'bowls' stays empty because ACT has no CT9 liquid.",
+ "bowls": [],
+ "item_bowls": [
+  {
+   "image": "ACT_CalmingTea",
+   "card": "CardData/Item/CalmingTea.json",
+   "colour": "#a0643c",
+   "looks": "warm reddish amber (willow bark tea)"
+  },
+  {
+   "image": "ACT_FocusTea",
+   "card": "CardData/Item/FocusTea.json",
+   "colour": "#5f4a3a",
+   "looks": "murky dark grey-brown (spirit mushroom tea)"
+  },
+  {
+   "image": "ACT_WarmingTea",
+   "card": "CardData/Item/WarmingTea.json",
+   "colour": "#aaaa5f",
+   "looks": "pale garlic yellow-green"
+  },
+  {
+   "image": "ACT_Oil",
+   "card": "CardData/Item/Oil.json",
+   "colour": "#d7a532",
+   "looks": "clear golden-yellow rendered fat"
+  }
+ ]
+}

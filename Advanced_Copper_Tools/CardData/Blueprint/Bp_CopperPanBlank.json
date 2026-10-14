@@ -8,19 +8,20 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_pan_blank",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_PanBlank_CardDescription",
-        "DefaultText": "Hammer 4 copper nuggets into a pan blank."
+        "DefaultText": "Hammer a metal sheet into a pan blank. Takes copper, tin or bronze sheets, not iron."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "advanced_copper_tools_bp_pan_blank",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_PanBlank_UnlockConditionsDesc",
-        "DefaultText": "Copper Nugget Needed"
+        "DefaultText": "Copper Sheet Needed"
     },
     "BuildingStatConditions": [],
     "StartUnlocked": false,
+    "IngredientDurabilityAveragesReplaceResultDurabilities": true,
     "CardsOnBoard": [
         {
-            "ObjectiveName": "HasCopper",
+            "ObjectiveName": "HasSheet",
             "CompletionWeight": 1,
             "Card": {
                 "m_FileID": 0,
@@ -39,7 +40,7 @@
                     "m_PathID": 0
                 }
             },
-            "CardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+            "CardWarpData": "advanced_copper_tools_metal_sheet",
             "CardWarpType": 3
         }
     ],
@@ -54,19 +55,14 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredQuantity": 4,
+                    "RequiredQuantity": 1,
                     "DontSpend": false,
-                    "Fuel": {
-                        "Active": false,
-                        "FloatValue": 150.0,
-                        "MaxValue": 300.0
+                    "AffectResultDurabilities": {
+                        "MaskValue": 448
                     },
-                    "RequiredTabGroup": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "RequiredTabGroupWarpData": "GpTag_CopperNugget",
-                    "RequiredTabGroupWarpType": 3
+                    "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+                    "RequiredCardWarpType": 3,
+                    "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 140.0 }
                 },
                 {
                     "RequiredCard": {
@@ -86,7 +82,7 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpData": "GpTag_ACT_ShapingHammer",
                     "RequiredTabGroupWarpType": 3
                 }
             ],
@@ -125,8 +121,8 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "ShapedMetalPan",
+    "CardImageWarpData": "ACT_MetalPan_Shaped_Copper",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 0.0,
     "ResearchedNotification": 0
 }

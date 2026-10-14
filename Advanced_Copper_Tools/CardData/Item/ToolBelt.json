@@ -1,0 +1,338 @@
+{
+  "UniqueID": "act_tool_belt",
+  "CardName": {
+    "ParentObjectID": "act_tool_belt",
+    "LocalizationKey": "Advanced_Copper_Tools_ToolBelt_CardName",
+    "DefaultText": "Copper-Buckled Tool Belt"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_tool_belt",
+    "LocalizationKey": "Advanced_Copper_Tools_ToolBelt_CardDescription",
+    "DefaultText": "A broad leather belt closed with a copper buckle, with six tool slots: loops for hammers, knives, chisels, sickles and spoon augers, a pouch for a whetstone or a fire striker, and a needle case. It has a Tool Belt slot of its own, so it never takes the place of a knife sheath, a spear sheath or any other gear. Tools carried in it weigh less and still count as on you. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "act_tool_belt",
+    "LocalizationKey": "Advanced_Copper_Tools_ToolBelt_CardHelpSection",
+    "DefaultText": "<b>Crafted:</b> From 1 copper sheet, 1 medium leather and 4 copper nails using a hammer.\n\n<b>Uses:</b> Equip it on the Tool Belt slot, one belt at a time. It does not use the slot of a knife sheath or a spear sheath, so you can wear all three. It holds hammers, knives, chisels, sickles and spoon augers, a whetstone or a fire striker, and needles, and takes 200 off their combined weight. A tool in it still counts as on you for an action that looks for one.\n\n<b>Blueprints:</b> a blueprint's ingredient slot does not take tools from your belt. Drag the hammer out of it onto the blueprint, as you always have."
+  },
+  "CardType": 0,
+  "ObjectWeight": 300.0,
+  "WeightReductionWhenEquipped": -250.0,
+  "TradingValue": 60.0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "ToolBelt",
+  "CardImageWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [
+    "act_eTag_ToolBelt"
+  ],
+  "EquipmentTagsWarpType": 3,
+  "InHandWhenEquipped": true,
+  "AffectStatsOnlyWhenEquipped": true,
+  "DoesNotPile": true,
+  "SpillsInventoryOnDestroy": true,
+  "IsMiniInventory": false,
+  "InventorySlots": [
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    }
+  ],
+  "MaxWeightCapacity": 1200.0,
+  "ContentWeightReduction": -200.0,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "2914e01d9af26f24d92ff61389fb0195",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "c8f0e1c1277396f4fbbaed9b62bd1e73",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "e118b8cd90f14b048aab78a0d37e8f61",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "22858c679a340ae4f84c7e9a20e8a4e7",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "70cb40f6743adac4199b4dd0b4d2514d",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "589e8e8dfc877e64ba676e88221505be",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "b4467033d4d2c4347ba615db97141ed7",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "2d1b1792c0754434fa632fe326dfed88",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "09699cebb5b7bc74da4e284967065369",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "367203307c951b44f817c5182fce330b",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "5b09c8bbba1aa0348ba58dc4a9fa8f27",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "4dd0ea3d9862f7748a9baa39a0d57437",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "36186c6cf68e8554eaf6525af030662b",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "719c7c678c38dcd4f8965038244c445b",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "f766e4e8f4820ab44a70c7a4eaf80578",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "c7ea4d8f5518a3344920712663a60efc",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "d324975282dbe87448ab07c28d6c62ea",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "a1271059ccd30df4db5ecfd776ecec88",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "a4f9d7b706c92084ea90506d6bd2e4f2",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "2c59fad7872b5d34287f8648c63eea0d",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "82c2223daea9801488123f7264fd4527",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "17442d14cb021d44eb7e02ac2d9889c8",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "535e5534b5bcef14eb6ea91412e98cb9",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "6286bd90f6ab28f41bc4fa7f08e4fe0d",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardWarpData": "292cd29eec116274c9164c40c12f8aba",
+        "CardWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      }
+    ],
+    "TagFilters": []
+  },
+  "WhenCreatedSoundsWarpData": [
+    "ContainerBags"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

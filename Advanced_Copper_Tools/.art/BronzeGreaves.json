@@ -1,0 +1,43 @@
+{
+  "target": "BronzeGreaves.png",
+  "sourceCard": "CardData/Item/BronzeGreaves.json",
+  "subject": "a matched pair of tall curved metal shin greaves standing side by side, each a long smooth plate that narrows to a notched lower end with a rolled edge, with three small riveted loops down one side and two brown leather straps; change: the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the notched lower ends, the riveted loops and the leather straps stay exactly the same",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a matched pair of tall curved metal shin greaves standing side by side, each a long smooth plate that narrows to a notched lower end with a rolled edge, with three small riveted loops down one side and two brown leather straps: draw this same object, keeping its materials, colours, proportions and construction details identical, changed only as follows: the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the notched lower ends, the riveted loops and the leather straps stay exactly the same.\nHand-painted watercolor-and-ink game item illustration of a matched pair of tall golden-brown bronze shin greaves standing side by side, each a long smooth curved plate that narrows to a notched lower end with a rolled edge, with three small riveted loops down one side and two brown leather straps, the bronze a warm dull gold-brown with darker brown shading, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, orange copper, pink copper, shiny polished gold, bright yellow brass, green patina, boots, feet, knee spikes, engraving, a single greave.",
+  "historyId": "bYLdbb4co7plqe55MvzV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790469487171_8304a455_1790469487971_42002f47.png",
+  "credits": 30,
+  "generated": "2026-09-26",
+  "composition": {
+    "subject": "CopperGreaves",
+    "style": [],
+    "subject_words": "a matched pair of tall curved metal shin greaves standing side by side, each a long smooth plate that narrows to a notched lower end with a rolled edge, with three small riveted loops down one side and two brown leather straps",
+    "change": "the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the notched lower ends, the riveted loops and the leather straps stay exactly the same",
+    "item": "a matched pair of tall golden-brown bronze shin greaves standing side by side, each a long smooth curved plate that narrows to a notched lower end with a rolled edge, with three small riveted loops down one side and two brown leather straps, the bronze a warm dull gold-brown with darker brown shading",
+    "avoid": "orange copper, pink copper, shiny polished gold, bright yellow brass, green patina, boots, feet, knee spikes, engraving, a single greave",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for CardData/Item/BronzeGreaves.json and CardData/Blueprint/Bp_BronzeGreaves.json (ACT 1.17.0 Content_Update_Plan feature 4/6)"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "CopperGreaves",
+      "image": "Resource/Picture/CopperGreaves.png",
+      "sha256": "38eaf19443f278ca5420e8c73b657535a053527598996e6c5f743f99bc03e99f",
+      "id": "aiopiynFleicrI7ZOqpz",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CopperGreaves_1790469147243_172c5de7.png"
+    }
+  ],
+  "finish": "keyed finish; the paper inside the strap loops (987 px, 4 regions) was keyed with key_enclosed.py",
+  "verdict": "ON-MODEL, SHIPPED: same matched pair, notched lower ends, three riveted loops down one side, two straps; metal a dull gold-brown bronze (hue 35.2)",
+  "finished": "C:/Users/jared/AppData/Local/Temp/claude/c--Users-jared-Raptor-Studios-CSFF-Mods/1aacf203-6277-4478-8f52-3a0ce6bcee37/scratchpad/art/BronzeGreaves_refs/BronzeGreaves__1k.png",
+  "shipped": "Resource/Picture/BronzeGreaves.png (candidate 1, sha256 70598881c53ef1ba5bad7325dcadaaac7e60720166423e6aa9682c693a72f3e6)",
+  "note": "Generated for ACT 1.17.0 (Documentation/Design/ACT_Content_Update_As_Built.md features 4-6) by /create-image-refs Mode A (Item variant), count 1 per job. A new image, so an on-model candidate was copied straight to Resource/Picture (step 9); CardImageWarpData is wired by the session editing the card JSON. The 1 px light rim outside the ink outline is the keyer ramp start (darkest channel 200 = opaque) on an anti-aliased ink edge, the same as SaltCuredMeat.png from this pipeline; it is not paper."
+}

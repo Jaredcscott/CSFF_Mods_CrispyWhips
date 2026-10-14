@@ -20,17 +20,17 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_calming_tea",
     "LocalizationKey": "Advanced_Copper_Tools_CalmingTea_CardHelpSection",
-    "DefaultText": "<b>Brewed:</b> At a lit Tea Station — dried willow bark plus a Water Charge, once the reservoir is hot.\n\n<b>Uses:</b> Drink for hydration and a strong Stress reduction."
+    "DefaultText": "<b>Brewed:</b> At a lit Tea Station, from dried willow bark plus a Water Charge, once the reservoir is hot.\n\n<b>Uses:</b> Drink for hydration and a strong Stress reduction."
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Bowl_Clay",
+  "CardImageWarpData": "ACT_CalmingTea",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 0,
   "CannotBeTransferred": false,
   "NotAutoSolvableEvent": false,
-  "ObjectWeight": 300.0,
+  "ObjectWeight": 400.0,
   "TradingValue": 40.0,
   "MaxStack": 4,
   "CardTags": [],

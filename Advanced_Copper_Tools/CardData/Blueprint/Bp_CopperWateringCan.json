@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_copper_watering_can",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperWateringCan_CardDescription",
-    "DefaultText": "Hammer two copper sheets into a spouted can with a rope-bound handle. Requires 2 copper sheets, 1 rope, and a hammer."
+    "DefaultText": "Hammer two copper sheets into a spouted can with a rope-bound handle. Requires 2 copper sheets, 1 rope, 1 Tin Solder and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

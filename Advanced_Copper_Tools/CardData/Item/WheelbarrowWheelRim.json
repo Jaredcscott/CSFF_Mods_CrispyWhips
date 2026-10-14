@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_wheel_rim",
     "LocalizationKey": "Advanced_Copper_Tools_WheelRim_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> Forged from 3 heated copper nuggets. \n\n<b>Uses:</b> Reinforces wooden wheels for durability."
+    "DefaultText": "<b>Crafted:</b> Hammered from 1 copper bar. \n\n<b>Uses:</b> Reinforces wooden wheels for durability."
   },
   "CardImage": {
     "m_FileID": 0,

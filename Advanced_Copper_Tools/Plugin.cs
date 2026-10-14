@@ -7,13 +7,12 @@ using HarmonyLib;
 namespace Advanced_Copper_Tools;
 
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
-[BepInDependency("crispywhips.Herbs_And_Fungi", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.advanced_copper_tools";
     public const string PluginName = "Advanced_Copper_Tools";
-    public const string PluginVersion = "1.16.10";
+    public const string PluginVersion = "1.18.4";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
@@ -39,6 +38,7 @@ internal class Plugin : ContentModPlugin
         TryApply("GameLoadPatch", () => Advanced_Copper_Tools.Patcher.GameLoadPatch.ApplyPatch(harmony));
         TryApply("TinOreSmeltPatch", () => Advanced_Copper_Tools.Patcher.TinOreSmeltPatch.ApplyPatch(harmony));
         TryApply("IronVeinQualityPatch", () => Advanced_Copper_Tools.Patcher.IronVeinQualityPatch.ApplyPatch(harmony));
+        TryApply("PartnerBlueprintGatePatch", () => Advanced_Copper_Tools.Patcher.PartnerBlueprintGatePatch.ApplyPatch(harmony));
         // Cave Prospector perk gating moved to WorldMap/MapNodes.json SealableGates (framework
         // CSFFModFramework.Injection.SealableGateService) — ACTCaveGatePatch.cs retired.
         if (EnableLegacyStationLiquidHeater.Value)

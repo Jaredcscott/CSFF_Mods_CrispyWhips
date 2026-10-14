@@ -10,7 +10,10 @@
     "CardImage": "Mines",
     "HideFromMap": false,
     "StripAllInheritedDrops": true,
-    "ExtraDropUIDs": ["act_copper_vein", "act_copper_vein", "act_copper_vein"],
+    "ExtraDropUIDs": ["act_copper_vein", "act_copper_vein", "act_copper_vein", "act_copper_lode", "act_mine_darkness"],
+    "ConditionalDrops": [
+      { "UID": "act_mine_darkness", "MaxOnBoard": 1, "ForceStay": true, "Condition": { "Type": "AlwaysTrue" } }
+    ],
     "StripLegacyBoardUIDs": [
       "b956acdc408dbbe498aa17ab8830d5e1",
       "d65ae569ebecad94c96896687c376fa3",
@@ -50,7 +53,10 @@
     "CardImage": "Tunnel_1",
     "HideFromMap": false,
     "StripAllInheritedDrops": true,
-    "ExtraDropUIDs": ["act_tin_vein", "act_tin_vein", "act_tin_vein"],
+    "ExtraDropUIDs": ["act_tin_vein", "act_tin_vein", "act_tin_vein", "act_mine_daylight_shaft"],
+    "ConditionalDrops": [
+      { "UID": "act_mine_daylight_shaft", "MaxOnBoard": 1, "ForceStay": true, "Condition": { "Type": "AlwaysTrue" } }
+    ],
     "StripLegacyBoardUIDs": [
       "b956acdc408dbbe498aa17ab8830d5e1",
       "d65ae569ebecad94c96896687c376fa3",
@@ -138,7 +144,10 @@
     "CardImage": "Tunnel_Shaft",
     "HideFromMap": false,
     "StripAllInheritedDrops": true,
-    "ExtraDropUIDs": ["act_iron_vein", "act_iron_vein", "act_iron_vein"],
+    "ExtraDropUIDs": ["act_iron_vein", "act_iron_vein", "act_iron_vein", "act_iron_lode", "act_mine_darkness"],
+    "ConditionalDrops": [
+      { "UID": "act_mine_darkness", "MaxOnBoard": 1, "ForceStay": true, "Condition": { "Type": "AlwaysTrue" } }
+    ],
     "StripLegacyBoardUIDs": [
       "b956acdc408dbbe498aa17ab8830d5e1",
       "d65ae569ebecad94c96896687c376fa3",
@@ -165,7 +174,10 @@
     "CardImage": "Mines",
     "HideFromMap": false,
     "StripAllInheritedDrops": true,
-    "ExtraDropUIDs": ["act_salt_vein", "act_salt_vein", "act_salt_vein"],
+    "ExtraDropUIDs": ["act_salt_vein", "act_salt_vein", "act_salt_vein", "act_mine_darkness"],
+    "ConditionalDrops": [
+      { "UID": "act_mine_darkness", "MaxOnBoard": 1, "ForceStay": true, "Condition": { "Type": "AlwaysTrue" } }
+    ],
     "StripLegacyBoardUIDs": [
       "b956acdc408dbbe498aa17ab8830d5e1",
       "d65ae569ebecad94c96896687c376fa3",
@@ -205,7 +217,10 @@
     "CardImage": "Tunnel_Shaft",
     "HideFromMap": false,
     "StripAllInheritedDrops": true,
-    "ExtraDropUIDs": ["act_rock_vein", "act_rock_vein", "act_rock_vein"],
+    "ExtraDropUIDs": ["act_rock_vein", "act_rock_vein", "act_rock_vein", "act_mine_darkness"],
+    "ConditionalDrops": [
+      { "UID": "act_mine_darkness", "MaxOnBoard": 1, "ForceStay": true, "Condition": { "Type": "AlwaysTrue" } }
+    ],
     "StripLegacyBoardUIDs": [
       "b956acdc408dbbe498aa17ab8830d5e1",
       "d65ae569ebecad94c96896687c376fa3",

@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_handles",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_Handles_CardDescription",
-    "DefaultText": "Craft wheelbarrow handles from planks, small leather, and long sticks."
+    "DefaultText": "Craft wheelbarrow handles from 3 planks, 2 small leather, 2 long sticks and 4 copper nails. Requires a knife and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

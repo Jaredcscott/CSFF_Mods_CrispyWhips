@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_copper_breastplate",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperBreastplate_CardDescription",
-    "DefaultText": "Craft sturdy copper armor for torso protection."
+    "DefaultText": "Craft sturdy copper armor for torso protection. Requires 4 copper sheets, 4 copper nails, 1 medium leather, 4 sinew, 1 tin solder, and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -57,7 +57,8 @@
           "RequiredQuantity": 4,
           "DontSpend": false,
           "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-          "RequiredCardWarpType": 3
+          "RequiredCardWarpType": 3,
+          "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 100.0 }
         },
         {
           "RequiredCard": {

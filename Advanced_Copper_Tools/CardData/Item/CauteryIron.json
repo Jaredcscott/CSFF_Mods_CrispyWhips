@@ -1,0 +1,105 @@
+{
+  "UniqueID": "act_cautery_iron",
+  "CardName": {
+    "ParentObjectID": "act_cautery_iron",
+    "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_CardName",
+    "DefaultText": "Cautery Iron"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_cautery_iron",
+    "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_CardDescription",
+    "DefaultText": "A slim copper rod with a flat oval head, set in a wooden handle. Drag it onto a burning fire to heat it. Pressed hot to an open cut it closes the wound at once, at the price of a burn and a sharp pain."
+  },
+  "CardType": 0,
+  "ObjectWeight": 100.0,
+  "TradingValue": 80.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Preservable"],
+  "CardTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CauteryIron",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_cautery_iron",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_HeatInFire_ActionName",
+        "DefaultText": "Heat in Fire"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_cautery_iron",
+        "LocalizationKey": "Advanced_Copper_Tools_CauteryIron_HeatInFire_ActionDescription",
+        "DefaultText": "Held the flat head of the iron in the flames until it glowed."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireIgnite"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Fire",
+          "tag_FireSource"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksBothWays": true,
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "act_cautery_iron_hot",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

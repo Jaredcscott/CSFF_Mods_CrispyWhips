@@ -8,16 +8,17 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_copper_stove",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperStove_CardDescription",
-        "DefaultText": "Assemble a small stove from 4 metal sheets and a cast stove top."
+        "DefaultText": "Stage 1: cast the stove top in a small molten crucible, 2 mud bricks and 2 clay. Stage 2: assemble the stove from 4 metal sheets of one metal, 4 copper nails and a tin solder with a hammer. The stove takes the sheets' metal. Takes copper, tin or bronze sheets, not iron."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "advanced_copper_tools_bp_copper_stove",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperStove_UnlockConditionsDesc",
-        "DefaultText": "Copper Nugget Needed"
+        "DefaultText": "Copper Sheet Needed"
     },
     "BuildingStatConditions": [],
     "StartUnlocked": false,
+    "IngredientDurabilityAveragesReplaceResultDurabilities": true,
     "CardsOnBoard": [
         {
             "ObjectiveName": "HasCopperLump",
@@ -39,7 +40,7 @@
                     "m_PathID": 0
                 }
             },
-            "CardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+            "CardWarpData": "advanced_copper_tools_metal_sheet",
             "CardWarpType": 3
         }
     ],
@@ -54,12 +55,19 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredQuantity": 4,
-                    "DontSpend": false,
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "LiquidBecomesResult": false,
                     "AffectResultDurabilities": {
-                        "MaskValue": 448
+                        "MaskValue": 0
                     },
-                    "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+                    "EffectOnIngredient": {
+                        "ModType": 2,
+                        "TransformIntoWarpData": "99c97a08d8af8a5459c1f73b0182c80d",
+                        "TransformIntoWarpType": 3,
+                        "TransferUsage": true
+                    },
+                    "RequiredCardWarpData": "4cb80c78b279e264e87ade173462b461",
                     "RequiredCardWarpType": 3
                 },
                 {
@@ -67,12 +75,68 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredQuantity": 1,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    },
+                    "RequiredCardWarpData": "6c2001f42a960db4583cdd65a47ecf3c",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    },
+                    "RequiredCardWarpData": "68c14d265ea6c874ba79444d2e1ef7b3",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 4,
                     "DontSpend": false,
                     "AffectResultDurabilities": {
-                        "MaskValue": 448
+                        "MaskValue": 256
                     },
-                    "RequiredCardWarpData": "advanced_copper_tools_cast_stove_top",
+                    "FilterStackWithDurability": {
+                        "MaskValue": 256
+                    },
+                    "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+                    "RequiredCardWarpType": 3,
+                    "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 140.0 }
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
                     "RequiredCardWarpType": 3
                 },
                 {
@@ -93,7 +157,7 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpData": "GpTag_ACT_ShapingHammer",
                     "RequiredTabGroupWarpType": 3
                 },
                 {
@@ -155,7 +219,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "CopperStove",
+    "CardImageWarpData": "ACT_MetalStove_Off_Copper",
     "CardImageWarpType": 3,
     "BlueprintUnlockTicksCost": 64.0,
     "ResearchedNotification": 0

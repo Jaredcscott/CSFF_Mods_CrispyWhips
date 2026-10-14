@@ -1,0 +1,81 @@
+{
+  "UniqueID": "advanced_copper_tools_bp_salt_cured_fish",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_bp_salt_cured_fish",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_SaltCuredFish_CardName",
+    "DefaultText": "Salt-Cured Fish"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_bp_salt_cured_fish",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_SaltCuredFish_CardDescription",
+    "DefaultText": "Pack lean fish in salt to cure it into a slow-spoiling travel ration. Requires 1 lean fish and 2 salt."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "advanced_copper_tools_bp_salt_cured_fish",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_SaltCuredFish_UnlockConditionsDesc",
+    "DefaultText": "Salt Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasSalt",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "CardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "272fe32c20eebef4d82290c7a31ac885",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 2,
+  "DeconstructDaytimeCost": 0,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "advanced_copper_tools_salt_cured_fish",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [ "WoodAppear" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "SaltCuredFish",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

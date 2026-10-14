@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
     "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_CardHelpSection",
-    "DefaultText": "<b>Use:</b> A small mood bump for not having to go outside. Fills up after 4 uses.\n\n<b>Empty:</b> Empty it out once full to use it again — the waste makes a pile of manure for the compost bin or fields."
+    "DefaultText": "<b>Use:</b> A small mood bump for not having to go outside. Fills up after 4 uses.\n\n<b>Empty:</b> Empty it out once full to use it again. The waste makes a pile of manure for the compost bin or fields."
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
@@ -99,7 +99,7 @@
         "FailMessage": {
           "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
           "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Use_FailMessage",
-          "DefaultText": "It's full — empty it first."
+          "DefaultText": "It's full. Empty it first."
         }
       },
       "StatModifications": [

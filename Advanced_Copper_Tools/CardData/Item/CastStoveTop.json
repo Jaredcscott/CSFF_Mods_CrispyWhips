@@ -13,7 +13,7 @@
   "CardType": 0,
   "ToggleablePiling": true,
   "ObjectWeight": 400.0,
-  "TradingValue": 800.0,
+  "TradingValue": 2250.0,
   "CardTags": [],
   "CardTagsWarpData": [
     "tag_Metal",
@@ -70,7 +70,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "CopperStoveTop",
+        "CardImageWarpData": "ACT_MetalStoveTop_Copper",
         "CardImageWarpType": 3
       }
     },
@@ -122,7 +122,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "CopperStoveTop",
+        "CardImageWarpData": "ACT_MetalStoveTop_GhostBronze",
         "CardImageWarpType": 3
       }
     },
@@ -174,7 +174,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "CopperStoveTop",
+        "CardImageWarpData": "ACT_MetalStoveTop_Tin",
         "CardImageWarpType": 3
       }
     },
@@ -226,7 +226,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "CopperStoveTop",
+        "CardImageWarpData": "ACT_MetalStoveTop_Bronze",
         "CardImageWarpType": 3
       }
     },
@@ -278,7 +278,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "CardImageWarpData": "CopperStoveTop",
+        "CardImageWarpData": "ACT_MetalStoveTop_WhiteBronze",
         "CardImageWarpType": 3
       }
     }
@@ -287,7 +287,7 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "CopperStoveTop",
+  "CardImageWarpData": "ACT_MetalStoveTop_Copper",
   "CardImageWarpType": 3,
   "SpoilageTime": {
     "Active": false
@@ -379,10 +379,81 @@
     "TextDisplay": 0,
     "NumberPrecision": 0,
     "HasActionOnZero": false,
-    "CountsForTradingValue": true
+    "CountsForTradingValue": false
   },
   "CardInteractions": [],
-  "DismantleActions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_cast_stove_top",
+        "LocalizationKey": "Advanced_Copper_Tools_CastStoveTop_Salvage_ActionName",
+        "DefaultText": "Cut Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_cast_stove_top",
+        "LocalizationKey": "Advanced_Copper_Tools_CastStoveTop_Salvage_ActionDescription",
+        "DefaultText": "The Small Copper Stove now casts its own top. Cut this old stove top into metal sheets of its metal."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 0,
+                "Special4": 1,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
   "PassiveStatEffects": [],
   "PassiveEffects": []
 }

@@ -1,0 +1,148 @@
+{
+  "UniqueID": "act_copper_spigot",
+  "CardName": {
+    "ParentObjectID": "act_copper_spigot",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperSpigot_CardName",
+    "DefaultText": "Copper Spigot"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_copper_spigot",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperSpigot_CardDescription",
+    "DefaultText": "A short forged copper spout with a tapered end. Drag it onto a Sap Tap or a Resin Tap and choose Fit Spigot: the tap then runs about three times as long between refreshes. Remove Spigot on the fitted tap gives it back."
+  },
+  "CardType": 0,
+  "ObjectWeight": 50.0,
+  "TradingValue": 40.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Preservable"
+  ],
+  "CardTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CopperSpigot",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_copper_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperSpigot_FitSpigot_ActionName",
+        "DefaultText": "Fit Spigot"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_copper_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperSpigot_FitSpigot_ActionDescription",
+        "DefaultText": "Drove the copper spigot into the tap. The sap will run slowly now."
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "e849b042277f6d041af32eba4d1bc252"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "AppearsOnCardsInInventory": true,
+      "WorksInverted": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "act_sap_tap_spigot",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_copper_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperSpigot_FitSpigot_ActionName",
+        "DefaultText": "Fit Spigot"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_copper_spigot",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperSpigot_FitSpigot_ActionDescription",
+        "DefaultText": "Drove the copper spigot into the tap. The sap will run slowly now."
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "a3073e6364a97d14191f2600ce48d59e"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "AppearsOnCardsInInventory": true,
+      "WorksInverted": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "act_resin_tap_spigot",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true
+      }
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

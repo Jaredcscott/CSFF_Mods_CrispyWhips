@@ -1,0 +1,43 @@
+{
+  "target": "BronzeHelmet.png",
+  "sourceCard": "CardData/Item/BronzeHelmet.json",
+  "subject": "a riveted metal nasal helmet with a pointed dome, a raised cross-shaped band over the crown, a riveted brow band, two rounded eye openings, a long nose guard and a brown leather chin strap with a buckle; change: the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the rivets, the bands, the eye openings, the nose guard and the leather chin strap stay exactly the same",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a riveted metal nasal helmet with a pointed dome, a raised cross-shaped band over the crown, a riveted brow band, two rounded eye openings, a long nose guard and a brown leather chin strap with a buckle: draw this same object, keeping its materials, colours, proportions and construction details identical, changed only as follows: the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the rivets, the bands, the eye openings, the nose guard and the leather chin strap stay exactly the same.\nHand-painted watercolor-and-ink game item illustration of a golden-brown bronze nasal helmet with a pointed dome, a raised cross-shaped band over the crown, a riveted brow band, two rounded eye openings, a long nose guard and a brown leather chin strap with a buckle, the bronze a warm dull gold-brown with darker brown shading, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, orange copper, pink copper, shiny polished gold, bright yellow brass, green patina, plume, horns, crest, face mask, visor.",
+  "historyId": "JZZ3VMC7NrTwKuG8iMH0",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790469480974_5cc6b1ab_1790469481098_673edd83.png",
+  "credits": 30,
+  "generated": "2026-09-26",
+  "composition": {
+    "subject": "CopperHelmet",
+    "style": [],
+    "subject_words": "a riveted metal nasal helmet with a pointed dome, a raised cross-shaped band over the crown, a riveted brow band, two rounded eye openings, a long nose guard and a brown leather chin strap with a buckle",
+    "change": "the metal is golden-brown bronze instead of copper: a warm dull gold-brown with darker brown shading, with no orange, no pink and no copper tone anywhere. The shape, the rivets, the bands, the eye openings, the nose guard and the leather chin strap stay exactly the same",
+    "item": "a golden-brown bronze nasal helmet with a pointed dome, a raised cross-shaped band over the crown, a riveted brow band, two rounded eye openings, a long nose guard and a brown leather chin strap with a buckle, the bronze a warm dull gold-brown with darker brown shading",
+    "avoid": "orange copper, pink copper, shiny polished gold, bright yellow brass, green patina, plume, horns, crest, face mask, visor",
+    "finish": "keyed",
+    "use": "CardImageWarpData planned for CardData/Item/BronzeHelmet.json and CardData/Blueprint/Bp_BronzeHelmet.json (ACT 1.17.0 Content_Update_Plan feature 4/6)"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "CopperHelmet",
+      "image": "Resource/Picture/CopperHelmet.png",
+      "sha256": "f89bc96b57f7151834a22c8813e057a081d7f72ded56d9519f06b434221106b3",
+      "id": "79JisRvFKSFQGgTrqNpp",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CopperHelmet_1790469144976_ec45a0f3.png"
+    }
+  ],
+  "finish": "keyed finish; the paper enclosed by the chin strap loop (21116 px) and the sliver seen through the left eye opening (35 px, --box 160,395,195,415) were keyed with key_enclosed.py, matching CopperHelmet where both are transparent",
+  "verdict": "ON-MODEL, SHIPPED: same nasal helmet (pointed dome, cross band, riveted brow band, eye openings, nose guard, leather strap and buckle), metal a dull gold-brown bronze with darker brown shading, no copper tone (median metal hue 33.6 against 19.6 for CopperHelmet)",
+  "finished": "C:/Users/jared/AppData/Local/Temp/claude/c--Users-jared-Raptor-Studios-CSFF-Mods/1aacf203-6277-4478-8f52-3a0ce6bcee37/scratchpad/art/BronzeHelmet_refs/BronzeHelmet__1kk.png",
+  "shipped": "Resource/Picture/BronzeHelmet.png (candidate 1, sha256 831e20b35f4b70c5da300864d5a979a94a19f13f9d24ef21c04d1ff410f78e6d)",
+  "note": "Generated for ACT 1.17.0 (Documentation/Design/ACT_Content_Update_As_Built.md features 4-6) by /create-image-refs Mode A (Item variant), count 1 per job. A new image, so an on-model candidate was copied straight to Resource/Picture (step 9); CardImageWarpData is wired by the session editing the card JSON. The 1 px light rim outside the ink outline is the keyer ramp start (darkest channel 200 = opaque) on an anti-aliased ink edge, the same as SaltCuredMeat.png from this pipeline; it is not paper."
+}

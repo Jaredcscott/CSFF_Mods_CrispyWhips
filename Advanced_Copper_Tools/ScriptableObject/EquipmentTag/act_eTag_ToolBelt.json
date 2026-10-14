@@ -1,0 +1,10 @@
+{
+  "InGameName": {
+    "ParentObjectID": "act_eTag_ToolBelt",
+    "LocalizationKey": "Advanced_Copper_Tools_ToolBelt_Tag_InGameName",
+    "DefaultText": "Tool Belt"
+  },
+  "MaxEquipped": 1,
+  "MandatoryEquip": false,
+  "NotifyWhenNew": false
+}

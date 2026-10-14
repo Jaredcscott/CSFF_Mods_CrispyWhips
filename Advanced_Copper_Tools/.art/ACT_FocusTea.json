@@ -1,0 +1,50 @@
+{
+  "target": "ACT_FocusTea.png",
+  "sourceCard": "CardData/Item/FocusTea.json",
+  "subject": "vanilla Bowl_Clay_Water with the liquid surface recoloured #5f4a3a",
+  "model": "none (Development_Tools/CardArt/liquid_bowl.py make_bowl, no credits)",
+  "mode": "liquid_bowl",
+  "source": "vanilla Sprite Bowl_Clay_Water, EA 0.68b, exported with extract_vanilla_sprites.py",
+  "colour": "#5f4a3a",
+  "spec": ".art/liquid_bowls.json item_bowls",
+  "credits": 0,
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: see the images of other HF_LQ_ (a bowl item drawn the way H&F's liquids are)",
+  "previous": {
+    "target": "ACT_FocusTea.png",
+    "sourceCard": [
+      "CardData/Item/FocusTea.json"
+    ],
+    "subject": "a plain round terracotta clay bowl of dark amber-brown tea, two small dried spirit mushrooms with pale caps resting beside it, faint steam, no handle",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 3,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Hand-painted watercolor-and-ink game item illustration of a plain round terracotta clay bowl of dark amber-brown tea, two small dried spirit mushrooms with pale caps resting beside it, faint steam, no handle, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+    "historyId": "IrAIbFbknb3uhwWYfWYb",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085444404_163f23ad_1791085444582_41bae0f1.png",
+    "credits": 90,
+    "generated": "2026-10-03",
+    "note": "Owner pick from the 2026-10-03 batch picker. predicted was written before the owner looked. Finished by /process-card-art (keyed on white).",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085446695_c7ce54cc_1791085447166_b6601a9c.png"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085444404_163f23ad_1791085444582_41bae0f1.png"
+      },
+      {
+        "n": "C",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085443651_64431c35_1791085444227_a4713b3d.png"
+      }
+    ],
+    "picked": "B",
+    "predicted": "A"
+  }
+}

@@ -87,9 +87,9 @@
       "ActionDescription": {
         "ParentObjectID": "act_iron_vein",
         "LocalizationKey": "Advanced_Copper_Tools_IronVein_Mine_ActionDescription",
-        "DefaultText": "Strike the vein with a pickaxe to extract bog iron."
+        "DefaultText": "Strike the vein with a pickaxe to extract bog iron. Hard work, as in the game's own mine: it needs Stamina, and the better your Smithing, the more often a second piece comes loose."
       },
-      "DaytimeCost": 3,
+      "DaytimeCost": 8,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -97,7 +97,8 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [ "HittingStone" ],
       "ActionSoundsWarpType": 3,
-      "RequiredStatValues": [],
+      "RequiredStatValues": [ { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "79290cafb08e48f4d871704c20e69b1c", "StatWarpType": 3, "TriggerRange": { "x": 10.0, "y": 100.0 }, "NotifyWhenNotMet": true, "HideAllWhenNotMet": false }, { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "TriggerRange": { "x": 24.0, "y": 100.0 }, "NotifyWhenNotMet": true, "HideAllWhenNotMet": false } ],
+      "StatModifications": [ { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "ba33a8566a73268498af987d98f045ae", "StatWarpType": 3, "ValueModifier": { "x": 100.0, "y": 100.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "MinValueModifier": { "x": 0.0, "y": 0.0 }, "MaxValueModifier": { "x": 0.0, "y": 0.0 }, "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 }, "ApplyEachTick": false, "InstantModifier": false, "IgnoreNovelty": false, "IsInverse": false }, { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "4c5ed70723dc40e439720acab06e6af7", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "MinValueModifier": { "x": 0.0, "y": 0.0 }, "MaxValueModifier": { "x": 0.0, "y": 0.0 }, "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 }, "ApplyEachTick": true, "InstantModifier": false, "IgnoreNovelty": false, "IsInverse": false }, { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -12.0, "y": -12.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "MinValueModifier": { "x": 0.0, "y": 0.0 }, "MaxValueModifier": { "x": 0.0, "y": 0.0 }, "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 }, "ApplyEachTick": true, "InstantModifier": false, "IgnoreNovelty": false, "IsInverse": false }, { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "111606ba528c30e4f8e38494f41b92c7", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "MinValueModifier": { "x": 0.0, "y": 0.0 }, "MaxValueModifier": { "x": 0.0, "y": 0.0 }, "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 }, "ApplyEachTick": true, "InstantModifier": false, "IgnoreNovelty": false, "IsInverse": false }, { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503", "StatWarpType": 3, "ValueModifier": { "x": -2.0, "y": -2.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "MinValueModifier": { "x": 0.0, "y": 0.0 }, "MaxValueModifier": { "x": 0.0, "y": 0.0 }, "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 }, "ApplyEachTick": true, "InstantModifier": false, "IgnoreNovelty": false, "IsInverse": false } ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],
@@ -130,7 +131,7 @@
               "DroppedCardWarpData": "b9845f4223861e44f96c7815f210f365",
               "DroppedCardWarpType": 3,
               "Quantity": { "x": 1, "y": 1 },
-              "DropChance": { "Active": true, "BaseDropChance": 30.0 }
+              "DropChance": { "Active": true, "BaseDropChance": 0.0, "DurabilitiesModifiers": [], "StatsModifiers": [ { "InputStat": { "m_FileID": 0, "m_PathID": 0 }, "InputStatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64", "InputStatWarpType": 3, "UseStatPercentage": false, "Value": { "Active": true, "InputValueRange": { "x": 0.0, "y": 150.0 }, "OutputValueRange": { "x": 0.0, "y": 30.0 }, "WhenOutOfRange": 0, "OutOfRangeCustomValue": 0.0 } } ], "CardsModifiers": [], "NPCStatsModifiers": [] }
             }
           ]
         }
@@ -145,9 +146,9 @@
       "ActionDescription": {
         "ParentObjectID": "act_iron_vein",
         "LocalizationKey": "Advanced_Copper_Tools_IronVein_MineRough_ActionDescription",
-        "DefaultText": "Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one piece of bog iron per strike."
+        "DefaultText": "Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe, yielding one piece of bog iron per strike."
       },
-      "DaytimeCost": 8,
+      "DaytimeCost": 24,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -155,7 +156,7 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [ "HittingStone" ],
       "ActionSoundsWarpType": 3,
-      "RequiredStatValues": [],
+      "RequiredStatValues": [ { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "79290cafb08e48f4d871704c20e69b1c", "StatWarpType": 3, "TriggerRange": { "x": 10.0, "y": 100.0 }, "NotifyWhenNotMet": true, "HideAllWhenNotMet": false } ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],

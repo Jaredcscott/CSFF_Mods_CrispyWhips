@@ -9,10 +9,271 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_copper_stove",
     "LocalizationKey": "Advanced_Copper_Tools_CopperStove_CardDescription",
-    "DefaultText": "A small copper stove. Can be placed as a fireplace with 2 cooking slots."
+    "DefaultText": "A small copper stove. Placed, it holds cooking like a campfire: one cooking pot or two clay bowls. It keeps its fuel when picked up."
   },
   "CanBeRenamed": false,
-  "AlternateNames": [],
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_AlternateNames[0].Name",
+        "DefaultText": "Small Copper Stove"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_Off_Copper",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_AlternateNames[1].Name",
+        "DefaultText": "Small Ghost Bronze Stove"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_Off_GhostBronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_AlternateNames[2].Name",
+        "DefaultText": "Small Tin Stove"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_Off_Tin",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_AlternateNames[3].Name",
+        "DefaultText": "Small Tin Bronze Stove"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_Off_Bronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_AlternateNames[4].Name",
+        "DefaultText": "Small White Bronze Stove"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_Off_WhiteBronze",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
   "LiquidSuffixName": {
     "ParentObjectID": "advanced_copper_tools_copper_stove",
     "LocalizationKey": "",
@@ -21,7 +282,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_stove",
     "LocalizationKey": "Advanced_Copper_Tools_CopperStove_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 4 metal sheets and a cast stove top.\n\n<b>Uses:</b> Place in environment as a fireplace with 2 cooking slots. Also a component for the copper bathtub blueprint."
+    "DefaultText": "<b>Crafted:</b> In two stages: cast the stove top (small molten crucible, 2 mud bricks, 2 clay), then assemble it from 4 metal sheets of one metal, 4 copper nails and 1 tin solder. The stove is the metal of its sheets.\n\n<b>Uses:</b> Place in environment as a fireplace that holds 600 weight, like a campfire: one cooking pot or two clay bowls. Keeps its fuel and its metal when picked up, and gives Sanctuary while placed: +75 in copper or Tin Bronze, +80 in Ghost Bronze, +65 in Tin, +90 in White Bronze. Accepts oak wood, twigs, or charcoal as fuel. Also a component for the copper bathtub blueprint."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -31,13 +292,13 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "CopperStove",
+  "CardImageWarpData": "ACT_MetalStove_Off_Copper",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 0,
   "CannotBeTransferred": false,
   "NotAutoSolvableEvent": false,
-  "ObjectWeight": 300.0,
+  "ObjectWeight": 600.0,
   "CollectionName": "",
   "CardTags": [],
   "CardTagsWarpData": [
@@ -69,7 +330,9 @@
     "Active": false
   },
   "FuelCapacity": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 300.0
   },
   "Progress": {
     "Active": false
@@ -84,7 +347,29 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_stove",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperStove_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
   },
   "CardInteractions": [],
   "DismantleActions": [
@@ -99,8 +384,8 @@
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Place_ActionDescription",
         "DefaultText": "Place the stove in your environment."
       },
-      "DaytimeCost": 2,
-      "UseMiniTicks": 0,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
       "ActionSounds": [],
       "ActionTags": [],
       "ActionTagsWarpData": [],
@@ -117,6 +402,8 @@
         },
         "TransformIntoWarpData": "advanced_copper_tools_copper_stove_placed",
         "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "TransferSpecial4": true,
         "TransferInventory": true,
         "SpawnTransformAtSource": true
       }
@@ -130,7 +417,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_stove",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Dismantle_ActionDescription",
-        "DefaultText": "Take apart the stove to recover the metal sheets and cast stove top."
+        "DefaultText": "Take apart the stove to recover the metal sheets."
       },
       "DaytimeCost": 3,
       "UseMiniTicks": 0,
@@ -156,18 +443,32 @@
               "Quantity": {
                 "x": 4,
                 "y": 4
-              }
-            },
-            {
-              "DroppedCard": {
-                "m_FileID": 0,
-                "m_PathID": 0
               },
-              "DroppedCardWarpData": "advanced_copper_tools_cast_stove_top",
-              "DroppedCardWarpType": 3,
-              "Quantity": {
-                "x": 1,
-                "y": 1
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 0,
+                "Special4": 1,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
               }
             }
           ]

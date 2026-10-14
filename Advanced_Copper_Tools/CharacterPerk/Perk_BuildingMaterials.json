@@ -57,6 +57,12 @@
     "d324975282dbe87448ab07c28d6c62ea"
   ],
   "AddedCardsWarpType": 3,
+  "AddedCardsStats": [
+    { "Card": "57460207bbf77fa4fb6720aed5d84851", "SpecialDurability4": 1 },
+    { "Card": "669497ecaa30b634c86bea6b61f31e63", "SpecialDurability2": 50, "SpecialDurability4": 200 },
+    { "Card": "3e94716876eae304787efa2ae0b43711", "SpecialDurability2": 50 },
+    { "Card": "d324975282dbe87448ab07c28d6c62ea", "SpecialDurability2": 50, "SpecialDurability3": 50, "SpecialDurability4": 100 }
+  ],
   "AddedStartingHours": 0,
   "CardsOnBoardObjectives": [],
   "CheckingNotificationDetails": 0,
@@ -93,7 +99,7 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "PerkIconWarpData": "Plank",
+  "PerkIconWarpData": "ACT_Perk_BuildingMaterials",
   "PerkIconWarpType": 3,
   "PerkName": {
     "DefaultText": "Building Materials",

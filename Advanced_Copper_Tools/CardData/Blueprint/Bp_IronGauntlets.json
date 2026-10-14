@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "act_bp_iron_gauntlets",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_IronGauntlets_CardDescription",
-    "DefaultText": "Forge iron bracers for superior arm protection."
+    "DefaultText": "Forge iron bracers for superior arm protection. Requires 2 iron sheets, 4 metal nails, 1 small leather, 2 sinew and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -28,7 +28,18 @@
       "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
       "OnlyIfEquipped": false,
       "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
-      "CardWarpData": "act_iron_sheet",
+      "WithDurabilities": {
+        "SpoilageRange": { "x": 0.0, "y": 0.0 },
+        "UsageRange": { "x": 0.0, "y": 0.0 },
+        "FuelRange": { "x": 0.0, "y": 0.0 },
+        "ProgressRange": { "x": 0.0, "y": 0.0 },
+        "Special1Range": { "x": 0.0, "y": 0.0 },
+        "Special2Range": { "x": 0.0, "y": 0.0 },
+        "Special3Range": { "x": 0.0, "y": 0.0 },
+        "Special4Range": { "x": 200.0, "y": 200.0 },
+        "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+      },
+      "CardWarpData": "advanced_copper_tools_metal_sheet",
       "CardWarpType": 3
     }
   ],
@@ -42,14 +53,16 @@
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 2,
           "DontSpend": false,
-          "RequiredCardWarpData": "act_iron_sheet",
-          "RequiredCardWarpType": 3
+          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+          "RequiredCardWarpType": 3,
+          "Special4": { "Active": true, "FloatValue": 200.0, "MaxValue": 200.0 },
+          "FilterStackWithDurability": { "MaskValue": 256 }
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 4,
           "DontSpend": false,
-          "RequiredCardWarpData": "act_iron_nail",
+          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
           "RequiredCardWarpType": 3
         },
         {

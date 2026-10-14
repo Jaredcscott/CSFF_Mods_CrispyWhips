@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_bathtub_full_placed",
     "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Placed_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath."
+    "DefaultText": "<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath. Or take a cold bath now: it cleans a little less than the river, clears rashes and wolfsbane, and leaves you wet."
   },
   "CardType": 2,
   "MapStructureType": 0,
@@ -31,7 +31,8 @@
   "CardTagsWarpData": [
     "tag_Preservable",
     "tag_Structure",
-    "tag_FuelCapacity"
+    "tag_FuelCapacity",
+    "tag_x_Bathtub"
   ],
   "CardTagsWarpType": 3,
   "WhenCreatedSoundsWarpData": [
@@ -489,7 +490,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_bathtub_full_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionDescription",
-        "DefaultText": "Soak in the cold water. Refreshing but chilly."
+        "DefaultText": "Wash in the cold water. Cleans a little less than the river does, clears rashes and wolfsbane from your skin, and leaves you wet. Not very comfortable."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -521,8 +522,8 @@
             "m_PathID": 0
           },
           "ValueModifier": {
-            "x": -200.0,
-            "y": -200.0
+            "x": -400.0,
+            "y": -400.0
           },
           "RateModifier": {
             "x": 0.0,
@@ -585,6 +586,126 @@
             "y": 0.0
           },
           "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "f8c19cb042ab86948a2cb5f9cb07e455",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": 100.0,
+            "y": 100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "cadd43716eaada54facd772f39eaa090",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "StatWarpData": "48296aba51d95204fbc4f805056ac66a",
           "StatWarpType": 3
         }
       ],

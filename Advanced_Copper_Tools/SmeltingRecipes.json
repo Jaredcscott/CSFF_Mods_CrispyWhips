@@ -1,16 +1,6 @@
 [
   {
-    "Item": "advanced_copper_tools_copper_nails",
-    "NuggetReturn": 1,
-    "Duration": 8
-  },
-  {
     "Item": "advanced_copper_tools_wheel_hub",
-    "NuggetReturn": 6,
-    "Duration": 8
-  },
-  {
-    "Item": "advanced_copper_tools_metal_sheet",
     "NuggetReturn": 6,
     "Duration": 8
   },
@@ -21,21 +11,29 @@
   },
   {
     "Item": "advanced_copper_tools_stove_top_mold",
+    "InheritMetal": true,
     "NuggetReturn": 6,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_cast_stove_top",
+    "InheritMetal": true,
     "NuggetReturn": 6,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_large_saw",
+    "InheritMetal": true,
     "NuggetReturn": 16,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_lantern_oilwell",
+    "NuggetReturn": 6,
+    "Duration": 8
+  },
+  {
+    "Item": "advanced_copper_tools_lantern_oilwell_lit",
     "NuggetReturn": 6,
     "Duration": 8
   },
@@ -56,6 +54,7 @@
   },
   {
     "Item": "advanced_copper_tools_copper_stove",
+    "InheritMetal": true,
     "NuggetReturn": 30,
     "Duration": 8
   },
@@ -101,6 +100,7 @@
   },
   {
     "Item": "advanced_copper_tools_copper_cauldron",
+    "InheritMetal": true,
     "NuggetReturn": 34,
     "Duration": 8
   },
@@ -115,53 +115,152 @@
     "Duration": 8
   },
   {
-    "Item": "act_iron_sheet",
-    "NuggetReturn": 5,
-    "Duration": 8
-  },
-  {
     "Item": "act_iron_helmet",
+    "MetalType": 200,
     "NuggetReturn": 20,
     "Duration": 8
   },
   {
     "Item": "act_iron_gauntlets",
+    "MetalType": 200,
     "NuggetReturn": 15,
     "Duration": 8
   },
   {
     "Item": "act_iron_greaves",
+    "MetalType": 200,
     "NuggetReturn": 20,
     "Duration": 8
   },
   {
     "Item": "act_iron_breastplate_m",
+    "MetalType": 200,
     "NuggetReturn": 30,
     "Duration": 8
   },
   {
     "Item": "act_iron_breastplate_f",
+    "MetalType": 200,
     "NuggetReturn": 30,
     "Duration": 8
   },
   {
     "Item": "act_bronze_helmet",
+    "MetalType": 130,
     "NuggetReturn": 17,
     "Duration": 8
   },
   {
     "Item": "act_bronze_gauntlets",
+    "MetalType": 130,
     "NuggetReturn": 13,
     "Duration": 8
   },
   {
     "Item": "act_bronze_greaves",
+    "MetalType": 130,
     "NuggetReturn": 17,
     "Duration": 8
   },
   {
     "Item": "act_bronze_breastplate",
+    "MetalType": 130,
     "NuggetReturn": 26,
+    "Duration": 8
+  },
+  {
+    "Item": "act_iron_large_saw",
+    "MetalType": 200,
+    "NuggetReturn": 20,
+    "Duration": 8
+  },
+  {
+    "Item": "act_copper_shield",
+    "NuggetReturn": 22,
+    "Duration": 8
+  },
+  {
+    "Item": "act_iron_shield",
+    "MetalType": 200,
+    "NuggetReturn": 30,
+    "Duration": 8
+  },
+  {
+    "Item": "act_ghostbronze_shield",
+    "MetalType": 110,
+    "NuggetReturn": 25,
+    "Duration": 8
+  },
+  {
+    "Item": "act_ghostbronze_helmet",
+    "MetalType": 110,
+    "NuggetReturn": 17,
+    "Duration": 8
+  },
+  {
+    "Item": "act_ghostbronze_breastplate",
+    "MetalType": 110,
+    "NuggetReturn": 26,
+    "Duration": 8
+  },
+  {
+    "Item": "act_ghostbronze_gauntlets",
+    "MetalType": 110,
+    "NuggetReturn": 13,
+    "Duration": 8
+  },
+  {
+    "Item": "act_ghostbronze_greaves",
+    "MetalType": 110,
+    "NuggetReturn": 17,
+    "Duration": 8
+  },
+  {
+    "Item": "act_tin_helmet",
+    "MetalType": 120,
+    "NuggetReturn": 17,
+    "Duration": 8
+  },
+  {
+    "Item": "act_tin_breastplate",
+    "MetalType": 120,
+    "NuggetReturn": 26,
+    "Duration": 8
+  },
+  {
+    "Item": "act_tin_gauntlets",
+    "MetalType": 120,
+    "NuggetReturn": 13,
+    "Duration": 8
+  },
+  {
+    "Item": "act_tin_greaves",
+    "MetalType": 120,
+    "NuggetReturn": 17,
+    "Duration": 8
+  },
+  {
+    "Item": "act_whitebronze_helmet",
+    "MetalType": 140,
+    "NuggetReturn": 17,
+    "Duration": 8
+  },
+  {
+    "Item": "act_whitebronze_breastplate",
+    "MetalType": 140,
+    "NuggetReturn": 26,
+    "Duration": 8
+  },
+  {
+    "Item": "act_whitebronze_gauntlets",
+    "MetalType": 140,
+    "NuggetReturn": 13,
+    "Duration": 8
+  },
+  {
+    "Item": "act_whitebronze_greaves",
+    "MetalType": 140,
+    "NuggetReturn": 17,
     "Duration": 8
   }
 ]

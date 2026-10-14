@@ -1,0 +1,105 @@
+{
+  "UniqueID": "act_bedwarming_pan",
+  "CardName": {
+    "ParentObjectID": "act_bedwarming_pan",
+    "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_CardName",
+    "DefaultText": "Bedwarming Pan"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_bedwarming_pan",
+    "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_CardDescription",
+    "DefaultText": "A plain lidded copper pan on a long wooden handle. Drag it onto a burning fire to fill it with embers, then tuck it into your bed: it keeps you warmer while you sleep and is cold again by morning."
+  },
+  "CardType": 0,
+  "ObjectWeight": 150.0,
+  "TradingValue": 120.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Preservable"],
+  "CardTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "BedwarmingPan",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_bedwarming_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_FillEmbers_ActionName",
+        "DefaultText": "Fill with Embers"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_bedwarming_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_BedwarmingPan_FillEmbers_ActionDescription",
+        "DefaultText": "Shoveled glowing embers from the fire into the pan and shut the lid."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireIgnite"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Fire",
+          "tag_FireSource"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksBothWays": true,
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "act_bedwarming_pan_hot",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

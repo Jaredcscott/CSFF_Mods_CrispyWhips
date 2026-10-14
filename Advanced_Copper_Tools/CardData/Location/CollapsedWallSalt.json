@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "act_collapsed_wall_salt",
     "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallSalt_CardDescription",
-    "DefaultText": "The passage east to the salt mine is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open."
+    "DefaultText": "The passage east to the salt mine is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way. Once cleared, it stays open."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -16,7 +16,7 @@
   "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Tunnel_1",
+  "CardImageWarpData": "ACT_CollapsedWall",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 2,
@@ -97,7 +97,7 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [ "HittingStone" ],
       "ActionSoundsWarpType": 3,
-      "RequiredStatValues": [],
+      "RequiredStatValues": [ { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "79290cafb08e48f4d871704c20e69b1c", "StatWarpType": 3, "TriggerRange": { "x": 10.0, "y": 100.0 }, "NotifyWhenNotMet": true, "HideAllWhenNotMet": false } ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],

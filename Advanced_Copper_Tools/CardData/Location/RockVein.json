@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "act_rock_vein",
     "LocalizationKey": "Advanced_Copper_Tools_RockVein_CardDescription",
-    "DefaultText": "A thick face of quarry-grade stone embedded in cave rock. Mine with a pickaxe, or chip away with an axe, hammer, shovel, or antler — either way yields 3 stone and 3 heavy stone per strike. Depletes after 6 strikes."
+    "DefaultText": "A thick face of quarry-grade stone embedded in cave rock. Mine with a pickaxe, or chip away with an axe, hammer, shovel, or antler. Either way yields 3 stone and 3 heavy stone per strike. Depletes after 6 strikes."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -16,7 +16,7 @@
   "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "act_iron_vein",
+  "CardImageWarpData": "act_rock_vein",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 2,
@@ -97,7 +97,7 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [ "HittingStone" ],
       "ActionSoundsWarpType": 3,
-      "RequiredStatValues": [],
+      "RequiredStatValues": [ { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "79290cafb08e48f4d871704c20e69b1c", "StatWarpType": 3, "TriggerRange": { "x": 10.0, "y": 100.0 }, "NotifyWhenNotMet": true, "HideAllWhenNotMet": false } ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],
@@ -155,7 +155,7 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [ "HittingStone" ],
       "ActionSoundsWarpType": 3,
-      "RequiredStatValues": [],
+      "RequiredStatValues": [ { "Stat": { "m_FileID": 0, "m_PathID": 0 }, "StatWarpData": "79290cafb08e48f4d871704c20e69b1c", "StatWarpType": 3, "TriggerRange": { "x": 10.0, "y": 100.0 }, "NotifyWhenNotMet": true, "HideAllWhenNotMet": false } ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],

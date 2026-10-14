@@ -1,0 +1,42 @@
+{
+  "target": "CopperBathtub_Warm.png",
+  "sourceCard": "CardData/Item/CopperBathtub_Warm.json, CardData/Location/CopperBathtub_Warm_Placed.json",
+  "subject": "the new bathtub with warm blue-green water, three steam wisps, and the firebox lit (glow through the vent holes and door edges)",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history 7yLESDNYrVb0GClp4OGy",
+  "historyId": "7yLESDNYrVb0GClp4OGy",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798226305_86ed5de9_1791798226355_462c45aa.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "subject (this batch's new CopperBathtub_Empty)",
+      "image": "generation hwaIpSSwVJvGIaKltAtD",
+      "id": "xsmWfMqKV41cGyAdFy4Q",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798034120_e7f4ae0a_1791798034189_6e3175fb.png"
+    },
+    {
+      "role": "prop (fire glow)",
+      "image": "Resource/Picture/ACT_MetalStove_On_Copper.png (Chiwei)",
+      "id": "0wwvvL2sjqQgbIycWGJv",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ACT_MetalStove_On_Copper_1791797802407_3751887b.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798226305_86ed5de9_1791798226355_462c45aa.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed; 3:2 padded to 2:3 with white",
+  "note": "owner gallery rework 2026-10-12: we should rework this item to match the new stove"
+}

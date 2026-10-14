@@ -1,0 +1,51 @@
+{
+  "target": "ACT_CollapsedWall.png",
+  "sourceCard": [
+    "CardData/Location/CollapsedWallCopper.json",
+    "CardData/Location/CollapsedWallIron.json",
+    "CardData/Location/CollapsedWallQuarry.json",
+    "CardData/Location/CollapsedWallSalt.json",
+    "CardData/Location/CollapsedWallSaltQuarry.json",
+    "CardData/Location/CollapsedWallTin.json"
+  ],
+  "subject": "",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are the vanilla cave art: match their dark blue-black cave palette, deep shadow, rock shapes and flat painted style closely. Draw the inside of a deep cave tunnel, very dark and lit only by faint cool light, where a cave-in has collapsed the tunnel ahead: a heap of fallen boulders and rubble fills the whole passage and blocks it completely. Rock walls and ceiling visible, no torches, no lamps, no fire, no wooden supports, no people.\nThe painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "8MKSTRkJXgeWFvKIkebf",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791089930243_363acafa_1791089930614_273ad48d.png",
+  "credits": 150,
+  "generated": "2026-10-03",
+  "note": "Round 3 of the 2026-10-03 batch (regenerated from the owner's notes on rounds 1 and 2); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791089930638_50876730_1791089931374_119001df.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791089930092_fbc4df5a_1791089930411_c5559249.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791089930243_363acafa_1791089930614_273ad48d.png"
+    }
+  ],
+  "picked": "C",
+  "references": [
+    {
+      "label": "Tunnel_1.png",
+      "role": "style"
+    },
+    {
+      "label": "Mines.png",
+      "role": "style"
+    }
+  ]
+}

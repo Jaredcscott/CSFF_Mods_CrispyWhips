@@ -1,0 +1,96 @@
+{
+  "target": "CopperBathtub_Kit.png",
+  "sourceCard": "CardData/Item/CopperBathtub_Empty.json, CardData/Blueprint/Bp_CopperBathtub.json",
+  "subject": "the kit box in the Tea Station Kit layout, titled COPPER BATHTUB KIT (side panel BATHTUB KIT), box art the new copper bathtub in a forest clearing with a small low wooden towel rack and a folded cream towel beside its steps; no drying rack, no herbs",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history B0db1febLB3Fbo9wThrb",
+  "historyId": "B0db1febLB3Fbo9wThrb",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804625511_a3cbd6ad_1791804625570_33f133ac.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "references": [
+    {
+      "role": "box layout only (new Tea_Station_Kit generation)",
+      "image": "generation z5NK5pENEFKLMN6mA89O",
+      "id": "TLPs9XfqX68hXmjBOHY2",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798212071_2797db59_1791798212137_7cc79cd9.png"
+    },
+    {
+      "role": "subject (new CopperBathtub_Empty generation)",
+      "image": "generation hwaIpSSwVJvGIaKltAtD",
+      "id": "xsmWfMqKV41cGyAdFy4Q",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798034120_e7f4ae0a_1791798034189_6e3175fb.png"
+    },
+    {
+      "role": "prop (copper material)",
+      "image": "Resource/Picture/ACT_MetalStove_Off_Copper.png",
+      "id": "l64vpoA5I1z575d0eQa0",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/ACT_MetalStove_Off_Copper_1791797801718_1e83c6bb.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791804625511_a3cbd6ad_1791804625570_33f133ac.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed, trim_card_art.py; dark preview read: towel stays opaque, no halo",
+  "note": "owner gallery rework pass 2 2026-10-12: no drying rack but we do want a towel on a smaller rack near the stairs. The old kit image was not passed as a reference. OpenArt history lists only the first two input images, so the stove reference may not have reached the model",
+  "previous": {
+    "target": "CopperBathtub_Kit.png",
+    "sourceCard": "CardData/Item/CopperBathtub_Empty.json (Copper Bathtub Kit), CardData/Blueprint/Bp_CopperBathtub.json",
+    "subject": "a kit box in the same layout as the new Tea Station Kit, titled COPPER BATHTUB KIT, with the new bathtub as its box art",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "1K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "/create-image-refs, flat vanilla-style template (bold ink outline, posterized fills); the full prompt text is in OpenArt history cSifmxY0YOE6DEtWDXY8",
+    "historyId": "cSifmxY0YOE6DEtWDXY8",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798727357_d57f6b49_1791798728608_fd17b36a.png",
+    "credits": 40,
+    "generated": "2026-10-12",
+    "references": [
+      {
+        "role": "kit box layout (this batch's new Tea_Station_Kit)",
+        "image": "generation z5NK5pENEFKLMN6mA89O",
+        "id": "TLPs9XfqX68hXmjBOHY2",
+        "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798212071_2797db59_1791798212137_7cc79cd9.png"
+      },
+      {
+        "role": "subject (this batch's new CopperBathtub_Empty)",
+        "image": "generation hwaIpSSwVJvGIaKltAtD",
+        "id": "xsmWfMqKV41cGyAdFy4Q",
+        "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798034120_e7f4ae0a_1791798034189_6e3175fb.png"
+      }
+    ],
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798219744_f1b7917d_1791798219881_b84b1265.png",
+        "verdict": "rejected: top and side read COPPER BATHTUB BATHTUB KIT (historyId 5CS9QZCju26SbtFRKIge, SawmillKit + new bathtub refs)"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798727357_d57f6b49_1791798728608_fd17b36a.png",
+        "verdict": "shipped: text correct; carried the tea kit's herb rail into the box art (a stray prop) and the stove pipe crosses the box edge"
+      }
+    ],
+    "picked": "B",
+    "predicted": "B",
+    "finish": "keyed",
+    "note": "owner gallery rework 2026-10-12: we should rework this item to match the new stove"
+  }
+}

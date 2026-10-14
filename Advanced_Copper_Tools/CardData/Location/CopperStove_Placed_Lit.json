@@ -11,7 +11,268 @@
     "DefaultText": "A lit copper stove. Burns fuel and provides heat for cooking."
   },
   "CanBeRenamed": false,
-  "AlternateNames": [],
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[0].Name",
+        "DefaultText": "Small Copper Stove (Lit)"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_On_Copper",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[1].Name",
+        "DefaultText": "Small Ghost Bronze Stove (Lit)"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_On_GhostBronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[2].Name",
+        "DefaultText": "Small Tin Stove (Lit)"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_On_Tin",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[3].Name",
+        "DefaultText": "Small Tin Bronze Stove (Lit)"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_On_Bronze",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_AlternateNames[4].Name",
+        "DefaultText": "Small White Bronze Stove (Lit)"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalStove_On_WhiteBronze",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
   "LiquidSuffixName": {
     "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
     "LocalizationKey": "",
@@ -20,7 +281,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
     "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> A lit copper stove with 2 cooking slots. Consumes fuel over time. Goes out when fuel is empty."
+    "DefaultText": "<b>Usage:</b> A lit stove that holds 600 weight of cooking, like a campfire, and gives the same Sanctuary as its metal does unlit. Warms you in cold weather, dries you out, keeps bugs down and lights the area, but its fire makes you easier to spot. Consumes fuel over time: a full stove burns about 75 hours in copper or White Bronze, 83 in Ghost Bronze, 60 in Tin and 94 in Tin Bronze. Goes out when fuel is empty or when manually extinguished."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -30,13 +291,13 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "CopperStove_Placed_Lit",
+  "CardImageWarpData": "ACT_MetalStove_On_Copper",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 2,
   "CannotBeTransferred": false,
   "NotAutoSolvableEvent": false,
-  "ObjectWeight": 300.0,
+  "ObjectWeight": 600.0,
   "TradingValue": 250.0,
   "UsesOwnershipSystem": false,
   "CompatibleDutiesWarpData": [
@@ -109,6 +370,7 @@
         "TransformIntoWarpData": "advanced_copper_tools_copper_stove_placed",
         "TransformIntoWarpType": 3,
         "TransferFuel": true,
+        "TransferSpecial4": true,
         "TransferInventory": true,
         "TransferSpecial1": true,
         "TransferSpecial2": true
@@ -207,7 +469,29 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
   },
   "CardInteractions": [
     {
@@ -264,7 +548,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionTagsWarpData": [],
+      "ActionTagsWarpData": ["RefuelAction", "PartnerAction1"],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
         "Wood"
@@ -314,7 +598,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionTagsWarpData": [],
+      "ActionTagsWarpData": ["RefuelAction", "PartnerAction3"],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
         "Wood"
@@ -368,7 +652,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionTagsWarpData": [],
+      "ActionTagsWarpData": ["RefuelAction"],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
         "Wood"
@@ -706,6 +990,7 @@
         "TransformIntoWarpData": "advanced_copper_tools_copper_stove_placed",
         "TransformIntoWarpType": 3,
         "TransferFuel": true,
+        "TransferSpecial4": true,
         "TransferInventory": true,
         "TransferSpecial1": true,
         "TransferSpecial2": true,
@@ -713,8 +998,549 @@
       }
     }
   ],
-  "PassiveStatEffects": [],
+  "PassiveStatEffects": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "RateModifier": {
+        "x": -2.0,
+        "y": -2.0
+      }
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 25.0,
+        "y": 25.0
+      }
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "00c2afb9343f5c34988dcdb12a7792a8",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": -1.0,
+        "y": -1.0
+      }
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "86b0a8ee877e33945b0104fcbc404680",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": -150.0,
+        "y": -150.0
+      }
+    }
+  ],
   "PassiveEffects": [
+    {
+      "EffectName": "Sanctuary (Copper, Metal Type 100)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 100.0,
+            "y": 100.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 75.0,
+            "y": 75.0
+          }
+        }
+      ]
+    },
+    {
+      "EffectName": "Sanctuary (Ghost Bronze, Metal Type 110)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 110.0,
+            "y": 110.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 80.0,
+            "y": 80.0
+          }
+        }
+      ]
+    },
+    {
+      "EffectName": "Sanctuary (Tin, Metal Type 120)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 120.0,
+            "y": 120.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 65.0,
+            "y": 65.0
+          }
+        }
+      ]
+    },
+    {
+      "EffectName": "Sanctuary (Tin Bronze, Metal Type 130)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 130.0,
+            "y": 130.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 75.0,
+            "y": 75.0
+          }
+        }
+      ]
+    },
+    {
+      "EffectName": "Sanctuary (White Bronze, Metal Type 140)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 140.0,
+            "y": 140.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 90.0,
+            "y": 90.0
+          }
+        }
+      ]
+    },
+    {
+      "EffectName": "Burn Rate (Ghost Bronze, Metal Type 110)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 110.0,
+            "y": 110.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatModifiers": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": 0.1
+      },
+      "MultiplyFuelRate": false
+    },
+    {
+      "EffectName": "Burn Rate (Tin, Metal Type 120)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 120.0,
+            "y": 120.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatModifiers": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -0.25
+      },
+      "MultiplyFuelRate": false
+    },
+    {
+      "EffectName": "Burn Rate (Tin Bronze, Metal Type 130)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 130.0,
+            "y": 130.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatModifiers": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": 0.2
+      },
+      "MultiplyFuelRate": false
+    },
     {
       "EffectName": "Outdoor Warming",
       "OnlyWhenEquipped": false,
@@ -799,16 +1625,8 @@
   ],
   "EffectsToInventoryContent": [],
   "MaxLiquidCapacity": 0.0,
-  "InventorySlots": [
-    {
-      "m_FileID": 0,
-      "m_PathID": 0
-    },
-    {
-      "m_FileID": 0,
-      "m_PathID": 0
-    }
-  ],
+  "InventorySlots": [],
+  "MaxWeightCapacity": 600.0,
   "InventoryFilter": {
     "AcceptedCards": [],
     "AcceptedCardsWarpData": [],

@@ -3,12 +3,12 @@
   "CardName": {
     "ParentObjectID": "advanced_copper_tools_ore_chest",
     "LocalizationKey": "Advanced_Copper_Tools_OreChest_CardName",
-    "DefaultText": "Ore Chest"
+    "DefaultText": "Ore Bin"
   },
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_ore_chest",
     "LocalizationKey": "Advanced_Copper_Tools_OreChest_CardDescription",
-    "DefaultText": "A high-capacity sealed metal crate built for hauling bulk mining raws. No spoilage protection, just a lot of space."
+    "DefaultText": "A high-capacity open-topped metal bin for mined ore: Greenstone, bog iron, Tin Ore and Flint, and nothing else. No spoilage protection, just a lot of space."
   },
   "CanBeRenamed": true,
   "AlternateNames": [],
@@ -20,11 +20,11 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_ore_chest",
     "LocalizationKey": "Advanced_Copper_Tools_OreChest_CardHelpSection",
-    "DefaultText": "<b>Capacity:</b> 6000 weight, built for ore/stone/salt stacks.\n\n<b>Animal-safe:</b> Yes. Wildlife cannot raid this crate."
+    "DefaultText": "<b>Holds:</b> mined ore only: Greenstone, bog iron (fresh, dried, roasted or crushed), Tin Ore and Flint.\n\n<b>Capacity:</b> 6000 weight. No spoilage protection."
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Copper_Chest",
+  "CardImageWarpData": "OreChest",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 0,
@@ -71,18 +71,23 @@
   "InventorySlots": [],
   "InventoryFilter": {
     "AcceptedCards": [],
+    "AcceptedCardsWarpData": [
+      "bcc7d7a764978e447bc38b36dcca2055",
+      "e14cee44bf956754aad485bb11f777ea",
+      "b9845f4223861e44f96c7815f210f365",
+      "c61381754fe81ae49aa486249b52406d",
+      "cef83c7cd50093b489f4f19615bb2ddc",
+      "act_tin_ore",
+      "bef002cfd45b3e8459864746f403cf73"
+    ],
+    "AcceptedCardsWarpType": 3,
     "AcceptedTypes": [],
     "AcceptedTags": [],
     "NOTAcceptedCards": [],
     "NOTAcceptedTypes": [],
     "NOTAcceptedTags": [],
     "CardFilters": [],
-    "TagFilters": [
-      { "Tag": { "m_FileID": 0, "m_PathID": 0 }, "TagWarpData": "tag_LargeAnimal", "TagWarpType": 3, "NOT": true, "OnlyWithLiquid": false },
-      { "Tag": { "m_FileID": 0, "m_PathID": 0 }, "TagWarpData": "tag_MediumAnimal", "TagWarpType": 3, "NOT": true, "OnlyWithLiquid": false },
-      { "Tag": { "m_FileID": 0, "m_PathID": 0 }, "TagWarpData": "tag_SmallAnimal", "TagWarpType": 3, "NOT": true, "OnlyWithLiquid": false },
-      { "Tag": { "m_FileID": 0, "m_PathID": 0 }, "TagWarpData": "tag_TinyAnimal", "TagWarpType": 3, "NOT": true, "OnlyWithLiquid": false }
-    ]
+    "TagFilters": []
   },
   "SpillsInventoryOnDestroy": true,
   "InventorySlotsText": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
@@ -99,7 +104,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_ore_chest",
         "LocalizationKey": "Advanced_Copper_Tools_OreChest_DismantleActions_Place_ActionDescription",
-        "DefaultText": "Set the ore chest down in your environment."
+        "DefaultText": "Set the ore bin down in your environment."
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
@@ -127,7 +132,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_ore_chest",
         "LocalizationKey": "Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_ActionDescription",
-        "DefaultText": "Take the ore chest apart to recover some of the sheets."
+        "DefaultText": "Take the ore bin apart to recover some of the sheets."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -142,8 +147,8 @@
           "CollectionName": "",
           "CollectionWeight": 1,
           "DroppedCards": [
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "advanced_copper_tools_metal_sheet", "DroppedCardWarpType": 3, "Quantity": { "x": 3, "y": 4 } },
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 2 } }
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "advanced_copper_tools_metal_sheet", "DroppedCardWarpType": 3, "Quantity": { "x": 3, "y": 4 }, "TransferRules": {"Spoilage":0,"Usage":0,"Fuel":0,"Progress":0,"Special1":0,"Special2":3,"Special3":0,"Special4":3,"SpoilageValue":0.0,"UsageValue":0.0,"FuelValue":0.0,"ProgressValue":0.0,"Special1Value":0.0,"Special2Value":50.0,"Special3Value":0.0,"Special4Value":100.0,"SpoilageFrom":0,"UsageFrom":0,"FuelFrom":0,"ProgressFrom":0,"Special1From":0,"Special2From":0,"Special3From":0,"Special4From":0} },
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 2 },"TransferRules":{"Spoilage":0,"Usage":0,"Fuel":0,"Progress":0,"Special1":0,"Special2":0,"Special3":0,"Special4":3,"SpoilageValue":0.0,"UsageValue":0.0,"FuelValue":0.0,"ProgressValue":0.0,"Special1Value":0.0,"Special2Value":0.0,"Special3Value":0.0,"Special4Value":1.0,"SpoilageFrom":0,"UsageFrom":0,"FuelFrom":0,"ProgressFrom":0,"Special1From":0,"Special2From":0,"Special3From":0,"Special4From":0} }
           ]
         }
       ],

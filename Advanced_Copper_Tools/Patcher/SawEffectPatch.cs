@@ -8,16 +8,52 @@ using CSFFModFramework.Util;
 namespace Advanced_Copper_Tools.Patcher
 {
     /// <summary>
-    /// Enhances the Large Copper Saw's tree-cutting effectiveness.
-    /// When the saw is dragged onto a large tree, an extra -25 Progress is applied
-    /// before the normal Cut Tree action (which also does -25), totalling -50 per chop.
-    /// Result: Pine/Willow in 1 action, Oak in 2 actions (50% per hit).
+    /// Enhances the large saws' tree-cutting effectiveness, per metal.
+    /// When a saw is dragged onto a large tree, its extra Progress damage is applied
+    /// before the normal Cut Tree action (which does -25 Progress and -1 saw Usage on its own).
+    ///
+    /// The Large Copper Saw carries a Metal Type (SpecialDurability4, ACT 1.18.0, Documentation/Design/AdvancedCopperTools_Metal_Variant_Art_As_Built.md step 3)
+    /// and its felling power and wear follow it (tunable placeholders, research
+    /// Documentation/Research/AdvancedCopperTools/tierb-per-metal-stats.md section 3.1):
+    ///   Copper 100       -25 extra (50 per pull), wear 1.0  (100 pulls)
+    ///   Ghost Bronze 110 -25 extra (50 per pull), wear 0.6  (~166 pulls)
+    ///   Tin 120          -15 extra (40 per pull), wear 1.5  (~66 pulls)
+    ///   Tin Bronze 130   -25 extra (50 per pull), wear 0.5  (200 pulls)
+    ///   White Bronze 140 -50 extra (75 per pull), wear 1.25 (80 pulls)
+    /// The Iron saw (its own card, no Metal Type) keeps -50 extra and vanilla's wear of 1.
+    ///
+    /// Wear is the vanilla -1 plus a delta. Extra wear (delta below 0) is paid in Before, so the
+    /// vanilla -1 that follows is what takes a worn saw to 0 and fires its own OnZero ("Saw Broken!");
+    /// a direct field write never fires OnZero. A refund (delta above 0) is paid in After, once the
+    /// vanilla -1 has landed, so a full saw's refund is not lost to the 100 cap, and never on a saw
+    /// the action just broke.
     /// </summary>
     public static class SawEffectPatch
     {
         private static ManualLogSource Logger => Plugin.Logger;
 
-        private const string SawUniqueID = "advanced_copper_tools_large_saw";
+        private const string CopperSawUid = "advanced_copper_tools_large_saw";
+        private const string IronSawUid = "act_iron_large_saw";
+
+        private struct SawMetal
+        {
+            public float ExtraProgress;
+            public float WearDelta; // added to vanilla's -1 Usage per pull: wear = 1 - WearDelta
+            public SawMetal(float extraProgress, float wearDelta) { ExtraProgress = extraProgress; WearDelta = wearDelta; }
+        }
+
+        private static readonly SawMetal Copper = new SawMetal(-25f, 0f);
+        private static readonly SawMetal Iron = new SawMetal(-50f, 0f);
+
+        // Metal Type rung -> stats. Tunable placeholders.
+        private static readonly Dictionary<int, SawMetal> CopperSawByMetal = new Dictionary<int, SawMetal>
+        {
+            { 100, Copper },
+            { 110, new SawMetal(-25f, 0.4f) },   // Ghost Bronze: wear 0.6
+            { 120, new SawMetal(-15f, -0.5f) },  // Tin: wear 1.5
+            { 130, new SawMetal(-25f, 0.5f) },   // Tin Bronze: wear 0.5
+            { 140, new SawMetal(-50f, -0.25f) }, // White Bronze: wear 1.25
+        };
 
         private static readonly HashSet<string> LargeTreeGuids = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
@@ -27,6 +63,16 @@ namespace Advanced_Copper_Tools.Patcher
             "f27a6838066ae10428aa6df6d6259221"  // TreeWillowLarge
         };
 
+        // Never let a Before-side wear write reach 0 itself: OnZero fires only on the game's own change.
+        private const float MinUsageAfterPrepay = 0.01f;
+
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string msg)
+        {
+            if (_warned.Add(cause)) Logger.LogWarning($"[SawEffect] {msg} (logged once)");
+        }
+
         public static void ApplyPatch(Harmony _)
         {
             try
@@ -35,15 +81,32 @@ namespace Advanced_Copper_Tools.Patcher
                 {
                     Name = "SawEffect",
                     CardPredicate = ctx => ctx.CardUid != null && LargeTreeGuids.Contains(ctx.CardUid),
-                    Timing = ActionTiming.Before,
+                    Timing = ActionTiming.AfterWrapped,
                     Before = ctx =>
                     {
+                        ctx.Tag = null;
                         if (ctx.GivenCard == null) return false;
-                        if (CardUtil.GetCardUniqueId(ctx.GivenCard) != SawUniqueID) return false;
-                        const float extraDamage = -25f;
-                        if (CardUtil.ModifyDurabilityStat(ctx.Card, "CurrentProgress", extraDamage))
-                            Logger.LogDebug($"[SawEffect] Applied extra {extraDamage} Progress to {ctx.CardUid}");
+                        var sawUid = CardUtil.GetCardUniqueId(ctx.GivenCard);
+                        if (sawUid == null) return false;
+
+                        SawMetal metal;
+                        if (string.Equals(sawUid, IronSawUid, StringComparison.Ordinal)) metal = Iron;
+                        else if (string.Equals(sawUid, CopperSawUid, StringComparison.Ordinal)) metal = ResolveMetal(ctx.GivenCard);
+                        else return false;
+
+                        if (CardUtil.ModifyDurabilityStat(ctx.Card, "CurrentProgress", metal.ExtraProgress))
+                            Logger.LogDebug($"[SawEffect] Applied extra {metal.ExtraProgress} Progress to {ctx.CardUid}");
+                        else
+                            WarnOnce("progress-write", $"could not write CurrentProgress on {ctx.CardUid}; the saw fells at the vanilla rate");
+
+                        if (metal.WearDelta < 0f) PrepayWear(ctx.GivenCard, metal.WearDelta);
+                        else if (metal.WearDelta > 0f) ctx.Tag = metal.WearDelta;
                         return false;
+                    },
+                    After = ctx =>
+                    {
+                        if (!(ctx.Tag is float refund) || refund <= 0f || ctx.GivenCard == null) return;
+                        Refund(ctx.GivenCard, refund);
                     }
                 });
             }
@@ -51,6 +114,56 @@ namespace Advanced_Copper_Tools.Patcher
             {
                 Logger.LogError($"[SawEffect] Failed to apply patch: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        private static SawMetal ResolveMetal(object saw)
+        {
+            float sd4 = CardUtil.GetDurability(saw, "SpecialDurability4");
+            if (float.IsNaN(sd4))
+            {
+                WarnOnce("sd4-nan", "could not read the Large Copper Saw's Metal Type (SpecialDurability4); treating it as copper");
+                return Copper;
+            }
+            int rung = (int)Math.Round(sd4);
+            if (CopperSawByMetal.TryGetValue(rung, out var metal)) return metal;
+            WarnOnce("sd4-rung-" + rung, $"Large Copper Saw has Metal Type {sd4}, not a known rung (100-140); treating it as copper");
+            return Copper;
+        }
+
+        private static void PrepayWear(object saw, float delta)
+        {
+            float usage = CardUtil.GetDurability(saw, "UsageDurability");
+            if (float.IsNaN(usage))
+            {
+                WarnOnce("usage-read-before", "could not read the saw's Usage; extra wear skipped");
+                return;
+            }
+            float applied = Math.Max(delta, MinUsageAfterPrepay - usage);
+            if (applied >= 0f) return; // already at the floor: the vanilla -1 breaks it
+            if (!CardUtil.ModifyDurabilityStat(saw, "CurrentUsageDurability", applied))
+                WarnOnce("usage-write-before", "could not write the saw's CurrentUsageDurability; extra wear skipped");
+        }
+
+        private static void Refund(object saw, float delta)
+        {
+            if (saw is UnityEngine.Object uo && uo == null) return; // destroyed by the action
+            float usage = CardUtil.GetDurability(saw, "UsageDurability");
+            if (float.IsNaN(usage))
+            {
+                WarnOnce("usage-read-after", "could not read the saw's Usage; wear refund skipped");
+                return;
+            }
+            if (usage <= 0f) return; // the pull broke it: no refund on a broken saw
+            float max = CardUtil.GetDurabilityMax(saw, "UsageDurability");
+            if (float.IsNaN(max))
+            {
+                WarnOnce("usage-max", "could not read the saw's Usage maximum; wear refund skipped");
+                return;
+            }
+            float applied = Math.Min(delta, max - usage);
+            if (applied <= 0f) return;
+            if (!CardUtil.ModifyDurabilityStat(saw, "CurrentUsageDurability", applied))
+                WarnOnce("usage-write-after", "could not write the saw's CurrentUsageDurability; wear refund skipped");
         }
     }
 }

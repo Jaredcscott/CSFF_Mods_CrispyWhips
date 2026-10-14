@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_brazier_placed_lit",
     "LocalizationKey": "Advanced_Copper_Tools_CopperBrazierLit_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Illuminates a wide area and boosts morale. Extinguish before refueling."
+    "DefaultText": "<b>Usage:</b> Illuminates a wide area. Like any open fire it dries you out, keeps bugs and mosquitoes down, and makes you easier to spot. Warm Up and Wait by Fire warm you beside it. Extinguish before refueling."
   },
   "CardType": 2,
   "MapStructureType": 0,
@@ -33,6 +33,27 @@
       "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
       "StatWarpType": 3,
       "ValueModifier": { "x": 30.0, "y": 30.0 }
+    },
+    {
+      "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": 0.0, "y": 0.0 },
+      "RateModifier": { "x": -2.0, "y": -2.0 }
+    },
+    {
+      "StatWarpData": "00c2afb9343f5c34988dcdb12a7792a8",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": -1.0, "y": -1.0 }
+    },
+    {
+      "StatWarpData": "0dfa5d8ee5cd4f84592ebc6f68af7d16",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": -1.0, "y": -1.0 }
+    },
+    {
+      "StatWarpData": "86b0a8ee877e33945b0104fcbc404680",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": -150.0, "y": -150.0 }
     }
   ],
   "LightSource": {
@@ -125,6 +146,180 @@
   },
   "CardInteractions": [],
   "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_brazier_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBrazierLit_WarmUp_ActionName",
+        "DefaultText": "Warm Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_brazier_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBrazierLit_WarmUp_ActionDescription",
+        "DefaultText": "Warm yourself by the brazier."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": -100.0, "y": 105.0 }
+        }
+      ],
+      "StackCompatible": false,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 85.0, "y": 85.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": true, "FloatValue": -100.0, "MaxValue": 114.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -12.0, "y": -12.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 5.0, "y": 5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_brazier_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBrazierLit_WaitByFire_ActionName",
+        "DefaultText": "Wait by Fire"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_brazier_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBrazierLit_WaitByFire_ActionDescription",
+        "DefaultText": "Pass time warming yourself by the brazier."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 96.0, "y": 200.0 },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "HideActionIfNotMet": true
+      },
+      "DontCloseInspectionWindow": true,
+      "StackCompatible": false,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -100.0, "y": -100.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 15.0, "y": 15.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -12.0, "y": -12.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "f3be519dc5a6bc341b482cd6b36e596f",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 2.0, "y": 2.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "81b4c304d6711a14e883fa2fa7cd0c19",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -24.0, "y": -24.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 16.0, "y": 16.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
     {
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_copper_brazier_placed_lit",
