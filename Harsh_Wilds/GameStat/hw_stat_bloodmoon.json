@@ -1,0 +1,83 @@
+{
+    "UniqueID": "hw_stat_bloodmoon",
+    "//BloodMoon": "The blood moon itself: a self-timed hidden effect stat, the vanilla GarlicEffect shape (range 0 to max, BaseRatePerTick -1, statuses by ValueRange; Documentation/Research/HarshWilds/events_sky.md section 3 and its blood moon DECISION), built exactly like hw_stat_drought. Written ONLY by the Blood Moon collection of SelfTriggeredAction/Tgr_HW_BloodMoon.json (+HW_BLOODMOON_TICKS = 44, its max, applied Permanent by ActionRoutine when that collection is picked), then it counts itself down and rests at 0, so it needs no clearing code: armed at 18:00 to 18:45 it reaches 0 between 05:00 and 05:45. Nothing else writes it (a gate in HarshWilds-Events.Tests.ps1 reads every STA, every status effect and every C# file for a second writer). While it reads 1 to 44 its one status is active: it raises a Moderate alert when the blood moon begins (NotifyPlayer 2 NotifyWhenGoingUp, AlertLevel 2 Moderate) and shows the vanilla sprite Moon in the status strip (Visibility 0 VisibleWithStatus and StatusesHaveNoBar true, the vanilla RainValue shape for a weather condition, and the shape hw_stat_drought uses; Visibility 2 would be NeverVisible and hide the alert). The status has NO EffectsOnStats on purpose: its consumer is the framework, not a stat. HarshWilds/Animals/Lynx_BloodMoon1.json and Lynx_BloodMoon2.json name this stat in Spawn.Conditions (StatThreshold GreaterOrEqual 1), so the two extra lynxes are in the world exactly while it reads 1 or more and are retired to the Spirit World when it returns to 0. It is a GLOBAL stat, so the alert shows wherever the player is, indoors too. HW_BLOODMOON_TICKS = 44 (MinMaxValue.y, the status's ValueRange.y and the arm in Tgr_HW_BloodMoon, 11 hours) is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play; it is sized to outlast the lynx's 19 to 5 attack window from any arming tick in the 18:00 dusk hour, so retune it together with hw_clock_dusk and the status text. INFERRED, harness probe: that the collection-level StatWarpData resolves in a mod STA (measured working for hw_stat_drought on 2026-09-30) and that a save reloaded mid-night keeps the stat and its retired or restored lynxes.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_BloodMoon_StatName",
+        "DefaultText": "Blood Moon"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_BloodMoon_StatDescription",
+        "DefaultText": "A blood moon: more lynxes hunt the forest until dawn."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 44.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Moon",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_BloodMoon_StatusName",
+                "DefaultText": "Blood Moon"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_BloodMoon_StatusDescription",
+                "DefaultText": "The full moon hangs red tonight. Two more lynxes than usual prowl the pine groves and mountain thickets until dawn, and each may attack once."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Moon",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 44},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

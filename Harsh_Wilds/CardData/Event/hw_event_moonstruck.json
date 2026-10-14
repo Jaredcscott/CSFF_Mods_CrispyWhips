@@ -1,0 +1,70 @@
+{
+  "UniqueID": "hw_event_moonstruck",
+  "//PixieLed": "Feature 30 (plan section 30, pack Prompt 43): the Moon Realm danger event, spawned by Tgr_HW_MoonGlamour while the player stands in a realm and the [Threats] MoonGlamour switch is on. One instant button (DaytimeCost 0, so the stay clock can never cut it off, the Pixie-Led lesson) adds 20 Stress (vanilla Stress 3b79a4c6d7e151044a1c56fbbd401d78, range 0 to 240, which decays 0.25 a tick by itself, so it is a passing cost). It never touches the stay clock. Every number a TUNABLE PLACEHOLDER.",
+  "CardType": 3,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_Moonstruck_CardName",
+    "DefaultText": "Moonstruck"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_Moonstruck_CardDescription",
+    "DefaultText": "The moon is so near that you cannot look away. When you can move again your hands are shaking and your thoughts will not settle."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Moontouched",
+  "CardImageWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "HarshWilds_Moonstruck_ActionName",
+        "DefaultText": "Shake Off the Glamour"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "HarshWilds_Moonstruck_ActionDescription",
+        "DefaultText": "Look away and breathe until the feeling passes. It leaves you strained."
+      },
+      "DaytimeCost": 0,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 20.0,
+            "y": 20.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "target": "hw_athame.png",
+  "sourceCard": "CardData/Item/hw_athame.json",
+  "subject": "one short ritual knife with a pale cream-white bone blade, straight and narrow with a sharp pointed tip, set in a small plain hilt wrapped with dark charcoal-black twine, lying at a slight angle, no sheath, no engraving, no runes, no blood",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "22M2Kj39KLDhDTSDRjkt",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791815677320_2717690d_1791815677342_dbd7d0a2.png",
+  "credits": "see account (2412 before)",
+  "verdict": "one sample, 1K: straight cream bone blade, black twine hilt, no sheath, runes or blood; shared by the card and its blueprint",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      311,
+      411
+    ],
+    "transparent_pct": 93.1
+  },
+  "generated": "2026-10-12"
+}

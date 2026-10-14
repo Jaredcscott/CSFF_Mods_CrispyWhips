@@ -1,0 +1,58 @@
+{
+    "UniqueID": "hw_clock_daylight",
+    "//Clock": "THE DAYLIGHT HOUR-OF-DAY CLOCK: hw_clock_noon.json (whose comment explains the mechanism at length) with StartingHour 9 and EndingHour 18. A hidden 0 to 1 stat with BaseValue 0, no rate and ONE TimeOfDayMods entry adding +1 while the game hour is from StartingHour up to but NOT including EndingHour (.decomp/StatTimeOfDayModifier.cs IsInRange), so it reads 1 from 09:00 to 17:45 and 0 the rest of the day. The entry has NO requirements (a TimeOfDayMods entry that names a required stat is skipped when that stat does not resolve, which fails open); it is read only as a StatChangeTrigger entry {1,1} by Tgr_HW_Adder, so the adder never strikes at night. The hours 9 to 18 are a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (adders are sun-seekers). INFERRED, harness probe: the same as the noon clock's, that a non-empty TimeOfDayMods array survives the framework load, read as hw_clock_daylight 1 at 09:00 and 0 at 18:00.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_DaylightClock_StatName",
+        "DefaultText": "Harsh Wilds: Daylight Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_DaylightClock_StatDescription",
+        "DefaultText": "Hidden clock: 1 from 09:00 to 18:00 and 0 the rest of the day. The Adder only strikes while it reads 1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [
+        {
+            "StartingHour": 9,
+            "EndingHour": 18,
+            "RequiredCardsOrTagsOnBoard": [],
+            "RequiredStatValues": [],
+            "ValueModifier": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        }
+    ],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

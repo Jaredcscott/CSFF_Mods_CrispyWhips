@@ -1,0 +1,34 @@
+# Build output
+bin/
+obj/
+*.pdb
+*.dll.config
+
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Audit artifacts
+.audit/
+
+# Backups
+*.bak
+*~
+backup/
+
+# Repo-management scripts and tool state
+_materialize.py
+_strip_libs.py
+_fix_libignore.py
+.claude/
+Mod_Update_Manager/lib/
+Repeat_Action/lib/
+Skill_Speed_Boost/lib/

@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_wolverine_clock",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_WolverineClock_StatName",
+        "DefaultText": "Harsh Wilds: Wolverine Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_WolverineClock_StatDescription",
+        "DefaultText": "Hidden counter: how long until the Wolverine may next look for a catch in the traps."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 288.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false,
+    "//Tunables": "TUNABLE PLACEHOLDER: 288 ticks (3 days at 96 ticks per day), the same 288 as in hw_tgr_wolverine's clock trigger and reset. Climbs at 1 per tick, waits at its max while another gate (the switch or the season) is closed. Only read by hw_tgr_wolverine."
+}

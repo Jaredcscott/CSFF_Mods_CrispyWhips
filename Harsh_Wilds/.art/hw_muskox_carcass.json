@@ -1,0 +1,39 @@
+{
+  "target": "hw_muskox_carcass.png",
+  "sourceCard": "CardData/Item/hw_muskox_carcass.json and hw_muskox_carcass_bled.json",
+  "subject": "a dead musk ox lying flat on its side with its eyes closed and its four legs stretched out slack, very long shaggy dark brown hair, a pale cream saddle patch on the back, broad pale horns that sweep down beside the face and curl up at the tips, pale lower legs, clean unbroken coat with no wounds, one whole animal and nothing else",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a dead musk ox lying flat on its side with its eyes closed and its four legs stretched out slack, very long shaggy dark brown hair, a pale cream saddle patch on the back, broad pale horns that sweep down beside the face and curl up at the tips, pale lower legs, clean unbroken coat with no wounds, one whole animal and nothing else, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, blood, pool of blood, wounds, gore, open eyes, rope, cord, hanging, skinned, knife, second animal, snow, grass, ground patch under the body, snow patch, grey shadow under the legs.",
+  "historyId": "j6QDGKoQNvNFLe7f15VT",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790606724498_5410f8b7_1790606724600_961cc72e.png",
+  "credits": 30,
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790592694230_0d201a21_1790592694899_3405491a.png",
+      "verdict": "rejected: a pale ground patch painted under the body and legs, against 'no ground shadow'"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790606724498_5410f8b7_1790606724600_961cc72e.png",
+      "verdict": "shipped: regenerated with ground patch, snow patch and leg shadow in Avoid; no ground patch, eyes closed, legs slack"
+    }
+  ],
+  "picked": "B",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 76.8
+  },
+  "generated": "2026-09-28"
+}

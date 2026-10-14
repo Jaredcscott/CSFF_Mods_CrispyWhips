@@ -1,0 +1,150 @@
+{
+    "UniqueID": "hw_bp_spirit_mask",
+    "//RitualObject": "Feature 25 (plan section 25, pack Prompt 33; W0-16: the coats' 'spiritually open' effects key on AlteredMindstate, vanilla jars refuse an essence except copper and glazed ones, no vanilla charm or shrine gives this gift). Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_spirit_mask",
+        "LocalizationKey": "HarshWilds_BpSpiritMask_CardName",
+        "DefaultText": "Spirit Mask"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_spirit_mask",
+        "LocalizationKey": "HarshWilds_BpSpiritMask_CardDescription",
+        "DefaultText": "Carve an animal face from wood, blacken it with charcoal and tie it on with twine."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_spirit_mask",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "hw_bp_spirit_mask",
+        "LocalizationKey": "HarshWilds_BpSpiritMask_UnlockConditionsDesc",
+        "DefaultText": "Requires some Insight."
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 16,
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "StatWarpData": "36e14930ddfdcdb4b901f6416b5453be",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 1.5,
+                    "y": 1500.0
+                },
+                "NotifyWhenNotMet": false,
+                "HideAllWhenNotMet": false
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "692afc638c39e32428629da58f56136a",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "51c751469bd15ce46804e399479d1764",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredTabGroupWarpData": "GpTag_SharpKnife",
+                    "RequiredTabGroupWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "hw_spirit_mask",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

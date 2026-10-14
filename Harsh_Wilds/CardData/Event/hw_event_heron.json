@@ -1,0 +1,50 @@
+{
+    "UniqueID": "hw_event_heron",
+    "//Heron": "The event card hw_tgr_heron spawns. One popup with one button; clicking it lowers the Minnow (SpecialDurability3) and Perch (SpecialDurability2) of ONE Water-Driven Infrastructure fishpond in the current location, never Pike (SpecialDurability1), and never any other card. AppliesTo 6 = AllCardsInLocation (Documentation/Design/Harsh_Wilds_Content_Update_As_Built.md Wave 0 findings W0-3: the eagle's 5, AllCardsInBase, never reaches a placed CT2 pond). CardChanges 0 = ChangeDurabilities, so the pond card is changed and never destroyed; LookInInventories false; RandomlyAffectedCards 1 Absolute (one pond per visit). Special3Change -2 and Special2Change -1 are TUNABLE PLACEHOLDERS (a pond holds 10 of each, regrowing 0.005 a tick; a stocked pond starts at 4). Both numbers are fixed ranges, x equal to y. There is deliberately NO NoCardsAffectedMessage (plan 4.2: the measured second popup after a successful change), and no CustomDestroyMessage because nothing is destroyed: the player sees the card go and the pond's fish bars drop. DANGER, guarded in C#: ExtraDurabilityChange.AppliesToAllCards reads an empty resolved AffectedCards as EVERY card, which is what a list of two pond UIDs becomes when Water-Driven Infrastructure is not installed. Patcher/HeronRaidGuard.cs checks the loaded change after every load and empties ExtraDurabilityModifications unless AffectedCards is exactly the two ponds. The list is the two UIDs of hw_tgr_heron's weight rows; keep them identical (Development_Tools/Tests/HarshWilds-Heron.Tests.ps1 checks it).",
+    "//Image": "Card art HarshWilds/Resource/Picture/hw_event_heron.png (512x768 RGBA, paper keyed), provenance in HarshWilds/.art/hw_event_heron.json: a grey heron standing at a pond's edge with a small fish in its beak.",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_HeronEvent_CardName",
+        "DefaultText": "Heron at the Pond"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_HeronEvent_CardDescription",
+        "DefaultText": "A grey heron stands motionless at the water's edge, watching the shallows for small fish."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_heron",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_HeronEvent_ActionName",
+                "DefaultText": "See what it takes"
+            },
+            "DaytimeCost": 0,
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCardsWarpData": [
+                        "water_sawmill_fishpond_filled",
+                        "water_sawmill_fishpond_stocked"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AppliesTo": 6,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "Special2Change": {"x": -1.0, "y": -1.0},
+                    "Special3Change": {"x": -2.0, "y": -2.0},
+                    "CardChanges": 0,
+                    "DropOnDestroyList": false,
+                    "RandomlyAffectedCards": 1.0,
+                    "RandomAmountType": 1
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

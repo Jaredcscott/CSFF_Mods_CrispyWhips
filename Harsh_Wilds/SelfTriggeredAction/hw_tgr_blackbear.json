@@ -1,0 +1,149 @@
+{
+    "UniqueID": "hw_tgr_blackbear",
+    "//Realm": "Feature 30 (plan section 30, pack Prompt 42; W0-18 section 2.5): the first StatChangeTrigger entry, hidden hw_stat_in_realm at {0,0}, holds this roll while the player stands in a realm (the realm location card raises the flag by a passive while it is on the player's board). With RepeatOptions 2 the clock waits at its top and the roll fires on the first tick home. A gate on a stat that resolves to nothing never fires, so this fails closed.",
+    "//BlackBear": "The black bear's roll: the raids.md section 5 FALLBACK, built because the primary cannot be (see hw_event_blackbear.json for why). There is NO bear card, NO Animals manifest, NO Approach button and NO encounter: the bear exists only as this roll and the event card it spawns, so it cannot be fought, killed or skinned and has no carcass. Shaped on hw_tgr_eagle.json, itself shaped on vanilla Tgr_MouseRaid. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues (an unresolved trigger stat never fires, an unresolved RequiredStatValues stat is skipped and the gate vanishes, events_sky.md sections 2 and 7). Gate 1, hw_switch_blackbear {1,1}: 0 (the [Threats] BlackBear switch off) can never fire it. Gate 2, SeasonCounter_Autumn {480,2880} (vanilla GameStat f6f436140ffd58644a6438c0838e05a1: 0 outside autumn, then +1 per tick from 1 to 2880 through the season, MEASURED from its Statuses): autumn only, and BEAR_GRACE_TICKS 480 = the first 5 days of every autumn are quiet. Gate 3, hw_bear_clock {288,288}: the counter has climbed to its max (BEAR_CLOCK_TICKS 288 = 3 days). Gate 4, Sheltered {0,0} (vanilla GameStat e2031c58efb4cb84fa95a3a813513dae): the player is outdoors, so the raid never happens on a cabin's own shelves. RepeatOptions 2 (ResetWhenOutOfRange) with the action's own reset of the clock by -288 makes each firing one roll. Roll: Nothing has weight BEAR_NOTHING_WEIGHT 50; BlackBear has base weight 0 plus BEAR_BAIT_WEIGHT 5 for each allow-listed card (cured or raw meat, fish and sausage, 11 UniqueIDs, never a tag: the export names tags by file name and one name covers unrelated cards) found in the current location's base row or location row, INCLUDING inside containers (ExcludeInventory false; the eagle counts only loose cards), and each of those 11 cards has a SECOND row, ExcludeInventory true with MaxWeightPerCard -5, that nets a LOOSE copy back to 0 (CardsDropCollection.GetCardWeightMods sums every row per card, W0-2), so only food inside a container or a placed store raises the odds. So a board with no such food can never produce the event, 1 card is 5 in 55 (about 9 percent per roll), 10 are 50 in 100 (50 percent), 20 are 100 in 150. Counterplay, the vanilla mouse's: a vanilla DogFriend (guid e20e89c6581b26a4a88ce4b9b7826e5f) on the board takes BEAR_DOG_WEIGHT -100 off the BlackBear weight, so a dog cancels the first 20 cards. More counterplay (Prompt 10 of the plan, all TUNABLE PLACEHOLDERS): a burning Campfire (guid 63e4efe772bf6f649b30c893a0257ef0) or FirePit (f16aa437d91e2434ab7a4b7a8827a826) each take HW_BEAR_FIRE_WEIGHT -50 (kept below the dog's; the extinguished states are separate cards and count for nothing) and Sirus23's fc_wolf_companion takes -100 like the dog; the Sirus23 row adds nothing without Sirus23, and a collection at 0 or below is excluded from the pick while Nothing keeps 50. KNOWN MISMATCH, narrowed by the paired -5 rows (loose food on the ground no longer counts, food inside any container still does) and not a defect: the +5 rows count a card inside any container in the base row or the location row, while the event card's button reaches only the LOCATION row (placed structures) and their inventories, so cured meat kept ONLY in a portable container on the ground can raise the odds and then be found safe (the click then finds nothing and the card just goes away, silently). At most one event per clock period (288 ticks) and one card per event (RandomlyAffectedCards 1, Absolute). Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. WIDER LARDER (plan section 5, Prompt 12): five more cards sit in both rows at the same weight, vanilla honeycomb (BeeHoneycomb 33cf4067563dac649b026a87ba0766bd) and four sibling UIDs (advanced_copper_tools_salt_cured_meat, sh_sheep_cheese, sh_aged_sheep_cheese, sh_smoked_cheese) that are only a weight row here: with the sibling mod absent the row matches no card and adds nothing, so the 11 vanilla foods plus honeycomb are the whole list on a bare install. Keep the list identical to hw_event_blackbear.json AffectedCardsWarpData. INFERRED risks, for the dispatcher's harness run: that SeasonCounter_Autumn reads 480 to 2880 in late autumn and 0 in every other season, whether Sheltered reads 0 in an open forest, what the clock does while gated off (it is expected to wait at 288), and whether a negative-weight row clamps the collection at 0 (vanilla Tgr_MouseRaid relies on that).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_tgr_blackbear",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Black Bear Raid"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_in_realm",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_blackbear",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "f6f436140ffd58644a6438c0838e05a1",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 480.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_bear_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 288.0, "y": 288.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_bear_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -288.0, "y": -288.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 50,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "hw_tune_raids", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 0.0}, "InterpWeightRange": {"x": 50, "y": 50}, "WhenOutOfRange": 0},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "hw_tune_raids", "StatWarpType": 3, "StatRange": {"x": 2.0, "y": 2.0}, "InterpWeightRange": {"x": -20, "y": -20}, "WhenOutOfRange": 0}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "BlackBear",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 0,
+                    "CardDropChanceModifiers": [
+                        {"CardOnBoardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "f4be79e87ba98db41a9c9e31bb76c33d", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "1e3f5517c9203e74b9c76a7bae1a3920", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "272fe32c20eebef4d82290c7a31ac885", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "0e26aee350306af4eb4f0af0423481ee", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "3103c059d34608a4bb95c426d9ac77e0", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "d6b37ce716d384b4db1ab37e1af1800f", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "722c6b3b214bdac4f9c5cbf4cd0ca9fa", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "a7392bea52fed484fb819a1cf444c7fc", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "3a326a87ca81c1f43afb62d15a31261a", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "9744e54b2690a01468e5373f1ae6a2de", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "33cf4067563dac649b026a87ba0766bd", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "advanced_copper_tools_salt_cured_meat", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "sh_sheep_cheese", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "sh_aged_sheep_cheese", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "sh_smoked_cheese", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": false, "MaxWeightPerCard": 5},
+                        {"CardOnBoardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "f4be79e87ba98db41a9c9e31bb76c33d", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "1e3f5517c9203e74b9c76a7bae1a3920", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "272fe32c20eebef4d82290c7a31ac885", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "0e26aee350306af4eb4f0af0423481ee", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "3103c059d34608a4bb95c426d9ac77e0", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "d6b37ce716d384b4db1ab37e1af1800f", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "722c6b3b214bdac4f9c5cbf4cd0ca9fa", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "a7392bea52fed484fb819a1cf444c7fc", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "3a326a87ca81c1f43afb62d15a31261a", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "9744e54b2690a01468e5373f1ae6a2de", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "33cf4067563dac649b026a87ba0766bd", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "advanced_copper_tools_salt_cured_meat", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "sh_sheep_cheese", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "sh_aged_sheep_cheese", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "sh_smoked_cheese", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": -5},
+                        {"CardOnBoardWarpData": "e20e89c6581b26a4a88ce4b9b7826e5f", "CardOnBoardWarpType": 3, "NotInHand": false, "ExcludeInventory": false, "MaxWeightPerCard": -100},
+                        {"CardOnBoardWarpData": "63e4efe772bf6f649b30c893a0257ef0", "CardOnBoardWarpType": 3, "NotInHand": false, "ExcludeInventory": false, "MaxWeightPerCard": -50},
+                        {"CardOnBoardWarpData": "f16aa437d91e2434ab7a4b7a8827a826", "CardOnBoardWarpType": 3, "NotInHand": false, "ExcludeInventory": false, "MaxWeightPerCard": -50},
+                        {"CardOnBoardWarpData": "fc_wolf_companion", "CardOnBoardWarpType": 3, "NotInHand": false, "ExcludeInventory": false, "MaxWeightPerCard": -100}
+                    ],
+                    "StatModifications": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3", "StatWarpType": 3, "RequiredCardsOnBoard": [], "ValueModifier": {"x": 1.0, "y": 1.0}, "RateModifier": {"x": 0.0, "y": 0.0}}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_blackbear",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

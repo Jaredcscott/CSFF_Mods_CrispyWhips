@@ -1,0 +1,58 @@
+{
+    "UniqueID": "hw_clock_noon",
+    "//Clock": "THE NOON HOUR-OF-DAY CLOCK: hw_clock_dusk.json (the blood moon's clock, whose comment explains the mechanism at length) with StartingHour 12 and EndingHour 13. It is NOT a counter like hw_eagle_clock and hw_bear_clock; it says what hour it is. The shape is vanilla GameStat/IsNight.json: a hidden 0 to 1 stat with BaseValue 0, no rate, and ONE TimeOfDayMods entry that adds +1 while the game hour is from StartingHour up to but NOT including EndingHour (.decomp/StatTimeOfDayModifier.cs IsInRange, start <= hour < end), so the stat reads 1 for 12:00, 12:15, 12:30 and 12:45 (four ticks, one hour) and 0 the rest of the day. The entry has NO requirements (RequiredCardsOrTagsOnBoard and RequiredStatValues are empty): a TimeOfDayMods entry that names a required stat is skipped when that stat does not resolve (FAIL OPEN, .decomp/StatTimeOfDayModifier.cs StatsValid), which is why the clock is bare and every other gate is a StatChangeTrigger entry of the event that reads it. It is only ever read as a StatChangeTrigger entry {1,1} by Tgr_HW_Eclipse: at 12:00 it turns 1, which is the tick the eclipse rolls, and at 13:00 it turns 0, which re-arms the roll (RepeatOptions 2). The hour 12 to 13 is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play; every 24 hour new moon window holds each clock hour exactly once, so a noon is never skipped. INFERRED, harness probe: the same as the dusk clock's, that the framework's load keeps a non-empty TimeOfDayMods array (the dusk clock was the first to need it), read as hw_clock_noon 1 at 12:00 and 0 at 13:00 through the harness stats query.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_NoonClock_StatName",
+        "DefaultText": "Harsh Wilds: Noon Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_NoonClock_StatDescription",
+        "DefaultText": "Hidden clock: 1 from 12:00 to 13:00 and 0 the rest of the day. The Eclipse rolls when it turns 1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [
+        {
+            "StartingHour": 12,
+            "EndingHour": 13,
+            "RequiredCardsOrTagsOnBoard": [],
+            "RequiredStatValues": [],
+            "ValueModifier": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        }
+    ],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

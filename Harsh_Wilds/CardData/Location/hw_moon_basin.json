@@ -1,0 +1,97 @@
+{
+  "UniqueID": "hw_moon_basin",
+  "//MoonBasin": "Feature 30, the Moon Realm's door (plan section 30, pack Prompt 43). A CardType 2 the player raises BESIDE vanilla's Moon Stone shrine (SpiritShrine_Moon_MoonStone, edf06b9a40876314f99f63e58a23d8d0; its blueprint hw_bp_moon_basin is location-locked to a board holding that shrine, so the shrine card itself is never edited). One action, 'Step into the Moonlight': offered at night (vanilla IsNight 413a4f94cfbfb8d4897c9dbf9dfbd49a at 1) under a full moon (vanilla MoonShape b9eb12da7bd636844808414c9748f879 at 4, as the fairy ring reads it; a TUNABLE PLACEHOLDER), no time cost (like the ring, so no wild encounter can interrupt the step), and it drops only the instanced CardType 4 hwenvmoonrealm. UniqueOnBoard: one basin to a shrine. The way back is the realm's own exit card hw_moon_exit.",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_MoonBasin_CardName",
+    "DefaultText": "Moon Basin"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_MoonBasin_CardDescription",
+    "DefaultText": "A shallow stone basin set beside the Moon Stone and filled with still water. On a full-moon night the moon lies in it as if the water were a door. Step into the moonlight and you may find the Moon Realm; you cannot stay long."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Moonstone",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 1000.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "HarshWilds_MoonBasin_EnterName",
+        "DefaultText": "Step into the Moonlight"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "HarshWilds_MoonBasin_EnterDescription",
+        "DefaultText": "On a full-moon night, step into the basin's moonlight and through it, into the Moon Realm. You can stay a few hours at most: step back through whenever you like, and when the moonlight runs out the pool sends you home to this shrine."
+      },
+      "DaytimeCost": 0,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "HarshWilds_MoonBasin_EnterFade",
+        "DefaultText": "You step into the moonlight..."
+      },
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9eb12da7bd636844808414c9748f879",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.0,
+            "y": 4.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Moon Realm",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "hwenvmoonrealm",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

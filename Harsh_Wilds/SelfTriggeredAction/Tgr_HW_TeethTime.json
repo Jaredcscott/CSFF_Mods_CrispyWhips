@@ -1,0 +1,64 @@
+{
+    "UniqueID": "Tgr_HW_TeethTime",
+    "//TeethTime": "Tooth decay source 3 of 3 (Documentation/Research/HarshWilds/afflictions.md section 3.4, the tooth decay DECISION): time and neglect, a low daily background roll that needs no food at all. ALL GATES ARE StatChangeTrigger ENTRIES (an unresolved one fails closed), and here the only gate is hw_switch_toothdecay {1,1}: the roll runs every day for as long as the threat is on. RepeatOptions 0 (Repeat), ActionCooldown 96 (one game day) and OncePerTick: it plays on the first tick the gate is open (a new game or a save that has not rolled yet, which is also a roll) and then every 96 ticks, and a Nothing pick counts as a firing, so it also starts the cooldown. Roll: Nothing (weight HW_TEETH_TIME_NOTHING = 59, one card-less drop) against Cavity (weight 1, a card-less drop too), 1 in 60 a day. The Cavity collection adds HW_TEETH_PER_CAVITY_SMALL = 24 to hw_teeth (a quarter of a band). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P3 shape: one firing a 96-tick day, never two in a tick).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_TeethTime",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Teeth Time"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_toothdecay",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 59,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Cavity",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_teeth",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 24.0, "y": 24.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "HW_RealmQuiet",
+  "//": "Feature 30 (plan section 30, pack Prompts 42 and 43; the Faerie Realm, the Moon Realm and the Underworld are all listed in GuardEnvironmentUids): Harsh Wilds' own animals never attack the player in a realm. Framework 2.28.0+ guard (CSFFModFramework/Loading/EncounterGuardLoader.cs header): while the player stands in any env listed in GuardEnvironmentUids (GameQuery.CurrentEnvironmentUniqueId, the realm's MAIN env card for an instanced env), an agent's OWN attack whose encounter is named in EncounterUids, or whose agent is named in AgentUids, is cancelled where it is built (Patching/AgentEncounterGuardPatch.cs); a non-empty list is what lets the guard reach agent attacks at all. The five named encounters are every Harsh Wilds manifest with an Aggression block (the lynx and its two blood-moon kin share hw_encounter_lynx; the bandit, lake beast, frost demon and lindwurm). AgentUids names one sibling agent, Sirus23's Wild Owl (wildowl_agent), whose duty teleports it to the player: measured live 2026-10-12 (rig 2), it followed the player into the realm on every night entry and opened its encounter there. Without Sirus23 that UID resolves to nothing and the loader keeps it inert. A fight the player chooses (the Approach button) is never suppressed by any guard. Vanilla's own wildlife (the bear, wolves, boars) are not named here and keep the base game's cellar behaviour: they can follow the player in, as into a cellar.",
+  "GuardEnvironmentUids": ["hwenvfaerierealm", "hwenvmoonrealm", "hwenvunderworld"],
+  "EncounterUids": [
+    "hw_encounter_lynx",
+    "hw_encounter_bandit",
+    "hw_encounter_lakebeast",
+    "hw_encounter_frostdemon",
+    "hw_encounter_lindwurm"
+  ],
+  "AgentUids": ["wildowl_agent"],
+  "SuppressChance": 100
+}

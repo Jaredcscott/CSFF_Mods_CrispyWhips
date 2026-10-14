@@ -1,0 +1,80 @@
+{
+    "UniqueID": "Tgr_HW_InsectPlague",
+    "//InsectPlague": "The insect plague's roll (Documentation/Research/HarshWilds/events_stats.md sections 1c skeleton (a) and 4c, the insect plague DECISION), shaped on Tgr_HW_Drought: a rolled SelfTriggeredAction arms a self-timed hidden effect stat, with no CT3 event card. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open). Gate 1, hw_switch_insectplague {1,1}: with the [Threats] InsectPlague switch off this can never fire. Gate 2, vanilla SeasonCounter_Summer (4a9284146ffc28242b1f591ac7f7541f) {1,2880}: summer only (0 in every other season). Gate 3, hw_stat_insectplague {0,0}: no plague is already running. RepeatOptions 0 (Repeat), ActionCooldown 96 and OncePerTick: one roll a game day while every gate holds; a Nothing pick counts as a firing, so it also starts the cooldown. Roll: Nothing (weight HW_PLAGUE_NOTHING_WEIGHT = 11, one card-less drop) against Insect Plague (weight HW_PLAGUE_EVENT_WEIGHT = 1, one card-less drop too, since a collection with no potential drop gets weight 0 and could never be picked), so a 1 in 12 chance on each eligible day, about two plagues in a 30 day summer (arithmetic only). The Insect Plague collection's own StatModifications (applied only when that collection is picked, the shape the drought's live run proved resolves in a mod STA) arm hw_stat_insectplague by HW_PLAGUE_TICKS = 288, its max; the timer then counts down and ends the plague at 0. This file drops no card and writes no vanilla stat: the plague acts through Tgr_HW_PlagueSwarm and hw_stat_bugswarm. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_InsectPlague",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Insect Plague Roll"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_insectplague",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_insectplague",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 11,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Insect Plague",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_stat_insectplague",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 288.0, "y": 288.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

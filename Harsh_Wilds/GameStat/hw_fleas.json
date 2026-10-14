@@ -1,0 +1,226 @@
+{
+    "UniqueID": "hw_fleas",
+    "//Fleas": "The first Harsh Wilds AFFLICTION: one VISIBLE GameStat whose icon statuses do the harm (Documentation/Research/HarshWilds/afflictions.md sections 1.7 and 2.3, the skeleton DECISION and the first fleas DECISION). The key set is exactly HerbsAndFungi/GameStat/HF_HerbalTonic.json's. Visibility 0 (VisibleWithStatus) with an icon on every status is how vanilla BugBites, Parasites and Rash are seen: InGameStat.FindFirstVisibleStatus shows the first current status that has an Icon, so a status without one is invisible, and at 0 (no status in range) nothing shows because the default status is only built for AlwaysVisible or pinned stats (GameManager status update). VisibleInDetailedList false and NO detailed-tab entry: a StatListTab is scene-scoped and GameSourceModify cannot reach it (CLAUDE.md GameSourceModify), and the status strip is all an affliction needs. BaseRatePerTick HW_FLEAS_RATE = 0: fleas never leave on their own, so a cure matters (vanilla Parasites is rate 0 too). Every write to this stat is a PERMANENT base write clamped on write (GameManager.ChangeStatValue): the four sources (SelfTriggeredAction/Tgr_HW_FleasBedLeaf, Tgr_HW_FleasBedSkin, Tgr_HW_FleasDirty, Tgr_HW_FleasCompanion) each add HW_FLEAS_PER_INFEST = 96 (one band) only when their roll picks the Fleas collection; the cures subtract (Tgr_HW_FleasWash -24 every 24 ticks while clean, Tgr_HW_FleasBogMyrtle and Tgr_HW_FleasJuniper -4 a tick while vanilla's repellent effect lasts, CardData/Item/hw_herbal_wash -144, or -288 with a herb), and Tgr_HW_FleasSwitchOff clears it while the [Threats] FleasAndLice switch is off. Every write is a multiple of 4, so the values it can land on are the multiples of 4 from 0 to the cap; every trigger on it starts at 1 and is open at the top, so no trigger edge sits on a landing value or on the cap (Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1 [clamp-own]). No perk writes it (no StartingStatModifiers anywhere in the mod). Status costs are GLOBAL modifiers, clamped when read, and touch only vanilla Comfort (value) and Stress (rate): Comfort HW_FLEAS_COMFORT_1..3 = -10, -25, -40 (range -100..100, so it cannot pin), Stress HW_FLEAS_STRESS_1..3 = +0.25, +0.5, +1.0 a tick, half of vanilla Rash's because Rash heals itself and this does not. Against vanilla Stress's own base rate -0.25 and its own status rates (-0.5 from 145, -1.0 from 193) band 1 only stops stress easing, band 2 settles near 145 and band 3 near 193, so fleas alone never pin Stress at 240, where vanilla Tgr_Anxiety fires (the gate's [clamp-rate] recomputes that from the export). Icons are vanilla sprite names checked against VanillaSprites.txt: BugBites_Old for the first two bands and the default, Bugs_Old for the third. Every number here is a TUNABLE PLACEHOLDER (HW_FLEAS_*), session-inferred and unmeasured against play, never balanced.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Fleas_StatName",
+        "DefaultText": "Fleas and Lice"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Fleas_StatDescription",
+        "DefaultText": "Fleas and lice in your hair, clothes and bedding. They never leave on their own. Keeping yourself clean drives them out slowly; the smoke of burning bog myrtle or juniper, bog myrtle leaves or bug repellent salve rubbed on, and a herbal wash drive them out faster."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 288.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "BugBites_Old",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Fleas_Status1_Name",
+                "DefaultText": "Flea Bites"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Fleas_Status1_Description",
+                "DefaultText": "A few fleas and lice have found you. The bites itch: less comfort, and your stress stops easing."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "BugBites_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 96},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.25, "y": 0.25},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 1,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Fleas_Status2_Name",
+                "DefaultText": "Fleas"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Fleas_Status2_Description",
+                "DefaultText": "Fleas and lice are breeding in your clothes and hair: much less comfort, and your stress slowly rises."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "BugBites_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 97, "y": 192},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -25.0, "y": -25.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.5, "y": 0.5},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Fleas_Status3_Name",
+                "DefaultText": "Infested"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Fleas_Status3_Description",
+                "DefaultText": "You are crawling with fleas and lice: far less comfort, and your stress keeps rising. Wash, smoke them out or use a herbal wash."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Bugs_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 193, "y": 288},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -40.0, "y": -40.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 1.0, "y": 1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 3,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

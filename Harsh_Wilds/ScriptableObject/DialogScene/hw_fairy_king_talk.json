@@ -1,0 +1,12 @@
+{
+  "//": "Feature 31, the Fairy King's dialog (pack Prompt 46), on the shaman's chassis (plan section 32 as-built note; CMC's DialogScene precedent). Started by hw_fairy_king's 'Speak with the King' button. A non-UID ScriptableObject carrying *WarpData needs framework 2.15.1+ (root CLAUDE.md, Custom Non-UID ScriptableObjects). The offer line is listed BEFORE the fallback because DialogScene.GetStartingLine returns the first StartingPoint line whose StartingConditions hold: the offer while the bargain has not been struck (hw_stat_king_bargain 0), the fallback every time after.",
+  "SceneTitle": {
+    "LocalizationKey": "HarshWilds_FairyKing_SceneTitle",
+    "DefaultText": "The Fairy King"
+  },
+  "SceneLinesWarpData": [
+    "hw_fairy_king_talk_offer",
+    "hw_fairy_king_talk_after"
+  ],
+  "SceneLinesWarpType": 3
+}

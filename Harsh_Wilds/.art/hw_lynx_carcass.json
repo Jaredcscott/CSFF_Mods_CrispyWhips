@@ -1,0 +1,40 @@
+{
+  "target": "hw_lynx_carcass.png",
+  "sourceCard": "CardData/Item/hw_lynx_carcass.json, hw_lynx_trapped.json",
+  "subject": "Draw: a dead Eurasian lynx lying on its side, about twice as long as it is tall, one whole animal and nothing else.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose. Reference image 1 shows the lynx: draw this same animal, keeping its tawny grey-beige coat, small dark brown spots, long black ear tufts, pale facial ruff, short black-tipped bobbed tail, proportions and drawing style identical, changed only as follows: it is dead, lying limp on its side with its legs slack and its eyes closed, clean unbroken fur with no wounds, and there is no forest: the animal alone. Reference image 2 is a style reference only: match how the game draws a dead animal (flat posterized colour fills, bold dark outline around the whole body); do not copy its animal.\nDraw: a dead Eurasian lynx lying on its side, about twice as long as it is tall, one whole animal and nothing else.\nSurvival card game item art in that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame width with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, blood, wounds, arrows, trap, forest, grass, ferns, ground, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow.",
+  "historyId": "Mn6nERqQoIidaGWAhLR7",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800029626_3966ecc1_1791800029717_a6d11ad4.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "subject",
+      "label": "hw_lynx",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798533759_d210f235_1791798533974_c51281c8.png"
+    },
+    {
+      "role": "style",
+      "label": "Boar",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Boar_1791697573111_2faeb8ac.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800029626_3966ecc1_1791800029717_a6d11ad4.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: looks terrible must match game style; drawn from the new hw_lynx as the subject reference so the carcass is the same animal"
+}

@@ -1,0 +1,90 @@
+{
+  "//": "Feature 31, the Fairy King's ONE bargain (pack Prompt 46). Offered while hw_stat_king_bargain is 0 (the marker, hidden 0/1, rate 0: once a run). It trades only vanilla stats and items: the accept answer is shown only while vanilla Willpower (fb03747247e64ad4bbddcf328e0669ae, 0 to 250, base rate +1 a tick, so it grows back; no vanilla SelfTriggeredAction watches it) is at least the price, then takes 60 Willpower and gives two vanilla Fairy Stones (563078cfd4356834f960cdd2e3085b3f, the stone the realm's own wander finds at 8 percent), and sets the marker. No SpendTicks: the answer takes no time, so the realm's stay clock cannot cut it off. Decline leaves the offer open for the next visit. NextStep 2 = DialogStep.ExitDialog. Every number (the 60 Willpower, the two stones) is a TUNABLE PLACEHOLDER.",
+  "StartingPoint": true,
+  "StartingConditions": {
+    "RequiredStatValues": [
+      {
+        "StatWarpData": "hw_stat_king_bargain",
+        "StatWarpType": 3,
+        "TriggerRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      }
+    ]
+  },
+  "Line": {
+    "LocalizationKey": "HarshWilds_FairyKing_Offer_Line",
+    "DefaultText": "So, a mortal has found my ring. I will give you two fairy stones, bright as the day they were made. All I ask is a little of your will; you will hardly miss it."
+  },
+  "PossibleAnswers": [
+    {
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "fb03747247e64ad4bbddcf328e0669ae",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 60.0,
+              "y": 250.0
+            }
+          }
+        ]
+      },
+      "Answer": {
+        "LocalizationKey": "HarshWilds_FairyKing_Offer_Accept",
+        "DefaultText": "Take my will, and give me the stones."
+      },
+      "ActionToPerform": {
+        "StatModifications": [
+          {
+            "StatWarpData": "fb03747247e64ad4bbddcf328e0669ae",
+            "StatWarpType": 3,
+            "ValueModifier": {
+              "x": -60.0,
+              "y": -60.0
+            },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+          },
+          {
+            "StatWarpData": "hw_stat_king_bargain",
+            "StatWarpType": 3,
+            "ValueModifier": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+          }
+        ],
+        "DroppedCards": [
+          {
+            "DroppedCard": {
+              "m_FileID": 0,
+              "m_PathID": 0
+            },
+            "DroppedCardWarpData": "563078cfd4356834f960cdd2e3085b3f",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+              "x": 2,
+              "y": 2
+            }
+          }
+        ]
+      },
+      "NewNextLine": {
+        "NextStep": 2
+      }
+    },
+    {
+      "Answer": {
+        "LocalizationKey": "HarshWilds_FairyKing_Offer_Decline",
+        "DefaultText": "No bargain today, my lord."
+      },
+      "NewNextLine": {
+        "NextStep": 2
+      }
+    }
+  ]
+}

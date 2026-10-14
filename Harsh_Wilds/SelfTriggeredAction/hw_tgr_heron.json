@@ -1,0 +1,112 @@
+{
+    "UniqueID": "hw_tgr_heron",
+    "//Realm": "Feature 30 (plan section 30, pack Prompt 42; W0-18 section 2.5): the first StatChangeTrigger entry, hidden hw_stat_in_realm at {0,0}, holds this roll while the player stands in a realm (the realm location card raises the flag by a passive while it is on the player's board). With RepeatOptions 2 the clock waits at its top and the roll fires on the first tick home. A gate on a stat that resolves to nothing never fires, so this fails closed.",
+    "//Heron": "The heron's roll, in the eagle's shape (hw_tgr_eagle.json): a counter stat, a weighted Nothing-versus-Event ProducedCards, an event card the player clicks. It spawns hw_event_heron, whose button thins a pond's small fish; this file only decides WHETHER the heron comes. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open), As_Built 4.2. Gate 1, hw_switch_heron {1,1}: 0 (the [Threats] Heron switch off) can never fire it. Gate 2, hw_heron_clock {288,288}: the counter has climbed to its max (HERON_CLOCK_TICKS 288 = 3 days) and, because the grace is the clock's own negative start (HERON_GRACE_TICKS 1056, see hw_heron_clock.json), the first roll comes 1056 + 288 = 1344 ticks (14 days) into the stat's life. Gate 3, Sheltered {0,0} (vanilla GameStat e2031c58efb4cb84fa95a3a813513dae): the player is outdoors. Gate 4, SeasonCounter_Winter {0,0} (vanilla GUID 20042dca062d34a4b8e2968f9dc11f9f): the counter reads 0 outside winter, so the heron never comes in winter. RepeatOptions 2 (ResetWhenOutOfRange) with the action's own reset of the clock by -288 makes each firing one roll. Roll: Nothing has weight HERON_NOTHING_WEIGHT 50; Heron has base weight 0 plus HERON_POND_WEIGHT 25 for each pond card on the board (CardDropChanceModifiers rows with NotInHand and ExcludeInventory, one per UniqueID, never a tag): WDI's water_sawmill_fishpond_filled and water_sawmill_fishpond_stocked. The winter pond (water_sawmill_fishpond_winter, which regrows nothing) is left out. So a board with no pond can never produce the event, and with WDI not installed both rows add nothing (a card missing from the game leaves its row's CardOnBoard null, which reads as no card and no weight), one pond is 25 in 75 (a third per roll), both are 50 in 100. The foreign UIDs sit only in these two weight rows and in hw_event_heron's target list, which Patcher/HeronRaidGuard.cs checks after load. At most one event per clock period. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_tgr_heron",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Heron Visit"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_in_realm",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_heron",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_heron_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 288.0, "y": 288.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_heron_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -288.0, "y": -288.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 50,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "hw_tune_raids", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 0.0}, "InterpWeightRange": {"x": 50, "y": 50}, "WhenOutOfRange": 0},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "hw_tune_raids", "StatWarpType": 3, "StatRange": {"x": 2.0, "y": 2.0}, "InterpWeightRange": {"x": -20, "y": -20}, "WhenOutOfRange": 0}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Heron",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 0,
+                    "CardDropChanceModifiers": [
+                        {"CardOnBoardWarpData": "water_sawmill_fishpond_filled", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 25},
+                        {"CardOnBoardWarpData": "water_sawmill_fishpond_stocked", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 25}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_heron",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

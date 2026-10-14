@@ -1,0 +1,44 @@
+{
+  "UniqueID": "hwenvmoonrealm",
+  "//Realm": "Feature 30 (plan section 30, pack Prompt 43): the Moon Realm, the second realm (the Faerie Realm is the recipe, plan section 30 as-built). Same shape as hwenvfaerierealm: CardType 4, instanced (the engine builds its EnvID from the board the player came from, so each Moon Basin opens its own copy), never a map node, UniqueID with no underscore, AlwaysDropUniqueDefaultEnvDrops true so each entry seeds a fresh stay clock. DefaultEnvCardDrops = [location card, exit]. No picture on this card by design.",
+  "CardType": 4,
+  "InstancedEnvironment": true,
+  "CreateInstancedMap": false,
+  "AlwaysUpdate": false,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_MoonRealm_EnvName",
+    "DefaultText": "The Moon Realm"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_MoonRealm_EnvDescription",
+    "DefaultText": "The silver country behind the Moon Stone, where the moon hangs low and close. You cannot stay long."
+  },
+  "MaxWeightCapacity": 10000.0,
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "hwlocmoonrealm",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "hw_moon_exit",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

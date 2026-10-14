@@ -1,0 +1,46 @@
+{
+  "target": "hw_chewing_stick.png",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "MCJxYAPAhcncgeEjMN68",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791833237098_21abd24c_1791833237157_22964f6f.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery round 3 (2026-10-12): regenerate = new content. Two vanilla exemplars as style references, flat-ink prompt. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py"
+  ],
+  "vanilla_score": 77,
+  "previous": {
+    "target": "hw_chewing_stick.png",
+    "sourceCard": "CardData/Blueprint/hw_bp_chewing_stick.json",
+    "model": "nano-banana-2",
+    "mode": "image2image (vanilla CSFF card art as style reference)",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "2K",
+      "autoEnhancePrompt": false
+    },
+    "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a style reference only: match its rendering exactly (flat posterized colour fills in a few hard-edged tonal steps like cel shading, no soft gradients, no watercolour bleed, no paper texture, thin dark ink outlines, small ink marks for wood grain) and its muted natural wood palette; do not copy its subject (not a bundle of twigs) and do not copy its grey drop shadow.\nReference image 2 is the SUBJECT and COMPOSITION: keep this same object and layout, redrawn in reference image 1's style. One single short willow twig lying diagonally from lower left to upper right, bark peeled off to pale tan wood, a few small knot bumps along it, the upper end cut flat, the lower end chewed and frayed into a soft splayed brush of pale wood fibres.\nOne object only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, watercolour, soft airbrushed gradients, paper texture, cartoon, glossy, several sticks, bundle, leaves, bark left on, paintbrush with ferrule, neon colours, cropped, scenery behind the object, grey background, off-white background, drop shadow, checkerboard, transparency grid, text, watermark, signature, logo, border, frame.",
+    "refs": [
+      {
+        "label": "Twigs",
+        "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Twigs_1791652873867_3fc4f137.png"
+      },
+      {
+        "label": "hw_chewing_stick (current)",
+        "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_chewing_stick_1791652876447_536d1ce7.png"
+      }
+    ],
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653188217_1291179d_1791653188836_0caa37e5.png",
+    "generated": "2026-10-10",
+    "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
+  }
+}

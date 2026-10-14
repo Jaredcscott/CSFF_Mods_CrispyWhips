@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_ring_dance",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_RingDance_StatName",
+        "DefaultText": "Harsh Wilds: Ring Dance"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_RingDance_StatDescription",
+        "DefaultText": "Hidden 0/1 marker: 1 from the moment you dance in a fairy ring until the dancing plague has rolled."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false,
+    "//RingDance": "Feature 29/28 (plan sections 29 and 28): the hidden 0/1 MARKER of a dance. The fairy ring's 'Dance in the Ring' action writes +1 here and nothing else, and Tgr_HW_DancingPlague (gated on this at {1,1}) rolls the dancing plague once and writes -1 to put it back, so the action itself never touches the affliction stat and its one source stays a rolled STA on the affliction chassis (HarshWilds-Afflictions [ring-source]). BaseValue 0, no rate. Written by no other file."
+}

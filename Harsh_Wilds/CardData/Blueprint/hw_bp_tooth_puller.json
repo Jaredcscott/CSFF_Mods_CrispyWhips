@@ -1,0 +1,77 @@
+{
+    "UniqueID": "hw_bp_tooth_puller",
+    "//ToothPullerBlueprint": "The recipe for CardData/Item/hw_tooth_puller.json, VANILLA CARDS ONLY so the last-resort tooth decay cure never needs another mod (Documentation/Research/HarshWilds/afflictions.md section 3.5 point 3, the second tooth decay DECISION; shape copied from CardData/Blueprint/hw_bp_herbal_wash.json, read its note). A construction-style blueprint registered through HarshWilds/BlueprintTabs.json under the vanilla Survival > Medical tab ('Tab_1_Survival_Subtab_3_Medical_TabName'). Researchable from the start: StartUnlocked false with empty CardsOnBoard, TagsOnBoard and StatValues, basic research time BlueprintUnlockTicksCost HW_TOOTH_PULLER_RESEARCH = 4, one stage of BuildingDaytimeCost 2 (HW_TOOTH_PULLER_BUILD, the cap is 12). Ingredients, both vanilla and both spent: Bones (674b640f46671f1418af4559b259b442) and Twine (f6e8281ffa0e6eb4b8bf1dc5e5ae1338). The quantities are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_tooth_puller",
+        "LocalizationKey": "HarshWilds_BpToothPuller_CardName",
+        "DefaultText": "Tooth Puller"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_tooth_puller",
+        "LocalizationKey": "HarshWilds_BpToothPuller_CardDescription",
+        "DefaultText": "Lash a hooked bone to a twine loop to make a tool for pulling a rotten tooth. It works a few times before it falls apart."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "hw_tooth_puller",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": ""
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 4,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {"m_FileID": 0, "m_PathID": 0},
+                "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                "StatWarpType": 3,
+                "TriggerRange": {"x": 0.0, "y": 100000.0}
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredCardWarpData": "674b640f46671f1418af4559b259b442",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": ["HandAction", "CraftAction"],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "DroppedCardWarpData": "hw_tooth_puller",
+            "DroppedCardWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

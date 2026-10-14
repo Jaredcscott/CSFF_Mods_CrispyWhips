@@ -1,0 +1,1167 @@
+HarshWilds_SwitchLynx_StatName,Harsh Wilds: Lynx
+HarshWilds_SwitchLynx_StatDescription,Hidden 0/1 switch: 1 while the Lynx is on in the Harsh Wilds config.
+HarshWilds_Lynx_AgentName,Lynx
+HarshWilds_SwitchWisent_StatName,Harsh Wilds: Wisent
+HarshWilds_SwitchWisent_StatDescription,Hidden 0/1 switch: 1 while the Wisent is on in the Harsh Wilds config.
+HarshWilds_Wisent_AgentName,Wisent
+HarshWilds_SwitchMuskOx_StatName,Harsh Wilds: Musk Ox
+HarshWilds_SwitchMuskOx_StatDescription,Hidden 0/1 switch: 1 while the Musk Ox is on in the Harsh Wilds config.
+HarshWilds_MuskOx_AgentName,Musk Ox
+HarshWilds_SwitchEagle_StatName,Harsh Wilds: Eagle
+HarshWilds_SwitchEagle_StatDescription,Hidden 0/1 switch: 1 while the Eagle is on in the Harsh Wilds config.
+HarshWilds_EagleClock_StatName,Harsh Wilds: Eagle Clock
+HarshWilds_EagleClock_StatDescription,Hidden counter: how long until the Eagle may next look for small game on the ground.
+HarshWilds_EagleEvent_CardName,Eagle Overhead
+HarshWilds_EagleEvent_CardDescription,"A great eagle circles above the clearing, watching the ground for an easy meal."
+HarshWilds_EagleEvent_ActionName,See what it takes
+HarshWilds_EagleEvent_LostMessage,The eagle swoops down and carries off:
+HarshWilds_SwitchBlackBear_StatName,Harsh Wilds: Black Bear
+HarshWilds_SwitchBlackBear_StatDescription,Hidden 0/1 switch: 1 while the Black Bear is on in the Harsh Wilds config.
+HarshWilds_BearClock_StatName,Harsh Wilds: Black Bear Clock
+HarshWilds_BearClock_StatDescription,"Hidden counter: how long until the Black Bear may next look for meat, fish and sausage in the food stores."
+HarshWilds_BlackBearEvent_CardName,Black Bear at the Stores
+HarshWilds_BlackBearEvent_CardDescription,"A black bear, fattening up for the long winter sleep, has caught the smell of meat and fish and is nosing round your food stores. It may find nothing worth taking."
+HarshWilds_BlackBearEvent_ActionName,See what it takes
+HarshWilds_BlackBearEvent_LostMessage,The bear tears into the stores and lumbers off with:
+HarshWilds_SwitchBandits_StatName,Harsh Wilds: Bandits
+HarshWilds_SwitchBandits_StatDescription,Hidden 0/1 switch: 1 while Bandits are on in the Harsh Wilds config.
+HarshWilds_BanditAge_StatName,Harsh Wilds: Bandit Grace
+HarshWilds_BanditAge_StatDescription,"Hidden counter: how long this run has gone on, so no bandit roams the river before the first days are over."
+HarshWilds_BanditRobbed_StatName,Harsh Wilds: Robbed by Bandits
+HarshWilds_BanditRobbed_StatDescription,Hidden 0/1 marker: 1 between losing a fight to bandits and their going through your pack.
+HarshWilds_Bandit_AgentName,Bandit
+HarshWilds_BanditBody_CardName,Fallen Bandit
+HarshWilds_BanditBody_CardDescription,The bandit who waylaid you lies still. Whatever he carried is yours for the taking.
+HarshWilds_BanditBody_ActionName,Search the body
+HarshWilds_BanditBody_ActionDescription,"Go through the bandit's pack and clothes, then leave him where he lies."
+HarshWilds_BanditTheft_ActionName,Robbed by a Bandit
+HarshWilds_BanditTheft_LostMessage,The bandit goes through your pack and makes off with:
+HarshWilds_SwitchDrought_StatName,Harsh Wilds: Drought
+HarshWilds_SwitchDrought_StatDescription,Hidden 0/1 switch: 1 while the Drought is on in the Harsh Wilds config.
+HarshWilds_DrySpell_StatName,Harsh Wilds: Dry Spell
+HarshWilds_DrySpell_StatDescription,Hidden counter: how long it has gone without rain. It goes back to 0 whenever it rains.
+HarshWilds_Drought_StatName,Drought
+HarshWilds_Drought_StatDescription,A summer drought. No rain falls until it breaks.
+HarshWilds_Drought_StatusName,Drought
+HarshWilds_Drought_StatusDescription,"The sky has stayed clear for days. No rain will fall while the drought lasts, about a week. Rain catchers, cisterns and barrels will not refill and rain will not water the gardens: fetch water from the river, a well or a pond."
+HarshWilds_SwitchInsectPlague_StatName,Harsh Wilds: Insect Plague
+HarshWilds_SwitchInsectPlague_StatDescription,Hidden 0/1 switch: 1 while the Insect Plague is on in the Harsh Wilds config.
+HarshWilds_InsectPlague_StatName,Insect Plague
+HarshWilds_InsectPlague_StatDescription,A summer insect plague. Biting insects swarm outdoors until it passes.
+HarshWilds_InsectPlague_StatusName,Insect Plague
+HarshWilds_InsectPlague_StatusDescription,"Swarms of biting insects have come, for about three days. Outdoors you will be bitten far more than usual, and the bites add up. Rain, a fire at your camp (campfire, fire pit, fireplace or hearth), snakegrass fed to a hearth, and staying indoors all thin them out."
+HarshWilds_InsectSwarm_StatName,Harsh Wilds: Insect Swarm
+HarshWilds_InsectSwarm_StatDescription,"Hidden timer: while the insect plague runs and you are outdoors it stays up, and it drains within two ticks of stepping inside."
+HarshWilds_InsectSwarm_StatusName,Insect Swarm
+HarshWilds_InsectSwarm_StatusDescription,A cloud of biting insects follows you.
+HarshWilds_SwitchCropBlight_StatName,Harsh Wilds: Crop Blight
+HarshWilds_SwitchCropBlight_StatDescription,Hidden 0/1 switch: 1 while the Crop Blight is on in the Harsh Wilds config.
+HarshWilds_Blight_StatName,Crop Blight
+HarshWilds_Blight_StatDescription,A blight is spreading fungus through the planted crops until it passes.
+HarshWilds_Blight_StatusName,Crop Blight
+HarshWilds_Blight_StatusDescription,"A blight is spreading fungus through your planted crops for about two days, and infected plants lose health. Put fungicide or garlic water on the garden plot, and do not overwater it."
+HarshWilds_SwitchBloodMoon_StatName,Harsh Wilds: Blood Moon
+HarshWilds_SwitchBloodMoon_StatDescription,Hidden 0/1 switch: 1 while the Blood Moon is on in the Harsh Wilds config.
+HarshWilds_DuskClock_StatName,Harsh Wilds: Dusk Clock
+HarshWilds_DuskClock_StatDescription,Hidden clock: 1 from 18:00 to 19:00 and 0 the rest of the day. The Blood Moon rolls when it turns 1.
+HarshWilds_BloodMoon_StatName,Blood Moon
+HarshWilds_BloodMoon_StatDescription,A blood moon: more lynxes hunt the forest until dawn.
+HarshWilds_BloodMoon_StatusName,Blood Moon
+HarshWilds_BloodMoon_StatusDescription,"The full moon hangs red tonight. Two more lynxes than usual prowl the pine groves and mountain thickets until dawn, and each may attack once."
+HarshWilds_SwitchEclipse_StatName,Harsh Wilds: Eclipse
+HarshWilds_SwitchEclipse_StatDescription,Hidden 0/1 switch: 1 while the Eclipse is on in the Harsh Wilds config.
+HarshWilds_NoonClock_StatName,Harsh Wilds: Noon Clock
+HarshWilds_NoonClock_StatDescription,Hidden clock: 1 from 12:00 to 13:00 and 0 the rest of the day. The Eclipse rolls when it turns 1.
+HarshWilds_Eclipse_StatName,Eclipse
+HarshWilds_Eclipse_StatDescription,An eclipse: the light falls sharply for about an hour.
+HarshWilds_Eclipse_StatusName,Eclipse
+HarshWilds_Eclipse_StatusDescription,The moon slides across the sun and the light falls sharply for about an hour.
+HarshWilds_Eclipse_TotalityStatusName,Eclipse totality
+HarshWilds_Eclipse_TotalityStatusDescription,The moon covers the sun. For about a quarter of an hour it is too dark for any task that needs light.
+HarshWilds_SwitchAurora_StatName,Harsh Wilds: Aurora
+HarshWilds_SwitchAurora_StatDescription,Hidden 0/1 switch: 1 while the Aurora is on in the Harsh Wilds config.
+HarshWilds_Aurora_StatName,Aurora
+HarshWilds_Aurora_StatDescription,An aurora: standing under the open night sky lifts your mood.
+HarshWilds_Aurora_StatusName,Aurora
+HarshWilds_Aurora_StatusDescription,"An aurora is out tonight. Standing outside under the open night sky lifts your mood a little every quarter hour, for up to ten hours."
+HarshWilds_SwitchFleasAndLice_StatName,Harsh Wilds: Fleas and Lice
+HarshWilds_SwitchFleasAndLice_StatDescription,Hidden 0/1 switch: 1 while Fleas and Lice are on in the Harsh Wilds config.
+HarshWilds_Fleas_StatName,Fleas and Lice
+HarshWilds_Fleas_StatDescription,"Fleas and lice in your hair, clothes and bedding. They never leave on their own. Keeping yourself clean drives them out slowly; the smoke of burning bog myrtle or juniper, bog myrtle leaves or bug repellent salve rubbed on, and a herbal wash drive them out faster."
+HarshWilds_Fleas_Status1_Name,Flea Bites
+HarshWilds_Fleas_Status1_Description,"A few fleas and lice have found you. The bites itch: less comfort, and your stress stops easing."
+HarshWilds_Fleas_Status2_Name,Fleas
+HarshWilds_Fleas_Status2_Description,"Fleas and lice are breeding in your clothes and hair: much less comfort, and your stress slowly rises."
+HarshWilds_Fleas_Status3_Name,Infested
+HarshWilds_Fleas_Status3_Description,"You are crawling with fleas and lice: far less comfort, and your stress keeps rising. Wash, smoke them out or use a herbal wash."
+HarshWilds_HerbalWash_CardName,Herbal Wash
+HarshWilds_HerbalWash_CardDescription,"A strong-smelling mash of bog myrtle and dry juniper needles. Scrubbed through your hair, skin and clothes, it drives out fleas and lice and gets some of the dirt off. With Herbs and Fungi installed, a herb dragged onto it makes a stronger wash that clears them out completely."
+HarshWilds_HerbalWash_ActionName,Wash with Herbs
+HarshWilds_HerbalWash_ActionDescription,"Scrub your hair, skin and clothes with the herbal wash to drive out fleas and lice."
+HarshWilds_HerbalWash_InfusionActionName,Wash with Herb Infusion
+HarshWilds_HerbalWash_InfusionActionDescription,Crush the herb into the wash and scrub with it: a stronger dose that clears fleas and lice out completely.
+HarshWilds_BpHerbalWash_CardName,Herbal Wash
+HarshWilds_BpHerbalWash_CardDescription,"Mash bog myrtle (fresh, dried or powdered) with dry juniper needles in a clay bowl to make a wash that drives out fleas and lice. The bowl is not used up."
+HarshWilds_SwitchToothDecay_StatName,Harsh Wilds: Tooth Decay
+HarshWilds_SwitchToothDecay_StatDescription,Hidden 0/1 switch: 1 while Tooth Decay is on in the Harsh Wilds config.
+HarshWilds_Teeth_StatName,Tooth Decay
+HarshWilds_Teeth_StatDescription,"Rot in your teeth. It never goes away on its own: honey, sugar and a lot of berries wear your teeth down, and so does time. Each stage hurts and wears on your nerves. Chewing a chewing stick, with a herb for more, wears the rot down a little at a time; in the worst stage a bad tooth can be pulled out, which clears it all."
+HarshWilds_Teeth_Status1_Name,Sore Tooth
+HarshWilds_Teeth_Status1_Description,"A tooth has started to go bad. It twinges when you eat, and your stress stops easing."
+HarshWilds_Teeth_Status2_Name,Toothache
+HarshWilds_Teeth_Status2_Description,"The rot has reached the nerve. Chewing hurts, you cannot think of anything else, and your stress slowly rises."
+HarshWilds_Teeth_Status3_Name,Rotten Tooth
+HarshWilds_Teeth_Status3_Description,"A tooth has rotted through and throbs day and night, and your stress keeps rising. Chewing sticks can wear the rot down, or the bad tooth can be pulled out."
+HarshWilds_ChewingStick_CardName,Chewing Stick
+HarshWilds_ChewingStick_CardDescription,"A willow twig with one end chewed into a brush. Chewed on, it scrubs the teeth and wears the rot of tooth decay down a little at a time, but it is used up. With Herbs and Fungi installed, a herb dragged onto it makes a stronger dose."
+HarshWilds_ChewingStick_ActionName,Chew
+HarshWilds_ChewingStick_ActionDescription,Chew the stick and scrub your teeth with it to wear down tooth decay.
+HarshWilds_ChewingStick_HerbsActionName,Chew with Herbs
+HarshWilds_ChewingStick_HerbsActionDescription,Work the herb into the chewed end and scrub your teeth with it: a stronger dose against tooth decay.
+HarshWilds_BpChewingStick_CardName,Chewing Stick
+HarshWilds_BpChewingStick_CardDescription,Chew the end of a willow twig into a brush. Chewing it scrubs the teeth and wears down tooth decay.
+HarshWilds_ToothPuller_CardName,Tooth Puller
+HarshWilds_ToothPuller_CardDescription,"A hooked sliver of bone lashed to a twine loop, for pulling a rotten tooth. It only works on a tooth that has rotted right through, takes half an hour and leaves you badly shaken. It can be used a few times before it falls apart."
+HarshWilds_ToothPuller_ActionName,Pull the Bad Tooth
+HarshWilds_ToothPuller_ActionDescription,"Pull the rotten tooth out. It clears tooth decay (sweets and time can start it again), but it takes half an hour and leaves you badly shaken."
+HarshWilds_BpToothPuller_CardName,Tooth Puller
+HarshWilds_BpToothPuller_CardDescription,Lash a hooked bone to a twine loop to make a tool for pulling a rotten tooth. It works a few times before it falls apart.
+HarshWilds_SwitchHeron_StatName,Harsh Wilds: Heron
+HarshWilds_SwitchHeron_StatDescription,Hidden 0/1 switch: 1 while the Heron is on in the Harsh Wilds config.
+HarshWilds_HeronClock_StatName,Harsh Wilds: Heron Clock
+HarshWilds_HeronClock_StatDescription,Hidden counter: how long until the Heron may next visit a pond.
+HarshWilds_HeronEvent_CardName,Heron at the Pond
+HarshWilds_HeronEvent_CardDescription,"A grey heron stands motionless at the water's edge, watching the shallows for small fish."
+HarshWilds_HeronEvent_ActionName,See what it takes
+HarshWilds_SwitchAdder_StatName,Harsh Wilds: Adder
+HarshWilds_SwitchAdder_StatDescription,Hidden 0/1 switch: 1 while the Adder is on in the Harsh Wilds config.
+HarshWilds_AdderClock_StatName,Harsh Wilds: Adder Clock
+HarshWilds_AdderClock_StatDescription,Hidden counter: how long until an adder may next strike.
+HarshWilds_DaylightClock_StatName,Harsh Wilds: Daylight Clock
+HarshWilds_DaylightClock_StatDescription,Hidden clock: 1 from 09:00 to 18:00 and 0 the rest of the day. The Adder only strikes while it reads 1.
+HarshWilds_AdderVenom_StatName,Harsh Wilds: Adder Venom
+HarshWilds_AdderVenom_StatDescription,Hidden timer: how many ticks of adder venom are left.
+HarshWilds_AdderVenom_StatusName,Adder Venom
+HarshWilds_AdderVenom_StatusDescription,The adder's venom burns in the bite and wears on your nerves.
+HarshWilds_AdderEvent_CardName,Adder!
+HarshWilds_AdderEvent_CardDescription,"A flash of grey-brown in the sun-warmed grass, and a sharp sting in your leg. An adder has bitten you and slid away."
+HarshWilds_AdderEvent_ActionName,Grit your teeth
+HarshWilds_SwitchColdSnap_StatName,Harsh Wilds: Cold Snap
+HarshWilds_SwitchColdSnap_StatDescription,Hidden 0/1 switch: 1 while the Cold Snap is on in the Harsh Wilds config.
+HarshWilds_ColdSnap_StatName,Cold Snap
+HarshWilds_ColdSnap_StatDescription,A cold snap: much colder than the season for about two days.
+HarshWilds_ColdSnap_StatusName,Cold Snap
+HarshWilds_ColdSnap_StatusDescription,A cold snap has set in. For about two days it is much colder than the season: dress warmly and keep a fire.
+HarshWilds_SwitchAlgaeBloom_StatName,Harsh Wilds: Algae Bloom
+HarshWilds_SwitchAlgaeBloom_StatDescription,Hidden 0/1 switch: 1 while the Algae Bloom is on in the Harsh Wilds config.
+HarshWilds_AlgaeBloom_StatName,Algae Bloom
+HarshWilds_AlgaeBloom_StatDescription,An algae bloom: for about three days the larger fish of the rivers and lakes stop biting.
+HarshWilds_AlgaeBloom_StatusName,Algae Bloom
+HarshWilds_AlgaeBloom_StatusDescription,"The rivers and lakes have turned green with algae. For about three days the larger fish stop biting: a line or a spear brings up only minnows, or nothing."
+HarshWilds_Bandit_Approach,Confront
+HarshWilds_TuneRaids_StatName,Harsh Wilds: Raid Pressure
+HarshWilds_TuneRaids_StatDescription,"Hidden 0/1/2 dial: 0 Low, 1 Normal, 2 High raid pressure from the Harsh Wilds config."
+HarshWilds_BugTrap_CardName,Bug Trap
+HarshWilds_BugTrap_CardDescription,"A stick smeared with sticky resin or tar and set down in camp. Biting insects stick to it, so there are fewer of them around, until it is used up after about a day."
+HarshWilds_BugTrap_UsageStatName,Stickiness
+HarshWilds_BugTrapSpent_CardName,Spent Bug Trap
+HarshWilds_BugTrapSpent_CardDescription,A stick crusted over with dried resin and dead insects. It catches nothing more. Throw it away.
+HarshWilds_BpBugTrapResin_CardName,Bug Trap (Cold Resin)
+HarshWilds_BpBugTrapResin_CardDescription,"Smear a stick with cold resin and set it down in camp: biting insects stick to it, so there are fewer of them for about a day, then it is spent."
+HarshWilds_BpBugTrapTar_CardName,Bug Trap (Cold Tar)
+HarshWilds_BpBugTrapTar_CardDescription,"Smear a stick with cold tar and set it down in camp: biting insects stick to it, so there are fewer of them for about a day, then it is spent."
+HarshWilds_SwitchSmithingBurns_StatName,Harsh Wilds: Smithing Burns
+HarshWilds_SwitchSmithingBurns_StatDescription,Hidden 0/1 switch: 1 while Smithing Burns is on in the Harsh Wilds config.
+HarshWilds_SwitchForageBites_StatName,Harsh Wilds: Forage Bites
+HarshWilds_SwitchForageBites_StatDescription,Hidden 0/1 switch: 1 while Forage Bites is on in the Harsh Wilds config.
+HarshWilds_BurnForce_StatName,Harsh Wilds: Burn Roll Force
+HarshWilds_BurnForce_StatDescription,"Hidden test hook, 0 in play: above 0, the smithing burn roll reads this value instead of a random one."
+HarshWilds_BiteForce_StatName,Harsh Wilds: Bite Roll Force
+HarshWilds_BiteForce_StatDescription,"Hidden test hook, 0 in play: above 0, the foraging bite roll reads this value instead of a random one."
+HarshWilds_SmithingBurn_Notice,The hot metal burns your bare hands.
+HarshWilds_ForageBite_Notice,Insects swarm you as you push through the thicket.
+HarshWilds_SwitchMudVolcano_StatName,Harsh Wilds: Mud Volcano
+HarshWilds_SwitchMudVolcano_StatDescription,Hidden 0/1 switch: 1 while the Mud Volcano is on in the Harsh Wilds config.
+HarshWilds_MudVolcanoClock_StatName,Harsh Wilds: Mud Volcano Clock
+HarshWilds_MudVolcanoClock_StatDescription,Hidden counter: how long until the mud volcano may next erupt.
+HarshWilds_MudVolcanoEvent_CardName,The Mud Volcano Erupts
+HarshWilds_MudVolcanoEvent_CardDescription,"The crater heaves, bulges and bursts, throwing hot grey mud across the ground around it."
+HarshWilds_MudVolcanoEvent_ActionName,Shield yourself
+HarshWilds_Mistletoe_CardName,Mistletoe
+HarshWilds_Mistletoe_CardDescription,A sprig of mistletoe cut from the boughs of an oak in winter. The old rites hang it in a grove to bless it. Do not eat it.
+HarshWilds_BrewBeastEffect_StatName,Beast Brew
+HarshWilds_BrewBeastEffect_StatDescription,The Beast Brew working in you: it falls by 1 each tick and is renewed by drinking.
+HarshWilds_BrewBeastEffect_StatusName,Beast Brew
+HarshWilds_BrewBeastEffect_StatusDescription,"The brew is working in you. Beast Affinity rises faster than it fades, for as long as the brew lasts."
+HarshWilds_BrewBeast_CardName,Beast Brew
+HarshWilds_BrewBeast_CardDescription,"A thin grey brew of bonemeal and rendered fat stirred into clean water. It tastes of the animals it came from. For half a day after a draught you feel nearer to the beasts: Beast Affinity builds faster, which is what the old callings ask for."
+HarshWilds_BrewBeast_CardHelpSection,"<b>Preparation:</b> Mix bonemeal and fat into a bowl of clean water.
+
+<b>Benefits:</b> Quenches thirst and raises Beast Affinity faster than it fades for about half a day (two draughts last a day)."
+HarshWilds_BpBeastBrew_CardName,Beast Brew
+HarshWilds_BpBeastBrew_CardDescription,Stir bonemeal and fat into a bowl of clean water to make a brew that builds Beast Affinity. The bowl is not used up.
+HarshWilds_BrewEarthEffect_StatName,Earth Brew
+HarshWilds_BrewEarthEffect_StatDescription,The Earth Brew working in you: it falls by 1 each tick and is renewed by drinking.
+HarshWilds_BrewEarthEffect_StatusName,Earth Brew
+HarshWilds_BrewEarthEffect_StatusDescription,"The brew is working in you. Earth Affinity rises faster than it fades, for as long as the brew lasts."
+HarshWilds_BrewEarth_CardName,Earth Brew
+HarshWilds_BrewEarth_CardDescription,"A dark, gritty brew of wood ash and dry moss steeped in clean water. It tastes of the ground after rain. For half a day after a draught you feel the earth under you more keenly: Earth Affinity builds faster."
+HarshWilds_BrewEarth_CardHelpSection,"<b>Preparation:</b> Mix ash and dry moss into a bowl of clean water.
+
+<b>Benefits:</b> Quenches thirst and raises Earth Affinity faster than it fades for about half a day (two draughts last a day)."
+HarshWilds_BpEarthBrew_CardName,Earth Brew
+HarshWilds_BpEarthBrew_CardDescription,Steep ash and dry moss in a bowl of clean water to make a brew that builds Earth Affinity. The bowl is not used up.
+HarshWilds_BrewMuscleEffect_StatName,Musclebrew
+HarshWilds_BrewMuscleEffect_StatDescription,The Musclebrew working in you: it falls by 1 each tick and is renewed by drinking.
+HarshWilds_BrewMuscleEffect_StatusName,Musclebrew
+HarshWilds_BrewMuscleEffect_StatusDescription,"The brew is working in you. Hard work and heavy loads grow muscle sooner, for as long as the brew lasts."
+HarshWilds_BrewMuscle_CardName,Musclebrew
+HarshWilds_BrewMuscle_CardDescription,"A rich, bitter mash of a wild egg and dried pine nuts beaten into clean water. For half a day after a draught your muscles answer hard work sooner: it adds to the stimulus that grows muscle, and does nothing if you only sit."
+HarshWilds_BrewMuscle_CardHelpSection,"<b>Preparation:</b> Beat a wild egg and dried pine nuts into a bowl of clean water.
+
+<b>Benefits:</b> Quenches thirst and adds to the muscle-growth stimulus for about half a day (two draughts last a day). It does not grow muscle at rest."
+HarshWilds_BpMuscleBrew_CardName,Musclebrew
+HarshWilds_BpMuscleBrew_CardDescription,Beat a wild egg and dried pine nuts into a bowl of clean water to make a brew that helps muscle grow. The bowl is not used up.
+HarshWilds_BrewDrink_ActionName,Drink
+HarshWilds_BrewSpoilage_StatName,Bacteria
+HarshWilds_BrewSpoilage_Text,The brew has gone off.
+HarshWilds_Witchfire_KindleActionName,Kindle Witchfire
+HarshWilds_Witchfire_KindleActionDescription,"Wake the witchstone dust. It burns with a cold pale light, with no fuel, until the night is over."
+HarshWilds_Witchfire_CardName,Witchfire
+HarshWilds_Witchfire_CardDescription,"A pinch of witchstone dust bound in beeswax. Kindle it and it burns with a cold pale light, with no fuel, for one night. It gives light and nothing else: no heat, and it lights no fire."
+HarshWilds_Witchfire_LitStatName,Burning
+HarshWilds_WitchfireLit_CardName,Lit Witchfire
+HarshWilds_WitchfireLit_CardDescription,"A cold pale flame that needs no fuel. While you carry it, it gives light. It burns out when the night is over."
+HarshWilds_WitchfireSpent_CardName,Burnt-out Witchfire
+HarshWilds_WitchfireSpent_CardDescription,The grey ash of a witchfire that has burned out. Nothing is left in it.
+HarshWilds_BpWitchfire_CardName,Witchfire
+HarshWilds_BpWitchfire_CardDescription,Bind a pinch of witchstone dust in beeswax to make a cold light that burns without fuel for one night.
+HarshWilds_SwitchWhiteWisent_StatName,Harsh Wilds: White Wisent
+HarshWilds_SwitchWhiteWisent_StatDescription,Hidden 0/1 switch: 1 while the White Wisent is on in the Harsh Wilds config.
+HarshWilds_SwitchGoldenHind_StatName,Harsh Wilds: Golden Hind
+HarshWilds_SwitchGoldenHind_StatDescription,Hidden 0/1 switch: 1 while the Golden Hind is on in the Harsh Wilds config.
+HarshWilds_WhiteWisentRolled_StatName,Harsh Wilds: White Wisent Days
+HarshWilds_WhiteWisentRolled_StatDescription,Hidden timer: the white wisent walks the oak glades while this reads 1 or more.
+HarshWilds_GoldenHindRolled_StatName,Harsh Wilds: Golden Hind Days
+HarshWilds_GoldenHindRolled_StatDescription,Hidden timer: the golden hind walks the oak glades while this reads 1 or more.
+HarshWilds_WhiteWisent_AgentName,White Wisent
+HarshWilds_GoldenHind_AgentName,Golden Hind
+HarshWilds_GoldenHind_FollowActionName,Follow the Hind
+HarshWilds_HindBlessing_CardName,Blessing of the Golden Hind
+HarshWilds_HindBlessing_CardDescription,"The golden hind let you follow it a while, and its stillness stayed with you. Receive the blessing to forage and slip away with a lighter step for a day or so."
+HarshWilds_HindBlessing_ActionName,Receive the Blessing
+HarshWilds_HindBlessing_ActionDescription,Receive the golden hind's blessing: a day or so of surer foraging and a quicker getaway.
+HarshWilds_SpiritJar_CardName,Spirit Jar
+HarshWilds_SpiritJar_CardDescription,"A clay jar marked with spirit signs and sealed with a spirit herb. Unlike a plain clay jar it takes a spirit essence, and nothing in it draws on the essence, so it does not fade there. Pour an essence in while your mind is open to the spirits, and later pour it into an amulet or a coat that can be enchanted."
+HarshWilds_BpSpiritJar_CardName,Spirit Jar
+HarshWilds_BpSpiritJar_CardDescription,"Mark a fired clay jar with charcoal signs and seal it with a spirit herb, so that it will hold a spirit essence."
+HarshWilds_BpSpiritJar_UnlockConditionsDesc,Requires some Insight.
+HarshWilds_SpiritMask_CardName,Spirit Mask
+HarshWilds_SpiritMask_CardDescription,"A wooden mask carved with an animal face and blackened with charcoal. While you wear it and your mind is open to the spirits, Beast Affinity slowly rises. It wears out after about four weeks of wear, and it takes the face slot."
+HarshWilds_SpiritMask_UsageStatName,Wear
+HarshWilds_BpSpiritMask_CardName,Spirit Mask
+HarshWilds_BpSpiritMask_CardDescription,"Carve an animal face from wood, blacken it with charcoal and tie it on with twine."
+HarshWilds_BpSpiritMask_UnlockConditionsDesc,Requires some Insight.
+HarshWilds_CharmLynx_CardName,Lynx Charm
+HarshWilds_CharmLynx_CardDescription,"A bone charm carved for the Lynx Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the lynx's sure footing stays with you (Climbing Aid), only at its lowest level. It wears out after about four weeks of wear."
+HarshWilds_CharmLynx_UsageStatName,Wear
+HarshWilds_BpCharmLynx_CardName,Lynx Charm
+HarshWilds_BpCharmLynx_CardDescription,Carve a charm for the Lynx Spirit from bone and string it on twine.
+HarshWilds_BpCharmLynx_UnlockConditionsDesc,Bind the Lynx Spirit once.
+HarshWilds_CharmGoat_CardName,Goat Charm
+HarshWilds_CharmGoat_CardDescription,"A bone charm carved for the Goat Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the goat's stubborn hardiness stays with you (Bestial Resilience), only at its lowest level. It wears out after about four weeks of wear."
+HarshWilds_CharmGoat_UsageStatName,Wear
+HarshWilds_BpCharmGoat_CardName,Goat Charm
+HarshWilds_BpCharmGoat_CardDescription,Carve a charm for the Goat Spirit from bone and string it on twine.
+HarshWilds_BpCharmGoat_UnlockConditionsDesc,Bind the Goat Spirit once.
+HarshWilds_CharmBlood_CardName,Blood Charm
+HarshWilds_CharmBlood_CardDescription,"A bone charm carved for the Blood Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the blood spirit's strength stays with you (Strength), only at its lowest level. It wears out after about four weeks of wear."
+HarshWilds_CharmBlood_UsageStatName,Wear
+HarshWilds_BpCharmBlood_CardName,Blood Charm
+HarshWilds_BpCharmBlood_CardDescription,Carve a charm for the Blood Spirit from bone and string it on twine.
+HarshWilds_BpCharmBlood_UnlockConditionsDesc,Bind the Blood Spirit once.
+HarshWilds_CoatLynx_CardName,Lynx Coat
+HarshWilds_CoatLynx_CardDescription,"A heavy coat sewn from a lynx's leather. It gives warmth, comfort and some protection. Has additional properties for the spiritually open: while your mind is open to the spirits it lends you the lynx's climbing and ambush, and it can be enchanted with a spirit essence.
+
+<b>MUST BE EQUIPPED TO WORK</b>"
+HarshWilds_CoatLynx_UsageStatName,Wear
+HarshWilds_BpCoatLynx_CardName,Lynx Coat
+HarshWilds_BpCoatLynx_CardDescription,"Sew a coat from a lynx's tanned leather (its hide type, which no base-game animal gives) with twine and a needle."
+HarshWilds_BpCoatLynx_UnlockConditionsDesc,Requires Leatherworking 15.
+HarshWilds_CoatMuskOx_CardName,Musk Ox Coat
+HarshWilds_CoatMuskOx_CardDescription,"A heavy coat sewn from a musk ox's leather. It gives warmth, comfort and some protection. Has additional properties for the spiritually open: while your mind is open to the spirits it lends you the musk ox's hardiness, and it can be enchanted with a spirit essence.
+
+<b>MUST BE EQUIPPED TO WORK</b>"
+HarshWilds_CoatMuskOx_UsageStatName,Wear
+HarshWilds_BpCoatMuskOx_CardName,Musk Ox Coat
+HarshWilds_BpCoatMuskOx_CardDescription,"Sew a coat from a musk ox's tanned leather (its hide type, which no base-game animal gives) with twine and a needle."
+HarshWilds_BpCoatMuskOx_UnlockConditionsDesc,Requires Leatherworking 15.
+HarshWilds_CoatWisent_CardName,Wisent Coat
+HarshWilds_CoatWisent_CardDescription,"A heavy coat sewn from a wisent's leather. It gives warmth, comfort and some protection. Has additional properties for the spiritually open: while your mind is open to the spirits it lends you the wisent's strength, and it can be enchanted with a spirit essence.
+
+<b>MUST BE EQUIPPED TO WORK</b>"
+HarshWilds_CoatWisent_UsageStatName,Wear
+HarshWilds_BpCoatWisent_CardName,Wisent Coat
+HarshWilds_BpCoatWisent_CardDescription,"Sew a coat from a wisent's tanned leather (its hide type, which no base-game animal gives) with twine and a needle."
+HarshWilds_BpCoatWisent_UnlockConditionsDesc,Requires Leatherworking 15.
+HarshWilds_TotemBeast_CardName,Beast Totem
+HarshWilds_TotemBeast_CardDescription,"A post of carved wood hung with bones and twine, set up in camp to honour the beasts. While you are at the place where it stands, Beast Affinity slowly rises, as it does in a beast's den."
+HarshWilds_BpTotemBeast_CardName,Beast Totem
+HarshWilds_BpTotemBeast_CardDescription,"Carve a post from wood, hang it with bones and twine and set it up in camp."
+HarshWilds_BpTotemBeast_UnlockConditionsDesc,Requires some Insight.
+HarshWilds_BpCairn_CardName,Stone Cairn
+HarshWilds_BpCairn_CardDescription,Raise a cairn of heavy stones in memory of the dead. Keep a vigil by it and the Ancestors may answer.
+HarshWilds_BpCairn_UnlockConditionsDesc,Requires some Insight.
+HarshWilds_SwitchSpiritSickness_StatName,Harsh Wilds: Spirit Sickness
+HarshWilds_SwitchSpiritSickness_StatDescription,Hidden 0/1 switch: 1 while Spirit Sickness is on in the Harsh Wilds config.
+HarshWilds_Spirit_StatName,Spirit Sickness
+HarshWilds_Spirit_StatDescription,A sickness of the spirit that follows angering a spirit you called. It dulls your focus and wears on your nerves. It never fades by itself: burning a cleansing smudge at a lit fire drives out one stage.
+HarshWilds_Spirit_Status1_Name,Uneasy
+HarshWilds_Spirit_Status1_Description,"A spirit you angered still clings to you. Your thoughts drift: less focus, and your stress stops easing."
+HarshWilds_Spirit_Status2_Name,Spirit Sickness
+HarshWilds_Spirit_Status2_Description,"The spirit's anger is making you ill in the head: much less focus, and your stress slowly rises."
+HarshWilds_Spirit_Status3_Name,Spirit-Ridden
+HarshWilds_Spirit_Status3_Description,"You are spirit-ridden: far less focus, and your stress keeps rising. Burn a cleansing smudge at a lit fire to drive a stage out."
+HarshWilds_ExorcismSmudge_CardName,Cleansing Smudge
+HarshWilds_ExorcismSmudge_CardDescription,"A tight bundle of bog myrtle and dry juniper needles. Burned at a lit fire with the old words, its smoke drives one stage of spirit sickness out of you, or breaks a dancing plague at once. Needs a lit campfire, fire pit, fireplace or hearth beside you."
+HarshWilds_ExorcismSmudge_ActionName,Burn the Smudge
+HarshWilds_ExorcismSmudge_ActionDescription,"Burn the bundle at a lit fire and say the old words, to drive one stage of spirit sickness out of you."
+HarshWilds_BpExorcismSmudge_CardName,Cleansing Smudge
+HarshWilds_BpExorcismSmudge_CardDescription,"Bind bog myrtle (fresh, dried or powdered) and dry juniper needles into a smudge bundle. Burned at a lit fire, it drives out spirit sickness."
+HarshWilds_FairyRing_CardName,Fairy Ring
+HarshWilds_FairyRing_CardDescription,"A ring of toadstools in the grass, too round to be chance. The old folk say the fair folk dance here. Pick its toadstools now and then, or dance in it at night if you dare: you may not be able to stop."
+HarshWilds_FairyRing_PickName,Pick Toadstools
+HarshWilds_FairyRing_PickDescription,"Pick a few of the ring's toadstools (fly agaric: poisonous, not for eating raw). They grow back over two days; now and then a smooth grey stone lies in the grass."
+HarshWilds_FairyRing_DanceName,Dance in the Ring
+HarshWilds_FairyRing_DanceDescription,"Dance in the ring for an hour, at night only. About half the time you cannot stop: the dancing plague takes hold for hours, draining stamina and sharpening hunger, until it wears off or a cleansing smudge breaks it."
+HarshWilds_SwitchDancingPlague_StatName,Harsh Wilds: Dancing Plague
+HarshWilds_SwitchDancingPlague_StatDescription,Hidden 0/1 switch: 1 while the Dancing Plague is on in the Harsh Wilds config.
+HarshWilds_RingDance_StatName,Harsh Wilds: Ring Dance
+HarshWilds_RingDance_StatDescription,Hidden 0/1 marker: 1 from the moment you dance in a fairy ring until the dancing plague has rolled.
+HarshWilds_RingPicked_StatName,Harsh Wilds: Fairy Ring Picked
+HarshWilds_RingPicked_StatDescription,Hidden counter: ticks until a fairy ring's toadstools can be picked again.
+HarshWilds_Dancing_StatName,Dancing Plague
+HarshWilds_Dancing_StatDescription,"A dance you cannot stop, begun in a fairy ring at night. It wears off by itself over a few hours; a cleansing smudge burned at a lit fire breaks it at once."
+HarshWilds_Dancing_Status1_Name,Restless Feet
+HarshWilds_Dancing_Status1_Description,Your feet will not keep still: stamina drains faster and you grow hungry.
+HarshWilds_Dancing_Status2_Name,The Dancing Plague
+HarshWilds_Dancing_Status2_Description,You cannot stop dancing: stamina drains fast and hunger bites hard. A cleansing smudge burned at a lit fire breaks it.
+HarshWilds_ExorcismSmudge_DanceActionName,Burn the Smudge to Break the Dance
+HarshWilds_ExorcismSmudge_DanceActionDescription,"Burn the bundle at a lit fire and say the old words, to break the dancing plague at once."
+HarshWilds_SwitchBanshee_StatName,Harsh Wilds: Banshee
+HarshWilds_SwitchBanshee_StatDescription,Hidden 0/1 switch: 1 while the Banshee is on in the Harsh Wilds config.
+HarshWilds_SwitchNixie_StatName,Harsh Wilds: Nixie
+HarshWilds_SwitchNixie_StatDescription,Hidden 0/1 switch: 1 while the Nixie is on in the Harsh Wilds config.
+HarshWilds_SwitchWildHunt_StatName,Harsh Wilds: Wild Hunt
+HarshWilds_SwitchWildHunt_StatDescription,Hidden 0/1 switch: 1 while the Wild Hunt is on in the Harsh Wilds config.
+HarshWilds_BansheeClock_StatName,Harsh Wilds: Banshee Clock
+HarshWilds_BansheeClock_StatDescription,Hidden counter: how long until the Banshee may next come.
+HarshWilds_NixieClock_StatName,Harsh Wilds: Nixie Clock
+HarshWilds_NixieClock_StatDescription,Hidden counter: how long until the Nixie may next come.
+HarshWilds_HuntClock_StatName,Harsh Wilds: Wild Hunt Clock
+HarshWilds_HuntClock_StatDescription,Hidden counter: how long until the Wild Hunt may next come.
+HarshWilds_Banshee_StatusName,Banshee's Wail
+HarshWilds_Banshee_StatusDescription,"A banshee keens in the dark, and her keening means death is near for someone. You are bleeding badly: stop it before it kills you. The wail wears on your nerves."
+HarshWilds_Banshee_StatName,Banshee's Wail
+HarshWilds_Banshee_StatDescription,A banshee's wail: for some hours your nerves fray.
+HarshWilds_Nixie_StatusName,Nixie's Pull
+HarshWilds_Nixie_StatusDescription,"You went into the water after a voice. Your clothes will not dry for a while, so you stay soaked and cold until the song lets go."
+HarshWilds_Nixie_StatName,Nixie's Pull
+HarshWilds_Nixie_StatDescription,A nixie's song: you stay soaked and uneasy for some hours.
+HarshWilds_WildHunt_StatusName,The Wild Hunt rides
+HarshWilds_WildHunt_StatusDescription,"Hooves, horns and baying hounds sweep across the night sky. Under the open sky each moment wears on you and may bruise you. Get under a roof until it passes."
+HarshWilds_WildHunt_StatName,The Wild Hunt
+HarshWilds_WildHunt_StatDescription,The Wild Hunt rides through the winter night.
+HarshWilds_Offering_StatusName,Offering at the threshold
+HarshWilds_Offering_StatusDescription,"You left an offering at the threshold. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
+HarshWilds_Offering_StatName,Threshold Offering
+HarshWilds_Offering_StatDescription,An offering left at your threshold: the fair folk are kinder for a while.
+HarshWilds_BansheeEvent_ActionName,Steel yourself
+HarshWilds_BansheeEvent_ActionName_Desc,Hold still and bear it. The wail frays your nerves for some hours.
+HarshWilds_BansheeEvent_CardName,Banshee!
+HarshWilds_BansheeEvent_CardDescription,"A long, thin wail rises out of the dark, close by and from nowhere. A banshee keens for someone who is about to die, and you are bleeding badly. Bind the wound before it is you."
+HarshWilds_NixieEvent_FollowName,Follow the song
+HarshWilds_NixieEvent_FollowName_Desc,"Wade in after the voice. You come out soaked, and stay soaked and cold for some hours."
+HarshWilds_NixieEvent_HoldName,Hold fast
+HarshWilds_NixieEvent_HoldName_Desc,Plant your feet and stop your ears. A steady mind keeps you out of the water; a shaken one may still be drawn in.
+HarshWilds_NixieEvent_CardName,A voice from the water
+HarshWilds_NixieEvent_CardDescription,"At the water's edge a sweet voice sings your name, and the black river looks suddenly warm. A nixie is calling you in. You can hold fast, or follow."
+HarshWilds_Threshold_OfferName,Leave an Offering
+HarshWilds_Threshold_OfferDescription,"Leave a pinch of salt, a flatbread, a comb of honey or a curd of cheese on the threshold stone. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
+HarshWilds_Threshold_CardName,Threshold Stone
+HarshWilds_Threshold_CardDescription,"A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while."
+HarshWilds_BpThreshold_CardName,Threshold Stone
+HarshWilds_BpThreshold_CardDescription,"Set a flat stone at the edge of camp. Leave small offerings on it to keep the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie away."
+HarshWilds_BpThreshold_UnlockConditionsDesc,Known from the start.
+HarshWilds_SwitchLakeBeast_StatName,Harsh Wilds: Lake Beast
+HarshWilds_SwitchLakeBeast_StatDescription,Hidden 0/1 switch: 1 while the Lake Beast is on in the Harsh Wilds config.
+HarshWilds_SwitchFrostDemon_StatName,Harsh Wilds: Frost Demon
+HarshWilds_SwitchFrostDemon_StatDescription,Hidden 0/1 switch: 1 while the Frost Demon is on in the Harsh Wilds config.
+HarshWilds_LakeBeastRolled_StatName,Harsh Wilds: Lake Beast Days
+HarshWilds_LakeBeastRolled_StatDescription,Hidden timer: the lake beast haunts the lake shore at night while this reads 1 or more.
+HarshWilds_FrostDemonRolled_StatName,Harsh Wilds: Frost Demon Days
+HarshWilds_FrostDemonRolled_StatDescription,Hidden timer: the frost demon hunts the winter night while this reads 1 or more.
+HarshWilds_LakeBeast_AgentName,Lake Beast
+HarshWilds_FrostDemon_AgentName,Frost Demon
+HarshWilds_SwitchLindwurm_StatName,Harsh Wilds: Lindwurm
+HarshWilds_SwitchLindwurm_StatDescription,Hidden 0/1 switch: 1 while the Lindwurm is on in the Harsh Wilds config.
+HarshWilds_LindwurmRolled_StatName,Harsh Wilds: Lindwurm Days
+HarshWilds_LindwurmRolled_StatDescription,Hidden timer: the lindwurm lairs in the Great Cave while this reads 1 or more.
+HarshWilds_Lindwurm_AgentName,Lindwurm
+HarshWilds_SwitchSelkie_StatName,Harsh Wilds: Selkie
+HarshWilds_SwitchSelkie_StatDescription,Hidden 0/1 switch: 1 while the Selkie is on in the Harsh Wilds config.
+HarshWilds_SelkieClock_StatName,Harsh Wilds: Selkie Clock
+HarshWilds_SelkieClock_StatDescription,Hidden counter: how long until the Selkie may next come.
+HarshWilds_Selkie_StatusName,Selkie's Call
+HarshWilds_Selkie_StatusDescription,"You followed a seal-woman into the surf. Your clothes will not dry for a while, so you stay soaked and cold until her song lets go."
+HarshWilds_Selkie_StatName,Selkie's Call
+HarshWilds_Selkie_StatDescription,A selkie's song: you stay soaked and uneasy for some hours.
+HarshWilds_SelkieEvent_FollowName,Follow her into the surf
+HarshWilds_SelkieEvent_FollowName_Desc,"Wade out after her. You come back soaked, and stay soaked and cold for some hours."
+HarshWilds_SelkieEvent_TurnName,Turn away
+HarshWilds_SelkieEvent_TurnName_Desc,Turn your back on the song. A steady mind keeps you on the sand; a shaken one may still be drawn in.
+HarshWilds_SelkieEvent_CardName,A seal-woman on the strand
+HarshWilds_SelkieEvent_CardDescription,"On the wet sand a grey seal slips off its skin and a woman stands where it lay, singing, and holds out her hand toward the surf. A selkie is calling you out to sea. You can turn away, or follow."
+HarshWilds_Shaman_AgentName,Wandering Shaman
+HarshWilds_Shaman_AgentDescription,"An old spirit-worker passing through, pack heavy with dried mushrooms, fairyweed and charms. He trades, and to one who has bound a spirit he will teach a calling."
+HarshWilds_Shaman_Talk,Talk
+HarshWilds_Shaman_SceneTitle,The Wandering Shaman
+HarshWilds_Shaman_TeachGoat_Line,"You carry a spirit already, I can feel it on you. Good. Then you will understand this one. Sit a while and I will teach you the calling of the Goat Spirit, that you may bind it when the time comes."
+HarshWilds_Shaman_TeachLynx_Line,"You carry a spirit already, I can feel it on you. Good. Then you will understand this one. Sit a while and I will teach you the calling of the Lynx Spirit, the quiet hunter of the rocks."
+HarshWilds_Shaman_TeachBlood_Line,"Two spirits walk with you already. Then you are ready for a harder one. Sit, and I will teach you the calling of the Blood Spirit; it comes only where much blood has been spilled."
+HarshWilds_Shaman_Teach_Answer,Teach me the calling.
+HarshWilds_Shaman_Start_Line,"Well met, wanderer. I keep to the old roads and the old ways. I have dried mushrooms, fairyweed, a charm or two; trade if you like, and I will be on my way within the day."
+HarshWilds_Shaman_Start_Answer,"Safe travels, shaman."
+HarshWilds_SwitchWolverine_StatName,Harsh Wilds: Wolverine
+HarshWilds_SwitchWolverine_StatDescription,Hidden 0/1 switch: 1 while the Wolverine is on in the Harsh Wilds config.
+HarshWilds_WolverineClock_StatName,Harsh Wilds: Wolverine Clock
+HarshWilds_WolverineClock_StatDescription,Hidden counter: how long until the Wolverine may next look for a catch in the traps.
+HarshWilds_WolverineEvent_CardName,Wolverine at the Traps
+HarshWilds_WolverineEvent_CardDescription,"A wolverine, hungry in the deep of winter, has found your trapline and is nosing at the sprung traps. It may find nothing worth taking."
+HarshWilds_WolverineEvent_ActionName,See what it takes
+HarshWilds_WolverineEvent_LostMessage,The wolverine tears a catch from the traps and drags it off:
+HarshWilds_Athame_Blood_Base_ActionName,Let Blood
+HarshWilds_Athame_Blood_Base_ActionDescription,"Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 150 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade."
+HarshWilds_Athame_Blood_Bundle_ActionName,Let Blood by the Incense Bundle
+HarshWilds_Athame_Blood_Bundle_ActionDescription,"As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+HarshWilds_Athame_Blood_Burner_ActionName,Let Blood by the Incense Burner
+HarshWilds_Athame_Blood_Burner_ActionDescription,"As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+HarshWilds_Athame_Blood_Heather_ActionName,Let Blood by the Heather Burner
+HarshWilds_Athame_Blood_Heather_ActionDescription,"As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+HarshWilds_Athame_Blood_Juniper_ActionName,Let Blood by the Juniper Burner
+HarshWilds_Athame_Blood_Juniper_ActionDescription,"As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+HarshWilds_Athame_Rain_Base_ActionName,Call Rain
+HarshWilds_Athame_Rain_Base_ActionDescription,"Point the athame at the sky and call the rain down. The clouds thicken and the weather is drawn to change at once, so rain is likely but never certain. You can only do it once every two days. It takes two hours and wears the blade."
+HarshWilds_Athame_Rain_Bundle_ActionName,Call Rain by the Incense Bundle
+HarshWilds_Athame_Rain_Bundle_ActionDescription,"As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+HarshWilds_Athame_Rain_Burner_ActionName,Call Rain by the Incense Burner
+HarshWilds_Athame_Rain_Burner_ActionDescription,"As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+HarshWilds_Athame_Rain_Heather_ActionName,Call Rain by the Heather Burner
+HarshWilds_Athame_Rain_Heather_ActionDescription,"As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+HarshWilds_Athame_Rain_Juniper_ActionName,Call Rain by the Juniper Burner
+HarshWilds_Athame_Rain_Juniper_ActionDescription,"As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+HarshWilds_Athame_CardName,Athame
+HarshWilds_Athame_CardDescription,"A short bone-bladed knife with a hilt wrapped in blackened twine, kept for rites. It cuts and butchers like any knife. With it you can let your own blood for the beasts, or call down rain; a lit incense burner or bundle nearby makes either rite stronger."
+HarshWilds_BpAthame_CardName,Athame
+HarshWilds_BpAthame_CardDescription,Blacken a bone knife with charcoal and wrap the hilt in twine to make a knife for rites.
+HarshWilds_BpAthame_UnlockConditionsDesc,Requires some Insight.
+HarshWilds_RiteRain_StatName,Harsh Wilds: Rain Rite Cooldown
+HarshWilds_RiteRain_StatDescription,Hidden timer: how many ticks until the rain rite can be done again.
+HarshWilds_CastingBones_CardName,Casting Bones
+HarshWilds_CastingBones_CardDescription,"A handful of small bones, scraped clean and marked with charcoal, kept in a fold of hide. Cast on the ground, they show whether the eagle or the black bear is close to coming for your food."
+HarshWilds_CastingBones_Cast_ActionName,Cast the Bones
+HarshWilds_CastingBones_Cast_ActionDescription,Throw the bones and read how they fall. They show whether the eagle or the black bear can come for your food within a day. It takes half an hour and wears the bones a little.
+HarshWilds_BpCastingBones_CardName,Casting Bones
+HarshWilds_BpCastingBones_CardDescription,Scrape a few bones clean and mark them with charcoal to read the signs of the eagle and the black bear.
+HarshWilds_BpCastingBones_UnlockConditionsDesc,Requires some Insight.
+HarshWilds_OmenRaids_CardName,Bones: Both Raids Near
+HarshWilds_OmenRaids_CardDescription,"The bones fall in two piles, one pointing at the sky and one at your stores. Within a day of this casting the eagle and the black bear are both hungry again. From then on, whenever you are outside, the eagle may take game left lying on open ground, and, while autumn lasts, the bear may raid the food kept in your containers and stores."
+HarshWilds_OmenRaids_ActionName,Gather the Bones
+HarshWilds_OmenRaids_ActionDescription,Pick the bones up and put them away.
+HarshWilds_OmenEagle_CardName,Bones: The Eagle Is Near
+HarshWilds_OmenEagle_CardDescription,"The bones fall in a line toward the open sky. Within a day of this casting the eagle is hunting again, and from then on it may take game left lying on open ground whenever you are outside. The black bear cannot come within a day of this casting."
+HarshWilds_OmenEagle_ActionName,Gather the Bones
+HarshWilds_OmenEagle_ActionDescription,Pick the bones up and put them away.
+HarshWilds_OmenBear_CardName,Bones: The Bear Is Near
+HarshWilds_OmenBear_CardDescription,"The bones fall in a heap, heavy end down. Within a day of this casting the black bear is hungry again, and from then on, while autumn lasts, it may raid the food kept in your containers and stores whenever you are outside. The eagle cannot come within a day of this casting."
+HarshWilds_OmenBear_ActionName,Gather the Bones
+HarshWilds_OmenBear_ActionDescription,Pick the bones up and put them away.
+HarshWilds_OmenQuiet_CardName,Bones: Quiet Signs
+HarshWilds_OmenQuiet_CardDescription,"The bones fall loose and scattered, pointing nowhere. Neither the eagle nor the black bear can come for your food within a day of this casting."
+HarshWilds_OmenQuiet_ActionName,Gather the Bones
+HarshWilds_OmenQuiet_ActionDescription,Pick the bones up and put them away.
+HarshWilds_FaerieRealm_EnvName,The Faerie Realm
+HarshWilds_FaerieRealm_EnvDescription,"The other side of the fairy ring, where the fair folk keep their court. You cannot stay long."
+HarshWilds_FaerieRealm_LocName,The Faerie Realm
+HarshWilds_FaerieRealm_LocDescription,"Silver grass under a moon that never sets, and music somewhere out of sight. No raid comes for your food here, and no lynx or bandit follows you in. The ring will send you home before long."
+HarshWilds_FaerieExit_CardName,The Ring's Edge
+HarshWilds_FaerieExit_CardDescription,"The ring of toadstools you stepped through, glowing faintly in the silver grass. Step back through it whenever you like; when its moonlight runs out the ring sends you home anyway, back to the grove you came from."
+HarshWilds_FaerieExit_ClockName,Moonlight Left
+HarshWilds_FaerieExit_OnZeroName,The Ring Lets You Go
+HarshWilds_FaerieExit_OnZeroDescription,"The moonlight fades and the ring sends you home, back to the grove you came from."
+HarshWilds_FaerieExit_FadeMessage,The ring lets you go...
+HarshWilds_FaerieExit_LeaveName,Step Back Through the Ring
+HarshWilds_FaerieExit_LeaveDescription,Step back through the ring and return to the grove you came from.
+HarshWilds_FairyRing_EnterName,Enter the Ring
+HarshWilds_FairyRing_EnterDescription,"On a full-moon night, step into the ring and through it, into the Faerie Realm. You can stay a few hours at most: step back through whenever you like, and when the moonlight runs out the ring sends you home to this grove."
+HarshWilds_FairyRing_EnterFade,You step into the ring...
+HarshWilds_InRealm_StatName,Harsh Wilds: In a Realm
+HarshWilds_InRealm_StatDescription,"Hidden 0/1 flag: 1 while you stand in a realm beyond the forest, 0 everywhere else."
+HarshWilds_FaerieRealm_WanderName,Wander the Moonlit Meadow
+HarshWilds_FaerieRealm_WanderDescription,"Spend two hours wandering the silver meadow. Fairyweed grows everywhere here; now and then you find spirit mushrooms, a sprig of mistletoe or a smooth grey stone."
+HarshWilds_PixieLed_CardName,Pixie-Led
+HarshWilds_PixieLed_CardDescription,"Little lights bob at the edge of sight, and you follow them without meaning to. When you come to yourself you are somewhere else in the silver grass, and laughter fades away among the stems."
+HarshWilds_PixieLed_ActionName,Find Your Way Back
+HarshWilds_PixieLed_ActionDescription,Walk back the way you think you came. It tires you.
+HarshWilds_SwitchFaerieTricks_StatName,Harsh Wilds: Faerie Tricks
+HarshWilds_SwitchFaerieTricks_StatDescription,Hidden 0/1 switch: 1 while Faerie Tricks are on in the Harsh Wilds config.
+HarshWilds_FaerieClock_StatName,Harsh Wilds: Faerie Clock
+HarshWilds_FaerieClock_StatDescription,Hidden counter: ticks until the fair folk may next play a trick in a realm.
+HarshWilds_MoonRealm_EnvName,The Moon Realm
+HarshWilds_MoonRealm_EnvDescription,"The silver country behind the Moon Stone, where the moon hangs low and close. You cannot stay long."
+HarshWilds_MoonRealm_LocName,The Moon Realm
+HarshWilds_MoonRealm_LocDescription,"A pale shore of silver sand under a huge full moon, and a lake as still as glass. No raid comes for your food here, and no lynx or bandit follows you in. The basin will send you home before long."
+HarshWilds_MoonRealm_SearchName,Search the Silver Shallows
+HarshWilds_MoonRealm_SearchDescription,"Spend two hours combing the shallows and the shore. White feathers drift in on the still water; now and then you find moon moss, a few niter crystals or a bright flint."
+HarshWilds_MoonExit_CardName,The Silver Pool
+HarshWilds_MoonExit_CardDescription,"The still water you stepped through, bright with the moon. Step back through it whenever you like; when its moonlight runs out the pool sends you home anyway, back to the place you came from."
+HarshWilds_MoonExit_ClockName,Moonlight Left
+HarshWilds_MoonExit_OnZeroName,The Pool Lets You Go
+HarshWilds_MoonExit_OnZeroDescription,"The moonlight fades and the pool sends you home, back to the place you came from."
+HarshWilds_MoonExit_FadeMessage,The pool lets you go...
+HarshWilds_MoonExit_LeaveName,Step Back Through the Pool
+HarshWilds_MoonExit_LeaveDescription,Step back through the pool and return to the place you came from.
+HarshWilds_Moonstruck_CardName,Moonstruck
+HarshWilds_Moonstruck_CardDescription,The moon is so near that you cannot look away. When you can move again your hands are shaking and your thoughts will not settle.
+HarshWilds_Moonstruck_ActionName,Shake Off the Glamour
+HarshWilds_Moonstruck_ActionDescription,Look away and breathe until the feeling passes. It leaves you strained.
+HarshWilds_MoonClock_StatName,Harsh Wilds: Moon Clock
+HarshWilds_MoonClock_StatDescription,Hidden counter: ticks until the moon may next cloud your mind in a realm.
+HarshWilds_SwitchMoonGlamour_StatName,Harsh Wilds: Moon Glamour
+HarshWilds_SwitchMoonGlamour_StatDescription,Hidden 0/1 switch: 1 while Moon Glamour is on in the Harsh Wilds config.
+HarshWilds_MoonBasin_CardName,Moon Basin
+HarshWilds_MoonBasin_CardDescription,A shallow stone basin set beside the Moon Stone and filled with still water. On a full-moon night the moon lies in it as if the water were a door. Step into the moonlight and you may find the Moon Realm; you cannot stay long.
+HarshWilds_MoonBasin_EnterName,Step into the Moonlight
+HarshWilds_MoonBasin_EnterDescription,"On a full-moon night, step into the basin's moonlight and through it, into the Moon Realm. You can stay a few hours at most: step back through whenever you like, and when the moonlight runs out the pool sends you home to this shrine."
+HarshWilds_MoonBasin_EnterFade,You step into the moonlight...
+HarshWilds_BpMoonBasin_CardName,Moon Basin
+HarshWilds_BpMoonBasin_CardDescription,"Set a stone basin of still water beside a Moon Stone. On a full-moon night, step into its moonlight to visit the Moon Realm. It can only be raised where a Moon Stone stands."
+HarshWilds_BpMoonBasin_UnlockConditionsDesc,Known from the start.
+HarshWilds_UnderworldRealm_EnvName,The Underworld
+HarshWilds_UnderworldRealm_EnvDescription,"The dark halls under the barrow, where the old dead keep their quiet. You cannot stay long."
+HarshWilds_UnderworldRealm_LocName,The Underworld
+HarshWilds_UnderworldRealm_LocDescription,"Low halls of black stone and old bone, lit by a cold grey glow with no source. No raid comes for your food here, and no lynx or bandit follows you in. The stair will send you up before long."
+HarshWilds_UnderworldRealm_SearchName,Search the Barrow Halls
+HarshWilds_UnderworldRealm_SearchDescription,"Spend two hours going through the halls. Old bones lie everywhere; now and then you find ash from a long-dead fire, the bones of a great bird or a sulphurous stone."
+HarshWilds_UnderworldExit_CardName,The Way Up
+HarshWilds_UnderworldExit_CardDescription,"The worn stair you came down. Climb it whenever you like; when the cold light runs out the stair carries you up anyway, back to the cairn you came from."
+HarshWilds_UnderworldExit_ClockName,Grey Light Left
+HarshWilds_UnderworldExit_OnZeroName,The Stair Carries You Up
+HarshWilds_UnderworldExit_OnZeroDescription,"The grey light fails and the stair carries you up, back to the cairn you came from."
+HarshWilds_UnderworldExit_FadeMessage,The stair carries you up...
+HarshWilds_UnderworldExit_LeaveName,Climb the Stair
+HarshWilds_UnderworldExit_LeaveDescription,Climb the stair and return to the cairn you came from.
+HarshWilds_RestlessDead_CardName,The Restless Dead
+HarshWilds_RestlessDead_CardDescription,"Cold hands close on your ankles and your coat, and a dry whisper asks you to stay. You can feel how little strength they are leaving you."
+HarshWilds_RestlessDead_ActionName,Break Free
+HarshWilds_RestlessDead_ActionDescription,Wrench yourself out of their grip. It tires you and sets your nerves on edge.
+HarshWilds_UnderworldClock_StatName,Harsh Wilds: Underworld Clock
+HarshWilds_UnderworldClock_StatDescription,Hidden counter: ticks until the restless dead may next reach for you in a realm.
+HarshWilds_SwitchRestlessDead_StatName,Harsh Wilds: Restless Dead
+HarshWilds_SwitchRestlessDead_StatDescription,Hidden 0/1 switch: 1 while Restless Dead are on in the Harsh Wilds config.
+HarshWilds_FlCairn_DescendName,Go Down the Tomb Stair
+HarshWilds_FlCairn_DescendDescription,"At night, go down the old stair into the Underworld. You can stay a few hours at most: climb back whenever you like, and when the grey light fails the stair carries you up to this tomb."
+HarshWilds_FlCairn_DescendFade,You go down the old stair...
+HarshWilds_InFaerie_StatName,Harsh Wilds: In the Faerie Realm
+HarshWilds_InFaerie_StatDescription,"Hidden 0/1 flag: 1 while you stand in the Faerie Realm, 0 everywhere else."
+HarshWilds_InMoon_StatName,Harsh Wilds: In the Moon Realm
+HarshWilds_InMoon_StatDescription,"Hidden 0/1 flag: 1 while you stand in the Moon Realm, 0 everywhere else."
+HarshWilds_InUnderworld_StatName,Harsh Wilds: In the Underworld
+HarshWilds_InUnderworld_StatDescription,"Hidden 0/1 flag: 1 while you stand in the Underworld, 0 everywhere else."
+HarshWilds_FairyKing_CardName,The Fairy King
+HarshWilds_FairyKing_CardDescription,"A tall lord of the fair folk, crowned with antlers and dressed in moss and gold. He watches you with a smile that never reaches his eyes, and he is always ready to strike a bargain."
+HarshWilds_FairyKing_TalkName,Speak with the King
+HarshWilds_FairyKing_TalkDescription,"Bow, and speak with the Fairy King."
+HarshWilds_FairyKing_SceneTitle,The Fairy King
+HarshWilds_FairyKing_Offer_Line,"So, a mortal has found my ring. I will give you two fairy stones, bright as the day they were made. All I ask is a little of your will; you will hardly miss it."
+HarshWilds_FairyKing_Offer_Accept,"Take my will, and give me the stones."
+HarshWilds_FairyKing_Offer_Decline,"No bargain today, my lord."
+HarshWilds_FairyKing_After_Line,"A bargain struck is struck, mortal. Do not ask the King twice."
+HarshWilds_FairyKing_After_Answer,Bow and step back.
+HarshWilds_FairyQueen_CardName,The Fairy Queen
+HarshWilds_FairyQueen_CardDescription,"The queen of the fair folk, pale as moonlight and crowned with white flowers. Her court dances all night around her, and she offers weary travellers rest, for a price."
+HarshWilds_FairyQueen_TalkName,Speak with the Queen
+HarshWilds_FairyQueen_TalkDescription,"Curtsey, and speak with the Fairy Queen."
+HarshWilds_FairyQueen_SceneTitle,The Fairy Queen
+HarshWilds_FairyQueen_Offer_Line,"You look so tired, traveller. Dance with my court until the music stops, and I will take your cares away and give you a sprig of mistletoe to keep."
+HarshWilds_FairyQueen_Offer_Accept,I will dance with your court.
+HarshWilds_FairyQueen_Offer_Decline,"Another night, my lady."
+HarshWilds_FairyQueen_After_Line,"You have danced with us already, and the night remembers. Go gently, traveller."
+HarshWilds_FairyQueen_After_Answer,"Thank you, my lady."
+HarshWilds_LynxEnc_Lynx,Lynx
+HarshWilds_LynxEnc_TheLynx,the lynx
+HarshWilds_LynxEnc_TheLynxLungesToBiteYou,The lynx lunges to bite you!
+HarshWilds_LynxEnc_YouFailToDodgeAndTheBiteConnects,You fail to dodge and the bite connects...
+HarshWilds_LynxEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+HarshWilds_LynxEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+HarshWilds_LynxEnc_YouGotASmallLaceration,You got a small laceration!
+HarshWilds_LynxEnc_YouGotASmallBite,You got a small bite!
+HarshWilds_LynxEnc_YouGotAPrettyUglyBite,You got a pretty ugly bite.
+HarshWilds_LynxEnc_YouGotACoupleOfUglyBites,You got a couple of ugly bites.
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourLeg,You got a deep laceration on your leg!
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourArm,You got a deep laceration on your arm!
+HarshWilds_LynxEnc_YouGotMultipleLacerations,You got multiple lacerations!
+HarshWilds_LynxEnc_TheLynxFlattensItsEarsAndHisses,The lynx flattens its ears and hisses.
+HarshWilds_LynxEnc_TheHissSetsYourNervesOnEdge,The hiss sets your nerves on edge.
+HarshWilds_LynxEnc_TheLynxLeapsAtYouClawsOut,"The lynx leaps at you, claws out!"
+HarshWilds_LynxEnc_YouFailToDodgeTheLeap,You fail to dodge the leap...
+HarshWilds_LynxEnc_YouGotASmallLaceration2,You got a small laceration.
+HarshWilds_LynxEnc_ItsClawsLeaveUglyMarks,Its claws leave ugly marks.
+HarshWilds_LynxEnc_ItsClawsRakeYouAgainAndAgain,Its claws rake you again and again.
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!
+HarshWilds_LynxEnc_YouGotManyLacerations,You got many lacerations!
+HarshWilds_LynxEnc_TheLynxPouncesOnYouTryingToDragYouDown,"The lynx pounces on you, trying to drag you down!"
+HarshWilds_LynxEnc_YouLandOnYourBackAndTheLynxIsOnTopOfYou,You land on your back and the lynx is on top of you!
+HarshWilds_LynxEnc_YouKeepYourBalanceAndTheLynxSpringsBack,You keep your balance and the lynx springs back.
+HarshWilds_LynxEnc_YouSprainedYourArm,You sprained your arm!
+HarshWilds_LynxEnc_YouSprainedYourLeg,You sprained your leg!
+HarshWilds_LynxEnc_ItClawsAndBitesYou,It claws and bites you!
+HarshWilds_LynxEnc_TheLynxGoesForYourThroat,The lynx goes for your throat!
+HarshWilds_LynxEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...
+HarshWilds_LynxEnc_YouSuccessfullyDodgeTheBite,You successfully dodge the bite...
+HarshWilds_LynxEnc_YouGotMultipleBiteWounds,You got multiple bite wounds!
+HarshWilds_LynxEnc_ItStopsToCatchItsBreath,It stops to catch its breath...
+HarshWilds_LynxEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...
+HarshWilds_LynxEnc_TheLynxCreepsCloser,The lynx creeps closer...
+HarshWilds_LynxEnc_TheLynxCollapsesToTheGround,The lynx collapses to the ground.
+HarshWilds_LynxEnc_TheLynxBoundsAwayIntoTheRocks,The lynx bounds away into the rocks...
+HarshWilds_LynxEnc_TheLynxFollowsYouForAWhileButYouManageTo,"The lynx follows you for a while, but you manage to escape..."
+HarshWilds_LynxEnc_YouRunAwayFromTheLynx,You run away from the lynx...
+HarshWilds_LynxEnc_YouSeeALynx,You see a Lynx!
+HarshWilds_LynxEnc_Continue,Continue
+HarshWilds_LynxCarcass_LynxCarcass,Lynx Carcass
+HarshWilds_LynxCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.
+HarshWilds_LynxCarcass_Spoilage,Spoilage
+HarshWilds_LynxCarcass_LynxSpoiled,Lynx Spoiled!
+HarshWilds_LynxCarcass_Consumed,Consumed
+HarshWilds_LynxCarcass_Spirit,Spirit
+HarshWilds_LynxCarcass_Quality,Quality
+HarshWilds_LynxCarcass_Butcher,Butcher
+HarshWilds_LynxCarcass_ReleaseTheSpirit,Release the Spirit
+HarshWilds_LynxCarcass_TrappedLynx,Trapped Lynx
+HarshWilds_LynxSpirit_LynxSpirit,Lynx Spirit
+HarshWilds_LynxSpirit_APersonifiedManifestationOfTheEssenceOfL,"A personified manifestation of the essence of lynxkind.
+
+Can help you with climbing, and with ambushing prey."
+HarshWilds_LynxSpirit_Attunement,Attunement
+HarshWilds_LynxSpirit_Leave,Leave
+HarshWilds_LynxSpirit_Duration,Duration
+HarshWilds_LynxSpirit_Death,Death
+HarshWilds_LynxSpirit_Release,Release
+HarshWilds_LynxSpirit_Lynx,(Lynx)
+HarshWilds_LynxSpirit_BestialResilience,Bestial Resilience
+HarshWilds_LynxSpirit_Bless,Bless
+HarshWilds_LynxSpirit_Blessing,Blessing
+HarshWilds_LynxSpirit_LynxSpiritCalling,Lynx Spirit Calling
+HarshWilds_LynxSpirit_TemporarilyBindsALynxSpiritToYourSoulMak,"Temporarily binds a lynx spirit to your soul, making you both a bit more like the other."
+HarshWilds_LynxSpirit_SummoningRitual,Summoning Ritual
+HarshWilds_LynxSpirit_CarcassHasNoSpirit,Carcass has no spirit.
+HarshWilds_LynxSpirit_WhereASpiritIsTemporarilyBoundToYourSoul,Where a spirit is temporarily bound to your soul.
+HarshWilds_LynxSpirit_Bind,Bind
+HarshWilds_LynxSpirit_Ignore,Ignore
+HarshWilds_LynxSpirit_YouSucessfullyCompletedTheRitualTheSpiri,You sucessfully completed the ritual. The spirit is now temporarily a part of you.
+HarshWilds_LynxSpirit_Continue,Continue
+HarshWilds_LynxSpirit_SpiritIsNotImpressed,Spirit is not impressed. 
+HarshWilds_LynxSpirit_TheLynxSpiritLeavesYouForNow,The Lynx Spirit leaves you for now.
+HarshWilds_LynxSpirit_TheSpiritUsedAllItsPowerAndIsNowLeavingY,The Spirit used all its power and is now leaving you. 
+HarshWilds_GoatSpirit_GoatSpirit,Goat Spirit
+HarshWilds_GoatSpirit_APersonifiedManifestationOfTheEssenceOfG,"A personified manifestation of the essence of goatkind.
+
+Can help you climb, and boost your immune system."
+HarshWilds_GoatSpirit_Attunement,Attunement
+HarshWilds_GoatSpirit_Leave,Leave
+HarshWilds_GoatSpirit_Duration,Duration
+HarshWilds_GoatSpirit_Death,Death
+HarshWilds_GoatSpirit_Release,Release
+HarshWilds_GoatSpirit_Goat,(Goat)
+HarshWilds_GoatSpirit_BestialResilience,Bestial Resilience
+HarshWilds_GoatSpirit_Blessing,Blessing
+HarshWilds_GoatSpirit_GoatSpiritCalling,Goat Spirit Calling
+HarshWilds_GoatSpirit_TemporarilyBindsAGoatSpiritToYourSoulMak,"Temporarily binds a goat spirit to your soul, making you both a bit more like the other."
+HarshWilds_GoatSpirit_GoatSpiritSummoning,Goat Spirit Summoning
+HarshWilds_GoatSpirit_WhereASpiritIsTemporarilyBoundToYourSoul,Where a spirit is temporarily bound to your soul.
+HarshWilds_GoatSpirit_Bind,Bind
+HarshWilds_GoatSpirit_Ignore,Ignore
+HarshWilds_GoatSpirit_YouSucessfullyCompletedTheRitualTheSpiri,You sucessfully completed the ritual. The spirit is now temporarily a part of you.
+HarshWilds_GoatSpirit_Continue,Continue
+HarshWilds_GoatSpirit_SpiritIsNotImpressed,Spirit is not impressed. 
+HarshWilds_GoatSpirit_TheGoatSpiritLeavesYouForNow,The Goat Spirit leaves you for now.
+HarshWilds_GoatSpirit_TheSpiritUsedAllItsPowerAndIsNowLeavingY,The Spirit used all its power and is now leaving you. 
+HarshWilds_BloodSpirit_BloodSpirit,Blood Spirit
+HarshWilds_BloodSpirit_APersonifiedManifestationOfTheBloodSpill,"A personified manifestation of the blood spilled in the forest.
+
+Can make you stronger and quicker to dodge in a fight."
+HarshWilds_BloodSpirit_Attunement,Attunement
+HarshWilds_BloodSpirit_Leave,Leave
+HarshWilds_BloodSpirit_Duration,Duration
+HarshWilds_BloodSpirit_Death,Death
+HarshWilds_BloodSpirit_Release,Release
+HarshWilds_BloodSpirit_Blood,(Blood)
+HarshWilds_BloodSpirit_BestialResilience,Bestial Resilience
+HarshWilds_BloodSpirit_Blessing,Blessing
+HarshWilds_BloodSpirit_BloodSpiritCalling,Blood Spirit Calling
+HarshWilds_BloodSpirit_TemporarilyBindsABloodSpiritToYourSoulMa,"Temporarily binds a blood spirit to your soul, making you both a bit more like the other."
+HarshWilds_BloodSpirit_BloodSpiritSummoning,Blood Spirit Summoning
+HarshWilds_BloodSpirit_WhereASpiritIsTemporarilyBoundToYourSoul,Where a spirit is temporarily bound to your soul.
+HarshWilds_BloodSpirit_Bind,Bind
+HarshWilds_BloodSpirit_Ignore,Ignore
+HarshWilds_BloodSpirit_YouSucessfullyCompletedTheRitualTheSpiri,You sucessfully completed the ritual. The spirit is now temporarily a part of you.
+HarshWilds_BloodSpirit_Continue,Continue
+HarshWilds_BloodSpirit_SpiritIsNotImpressed,Spirit is not impressed. 
+HarshWilds_BloodSpirit_TheBloodSpiritLeavesYouForNow,The Blood Spirit leaves you for now.
+HarshWilds_BloodSpirit_TheSpiritUsedAllItsPowerAndIsNowLeavingY,The Spirit used all its power and is now leaving you. 
+HarshWilds_AncestorSpirit_StoneCairn,Stone Cairn
+HarshWilds_AncestorSpirit_AHeapOfStonesRaisedOverTheMemoryOfTheDea,"A heap of stones raised over the memory of the dead.
+Sit by it long enough and the Ancestors may come to you."
+HarshWilds_AncestorSpirit_AncestorPropinquity,Ancestor Propinquity
+HarshWilds_AncestorSpirit_DescendBeneathTheCairn,Descend Beneath the Cairn
+HarshWilds_AncestorSpirit_AtNightLiftTheCapstoneAndGoDownTheStairB,"At night, lift the capstone and go down the stair beneath the cairn, into the Underworld. You can stay a few hours at most: climb back whenever you like, and when the grey light fails the stair carries you up to this cairn."
+HarshWilds_AncestorSpirit_YouGoDownBeneathTheCairn,You go down beneath the cairn...
+HarshWilds_AncestorSpirit_KeepVigil,Keep Vigil
+HarshWilds_AncestorSpirit_Blessing,Blessing
+HarshWilds_AncestorSpirit_TheBlessingIsNotReadyYet,The blessing is not ready yet.
+HarshWilds_AncestorSpirit_TheAncestors,The Ancestors
+HarshWilds_AncestorSpirit_TheStonesSettleAndForAMomentYouAreNotAlo,"The stones settle, and for a moment you are not alone. The dead of this place are near, and now they know you."
+HarshWilds_AncestorSpirit_Continue,Continue
+HarshWilds_AncestorSpirit_AncestorSpirit,Ancestor Spirit
+HarshWilds_AncestorSpirit_APersonifiedManifestationOfTheAncestorsC,"A personified manifestation of the Ancestors.
+
+Can give you courage and ease your loneliness."
+HarshWilds_AncestorSpirit_Ancestor,(Ancestor)
+HarshWilds_AncestorSpirit_AncestorEnchantment,Ancestor Enchantment
+HarshWilds_AncestorSpirit_EnchantsAnObjectWithTheBlessingOfTheAnce,"Enchants an object with the blessing of the Ancestors, giving you courage and easing your loneliness."
+HarshWilds_AncestorSpirit_TheCairnHasNoSpirit,The cairn has no spirit.
+HarshWilds_AncestorSpirit_AncestorBlessing,Ancestor Blessing
+HarshWilds_AncestorSpirit_ASpiritBlessingBoostsYourCourageAndReduc,A spirit blessing. Boosts your courage and reduces your loneliness.
+HarshWilds_AncestorSpirit_TheAncestorsHaveNotAnsweredYet,The Ancestors have not answered yet
+HarshWilds_AncestorSpirit_TheAncestorsHaveAlreadyAnswered,The Ancestors have already answered
+HarshWilds_WisentEnc_Wisent,Wisent
+HarshWilds_WisentEnc_TheWisent,the wisent
+HarshWilds_WisentEnc_TheWisentSwingsItsHornedHeadAtYou,The wisent swings its horned head at you!
+HarshWilds_WisentEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...
+HarshWilds_WisentEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+HarshWilds_WisentEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+HarshWilds_WisentEnc_YouGotANastyBruise,You got a nasty bruise.
+HarshWilds_WisentEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration."
+HarshWilds_WisentEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.
+HarshWilds_WisentEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.
+HarshWilds_WisentEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.
+HarshWilds_WisentEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.
+HarshWilds_WisentEnc_AHornLeftANastyPunctureWound,A horn left a nasty puncture wound.
+HarshWilds_WisentEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!
+HarshWilds_WisentEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!
+HarshWilds_WisentEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!
+HarshWilds_WisentEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!
+HarshWilds_WisentEnc_YouGotManyLacerations,You got many lacerations!
+HarshWilds_WisentEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!
+HarshWilds_WisentEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!
+HarshWilds_WisentEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!
+HarshWilds_WisentEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!
+HarshWilds_WisentEnc_TheWisentTriesToKnockYouDown,The wisent tries to knock you down!
+HarshWilds_WisentEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!
+HarshWilds_WisentEnc_TheWisentRamsIntoYouAtFullSpeed,The wisent rams into you at full speed!
+HarshWilds_WisentEnc_TheWisentTriesToGoreYouWithItsHorns,The wisent tries to gore you with its horns!
+HarshWilds_WisentEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...
+HarshWilds_WisentEnc_ItStopsToCatchItsBreath,It stops to catch its breath...
+HarshWilds_WisentEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...
+HarshWilds_WisentEnc_TheWisentChargesAtYou,The wisent charges at you!
+HarshWilds_WisentEnc_TheWisentCollapsesToTheGround,The wisent collapses to the ground.
+HarshWilds_WisentEnc_TheWisentCrashesAwayThroughTheTrees,The wisent crashes away through the trees...
+HarshWilds_WisentEnc_YouRetreatAndEscapeFromTheWisent,You retreat and escape from the wisent...
+HarshWilds_WisentEnc_YouRunAwayFromTheWisent,You run away from the wisent!
+HarshWilds_WisentEnc_YouSeeAWisent,You see a Wisent!
+HarshWilds_WisentEnc_AHugeWisentStopsGrazingLowersItsHeadAndW,"A huge wisent stops grazing, lowers its head and watches you."
+HarshWilds_WisentEnc_LeaveItAlone,Leave it alone
+HarshWilds_WisentEnc_Continue,Continue
+HarshWilds_WisentCarcass_WisentCarcass,Wisent Carcass
+HarshWilds_WisentCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.
+HarshWilds_WisentCarcass_Spoilage,Spoilage
+HarshWilds_WisentCarcass_WisentSpoiled,Wisent Spoiled!
+HarshWilds_WisentCarcass_Consumed,Consumed
+HarshWilds_WisentCarcass_Spirit,Spirit
+HarshWilds_WisentCarcass_Quality,Quality
+HarshWilds_WisentCarcass_Bleed,Bleed
+HarshWilds_WisentCarcass_ReleaseTheSpirit,Release the Spirit
+HarshWilds_WisentCarcass_BledWisentCarcass,Bled Wisent Carcass
+HarshWilds_WisentCarcass_CanSkinItWithAKnifeOrHarvestItsBloodWith,Can skin it with a knife or harvest its blood with a container.
+HarshWilds_WisentCarcass_BleedingWisentCarcass,Bleeding Wisent Carcass
+HarshWilds_WisentCarcass_Blood,Blood
+HarshWilds_WisentCarcass_Skin,Skin
+HarshWilds_WisentCarcass_PreventCoagulation,Prevent Coagulation
+HarshWilds_WisentCarcass_SkinnedWisentCarcass,Skinned Wisent Carcass
+HarshWilds_WisentCarcass_NeedsToBeButcheredWithAKnife,Needs to be butchered with a knife.
+HarshWilds_WisentCarcass_ButcheringProgress,Butchering Progress
+HarshWilds_WisentCarcass_Disembowel,Disembowel
+HarshWilds_WisentCarcass_HarvestHaunchMeat,Harvest Haunch Meat
+HarshWilds_WisentCarcass_HarvestLoinMeat,Harvest Loin Meat
+HarshWilds_WisentCarcass_HarvestShoulderMeat,Harvest Shoulder Meat
+HarshWilds_MuskOxEnc_MuskOx,Musk Ox
+HarshWilds_MuskOxEnc_TheMuskOx,the musk ox
+HarshWilds_MuskOxEnc_TheMuskOxSwingsItsHeavyHornsAtYou,The musk ox swings its heavy horns at you!
+HarshWilds_MuskOxEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...
+HarshWilds_MuskOxEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+HarshWilds_MuskOxEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+HarshWilds_MuskOxEnc_YouGotANastyBruise,You got a nasty bruise.
+HarshWilds_MuskOxEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration."
+HarshWilds_MuskOxEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.
+HarshWilds_MuskOxEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.
+HarshWilds_MuskOxEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.
+HarshWilds_MuskOxEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.
+HarshWilds_MuskOxEnc_AHornLeftANastyPunctureWound,A horn left a nasty puncture wound.
+HarshWilds_MuskOxEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!
+HarshWilds_MuskOxEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!
+HarshWilds_MuskOxEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!
+HarshWilds_MuskOxEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!
+HarshWilds_MuskOxEnc_YouGotManyLacerations,You got many lacerations!
+HarshWilds_MuskOxEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!
+HarshWilds_MuskOxEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!
+HarshWilds_MuskOxEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!
+HarshWilds_MuskOxEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!
+HarshWilds_MuskOxEnc_TheMuskOxTriesToKnockYouDown,The musk ox tries to knock you down!
+HarshWilds_MuskOxEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!
+HarshWilds_MuskOxEnc_TheMuskOxRamsIntoYouAtFullSpeed,The musk ox rams into you at full speed!
+HarshWilds_MuskOxEnc_TheMuskOxTriesToGoreYouWithItsHorns,The musk ox tries to gore you with its horns!
+HarshWilds_MuskOxEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...
+HarshWilds_MuskOxEnc_ItStopsToCatchItsBreath,It stops to catch its breath...
+HarshWilds_MuskOxEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...
+HarshWilds_MuskOxEnc_TheMuskOxChargesAtYou,The musk ox charges at you!
+HarshWilds_MuskOxEnc_TheMuskOxCollapsesToTheGround,The musk ox collapses to the ground.
+HarshWilds_MuskOxEnc_TheMuskOxLumbersAwayIntoTheSnow,The musk ox lumbers away into the snow...
+HarshWilds_MuskOxEnc_YouRetreatAndEscapeFromTheMuskOx,You retreat and escape from the musk ox...
+HarshWilds_MuskOxEnc_YouRunAwayFromTheMuskOx,You run away from the musk ox!
+HarshWilds_MuskOxEnc_YouSeeAMuskOx,You see a Musk Ox!
+HarshWilds_MuskOxEnc_TheHerdClosesIntoARingHornsOutAndTheBigg,"The herd closes into a ring, horns out, and the biggest bull steps forward."
+HarshWilds_MuskOxEnc_LeaveItAlone,Leave it alone
+HarshWilds_MuskOxEnc_Continue,Continue
+HarshWilds_MuskOxCarcass_MuskOxCarcass,Musk Ox Carcass
+HarshWilds_MuskOxCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.
+HarshWilds_MuskOxCarcass_Spoilage,Spoilage
+HarshWilds_MuskOxCarcass_MuskOxSpoiled,Musk Ox Spoiled!
+HarshWilds_MuskOxCarcass_Consumed,Consumed
+HarshWilds_MuskOxCarcass_Spirit,Spirit
+HarshWilds_MuskOxCarcass_Quality,Quality
+HarshWilds_MuskOxCarcass_Bleed,Bleed
+HarshWilds_MuskOxCarcass_ReleaseTheSpirit,Release the Spirit
+HarshWilds_MuskOxCarcass_BledMuskOxCarcass,Bled Musk Ox Carcass
+HarshWilds_MuskOxCarcass_CanSkinItWithAKnifeOrHarvestItsBloodWith,Can skin it with a knife or harvest its blood with a container.
+HarshWilds_MuskOxCarcass_BleedingMuskOxCarcass,Bleeding Musk Ox Carcass
+HarshWilds_MuskOxCarcass_Blood,Blood
+HarshWilds_MuskOxCarcass_Skin,Skin
+HarshWilds_MuskOxCarcass_PreventCoagulation,Prevent Coagulation
+HarshWilds_MuskOxCarcass_SkinnedMuskOxCarcass,Skinned Musk Ox Carcass
+HarshWilds_MuskOxCarcass_NeedsToBeButcheredWithAKnife,Needs to be butchered with a knife.
+HarshWilds_MuskOxCarcass_ButcheringProgress,Butchering Progress
+HarshWilds_MuskOxCarcass_Disembowel,Disembowel
+HarshWilds_MuskOxCarcass_HarvestHaunchMeat,Harvest Haunch Meat
+HarshWilds_MuskOxCarcass_HarvestLoinMeat,Harvest Loin Meat
+HarshWilds_MuskOxCarcass_HarvestShoulderMeat,Harvest Shoulder Meat
+HarshWilds_WhiteWisentEnc_WhiteWisent,White Wisent
+HarshWilds_WhiteWisentEnc_TheWhiteWisent,the white wisent
+HarshWilds_WhiteWisentEnc_TheWhiteWisentSwingsItsHornedHeadAtYou,The white wisent swings its horned head at you!
+HarshWilds_WhiteWisentEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...
+HarshWilds_WhiteWisentEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+HarshWilds_WhiteWisentEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+HarshWilds_WhiteWisentEnc_YouGotANastyBruise,You got a nasty bruise.
+HarshWilds_WhiteWisentEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration."
+HarshWilds_WhiteWisentEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.
+HarshWilds_WhiteWisentEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.
+HarshWilds_WhiteWisentEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.
+HarshWilds_WhiteWisentEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.
+HarshWilds_WhiteWisentEnc_AHornLeftANastyPunctureWound,A horn left a nasty puncture wound.
+HarshWilds_WhiteWisentEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!
+HarshWilds_WhiteWisentEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!
+HarshWilds_WhiteWisentEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!
+HarshWilds_WhiteWisentEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!
+HarshWilds_WhiteWisentEnc_YouGotManyLacerations,You got many lacerations!
+HarshWilds_WhiteWisentEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!
+HarshWilds_WhiteWisentEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!
+HarshWilds_WhiteWisentEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!
+HarshWilds_WhiteWisentEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!
+HarshWilds_WhiteWisentEnc_TheWhiteWisentTriesToKnockYouDown,The white wisent tries to knock you down!
+HarshWilds_WhiteWisentEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!
+HarshWilds_WhiteWisentEnc_TheWhiteWisentRamsIntoYouAtFullSpeed,The white wisent rams into you at full speed!
+HarshWilds_WhiteWisentEnc_TheWhiteWisentTriesToGoreYouWithItsHorns,The white wisent tries to gore you with its horns!
+HarshWilds_WhiteWisentEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...
+HarshWilds_WhiteWisentEnc_ItStopsToCatchItsBreath,It stops to catch its breath...
+HarshWilds_WhiteWisentEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...
+HarshWilds_WhiteWisentEnc_TheWhiteWisentChargesAtYou,The white wisent charges at you!
+HarshWilds_WhiteWisentEnc_TheWhiteWisentCollapsesToTheGround,The white wisent collapses to the ground.
+HarshWilds_WhiteWisentEnc_TheWhiteWisentMeltsAwayIntoTheTrees,The white wisent melts away into the trees...
+HarshWilds_WhiteWisentEnc_YouRetreatAndEscapeFromTheWhiteWisent,You retreat and escape from the white wisent...
+HarshWilds_WhiteWisentEnc_YouRunAwayFromTheWhiteWisent,You run away from the white wisent!
+HarshWilds_WhiteWisentEnc_YouSeeAWhiteWisent,You see a White Wisent!
+HarshWilds_WhiteWisentEnc_AGreatWhiteWisentStopsGrazingAndTurnsIts,A great white wisent stops grazing and turns its pale head to watch you.
+HarshWilds_WhiteWisentEnc_LeaveItAlone,Leave it alone
+HarshWilds_WhiteWisentEnc_Continue,Continue
+HarshWilds_WhiteWisentCarcass_WhiteWisentCarcass,White Wisent Carcass
+HarshWilds_WhiteWisentCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.
+HarshWilds_WhiteWisentCarcass_Spoilage,Spoilage
+HarshWilds_WhiteWisentCarcass_WhiteWisentSpoiled,White Wisent Spoiled!
+HarshWilds_WhiteWisentCarcass_Consumed,Consumed
+HarshWilds_WhiteWisentCarcass_Spirit,Spirit
+HarshWilds_WhiteWisentCarcass_Quality,Quality
+HarshWilds_WhiteWisentCarcass_Bleed,Bleed
+HarshWilds_WhiteWisentCarcass_ReleaseTheSpirit,Release the Spirit
+HarshWilds_WhiteWisentCarcass_BledWhiteWisentCarcass,Bled White Wisent Carcass
+HarshWilds_WhiteWisentCarcass_CanSkinItWithAKnifeOrHarvestItsBloodWith,Can skin it with a knife or harvest its blood with a container.
+HarshWilds_WhiteWisentCarcass_BleedingWhiteWisentCarcass,Bleeding White Wisent Carcass
+HarshWilds_WhiteWisentCarcass_Blood,Blood
+HarshWilds_WhiteWisentCarcass_Skin,Skin
+HarshWilds_WhiteWisentCarcass_PreventCoagulation,Prevent Coagulation
+HarshWilds_WhiteWisentCarcass_SkinnedWhiteWisentCarcass,Skinned White Wisent Carcass
+HarshWilds_WhiteWisentCarcass_NeedsToBeButcheredWithAKnife,Needs to be butchered with a knife.
+HarshWilds_WhiteWisentCarcass_ButcheringProgress,Butchering Progress
+HarshWilds_WhiteWisentCarcass_Disembowel,Disembowel
+HarshWilds_WhiteWisentCarcass_HarvestHaunchMeat,Harvest Haunch Meat
+HarshWilds_WhiteWisentCarcass_HarvestLoinMeat,Harvest Loin Meat
+HarshWilds_WhiteWisentCarcass_HarvestShoulderMeat,Harvest Shoulder Meat
+HarshWilds_LakeBeastEnc_LakeBeast,Lake Beast
+HarshWilds_LakeBeastEnc_TheLakeBeast,the lake beast
+HarshWilds_LakeBeastEnc_TheLakeBeastRearsOutOfTheWaterAndBellows,"The lake beast rears out of the water and bellows, filling the shore with its bulk."
+HarshWilds_LakeBeastEnc_TheBellowShakesYouToTheBone,The bellow shakes you to the bone.
+HarshWilds_LakeBeastEnc_TheLakeBeastSurgesOutOfTheShallowsToward,The lake beast surges out of the shallows toward you.
+HarshWilds_LakeBeastEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!
+HarshWilds_LakeBeastEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+HarshWilds_LakeBeastEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+HarshWilds_LakeBeastEnc_YouGotAPunctureWound,You got a puncture wound.
+HarshWilds_LakeBeastEnc_YouGotASmallLaceration,You got a small laceration.
+HarshWilds_LakeBeastEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.
+HarshWilds_LakeBeastEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.
+HarshWilds_LakeBeastEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.
+HarshWilds_LakeBeastEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.
+HarshWilds_LakeBeastEnc_YouGotAPrettyUglyBite,You got a pretty ugly bite.
+HarshWilds_LakeBeastEnc_YouGotSomePrettyUglyClawmarks,You got some pretty ugly clawmarks.
+HarshWilds_LakeBeastEnc_YouFracturedYourRib,You fractured your rib!
+HarshWilds_LakeBeastEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!
+HarshWilds_LakeBeastEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!
+HarshWilds_LakeBeastEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!
+HarshWilds_LakeBeastEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!
+HarshWilds_LakeBeastEnc_YourRibIsBrokenItHurts,Your rib is broken! It hurts!
+HarshWilds_LakeBeastEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!
+HarshWilds_LakeBeastEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!
+HarshWilds_LakeBeastEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!
+HarshWilds_LakeBeastEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!
+HarshWilds_LakeBeastEnc_TheLakeBeastSwingsAMassiveClawedLimbAtYo,The lake beast swings a massive clawed limb at you.
+HarshWilds_LakeBeastEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...
+HarshWilds_LakeBeastEnc_YouGotANastyBruise,You got a nasty bruise.
+HarshWilds_LakeBeastEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration."
+HarshWilds_LakeBeastEnc_TheLakeBeastGapesItsHugeJawsToBiteWithFu,The lake beast gapes its huge jaws to bite with full force!
+HarshWilds_LakeBeastEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...
+HarshWilds_LakeBeastEnc_YourLeftArmIsBrokenAndBleedingItHurts,Your left arm is broken and bleeding! It hurts!
+HarshWilds_LakeBeastEnc_YourRightArmIsBrokenAndBleedingItHurts,Your right arm is broken and bleeding! It hurts!
+HarshWilds_LakeBeastEnc_YourLeftLegIsBrokenAndBleedingItHurts,Your left leg is broken and bleeding! It hurts!
+HarshWilds_LakeBeastEnc_YourRightLegIsBrokenAndBleedingItHurts,Your right leg is broken and bleeding! It hurts!
+HarshWilds_LakeBeastEnc_ItStopsToCatchItsBreath,It stops to catch its breath...
+HarshWilds_LakeBeastEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...
+HarshWilds_LakeBeastEnc_TheLakeBeastSurgesAtYou,The lake beast surges at you!
+HarshWilds_LakeBeastEnc_TheLakeBeastThrashesOnceAndGoesStillInTh,The lake beast thrashes once and goes still in the shallows.
+HarshWilds_LakeBeastEnc_TheLakeBeastSlidesBackIntoTheDarkWater,The lake beast slides back into the dark water...
+HarshWilds_LakeBeastEnc_YouRetreatAndEscapeFromTheLakeBeast,You retreat and escape from the lake beast...
+HarshWilds_LakeBeastEnc_YouRunAwayFromTheLakeBeast,You run away from the lake beast!
+HarshWilds_LakeBeastEnc_YouSeeALakeBeast,You see a Lake Beast!
+HarshWilds_LakeBeastEnc_Continue,Continue
+HarshWilds_LakeBeastCarcass_LakeBeastCarcass,Lake Beast Carcass
+HarshWilds_LakeBeastCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.
+HarshWilds_LakeBeastCarcass_Spoilage,Spoilage
+HarshWilds_LakeBeastCarcass_LakeBeastSpoiled,Lake Beast Spoiled!
+HarshWilds_LakeBeastCarcass_Consumed,Consumed
+HarshWilds_LakeBeastCarcass_Spirit,Spirit
+HarshWilds_LakeBeastCarcass_Quality,Quality
+HarshWilds_LakeBeastCarcass_Bleed,Bleed
+HarshWilds_LakeBeastCarcass_ReleaseTheSpirit,Release the Spirit
+HarshWilds_LakeBeastCarcass_BledLakeBeastCarcass,Bled Lake Beast Carcass
+HarshWilds_LakeBeastCarcass_CanSkinItWithAKnifeOrHarvestItsBloodWith,Can skin it with a knife or harvest its blood with a container.
+HarshWilds_LakeBeastCarcass_BleedingLakeBeastCarcass,Bleeding Lake Beast Carcass
+HarshWilds_LakeBeastCarcass_Blood,Blood
+HarshWilds_LakeBeastCarcass_Skin,Skin
+HarshWilds_LakeBeastCarcass_PreventCoagulation,Prevent Coagulation
+HarshWilds_LakeBeastCarcass_SkinnedLakeBeastCarcass,Skinned Lake Beast Carcass
+HarshWilds_LakeBeastCarcass_NeedsToBeButcheredWithAKnife,Needs to be butchered with a knife.
+HarshWilds_LakeBeastCarcass_ButcheringProgress,Butchering Progress
+HarshWilds_LakeBeastCarcass_Disembowel,Disembowel
+HarshWilds_LakeBeastCarcass_HarvestHaunchMeat,Harvest Haunch Meat
+HarshWilds_LakeBeastCarcass_HarvestLoinMeat,Harvest Loin Meat
+HarshWilds_LakeBeastCarcass_HarvestShoulderMeat,Harvest Shoulder Meat
+HarshWilds_LindwurmEnc_Lindwurm,Lindwurm
+HarshWilds_LindwurmEnc_TheLindwurm,the lindwurm
+HarshWilds_LindwurmEnc_TheLindwurmRearsUpOutOfTheDarkAndHissesF,"The lindwurm rears up out of the dark and hisses, filling the cave with its coils."
+HarshWilds_LindwurmEnc_TheHissRunsThroughYouLikeIce,The hiss runs through you like ice.
+HarshWilds_LindwurmEnc_TheLindwurmLungesAcrossTheCaveFloorTowar,The lindwurm lunges across the cave floor toward you.
+HarshWilds_LindwurmEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!
+HarshWilds_LindwurmEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+HarshWilds_LindwurmEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+HarshWilds_LindwurmEnc_YouGotAPunctureWound,You got a puncture wound.
+HarshWilds_LindwurmEnc_YouGotASmallLaceration,You got a small laceration.
+HarshWilds_LindwurmEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.
+HarshWilds_LindwurmEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.
+HarshWilds_LindwurmEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.
+HarshWilds_LindwurmEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.
+HarshWilds_LindwurmEnc_YouGotAPrettyUglyBite,You got a pretty ugly bite.
+HarshWilds_LindwurmEnc_YouGotSomePrettyUglyClawmarks,You got some pretty ugly clawmarks.
+HarshWilds_LindwurmEnc_YouFracturedYourRib,You fractured your rib!
+HarshWilds_LindwurmEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!
+HarshWilds_LindwurmEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!
+HarshWilds_LindwurmEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!
+HarshWilds_LindwurmEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!
+HarshWilds_LindwurmEnc_YourRibIsBrokenItHurts,Your rib is broken! It hurts!
+HarshWilds_LindwurmEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!
+HarshWilds_LindwurmEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!
+HarshWilds_LindwurmEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!
+HarshWilds_LindwurmEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!
+HarshWilds_LindwurmEnc_TheLindwurmLashesItsHeavyTailAtYou,The lindwurm lashes its heavy tail at you.
+HarshWilds_LindwurmEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...
+HarshWilds_LindwurmEnc_YouGotANastyBruise,You got a nasty bruise.
+HarshWilds_LindwurmEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration."
+HarshWilds_LindwurmEnc_TheLindwurmOpensItsJawsWideToBiteWithFul,The lindwurm opens its jaws wide to bite with full force!
+HarshWilds_LindwurmEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...
+HarshWilds_LindwurmEnc_YourLeftArmIsBrokenAndBleedingItHurts,Your left arm is broken and bleeding! It hurts!
+HarshWilds_LindwurmEnc_YourRightArmIsBrokenAndBleedingItHurts,Your right arm is broken and bleeding! It hurts!
+HarshWilds_LindwurmEnc_YourLeftLegIsBrokenAndBleedingItHurts,Your left leg is broken and bleeding! It hurts!
+HarshWilds_LindwurmEnc_YourRightLegIsBrokenAndBleedingItHurts,Your right leg is broken and bleeding! It hurts!
+HarshWilds_LindwurmEnc_ItStopsToCatchItsBreath,It stops to catch its breath...
+HarshWilds_LindwurmEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...
+HarshWilds_LindwurmEnc_TheLindwurmLungesAtYou,The lindwurm lunges at you!
+HarshWilds_LindwurmEnc_TheLindwurmThrashesOnceAndLiesStillInThe,The lindwurm thrashes once and lies still in the dust.
+HarshWilds_LindwurmEnc_TheLindwurmSlidesBackIntoTheDarkOfTheCav,The lindwurm slides back into the dark of the cave...
+HarshWilds_LindwurmEnc_YouRetreatAndEscapeFromTheLindwurm,You retreat and escape from the lindwurm...
+HarshWilds_LindwurmEnc_YouRunAwayFromTheLindwurm,You run away from the lindwurm!
+HarshWilds_LindwurmEnc_YouSeeALindwurm,You see a Lindwurm!
+HarshWilds_LindwurmEnc_Continue,Continue
+HarshWilds_LindwurmCarcass_LindwurmCarcass,Lindwurm Carcass
+HarshWilds_LindwurmCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.
+HarshWilds_LindwurmCarcass_Spoilage,Spoilage
+HarshWilds_LindwurmCarcass_LindwurmSpoiled,Lindwurm Spoiled!
+HarshWilds_LindwurmCarcass_Consumed,Consumed
+HarshWilds_LindwurmCarcass_Spirit,Spirit
+HarshWilds_LindwurmCarcass_Quality,Quality
+HarshWilds_LindwurmCarcass_Butcher,Butcher
+HarshWilds_LindwurmCarcass_ReleaseTheSpirit,Release the Spirit
+HarshWilds_DragonSpirit_DragonSpirit,Dragon Spirit
+HarshWilds_DragonSpirit_APersonifiedManifestationOfTheEssenceOfT,"A personified manifestation of the essence of the old serpents of the high caves.
+
+Can make you stronger and keep you alert."
+HarshWilds_DragonSpirit_Attunement,Attunement
+HarshWilds_DragonSpirit_Leave,Leave
+HarshWilds_DragonSpirit_Duration,Duration
+HarshWilds_DragonSpirit_Death,Death
+HarshWilds_DragonSpirit_Release,Release
+HarshWilds_DragonSpirit_Dragon,(Dragon)
+HarshWilds_DragonSpirit_BestialResilience,Bestial Resilience
+HarshWilds_DragonSpirit_Bless,Bless
+HarshWilds_DragonSpirit_Blessing,Blessing
+HarshWilds_DragonSpirit_DragonSpiritCalling,Dragon Spirit Calling
+HarshWilds_DragonSpirit_TemporarilyBindsADragonSpiritToYourSoulM,"Temporarily binds a dragon spirit to your soul, making you both a bit more like the other."
+HarshWilds_DragonSpirit_SummoningRitual,Summoning Ritual
+HarshWilds_DragonSpirit_CarcassHasNoSpirit,Carcass has no spirit.
+HarshWilds_DragonSpirit_WhereASpiritIsTemporarilyBoundToYourSoul,Where a spirit is temporarily bound to your soul.
+HarshWilds_DragonSpirit_Bind,Bind
+HarshWilds_DragonSpirit_Ignore,Ignore
+HarshWilds_DragonSpirit_YouSucessfullyCompletedTheRitualTheSpiri,You sucessfully completed the ritual. The spirit is now temporarily a part of you.
+HarshWilds_DragonSpirit_Continue,Continue
+HarshWilds_DragonSpirit_SpiritIsNotImpressed,Spirit is not impressed. 
+HarshWilds_DragonSpirit_TheDragonSpiritLeavesYouForNow,The Dragon Spirit leaves you for now.
+HarshWilds_DragonSpirit_TheSpiritUsedAllItsPowerAndIsNowLeavingY,The Spirit used all its power and is now leaving you. 
+HarshWilds_FrostDemonEnc_FrostDemon,Frost Demon
+HarshWilds_FrostDemonEnc_TheFrostDemon,the frost demon
+HarshWilds_FrostDemonEnc_TheFrostDemonLungesJawsWhiteWithRime,"The frost demon lunges, jaws white with rime!"
+HarshWilds_FrostDemonEnc_YouFailToDodgeAndTheBiteConnects,You fail to dodge and the bite connects...
+HarshWilds_FrostDemonEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+HarshWilds_FrostDemonEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+HarshWilds_FrostDemonEnc_YouGotASmallLaceration,You got a small laceration!
+HarshWilds_FrostDemonEnc_FrostNipsAtYourSkin,Frost nips at your skin!
+HarshWilds_FrostDemonEnc_TheColdBitesDeepIntoYou,The cold bites deep into you.
+HarshWilds_FrostDemonEnc_TheColdBitesDeepInTwoPlaces,The cold bites deep in two places.
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourLeg,You got a deep laceration on your leg!
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourArm,You got a deep laceration on your arm!
+HarshWilds_FrostDemonEnc_YouGotMultipleLacerations,You got multiple lacerations!
+HarshWilds_FrostDemonEnc_TheFrostDemonExhalesABreathOfKillingCold,The frost demon exhales a breath of killing cold.
+HarshWilds_FrostDemonEnc_TheColdSetsYourNervesOnEdge,The cold sets your nerves on edge.
+HarshWilds_FrostDemonEnc_TheFrostDemonRushesAtYouAcrossTheSnow,The frost demon rushes at you across the snow!
+HarshWilds_FrostDemonEnc_YouFailToDodgeTheRush,You fail to dodge the rush...
+HarshWilds_FrostDemonEnc_YouGotASmallLaceration2,You got a small laceration.
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!
+HarshWilds_FrostDemonEnc_YouGotManyLacerations,You got many lacerations!
+HarshWilds_FrostDemonEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!
+HarshWilds_FrostDemonEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!
+HarshWilds_FrostDemonEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!
+HarshWilds_FrostDemonEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!
+HarshWilds_FrostDemonEnc_TheFrostDemonPouncesOnYouTryingToDragYou,"The frost demon pounces on you, trying to drag you down!"
+HarshWilds_FrostDemonEnc_YouLandOnYourBackAndTheFrostDemonIsOnTop,You land on your back and the frost demon is on top of you!
+HarshWilds_FrostDemonEnc_YouKeepYourBalanceAndTheFrostDemonStepsB,You keep your balance and the frost demon steps back.
+HarshWilds_FrostDemonEnc_YouSprainedYourArm,You sprained your arm!
+HarshWilds_FrostDemonEnc_YouSprainedYourLeg,You sprained your leg!
+HarshWilds_FrostDemonEnc_TheColdBitesDeepIntoYou2,The cold bites deep into you!
+HarshWilds_FrostDemonEnc_TheColdBitesDeepInTwoPlaces2,The cold bites deep in two places!
+HarshWilds_FrostDemonEnc_TheFrostDemonOpensItsMouthAndGoesForYour,The frost demon opens its mouth and goes for your throat!
+HarshWilds_FrostDemonEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...
+HarshWilds_FrostDemonEnc_YouSuccessfullyDodgeTheBite,You successfully dodge the bite...
+HarshWilds_FrostDemonEnc_TheColdBitesYouAgainAndAgain,The cold bites you again and again!
+HarshWilds_FrostDemonEnc_ItStopsToCatchItsBreath,It stops to catch its breath...
+HarshWilds_FrostDemonEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...
+HarshWilds_FrostDemonEnc_TheFrostDemonDriftsCloserAndTheAirTurnsB,"The frost demon drifts closer, and the air turns bitter..."
+HarshWilds_FrostDemonEnc_TheFrostDemonCollapsesIntoADriftOfSnow,The frost demon collapses into a drift of snow.
+HarshWilds_FrostDemonEnc_TheFrostDemonMeltsAwayIntoTheSnow,The frost demon melts away into the snow...
+HarshWilds_FrostDemonEnc_TheFrostDemonFollowsYouForAWhileButYouMa,"The frost demon follows you for a while, but you manage to escape..."
+HarshWilds_FrostDemonEnc_YouRunAwayFromTheFrostDemon,You run away from the frost demon...
+HarshWilds_FrostDemonEnc_YouSeeAFrostDemon,You see a Frost Demon!
+HarshWilds_FrostDemonEnc_Continue,Continue
+HarshWilds_FrostDemonCarcass_FrostDemonCarcass,Frost Demon Carcass
+HarshWilds_FrostDemonCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.
+HarshWilds_FrostDemonCarcass_Spoilage,Spoilage
+HarshWilds_FrostDemonCarcass_FrostDemonSpoiled,Frost Demon Spoiled!
+HarshWilds_FrostDemonCarcass_Consumed,Consumed
+HarshWilds_FrostDemonCarcass_Spirit,Spirit
+HarshWilds_FrostDemonCarcass_Quality,Quality
+HarshWilds_FrostDemonCarcass_Butcher,Butcher
+HarshWilds_FrostDemonCarcass_ReleaseTheSpirit,Release the Spirit
+HarshWilds_BanditEnc_Bandit,Bandit
+HarshWilds_BanditEnc_TheBandit,the bandit
+HarshWilds_BanditEnc_TheBanditThrustsHisSpearAtYou,The bandit thrusts his spear at you!
+HarshWilds_BanditEnc_TheBanditJabsHisSpearAtYou,The bandit jabs his spear at you!
+HarshWilds_BanditEnc_TheBanditLungesWithHisSpear,The bandit lunges with his spear!
+HarshWilds_BanditEnc_YouFailToDodgeAndTheSpearConnects,You fail to dodge and the spear connects...
+HarshWilds_BanditEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+HarshWilds_BanditEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+HarshWilds_BanditEnc_TheSpearGrazedYouLeavingAShallowCut,"The spear grazed you, leaving a shallow cut."
+HarshWilds_BanditEnc_TheSpearNickedYourFlesh,The spear nicked your flesh.
+HarshWilds_BanditEnc_YouSufferedASmallPunctureWound,You suffered a small puncture wound.
+HarshWilds_BanditEnc_TheSpearDroveIntoYouDrawingBlood,"The spear drove into you, drawing blood."
+HarshWilds_BanditEnc_TheSpearStruckTrueAndToreIntoYourFlesh,The spear struck true and tore into your flesh.
+HarshWilds_BanditEnc_YouSufferedAPainfulSpearWound,You suffered a painful spear wound.
+HarshWilds_BanditEnc_TheSpearPiercedYouWithBrutalForce,The spear pierced you with brutal force.
+HarshWilds_BanditEnc_TheSpearSinksDeepLeavingATerribleWound,"The spear sinks deep, leaving a terrible wound."
+HarshWilds_BanditEnc_TheBanditThrustsHisSpearForwardWithEffor,The bandit thrusts his spear forward with effort!
+HarshWilds_BanditEnc_TheBanditJabsSluggishlyAtYouWithHisSpear,The bandit jabs sluggishly at you with his spear!
+HarshWilds_BanditEnc_TheBanditLungesClumsilyWithHisSpear,The bandit lunges clumsily with his spear!
+HarshWilds_BanditEnc_TheBanditKnocksYourWeaponAsideAndDragsYo,The bandit knocks your weapon aside and drags you to the ground.
+HarshWilds_BanditEnc_HePinsYouDownAndStartsGoingThroughYourPa,He pins you down and starts going through your pack.
+HarshWilds_BanditEnc_YouTwistFreeForAMomentButHeIsOnYouAgain,"You twist free for a moment, but he is on you again."
+HarshWilds_BanditEnc_TheBanditClosesIn,The bandit closes in...
+HarshWilds_BanditEnc_TheBanditCollapsesToTheGroundAndDoesNotG,The bandit collapses to the ground and does not get up.
+HarshWilds_BanditEnc_TheBanditBreaksOffAndRunsForTheTrees,The bandit breaks off and runs for the trees...
+HarshWilds_BanditEnc_TheBanditChasesYouForAWhileButYouManageT,"The bandit chases you for a while, but you manage to get away..."
+HarshWilds_BanditEnc_YouCannotFightOnTheBanditRummagesThrough,You cannot fight on. The bandit rummages through your pack and slips away into the trees.
+HarshWilds_BanditEnc_ABanditBlocksYourWay,A bandit blocks your way!
+HarshWilds_BanditEnc_ARaggedManWithASpearStepsOutAndBlocksThe,"A ragged man with a spear steps out and blocks the path. He wants your food, and he will fight you for it."
+HarshWilds_BanditEnc_BackAway,Back away
+HarshWilds_BanditEnc_Fight,Fight
+HarshWilds_MistletoeBlessing_BlessTheGroveWithMistletoe,Bless the Grove with Mistletoe
+HarshWilds_MistletoeBlessing_HangASprigOfWinterMistletoeInTheBoughsOf,"Hang a sprig of winter mistletoe in the boughs of an oak grove and bless it, the way the old rites did. The grove is made sacred, as with the base game's own blessing."
+HarshWilds_WitchfireSpent_DA_Scatter_ActionName,Scatter the Ash
+HarshWilds_WitchfireSpent_DA_Scatter_ActionDescription,Scatter the dead ash to the wind. Nothing is left to keep.

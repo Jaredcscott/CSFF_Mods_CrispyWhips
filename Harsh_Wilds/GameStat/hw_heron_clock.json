@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_heron_clock",
+    "//Tunables": "TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play, never balanced. HERON_CLOCK_TICKS = 288 (the max in MinMaxValue.y, and the same 288 in hw_tgr_heron's clock trigger and its reset): one roll at most every 3 days at 96 ticks per day. HERON_GRACE_TICKS = 1056 (BaseValue and MinMaxValue.x, negated): a fresh stat starts 1056 ticks (11 days) below zero and needs one more clock period (288) to reach the trigger, so the first roll is 1344 ticks (14 days) after the stat first exists, the about-two-weeks the README promises (as first written it started at -1344, which put the first roll at 17 days) (for an old save the mod is added to this is INFERRED from a save-less stat starting at its BaseValue, not measured). The clock climbs at BaseRatePerTick 1, stops at its max and waits there while another gate (the switch, winter, or the player sheltered indoors) is closed, so the first eligible tick after that fires the roll at once. It is only ever read by hw_tgr_heron.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_HeronClock_StatName",
+        "DefaultText": "Harsh Wilds: Heron Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_HeronClock_StatDescription",
+        "DefaultText": "Hidden counter: how long until the Heron may next visit a pond."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": -1056.0,
+    "MinMaxValue": {
+        "x": -1056.0,
+        "y": 288.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

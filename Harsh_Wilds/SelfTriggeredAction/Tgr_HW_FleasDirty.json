@@ -1,0 +1,72 @@
+{
+    "UniqueID": "Tgr_HW_FleasDirty",
+    "//FleasDirty": "Fleas and lice source 3 of 4 (Documentation/Research/HarshWilds/afflictions.md sections 2.1 and 2.4, the first fleas DECISION): being very dirty, the stand-in for the plan's 'dirty clothing', because no vanilla worn clothing raises Filth (the only passive Filth writer in CardData is ExcrementHuman). ALL GATES ARE StatChangeTrigger ENTRIES (an unresolved one fails closed). Gate 1, hw_switch_fleasandlice {1,1}. Gate 2, vanilla Filth (111606ba528c30e4f8e38494f41b92c7) from 250, the first 'Very Dirty' band: the research writes {250,500}, and this file writes {250,1000}, which reads the same (Filth cannot exceed its cap of 500) but keeps the band's top edge off the cap, where every clamped Filth write lands (Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1 [clamp-cap]). RepeatOptions 0 (Repeat), ActionCooldown 96 and OncePerTick: one roll a game day while the player stays very dirty; the first roll comes on the tick the gate opens, and a Nothing pick counts as a firing, so it also starts the cooldown. Roll: Nothing (weight HW_FLEAS_DIRTY_NOTHING = 7, one card-less drop) against Fleas (weight 1, a card-less drop too), 1 in 8 a day. The Fleas collection adds HW_FLEAS_PER_INFEST = 96 to hw_fleas. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P3).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasDirty",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Dirty"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 250.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 7,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Fleas",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_fleas",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 96.0, "y": 96.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

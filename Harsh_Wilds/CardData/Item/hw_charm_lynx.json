@@ -1,0 +1,127 @@
+{
+    "UniqueID": "hw_charm_lynx",
+    "//RitualObject": "Feature 25 (plan section 25, pack Prompt 33; W0-16: the coats' 'spiritually open' effects key on AlteredMindstate, vanilla jars refuse an essence except copper and glazed ones, no vanilla charm or shrine gives this gift). Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "hw_charm_lynx",
+        "LocalizationKey": "HarshWilds_CharmLynx_CardName",
+        "DefaultText": "Lynx Charm"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_charm_lynx",
+        "LocalizationKey": "HarshWilds_CharmLynx_CardDescription",
+        "DefaultText": "A bone charm carved for the Lynx Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the lynx's sure footing stays with you (Climbing Aid), only at its lowest level. It wears out after about four weeks of wear."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_charm_lynx",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Neck",
+        "tag_Clothing",
+        "tag_Pretty",
+        "tag_Charm"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "ObjectWeight": 100.0,
+    "TradingValue": 120.0,
+    "CanBeRenamed": false,
+    "EquipmentTagsWarpData": [
+        "eTag_Neck"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "WeightReductionWhenEquipped": -100.0,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 2688.0,
+        "MaxValue": 2688.0,
+        "CardStatName": {
+            "ParentObjectID": "hw_charm_lynx",
+            "LocalizationKey": "HarshWilds_CharmLynx_UsageStatName",
+            "DefaultText": "Wear"
+        },
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": -1.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "hw_charm_lynx",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "The charm has worn away."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Climbing Aid (+1 a tick)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "33f8297bdbbdf7a47b9944f633fdcad8",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

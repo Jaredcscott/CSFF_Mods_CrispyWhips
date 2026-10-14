@@ -1,0 +1,96 @@
+{
+    "UniqueID": "hw_threshold",
+    "//Threshold": "Feature 31, the threshold offering (pack Prompt 44). A CardType 2 placed stone at camp, built from hw_bp_threshold. Dragging salt, a flatbread, honeycomb or cheese curds onto it destroys the food and sets hw_stat_offering to its cap (288 ticks, three days, the stat falls 1 a tick). The three fair-folk rolls read that stat in their collection weights (the feature 3 counterplay-row shape) and vanilla Sanctuary (1c878c38, read only, never written). Player-made, so no switch. Placeholders.",
+    "CardType": 2,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_Threshold_CardName",
+        "DefaultText": "Threshold Stone"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_Threshold_CardDescription",
+        "DefaultText": "A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_threshold",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 1000.0,
+    "UniqueOnBoard": true,
+    "CannotBeTrashed": false,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Threshold_OfferName",
+                "DefaultText": "Leave an Offering"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Threshold_OfferDescription",
+                "DefaultText": "Leave a pinch of salt, a flatbread, a comb of honey or a curd of cheese on the threshold stone. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
+            },
+            "StackCompatible": false,
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_offering",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 288.0,
+                        "y": 288.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                    "8743a4b58a6bb304f88ca2a40611a7c8",
+                    "82fe753727edde843a2c7d4784f4baa7",
+                    "3772ac4d09c1a034e800fdd229a5a7e4",
+                    "33cf4067563dac649b026a87ba0766bd",
+                    "95f159ffff4d0ea4da53dfa8e54ede89"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false
+        }
+    ]
+}

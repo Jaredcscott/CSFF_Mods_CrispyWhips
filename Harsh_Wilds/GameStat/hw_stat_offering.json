@@ -1,0 +1,110 @@
+{
+    "UniqueID": "hw_stat_offering",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Offering_StatName",
+        "DefaultText": "Threshold Offering"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Offering_StatDescription",
+        "DefaultText": "An offering left at your threshold: the fair folk are kinder for a while."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 288.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Moon",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Offering_StatusName",
+                "DefaultText": "Offering at the threshold"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Offering_StatusDescription",
+                "DefaultText": "You left an offering at the threshold. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Moon",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 1.0,
+                "y": 288.0
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

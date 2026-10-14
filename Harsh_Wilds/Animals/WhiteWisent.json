@@ -1,0 +1,47 @@
+{
+  "//": "Harsh Wilds feature 33, the white wisent (plan section 33, Open question 21; Prompt 48): a rare albino wisent that walks the wisent's own five oak glades. It is a variant manifest of Animals/Wisent.json in the musk ox herd pattern (Animals/MuskOx2.json): the framework has no population, so a second kind of wisent is a second manifest, and the two roam on their own. It is NEVER HOSTILE, which here means what it means for the wisent: no Aggression duty, so it never starts a fight, and the player who approaches it may still 'Leave it alone' (the encounter's EventSetup is FightOrEscape). It differs from Wisent.json in three things: it exists only on the days Tgr_HW_WhiteWisent rolls it in (the rolled hidden stat below), it has its own derived fight (hw_encounter_whitewisent, a stouter hide: blood 400) and its own derived carcass chain (hw_whitewisent_carcass, bled, skinned) whose 'Release the Spirit' pays BeastAffinity +100 where every other wild carcass pays vanilla's +25. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. Card art is PARTIAL: the vanilla Cow sprites stand in until hw_whitewisent.png exists. A GENERATED agent (no Agent.Ref), so Carcass.Card applies.",
+  "//Switch": "Spawn.Conditions (framework 2.27.0), ALL of which must hold: the rolled stat hw_stat_whitewisent reads 1 or more (only the White Wisent collection of SelfTriggeredAction/Tgr_HW_WhiteWisent.json writes it, 384 ticks, and it counts itself down), the switch hw_switch_whitewisent is 1 ([Threats] WhiteWisent), and the wisent switch hw_switch_wisent is 1 (the white wisent is a wisent: with [Threats] Wisent off none exists, as with the blood moon lynxes and the lynx switch). While one is false the framework keeps it retired in the Spirit World; it returns on the first tick all three hold again (ConditionRespawnTicks 0).",
+  "//Rare": "DeathRespawnTicks 0: a killed white wisent stays dead until its condition next goes false and true again, which is the next roll that brings one. Killing it is therefore a once-in-a-long-while event; the carcass does not respawn on a timer.",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17: the same reason as Animals/Wisent.json (the framework's lifecycle ticker counts the agent dead only while its blood sits at 4 or below, and regeneration would walk a killed animal back long before its respawn). Agent.Blood and PoisonResistance match the encounter's Blood 400 and Value4 200.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_whitewisent",
+  "DisplayName": "White Wisent",
+  "LocalizationKey": "HarshWilds_WhiteWisent_AgentName",
+  "Sprite": "Cow",
+  "WeightCategory": "Heavy",
+  "Agent": {
+    "Blood": { "Start": 400, "Max": 400, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 200, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "b791dfa6bad821e4e91d7c4210ec3ea3",
+    "DeathRespawnTicks": 0,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_stat_whitewisent", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_switch_whitewisent", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_switch_wisent", "Comparison": "GreaterOrEqual", "Value": 1 }
+    ],
+    "ConditionRespawnTicks": 0
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "60402000491626042b116556a55e84f5",
+      "9dc0063ceb4a24f4c815d2efb49256c2",
+      "dd644a21d11b6ca479a91b4ea9c8be76",
+      "43f27aef15c15d04d9b24d700a73cfcd"
+    ],
+    "WanderWeight": 100
+  },
+  "//Tracks": "Off: a beast that exists for a few days leaves no track cards behind for the hunter to follow to an empty glade after it is retired. TUNABLE.",
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_whitewisent",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "hw_whitewisent_carcass"
+  }
+}

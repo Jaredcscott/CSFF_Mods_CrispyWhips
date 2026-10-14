@@ -1,0 +1,93 @@
+{
+    "UniqueID": "hw_herbal_wash",
+    "//HerbalWash": "The Harsh Wilds-owned fleas and lice remedy (Documentation/Research/HarshWilds/afflictions.md sections 2.5 point 3, 6.2 and 6.3; the second fleas DECISION and the H&F cures DECISION). A CT0 consumable made by CardData/Blueprint/hw_bp_herbal_wash.json from VANILLA cards only (bog myrtle through the vanilla tab group GpTag_Myrtle, dried juniper needles, a clay bowl kept), so the cure never needs another mod. BASE DOSE, the DismantleAction 'Wash with Herbs': DaytimeCost 1, hw_fleas -HW_FLEAS_HERBAL_WASH = 144 (a band and a half) and vanilla Filth (111606ba528c30e4f8e38494f41b92c7) -100, and the card is used up (ReceivingCardChanges ModType 3). OPTIONAL STRONGER DOSE, the CardInteraction 'Wash with Herb Infusion', the first optional cross-mod acceptance in Harsh Wilds: a card dragged onto this one is accepted BY TAG, CompatibleCards TriggerTagsWarpData tag_Herb (TriggerTagsWarpType 3), never by UniqueID, and refused by NOTCompatibleCards TriggerTagsWarpData tag_Poisonous (TriggerTagsWarpType 3, the guard vanilla's own Fill interactions use on HagPond and the ice holes; InGameCardBase offers an interaction only when the dragged card fails NOTCompatibleCards and passes CompatibleCards). Neither tag is a vanilla CardTag (ScriptableObjectObjectName/CardTag.txt): WarpResolver creates each once by name, the same object for every mod naming it, so today only Herbs and Fungi's leaf, flower and root herbs carry tag_Herb, and with that mod absent no card carries it and the interaction is simply never offered. Both cards are used up (GivenCardChanges and ReceivingCardChanges ModType 3), DaytimeCost 1, hw_fleas -HW_FLEAS_HERBAL_INFUSION = 288 (a full clear) and Filth -100; never StackCompatible (one herb, one dose). No BepInDependency on Herbs and Fungi and no Herbs and Fungi UniqueID anywhere in this mod (Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1 [no-hf-dependency] and [no-hf-uid]). Both writes to hw_fleas are multiples of 4 ([clamp-own]). The card image is HarshWilds/Resource/Picture/hw_herbal_wash.png (provenance in HarshWilds/.art/hw_herbal_wash.json), and the blueprint shares it. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P7 for the drag).",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_HerbalWash_CardName",
+        "DefaultText": "Herbal Wash"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_HerbalWash_CardDescription",
+        "DefaultText": "A strong-smelling mash of bog myrtle and dry juniper needles. Scrubbed through your hair, skin and clothes, it drives out fleas and lice and gets some of the dirt off. With Herbs and Fungi installed, a herb dragged onto it makes a stronger wash that clears them out completely."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "hw_herbal_wash",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 400.0,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_HerbalWash_ActionName",
+                "DefaultText": "Wash with Herbs"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_HerbalWash_ActionDescription",
+                "DefaultText": "Scrub your hair, skin and clothes with the herbal wash to drive out fleas and lice."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -144.0, "y": -144.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0}
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -100.0, "y": -100.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0}
+                }
+            ],
+            "ReceivingCardChanges": {"ModType": 3}
+        }
+    ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_HerbalWash_InfusionActionName",
+                "DefaultText": "Wash with Herb Infusion"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_HerbalWash_InfusionActionDescription",
+                "DefaultText": "Crush the herb into the wash and scrub with it: a stronger dose that clears fleas and lice out completely."
+            },
+            "StackCompatible": false,
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -288.0, "y": -288.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0}
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -100.0, "y": -100.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0}
+                }
+            ],
+            "ReceivingCardChanges": {"ModType": 3},
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": ["tag_Herb"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": ["tag_Poisonous"],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false
+        }
+    ]
+}

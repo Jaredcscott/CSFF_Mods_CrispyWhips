@@ -1,0 +1,83 @@
+{
+  "UniqueID": "Tgr_HW_FaerieTricks",
+  "//FaerieTricks": "Feature 30, the Faerie Realm's danger (plan section 30, pack Prompt 42): the fair folk lead you astray. A rolled SelfTriggeredAction in the banshee's shape. ALL GATES ARE StatChangeTrigger ENTRIES (As_Built 4.2): hw_switch_faerietricks {1,1} (the [Threats] FaerieTricks switch); hw_stat_in_faerie {1,1} (the player stands in the Faerie Realm; its location card raises that flag by a passive. The shared hw_stat_in_realm is NOT used: a danger gated on it fired in every realm, found live 2026-10-12) (the player stands in a realm; the realm's location card raises it by a passive); hw_faerie_clock at its max (FAERIE_CLOCK_TICKS 4 = one hour). RepeatOptions 2 with the action's own -4 reset makes each firing one roll, so a stay of four hours rolls about four or five times, the first on arrival (the clock waits at its top while the player is away). Roll: Nothing 4 against Pixie-Led 1, so about one roll in five spawns hw_event_pixieled, whose one instant button costs 10 stamina (it takes no time, so it can never be cut off by the ring's return). Every number is a TUNABLE PLACEHOLDER.",
+  "Actions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "Tgr_HW_FaerieTricks",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "HW Faerie Tricks Roll"
+      },
+      "RepeatOptions": 2,
+      "StatChangeTrigger": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "hw_switch_faerietricks",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 1.0, "y": 1.0 },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "hw_stat_in_faerie",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 1.0, "y": 1.0 },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "hw_faerie_clock",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 4.0, "y": 4.0 },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "hw_faerie_clock",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Nothing",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": { "x": 0, "y": 0 },
+          "CollectionWeight": 4,
+          "DroppedCards": [ { "Quantity": { "x": 1, "y": 1 } } ]
+        },
+        {
+          "CollectionName": "PixieLed",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": { "x": 0, "y": 0 },
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "hw_event_pixieled",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

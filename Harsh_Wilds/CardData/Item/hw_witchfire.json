@@ -1,0 +1,53 @@
+{
+    "UniqueID": "hw_witchfire",
+    "//Witchfire": "Feature 27 (plan section 27, Prompt 38; W0-22: Light is an ordinary stat any carried card can write, as vanilla TorchOn does, and nothing in the game computes Light from a fire, so a card with a PassiveStatEffects Light entry gives Light without being a fire). Witchfire is a cold light that burns without fuel for one night. Three CardType 0 cards: hw_witchfire (unlit, made by hw_bp_witchfire from vanilla Witchstone Dust and Beeswax), whose DismantleAction 'Kindle Witchfire' turns it into hw_witchfire_lit (PassiveStatEffects vanilla Light +20, TorchOn's value, plus a pale LightSource glow; UsageDurability 48 falling 1 per daytime point, so 12 hours, whose OnZero turns it into hw_witchfire_spent). No fuel stat and no fire tag (tag_Fire and tag_FireSource are not set, so it lights nothing, cooks nothing and counts as no fire against the bug population). Not a spirit brew; names no NOT_USED_ card. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "hw_witchfire",
+        "LocalizationKey": "HarshWilds_Witchfire_CardName",
+        "DefaultText": "Witchfire"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_witchfire",
+        "LocalizationKey": "HarshWilds_Witchfire_CardDescription",
+        "DefaultText": "A pinch of witchstone dust bound in beeswax. Kindle it and it burns with a cold pale light, with no fuel, for one night. It gives light and nothing else: no heat, and it lights no fire."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Witchstone_Dust",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 30.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_witchfire",
+                "LocalizationKey": "HarshWilds_Witchfire_KindleActionName",
+                "DefaultText": "Kindle Witchfire"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "hw_witchfire",
+                "LocalizationKey": "HarshWilds_Witchfire_KindleActionDescription",
+                "DefaultText": "Wake the witchstone dust. It burns with a cold pale light, with no fuel, until the night is over."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "hw_witchfire_lit",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "CardInteractions": [],
+    "DroppedOnDestroy": []
+}

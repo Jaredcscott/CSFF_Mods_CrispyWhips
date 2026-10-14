@@ -1,0 +1,94 @@
+{
+    "UniqueID": "hw_totem_beast",
+    "//RitualObject": "Feature 25 (plan section 25, pack Prompt 33; W0-16: the coats' 'spiritually open' effects key on AlteredMindstate, vanilla jars refuse an essence except copper and glazed ones, no vanilla charm or shrine gives this gift). Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 2,
+    "CardName": {
+        "ParentObjectID": "hw_totem_beast",
+        "LocalizationKey": "HarshWilds_TotemBeast_CardName",
+        "DefaultText": "Beast Totem"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_totem_beast",
+        "LocalizationKey": "HarshWilds_TotemBeast_CardDescription",
+        "DefaultText": "A post of carved wood hung with bones and twine, set up in camp to honour the beasts. While you are at the place where it stands, Beast Affinity slowly rises, as it does in a beast's den."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_totem_beast",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CanBeRenamed": false,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [],
+    "AlwaysUpdate": true,
+    "AffectStatsOnlyWhenNotInBackground": true,
+    "DoesNotPile": true,
+    "CanBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "PassiveStatEffects": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+  "//": "Harsh Wilds phase 2 (Documentation/Design/Harsh_Wilds_As_Built.md section 4): a huge wild ox of the oak glades. It grazes by day and night, never stalks and never attacks unprompted; a player who approaches it may still leave it alone, and one who fights it faces the heaviest charge in the forest. A GENERATED agent (no Agent.Ref), so Carcass.Card applies and the framework wires the shared vanilla agent stats.",
+  "//Switch": "Spawn.Conditions (framework 2.27.0) keeps the wisent in the world only while the hidden GameStat hw_switch_wisent is 1, which HarshWilds/Patcher/Switchboard.cs writes from the [Threats] Wisent config entry at every run start.",
+  "//Encounter": "Encounter.Ref points at HarshWilds/Encounter/hw_encounter_wisent.json, which Development_Tools/HarshWilds/derive_content.py rebuilds from vanilla Combat_EncounterBoar.json: four charging and goring attacks, FightOrEscape at the start (the boar forces the fight), and defeat drains AgentBlood so the generated death action drops the carcass. Agent.Blood and PoisonResistance match that encounter's Blood and Value4, which load from these NPCStats.",
+  "//Range": "The five WanderEnvs are the connected oak glades and groves around Green Glade (EA 0.68b DefaultWorldMap: Green Glade links Green Grove, Mysterious Grove and Oaken Grove; Mossy Clearing links Green Grove and Mysterious Grove).",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17 (changed 2026-10-05). The framework's lifecycle ticker (CSFFModFramework/Animals/AnimalLifecycleTicker.cs, TickKillRespawn) counts the agent as dead only while its blood sits at DutyBuilder.SpeciesStats.DeadBloodMax (4) or below, and the generated duties are gated on blood above 4. A kill leaves blood at 0 (the stat's minimum), so at 0.17 a tick it climbed out of the dead band after about 24 ticks (six hours), the ticker cleared the respawn timer, and the duties walked the animal back long before Spawn.DeathRespawnTicks. Vanilla agents can regenerate because their own death action resets the exists and respawn stats; the generated death action writes no stats. At 0 a killed animal stays dead until DeathRespawnTicks (or, with DeathRespawnTicks 0, the next condition restore) heals it to full. The cost: blood an animal loses without dying is not regained before then either.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_wisent",
+  "DisplayName": "Wisent",
+  "LocalizationKey": "HarshWilds_Wisent_AgentName",
+  "Sprite": "hw_wisent",
+  "WeightCategory": "Heavy",
+  "Agent": {
+    "Blood": { "Start": 300, "Max": 300, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 150, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "b791dfa6bad821e4e91d7c4210ec3ea3",
+    "DeathRespawnTicks": 1344,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_switch_wisent", "Comparison": "GreaterOrEqual", "Value": 1 }
+    ]
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "60402000491626042b116556a55e84f5",
+      "9dc0063ceb4a24f4c815d2efb49256c2",
+      "dd644a21d11b6ca479a91b4ea9c8be76",
+      "43f27aef15c15d04d9b24d700a73cfcd"
+    ],
+    "WanderWeight": 100
+  },
+  "//Tracks": "Vanilla default track card. A beast this heavy is easy to track: RevealSkillCurve adds +10 at skill 0 (a 60% find for a novice) to +20 at 150, on top of the global Skill_Tracking curve. TUNABLE, NOT PLAYTESTED.",
+  "Tracks": {
+    "Enabled": true,
+    "LifetimeTicks": { "Min": 48, "Max": 96 },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": { "StatRange": [0, 150], "ChanceRange": [10, 20] },
+    "BloodTrail": true
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_wisent",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "hw_wisent_carcass"
+  }
+}

@@ -1,0 +1,148 @@
+{
+    "UniqueID": "hw_tgr_mudvolcano",
+    "//MudVolcano": "The mud volcano's roll, in the heron's shape (hw_tgr_heron.json): a counter stat, a weighted Nothing-versus-Event ProducedCards, an event card the player clicks. It spawns hw_event_mudvolcano, whose button may burn and always dirties; this file only decides WHETHER the mud volcano erupts. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open), As_Built 4.2. Gate 1, hw_switch_mudvolcano {1,1}: 0 (the [Threats] MudVolcano switch off) can never fire it. Gate 2, hw_mudvolcano_clock {48,48}: the counter has climbed to its max (MUDVOLCANO_CLOCK_TICKS 48 = 12 hours). Gate 3, Sheltered {0,0} (vanilla GameStat e2031c58efb4cb84fa95a3a813513dae): the player is outdoors. There is no winter gate (a hot mud spring does not freeze) and no RaidPressure dial (it is a hazard of a place, not a raid, and the dial's test pins its three readers). RepeatOptions 2 (ResetWhenOutOfRange) with the action's own reset of the clock by -48 makes each firing one roll. Roll: Nothing has weight MUDVOLCANO_NOTHING_WEIGHT 80; Eruption has base weight 0 plus MUDVOLCANO_WEIGHT 20 for the Forest Lore mud volcano card (fl_mud_volcano, CardType 2) when it is on the board (a CardDropChanceModifiers row with NotInHand and ExcludeInventory, one UniqueID, never a tag). So a board without that card can never produce the event, and with Forest Lore not installed the row adds nothing (a card missing from the game leaves its row's CardOnBoard null, which reads as no card and no weight): the roll still fires but always picks Nothing. At most one event per clock period. The foreign UID sits ONLY in this weight row: the event's button acts on the player and names no Forest Lore card, so there is no target list and no load guard. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_tgr_mudvolcano",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Mud Volcano Roll"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_mudvolcano",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_mudvolcano_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 48.0,
+                        "y": 48.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_mudvolcano_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -48.0,
+                        "y": -48.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Eruption",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 0,
+                    "CardDropChanceModifiers": [
+                        {
+                            "CardOnBoardWarpData": "fl_mud_volcano",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 20
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_mudvolcano",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

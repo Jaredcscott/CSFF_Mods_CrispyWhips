@@ -1,0 +1,189 @@
+{
+    "UniqueID": "Tgr_HW_Banshee",
+    "//Banshee": "Feature 31, the banshee (pack Prompt 44). A rolled SelfTriggeredAction in the adder's shape. ALL GATES ARE StatChangeTrigger ENTRIES (As_Built 4.2): hw_switch_banshee {1,1}; vanilla IsNight {1,1}; vanilla BloodLoss {5,20} (Bleeding Profusely): the game has NO player 'Health' stat, so 'Health is low' is read as bleeding badly, the one vanilla vital that can kill outright; hw_banshee_clock at its max (BAN cooldown 288 = 3 days, the grace is the clock's negative start, 5 days). Roll: Nothing 70 against Banshee 30, minus the threshold offering (hw_stat_offering, up to -20) and vanilla Sanctuary (read only, up to -6), never below 4. Every number is a TUNABLE PLACEHOLDER.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Banshee",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Banshee Roll"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_banshee",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 5.0,
+                        "y": 20.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_banshee_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 288.0,
+                        "y": 288.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_banshee_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -288.0,
+                        "y": -288.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 70,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Banshee",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 30,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -20
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -6
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_banshee",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

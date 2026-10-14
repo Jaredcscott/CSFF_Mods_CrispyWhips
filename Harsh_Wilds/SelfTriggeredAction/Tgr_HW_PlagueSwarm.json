@@ -1,0 +1,62 @@
+{
+    "UniqueID": "Tgr_HW_PlagueSwarm",
+    "//PlagueSwarm": "Keeps the insect swarm on the player while the plague runs and the player is OUTDOORS (Documentation/Research/HarshWilds/events_stats.md section 4c and its insect plague DECISION). It writes hw_stat_bugswarm +2 (that stat's max) on every tick its gates hold; the stat drains by 1 a tick and its status raises the vanilla BugPopulation (GameStat/hw_stat_bugswarm.json), so one STA does both the switching on and, by stopping, the switching off: two ticks after the player steps inside, or the plague timer ends, the swarm is 0 and the modifier is gone. ALL GATES ARE StatChangeTrigger ENTRIES, except the one that is not a stat: hw_switch_insectplague {1,1} (the [Threats] InsectPlague switch; off, no swarm is ever raised, so the plague timer would run harmlessly) and hw_stat_insectplague {1,288} (1 to HW_PLAGUE_TICKS, the timer's whole running range: a plague is running). The outdoors gate is RequiredTagsOnBoard tag_EnvIndoors with Inverted true, the vanilla Tgr_WinterStormWindMaker precedent (which names the tag by its export file name, Outline_7929; a mod names it by its runtime name, as WaterDrivenInfrastructure's Bp_ReedBed does): it passes wherever the player's env card does not carry the tag. MEASURED in events_stats.md section 4b: the 46 cards that carry it are all CT8 environments (cabin, cabin rooms, coop, mud hut and its rooms and cellar, all 24 Caves_* cards, the three DeathCrack_* chambers and the six mine locations), so a plague does not follow the player into any of them, and it fails OPEN on every other env, which is the wanted direction. The tag test is on the player's current board (RequiredTagsOnBoard has no card of its own for an STA), and its runtime half (that it reads the live env card of an instanced copy) is harness check C5. RepeatOptions 0 (Repeat) with OncePerTick and no cooldown, so it fires on every plague tick outdoors (the vanilla Tgr_HW_DrySpellHold shape, measured working). It writes only our own hidden stat, never a vanilla stat, drops no card and needs no player text. The +2 is HW_PLAGUE_SWARM_REFRESH: it must be at least hw_stat_bugswarm's max, or the swarm would sag below the top of its status band.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_PlagueSwarm",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Plague Swarm"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_insectplague",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_insectplague",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 288.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredTagsOnBoard": [
+                {
+                    "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerTagWarpData": "tag_EnvIndoors",
+                    "TriggerTagWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": true,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_bugswarm",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 2.0, "y": 2.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

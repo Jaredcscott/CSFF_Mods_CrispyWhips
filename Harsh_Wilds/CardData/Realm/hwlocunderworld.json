@@ -1,0 +1,222 @@
+{
+  "UniqueID": "hwlocunderworld",
+  "//Realm": "Feature 30 (plan section 30, pack Prompt 43): the Underworld location card. Same contract as hwlocfaerierealm: CardType 8, UniqueOnBoard, AlwaysUpdate false, passive hw_stat_in_realm +1 (the presence flag) and vanilla Light +15 (UNDERWORLD_LIGHT, a TUNABLE PLACEHOLDER). Its one action drops vanilla Bones always and, by chance, Ash (35), Bird Bones (25) and Sulphurous Stone (8); every number a TUNABLE PLACEHOLDER. No travel action.",
+  "CardType": 8,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_UnderworldRealm_LocName",
+    "DefaultText": "The Underworld"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_UnderworldRealm_LocDescription",
+    "DefaultText": "Low halls of black stone and old bone, lit by a cold grey glow with no source. No raid comes for your food here, and no lynx or bandit follows you in. The stair will send you up before long."
+  },
+  "CardImageWarpData": "Skull&Bones",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "PassiveStatEffects": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "hw_stat_in_realm",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 1.0,
+        "y": 1.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "hw_stat_in_underworld",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 1.0,
+        "y": 1.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 15.0,
+        "y": 15.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hwlocunderworld",
+        "LocalizationKey": "HarshWilds_UnderworldRealm_SearchName",
+        "DefaultText": "Search the Barrow Halls"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hwlocunderworld",
+        "LocalizationKey": "HarshWilds_UnderworldRealm_SearchDescription",
+        "DefaultText": "Spend two hours going through the halls. Old bones lie everywhere; now and then you find ash from a long-dead fire, the bones of a great bird or a sulphurous stone."
+      },
+      "DaytimeCost": 8,
+      "ProducedCards": [
+        {
+          "CollectionName": "Halls",
+          "CollectionMessages": [],
+          "CountsAsSuccess": true,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "674b640f46671f1418af4559b259b442",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "65f9b26c048cd474d9fb14d1c9e46754",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 35.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "3dda5e481d296c5409b05ac6e66a9221",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 25.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "25772d507cecd4347aad4d703db8b96a",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 8.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

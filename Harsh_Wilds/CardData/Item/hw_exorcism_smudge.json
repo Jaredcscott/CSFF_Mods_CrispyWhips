@@ -1,0 +1,119 @@
+{
+    "UniqueID": "hw_exorcism_smudge",
+    "//ExorcismSmudge": "Feature 26's Exorcism row (plan section 26), the cure for spirit sickness (plan section 28). A CT0 consumable made by hw_bp_exorcism_smudge from VANILLA cards only (bog myrtle through the tab group GpTag_Myrtle, dried juniper needles). DismantleAction 'Burn the Smudge': a rite at a lit fire, so it needs a card carrying the vanilla tag tag_Fire on the board (RequiredTagsOnBoard; lit campfires, fire pits, fireplaces and hearths carry it, unlit ones do not: CSFF_Patterns.md 'Lit'), and it is offered only while hw_spiritsickness is 1 to 288 (RequiredStatValues, HideAllWhenNotMet). DaytimeCost 2, hw_spiritsickness -96 (one stage), the card is used up (ReceivingCardChanges ModType 3). No switch: it is a cure the player makes on purpose. Prompt 41's dancing plague reuses this card with a second DismantleAction, 'Burn the Smudge to Break the Dance' (hw_dancingplague, -32 the whole stat, the same tag_Fire and own-stat gates). Art: PARTIAL, the vanilla sprite BogMyrtle_Dry stands in until a picture is made. Every number is a TUNABLE PLACEHOLDER.",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_ExorcismSmudge_CardName",
+        "DefaultText": "Cleansing Smudge"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_ExorcismSmudge_CardDescription",
+        "DefaultText": "A tight bundle of bog myrtle and dry juniper needles. Burned at a lit fire with the old words, its smoke drives one stage of spirit sickness out of you, or breaks a dancing plague at once. Needs a lit campfire, fire pit, fireplace or hearth beside you."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "BogMyrtle_Dry",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 200.0,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_ExorcismSmudge_ActionName",
+                "DefaultText": "Burn the Smudge"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_ExorcismSmudge_ActionDescription",
+                "DefaultText": "Burn the bundle at a lit fire and say the old words, to drive one stage of spirit sickness out of you."
+            },
+            "DaytimeCost": 2,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_spiritsickness",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -96.0, "y": -96.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "RequiredStatValues": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_spiritsickness",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 288.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "RequiredTagsOnBoard": [
+                {
+                    "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerTagWarpData": "tag_Fire",
+                    "TriggerTagWarpType": 3,
+                    "Inverted": false,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "ReceivingCardChanges": {"ModType": 3}
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_ExorcismSmudge_DanceActionName",
+                "DefaultText": "Burn the Smudge to Break the Dance"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_ExorcismSmudge_DanceActionDescription",
+                "DefaultText": "Burn the bundle at a lit fire and say the old words, to break the dancing plague at once."
+            },
+            "DaytimeCost": 2,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_dancingplague",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -32.0, "y": -32.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "RequiredStatValues": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_dancingplague",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 32.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "RequiredTagsOnBoard": [
+                {
+                    "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerTagWarpData": "tag_Fire",
+                    "TriggerTagWarpType": 3,
+                    "Inverted": false,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "ReceivingCardChanges": {"ModType": 3}
+        }
+    ]
+}

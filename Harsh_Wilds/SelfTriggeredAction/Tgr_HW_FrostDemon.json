@@ -1,0 +1,103 @@
+{
+    "UniqueID": "Tgr_HW_FrostDemon",
+    "//Roll": "THE FROST DEMON'S ROLL (plan section 33, Prompt 49), the blood moon's pattern (Tgr_HW_BloodMoon.json): a rolled SelfTriggeredAction arms a self-timed hidden stat and there is NO CT3 event card and no alert. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues. Gate 1, hw_switch_frostdemon {1,1}: with [Threats] FrostDemon off this can never fire. Gate 2, hw_clock_dusk {1,1}: the hour from 18:00 to 19:00, so the roll is once a day. RepeatOptions 2 (ResetWhenOutOfRange). The roll fires in every season but the manifest's Winter Season condition (Animals/FrostDemon.json) hides the demon outside winter, so a summer arming is a harmless no-op that counts itself down. Roll: Nothing (weight HW_FROSTDEMON_NOTHING_WEIGHT = 14) against Frost Demon (weight HW_FROSTDEMON_EVENT_WEIGHT = 1, one card-less drop), so the chance is 1 in 15 per day; a pick arms hw_stat_frostdemon by HW_FROSTDEMON_TICKS = 44 (eleven hours, to about 05:00). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FrostDemon",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Frost Demon Roll"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_frostdemon",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_clock_dusk",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 14,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Frost Demon",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_frostdemon",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {
+                                "x": 44.0,
+                                "y": 44.0
+                            },
+                            "RateModifier": {
+                                "x": 0.0,
+                                "y": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

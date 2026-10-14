@@ -1,0 +1,10 @@
+{
+  "//": "Feature 32, the wandering shaman. The minimal Agent.Ref manifest that REGISTERS the hand-authored NPCAgent/hw_agent_shaman.json so the game spawns it (the Owl's shape, Sirus23_Mod_Collection/Animals/Owl.json). W0-20 MEASURED: AnimalValidator accepts a bare Agent.Ref manifest with no ActivityWindow/Movement/Encounter/Spawn (ValidateAgent only requires Agent.Ref to resolve to a loaded NPCAgent; with no generated duties nothing else is required and ValidateHourCoverage early-returns). AnimalAssetFactory.BuildAgent leaves the Ref agent untouched (its AgentActions, Interactions, trade fields are its own); AnimalService.LoadAll queues it, SpawnRegistrar starts it in Env_SpiritWorld at boot, and the agent's own season-counter AgentActions move it on-stage and off. No duties, so no Agent.Stats map is needed.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_shaman",
+  "DisplayName": "Wandering Shaman",
+  "LocalizationKey": "HarshWilds_Shaman_AgentName",
+  "Agent": {
+    "Ref": "hw_agent_shaman"
+  }
+}

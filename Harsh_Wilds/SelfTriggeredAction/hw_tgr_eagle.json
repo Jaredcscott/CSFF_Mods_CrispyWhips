@@ -1,0 +1,129 @@
+{
+    "UniqueID": "hw_tgr_eagle",
+    "//Realm": "Feature 30 (plan section 30, pack Prompt 42; W0-18 section 2.5): the first StatChangeTrigger entry, hidden hw_stat_in_realm at {0,0}, holds this roll while the player stands in a realm (the realm location card raises the flag by a passive while it is on the player's board). With RepeatOptions 2 the clock waits at its top and the roll fires on the first tick home. A gate on a stat that resolves to nothing never fires, so this fails closed.",
+    "//Eagle": "The eagle's roll, shaped on vanilla Tgr_MouseRaid (a counter stat, a weighted Nothing-versus-Event ProducedCards, an event card the player clicks). It spawns hw_event_eagle, whose button takes the card; this file only decides WHETHER the eagle comes. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open), Documentation/Research/HarshWilds/events_sky.md sections 2 and 7. Gate 1, hw_switch_eagle {1,1}: 0 (the [Threats] Eagle switch off) can never fire it. Gate 2, hw_eagle_clock {192,192}: the counter has climbed to its max (EAGLE_CLOCK_TICKS 192 = 2 days) and, because the grace is the clock's own negative start (EAGLE_GRACE_TICKS 1152, see hw_eagle_clock.json), the first roll comes 1152 + 192 = 1344 ticks (14 days) into the stat's life. Gate 3, Sheltered {0,0} (vanilla GameStat e2031c58efb4cb84fa95a3a813513dae): the player is outdoors; vanilla Env_Cabin, Env_Coop, a mud hut room, a cave and a mine location each add 1 to Sheltered while the player is in them (read on those five, INFERRED for the other cave and mine cards). RepeatOptions 2 (ResetWhenOutOfRange) with the action's own reset of the clock by -192 makes each firing one roll: PlayedCounter counts a firing whichever collection the roll picked. Roll: Nothing has weight EAGLE_NOTHING_WEIGHT 50; Eagle has base weight 0 plus EAGLE_BAIT_WEIGHT 10 for each allow-listed card LOOSE on the ground of the current location (CardDropChanceModifiers rows with NotInHand and ExcludeInventory, one per UniqueID, never a tag: the export names tags by file name and one name covers unrelated cards). So a bare ground can never produce the event, one loose hare is 10 in 60 (about 17 percent per roll), three are 30 in 80 (about 38 percent). A card missing from the game (Sirus23 not installed) leaves its row's CardOnBoard null, which ToValue reads as no card and no weight. Counterplay (the bear's, Prompt 10 of the plan): a vanilla DogFriend (guid e20e89c6581b26a4a88ce4b9b7826e5f), Sirus23's fc_wolf_companion and fc_fox_companion each take EAGLE_COUNTER_WEIGHT -100 off the Eagle weight when on the board (NotInHand false, ExcludeInventory false: a companion on the board counts wherever it stands), so one of them cancels the first ten loose cards; a collection at 0 or below is excluded from the pick and Nothing keeps its 50. The two Sirus23 rows add nothing without Sirus23. At most one event per clock period (192 ticks) and one card per event (hw_event_eagle's RandomlyAffectedCards 1, Absolute). World odds (plan section 4, Prompt 11): the Nothing collection carries one StatsDropChanceModifiers entry on BloodSpilled (GUID 0413d3b4ffa70bb4999e3a93df937601, StatRange 0 to 2880, InterpWeightRange 0 to -25 = HW_EAGLE_BLOOD_CUT, WhenOutOfRange 1 UseMinMaxWeight, so Nothing falls from 50 toward 25 as blood rises and never below 25, which makes the eagle likelier; vanilla StatBasedDropChanceModifier.GetExtraWeight lerps in range and clamps under UseMinMaxWeight). The Eagle collection carries one on RainValue (GUID 773fb34e869224f499d43b441c973c62, StatRange 0 to 3, InterpWeightRange 0 to 0, WhenOutOfRange 2 CancelDrop): RainValue 4 and 5 (Moderate and Strong Rain) read as out of range, the collection's weight becomes -1000000 and it leaves the pick, so only Nothing remains; Light Rain 1 to 3 does not ground it (Open question 4). Butchering does not write BloodSpilled (W0-1: fights, livestock and two wolf perks do). Both stat references are GUIDs with StatWarpType 3, and the eagle gate pins exactly these two modifiers. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. INFERRED risks, harness probes H1 to H3 and H6 in raids.md section 7: whether Sheltered reads 0 in an open forest, what the clock does while gated off, and whether a roll consumed on the first tick after a location change sees a half-built board (that costs one roll, nothing more).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_tgr_eagle",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Eagle Raid"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_in_realm",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_eagle",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_eagle_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_eagle_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 50,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "0413d3b4ffa70bb4999e3a93df937601", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 2880.0}, "InterpWeightRange": {"x": 0, "y": -25}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "hw_tune_raids", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 0.0}, "InterpWeightRange": {"x": 50, "y": 50}, "WhenOutOfRange": 0},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "hw_tune_raids", "StatWarpType": 3, "StatRange": {"x": 2.0, "y": 2.0}, "InterpWeightRange": {"x": -20, "y": -20}, "WhenOutOfRange": 0}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Eagle",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 0,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "773fb34e869224f499d43b441c973c62", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 3.0}, "InterpWeightRange": {"x": 0, "y": 0}, "WhenOutOfRange": 2}
+                    ],
+                    "CardDropChanceModifiers": [
+                        {"CardOnBoardWarpData": "81766d95f54c99242ab3d18be522db49", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "f72ca8f6249870d4b9306c2d779c93a9", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "b351a3f9131348742bcbf17b6ae10fd5", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "e6b341c0770197047a5ad6470476bbd4", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "e32cb25589e676c49baa6c8f54637fa3", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "cea21fa218c28ee49a49ba2ffc8eba7c", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "6f0031502c513cc4085f7c8b912b7a3c", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "5dc9560f81be57c4b9e22780f8a5ad78", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "347a1adbb8489ad47a26a9b3a73fac8d", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "d358e255ebeff714caf702edce4deed7", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "f4972170adc8b3d4f9d4bc09c6e7f760", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "70df5b800c3fd56499fd412bb9ce7523", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "a966c94277465f741857b994202791f3", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "4d29495d7467aec4b87ac424b72a3d4b", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "wildowl_carcass", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "wildowl_tied", "CardOnBoardWarpType": 3, "NotInHand": true, "ExcludeInventory": true, "MaxWeightPerCard": 10},
+                        {"CardOnBoardWarpData": "e20e89c6581b26a4a88ce4b9b7826e5f", "CardOnBoardWarpType": 3, "NotInHand": false, "ExcludeInventory": false, "MaxWeightPerCard": -100},
+                        {"CardOnBoardWarpData": "fc_wolf_companion", "CardOnBoardWarpType": 3, "NotInHand": false, "ExcludeInventory": false, "MaxWeightPerCard": -100},
+                        {"CardOnBoardWarpData": "fc_fox_companion", "CardOnBoardWarpType": 3, "NotInHand": false, "ExcludeInventory": false, "MaxWeightPerCard": -100}
+                    ],
+                    "StatModifications": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3", "StatWarpType": 3, "RequiredCardsOnBoard": [], "ValueModifier": {"x": 1.0, "y": 1.0}, "RateModifier": {"x": 0.0, "y": 0.0}}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_eagle",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

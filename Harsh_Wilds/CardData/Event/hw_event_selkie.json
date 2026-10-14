@@ -1,0 +1,213 @@
+{
+    "UniqueID": "hw_event_selkie",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_SelkieEvent_CardName",
+        "DefaultText": "A seal-woman on the strand"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_SelkieEvent_CardDescription",
+        "DefaultText": "On the wet sand a grey seal slips off its skin and a woman stands where it lay, singing, and holds out her hand toward the surf. A selkie is calling you out to sea. You can turn away, or follow."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_selkie",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_SelkieEvent_FollowName",
+                "DefaultText": "Follow her into the surf"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_SelkieEvent_FollowName_Desc",
+                "DefaultText": "Wade out after her. You come back soaked, and stay soaked and cold for some hours."
+            },
+            "DaytimeCost": 0,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 80.0,
+                        "y": 80.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_selkie",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 16.0,
+                        "y": 16.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_SelkieEvent_TurnName",
+                "DefaultText": "Turn away"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_SelkieEvent_TurnName_Desc",
+                "DefaultText": "Turn your back on the song. A steady mind keeps you on the sand; a shaken one may still be drawn in."
+            },
+            "DaytimeCost": 0,
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Resisted",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 40,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "3d37dbda5252dc14cb772b4c5e739916",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 100.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 60
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Drawn",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 60,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {
+                                "x": 80.0,
+                                "y": 80.0
+                            },
+                            "RateModifier": {
+                                "x": 0.0,
+                                "y": 0.0
+                            }
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_selkie",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {
+                                "x": 16.0,
+                                "y": 16.0
+                            },
+                            "RateModifier": {
+                                "x": 0.0,
+                                "y": 0.0
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "//Selkie": "Feature 31, spawned by Tgr_HW_Selkie, only on Far Territory's Driftwood Shore. Follow her: Wetness +80 and hw_stat_selkie (holds Wetness, so the vanilla Wet statuses make you cold). Turn away: a rolled Resisted against Drawn, Courage (vanilla 3d37dbda) shifting the roll toward Resisted by up to 60; Drawn does what Follow does. No Far Territory UID appears in this card: nothing here targets another mod."
+}

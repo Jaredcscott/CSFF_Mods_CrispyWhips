@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_eagle_clock",
+    "//Tunables": "TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play, never balanced. EAGLE_CLOCK_TICKS = 192 (the max in MinMaxValue.y, and the same 192 in hw_tgr_eagle's clock trigger and its reset): one roll at most every 2 days at 96 ticks per day, the vanilla MouseDamageCounter period. EAGLE_GRACE_TICKS = 1152 (BaseValue and MinMaxValue.x, negated): a fresh stat starts 1152 ticks (12 days) below zero and needs one more clock period (192) to reach the trigger, so the first roll is 1344 ticks (14 days) after the stat first exists, the about-two-weeks the README promises (until 2026-10-05 it started at -1344, which put the first roll at 16 days) (in a new game; for an old save the mod is added to this is INFERRED from a save-less stat starting at its BaseValue, not measured). The clock climbs at BaseRatePerTick 1, stops at its max and waits there while another gate (the switch, or the player sheltered indoors) is closed, so the first eligible tick after that fires the roll at once. It is only ever read by hw_tgr_eagle.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_EagleClock_StatName",
+        "DefaultText": "Harsh Wilds: Eagle Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_EagleClock_StatDescription",
+        "DefaultText": "Hidden counter: how long until the Eagle may next look for small game on the ground."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": -1152.0,
+    "MinMaxValue": {
+        "x": -1152.0,
+        "y": 192.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

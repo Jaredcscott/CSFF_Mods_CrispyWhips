@@ -1,0 +1,223 @@
+{
+    "UniqueID": "hw_spiritsickness",
+    "//SpiritSickness": "Feature 28, spirit sickness (plan section 28, pack Prompt 39): the third Harsh Wilds AFFLICTION, on the fleas chassis (Documentation/Design/Harsh_Wilds_As_Built.md 7.1; Documentation/Research/HarshWilds/afflictions.md sections 1.7 and 4). One VISIBLE GameStat, cap 288, BaseRatePerTick 0, three statuses of 96 on vanilla sprites (Focus, MindState_Old, Headache_Old), alerts Low, Moderate and High. Its SOURCE is data-backed (afflictions.md section 4 test; wave0-spirits.md section 3, W0-19): a spirit that Harsh Wilds itself calls and angers. SelfTriggeredAction/Tgr_HW_SpiritSickness rolls, once a game day per spirit, while hw_event_lynx_spirit_angry, hw_event_goat_spirit_angry or hw_event_blood_spirit_angry is on the board (a CardType 3 card stays until its Continue is pressed), adding HW_SPIRIT_PER_ANGER = 96 (one band) when the roll picks Sick. Vanilla's Earth, Darkness and Fear spirits are NOT sources (their anger is already a curse or a mark) and no vanilla spirit is: whether a vanilla CT3 event card can gate an STA was not measured. CURE: the Cleansing Smudge (CardData/Item/hw_exorcism_smudge, the exorcism, a rite at a lit fire, -96, one stage); there is deliberately no time cure (a Repeat cooldown plays on the first tick the gate opens, which would wipe each sickness at once); Tgr_HW_SpiritSwitchOff clears the stat while the [Threats] SpiritSickness switch is off. Every write is a multiple of 96, so the stat lands only on 0, 96, 192 and 288, and every trigger on it starts at 1 ([clamp-own] in Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1). COST, statuses only, global modifiers clamped on read: vanilla Focus (4c5ed70723dc40e439720acab06e6af7, 0 to 96, base 48) VALUE -HW_SPIRIT_FOCUS_1..3 = -10, -20, -30; vanilla Stress RATE +0.25, +0.5, +0.75 a tick. A Focus value is used, not a rate, because Focus's own base rate is -2 and a negative rate could pin it at 0, where vanilla's lowest Focus status adds more Stress. Focus is watched by NO vanilla SelfTriggeredAction (export scan 2026-10-11), so no value lands on a trigger edge; vanilla's own Focus statuses (1 to 24 lowers Gratification and adds Stress +0.25) are the chain, counted by [clamp-rate] from Focus's base 48: stage 3 puts it at 18, so Stress net = base -0.25, own band -1.0, +0.75, +0.25 chain = -0.25, below 0, so spirit sickness alone never pins Stress at 240. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Spirit_StatName",
+        "DefaultText": "Spirit Sickness"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Spirit_StatDescription",
+        "DefaultText": "A sickness of the spirit that follows angering a spirit you called. It dulls your focus and wears on your nerves. It never fades by itself: burning a cleansing smudge at a lit fire drives out one stage."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 288.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Focus",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {"LocalizationKey": "HarshWilds_Spirit_Status1_Name", "DefaultText": "Uneasy"},
+            "Description": {
+                "LocalizationKey": "HarshWilds_Spirit_Status1_Description",
+                "DefaultText": "A spirit you angered still clings to you. Your thoughts drift: less focus, and your stress stops easing."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Focus",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 96},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.25, "y": 0.25},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 1,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Spirit_Status2_Name",
+                "DefaultText": "Spirit Sickness"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Spirit_Status2_Description",
+                "DefaultText": "The spirit's anger is making you ill in the head: much less focus, and your stress slowly rises."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "MindState_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 97, "y": 192},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -20.0, "y": -20.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.5, "y": 0.5},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Spirit_Status3_Name",
+                "DefaultText": "Spirit-Ridden"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Spirit_Status3_Description",
+                "DefaultText": "You are spirit-ridden: far less focus, and your stress keeps rising. Burn a cleansing smudge at a lit fire to drive a stage out."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Headache_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 193, "y": 288},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -30.0, "y": -30.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.75, "y": 0.75},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 3,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

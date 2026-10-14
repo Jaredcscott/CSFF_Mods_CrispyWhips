@@ -1,0 +1,98 @@
+{
+    "UniqueID": "hw_stat_drought",
+    "//Drought": "The drought itself: a self-timed effect stat, the vanilla WinterStormPackage shape (Documentation/Research/HarshWilds/events_stats.md sections 1a, 1c skeleton (c) and 3b, and its drought DECISION). Written ONLY by the Drought collection of SelfTriggeredAction/Tgr_HW_Drought.json (+HW_DROUGHT_TICKS), then counts itself down at BaseRatePerTick -1 and rests at 0. While it reads 1 to HW_DROUGHT_TICKS its one status is active: it raises a Moderate alert when the drought starts (NotifyPlayer 2 NotifyWhenGoingUp, AlertLevel 2 Moderate) and shows the vanilla sprite SunIcon in the status strip (the vanilla SunStrength status icon; Visibility 0 VisibleWithStatus and StatusesHaveNoBar true, the vanilla RainValue shape for a weather condition; Visibility 2 would be NeverVisible and hide the alert), and its EffectsOnStats writes a RATE modifier of -10000000 to vanilla Clouds (ab93837086c9d25469daee60e0f9d90e), the mirror of vanilla WinterStormPackage's +10000000, which pins Clouds at 0 every tick. At Clouds 0 vanilla Tgr_Rainmaker cancels every rain and snow collection (each needs Clouds 384 or more, WhenOutOfRange 2) and only No rain and No rain Cloudy stay pickable (weight 100 at Clouds 0), so RainValue stays 0 and every rain-fed water source and garden stops refilling by vanilla's own rules. Nothing else in vanilla reads Clouds (MEASURED: every other file naming it writes it). The drought ENDS when this stat reaches 0: the status leaves its range, the game removes its modifier, and Humidity rebuilds Clouds from 0, so rain returns once Clouds passes 384 again (INFERRED from the Humidity rates, harness check C4). HW_DROUGHT_TICKS = 672 (MinMaxValue.y, the status's ValueRange.y and the arm in Tgr_HW_Drought, 7 days) is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play; the status text says 'about a week', so retune it together with the text. It does NOT make anything dry faster: vanilla has no dryness stat to drive without patching vanilla cards.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Drought_StatName",
+        "DefaultText": "Drought"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Drought_StatDescription",
+        "DefaultText": "A summer drought. No rain falls until it breaks."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 672.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "SunIcon",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Drought_StatusName",
+                "DefaultText": "Drought"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Drought_StatusDescription",
+                "DefaultText": "The sky has stayed clear for days. No rain will fall while the drought lasts, about a week. Rain catchers, cisterns and barrels will not refill and rain will not water the gardens: fetch water from the river, a well or a pond."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "SunIcon",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 672},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -10000000.0, "y": -10000000.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

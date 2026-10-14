@@ -1,0 +1,30 @@
+{
+  "target": "hw_bandit.png",
+  "sourceCard": "Animals/Bandit.json (Sprite) and Encounter/hw_encounter_bandit.json (EncounterImageWarpData, via BANDIT_ENCOUNTER_IMAGE in Development_Tools/HarshWilds/derive_content.py)",
+  "subject": "a ragged forest bandit standing upright and facing slightly left, a lean man in a patched dark-brown hooded cloak with the hood up and visible mended patches of lighter brown cloth, a worn tan-brown leather jerkin showing beneath the cloak, a grey-brown cloth wrapped over his lower face so only his eyes show under the hood, holding a plain straight wooden spear upright in one hand, the spear a bare wooden shaft with a small leaf-shaped iron head at the top, his boots planted on one small patch of green grass; one man, one spear and nothing else",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a ragged forest bandit standing upright and facing slightly left, a lean man in a patched dark-brown hooded cloak with the hood up and visible mended patches of lighter brown cloth, a worn tan-brown leather jerkin showing beneath the cloak, a grey-brown cloth wrapped over his lower face so only his eyes show under the hood, holding a plain straight wooden spear upright in one hand, the spear a bare wooden shaft with a small leaf-shaped iron head at the top, his boots planted on one small patch of green grass; one man, one spear and nothing else, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, one figure only, the whole figure and the whole spear fitting comfortably inside the frame with generous white margin on every side (spear head well clear of the top edge, boots well clear of the bottom edge, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery beyond that one small patch of grass, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the figure, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, modern items, guns, gore, blood, skulls, sword, bow, shield, helmet, metal armor, feathers on the spear, banner, fur trim, second person, trees, forest, campfire, road, backpack, visible face below the eyes.",
+  "deviation": "The standard template's 'single object only' became 'one figure only'; 'multiple objects' was dropped from the Avoid list; 'object fills roughly the lower two-thirds of the frame' became 'the whole figure and the whole spear fitting comfortably inside the frame' because a standing figure with an upright spear is tall; 'no scenery' gained 'beyond that one small patch of grass' (the owner's brief allows one grass patch). Everything else is the template verbatim. Resolution 1K, not the pack's usual 2K, because the account balance (40 credits) covered two images only at 1K (20 credits each); the card ships at 512x768 either way.",
+  "historyId": "KdrU0sBXLUwLM7qNHV7n",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790742038158_39575b99_1790742038244_ba506b6d.png",
+  "credits": 20,
+  "verdict": "accepted on the first sample, the only one generated (no spare balance): a lean man in a hooded dark-brown patched cloak, tan-brown leather jerkin, grey cloth over the lower face, a plain wooden spear with a leaf-shaped iron head held upright, one small grass patch, no blood, no props. He carries no pack.",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 60.0,
+    "note": "The tool's pass measured 58.6 transparent. Three enclosed paper pockets it leaves opaque (between the cloak and the leg, under the spear arm and beside the boot; 2432, 1510 and 1392 px, none touching the border) were then cleared to transparent by a one-off script (connected near-white components of 60 px or more plus a 2 px fringe), giving 60.0. Nothing inside the figure was touched.",
+    "rekey": "2026-09-29, by the dispatcher: the file above still carried faint paper haze outside the figure (57.5 percent of pixels at alpha 1 to 254, mean alpha 12.8, tan-green speckle a dark card background shows as noise), which CardArt-ShippedForm does not catch because it only checks border-connected OPAQUE paper. A one-off script zeroed every pixel at alpha 140 or less that lies more than 4 px outside the figure body (opaque pixels, opened by 2 px, grown by 2 px), leaving 1.2 percent partial alpha (edge anti-aliasing) and 70.1 percent transparent. The figure and its edge ring were not touched. Regeneration was not possible: the OpenArt balance was 0 after the two 1K images."
+  },
+  "generated": "2026-09-29"
+}

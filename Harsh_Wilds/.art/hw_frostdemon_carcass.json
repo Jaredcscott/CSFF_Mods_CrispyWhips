@@ -1,0 +1,14 @@
+{
+ "target": "hw_frostdemon_carcass.png",
+ "subject": "a dead frost demon carcass, frosted wolf-shaped body",
+ "model": "nano-banana-2",
+ "mode": "text2image",
+ "params": {
+  "imageCount": 1,
+  "aspectRatio": "2:3",
+  "resolution": "1K"
+ },
+ "historyId": "J7rxBzJWKfzkTWfjjCJB",
+ "credits": 20,
+ "generated": "2026-10-11"
+}

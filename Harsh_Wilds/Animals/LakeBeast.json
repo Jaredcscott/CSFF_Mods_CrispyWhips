@@ -1,0 +1,55 @@
+{
+  "//": "Harsh Wilds feature 33, the lake beast (plan section 33, Open question 21; Prompt 49): a rare beast of the deep lake that surfaces on a few nights and hunts the shore. A GENERATED agent (no Agent.Ref), so Carcass.Card applies. It is homed on the lake boards W0-21 named (Documentation/Research/HarshWilds/wave0-places.md section 4): Northern Lake Bank (home), Southern Lake Bank and the Lake Grove, the same CardType 4 water boards the shipped bandit and nixie use. The lake island (Env_River_GrovePine_LakeIsland) is left OUT of the wander list until a harness read shows it reachable for AnimalPathfinding (INFERRED, not read). It is HOSTILE, unlike the white wisent: open question 21's default is that the lake beast is fightable at about the musk ox's difficulty or above. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. Card art is real (hw_lakebeast.png).",
+  "//Switch": "Spawn.Conditions (framework 2.27.0), ALL of which must hold: the rolled stat hw_stat_lakebeast reads 1 or more (only the Lake Beast collection of SelfTriggeredAction/Tgr_HW_LakeBeast.json writes it, 288 ticks, and it counts itself down) and the switch hw_switch_lakebeast is 1 ([Threats] LakeBeast). While one is false the framework keeps it retired in the Spirit World; it returns on the first tick both hold again (ConditionRespawnTicks 0). DeathRespawnTicks 0: a killed lake beast stays dead until its condition next goes false and true again, which is the next roll that brings one, so it is a once-in-a-long-while kill and the carcass does not respawn on a timer.",
+  "//Encounter": "Encounter.Ref points at HarshWilds/Encounter/hw_encounter_lakebeast.json, which Development_Tools/HarshWilds/derive_content.py rebuilds from vanilla Combat_EncounterBear.json: the bear's own blood, morale, reach and four attacks (roar, charge, paw, bite) renamed, so the fight is the bear's difficulty, above the musk ox's (blood 200). Defeat drains AgentBlood on the associated agent so the generated death action drops the carcass where it fell. Aggression: 600 against the wander duty of 100, within its 20:00 to 05:00 activity window, at most once a night, only when the player is on its board (a lake shore), so it threatens a player who goes fishing or camping on the water at night and nobody else.",
+  "//Tracks": "Off: a beast that exists for a few nights leaves no track cards behind for the hunter to follow to an empty shore after it is retired. TUNABLE.",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17: the same reason as Animals/Wisent.json (the framework's lifecycle ticker counts the agent dead only while its blood sits at 4 or below, and regeneration would walk a killed animal back long before its respawn). Agent.Blood and PoisonResistance match the encounter's Blood 350 and Value4 120.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_lakebeast",
+  "DisplayName": "Lake Beast",
+  "LocalizationKey": "HarshWilds_LakeBeast_AgentName",
+  "Sprite": "hw_lakebeast",
+  "WeightCategory": "Heavy",
+  "Agent": {
+    "Blood": { "Start": 350, "Max": 350, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 120, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "1debe82d82b4c3947b1dc8c75c15280a",
+    "DeathRespawnTicks": 0,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_stat_lakebeast", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_switch_lakebeast", "Comparison": "GreaterOrEqual", "Value": 1 }
+    ],
+    "ConditionRespawnTicks": 0
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 20, "End": 5 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "1debe82d82b4c3947b1dc8c75c15280a",
+      "816d82c88f738fe4285c2880a9080299",
+      "5ff76eafbc6b488409ac66902a635b79"
+    ],
+    "WanderWeight": 100
+  },
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_lakebeast",
+    "ApproachButton": true,
+    "Aggression": {
+      "Enabled": true,
+      "Hours": { "Start": 20, "End": 5 },
+      "BaseWeight": 600,
+      "RequirePlayerInEnv": true,
+      "MaxPerDay": 1
+    }
+  },
+  "Carcass": {
+    "Card": "hw_lakebeast_carcass"
+  }
+}

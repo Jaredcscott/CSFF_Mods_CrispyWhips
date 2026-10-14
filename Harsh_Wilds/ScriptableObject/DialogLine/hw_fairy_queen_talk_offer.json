@@ -1,0 +1,100 @@
+{
+  "//": "Feature 31, the Fairy Queen's ONE bargain (pack Prompt 46). Offered while hw_stat_queen_bargain is 0 (the marker, hidden 0/1, rate 0: once a run). It trades only vanilla and Harsh Wilds stats and items: the accept answer is shown only while vanilla Stamina (1cfd30cf13b69b949a0ac521f55a59a2, 0 to 32, base rate +2 a tick) is at least the price, then takes 16 Stamina (a night's dancing), lowers vanilla Stress (3b79a4c6d7e151044a1c56fbbd401d78, base rate -0.25; a fall moves it away from vanilla Tgr_Anxiety's 240, never into it) by 40, gives one Harsh Wilds mistletoe (hw_mistletoe, the sprig the realm's own wander finds at 10 percent), and sets the marker. No SpendTicks: the answer takes no time, so the realm's stay clock cannot cut it off. Decline leaves the offer open for the next visit. NextStep 2 = DialogStep.ExitDialog. Every number (16 Stamina, 40 Stress, one sprig) is a TUNABLE PLACEHOLDER.",
+  "StartingPoint": true,
+  "StartingConditions": {
+    "RequiredStatValues": [
+      {
+        "StatWarpData": "hw_stat_queen_bargain",
+        "StatWarpType": 3,
+        "TriggerRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      }
+    ]
+  },
+  "Line": {
+    "LocalizationKey": "HarshWilds_FairyQueen_Offer_Line",
+    "DefaultText": "You look so tired, traveller. Dance with my court until the music stops, and I will take your cares away and give you a sprig of mistletoe to keep."
+  },
+  "PossibleAnswers": [
+    {
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 16.0,
+              "y": 32.0
+            }
+          }
+        ]
+      },
+      "Answer": {
+        "LocalizationKey": "HarshWilds_FairyQueen_Offer_Accept",
+        "DefaultText": "I will dance with your court."
+      },
+      "ActionToPerform": {
+        "StatModifications": [
+          {
+            "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+            "StatWarpType": 3,
+            "ValueModifier": {
+              "x": -16.0,
+              "y": -16.0
+            },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+          },
+          {
+            "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+            "StatWarpType": 3,
+            "ValueModifier": {
+              "x": -40.0,
+              "y": -40.0
+            },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+          },
+          {
+            "StatWarpData": "hw_stat_queen_bargain",
+            "StatWarpType": 3,
+            "ValueModifier": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+          }
+        ],
+        "DroppedCards": [
+          {
+            "DroppedCard": {
+              "m_FileID": 0,
+              "m_PathID": 0
+            },
+            "DroppedCardWarpData": "hw_mistletoe",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+              "x": 1,
+              "y": 1
+            }
+          }
+        ]
+      },
+      "NewNextLine": {
+        "NextStep": 2
+      }
+    },
+    {
+      "Answer": {
+        "LocalizationKey": "HarshWilds_FairyQueen_Offer_Decline",
+        "DefaultText": "Another night, my lady."
+      },
+      "NewNextLine": {
+        "NextStep": 2
+      }
+    }
+  ]
+}

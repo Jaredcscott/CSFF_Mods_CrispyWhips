@@ -1,0 +1,58 @@
+{
+    "UniqueID": "hw_clock_dusk",
+    "//Clock": "THE HOUR-OF-DAY CLOCK a noon clock copies (hw_clock_noon is this file with StartingHour 12 and EndingHour 13). It is NOT a counter like hw_eagle_clock and hw_bear_clock, which climb one per tick to say how long since something last happened; this one says what hour it is. The shape is vanilla GameStat/IsNight.json: a hidden 0 to 1 stat with BaseValue 0, no rate, and ONE TimeOfDayMods entry that adds +1 while the game hour is from StartingHour up to but NOT including EndingHour (.decomp/StatTimeOfDayModifier.cs IsInRange, start <= hour < end, wrapping when start > end). GameManager.UpdateTimeOfDayMods applies the entry as a GlobalModifier when the hour enters the window and its exact inverse when it leaves, so the stat reads 1 for 18:00, 18:15, 18:30 and 18:45 (four ticks, one hour) and 0 the rest of the day. The game day starts at 04:00 (DayStartingHour 4, DailyPoints 96, one tick is 15 minutes), so the window repeats every day. The entry has NO requirements (RequiredCardsOrTagsOnBoard and RequiredStatValues are empty), so it reads no vanilla stat and no card and nothing can leave it unresolved: a TimeOfDayMods entry that names a required stat is skipped when that stat does not resolve (FAIL OPEN, .decomp/StatTimeOfDayModifier.cs StatsValid, events_sky.md section 3), which is why the clock is bare and every other gate lives in the event's StatChangeTrigger. In GameManager.SpendDaytimePoints a stat with no requirements is refreshed by CheckStatsForTimeOfDayMods (its _DoAll pass, set when the action spends at least one tick) ahead of CheckAllStatsForActions in the same pass, so the trigger reads the clock's value for the tick that just passed (MEASURED reading .decomp/GameManager.cs, not run). It is only ever read as a StatChangeTrigger entry {1,1} by Tgr_HW_BloodMoon: at 18:00 it turns 1, which is the tick the blood moon rolls, and at 19:00 it turns 0, which re-arms the roll for the next full moon. The hour 18 to 19 is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (events_sky.md section 3): it is chosen so the 44 tick blood moon timer always ends between 05:00 and 06:00, inside the lynx's 18 to 6 activity window. INFERRED, harness probe: that the framework's JsonUtility load keeps a non-empty TimeOfDayMods array (no shipped mod carried one before this file, vanilla IsNight does), read as hw_clock_dusk 1 at 18:00 and 0 at 19:00 through the harness stats query.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_DuskClock_StatName",
+        "DefaultText": "Harsh Wilds: Dusk Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_DuskClock_StatDescription",
+        "DefaultText": "Hidden clock: 1 from 18:00 to 19:00 and 0 the rest of the day. The Blood Moon rolls when it turns 1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [
+        {
+            "StartingHour": 18,
+            "EndingHour": 19,
+            "RequiredCardsOrTagsOnBoard": [],
+            "RequiredStatValues": [],
+            "ValueModifier": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        }
+    ],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,26 @@
+{
+  "target": "hw_muskox.png",
+  "sourceCard": "Animals/MuskOx.json (Sprite)",
+  "subject": "a musk ox standing side-on, a stocky low body covered in very long shaggy dark brown hair that hangs almost to its hooves, a pale cream saddle patch in the middle of the back, broad pale horns that meet on top of the head, sweep down beside the face and curl up at the tips, pale lower legs, one whole animal and nothing else",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a musk ox standing side-on, a stocky low body covered in very long shaggy dark brown hair that hangs almost to its hooves, a pale cream saddle patch in the middle of the back, broad pale horns that meet on top of the head, sweep down beside the face and curl up at the tips, pale lower legs, one whole animal and nothing else, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, yak, bison, sheep, calf, second animal, herd, snow, grass, rocks, rope, collar, blood.",
+  "historyId": "aAuZDCXigtR6QMKPQoJQ",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790592682139_568d6bec_1790592682456_0dc48ec0.png",
+  "credits": 30,
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 70.8
+  },
+  "generated": "2026-09-28"
+}

@@ -1,0 +1,172 @@
+{
+    "UniqueID": "hw_lq_brew_earth",
+    "//Brew": "Feature 27 (plan section 27, Prompt 38; W0-16: no vanilla LQ_Spirit liquid raises an affinity by rate, W0-22: MuscleGrower is the muscle-growth stimulus). NOT a spirit brew: it is made from vanilla ingredients, never from a spirit, and names none of vanilla's NOT_USED_ placeholders. No switch: what the player makes on purpose gets none. Every timed effect goes through the brew's own effect stat (its status carries the modifier); the Drink writes only that stat and Thirst, never a base-rate-0 stat. The liquid is Herbs and Fungi's tea liquid shape with this mod's keys, made by a blueprint on vanilla Bp_NightBroth's chassis (a clay bowl of clean water kept, the bowl's water becoming the brew). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play: the dose is 48 on a 96 stat that falls 1 a tick (12 hours a dose); the effect stat's status adds a RateModifier of 2.0 a tick to the affinity (net +1.9 against its own -0.1; the stat is 0 to 1000 and no vanilla trigger reads it).",
+    "CardName": {
+        "ParentObjectID": "hw_lq_brew_earth",
+        "LocalizationKey": "HarshWilds_BrewEarth_CardName",
+        "DefaultText": "Earth Brew"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_lq_brew_earth",
+        "LocalizationKey": "HarshWilds_BrewEarth_CardDescription",
+        "DefaultText": "A dark, gritty brew of wood ash and dry moss steeped in clean water. It tastes of the ground after rain. For half a day after a draught you feel the earth under you more keenly: Earth Affinity builds faster."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardHelpSection": {
+        "ParentObjectID": "hw_lq_brew_earth",
+        "LocalizationKey": "HarshWilds_BrewEarth_CardHelpSection",
+        "DefaultText": "<b>Preparation:</b> Mix ash and dry moss into a bowl of clean water.\n\n<b>Benefits:</b> Quenches thirst and raises Earth Affinity faster than it fades for about half a day (two draughts last a day)."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_lq_brew_earth",
+    "CardImageWarpType": 3,
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 9,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 0.33,
+    "TradingValue": 0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Heatable",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "hw_lq_brew_earth",
+            "LocalizationKey": "HarshWilds_BrewSpoilage_StatName",
+            "DefaultText": "Bacteria"
+        },
+        "MaxValue": 4800.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "hw_lq_brew_earth",
+                "LocalizationKey": "HarshWilds_BrewSpoilage_Text",
+                "DefaultText": "The brew has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "aa33d3104cc682c4e9a163e7df9a7e13",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_lq_brew_earth",
+                "LocalizationKey": "HarshWilds_BrewDrink_ActionName",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "DrinkingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 60.0,
+                        "y": 60.0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 48.0,
+                        "y": 48.0
+                    },
+                    "StatWarpData": "hw_stat_brew_earth",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidEffectScaling": 2,
+                "SpoilageChange": {
+                    "x": -250.0,
+                    "y": -250.0
+                },
+                "LiquidQuantityChange": {
+                    "x": -300.0,
+                    "y": -300.0
+                },
+                "TransformIntoWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

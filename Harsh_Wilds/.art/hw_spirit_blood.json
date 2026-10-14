@@ -1,0 +1,18 @@
+{
+  "target": "hw_spirit_blood.png",
+  "sourceCard": "hw_spirit_blood",
+  "subject": "a translucent deep crimson spirit shaped like a loose swirl of spilled blood drops rising into a standing wolf-like silhouette, a faint glowing outline",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "imageCount": 1
+  },
+  "historyId": "jKBGI9NSQdvIfScd6gNG",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791651733424_87670f68_1791651734342_9b940dff.png",
+  "credits": 30,
+  "generated": "2026-10-10",
+  "rekeyed": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: has white to remove; re-keyed from the raw generation with a tighter paper ramp (process_card_art --paper-min 205 --paper-floor 232) to drop the white glow halo, the pale glow enclosed between the tail strands faded out (box 95,330,235,580), enclosed paper keyed, defringed, trimmed"
+}

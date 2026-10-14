@@ -1,0 +1,141 @@
+{
+    "UniqueID": "Tgr_HW_DancingPlague",
+    "//DancingPlague": "Dancing plague source (plan section 28, pack Prompt 41): ONE roll each time a dance in a fairy ring is done. The gates are StatChangeTrigger entries only: hw_switch_dancingplague {1,1} and the hw_ring_dance marker {1,1} (the ring's 'Dance in the Ring', night only, writes +1; this action writes -1 back at action level, so the marker leaves its range and RepeatOptions 2 (ResetWhenOutOfRange) re-arms the roll for the next dance). Roll: Nothing (weight HW_DANCE_NOTHING = 1) against Plague (weight 1, half the dances), Plague adds HW_DANCE_PER_ROLL = 16 to hw_dancingplague (four hours at its fall of 1 a tick). Each ActionName.DefaultText is its save-state key: unique, never renamed after release. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_DancingPlague",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Dancing Plague Roll"
+            },
+            "RepeatOptions": 2,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_dancingplague",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_ring_dance",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredCardsOnBoard": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Sick",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_dancingplague",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {
+                                "x": 16.0,
+                                "y": 16.0
+                            },
+                            "RateModifier": {
+                                "x": 0.0,
+                                "y": 0.0
+                            }
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_ring_dance",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

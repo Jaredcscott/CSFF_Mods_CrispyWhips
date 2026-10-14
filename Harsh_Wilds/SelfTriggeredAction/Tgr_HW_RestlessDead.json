@@ -1,0 +1,139 @@
+{
+  "UniqueID": "Tgr_HW_RestlessDead",
+  "//RestlessDead": "Feature 30 (plan section 30, pack Prompt 43): the Underworld danger, the dead reach for you. A rolled SelfTriggeredAction in the Faerie Tricks shape. ALL GATES ARE StatChangeTrigger ENTRIES: hw_switch_restlessdead {1,1} (the [Threats] RestlessDead switch), hw_stat_in_underworld {1,1} (the player stands in the Underworld; its location card raises that flag by a passive. The shared hw_stat_in_realm is NOT used: a danger gated on it fired in every realm, found live 2026-10-12), hw_underworld_clock at its max (4 ticks = one hour). Each firing takes 4 off the clock. Roll: Nothing 3 against Restless Dead 1, so about one in four spawns hw_event_restlessdead. Every number a TUNABLE PLACEHOLDER.",
+  "Actions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "Tgr_HW_RestlessDead",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "HW Restless Dead Roll"
+      },
+      "RepeatOptions": 2,
+      "StatChangeTrigger": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_switch_restlessdead",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_stat_in_underworld",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_underworld_clock",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.0,
+            "y": 4.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_underworld_clock",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -4.0,
+            "y": -4.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Nothing",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 3,
+          "DroppedCards": [
+            {
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "RestlessDead",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "hw_event_restlessdead",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

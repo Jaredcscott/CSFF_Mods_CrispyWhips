@@ -1,0 +1,178 @@
+{
+    "UniqueID": "hw_tgr_wolverine",
+    "//Realm": "Feature 30 (plan section 30, pack Prompt 42; W0-18 section 2.5): the first StatChangeTrigger entry, hidden hw_stat_in_realm at {0,0}, holds this roll while the player stands in a realm (the realm location card raises the flag by a passive while it is on the player's board). With RepeatOptions 2 the clock waits at its top and the roll fires on the first tick home. A gate on a stat that resolves to nothing never fires, so this fails closed.",
+    "//Wolverine": "The wolverine's roll (plan section 14), shaped on hw_tgr_blackbear.json. There is NO wolverine card, NO Animals manifest, NO Approach button and NO encounter: it exists only as this roll and the event card it spawns, so it cannot be fought or skinned. Gates are all StatChangeTrigger entries, never RequiredStatValues: hw_switch_wolverine {1,1}, SeasonCounter_Winter {1,2880} (vanilla GameStat 20042dca062d34a4b8e2968f9dc11f9f: 0 outside winter, then 1 to 2880 through it) and hw_wolverine_clock {288,288} (WOLVERINE_CLOCK_TICKS 288 = 3 days, reset by -288 in the action; RepeatOptions 2). Roll: Nothing has weight WOLVERINE_NOTHING_WEIGHT 100; Wolverine has base weight 0 plus WOLVERINE_BAIT_WEIGHT 5 for each SPRUNG trap card (SnareTrapTriggered, DeadfallTrapTriggered, LogTrapTriggered, PitTrapTriggered, by GUID, never a tag) found in the base row or the location row, so a board with no sprung trap can never produce the event and one sprung trap is 5 in 105 (about 5 percent per roll). KNOWN MISMATCH, not a defect: a sprung trap raises the odds whatever it holds, and the event card's button takes only the 8 cards in hw_event_wolverine.json (fox, badger, boar, doe, stag and wolf carcasses, tied boar female and male), so an empty trap, or a Deadfall (whose catches are squirrel, frog and mouse, all the eagle's cards), or a Snare holding only a hare, duck or partridge, can raise the odds and then find nothing; the click is then silent. A catch kept in a placed chest or shelf can be taken too (the button cannot be confined to traps). At most one event per clock period and one card per event. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. Not covered by the [Tuning] RaidPressure dial (that dial covers the eagle, the black bear and the heron only).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_tgr_wolverine",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Wolverine Raid"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_in_realm",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_wolverine",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 2880.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_wolverine_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 288.0,
+                        "y": 288.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_wolverine_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -288.0,
+                        "y": -288.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 100,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Wolverine",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 0,
+                    "CardDropChanceModifiers": [
+                        {
+                            "CardOnBoardWarpData": "ae3695c9d9c5f6f469584754ad4c38c3",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": false,
+                            "MaxWeightPerCard": 5
+                        },
+                        {
+                            "CardOnBoardWarpData": "945f8180e8f8ee04d9dbc64dbb7794d5",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": false,
+                            "MaxWeightPerCard": 5
+                        },
+                        {
+                            "CardOnBoardWarpData": "9463d107c1237224fb6956f3df0cf5c8",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": false,
+                            "MaxWeightPerCard": 5
+                        },
+                        {
+                            "CardOnBoardWarpData": "b2eab4cc863925146a748d67bb41dec3",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": false,
+                            "MaxWeightPerCard": 5
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_wolverine",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

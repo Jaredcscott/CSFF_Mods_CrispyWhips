@@ -1,0 +1,83 @@
+{
+    "UniqueID": "hw_stat_aurora",
+    "//Aurora": "The aurora itself: a self-timed hidden stat, the vanilla GarlicEffect shape, built exactly like the blood moon timer (Documentation/Research/HarshWilds/events_sky.md sections 5 and 7, the aurora DECISIONS). Written ONLY by the Aurora collection of SelfTriggeredAction/Tgr_HW_AuroraRoll.json (+HW_AURORA_TICKS = 40, its max, applied Permanent by ActionRoutine when that collection is picked), then it counts itself down at BaseRatePerTick -1 and rests at 0, so the aurora ends by itself after 40 ticks (ten hours) with no clearing code. While it reads 1 to 40 its one status is active: it raises a Moderate alert when the aurora begins (NotifyPlayer 2 NotifyWhenGoingUp, AlertLevel 2 Moderate) and shows the vanilla sprite Star in the status strip (Visibility 0 VisibleWithStatus and StatusesHaveNoBar true, as the blood moon timer; Visibility 2 would be NeverVisible and hide the alert). The status has NO EffectsOnStats on purpose: a status effect is a GlobalModifier on the whole run, and the aurora lifts mood only OUTSIDE under the open night sky. That is done by the second STA, SelfTriggeredAction/Tgr_HW_AuroraGlow.json, which reads this stat as a StatChangeTrigger entry {1,40} beside vanilla IsNightUnderOpenSky {1,1} and writes vanilla Morale a small step each tick; this stat is its timer and nothing more. It is a GLOBAL stat, so the alert shows wherever the player is, indoors too, while the mood step waits for the open sky (the timer keeps running: an aurora seen from a cabin is spent). HW_AURORA_TICKS = 40 (MinMaxValue.y, the status's ValueRange.y, the arm in Tgr_HW_AuroraRoll and the top of the glow's trigger range) is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play; the status text says 'up to ten hours', so retune it together with the text. INFERRED, harness probe: that the collection-level StatWarpData resolves in a mod STA (measured working for hw_stat_drought on 2026-09-30) and that a save reloaded mid-aurora keeps the stat.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Aurora_StatName",
+        "DefaultText": "Aurora"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Aurora_StatDescription",
+        "DefaultText": "An aurora: standing under the open night sky lifts your mood."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 40.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Star",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Aurora_StatusName",
+                "DefaultText": "Aurora"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Aurora_StatusDescription",
+                "DefaultText": "An aurora is out tonight. Standing outside under the open night sky lifts your mood a little every quarter hour, for up to ten hours."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Star",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 40},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

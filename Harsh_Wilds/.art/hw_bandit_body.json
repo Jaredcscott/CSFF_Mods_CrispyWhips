@@ -1,0 +1,30 @@
+{
+  "target": "hw_bandit_body.png",
+  "sourceCard": "CardData/Item/hw_bandit_body.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a style reference only: match its rendering exactly (flat posterized colour fills in a few hard-edged tonal steps like cel shading, no soft gradients, no watercolour bleed, no paper texture, thin dark ink outlines, small ink tick and hatch marks for texture) and its muted naturalistic palette; do not copy its subject (no bear).\nReference image 2 is the CHARACTER: draw this exact same man with the same outfit and render style: the patched dark brown hooded cloak with lighter sewn-on patches, the grey cloth mask over nose and mouth, short dark hair, tan leather jerkin with cloth belt, grey cloth-wrapped forearms and shins, olive-brown trousers, worn brown leather boots, and the same long wooden spear with an iron leaf-shaped head.\nReference image 3 is the COMPOSITION: keep its layout, a small oval patch of brown earth with a few green grass tufts and fallen brown leaves seen from slightly above, with a tan canvas satchel with a brass buckle and the spear lying on it.\nScene: the bandit lies still on his side on that earth patch, fallen in the fight, eyes closed, one arm stretched out, his patched cloak spread over him, his spear lying on the ground beside his hand and his tan canvas satchel beside him. Not gory: no blood, no wounds.\nThe whole group is the single subject, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no cast shadow outside the earth patch, no other scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, watercolour, soft airbrushed gradients, paper texture, anime, cartoon, chibi, blood, gore, wounds, skeleton, second person, standing figure, neon colours, lens flare, cropped, scenery behind the subject, grey background, off-white background, drop shadow, checkerboard, transparency grid, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "Bear",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_1791652872679_c89a275b.png"
+    },
+    {
+      "label": "hw_bandit (new, character)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_bandit_new_1791653551390_2cce5746.png"
+    },
+    {
+      "label": "hw_bandit_body (current)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_bandit_body_1791652875450_6de5e0f6.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653600441_373f07f3_1791653600818_ee0f5fb5.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
+}

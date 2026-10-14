@@ -1,0 +1,35 @@
+{
+    "UniqueID": "hw_event_omen_raids",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_OmenRaids_CardName",
+        "DefaultText": "Bones: Both Raids Near"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_OmenRaids_CardDescription",
+        "DefaultText": "The bones fall in two piles, one pointing at the sky and one at your stores. Within a day of this casting the eagle and the black bear are both hungry again. From then on, whenever you are outside, the eagle may take game left lying on open ground, and, while autumn lasts, the bear may raid the food kept in your containers and stores."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_omen",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_OmenRaids_ActionName",
+                "DefaultText": "Gather the Bones"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_OmenRaids_ActionDescription",
+                "DefaultText": "Pick the bones up and put them away."
+            },
+            "DaytimeCost": 0,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "//Omen": "Feature 26's scrying (pack Prompt 36): the reading dropped by hw_casting_bones' Cast the Bones when its 'raids' class of collections survives the CancelDrop bands (see hw_casting_bones.json). One button removes the card (ReceivingCardChanges ModType 3, which also passes WillHaveAnEffect). The text claims only what the bands prove."
+}

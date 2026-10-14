@@ -1,0 +1,86 @@
+{
+    "UniqueID": "hw_hind_blessing",
+    "//HindBlessing": "THE GOLDEN HIND'S BLESSING (plan section 33, Prompt 48): the CT0 card Animals/GoldenHind.json's 'Follow the Hind' interaction gives on success (the framework requires the reward to be a CT0 card). Its one DismantleAction, 'Receive the Blessing', costs one quarter hour, sets vanilla Foraging Aid (1cfae8f993bbbce448477637d44b3cb3) and Escape Aid (1c12a4977261dcf4aa5a02d97a21842e) to 288 (ValueModifier 288, the shape of vanilla's own Event_DeerSpiritBlessingGranted 'Continue', whose stats are Alertness Aid and Resilience, so this blessing does NOT repeat vanilla's Deer blessing; both stats rise to their 0 to 288 caps and decay by their own statuses, about a day and a half from the top), writes hw_stat_goldenhind by -1000 (clamped to its floor of 0, so the hind's appearance ends and it is retired on the next tick), and uses the card up (ReceivingCardChanges ModType 3). The card shows only while held; a player who never uses it keeps it. TUNABLE PLACEHOLDERS. Art is PARTIAL: the vanilla Doe sprite stands in.",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_HindBlessing_CardName",
+        "DefaultText": "Blessing of the Golden Hind"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_HindBlessing_CardDescription",
+        "DefaultText": "The golden hind let you follow it a while, and its stillness stayed with you. Receive the blessing to forage and slip away with a lighter step for a day or so."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Doe",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 0.0,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_HindBlessing_ActionName",
+                "DefaultText": "Receive the Blessing"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_HindBlessing_ActionDescription",
+                "DefaultText": "Receive the golden hind's blessing: a day or so of surer foraging and a quicker getaway."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfae8f993bbbce448477637d44b3cb3",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 288.0,
+                        "y": 288.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1c12a4977261dcf4aa5a02d97a21842e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 288.0,
+                        "y": 288.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_goldenhind",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -1000.0,
+                        "y": -1000.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

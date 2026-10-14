@@ -1,0 +1,19 @@
+{
+  "//": "Feature 31, the Fairy Queen's fallback line (pack Prompt 46): no StartingConditions, StartingPoint true, listed after the offer, so the player gets it once the bargain is struck (hw_stat_queen_bargain 1). Its one answer ends the dialog (NextStep 2 = DialogStep.ExitDialog).",
+  "StartingPoint": true,
+  "Line": {
+    "LocalizationKey": "HarshWilds_FairyQueen_After_Line",
+    "DefaultText": "You have danced with us already, and the night remembers. Go gently, traveller."
+  },
+  "PossibleAnswers": [
+    {
+      "Answer": {
+        "LocalizationKey": "HarshWilds_FairyQueen_After_Answer",
+        "DefaultText": "Thank you, my lady."
+      },
+      "NewNextLine": {
+        "NextStep": 2
+      }
+    }
+  ]
+}

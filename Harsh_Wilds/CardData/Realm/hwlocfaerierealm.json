@@ -1,0 +1,117 @@
+{
+  "UniqueID": "hwlocfaerierealm",
+  "//Realm": "Feature 30, the Faerie Realm's CardType 8 location card (plan section 30, pack Prompt 42; W0-18, wave0-places.md 2.5 and 2.6). The board backdrop: seeded first by hwenvfaerierealm's DefaultEnvCardDrops. UniqueID with no underscore, like its environment. AlwaysUpdate false (a CardType 8 must not follow the player; the framework's AlwaysUpdateService also forces it false), so its PassiveStatEffects apply only while it is in the player's environment and are cancelled when the player leaves by ANY way (InGameCardBase passive-effects update, ApplyStatModifiers / CancelStatModifiers). That makes the first passive the realm's PRESENCE FLAG with no write anywhere: hidden hw_stat_in_realm reads 1 exactly while the player stands in a realm and falls back to 0 by the exit, the stay clock, death or any stray travel. The four raid rolls (hw_tgr_blackbear, hw_tgr_eagle, hw_tgr_heron, hw_tgr_wolverine) each carry a StatChangeTrigger entry on it at {0,0}, so no raid rolls while the player is away, and the clock that waited fires on the first tick home; the realm's own danger, Tgr_HW_FaerieTricks, rolls only while it reads 1. The second passive is the moon that never sets: vanilla Light (79290cafb08e48f4d871704c20e69b1c, 0 to 100, 'Light' from 11) +30 while here (FAERIE_LIGHT, a TUNABLE PLACEHOLDER; the realm is entered only at night, where it otherwise reads Very Dark). 'Wander the Moonlit Meadow' (two hours, a TUNABLE PLACEHOLDER, so about two per stay) drops vanilla FreshFairyweed always, and by chance vanilla fresh Spirit Mushrooms (40), a vanilla Fairy Stone (8) and Harsh Wilds mistletoe (10, feature 26); every chance a TUNABLE PLACEHOLDER on the 0-100 scale. No travel action on this card: the only ways out are the exit card's button and its stay clock.",
+  "CardType": 8,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_FaerieRealm_LocName",
+    "DefaultText": "The Faerie Realm"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_FaerieRealm_LocDescription",
+    "DefaultText": "Silver grass under a moon that never sets, and music somewhere out of sight. No raid comes for your food here, and no lynx or bandit follows you in. The ring will send you home before long."
+  },
+  "CardImageWarpData": "hw_faerie_realm",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "PassiveStatEffects": [
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "hw_stat_in_realm",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": 1.0, "y": 1.0 },
+      "RateModifier": { "x": 0.0, "y": 0.0 },
+      "MinValueModifier": { "x": 0.0, "y": 0.0 },
+      "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+      "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    },
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "hw_stat_in_faerie",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": 1.0, "y": 1.0 },
+      "RateModifier": { "x": 0.0, "y": 0.0 },
+      "MinValueModifier": { "x": 0.0, "y": 0.0 },
+      "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+      "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    },
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": 30.0, "y": 30.0 },
+      "RateModifier": { "x": 0.0, "y": 0.0 },
+      "MinValueModifier": { "x": 0.0, "y": 0.0 },
+      "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+      "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hwlocfaerierealm",
+        "LocalizationKey": "HarshWilds_FaerieRealm_WanderName",
+        "DefaultText": "Wander the Moonlit Meadow"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hwlocfaerierealm",
+        "LocalizationKey": "HarshWilds_FaerieRealm_WanderDescription",
+        "DefaultText": "Spend two hours wandering the silver meadow. Fairyweed grows everywhere here; now and then you find spirit mushrooms, a sprig of mistletoe or a smooth grey stone."
+      },
+      "DaytimeCost": 8,
+      "ProducedCards": [
+        {
+          "CollectionName": "Meadow",
+          "CollectionMessages": [],
+          "CountsAsSuccess": true,
+          "RevealInventory": false,
+          "CollectionUses": { "x": 0, "y": 0 },
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "a1da115fe6aad774683492f7317850aa",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 2 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "e41ab416339b3c9459a37b4942f8f57b",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 40.0, "DurabilitiesModifiers": [], "StatsModifiers": [], "CardsModifiers": [], "NPCStatsModifiers": [] }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "563078cfd4356834f960cdd2e3085b3f",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 8.0, "DurabilitiesModifiers": [], "StatsModifiers": [], "CardsModifiers": [], "NPCStatsModifiers": [] }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "hw_mistletoe",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 10.0, "DurabilitiesModifiers": [], "StatsModifiers": [], "CardsModifiers": [], "NPCStatsModifiers": [] }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

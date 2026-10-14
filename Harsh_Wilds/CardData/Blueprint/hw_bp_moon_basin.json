@@ -1,0 +1,156 @@
+{
+  "UniqueID": "hw_bp_moon_basin",
+  "//RitualObject": "Feature 30's Moon Basin (pack Prompt 43), the threshold blueprint's shape with ONE stage. Player-made, so no [Threats] switch. LOCATION-LOCKED to a board holding vanilla's Moon Stone shrine (edf06b9a40876314f99f63e58a23d8d0) in BOTH BlueprintCardConditions (the model-placement action) and BuildingCardConditions (the construction stage), the CLAUDE.md location-lock pattern, so the shrine card is never edited; one basin to a shrine (UniqueOnBoard on the basin, Inverted in BlueprintCardConditions). Researchable from the start through an always-true StatValues entry on vanilla Sanctuary (a blueprint with all five condition lists empty never unlocks). Placeholders.",
+  "CardType": 7,
+  "CardName": {
+    "ParentObjectID": "hw_bp_moon_basin",
+    "LocalizationKey": "HarshWilds_BpMoonBasin_CardName",
+    "DefaultText": "Moon Basin"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hw_bp_moon_basin",
+    "LocalizationKey": "HarshWilds_BpMoonBasin_CardDescription",
+    "DefaultText": "Set a stone basin of still water beside a Moon Stone. On a full-moon night, step into its moonlight to visit the Moon Realm. It can only be raised where a Moon Stone stands."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Moonstone",
+  "CardImageWarpType": 3,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "hw_bp_moon_basin",
+    "LocalizationKey": "HarshWilds_BpMoonBasin_UnlockConditionsDesc",
+    "DefaultText": "Known from the start."
+  },
+  "StartUnlocked": false,
+  "BlueprintUnlockTicksCost": 8,
+  "BuildingDaytimeCost": 2,
+  "DeconstructDaytimeCost": 1,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "1",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "Stat": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+        "StatWarpType": 3,
+        "TriggerRange": {
+          "x": -1000.0,
+          "y": 7500.0
+        },
+        "NotifyWhenNotMet": false,
+        "HideAllWhenNotMet": false
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintCardConditions": [
+    {
+      "TriggerCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "TriggerCardWarpData": "hw_moon_basin",
+      "TriggerCardWarpType": 3,
+      "OnlyInHand": false,
+      "NotInHand": false,
+      "ExcludeInventories": false,
+      "Inverted": true,
+      "OnlyEquipped": false
+    },
+    {
+      "TriggerCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "TriggerCardWarpData": "edf06b9a40876314f99f63e58a23d8d0",
+      "TriggerCardWarpType": 3,
+      "OnlyInHand": false,
+      "NotInHand": false,
+      "ExcludeInventories": false,
+      "Inverted": false,
+      "OnlyEquipped": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [
+        "HandAction"
+      ],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "hw_moon_basin",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "BlueprintActionTagsWarpData": [
+    "HandAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "ResearchedNotification": 0,
+  "BuildingCardConditions": [
+    {
+      "TriggerCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "TriggerCardWarpData": "edf06b9a40876314f99f63e58a23d8d0",
+      "TriggerCardWarpType": 3,
+      "OnlyInHand": false,
+      "NotInHand": false,
+      "ExcludeInventories": false,
+      "Inverted": false,
+      "OnlyEquipped": false
+    }
+  ]
+}

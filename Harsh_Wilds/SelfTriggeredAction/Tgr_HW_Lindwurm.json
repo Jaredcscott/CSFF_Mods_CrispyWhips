@@ -1,0 +1,103 @@
+{
+    "UniqueID": "Tgr_HW_Lindwurm",
+    "//Roll": "THE LINDWURM'S DAILY ROLL (plan section 33, Prompt 50), the white wisent's pattern (Tgr_HW_WhiteWisent.json): a rolled SelfTriggeredAction arms a self-timed hidden stat and there is NO CT3 event card and no alert. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues. Gate 1, hw_switch_lindwurm {1,1}: with [Threats] LakeBeast off this can never fire. Gate 2, hw_clock_dusk {1,1}: the hour from 18:00 to 19:00, so the roll is once a day. RepeatOptions 2 (ResetWhenOutOfRange). Roll: Nothing (weight HW_LINDWURM_NOTHING_WEIGHT = 119) against Lindwurm (weight HW_LINDWURM_EVENT_WEIGHT = 1, one card-less drop, since a collection with no potential drop gets weight 0 and could never be picked), so the chance is 1 in 120 per day; a pick arms hw_stat_lindwurm by HW_LINDWURM_TICKS = 720 (a week and a half, its max). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Lindwurm",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Lindwurm Roll"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_lindwurm",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_clock_dusk",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 119,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Lindwurm",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_lindwurm",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {
+                                "x": 720.0,
+                                "y": 720.0
+                            },
+                            "RateModifier": {
+                                "x": 0.0,
+                                "y": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+    "UniqueID": "hw_spirit_mask",
+    "//RitualObject": "Feature 25 (plan section 25, pack Prompt 33; W0-16: the coats' 'spiritually open' effects key on AlteredMindstate, vanilla jars refuse an essence except copper and glazed ones, no vanilla charm or shrine gives this gift). Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "hw_spirit_mask",
+        "LocalizationKey": "HarshWilds_SpiritMask_CardName",
+        "DefaultText": "Spirit Mask"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_spirit_mask",
+        "LocalizationKey": "HarshWilds_SpiritMask_CardDescription",
+        "DefaultText": "A wooden mask carved with an animal face and blackened with charcoal. While you wear it and your mind is open to the spirits, Beast Affinity slowly rises. It wears out after about four weeks of wear, and it takes the face slot."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_spirit_mask",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Clothing"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "ObjectWeight": 200.0,
+    "TradingValue": 0.0,
+    "CanBeRenamed": false,
+    "EquipmentTagsWarpData": [
+        "eTag_Mask"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "WeightReductionWhenEquipped": -200.0,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 2688.0,
+        "MaxValue": 2688.0,
+        "CardStatName": {
+            "ParentObjectID": "hw_spirit_mask",
+            "LocalizationKey": "HarshWilds_SpiritMask_UsageStatName",
+            "DefaultText": "Wear"
+        },
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": -1.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "hw_spirit_mask",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "The mask has cracked apart."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Beast Affinity (+0.6 a tick, open mind)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 0.6,
+                        "y": 0.6
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "Stat": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 50.0,
+                            "y": 10000.0
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

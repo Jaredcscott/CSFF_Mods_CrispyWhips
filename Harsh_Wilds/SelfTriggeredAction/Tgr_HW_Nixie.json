@@ -1,0 +1,5352 @@
+{
+    "UniqueID": "Tgr_HW_Nixie",
+    "//Nixie": "Feature 31, the nixie (pack Prompt 44), in the adder's per-place shape (W0-4 MEASURED: the current place's own CT8 satisfies RequiredCardsOnBoard, entries are ANDed so one action per place). 27 places: the 26 River_* CT8 boards (every one but the Hag Swamp, which vanilla's Tgr_HagPondFear owns) plus GrovePine_LakeGrove (a lake by name, INFERRED). Gates: hw_switch_nixie {1,1}, vanilla IsNight {1,1}, vanilla Sheltered {0,0}, hw_nixie_clock at its max (NIX cooldown 384 = 4 days, grace 5 days). Roll Nothing 85 against Nixie 15 minus the offering (up to -10) and Sanctuary (read only, up to -3). Every number is a TUNABLE PLACEHOLDER.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingAlder_BlackMire"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "a9c7fdb278b19414c9d311177402e60b",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingAlder_BoggyMeadows"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "5b8ba1433e086464297992c9a8a09dc0",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingAlder_FetidBog"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "4b5884ebbb8244a45a119a1701365b1c",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingAlder_MosquitoFlats"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "a019c1902ef42df4490429cf28534518",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingAlder_PeatBog"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "494b063d0a8ca66498dcd0e55b7f15be",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingAlder_RedMire"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "24b989bdc5b3c8a42a16ac3c0fb703a8",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingAlder_ReedPool"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "975248d7e988366438f877c451ca118d",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingOak_RiverClearing"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "3c7144d78a55ebb45b0fdf1598cf6a04",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingPine_HeatherMarshes"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "cbb6d9b3d2ca0f24d89e62653c27eb25",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ClearingPine_NorthernLakeBank"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "2332dfa5f177bfe45ac860c2a8e1792a",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GroveAlder_DuckPoint"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "49c0c329d382aab498b4ff7903f4a38a",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GroveAlder_FloodedGrove"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "a631af4cc22e93a43b70992c974fbbf0",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GroveAlder_WillowSwamp"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "20dc038ca0f9e3046aa2a401dba16b09",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GroveAlder_WillowWays"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "4f1ceadde2272e74e9b08b7d40eb264c",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GroveOak_Greenfalls"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "e40f442246e85014c9a786342fb78a25",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GroveOak_MossyBank"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "e715a7bb358c727408ca2f454850bca0",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GrovePine_LakeIsland"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "1ddd433a960e8a04cbcbb1dd6752c348",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GrovePine_NorthernRapids"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "095037d3e1e05bb4680e47410f0e5075",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GrovePine_RiverPass"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "7071f798052681d43a6d424cc62508db",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GrovePine_RockyBank"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "e1874f4598988d04bb4b68049766d7b1",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_GrovePine_SouthernLakeBank"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "d62dae57fe6130841b450ba199f2c58e",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ThicketAlder_ClayBanks"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "9b72ab8ae43c10345a6d9168d3096b50",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ThicketOak_MuddyBank"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "f516c75849230e04e8b386d9f3b25d53",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ThicketOak_RiverConfluence"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "343475c3f2d73c84f8ffbbbe1f288414",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ThicketOak_ShadyBank"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "1761b5a45b73fee43a68f6dcec138ef6",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie River_ThicketPine_SouthernRapids"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "6940d62a86fc2974da75ce0431ca44e8",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Nixie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Nixie GrovePine_LakeGrove"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "7d10f7361cd579a4d843d7a47ad04427",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_nixie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 384.0,
+                        "y": 384.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_nixie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -384.0,
+                        "y": -384.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 85,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nixie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 15,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_nixie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

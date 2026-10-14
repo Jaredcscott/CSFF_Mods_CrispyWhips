@@ -1,0 +1,96 @@
+{
+    "UniqueID": "Tgr_HW_AuroraRoll",
+    "//AuroraRoll": "The aurora's roll (Documentation/Research/HarshWilds/events_sky.md sections 2, 5 and 7, the aurora DECISIONS), the drought's pattern (Tgr_HW_Drought.json): a rolled SelfTriggeredAction arms a self-timed hidden stat (hw_stat_aurora), and there is NO CT3 event card and no art. The mood it gives is a SEPARATE STA, Tgr_HW_AuroraGlow.json, gated on this stat and on the open night sky. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open). Gate 1, hw_switch_aurora {1,1}: with the [Threats] Aurora switch off this can never fire. Gate 2, vanilla SeasonCounter_Winter (20042dca062d34a4b8e2968f9dc11f9f) {1,2880}: winter only (0 in every other season). Gate 3, vanilla MoonShape (b9eb12da7bd636844808414c9748f879) {1,2}: a dark moonless sky, MoonPhase 0 to 287 (New Moon and Waxing Crescent, the two darkest phases before the full moon; three days of every ten, so about nine winter nights; the gate re-reads the phases from the export). Gate 4, vanilla IsNightUnderOpenSky (b2d185dbbb6aa0f46905c6700faebe12) {1,1}: 1 only between 17:00 and 07:00 with the outdoor tag on the board, so the roll happens only when the player is outside under an open sky at night, and stepping indoors turns it off. Gate 5, hw_stat_aurora {0,0}: no aurora is already running. RepeatOptions 0 (Repeat), ActionCooldown 96 and OncePerTick: one roll a game day while every gate holds (the cooldown counts from the first firing, so walking in and out of a building cannot re-roll it); a Nothing pick counts as a firing, so it also starts the cooldown. Roll: Nothing (weight HW_AURORA_NOTHING_WEIGHT = 2, one card-less drop) against Aurora (weight HW_AURORA_EVENT_WEIGHT = 1, one card-less drop too, since a collection with no potential drop gets weight 0 and could never be picked), so HW_AURORA_CHANCE is 1 in 3 on each eligible night, about three auroras a winter. The Aurora collection's own StatModifications (applied only when that collection is picked) arm hw_stat_aurora by HW_AURORA_TICKS = 40, its max; the stat counts itself down and ends it. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. INFERRED and load bearing, harness probes: that the roll fires at all (read hw_stat_aurora after a forced roll outdoors at night in winter), that a second pass inside 96 ticks does not roll again, and that a reload re-rolls (Unity's random state is not saved).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_AuroraRoll",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Aurora Roll"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_aurora",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "b9eb12da7bd636844808414c9748f879",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "b2d185dbbb6aa0f46905c6700faebe12",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_aurora",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 2,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Aurora",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_stat_aurora",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 40.0, "y": 40.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "UniqueID": "hw_stat_coldsnap",
+    "//ColdSnap": "The cold snap itself (plan section 11 as built; Documentation/Research/HarshWilds/wave0-threats.md section 3, the W0-6 finding): a self-timed effect stat built exactly like hw_stat_drought. Written ONLY by the Cold Snap collections of SelfTriggeredAction/Tgr_HW_ColdSnap.json (+HW_COLDSNAP_TICKS = 192, its max, applied Permanent by ActionRoutine when that collection is picked), then it counts itself down at BaseRatePerTick -1 and rests at 0, so the snap ends by itself after 192 ticks, two days, with no clearing code. While it reads 1 to 192 its one status is active: it raises a Moderate alert when the snap begins (NotifyPlayer 2 NotifyWhenGoingUp, AlertLevel 2 Moderate), shows the vanilla sprite Cold in the status strip (Visibility 0 VisibleWithStatus and StatusesHaveNoBar true, the shape hw_stat_drought uses; Visibility 2 would be NeverVisible and hide the alert), and its EffectsOnStats writes a VALUE modifier of HW_COLDSNAP_DROP = -10 to vanilla BaseTemperature (d875c7e4eea52f54ca5076f256ccd16c), the same route vanilla's own season statuses use (a status effect is a GlobalModifier applied through GameManager.ChangeStat and inverted exactly when the status leaves its range, so nothing is left behind). BaseTemperature has no per-tick writer of its own and clamps only when READ (-80 to 80). TemperaturePerceived is a composite whose one entry is BaseTemperature, so it should follow (MEASURED in code, wave0-threats.md section 3; the status route itself is INFERRED, and the scenario T2.1116 reads both stats before and after). HOW THE NUMBER WAS CHOSEN (arithmetic over the vanilla data, wave0-threats.md section 3, re-read from the export by HarshWilds-Events.Tests.ps1 on every run): BaseTemperature = the season counter's status term + the hour-of-day term (0 to -10, -10 at night) + this drop, and WaterFrozen is -80 to -3. The snap is rolled only in the MIDDLE of spring (counter 1153 to 2879) and of autumn (1 to 1152), where vanilla data never freezes, season terms 8 to 16 in spring and 10 to 14 in autumn. A drop of -10 freezes every hour whose hour term plus season term is 7 or less (the coldest hour in every middle band, most mornings and evenings, not the noon of the warmer bands), and the coldest reading it can make is about -12 in the middle bands and about -14 for a snap that runs on past the autumn middle's edge (season term 6, at night), well above the ponds' -20 edge. A drop of -20 would freeze every hour of every day and trip the ponds' and the frostnip band's thresholds, which is why this is -10 and not the plan's first guess; the finding allows -10 to -12. HW_COLDSNAP_DROP and HW_COLDSNAP_TICKS are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play; the status text says 'about two days', so retune it together with the text. The text says 'much colder than the season' and never 'freezes', because by day in a warm band it does not.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_ColdSnap_StatName",
+        "DefaultText": "Cold Snap"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_ColdSnap_StatDescription",
+        "DefaultText": "A cold snap: much colder than the season for about two days."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 192.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Cold",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_ColdSnap_StatusName",
+                "DefaultText": "Cold Snap"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_ColdSnap_StatusDescription",
+                "DefaultText": "A cold snap has set in. For about two days it is much colder than the season: dress warmly and keep a fire."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Cold",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 192},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "d875c7e4eea52f54ca5076f256ccd16c",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

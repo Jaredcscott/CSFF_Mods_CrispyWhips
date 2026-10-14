@@ -1,0 +1,98 @@
+{
+    "UniqueID": "hw_stat_bugswarm",
+    "//BugSwarm": "The plague's outdoors-only lever (Documentation/Research/HarshWilds/events_stats.md section 4c and its insect plague DECISION). A status effect is a GlobalModifier on the whole run, so a bite that must apply ONLY outdoors needs state that follows the player: this hidden stat is that state. It is written ONLY by SelfTriggeredAction/Tgr_HW_PlagueSwarm.json, which adds +2 (the stat's max) on every tick the player stands outside an env tagged tag_EnvIndoors while hw_stat_insectplague runs; the base rate of -1 per tick then lets it drain. While it reads 1 to 2 its one status is active and raises the VANILLA BugPopulation (00c2afb9343f5c34988dcdb12a7792a8) by HW_PLAGUE_BUGPOP = 2 as a ValueModifier. Vanilla's own chain then does the rest, which this file does not touch: BugPopulation status {2,3} raises BugDamage by 2, BugDamage status {2,3} writes BugBites a rate of +3, and BugBites' own -1 leaves a net +2 per tick, so the first BugBites band (96) is reached after about 48 outdoor ticks (12 hours) and the second (193) after about 96 (a day), with the Pain and Comfort penalties the vanilla bands carry. WHY 2 AND NOT THE RESEARCH DRAFT'S 3: BugPopulation 3 sits in the same {2,3} band as 2, so with 3 a single counter (a fire, a drizzle, each -1 on BugPopulation) would have changed nothing (3 to 2, BugDamage still 2) and only two counters together would have; the research draft's claim that a nearby fire 'lowers the population one band step' is true only from the bottom of a band. At 2 every counter bites (all from the vanilla export, EA 0.68b): a fire card on the board (Campfire, FirePit, Fireplace, Hearth, HearthAwakened, SaunaStove, the ritual pyre) writes BugPopulation -1, and the weather cards write -1 (drizzle), -2 (light rain), -3 (moderate), -4 (heavy) and -5 (torrential), so one fire or a drizzle leaves 1 (BugDamage 1, BugBites net +1 a tick), a fire in a drizzle or any light rain leaves 0 (no bites), and 'Feed Snakegrass' on a Hearth writes BugRepellentApplied +25, whose status raises BugProtection by 1 and takes 1 off BugDamage. It stacks on vanilla's own bug sources, which is intended: Puddle, RainCatcher and WaterReservoirIrrigating each carry a BugPopulation +1 passive under their own conditions, so a camp with two of them under a plague reads 4 (BugDamage 4, net +4 a tick), and 5 is BugPopulation's cap. Vanilla garments that write BugProtection are the Large Cloth and the Hoodie (+1 each, so one step off while worn, unmeasured) and BeeSuit (+5, blueprint NOT_USED_Bp_BeeSuit, roadmap and not craftable); the status text names no garment, and the README states the one step as unmeasured. The static gate HarshWilds-Events.Tests.ps1 derives that ladder from the export on every run and refuses a value at the top of a band. The status band is {1,2} rather than {2,2} on purpose: refreshing to 2 and draining by 1 leaves the value flickering between 2 and 1 from one tick to the next (which of the two the stat check sees depends on the order of the tick's steps), and a {1,2} band holds through both, so the modifier does not toggle. Two ticks after the player steps indoors, or the timer ends, the value is 0, the status leaves its range, the game removes its modifier, and BugPopulation is back to whatever vanilla says. It NEVER alerts (NotifyPlayer 0, AlertLevel 0): the plague's own status is what the player sees. Visibility 2 is NeverVisible, the vanilla WinterStormPackage shape for a hidden effect stat whose status still applies its effects. HW_PLAGUE_BUGPOP = 2 (the one EffectsOnStats value) is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (BugPopulation's range is 0 to 5). It writes BugPopulation only and never any InsectProtection or Mosquitoes stat, so the mosquito, swamp fever and InsectProtection systems stay out of it.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_InsectSwarm_StatName",
+        "DefaultText": "Harsh Wilds: Insect Swarm"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_InsectSwarm_StatDescription",
+        "DefaultText": "Hidden timer: while the insect plague runs and you are outdoors it stays up, and it drains within two ticks of stepping inside."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 2.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Bugs",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_InsectSwarm_StatusName",
+                "DefaultText": "Insect Swarm"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_InsectSwarm_StatusDescription",
+                "DefaultText": "A cloud of biting insects follows you."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Bugs",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 2},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "00c2afb9343f5c34988dcdb12a7792a8",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 2.0, "y": 2.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

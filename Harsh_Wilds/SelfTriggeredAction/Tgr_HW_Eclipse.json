@@ -1,0 +1,86 @@
+{
+    "UniqueID": "Tgr_HW_Eclipse",
+    "//Eclipse": "The eclipse's roll (Documentation/Research/HarshWilds/events_sky.md sections 2, 4 and 7, the eclipse DECISIONS), the blood moon's and the drought's pattern (Tgr_HW_BloodMoon.json, Tgr_HW_Drought.json): a rolled SelfTriggeredAction arms a self-timed hidden effect stat (hw_stat_eclipse), and there is NO CT3 event card and no art. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open), events_sky.md section 2. Gate 1, hw_switch_eclipse {1,1}: with the [Threats] Eclipse switch off this can never fire. Gate 2, vanilla MoonShape (b9eb12da7bd636844808414c9748f879) {1,1}: the new moon (MoonPhase 0 to 95, one 24 hour window per 960 ticks, whose MoonShape reads its floor of 1 plus the New Moon status's 0; vanilla MoonShapeVisible names the same value 'New Moon'; the gate re-reads both from the export). A solar eclipse happens at new moon: the realism tie. Gate 3, vanilla SeasonCounter_Summer (4a9284146ffc28242b1f591ac7f7541f) {1,960}: the first 960 ticks (ten days) of summer, so any 960 tick range holds one new moon window start and an eclipse is possible about once a summer. Gate 4, hw_clock_noon {1,1} (GameStat/hw_clock_noon.json): the hour from 12:00 to 13:00, so the roll is at noon and the four tick timer ends at 13:00. RepeatOptions 2 (ResetWhenOutOfRange): it fires once when all four gates first hold together, and is re-armed when any of them goes false, so it rolls once per eligible noon (the mouse raid, vanilla Tgr_MouseRaid, has the same option). A firing counts whichever collection was picked, so a Nothing uses the noon's one roll. Roll: Nothing (weight HW_ECLIPSE_NOTHING_WEIGHT = 1, one card-less drop) against Eclipse (weight HW_ECLIPSE_EVENT_WEIGHT = 1, one card-less drop too, since a collection with no potential drop gets weight 0 and could never be picked), so HW_ECLIPSE_CHANCE is 1 in 2 per eligible noon; set the Nothing weight to 0 to make it certain. The Eclipse collection's own StatModifications (applied only when that collection is picked) arm hw_stat_eclipse by HW_ECLIPSE_TICKS = 4, its max; the stat counts itself down and ends it, and its status writes Light -90 while it reads 1 or more. THIS STA NEVER WRITES LIGHT: an STA's StatModifications are Permanent base writes, and Light's base and its MaxValueModifier are never touched (a lowered maximum is not restored and would erase the Night Vision perk's +50, events_sky.md section 4). Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. INFERRED and load bearing, harness probes: that the roll fires at all (read hw_stat_eclipse after a forced roll, hw_clock_noon at 12:00 and MoonShape 1 in the window), that a reload re-rolls (Unity's random state is not saved), and that a sleep spanning the whole noon hour skips the roll (worst case a missed roll, never a wrong event).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Eclipse",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Eclipse Roll"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_eclipse",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "b9eb12da7bd636844808414c9748f879",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 960.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_noon",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Eclipse",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_stat_eclipse",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 4.0, "y": 4.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

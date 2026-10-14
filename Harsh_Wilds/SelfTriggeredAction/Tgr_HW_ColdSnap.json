@@ -1,0 +1,154 @@
+{
+    "UniqueID": "Tgr_HW_ColdSnap",
+    "//ColdSnap": "The cold snap's roll (plan section 11 as built; Documentation/Research/HarshWilds/wave0-threats.md section 3, the W0-6 finding), the drought's pattern (Tgr_HW_Drought.json): a rolled SelfTriggeredAction arms a self-timed hidden effect stat (hw_stat_coldsnap), and there is NO CT3 event card and no art. TWO ACTIONS, one for each season, because an STA gate is one range on one counter: action 0 rolls in spring, action 1 in autumn. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open). Each action has three gates. Gate 1, hw_switch_coldsnap {1,1}: with the [Threats] ColdSnap switch off this can never fire. Gate 2, a vanilla season counter, scoped to the MIDDLE of the season where vanilla's own data never freezes (the finding: the season edges already freeze by data, so a snap adds nothing there): SeasonCounter_Spring (6f3f0faaf50a7974e915ae0915f7e241) {1153,2879} and SeasonCounter_Autumn (f6f436140ffd58644a6438c0838e05a1) {1,1152}, read from the export's season statuses (BaseTemperature gets spring terms 8 to 16 over ticks 1153 to 2879 and autumn terms 14 and 10 over ticks 1 to 1152; with the coldest hour at -10 none of those reads -3 or lower). This differs from the pack's first guess of 1 to 2880 on purpose, on the W0-6 finding; HarshWilds-Events.Tests.ps1 derives the two ranges from the export on every run. Gate 3, hw_stat_coldsnap {0,0}: no snap is already running. RepeatOptions 0 (Repeat), ActionCooldown 96 and OncePerTick: one roll a game day while every gate holds; a Nothing pick counts as a firing, so it also starts the cooldown. Roll: Nothing (weight HW_COLDSNAP_NOTHING_WEIGHT = 7, one card-less drop) against Cold Snap (weight HW_COLDSNAP_EVENT_WEIGHT = 1, one card-less drop too, since a collection with no potential drop gets weight 0 and could never be picked), so a 1 in 8 chance on each eligible day, about two snaps in a spring or an autumn. The Cold Snap collection's own StatModifications (applied only when that collection is picked) arm hw_stat_coldsnap by HW_COLDSNAP_TICKS = 192, its max; the stat does the rest and ends it at 0. THIS STA NEVER WRITES BaseTemperature: an STA's StatModifications are Permanent base writes that nothing takes back, so the cold is the timer's status effect and nothing else names BaseTemperature. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. INFERRED and load bearing, harness probes (T2.1116): that the roll fires at all, that the status modifier reaches TemperaturePerceived, and that a snap rolled at the last tick of the autumn middle runs on into the freezing band (accepted: colder still, never past -14).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_ColdSnap",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Cold Snap Roll Spring"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_coldsnap",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "6f3f0faaf50a7974e915ae0915f7e241",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1153.0, "y": 2879.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_coldsnap",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 7,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Cold Snap",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_stat_coldsnap",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 192.0, "y": 192.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_ColdSnap",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Cold Snap Roll Autumn"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_coldsnap",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "f6f436140ffd58644a6438c0838e05a1",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1152.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_coldsnap",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 7,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Cold Snap",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_stat_coldsnap",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 192.0, "y": 192.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+  "target": "hw_wisent_carcass_skinned.png",
+  "sourceCard": "CardData/Item/hw_wisent_carcass_skinned.json",
+  "subject": "a skinned wisent carcass in exactly the pose of reference image 1: slumped forward on its chest facing right, its head hanging low at the lower right with its eyes closed, the front legs folded under the chest, the hind legs stretched back to the lower left, the thin tail hanging at the left, the tall hump over the shoulders, dark red muscle and creamy white fat over the whole body, neck, legs and face, the same short upward-curving black horns, dark hooves, one whole carcass and nothing else",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "composition": {
+    "subject": "hw_wisent_carcass",
+    "change": "skinned, in the identical pose of the whole carcass",
+    "finish": "keyed"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "hw_wisent_carcass",
+      "image": "Resource/Picture/hw_wisent_carcass.png",
+      "sha256": "eedd1d80fdeeb58f3402a1aaec9238d296dfe13169917b1ce60d42865269a7c2",
+      "id": "58WRH7RspUXyd0j13p5R",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/hw_wisent_carcass_1790625775825_5988272c.png"
+    }
+  ],
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a dead wisent slumped forward on its chest: draw this same animal, keeping its pose, camera angle, facing direction, head position, leg positions, horns, proportions and size in the frame identical, changed only as follows: it has been skinned, the brown hide, the shaggy mane and the beard fully removed from the body, neck, legs and face to show dark red muscle and creamy white fat.\nHand-painted watercolor-and-ink game item illustration of a skinned wisent carcass in exactly the pose of reference image 1: slumped forward on its chest facing right, its head hanging low at the lower right with its eyes closed, the front legs folded under the chest, the hind legs stretched back to the lower left, the thin tail hanging at the left, the tall hump over the shoulders, dark red muscle and creamy white fat over the whole body, neck, legs and face, the same short upward-curving black horns, dark hooves, one whole carcass and nothing else, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, fur, hair, hide still on, mane, beard, lying on its side, standing, legs in the air, a different pose, facing left, bare skull, open rib cage, pool of blood, dripping blood, hook, rope, hanging, knife, cut pieces, scattered bones, second animal, snow, grass, ground patch under the body.",
+  "historyId": "CTbc7g7qTy4Uhwu7cTEl",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790625920880_f3699496_1790625921216_c81a4122.png",
+  "credits": 30,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790625920880_f3699496_1790625921216_c81a4122.png",
+      "verdict": "shipped, owner pick: slumped on its chest facing right like hw_wisent_carcass, hind legs and tail left, hump, black horns, eyes closed"
+    }
+  ],
+  "picked": 1,
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 75.9,
+    "sha256": "a52a590de53f3a661090a780649eb9798343a76e2646f53f957d7af7dbbe7e60"
+  },
+  "replaces": {
+    "historyId": "FDMy6qdSCvDGrvh1tFiL",
+    "mode": "text2image",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790592682017_c4dffc06_1790592682595_3a09ef2e.png",
+    "reason": "owner 2026-09-28: 'the skinned and carcass should be in the same pose'; the text2image original invented its own pose"
+  },
+  "generated": "2026-09-28"
+}

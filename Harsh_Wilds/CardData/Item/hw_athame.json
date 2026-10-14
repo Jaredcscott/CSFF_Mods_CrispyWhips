@@ -1,0 +1,983 @@
+{
+    "UniqueID": "hw_athame",
+    "//Athame": "Feature 25's athame and feature 26's two rites that use it (plan sections 25 and 26, pack Prompt 35; W0-16, W0-23). A CT0 knife on vanilla Knife_Bone's shape (5b09c8bbba1aa0348ba58dc4a9fa8f27: UsageDurability 40, a bone blade) carrying tag_Cutter, the runtime name of the export's Button_8055, so it also butchers a carcass. Player-made (hw_bp_athame), so no [Threats] switch. TWO RITES, each a DismantleAction on this card, never an edit of a vanilla card. LET BLOOD hands the player vanilla W_ArmLacerationL (98f10547125d5614f951a14a11fba847, an open arm wound) and writes vanilla BeastAffinity +150 (0 to 1000, base rate -0.1 a tick, so the write fades and is NOT permanent; W0-16: a calling needs BeastAffinity 250). It NEVER writes BloodLoss or Pain (base rate 0, so an action write would be permanent; the wound card carries the cost). A second cut is refused while that wound is open: an Inverted RequiredCardsOnBoard entry on the wound. CALL RAIN writes vanilla Rainmaker +20 (Tgr_Rainmaker 'Refresh Weather' fires at 20 or more) and Clouds +250 (350 base, so about 600, where W0-23 inferred about seven refreshes in ten are rain, and only Torrential from 746); it never edits a weather card. A hidden hw_stat_rite_rain cools it for two days. INCENSE: each rite has four extra DismantleActions, one per lit incense card (Herbs and Fungi's lit incense bundle and Community Mod Chest's comfortincenseburnerlit, comfortincenseburnerheatherlit, comfortincenseburnerjuniperlit), whose ONLY foreign UniqueID sits in a RequiredCardsOnBoard condition row (so a smoke rite is simply hidden until that card is on the board; two or more can show together, so each has its own name). With the sibling mod absent the condition's card does not resolve; Patcher/IncenseRiteGuard.cs then removes that action at load, so with neither mod installed no incense row has any effect. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. Gated by Development_Tools/Tests/HarshWilds-Rituals.Tests.ps1 ([rituals], row athame).",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_Athame_CardName",
+        "DefaultText": "Athame"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_Athame_CardDescription",
+        "DefaultText": "A short bone-bladed knife with a hilt wrapped in blackened twine, kept for rites. It cuts and butchers like any knife. With it you can let your own blood for the beasts, or call down rain; a lit incense burner or bundle nearby makes either rite stronger."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_athame",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 100.0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Cutter"
+    ],
+    "CardTagsWarpType": 3,
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 40.0,
+        "MaxValue": 40.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Base_ActionName",
+                "DefaultText": "Let Blood"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Base_ActionDescription",
+                "DefaultText": "Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 150 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade."
+            },
+            "DaytimeCost": 4,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "98f10547125d5614f951a14a11fba847",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": true,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 150.0,
+                        "y": 150.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Cut",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "98f10547125d5614f951a14a11fba847",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Bundle_ActionName",
+                "DefaultText": "Let Blood by the Incense Bundle"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Bundle_ActionDescription",
+                "DefaultText": "As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+            },
+            "DaytimeCost": 4,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "98f10547125d5614f951a14a11fba847",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": true,
+                    "OnlyEquipped": false
+                },
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "herbs_fungi_incense_bundle_lit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 250.0,
+                        "y": 250.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Cut",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "98f10547125d5614f951a14a11fba847",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Burner_ActionName",
+                "DefaultText": "Let Blood by the Incense Burner"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Burner_ActionDescription",
+                "DefaultText": "As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+            },
+            "DaytimeCost": 4,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "98f10547125d5614f951a14a11fba847",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": true,
+                    "OnlyEquipped": false
+                },
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "comfortincenseburnerlit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 250.0,
+                        "y": 250.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Cut",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "98f10547125d5614f951a14a11fba847",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Heather_ActionName",
+                "DefaultText": "Let Blood by the Heather Burner"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Heather_ActionDescription",
+                "DefaultText": "As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+            },
+            "DaytimeCost": 4,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "98f10547125d5614f951a14a11fba847",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": true,
+                    "OnlyEquipped": false
+                },
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "comfortincenseburnerheatherlit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 250.0,
+                        "y": 250.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Cut",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "98f10547125d5614f951a14a11fba847",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Juniper_ActionName",
+                "DefaultText": "Let Blood by the Juniper Burner"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Juniper_ActionDescription",
+                "DefaultText": "As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+            },
+            "DaytimeCost": 4,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "98f10547125d5614f951a14a11fba847",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": true,
+                    "OnlyEquipped": false
+                },
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "comfortincenseburnerjuniperlit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 250.0,
+                        "y": 250.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Cut",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "98f10547125d5614f951a14a11fba847",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Base_ActionName",
+                "DefaultText": "Call Rain"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Base_ActionDescription",
+                "DefaultText": "Point the athame at the sky and call the rain down. The clouds thicken and the weather is drawn to change at once, so rain is likely but never certain. You can only do it once every two days. It takes two hours and wears the blade."
+            },
+            "DaytimeCost": 8,
+            "RequiredCardsOnBoard": [],
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.5
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2e483a1a20d6104d809445ebf66f113",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 250.0,
+                        "y": 250.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 192.0,
+                        "y": 192.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Bundle_ActionName",
+                "DefaultText": "Call Rain by the Incense Bundle"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Bundle_ActionDescription",
+                "DefaultText": "As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+            },
+            "DaytimeCost": 8,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "herbs_fungi_incense_bundle_lit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.5
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2e483a1a20d6104d809445ebf66f113",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 350.0,
+                        "y": 350.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 192.0,
+                        "y": 192.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Burner_ActionName",
+                "DefaultText": "Call Rain by the Incense Burner"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Burner_ActionDescription",
+                "DefaultText": "As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+            },
+            "DaytimeCost": 8,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "comfortincenseburnerlit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.5
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2e483a1a20d6104d809445ebf66f113",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 350.0,
+                        "y": 350.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 192.0,
+                        "y": 192.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Heather_ActionName",
+                "DefaultText": "Call Rain by the Heather Burner"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Heather_ActionDescription",
+                "DefaultText": "As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+            },
+            "DaytimeCost": 8,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "comfortincenseburnerheatherlit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.5
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2e483a1a20d6104d809445ebf66f113",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 350.0,
+                        "y": 350.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 192.0,
+                        "y": 192.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Juniper_ActionName",
+                "DefaultText": "Call Rain by the Juniper Burner"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Rain_Juniper_ActionDescription",
+                "DefaultText": "As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+            },
+            "DaytimeCost": 8,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "comfortincenseburnerjuniperlit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.5
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2e483a1a20d6104d809445ebf66f113",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 350.0,
+                        "y": 350.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_rite_rain",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 192.0,
+                        "y": 192.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        }
+    ]
+}

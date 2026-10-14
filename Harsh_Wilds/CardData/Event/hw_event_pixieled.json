@@ -1,0 +1,46 @@
+{
+  "UniqueID": "hw_event_pixieled",
+  "//PixieLed": "Feature 30, the Faerie Realm's danger (plan section 30, pack Prompt 42), spawned by Tgr_HW_FaerieTricks while the player stands in a realm and the [Threats] FaerieTricks switch is on. One button: 'Find Your Way Back' takes no time (DaytimeCost 0) and costs 10 Stamina (vanilla Stamina 1cfd30cf13b69b949a0ac521f55a59a2, range 0 to 32, which regenerates at its own base rate, so this is a passing cost, not a permanent one). It takes NO time on purpose (measured live 2026-10-12, rig 2): with DaytimeCost 4, a stay clock that ran out during the walk sent the player home mid-action, the event card was not destroyed, and it popped up again later at home. An instant button cannot be interrupted that way. It never touches the stay clock, so it can never delay or stop the return. Every number is a TUNABLE PLACEHOLDER.",
+  "CardType": 3,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_PixieLed_CardName",
+    "DefaultText": "Pixie-Led"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_PixieLed_CardDescription",
+    "DefaultText": "Little lights bob at the edge of sight, and you follow them without meaning to. When you come to yourself you are somewhere else in the silver grass, and laughter fades away among the stems."
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "hw_event_pixieled",
+  "CardImageWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "HarshWilds_PixieLed_ActionName",
+        "DefaultText": "Find Your Way Back"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "HarshWilds_PixieLed_ActionDescription",
+        "DefaultText": "Walk back the way you think you came. It tires you."
+      },
+      "DaytimeCost": 0,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -10.0, "y": -10.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ]
+}

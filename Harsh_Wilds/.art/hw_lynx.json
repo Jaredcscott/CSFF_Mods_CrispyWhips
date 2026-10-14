@@ -1,0 +1,40 @@
+{
+  "target": "hw_lynx.png",
+  "sourceCard": "Encounter/hw_encounter_lynx.json (EncounterImage) + Animals/Lynx.json (Sprite)",
+  "subject": "Draw this scene: one Eurasian lynx standing in a dark spruce forest, in the middle of the picture, its body turned three-quarters and its face looking straight at the viewer, filling about half the height of the frame. Tawny grey-beige coat covered in small dark brown spots, long black ear tufts on pointed ears, a pale ruff of fur framing the face, a short bobbed tail with a black tip, large broad paws. Around it: mossy forest floor with ferns and low spruce boughs, dark straight tree trunks behind, deep green shade. One animal only.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference images are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks, muted naturalistic palette and their dark, saturated forest lighting; do not copy their animal or exact composition.\nDraw this scene: one Eurasian lynx standing in a dark spruce forest, in the middle of the picture, its body turned three-quarters and its face looking straight at the viewer, filling about half the height of the frame. Tawny grey-beige coat covered in small dark brown spots, long black ear tufts on pointed ears, a pale ruff of fur framing the face, a short bobbed tail with a black tip, large broad paws. Around it: mossy forest floor with ferns and low spruce boughs, dark straight tree trunks behind, deep green shade. One animal only.\nFull-bleed survival card game scene in exactly that style, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, second animal, prey, blood.",
+  "historyId": "FikUownM5JFXr74x6zUd",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798533759_d210f235_1791798533974_c51281c8.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "Bear_Wild",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652734929_38bf6561.png"
+    },
+    {
+      "role": "style",
+      "label": "Wolf_Wild",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791798310150_1e61344f.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798533759_d210f235_1791798533974_c51281c8.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: looks terrible must match game style; redrawn as a full-bleed forest scene, the form vanilla uses for every encounter and agent picture (Bear_Wild, Wolf_Wild)"
+}

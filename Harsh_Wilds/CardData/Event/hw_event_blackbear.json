@@ -1,0 +1,66 @@
+{
+    "UniqueID": "hw_event_blackbear",
+    "//BlackBear": "The event card hw_tgr_blackbear spawns: the black bear's whole presence in the world. It is one popup with one button; clicking it destroys exactly ONE allow-listed card (AffectedCardsWarpData) found in the LOCATION row of the current location or inside a container there (AppliesTo 6 = AllCardsInLocation with LookInInventories true: placed structures such as a drying rack, a rustic barrel, a shelf or a placed basket, and what they hold), never anything on the ground row, in a portable container, in the hand or in an equipment slot, and shows the vanilla cards-destroyed popup with CustomDestroyMessage. There is deliberately NO NoCardsAffectedMessage: ApplyExtraDurabilitiesChanges runs a second, after-spawning pass that skips every change of this shape, finds nothing destroyed and would show that message as a SECOND popup right after a successful take (measured in the live game 2026-09-29, T2.448 and T2.444), so a click with nothing left to take is silent. The eagle's event card pattern, deliberately (hw_event_eagle.json). WHY A CARD AND NOT AN ANIMAL: Documentation/Research/HarshWilds/raids.md section 5 DECIDED an Animals manifest whose single CustomDuties AffectItems action takes one animal-food card from a drying rack or a rustic barrel, with its own fallback (this event) if the duty cannot express that. It cannot, MEASURED from source: the manifest's AffectItems action (CSFFModFramework/Animals/DutyBuilder.cs BuildAffectItemsAction) sets LookInContainersSettings.AllowedContainers to the trap container tags or to an empty list, never to a rack or a barrel, and an empty AllowedContainers with an empty NOTAllowedContainers admits EVERY container (.decomp/LookInContainersSettings.cs ContainerCompatible), so the bear would raid baskets, sacks and shelves too, which raids.md section 5 names as the way a black bear turns into a second vanilla bear. The DSL exposes no container field (AnimalSchema.cs, the AffectItems keys are ItemTags, ItemCards and InTrapContainers only) and CSFFModFramework is another lane. Neither mechanism available here can name a rack or a barrel: ExtraDurabilityChange has no container filter either, so this event reaches the placed storage structures in general, and what makes it the black bear's raid rather than the brown bear's is the pool (cured and raw meat, fish and sausage, no bread, eggs, cheese or plants), the season (autumn only, hw_tgr_blackbear), that it never fights, and that a portable basket or sack on the ground is out of its reach. The allow-list is 11 vanilla cards by GUID hash: MeatRaw, MeatDried, BirdMeatDried, FishMeatLeanRaw, FishMeatLeanDried, FishMeatFattyRaw, FishMeatFattyDried, MeatSausageDried, MeatRichSausageDried, BloodSausageDried, BloodRichSausageDried. None is on the eagle's list (BirdMeatRaw is the eagle's; the bear leaves it), so the two raids never contend for a card. WIDER LARDER (plan section 5): honeycomb (vanilla BeeHoneycomb) and four sibling UIDs (advanced_copper_tools_salt_cured_meat, sh_sheep_cheese, sh_aged_sheep_cheese, sh_smoked_cheese) are on the list too; with ACT or Sirus23 absent those UIDs resolve to nothing and the 12 vanilla entries keep the list non-empty, so the empty-list-reads-as-all-cards hazard cannot arise. The same 11 sit as bait rows in hw_tgr_blackbear (and the five wider-larder cards beside them); keep the two lists identical (Development_Tools/Tests/HarshWilds-BlackBear.Tests.ps1 checks it). Danger to keep in mind: a list whose every entry failed to resolve would leave AffectedCards empty, and ExtraDurabilityChange.AppliesToAllCards reads an empty list as ALL cards; the vanilla GUIDs cannot fail that way short of a broken game data load.",
+    "//Image": "Card art HarshWilds/Resource/Picture/hw_event_blackbear.png (512x768 RGBA, paper keyed), provenance in HarshWilds/.art/hw_event_blackbear.json: a black bear at a drying rack hung with dried meat and fish.",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_BlackBearEvent_CardName",
+        "DefaultText": "Black Bear at the Stores"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_BlackBearEvent_CardDescription",
+        "DefaultText": "A black bear, fattening up for the long winter sleep, has caught the smell of meat and fish and is nosing round your food stores. It may find nothing worth taking."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_blackbear",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_BlackBearEvent_ActionName",
+                "DefaultText": "See what it takes"
+            },
+            "DaytimeCost": 0,
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCardsWarpData": [
+                        "fe07d4d800bcc8646a0ff2513c78d5df",
+                        "f4be79e87ba98db41a9c9e31bb76c33d",
+                        "1e3f5517c9203e74b9c76a7bae1a3920",
+                        "272fe32c20eebef4d82290c7a31ac885",
+                        "0e26aee350306af4eb4f0af0423481ee",
+                        "3103c059d34608a4bb95c426d9ac77e0",
+                        "d6b37ce716d384b4db1ab37e1af1800f",
+                        "722c6b3b214bdac4f9c5cbf4cd0ca9fa",
+                        "a7392bea52fed484fb819a1cf444c7fc",
+                        "3a326a87ca81c1f43afb62d15a31261a",
+                        "9744e54b2690a01468e5373f1ae6a2de",
+                        "33cf4067563dac649b026a87ba0766bd",
+                        "advanced_copper_tools_salt_cured_meat",
+                        "sh_sheep_cheese",
+                        "sh_aged_sheep_cheese",
+                        "sh_smoked_cheese"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AppliesTo": 6,
+                    "LookInInventories": true,
+                    "IncludeEquippedCards": false,
+                    "CardChanges": 1,
+                    "DropOnDestroyList": false,
+                    "RandomlyAffectedCards": 1.0,
+                    "RandomAmountType": 1
+                }
+            ],
+            "CustomDestroyMessage": {
+                "LocalizationKey": "HarshWilds_BlackBearEvent_LostMessage",
+                "DefaultText": "The bear tears into the stores and lumbers off with:"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

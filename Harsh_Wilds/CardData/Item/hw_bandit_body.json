@@ -1,0 +1,118 @@
+{
+    "UniqueID": "hw_bandit_body",
+    "//Body": "What a defeated bandit leaves (HarshWilds/Animals/Bandit.json Carcass.Card: the generated death action drops it where he fell, once hw_encounter_bandit's defeat result drains his AgentBlood). Documentation/Research/HarshWilds/bandits.md section 4.2: the win is paid by this card ONLY, never also by the encounter result's DroppedCards, so a win cannot pay twice. It carries no card tags and no CardInteractions, so nothing can butcher or cook it, and exactly one DismantleAction, 'Search the body', which pays one weighted loot collection and destroys the card (ReceivingCardChanges ModType 3), so it cannot be searched twice. DeathRespawnTicks 672 (seven days) in the manifest is the brake on farming it.",
+    "//Loot": "TUNABLE PLACEHOLDERS (HW_BANDIT_LOOT_*), modest and non-unique, all vanilla: FOOD (weight 60) 1 to 2 dried lean fish and 1 springberry fat cake; KNIFE (weight 25) a flint knife and 1 dried lean fish; ODDS (weight 15) a flint and a rope. Dried fish and the flint knife default to Quality 0, so their drops set Quality (Special2, TransferRules SetValue 3) to 48 and 40; the fat cake (72) and the flint (50) default to usable values. Development_Tools/Tests/Perk-StartingItemStats.Tests.ps1 checks the zero-ID-type half.",
+    "//Image": "CardImageWarpData is HarshWilds/Resource/Picture/hw_bandit_body.png (provenance HarshWilds/.art/hw_bandit_body.json): a fallen bandit's spear, pack and cloak on the forest floor.",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_BanditBody_CardName",
+        "DefaultText": "Fallen Bandit"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_BanditBody_CardDescription",
+        "DefaultText": "The bandit who waylaid you lies still. Whatever he carried is yours for the taking."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_bandit_body",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 3000.0,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_BanditBody_ActionName",
+                "DefaultText": "Search the body"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_BanditBody_ActionDescription",
+                "DefaultText": "Go through the bandit's pack and clothes, then leave him where he lies."
+            },
+            "DaytimeCost": 1,
+            "ProducedCards": [
+                {
+                    "CollectionName": "hw_bandit_loot_food",
+                    "CollectionWeight": 60,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "0e26aee350306af4eb4f0af0423481ee",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 2 },
+                            "TransferRules": {
+                                "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
+                                "Special1": 0, "Special2": 3, "Special3": 0, "Special4": 0,
+                                "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
+                                "Special1Value": 0.0, "Special2Value": 48.0, "Special3Value": 0.0, "Special4Value": 0.0,
+                                "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
+                                "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
+                            }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "dea9073cd3a589a4fa888b4836d2079a",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "hw_bandit_loot_knife",
+                    "CollectionWeight": 25,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "367203307c951b44f817c5182fce330b",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 },
+                            "TransferRules": {
+                                "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
+                                "Special1": 0, "Special2": 3, "Special3": 0, "Special4": 0,
+                                "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
+                                "Special1Value": 0.0, "Special2Value": 40.0, "Special3Value": 0.0, "Special4Value": 0.0,
+                                "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
+                                "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
+                            }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "0e26aee350306af4eb4f0af0423481ee",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 },
+                            "TransferRules": {
+                                "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
+                                "Special1": 0, "Special2": 3, "Special3": 0, "Special4": 0,
+                                "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
+                                "Special1Value": 0.0, "Special2Value": 48.0, "Special3Value": 0.0, "Special4Value": 0.0,
+                                "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
+                                "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "hw_bandit_loot_odds",
+                    "CollectionWeight": 15,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "bef002cfd45b3e8459864746f403cf73",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

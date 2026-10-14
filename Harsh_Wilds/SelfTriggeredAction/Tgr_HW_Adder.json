@@ -1,0 +1,2502 @@
+{
+    "UniqueID": "Tgr_HW_Adder",
+    "//Adder": "The adder's roll, in the heron's shape (hw_tgr_heron.json) with ONE ACTION PER PLACE: a counter stat, a weighted Nothing-versus-Event ProducedCards, an event card the player clicks. It spawns hw_event_adder (a bite wound and a few hours of venom); this file only decides WHETHER an adder strikes. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open), As_Built 4.2. Gate 1, hw_switch_adder {1,1}: 0 (the [Threats] Adder switch off) can never fire it. Gate 2, SeasonCounter_Summer {1,2880} (vanilla GUID 4a9284146ffc28242b1f591ac7f7541f): the counter runs 1 to 2880 through summer and reads 0 outside it. Gate 3, Sheltered {0,0} (vanilla GUID e2031c58efb4cb84fa95a3a813513dae): the player is outdoors. Gate 4, hw_clock_daylight {1,1}: the hour is 09:00 to 17:45. Gate 5, hw_adder_clock {192,192}: the cooldown has climbed to its max (ADDER_COOLDOWN_TICKS 192 = 2 days) and, because the grace is the clock's own negative start (ADDER_GRACE_TICKS 480 = 5 days), nothing fires in the first 5 days. RepeatOptions 2 (ResetWhenOutOfRange) with each action's own reset of the clock by -192 makes each firing one roll. PLACES (W0-4, Documentation/Research/HarshWilds/wave0-threats.md section 2): the current environment's own CT8 location card satisfies RequiredCardsOnBoard (MEASURED from GameManager.CardIsOnBoardScan, live vanilla precedent Tgr_HagPondFear), and entries are ANDed, so 'any of these places' is one action per place, each with a single CT8 entry. 24 places: 12 open clearings (Clearing*, 'open'; four of them heather or meadow) and 12 rocky or sloped places (Grove and Thicket cards whose names and help text read rocky, sloped or mountain). The CLASSIFICATION by place is INFERRED from card names and help text (the export carries no open, rocky or heath flag), and the live half of W0-4 (Prompt 5) is not yet run. Caves, river banks, lake banks and wet clearings are left out; there is no place-class tag route (no card carries tag_EnvOpen). Roll, the same in every action: Nothing has weight ADDER_NOTHING_WEIGHT 80; Adder has base weight ADDER_WEIGHT 20 and two StatsDropChanceModifiers: FootProtection (GUID 384d7070fef781a40aba1f0f16dd5fa6, 0 to 10) lowers it by up to 14 and LegProtection (GUID 5bc13600b838a4742a409339e11b9661, 0 to 10) by up to 6, interpolated across the range, never below 0 in total (14 plus 6 equals the base). Vanilla Leather Shoes write FootProtection 8 (Bark Sandals 5), so shoes lower the weight from 20 to about 8; LegProtection is written only by NOT_USED_ vanilla cards (W0-14), so it reads 0 in real play and its row is inert today (kept because it is harmless and future-proof; README does not promise leg protection). Bare-footed, the odds are 20 in 100 per roll, one roll at most every 2 days of daylight outdoors in a listed place in summer. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingOak_GreenGlade"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "48763d81ff15a3247af3a2a9db6adbb1", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingOak_MossyClearing"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "08a9ab83720ce8d43940b3948290fd63", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingOak_OldGlade"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "9222a58ac48eabe4c96aa7c9419a3d53", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_BadgerHillQEE"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "eee1c12c127d4d244988a366cb173070", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_DampHollow"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "1ec714ca136119e499e7afb4a000867b", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_DeadHollow"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "fce4bae0b4932964aa0833137f396e36", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_FlowerGlade"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "8b50be9a6a78ea9439b08c653a12a1e7", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_HeatherGlade"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "08633f82bef215c4a81234b68b23b89a", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_MoonHillsQEE"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "a292cbb4350f3e1479f06c75d5065e3e", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_PineClearing"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "d450c2919937ef54cb0bc67eb76d51c3", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_PineMeadows"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "d478e681d8933624499b2d68120ff338", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ClearingPine_StillHollow"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "258c8da1f1c1a2e4881fdf676762505f", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder GroveOak_BoulderGrove"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "716c18156d6816d40b26b4b81a6b9d22", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder GrovePine_RockyGrove"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "d68a69ef3eb90c94d8a05b8d44472119", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder GrovePine_RockyPines"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "33b838d1f3b1daa4bb0d5fd4921dcdfa", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder GrovePine_SlopedGrove"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "fe3b15d5f9b8acc4f91ab2da9dce2ceb", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder GrovePine_ElevatedGrove"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "f97bf4f3c179b9e40a6035a63910b409", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder GrovePine_HighGrove"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "e85bc7ffb5604ef47b3b7f82eb395f39", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder GrovePine_MountainGrove"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "950ae559bf16e524aab418c4f109164d", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ThicketPine_CliffThicket"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "cb861225c880cdf4f8d07bdf99abae51", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ThicketPine_PineCliffs"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "569186c2715d16441bd502fdbedcb0e3", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ThicketPine_MountainThicket"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "c780ea86ceddfa949bd99e709c287d08", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ThicketPine_NeedleSlopes"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "48cf028fc67cdb44cab666ebfa143789", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Adder",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Adder ThicketPine_PineSlopesQEE"
+            },
+            "RepeatOptions": 2,
+            "RequiredCardsOnBoard": [
+                {"TriggerCard": {"m_FileID": 0, "m_PathID": 0}, "TriggerCardWarpData": "fe69f0d7203eeda4c95b78b76d1deb36", "TriggerCardWarpType": 3, "OnlyInHand": false, "NotInHand": false, "ExcludeInventories": false, "Inverted": false, "OnlyEquipped": false}
+            ],
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_adder",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_clock_daylight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 192.0, "y": 192.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_adder_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -192.0, "y": -192.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 80,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Adder",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 20,
+                    "StatsDropChanceModifiers": [
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -14}, "WhenOutOfRange": 1},
+                        {"Stat": {"m_FileID": 0, "m_PathID": 0}, "StatWarpData": "5bc13600b838a4742a409339e11b9661", "StatWarpType": 3, "StatRange": {"x": 0.0, "y": 10.0}, "InterpWeightRange": {"x": 0, "y": -6}, "WhenOutOfRange": 1}
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "hw_event_adder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

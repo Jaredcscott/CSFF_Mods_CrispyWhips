@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_bandit_robbed",
+    "//Marker": "The clamped marker between a lost bandit fight and the theft (Documentation/Research/HarshWilds/bandits.md section 4.3 and DECISION 4; the CLAUDE.md 'NPC Errand Stat Design' clamped-marker rule). Range 0 to 1 and no rate, so a second write while it is already 1 changes nothing and one loss can never be counted twice. Written ONLY by the PlayerDemoralizedEffects block of Encounter/hw_encounter_bandit.json (+1). Read ONLY by SelfTriggeredAction/hw_tgr_bandit_theft.json, whose action sets it back to 0 in the same step that raises the theft (-1), and whose RepeatOptions 2 (ResetWhenOutOfRange) re-arms only once it has gone back to 0. So one loss is exactly one theft, and a save made with it at 1 thieves once on load, never twice.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_BanditRobbed_StatName",
+        "DefaultText": "Harsh Wilds: Robbed by Bandits"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_BanditRobbed_StatDescription",
+        "DefaultText": "Hidden 0/1 marker: 1 between losing a fight to bandits and their going through your pack."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

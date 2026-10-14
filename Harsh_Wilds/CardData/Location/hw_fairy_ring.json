@@ -1,0 +1,282 @@
+{
+    "UniqueID": "hw_fairy_ring",
+    "//FairyRing": "Feature 29, the fairy ring (plan section 29, pack Prompt 41; W0-17 route A, wave0-places.md 1.2). A CT2 placed structure with UniqueOnBoard, put on a vanilla board by DropInjections.json (a Forage rule over 17 oak and birch places, Chance 3, a TUNABLE PLACEHOLDER) so no vanilla card is edited; it reaches existing saves. Two actions: 'Pick Toadstools' (an hour of picking, two to three vanilla FlyAgaricFresh and, 8 percent of the time, a vanilla FairyStone; offered only while the hidden cooldown hw_ring_picked reads 0, which the pick sets to 192 ticks) and 'Dance in the Ring' (night only, by the vanilla IsNight stat; an hour; writes the hw_ring_dance marker that Tgr_HW_DancingPlague rolls on; hidden while [Threats] DancingPlague is off). The rites of Prompts 35 to 39 are all outdoor recipes whose only board condition is vanilla's Env_Enclosure (Bless the Grove) or their own spirit card, so none refuses a board that has this ring on it: nothing to allow. A third action, 'Enter the Ring' (Prompt 42, plan section 30), takes the player into the Faerie Realm: offered at night (vanilla IsNight 413a4f94cfbfb8d4897c9dbf9dfbd49a at 1) under a full moon (vanilla MoonShape b9eb12da7bd636844808414c9748f879 at 4, the full moon as Tgr_HW_BloodMoon reads it; a TUNABLE PLACEHOLDER), it takes no time (like vanilla's CellarEntrance Enter, so no wild encounter can interrupt the step through the ring) and drops the instanced CardType 4 hwenvfaerierealm, which makes this card a travelling card (CardData.IsTravellingCard) and gives each ring its own copy of the realm, keyed on the grove it stands in. The way back is the realm's own exit card, hw_faerie_exit (its button and its stay clock). Every number is a TUNABLE PLACEHOLDER.",
+    "CardType": 2,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_FairyRing_CardName",
+        "DefaultText": "Fairy Ring"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_FairyRing_CardDescription",
+        "DefaultText": "A ring of toadstools in the grass, too round to be chance. The old folk say the fair folk dance here. Pick its toadstools now and then, or dance in it at night if you dare: you may not be able to stop."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_fairy_ring",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 1000.0,
+    "UniqueOnBoard": true,
+    "CannotBeTrashed": true,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_FairyRing_PickName",
+                "DefaultText": "Pick Toadstools"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_FairyRing_PickDescription",
+                "DefaultText": "Pick a few of the ring's toadstools (fly agaric: poisonous, not for eating raw). They grow back over two days; now and then a smooth grey stone lies in the grass."
+            },
+            "DaytimeCost": 4,
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_ring_picked",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_ring_picked",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 192.0,
+                        "y": 192.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Toadstools",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "c324f662484d721469d7565b7bfb3e65",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 3
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "563078cfd4356834f960cdd2e3085b3f",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 8.0,
+                                "DurabilitiesModifiers": [],
+                                "StatsModifiers": [],
+                                "CardsModifiers": [],
+                                "NPCStatsModifiers": []
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_FairyRing_DanceName",
+                "DefaultText": "Dance in the Ring"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_FairyRing_DanceDescription",
+                "DefaultText": "Dance in the ring for an hour, at night only. About half the time you cannot stop: the dancing plague takes hold for hours, draining stamina and sharpening hunger, until it wears off or a cleansing smudge breaks it."
+            },
+            "DaytimeCost": 4,
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_dancingplague",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_ring_dance",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_FairyRing_EnterName",
+                "DefaultText": "Enter the Ring"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_FairyRing_EnterDescription",
+                "DefaultText": "On a full-moon night, step into the ring and through it, into the Faerie Realm. You can stay a few hours at most: step back through whenever you like, and when the moonlight runs out the ring sends you home to this grove."
+            },
+            "DaytimeCost": 0,
+            "FadeToBlack": 1,
+            "FadeMessage": {
+                "LocalizationKey": "HarshWilds_FairyRing_EnterFade",
+                "DefaultText": "You step into the ring..."
+            },
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "b9eb12da7bd636844808414c9748f879",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 4.0,
+                        "y": 4.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Faerie Realm",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hwenvfaerierealm",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

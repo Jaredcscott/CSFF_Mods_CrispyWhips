@@ -1,0 +1,40 @@
+{
+  "UniqueID": "hw_fairy_queen",
+  "//Court": "Feature 31, the Fairy Queen (plan Documentation/Design/Harsh_Wilds_Content_Update_As_Built.md section 31, pack Prompt 46). Same chassis as hw_fairy_king (see its note): a CardType 2 dialog card seeded by hwenvfaerierealm's DefaultEnvCardDrops, because W0-20 MEASURED that an NPCAgent cannot be moved into an instanced realm; UniqueOnBoard; INERT on purpose (no durability, passive or liquid), so AlwaysUpdate stays false and she stays on the realm board. Her one button 'Speak with the Queen' starts the dialog hw_fairy_queen_talk and takes no time (the stay clock can never cut it off). The bargain lives in the dialog (ScriptableObject/DialogLine/hw_fairy_queen_talk_offer.json). Picture: the vanilla sprite 'MoonMaiden' as a PLACEHOLDER (art PARTIAL, a pale fairy queen crowned with white flowers).",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_FairyQueen_CardName",
+    "DefaultText": "The Fairy Queen"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_FairyQueen_CardDescription",
+    "DefaultText": "The queen of the fair folk, pale as moonlight and crowned with white flowers. Her court dances all night around her, and she offers weary travellers rest, for a price."
+  },
+  "CardImageWarpData": "MoonMaiden",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hw_fairy_queen",
+        "LocalizationKey": "HarshWilds_FairyQueen_TalkName",
+        "DefaultText": "Speak with the Queen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_fairy_queen",
+        "LocalizationKey": "HarshWilds_FairyQueen_TalkDescription",
+        "DefaultText": "Curtsey, and speak with the Fairy Queen."
+      },
+      "DaytimeCost": 0,
+      "AlwaysShow": true,
+      "StartDialogWarpData": "hw_fairy_queen_talk",
+      "StartDialogWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ]
+}

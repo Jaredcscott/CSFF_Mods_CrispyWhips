@@ -1,0 +1,19 @@
+{
+  "//": "Feature 31, the Fairy King's fallback line (pack Prompt 46): no StartingConditions, StartingPoint true, listed after the offer, so the player gets it once the bargain is struck (hw_stat_king_bargain 1). Its one answer ends the dialog (NextStep 2 = DialogStep.ExitDialog).",
+  "StartingPoint": true,
+  "Line": {
+    "LocalizationKey": "HarshWilds_FairyKing_After_Line",
+    "DefaultText": "A bargain struck is struck, mortal. Do not ask the King twice."
+  },
+  "PossibleAnswers": [
+    {
+      "Answer": {
+        "LocalizationKey": "HarshWilds_FairyKing_After_Answer",
+        "DefaultText": "Bow and step back."
+      },
+      "NewNextLine": {
+        "NextStep": 2
+      }
+    }
+  ]
+}

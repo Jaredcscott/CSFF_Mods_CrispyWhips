@@ -1,0 +1,216 @@
+{
+    "UniqueID": "Tgr_HW_FleasCompanion",
+    "//FleasCompanion": "Fleas and lice source 4 of 4 (Documentation/Research/HarshWilds/afflictions.md sections 2.1, 2.2 and 2.4, the first fleas DECISION): keeping an animal companion. The one stat gate is a StatChangeTrigger entry, hw_switch_fleasandlice {1,1} (an unresolved trigger stat fails closed). The companion is the non-stat gate, RequiredCardsOnBoard, one action per companion because every entry of that array must hold (AND): vanilla DogFriend (e20e89c6581b26a4a88ce4b9b7826e5f) and the Sirus23 Mod Collection's tamed companions fc_wolf_companion and fc_fox_companion (UniqueIDs read from Sirus23_Mod_Collection/Patcher/WolfTickPatch.cs and its CardData/Item/WolfCompanion.json and FoxCompanion.json). A companion is a card with the player, so CardIsOnBoard counts it wherever it is carried (ExcludeInventories false). SIRUS23 IS OPTIONAL: with it absent those two UIDs resolve to nothing (WarpResolver returns null for an unresolved UniqueIDScriptable and names it in one Info line, it never makes a stub), and GameManager.CardIsOnBoard returns false for a null card on both of its paths, so a non-inverted entry fails CLOSED and those two actions never play (static reading; harness probe P2 confirms it live). No code works around that and none is needed. RepeatOptions 0 (Repeat), ActionCooldown 96 and OncePerTick: one roll a game day per companion present. Roll: Nothing (weight HW_FLEAS_PET_NOTHING = 19, one card-less drop) against Fleas (weight 1, a card-less drop too), 1 in 20 a day. The Fleas collection adds HW_FLEAS_PER_INFEST = 96 to hw_fleas. Each ActionName.DefaultText is its action's save-state key: unique here, never renamed after release. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P3).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasCompanion",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Dog"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerCardWarpData": "e20e89c6581b26a4a88ce4b9b7826e5f",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 19,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Fleas",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_fleas",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 96.0, "y": 96.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasCompanion",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Wolf"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerCardWarpData": "fc_wolf_companion",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 19,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Fleas",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_fleas",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 96.0, "y": 96.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasCompanion",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Fox"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerCardWarpData": "fc_fox_companion",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 19,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Fleas",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_fleas",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 96.0, "y": 96.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

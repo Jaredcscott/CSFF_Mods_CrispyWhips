@@ -1,0 +1,72 @@
+{
+    "UniqueID": "Tgr_HW_TeethSugar",
+    "//TeethSugar": "Tooth decay source 1 of 3 (Documentation/Research/HarshWilds/afflictions.md sections 3.2 and 3.4, the tooth decay DECISION): honey and sugar, with no ActionRouter and no vanilla card patched. The hook is vanilla's own sugar stat, SaturationSugar (21a4731a528d97f49821f64efc19d4b3, 0 to 288, rate -1), which exactly two reachable vanilla cards write, BeeHoneycomb and Sugar, each with an Eat entry of +200 (read from the export's CardData; the NOT_USED_ honey and sap liquids also name it but nothing can make them). ALL GATES ARE StatChangeTrigger ENTRIES (an unresolved one fails closed). Gate 1, hw_switch_toothdecay {1,1}. Gate 2, SaturationSugar {97,288}: from vanilla's own 'tired of eating sweet things' band (97 to 240) to the cap; the range is inclusive at both ends (ExtraMath.FloatIsInRange), so a clamped +200 that lands exactly on 288 is inside it. RepeatOptions 2 (ResetWhenOutOfRange, StatTriggeredActionStatus): the roll plays once when the gate opens and its counter resets only when a gate closes, so a binge of any number of sweets is ONE roll, and a sweet eaten after the stat has decayed (1 a tick, a little over a day from a +200) out of the band is a new roll. Roll: Nothing (weight HW_TEETH_SUGAR_NOTHING = 2, one card-less drop) against Cavity (weight 1, a card-less drop too), 1 in 3 a binge. The Cavity collection adds HW_TEETH_PER_CAVITY_SUGAR = 48 to hw_teeth (half a band). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P4).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_TeethSugar",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Teeth Sugar"
+            },
+            "RepeatOptions": 2,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_toothdecay",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "21a4731a528d97f49821f64efc19d4b3",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 97.0, "y": 288.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 2,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Cavity",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_teeth",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 48.0, "y": 48.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

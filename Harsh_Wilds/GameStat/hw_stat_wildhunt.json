@@ -1,0 +1,110 @@
+{
+    "UniqueID": "hw_stat_wildhunt",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_WildHunt_StatName",
+        "DefaultText": "The Wild Hunt"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_WildHunt_StatDescription",
+        "DefaultText": "The Wild Hunt rides through the winter night."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 20.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Spirit_Wind",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_WildHunt_StatusName",
+                "DefaultText": "The Wild Hunt rides"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_WildHunt_StatusDescription",
+                "DefaultText": "Hooves, horns and baying hounds sweep across the night sky. Under the open sky each moment wears on you and may bruise you. Get under a roof until it passes."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Spirit_Wind",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 1.0,
+                "y": 20.0
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

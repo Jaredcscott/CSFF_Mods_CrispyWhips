@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_bandit_age",
+    "//Tunables": "TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. HW_BANDIT_GRACE_TICKS = 960 (MinMaxValue.y, and the same 960 in Animals/Bandit.json's Spawn.Conditions StatThreshold): the run age before any bandit exists, 10 days at 96 ticks per day (Documentation/Research/HarshWilds/bandits.md section 3.3 and DECISION 3, safety row 1). The stat starts at 0 in a new game, climbs at BaseRatePerTick 1 and waits at its max for the rest of the run, the shape the eagle's clock was measured to have (hw_eagle_clock waits at its max while a gate is closed, harness r46 H3). Spawn.InitialRespawnTicks would have been the natural field and is NOT usable: the framework records it as a deferred M4 section and ignores it (CSFFModFramework/Animals/AnimalSchema.cs). An old save the mod is added to starts this stat at 0 too, so its grace restarts from that load (INFERRED from a save-less stat starting at its BaseValue, not measured). It is only ever read by the bandit manifest's Spawn.Conditions.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_BanditAge_StatName",
+        "DefaultText": "Harsh Wilds: Bandit Grace"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_BanditAge_StatDescription",
+        "DefaultText": "Hidden counter: how long this run has gone on, so no bandit roams the river before the first days are over."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 960.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

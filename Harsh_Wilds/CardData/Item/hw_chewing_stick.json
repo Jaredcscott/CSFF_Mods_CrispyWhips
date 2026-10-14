@@ -1,0 +1,79 @@
+{
+    "UniqueID": "hw_chewing_stick",
+    "//ChewingStick": "The Harsh Wilds-owned tooth decay remedy (Documentation/Research/HarshWilds/afflictions.md sections 3.5 point 1, 6.2 and 6.3; the second tooth decay DECISION and the H&F cures DECISION), the second item to copy CardData/Item/hw_herbal_wash.json's shape. A CT0 consumable made by CardData/Blueprint/hw_bp_chewing_stick.json from a VANILLA card only (WillowTwigs), so the cure never needs another mod. BASE DOSE, the DismantleAction 'Chew': DaytimeCost 1, hw_teeth -HW_TEETH_STICK_STEP = 48 (half a band), and the card is used up (ReceivingCardChanges ModType 3). OPTIONAL STRONGER DOSE, the CardInteraction 'Chew with Herbs': a card dragged onto this one is accepted BY TAG, CompatibleCards TriggerTagsWarpData tag_Herb (TriggerTagsWarpType 3), never by UniqueID, and refused by NOTCompatibleCards TriggerTagsWarpData tag_Poisonous (TriggerTagsWarpType 3), exactly as hw_herbal_wash does it (read its note: InGameCardBase offers an interaction only when the dragged card fails NOTCompatibleCards and passes CompatibleCards; neither tag is a vanilla CardTag, WarpResolver creates each once by name, so today only Herbs and Fungi's leaf, flower and root herbs carry tag_Herb, and with that mod absent no card carries it and the interaction is simply never offered). Both cards are used up (GivenCardChanges and ReceivingCardChanges ModType 3), DaytimeCost 1, hw_teeth -HW_TEETH_HERB_STEP = 96 (a full band); never StackCompatible (one herb, one dose). No BepInDependency on Herbs and Fungi and no Herbs and Fungi UniqueID anywhere in this mod (Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1 [no-hf-dependency] and [no-hf-uid]). Both writes to hw_teeth are multiples of 24 ([clamp-own]). Chewing does not touch Pain: vanilla willow bark is the painkiller and this is the cure. The card image is HarshWilds/Resource/Picture/hw_chewing_stick.png (provenance in HarshWilds/.art/hw_chewing_stick.json), and the blueprint shares it. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P7 shape for the drag).",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_ChewingStick_CardName",
+        "DefaultText": "Chewing Stick"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_ChewingStick_CardDescription",
+        "DefaultText": "A willow twig with one end chewed into a brush. Chewed on, it scrubs the teeth and wears the rot of tooth decay down a little at a time, but it is used up. With Herbs and Fungi installed, a herb dragged onto it makes a stronger dose."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "hw_chewing_stick",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 50.0,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_ChewingStick_ActionName",
+                "DefaultText": "Chew"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_ChewingStick_ActionDescription",
+                "DefaultText": "Chew the stick and scrub your teeth with it to wear down tooth decay."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_teeth",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -48.0, "y": -48.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0}
+                }
+            ],
+            "ReceivingCardChanges": {"ModType": 3}
+        }
+    ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_ChewingStick_HerbsActionName",
+                "DefaultText": "Chew with Herbs"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_ChewingStick_HerbsActionDescription",
+                "DefaultText": "Work the herb into the chewed end and scrub your teeth with it: a stronger dose against tooth decay."
+            },
+            "StackCompatible": false,
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_teeth",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -96.0, "y": -96.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0}
+                }
+            ],
+            "ReceivingCardChanges": {"ModType": 3},
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": ["tag_Herb"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": ["tag_Poisonous"],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false
+        }
+    ]
+}

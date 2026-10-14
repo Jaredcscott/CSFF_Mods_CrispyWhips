@@ -1,0 +1,42 @@
+{
+    "UniqueID": "hw_banshee_clock",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_BansheeClock_StatName",
+        "DefaultText": "Harsh Wilds: Banshee Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_BansheeClock_StatDescription",
+        "DefaultText": "Hidden counter: how long until the Banshee may next come."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": -480.0,
+    "MinMaxValue": {
+        "x": -480.0,
+        "y": 288.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,129 @@
+{
+    "UniqueID": "hw_bp_athame",
+    "//RitualObject": "Feature 25 (plan section 25, pack Prompt 35): the recipe for CardData/Item/hw_athame.json. Vanilla cards only: a Bone Knife (Knife_Bone, spent), Charcoal (to blacken the hilt) and Twine (to wrap it). Researchable once the player has a little Insight, the same gate as the spirit mask. Registered through BlueprintTabs.json under Magic > Implements. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_athame",
+        "LocalizationKey": "HarshWilds_BpAthame_CardName",
+        "DefaultText": "Athame"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_athame",
+        "LocalizationKey": "HarshWilds_BpAthame_CardDescription",
+        "DefaultText": "Blacken a bone knife with charcoal and wrap the hilt in twine to make a knife for rites."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_athame",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "hw_bp_athame",
+        "LocalizationKey": "HarshWilds_BpAthame_UnlockConditionsDesc",
+        "DefaultText": "Requires some Insight."
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 16,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "StatWarpData": "36e14930ddfdcdb4b901f6416b5453be",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 1.5,
+                    "y": 1500.0
+                },
+                "NotifyWhenNotMet": false,
+                "HideAllWhenNotMet": false
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "5b09c8bbba1aa0348ba58dc4a9fa8f27",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "51c751469bd15ce46804e399479d1764",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "hw_athame",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

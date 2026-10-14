@@ -1,0 +1,67 @@
+{
+    "UniqueID": "hw_event_eagle",
+    "//Eagle": "The event card hw_tgr_eagle spawns. It is one popup with one button; clicking it destroys exactly ONE allow-listed card (AffectedCardsWarpData) that is LOOSE on the current location's ground row, never one in a container, trap, hand or equipment slot (AppliesTo 5 = AllCardsInBase reads only the base slot line of the board the player is on; LookInInventories false keeps it out of inventories), and shows the vanilla cards-destroyed popup with CustomDestroyMessage. There is deliberately NO NoCardsAffectedMessage: ApplyExtraDurabilitiesChanges runs a second, after-spawning pass that skips every change of this shape, finds nothing destroyed and would show that message as a SECOND popup right after a successful take (measured in the live game 2026-09-29, T2.448 and T2.444), so a click with nothing left to take is silent. If the roll ever moves from hw_tgr_eagle to C# this card, its button and its text stay as they are. The allow-list is Documentation/Research/HarshWilds/raids.md section 2, vanilla cards by GUID hash: Carcass_HareCarcass, Carcass_PartridgeCarcass, Carcass_DuckCarcass, Carcass_SquirrelCarcass, SquirrelRaw, MouseRaw, FrogRaw, BirdMeatRaw, PartridgeTiedFemale, PartridgeTiedMale, Fish_Trout, Fish_Perch, Fish_Pike, Fish_Char, CrayfishRaw; then Sirus23's wildowl_carcass and wildowl_tied by UniqueID, which WarpResolver drops with one Info 'unresolved' line when Sirus23 is not installed. The same 17 sit as bait rows in hw_tgr_eagle; keep the two lists identical (Development_Tools/Tests/HarshWilds-Eagle.Tests.ps1 checks it). Danger to keep in mind: a list whose every entry failed to resolve would leave AffectedCards empty, and ExtraDurabilityChange.AppliesToAllCards reads an empty list as ALL cards; the vanilla GUIDs cannot fail that way short of a broken game data load.",
+    "//Image": "Card art HarshWilds/Resource/Picture/hw_event_eagle.png (512x768 RGBA, paper keyed), provenance in HarshWilds/.art/hw_event_eagle.json: an eagle in low flight over a hare carcass and a partridge.",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_EagleEvent_CardName",
+        "DefaultText": "Eagle Overhead"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_EagleEvent_CardDescription",
+        "DefaultText": "A great eagle circles above the clearing, watching the ground for an easy meal."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_eagle",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_EagleEvent_ActionName",
+                "DefaultText": "See what it takes"
+            },
+            "DaytimeCost": 0,
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCardsWarpData": [
+                        "81766d95f54c99242ab3d18be522db49",
+                        "f72ca8f6249870d4b9306c2d779c93a9",
+                        "b351a3f9131348742bcbf17b6ae10fd5",
+                        "e6b341c0770197047a5ad6470476bbd4",
+                        "e32cb25589e676c49baa6c8f54637fa3",
+                        "cea21fa218c28ee49a49ba2ffc8eba7c",
+                        "6f0031502c513cc4085f7c8b912b7a3c",
+                        "5dc9560f81be57c4b9e22780f8a5ad78",
+                        "347a1adbb8489ad47a26a9b3a73fac8d",
+                        "d358e255ebeff714caf702edce4deed7",
+                        "f4972170adc8b3d4f9d4bc09c6e7f760",
+                        "e64237c9a44ea3945bc75b8b9f4735c0",
+                        "70df5b800c3fd56499fd412bb9ce7523",
+                        "a966c94277465f741857b994202791f3",
+                        "4d29495d7467aec4b87ac424b72a3d4b",
+                        "wildowl_carcass",
+                        "wildowl_tied"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AppliesTo": 5,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "CardChanges": 1,
+                    "DropOnDestroyList": false,
+                    "RandomlyAffectedCards": 1.0,
+                    "RandomAmountType": 1
+                }
+            ],
+            "CustomDestroyMessage": {
+                "LocalizationKey": "HarshWilds_EagleEvent_LostMessage",
+                "DefaultText": "The eagle swoops down and carries off:"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+    "UniqueID": "hw_stat_eclipse",
+    "//Eclipse": "The eclipse itself: a self-timed effect stat built exactly like hw_stat_drought (Documentation/Research/HarshWilds/events_sky.md sections 4 and 7, the eclipse DECISIONS). Written ONLY by the Eclipse collection of SelfTriggeredAction/Tgr_HW_Eclipse.json (+HW_ECLIPSE_TICKS = 4, its max, applied Permanent by ActionRoutine when that collection is picked), then it counts itself down at BaseRatePerTick -1 and rests at 0, so the eclipse ends by itself after four ticks, one hour, with no clearing code. While it reads 1 to 4 one of its three statuses is active (see //Totality): each shows in the status strip and the outer one raises a Moderate alert when the eclipse begins (NotifyPlayer 2 NotifyWhenGoingUp, AlertLevel 2 Moderate), shows the vanilla sprite Darkness in the status strip (Visibility 0 VisibleWithStatus and StatusesHaveNoBar true, the shape hw_stat_drought and the blood moon timer use; Visibility 2 would be NeverVisible and hide the alert; Darkness rather than Sun so it cannot be told from the drought's SunIcon when both run in one summer), and its EffectsOnStats writes a VALUE modifier of HW_ECLIPSE_LIGHT_MODIFIER = -90 to vanilla Light (79290cafb08e48f4d871704c20e69b1c), the vanilla GameStat/Blindness.json pattern (its four statuses write Light -25, -50, -100 and -300 the same way). A status effect is a GLOBAL MODIFIER: it sums with time of day, lamps and perks and is reversed exactly when the status leaves its range at 0, so nothing is left behind. Light has no per-tick writer and no rate, and it clamps only when READ, so at core daylight (Light 100) an eclipse reads 10, the vanilla Dark band, for a plain character; a Night Vision character (a +50 STARTING modifier, a base value) reads 60; a lit campfire outdoors adds its own +25. Accepted side effect (arithmetic, events_sky.md section 4): indoors a lit fireplace (+25 with no daylight) reads 25 - 90, clamped to 0 (Very Dark) for that one hour. THE LIGHT RULES this file stands on and HarshWilds-Events.Tests.ps1 enforces: never write Light's BASE value (an STA's StatModifications are Permanent base writes, so an STA cannot darken Light) and never write its MaxValueModifier (ChangeStatMinMaxValues clamps the base into the new range and nothing restores it, which would erase the Night Vision perk's +50 for the rest of the run): the darkening is this status effect and nothing else names Light anywhere in the mod. What the player sees: the visible Light stat falling to the Dark band and the tasks that demand Light (a log bed needs 15 and up) refusing; the Moderate alert and its sound. INFERRED and NOT promised: whether the screen itself darkens (SpecialEffectsManager applies its dark overlay only for a dark-place environment or the scene flag UseDarkEffectEverywhere, which no export shows); the text says only that the light falls. HW_ECLIPSE_TICKS = 4 (MinMaxValue.y, the status's ValueRange.y and the arm in Tgr_HW_Eclipse) and the -90 are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play; the status text says 'about an hour', so retune it together with the text. INFERRED, harness probes: that the collection-level StatWarpData resolves in a mod STA (measured working for hw_stat_drought on 2026-09-30) and that Light reads 10 at noon in an open forest while this reads 1 to 4 and 100 again at 0.",
+    "//Totality": "TOTALITY (plan section 10, as built): the timer counts 4, 3, 2, 1 and each value holds one tick (15 minutes), so the three statuses are the outer band at 3 to 4 (HW_ECLIPSE_LIGHT_MODIFIER = -90, unchanged), the ONE-TICK inner band at 2 (HW_ECLIPSE_TOTALITY = -110) and the outer band again at 1 (-90). The bands do not overlap, so exactly one of them is active at a time and no sum of statuses is relied on. Light is read as base 0 plus its modifiers, clamped to 0 to 100 on READ: -110 takes any raw Light of 110 or less to 0, which is vanilla Very Dark, the one band whose Wakefulness and MentalStructure drains and whose 15 and 10 Light checks (a Bed Log dismantle needs 15, an Acorn's Grind 10) now refuse a task, for ONE tick. Measured raw Light at a clear noon on a lake bank is 110 (As_Built 6.1), so -110 lands on exactly 0 there; a raw above 110 would still read 1 and above and the totality would be weaker than described. HW_ECLIPSE_TOTALITY and the inner band position (timer value 2, so two outer ticks build it and one follows) are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play. The outer band keeps -90, UNVERIFIED at other places and weathers (Wave 0 finding W0-5 is a live reading still pending): in a place whose raw Light is below 90 the outer band also reads Very Dark, and indoors beside a lit fireplace it already did (accepted side effect). Whether the screen dims at totality is UNMEASURED. HarshWilds-Events.Tests.ps1 pins this as [eclipse-totality]: Very Dark for at most one tick.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Eclipse_StatName",
+        "DefaultText": "Eclipse"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Eclipse_StatDescription",
+        "DefaultText": "An eclipse: the light falls sharply for about an hour."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 4.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Darkness",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Eclipse_StatusName",
+                "DefaultText": "Eclipse"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Eclipse_StatusDescription",
+                "DefaultText": "The moon slides across the sun and the light falls sharply for about an hour."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Darkness",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 1},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -90.0, "y": -90.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Eclipse_TotalityStatusName",
+                "DefaultText": "Eclipse totality"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Eclipse_TotalityStatusDescription",
+                "DefaultText": "The moon covers the sun. For about a quarter of an hour it is too dark for any task that needs light."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Darkness",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 2, "y": 2},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -110.0, "y": -110.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Eclipse_StatusName",
+                "DefaultText": "Eclipse"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Eclipse_StatusDescription",
+                "DefaultText": "The moon slides across the sun and the light falls sharply for about an hour."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Darkness",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 3, "y": 4},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -90.0, "y": -90.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

@@ -1,0 +1,410 @@
+{
+    "UniqueID": "hw_coat_wisent",
+    "//RitualObject": "Feature 25 (plan section 25, pack Prompt 33; W0-16: the coats' 'spiritually open' effects key on AlteredMindstate, vanilla jars refuse an essence except copper and glazed ones, no vanilla charm or shrine gives this gift). Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "hw_coat_wisent",
+        "LocalizationKey": "HarshWilds_CoatWisent_CardName",
+        "DefaultText": "Wisent Coat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_coat_wisent",
+        "LocalizationKey": "HarshWilds_CoatWisent_CardDescription",
+        "DefaultText": "A heavy coat sewn from a wisent's leather. It gives warmth, comfort and some protection. Has additional properties for the spiritually open: while your mind is open to the spirits it lends you the wisent's strength, and it can be enchanted with a spirit essence.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_coat_wisent",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_OuterTorso",
+        "tag_LeatherClothing",
+        "tag_Clothing",
+        "tag_SpiritEnchantable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "ObjectWeight": 1200.0,
+    "TradingValue": 0.0,
+    "CanBeRenamed": false,
+    "EquipmentTagsWarpData": [
+        "eTag_OuterTorso"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "WeightReductionWhenEquipped": -1200.0,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 46080.0,
+        "MaxValue": 46080.0,
+        "CardStatName": {
+            "ParentObjectID": "hw_coat_wisent",
+            "LocalizationKey": "HarshWilds_CoatWisent_UsageStatName",
+            "DefaultText": "Wear"
+        },
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": -1.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "hw_coat_wisent",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "The coat has fallen apart."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Temperature Perceived (+7.5)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 7.5,
+                        "y": 7.5
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Comfort (+15)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Armor (+15)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Sun Protection (+1)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0b9d0c63229f413439aeb1a96c9bd29f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Rain Protection (+1)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "431f76fbfb93e8c4a850de1528ef863a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Strength (open mind)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "880e0b44edfcd9d40a0a5c809a0dc316",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 16.8,
+                        "y": 16.8
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "Stat": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 50.0,
+                            "y": 10000.0
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "EffectName": "Spiritual Noise (open mind)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "30e940eb00405d94b94822377313fb1b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "Stat": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 50.0,
+                            "y": 10000.0
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "MaxLiquidCapacity": 600.0,
+    "ExclusivelyAcceptedLiquids": [
+        {
+            "Target": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "TargetWarpData": "tag_SpiritLiquid",
+            "TargetWarpType": 3
+        }
+    ]
+}

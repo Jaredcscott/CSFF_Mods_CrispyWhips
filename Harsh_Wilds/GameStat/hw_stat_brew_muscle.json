@@ -1,0 +1,149 @@
+{
+    "UniqueID": "hw_stat_brew_muscle",
+    "//Brew": "Feature 27 (plan section 27, Prompt 38; W0-16: no vanilla LQ_Spirit liquid raises an affinity by rate, W0-22: MuscleGrower is the muscle-growth stimulus). NOT a spirit brew: it is made from vanilla ingredients, never from a spirit, and names none of vanilla's NOT_USED_ placeholders. No switch: what the player makes on purpose gets none. Every timed effect goes through the brew's own effect stat (its status carries the modifier); the Drink writes only that stat and Thirst, never a base-rate-0 stat. The liquid is Herbs and Fungi's tea liquid shape with this mod's keys, made by a blueprint on vanilla Bp_NightBroth's chassis (a clay bowl of clean water kept, the bowl's water becoming the brew). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play: the dose is 48 on a 96 stat that falls 1 a tick (12 hours a dose); the effect stat's status adds a ValueModifier of 50.0 to MuscleGrower (base -100, range -100 to 100, which this never widens), the shape of Herbs and Fungi's tonic on ImmuneSystem.",
+    "GameName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "HarshWilds_BrewMuscleEffect_StatName",
+        "DefaultText": "Musclebrew"
+    },
+    "Description": {
+        "ParentObjectID": "",
+        "LocalizationKey": "HarshWilds_BrewMuscleEffect_StatDescription",
+        "DefaultText": "The Musclebrew working in you: it falls by 1 each tick and is renewed by drinking."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 96.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Hand",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "HarshWilds_BrewMuscleEffect_StatusName",
+                "DefaultText": "Musclebrew"
+            },
+            "Description": {
+                "ParentObjectID": "",
+                "LocalizationKey": "HarshWilds_BrewMuscleEffect_StatusDescription",
+                "DefaultText": "The brew is working in you. Hard work and heavy loads grow muscle sooner, for as long as the brew lasts."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Hand",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 1,
+                "y": 96
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3031b7e576c9caa419d89c8c7ea08f11",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 50.0,
+                        "y": 50.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

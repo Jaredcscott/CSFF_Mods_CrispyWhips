@@ -1,0 +1,55 @@
+{
+  "//": "Harsh Wilds phase 3 (Documentation/Design/Harsh_Wilds_As_Built.md section 4; design Documentation/Research/HarshWilds/bandits.md DECISIONS 1 to 4): a ragged spearman who roams the river corridor by day and may waylay a player he finds there, at most once a day. A GENERATED agent (no Agent.Ref), so Carcass.Card applies and the framework wires the shared vanilla agent stats. Every bandit fight is started by this agent (the Aggression duty or the Approach button), so no encounter guard suppresses it (bandits.md DECISION 1).",
+  "//Switch": "Spawn.Conditions (framework 2.27.0), ALL of which must hold: the hidden GameStat hw_switch_bandits is 1 (HarshWilds/Patcher/Switchboard.cs writes it from the [Threats] Bandits config entry at every run start), and the run-age stat hw_bandit_age has reached HW_BANDIT_GRACE_TICKS (960 ticks, ten days; HarshWilds/GameStat/hw_bandit_age.json counts one per tick and caps there). While either is false the framework keeps the agent retired in the Spirit World. HW_BANDIT_CONDITION_RESPAWN_TICKS (96, one day) is the delay after both hold again. TUNABLE.",
+  "//Where": "HomeEnv and WanderEnvs are exactly the four river-corridor nodes of bandits.md DECISION 3 (Southern Rapids, Rocky Bank, Northern Rapids, River Pass). No PlayerAttraction: a stalk duty would pathfind him off the corridor after the player (the start clearing, CMC's village road), which bandits.md safety row 2 forbids. He attacks only a player already standing on his square (RequirePlayerInEnv).",
+  "//Weights": "Duty selection is highest-weight-wins (InGameNPC.SelectDuty). HW_BANDIT_AGGRESSION_WEIGHT 200 beats the wander duty's 100 whenever it can run: StartEncounterDutyAction.CanBePerformed is false unless the player is in his environment and false during another encounter; the framework's AttackWaitsForPlayerAction (2.28.0) holds the attack until the player's current action is on its last tick, so the fight starts once that action has finished (hw_encounter_bandit keeps CannotInterruptActions false, like the lynx: set, the duty could never be chosen, because duties are chosen on ticks and ticks only run inside actions). HW_BANDIT_MAX_PER_DAY 1 drops it after the day's attempt, so an ambush never repeats on the player's square without limit. HW_BANDIT_HOURS 7 to 19 sits inside his ActiveHours 6 to 20; by night he is offstage. TUNABLE.",
+  "//Encounter": "Encounter.Ref points at HarshWilds/Encounter/hw_encounter_bandit.json, derived by Development_Tools/HarshWilds/derive_content.py from vanilla Combat_EncounterHuntsman.json. The start screen offers Back away (FightOrEscape), which costs nothing. Win: the defeat result drains AgentBlood, so the generated death action drops hw_bandit_body where he fell. Lose: the subdual action ends the fight PlayerDemoralized, which raises the marker hw_bandit_robbed that HarshWilds/SelfTriggeredAction/hw_tgr_bandit_theft.json turns into a bounded theft. Every fight's end sends him to a random corridor node (MoveNPC 2), so the walk back is the cooldown.",
+  "//Sprite": "hw_bandit is HarshWilds/Resource/Picture/hw_bandit.png (provenance HarshWilds/.art/hw_bandit.json), the agent card sprite and the fight screen image; repoint Sprite here and BANDIT_ENCOUNTER_IMAGE in derive_content.py together.",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17 (changed 2026-10-05). The framework's lifecycle ticker (CSFFModFramework/Animals/AnimalLifecycleTicker.cs, TickKillRespawn) counts the agent as dead only while its blood sits at DutyBuilder.SpeciesStats.DeadBloodMax (4) or below, and the generated duties are gated on blood above 4. A kill leaves blood at 0 (the stat's minimum), so at 0.17 a tick it climbed out of the dead band after about 24 ticks (six hours), the ticker cleared the respawn timer, and the duties walked the animal back long before Spawn.DeathRespawnTicks. Vanilla agents can regenerate because their own death action resets the exists and respawn stats; the generated death action writes no stats. At 0 a killed animal stays dead until DeathRespawnTicks (or, with DeathRespawnTicks 0, the next condition restore) heals it to full. The cost: blood an animal loses without dying is not regained before then either.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_bandit",
+  "DisplayName": "Bandit",
+  "LocalizationKey": "HarshWilds_Bandit_AgentName",
+  "Sprite": "hw_bandit",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": { "Start": 120, "Max": 120, "RatePerTick": 0 }
+  },
+  "Spawn": {
+    "HomeEnv": "7ce232e320b323440a3c54b47a5fc48a",
+    "DeathRespawnTicks": 672,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_switch_bandits", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_bandit_age", "Comparison": "GreaterOrEqual", "Value": 960 }
+    ],
+    "ConditionRespawnTicks": 96
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 6, "End": 20 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "b2ee7e674257bac4492bf0f8bf2d6949",
+      "7ce232e320b323440a3c54b47a5fc48a",
+      "3dd228a55137f0843b3d4b1c9547bb37",
+      "7e687594ad72ab744adc82fba5a5f31c"
+    ],
+    "WanderWeight": 100
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_bandit",
+    "ApproachButton": true,
+    "ApproachLabelLocalizationKey": "HarshWilds_Bandit_Approach",
+    "Aggression": {
+      "Enabled": true,
+      "Hours": { "Start": 7, "End": 19 },
+      "BaseWeight": 200,
+      "RequirePlayerInEnv": true,
+      "MaxPerDay": 1
+    }
+  },
+  "Carcass": {
+    "Card": "hw_bandit_body"
+  }
+}

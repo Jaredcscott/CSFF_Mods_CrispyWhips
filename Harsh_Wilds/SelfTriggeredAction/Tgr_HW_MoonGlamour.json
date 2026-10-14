@@ -1,0 +1,139 @@
+{
+  "UniqueID": "Tgr_HW_MoonGlamour",
+  "//MoonGlamour": "Feature 30 (plan section 30, pack Prompt 43): the Moon Realm danger, the moon clouds your mind. A rolled SelfTriggeredAction in the Faerie Tricks shape. ALL GATES ARE StatChangeTrigger ENTRIES: hw_switch_moonglamour {1,1} (the [Threats] MoonGlamour switch), hw_stat_in_moon {1,1} (the player stands in the Moon Realm; its location card raises that flag by a passive. The shared hw_stat_in_realm is NOT used: a danger gated on it fired in every realm, found live 2026-10-12), hw_moon_clock at its max (4 ticks = one hour). Each firing takes 4 off the clock, so about one roll an hour of the stay, the first on arrival. Roll: Nothing 4 against Moonstruck 1, so about one in five spawns hw_event_moonstruck. Every number a TUNABLE PLACEHOLDER.",
+  "Actions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "Tgr_HW_MoonGlamour",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "HW Moon Glamour Roll"
+      },
+      "RepeatOptions": 2,
+      "StatChangeTrigger": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_switch_moonglamour",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_stat_in_moon",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_moon_clock",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.0,
+            "y": 4.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_moon_clock",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -4.0,
+            "y": -4.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Nothing",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 4,
+          "DroppedCards": [
+            {
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Moonstruck",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "hw_event_moonstruck",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "target": "hw_event_mudvolcano.png",
+  "status": "PARTIAL: generated, not processed (GIMP bridge missing); card uses vanilla Dirt_Pile",
+  "sourceCard": "CardData/Event/hw_event_mudvolcano.json",
+  "subject": "a low grey-brown mud cone with a round crater at its top, bursting: a thick fountain of hot grey mud with a few large mud blobs flying outward, thin white steam curling up from the crater; the cone, the fountain and the blobs only, one small group",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {"imageCount": 1, "aspectRatio": "2:3", "resolution": "2K", "autoEnhancePrompt": false},
+  "historyId": "ylCIDR28Rqt6fNSfs3O1",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791593739593_83d124f1_1791593740413_7e29d76e.png",
+  "credits": 30,
+  "generated": "2026-10-09"
+}

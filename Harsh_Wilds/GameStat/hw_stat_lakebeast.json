@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_stat_lakebeast",
+    "//Rolled": "THE LAKE BEAST'S ROLLED STAT (plan section 33, Prompt 49): a self-timed hidden effect stat built like the white wisent's (range 0 to max, BaseRatePerTick -1) with no status, no alert and no icon: a rare beast is not announced. Written ONLY by the Lake Beast collection of SelfTriggeredAction/Tgr_HW_LakeBeast.json (+HW_LAKEBEAST_TICKS = 288, its max, three days, a TUNABLE PLACEHOLDER), then it counts itself down and rests at 0. Animals/LakeBeast.json names it in Spawn.Conditions (StatThreshold GreaterOrEqual 1), so the lake beast is in the world exactly while it reads 1 or more and is retired to the Spirit World when it returns to 0. A GLOBAL stat.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_LakeBeastRolled_StatName",
+        "DefaultText": "Harsh Wilds: Lake Beast Days"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_LakeBeastRolled_StatDescription",
+        "DefaultText": "Hidden timer: the lake beast haunts the lake shore at night while this reads 1 or more."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 288.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,14 @@
+{
+  "target": "hw_cairn.png",
+  "sourceCard": "hw_cairn",
+  "subject": "a tall conical cairn of grey weathered stones piled by hand, heavy stones at the base and smaller stones toward the top, a few patches of moss, standing on a small patch of bare ground; no figures, no carvings, no runes, no candles, no offerings, no background scenery",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {"imageCount": 1, "aspectRatio": "2:3", "resolution": "1K", "autoEnhancePrompt": false},
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a tall conical cairn of grey weathered stones piled by hand, heavy stones at the base and smaller stones toward the top, a few patches of moss, standing on a small patch of bare ground; no figures, no carvings, no runes, no candles, no offerings, no background scenery, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, carvings, runes, candles, offerings, figures.",
+  "historyId": "XifyOdoRx11x5AOjOxon",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791682015499_e8d6b207_1791682015535_74e05116.png",
+  "credits": 20,
+  "generated": "2026-10-10",
+  "note": "1K, not the skill's 2K default: the balance was 28 credits and 2K costs 30. The output is 848x1264, cover-resized to 512x768 by /process-card-art (66.7 percent transparent). The Ancestor Spirit's own cards (met and blessing events, essence, enchantment, blessing status icons) show this picture too until hw_spirit_ancestor.png is made."
+}

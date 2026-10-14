@@ -1,0 +1,59 @@
+{
+    "UniqueID": "hw_stat_rite_rain",
+    "//RainRite": "The rain rite's cool-down (plan section 26, pack Prompt 35): a hidden self-timed stat in the shape of hw_stat_venom with NO status. Its only writer is the athame's Call Rain actions, which add +192 (HW_RAIN_COOLDOWN, this stat's max); the base rate of -1 drains it a tick at a time, so two days, and the actions only show while it reads 0. It writes no player stat. RequiredStatValues FAILS OPEN if this UID were misspelt, so the [rituals] gate asserts the UID names this file. A TUNABLE PLACEHOLDER.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_RiteRain_StatName",
+        "DefaultText": "Harsh Wilds: Rain Rite Cooldown"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_RiteRain_StatDescription",
+        "DefaultText": "Hidden timer: how many ticks until the rain rite can be done again."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 192.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Bite_Small",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [],
+    "UsesNovelty": false
+}

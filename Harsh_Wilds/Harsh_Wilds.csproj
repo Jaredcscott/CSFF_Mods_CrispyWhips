@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <RootNamespace>HarshWilds</RootNamespace>
+        <AssemblyName>Harsh_Wilds</AssemblyName>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>disable</Nullable>
+        <IsPackable>false</IsPackable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <TargetFramework>net48</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Card Survival Fantasy Forest\BepInEx\plugins\Harsh_Wilds\</OutputPath>
+    </PropertyGroup>
+
+    <!-- Game and Unity references bind the framework's own lib, the copy refreshed from the game on
+         every update, rather than the months-stale nstrip variant (CLAUDE.md, Game-Update Reference
+         Refresh). The framework DLL itself comes from the shared HerbsAndFungi lib like its siblings. -->
+    <ItemGroup>
+        <Reference Include="CSFFModFramework">
+            <HintPath>..\HerbsAndFungi\lib\CSFFModFramework.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="0Harmony">
+            <HintPath>..\CSFFModFramework\lib\0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>..\CSFFModFramework\lib\Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="BepInEx">
+            <HintPath>..\CSFFModFramework\lib\BepInEx.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine" HintPath="..\CSFFModFramework\lib\UnityEngine.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule" HintPath="..\CSFFModFramework\lib\UnityEngine.CoreModule.dll">
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+
+    <!-- Copy mod content files to output. Add an Include in the same commit as each new content
+         folder (CardData, Animals, GameStat, SelfTriggeredAction, EncounterGuards, Resource,
+         Localization): Development_Tools/Tests/Csproj-ContentIncludes.Tests.ps1 fails on a folder
+         with none. Localization arrives with the first card, never empty (the CSV gates refuse a
+         file with zero records). -->
+    <ItemGroup>
+        <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
+        <Content Include="DropInjections.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('DropInjections.json')" />
+        <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
+        <Content Include="Animals\*.json" CopyToOutputDirectory="PreserveNewest" Link="Animals\%(Filename)%(Extension)" />
+        <Content Include="NPCAgent\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCAgent\%(Filename)%(Extension)" />
+        <Content Include="ScriptableObject\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="ScriptableObject\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Content Include="Encounter\*.json" CopyToOutputDirectory="PreserveNewest" Link="Encounter\%(Filename)%(Extension)" />
+        <Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" />
+        <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Content Include="GameStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameStat\%(Filename)%(Extension)" />
+        <Content Include="SelfTriggeredAction\*.json" CopyToOutputDirectory="PreserveNewest" Link="SelfTriggeredAction\%(Filename)%(Extension)" />
+        <Content Include="GameSourceModify\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameSourceModify\%(Filename)%(Extension)" />
+        <Content Include="Localization\*.csv" CopyToOutputDirectory="PreserveNewest" Link="Localization\%(Filename)%(Extension)" />
+        <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="Resource\%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+</Project>

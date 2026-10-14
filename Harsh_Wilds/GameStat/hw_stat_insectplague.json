@@ -1,0 +1,83 @@
+{
+    "UniqueID": "hw_stat_insectplague",
+    "//InsectPlague": "The insect plague's timer: a self-timed effect stat (Documentation/Research/HarshWilds/events_stats.md sections 1c skeleton (c) and 4c, its insect plague DECISION), the shape of hw_stat_drought. Written ONLY by the Insect Plague collection of SelfTriggeredAction/Tgr_HW_InsectPlague.json (+HW_PLAGUE_TICKS = 288, its max, 3 days), then counts itself down at BaseRatePerTick -1 and rests at 0. While it reads 1 to HW_PLAGUE_TICKS its one status is active: it raises a Moderate alert when the plague starts (NotifyPlayer 2 NotifyWhenGoingUp, AlertLevel 2 Moderate) and shows the vanilla sprite Bugs in the status strip (Visibility 0 VisibleWithStatus and StatusesHaveNoBar true, the drought's shape; Visibility 2 would be NeverVisible and hide the alert). The status ANNOUNCES ONLY and has no EffectsOnStats on purpose: a status effect is a GlobalModifier on the whole run, and an insect plague must bite outdoors only. The bite is delivered by SelfTriggeredAction/Tgr_HW_PlagueSwarm.json, which reads this timer as a gate and refreshes the hidden hw_stat_bugswarm on every tick the player is outdoors while this timer runs; hw_stat_bugswarm's status raises the vanilla BugPopulation. The plague ENDS when this stat reaches 0: the swarm is no longer refreshed and is gone two ticks later. HW_PLAGUE_TICKS = 288 (MinMaxValue.y, the status's ValueRange.y and the arm in Tgr_HW_InsectPlague) is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play; the status text says 'about three days', so retune it together with the text. Vanilla InsectProtection is NOT a counter for this plague (it only lowers Mosquitoes, MEASURED in events_stats.md section 0) and no player text says it is.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_InsectPlague_StatName",
+        "DefaultText": "Insect Plague"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_InsectPlague_StatDescription",
+        "DefaultText": "A summer insect plague. Biting insects swarm outdoors until it passes."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 288.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Bugs",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_InsectPlague_StatusName",
+                "DefaultText": "Insect Plague"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_InsectPlague_StatusDescription",
+                "DefaultText": "Swarms of biting insects have come, for about three days. Outdoors you will be bitten far more than usual, and the bites add up. Rain, a fire at your camp (campfire, fire pit, fireplace or hearth), snakegrass fed to a hearth, and staying indoors all thin them out."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Bugs",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 288},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

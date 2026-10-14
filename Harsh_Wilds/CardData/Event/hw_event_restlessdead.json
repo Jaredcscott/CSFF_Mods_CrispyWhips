@@ -1,0 +1,103 @@
+{
+  "UniqueID": "hw_event_restlessdead",
+  "//PixieLed": "Feature 30 (plan section 30, pack Prompt 43): the Underworld danger event, spawned by Tgr_HW_RestlessDead while the player stands in a realm and the [Threats] RestlessDead switch is on. One instant button (DaytimeCost 0, so the stay clock can never cut it off) costs 14 Stamina (regenerates at its own rate) and adds 12 Stress (decays 0.25 a tick). It never touches the stay clock. Every number a TUNABLE PLACEHOLDER.",
+  "CardType": 3,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_RestlessDead_CardName",
+    "DefaultText": "The Restless Dead"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_RestlessDead_CardDescription",
+    "DefaultText": "Cold hands close on your ankles and your coat, and a dry whisper asks you to stay. You can feel how little strength they are leaving you."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Skull",
+  "CardImageWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "HarshWilds_RestlessDead_ActionName",
+        "DefaultText": "Break Free"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "HarshWilds_RestlessDead_ActionDescription",
+        "DefaultText": "Wrench yourself out of their grip. It tires you and sets your nerves on edge."
+      },
+      "DaytimeCost": 0,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -14.0,
+            "y": -14.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 12.0,
+            "y": 12.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

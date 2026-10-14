@@ -1,0 +1,35 @@
+{
+  "target": "hw_charm_goat.png",
+  "sourceCard": "CardData/Item/hw_charm_goat.json",
+  "subject": "Draw: a small carved off-white bone charm shaped like a goat's head seen from the front: two curved ridged horns sweeping back and out, a narrow face, small ears, a little pointed beard; it hangs from one simple loop of plain brown twine cord tied through a hole between the horns.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference image is a STYLE reference only: match its flat posterized colour fills in a few tonal steps, bold dark ink outline around the whole subject, small ink hatch marks, muted naturalistic palette and fairly dark values, and hang the charm from its cord the same simple way; do not copy its carving.\nDraw: a small carved off-white bone charm shaped like a goat's head seen from the front: two curved ridged horns sweeping back and out, a narrow face, small ears, a little pointed beard; it hangs from one simple loop of plain brown twine cord tied through a hole between the horns.\nSurvival card game item art in exactly that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, beads, metal, chain, second charm, whole goat body, wood.",
+  "historyId": "A7RBeDO4ZFawtJkixauE",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798614697_7cfb15a6_1791798614767_1bbb31f1.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "Amulet",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_1791744833077_263b1f4a.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798614697_7cfb15a6_1791798614767_1bbb31f1.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: look AI generated match game art style please; cord runs off the top like vanilla Amulet"
+}

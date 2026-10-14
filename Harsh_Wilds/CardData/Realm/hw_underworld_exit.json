@@ -1,0 +1,80 @@
+{
+  "UniqueID": "hw_underworld_exit",
+  "//Exit": "Feature 30 (plan section 30, pack Prompt 43): the Underworld way up and STAY CLOCK, the Faerie exit contract: UsageDurability starts full at HW_UNDERWORLD_STAY_TICKS = 12 (three in-game hours, a TUNABLE PLACEHOLDER) and falls 1 a tick; the OnZero and the one button both set TravelToPreviousEnv and destroy this card (ModType 3); the OnZero has NO stat gate; the button takes no time.",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_UnderworldExit_CardName",
+    "DefaultText": "The Way Up"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_UnderworldExit_CardDescription",
+    "DefaultText": "The worn stair you came down. Climb it whenever you like; when the cold light runs out the stair carries you up anyway, back to the cairn you came from."
+  },
+  "CardImageWarpData": "Cave",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 12.0,
+    "MaxValue": 12.0,
+    "CardStatName": {
+      "ParentObjectID": "hw_underworld_exit",
+      "LocalizationKey": "HarshWilds_UnderworldExit_ClockName",
+      "DefaultText": "Grey Light Left"
+    },
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 0,
+    "HasActionOnZero": true,
+    "OnZeroNotification": 1,
+    "OnZero": {
+      "ActionName": {
+        "ParentObjectID": "hw_underworld_exit",
+        "LocalizationKey": "HarshWilds_UnderworldExit_OnZeroName",
+        "DefaultText": "The Stair Carries You Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_underworld_exit",
+        "LocalizationKey": "HarshWilds_UnderworldExit_OnZeroDescription",
+        "DefaultText": "The grey light fails and the stair carries you up, back to the cairn you came from."
+      },
+      "TravelToPreviousEnv": true,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "ParentObjectID": "hw_underworld_exit",
+        "LocalizationKey": "HarshWilds_UnderworldExit_FadeMessage",
+        "DefaultText": "The stair carries you up..."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hw_underworld_exit",
+        "LocalizationKey": "HarshWilds_UnderworldExit_LeaveName",
+        "DefaultText": "Climb the Stair"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_underworld_exit",
+        "LocalizationKey": "HarshWilds_UnderworldExit_LeaveDescription",
+        "DefaultText": "Climb the stair and return to the cairn you came from."
+      },
+      "DaytimeCost": 0,
+      "TravelToPreviousEnv": true,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "ParentObjectID": "hw_underworld_exit",
+        "LocalizationKey": "HarshWilds_UnderworldExit_FadeMessage",
+        "DefaultText": "The stair carries you up..."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

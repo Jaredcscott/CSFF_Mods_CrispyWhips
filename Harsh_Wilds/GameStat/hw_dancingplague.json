@@ -1,0 +1,296 @@
+{
+    "UniqueID": "hw_dancingplague",
+    "//DancingPlague": "Feature 28, the dancing plague (plan section 28, pack Prompt 41): the fourth Harsh Wilds AFFLICTION, on the spirit sickness file's chassis (Documentation/Design/Harsh_Wilds_As_Built.md 7.1) with ONE deliberate difference, which the plan's row asks for ('stamina drain and hunger statuses for a few hours'): it FALLS BY ITSELF. BaseRatePerTick -1, so a roll of HW_DANCE_PER_ROLL = 16 lasts 16 ticks (four hours) and the cap of 32 is eight hours; the Afflictions gate marks the row Decays and still demands every other chassis rule. Its SOURCE is a rolled STA, Tgr_HW_DancingPlague, armed by the hw_ring_dance marker that 'Dance in the Ring' (CardData/Location/hw_fairy_ring, night only, an hour) writes: Nothing (weight HW_DANCE_NOTHING = 1) against Plague (weight 1) writes +16. CURE: the Cleansing Smudge's second action, which clears the whole stat (-32) at a lit fire; Tgr_HW_DancingSwitchOff clears it while [Threats] DancingPlague is off. COST, statuses only, both RATES on the vanilla Stamina (1cfd30cf13b69b949a0ac521f55a59a2, base +2 a tick, so -3 nets -1 and -4 nets -2) and Energy (9e03b1c645e4c1c40b382ceac8387d4e, the food-energy stat, -0.5 then -1 a tick) - the plan's 'stamina drain and hunger'. Neither stat is watched by a trigger this affliction can land on, and the affliction touches no Stress, so [clamp-rate] has nothing to pin. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Dancing_StatName",
+        "DefaultText": "Dancing Plague"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Dancing_StatDescription",
+        "DefaultText": "A dance you cannot stop, begun in a fairy ring at night. It wears off by itself over a few hours; a cleansing smudge burned at a lit fire breaks it at once."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 32.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Stamina",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Dancing_Status1_Name",
+                "DefaultText": "Restless Feet"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Dancing_Status1_Description",
+                "DefaultText": "Your feet will not keep still: stamina drains faster and you grow hungry."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Stamina",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 1,
+                "y": 16
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": -0.5,
+                        "y": -0.5
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 1,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Dancing_Status2_Name",
+                "DefaultText": "The Dancing Plague"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Dancing_Status2_Description",
+                "DefaultText": "You cannot stop dancing: stamina drains fast and hunger bites hard. A cleansing smudge burned at a lit fire breaks it."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Hunger",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 17,
+                "y": 32
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": -4.0,
+                        "y": -4.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

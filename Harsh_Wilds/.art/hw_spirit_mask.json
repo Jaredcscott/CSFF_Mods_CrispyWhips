@@ -1,0 +1,40 @@
+{
+  "target": "hw_spirit_mask.png",
+  "sourceCard": "CardData/Item/hw_spirit_mask.json",
+  "subject": "Draw: a carved pale tan wooden mask of a stylised wild beast face, seen straight face-on: two short pointed ears at the top, two empty round eye holes, a short broad muzzle, three black charcoal stripes painted across each cheek and across the brow, and two plain brown twine ties hanging down from its sides.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference images are STYLE references only: match their flat posterized colour fills in a few tonal steps, bold dark ink outline around the whole subject, small ink hatch marks, muted naturalistic palette and fairly dark values; do not copy their subject or composition.\nDraw: a carved pale tan wooden mask of a stylised wild beast face, seen straight face-on: two short pointed ears at the top, two empty round eye holes, a short broad muzzle, three black charcoal stripes painted across each cheek and across the brow, and two plain brown twine ties hanging down from its sides.\nSurvival card game item art in exactly that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, whiskers, teeth, feathers, beads, colourful paint, second mask.",
+  "historyId": "lULcEnLjQAhfswZHhoXB",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798613511_011f4621_1791798613552_91e691c7.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "WoodCarving",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WoodCarving_1791745253091_d6eebc38.png"
+    },
+    {
+      "role": "style",
+      "label": "Amulet",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_1791744833077_263b1f4a.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798613511_011f4621_1791798613552_91e691c7.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: looks AI generated must match game art"
+}

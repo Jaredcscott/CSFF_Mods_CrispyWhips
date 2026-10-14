@@ -1,0 +1,27 @@
+{
+  "target": "hw_wisent_carcass.png",
+  "sourceCard": "CardData/Item/hw_wisent_carcass.json and hw_wisent_carcass_bled.json",
+  "subject": "a dead European wisent lying limp on its side with its eyes closed and its legs slack, a massive dark chocolate-brown body with a tall shoulder hump, a thick shaggy darker mane on the neck and shoulders, a short beard under the chin, short upward-curving black horns, clean unbroken hide with no wounds, one whole animal and nothing else",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a dead European wisent lying limp on its side with its eyes closed and its legs slack, a massive dark chocolate-brown body with a tall shoulder hump, a thick shaggy darker mane on the neck and shoulders, a short beard under the chin, short upward-curving black horns, clean unbroken hide with no wounds, one whole animal and nothing else, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, blood, pool of blood, wounds, gore, open eyes, rope, cord, hanging, skinned, knife, second animal, grass, snow.",
+  "historyId": "LfzWTly5qOwf3NbxHbF6",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790592679749_4cd69a1d_1790592680579_cb758ef9.png",
+  "credits": 30,
+  "verdict": "shipped; slumped forward on its chest rather than on its side, but eyes closed and head down read as dead",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 74.9
+  },
+  "generated": "2026-09-28"
+}

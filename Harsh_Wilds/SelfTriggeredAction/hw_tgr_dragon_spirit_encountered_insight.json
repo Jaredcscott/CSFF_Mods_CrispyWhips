@@ -1,0 +1,492 @@
+{
+  "UniqueID": "hw_tgr_dragon_spirit_encountered_insight",
+  "Actions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "1"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NoveltyShared": false,
+      "VictorySettings": {
+        "Victory": false,
+        "SpecialEnding": false,
+        "VictoryMessage": {
+          "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        }
+      },
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "CustomConfirmText": {
+        "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NotInterruptedByEncounters": false,
+      "StackCompatible": false,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "MinDaytimeCost": {
+        "Active": false,
+        "IntValue": 0
+      },
+      "ActionSounds": [],
+      "DisablePitchVariation": false,
+      "CompatibleNPCDuties": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredNPCStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "RequiredPresentNPCS": [],
+      "RequiredAlreadyVisitedEnvironments": [],
+      "RequiredReceivingContainer": [],
+      "RequiredReceivingContainerTag": [],
+      "RequiredNOTReceivingContainerTag": [],
+      "RequiredReceivingContainerDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "RequiredReceivingLiquidContent": {
+        "IsActive": false,
+        "RequiredLiquid": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredGroup": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredQuantity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "RequiredActiveHidingGroups": [],
+      "HideIfConditionsNotMet": false,
+      "NotBaseAction": false,
+      "Cancellable": false,
+      "InstantStatModifications": false,
+      "LocksCardsForUse": false,
+      "DontDoStatModificationsOnCancel": false,
+      "InstantDurabilityModifications": false,
+      "ReceivingCardFlavourBonus": false,
+      "GivenCardFlavourBonus": false,
+      "ResetWhenDone": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatInterruptions": [],
+      "StartDialog": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "36e14930ddfdcdb4b901f6416b5453be",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "InterpolatedStatModifications": [],
+      "NPCStatModifications": [],
+      "NPCSetDuties": [],
+      "TemporaryStatModifications": [],
+      "MovePlayer": {
+        "MoveOption": 0,
+        "ToEnv": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "Pathfinding": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "Direction": 0
+      },
+      "MoveReceivingCard": {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "UseCardinalDirection": false,
+        "MoveInDirection": 0,
+        "Pathfinding": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "SpawnNPCS": [],
+      "DeleteNPCS": [],
+      "MoveNPC": [],
+      "SetNPCHome": [],
+      "SetNPCSpecialLocation": [],
+      "ExtraDurabilityModifications": [],
+      "BlueprintsFullUnlock": [],
+      "AddedCardsInOtherEnvs": [],
+      "CompletedImprovements": [],
+      "AddedInRunPerks": [],
+      "DontShowDestroyMessage": false,
+      "CustomDestroyMessage": {
+        "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NoCardsAffectedMessage": {
+        "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformToLiquidQuantity": 0.0,
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": false,
+        "TransferSpecial3": false,
+        "TransferSpecial4": false,
+        "TransferInventory": false,
+        "TransferSavedIngredients": false,
+        "AverageGivenAndReceivingCards": false,
+        "TransferLiquid": false,
+        "SpoilageTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "UsageTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "FuelTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "ProgressTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special1TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special2TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special3TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special4TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "ModifyDurability": false,
+        "ModifyLiquid": false,
+        "DropOnDestroyList": false,
+        "LiquidEffectScaling": 0,
+        "AddFlavoursFromTargetCard": false,
+        "AddFlavoursFromOtherCard": false,
+        "AddSpicesFromTargetCard": false,
+        "AddSpicesFromOtherCard": false,
+        "AddedFlavours": [],
+        "AddedSpiceTags": [],
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpoilageFromOtherCard": false,
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetUsageFromOtherCard": false,
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetFuelFromOtherCard": false,
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetProgressFromOtherCard": false,
+        "LiquidQuantityChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial1FromOtherCard": false,
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial2FromOtherCard": false,
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial3FromOtherCard": false,
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial4FromOtherCard": false,
+        "StatInterpolatedDurabilityChanges": [],
+        "DurabilityInterpolatedTransfers": [],
+        "ScaleChangesPerPortionOfLiquid": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "UseOtherCardForLiquidQuantity": false
+      },
+      "CustomWindowPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OpenQuestLog": false,
+      "OpenMap": false,
+      "UpdateMap": false,
+      "EditDescription": false,
+      "FadeToBlack": 0,
+      "FadeMessage": {
+        "ParentObjectID": "hw_tgr_dragon_spirit_encountered_insight",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "FadeTips": false,
+      "TravelToPreviousEnv": false,
+      "TravelToOtherRoom": false,
+      "RoomDirection": 0,
+      "ExitDirection": 0,
+      "RepeatOptions": 2,
+      "ActionCooldown": 0,
+      "OncePerTick": false,
+      "CannotPerformInCombat": false,
+      "PlayerUsesCardCondition": 0,
+      "StatChangeTrigger": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "hw_stat_dragon_spirit_encountered",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "//": "Harsh Wilds phase 2 (Documentation/Design/Harsh_Wilds_As_Built.md section 4): a shaggy herd ox that comes down to the northern hills and meadows in winter only. It never stalks and never attacks unprompted; a player who approaches may leave it alone, and one who fights it meets the herd's ring: hard to surprise, hard to hit from range, slow to break. A GENERATED agent (no Agent.Ref), so Carcass.Card applies and the framework wires the shared vanilla agent stats.",
+  "//Switch": "Spawn.Conditions (framework 2.27.0): the musk ox is in the world only while the hidden GameStat hw_switch_muskox is 1 (HarshWilds/Patcher/Switchboard.cs writes it from the [Threats] MuskOx config entry at every run start) AND the season is Winter (GameQuery.CurrentSeason). Outside winter the framework parks it in the Spirit World; it returns the tick winter starts (ConditionRespawnTicks omitted = 0). WinterDespawn is not built, so the season rides on Conditions.",
+  "//Encounter": "Encounter.Ref points at HarshWilds/Encounter/hw_encounter_muskox.json, which Development_Tools/HarshWilds/derive_content.py rebuilds from vanilla Combat_EncounterBoar.json with high awareness, cover and morale for the ring, FightOrEscape at the start, and defeat draining AgentBlood so the generated death action drops the carcass. Agent.Blood and PoisonResistance match that encounter's Blood and Value4, which load from these NPCStats.",
+  "//Range": "The four WanderEnvs are the connected northern clearings around Pine Meadows (EA 0.68b DefaultWorldMap: Pine Meadows links Still Hollow and Moon Hills; Moon Hills links Badger Hill).",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17 (changed 2026-10-05). The framework's lifecycle ticker (CSFFModFramework/Animals/AnimalLifecycleTicker.cs, TickKillRespawn) counts the agent as dead only while its blood sits at DutyBuilder.SpeciesStats.DeadBloodMax (4) or below, and the generated duties are gated on blood above 4. A kill leaves blood at 0 (the stat's minimum), so at 0.17 a tick it climbed out of the dead band after about 24 ticks (six hours), the ticker cleared the respawn timer, and the duties walked the animal back long before Spawn.DeathRespawnTicks. Vanilla agents can regenerate because their own death action resets the exists and respawn stats; the generated death action writes no stats. At 0 a killed animal stays dead until DeathRespawnTicks (or, with DeathRespawnTicks 0, the next condition restore) heals it to full. The cost: blood an animal loses without dying is not regained before then either.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_muskox",
+  "DisplayName": "Musk Ox",
+  "LocalizationKey": "HarshWilds_MuskOx_AgentName",
+  "Sprite": "hw_muskox",
+  "WeightCategory": "Heavy",
+  "Agent": {
+    "Blood": { "Start": 200, "Max": 200, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 120, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ca60012d0c6a8394f9bc5cef2e1794ad",
+    "DeathRespawnTicks": 1344,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_switch_muskox", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "Season", "UID": "Winter" }
+    ]
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "ca60012d0c6a8394f9bc5cef2e1794ad",
+      "5a51045d28a3ffc4a9a5802bd5fb2e6c",
+      "d5ed3b56f92b3bf44b6220ddc246d9e9",
+      "0dc7431ce6e2eda4fac5be625525108a"
+    ],
+    "WanderWeight": 100
+  },
+  "//Tracks": "Vanilla default track card. A herd in winter snow is easy to track: RevealSkillCurve adds +10 at skill 0 to +20 at 150, on top of the global Skill_Tracking curve. TUNABLE, NOT PLAYTESTED.",
+  "Tracks": {
+    "Enabled": true,
+    "LifetimeTicks": { "Min": 48, "Max": 96 },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": { "StatRange": [0, 150], "ChanceRange": [10, 20] },
+    "BloodTrail": true
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_muskox",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "hw_muskox_carcass"
+  }
+}

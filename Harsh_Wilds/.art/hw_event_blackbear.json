@@ -1,0 +1,26 @@
+{
+  "target": "hw_event_blackbear.png",
+  "sourceCard": "CardData/Event/hw_event_blackbear.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose. Reference images 1 and 2 are style references only: match their rendering exactly (flat posterized colour fills in a few hard-edged tonal steps like cel shading, no soft gradients, no watercolour bleed, no paper texture, thin dark ink outlines, small ink tick and hatch marks for fur), their muted naturalistic palette and their realistic animal anatomy; do not copy their subject, pose or composition, and do not draw their forest background.\nSubject: a realistic adult wild American black bear walking on all fours, seen side-on in three-quarter view and moving away to the right, carrying off one whole raw silver-grey fish clamped crosswise in its jaws. Coarse matte black fur with a lighter tan-brown muzzle, small rounded ears, a heavy shoulder hump-free back, thick legs, dark claws. A real wild animal: not cute, not cartoonish, not standing upright, not smiling, no human posture. Only a few fallen orange-brown autumn leaves lie on the ground right under its paws.\nThe bear is the single subject, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no trees, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, watercolour, soft airbrushed gradients, paper texture, anime, cartoon, cute, chibi, standing upright, drying rack, hanging meat, multiple animals, neon colours, lens flare, cropped, scenery behind the subject, forest background, grey background, off-white background, drop shadow, checkerboard, transparency grid, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "Bear",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_1791652872679_c89a275b.png"
+    },
+    {
+      "label": "Bear_Wild",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652871562_fdb75618.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653180213_f339f9b9_1791653180387_2f14365f.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
+}

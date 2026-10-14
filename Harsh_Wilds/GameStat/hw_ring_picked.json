@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_ring_picked",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_RingPicked_StatName",
+        "DefaultText": "Harsh Wilds: Fairy Ring Picked"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_RingPicked_StatDescription",
+        "DefaultText": "Hidden counter: ticks until a fairy ring's toadstools can be picked again."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 192.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false,
+    "//RingPicked": "Feature 29 (plan section 29): the fairy ring's picking cooldown. 'Pick Toadstools' writes +RING_PICK_COOLDOWN = 192 ticks (two game days, a TUNABLE PLACEHOLDER) and offers itself only at 0; the stat falls 1 a tick to its floor of 0. One counter for every ring, so picking in one grove holds the next for two days (rings are rare). Read only as a RequiredStatValues entry of the ring's own action, whose stat resolves because this file ships."
+}

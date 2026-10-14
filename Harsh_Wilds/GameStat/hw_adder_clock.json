@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_adder_clock",
+    "//Tunables": "TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play, never balanced. ADDER_COOLDOWN_TICKS = 192 (the max in MinMaxValue.y, and the same 192 in Tgr_HW_Adder's cooldown trigger and its reset): one roll at most every 2 days at 96 ticks per day. ADDER_GRACE_TICKS = 480 (BaseValue and MinMaxValue.x, negated): a fresh stat starts 480 ticks (5 days) below zero, so the first roll is 5 days plus one cooldown after the stat first exists (INFERRED from a save-less stat starting at its BaseValue, not measured). The clock climbs at BaseRatePerTick 1, stops at its max and waits there while another gate (the switch, the season, daylight, or the player sheltered) is closed, so the first eligible tick after that rolls at once. It is only ever read by Tgr_HW_Adder.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_AdderClock_StatName",
+        "DefaultText": "Harsh Wilds: Adder Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_AdderClock_StatDescription",
+        "DefaultText": "Hidden counter: how long until an adder may next strike."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": -480.0,
+    "MinMaxValue": {
+        "x": -480.0,
+        "y": 192.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

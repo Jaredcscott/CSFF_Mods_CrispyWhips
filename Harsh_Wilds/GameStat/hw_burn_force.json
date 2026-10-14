@@ -1,0 +1,42 @@
+{
+    "UniqueID": "hw_burn_force",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_BurnForce_StatName",
+        "DefaultText": "Harsh Wilds: Burn Roll Force"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_BurnForce_StatDescription",
+        "DefaultText": "Hidden test hook, 0 in play: above 0, the smithing burn roll reads this value instead of a random one."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

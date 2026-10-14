@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_stat_dryspell",
+    "//DrySpell": "Our OWN consecutive dry-weather counter (Documentation/Research/HarshWilds/events_stats.md section 3b and its drought DECISION). Vanilla NoRainCounter cannot be the clock: it is cumulative, nothing ever resets it, and it pins at its 10000 cap about 104 dry days into a run. This one climbs at BaseRatePerTick 1 (the vanilla Rainmaker counter shape), waits at its cap, and SelfTriggeredAction/Tgr_HW_DrySpellReset.json sets it back to 0 on every tick RainValue reads 1 to 5 (any rain), so it reads how long it has gone without rain. It counts in every season; only Tgr_HW_Drought and Tgr_HW_AlgaeBloom (its dry-spell action, three days) read it, and only in summer. HW_DRYSPELL_MAX = 1344 (MinMaxValue.y, 14 days at 96 ticks per day, the value Tgr_HW_Drought's dry-spell trigger tops out at and the size of the reset) is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. A drought's own days do NOT count: a drought forces clear weather, so left alone this counter would still read at least HW_DROUGHT_TICKS when a drought ends and the next daily roll would be eligible at once, making back-to-back droughts the normal summer. SelfTriggeredAction/Tgr_HW_DrySpellHold.json prevents that: while hw_stat_drought reads 1 or more it sets this counter back to 0 on every tick, so it restarts from 0 when the drought ends and a fresh dry spell of HW_DROUGHT_DRYSPELL_TICKS (4 days) is needed before the next drought can roll.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_DrySpell_StatName",
+        "DefaultText": "Harsh Wilds: Dry Spell"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_DrySpell_StatDescription",
+        "DefaultText": "Hidden counter: how long it has gone without rain. It goes back to 0 whenever it rains."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1344.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

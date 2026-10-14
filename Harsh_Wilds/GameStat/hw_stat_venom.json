@@ -1,0 +1,112 @@
+{
+    "UniqueID": "hw_stat_venom",
+    "//Venom": "THE ADDER'S VENOM (Documentation/Design/Harsh_Wilds_Content_Update_As_Built.md section 9): a hidden self-timed effect stat, the shape of hw_stat_bugswarm.json and the vanilla GarlicEffect. Its only writer is hw_event_adder's button, which adds +16 (ADDER_VENOM_TICKS, this stat's max) to it once; the base rate of -1 then drains it a tick at a time, so the venom lasts 16 ticks, four hours. While it reads 1 to 16 its one status is active and, as a status, carries a Pain ValueModifier of +30 (ADDER_VENOM_PAIN) and a Stress RateModifier of +1 a tick (ADDER_VENOM_STRESS), both removed by the game when the stat drains to 0. WHY A STATUS AND NOT AN ACTION WRITE: Pain (GUID ec5f330267076884dbe9cfdd2fd8503b, 0 to 500) has a base rate of 0 and nothing pulls it back, so an action's StatModifications on it would be PERMANENT (CLAUDE.md Food Items and EdibleStats Pattern); a status modifier is a GlobalModifier that ends with the status. +30 stays under Pain's first status band (100), so it hurts without reaching a band by itself. WHY NOT NAUSEA: Nausea caps at 24 and the vanilla Tgr_DizzyVomit fires on Nausea 20 to 24 (CLAUDE.md Perks, the StartingStatModifiers clamp paragraph), so this stat never names Nausea at all. Stress (GUID 3b79a4c6d7e151044a1c56fbbd401d78, 0 to 240, base rate -0.25) takes the +1 as a rate, so it climbs a net 0.75 a tick (about 12 over the venom). It NEVER alerts (NotifyPlayer 0, AlertLevel 0): the bite wound card is what the player sees. Visibility 2 is NeverVisible, as for the other hidden effect stats. All three numbers are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_AdderVenom_StatName",
+        "DefaultText": "Harsh Wilds: Adder Venom"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_AdderVenom_StatDescription",
+        "DefaultText": "Hidden timer: how many ticks of adder venom are left."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 16.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Bite_Small",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_AdderVenom_StatusName",
+                "DefaultText": "Adder Venom"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_AdderVenom_StatusDescription",
+                "DefaultText": "The adder's venom burns in the bite and wears on your nerves."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Bite_Small",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 16},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 30.0, "y": 30.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 1.0, "y": 1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_stat_whitewisent",
+    "//Rolled": "THE WHITE WISENT'S ROLLED STAT (plan section 33, Prompt 48): a self-timed hidden effect stat built like the blood moon's timer stat (range 0 to max, BaseRatePerTick -1) with no status, no alert and no icon: a rare beast is not announced. Written ONLY by the White Wisent collection of SelfTriggeredAction/Tgr_HW_WhiteWisent.json (+HW_WHITEWISENT_TICKS = 384, its max, four days, a TUNABLE PLACEHOLDER), then it counts itself down and rests at 0. Animals/WhiteWisent.json names it in Spawn.Conditions (StatThreshold GreaterOrEqual 1), so the white wisent is in the world exactly while it reads 1 or more and is retired to the Spirit World when it returns to 0. A GLOBAL stat.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_WhiteWisentRolled_StatName",
+        "DefaultText": "Harsh Wilds: White Wisent Days"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_WhiteWisentRolled_StatDescription",
+        "DefaultText": "Hidden timer: the white wisent walks the oak glades while this reads 1 or more."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 384.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

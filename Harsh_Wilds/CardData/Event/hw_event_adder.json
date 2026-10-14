@@ -1,0 +1,66 @@
+{
+    "UniqueID": "hw_event_adder",
+    "//Adder": "The event card Tgr_HW_Adder spawns, in the shape of vanilla Event_FallLaceration (36db4f020478b1444b20bb8c8c107c21): a CardType 3 whose one button produces a wound card and destroys the event card (ReceivingCardChanges.ModType 3, which is also what lets the button pass WillHaveAnEffect and render). The button hands the player vanilla W_BiteWound (4f9c5ba7f4f6fee4ab6d1bfeb1a565ff, by GUID, exactly one) and arms hw_stat_venom with one StatModification of +16 (ADDER_VENOM_TICKS, the stat's max; the stat drains at -1 a tick, so four hours). The venom's Pain and Stress effects are STATUS effects of that stat; this button never writes Pain, Nausea or any other player stat (Pain has a base rate of 0, so an action write would be permanent, CLAUDE.md Food Items and EdibleStats Pattern, and Nausea's cap sits inside Tgr_DizzyVomit's band, CLAUDE.md Perks). Gated by Development_Tools/Tests/HarshWilds-Adder.Tests.ps1. The button's text is the plain 'Grit your teeth' because the card has already told the player what happened.",
+    "//Image": "Card art HarshWilds/Resource/Picture/hw_event_adder.png (512x768 RGBA, paper keyed), provenance in HarshWilds/.art/hw_event_adder.json: an adder coiled on warm flat stones.",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_AdderEvent_CardName",
+        "DefaultText": "Adder!"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_AdderEvent_CardDescription",
+        "DefaultText": "A flash of grey-brown in the sun-warmed grass, and a sharp sting in your leg. An adder has bitten you and slid away."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_adder",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_AdderEvent_ActionName",
+                "DefaultText": "Grit your teeth"
+            },
+            "DaytimeCost": 0,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_venom",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 16.0, "y": 16.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Bite",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "4f9c5ba7f4f6fee4ab6d1bfeb1a565ff",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

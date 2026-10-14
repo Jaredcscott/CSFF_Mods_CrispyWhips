@@ -1,0 +1,1190 @@
+HarshWilds_SwitchLynx_StatName,Harsh Wilds: Lynx,严酷荒野：猞猁
+HarshWilds_SwitchLynx_StatDescription,Hidden 0/1 switch: 1 while the Lynx is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用猞猁时为 1。
+HarshWilds_Lynx_AgentName,Lynx,猞猁
+HarshWilds_SwitchWisent_StatName,Harsh Wilds: Wisent,严酷荒野：欧洲野牛
+HarshWilds_SwitchWisent_StatDescription,Hidden 0/1 switch: 1 while the Wisent is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用欧洲野牛时为 1。
+HarshWilds_Wisent_AgentName,Wisent,欧洲野牛
+HarshWilds_SwitchMuskOx_StatName,Harsh Wilds: Musk Ox,严酷荒野：麝牛
+HarshWilds_SwitchMuskOx_StatDescription,Hidden 0/1 switch: 1 while the Musk Ox is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用麝牛时为 1。
+HarshWilds_MuskOx_AgentName,Musk Ox,麝牛
+HarshWilds_SwitchEagle_StatName,Harsh Wilds: Eagle,严酷荒野：鹰
+HarshWilds_SwitchEagle_StatDescription,Hidden 0/1 switch: 1 while the Eagle is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用鹰时为 1。
+HarshWilds_EagleClock_StatName,Harsh Wilds: Eagle Clock,严酷荒野：鹰计时器
+HarshWilds_EagleClock_StatDescription,Hidden counter: how long until the Eagle may next look for small game on the ground.,隐藏的计数器：鹰下一次可以在地上寻找小型猎物之前还需多久。
+HarshWilds_EagleEvent_CardName,Eagle Overhead,头顶的鹰
+HarshWilds_EagleEvent_CardDescription,"A great eagle circles above the clearing, watching the ground for an easy meal.",一只巨大的鹰在空地上空盘旋，盯着地面寻找轻松的猎物。
+HarshWilds_EagleEvent_ActionName,See what it takes,看看它带走了什么
+HarshWilds_EagleEvent_LostMessage,The eagle swoops down and carries off:,鹰俯冲而下，叼走了：
+HarshWilds_SwitchBlackBear_StatName,Harsh Wilds: Black Bear,严酷荒野：黑熊
+HarshWilds_SwitchBlackBear_StatDescription,Hidden 0/1 switch: 1 while the Black Bear is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用黑熊时为 1。
+HarshWilds_BearClock_StatName,Harsh Wilds: Black Bear Clock,严酷荒野：黑熊计时器
+HarshWilds_BearClock_StatDescription,"Hidden counter: how long until the Black Bear may next look for meat, fish and sausage in the food stores.",隐藏的计数器：黑熊下一次可以在食物储藏处寻找肉、鱼和香肠之前还需多久。
+HarshWilds_BlackBearEvent_CardName,Black Bear at the Stores,储藏处的黑熊
+HarshWilds_BlackBearEvent_CardDescription,"A black bear, fattening up for the long winter sleep, has caught the smell of meat and fish and is nosing round your food stores. It may find nothing worth taking.",一只为漫长的冬眠而增肥的黑熊闻到了肉和鱼的气味，正在你的食物储藏处四处嗅探。它也可能一无所获。
+HarshWilds_BlackBearEvent_ActionName,See what it takes,看看它带走了什么
+HarshWilds_BlackBearEvent_LostMessage,The bear tears into the stores and lumbers off with:,黑熊撕开储藏的食物，带走了：
+HarshWilds_SwitchBandits_StatName,Harsh Wilds: Bandits,严酷荒野：强盗
+HarshWilds_SwitchBandits_StatDescription,Hidden 0/1 switch: 1 while Bandits are on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用强盗时为 1。
+HarshWilds_BanditAge_StatName,Harsh Wilds: Bandit Grace,严酷荒野：强盗宽限期
+HarshWilds_BanditAge_StatDescription,"Hidden counter: how long this run has gone on, so no bandit roams the river before the first days are over.",隐藏的计数器：本局已经进行了多久，确保最初几天过去之前不会有强盗在河边游荡。
+HarshWilds_BanditRobbed_StatName,Harsh Wilds: Robbed by Bandits,严酷荒野：遭强盗洗劫
+HarshWilds_BanditRobbed_StatDescription,Hidden 0/1 marker: 1 between losing a fight to bandits and their going through your pack.,隐藏的 0/1 标记：从你与强盗交战落败到他翻完你的行囊之间为 1。
+HarshWilds_Bandit_AgentName,Bandit,强盗
+HarshWilds_BanditBody_CardName,Fallen Bandit,倒下的强盗
+HarshWilds_BanditBody_CardDescription,The bandit who waylaid you lies still. Whatever he carried is yours for the taking.,那个拦路抢劫你的强盗一动不动地躺着。他身上带的东西，现在都归你了。
+HarshWilds_BanditBody_ActionName,Search the body,搜查尸体
+HarshWilds_BanditBody_ActionDescription,"Go through the bandit's pack and clothes, then leave him where he lies.",翻一翻强盗的行囊和衣物，然后让他留在原地。
+HarshWilds_BanditTheft_ActionName,Robbed by a Bandit,遭强盗洗劫
+HarshWilds_BanditTheft_LostMessage,The bandit goes through your pack and makes off with:,强盗翻遍了你的行囊，抢走了：
+HarshWilds_SwitchDrought_StatName,Harsh Wilds: Drought,严酷荒野：干旱
+HarshWilds_SwitchDrought_StatDescription,Hidden 0/1 switch: 1 while the Drought is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用干旱时为 1。
+HarshWilds_DrySpell_StatName,Harsh Wilds: Dry Spell,严酷荒野：旱期
+HarshWilds_DrySpell_StatDescription,Hidden counter: how long it has gone without rain. It goes back to 0 whenever it rains.,隐藏的计数器：已经多久没有下雨。每逢下雨便归零。
+HarshWilds_Drought_StatName,Drought,干旱
+HarshWilds_Drought_StatDescription,A summer drought. No rain falls until it breaks.,夏季干旱。干旱结束之前不会下雨。
+HarshWilds_Drought_StatusName,Drought,干旱
+HarshWilds_Drought_StatusDescription,"The sky has stayed clear for days. No rain will fall while the drought lasts, about a week. Rain catchers, cisterns and barrels will not refill and rain will not water the gardens: fetch water from the river, a well or a pond.",天空已经连续多日晴朗无云。干旱持续期间（约一周）不会下雨。集雨器、雨水窖和木桶不会再蓄上雨水，雨水也不会再浇灌菜园：请到河边、水井或池塘取水。
+HarshWilds_SwitchInsectPlague_StatName,Harsh Wilds: Insect Plague,严酷荒野：虫灾
+HarshWilds_SwitchInsectPlague_StatDescription,Hidden 0/1 switch: 1 while the Insect Plague is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用虫灾时为 1。
+HarshWilds_InsectPlague_StatName,Insect Plague,虫灾
+HarshWilds_InsectPlague_StatDescription,A summer insect plague. Biting insects swarm outdoors until it passes.,夏季虫灾。成群的叮人昆虫会在户外肆虐，直到虫灾过去。
+HarshWilds_InsectPlague_StatusName,Insect Plague,虫灾
+HarshWilds_InsectPlague_StatusDescription,"Swarms of biting insects have come, for about three days. Outdoors you will be bitten far more than usual, and the bites add up. Rain, a fire at your camp (campfire, fire pit, fireplace or hearth), snakegrass fed to a hearth, and staying indoors all thin them out.",成群的叮人昆虫来了，将持续约三天。你在户外被叮咬的次数会远超平常，而且叮咬会不断累积。下雨、营地里的火（营火、火坑、壁炉或火炉）、往火炉里添入蛇草，以及待在室内，都能让虫群变得稀疏。
+HarshWilds_InsectSwarm_StatName,Harsh Wilds: Insect Swarm,严酷荒野：虫群
+HarshWilds_InsectSwarm_StatDescription,"Hidden timer: while the insect plague runs and you are outdoors it stays up, and it drains within two ticks of stepping inside.",隐藏的计时器：虫灾期间你身在户外时它会保持在高位，走进室内后两个时刻内就会消退。
+HarshWilds_InsectSwarm_StatusName,Insect Swarm,虫群
+HarshWilds_InsectSwarm_StatusDescription,A cloud of biting insects follows you.,一团叮人的昆虫跟着你。
+HarshWilds_SwitchCropBlight_StatName,Harsh Wilds: Crop Blight,严酷荒野：作物枯萎病
+HarshWilds_SwitchCropBlight_StatDescription,Hidden 0/1 switch: 1 while the Crop Blight is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用作物枯萎病时为 1。
+HarshWilds_Blight_StatName,Crop Blight,作物枯萎病
+HarshWilds_Blight_StatDescription,A blight is spreading fungus through the planted crops until it passes.,枯萎病正在已种下的作物间传播真菌，直到它过去。
+HarshWilds_Blight_StatusName,Crop Blight,作物枯萎病
+HarshWilds_Blight_StatusDescription,"A blight is spreading fungus through your planted crops for about two days, and infected plants lose health. Put fungicide or garlic water on the garden plot, and do not overwater it.",枯萎病正在你种下的作物间传播真菌，将持续约两天，被感染的植物会损失健康度。请给菜园施用除菌剂或蒜水，并且不要浇水过多。
+HarshWilds_SwitchBloodMoon_StatName,Harsh Wilds: Blood Moon,严酷荒野：血月
+HarshWilds_SwitchBloodMoon_StatDescription,Hidden 0/1 switch: 1 while the Blood Moon is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用血月时为 1。
+HarshWilds_DuskClock_StatName,Harsh Wilds: Dusk Clock,严酷荒野：黄昏时钟
+HarshWilds_DuskClock_StatDescription,Hidden clock: 1 from 18:00 to 19:00 and 0 the rest of the day. The Blood Moon rolls when it turns 1.,隐藏的时钟：18:00 至 19:00 为 1，其余时间为 0。血月在它变为 1 时判定。
+HarshWilds_BloodMoon_StatName,Blood Moon,血月
+HarshWilds_BloodMoon_StatDescription,A blood moon: more lynxes hunt the forest until dawn.,血月：更多的猞猁将在森林中猎食，直到天亮。
+HarshWilds_BloodMoon_StatusName,Blood Moon,血月
+HarshWilds_BloodMoon_StatusDescription,"The full moon hangs red tonight. Two more lynxes than usual prowl the pine groves and mountain thickets until dawn, and each may attack once.",今夜满月红如鲜血。比平时多两只猞猁在松林和山间灌木丛中游荡，直到天亮，每只都可能发动一次袭击。
+HarshWilds_SwitchEclipse_StatName,Harsh Wilds: Eclipse,严酷荒野：日食
+HarshWilds_SwitchEclipse_StatDescription,Hidden 0/1 switch: 1 while the Eclipse is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用日食时为 1。
+HarshWilds_NoonClock_StatName,Harsh Wilds: Noon Clock,严酷荒野：正午时钟
+HarshWilds_NoonClock_StatDescription,Hidden clock: 1 from 12:00 to 13:00 and 0 the rest of the day. The Eclipse rolls when it turns 1.,隐藏的时钟：12:00 至 13:00 为 1，其余时间为 0。日食在它变为 1 时判定。
+HarshWilds_Eclipse_StatName,Eclipse,日食
+HarshWilds_Eclipse_StatDescription,An eclipse: the light falls sharply for about an hour.,日食：约一小时内光线骤然减弱。
+HarshWilds_Eclipse_StatusName,Eclipse,日食
+HarshWilds_Eclipse_StatusDescription,The moon slides across the sun and the light falls sharply for about an hour.,月亮从太阳前掠过，约一小时内光线骤然减弱。
+HarshWilds_Eclipse_TotalityStatusName,Eclipse totality,日全食
+HarshWilds_Eclipse_TotalityStatusDescription,The moon covers the sun. For about a quarter of an hour it is too dark for any task that needs light.,月亮遮住了太阳。约一刻钟内光线太暗，任何需要光线的任务都无法进行。
+HarshWilds_SwitchAurora_StatName,Harsh Wilds: Aurora,严酷荒野：极光
+HarshWilds_SwitchAurora_StatDescription,Hidden 0/1 switch: 1 while the Aurora is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用极光时为 1。
+HarshWilds_Aurora_StatName,Aurora,极光
+HarshWilds_Aurora_StatDescription,An aurora: standing under the open night sky lifts your mood.,极光：站在开阔的夜空下会让你的心情好转。
+HarshWilds_Aurora_StatusName,Aurora,极光
+HarshWilds_Aurora_StatusDescription,"An aurora is out tonight. Standing outside under the open night sky lifts your mood a little every quarter hour, for up to ten hours.",今夜出现了极光。在户外的开阔夜空下，你的心情每隔一刻钟会稍稍好转，最长持续十个小时。
+HarshWilds_SwitchFleasAndLice_StatName,Harsh Wilds: Fleas and Lice,严酷荒野：跳蚤和虱子
+HarshWilds_SwitchFleasAndLice_StatDescription,Hidden 0/1 switch: 1 while Fleas and Lice are on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用跳蚤和虱子时为 1。
+HarshWilds_Fleas_StatName,Fleas and Lice,跳蚤和虱子
+HarshWilds_Fleas_StatDescription,"Fleas and lice in your hair, clothes and bedding. They never leave on their own. Keeping yourself clean drives them out slowly; the smoke of burning bog myrtle or juniper, bog myrtle leaves or bug repellent salve rubbed on, and a herbal wash drive them out faster.",跳蚤和虱子藏在你的头发、衣服和铺盖里，它们不会自行离开。保持身体清洁能慢慢把它们赶走；焚烧沼泽香木或杜松的烟、涂抹沼泽香木叶或驱虫膏，以及草药洗剂能更快地赶走它们。
+HarshWilds_Fleas_Status1_Name,Flea Bites,跳蚤叮咬
+HarshWilds_Fleas_Status1_Description,"A few fleas and lice have found you. The bites itch: less comfort, and your stress stops easing.",几只跳蚤和虱子找上了你。叮咬处发痒：舒适度降低，压力也不再缓解。
+HarshWilds_Fleas_Status2_Name,Fleas,跳蚤
+HarshWilds_Fleas_Status2_Description,"Fleas and lice are breeding in your clothes and hair: much less comfort, and your stress slowly rises.",跳蚤和虱子正在你的衣服和头发里繁殖：舒适度大幅降低，压力缓慢上升。
+HarshWilds_Fleas_Status3_Name,Infested,虫害缠身
+HarshWilds_Fleas_Status3_Description,"You are crawling with fleas and lice: far less comfort, and your stress keeps rising. Wash, smoke them out or use a herbal wash.",你身上爬满了跳蚤和虱子：舒适度严重降低，压力不断上升。洗个澡、用烟熏走它们，或者用草药洗剂。
+HarshWilds_HerbalWash_CardName,Herbal Wash,草药洗剂
+HarshWilds_HerbalWash_CardDescription,"A strong-smelling mash of bog myrtle and dry juniper needles. Scrubbed through your hair, skin and clothes, it drives out fleas and lice and gets some of the dirt off. With Herbs and Fungi installed, a herb dragged onto it makes a stronger wash that clears them out completely.",用沼泽香木和干杜松针捣成的气味浓烈的糊。把它搓遍头发、皮肤和衣服，能赶走跳蚤和虱子，还能去掉一些污垢。安装了《草药与真菌》时，把一株草药拖到它上面，能做成更强的洗剂，把它们彻底清除。
+HarshWilds_HerbalWash_ActionName,Wash with Herbs,用草药清洗
+HarshWilds_HerbalWash_ActionDescription,"Scrub your hair, skin and clothes with the herbal wash to drive out fleas and lice.",用草药洗剂擦洗头发、皮肤和衣服，赶走跳蚤和虱子。
+HarshWilds_HerbalWash_InfusionActionName,Wash with Herb Infusion,用草药浸剂清洗
+HarshWilds_HerbalWash_InfusionActionDescription,Crush the herb into the wash and scrub with it: a stronger dose that clears fleas and lice out completely.,把草药捣进洗剂里再擦洗全身：更强的一剂，能把跳蚤和虱子彻底清除。
+HarshWilds_BpHerbalWash_CardName,Herbal Wash,草药洗剂
+HarshWilds_BpHerbalWash_CardDescription,"Mash bog myrtle (fresh, dried or powdered) with dry juniper needles in a clay bowl to make a wash that drives out fleas and lice. The bowl is not used up.",在陶碗里把沼泽香木（新鲜的、干的或磨成粉的）和干杜松针捣在一起，做成能赶走跳蚤和虱子的洗剂。陶碗不会被消耗。
+HarshWilds_SwitchToothDecay_StatName,Harsh Wilds: Tooth Decay,严酷荒野：蛀牙
+HarshWilds_SwitchToothDecay_StatDescription,Hidden 0/1 switch: 1 while Tooth Decay is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用蛀牙时为 1。
+HarshWilds_Teeth_StatName,Tooth Decay,蛀牙
+HarshWilds_Teeth_StatDescription,"Rot in your teeth. It never goes away on its own: honey, sugar and a lot of berries wear your teeth down, and so does time. Each stage hurts and wears on your nerves. Chewing a chewing stick, with a herb for more, wears the rot down a little at a time; in the worst stage a bad tooth can be pulled out, which clears it all.",牙齿里的蛀洞。它不会自行消失：蜂蜜、糖和大量浆果会侵蚀你的牙齿，时间也一样。每个阶段都会让你疼痛，并消磨你的神经。嚼食嚼棒（加入草药效果更好）能一点一点减轻蛀蚀；在最严重的阶段，可以把坏牙拔掉，彻底清除蛀牙。
+HarshWilds_Teeth_Status1_Name,Sore Tooth,牙齿酸痛
+HarshWilds_Teeth_Status1_Description,"A tooth has started to go bad. It twinges when you eat, and your stress stops easing.",一颗牙齿开始坏了。吃东西时会隐隐作痛，你的压力也不再缓解。
+HarshWilds_Teeth_Status2_Name,Toothache,牙痛
+HarshWilds_Teeth_Status2_Description,"The rot has reached the nerve. Chewing hurts, you cannot think of anything else, and your stress slowly rises.",蛀蚀已经伤到神经。咀嚼时疼痛难忍，你什么也无法专心去想，压力缓慢上升。
+HarshWilds_Teeth_Status3_Name,Rotten Tooth,烂牙
+HarshWilds_Teeth_Status3_Description,"A tooth has rotted through and throbs day and night, and your stress keeps rising. Chewing sticks can wear the rot down, or the bad tooth can be pulled out.",一颗牙已经烂穿，日夜抽痛，你的压力不断上升。嚼棒能减轻蛀蚀，也可以把坏牙拔掉。
+HarshWilds_ChewingStick_CardName,Chewing Stick,嚼棒
+HarshWilds_ChewingStick_CardDescription,"A willow twig with one end chewed into a brush. Chewed on, it scrubs the teeth and wears the rot of tooth decay down a little at a time, but it is used up. With Herbs and Fungi installed, a herb dragged onto it makes a stronger dose.",一根一端被嚼成刷子状的柳枝。嚼着它能刷洗牙齿，一点一点减轻蛀牙的蛀蚀，但用一次就没了。安装了《草药与真菌》时，把一株草药拖到它上面，能得到更强的一剂。
+HarshWilds_ChewingStick_ActionName,Chew,咀嚼
+HarshWilds_ChewingStick_ActionDescription,Chew the stick and scrub your teeth with it to wear down tooth decay.,嚼这根棒子并用它刷牙，减轻蛀牙。
+HarshWilds_ChewingStick_HerbsActionName,Chew with Herbs,配草药咀嚼
+HarshWilds_ChewingStick_HerbsActionDescription,Work the herb into the chewed end and scrub your teeth with it: a stronger dose against tooth decay.,把草药揉进嚼烂的一端，再用它刷牙：对蛀牙更强的一剂。
+HarshWilds_BpChewingStick_CardName,Chewing Stick,嚼棒
+HarshWilds_BpChewingStick_CardDescription,Chew the end of a willow twig into a brush. Chewing it scrubs the teeth and wears down tooth decay.,把一根柳枝的一端嚼成刷子状。嚼着它能刷洗牙齿，减轻蛀牙。
+HarshWilds_ToothPuller_CardName,Tooth Puller,拔牙器
+HarshWilds_ToothPuller_CardDescription,"A hooked sliver of bone lashed to a twine loop, for pulling a rotten tooth. It only works on a tooth that has rotted right through, takes half an hour and leaves you badly shaken. It can be used a few times before it falls apart.",一片带钩的骨头绑在一圈细线上，用来拔掉烂牙。它只对已经烂穿的牙有用，要花半小时，还会让你惊魂未定。用上几次就会散架。
+HarshWilds_ToothPuller_ActionName,Pull the Bad Tooth,拔掉坏牙
+HarshWilds_ToothPuller_ActionDescription,"Pull the rotten tooth out. It clears tooth decay (sweets and time can start it again), but it takes half an hour and leaves you badly shaken.",把烂牙拔掉。它能清除蛀牙（甜食和时间还会让它卷土重来），但要花半小时，还会让你惊魂未定。
+HarshWilds_BpToothPuller_CardName,Tooth Puller,拔牙器
+HarshWilds_BpToothPuller_CardDescription,Lash a hooked bone to a twine loop to make a tool for pulling a rotten tooth. It works a few times before it falls apart.,把带钩的骨头绑在一圈细线上，做成拔烂牙的工具。用上几次就会散架。
+HarshWilds_SwitchHeron_StatName,Harsh Wilds: Heron,严酷荒野：苍鹭
+HarshWilds_SwitchHeron_StatDescription,Hidden 0/1 switch: 1 while the Heron is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用苍鹭时为 1。
+HarshWilds_HeronClock_StatName,Harsh Wilds: Heron Clock,严酷荒野：苍鹭计时器
+HarshWilds_HeronClock_StatDescription,Hidden counter: how long until the Heron may next visit a pond.,隐藏的计数器：苍鹭下一次可以造访池塘之前还需多久。
+HarshWilds_HeronEvent_CardName,Heron at the Pond,池塘边的苍鹭
+HarshWilds_HeronEvent_CardDescription,"A grey heron stands motionless at the water's edge, watching the shallows for small fish.",一只灰苍鹭一动不动地站在水边，盯着浅水里的小鱼。
+HarshWilds_HeronEvent_ActionName,See what it takes,看看它带走了什么
+HarshWilds_SwitchAdder_StatName,Harsh Wilds: Adder,严酷荒野：毒蛇
+HarshWilds_SwitchAdder_StatDescription,Hidden 0/1 switch: 1 while the Adder is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中开启毒蛇时为 1。
+HarshWilds_AdderClock_StatName,Harsh Wilds: Adder Clock,严酷荒野：毒蛇计时器
+HarshWilds_AdderClock_StatDescription,Hidden counter: how long until an adder may next strike.,隐藏的计数器：距毒蛇下一次可能袭击还有多久。
+HarshWilds_DaylightClock_StatName,Harsh Wilds: Daylight Clock,严酷荒野：白昼时钟
+HarshWilds_DaylightClock_StatDescription,Hidden clock: 1 from 09:00 to 18:00 and 0 the rest of the day. The Adder only strikes while it reads 1.,隐藏的时钟：09:00 至 18:00 为 1，其余时间为 0。毒蛇只在它为 1 时才会袭击。
+HarshWilds_AdderVenom_StatName,Harsh Wilds: Adder Venom,严酷荒野：毒蛇毒液
+HarshWilds_AdderVenom_StatDescription,Hidden timer: how many ticks of adder venom are left.,隐藏的计时器：毒蛇毒液还剩多少个时间点。
+HarshWilds_AdderVenom_StatusName,Adder Venom,毒蛇毒液
+HarshWilds_AdderVenom_StatusDescription,The adder's venom burns in the bite and wears on your nerves.,毒蛇的毒液在伤口中焦烧，折磨着你的神经。
+HarshWilds_AdderEvent_CardName,Adder!,毒蛇！
+HarshWilds_AdderEvent_CardDescription,"A flash of grey-brown in the sun-warmed grass, and a sharp sting in your leg. An adder has bitten you and slid away.",被阳光晒暖的草丛中闪过一道灰褐色的影子，腿上传来尖锐的刺痛。一条毒蛇咬了你，又滑走了。
+HarshWilds_AdderEvent_ActionName,Grit your teeth,咬紧牙关
+HarshWilds_SwitchColdSnap_StatName,Harsh Wilds: Cold Snap,严酷荒野：寒潮
+HarshWilds_SwitchColdSnap_StatDescription,Hidden 0/1 switch: 1 while the Cold Snap is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用寒潮时为 1。
+HarshWilds_ColdSnap_StatName,Cold Snap,寒潮
+HarshWilds_ColdSnap_StatDescription,A cold snap: much colder than the season for about two days.,寒潮：约两天内比这个季节冷得多。
+HarshWilds_ColdSnap_StatusName,Cold Snap,寒潮
+HarshWilds_ColdSnap_StatusDescription,A cold snap has set in. For about two days it is much colder than the season: dress warmly and keep a fire.,寒潮来了。约两天内气温比这个季节低得多：穿暖一点，生好火。
+HarshWilds_SwitchAlgaeBloom_StatName,Harsh Wilds: Algae Bloom,严酷荒野：藻华
+HarshWilds_SwitchAlgaeBloom_StatDescription,Hidden 0/1 switch: 1 while the Algae Bloom is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用藻华时为 1。
+HarshWilds_AlgaeBloom_StatName,Algae Bloom,藻华
+HarshWilds_AlgaeBloom_StatDescription,An algae bloom: for about three days the larger fish of the rivers and lakes stop biting.,藻华：约三天内，河流与湖泊中的大鱼不再咬钩。
+HarshWilds_AlgaeBloom_StatusName,Algae Bloom,藻华
+HarshWilds_AlgaeBloom_StatusDescription,"The rivers and lakes have turned green with algae. For about three days the larger fish stop biting: a line or a spear brings up only minnows, or nothing.",河流与湖泊被藻类染成了绿色。约三天内大鱼不再咬钩：鱼线或鱼叉只能捞到小鱼，或者一无所获。
+HarshWilds_Bandit_Approach,Confront,对峙
+HarshWilds_TuneRaids_StatName,Harsh Wilds: Raid Pressure,严酷荒野：袭击强度
+HarshWilds_TuneRaids_StatDescription,"Hidden 0/1/2 dial: 0 Low, 1 Normal, 2 High raid pressure from the Harsh Wilds config.",隐藏的 0/1/2 刻度：严酷荒野配置中的袭击强度，0 为低，1 为正常，2 为高。
+HarshWilds_BugTrap_CardName,Bug Trap,驱虫粘棒
+HarshWilds_BugTrap_CardDescription,"A stick smeared with sticky resin or tar and set down in camp. Biting insects stick to it, so there are fewer of them around, until it is used up after about a day.",涂满黏稠树脂或焦油的木棍，放在营地里。叮人的虫子会粘在上面，周围的虫子因此变少，大约一天后它就用尽了。
+HarshWilds_BugTrap_UsageStatName,Stickiness,黏性
+HarshWilds_BugTrapSpent_CardName,Spent Bug Trap,用尽的驱虫粘棒
+HarshWilds_BugTrapSpent_CardDescription,A stick crusted over with dried resin and dead insects. It catches nothing more. Throw it away.,木棍上结满了干硬的树脂和死虫，再也粘不住什么了。扔掉吧。
+HarshWilds_BpBugTrapResin_CardName,Bug Trap (Cold Resin),驱虫粘棒（冷树脂）
+HarshWilds_BpBugTrapResin_CardDescription,"Smear a stick with cold resin and set it down in camp: biting insects stick to it, so there are fewer of them for about a day, then it is spent.",在木棍上涂满冷树脂并放在营地里：叮人的虫子会粘在上面，大约一天内虫子会变少，之后它就用尽了。
+HarshWilds_BpBugTrapTar_CardName,Bug Trap (Cold Tar),驱虫粘棒（冷焦油）
+HarshWilds_BpBugTrapTar_CardDescription,"Smear a stick with cold tar and set it down in camp: biting insects stick to it, so there are fewer of them for about a day, then it is spent.",在木棍上涂满冷焦油并放在营地里：叮人的虫子会粘在上面，大约一天内虫子会变少，之后它就用尽了。
+HarshWilds_SwitchSmithingBurns_StatName,Harsh Wilds: Smithing Burns,严酷荒野：锻造烧伤
+HarshWilds_SwitchSmithingBurns_StatDescription,Hidden 0/1 switch: 1 while Smithing Burns is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中开启锻造烧伤时为 1。
+HarshWilds_SwitchForageBites_StatName,Harsh Wilds: Forage Bites,严酷荒野：采集叮咬
+HarshWilds_SwitchForageBites_StatDescription,Hidden 0/1 switch: 1 while Forage Bites is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中开启采集叮咬时为 1。
+HarshWilds_BurnForce_StatName,Harsh Wilds: Burn Roll Force,严酷荒野：烧伤判定强制值
+HarshWilds_BurnForce_StatDescription,"Hidden test hook, 0 in play: above 0, the smithing burn roll reads this value instead of a random one.",隐藏的测试钩子，游戏中为 0：大于 0 时，锻造烧伤判定读取该值而不是随机数。
+HarshWilds_BiteForce_StatName,Harsh Wilds: Bite Roll Force,严酷荒野：叮咬判定强制值
+HarshWilds_BiteForce_StatDescription,"Hidden test hook, 0 in play: above 0, the foraging bite roll reads this value instead of a random one.",隐藏的测试钩子，游戏中为 0：大于 0 时，采集叮咬判定读取该值而不是随机数。
+HarshWilds_SmithingBurn_Notice,The hot metal burns your bare hands.,烧红的金属烫伤了你赤裸的双手。
+HarshWilds_ForageBite_Notice,Insects swarm you as you push through the thicket.,你拨开灌木丛时，虫群扑向了你。
+HarshWilds_SwitchMudVolcano_StatName,Harsh Wilds: Mud Volcano,严酷荒野：泥火山
+HarshWilds_SwitchMudVolcano_StatDescription,Hidden 0/1 switch: 1 while the Mud Volcano is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用泥火山时为 1。
+HarshWilds_MudVolcanoClock_StatName,Harsh Wilds: Mud Volcano Clock,严酷荒野：泥火山计时器
+HarshWilds_MudVolcanoClock_StatDescription,Hidden counter: how long until the mud volcano may next erupt.,隐藏的计数器：泥火山下一次可能喷发之前还需多久。
+HarshWilds_MudVolcanoEvent_CardName,The Mud Volcano Erupts,泥火山喷发了
+HarshWilds_MudVolcanoEvent_CardDescription,"The crater heaves, bulges and bursts, throwing hot grey mud across the ground around it.",火山口鼓胀、隆起，然后猛然爆开，把滚烫的灰色泥浆甩得四周满地都是。
+HarshWilds_MudVolcanoEvent_ActionName,Shield yourself,护住自己
+HarshWilds_Mistletoe_CardName,Mistletoe,槲寄生
+HarshWilds_Mistletoe_CardDescription,A sprig of mistletoe cut from the boughs of an oak in winter. The old rites hang it in a grove to bless it. Do not eat it.,冬日里从橡树枝头割下的一枝槲寄生。古老的仪式会把它挂在林地里为林地赐福。不要食用。
+HarshWilds_BrewBeastEffect_StatName,Beast Brew,兽息酿
+HarshWilds_BrewBeastEffect_StatDescription,The Beast Brew working in you: it falls by 1 each tick and is renewed by drinking.,兽息酿的药力：每过一刻减1，饮用后重新补满。
+HarshWilds_BrewBeastEffect_StatusName,Beast Brew,兽息酿
+HarshWilds_BrewBeastEffect_StatusDescription,"The brew is working in you. Beast Affinity rises faster than it fades, for as long as the brew lasts.",酿汁在你体内起效。野兽亲和度的增长快于它的衰减，直到药力消退。
+HarshWilds_BrewBeast_CardName,Beast Brew,兽息酿
+HarshWilds_BrewBeast_CardDescription,"A thin grey brew of bonemeal and rendered fat stirred into clean water. It tastes of the animals it came from. For half a day after a draught you feel nearer to the beasts: Beast Affinity builds faster, which is what the old callings ask for.",把骨粉和熬出的油脂搅进清水里，做成淡灰色的汤，喝起来带着兽类的气味。饮后半日，你与野兽更为亲近：野兽亲和度增长得更快，这正是古老的呼唤所需要的。
+HarshWilds_BrewBeast_CardHelpSection,"<b>Preparation:</b> Mix bonemeal and fat into a bowl of clean water.
+
+<b>Benefits:</b> Quenches thirst and raises Beast Affinity faster than it fades for about half a day (two draughts last a day).","<b>制作：</b>把骨粉和油脂调入一碗清水。
+
+<b>功效：</b>解渴，并在约半日内让野兽亲和度增长得快于衰减（连饮两次可持续一天）。"
+HarshWilds_BpBeastBrew_CardName,Beast Brew,兽息酿
+HarshWilds_BpBeastBrew_CardDescription,Stir bonemeal and fat into a bowl of clean water to make a brew that builds Beast Affinity. The bowl is not used up.,把骨粉和油脂调入一碗清水，做成能增长野兽亲和度的酿汁。碗不会消耗。
+HarshWilds_BrewEarthEffect_StatName,Earth Brew,地息酿
+HarshWilds_BrewEarthEffect_StatDescription,The Earth Brew working in you: it falls by 1 each tick and is renewed by drinking.,地息酿的药力：每过一刻减1，饮用后重新补满。
+HarshWilds_BrewEarthEffect_StatusName,Earth Brew,地息酿
+HarshWilds_BrewEarthEffect_StatusDescription,"The brew is working in you. Earth Affinity rises faster than it fades, for as long as the brew lasts.",酿汁在你体内起效。大地亲和度的增长快于它的衰减，直到药力消退。
+HarshWilds_BrewEarth_CardName,Earth Brew,地息酿
+HarshWilds_BrewEarth_CardDescription,"A dark, gritty brew of wood ash and dry moss steeped in clean water. It tastes of the ground after rain. For half a day after a draught you feel the earth under you more keenly: Earth Affinity builds faster.",用木灰和干苔泡在清水里做成的深色浑汤，喝起来像雨后泥土的味道。饮后半日，你对脚下的大地感受得更为敏锐：大地亲和度增长得更快。
+HarshWilds_BrewEarth_CardHelpSection,"<b>Preparation:</b> Mix ash and dry moss into a bowl of clean water.
+
+<b>Benefits:</b> Quenches thirst and raises Earth Affinity faster than it fades for about half a day (two draughts last a day).","<b>制作：</b>把木灰和干苔调入一碗清水。
+
+<b>功效：</b>解渴，并在约半日内让大地亲和度增长得快于衰减（连饮两次可持续一天）。"
+HarshWilds_BpEarthBrew_CardName,Earth Brew,地息酿
+HarshWilds_BpEarthBrew_CardDescription,Steep ash and dry moss in a bowl of clean water to make a brew that builds Earth Affinity. The bowl is not used up.,把木灰和干苔泡入一碗清水，做成能增长大地亲和度的酿汁。碗不会消耗。
+HarshWilds_BrewMuscleEffect_StatName,Musclebrew,壮筋酿
+HarshWilds_BrewMuscleEffect_StatDescription,The Musclebrew working in you: it falls by 1 each tick and is renewed by drinking.,壮筋酿的药力：每过一刻减1，饮用后重新补满。
+HarshWilds_BrewMuscleEffect_StatusName,Musclebrew,壮筋酿
+HarshWilds_BrewMuscleEffect_StatusDescription,"The brew is working in you. Hard work and heavy loads grow muscle sooner, for as long as the brew lasts.",酿汁在你体内起效。辛苦劳作和负重会让肌肉更快增长，直到药力消退。
+HarshWilds_BrewMuscle_CardName,Musclebrew,壮筋酿
+HarshWilds_BrewMuscle_CardDescription,"A rich, bitter mash of a wild egg and dried pine nuts beaten into clean water. For half a day after a draught your muscles answer hard work sooner: it adds to the stimulus that grows muscle, and does nothing if you only sit.",把一枚野鸟蛋和干松子打进清水，做成浓稠微苦的糊汤。饮后半日，肌肉对辛苦劳作的反应更快：它给增肌刺激加了一份力，但只坐着不动就没有任何作用。
+HarshWilds_BrewMuscle_CardHelpSection,"<b>Preparation:</b> Beat a wild egg and dried pine nuts into a bowl of clean water.
+
+<b>Benefits:</b> Quenches thirst and adds to the muscle-growth stimulus for about half a day (two draughts last a day). It does not grow muscle at rest.","<b>制作：</b>把一枚野鸟蛋和干松子打入一碗清水。
+
+<b>功效：</b>解渴，并在约半日内增强增肌刺激（连饮两次可持续一天）。静养时不会增肌。"
+HarshWilds_BpMuscleBrew_CardName,Musclebrew,壮筋酿
+HarshWilds_BpMuscleBrew_CardDescription,Beat a wild egg and dried pine nuts into a bowl of clean water to make a brew that helps muscle grow. The bowl is not used up.,把一枚野鸟蛋和干松子打入一碗清水，做成助长肌肉的酿汁。碗不会消耗。
+HarshWilds_BrewDrink_ActionName,Drink,饮用
+HarshWilds_BrewSpoilage_StatName,Bacteria,细菌
+HarshWilds_BrewSpoilage_Text,The brew has gone off.,这碗酿汁已经变质了。
+HarshWilds_Witchfire_KindleActionName,Kindle Witchfire,点燃巫火
+HarshWilds_Witchfire_KindleActionDescription,"Wake the witchstone dust. It burns with a cold pale light, with no fuel, until the night is over.",唤醒巫石粉。它会发出冷冷的苍白光芒，不需要燃料，一直燃到夜尽。
+HarshWilds_Witchfire_CardName,Witchfire,巫火
+HarshWilds_Witchfire_CardDescription,"A pinch of witchstone dust bound in beeswax. Kindle it and it burns with a cold pale light, with no fuel, for one night. It gives light and nothing else: no heat, and it lights no fire.",一撮用蜂蜡裹住的巫石粉。点燃后会发出冷冷的苍白光芒，不需要燃料，可以燃一整夜。它只提供光亮，没有热量，也点不着任何火。
+HarshWilds_Witchfire_LitStatName,Burning,燃烧中
+HarshWilds_WitchfireLit_CardName,Lit Witchfire,燃着的巫火
+HarshWilds_WitchfireLit_CardDescription,"A cold pale flame that needs no fuel. While you carry it, it gives light. It burns out when the night is over.",一团不需要燃料的冷色火光。带着它时，它会发出光亮，夜尽时便会熄灭。
+HarshWilds_WitchfireSpent_CardName,Burnt-out Witchfire,燃尽的巫火
+HarshWilds_WitchfireSpent_CardDescription,The grey ash of a witchfire that has burned out. Nothing is left in it.,燃尽的巫火留下的灰烬，里面什么都没有了。
+HarshWilds_BpWitchfire_CardName,Witchfire,巫火
+HarshWilds_BpWitchfire_CardDescription,Bind a pinch of witchstone dust in beeswax to make a cold light that burns without fuel for one night.,把一撮巫石粉用蜂蜡裹住，做成一夜不需要燃料的冷色灯火。
+HarshWilds_SwitchWhiteWisent_StatName,Harsh Wilds: White Wisent,严酷荒野：白色欧洲野牛
+HarshWilds_SwitchWhiteWisent_StatDescription,Hidden 0/1 switch: 1 while the White Wisent is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用白色欧洲野牛时为 1。
+HarshWilds_SwitchGoldenHind_StatName,Harsh Wilds: Golden Hind,严酷荒野：金色母鹿
+HarshWilds_SwitchGoldenHind_StatDescription,Hidden 0/1 switch: 1 while the Golden Hind is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用金色母鹿时为 1。
+HarshWilds_WhiteWisentRolled_StatName,Harsh Wilds: White Wisent Days,严酷荒野：白色欧洲野牛出没日
+HarshWilds_WhiteWisentRolled_StatDescription,Hidden timer: the white wisent walks the oak glades while this reads 1 or more.,隐藏的计时器：此数值不小于 1 时，白色欧洲野牛会在橡树林间游荡。
+HarshWilds_GoldenHindRolled_StatName,Harsh Wilds: Golden Hind Days,严酷荒野：金色母鹿出没日
+HarshWilds_GoldenHindRolled_StatDescription,Hidden timer: the golden hind walks the oak glades while this reads 1 or more.,隐藏的计时器：此数值不小于 1 时，金色母鹿会在橡树林间游荡。
+HarshWilds_WhiteWisent_AgentName,White Wisent,白色欧洲野牛
+HarshWilds_GoldenHind_AgentName,Golden Hind,金色母鹿
+HarshWilds_GoldenHind_FollowActionName,Follow the Hind,跟随母鹿
+HarshWilds_HindBlessing_CardName,Blessing of the Golden Hind,金色母鹿的祝福
+HarshWilds_HindBlessing_CardDescription,"The golden hind let you follow it a while, and its stillness stayed with you. Receive the blessing to forage and slip away with a lighter step for a day or so.",金色母鹿允许你跟随了它一会儿，它的宁静也留在了你的心里。接受祝福后，你在一天左右的时间里觅食更顺利，脱身也更轻盈。
+HarshWilds_HindBlessing_ActionName,Receive the Blessing,接受祝福
+HarshWilds_HindBlessing_ActionDescription,Receive the golden hind's blessing: a day or so of surer foraging and a quicker getaway.,接受金色母鹿的祝福：一天左右觅食更稳、脱身更快。
+HarshWilds_SpiritJar_CardName,Spirit Jar,灵魄陶罐
+HarshWilds_SpiritJar_CardDescription,"A clay jar marked with spirit signs and sealed with a spirit herb. Unlike a plain clay jar it takes a spirit essence, and nothing in it draws on the essence, so it does not fade there. Pour an essence in while your mind is open to the spirits, and later pour it into an amulet or a coat that can be enchanted.",一只画着灵魄符号、用灵草封口的陶罐。与普通陶罐不同，它能盛放灵魄精华，而且罐中没有任何东西汲取精华，所以精华在里面不会消散。在你心灵向灵魄敞开时把精华倒进去，之后再倒入可附魔的护身符或大衣。
+HarshWilds_BpSpiritJar_CardName,Spirit Jar,灵魄陶罐
+HarshWilds_BpSpiritJar_CardDescription,"Mark a fired clay jar with charcoal signs and seal it with a spirit herb, so that it will hold a spirit essence.",用木炭在烧好的陶罐上画下符号，再用灵草封口，让它能盛放灵魄精华。
+HarshWilds_BpSpiritJar_UnlockConditionsDesc,Requires some Insight.,需要一定的灵视。
+HarshWilds_SpiritMask_CardName,Spirit Mask,灵魄面具
+HarshWilds_SpiritMask_CardDescription,"A wooden mask carved with an animal face and blackened with charcoal. While you wear it and your mind is open to the spirits, Beast Affinity slowly rises. It wears out after about four weeks of wear, and it takes the face slot.",一副刻着兽面、用木炭涂黑的木面具。戴着它且心灵向灵魄敞开时，野兽亲和度会缓慢上升。佩戴约四周后会损坏，并且占用面部栏位。
+HarshWilds_SpiritMask_UsageStatName,Wear,磨损
+HarshWilds_BpSpiritMask_CardName,Spirit Mask,灵魄面具
+HarshWilds_BpSpiritMask_CardDescription,"Carve an animal face from wood, blacken it with charcoal and tie it on with twine.",用木头刻出兽面，用木炭涂黑，再用细线系好。
+HarshWilds_BpSpiritMask_UnlockConditionsDesc,Requires some Insight.,需要一定的灵视。
+HarshWilds_CharmLynx_CardName,Lynx Charm,猞猁护符
+HarshWilds_CharmLynx_CardDescription,"A bone charm carved for the Lynx Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the lynx's sure footing stays with you (Climbing Aid), only at its lowest level. It wears out after about four weeks of wear.",为猞猁精魄雕刻、挂在颈间的骨制护符。它不需要缔结：佩戴时，猞猁稳健的脚步会留一点在你身上（攀爬援助），但只在最低一级。佩戴约四周后会磨尽。
+HarshWilds_CharmLynx_UsageStatName,Wear,磨损
+HarshWilds_BpCharmLynx_CardName,Lynx Charm,猞猁护符
+HarshWilds_BpCharmLynx_CardDescription,Carve a charm for the Lynx Spirit from bone and string it on twine.,用骨头为猞猁精魄雕一枚护符，穿在细线上。
+HarshWilds_BpCharmLynx_UnlockConditionsDesc,Bind the Lynx Spirit once.,曾缔结过一次猞猁精魄。
+HarshWilds_CharmGoat_CardName,Goat Charm,山羊护符
+HarshWilds_CharmGoat_CardDescription,"A bone charm carved for the Goat Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the goat's stubborn hardiness stays with you (Bestial Resilience), only at its lowest level. It wears out after about four weeks of wear.",为山羊精魄雕刻、挂在颈间的骨制护符。它不需要缔结：佩戴时，山羊倔强的坚韧会留一点在你身上（野兽般坚韧），但只在最低一级。佩戴约四周后会磨尽。
+HarshWilds_CharmGoat_UsageStatName,Wear,磨损
+HarshWilds_BpCharmGoat_CardName,Goat Charm,山羊护符
+HarshWilds_BpCharmGoat_CardDescription,Carve a charm for the Goat Spirit from bone and string it on twine.,用骨头为山羊精魄雕一枚护符，穿在细线上。
+HarshWilds_BpCharmGoat_UnlockConditionsDesc,Bind the Goat Spirit once.,曾缔结过一次山羊精魄。
+HarshWilds_CharmBlood_CardName,Blood Charm,血之护符
+HarshWilds_CharmBlood_CardDescription,"A bone charm carved for the Blood Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the blood spirit's strength stays with you (Strength), only at its lowest level. It wears out after about four weeks of wear.",为血之精魄雕刻、挂在颈间的骨制护符。它不需要缔结：佩戴时，血之精魄的力量会留一点在你身上（力量），但只在最低一级。佩戴约四周后会磨尽。
+HarshWilds_CharmBlood_UsageStatName,Wear,磨损
+HarshWilds_BpCharmBlood_CardName,Blood Charm,血之护符
+HarshWilds_BpCharmBlood_CardDescription,Carve a charm for the Blood Spirit from bone and string it on twine.,用骨头为血之精魄雕一枚护符，穿在细线上。
+HarshWilds_BpCharmBlood_UnlockConditionsDesc,Bind the Blood Spirit once.,曾缔结过一次血之精魄。
+HarshWilds_CoatLynx_CardName,Lynx Coat,猞猁皮大衣
+HarshWilds_CoatLynx_CardDescription,"A heavy coat sewn from a lynx's leather. It gives warmth, comfort and some protection. Has additional properties for the spiritually open: while your mind is open to the spirits it lends you the lynx's climbing and ambush, and it can be enchanted with a spirit essence.
+
+<b>MUST BE EQUIPPED TO WORK</b>","用猞猁皮革缝制的厚大衣，提供保暖、舒适和一定的防护。对灵性开放者另有效果：当你心灵向灵魄敞开时，它赋予你猞猁的攀爬与伏击之能，并且可以用灵魄精华附魔。
+
+<b>必须装备才能生效</b>"
+HarshWilds_CoatLynx_UsageStatName,Wear,磨损
+HarshWilds_BpCoatLynx_CardName,Lynx Coat,猞猁皮大衣
+HarshWilds_BpCoatLynx_CardDescription,"Sew a coat from a lynx's tanned leather (its hide type, which no base-game animal gives) with twine and a needle.",用细线和针，把猞猁鞣制好的皮革缝成大衣（这种皮的类型没有任何基础游戏动物会给出）。
+HarshWilds_BpCoatLynx_UnlockConditionsDesc,Requires Leatherworking 15.,需要制革 15。
+HarshWilds_CoatMuskOx_CardName,Musk Ox Coat,麝牛皮大衣
+HarshWilds_CoatMuskOx_CardDescription,"A heavy coat sewn from a musk ox's leather. It gives warmth, comfort and some protection. Has additional properties for the spiritually open: while your mind is open to the spirits it lends you the musk ox's hardiness, and it can be enchanted with a spirit essence.
+
+<b>MUST BE EQUIPPED TO WORK</b>","用麝牛皮革缝制的厚大衣，提供保暖、舒适和一定的防护。对灵性开放者另有效果：当你心灵向灵魄敞开时，它赋予你麝牛的坚韧，并且可以用灵魄精华附魔。
+
+<b>必须装备才能生效</b>"
+HarshWilds_CoatMuskOx_UsageStatName,Wear,磨损
+HarshWilds_BpCoatMuskOx_CardName,Musk Ox Coat,麝牛皮大衣
+HarshWilds_BpCoatMuskOx_CardDescription,"Sew a coat from a musk ox's tanned leather (its hide type, which no base-game animal gives) with twine and a needle.",用细线和针，把麝牛鞣制好的皮革缝成大衣（这种皮的类型没有任何基础游戏动物会给出）。
+HarshWilds_BpCoatMuskOx_UnlockConditionsDesc,Requires Leatherworking 15.,需要制革 15。
+HarshWilds_CoatWisent_CardName,Wisent Coat,欧洲野牛皮大衣
+HarshWilds_CoatWisent_CardDescription,"A heavy coat sewn from a wisent's leather. It gives warmth, comfort and some protection. Has additional properties for the spiritually open: while your mind is open to the spirits it lends you the wisent's strength, and it can be enchanted with a spirit essence.
+
+<b>MUST BE EQUIPPED TO WORK</b>","用欧洲野牛皮革缝制的厚大衣，提供保暖、舒适和一定的防护。对灵性开放者另有效果：当你心灵向灵魄敞开时，它赋予你野牛的力量，并且可以用灵魄精华附魔。
+
+<b>必须装备才能生效</b>"
+HarshWilds_CoatWisent_UsageStatName,Wear,磨损
+HarshWilds_BpCoatWisent_CardName,Wisent Coat,欧洲野牛皮大衣
+HarshWilds_BpCoatWisent_CardDescription,"Sew a coat from a wisent's tanned leather (its hide type, which no base-game animal gives) with twine and a needle.",用细线和针，把欧洲野牛鞣制好的皮革缝成大衣（这种皮的类型没有任何基础游戏动物会给出）。
+HarshWilds_BpCoatWisent_UnlockConditionsDesc,Requires Leatherworking 15.,需要制革 15。
+HarshWilds_TotemBeast_CardName,Beast Totem,兽灵图腾
+HarshWilds_TotemBeast_CardDescription,"A post of carved wood hung with bones and twine, set up in camp to honour the beasts. While you are at the place where it stands, Beast Affinity slowly rises, as it does in a beast's den.",一根挂着骨头和细线的雕刻木柱，立在营地里以敬奉野兽。当你身处它所在之地时，野兽亲和度会缓慢上升，就像在兽穴中一样。
+HarshWilds_BpTotemBeast_CardName,Beast Totem,兽灵图腾
+HarshWilds_BpTotemBeast_CardDescription,"Carve a post from wood, hang it with bones and twine and set it up in camp.",用木头刻一根柱子，挂上骨头和细线，立在营地里。
+HarshWilds_BpTotemBeast_UnlockConditionsDesc,Requires some Insight.,需要一定的灵视。
+HarshWilds_BpCairn_CardName,Stone Cairn,石冢
+HarshWilds_BpCairn_CardDescription,Raise a cairn of heavy stones in memory of the dead. Keep a vigil by it and the Ancestors may answer.,堆起一座重石的石冢，纪念逝者。在它旁边守夜，先祖或许会回应。
+HarshWilds_BpCairn_UnlockConditionsDesc,Requires some Insight.,需要一定的灵视。
+HarshWilds_SwitchSpiritSickness_StatName,Harsh Wilds: Spirit Sickness,严酷荒野：灵病
+HarshWilds_SwitchSpiritSickness_StatDescription,Hidden 0/1 switch: 1 while Spirit Sickness is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用灵病时为 1。
+HarshWilds_Spirit_StatName,Spirit Sickness,灵病
+HarshWilds_Spirit_StatDescription,A sickness of the spirit that follows angering a spirit you called. It dulls your focus and wears on your nerves. It never fades by itself: burning a cleansing smudge at a lit fire drives out one stage.,惹怒你所召唤的精魄之后，精神上染上的病症。它会削弱你的专注，消磨你的神经。它不会自行消退：在点燃的火堆旁焚烧净化草束，可驱走一个阶段。
+HarshWilds_Spirit_Status1_Name,Uneasy,心神不宁
+HarshWilds_Spirit_Status1_Description,"A spirit you angered still clings to you. Your thoughts drift: less focus, and your stress stops easing.",你惹怒的精魄仍缠着你。思绪飘忽：专注降低，压力也不再缓解。
+HarshWilds_Spirit_Status2_Name,Spirit Sickness,灵病
+HarshWilds_Spirit_Status2_Description,"The spirit's anger is making you ill in the head: much less focus, and your stress slowly rises.",精魄的怒意让你头脑发昏：专注大幅降低，压力缓慢上升。
+HarshWilds_Spirit_Status3_Name,Spirit-Ridden,被灵缠身
+HarshWilds_Spirit_Status3_Description,"You are spirit-ridden: far less focus, and your stress keeps rising. Burn a cleansing smudge at a lit fire to drive a stage out.",你被精魄缠身：专注严重降低，压力不断上升。在点燃的火堆旁焚烧净化草束，驱走一个阶段。
+HarshWilds_ExorcismSmudge_CardName,Cleansing Smudge,净化草束
+HarshWilds_ExorcismSmudge_CardDescription,"A tight bundle of bog myrtle and dry juniper needles. Burned at a lit fire with the old words, its smoke drives one stage of spirit sickness out of you, or breaks a dancing plague at once. Needs a lit campfire, fire pit, fireplace or hearth beside you.",用沼泽香木和干杜松针扎紧的草束。在点燃的火堆旁念着古老的词句将它焚烧，烟雾会驱走一个阶段的灵病，或立即打断舞蹈瘟疫。身边需要有点燃的篝火、火坑、壁炉或炉灶。
+HarshWilds_ExorcismSmudge_ActionName,Burn the Smudge,焚烧草束
+HarshWilds_ExorcismSmudge_ActionDescription,"Burn the bundle at a lit fire and say the old words, to drive one stage of spirit sickness out of you.",在点燃的火堆旁焚烧草束，念出古老的词句，驱走一个阶段的灵病。
+HarshWilds_BpExorcismSmudge_CardName,Cleansing Smudge,净化草束
+HarshWilds_BpExorcismSmudge_CardDescription,"Bind bog myrtle (fresh, dried or powdered) and dry juniper needles into a smudge bundle. Burned at a lit fire, it drives out spirit sickness.",把沼泽香木（新鲜的、干的或磨成粉的）和干杜松针扎成一束。在点燃的火堆旁焚烧，可驱走灵病。
+HarshWilds_FairyRing_CardName,Fairy Ring,仙子环
+HarshWilds_FairyRing_CardDescription,"A ring of toadstools in the grass, too round to be chance. The old folk say the fair folk dance here. Pick its toadstools now and then, or dance in it at night if you dare: you may not be able to stop.",草地里一圈蘑菇，圆得不像是巧合。老人们说，精灵们在这里起舞。你可以时不时采些环里的蘑菇，或者在夜里壮着胆子在环中跳舞：你可能停不下来。
+HarshWilds_FairyRing_PickName,Pick Toadstools,采摘毒蝇伞
+HarshWilds_FairyRing_PickDescription,"Pick a few of the ring's toadstools (fly agaric: poisonous, not for eating raw). They grow back over two days; now and then a smooth grey stone lies in the grass.",采下环里的几朵毒蝇伞（有毒，不可生吃）。它们会在两天内重新长出；偶尔草丛里还躺着一块光滑的灰石头。
+HarshWilds_FairyRing_DanceName,Dance in the Ring,在环中起舞
+HarshWilds_FairyRing_DanceDescription,"Dance in the ring for an hour, at night only. About half the time you cannot stop: the dancing plague takes hold for hours, draining stamina and sharpening hunger, until it wears off or a cleansing smudge breaks it.",只在夜里，在环中跳一个小时的舞。大约有一半的几率你停不下来：舞蹈瘟疫会缠上你好几个小时，消耗体力、加剧饥饿，直到它自行消退，或被净化草束打断。
+HarshWilds_SwitchDancingPlague_StatName,Harsh Wilds: Dancing Plague,严酷荒野：舞蹈瘟疫
+HarshWilds_SwitchDancingPlague_StatDescription,Hidden 0/1 switch: 1 while the Dancing Plague is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用舞蹈瘟疫时为 1。
+HarshWilds_RingDance_StatName,Harsh Wilds: Ring Dance,严酷荒野：仙子环之舞
+HarshWilds_RingDance_StatDescription,Hidden 0/1 marker: 1 from the moment you dance in a fairy ring until the dancing plague has rolled.,隐藏的 0/1 标记：在仙子环中起舞后为 1，直到舞蹈瘟疫掷骰完毕。
+HarshWilds_RingPicked_StatName,Harsh Wilds: Fairy Ring Picked,严酷荒野：仙子环采摘
+HarshWilds_RingPicked_StatDescription,Hidden counter: ticks until a fairy ring's toadstools can be picked again.,隐藏计数：仙子环的蘑菇可再次采摘前剩余的刻数。
+HarshWilds_Dancing_StatName,Dancing Plague,舞蹈瘟疫
+HarshWilds_Dancing_StatDescription,"A dance you cannot stop, begun in a fairy ring at night. It wears off by itself over a few hours; a cleansing smudge burned at a lit fire breaks it at once.",在夜里的仙子环中开始、停不下来的舞。它会在几个小时后自行消退；在点燃的火堆旁焚烧净化草束可立即打断。
+HarshWilds_Dancing_Status1_Name,Restless Feet,脚下不安
+HarshWilds_Dancing_Status1_Description,Your feet will not keep still: stamina drains faster and you grow hungry.,你的脚停不下来：体力消耗更快，也更容易饿。
+HarshWilds_Dancing_Status2_Name,The Dancing Plague,舞蹈瘟疫
+HarshWilds_Dancing_Status2_Description,You cannot stop dancing: stamina drains fast and hunger bites hard. A cleansing smudge burned at a lit fire breaks it.,你停不下来：体力飞速流失，饥饿难耐。在点燃的火堆旁焚烧净化草束可打断它。
+HarshWilds_ExorcismSmudge_DanceActionName,Burn the Smudge to Break the Dance,焚烧草束，打断舞蹈
+HarshWilds_ExorcismSmudge_DanceActionDescription,"Burn the bundle at a lit fire and say the old words, to break the dancing plague at once.",在点燃的火堆旁焚烧草束，念出古老的词句，立即打断舞蹈瘟疫。
+HarshWilds_SwitchBanshee_StatName,Harsh Wilds: Banshee,荒野：女妖
+HarshWilds_SwitchBanshee_StatDescription,Hidden 0/1 switch: 1 while the Banshee is on in the Harsh Wilds config.,隐藏的0/1开关：荒野配置中开启女妖时为1。
+HarshWilds_SwitchNixie_StatName,Harsh Wilds: Nixie,荒野：水妖
+HarshWilds_SwitchNixie_StatDescription,Hidden 0/1 switch: 1 while the Nixie is on in the Harsh Wilds config.,隐藏的0/1开关：荒野配置中开启水妖时为1。
+HarshWilds_SwitchWildHunt_StatName,Harsh Wilds: Wild Hunt,荒野：狂猎
+HarshWilds_SwitchWildHunt_StatDescription,Hidden 0/1 switch: 1 while the Wild Hunt is on in the Harsh Wilds config.,隐藏的0/1开关：荒野配置中开启狂猎时为1。
+HarshWilds_BansheeClock_StatName,Harsh Wilds: Banshee Clock,荒野：女妖计时
+HarshWilds_BansheeClock_StatDescription,Hidden counter: how long until the Banshee may next come.,隐藏计数：距离女妖下次可能出现还有多久。
+HarshWilds_NixieClock_StatName,Harsh Wilds: Nixie Clock,荒野：水妖计时
+HarshWilds_NixieClock_StatDescription,Hidden counter: how long until the Nixie may next come.,隐藏计数：距离水妖下次可能出现还有多久。
+HarshWilds_HuntClock_StatName,Harsh Wilds: Wild Hunt Clock,荒野：狂猎计时
+HarshWilds_HuntClock_StatDescription,Hidden counter: how long until the Wild Hunt may next come.,隐藏计数：距离狂猎下次可能出现还有多久。
+HarshWilds_Banshee_StatusName,Banshee's Wail,女妖的哀号
+HarshWilds_Banshee_StatusDescription,"A banshee keens in the dark, and her keening means death is near for someone. You are bleeding badly: stop it before it kills you. The wail wears on your nerves.",黑暗中女妖在哀哭，她的哭声意味着有人将死。你正在大量失血：在它要你的命之前止住它。哀号折磨着你的神经。
+HarshWilds_Banshee_StatName,Banshee's Wail,女妖的哀号
+HarshWilds_Banshee_StatDescription,A banshee's wail: for some hours your nerves fray.,女妖的哀号：数小时内你的神经被磨损。
+HarshWilds_Nixie_StatusName,Nixie's Pull,水妖的牵引
+HarshWilds_Nixie_StatusDescription,"You went into the water after a voice. Your clothes will not dry for a while, so you stay soaked and cold until the song lets go.",你循着一个声音走进了水里。一段时间内衣服干不了，你会一直湿透发冷，直到歌声松手。
+HarshWilds_Nixie_StatName,Nixie's Pull,水妖的牵引
+HarshWilds_Nixie_StatDescription,A nixie's song: you stay soaked and uneasy for some hours.,水妖的歌声：数小时内你浑身湿透、心神不宁。
+HarshWilds_WildHunt_StatusName,The Wild Hunt rides,狂猎出没
+HarshWilds_WildHunt_StatusDescription,"Hooves, horns and baying hounds sweep across the night sky. Under the open sky each moment wears on you and may bruise you. Get under a roof until it passes.",蹄声、号角和犬吠掠过夜空。在露天下每一刻都在折磨你，还可能让你受伤。在它过去之前躲到屋顶下。
+HarshWilds_WildHunt_StatName,The Wild Hunt,狂猎
+HarshWilds_WildHunt_StatDescription,The Wild Hunt rides through the winter night.,狂猎在冬夜里驰过。
+HarshWilds_Offering_StatusName,Offering at the threshold,门槛上的供品
+HarshWilds_Offering_StatusDescription,"You left an offering at the threshold. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come.",你在门槛上留下了供品。大约三天内，女妖、水妖、狂猎，以及（装有远方领土时）海豹仙女不太会来。
+HarshWilds_Offering_StatName,Threshold Offering,门槛供品
+HarshWilds_Offering_StatDescription,An offering left at your threshold: the fair folk are kinder for a while.,门槛上的供品：一段时间内精灵们会更和善。
+HarshWilds_BansheeEvent_ActionName,Steel yourself,咬紧牙关
+HarshWilds_BansheeEvent_ActionName_Desc,Hold still and bear it. The wail frays your nerves for some hours.,一动不动地忍受。哀号会磨损你的神经数小时。
+HarshWilds_BansheeEvent_CardName,Banshee!,女妖！
+HarshWilds_BansheeEvent_CardDescription,"A long, thin wail rises out of the dark, close by and from nowhere. A banshee keens for someone who is about to die, and you are bleeding badly. Bind the wound before it is you.",黑暗中响起一声细长的哀号，近在咫尺又不知来自何处。女妖在为即将死去的人哭泣，而你正在大量失血。在轮到你之前包扎好伤口。
+HarshWilds_NixieEvent_FollowName,Follow the song,循声而去
+HarshWilds_NixieEvent_FollowName_Desc,"Wade in after the voice. You come out soaked, and stay soaked and cold for some hours.",涉水追随那声音。你出来时浑身湿透，数小时内一直湿冷。
+HarshWilds_NixieEvent_HoldName,Hold fast,坚守不动
+HarshWilds_NixieEvent_HoldName_Desc,Plant your feet and stop your ears. A steady mind keeps you out of the water; a shaken one may still be drawn in.,站稳脚跟，堵住耳朵。镇定的人不会入水；动摇的人仍可能被拖进去。
+HarshWilds_NixieEvent_CardName,A voice from the water,河边的歌声
+HarshWilds_NixieEvent_CardDescription,"At the water's edge a sweet voice sings your name, and the black river looks suddenly warm. A nixie is calling you in. You can hold fast, or follow.",水边有甜美的声音在唱你的名字，黑色的河水忽然显得温暖。水妖在召唤你。你可以坚守，也可以跟去。
+HarshWilds_Threshold_OfferName,Leave an Offering,留下供品
+HarshWilds_Threshold_OfferDescription,"Leave a pinch of salt, a flatbread, a comb of honey or a curd of cheese on the threshold stone. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come.",在门槛石上留下一撮盐、一块面饼、一块蜂巢或一块凝乳。大约三天内，女妖、水妖、狂猎，以及（装有远方领土时）海豹仙女不太会来。
+HarshWilds_Threshold_CardName,Threshold Stone,门槛石
+HarshWilds_Threshold_CardDescription,"A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while.",营地边缘放着的一块平石，传说精灵会在此驻足张望。在上面留下一份小供品，它们会和善一阵子。
+HarshWilds_BpThreshold_CardName,Threshold Stone,门槛石
+HarshWilds_BpThreshold_CardDescription,"Set a flat stone at the edge of camp. Leave small offerings on it to keep the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie away.",在营地边缘放一块平石。在上面留下小供品，让女妖、水妖、狂猎，以及（装有远方领土时）海豹仙女远离。
+HarshWilds_BpThreshold_UnlockConditionsDesc,Known from the start.,一开始就会。
+HarshWilds_SwitchLakeBeast_StatName,Harsh Wilds: Lake Beast,严酷荒野：湖怪
+HarshWilds_SwitchLakeBeast_StatDescription,Hidden 0/1 switch: 1 while the Lake Beast is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用湖怪时为 1。
+HarshWilds_SwitchFrostDemon_StatName,Harsh Wilds: Frost Demon,严酷荒野：霜魔
+HarshWilds_SwitchFrostDemon_StatDescription,Hidden 0/1 switch: 1 while the Frost Demon is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用霜魔时为 1。
+HarshWilds_LakeBeastRolled_StatName,Harsh Wilds: Lake Beast Days,严酷荒野：湖怪出没日
+HarshWilds_LakeBeastRolled_StatDescription,Hidden timer: the lake beast haunts the lake shore at night while this reads 1 or more.,隐藏的计时器：此数值不小于 1 时，湖怪会在夜里出没于湖岸。
+HarshWilds_FrostDemonRolled_StatName,Harsh Wilds: Frost Demon Days,严酷荒野：霜魔出没日
+HarshWilds_FrostDemonRolled_StatDescription,Hidden timer: the frost demon hunts the winter night while this reads 1 or more.,隐藏的计时器：此数值不小于 1 时，霜魔会在冬夜里狩猎。
+HarshWilds_LakeBeast_AgentName,Lake Beast,湖怪
+HarshWilds_FrostDemon_AgentName,Frost Demon,霜魔
+HarshWilds_SwitchLindwurm_StatName,Harsh Wilds: Lindwurm,严酷荒野：林德蠕龙
+HarshWilds_SwitchLindwurm_StatDescription,Hidden 0/1 switch: 1 while the Lindwurm is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用林德蠕龙时为 1。
+HarshWilds_LindwurmRolled_StatName,Harsh Wilds: Lindwurm Days,严酷荒野：林德蠕龙出没日
+HarshWilds_LindwurmRolled_StatDescription,Hidden timer: the lindwurm lairs in the Great Cave while this reads 1 or more.,隐藏的计时器：此数值不小于 1 时，林德蠕龙会盘踞在大洞穴中。
+HarshWilds_Lindwurm_AgentName,Lindwurm,林德蠕龙
+HarshWilds_SwitchSelkie_StatName,Harsh Wilds: Selkie,荒野：海豹仙女
+HarshWilds_SwitchSelkie_StatDescription,Hidden 0/1 switch: 1 while the Selkie is on in the Harsh Wilds config.,隐藏的0/1开关：荒野配置中开启海豹仙女时为1。
+HarshWilds_SelkieClock_StatName,Harsh Wilds: Selkie Clock,荒野：海豹仙女计时
+HarshWilds_SelkieClock_StatDescription,Hidden counter: how long until the Selkie may next come.,隐藏计数：距离海豹仙女下次可能出现还有多久。
+HarshWilds_Selkie_StatusName,Selkie's Call,海豹仙女的召唤
+HarshWilds_Selkie_StatusDescription,"You followed a seal-woman into the surf. Your clothes will not dry for a while, so you stay soaked and cold until her song lets go.",你跟着一位海豹女子走进了浪里。一段时间内衣服干不了，你会一直湿透发冷，直到她的歌声放过你。
+HarshWilds_Selkie_StatName,Selkie's Call,海豹仙女的召唤
+HarshWilds_Selkie_StatDescription,A selkie's song: you stay soaked and uneasy for some hours.,海豹仙女的歌声：数小时内你浑身湿透、心神不宁。
+HarshWilds_SelkieEvent_FollowName,Follow her into the surf,跟她走进浪里
+HarshWilds_SelkieEvent_FollowName_Desc,"Wade out after her. You come back soaked, and stay soaked and cold for some hours.",涉水追随她。你回来时浑身湿透，数小时内一直湿冷。
+HarshWilds_SelkieEvent_TurnName,Turn away,转身离开
+HarshWilds_SelkieEvent_TurnName_Desc,Turn your back on the song. A steady mind keeps you on the sand; a shaken one may still be drawn in.,背对那歌声。镇定的人会留在沙滩上；动摇的人仍可能被拖进去。
+HarshWilds_SelkieEvent_CardName,A seal-woman on the strand,沙滩上的海豹女子
+HarshWilds_SelkieEvent_CardDescription,"On the wet sand a grey seal slips off its skin and a woman stands where it lay, singing, and holds out her hand toward the surf. A selkie is calling you out to sea. You can turn away, or follow.",湿沙上，一只灰海豹褪下皮毛，原处站起一位女子，一边歌唱，一边朝浪里伸出手。海豹仙女在召唤你出海。你可以转身离开，也可以跟上去。
+HarshWilds_Shaman_AgentName,Wandering Shaman,游方萨满
+HarshWilds_Shaman_AgentDescription,"An old spirit-worker passing through, pack heavy with dried mushrooms, fairyweed and charms. He trades, and to one who has bound a spirit he will teach a calling.",一位路过的年迈灵师，背囊里装满了干蘑菇、仙灵草和护符。他做买卖；若你已缚住某位精魄，他还会传授一门呼唤之法。
+HarshWilds_Shaman_Talk,Talk,交谈
+HarshWilds_Shaman_SceneTitle,The Wandering Shaman,游方萨满
+HarshWilds_Shaman_TeachGoat_Line,"You carry a spirit already, I can feel it on you. Good. Then you will understand this one. Sit a while and I will teach you the calling of the Goat Spirit, that you may bind it when the time comes.",你身上已经带着一位精魄，我能感觉到。很好，那你便能明白这一门。坐一会儿，我来教你呼唤山羊精魄之法，待时机到了，你便能缚住它。
+HarshWilds_Shaman_TeachLynx_Line,"You carry a spirit already, I can feel it on you. Good. Then you will understand this one. Sit a while and I will teach you the calling of the Lynx Spirit, the quiet hunter of the rocks.",你身上已经带着一位精魄，我能感觉到。很好，那你便能明白这一门。坐一会儿，我来教你呼唤猞猁精魄之法，那岩间静默的猎手。
+HarshWilds_Shaman_TeachBlood_Line,"Two spirits walk with you already. Then you are ready for a harder one. Sit, and I will teach you the calling of the Blood Spirit; it comes only where much blood has been spilled.",已有两位精魄与你同行。那你便能学一门更难的了。坐下，我来教你呼唤血之精魄之法；它只在血流成河之处到来。
+HarshWilds_Shaman_Teach_Answer,Teach me the calling.,教我这呼唤之法。
+HarshWilds_Shaman_Start_Line,"Well met, wanderer. I keep to the old roads and the old ways. I have dried mushrooms, fairyweed, a charm or two; trade if you like, and I will be on my way within the day.",幸会，旅人。我走的是老路，守的是旧俗。我有干蘑菇、仙灵草，还有一两件护符；想换就换吧，一天之内我便会上路。
+HarshWilds_Shaman_Start_Answer,"Safe travels, shaman.",一路平安，萨满。
+HarshWilds_SwitchWolverine_StatName,Harsh Wilds: Wolverine,严酷荒野：狼獾
+HarshWilds_SwitchWolverine_StatDescription,Hidden 0/1 switch: 1 while the Wolverine is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用狼獾时为 1。
+HarshWilds_WolverineClock_StatName,Harsh Wilds: Wolverine Clock,严酷荒野：狼獾计时器
+HarshWilds_WolverineClock_StatDescription,Hidden counter: how long until the Wolverine may next look for a catch in the traps.,隐藏的计数器：狼獾下一次可以在陷阱里寻找猎物之前还需多久。
+HarshWilds_WolverineEvent_CardName,Wolverine at the Traps,陷阱边的狼獾
+HarshWilds_WolverineEvent_CardDescription,"A wolverine, hungry in the deep of winter, has found your trapline and is nosing at the sprung traps. It may find nothing worth taking.",一只在寒冬里饥肠辘辘的狼獾发现了你的陷阱线，正在已触发的陷阱旁嗅来嗅去。它也可能一无所获。
+HarshWilds_WolverineEvent_ActionName,See what it takes,看看它带走了什么
+HarshWilds_WolverineEvent_LostMessage,The wolverine tears a catch from the traps and drags it off:,狼獾从陷阱里撕下一份猎物拖走了：
+HarshWilds_Athame_Blood_Base_ActionName,Let Blood,放血
+HarshWilds_Athame_Blood_Base_ActionDescription,"Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 150 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade.",用祭刀划开前臂，放一点血献给野兽。会留下一道未愈的手臂伤口，并使兽亲和提高150点（约两周后消退），召唤仪式需要这个。手臂伤口未愈时不能再做。耗时一小时，刀刃会磨损。
+HarshWilds_Athame_Blood_Bundle_ActionName,Let Blood by the Incense Bundle,在线香束旁放血
+HarshWilds_Athame_Blood_Bundle_ActionDescription,"As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you.",与放血相同，但在点燃的线香束旁进行：烟气稳住仪式，兽亲和改为提高250点。需要焚香就在身边。
+HarshWilds_Athame_Blood_Burner_ActionName,Let Blood by the Incense Burner,在香炉旁放血
+HarshWilds_Athame_Blood_Burner_ActionDescription,"As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you.",与放血相同，但在点燃的香炉旁进行：烟气稳住仪式，兽亲和改为提高250点。需要焚香就在身边。
+HarshWilds_Athame_Blood_Heather_ActionName,Let Blood by the Heather Burner,在石楠香炉旁放血
+HarshWilds_Athame_Blood_Heather_ActionDescription,"As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you.",与放血相同，但在点燃的石楠香炉旁进行：烟气稳住仪式，兽亲和改为提高250点。需要焚香就在身边。
+HarshWilds_Athame_Blood_Juniper_ActionName,Let Blood by the Juniper Burner,在杜松香炉旁放血
+HarshWilds_Athame_Blood_Juniper_ActionDescription,"As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you.",与放血相同，但在点燃的杜松香炉旁进行：烟气稳住仪式，兽亲和改为提高250点。需要焚香就在身边。
+HarshWilds_Athame_Rain_Base_ActionName,Call Rain,唤雨
+HarshWilds_Athame_Rain_Base_ActionDescription,"Point the athame at the sky and call the rain down. The clouds thicken and the weather is drawn to change at once, so rain is likely but never certain. You can only do it once every two days. It takes two hours and wears the blade.",举起祭刀指向天空，唤雨降下。云层变厚，天气立刻被牵引着改变，很可能下雨，但并非一定。每两天只能做一次。耗时两小时，刀刃会磨损。
+HarshWilds_Athame_Rain_Bundle_ActionName,Call Rain by the Incense Bundle,在线香束旁唤雨
+HarshWilds_Athame_Rain_Bundle_ActionDescription,"As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you.",与唤雨相同，但在点燃的线香束旁进行：烟气让云聚得更厚，更容易下雨。需要焚香就在身边。
+HarshWilds_Athame_Rain_Burner_ActionName,Call Rain by the Incense Burner,在香炉旁唤雨
+HarshWilds_Athame_Rain_Burner_ActionDescription,"As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you.",与唤雨相同，但在点燃的香炉旁进行：烟气让云聚得更厚，更容易下雨。需要焚香就在身边。
+HarshWilds_Athame_Rain_Heather_ActionName,Call Rain by the Heather Burner,在石楠香炉旁唤雨
+HarshWilds_Athame_Rain_Heather_ActionDescription,"As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you.",与唤雨相同，但在点燃的石楠香炉旁进行：烟气让云聚得更厚，更容易下雨。需要焚香就在身边。
+HarshWilds_Athame_Rain_Juniper_ActionName,Call Rain by the Juniper Burner,在杜松香炉旁唤雨
+HarshWilds_Athame_Rain_Juniper_ActionDescription,"As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you.",与唤雨相同，但在点燃的杜松香炉旁进行：烟气让云聚得更厚，更容易下雨。需要焚香就在身边。
+HarshWilds_Athame_CardName,Athame,祭刀
+HarshWilds_Athame_CardDescription,"A short bone-bladed knife with a hilt wrapped in blackened twine, kept for rites. It cuts and butchers like any knife. With it you can let your own blood for the beasts, or call down rain; a lit incense burner or bundle nearby makes either rite stronger.",一把短骨刃刀，刀柄缠着熏黑的细线，专为仪式而留。它和普通刀一样能切割、剔肉。用它可以为野兽放出自己的血，或唤来降雨；附近点着香炉或线香，两种仪式都会更强。
+HarshWilds_BpAthame_CardName,Athame,祭刀
+HarshWilds_BpAthame_CardDescription,Blacken a bone knife with charcoal and wrap the hilt in twine to make a knife for rites.,用木炭熏黑一把骨刀，再用细线缠紧刀柄，做成仪式用的刀。
+HarshWilds_BpAthame_UnlockConditionsDesc,Requires some Insight.,需要一些洞察力。
+HarshWilds_RiteRain_StatName,Harsh Wilds: Rain Rite Cooldown,荒野：唤雨冷却
+HarshWilds_RiteRain_StatDescription,Hidden timer: how many ticks until the rain rite can be done again.,隐藏计时：距离可再次唤雨还有多少刻。
+HarshWilds_CastingBones_CardName,Casting Bones,占卜骨
+HarshWilds_CastingBones_CardDescription,"A handful of small bones, scraped clean and marked with charcoal, kept in a fold of hide. Cast on the ground, they show whether the eagle or the black bear is close to coming for your food.",一把刮净的小骨头，用木炭做了记号，包在一块兽皮里。把它们撒在地上，便能看出鹰或黑熊是否快要来抢你的食物。
+HarshWilds_CastingBones_Cast_ActionName,Cast the Bones,掷骨占卜
+HarshWilds_CastingBones_Cast_ActionDescription,Throw the bones and read how they fall. They show whether the eagle or the black bear can come for your food within a day. It takes half an hour and wears the bones a little.,掷出骨头，看它们如何落下。它们会显示鹰或黑熊能否在一天之内来抢你的食物。耗时半小时，骨头会略有磨损。
+HarshWilds_BpCastingBones_CardName,Casting Bones,占卜骨
+HarshWilds_BpCastingBones_CardDescription,Scrape a few bones clean and mark them with charcoal to read the signs of the eagle and the black bear.,把几块骨头刮干净，用木炭做上记号，用来解读鹰和黑熊的征兆。
+HarshWilds_BpCastingBones_UnlockConditionsDesc,Requires some Insight.,需要一些洞察力。
+HarshWilds_OmenRaids_CardName,Bones: Both Raids Near,骨示：两者将至
+HarshWilds_OmenRaids_CardDescription,"The bones fall in two piles, one pointing at the sky and one at your stores. Within a day of this casting the eagle and the black bear are both hungry again. From then on, whenever you are outside, the eagle may take game left lying on open ground, and, while autumn lasts, the bear may raid the food kept in your containers and stores.",骨头落成两堆，一堆指向天空，一堆指向你的储藏处。占卜后一天之内，鹰和黑熊都会再次饥饿。从那时起，只要你在户外，鹰就可能叼走散落在空地上的猎物；而在秋天结束之前，黑熊可能会洗劫你容器和储藏处里的食物。
+HarshWilds_OmenRaids_ActionName,Gather the Bones,收起骨头
+HarshWilds_OmenRaids_ActionDescription,Pick the bones up and put them away.,把骨头捡起来收好。
+HarshWilds_OmenEagle_CardName,Bones: The Eagle Is Near,骨示：鹰将至
+HarshWilds_OmenEagle_CardDescription,"The bones fall in a line toward the open sky. Within a day of this casting the eagle is hunting again, and from then on it may take game left lying on open ground whenever you are outside. The black bear cannot come within a day of this casting.",骨头排成一线，指向开阔的天空。占卜后一天之内，鹰会再次开始捕猎，从那时起，只要你在户外，它就可能叼走散落在空地上的猎物。占卜后一天之内，黑熊不会来。
+HarshWilds_OmenEagle_ActionName,Gather the Bones,收起骨头
+HarshWilds_OmenEagle_ActionDescription,Pick the bones up and put them away.,把骨头捡起来收好。
+HarshWilds_OmenBear_CardName,Bones: The Bear Is Near,骨示：黑熊将至
+HarshWilds_OmenBear_CardDescription,"The bones fall in a heap, heavy end down. Within a day of this casting the black bear is hungry again, and from then on, while autumn lasts, it may raid the food kept in your containers and stores whenever you are outside. The eagle cannot come within a day of this casting.",骨头堆成一团，重的一端朝下。占卜后一天之内，黑熊会再次饥饿，从那时起，在秋天结束之前，只要你在户外，它就可能洗劫你容器和储藏处里的食物。占卜后一天之内，鹰不会来。
+HarshWilds_OmenBear_ActionName,Gather the Bones,收起骨头
+HarshWilds_OmenBear_ActionDescription,Pick the bones up and put them away.,把骨头捡起来收好。
+HarshWilds_OmenQuiet_CardName,Bones: Quiet Signs,骨示：平静
+HarshWilds_OmenQuiet_CardDescription,"The bones fall loose and scattered, pointing nowhere. Neither the eagle nor the black bear can come for your food within a day of this casting.",骨头零散地落下，没有指向任何地方。占卜后一天之内，鹰和黑熊都不会来抢你的食物。
+HarshWilds_OmenQuiet_ActionName,Gather the Bones,收起骨头
+HarshWilds_OmenQuiet_ActionDescription,Pick the bones up and put them away.,把骨头捡起来收好。
+HarshWilds_FaerieRealm_EnvName,The Faerie Realm,仙境
+HarshWilds_FaerieRealm_EnvDescription,"The other side of the fairy ring, where the fair folk keep their court. You cannot stay long.",仙子环的另一边，仙灵们在此设立宫廷。你不能久留。
+HarshWilds_FaerieRealm_LocName,The Faerie Realm,仙境
+HarshWilds_FaerieRealm_LocDescription,"Silver grass under a moon that never sets, and music somewhere out of sight. No raid comes for your food here, and no lynx or bandit follows you in. The ring will send you home before long.",永不落下的月亮下是一片银色的草地，看不见的地方传来乐声。这里不会有野兽来抢你的食物，猞猁和强盗也不会跟进来。不久之后，仙子环便会送你回家。
+HarshWilds_FaerieExit_CardName,The Ring's Edge,仙子环边缘
+HarshWilds_FaerieExit_CardDescription,"The ring of toadstools you stepped through, glowing faintly in the silver grass. Step back through it whenever you like; when its moonlight runs out the ring sends you home anyway, back to the grove you came from.",你穿过的那圈蘑菇，在银色草地上微微发光。你随时可以从中走回去；当它的月光耗尽时，仙子环也会把你送回家，回到你来时的林地。
+HarshWilds_FaerieExit_ClockName,Moonlight Left,剩余月光
+HarshWilds_FaerieExit_OnZeroName,The Ring Lets You Go,仙子环放你离去
+HarshWilds_FaerieExit_OnZeroDescription,"The moonlight fades and the ring sends you home, back to the grove you came from.",月光消散，仙子环将你送回家，回到你来时的林地。
+HarshWilds_FaerieExit_FadeMessage,The ring lets you go...,仙子环放你离去……
+HarshWilds_FaerieExit_LeaveName,Step Back Through the Ring,从仙子环走回去
+HarshWilds_FaerieExit_LeaveDescription,Step back through the ring and return to the grove you came from.,从仙子环走回去，回到你来时的林地。
+HarshWilds_FairyRing_EnterName,Enter the Ring,踏入仙子环
+HarshWilds_FairyRing_EnterDescription,"On a full-moon night, step into the ring and through it, into the Faerie Realm. You can stay a few hours at most: step back through whenever you like, and when the moonlight runs out the ring sends you home to this grove.",在满月之夜，踏入仙子环并穿过它，进入仙境。你最多只能停留几个小时：随时可以走回来，而当月光耗尽时，仙子环会把你送回这片林地。
+HarshWilds_FairyRing_EnterFade,You step into the ring...,你踏入了仙子环……
+HarshWilds_InRealm_StatName,Harsh Wilds: In a Realm,严酷荒野：身处异境
+HarshWilds_InRealm_StatDescription,"Hidden 0/1 flag: 1 while you stand in a realm beyond the forest, 0 everywhere else.",隐藏的 0/1 标记：身处森林之外的异境时为 1，其他地方为 0。
+HarshWilds_FaerieRealm_WanderName,Wander the Moonlit Meadow,漫步月光草地
+HarshWilds_FaerieRealm_WanderDescription,"Spend two hours wandering the silver meadow. Fairyweed grows everywhere here; now and then you find spirit mushrooms, a sprig of mistletoe or a smooth grey stone.",在银色草地上漫步两个小时。这里遍地都长着仙灵草；偶尔你会找到灵魂菇、一枝槲寄生或一块光滑的灰色石头。
+HarshWilds_PixieLed_CardName,Pixie-Led,被小精灵引错路
+HarshWilds_PixieLed_CardDescription,"Little lights bob at the edge of sight, and you follow them without meaning to. When you come to yourself you are somewhere else in the silver grass, and laughter fades away among the stems.",小小的光点在视线边缘浮动，你不知不觉地跟了上去。等你回过神来，你已身处银色草地的另一处，笑声在草茎间渐渐远去。
+HarshWilds_PixieLed_ActionName,Find Your Way Back,找回原路
+HarshWilds_PixieLed_ActionDescription,Walk back the way you think you came. It tires you.,沿着你以为来时的路走回去。这会让你疲惫。
+HarshWilds_SwitchFaerieTricks_StatName,Harsh Wilds: Faerie Tricks,严酷荒野：仙灵恶作剧
+HarshWilds_SwitchFaerieTricks_StatDescription,Hidden 0/1 switch: 1 while Faerie Tricks are on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中开启仙灵恶作剧时为 1。
+HarshWilds_FaerieClock_StatName,Harsh Wilds: Faerie Clock,严酷荒野：仙灵计时
+HarshWilds_FaerieClock_StatDescription,Hidden counter: ticks until the fair folk may next play a trick in a realm.,隐藏计数：仙灵下一次可在异境中恶作剧前剩余的刻数。
+HarshWilds_MoonRealm_EnvName,The Moon Realm,月之界
+HarshWilds_MoonRealm_EnvDescription,"The silver country behind the Moon Stone, where the moon hangs low and close. You cannot stay long.",月石背后的银色国度，月亮低垂，近在咫尺。你无法久留。
+HarshWilds_MoonRealm_LocName,The Moon Realm,月之界
+HarshWilds_MoonRealm_LocDescription,"A pale shore of silver sand under a huge full moon, and a lake as still as glass. No raid comes for your food here, and no lynx or bandit follows you in. The basin will send you home before long.",巨大的满月下，一片银沙海滩，旁边是一池平静如镜的湖水。这里不会有袭击者来抢你的食物，山猫和强盗也不会跟进来。不久之后水盆就会送你回家。
+HarshWilds_MoonRealm_SearchName,Search the Silver Shallows,搜寻银色浅滩
+HarshWilds_MoonRealm_SearchDescription,"Spend two hours combing the shallows and the shore. White feathers drift in on the still water; now and then you find moon moss, a few niter crystals or a bright flint.",花两个小时在浅滩和岸边搜寻。白色羽毛随静水漂来；偶尔你会找到月苔、几块硝石晶体或一块明亮的燧石。
+HarshWilds_MoonExit_CardName,The Silver Pool,银色水潭
+HarshWilds_MoonExit_CardDescription,"The still water you stepped through, bright with the moon. Step back through it whenever you like; when its moonlight runs out the pool sends you home anyway, back to the place you came from.",你踏入的那片映着月光的静水。你随时可以走回去；月光耗尽时，水潭也会把你送回来时的地方。
+HarshWilds_MoonExit_ClockName,Moonlight Left,剩余月光
+HarshWilds_MoonExit_OnZeroName,The Pool Lets You Go,水潭放你离开
+HarshWilds_MoonExit_OnZeroDescription,"The moonlight fades and the pool sends you home, back to the place you came from.",月光渐渐消失，水潭把你送回来时的地方。
+HarshWilds_MoonExit_FadeMessage,The pool lets you go...,水潭放你离开了……
+HarshWilds_MoonExit_LeaveName,Step Back Through the Pool,走回水潭
+HarshWilds_MoonExit_LeaveDescription,Step back through the pool and return to the place you came from.,走回水潭，回到你来时的地方。
+HarshWilds_Moonstruck_CardName,Moonstruck,被月光迷住
+HarshWilds_Moonstruck_CardDescription,The moon is so near that you cannot look away. When you can move again your hands are shaking and your thoughts will not settle.,月亮近得让你无法移开视线。等你能动弹时，双手在发抖，思绪也静不下来。
+HarshWilds_Moonstruck_ActionName,Shake Off the Glamour,摆脱迷惑
+HarshWilds_Moonstruck_ActionDescription,Look away and breathe until the feeling passes. It leaves you strained.,移开视线，深呼吸，直到那种感觉消退。你会因此感到紧张。
+HarshWilds_MoonClock_StatName,Harsh Wilds: Moon Clock,严酷荒野：月亮计时
+HarshWilds_MoonClock_StatDescription,Hidden counter: ticks until the moon may next cloud your mind in a realm.,隐藏计数：距离月亮下一次在异界迷惑你的心神还剩多少刻。
+HarshWilds_SwitchMoonGlamour_StatName,Harsh Wilds: Moon Glamour,严酷荒野：月之迷惑
+HarshWilds_SwitchMoonGlamour_StatDescription,Hidden 0/1 switch: 1 while Moon Glamour is on in the Harsh Wilds config.,隐藏的0/1开关：严酷荒野配置中开启月之迷惑时为1。
+HarshWilds_MoonBasin_CardName,Moon Basin,月盆
+HarshWilds_MoonBasin_CardDescription,A shallow stone basin set beside the Moon Stone and filled with still water. On a full-moon night the moon lies in it as if the water were a door. Step into the moonlight and you may find the Moon Realm; you cannot stay long.,月石旁的一只浅石盆，盛满了静水。满月之夜，月亮躺在水里，像一扇门。踏入月光，你或许能找到月之界；你无法久留。
+HarshWilds_MoonBasin_EnterName,Step into the Moonlight,踏入月光
+HarshWilds_MoonBasin_EnterDescription,"On a full-moon night, step into the basin's moonlight and through it, into the Moon Realm. You can stay a few hours at most: step back through whenever you like, and when the moonlight runs out the pool sends you home to this shrine.",满月之夜，踏入水盆的月光并穿过它，进入月之界。你最多只能停留几个小时：随时可以走回来，月光耗尽时水潭会把你送回这座祭坛。
+HarshWilds_MoonBasin_EnterFade,You step into the moonlight...,你踏入了月光……
+HarshWilds_BpMoonBasin_CardName,Moon Basin,月盆
+HarshWilds_BpMoonBasin_CardDescription,"Set a stone basin of still water beside a Moon Stone. On a full-moon night, step into its moonlight to visit the Moon Realm. It can only be raised where a Moon Stone stands.",在月石旁放一只盛着静水的石盆。满月之夜，踏入它的月光，便可前往月之界。只能在月石所在之处建造。
+HarshWilds_BpMoonBasin_UnlockConditionsDesc,Known from the start.,一开始就已知晓。
+HarshWilds_UnderworldRealm_EnvName,The Underworld,冥界
+HarshWilds_UnderworldRealm_EnvDescription,"The dark halls under the barrow, where the old dead keep their quiet. You cannot stay long.",古冢之下的幽暗大厅，古老的亡者在这里安静安息。你无法久留。
+HarshWilds_UnderworldRealm_LocName,The Underworld,冥界
+HarshWilds_UnderworldRealm_LocDescription,"Low halls of black stone and old bone, lit by a cold grey glow with no source. No raid comes for your food here, and no lynx or bandit follows you in. The stair will send you up before long.",黑石与古骨砌成的低矮大厅，被一种不知来源的冷灰光照亮。这里不会有袭击者来抢你的食物，山猫和强盗也不会跟进来。不久之后台阶就会送你上去。
+HarshWilds_UnderworldRealm_SearchName,Search the Barrow Halls,搜寻古冢大厅
+HarshWilds_UnderworldRealm_SearchDescription,"Spend two hours going through the halls. Old bones lie everywhere; now and then you find ash from a long-dead fire, the bones of a great bird or a sulphurous stone.",花两个小时在大厅里翻找。到处都是古骨；偶尔你会找到早已熄灭的火堆留下的灰烬、大鸟的骨头或一块硫磺石。
+HarshWilds_UnderworldExit_CardName,The Way Up,向上的路
+HarshWilds_UnderworldExit_CardDescription,"The worn stair you came down. Climb it whenever you like; when the cold light runs out the stair carries you up anyway, back to the cairn you came from.",你走下来的那道磨损的台阶。你随时可以爬上去；冷光耗尽时，台阶也会把你送回来时的石冢。
+HarshWilds_UnderworldExit_ClockName,Grey Light Left,剩余灰光
+HarshWilds_UnderworldExit_OnZeroName,The Stair Carries You Up,台阶送你上去
+HarshWilds_UnderworldExit_OnZeroDescription,"The grey light fails and the stair carries you up, back to the cairn you came from.",灰光熄灭，台阶把你送回来时的石冢。
+HarshWilds_UnderworldExit_FadeMessage,The stair carries you up...,台阶把你送了上去……
+HarshWilds_UnderworldExit_LeaveName,Climb the Stair,爬上台阶
+HarshWilds_UnderworldExit_LeaveDescription,Climb the stair and return to the cairn you came from.,爬上台阶，回到你来时的石冢。
+HarshWilds_RestlessDead_CardName,The Restless Dead,不安的亡者
+HarshWilds_RestlessDead_CardDescription,"Cold hands close on your ankles and your coat, and a dry whisper asks you to stay. You can feel how little strength they are leaving you.",冰冷的手抓住了你的脚踝和外套，一个干涩的声音低语着要你留下。你能感觉到他们留给你的力气所剩无几。
+HarshWilds_RestlessDead_ActionName,Break Free,挣脱
+HarshWilds_RestlessDead_ActionDescription,Wrench yourself out of their grip. It tires you and sets your nerves on edge.,挣开他们的手。这会让你疲惫，神经紧绷。
+HarshWilds_UnderworldClock_StatName,Harsh Wilds: Underworld Clock,严酷荒野：冥界计时
+HarshWilds_UnderworldClock_StatDescription,Hidden counter: ticks until the restless dead may next reach for you in a realm.,隐藏计数：距离不安的亡者下一次在异界抓住你还剩多少刻。
+HarshWilds_SwitchRestlessDead_StatName,Harsh Wilds: Restless Dead,严酷荒野：不安的亡者
+HarshWilds_SwitchRestlessDead_StatDescription,Hidden 0/1 switch: 1 while Restless Dead are on in the Harsh Wilds config.,隐藏的0/1开关：严酷荒野配置中开启不安的亡者时为1。
+HarshWilds_FlCairn_DescendName,Go Down the Tomb Stair,走下墓穴台阶
+HarshWilds_FlCairn_DescendDescription,"At night, go down the old stair into the Underworld. You can stay a few hours at most: climb back whenever you like, and when the grey light fails the stair carries you up to this tomb.",夜里沿古老的台阶走进冥界。你最多只能停留几个小时：随时可以爬回来，灰光熄灭时台阶也会把你送回这座墓穴。
+HarshWilds_FlCairn_DescendFade,You go down the old stair...,你走下了古老的台阶……
+HarshWilds_InFaerie_StatName,Harsh Wilds: In the Faerie Realm,严酷荒野：身在仙境
+HarshWilds_InFaerie_StatDescription,"Hidden 0/1 flag: 1 while you stand in the Faerie Realm, 0 everywhere else.",隐藏的0/1标志：身在仙境时为1，其他任何地方为0。
+HarshWilds_InMoon_StatName,Harsh Wilds: In the Moon Realm,严酷荒野：身在月之界
+HarshWilds_InMoon_StatDescription,"Hidden 0/1 flag: 1 while you stand in the Moon Realm, 0 everywhere else.",隐藏的0/1标志：身在月之界时为1，其他任何地方为0。
+HarshWilds_InUnderworld_StatName,Harsh Wilds: In the Underworld,严酷荒野：身在冥界
+HarshWilds_InUnderworld_StatDescription,"Hidden 0/1 flag: 1 while you stand in the Underworld, 0 everywhere else.",隐藏的0/1标志：身在冥界时为1，其他任何地方为0。
+HarshWilds_FairyKing_CardName,The Fairy King,仙灵王
+HarshWilds_FairyKing_CardDescription,"A tall lord of the fair folk, crowned with antlers and dressed in moss and gold. He watches you with a smile that never reaches his eyes, and he is always ready to strike a bargain.",一位高大的仙灵之主，头戴鹿角之冠，身披苔藓与黄金。他望着你微笑，笑意却从未到达眼底；他随时都愿意与人做一笔交易。
+HarshWilds_FairyKing_TalkName,Speak with the King,与国王交谈
+HarshWilds_FairyKing_TalkDescription,"Bow, and speak with the Fairy King.",躬身行礼，与仙灵王交谈。
+HarshWilds_FairyKing_SceneTitle,The Fairy King,仙灵王
+HarshWilds_FairyKing_Offer_Line,"So, a mortal has found my ring. I will give you two fairy stones, bright as the day they were made. All I ask is a little of your will; you will hardly miss it.",哦，一个凡人找到了我的仙子环。我会给你两颗仙灵石，像刚造出来那天一样明亮。我只要你一点点意志力；你几乎不会察觉少了什么。
+HarshWilds_FairyKing_Offer_Accept,"Take my will, and give me the stones.",拿走我的意志，把石头给我。
+HarshWilds_FairyKing_Offer_Decline,"No bargain today, my lord.",今天不做交易，陛下。
+HarshWilds_FairyKing_After_Line,"A bargain struck is struck, mortal. Do not ask the King twice.",交易既成便是成了，凡人。不要向国王索求第二次。
+HarshWilds_FairyKing_After_Answer,Bow and step back.,躬身后退。
+HarshWilds_FairyQueen_CardName,The Fairy Queen,仙灵女王
+HarshWilds_FairyQueen_CardDescription,"The queen of the fair folk, pale as moonlight and crowned with white flowers. Her court dances all night around her, and she offers weary travellers rest, for a price.",仙灵的女王，苍白如月光，头戴白花之冠。她的宫廷整夜围着她起舞；她愿让疲惫的旅人得到安歇，但要付出代价。
+HarshWilds_FairyQueen_TalkName,Speak with the Queen,与女王交谈
+HarshWilds_FairyQueen_TalkDescription,"Curtsey, and speak with the Fairy Queen.",屈膝行礼，与仙灵女王交谈。
+HarshWilds_FairyQueen_SceneTitle,The Fairy Queen,仙灵女王
+HarshWilds_FairyQueen_Offer_Line,"You look so tired, traveller. Dance with my court until the music stops, and I will take your cares away and give you a sprig of mistletoe to keep.",旅人，你看起来好疲惫。与我的宫廷一同起舞，直到乐声停歇，我便带走你的烦忧，再送你一枝槲寄生留作纪念。
+HarshWilds_FairyQueen_Offer_Accept,I will dance with your court.,我愿与你的宫廷共舞。
+HarshWilds_FairyQueen_Offer_Decline,"Another night, my lady.",改天晚上吧，女王陛下。
+HarshWilds_FairyQueen_After_Line,"You have danced with us already, and the night remembers. Go gently, traveller.",你已与我们共舞过，夜晚记得这一切。好好走吧，旅人。
+HarshWilds_FairyQueen_After_Answer,"Thank you, my lady.",谢谢您，女王陛下。
+HarshWilds_LynxEnc_Lynx,Lynx,猞猁
+HarshWilds_LynxEnc_TheLynx,the lynx,猞猁
+HarshWilds_LynxEnc_TheLynxLungesToBiteYou,The lynx lunges to bite you!,猞猁猛扑上来要咬你！
+HarshWilds_LynxEnc_YouFailToDodgeAndTheBiteConnects,You fail to dodge and the bite connects...,你没躲过去，被咬了一口……
+HarshWilds_LynxEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功逃脱了......
+HarshWilds_LynxEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+HarshWilds_LynxEnc_YouGotASmallLaceration,You got a small laceration!,你受了小撕裂伤！
+HarshWilds_LynxEnc_YouGotASmallBite,You got a small bite!,你被咬出一个小伤口！
+HarshWilds_LynxEnc_YouGotAPrettyUglyBite,You got a pretty ugly bite.,你得到了一个狰狞的伤口。
+HarshWilds_LynxEnc_YouGotACoupleOfUglyBites,You got a couple of ugly bites.,你受了好几处严重的咬伤。
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourLeg,You got a deep laceration on your leg!,你腿上有了一道很深的撕裂伤！
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourArm,You got a deep laceration on your arm!,你胳膊上有了一道很深的撕裂伤！
+HarshWilds_LynxEnc_YouGotMultipleLacerations,You got multiple lacerations!,你得到了好几道撕裂伤口！
+HarshWilds_LynxEnc_TheLynxFlattensItsEarsAndHisses,The lynx flattens its ears and hisses.,猞猁压低耳朵，发出嘶嘶的威吓声。
+HarshWilds_LynxEnc_TheHissSetsYourNervesOnEdge,The hiss sets your nerves on edge.,这声嘶吼让你心惊胆战。
+HarshWilds_LynxEnc_TheLynxLeapsAtYouClawsOut,"The lynx leaps at you, claws out!",猞猁张开利爪，向你扑来！
+HarshWilds_LynxEnc_YouFailToDodgeTheLeap,You fail to dodge the leap...,你没能躲过这一扑……
+HarshWilds_LynxEnc_YouGotASmallLaceration2,You got a small laceration.,你受了小撕裂伤。
+HarshWilds_LynxEnc_ItsClawsLeaveUglyMarks,Its claws leave ugly marks.,它的利爪在你身上留下了狰狞的抓痕。
+HarshWilds_LynxEnc_ItsClawsRakeYouAgainAndAgain,Its claws rake you again and again.,它的利爪一次又一次地抓伤了你。
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!,你的左腿有了一道很深的撕裂伤！
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!,你的右腿有了一道很深的撕裂伤！
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!,你的左臂有了一道很深的撕裂伤！
+HarshWilds_LynxEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!,你的右臂有了一道很深的撕裂伤！
+HarshWilds_LynxEnc_YouGotManyLacerations,You got many lacerations!,你得了许多伤口！
+HarshWilds_LynxEnc_TheLynxPouncesOnYouTryingToDragYouDown,"The lynx pounces on you, trying to drag you down!",猞猁扑向你，试图把你扑倒！
+HarshWilds_LynxEnc_YouLandOnYourBackAndTheLynxIsOnTopOfYou,You land on your back and the lynx is on top of you!,你仰面摔倒在地，猞猁压在了你身上！
+HarshWilds_LynxEnc_YouKeepYourBalanceAndTheLynxSpringsBack,You keep your balance and the lynx springs back.,你保持住平衡，猞猁跳了回去。
+HarshWilds_LynxEnc_YouSprainedYourArm,You sprained your arm!,你扭伤了手腕！
+HarshWilds_LynxEnc_YouSprainedYourLeg,You sprained your leg!,你扭伤了脚踝！
+HarshWilds_LynxEnc_ItClawsAndBitesYou,It claws and bites you!,它又抓又咬！
+HarshWilds_LynxEnc_TheLynxGoesForYourThroat,The lynx goes for your throat!,猞猁直扑你的咽喉！
+HarshWilds_LynxEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...,你未能闪避这次攻击……
+HarshWilds_LynxEnc_YouSuccessfullyDodgeTheBite,You successfully dodge the bite...,你成功躲过了这一口......
+HarshWilds_LynxEnc_YouGotMultipleBiteWounds,You got multiple bite wounds!,你被咬了好几口！
+HarshWilds_LynxEnc_ItStopsToCatchItsBreath,It stops to catch its breath...,它停下来喘气......
+HarshWilds_LynxEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...,它转身试图逃跑......
+HarshWilds_LynxEnc_TheLynxCreepsCloser,The lynx creeps closer...,猞猁悄悄靠近了……
+HarshWilds_LynxEnc_TheLynxCollapsesToTheGround,The lynx collapses to the ground.,猞猁倒在了地上。
+HarshWilds_LynxEnc_TheLynxBoundsAwayIntoTheRocks,The lynx bounds away into the rocks...,猞猁一跃而起，消失在岩石之间……
+HarshWilds_LynxEnc_TheLynxFollowsYouForAWhileButYouManageTo,"The lynx follows you for a while, but you manage to escape...",猞猁跟了你一阵，但你还是成功逃脱了……
+HarshWilds_LynxEnc_YouRunAwayFromTheLynx,You run away from the lynx...,你逃离了猞猁……
+HarshWilds_LynxEnc_YouSeeALynx,You see a Lynx!,你看到了一只猞猁！
+HarshWilds_LynxEnc_Continue,Continue,继续
+HarshWilds_LynxCarcass_LynxCarcass,Lynx Carcass,猞猁尸体
+HarshWilds_LynxCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.,需要一把刀才能妥善处理它。
+HarshWilds_LynxCarcass_Spoilage,Spoilage,变质
+HarshWilds_LynxCarcass_LynxSpoiled,Lynx Spoiled!,猞猁变质了！
+HarshWilds_LynxCarcass_Consumed,Consumed,已消耗
+HarshWilds_LynxCarcass_Spirit,Spirit,精魄
+HarshWilds_LynxCarcass_Quality,Quality,品质
+HarshWilds_LynxCarcass_Butcher,Butcher,剔肉
+HarshWilds_LynxCarcass_ReleaseTheSpirit,Release the Spirit,释放精魄
+HarshWilds_LynxCarcass_TrappedLynx,Trapped Lynx,落网的猞猁
+HarshWilds_LynxSpirit_LynxSpirit,Lynx Spirit,猞猁精魄
+HarshWilds_LynxSpirit_APersonifiedManifestationOfTheEssenceOfL,"A personified manifestation of the essence of lynxkind.
+
+Can help you with climbing, and with ambushing prey.","猞猁类精魄的拟人化体现。
+
+可以帮助你攀爬，也能帮助你伏击猎物。"
+HarshWilds_LynxSpirit_Attunement,Attunement,共鸣
+HarshWilds_LynxSpirit_Leave,Leave,离去
+HarshWilds_LynxSpirit_Duration,Duration,耗时
+HarshWilds_LynxSpirit_Death,Death,逝去
+HarshWilds_LynxSpirit_Release,Release,释放
+HarshWilds_LynxSpirit_Lynx,(Lynx),（猞猁）
+HarshWilds_LynxSpirit_BestialResilience,Bestial Resilience,野兽般坚韧
+HarshWilds_LynxSpirit_Bless,Bless,赐福
+HarshWilds_LynxSpirit_Blessing,Blessing,赐福
+HarshWilds_LynxSpirit_LynxSpiritCalling,Lynx Spirit Calling,呼唤猞猁精魄
+HarshWilds_LynxSpirit_TemporarilyBindsALynxSpiritToYourSoulMak,"Temporarily binds a lynx spirit to your soul, making you both a bit more like the other.",暂时将猞猁精魄融入你的灵魂，使你们融为一体。
+HarshWilds_LynxSpirit_SummoningRitual,Summoning Ritual,召唤仪式
+HarshWilds_LynxSpirit_CarcassHasNoSpirit,Carcass has no spirit.,尸体没有精魄。
+HarshWilds_LynxSpirit_WhereASpiritIsTemporarilyBoundToYourSoul,Where a spirit is temporarily bound to your soul.,由此，精魄暂时与你的灵魂绑定。
+HarshWilds_LynxSpirit_Bind,Bind,融合
+HarshWilds_LynxSpirit_Ignore,Ignore,忽略
+HarshWilds_LynxSpirit_YouSucessfullyCompletedTheRitualTheSpiri,You sucessfully completed the ritual. The spirit is now temporarily a part of you.,你成功地完成了仪式。精魄暂时与你一体。
+HarshWilds_LynxSpirit_Continue,Continue,继续
+HarshWilds_LynxSpirit_SpiritIsNotImpressed,Spirit is not impressed. ,精魄不为所动。
+HarshWilds_LynxSpirit_TheLynxSpiritLeavesYouForNow,The Lynx Spirit leaves you for now.,猞猁精魄已经离你而去。
+HarshWilds_LynxSpirit_TheSpiritUsedAllItsPowerAndIsNowLeavingY,The Spirit used all its power and is now leaving you. ,精魄用尽了它的力量，离开你了。
+HarshWilds_GoatSpirit_GoatSpirit,Goat Spirit,山羊精魄
+HarshWilds_GoatSpirit_APersonifiedManifestationOfTheEssenceOfG,"A personified manifestation of the essence of goatkind.
+
+Can help you climb, and boost your immune system.","山羊类精魄的拟人化体现。
+
+可以帮助你攀爬，并增强你的免疫系统。"
+HarshWilds_GoatSpirit_Attunement,Attunement,共鸣
+HarshWilds_GoatSpirit_Leave,Leave,离去
+HarshWilds_GoatSpirit_Duration,Duration,耗时
+HarshWilds_GoatSpirit_Death,Death,逝去
+HarshWilds_GoatSpirit_Release,Release,释放
+HarshWilds_GoatSpirit_Goat,(Goat),（山羊）
+HarshWilds_GoatSpirit_BestialResilience,Bestial Resilience,野兽般坚韧
+HarshWilds_GoatSpirit_Blessing,Blessing,赐福
+HarshWilds_GoatSpirit_GoatSpiritCalling,Goat Spirit Calling,呼唤山羊精魄
+HarshWilds_GoatSpirit_TemporarilyBindsAGoatSpiritToYourSoulMak,"Temporarily binds a goat spirit to your soul, making you both a bit more like the other.",暂时将山羊精魄融入你的灵魂，使你们融为一体。
+HarshWilds_GoatSpirit_GoatSpiritSummoning,Goat Spirit Summoning,召唤山羊精魄
+HarshWilds_GoatSpirit_WhereASpiritIsTemporarilyBoundToYourSoul,Where a spirit is temporarily bound to your soul.,由此，精魄暂时与你的灵魂绑定。
+HarshWilds_GoatSpirit_Bind,Bind,融合
+HarshWilds_GoatSpirit_Ignore,Ignore,忽略
+HarshWilds_GoatSpirit_YouSucessfullyCompletedTheRitualTheSpiri,You sucessfully completed the ritual. The spirit is now temporarily a part of you.,你成功地完成了仪式。精魄暂时与你一体。
+HarshWilds_GoatSpirit_Continue,Continue,继续
+HarshWilds_GoatSpirit_SpiritIsNotImpressed,Spirit is not impressed. ,精魄不为所动。
+HarshWilds_GoatSpirit_TheGoatSpiritLeavesYouForNow,The Goat Spirit leaves you for now.,山羊精魄已经离你而去。
+HarshWilds_GoatSpirit_TheSpiritUsedAllItsPowerAndIsNowLeavingY,The Spirit used all its power and is now leaving you. ,精魄用尽了它的力量，离开你了。
+HarshWilds_BloodSpirit_BloodSpirit,Blood Spirit,血之精魄
+HarshWilds_BloodSpirit_APersonifiedManifestationOfTheBloodSpill,"A personified manifestation of the blood spilled in the forest.
+
+Can make you stronger and quicker to dodge in a fight.","森林中流淌的鲜血的拟人化体现。
+
+可以让你在战斗中更强壮，也更善于闪避。"
+HarshWilds_BloodSpirit_Attunement,Attunement,共鸣
+HarshWilds_BloodSpirit_Leave,Leave,离去
+HarshWilds_BloodSpirit_Duration,Duration,耗时
+HarshWilds_BloodSpirit_Death,Death,逝去
+HarshWilds_BloodSpirit_Release,Release,释放
+HarshWilds_BloodSpirit_Blood,(Blood),（血）
+HarshWilds_BloodSpirit_BestialResilience,Bestial Resilience,野兽般坚韧
+HarshWilds_BloodSpirit_Blessing,Blessing,赐福
+HarshWilds_BloodSpirit_BloodSpiritCalling,Blood Spirit Calling,呼唤血之精魄
+HarshWilds_BloodSpirit_TemporarilyBindsABloodSpiritToYourSoulMa,"Temporarily binds a blood spirit to your soul, making you both a bit more like the other.",暂时将血之精魄融入你的灵魂，使你们融为一体。
+HarshWilds_BloodSpirit_BloodSpiritSummoning,Blood Spirit Summoning,召唤血之精魄
+HarshWilds_BloodSpirit_WhereASpiritIsTemporarilyBoundToYourSoul,Where a spirit is temporarily bound to your soul.,由此，精魄暂时与你的灵魂绑定。
+HarshWilds_BloodSpirit_Bind,Bind,融合
+HarshWilds_BloodSpirit_Ignore,Ignore,忽略
+HarshWilds_BloodSpirit_YouSucessfullyCompletedTheRitualTheSpiri,You sucessfully completed the ritual. The spirit is now temporarily a part of you.,你成功地完成了仪式。精魄暂时与你一体。
+HarshWilds_BloodSpirit_Continue,Continue,继续
+HarshWilds_BloodSpirit_SpiritIsNotImpressed,Spirit is not impressed. ,精魄不为所动。
+HarshWilds_BloodSpirit_TheBloodSpiritLeavesYouForNow,The Blood Spirit leaves you for now.,血之精魄已经离你而去。
+HarshWilds_BloodSpirit_TheSpiritUsedAllItsPowerAndIsNowLeavingY,The Spirit used all its power and is now leaving you. ,精魄用尽了它的力量，离开你了。
+HarshWilds_AncestorSpirit_StoneCairn,Stone Cairn,石冢
+HarshWilds_AncestorSpirit_AHeapOfStonesRaisedOverTheMemoryOfTheDea,"A heap of stones raised over the memory of the dead.
+Sit by it long enough and the Ancestors may come to you.","为纪念逝者而堆起的石堆。
+在它旁边守得足够久，先祖便可能来到你身边。"
+HarshWilds_AncestorSpirit_AncestorPropinquity,Ancestor Propinquity,先祖亲密关系
+HarshWilds_AncestorSpirit_DescendBeneathTheCairn,Descend Beneath the Cairn,下到石冢之下
+HarshWilds_AncestorSpirit_AtNightLiftTheCapstoneAndGoDownTheStairB,"At night, lift the capstone and go down the stair beneath the cairn, into the Underworld. You can stay a few hours at most: climb back whenever you like, and when the grey light fails the stair carries you up to this cairn.",夜里掀开顶石，沿石冢下的台阶走进冥界。你最多只能停留几个小时：随时可以爬回来，灰光熄灭时台阶也会把你送回这座石冢。
+HarshWilds_AncestorSpirit_YouGoDownBeneathTheCairn,You go down beneath the cairn...,你走到了石冢之下……
+HarshWilds_AncestorSpirit_KeepVigil,Keep Vigil,守夜
+HarshWilds_AncestorSpirit_Blessing,Blessing,赐福
+HarshWilds_AncestorSpirit_TheBlessingIsNotReadyYet,The blessing is not ready yet.,赐福尚未准备好。
+HarshWilds_AncestorSpirit_TheAncestors,The Ancestors,先祖
+HarshWilds_AncestorSpirit_TheStonesSettleAndForAMomentYouAreNotAlo,"The stones settle, and for a moment you are not alone. The dead of this place are near, and now they know you.",石头静了下来，有那么一刻，你并不孤单。这里的逝者就在身旁，如今他们认得你了。
+HarshWilds_AncestorSpirit_Continue,Continue,继续
+HarshWilds_AncestorSpirit_AncestorSpirit,Ancestor Spirit,先祖精魄
+HarshWilds_AncestorSpirit_APersonifiedManifestationOfTheAncestorsC,"A personified manifestation of the Ancestors.
+
+Can give you courage and ease your loneliness.","先祖的拟人化体现。
+
+可以给你勇气，并缓解你的孤独。"
+HarshWilds_AncestorSpirit_Ancestor,(Ancestor),（先祖）
+HarshWilds_AncestorSpirit_AncestorEnchantment,Ancestor Enchantment,先祖附魔
+HarshWilds_AncestorSpirit_EnchantsAnObjectWithTheBlessingOfTheAnce,"Enchants an object with the blessing of the Ancestors, giving you courage and easing your loneliness.",用先祖的赐福为物品附魔，给你勇气并缓解你的孤独。
+HarshWilds_AncestorSpirit_TheCairnHasNoSpirit,The cairn has no spirit.,石冢里没有精魄。
+HarshWilds_AncestorSpirit_AncestorBlessing,Ancestor Blessing,先祖赐福
+HarshWilds_AncestorSpirit_ASpiritBlessingBoostsYourCourageAndReduc,A spirit blessing. Boosts your courage and reduces your loneliness.,一个精魄赐福。增强你的勇气，降低你的孤独。
+HarshWilds_AncestorSpirit_TheAncestorsHaveNotAnsweredYet,The Ancestors have not answered yet,先祖尚未回应
+HarshWilds_AncestorSpirit_TheAncestorsHaveAlreadyAnswered,The Ancestors have already answered,先祖已经回应
+HarshWilds_WisentEnc_Wisent,Wisent,欧洲野牛
+HarshWilds_WisentEnc_TheWisent,the wisent,欧洲野牛
+HarshWilds_WisentEnc_TheWisentSwingsItsHornedHeadAtYou,The wisent swings its horned head at you!,欧洲野牛把长着角的脑袋猛地甩向你！
+HarshWilds_WisentEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...,你未能躲过这一击......
+HarshWilds_WisentEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功逃脱了......
+HarshWilds_WisentEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+HarshWilds_WisentEnc_YouGotANastyBruise,You got a nasty bruise.,你受了严重的淤伤。
+HarshWilds_WisentEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration.",你的皮肤被划开了，造成了一个轻微撕裂伤。
+HarshWilds_WisentEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.,你的左臂被击中了，现在疼痛难忍。
+HarshWilds_WisentEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.,你的右臂被击中了，现在疼痛难忍。
+HarshWilds_WisentEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.,你的左腿被击中了，现在疼痛难忍。
+HarshWilds_WisentEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.,你的右腿被击中了，现在疼痛难忍。
+HarshWilds_WisentEnc_AHornLeftANastyPunctureWound,A horn left a nasty puncture wound.,牛角给你留下了一个严重的刺伤。
+HarshWilds_WisentEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!,你的左腿有了一道很深的撕裂伤！
+HarshWilds_WisentEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!,你的右腿有了一道很深的撕裂伤！
+HarshWilds_WisentEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!,你的左臂有了一道很深的撕裂伤！
+HarshWilds_WisentEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!,你的右臂有了一道很深的撕裂伤！
+HarshWilds_WisentEnc_YouGotManyLacerations,You got many lacerations!,你得了许多伤口！
+HarshWilds_WisentEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!,你的左臂断了！好疼啊！
+HarshWilds_WisentEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!,你的右臂断了！好疼啊！
+HarshWilds_WisentEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_WisentEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_WisentEnc_TheWisentTriesToKnockYouDown,The wisent tries to knock you down!,欧洲野牛试图撞倒你！
+HarshWilds_WisentEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!,你失去了平衡，仰面摔倒！
+HarshWilds_WisentEnc_TheWisentRamsIntoYouAtFullSpeed,The wisent rams into you at full speed!,欧洲野牛全速撞向你！
+HarshWilds_WisentEnc_TheWisentTriesToGoreYouWithItsHorns,The wisent tries to gore you with its horns!,欧洲野牛试图用它的角顶穿你！
+HarshWilds_WisentEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...,你未能闪避这次攻击……
+HarshWilds_WisentEnc_ItStopsToCatchItsBreath,It stops to catch its breath...,它停下来喘气......
+HarshWilds_WisentEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...,它转身试图逃跑……
+HarshWilds_WisentEnc_TheWisentChargesAtYou,The wisent charges at you!,欧洲野牛冲向了你！
+HarshWilds_WisentEnc_TheWisentCollapsesToTheGround,The wisent collapses to the ground.,欧洲野牛倒在了地上。
+HarshWilds_WisentEnc_TheWisentCrashesAwayThroughTheTrees,The wisent crashes away through the trees...,欧洲野牛撞开树丛跑远了……
+HarshWilds_WisentEnc_YouRetreatAndEscapeFromTheWisent,You retreat and escape from the wisent...,你从欧洲野牛身边撤退脱身……
+HarshWilds_WisentEnc_YouRunAwayFromTheWisent,You run away from the wisent!,你逃离了欧洲野牛！
+HarshWilds_WisentEnc_YouSeeAWisent,You see a Wisent!,你看到了一头欧洲野牛！
+HarshWilds_WisentEnc_AHugeWisentStopsGrazingLowersItsHeadAndW,"A huge wisent stops grazing, lowers its head and watches you.",一头巨大的欧洲野牛停止吃草，低下头盯着你。
+HarshWilds_WisentEnc_LeaveItAlone,Leave it alone,不管它
+HarshWilds_WisentEnc_Continue,Continue,继续
+HarshWilds_WisentCarcass_WisentCarcass,Wisent Carcass,欧洲野牛尸体
+HarshWilds_WisentCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.,需要一把刀才能妥善处理它。
+HarshWilds_WisentCarcass_Spoilage,Spoilage,变质
+HarshWilds_WisentCarcass_WisentSpoiled,Wisent Spoiled!,欧洲野牛变质了！
+HarshWilds_WisentCarcass_Consumed,Consumed,已消耗
+HarshWilds_WisentCarcass_Spirit,Spirit,精魄
+HarshWilds_WisentCarcass_Quality,Quality,品质
+HarshWilds_WisentCarcass_Bleed,Bleed,放血
+HarshWilds_WisentCarcass_ReleaseTheSpirit,Release the Spirit,释放精魄
+HarshWilds_WisentCarcass_BledWisentCarcass,Bled Wisent Carcass,放完血的欧洲野牛尸体
+HarshWilds_WisentCarcass_CanSkinItWithAKnifeOrHarvestItsBloodWith,Can skin it with a knife or harvest its blood with a container.,可以用刀剥皮或者用容器接血。
+HarshWilds_WisentCarcass_BleedingWisentCarcass,Bleeding Wisent Carcass,放血中的欧洲野牛尸体
+HarshWilds_WisentCarcass_Blood,Blood,放血
+HarshWilds_WisentCarcass_Skin,Skin,剥皮
+HarshWilds_WisentCarcass_PreventCoagulation,Prevent Coagulation,防止凝固
+HarshWilds_WisentCarcass_SkinnedWisentCarcass,Skinned Wisent Carcass,剥皮的欧洲野牛尸体
+HarshWilds_WisentCarcass_NeedsToBeButcheredWithAKnife,Needs to be butchered with a knife.,需要用刀来屠宰。
+HarshWilds_WisentCarcass_ButcheringProgress,Butchering Progress,屠宰进度
+HarshWilds_WisentCarcass_Disembowel,Disembowel,开膛破肚
+HarshWilds_WisentCarcass_HarvestHaunchMeat,Harvest Haunch Meat,收获腿肉
+HarshWilds_WisentCarcass_HarvestLoinMeat,Harvest Loin Meat,收获脊肉
+HarshWilds_WisentCarcass_HarvestShoulderMeat,Harvest Shoulder Meat,收获肩肉
+HarshWilds_MuskOxEnc_MuskOx,Musk Ox,麝牛
+HarshWilds_MuskOxEnc_TheMuskOx,the musk ox,麝牛
+HarshWilds_MuskOxEnc_TheMuskOxSwingsItsHeavyHornsAtYou,The musk ox swings its heavy horns at you!,麝牛甩动沉重的牛角向你袭来！
+HarshWilds_MuskOxEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...,你未能躲过这一击......
+HarshWilds_MuskOxEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功逃脱了......
+HarshWilds_MuskOxEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+HarshWilds_MuskOxEnc_YouGotANastyBruise,You got a nasty bruise.,你受了严重的淤伤。
+HarshWilds_MuskOxEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration.",你的皮肤被划开了，造成了一个轻微撕裂伤。
+HarshWilds_MuskOxEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.,你的左臂被击中了，现在疼痛难忍。
+HarshWilds_MuskOxEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.,你的右臂被击中了，现在疼痛难忍。
+HarshWilds_MuskOxEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.,你的左腿被击中了，现在疼痛难忍。
+HarshWilds_MuskOxEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.,你的右腿被击中了，现在疼痛难忍。
+HarshWilds_MuskOxEnc_AHornLeftANastyPunctureWound,A horn left a nasty puncture wound.,牛角给你留下了一个严重的刺伤。
+HarshWilds_MuskOxEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!,你的左腿有了一道很深的撕裂伤！
+HarshWilds_MuskOxEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!,你的右腿有了一道很深的撕裂伤！
+HarshWilds_MuskOxEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!,你的左臂有了一道很深的撕裂伤！
+HarshWilds_MuskOxEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!,你的右臂有了一道很深的撕裂伤！
+HarshWilds_MuskOxEnc_YouGotManyLacerations,You got many lacerations!,你得了许多伤口！
+HarshWilds_MuskOxEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!,你的左臂断了！好疼啊！
+HarshWilds_MuskOxEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!,你的右臂断了！好疼啊！
+HarshWilds_MuskOxEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_MuskOxEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_MuskOxEnc_TheMuskOxTriesToKnockYouDown,The musk ox tries to knock you down!,麝牛试图撞倒你！
+HarshWilds_MuskOxEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!,你失去了平衡，仰面摔倒！
+HarshWilds_MuskOxEnc_TheMuskOxRamsIntoYouAtFullSpeed,The musk ox rams into you at full speed!,麝牛全速向你冲撞过来！
+HarshWilds_MuskOxEnc_TheMuskOxTriesToGoreYouWithItsHorns,The musk ox tries to gore you with its horns!,麝牛试图用牛角顶穿你！
+HarshWilds_MuskOxEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...,你未能闪避这次攻击……
+HarshWilds_MuskOxEnc_ItStopsToCatchItsBreath,It stops to catch its breath...,它停下来喘气......
+HarshWilds_MuskOxEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...,它转身试图逃跑……
+HarshWilds_MuskOxEnc_TheMuskOxChargesAtYou,The musk ox charges at you!,麝牛向你冲了过来！
+HarshWilds_MuskOxEnc_TheMuskOxCollapsesToTheGround,The musk ox collapses to the ground.,麝牛倒在了地上。
+HarshWilds_MuskOxEnc_TheMuskOxLumbersAwayIntoTheSnow,The musk ox lumbers away into the snow...,麝牛笨重地走进了雪地里……
+HarshWilds_MuskOxEnc_YouRetreatAndEscapeFromTheMuskOx,You retreat and escape from the musk ox...,你从麝牛身边撤退脱身……
+HarshWilds_MuskOxEnc_YouRunAwayFromTheMuskOx,You run away from the musk ox!,你逃离了麝牛！
+HarshWilds_MuskOxEnc_YouSeeAMuskOx,You see a Musk Ox!,你看到了一头麝牛！
+HarshWilds_MuskOxEnc_TheHerdClosesIntoARingHornsOutAndTheBigg,"The herd closes into a ring, horns out, and the biggest bull steps forward.",麝牛群围成一圈，牛角朝外，最大的一头公牛走上前来。
+HarshWilds_MuskOxEnc_LeaveItAlone,Leave it alone,不管它
+HarshWilds_MuskOxEnc_Continue,Continue,继续
+HarshWilds_MuskOxCarcass_MuskOxCarcass,Musk Ox Carcass,麝牛尸体
+HarshWilds_MuskOxCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.,需要一把刀才能妥善处理它。
+HarshWilds_MuskOxCarcass_Spoilage,Spoilage,变质
+HarshWilds_MuskOxCarcass_MuskOxSpoiled,Musk Ox Spoiled!,麝牛变质了！
+HarshWilds_MuskOxCarcass_Consumed,Consumed,已消耗
+HarshWilds_MuskOxCarcass_Spirit,Spirit,精魄
+HarshWilds_MuskOxCarcass_Quality,Quality,品质
+HarshWilds_MuskOxCarcass_Bleed,Bleed,放血
+HarshWilds_MuskOxCarcass_ReleaseTheSpirit,Release the Spirit,释放精魄
+HarshWilds_MuskOxCarcass_BledMuskOxCarcass,Bled Musk Ox Carcass,放完血的麝牛尸体
+HarshWilds_MuskOxCarcass_CanSkinItWithAKnifeOrHarvestItsBloodWith,Can skin it with a knife or harvest its blood with a container.,可以用刀剥皮或者用容器接血。
+HarshWilds_MuskOxCarcass_BleedingMuskOxCarcass,Bleeding Musk Ox Carcass,放血中的麝牛尸体
+HarshWilds_MuskOxCarcass_Blood,Blood,放血
+HarshWilds_MuskOxCarcass_Skin,Skin,剥皮
+HarshWilds_MuskOxCarcass_PreventCoagulation,Prevent Coagulation,防止凝固
+HarshWilds_MuskOxCarcass_SkinnedMuskOxCarcass,Skinned Musk Ox Carcass,剥皮的麝牛尸体
+HarshWilds_MuskOxCarcass_NeedsToBeButcheredWithAKnife,Needs to be butchered with a knife.,需要用刀来屠宰。
+HarshWilds_MuskOxCarcass_ButcheringProgress,Butchering Progress,屠宰进度
+HarshWilds_MuskOxCarcass_Disembowel,Disembowel,开膛破肚
+HarshWilds_MuskOxCarcass_HarvestHaunchMeat,Harvest Haunch Meat,收获腿肉
+HarshWilds_MuskOxCarcass_HarvestLoinMeat,Harvest Loin Meat,收获脊肉
+HarshWilds_MuskOxCarcass_HarvestShoulderMeat,Harvest Shoulder Meat,收获肩肉
+HarshWilds_WhiteWisentEnc_WhiteWisent,White Wisent,白色欧洲野牛
+HarshWilds_WhiteWisentEnc_TheWhiteWisent,the white wisent,白色欧洲野牛
+HarshWilds_WhiteWisentEnc_TheWhiteWisentSwingsItsHornedHeadAtYou,The white wisent swings its horned head at you!,白色欧洲野牛把长着角的脑袋猛地甩向你！
+HarshWilds_WhiteWisentEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...,你未能躲过这一击......
+HarshWilds_WhiteWisentEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功逃脱了......
+HarshWilds_WhiteWisentEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+HarshWilds_WhiteWisentEnc_YouGotANastyBruise,You got a nasty bruise.,你受了严重的淤伤。
+HarshWilds_WhiteWisentEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration.",你的皮肤被划开了，造成了一个轻微撕裂伤。
+HarshWilds_WhiteWisentEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.,你的左臂被击中了，现在疼痛难忍。
+HarshWilds_WhiteWisentEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.,你的右臂被击中了，现在疼痛难忍。
+HarshWilds_WhiteWisentEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.,你的左腿被击中了，现在疼痛难忍。
+HarshWilds_WhiteWisentEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.,你的右腿被击中了，现在疼痛难忍。
+HarshWilds_WhiteWisentEnc_AHornLeftANastyPunctureWound,A horn left a nasty puncture wound.,牛角给你留下了一个严重的刺伤。
+HarshWilds_WhiteWisentEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!,你的左腿有了一道很深的撕裂伤！
+HarshWilds_WhiteWisentEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!,你的右腿有了一道很深的撕裂伤！
+HarshWilds_WhiteWisentEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!,你的左臂有了一道很深的撕裂伤！
+HarshWilds_WhiteWisentEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!,你的右臂有了一道很深的撕裂伤！
+HarshWilds_WhiteWisentEnc_YouGotManyLacerations,You got many lacerations!,你得了许多伤口！
+HarshWilds_WhiteWisentEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!,你的左臂断了！好疼啊！
+HarshWilds_WhiteWisentEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!,你的右臂断了！好疼啊！
+HarshWilds_WhiteWisentEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_WhiteWisentEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_WhiteWisentEnc_TheWhiteWisentTriesToKnockYouDown,The white wisent tries to knock you down!,白色欧洲野牛试图撞倒你！
+HarshWilds_WhiteWisentEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!,你失去了平衡，仰面摔倒！
+HarshWilds_WhiteWisentEnc_TheWhiteWisentRamsIntoYouAtFullSpeed,The white wisent rams into you at full speed!,白色欧洲野牛全速撞向你！
+HarshWilds_WhiteWisentEnc_TheWhiteWisentTriesToGoreYouWithItsHorns,The white wisent tries to gore you with its horns!,白色欧洲野牛试图用它的角顶穿你！
+HarshWilds_WhiteWisentEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...,你未能闪避这次攻击……
+HarshWilds_WhiteWisentEnc_ItStopsToCatchItsBreath,It stops to catch its breath...,它停下来喘气......
+HarshWilds_WhiteWisentEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...,它转身试图逃跑……
+HarshWilds_WhiteWisentEnc_TheWhiteWisentChargesAtYou,The white wisent charges at you!,白色欧洲野牛冲向了你！
+HarshWilds_WhiteWisentEnc_TheWhiteWisentCollapsesToTheGround,The white wisent collapses to the ground.,白色欧洲野牛倒在了地上。
+HarshWilds_WhiteWisentEnc_TheWhiteWisentMeltsAwayIntoTheTrees,The white wisent melts away into the trees...,白色欧洲野牛悄然隐入了林间……
+HarshWilds_WhiteWisentEnc_YouRetreatAndEscapeFromTheWhiteWisent,You retreat and escape from the white wisent...,你从白色欧洲野牛身边撤退脱身……
+HarshWilds_WhiteWisentEnc_YouRunAwayFromTheWhiteWisent,You run away from the white wisent!,你逃离了白色欧洲野牛！
+HarshWilds_WhiteWisentEnc_YouSeeAWhiteWisent,You see a White Wisent!,你看到了一头白色欧洲野牛！
+HarshWilds_WhiteWisentEnc_AGreatWhiteWisentStopsGrazingAndTurnsIts,A great white wisent stops grazing and turns its pale head to watch you.,一头巨大的白色欧洲野牛停止吃草，转过苍白的头颅注视着你。
+HarshWilds_WhiteWisentEnc_LeaveItAlone,Leave it alone,不管它
+HarshWilds_WhiteWisentEnc_Continue,Continue,继续
+HarshWilds_WhiteWisentCarcass_WhiteWisentCarcass,White Wisent Carcass,白色欧洲野牛尸体
+HarshWilds_WhiteWisentCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.,需要一把刀才能妥善处理它。
+HarshWilds_WhiteWisentCarcass_Spoilage,Spoilage,变质
+HarshWilds_WhiteWisentCarcass_WhiteWisentSpoiled,White Wisent Spoiled!,白色欧洲野牛变质了！
+HarshWilds_WhiteWisentCarcass_Consumed,Consumed,已消耗
+HarshWilds_WhiteWisentCarcass_Spirit,Spirit,精魄
+HarshWilds_WhiteWisentCarcass_Quality,Quality,品质
+HarshWilds_WhiteWisentCarcass_Bleed,Bleed,放血
+HarshWilds_WhiteWisentCarcass_ReleaseTheSpirit,Release the Spirit,释放精魄
+HarshWilds_WhiteWisentCarcass_BledWhiteWisentCarcass,Bled White Wisent Carcass,放完血的白色欧洲野牛尸体
+HarshWilds_WhiteWisentCarcass_CanSkinItWithAKnifeOrHarvestItsBloodWith,Can skin it with a knife or harvest its blood with a container.,可以用刀剥皮或者用容器接血。
+HarshWilds_WhiteWisentCarcass_BleedingWhiteWisentCarcass,Bleeding White Wisent Carcass,放血中的白色欧洲野牛尸体
+HarshWilds_WhiteWisentCarcass_Blood,Blood,放血
+HarshWilds_WhiteWisentCarcass_Skin,Skin,剥皮
+HarshWilds_WhiteWisentCarcass_PreventCoagulation,Prevent Coagulation,防止凝固
+HarshWilds_WhiteWisentCarcass_SkinnedWhiteWisentCarcass,Skinned White Wisent Carcass,剥皮的白色欧洲野牛尸体
+HarshWilds_WhiteWisentCarcass_NeedsToBeButcheredWithAKnife,Needs to be butchered with a knife.,需要用刀来屠宰。
+HarshWilds_WhiteWisentCarcass_ButcheringProgress,Butchering Progress,屠宰进度
+HarshWilds_WhiteWisentCarcass_Disembowel,Disembowel,开膛破肚
+HarshWilds_WhiteWisentCarcass_HarvestHaunchMeat,Harvest Haunch Meat,收获腿肉
+HarshWilds_WhiteWisentCarcass_HarvestLoinMeat,Harvest Loin Meat,收获脊肉
+HarshWilds_WhiteWisentCarcass_HarvestShoulderMeat,Harvest Shoulder Meat,收获肩肉
+HarshWilds_LakeBeastEnc_LakeBeast,Lake Beast,湖怪
+HarshWilds_LakeBeastEnc_TheLakeBeast,the lake beast,湖怪
+HarshWilds_LakeBeastEnc_TheLakeBeastRearsOutOfTheWaterAndBellows,"The lake beast rears out of the water and bellows, filling the shore with its bulk.",湖怪从水中昂起身躯咆哮，庞大的身影笼罩了整片湖岸。
+HarshWilds_LakeBeastEnc_TheBellowShakesYouToTheBone,The bellow shakes you to the bone.,这声咆哮让你浑身战栗。
+HarshWilds_LakeBeastEnc_TheLakeBeastSurgesOutOfTheShallowsToward,The lake beast surges out of the shallows toward you.,湖怪从浅水中飞速向你扑来。
+HarshWilds_LakeBeastEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!,你失去了平衡，仰面摔倒！
+HarshWilds_LakeBeastEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功逃脱了......
+HarshWilds_LakeBeastEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+HarshWilds_LakeBeastEnc_YouGotAPunctureWound,You got a puncture wound.,你受了穿刺伤。
+HarshWilds_LakeBeastEnc_YouGotASmallLaceration,You got a small laceration.,你受了小撕裂伤。
+HarshWilds_LakeBeastEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.,你的左臂被击中了，现在疼痛难忍。
+HarshWilds_LakeBeastEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.,你的右臂被击中了，现在疼痛难忍。
+HarshWilds_LakeBeastEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.,你的左腿被击中了，现在疼痛难忍。
+HarshWilds_LakeBeastEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.,你的右腿被击中了，现在疼痛难忍。
+HarshWilds_LakeBeastEnc_YouGotAPrettyUglyBite,You got a pretty ugly bite.,你得到了一个狰狞的伤口。
+HarshWilds_LakeBeastEnc_YouGotSomePrettyUglyClawmarks,You got some pretty ugly clawmarks.,你身上有了一些非常难看的爪痕。
+HarshWilds_LakeBeastEnc_YouFracturedYourRib,You fractured your rib!,你肋骨骨折了！
+HarshWilds_LakeBeastEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!,你的左腿有了一道很深的撕裂伤！
+HarshWilds_LakeBeastEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!,你的右腿有了一道很深的撕裂伤！
+HarshWilds_LakeBeastEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!,你的左臂有了一道很深的撕裂伤！
+HarshWilds_LakeBeastEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!,你的右臂有了一道很深的撕裂伤！
+HarshWilds_LakeBeastEnc_YourRibIsBrokenItHurts,Your rib is broken! It hurts!,你的肋骨断了！好疼啊！
+HarshWilds_LakeBeastEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!,你的左臂断了！好疼啊！
+HarshWilds_LakeBeastEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!,你的右臂断了！好疼啊！
+HarshWilds_LakeBeastEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_LakeBeastEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!,你的右腿断了！好疼啊！
+HarshWilds_LakeBeastEnc_TheLakeBeastSwingsAMassiveClawedLimbAtYo,The lake beast swings a massive clawed limb at you.,湖怪抡起巨大的利爪向你拍来。
+HarshWilds_LakeBeastEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...,你未能躲过这一击......
+HarshWilds_LakeBeastEnc_YouGotANastyBruise,You got a nasty bruise.,你受了严重的淤伤。
+HarshWilds_LakeBeastEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration.",你的皮肤被划开了，造成了一个轻微撕裂伤。
+HarshWilds_LakeBeastEnc_TheLakeBeastGapesItsHugeJawsToBiteWithFu,The lake beast gapes its huge jaws to bite with full force!,湖怪张开巨口，准备使出全力咬下！
+HarshWilds_LakeBeastEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...,你未能闪避这次攻击……
+HarshWilds_LakeBeastEnc_YourLeftArmIsBrokenAndBleedingItHurts,Your left arm is broken and bleeding! It hurts!,你的左臂断了而且在流血！好疼啊！
+HarshWilds_LakeBeastEnc_YourRightArmIsBrokenAndBleedingItHurts,Your right arm is broken and bleeding! It hurts!,你的右臂断了而且在流血！好疼啊！
+HarshWilds_LakeBeastEnc_YourLeftLegIsBrokenAndBleedingItHurts,Your left leg is broken and bleeding! It hurts!,你的左腿断了而且在流血！好疼啊！
+HarshWilds_LakeBeastEnc_YourRightLegIsBrokenAndBleedingItHurts,Your right leg is broken and bleeding! It hurts!,你的右腿断了而且在流血！好疼啊！
+HarshWilds_LakeBeastEnc_ItStopsToCatchItsBreath,It stops to catch its breath...,它停下来喘气......
+HarshWilds_LakeBeastEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...,它转身试图逃跑......
+HarshWilds_LakeBeastEnc_TheLakeBeastSurgesAtYou,The lake beast surges at you!,湖怪向你扑了过来！
+HarshWilds_LakeBeastEnc_TheLakeBeastThrashesOnceAndGoesStillInTh,The lake beast thrashes once and goes still in the shallows.,湖怪在浅水中猛地一挣，随后不动了。
+HarshWilds_LakeBeastEnc_TheLakeBeastSlidesBackIntoTheDarkWater,The lake beast slides back into the dark water...,湖怪悄然滑回了漆黑的湖水中……
+HarshWilds_LakeBeastEnc_YouRetreatAndEscapeFromTheLakeBeast,You retreat and escape from the lake beast...,你从湖怪身边撤退脱身……
+HarshWilds_LakeBeastEnc_YouRunAwayFromTheLakeBeast,You run away from the lake beast!,你逃离了湖怪！
+HarshWilds_LakeBeastEnc_YouSeeALakeBeast,You see a Lake Beast!,你看到了一头湖怪！
+HarshWilds_LakeBeastEnc_Continue,Continue,继续
+HarshWilds_LakeBeastCarcass_LakeBeastCarcass,Lake Beast Carcass,湖怪尸体
+HarshWilds_LakeBeastCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.,需要一把刀才能妥善处理它。
+HarshWilds_LakeBeastCarcass_Spoilage,Spoilage,变质
+HarshWilds_LakeBeastCarcass_LakeBeastSpoiled,Lake Beast Spoiled!,湖怪变质了！
+HarshWilds_LakeBeastCarcass_Consumed,Consumed,已消耗
+HarshWilds_LakeBeastCarcass_Spirit,Spirit,精魄
+HarshWilds_LakeBeastCarcass_Quality,Quality,品质
+HarshWilds_LakeBeastCarcass_Bleed,Bleed,放血
+HarshWilds_LakeBeastCarcass_ReleaseTheSpirit,Release the Spirit,释放精魄
+HarshWilds_LakeBeastCarcass_BledLakeBeastCarcass,Bled Lake Beast Carcass,放完血的湖怪尸体
+HarshWilds_LakeBeastCarcass_CanSkinItWithAKnifeOrHarvestItsBloodWith,Can skin it with a knife or harvest its blood with a container.,可以用刀剥皮或者用容器接血。
+HarshWilds_LakeBeastCarcass_BleedingLakeBeastCarcass,Bleeding Lake Beast Carcass,放血中的湖怪尸体
+HarshWilds_LakeBeastCarcass_Blood,Blood,放血
+HarshWilds_LakeBeastCarcass_Skin,Skin,剥皮
+HarshWilds_LakeBeastCarcass_PreventCoagulation,Prevent Coagulation,防止凝固
+HarshWilds_LakeBeastCarcass_SkinnedLakeBeastCarcass,Skinned Lake Beast Carcass,剥皮的湖怪尸体
+HarshWilds_LakeBeastCarcass_NeedsToBeButcheredWithAKnife,Needs to be butchered with a knife.,需要用刀来屠宰。
+HarshWilds_LakeBeastCarcass_ButcheringProgress,Butchering Progress,屠宰进度
+HarshWilds_LakeBeastCarcass_Disembowel,Disembowel,开膛破肚
+HarshWilds_LakeBeastCarcass_HarvestHaunchMeat,Harvest Haunch Meat,收获腿肉
+HarshWilds_LakeBeastCarcass_HarvestLoinMeat,Harvest Loin Meat,收获脊肉
+HarshWilds_LakeBeastCarcass_HarvestShoulderMeat,Harvest Shoulder Meat,收获肩肉
+HarshWilds_LindwurmEnc_Lindwurm,Lindwurm,林德蠕龙
+HarshWilds_LindwurmEnc_TheLindwurm,the lindwurm,林德蠕龙
+HarshWilds_LindwurmEnc_TheLindwurmRearsUpOutOfTheDarkAndHissesF,"The lindwurm rears up out of the dark and hisses, filling the cave with its coils.",林德蠕龙从黑暗中昂起身躯发出嘶鸣，盘绕的巨躯塞满了整个洞穴。
+HarshWilds_LindwurmEnc_TheHissRunsThroughYouLikeIce,The hiss runs through you like ice.,这声嘶鸣像冰一样穿透了你的身体。
+HarshWilds_LindwurmEnc_TheLindwurmLungesAcrossTheCaveFloorTowar,The lindwurm lunges across the cave floor toward you.,林德蠕龙贴着洞底向你猛扑过来。
+HarshWilds_LindwurmEnc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!,你失去了平衡，仰面摔倒！
+HarshWilds_LindwurmEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功逃脱了......
+HarshWilds_LindwurmEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+HarshWilds_LindwurmEnc_YouGotAPunctureWound,You got a puncture wound.,你受了穿刺伤。
+HarshWilds_LindwurmEnc_YouGotASmallLaceration,You got a small laceration.,你受了小撕裂伤。
+HarshWilds_LindwurmEnc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.,你的左臂被击中了，现在疼痛难忍。
+HarshWilds_LindwurmEnc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.,你的右臂被击中了，现在疼痛难忍。
+HarshWilds_LindwurmEnc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.,你的左腿被击中了，现在疼痛难忍。
+HarshWilds_LindwurmEnc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.,你的右腿被击中了，现在疼痛难忍。
+HarshWilds_LindwurmEnc_YouGotAPrettyUglyBite,You got a pretty ugly bite.,你得到了一个狰狞的伤口。
+HarshWilds_LindwurmEnc_YouGotSomePrettyUglyClawmarks,You got some pretty ugly clawmarks.,你身上有了一些非常难看的爪痕。
+HarshWilds_LindwurmEnc_YouFracturedYourRib,You fractured your rib!,你肋骨骨折了！
+HarshWilds_LindwurmEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!,你的左腿有了一道很深的撕裂伤！
+HarshWilds_LindwurmEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!,你的右腿有了一道很深的撕裂伤！
+HarshWilds_LindwurmEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!,你的左臂有了一道很深的撕裂伤！
+HarshWilds_LindwurmEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!,你的右臂有了一道很深的撕裂伤！
+HarshWilds_LindwurmEnc_YourRibIsBrokenItHurts,Your rib is broken! It hurts!,你的肋骨断了！好疼啊！
+HarshWilds_LindwurmEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!,你的左臂断了！好疼啊！
+HarshWilds_LindwurmEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!,你的右臂断了！好疼啊！
+HarshWilds_LindwurmEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_LindwurmEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!,你的右腿断了！好疼啊！
+HarshWilds_LindwurmEnc_TheLindwurmLashesItsHeavyTailAtYou,The lindwurm lashes its heavy tail at you.,林德蠕龙抡起沉重的尾巴向你扫来。
+HarshWilds_LindwurmEnc_YouFailToDodgeTheAttack,You fail to dodge the attack...,你未能躲过这一击......
+HarshWilds_LindwurmEnc_YouGotANastyBruise,You got a nasty bruise.,你受了严重的淤伤。
+HarshWilds_LindwurmEnc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration.",你的皮肤被划开了，造成了一个轻微撕裂伤。
+HarshWilds_LindwurmEnc_TheLindwurmOpensItsJawsWideToBiteWithFul,The lindwurm opens its jaws wide to bite with full force!,林德蠕龙张开巨口，准备使出全力咬下！
+HarshWilds_LindwurmEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...,你未能闪避这次攻击……
+HarshWilds_LindwurmEnc_YourLeftArmIsBrokenAndBleedingItHurts,Your left arm is broken and bleeding! It hurts!,你的左臂断了而且在流血！好疼啊！
+HarshWilds_LindwurmEnc_YourRightArmIsBrokenAndBleedingItHurts,Your right arm is broken and bleeding! It hurts!,你的右臂断了而且在流血！好疼啊！
+HarshWilds_LindwurmEnc_YourLeftLegIsBrokenAndBleedingItHurts,Your left leg is broken and bleeding! It hurts!,你的左腿断了而且在流血！好疼啊！
+HarshWilds_LindwurmEnc_YourRightLegIsBrokenAndBleedingItHurts,Your right leg is broken and bleeding! It hurts!,你的右腿断了而且在流血！好疼啊！
+HarshWilds_LindwurmEnc_ItStopsToCatchItsBreath,It stops to catch its breath...,它停下来喘气......
+HarshWilds_LindwurmEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...,它转身试图逃跑......
+HarshWilds_LindwurmEnc_TheLindwurmLungesAtYou,The lindwurm lunges at you!,林德蠕龙向你扑了过来！
+HarshWilds_LindwurmEnc_TheLindwurmThrashesOnceAndLiesStillInThe,The lindwurm thrashes once and lies still in the dust.,林德蠕龙猛地一挣，随后一动不动地伏在尘土里。
+HarshWilds_LindwurmEnc_TheLindwurmSlidesBackIntoTheDarkOfTheCav,The lindwurm slides back into the dark of the cave...,林德蠕龙悄然滑回了洞穴深处的黑暗中……
+HarshWilds_LindwurmEnc_YouRetreatAndEscapeFromTheLindwurm,You retreat and escape from the lindwurm...,你从林德蠕龙身边撤退脱身……
+HarshWilds_LindwurmEnc_YouRunAwayFromTheLindwurm,You run away from the lindwurm!,你逃离了林德蠕龙！
+HarshWilds_LindwurmEnc_YouSeeALindwurm,You see a Lindwurm!,你看到了一条林德蠕龙！
+HarshWilds_LindwurmEnc_Continue,Continue,继续
+HarshWilds_LindwurmCarcass_LindwurmCarcass,Lindwurm Carcass,林德蠕龙尸体
+HarshWilds_LindwurmCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.,需要一把刀才能妥善处理它。
+HarshWilds_LindwurmCarcass_Spoilage,Spoilage,变质
+HarshWilds_LindwurmCarcass_LindwurmSpoiled,Lindwurm Spoiled!,林德蠕龙变质了！
+HarshWilds_LindwurmCarcass_Consumed,Consumed,已消耗
+HarshWilds_LindwurmCarcass_Spirit,Spirit,精魄
+HarshWilds_LindwurmCarcass_Quality,Quality,品质
+HarshWilds_LindwurmCarcass_Butcher,Butcher,剔肉
+HarshWilds_LindwurmCarcass_ReleaseTheSpirit,Release the Spirit,释放精魄
+HarshWilds_DragonSpirit_DragonSpirit,Dragon Spirit,龙之精魄
+HarshWilds_DragonSpirit_APersonifiedManifestationOfTheEssenceOfT,"A personified manifestation of the essence of the old serpents of the high caves.
+
+Can make you stronger and keep you alert.","高山洞穴中古老巨蛇之精华的拟人化体现。
+
+可以让你更强壮，也更警觉。"
+HarshWilds_DragonSpirit_Attunement,Attunement,共鸣
+HarshWilds_DragonSpirit_Leave,Leave,离去
+HarshWilds_DragonSpirit_Duration,Duration,耗时
+HarshWilds_DragonSpirit_Death,Death,逝去
+HarshWilds_DragonSpirit_Release,Release,释放
+HarshWilds_DragonSpirit_Dragon,(Dragon),（龙）
+HarshWilds_DragonSpirit_BestialResilience,Bestial Resilience,野兽般坚韧
+HarshWilds_DragonSpirit_Bless,Bless,赐福
+HarshWilds_DragonSpirit_Blessing,Blessing,赐福
+HarshWilds_DragonSpirit_DragonSpiritCalling,Dragon Spirit Calling,呼唤龙之精魄
+HarshWilds_DragonSpirit_TemporarilyBindsADragonSpiritToYourSoulM,"Temporarily binds a dragon spirit to your soul, making you both a bit more like the other.",暂时将龙之精魄融入你的灵魂，使你们融为一体。
+HarshWilds_DragonSpirit_SummoningRitual,Summoning Ritual,召唤仪式
+HarshWilds_DragonSpirit_CarcassHasNoSpirit,Carcass has no spirit.,尸体没有精魄。
+HarshWilds_DragonSpirit_WhereASpiritIsTemporarilyBoundToYourSoul,Where a spirit is temporarily bound to your soul.,由此，精魄暂时与你的灵魂绑定。
+HarshWilds_DragonSpirit_Bind,Bind,融合
+HarshWilds_DragonSpirit_Ignore,Ignore,忽略
+HarshWilds_DragonSpirit_YouSucessfullyCompletedTheRitualTheSpiri,You sucessfully completed the ritual. The spirit is now temporarily a part of you.,你成功地完成了仪式。精魄暂时与你一体。
+HarshWilds_DragonSpirit_Continue,Continue,继续
+HarshWilds_DragonSpirit_SpiritIsNotImpressed,Spirit is not impressed. ,精魄不为所动。
+HarshWilds_DragonSpirit_TheDragonSpiritLeavesYouForNow,The Dragon Spirit leaves you for now.,龙之精魄已经离你而去。
+HarshWilds_DragonSpirit_TheSpiritUsedAllItsPowerAndIsNowLeavingY,The Spirit used all its power and is now leaving you. ,精魄用尽了它的力量，离开你了。
+HarshWilds_FrostDemonEnc_FrostDemon,Frost Demon,霜魔
+HarshWilds_FrostDemonEnc_TheFrostDemon,the frost demon,霜魔
+HarshWilds_FrostDemonEnc_TheFrostDemonLungesJawsWhiteWithRime,"The frost demon lunges, jaws white with rime!",霜魔猛扑上来，覆满白霜的巨口咬向你！
+HarshWilds_FrostDemonEnc_YouFailToDodgeAndTheBiteConnects,You fail to dodge and the bite connects...,你没躲过去，被咬了一口……
+HarshWilds_FrostDemonEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功逃脱了......
+HarshWilds_FrostDemonEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+HarshWilds_FrostDemonEnc_YouGotASmallLaceration,You got a small laceration!,你受了小撕裂伤！
+HarshWilds_FrostDemonEnc_FrostNipsAtYourSkin,Frost nips at your skin!,寒霜啃噬着你的皮肤！
+HarshWilds_FrostDemonEnc_TheColdBitesDeepIntoYou,The cold bites deep into you.,刺骨的寒意深深咬进了你的身体。
+HarshWilds_FrostDemonEnc_TheColdBitesDeepInTwoPlaces,The cold bites deep in two places.,刺骨的寒意在两处深深咬进了你的身体。
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourLeg,You got a deep laceration on your leg!,你腿上有了一道很深的撕裂伤！
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourArm,You got a deep laceration on your arm!,你胳膊上有了一道很深的撕裂伤！
+HarshWilds_FrostDemonEnc_YouGotMultipleLacerations,You got multiple lacerations!,你得到了好几道撕裂伤口！
+HarshWilds_FrostDemonEnc_TheFrostDemonExhalesABreathOfKillingCold,The frost demon exhales a breath of killing cold.,霜魔呼出一口刺骨的寒气。
+HarshWilds_FrostDemonEnc_TheColdSetsYourNervesOnEdge,The cold sets your nerves on edge.,寒意让你神经紧绷。
+HarshWilds_FrostDemonEnc_TheFrostDemonRushesAtYouAcrossTheSnow,The frost demon rushes at you across the snow!,霜魔踏着积雪向你冲来！
+HarshWilds_FrostDemonEnc_YouFailToDodgeTheRush,You fail to dodge the rush...,你没能躲过这一冲……
+HarshWilds_FrostDemonEnc_YouGotASmallLaceration2,You got a small laceration.,你受了小撕裂伤。
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!,你的左腿有了一道很深的撕裂伤！
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!,你的右腿有了一道很深的撕裂伤！
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!,你的左臂有了一道很深的撕裂伤！
+HarshWilds_FrostDemonEnc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!,你的右臂有了一道很深的撕裂伤！
+HarshWilds_FrostDemonEnc_YouGotManyLacerations,You got many lacerations!,你得了许多伤口！
+HarshWilds_FrostDemonEnc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!,你的左臂断了！好疼啊！
+HarshWilds_FrostDemonEnc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!,你的右臂断了！好疼啊！
+HarshWilds_FrostDemonEnc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!,你的左腿断了！好疼啊！
+HarshWilds_FrostDemonEnc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!,你的右腿断了！好疼啊！
+HarshWilds_FrostDemonEnc_TheFrostDemonPouncesOnYouTryingToDragYou,"The frost demon pounces on you, trying to drag you down!",霜魔扑向你，试图把你扑倒！
+HarshWilds_FrostDemonEnc_YouLandOnYourBackAndTheFrostDemonIsOnTop,You land on your back and the frost demon is on top of you!,你仰面摔倒在地，霜魔压在了你身上！
+HarshWilds_FrostDemonEnc_YouKeepYourBalanceAndTheFrostDemonStepsB,You keep your balance and the frost demon steps back.,你保持住平衡，霜魔退了回去。
+HarshWilds_FrostDemonEnc_YouSprainedYourArm,You sprained your arm!,你扭伤了手腕！
+HarshWilds_FrostDemonEnc_YouSprainedYourLeg,You sprained your leg!,你扭伤了脚踝！
+HarshWilds_FrostDemonEnc_TheColdBitesDeepIntoYou2,The cold bites deep into you!,刺骨的寒意深深咬进了你的身体！
+HarshWilds_FrostDemonEnc_TheColdBitesDeepInTwoPlaces2,The cold bites deep in two places!,刺骨的寒意在两处深深咬进了你的身体！
+HarshWilds_FrostDemonEnc_TheFrostDemonOpensItsMouthAndGoesForYour,The frost demon opens its mouth and goes for your throat!,霜魔张开大口直扑你的咽喉！
+HarshWilds_FrostDemonEnc_YouFailToAvoidTheAttack,You fail to avoid the attack...,你未能闪避这次攻击……
+HarshWilds_FrostDemonEnc_YouSuccessfullyDodgeTheBite,You successfully dodge the bite...,你成功躲过了这一口......
+HarshWilds_FrostDemonEnc_TheColdBitesYouAgainAndAgain,The cold bites you again and again!,刺骨的寒意一次又一次地咬住你！
+HarshWilds_FrostDemonEnc_ItStopsToCatchItsBreath,It stops to catch its breath...,它停下来喘气......
+HarshWilds_FrostDemonEnc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...,它转身试图逃跑......
+HarshWilds_FrostDemonEnc_TheFrostDemonDriftsCloserAndTheAirTurnsB,"The frost demon drifts closer, and the air turns bitter...",霜魔缓缓逼近，空气变得刺骨……
+HarshWilds_FrostDemonEnc_TheFrostDemonCollapsesIntoADriftOfSnow,The frost demon collapses into a drift of snow.,霜魔倒在了一堆雪里。
+HarshWilds_FrostDemonEnc_TheFrostDemonMeltsAwayIntoTheSnow,The frost demon melts away into the snow...,霜魔融入了漫天风雪……
+HarshWilds_FrostDemonEnc_TheFrostDemonFollowsYouForAWhileButYouMa,"The frost demon follows you for a while, but you manage to escape...",霜魔跟了你一阵，但你还是成功逃脱了……
+HarshWilds_FrostDemonEnc_YouRunAwayFromTheFrostDemon,You run away from the frost demon...,你逃离了霜魔……
+HarshWilds_FrostDemonEnc_YouSeeAFrostDemon,You see a Frost Demon!,你看到了一头霜魔！
+HarshWilds_FrostDemonEnc_Continue,Continue,继续
+HarshWilds_FrostDemonCarcass_FrostDemonCarcass,Frost Demon Carcass,霜魔尸体
+HarshWilds_FrostDemonCarcass_NeedAKnifeToProperlyProcessIt,Need a knife to properly process it.,需要一把刀才能妥善处理它。
+HarshWilds_FrostDemonCarcass_Spoilage,Spoilage,变质
+HarshWilds_FrostDemonCarcass_FrostDemonSpoiled,Frost Demon Spoiled!,霜魔变质了！
+HarshWilds_FrostDemonCarcass_Consumed,Consumed,已消耗
+HarshWilds_FrostDemonCarcass_Spirit,Spirit,精魄
+HarshWilds_FrostDemonCarcass_Quality,Quality,品质
+HarshWilds_FrostDemonCarcass_Butcher,Butcher,剔肉
+HarshWilds_FrostDemonCarcass_ReleaseTheSpirit,Release the Spirit,释放精魄
+HarshWilds_BanditEnc_Bandit,Bandit,强盗
+HarshWilds_BanditEnc_TheBandit,the bandit,强盗
+HarshWilds_BanditEnc_TheBanditThrustsHisSpearAtYou,The bandit thrusts his spear at you!,强盗挺矛向你刺来！
+HarshWilds_BanditEnc_TheBanditJabsHisSpearAtYou,The bandit jabs his spear at you!,强盗持矛朝你戳来！
+HarshWilds_BanditEnc_TheBanditLungesWithHisSpear,The bandit lunges with his spear!,强盗持矛向你猛扑过来！
+HarshWilds_BanditEnc_YouFailToDodgeAndTheSpearConnects,You fail to dodge and the spear connects...,你没躲过去，被刺了一下……
+HarshWilds_BanditEnc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...,你成功避开了……
+HarshWilds_BanditEnc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you.",幸运的是，这次攻击没伤到你。
+HarshWilds_BanditEnc_TheSpearGrazedYouLeavingAShallowCut,"The spear grazed you, leaving a shallow cut.",矛尖擦过了你，留下一道浅伤口。
+HarshWilds_BanditEnc_TheSpearNickedYourFlesh,The spear nicked your flesh.,矛尖划破了你的皮肉。
+HarshWilds_BanditEnc_YouSufferedASmallPunctureWound,You suffered a small puncture wound.,你遭受了轻微的穿刺伤。
+HarshWilds_BanditEnc_TheSpearDroveIntoYouDrawingBlood,"The spear drove into you, drawing blood.",矛尖刺入你的身体，血流如注。
+HarshWilds_BanditEnc_TheSpearStruckTrueAndToreIntoYourFlesh,The spear struck true and tore into your flesh.,矛尖精准命中，划开你的血肉。
+HarshWilds_BanditEnc_YouSufferedAPainfulSpearWound,You suffered a painful spear wound.,你遭受了重创，矛伤疼痛难忍。
+HarshWilds_BanditEnc_TheSpearPiercedYouWithBrutalForce,The spear pierced you with brutal force.,矛尖大力刺入了你。
+HarshWilds_BanditEnc_TheSpearSinksDeepLeavingATerribleWound,"The spear sinks deep, leaving a terrible wound.",矛尖深深扎入，留下可怕的伤口。
+HarshWilds_BanditEnc_TheBanditThrustsHisSpearForwardWithEffor,The bandit thrusts his spear forward with effort!,强盗吃力地挺矛向前刺来！
+HarshWilds_BanditEnc_TheBanditJabsSluggishlyAtYouWithHisSpear,The bandit jabs sluggishly at you with his spear!,强盗迟缓地持矛刺来！
+HarshWilds_BanditEnc_TheBanditLungesClumsilyWithHisSpear,The bandit lunges clumsily with his spear!,强盗笨拙地持矛刺来！
+HarshWilds_BanditEnc_TheBanditKnocksYourWeaponAsideAndDragsYo,The bandit knocks your weapon aside and drags you to the ground.,强盗拨开你的武器，把你拽倒在地。
+HarshWilds_BanditEnc_HePinsYouDownAndStartsGoingThroughYourPa,He pins you down and starts going through your pack.,他把你按在地上，开始翻你的行囊。
+HarshWilds_BanditEnc_YouTwistFreeForAMomentButHeIsOnYouAgain,"You twist free for a moment, but he is on you again.",你挣脱了片刻，但他又扑了上来。
+HarshWilds_BanditEnc_TheBanditClosesIn,The bandit closes in...,强盗逼近了……
+HarshWilds_BanditEnc_TheBanditCollapsesToTheGroundAndDoesNotG,The bandit collapses to the ground and does not get up.,强盗倒在地上，再也没有起来。
+HarshWilds_BanditEnc_TheBanditBreaksOffAndRunsForTheTrees,The bandit breaks off and runs for the trees...,强盗转身逃进了树林……
+HarshWilds_BanditEnc_TheBanditChasesYouForAWhileButYouManageT,"The bandit chases you for a while, but you manage to get away...",强盗追了你一阵，但你还是成功逃脱了……
+HarshWilds_BanditEnc_YouCannotFightOnTheBanditRummagesThrough,You cannot fight on. The bandit rummages through your pack and slips away into the trees.,你再也打不动了。强盗翻了翻你的行囊，随后溜进了树林。
+HarshWilds_BanditEnc_ABanditBlocksYourWay,A bandit blocks your way!,一个强盗挡住了你的去路！
+HarshWilds_BanditEnc_ARaggedManWithASpearStepsOutAndBlocksThe,"A ragged man with a spear steps out and blocks the path. He wants your food, and he will fight you for it.",一个衣衫褴褛、手持长矛的男人走出来挡住了去路。他想要你的食物，并且准备为此跟你动手。
+HarshWilds_BanditEnc_BackAway,Back away,慢慢后退
+HarshWilds_BanditEnc_Fight,Fight,战斗
+HarshWilds_MistletoeBlessing_BlessTheGroveWithMistletoe,Bless the Grove with Mistletoe,用槲寄生为林地赐福
+HarshWilds_MistletoeBlessing_HangASprigOfWinterMistletoeInTheBoughsOf,"Hang a sprig of winter mistletoe in the boughs of an oak grove and bless it, the way the old rites did. The grove is made sacred, as with the base game's own blessing.",把一枝冬日槲寄生挂在橡树林的枝头并为它祝福，如同古老的仪式一样。林地由此变得神圣，效果与基础游戏自带的赐福相同。
+HarshWilds_WitchfireSpent_DA_Scatter_ActionName,Scatter the Ash,撒掉灰烬
+HarshWilds_WitchfireSpent_DA_Scatter_ActionDescription,Scatter the dead ash to the wind. Nothing is left to keep.,把死灰撒向风中。没有什么值得留下了。

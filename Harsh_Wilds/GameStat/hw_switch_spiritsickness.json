@@ -1,0 +1,30 @@
+{
+    "UniqueID": "hw_switch_spiritsickness",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_SwitchSpiritSickness_StatName",
+        "DefaultText": "Harsh Wilds: Spirit Sickness"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_SwitchSpiritSickness_StatDescription",
+        "DefaultText": "Hidden 0/1 switch: 1 while Spirit Sickness is on in the Harsh Wilds config."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 1.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

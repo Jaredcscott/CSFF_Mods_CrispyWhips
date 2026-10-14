@@ -1,0 +1,44 @@
+{
+  "UniqueID": "hwenvfaerierealm",
+  "//Realm": "Feature 30, the Faerie Realm (plan Documentation/Design/Harsh_Wilds_Content_Update_As_Built.md section 30, pack Prompt 42; W0-18 Shape A, Documentation/Research/HarshWilds/wave0-places.md section 2). The realm's CardType 4 environment. InstancedEnvironment true, so the engine builds its EnvID from the board the player came from (the grove holding the fairy ring) and the exit's TravelToPreviousEnv returns there with no stored return point (vanilla's Cellar shape: CellarEntrance, Env_Cellar, CellarExit). Each ring therefore opens its own copy of the realm, keyed realm + parent env. The UniqueID has NO underscore: an instanced env's save key is 'realm_parent' split back on '_' at load (EnvID.InterpretStringDictionnaryKey), so an hw_ prefix would break every reload inside it. It is never a WorldMap node and is listed in no MapNodes.json (an instanced env as a map node self-recurses in GetRootEnv). CreateInstancedMap false; AlwaysUpdate false (a CardType 4 must not follow the player; the framework also forces it). AlwaysDropUniqueDefaultEnvDrops true: CheckForMissingDefaultCardsInEnv re-adds any missing UniqueOnBoard default drop on EVERY entry, after the entry catch-up ticks, so each visit gets a fresh stay clock (hw_faerie_exit, which destroys itself on the way out). DefaultEnvCardDrops: the location card first (its picture is the board backdrop, CSFF_Map_Travel_System.md 'Interior current room image'), then the exit, then the court (pack Prompt 46, feature 31): the Fairy King hw_fairy_king and the Fairy Queen hw_fairy_queen, CardType 2 UniqueOnBoard dialog cards (W0-20: an NPCAgent cannot be moved into an instanced realm), re-added on any entry that finds them missing, so a realm board saved before the court shipped gets it on the next visit. No picture on this card by design.",
+  "CardType": 4,
+  "InstancedEnvironment": true,
+  "CreateInstancedMap": false,
+  "AlwaysUpdate": false,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_FaerieRealm_EnvName",
+    "DefaultText": "The Faerie Realm"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_FaerieRealm_EnvDescription",
+    "DefaultText": "The other side of the fairy ring, where the fair folk keep their court. You cannot stay long."
+  },
+  "MaxWeightCapacity": 10000.0,
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "DroppedCardWarpData": "hwlocfaerierealm",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "DroppedCardWarpData": "hw_faerie_exit",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "DroppedCardWarpData": "hw_fairy_king",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "DroppedCardWarpData": "hw_fairy_queen",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    }
+  ]
+}

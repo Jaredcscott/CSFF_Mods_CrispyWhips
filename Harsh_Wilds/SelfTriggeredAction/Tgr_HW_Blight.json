@@ -1,0 +1,92 @@
+{
+    "UniqueID": "Tgr_HW_Blight",
+    "//Blight": "The crop blight's roll (Documentation/Research/HarshWilds/events_stats.md sections 1c skeleton (a) and 5b, the crop blight DECISION), shaped on Tgr_HW_Drought: a rolled SelfTriggeredAction arms a self-timed hidden effect stat, with no CT3 event card. It only arms the timer; the damage is Tgr_HW_BlightSpread. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open). Gate 1, hw_switch_cropblight {1,1}: with the [Threats] CropBlight switch off this can never fire. Gate 2, vanilla SeasonCounter_Winter (20042dca062d34a4b8e2968f9dc11f9f) {0,0}: any season except winter (the counter reads 0 outside winter, and a frozen garden has its own vanilla Winter effect). Gate 3, hw_stat_blight {0,0}: no blight is already running. The one non-stat gate is RequiredCardsOnBoard: a vanilla GardenPlot (f853a0a8ad6c64c4b81eabb8367c0c5c, CT2) must be on the board of the place the player stands, so it never rolls where there is nothing to blight (an unresolved positive card entry fails closed, and this one is a vanilla GUID). RepeatOptions 0 (Repeat), ActionCooldown 96 and OncePerTick: one roll a game day while every gate holds; a Nothing pick counts as a firing, so it also starts the cooldown. Roll: Nothing (weight HW_BLIGHT_NOTHING_WEIGHT = 11, one card-less drop) against Blight (weight HW_BLIGHT_EVENT_WEIGHT = 1, one card-less drop too, since a collection with no potential drop gets weight 0 and could never be picked), so a 1 in 12 chance on each eligible day at a plot. The Blight collection's own StatModifications arm hw_stat_blight by HW_BLIGHT_TICKS = 192, its max; the timer then counts down and ends the blight at 0. This file drops no card and writes no vanilla stat. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Blight",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Crop Blight Roll"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_cropblight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_blight",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerCardWarpData": "f853a0a8ad6c64c4b81eabb8367c0c5c",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 11,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Blight",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_stat_blight",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 192.0, "y": 192.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

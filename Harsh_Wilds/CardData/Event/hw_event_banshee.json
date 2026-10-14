@@ -1,0 +1,70 @@
+{
+    "UniqueID": "hw_event_banshee",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_BansheeEvent_CardName",
+        "DefaultText": "Banshee!"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_BansheeEvent_CardDescription",
+        "DefaultText": "A long, thin wail rises out of the dark, close by and from nowhere. A banshee keens for someone who is about to die, and you are bleeding badly. Bind the wound before it is you."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_banshee",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_BansheeEvent_ActionName",
+                "DefaultText": "Steel yourself"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_BansheeEvent_ActionName_Desc",
+                "DefaultText": "Hold still and bear it. The wail frays your nerves for some hours."
+            },
+            "DaytimeCost": 0,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_banshee",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 24.0,
+                        "y": 24.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "//Banshee": "Feature 31, spawned by Tgr_HW_Banshee. One button arms hw_stat_banshee (a Stress rate over some hours) and removes the card (ReceivingCardChanges ModType 3, which also lets the button pass WillHaveAnEffect). The text names the danger: bleeding badly."
+}

@@ -1,0 +1,103 @@
+{
+    "UniqueID": "Tgr_HW_GoldenHind",
+    "//Roll": "THE GOLDEN HIND'S DAILY ROLL (plan section 33, Prompt 48), the blood moon's pattern (Tgr_HW_BloodMoon.json, whose comment explains the mechanism): a rolled SelfTriggeredAction arms a self-timed hidden stat and there is NO CT3 event card and no alert. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues. Gate 1, hw_switch_goldenhind {1,1}: with [Threats] GoldenHind off this can never fire. Gate 2, hw_clock_dusk {1,1}: the hour from 18:00 to 19:00, so the roll is once a day, at dusk; the hind itself walks from 06:00 to 20:00 (its ActivityWindow), so a hind rolled in at dusk is met the next morning. RepeatOptions 2 (ResetWhenOutOfRange): it fires once when both gates first hold and is re-armed when the clock goes back to 0. Roll: Nothing (weight HW_GOLDENHIND_NOTHING_WEIGHT = 59) against Golden Hind (weight HW_GOLDENHIND_EVENT_WEIGHT = 1, one card-less drop), so the chance is 1 in 60 per day; a pick arms hw_stat_goldenhind by HW_GOLDENHIND_TICKS = 288 (three days, its max). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_GoldenHind",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Golden Hind Roll"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_goldenhind",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_clock_dusk",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 59,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Golden Hind",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_goldenhind",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {
+                                "x": 288.0,
+                                "y": 288.0
+                            },
+                            "RateModifier": {
+                                "x": 0.0,
+                                "y": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

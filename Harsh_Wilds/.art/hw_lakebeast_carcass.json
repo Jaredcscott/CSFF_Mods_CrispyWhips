@@ -1,0 +1,46 @@
+{
+  "target": "hw_lakebeast_carcass.png",
+  "sourceCard": "CardData/Item/hw_lakebeast_carcass.json, hw_lakebeast_carcass_bled.json",
+  "subject": "Draw: the carcass of the long-necked lake beast lying on its side, about three times as long as it is tall, one whole creature and nothing else.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose. Reference image 1 shows the lake beast rising from a lake: draw this same creature, keeping its broad heavy-jawed head, small eyes, its very long thick neck with the row of blunt ridges down the back, its wet dark green-grey scaly hide with a paler grey-green throat, and the drawing style identical, changed only as follows: it is dead and hauled out of the water, lying on its side with the whole body visible: the long neck, about as long as the body itself, lies limp in one gentle curve along the ground with the head flat at its end and the eyes closed; a broad heavy humped body, four short thick flipper-like legs lying slack, and a thick tapering tail; no lake, no trees: the carcass alone. Reference image 2 is a style reference only: match how the game draws a dead animal (flat posterized colour fills, bold dark outline around the whole body); do not copy its animal.\nDraw: the carcass of the long-necked lake beast lying on its side, about three times as long as it is tall, one whole creature and nothing else.\nSurvival card game item art in that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame width with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, short neck, crocodile, blood, wounds, water, ripples, lake, trees, ground, wings, horns, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow.",
+  "historyId": "Gd4UA55iK07sB2nsnslg",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800569024_a4eff320_1791800569062_18ddbaec.png",
+  "credits": 40,
+  "references": [
+    {
+      "role": "subject",
+      "label": "hw_lakebeast",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798537152_15b7dc23_1791798537252_208ec5e5.png"
+    },
+    {
+      "role": "style",
+      "label": "Boar",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Boar_1791697573111_2faeb8ac.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800030039_64d5728a_1791800030085_8f2cdacc.png",
+      "verdict": "historyId sEnjuRXKEehBRgFVuWt0; short thick neck, did not read as the long-necked encounter beast"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800569024_a4eff320_1791800569062_18ddbaec.png",
+      "verdict": "retry with the neck stated as long as the body; shipped"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: looks terrible must match game style; drawn from the new hw_lakebeast as the subject reference, retried once so the neck matches"
+}

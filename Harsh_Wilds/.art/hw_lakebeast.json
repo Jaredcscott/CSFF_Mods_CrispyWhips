@@ -1,0 +1,40 @@
+{
+  "target": "hw_lakebeast.png",
+  "sourceCard": "Encounter/hw_encounter_lakebeast.json (EncounterImage) + Animals/LakeBeast.json (Sprite)",
+  "subject": "Draw this scene: one huge lake beast rising out of a dark forest lake. Its long thick neck curves up out of the water and its broad heavy-jawed head is turned toward the viewer, with small pale eyes and a row of blunt ridges down the back of the neck; the top of its broad humped back shows above the water behind the neck. Wet dark green-grey scaly hide with a paler grey-green throat, water streaming off it and rings spreading on the lake around it. Dark conifers on the far shore, a grey overcast sky. The beast fills most of the height of the frame. One creature only.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference images are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks, muted naturalistic palette and their dark, saturated lighting; do not copy their subject or exact composition.\nDraw this scene: one huge lake beast rising out of a dark forest lake. Its long thick neck curves up out of the water and its broad heavy-jawed head is turned toward the viewer, with small pale eyes and a row of blunt ridges down the back of the neck; the top of its broad humped back shows above the water behind the neck. Wet dark green-grey scaly hide with a paler grey-green throat, water streaming off it and rings spreading on the lake around it. Dark conifers on the far shore, a grey overcast sky. The beast fills most of the height of the frame. One creature only.\nFull-bleed survival card game scene in exactly that style, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, wings, horns, second creature, boat, people.",
+  "historyId": "qRBpobD8cvBbaDLxZ099",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798537152_15b7dc23_1791798537252_208ec5e5.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "Lake1",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_1791745028417_e3f605e2.png"
+    },
+    {
+      "role": "style",
+      "label": "Wolf_Wild",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791798310150_1e61344f.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798537152_15b7dc23_1791798537252_208ec5e5.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: looks terrible must match game style; full-bleed lake scene like vanilla encounter art"
+}

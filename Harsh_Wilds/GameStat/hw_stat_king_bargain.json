@@ -1,0 +1,71 @@
+{
+  "UniqueID": "hw_stat_king_bargain",
+  "GameName": {
+    "ParentObjectID": "hw_stat_king_bargain",
+    "LocalizationKey": "IGNOREKEY",
+    "DefaultText": "FairyKingBargain"
+  },
+  "Description": {
+    "ParentObjectID": "hw_stat_king_bargain",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "ContentFilterTags": [],
+  "IsRuntimeOnly": false,
+  "BaseValue": 0.0,
+  "MinMaxValue": { "x": 0.0, "y": 1.0 },
+  "BaseRatePerTick": 0.0,
+  "MinMaxRate": { "x": 0.0, "y": 0.0 },
+  "Transfers": [],
+  "TimeOfDayMods": [],
+  "CompositeStats": [],
+  "StatPriority": 0,
+  "RequiredPerks": [],
+  "Visibility": 2,
+  "VisibleInDetailedList": false,
+  "VisibleInAppearanceTab": false,
+  "CannotBeInspected": false,
+  "InvertedDirection": false,
+  "VisibleValueRange": { "x": 0.0, "y": 0.0 },
+  "TrendIndicatorRateRange": { "x": 0.0, "y": 0.0 },
+  "StatusesHaveNoBar": false,
+  "BarColor": { "r": 0.0, "g": 0.0, "b": 0.0, "a": 0.0 },
+  "BarHighlightColor": { "r": 0.0, "g": 0.0, "b": 0.0, "a": 0.0 },
+  "DefaultStatusName": {
+    "ParentObjectID": "hw_stat_king_bargain",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusDescription": {
+    "ParentObjectID": "hw_stat_king_bargain",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusIcon": { "m_FileID": 0, "m_PathID": 0 },
+  "Statuses": [],
+  "UsesNovelty": false,
+  "NoveltyCooldownDuration": 0,
+  "StalenessMultiplier": 0.0,
+  "MaxStalenessStack": 0,
+  "StatActions": [],
+  "ShowActionEffects": false,
+  "FeedbackInfo": {
+    "Icon": { "m_FileID": 0, "m_PathID": 0 },
+    "NegativeIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "StepValue": 1.0,
+    "Inverted": false
+  },
+  "OverrideFeedbackPrefab": { "m_FileID": 0, "m_PathID": 0 },
+  "NotEnoughText": {
+    "ParentObjectID": "hw_stat_king_bargain",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "NotEnoughIcon": { "m_FileID": 0, "m_PathID": 0 },
+  "TooMuchText": {
+    "ParentObjectID": "hw_stat_king_bargain",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "StatusDebugMode": false
+}

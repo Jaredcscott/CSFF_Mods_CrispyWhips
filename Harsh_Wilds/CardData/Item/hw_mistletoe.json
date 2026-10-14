@@ -1,0 +1,24 @@
+{
+    "UniqueID": "hw_mistletoe",
+    "//Mistletoe": "Feature 26 (plan section 26): a winter oak forage find, and the ingredient of CardData/Blueprint/hw_bp_bless_grove_mistletoe.json, which makes vanilla BlessedGroveInvisible in place of Bp_BlessGrove's Spirit Acorns. Placed by DropInjections.json (the framework's data-only forage route, W0-17): it is NOT a vanilla drop and edits no vanilla card. A plain CardType 0 with no actions, no durability and no tags: it is only carried to the rite. The picture is the vanilla sprite Frostleaf_Item (PARTIAL: the GIMP bridge /process-card-art needs was absent in the authoring session, so no art was made; the intended subject is a sprig of mistletoe, paired pointed oval leaves and a few white berries on a forked green stem). Weight is a TUNABLE PLACEHOLDER.",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_Mistletoe_CardName",
+        "DefaultText": "Mistletoe"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_Mistletoe_CardDescription",
+        "DefaultText": "A sprig of mistletoe cut from the boughs of an oak in winter. The old rites hang it in a grove to bless it. Do not eat it."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "Frostleaf_Item",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 20.0,
+    "TradingValue": 40.0,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "DismantleActions": [],
+    "CardInteractions": [],
+    "DroppedOnDestroy": []
+}

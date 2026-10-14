@@ -1,0 +1,80 @@
+{
+  "UniqueID": "hw_faerie_exit",
+  "//Exit": "Feature 30, the Faerie Realm's way home and its STAY CLOCK (plan section 30, pack Prompt 42; W0-18 section 2.4, wave0-places.md). A CardType 2, UniqueOnBoard, seeded second by hwenvfaerierealm's DefaultEnvCardDrops (AlwaysDropUniqueDefaultEnvDrops re-seeds it on every entry, after the entry catch-up ticks). UsageDurability is the clock: it starts full at HW_REALM_STAY_TICKS = 16 ticks (four in-game hours, a TUNABLE PLACEHOLDER, plan Open question 20 'a few hours') and falls 1 a tick. Both ways out set TravelToPreviousEnv, which travels to CurrentEnvironment.GetPrevEnv(): the grove the ring stands on, read from the realm's own EnvID parent chain, which the save keeps (so a reload inside the realm still returns to the right grove). The button 'Step Back Through the Ring' and the clock's OnZero 'The Ring Lets You Go' BOTH destroy this card (ModType 3) on the way out. That matters: the framework's AlwaysUpdateService forces AlwaysUpdate on a CardType 2 that ticks, which makes it IndependentFromEnv, so a clock that survived a departure would keep draining in the background and fire its travel wherever the player then stood; destroyed, it cannot, and the next entry gets a fresh one. The button takes no time, as vanilla's CellarExit Exit does. The OnZero carries NO stat gate on purpose: the forced return must not depend on the presence flag. OnZeroNotification 1 (UseActionDesc) shows the OnZero's own description instead of the default 'The Ring's Edge broke'. The picture is the fairy ring's own (hw_fairy_ring.png): it is the same ring, seen from the other side. Every number is a TUNABLE PLACEHOLDER.",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_FaerieExit_CardName",
+    "DefaultText": "The Ring's Edge"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_FaerieExit_CardDescription",
+    "DefaultText": "The ring of toadstools you stepped through, glowing faintly in the silver grass. Step back through it whenever you like; when its moonlight runs out the ring sends you home anyway, back to the grove you came from."
+  },
+  "CardImageWarpData": "hw_fairy_ring",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 16.0,
+    "MaxValue": 16.0,
+    "CardStatName": {
+      "ParentObjectID": "hw_faerie_exit",
+      "LocalizationKey": "HarshWilds_FaerieExit_ClockName",
+      "DefaultText": "Moonlight Left"
+    },
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 0,
+    "HasActionOnZero": true,
+    "OnZeroNotification": 1,
+    "OnZero": {
+      "ActionName": {
+        "ParentObjectID": "hw_faerie_exit",
+        "LocalizationKey": "HarshWilds_FaerieExit_OnZeroName",
+        "DefaultText": "The Ring Lets You Go"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_faerie_exit",
+        "LocalizationKey": "HarshWilds_FaerieExit_OnZeroDescription",
+        "DefaultText": "The moonlight fades and the ring sends you home, back to the grove you came from."
+      },
+      "TravelToPreviousEnv": true,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "ParentObjectID": "hw_faerie_exit",
+        "LocalizationKey": "HarshWilds_FaerieExit_FadeMessage",
+        "DefaultText": "The ring lets you go..."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hw_faerie_exit",
+        "LocalizationKey": "HarshWilds_FaerieExit_LeaveName",
+        "DefaultText": "Step Back Through the Ring"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_faerie_exit",
+        "LocalizationKey": "HarshWilds_FaerieExit_LeaveDescription",
+        "DefaultText": "Step back through the ring and return to the grove you came from."
+      },
+      "DaytimeCost": 0,
+      "TravelToPreviousEnv": true,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "ParentObjectID": "hw_faerie_exit",
+        "LocalizationKey": "HarshWilds_FaerieExit_FadeMessage",
+        "DefaultText": "The ring lets you go..."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

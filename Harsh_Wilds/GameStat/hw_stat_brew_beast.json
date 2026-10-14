@@ -1,0 +1,149 @@
+{
+    "UniqueID": "hw_stat_brew_beast",
+    "//Brew": "Feature 27 (plan section 27, Prompt 38; W0-16: no vanilla LQ_Spirit liquid raises an affinity by rate, W0-22: MuscleGrower is the muscle-growth stimulus). NOT a spirit brew: it is made from vanilla ingredients, never from a spirit, and names none of vanilla's NOT_USED_ placeholders. No switch: what the player makes on purpose gets none. Every timed effect goes through the brew's own effect stat (its status carries the modifier); the Drink writes only that stat and Thirst, never a base-rate-0 stat. The liquid is Herbs and Fungi's tea liquid shape with this mod's keys, made by a blueprint on vanilla Bp_NightBroth's chassis (a clay bowl of clean water kept, the bowl's water becoming the brew). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play: the dose is 48 on a 96 stat that falls 1 a tick (12 hours a dose); the effect stat's status adds a RateModifier of 2.0 a tick to the affinity (net +1.9 against its own -0.1; the stat is 0 to 1000 and no vanilla trigger reads it).",
+    "GameName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "HarshWilds_BrewBeastEffect_StatName",
+        "DefaultText": "Beast Brew"
+    },
+    "Description": {
+        "ParentObjectID": "",
+        "LocalizationKey": "HarshWilds_BrewBeastEffect_StatDescription",
+        "DefaultText": "The Beast Brew working in you: it falls by 1 each tick and is renewed by drinking."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 96.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Wolf",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "HarshWilds_BrewBeastEffect_StatusName",
+                "DefaultText": "Beast Brew"
+            },
+            "Description": {
+                "ParentObjectID": "",
+                "LocalizationKey": "HarshWilds_BrewBeastEffect_StatusDescription",
+                "DefaultText": "The brew is working in you. Beast Affinity rises faster than it fades, for as long as the brew lasts."
+            },
+            "StatusLog": {
+                "LogText": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "Category": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TicksToRegister": 0
+            },
+            "Icon": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "IconWarpData": "Wolf",
+            "IconWarpType": 3,
+            "ValueRange": {
+                "x": 1,
+                "y": 96
+            },
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

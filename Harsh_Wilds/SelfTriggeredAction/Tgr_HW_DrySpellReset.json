@@ -1,0 +1,50 @@
+{
+    "UniqueID": "Tgr_HW_DrySpellReset",
+    "//DrySpellReset": "Keeps GameStat/hw_stat_dryspell a CONSECUTIVE dry counter (Documentation/Research/HarshWilds/events_stats.md section 3b, the drought DECISION): on every tick it rains it sets the counter back to 0 (ValueModifier -1344, the counter's max, so any value lands on its floor of 0). The precedent for a counter reset by a self-triggered action is vanilla Tgr_MoonPhaseReset. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open), events_stats.md section 0. Gate 1, hw_switch_drought {1,1}: with the [Threats] Drought switch off nothing here runs (the counter then just climbs to its cap, read by nothing). Gate 2, vanilla RainValue (773fb34e869224f499d43b441c973c62) {1,5}: any rain, Drizzle 1 to Torrential 5, which vanilla's weather cards write; 0 is the No Rain status that feeds vanilla NoRainCounter. RepeatOptions 0 (Repeat) with OncePerTick and no cooldown: GameManager.CheckAllStatsForActions re-derives every listened condition on every tick, so this fires once per rainy tick (MEASURED from .decomp/GameManager.cs and StatTriggeredActionStatus.UpdateReadyToPlay). It writes only our own hidden counter, never a vanilla stat.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_DrySpellReset",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Dry Spell Reset"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_drought",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "773fb34e869224f499d43b441c973c62",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 5.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_dryspell",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -1344.0, "y": -1344.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

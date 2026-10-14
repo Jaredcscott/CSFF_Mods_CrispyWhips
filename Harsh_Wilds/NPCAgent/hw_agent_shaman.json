@@ -1,0 +1,798 @@
+{
+  "//": "Feature 32, the wandering shaman (plan Documentation/Design/Harsh_Wilds_Content_Update_As_Built.md section 32, Open question 22, W0-20 in Wave 0 findings). The FIRST Harsh Wilds NPCAgent. A data-only visiting trader on the vanilla Agent_TraderGeneral chassis: born in Env_SpiritWorld at boot, registered by the minimal Agent.Ref manifest Animals/Shaman.json (the Owl's shape), moved on-stage and off by his own season-counter AgentActions. No CMC chassis code (W0-20 MEASURED). He is content the player meets by choice, so he has NO [Threats] switch (plan Open question 18).",
+  "//trade": "CannotTrade false makes him a trader (InGameNPC.CanTrade is !CannotTrade && (TradingConditions.IsEmpty || valid); TradingConditions is a GeneralCondition struct, omitted = empty = always tradeable). His wares come the vanilla trader's way: each season's stock action, in the Spirit World eight ticks before he arrives, first clears his inventory (InventoryActions Type 0, ClearInventory, which InGameNPC runs BEFORE the action's drops) and then drops his wares into it (DropCardsInsideInventory). Wares are vanilla and Harsh Wilds items only: dried spirit mushrooms, dried fairyweed, dried fly agaric, the three spirit charms and winter mistletoe. TradingModifiers marks what he sells up by 1.5 (NPCToPlayer, Multiply). MaxCarryWeight 100000 as the vanilla trader. Every quantity and the markup are TUNABLE PLACEHOLDERS.",
+  "//visit": "About once a season, one day (Open question 22, tunable). Per season four AgentActions on that season's vanilla SeasonCounter_* (0..2880, 96 ticks a day): stock at 760, arrive at the Green Glade (the vanilla trader's meeting place, Env_ClearingOak_GreenGlade b791dfa6...) at 768, an arrive retry at 784 (vanilla's trader retries its arrival too), depart to Env_SpiritWorld at 864, one day after arriving. Day 8 of the season keeps clear of the vanilla trader's own Green Glade stay (1440..2112, days 15 to 22 of spring and autumn). RepeatOptions 2 (ResetWhenConditionsAreFalse) re-arms each window once it has passed. Every window is a tunable placeholder.",
+  "UniqueID": "hw_agent_shaman",
+  "AgentName": {
+    "ParentObjectID": "hw_agent_shaman",
+    "LocalizationKey": "HarshWilds_Shaman_AgentName",
+    "DefaultText": "Wandering Shaman"
+  },
+  "AgentDescription": {
+    "ParentObjectID": "hw_agent_shaman",
+    "LocalizationKey": "HarshWilds_Shaman_AgentDescription",
+    "DefaultText": "An old spirit-worker passing through, pack heavy with dried mushrooms, fairyweed and charms. He trades, and to one who has bound a spirit he will teach a calling."
+  },
+  "AgentImageWarpData": "hw_agent_shaman",
+  "AgentImageWarpType": 3,
+  "WeightCategoryWarpData": "Medium",
+  "WeightCategoryWarpType": 3,
+  "MaxCarryWeight": 100000.0,
+  "CannotTrade": false,
+  "StartingInventory": [],
+  "TradingModifiers": [
+    {
+      "ForTradingDirection": 2,
+      "TargetItems": [],
+      "ModifierMode": 1,
+      "SimpleModifier": 1.5
+    }
+  ],
+  "Interactions": [
+    {
+      "ButtonName": {
+        "ParentObjectID": "hw_agent_shaman",
+        "LocalizationKey": "HarshWilds_Shaman_Talk",
+        "DefaultText": "Talk"
+      },
+      "ButtonType": 0,
+      "DialogWarpData": "hw_shaman_talk",
+      "DialogWarpType": 3
+    }
+  ],
+  "AgentStats": [
+    {
+      "ModelStatWarpData": "f361a98afe344ba4aab2b00a7412fb08",
+      "ModelStatWarpType": 3,
+      "OverrideStartingValue": {
+        "Active": true,
+        "FloatValue": 1.0
+      },
+      "OverrideMinMaxValue": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "MaxValue": 1.0
+      }
+    },
+    {
+      "ModelStatWarpData": "eeccbe55704197944a02a36405404c46",
+      "ModelStatWarpType": 3,
+      "OverrideStartingValue": {
+        "Active": true,
+        "FloatValue": 250.0
+      }
+    }
+  ],
+  "AgentActions": [
+    {
+      "ActionID": "hw_shaman_stock_spring",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_stock_spring"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "6f3f0faaf50a7974e915ae0915f7e241",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 760.0,
+              "y": 761.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "InventoryActions": [
+        {
+          "Type": 0,
+          "Items": []
+        }
+      ],
+      "DroppedCards": [
+        {
+          "CollectionName": "ShamanWares",
+          "CollectionWeight": 1,
+          "DropCardsInsideInventory": true,
+          "DroppedCards": [
+            {
+              "DroppedCardWarpData": "68a90a422ba54614a90ba242283bf207",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCardWarpData": "2e580e74c91c3244ea54a50503310daa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCardWarpData": "2d1588516fadf404a880db9bd675b5f4",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 3
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_lynx",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_goat",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_blood",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_mistletoe",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_arrive_spring",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_arrive_spring"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "6f3f0faaf50a7974e915ae0915f7e241",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 768.0,
+              "y": 769.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_arrive_spring_retry",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_arrive_spring_retry"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "6f3f0faaf50a7974e915ae0915f7e241",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 784.0,
+              "y": 785.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_depart_spring",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_depart_spring"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "6f3f0faaf50a7974e915ae0915f7e241",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 864.0,
+              "y": 865.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_stock_summer",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_stock_summer"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 760.0,
+              "y": 761.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "InventoryActions": [
+        {
+          "Type": 0,
+          "Items": []
+        }
+      ],
+      "DroppedCards": [
+        {
+          "CollectionName": "ShamanWares",
+          "CollectionWeight": 1,
+          "DropCardsInsideInventory": true,
+          "DroppedCards": [
+            {
+              "DroppedCardWarpData": "68a90a422ba54614a90ba242283bf207",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCardWarpData": "2e580e74c91c3244ea54a50503310daa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCardWarpData": "2d1588516fadf404a880db9bd675b5f4",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 3
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_lynx",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_goat",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_blood",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_mistletoe",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_arrive_summer",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_arrive_summer"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 768.0,
+              "y": 769.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_arrive_summer_retry",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_arrive_summer_retry"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 784.0,
+              "y": 785.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_depart_summer",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_depart_summer"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 864.0,
+              "y": 865.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_stock_autumn",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_stock_autumn"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "f6f436140ffd58644a6438c0838e05a1",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 760.0,
+              "y": 761.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "InventoryActions": [
+        {
+          "Type": 0,
+          "Items": []
+        }
+      ],
+      "DroppedCards": [
+        {
+          "CollectionName": "ShamanWares",
+          "CollectionWeight": 1,
+          "DropCardsInsideInventory": true,
+          "DroppedCards": [
+            {
+              "DroppedCardWarpData": "68a90a422ba54614a90ba242283bf207",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCardWarpData": "2e580e74c91c3244ea54a50503310daa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCardWarpData": "2d1588516fadf404a880db9bd675b5f4",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 3
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_lynx",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_goat",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_blood",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_mistletoe",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_arrive_autumn",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_arrive_autumn"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "f6f436140ffd58644a6438c0838e05a1",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 768.0,
+              "y": 769.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_arrive_autumn_retry",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_arrive_autumn_retry"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "f6f436140ffd58644a6438c0838e05a1",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 784.0,
+              "y": 785.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_depart_autumn",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_depart_autumn"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "f6f436140ffd58644a6438c0838e05a1",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 864.0,
+              "y": 865.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_stock_winter",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_stock_winter"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 760.0,
+              "y": 761.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "InventoryActions": [
+        {
+          "Type": 0,
+          "Items": []
+        }
+      ],
+      "DroppedCards": [
+        {
+          "CollectionName": "ShamanWares",
+          "CollectionWeight": 1,
+          "DropCardsInsideInventory": true,
+          "DroppedCards": [
+            {
+              "DroppedCardWarpData": "68a90a422ba54614a90ba242283bf207",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCardWarpData": "2e580e74c91c3244ea54a50503310daa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCardWarpData": "2d1588516fadf404a880db9bd675b5f4",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 3
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_lynx",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_goat",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_charm_blood",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCardWarpData": "hw_mistletoe",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_arrive_winter",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_arrive_winter"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 768.0,
+              "y": 769.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_arrive_winter_retry",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_arrive_winter_retry"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 784.0,
+              "y": 785.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    },
+    {
+      "ActionID": "hw_shaman_depart_winter",
+      "ActionLocalizedName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "hw_shaman_depart_winter"
+      },
+      "RepeatOptions": 2,
+      "CannotPerformWhileInCombat": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 864.0,
+              "y": 865.0
+            },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "DroppedCards": [],
+      "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+      "MoveToEnvironmentWarpType": 3,
+      "MoveTiming": 0
+    }
+  ],
+  "DismantleActions": [],
+  "DragAndDropActions": []
+}

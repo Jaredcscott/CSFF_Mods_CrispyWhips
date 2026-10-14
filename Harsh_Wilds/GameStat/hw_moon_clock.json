@@ -1,0 +1,43 @@
+{
+  "UniqueID": "hw_moon_clock",
+  "GameName": {
+    "LocalizationKey": "HarshWilds_MoonClock_StatName",
+    "DefaultText": "Harsh Wilds: Moon Clock"
+  },
+  "Description": {
+    "LocalizationKey": "HarshWilds_MoonClock_StatDescription",
+    "DefaultText": "Hidden counter: ticks until the moon may next cloud your mind in a realm."
+  },
+  "IsRuntimeOnly": false,
+  "BaseValue": 0.0,
+  "MinMaxValue": {
+    "x": 0.0,
+    "y": 4.0
+  },
+  "BaseRatePerTick": 1.0,
+  "MinMaxRate": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "Transfers": [],
+  "TimeOfDayMods": [],
+  "CompositeStats": [],
+  "StatPriority": 0,
+  "RequiredPerks": [],
+  "Visibility": 2,
+  "VisibleInDetailedList": false,
+  "CannotBeInspected": true,
+  "InvertedDirection": false,
+  "VisibleValueRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "TrendIndicatorRateRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "StatusesHaveNoBar": true,
+  "Statuses": [],
+  "UsesNovelty": false,
+  "//MoonClock": "Feature 30 (Prompt 43): the hour clock of the Moon Realm danger, Tgr_HW_MoonGlamour. Rises 1 a tick to its top of 4 (MOON_CLOCK_TICKS, one hour, a TUNABLE PLACEHOLDER) and waits there while the player is away."
+}

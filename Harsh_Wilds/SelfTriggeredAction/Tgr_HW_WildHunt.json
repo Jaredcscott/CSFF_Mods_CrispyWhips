@@ -1,0 +1,216 @@
+{
+    "UniqueID": "Tgr_HW_WildHunt",
+    "//WildHunt": "Feature 31, the Wild Hunt's roll (pack Prompt 44), on the eclipse's chassis (Tgr_HW_Eclipse.json): no event card; the Wild Hunt collection arms the self-timed hw_stat_wildhunt (HUNT ticks 20 = 5 hours). Gates: hw_switch_wildhunt {1,1}, vanilla winter counter {1,2880}, IsNight {1,1}, Sheltered {0,0}, hw_hunt_clock at its max (576 = 6 days, grace 10 days). Roll Nothing 90 against Hunt 10 minus the offering (up to -7) and Sanctuary (up to -2). Does not repeat vanilla's winter storm wind (WinterStormWindCounter is a wind stat, no event or cost): this is a night ride that costs Stress and a bruise. Every number is a TUNABLE PLACEHOLDER.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_WildHunt",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Wild Hunt Roll"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_wildhunt",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 2880.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_hunt_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 576.0,
+                        "y": 576.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_hunt_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -576.0,
+                        "y": -576.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 90,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "WildHunt",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 10,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -7
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -2
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_wildhunt",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {
+                                "x": 20.0,
+                                "y": 20.0
+                            },
+                            "RateModifier": {
+                                "x": 0.0,
+                                "y": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

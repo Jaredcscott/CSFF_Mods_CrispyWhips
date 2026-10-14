@@ -1,0 +1,58 @@
+{
+    "UniqueID": "Tgr_HW_FleasBogMyrtle",
+    "//FleasBogMyrtle": "Fleas and lice cure 2, bog myrtle smoke and salve (Documentation/Research/HarshWilds/afflictions.md section 2.5, the second fleas DECISION): a COUPLED cure. Vanilla already models 'burning or rubbing herbs on repels bugs' as the decaying effect stat BogMyrtleMosquitoProtection (88ab838226e6fbc46883a59cb9aa81ba, 0 to 32, rate -1), written by Bog Myrtle leaves' Apply (+3) and Burn (+8) and by BugRepellentSalve's Apply (+32), so no vanilla card is patched. ALL GATES ARE StatChangeTrigger ENTRIES (an unresolved one fails closed). Gate 1, hw_switch_fleasandlice {1,1}. Gate 2, BogMyrtleMosquitoProtection from 1: the research writes {1,32}, and this file writes {1,1000}, which reads the same (the stat cannot exceed its cap of 32) but keeps the top edge off the cap, where the salve's clamped +32 lands (Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1 [clamp-cap]). Gate 3, hw_fleas {1,1000}: there are fleas to lose (open above its cap, [clamp-own]). RepeatOptions 0 (Repeat), OncePerTick, no cooldown: every tick the protection lasts, hw_fleas -HW_FLEAS_SMOKE_STEP = 4, so a salve (32 ticks) clears up to 128 and a burned sprig (8 ticks) 32. FlyAgaricMosquitoRepellant is not used (its status costs Nausea). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P6).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasBogMyrtle",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Bog Myrtle"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "88ab838226e6fbc46883a59cb9aa81ba",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -4.0, "y": -4.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

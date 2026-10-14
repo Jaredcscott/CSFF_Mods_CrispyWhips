@@ -1,0 +1,198 @@
+{
+    "UniqueID": "Tgr_HW_Selkie",
+    "//Selkie": "Feature 31, the selkie (pack Prompt 47), in the heron's soft shape (hw_tgr_heron.json): the roll never names Far Territory in a hard field. Gates (StatChangeTrigger only): hw_switch_selkie {1,1}, vanilla IsNight {1,1}, vanilla Sheltered {0,0}, hw_selkie_clock at its max (SELKIE cooldown 288 = 3 days, grace 5 days). Roll: Nothing 75 against Selkie, whose BASE weight is 0 plus 25 for the Far Territory shore card (ftEnvShore) on the board (a CardDropChanceModifiers row, NotInHand and ExcludeInventory), minus the offering (up to -10) and Sanctuary (read only, up to -3): off the shore, or with Far Territory not installed (the card is missing, the row adds nothing), the Selkie collection's final weight is 0 or less and the game skips it, so Nothing always wins. The roll resets the clock wherever the player stands, so it is a chance per cooldown and only lands on the shore if the player is there when it fills. No target list names a Far Territory UID, so no load guard is needed (the event card holds only vanilla stats and Harsh Wilds stats). Every number is a TUNABLE PLACEHOLDER.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_Selkie",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Selkie Driftwood Shore"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_selkie",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_selkie_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 288.0,
+                        "y": 288.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_selkie_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -288.0,
+                        "y": -288.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 75,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Selkie",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 0,
+                    "StatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_offering",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 288.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -10
+                            },
+                            "WhenOutOfRange": 1
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                            "StatWarpType": 3,
+                            "StatRange": {
+                                "x": 0.0,
+                                "y": 2250.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": -3
+                            },
+                            "WhenOutOfRange": 1
+                        }
+                    ],
+                    "CardDropChanceModifiers": [
+                        {
+                            "CardOnBoardWarpData": "ftEnvShore",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 25
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_selkie",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

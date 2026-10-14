@@ -1,0 +1,64 @@
+{
+  "//": "Harsh Wilds feature 33, the frost demon (plan section 33, Open question 21; Prompt 49): a rare hunter of the coldest winter nights. A GENERATED agent (no Agent.Ref), so Carcass.Card applies. It does NOT duplicate vanilla's angry Frost spirit: Event_FrostSpiritAngry is only the failure outcome of the player's own frost-spirit calling (one W_Frostbite card, no creature, nothing seasonal; wave0-places.md section 4, MEASURED), so the plan row's close test is not met. It starts from the musk ox's northern hills and meadows, the places of the deepest winter, and is HOSTILE: open question 21's default is that it is fightable at about the musk ox's difficulty or above. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. Card art is real (hw_frostdemon.png).",
+  "//Switch": "Spawn.Conditions (framework 2.27.0), ALL of which must hold: the rolled stat hw_stat_frostdemon reads 1 or more (only the Frost Demon collection of SelfTriggeredAction/Tgr_HW_FrostDemon.json writes it, 44 ticks from the 18:00 roll, so it ends about 05:00), the switch hw_switch_frostdemon is 1 ([Threats] FrostDemon) and the season is Winter. While one is false the framework keeps it retired in the Spirit World; it returns on the first tick all hold again (ConditionRespawnTicks 0). DeathRespawnTicks 0: a killed frost demon stays dead until its condition next goes false and true again, the next night a roll brings one.",
+  "//Encounter": "Encounter.Ref points at HarshWilds/Encounter/hw_encounter_frostdemon.json, which Development_Tools/HarshWilds/derive_content.py rebuilds from vanilla Combat_EncounterWolf.json the way the lynx is: its bites become vanilla's Frostnip and Frostbite wound cards, so the cold is the fight's cost (the cold encounter). Blood 200 and morale 300 equal the musk ox's blood and morale; its attacks are the wolf's, which hit harder than the musk ox's. Aggression 1000 beats the wander (100) and the pursuit duty (400), within its 19:00 to 05:00 window, at most once a night, only when the player is on its board, which is an OUTDOOR board: a player indoors is in a different environment and is never attacked.",
+  "//Tracks": "Off: a creature that exists for one night leaves no track cards behind. TUNABLE.",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17: the same reason as Animals/Wisent.json (the framework's lifecycle ticker counts the agent dead only while its blood sits at 4 or below). Agent.Blood and PoisonResistance match the encounter's Blood 200 and Value4 250.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_frostdemon",
+  "DisplayName": "Frost Demon",
+  "LocalizationKey": "HarshWilds_FrostDemon_AgentName",
+  "Sprite": "hw_frostdemon",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": { "Start": 200, "Max": 200, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 250, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ca60012d0c6a8394f9bc5cef2e1794ad",
+    "DeathRespawnTicks": 0,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_stat_frostdemon", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_switch_frostdemon", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "Season", "UID": "Winter" }
+    ],
+    "ConditionRespawnTicks": 0
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 18, "End": 6 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "ca60012d0c6a8394f9bc5cef2e1794ad",
+      "5a51045d28a3ffc4a9a5802bd5fb2e6c",
+      "d5ed3b56f92b3bf44b6220ddc246d9e9",
+      "0dc7431ce6e2eda4fac5be625525108a"
+    ],
+    "WanderWeight": 100,
+    "PlayerAttraction": {
+      "Enabled": true,
+      "BaseWeight": 0,
+      "MovementType": "Pathfind",
+      "DistanceWeight": { "Range": [0, 30], "Weights": [400, 0] },
+      "OnlyDuringActiveHours": true
+    }
+  },
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_frostdemon",
+    "ApproachButton": true,
+    "Aggression": {
+      "Enabled": true,
+      "Hours": { "Start": 19, "End": 5 },
+      "BaseWeight": 1000,
+      "RequirePlayerInEnv": true,
+      "MaxPerDay": 1
+    }
+  },
+  "Carcass": {
+    "Card": "hw_frostdemon_carcass"
+  }
+}

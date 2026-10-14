@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_faerie_clock",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_FaerieClock_StatName",
+        "DefaultText": "Harsh Wilds: Faerie Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_FaerieClock_StatDescription",
+        "DefaultText": "Hidden counter: ticks until the fair folk may next play a trick in a realm."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 4.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false,
+    "//FaerieClock": "Feature 30 (plan section 30): the hour clock of the Faerie Realm's danger roll, Tgr_HW_FaerieTricks. Rises 1 a tick to its top of 4 (FAERIE_CLOCK_TICKS, one hour, a TUNABLE PLACEHOLDER) and waits there while the player is away; the roll fires at the top while hw_stat_in_realm reads 1 and takes 4 off it."
+}

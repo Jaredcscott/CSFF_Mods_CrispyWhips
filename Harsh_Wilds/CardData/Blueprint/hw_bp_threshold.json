@@ -1,0 +1,128 @@
+{
+    "UniqueID": "hw_bp_threshold",
+    "//RitualObject": "Feature 31's threshold offering (pack Prompt 44), the cairn blueprint's shape with ONE stage. Player-made, so no [Threats] switch. One stone to a camp (BlueprintCardConditions, Inverted). Researchable from the start through an always-true StatValues entry on vanilla Sanctuary (range -1000 to 7500; a blueprint with all five condition lists empty never unlocks). Placeholders.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_threshold",
+        "LocalizationKey": "HarshWilds_BpThreshold_CardName",
+        "DefaultText": "Threshold Stone"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_threshold",
+        "LocalizationKey": "HarshWilds_BpThreshold_CardDescription",
+        "DefaultText": "Set a flat stone at the edge of camp. Leave small offerings on it to keep the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie away."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_threshold",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "hw_bp_threshold",
+        "LocalizationKey": "HarshWilds_BpThreshold_UnlockConditionsDesc",
+        "DefaultText": "Known from the start."
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 8,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": -1000.0,
+                    "y": 7500.0
+                },
+                "NotifyWhenNotMet": false,
+                "HideAllWhenNotMet": false
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintCardConditions": [
+        {
+            "TriggerCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "TriggerCardWarpData": "hw_threshold",
+            "TriggerCardWarpType": 3,
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": true,
+            "OnlyEquipped": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "hw_threshold",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

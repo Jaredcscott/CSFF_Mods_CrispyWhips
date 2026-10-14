@@ -1,0 +1,18 @@
+{
+  "target": "hw_fairy_ring.png",
+  "sourceCard": "hw_fairy_ring",
+  "subject": "a near-perfect circle of red-capped white-spotted fly agaric toadstools in short green grass, plain grass inside",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "imageCount": 1
+  },
+  "historyId": "iKSkj7naWNvaUqCE9ZoT",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791749492521_59549436_1791749493290_47d1e16d.png",
+  "credits": null,
+  "generated": "2026-10-11",
+  "rekeyed": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: has white to remove; re-keyed from the raw generation: the paper showing between the toadstool stems at the back of the ring keyed (key_enclosed.py), white edge trim removed, trimmed"
+}

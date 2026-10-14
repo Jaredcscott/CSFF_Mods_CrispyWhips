@@ -1,0 +1,11 @@
+{
+ "target": "hw_event_nixie.png",
+ "subject": "a green-skinned water spirit in a wet shift rising from a pool (first sample, bare-skinned, was rejected and redrawn)",
+ "model": "nano-banana-2",
+ "mode": "text2image",
+ "historyId": "EtGgU2wgAt17aY5Upb5n",
+ "generated": "2026-10-11",
+ "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791757577338_0217c7d3_1791757577945_3a968eee.png",
+ "rekeyed": "2026-10-12",
+ "note": "owner gallery rework 2026-10-12: has white to remove; re-keyed from the raw generation (historyId EtGgU2wgAt17aY5Upb5n): paper enclosed between the hair, neck and arm keyed (key_enclosed.py), white edge trim removed (defringe.py), trimmed"
+}

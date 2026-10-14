@@ -1,0 +1,50 @@
+{
+    "UniqueID": "Tgr_HW_SpiritSwitchOff",
+    "//SpiritSwitchOff": "Spirit sickness retires with its switch: a save whose [Threats] SpiritSickness switch is off must not keep a status nothing cures, because every source and cure STA gates on the switch at {1,1}. Gates (StatChangeTrigger): hw_switch_spiritsickness {0,0}; hw_spiritsickness {1,1000}. Writes -288, the whole stat, in one tick. The Cleansing Smudge still works while off (it has nothing to treat). Tied to hw_spiritsickness's MinMaxValue.y.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_SpiritSwitchOff",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Spirit Switch Off"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_spiritsickness",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_spiritsickness",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_spiritsickness",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -288.0, "y": -288.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

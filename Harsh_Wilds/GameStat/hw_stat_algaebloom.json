@@ -1,0 +1,182 @@
+{
+    "UniqueID": "hw_stat_algaebloom",
+    "//AlgaeBloom": "The algae bloom itself (plan section 13 as built; Documentation/Research/HarshWilds/wave0-threats.md section 5, the W0-8 finding): a self-timed effect stat built exactly like the cold snap's and the drought's timers. Written ONLY by the Algae Bloom collections of SelfTriggeredAction/Tgr_HW_AlgaeBloom.json (+HW_ALGAE_TICKS = 288, its max, applied Permanent by ActionRoutine when that collection is picked), then it counts itself down at BaseRatePerTick -1 and rests at 0, so the bloom ends by itself after 288 ticks, three days, with no clearing code. While it reads 1 to 288 its one status is active: it raises a Moderate alert when the bloom begins (NotifyPlayer 2 NotifyWhenGoingUp, AlertLevel 2 Moderate), shows the vanilla status icon SaturationFish in the status strip (Visibility 0 VisibleWithStatus and StatusesHaveNoBar true, the hw_stat_drought shape; Visibility 2 would be NeverVisible and hide the alert), and its EffectsOnStats write a VALUE modifier of HW_ALGAE_POP_DROP = -200 to each of the seven vanilla local fish population stats: Pop_Char_Local 05637f8582d0e834c9fccdc922267d99, Pop_Crayfish_Local 478a22eb24d03244fa9c31911175eb6c, Pop_Eel_Local 800a4ffb6dc941c45b805472d3ad785d, Pop_Perch_Local 06a9b3a507f78374084b51efdfb5f02c, Pop_Pike_Local c2c0f35567894c74eabe32272ce35647, Pop_Sturgeon_Local 7d68b8993acd7b442bd933c9cc137324 and Pop_Trout_Local c5f827171ebd68d45923e6978b6e1917. HOW IT WORKS (W0-8, MEASURED from the export): those seven are plain GameStats, 0 to 100, base 0, rate 0, no statuses, and nothing in vanilla gives them a per-place value except the place itself: each River_* location card writes PassiveStatEffects ValueModifiers on the species it holds (+100 at most), so a stat reads the sum of the modifiers of the cards on the board. A status effect takes the same GlobalModifier route (GameManager.ChangeStat, inverted exactly when the status leaves its range), and the value is clamped into 0..100 only when READ, so while the bloom runs every place's fish populations read 0 and when it ends the place's own values return. Every rod and spear fishing collection for Perch, Eel, Trout, Char, Pike and Sturgeon on the river fishing cards (River, RiverBog, RiverLake, RiverMarsh, RiverMire, RiverSwamp) carries a StatsDropChanceModifier on its own population with StatRange 10 to 100 and WhenOutOfRange 2 (CancelDrop), so at 0 those six collections are cancelled; the Nothing and Minnow collections read none of the seven, so a bloom leaves minnows. HOW THE NUMBER WAS CHOSEN: the largest sum a stat can reach is a place's +100 plus the +100 vanilla Agent_Partner adds to Perch and Trout (AgentPassiveEffects), plus at most +100 from a vanilla status (FishingMosquitosLightAmount on Crayfish); -200 takes every one of those sums to 0 or below, under the threshold of 10, and HarshWilds-Events.Tests.ps1 [algaebloom-drop] recomputes those sums from the export on every run. A deeper value would change nothing a player sees (the read clamps at 0). THE BLOOM NEVER WRITES a population stat from an action: an action's StatModifications are Permanent base writes that nothing takes back, so the bloom is this status effect and nothing else names the seven GUIDs. It names no card at all: not vanilla's unused fish trap (the developer's unfinished work) and no Water-Driven Infrastructure pond. HW_ALGAE_POP_DROP and HW_ALGAE_TICKS are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play; the status text says 'about three days', so retune it together with the text. INFERRED and load bearing, harness probe T2.1118: that the status route reaches the value the fishing collections read on a live board (the route is MEASURED in code, the effect is not).",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_AlgaeBloom_StatName",
+        "DefaultText": "Algae Bloom"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_AlgaeBloom_StatDescription",
+        "DefaultText": "An algae bloom: for about three days the larger fish of the rivers and lakes stop biting."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 288.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "SaturationFish",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_AlgaeBloom_StatusName",
+                "DefaultText": "Algae Bloom"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_AlgaeBloom_StatusDescription",
+                "DefaultText": "The rivers and lakes have turned green with algae. For about three days the larger fish stop biting: a line or a spear brings up only minnows, or nothing."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "SaturationFish",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 288},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "05637f8582d0e834c9fccdc922267d99",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -200.0, "y": -200.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "478a22eb24d03244fa9c31911175eb6c",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -200.0, "y": -200.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "800a4ffb6dc941c45b805472d3ad785d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -200.0, "y": -200.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "06a9b3a507f78374084b51efdfb5f02c",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -200.0, "y": -200.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "c2c0f35567894c74eabe32272ce35647",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -200.0, "y": -200.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "7d68b8993acd7b442bd933c9cc137324",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -200.0, "y": -200.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "c5f827171ebd68d45923e6978b6e1917",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -200.0, "y": -200.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

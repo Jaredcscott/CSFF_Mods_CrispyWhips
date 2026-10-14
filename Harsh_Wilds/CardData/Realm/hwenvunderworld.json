@@ -1,0 +1,44 @@
+{
+  "UniqueID": "hwenvunderworld",
+  "//Realm": "Feature 30 (plan section 30, pack Prompt 43): the Underworld, the third realm (the Faerie Realm is the recipe, plan section 30 as-built). Same shape as hwenvfaerierealm: CardType 4, instanced (each cairn opens its own copy, keyed on the board it stands on), never a map node, UniqueID with no underscore, AlwaysDropUniqueDefaultEnvDrops true. DefaultEnvCardDrops = [location card, exit]. No picture on this card by design.",
+  "CardType": 4,
+  "InstancedEnvironment": true,
+  "CreateInstancedMap": false,
+  "AlwaysUpdate": false,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_UnderworldRealm_EnvName",
+    "DefaultText": "The Underworld"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_UnderworldRealm_EnvDescription",
+    "DefaultText": "The dark halls under the barrow, where the old dead keep their quiet. You cannot stay long."
+  },
+  "MaxWeightCapacity": 10000.0,
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "hwlocunderworld",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "hw_underworld_exit",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

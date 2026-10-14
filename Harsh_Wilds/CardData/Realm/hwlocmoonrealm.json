@@ -1,0 +1,222 @@
+{
+  "UniqueID": "hwlocmoonrealm",
+  "//Realm": "Feature 30 (plan section 30, pack Prompt 43): the Moon Realm location card. Same contract as hwlocfaerierealm: CardType 8, UniqueOnBoard, AlwaysUpdate false, the passive hw_stat_in_realm +1 is the presence flag (read by the four raid rolls and by this realm danger) and vanilla Light +40 (MOON_LIGHT, a TUNABLE PLACEHOLDER) is the full moon seen close. Its one action drops vanilla feathers always and, by chance, vanilla Healers Moss (40), Niter Crystals (20) and Flint (15); every number a TUNABLE PLACEHOLDER. No travel action: the only ways out are the exit card.",
+  "CardType": 8,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_MoonRealm_LocName",
+    "DefaultText": "The Moon Realm"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_MoonRealm_LocDescription",
+    "DefaultText": "A pale shore of silver sand under a huge full moon, and a lake as still as glass. No raid comes for your food here, and no lynx or bandit follows you in. The basin will send you home before long."
+  },
+  "CardImageWarpData": "Moon",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "PassiveStatEffects": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "hw_stat_in_realm",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 1.0,
+        "y": 1.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "hw_stat_in_moon",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 1.0,
+        "y": 1.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 40.0,
+        "y": 40.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hwlocmoonrealm",
+        "LocalizationKey": "HarshWilds_MoonRealm_SearchName",
+        "DefaultText": "Search the Silver Shallows"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hwlocmoonrealm",
+        "LocalizationKey": "HarshWilds_MoonRealm_SearchDescription",
+        "DefaultText": "Spend two hours combing the shallows and the shore. White feathers drift in on the still water; now and then you find moon moss, a few niter crystals or a bright flint."
+      },
+      "DaytimeCost": 8,
+      "ProducedCards": [
+        {
+          "CollectionName": "Shallows",
+          "CollectionMessages": [],
+          "CountsAsSuccess": true,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "322e42ea161bf2e4bb94747882d1285a",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 40.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "de2ef7735dc8a7643ab1ddccd3b37296",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 20.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "bef002cfd45b3e8459864746f403cf73",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 15.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

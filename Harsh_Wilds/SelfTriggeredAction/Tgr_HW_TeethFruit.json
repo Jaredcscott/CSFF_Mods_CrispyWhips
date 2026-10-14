@@ -1,0 +1,72 @@
+{
+    "UniqueID": "Tgr_HW_TeethFruit",
+    "//TeethFruit": "Tooth decay source 2 of 3 (Documentation/Research/HarshWilds/afflictions.md section 3.4, the tooth decay DECISION): gorging on berries, the fruit half of the sugar hook. Vanilla's SaturationFruits (ca65984e668e95344a7009df3dcfb052, 0 to 288, rate -1) is written by the berry cards' Eat entries (+20 each for the fresh, dried, roasted, fermenting, fermented and pulped billberries and springberries and for dried, roasted or crushed juniper berries, +6 or +7 for fat cakes and pasties, +4 for fresh juniper berries; read from the export's CardData), so about five berries in a short while put it inside its own 'tired of eating Fruits' band, and no vanilla card is patched. Exactly the shape of Tgr_HW_TeethSugar (read its note for the gates and the roll): hw_switch_toothdecay {1,1} and SaturationFruits {97,288} as StatChangeTrigger entries (inclusive range), RepeatOptions 2 (ResetWhenOutOfRange, one roll a binge, a new one once the stat has decayed out of the band). Roll: Nothing (weight HW_TEETH_FRUIT_NOTHING = 5, one card-less drop) against Cavity (weight 1, a card-less drop too), 1 in 6 a binge. The Cavity collection adds HW_TEETH_PER_CAVITY_SMALL = 24 to hw_teeth (a quarter of a band). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P4).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_TeethFruit",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Teeth Fruit"
+            },
+            "RepeatOptions": 2,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_toothdecay",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ca65984e668e95344a7009df3dcfb052",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 97.0, "y": 288.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 5,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Cavity",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_teeth",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 24.0, "y": 24.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "UniqueID": "hw_event_mudvolcano",
+    "//MudVolcano": "The event card hw_tgr_mudvolcano spawns, in the shape of vanilla Event_FallLaceration (36db4f020478b1444b20bb8c8c107c21): a CardType 3 whose one button destroys the event card (ReceivingCardChanges.ModType 3, which is also what lets the button pass WillHaveAnEffect and render). The button ALWAYS dirties: one StatModification of +30 on vanilla Filth (111606ba528c30e4f8e38494f41b92c7, the same +30 Event_FallLaceration writes; Filth has a base rate of 0 and a range of 0 to 500, so the mud stays until the player washes, which is vanilla's own cleaning). It SOMETIMES burns: a two-collection ProducedCards, Burn (weight MUDVOLCANO_BURN_WEIGHT 40, exactly one vanilla W_FireBurn, 3ba0c209e55d7cb4d8da51697e34b584, by GUID) against Splash (weight 60, a card-less drop), so about two eruptions in five burn. Both weights are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play. The card names no Forest Lore card and has no target list, so it needs no load guard; it can only reach the player. Gated by Development_Tools/Tests/HarshWilds-MudVolcano.Tests.ps1.",
+    "//Image": "PARTIAL: the vanilla sprite Dirt_Pile stands in. The real art hw_event_mudvolcano (a grey mud cone bursting with a fountain of hot mud and a few flying blobs, steam above) was generated (HarshWilds/.art/hw_event_mudvolcano.json holds the candidate URL) but could not be keyed to 512x768 RGBA because the GIMP bridge is not installed on this machine; run /process-card-art HarshWilds hw_event_mudvolcano --from <that url>, then point CardImageWarpData at hw_event_mudvolcano.",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_MudVolcanoEvent_CardName",
+        "DefaultText": "The Mud Volcano Erupts"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_MudVolcanoEvent_CardDescription",
+        "DefaultText": "The crater heaves, bulges and bursts, throwing hot grey mud across the ground around it."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Dirt_Pile",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_MudVolcanoEvent_ActionName",
+                "DefaultText": "Shield yourself"
+            },
+            "DaytimeCost": 0,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 30.0, "y": 30.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Burn",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 40,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "3ba0c209e55d7cb4d8da51697e34b584",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Splash",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 60,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

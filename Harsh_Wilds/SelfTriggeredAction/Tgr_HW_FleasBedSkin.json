@@ -1,0 +1,162 @@
+{
+    "UniqueID": "Tgr_HW_FleasBedSkin",
+    "//FleasBedSkin": "Fleas and lice source 2 of 4 (Documentation/Research/HarshWilds/afflictions.md sections 2.2 and 2.4, the first fleas DECISION): sleeping on a skin roll or a log bed. Exactly the shape of Tgr_HW_FleasBedLeaf (read its note for the gates): hw_switch_fleasandlice {1,1} and vanilla SleepClock (ca25b2c02ece6674bae6aaba4a6b8c10) {1,1000} as StatChangeTrigger entries, RepeatOptions 2 (ResetWhenOutOfRange, one roll a sleep), one action per bed in RequiredCardsOnBoard: vanilla BedRoll (aa2efd9ef5bb3e64293e901308a9641a, a cured-skin roll) and BedLog (45e37a55cdd9e304886b3d06115e36f6). Cleaner bedding, so longer odds than the leaf beds: Nothing (weight HW_FLEAS_BEDSKIN_NOTHING = 19, one card-less drop) against Fleas (weight 1, a card-less drop too), 1 in 20 a sleep. The Fleas collection adds HW_FLEAS_PER_INFEST = 96 to hw_fleas. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P1).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasBedSkin",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Bed Roll"
+            },
+            "RepeatOptions": 2,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerCardWarpData": "aa2efd9ef5bb3e64293e901308a9641a",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 19,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Fleas",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_fleas",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 96.0, "y": 96.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasBedSkin",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Log Bed"
+            },
+            "RepeatOptions": 2,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerCardWarpData": "45e37a55cdd9e304886b3d06115e36f6",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 19,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Fleas",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_fleas",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 96.0, "y": 96.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

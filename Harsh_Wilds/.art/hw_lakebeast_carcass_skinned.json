@@ -1,0 +1,78 @@
+{
+  "target": "hw_lakebeast_carcass_skinned.png",
+  "sourceCard": "CardData/Item/hw_lakebeast_carcass_skinned.json",
+  "subject": "Draw: the skinned carcass of the long-necked lake beast lying on its side, about three times as long as it is tall, one whole carcass and nothing else, in vanilla's muted dusty rose-pink skinned-meat colour.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows the dead long-necked lake beast lying on its side: draw this same carcass with exactly the same pose, facing, outline and proportions (the same broad head lying flat at the end of the same very long neck curving along the ground, the same heavy humped body, the four short flipper-like legs and the thick tapering tail in the same places), changed only as follows: the scaly hide has been skinned off the whole body, head, neck, legs and tail, so the whole carcass is bare muscle.\nReference image 2 is a STYLE reference only: it is how this game draws a skinned animal. Match it exactly: the whole carcass in one muted dusty rose-pink meat colour (#b4596e to #d98e9c), shaded in only three or four flat posterized tones of that same pink with hard edges, a few paler pink highlight patches on the top of the body and neck, darker mauve-red in the folds and under the belly, a thin dark outline round the whole body, the eye closed. Do not copy its animal or pose.\nDraw: the skinned carcass of the long-necked lake beast lying on its side, about three times as long as it is tall, one whole carcass and nothing else.\nSurvival card game item art: flat posterized colour fills, thin dark ink outline, smooth muscle surfaces, no texture. Single subject only, centred and filling most of the frame width with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: bright red, glossy wet shine, white tendon lines, white fat stripes, striped muscle fibres, watercolour, soft airbrushed gradients, photo, photorealistic, 3D render, anime, pixel art, neon colours, scales, green hide, skin, skeleton, bones sticking out, ribs, pool of blood, dripping blood, wounds, knife, hook, hide lying beside it, ground, water, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow.",
+  "historyId": "V0T4fDydteeMqBN7zKk1",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791805430739_13b7ab3e_1791805430817_8893a59f.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "subject",
+      "label": "hw_lakebeast_carcass",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800569024_a4eff320_1791800569062_18ddbaec.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Boar_Skinned",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Boar_Skinned_1791805388476_45ad5446.png",
+      "uploadId": "8CStrn2X2cw2QCqDebpb"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791805430739_13b7ab3e_1791805430817_8893a59f.png",
+      "verdict": "shipped (one sample)"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, defringe, outer light-rim pass, trim_card_art); no enclosed paper",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework pass 2 2026-10-12: looks terrible, must match game style. Redrawn in vanilla's skinned-carcass look (Bear/Boar/Wolf/Stag/Doe_Skinned: flat muted dusty rose-pink, a few hard tones, no tendon or fat stripes) with vanilla Boar_Skinned as the style reference and the shipped hw_lakebeast_carcass generation as the subject reference, so the pose matches.",
+  "previousGeneration": {
+    "subject": "Draw: the skinned carcass of the long-necked lake beast lying on its side, one whole carcass and nothing else.",
+    "prompt": "Use the attached reference images, each for one purpose. Reference image 1 shows the dead lake beast: draw this same carcass in exactly the same pose, facing, size and outline (the same head at the end of the same long curved neck, the same humped body, four flipper-like legs and tapering tail in the same places), changed only as follows: the scaly hide has been skinned off the whole body, so it shows dark red and pink muscle with pale white tendons and thin white fat lines, the head, neck and the flippers also skinned, no scales anywhere. Reference image 2 is a style reference only: match its flat posterized colour fills and bold dark outline; do not copy its animal.\nDraw: the skinned carcass of the long-necked lake beast lying on its side, one whole carcass and nothing else.\nSurvival card game item art in that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame width with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, scales, green hide, skeleton, bones sticking out, pool of blood, dripping blood, knife, hide lying beside it, ground, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow.",
+    "historyId": "iFNYee8gpA51ZLzOKHYT",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800614337_11aede37_1791800614454_1b6a5a16.png",
+    "credits": 40,
+    "references": [
+      {
+        "role": "subject",
+        "label": "hw_lakebeast_carcass",
+        "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800569024_a4eff320_1791800569062_18ddbaec.png"
+      },
+      {
+        "role": "style",
+        "label": "Boar",
+        "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Boar_1791697573111_2faeb8ac.png"
+      }
+    ],
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800136799_182d74b0_1791800136851_57bc2ae0.png",
+        "verdict": "drawn from carcass A (short neck); superseded with it"
+      },
+      {
+        "n": "B",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791800614337_11aede37_1791800614454_1b6a5a16.png",
+        "verdict": "shipped"
+      }
+    ],
+    "picked": "B",
+    "predicted": "B",
+    "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+    "generated": "2026-10-12",
+    "note": "owner gallery rework 2026-10-12: looks terrible must match game style; drawn from the new hw_lakebeast_carcass (candidate B) as the subject reference so the pose matches"
+  }
+}

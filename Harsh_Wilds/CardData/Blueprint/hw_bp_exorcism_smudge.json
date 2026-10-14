@@ -1,0 +1,75 @@
+{
+    "UniqueID": "hw_bp_exorcism_smudge",
+    "//BpExorcismSmudge": "Recipe for hw_exorcism_smudge from vanilla cards only (GpTag_Myrtle tab group and JuniperNeedlesDry 684f89c7e4f85764fb037b5da5bc21dc), researchable from the start through the ResearchableFromStart StatValues entry (a blueprint with all five condition lists empty is never researchable; CLAUDE.md). Listed in Magic > Rituals.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_exorcism_smudge",
+        "LocalizationKey": "HarshWilds_BpExorcismSmudge_CardName",
+        "DefaultText": "Cleansing Smudge"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_exorcism_smudge",
+        "LocalizationKey": "HarshWilds_BpExorcismSmudge_CardDescription",
+        "DefaultText": "Bind bog myrtle (fresh, dried or powdered) and dry juniper needles into a smudge bundle. Burned at a lit fire, it drives out spirit sickness."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "BogMyrtle_Dry",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {"LocalizationKey": "IGNOREKEY", "DefaultText": ""},
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 4,
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {"m_FileID": 0, "m_PathID": 0},
+                "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                "StatWarpType": 3,
+                "TriggerRange": {"x": 0.0, "y": 100000.0}
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredTabGroupWarpData": "GpTag_Myrtle",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredCardWarpData": "684f89c7e4f85764fb037b5da5bc21dc",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": ["HandAction", "CraftAction"],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "DroppedCardWarpData": "hw_exorcism_smudge",
+            "DroppedCardWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,40 @@
+{
+  "target": "hw_spirit_goat.png",
+  "sourceCard": "CardData/Item/hw_spirit_goat.json (+ goat spirit events, blueprints, liquid)",
+  "subject": "Draw: a translucent pale green-gold spirit of a mountain goat standing four-legged in profile, long curved ridged horns sweeping back over its neck, a small pointed beard, its body made of pale green-gold glowing mist with darker green swirls inside it, the hooves and the short tail thinning into wisps at the tips.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose. Reference image 1 is a sibling card from the same set: match its framing (one whole translucent spirit animal standing, the same size in the frame), its translucent body with darker inner swirls and its thin dark ink outline; do not copy its animal or its red colour. Reference image 2 is a style reference only: match its flat posterized colour fills and bold dark outline; do not copy its subject.\nDraw: a translucent pale green-gold spirit of a mountain goat standing four-legged in profile, long curved ridged horns sweeping back over its neck, a small pointed beard, its body made of pale green-gold glowing mist with darker green swirls inside it, the hooves and the short tail thinning into wisps at the tips.\nSurvival card game creature art in that style: flat colour bands, a thin continuous dark outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, white halo, white glow around the outline, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, rocks, second animal, red colour.",
+  "historyId": "b720ctf5zLA8PkNvtUBT",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798549690_46003e44_1791798549751_a67acf13.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "framing (sibling)",
+      "label": "hw_spirit_blood",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_spirit_blood_1791798408659_45a33da0.png"
+    },
+    {
+      "role": "style",
+      "label": "Frog",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Frog_1791798309654_d97ad93e.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798549690_46003e44_1791798549751_a67acf13.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: looks AI generated must match game art; framed like the blood and dragon spirits"
+}

@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_stat_in_realm",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_InRealm_StatName",
+        "DefaultText": "Harsh Wilds: In a Realm"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_InRealm_StatDescription",
+        "DefaultText": "Hidden 0/1 flag: 1 while you stand in a realm beyond the forest, 0 everywhere else."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false,
+    "//InRealm": "Feature 30 (plan section 30, W0-18 section 2.5): the realm PRESENCE FLAG. Nothing writes it: the BaseValue stays 0, and a realm's CardType 8 location card (hwlocfaerierealm) adds +1 as a PassiveStatEffects value modifier, which the game applies only while that card is in the player's environment and cancels when the player leaves by any way. So it reads 1 exactly while the player stands in a realm. Read by the four raid rolls (hw_tgr_blackbear, hw_tgr_eagle, hw_tgr_heron, hw_tgr_wolverine), each gated on it at {0,0} by a StatChangeTrigger entry."
+}

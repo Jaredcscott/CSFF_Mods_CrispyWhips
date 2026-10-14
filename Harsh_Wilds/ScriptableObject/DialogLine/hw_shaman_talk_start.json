@@ -1,0 +1,19 @@
+{
+  "//": "Feature 32. The shaman's greeting, the always-available fallback (no StartingConditions, StartingPoint true). Listed after the four teach lines so a teach line wins while its conditions hold; otherwise the player gets this. Its one answer ends the dialog (NextStep 2 = DialogStep.ExitDialog). Trade is a separate thing (he is CannotTrade false); this dialog is only greeting and, once a spirit is bound, teaching.",
+  "StartingPoint": true,
+  "Line": {
+    "LocalizationKey": "HarshWilds_Shaman_Start_Line",
+    "DefaultText": "Well met, wanderer. I keep to the old roads and the old ways. I have dried mushrooms, fairyweed, a charm or two; trade if you like, and I will be on my way within the day."
+  },
+  "PossibleAnswers": [
+    {
+      "Answer": {
+        "LocalizationKey": "HarshWilds_Shaman_Start_Answer",
+        "DefaultText": "Safe travels, shaman."
+      },
+      "NewNextLine": {
+        "NextStep": 2
+      }
+    }
+  ]
+}

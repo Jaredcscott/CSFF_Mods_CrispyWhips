@@ -1,0 +1,40 @@
+{
+  "target": "hw_event_banshee.png",
+  "sourceCard": "CardData/Event/hw_event_banshee.json",
+  "subject": "Draw this scene: a banshee in a dark night forest. A gaunt pale woman with long tangled white-grey hair streaming sideways, wrapped in a ragged grey shawl over a long torn grey dress, her mouth wide open in a long wail and her thin hands raised beside her face; her figure glows faintly and the hem of her dress fades into thin mist just above the ground. Dark tree trunks and ferns around her, cold blue-green night light. She fills about two thirds of the height of the frame. One figure only.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference images are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks, muted naturalistic palette and their dark night-forest lighting; do not copy their figure or exact composition.\nDraw this scene: a banshee in a dark night forest. A gaunt pale woman with long tangled white-grey hair streaming sideways, wrapped in a ragged grey shawl over a long torn grey dress, her mouth wide open in a long wail and her thin hands raised beside her face; her figure glows faintly and the hem of her dress fades into thin mist just above the ground. Dark tree trunks and ferns around her, cold blue-green night light. She fills about two thirds of the height of the frame. One figure only.\nFull-bleed survival card game scene in exactly that style, portrait format; the painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, plain white background, vignette, white border, text, watermark, signature, logo, frame, footprints, tracks, prints in the ground, sand or snow, skull face, blood, gore, second figure, moon.",
+  "historyId": "NY3jQbAuzAsoGrwZJ0ZX",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798549456_d08e5adf_1791798549510_dc2d1848.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "MoonMaiden",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/MoonMaiden_1791798308948_6039f6bc.png"
+    },
+    {
+      "role": "style",
+      "label": "Wolf_Wild",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791798310150_1e61344f.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798549456_d08e5adf_1791798549510_dc2d1848.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "full-bleed",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: look AI generated match game art style please; full-bleed night forest like vanilla MoonMaiden (vanilla spirit events are full-bleed)"
+}

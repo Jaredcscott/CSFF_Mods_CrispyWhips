@@ -1,0 +1,88 @@
+{
+    "UniqueID": "hw_bp_bugtrap_resin",
+    "//BugTrapBlueprint": "A recipe for CardData/Item/hw_bugtrap.json (plan section 19), VANILLA CARDS ONLY. The plan asked for ONE blueprint whose slot takes Cold Resin or Cold Tar, but a BlueprintElement has no alternatives list: the only way to accept two cards in one slot is a CardTabGroup, and no vanilla group holds both (GpTag_Sealant holds only the HEATED resin and tar, and shipping a CardTabGroup JSON is forbidden), so there is one blueprint per material producing the same trap. This one takes Cold Resin (fb5584f7cdb4ead47938ef3c74355b0b). Registered through HarshWilds/BlueprintTabs.json under vanilla Survival > Support (TabName.LocalizationKey Tab_1_Survival_Subtab_2_Support_TabName, read from the export's CardTabGroup/Tab_1_Survival_Subtab_2_Support.json). Researchable from the start: StartUnlocked false with empty CardsOnBoard, TagsOnBoard and StatValues; BlueprintUnlockTicksCost 4; one stage, BuildingDaytimeCost 2 (the cap is 12). One Cold Resin makes one trap; the quantity is a TUNABLE PLACEHOLDER.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_bugtrap_resin",
+        "LocalizationKey": "HarshWilds_BpBugTrapResin_CardName",
+        "DefaultText": "Bug Trap (Cold Resin)"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_bugtrap_resin",
+        "LocalizationKey": "HarshWilds_BpBugTrapResin_CardDescription",
+        "DefaultText": "Smear a stick with cold resin and set it down in camp: biting insects stick to it, so there are fewer of them for about a day, then it is spent."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Resin",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": ""
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 4,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {"m_FileID": 0, "m_PathID": 0},
+                "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                "StatWarpType": 3,
+                "TriggerRange": {"x": 0.0, "y": 100000.0}
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "fb5584f7cdb4ead47938ef3c74355b0b",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "hw_bugtrap",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

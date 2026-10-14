@@ -1,0 +1,35 @@
+{
+    "UniqueID": "hw_bugtrap_spent",
+    "//BugTrapSpent": "What hw_bugtrap becomes when its stickiness runs out (plan section 19): a placed card with no effect, no durability and no actions, trashable. Picture: the vanilla sprite Resin (PARTIAL, see hw_bugtrap.json).",
+    "CardType": 2,
+    "CardName": {
+        "ParentObjectID": "hw_bugtrap_spent",
+        "LocalizationKey": "HarshWilds_BugTrapSpent_CardName",
+        "DefaultText": "Spent Bug Trap"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bugtrap_spent",
+        "LocalizationKey": "HarshWilds_BugTrapSpent_CardDescription",
+        "DefaultText": "A stick crusted over with dried resin and dead insects. It catches nothing more. Throw it away."
+    },
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CanBeRenamed": false,
+    "DoesNotPile": true,
+    "CanBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "Resin",
+    "CardImageWarpType": 3,
+    "PassiveStatEffects": [],
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "DroppedOnDestroy": [],
+    "EquipSlotType": 0
+}

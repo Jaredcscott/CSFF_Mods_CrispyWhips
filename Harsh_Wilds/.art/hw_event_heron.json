@@ -1,0 +1,24 @@
+{
+  "target": "hw_event_heron.png",
+  "sourceCard": "CardData/Event/hw_event_heron.json",
+  "subject": "a tall grey heron standing upright on its long thin dark legs, long S-curved neck, slate-grey back and wings, white head with a black plume, a long yellow dagger beak holding one small silver fish crosswise; at its feet a few thin green pond reeds and a small blue-green ripple of water, both small and clearly subordinate to the heron; one heron, one small fish and nothing else",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Template verbatim (see /create-image Step 3) with the subject above; 'single object only' became 'one small group only' and 'multiple objects' was dropped from Avoid, as for hw_event_eagle. Avoid additionally: second heron, chicks, nest, tree, sky, clouds, sun, large pond, lily pads, fishing rod, hunter, blood, gore, flying bird.",
+  "historyId": "BcQ6dleFu9ydzYcBcKJ3",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791153437437_159ee510_1791153437676_bb2c9825.png",
+  "credits": 30,
+  "verdict": "accepted on the first sample: upright grey heron, yellow beak with a small fish, reeds and a small ripple below, no scenery, no halo in the dark preview.",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [512, 768],
+    "transparent_pct": 84.3
+  },
+  "generated": "2026-10-04"
+}

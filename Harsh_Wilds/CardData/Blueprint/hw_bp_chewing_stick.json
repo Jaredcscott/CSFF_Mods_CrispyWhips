@@ -1,0 +1,70 @@
+{
+    "UniqueID": "hw_bp_chewing_stick",
+    "//ChewingStickBlueprint": "The recipe for CardData/Item/hw_chewing_stick.json, a VANILLA CARD ONLY so the tooth decay cure never needs another mod (Documentation/Research/HarshWilds/afflictions.md section 3.5 point 1, the second tooth decay DECISION; shape copied from CardData/Blueprint/hw_bp_herbal_wash.json, read its note). A construction-style blueprint registered through HarshWilds/BlueprintTabs.json under the vanilla Survival > Medical tab (the same key hw_bp_herbal_wash uses, 'Tab_1_Survival_Subtab_3_Medical_TabName', read from the export's CardTabGroup/Tab_1_Survival_Subtab_3_Medical.json). Researchable from the start: StartUnlocked false with empty CardsOnBoard, TagsOnBoard and StatValues, basic research time BlueprintUnlockTicksCost HW_CHEWING_STICK_RESEARCH = 4, one stage of BuildingDaytimeCost 1 (the cap is 12). The one ingredient is vanilla WillowTwigs (97a2cf41c75e38c41b44eafd1e73047d, 'Can be used for weaving', harvested from the large willow trees that stand in many damp groves, clearings and river places), spent. The afflictions research also names StickLong (3db4c94184af274409f0d3eb16870f64) as a twig that would do; no vanilla tab group covers either, a card ingredient takes one UID, so this recipe uses the willow and a second recipe on StickLong would be a second blueprint file. The quantity is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_chewing_stick",
+        "LocalizationKey": "HarshWilds_BpChewingStick_CardName",
+        "DefaultText": "Chewing Stick"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_chewing_stick",
+        "LocalizationKey": "HarshWilds_BpChewingStick_CardDescription",
+        "DefaultText": "Chew the end of a willow twig into a brush. Chewing it scrubs the teeth and wears down tooth decay."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "hw_chewing_stick",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": ""
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 4,
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {"m_FileID": 0, "m_PathID": 0},
+                "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                "StatWarpType": 3,
+                "TriggerRange": {"x": 0.0, "y": 100000.0}
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredCardWarpData": "97a2cf41c75e38c41b44eafd1e73047d",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": ["HandAction", "CraftAction"],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "DroppedCardWarpData": "hw_chewing_stick",
+            "DroppedCardWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

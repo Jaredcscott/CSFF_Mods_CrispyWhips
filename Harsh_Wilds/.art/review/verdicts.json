@@ -1,0 +1,1109 @@
+{
+  "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
+  "images": {
+    "Picture/hw_agent_shaman.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "43d238be07d97761fdf8919e98a765b3bac8e22b",
+      "at": "2026-10-14T04:32:11+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "85d20b78d6f1d686a28feae6b1ab73b528fad71d",
+          "at": "2026-10-12T17:02:57+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "85d20b78d6f1d686a28feae6b1ab73b528fad71d",
+          "at": "2026-10-12T17:08:32+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "61a1fac2663136300ceb15ffd48402d630ff69c1",
+          "at": "2026-10-12T19:09:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "eb8c49933b4865bad103dc7effa898f91a1e98d8",
+          "at": "2026-10-12T20:35:55+00:00"
+        }
+      ]
+    },
+    "Picture/hw_athame.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c548d45f785f7ba5cb88c1ae2ad8134fbad39ff3",
+      "at": "2026-10-12T16:44:59+00:00"
+    },
+    "Picture/hw_bandit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "23a26c5fd068ef363c36a24d04d3c37cb21d65b8",
+      "at": "2026-10-14T04:32:12+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ac1681bf1a99a38717c3210d75e2ea4ccc86b6ee",
+          "at": "2026-10-12T16:58:51+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ac1681bf1a99a38717c3210d75e2ea4ccc86b6ee",
+          "at": "2026-10-12T17:00:21+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Kept as is for consistency with approved variant hw_bandit_body (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+          "sha1": "ac1681bf1a99a38717c3210d75e2ea4ccc86b6ee",
+          "at": "2026-10-12T17:35:54+00:00"
+        }
+      ]
+    },
+    "Picture/hw_bandit_body.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bf886defc26edef8eba11e4d3213f2efcc5be77f",
+      "at": "2026-10-12T17:22:04+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bf886defc26edef8eba11e4d3213f2efcc5be77f",
+          "at": "2026-10-12T08:38:40+00:00"
+        }
+      ]
+    },
+    "Picture/hw_cairn.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "e3cf85a2f9e8651c2f94255c7fd03dfa812bf41a",
+      "at": "2026-10-12T17:19:21+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e3cf85a2f9e8651c2f94255c7fd03dfa812bf41a",
+          "at": "2026-10-12T16:59:10+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e3cf85a2f9e8651c2f94255c7fd03dfa812bf41a",
+          "at": "2026-10-12T17:00:43+00:00"
+        }
+      ]
+    },
+    "Picture/hw_casting_bones.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "89233d3875f7d08d9e340edcfe4c76ffcfd1c00a",
+      "at": "2026-10-12T21:26:06+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "dc472c0508756d326cf13dccf4c30106f7443c8a",
+          "at": "2026-10-12T19:04:12+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "no eagle or bear just tally markers for numbers. ",
+          "sha1": "99fa19ab5e72259cdbb7a16dc7132c881bccf438",
+          "at": "2026-10-12T20:37:06+00:00"
+        }
+      ]
+    },
+    "Picture/hw_charm_blood.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "363f3d49f0ed74ba44eb22f2ceb68ecf910e5fc9",
+      "at": "2026-10-12T19:05:12+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5aa1b302dffc6d353969f886362cd4e60cb28624",
+          "at": "2026-10-12T16:59:12+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5aa1b302dffc6d353969f886362cd4e60cb28624",
+          "at": "2026-10-12T17:00:44+00:00"
+        }
+      ]
+    },
+    "Picture/hw_charm_goat.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4f98cb3e6c724f7d51ba713b97c2696f07cdf4aa",
+      "at": "2026-10-12T17:21:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "69bc109188875f3efd68c73a0007dbd10fbef97e",
+          "at": "2026-10-12T08:38:45+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "look AI generated match game art style please",
+          "sha1": "69bc109188875f3efd68c73a0007dbd10fbef97e",
+          "at": "2026-10-12T08:38:47+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4f98cb3e6c724f7d51ba713b97c2696f07cdf4aa",
+          "at": "2026-10-12T10:39:33+00:00"
+        }
+      ]
+    },
+    "Picture/hw_charm_lynx.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "32b9728e0b09c552891858aa4c9b3a795cc1074e",
+      "at": "2026-10-12T17:21:51+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "look AI generated match game art style please",
+          "sha1": "37b5d101135d3b94325bd272d99726ba0f23d06f",
+          "at": "2026-10-12T08:38:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "32b9728e0b09c552891858aa4c9b3a795cc1074e",
+          "at": "2026-10-12T10:39:34+00:00"
+        }
+      ]
+    },
+    "Picture/hw_chewing_stick.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5c6a67e698aeaf986e6346d79b3a297e95c42157",
+      "at": "2026-10-12T20:36:46+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1a79ea66700ca95a1b227a4a413b8487ab4dd94d",
+          "at": "2026-10-12T17:02:57+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "1a79ea66700ca95a1b227a4a413b8487ab4dd94d",
+          "at": "2026-10-12T17:08:33+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "b455fb27ab1dfb51df996449a3b380059ed49ef6",
+          "at": "2026-10-12T19:09:45+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "too low resolution",
+          "sha1": "b455fb27ab1dfb51df996449a3b380059ed49ef6",
+          "at": "2026-10-12T19:10:27+00:00"
+        }
+      ]
+    },
+    "Picture/hw_coat_lynx.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "7c5c9ed238be0377302cc2e554e8b016f3bd5b6b",
+      "at": "2026-10-12T17:21:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7c5c9ed238be0377302cc2e554e8b016f3bd5b6b",
+          "at": "2026-10-12T08:38:51+00:00"
+        }
+      ]
+    },
+    "Picture/hw_coat_muskox.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3914f25aa0ad9da019ba81f2ac3b4c5f9787f798",
+      "at": "2026-10-12T17:22:24+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3914f25aa0ad9da019ba81f2ac3b4c5f9787f798",
+          "at": "2026-10-12T08:38:53+00:00"
+        }
+      ]
+    },
+    "Picture/hw_coat_wisent.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "098eecc0acadac8f17b36f43dabff044d2deb4c6",
+      "at": "2026-10-12T17:21:26+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "098eecc0acadac8f17b36f43dabff044d2deb4c6",
+          "at": "2026-10-12T08:38:55+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_adder.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "39a7f41215d2d6221c88cc51697dba985a974be9",
+      "at": "2026-10-12T17:21:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9af4615c1153b8e96c72702e9771fdf97b4d61d3",
+          "at": "2026-10-12T08:38:57+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "look AI generated match game art style please",
+          "sha1": "9af4615c1153b8e96c72702e9771fdf97b4d61d3",
+          "at": "2026-10-12T08:39:01+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "39a7f41215d2d6221c88cc51697dba985a974be9",
+          "at": "2026-10-12T10:39:35+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_banshee.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bb2ebd32bc1024741638881a67c40dc166e65f49",
+      "at": "2026-10-14T04:32:13+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "look AI generated match game art style please",
+          "sha1": "504b788f110ab22512644d47705e61a1d507a900",
+          "at": "2026-10-12T08:39:03+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "47032106e8651565003a462cbb49766d62d483c9",
+          "at": "2026-10-12T10:39:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "47032106e8651565003a462cbb49766d62d483c9",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_blackbear.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1c523af1a3bb2cfc3f2956e98c0a88201d235f6d",
+      "at": "2026-10-12T17:24:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1c523af1a3bb2cfc3f2956e98c0a88201d235f6d",
+          "at": "2026-10-12T08:39:05+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_eagle.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4dd5a7afb1586555f3a410a466fd5a08aab8b470",
+      "at": "2026-10-12T17:22:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4dd5a7afb1586555f3a410a466fd5a08aab8b470",
+          "at": "2026-10-12T08:39:06+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_heron.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "61cbc46b79d4520573ee55eb850c0cefcd8e2803",
+      "at": "2026-10-12T17:34:29+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "61cbc46b79d4520573ee55eb850c0cefcd8e2803",
+          "at": "2026-10-12T08:39:08+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "61cbc46b79d4520573ee55eb850c0cefcd8e2803",
+          "at": "2026-10-12T16:57:34+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_nixie.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "7a4bd9e412a59dfae811f472c69708a507708888",
+      "at": "2026-10-12T17:28:09+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d938cd3d668849a869352f7d966ea54c438b6125",
+          "at": "2026-10-12T08:39:10+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "d938cd3d668849a869352f7d966ea54c438b6125",
+          "at": "2026-10-12T08:39:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7a4bd9e412a59dfae811f472c69708a507708888",
+          "at": "2026-10-12T10:39:42+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "7a4bd9e412a59dfae811f472c69708a507708888",
+          "at": "2026-10-12T17:01:52+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "",
+          "sha1": "7a4bd9e412a59dfae811f472c69708a507708888",
+          "at": "2026-10-12T17:28:04+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_omen.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "24a896722d969191bd0b53e9564e21c894ad0925",
+      "at": "2026-10-14T04:32:14+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a8d2e1f002391ebc8e3de0deaa4a0a61ab505ca2",
+          "at": "2026-10-12T19:07:52+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_pixieled.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0bdcbd4c6e0c9edcf73cb4099ca5426143d64a65",
+      "at": "2026-10-14T04:32:15+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ccf2c8c4e1ffc3cb88893d12a476b204b89acc33",
+          "at": "2026-10-12T20:38:56+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_selkie.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "346a5c73676ae55bd1687cab3805a6e70e079b7e",
+      "at": "2026-10-12T20:35:56+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3f5851600c02a229b6151bc4f25acdcb2228d4a2",
+          "at": "2026-10-12T08:39:16+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "3f5851600c02a229b6151bc4f25acdcb2228d4a2",
+          "at": "2026-10-12T08:39:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "faecaf651ef8ad8447a3dfd6a8c1a97362570b62",
+          "at": "2026-10-12T10:39:45+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "faecaf651ef8ad8447a3dfd6a8c1a97362570b62",
+          "at": "2026-10-12T16:53:25+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "too low resolution",
+          "sha1": "4de350bee438cbd61613ed6961af7f03d722083b",
+          "at": "2026-10-12T19:08:48+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_wolverine.png": {
+      "status": "approved",
+      "notes": "has white. in the rope and by fox tail. remove the fox all together just the wolverine please. ",
+      "sha1": "82a89ea2bcc0792ca304a425c098f91b3d472ec2",
+      "at": "2026-10-12T17:22:04+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white. in the rope and by fox tail. remove the fox all together just the wolverine please. ",
+          "sha1": "9e04cab42d8d2d71796941d1a1e841f690131b58",
+          "at": "2026-10-12T10:40:19+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "has white. in the rope and by fox tail. remove the fox all together just the wolverine please. ",
+          "sha1": "82a89ea2bcc0792ca304a425c098f91b3d472ec2",
+          "at": "2026-10-12T14:17:26+00:00"
+        }
+      ]
+    },
+    "Picture/hw_faerie_realm.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9640f2e65c569d8e61222a09981819601858a434",
+      "at": "2026-10-14T04:32:16+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "23eca2c924194c5a7cac44829fb5a4ba743e7932",
+          "at": "2026-10-12T20:38:38+00:00"
+        }
+      ]
+    },
+    "Picture/hw_fairy_ring.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6d56cc4e40026e9cee3d87ab104ac3f35cb95b30",
+      "at": "2026-10-12T19:06:22+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "a9457d7ba230a27b849225607cefd5b137dcfacc",
+          "at": "2026-10-12T08:39:30+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3ade58d1857137382b16c92bc04c05bb4c6145a0",
+          "at": "2026-10-12T10:40:16+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "3ade58d1857137382b16c92bc04c05bb4c6145a0",
+          "at": "2026-10-12T16:54:34+00:00"
+        }
+      ]
+    },
+    "Picture/hw_frostdemon.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "73bec6cf1090cdbe3162674a4908fd73fe020664",
+      "at": "2026-10-14T04:57:02+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "75e24cfb3db28d1d24260942ce4b1232563600b0",
+          "at": "2026-10-12T16:59:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "75e24cfb3db28d1d24260942ce4b1232563600b0",
+          "at": "2026-10-12T17:20:25+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "missing some white on the interior of the wolf. ",
+          "sha1": "bd258b3401def2ec26ffd98c1148a587b8bd43de",
+          "at": "2026-10-14T04:38:00+00:00"
+        },
+        {
+          "status": "alter",
+          "notes": "some missing color in the breath ",
+          "sha1": "7436d32c74792384f212bdd911dc5ff345cebbb0",
+          "at": "2026-10-14T04:48:06+00:00"
+        }
+      ]
+    },
+    "Picture/hw_frostdemon_carcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ac5e10f9a73e3d63f8cee715aa18e854aa83b3eb",
+      "at": "2026-10-12T17:21:37+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ac5e10f9a73e3d63f8cee715aa18e854aa83b3eb",
+          "at": "2026-10-12T08:40:01+00:00"
+        }
+      ]
+    },
+    "Picture/hw_herbal_wash.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8221f1c6acbd3229bd86272a9b5150ee9a4f882d",
+      "at": "2026-10-12T17:24:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ff711f1bede23ae387c365e978293e6195915daa",
+          "at": "2026-10-12T08:40:03+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "should be mostly water",
+          "sha1": "ff711f1bede23ae387c365e978293e6195915daa",
+          "at": "2026-10-12T08:40:09+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8221f1c6acbd3229bd86272a9b5150ee9a4f882d",
+          "at": "2026-10-12T10:40:18+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lakebeast.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e08400456862cc68cc488ee7ff9292c26e028092",
+      "at": "2026-10-14T04:32:21+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks terrible must match game style ",
+          "sha1": "24acdca2d1f39d6079dc5664429dd2af1aa1de56",
+          "at": "2026-10-12T08:40:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "07a0c2da34d6039c07461f673f7cf59213ce1b89",
+          "at": "2026-10-12T10:40:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "07a0c2da34d6039c07461f673f7cf59213ce1b89",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lakebeast_carcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3be01f7cf2ed2d81ce2b668b6cc81ee84f6f5052",
+      "at": "2026-10-12T17:24:43+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks terrible must match game style ",
+          "sha1": "b85287f077ffff2f31470a9e57db4d7fdda11a7e",
+          "at": "2026-10-12T08:40:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3be01f7cf2ed2d81ce2b668b6cc81ee84f6f5052",
+          "at": "2026-10-12T10:40:25+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lakebeast_carcass_skinned.png": {
+      "status": "approved",
+      "notes": " still lame, needs to match game art. the corpse looks like its  smilingsmiling! ",
+      "sha1": "1b556bbd3e212bd1ba3bc0bfd109c88340257285",
+      "at": "2026-10-12T17:27:43+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks terrible must match game style ",
+          "sha1": "9d1436f279c4a23b7c6bf7889424fa3ae8d4f743",
+          "at": "2026-10-12T08:40:23+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": " still lame, needs to match game art. the corpse looks like its  smilingsmiling! ",
+          "sha1": "1b556bbd3e212bd1ba3bc0bfd109c88340257285",
+          "at": "2026-10-12T14:18:19+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": " still lame, needs to match game art. the corpse looks like its  smilingsmiling! ",
+          "sha1": "1b556bbd3e212bd1ba3bc0bfd109c88340257285",
+          "at": "2026-10-12T14:21:04+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lindwurm.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "0c3b6ab55cb0b23944f4dfd5d00f744b548fc015",
+      "at": "2026-10-14T04:32:22+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks terrible must match game style ",
+          "sha1": "4773972e308adc0f0f5de88aa6c44c2554d1eed8",
+          "at": "2026-10-12T08:40:26+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "592bc0d0797549c387ac22a149137f5b4a8fc3ea",
+          "at": "2026-10-12T10:40:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "592bc0d0797549c387ac22a149137f5b4a8fc3ea",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lindwurm_carcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c1c5e8792f791678d557be663aa5c49651341ebb",
+      "at": "2026-10-12T17:24:43+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks terrible must match game style ",
+          "sha1": "10c8c1a9068c83c55b4f73722790e8dcf25309c5",
+          "at": "2026-10-12T08:40:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c1c5e8792f791678d557be663aa5c49651341ebb",
+          "at": "2026-10-12T10:40:28+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lq_brew_beast.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "e170b944a8438af20f2f806ce8308914f62d2c3f",
+      "at": "2026-10-12T17:24:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e170b944a8438af20f2f806ce8308914f62d2c3f",
+          "at": "2026-10-12T08:40:28+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lq_brew_earth.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b64ce4663b73a0d00c5bbb3cf4d19c3965936d68",
+      "at": "2026-10-12T17:24:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b64ce4663b73a0d00c5bbb3cf4d19c3965936d68",
+          "at": "2026-10-12T08:40:29+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lq_brew_muscle.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8b36701208045b8e31ecaf97bae4950af19dbbbf",
+      "at": "2026-10-12T17:24:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8b36701208045b8e31ecaf97bae4950af19dbbbf",
+          "at": "2026-10-12T08:40:31+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lynx.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2920380abac3927a2bd2c4a1ceac86961788866d",
+      "at": "2026-10-14T04:32:22+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2a8a807154cc754010b33e9db916aef5a6d9dd3a",
+          "at": "2026-10-12T08:40:35+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "looks terrible must match game style ",
+          "sha1": "2a8a807154cc754010b33e9db916aef5a6d9dd3a",
+          "at": "2026-10-12T08:40:37+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6f33ba712426d036f2ccc27a916711f1e211639b",
+          "at": "2026-10-12T10:40:29+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6f33ba712426d036f2ccc27a916711f1e211639b",
+          "at": "2026-10-12T17:24:43+00:00"
+        }
+      ]
+    },
+    "Picture/hw_lynx_carcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "8258e6e6ff33bc9b378c3d3f15095a5d9741ae56",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks terrible must match game style ",
+          "sha1": "1cf8c832e835aff6c988c884f2a02277279e8502",
+          "at": "2026-10-12T08:40:38+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8258e6e6ff33bc9b378c3d3f15095a5d9741ae56",
+          "at": "2026-10-12T10:40:30+00:00"
+        }
+      ]
+    },
+    "Picture/hw_muskox.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1470371f840988f3b33f1d9dcdcea4ff3009c2fd",
+      "at": "2026-10-14T04:32:23+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "",
+          "sha1": "c73cf50cd6b35782d9b50d8dfb9b2da25c981c04",
+          "at": "2026-10-12T08:40:39+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c73cf50cd6b35782d9b50d8dfb9b2da25c981c04",
+          "at": "2026-10-12T17:03:20+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "c73cf50cd6b35782d9b50d8dfb9b2da25c981c04",
+          "at": "2026-10-12T17:20:43+00:00"
+        }
+      ]
+    },
+    "Picture/hw_muskox_carcass.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "ce1f23a1cd4ab775edd48f1894485878222a2390",
+      "at": "2026-10-12T17:20:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ce1f23a1cd4ab775edd48f1894485878222a2390",
+          "at": "2026-10-12T17:03:21+00:00"
+        }
+      ]
+    },
+    "Picture/hw_muskox_carcass_skinned.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant hw_muskox_carcass (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "433051055f8cc9f33601f96f6fae4ac01ae1a483",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "433051055f8cc9f33601f96f6fae4ac01ae1a483",
+          "at": "2026-10-12T08:40:42+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "",
+          "sha1": "433051055f8cc9f33601f96f6fae4ac01ae1a483",
+          "at": "2026-10-12T16:53:54+00:00"
+        }
+      ]
+    },
+    "Picture/hw_spirit_blood.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "7861b22bd9ebb5d355ae26957a903aadb3293ba4",
+      "at": "2026-10-12T17:20:17+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove ",
+          "sha1": "7bdae89b0ab3691ab211df92f50dafeba846ecb7",
+          "at": "2026-10-12T08:40:49+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7861b22bd9ebb5d355ae26957a903aadb3293ba4",
+          "at": "2026-10-12T10:40:34+00:00"
+        }
+      ]
+    },
+    "Picture/hw_spirit_dragon.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "b3839ccbc00936dd70e1e5a905d458cb4b5a166b",
+      "at": "2026-10-12T19:03:54+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove ",
+          "sha1": "2c24313b57f990c4d815113d3cafdf53349ac217",
+          "at": "2026-10-12T08:40:52+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "too much white removed. ",
+          "sha1": "9b5d9d66c62cd6ba0244079b0447f6ec808861ea",
+          "at": "2026-10-12T10:40:43+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "white in tail still missingRegenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a4811407facc013aaadc3487fe20658d711a6f84",
+          "at": "2026-10-12T16:52:19+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "white in tail still missingRegenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "a4811407facc013aaadc3487fe20658d711a6f84",
+          "at": "2026-10-12T16:52:21+00:00"
+        }
+      ]
+    },
+    "Picture/hw_spirit_goat.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "cc8f6311d046b3cf5a79276f90c5ce648c1fbbf7",
+      "at": "2026-10-12T17:21:27+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks AI generated must match game art ",
+          "sha1": "4342f362dedd133c0380849d40c5f6f950c0bad4",
+          "at": "2026-10-12T08:41:04+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cc8f6311d046b3cf5a79276f90c5ce648c1fbbf7",
+          "at": "2026-10-12T10:40:45+00:00"
+        }
+      ]
+    },
+    "Picture/hw_spirit_jar.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "44327bc846e16a5dfcdc8d79e1812ac72132d387",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2eb35b56954e0a06329ba69bde6ce5892ce6c6dc",
+          "at": "2026-10-12T08:41:06+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "looks AI generated must match game art ",
+          "sha1": "2eb35b56954e0a06329ba69bde6ce5892ce6c6dc",
+          "at": "2026-10-12T08:41:12+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "44327bc846e16a5dfcdc8d79e1812ac72132d387",
+          "at": "2026-10-12T10:40:48+00:00"
+        }
+      ]
+    },
+    "Picture/hw_spirit_mask.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "df1335aab6d8526ca1bb06aa3a19fb399299ae8c",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks AI generated must match game art ",
+          "sha1": "286d2c556a96ac5bb155d8f284a4241d1b8cd436",
+          "at": "2026-10-12T08:41:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "df1335aab6d8526ca1bb06aa3a19fb399299ae8c",
+          "at": "2026-10-12T10:40:50+00:00"
+        }
+      ]
+    },
+    "Picture/hw_threshold.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6f5d62b6abd47ff1f5a83188d0f60a4241089a67",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6304f05c206ec8c2f2627752ae19d0a3b0db4433",
+          "at": "2026-10-12T08:41:14+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "looks AI generated must match game art ",
+          "sha1": "6304f05c206ec8c2f2627752ae19d0a3b0db4433",
+          "at": "2026-10-12T08:41:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6f5d62b6abd47ff1f5a83188d0f60a4241089a67",
+          "at": "2026-10-12T10:40:51+00:00"
+        }
+      ]
+    },
+    "Picture/hw_tooth_puller.png": {
+      "status": "approved",
+      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+      "sha1": "eb4bb1115c09154bf47a078209fb4ea9e041fb49",
+      "at": "2026-10-12T17:20:35+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "has white to remove",
+          "sha1": "fe13f949c47b8f9eea4ac30df05389c09debd09a",
+          "at": "2026-10-12T08:41:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "eb4bb1115c09154bf47a078209fb4ea9e041fb49",
+          "at": "2026-10-12T17:03:08+00:00"
+        }
+      ]
+    },
+    "Picture/hw_totem_beast.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1a28c3022695af713170926a0ab92e6d3662a9ff",
+      "at": "2026-10-12T17:24:44+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "looks AI generated must match game art ",
+          "sha1": "df3ca5293a7ce1b6eb6041959cf30e187f2608b5",
+          "at": "2026-10-12T08:41:37+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1a28c3022695af713170926a0ab92e6d3662a9ff",
+          "at": "2026-10-12T10:40:53+00:00"
+        }
+      ]
+    },
+    "Picture/hw_wisent.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "aed8f31be09e6edfd53da46de4b0b6197d955250",
+      "at": "2026-10-14T04:32:24+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "96c77850c7f5568ada9d28d8194b72fd6e4f9cca",
+          "at": "2026-10-12T08:41:38+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "96c77850c7f5568ada9d28d8194b72fd6e4f9cca",
+          "at": "2026-10-12T17:21:32+00:00"
+        }
+      ]
+    },
+    "Picture/hw_wisent_carcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "1c88b5bb9bc8a4f303a2d68a4b579b443cd1643a",
+      "at": "2026-10-12T17:21:58+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1c88b5bb9bc8a4f303a2d68a4b579b443cd1643a",
+          "at": "2026-10-12T08:41:39+00:00"
+        }
+      ]
+    },
+    "Picture/hw_wisent_carcass_skinned.png": {
+      "status": "approved",
+      "notes": "Kept as is for consistency with approved variant hw_wisent_carcass (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+      "sha1": "6349e6e5a5fc20220442f6037b819bf6de073987",
+      "at": "2026-10-12T17:35:54+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "6349e6e5a5fc20220442f6037b819bf6de073987",
+          "at": "2026-10-12T16:59:14+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "6349e6e5a5fc20220442f6037b819bf6de073987",
+          "at": "2026-10-12T17:00:56+00:00"
+        }
+      ]
+    }
+  }
+}

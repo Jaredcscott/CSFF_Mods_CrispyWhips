@@ -1,0 +1,58 @@
+{
+    "UniqueID": "Tgr_HW_FleasWash",
+    "//FleasWash": "Fleas and lice cure 1, washing (Documentation/Research/HarshWilds/afflictions.md section 2.5, the second fleas DECISION): a COUPLED cure that reads a vanilla stat the player's ordinary actions already move, so no vanilla wash action is patched. ALL GATES ARE StatChangeTrigger ENTRIES (an unresolved one fails closed). Gate 1, hw_switch_fleasandlice {1,1}. Gate 2, vanilla Filth (111606ba528c30e4f8e38494f41b92c7) {0,100}: clean, by vanilla's own definition (101 is where the first 'Dirty' band starts); every vanilla wash (Wash yourself, Swim, Take a Shower, Soap: Filth -300 to -500) drops Filth into it. Gate 3, hw_fleas {1,1000}: there are fleas to lose (open above the stat's cap of 288, so no edge sits on the cap or on a value its writes land on; Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1 [clamp-own]). RepeatOptions 0 (Repeat), OncePerTick, ActionCooldown HW_FLEAS_WASH_COOLDOWN = 24 (six hours): it plays on the tick all three hold and then every 24 ticks while they still do, writing hw_fleas -HW_FLEAS_WASH_STEP = 24, so a player who stays clean loses a band a day. No roll, no card, no player text (the Fleas status line going down is the feedback). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P5).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasWash",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Wash"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 24,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 100.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -24.0, "y": -24.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

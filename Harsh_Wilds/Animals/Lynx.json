@@ -1,0 +1,82 @@
+{
+  "//": "Harsh Wilds phase 1 (Documentation/Design/Harsh_Wilds_As_Built.md section 3): a big cat of the rocky pine forests that roams at dusk and at night, stalks a player it can reach, and attacks at most once a night. A GENERATED agent (no Agent.Ref), so Carcass.Card applies and the framework wires the shared vanilla agent stats.",
+  "//Switch": "Spawn.Conditions (framework 2.27.0) keeps the lynx in the world only while the hidden GameStat hw_switch_lynx is 1. HarshWilds/Patcher/Switchboard.cs writes it from the [Threats] Lynx config entry at every run start; switched off, the framework retires the agent to the Spirit World, and switched back on it returns one SuppressedRespawnTicks later (see //SwitchDelay). The second condition is a new-run grace on vanilla Counter (UniqueID a1a2efb9e793dbb4294f48220ff8f11b, run age in ticks at 1 a tick): the lynx stays out of the world until Counter reaches 672 (HW_LYNX_GRACE_TICKS, one week, a TUNABLE PLACEHOLDER; vanilla holds its own wolves back until 5760). (0.9.1: the grace Value is now 1 and the week comes from SuppressedRespawnTicks, see //SwitchDelay.)",
+  "//Encounter": "Encounter.Ref points at the hand-derived HarshWilds/Encounter/hw_encounter_lynx.json (Development_Tools/HarshWilds/derive_content.py rebuilds it from vanilla Combat_EncounterWolf.json), which carries its own body template, texts and defeat result (AgentBlood -10000 on the associated agent, so the generated death action drops the carcass where the lynx fell).",
+  "//Weights": "Duty selection is highest-weight-wins, ties broken uniformly (InGameNPC.SelectDuty). Wander 100 against a stalk duty of 0 plus a distance bonus of 400 at the player's own node falling to 0 three map edges away, so the lynx stalks a player one or two map edges away and wanders otherwise. Aggression 1000 beats both whenever it can run: StartEncounterDutyAction.CanBePerformed is false unless the player is in the lynx's environment, and MaxPerDay 1 drops it after the night's attack. TUNABLE.",
+  "//Range": "DistanceWeight.Range is the engine's map distance (NPCTargetSelection reads MapPath.PathLength), not a count of map edges: an edge on the vanilla grid is 10, measured live 2026-09-27 as Distance 20 from Mountain Grove to Southern Rapids, two edges. 0.2.0 shipped [0, 3], which reached no square but the lynx's own, so it never stalked (the harness saw it wander away from a player one edge off at 19:00). [0, 30] is the three edges the note above means.",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17 (changed 2026-10-05). The framework's lifecycle ticker (CSFFModFramework/Animals/AnimalLifecycleTicker.cs, TickKillRespawn) counts the agent as dead only while its blood sits at DutyBuilder.SpeciesStats.DeadBloodMax (4) or below, and the generated duties are gated on blood above 4. A kill leaves blood at 0 (the stat's minimum), so at 0.17 a tick it climbed out of the dead band after about 24 ticks (six hours), the ticker cleared the respawn timer, and the duties walked the animal back long before Spawn.DeathRespawnTicks. Vanilla agents can regenerate because their own death action resets the exists and respawn stats; the generated death action writes no stats. At 0 a killed animal stays dead until DeathRespawnTicks (or, with DeathRespawnTicks 0, the next condition restore) heals it to full. The cost: blood an animal loses without dying is not regained before then either.",
+  "//SwitchDelay": "CHANGED 0.9.1 (plan section 12, W0-7 branch b): Traps (below) requires Spawn.SuppressWhileCardOnBoard, and with it the single restore delay is SuppressedRespawnTicks 672 (one week, a TUNABLE PLACEHOLDER) after EVERY retirement: a caught lynx (its hw_lynx_trapped card leaves the board), and also the switch turning back on or the new-run grace ending. So the switch no longer returns the lynx at once (ConditionRespawnTicks is not allowed beside a suppressor), it returns a week later; and the grace condition Value dropped from 672 to 1, because the week now comes from SuppressedRespawnTicks and leaving the Value at 672 would have made a new run wait the grace and then the delay. The grace condition stays a real Counter read, so the retired-until-conditions-hold shape is unchanged.",
+  "//Traps": "Log trap only (Open question 11 and the W0-7 finding: the vanilla fox is LogTrap 0, Deadfall 10000, Snare 10000, PitTrap 10000, mirrored here; the plan said deadfall at the fox values, which was wrong, the fox is immune to a deadfall). Wariness 28 sits in the 25 (wolf) to 30 (fox) range, a TUNABLE PLACEHOLDER. Bait.DutyWeight 400 equals the lynx heaviest movement duty: the stalk duty distance bonus peaks at 400 at the player own node (Movement.PlayerAttraction.DistanceWeight), a ceiling the framework validator cannot see (it compares only the base weight 0 and wander 100), so it is set here by hand and must be retuned with that bonus. Aggression 1000 still beats it. CatchResults drops hw_lynx_trapped, a derived carcass copy (Development_Tools/HarshWilds/derive_content.py) that is also the Spawn suppressor: a trap catch retires the agent by exists 0 (never by blood), which only SuppressWhileCardOnBoard restores, and the shipped hw_lynx_carcass stays off the suppressor so a kill is unchanged (a kill waits DeathRespawnTicks 672, not carcass gone plus 672). The two extra lynx manifests in this folder have no Traps and stay untrappable. BaitTags and BaitCards are omitted on purpose: the framework derives the food pool from the live vanilla trap cards, never hardcode a tag.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_lynx",
+  "DisplayName": "Lynx",
+  "LocalizationKey": "HarshWilds_Lynx_AgentName",
+  "Sprite": "hw_lynx",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": { "Start": 80, "Max": 80, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 30, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "df1746be00a5fc74e9536d83cf491b6c",
+    "DeathRespawnTicks": 672,
+    "SuppressWhileCardOnBoard": "hw_lynx_trapped",
+    "SuppressedRespawnTicks": 672,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_switch_lynx", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "a1a2efb9e793dbb4294f48220ff8f11b", "Comparison": "GreaterOrEqual", "Value": 1 }
+    ]
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 18, "End": 6 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "df1746be00a5fc74e9536d83cf491b6c",
+      "a7e737858eaebac4981ac595527bc369",
+      "3560005192d0d0a4ea2ff43f17ea0a4a",
+      "f903546ae5022e94ea34c8fed6817b30"
+    ],
+    "WanderWeight": 100,
+    "PlayerAttraction": {
+      "Enabled": true,
+      "BaseWeight": 0,
+      "MovementType": "Pathfind",
+      "DistanceWeight": { "Range": [0, 30], "Weights": [400, 0] },
+      "OnlyDuringActiveHours": true
+    }
+  },
+  "//Tracks": "Vanilla default track card. RevealSkillCurve is ADDITIVE on the global Skill_Tracking curve (skill 0 -> 50%, 150 -> 100%): -30 at skill 0 makes a lynx's tracks a 20% find for a novice and certain at 150. TUNABLE, NOT PLAYTESTED.",
+  "Tracks": {
+    "Enabled": true,
+    "LifetimeTicks": { "Min": 24, "Max": 48 },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": { "StatRange": [0, 150], "ChanceRange": [-30, 0] },
+    "BloodTrail": true
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_lynx",
+    "ApproachButton": true,
+    "Aggression": {
+      "Enabled": true,
+      "Hours": { "Start": 19, "End": 5 },
+      "BaseWeight": 1000,
+      "RequirePlayerInEnv": true,
+      "MaxPerDay": 1
+    }
+  },
+  "Traps": {
+    "Enabled": true,
+    "Wariness": 28,
+    "PerType": { "LogTrap": 0, "Deadfall": 10000, "Snare": 10000, "PitTrap": 10000 },
+    "Bait": { "DutyWeight": 400 },
+    "CatchResults": [
+      { "TrapType": "LogTrap", "Drops": [ { "Card": "hw_lynx_trapped", "Weight": 100 } ] }
+    ]
+  },
+  "Carcass": {
+    "Card": "hw_lynx_carcass"
+  }
+}

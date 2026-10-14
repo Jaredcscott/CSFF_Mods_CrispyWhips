@@ -1,0 +1,138 @@
+{
+    "UniqueID": "hw_bp_cairn",
+    "//RitualObject": "Feature 25's Cairn row and the Ancestor Spirit's place (plan sections 24 and 25, pack Prompt 34). The cairn it builds is a copy of vanilla SpiritShrine_WestStone (Development_Tools/HarshWilds/derive_content.py, ancestor_specs). Player-made, so no [Threats] switch. One cairn to a place, as vanilla shrines are (BlueprintCardConditions, Inverted). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_cairn",
+        "LocalizationKey": "HarshWilds_BpCairn_CardName",
+        "DefaultText": "Stone Cairn"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_cairn",
+        "LocalizationKey": "HarshWilds_BpCairn_CardDescription",
+        "DefaultText": "Raise a cairn of heavy stones in memory of the dead. Keep a vigil by it and the Ancestors may answer."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_cairn",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "hw_bp_cairn",
+        "LocalizationKey": "HarshWilds_BpCairn_UnlockConditionsDesc",
+        "DefaultText": "Requires some Insight."
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 16,
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 2,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "StatWarpData": "36e14930ddfdcdb4b901f6416b5453be",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 1.5,
+                    "y": 1500.0
+                },
+                "NotifyWhenNotMet": false,
+                "HideAllWhenNotMet": false
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintCardConditions": [
+        {
+            "TriggerCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "TriggerCardWarpData": "hw_cairn",
+            "TriggerCardWarpType": 3,
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": true,
+            "OnlyEquipped": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction"
+            ],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 12,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "hw_cairn",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,18 @@
+{
+  "target": "hw_charm_blood.png",
+  "sourceCard": "hw_charm_blood",
+  "subject": "a small carved off-white bone charm in the shape of a single teardrop, stained dark red-brown in its grooves, hanging from one simple loop of plain brown twine cord",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "imageCount": 1
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small carved off-white bone charm in the shape of a single teardrop, stained dark red-brown in its grooves, hanging from one simple loop of plain brown twine cord, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, beads, feathers, metal, several charms, bright red liquid, gore.",
+  "historyId": "7HGlGVstddpxYmrELHS4",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791676428018_14f21e5e_1791676430067_b8774247.png",
+  "credits": 30,
+  "generated": "2026-10-10",
+  "postProcess": "after /process-card-art, the enclosed near-white region(s) the border keyer cannot reach (the cord loop; the mask's eye holes) were keyed to transparent by a scratchpad flood fill (min channel >= 238, 2 px ring >= 205)"
+}

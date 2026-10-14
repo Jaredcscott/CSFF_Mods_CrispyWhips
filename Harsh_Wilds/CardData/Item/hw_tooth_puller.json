@@ -1,0 +1,79 @@
+{
+    "UniqueID": "hw_tooth_puller",
+    "//ToothPuller": "The Harsh Wilds-owned LAST-RESORT tooth decay remedy (Documentation/Research/HarshWilds/afflictions.md section 3.5 point 3, the second tooth decay DECISION), the one reusable TOOL among the cures: unlike hw_herbal_wash and hw_chewing_stick it is not used up by one dose. A CT0 item made by CardData/Blueprint/hw_bp_tooth_puller.json from VANILLA cards only (Bones and Twine). UsageDurability HW_TOOTH_PULLER_USES = 3: each pull spends one use (the DismantleAction's ReceivingCardChanges is ModType 1 with ModifyDurability and UsageChange -1, the shape Herbs and Fungi's Hemp Butter doses use), and the card goes when the last is spent (HasActionOnZero with an OnZero that destroys it, ModType 3). The DismantleAction 'Pull the Bad Tooth': DaytimeCost 2 (HW_TOOTH_PULLER_TICKS, half an hour), hw_teeth -HW_TEETH_EXTRACT = 288 (the whole stat) and vanilla Stress (3b79a4c6d7e151044a1c56fbbd401d78) +HW_TEETH_EXTRACT_STRESS = 40 (Stress is 0 to 240). The cost is time and Stress, never Pain, because Pain has no base rate and an action write to it is permanent. THE GATE: RequiredStatValues names hw_teeth EXACTLY, with StatWarpType 3, over {193,288}, which is the worst status band only (Rotten Tooth), with HideAllWhenNotMet true so the button is hidden, not greyed, in every other band (StatsAreCorrect clears the failed list and returns false, and DismantleActionButton hides an action whose stat check failed with no missing stat listed). RequiredStatValues FAILS OPEN when its stat cannot be resolved (CardAction.StatsAreCorrect skips an entry whose Stat is null), so a misspelt UID would offer the button in every band with no log line: Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1 [tool-card] asserts that the UID in this file is the affliction's own stat, that a GameStat file of that name exists, and that the range is the last band. The lower edge 193 is not a value hw_teeth can land on (it lands on multiples of 24: 192, then 216), so which side of the edge a clamped write lands never matters ([clamp-own]). KNOWN, INFERRED: a pull at Stress 200 or more writes +40 onto Stress's cap of 240, where vanilla Tgr_Anxiety {240,240} fires Depression; no guard is added because every vanilla action that raises Stress clamps the same way, and the worst band alone settles Stress far below that (about 145, from the rates in hw_teeth.json), so it takes a second heavy stressor (a fleas infestation, a fight) to get there (harness probe: set Stress 230, then pull). No Herbs and Fungi acceptance: a tool is not a dose. The card image is HarshWilds/Resource/Picture/hw_tooth_puller.png (provenance in HarshWilds/.art/hw_tooth_puller.json), and the blueprint shares it. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P8 for the gate).",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_ToothPuller_CardName",
+        "DefaultText": "Tooth Puller"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_ToothPuller_CardDescription",
+        "DefaultText": "A hooked sliver of bone lashed to a twine loop, for pulling a rotten tooth. It only works on a tooth that has rotted right through, takes half an hour and leaves you badly shaken. It can be used a few times before it falls apart."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "hw_tooth_puller",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 100.0,
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 3.0,
+        "MaxValue": 3.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_ToothPuller_ActionName",
+                "DefaultText": "Pull the Bad Tooth"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_ToothPuller_ActionDescription",
+                "DefaultText": "Pull the rotten tooth out. It clears tooth decay (sweets and time can start it again), but it takes half an hour and leaves you badly shaken."
+            },
+            "DaytimeCost": 2,
+            "RequiredStatValues": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_teeth",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 193.0, "y": 288.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": true
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_teeth",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -288.0, "y": -288.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0}
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 40.0, "y": 40.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0}
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {"x": -1.0, "y": -1.0}
+            }
+        }
+    ]
+}

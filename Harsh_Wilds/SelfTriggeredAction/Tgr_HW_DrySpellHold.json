@@ -1,0 +1,50 @@
+{
+    "UniqueID": "Tgr_HW_DrySpellHold",
+    "//DrySpellHold": "Holds GameStat/hw_stat_dryspell at 0 while a drought runs, so droughts do not chain. A drought forces clear weather, so without this the dry counter would keep climbing through the drought's own days and still read at least HW_DROUGHT_TICKS when it ends; the next daily roll of Tgr_HW_Drought would then be eligible at once, and at 1 in 4 a day back-to-back droughts would be the normal summer. With it, the counter restarts from 0 when hw_stat_drought reaches 0, and a fresh dry spell of HW_DROUGHT_DRYSPELL_TICKS (384, 4 days) is needed before the next drought can roll. Same shape as Tgr_HW_DrySpellReset. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open), events_stats.md section 0. Gate 1, hw_switch_drought {1,1}: with the [Threats] Drought switch off nothing here runs (the roll cannot fire either, and a drought already running runs its course). Gate 2, hw_stat_drought {1,672} (1 to HW_DROUGHT_TICKS, the timer's whole running range): a drought is running. RepeatOptions 0 (Repeat) with OncePerTick and no cooldown, so it fires on every drought tick (GameManager.CheckAllStatsForActions re-derives every listened condition each tick). It writes hw_stat_dryspell ValueModifier -1344 (the counter's max, so any value lands on its floor of 0). It writes only our own hidden counter, never a vanilla stat, and needs no player text.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_DrySpellHold",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Dry Spell Hold"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_drought",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_drought",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 672.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_dryspell",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -1344.0, "y": -1344.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

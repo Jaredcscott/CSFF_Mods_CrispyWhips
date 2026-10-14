@@ -1,0 +1,226 @@
+{
+    "UniqueID": "hw_teeth",
+    "//Teeth": "The second Harsh Wilds AFFLICTION, built on the fleas chassis (Documentation/Research/HarshWilds/afflictions.md sections 1.7 and 3.3, the tooth decay DECISION; read hw_fleas.json first, this file copies it). One VISIBLE GameStat whose icon statuses do the harm. The key set is exactly HerbsAndFungi/GameStat/HF_HerbalTonic.json's. Visibility 0 (VisibleWithStatus) with an icon on every status is how vanilla BugBites, Parasites and Rash are seen (InGameStat.FindFirstVisibleStatus shows the first current status that has an Icon, so a status without one is invisible); VisibleInDetailedList false and NO detailed-tab entry (a StatListTab is scene-scoped and GameSourceModify cannot reach it). BaseRatePerTick HW_TEETH_RATE = 0: untreated decay never heals, so time works against the player (vanilla Parasites is rate 0 too). Every write to this stat is a PERMANENT base write clamped on write (GameManager.ChangeStatValue): the three sources (SelfTriggeredAction/Tgr_HW_TeethSugar +48, Tgr_HW_TeethFruit +24, Tgr_HW_TeethTime +24, each only when its roll picks the Cavity collection) raise it; CardData/Item/hw_chewing_stick lowers it (-48 chewed, -96 with a herb), CardData/Item/hw_tooth_puller lowers it by the whole cap but only in the worst band, and Tgr_HW_TeethSwitchOff clears it while the [Threats] ToothDecay switch is off. Every write is a multiple of 24 (HW_TEETH_PER_CAVITY_SUGAR = 48, HW_TEETH_PER_CAVITY_SMALL = 24, HW_TEETH_STICK_STEP = 48, HW_TEETH_HERB_STEP = 96, HW_TEETH_EXTRACT = 288), so the values it can land on are the multiples of 24 from 0 to the cap 288; every trigger on it starts at 1 or 193 and none sits on a multiple of 24 or on the cap from below (Development_Tools/Tests/HarshWilds-Afflictions.Tests.ps1 [clamp-own]). No perk writes it. THE COSTS touch only vanilla Pain (a status VALUE modifier, exactly like vanilla BugBites' Pain +25/+50/+100, never an action write: Pain has no base rate, so an action write would be permanent and stack) and Stress (a RATE). Pain HW_TEETH_PAIN_1..3 = +30, +60, +90; Stress HW_TEETH_STRESS_1..3 = +0.25, +0.5, +0.75 a tick. CORRECTED against the DECISION, which said Pain +30, +100, +180: vanilla Pain has its OWN Stress cost (read from GameStat/Pain.json: Minor Pain 100-200 adds Stress +1.0 a tick, Moderate 201-300 adds +2.0), so a tooth that pushed Pain to 100 or 180 by itself would add +1.0 on top of its own rate. Against vanilla's Stress base rate -0.25 and Stress's own band 193-240 rate -1.0 (the band holding Tgr_Anxiety's edge at 240, where Depression fires), Toothache would net +0.25 (0.5 + 1.0 - 1.25) and Rotten Tooth +0.5, so Stress would climb to its cap and fire Depression with the tooth alone. +60 and +90 stay under vanilla's first Pain band (it starts at 100), so the tooth's Pain only stacks with pain from elsewhere (BugBites, wounds) and a lone tooth adds nothing but its own Stress rate: worst band alone nets -0.5 (the gate's [clamp-rate] now counts that Pain chain and goes red on the DECISION's numbers, case pain-chain-pins-cap). Vanilla willow bark (WillowBarkEffect, Pain -200 to -500) numbs only that stacked share and leaves the decay in place. KNOWN, INFERRED, NOT A GATE FAILURE: two untreated afflictions at their worst together can out-rate Stress's own relief. Fleas band 3 (+1.0) plus Rotten Tooth (+0.75) in the 193-240 Stress band is -0.25 - 1.0 + 1.0 + 0.75 = +0.5 a tick, so Stress would climb to 240 and fire Depression until one is treated; each alone is clamp-safe (harness probe P10, with both stats at 288). Icons are the vanilla sprite Pain_Old (checked against VanillaSprites.txt) on every band and the default. Every number here is a TUNABLE PLACEHOLDER (HW_TEETH_*), session-inferred and unmeasured against play, never balanced.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Teeth_StatName",
+        "DefaultText": "Tooth Decay"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Teeth_StatDescription",
+        "DefaultText": "Rot in your teeth. It never goes away on its own: honey, sugar and a lot of berries wear your teeth down, and so does time. Each stage hurts and wears on your nerves. Chewing a chewing stick, with a herb for more, wears the rot down a little at a time; in the worst stage a bad tooth can be pulled out, which clears it all."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 288.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Pain_Old",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Teeth_Status1_Name",
+                "DefaultText": "Sore Tooth"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Teeth_Status1_Description",
+                "DefaultText": "A tooth has started to go bad. It twinges when you eat, and your stress stops easing."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Pain_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 96},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 30.0, "y": 30.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.25, "y": 0.25},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 1,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Teeth_Status2_Name",
+                "DefaultText": "Toothache"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Teeth_Status2_Description",
+                "DefaultText": "The rot has reached the nerve. Chewing hurts, you cannot think of anything else, and your stress slowly rises."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Pain_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 97, "y": 192},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 60.0, "y": 60.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.5, "y": 0.5},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Teeth_Status3_Name",
+                "DefaultText": "Rotten Tooth"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Teeth_Status3_Description",
+                "DefaultText": "A tooth has rotted through and throbs day and night, and your stress keeps rising. Chewing sticks can wear the rot down, or the bad tooth can be pulled out."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Pain_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 193, "y": 288},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 90.0, "y": 90.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.75, "y": 0.75},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 3,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

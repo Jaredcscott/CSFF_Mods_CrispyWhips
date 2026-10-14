@@ -1,0 +1,65 @@
+{
+  "//": "Feature 32, one of the shaman's four teach lines. Offered once (hw_stat_lynx_spirit_bound == 1; hw_stat_goat_spirit_bound == 0; hw_stat_shaman_taught == 0): a spirit is bound and the Goat Spirit is not, so its one answer unlocks hw_bp_spirit_goat_calling through BlueprintsFullUnlock (the calling's own StatValues gate on its bound latch is what the unlock skips) and sets the taught marker, so the shaman teaches ONE calling in a run. The four lines together cover every mix of the Lynx, Goat and Blood Spirits bound short of all three; the scene lists them in order before the greeting, and DialogScene.GetStartingLine takes the first whose StartingConditions hold. NextStep 2 = DialogStep.ExitDialog. Pattern copied from Community_Mod_Chest/ScriptableObject/DialogLine/CMC_ApothecaryTalk_HerbQuestThanks.json. Which calling each mix is taught is a TUNABLE PLACEHOLDER.",
+  "StartingPoint": true,
+  "StartingConditions": {
+    "RequiredStatValues": [
+      {
+        "StatWarpData": "hw_stat_lynx_spirit_bound",
+        "StatWarpType": 3,
+        "TriggerRange": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      },
+      {
+        "StatWarpData": "hw_stat_goat_spirit_bound",
+        "StatWarpType": 3,
+        "TriggerRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "StatWarpData": "hw_stat_shaman_taught",
+        "StatWarpType": 3,
+        "TriggerRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      }
+    ]
+  },
+  "Line": {
+    "LocalizationKey": "HarshWilds_Shaman_TeachGoat_Line",
+    "DefaultText": "You carry a spirit already, I can feel it on you. Good. Then you will understand this one. Sit a while and I will teach you the calling of the Goat Spirit, that you may bind it when the time comes."
+  },
+  "PossibleAnswers": [
+    {
+      "Answer": {
+        "LocalizationKey": "HarshWilds_Shaman_Teach_Answer",
+        "DefaultText": "Teach me the calling."
+      },
+      "ActionToPerform": {
+        "StatModifications": [
+          {
+            "StatWarpData": "hw_stat_shaman_taught",
+            "StatWarpType": 3,
+            "ValueModifier": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+          }
+        ],
+        "BlueprintsFullUnlockWarpData": [
+          "hw_bp_spirit_goat_calling"
+        ],
+        "BlueprintsFullUnlockWarpType": 3
+      },
+      "NewNextLine": {
+        "NextStep": 2
+      }
+    }
+  ]
+}

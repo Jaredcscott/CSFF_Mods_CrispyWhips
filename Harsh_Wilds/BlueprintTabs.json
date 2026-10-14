@@ -1,0 +1,49 @@
+{
+    "Tab_1_Survival_Subtab_3_Medical_TabName": [
+        "hw_bp_herbal_wash",
+        "hw_bp_chewing_stick",
+        "hw_bp_tooth_puller"
+    ],
+    "Tab_1_Survival_Subtab_1_Fire_TabName": [
+        "hw_bp_witchfire"
+    ],
+    "Tab_1_Survival_Subtab_2_Support_TabName": [
+        "hw_bp_bugtrap_resin",
+        "hw_bp_bugtrap_tar"
+    ],
+    "Tab_7_Magic_Subtab_4_Rituals_TabName": [
+        "hw_bp_bless_grove_mistletoe",
+        "hw_bp_brew_beast",
+        "hw_bp_brew_earth",
+        "hw_bp_brew_muscle",
+        "hw_bp_exorcism_smudge"
+    ],
+    "Tab_7_Magic_Subtab_2_Implements_TabName": [
+        "hw_bp_spirit_jar",
+        "hw_bp_spirit_mask",
+        "hw_bp_athame",
+        "hw_bp_casting_bones",
+        "hw_bp_charm_lynx",
+        "hw_bp_charm_goat",
+        "hw_bp_charm_blood"
+    ],
+    "Tab_7_Magic_Subtab_1_Shrines_TabName": [
+        "hw_bp_totem_beast",
+        "hw_bp_cairn",
+        "hw_bp_threshold",
+        "hw_bp_moon_basin"
+    ],
+    "Tab_4_Tailoring_Subtab_3_Leather_TabName": [
+        "hw_bp_coat_lynx",
+        "hw_bp_coat_muskox",
+        "hw_bp_coat_wisent"
+    ],
+    "Tab_7_Magic_Subtab_3_CallingRituals_TabName": [
+        "hw_bp_spirit_lynx_calling",
+        "hw_bp_spirit_goat_summoning",
+        "hw_bp_spirit_goat_calling",
+        "hw_bp_spirit_blood_summoning",
+        "hw_bp_spirit_blood_calling",
+        "hw_bp_spirit_dragon_calling"
+    ]
+}

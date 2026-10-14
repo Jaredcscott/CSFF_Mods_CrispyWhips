@@ -1,0 +1,56 @@
+{
+  "target": "hw_muskox_carcass_skinned.png",
+  "sourceCard": "CardData/Item/hw_muskox_carcass_skinned.json",
+  "subject": "a skinned musk ox carcass in exactly the pose of reference image 1: lying flat on its belly with its head resting low at the lower left and its eyes closed, the front legs stretched forward to the left and the hind legs stretched out slack behind to the right, dark red muscle and creamy white fat over the whole body, neck, legs and face, the same broad pale horns meeting in a wide boss across the forehead, sweeping down beside the face and curling up at the tips, dark hooves, the body a little slimmer than in reference image 1 now that the long hair is gone, one whole carcass and nothing else",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "composition": {
+    "subject": "hw_muskox_carcass",
+    "change": "skinned, in the identical pose of the whole carcass",
+    "finish": "keyed"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "hw_muskox_carcass",
+      "image": "Resource/Picture/hw_muskox_carcass.png",
+      "sha256": "be6e278e596d49f51aae1683ce177cf4bf521ea3cb42db3805ca9351fa0486cd",
+      "id": "BpjescDkdqvMtI2Fbstm",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/hw_muskox_carcass_1790625774959_06275433.png"
+    }
+  ],
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a dead musk ox lying flat on its belly: draw this same animal, keeping its pose, camera angle, facing direction, head position, leg positions, horns, proportions and size in the frame identical, changed only as follows: it has been skinned, the long shaggy dark brown hair and the hide fully removed from the body, neck, legs and face to show dark red muscle and creamy white fat.\nHand-painted watercolor-and-ink game item illustration of a skinned musk ox carcass in exactly the pose of reference image 1: lying flat on its belly with its head resting low at the lower left and its eyes closed, the front legs stretched forward to the left and the hind legs stretched out slack behind to the right, dark red muscle and creamy white fat over the whole body, neck, legs and face, the same broad pale horns meeting in a wide boss across the forehead, sweeping down beside the face and curling up at the tips, dark hooves, the body a little slimmer than in reference image 1 now that the long hair is gone, one whole carcass and nothing else, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, fur, hair, hide still on, shaggy coat, kneeling, standing, lying on its side, legs folded under the body, a different pose, a different facing direction, water buffalo horns, horns rising from the top of the head, bare skull, open rib cage, pool of blood, dripping blood, hook, rope, hanging, knife, cut pieces, scattered bones, second animal, snow, grass, ground patch under the body.",
+  "historyId": "wi5LOtomfaW8P0GxJglc",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790625916834_6a57e896_1790625917504_2182cc51.png",
+  "credits": 30,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790625916834_6a57e896_1790625917504_2182cc51.png",
+      "verdict": "shipped, owner pick: same flat-on-belly pose as hw_muskox_carcass, head lower left, legs splayed, boss horns, eyes closed"
+    }
+  ],
+  "picked": 1,
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 79.6,
+    "sha256": "89d63f606f8c6c060b238a47f544371415fea4f019c6dc9a814968a3ff293241"
+  },
+  "replaces": {
+    "historyId": "gEttph5ZW3e8lspASpj5",
+    "mode": "text2image",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790592695624_ae44148f_1790592695939_b9d6993a.png",
+    "reason": "owner 2026-09-28: 'the skinned and carcass should be in the same pose'; the text2image original invented its own pose"
+  },
+  "generated": "2026-09-28"
+}

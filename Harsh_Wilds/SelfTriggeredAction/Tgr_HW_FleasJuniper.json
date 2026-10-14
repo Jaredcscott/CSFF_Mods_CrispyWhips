@@ -1,0 +1,58 @@
+{
+    "UniqueID": "Tgr_HW_FleasJuniper",
+    "//FleasJuniper": "Fleas and lice cure 3, juniper smoke (Documentation/Research/HarshWilds/afflictions.md section 2.5, the second fleas DECISION): the shape of Tgr_HW_FleasBogMyrtle on vanilla's other repellent effect stat, JuniperMosquitoProtection (215a103b1a8b9ab4d89b12f44406ee04, 0 to 12, rate -1), written by burning juniper needles (+3 or +6) and by Light Tinder on a Campfire, FirePit or Fireplace (+6). ALL GATES ARE StatChangeTrigger ENTRIES (an unresolved one fails closed). Gate 1, hw_switch_fleasandlice {1,1}. Gate 2, JuniperMosquitoProtection from 1: the research writes {1,12}, and this file writes {1,1000}, which reads the same (the stat cannot exceed its cap of 12) but keeps the top edge off the cap ([clamp-cap]). Gate 3, hw_fleas {1,1000} ([clamp-own]). RepeatOptions 0 (Repeat), OncePerTick, no cooldown: every tick the smoke lasts, hw_fleas -HW_FLEAS_SMOKE_STEP = 4, so lighting a fire with tinder (6 ticks) clears 24. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play (harness probe P6).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasJuniper",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Juniper"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "215a103b1a8b9ab4d89b12f44406ee04",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -4.0, "y": -4.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

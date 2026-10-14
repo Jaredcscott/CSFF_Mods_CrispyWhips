@@ -1,0 +1,14 @@
+{
+ "target": "hw_frostdemon.png",
+ "subject": "a lean wolf-shaped frost demon of pale blue-white ice and rime with icicle spines and fangs",
+ "model": "nano-banana-2",
+ "mode": "text2image",
+ "params": {
+  "imageCount": 1,
+  "aspectRatio": "2:3",
+  "resolution": "1K"
+ },
+ "historyId": "yVWc1IDxraysTZLZdLh0",
+ "credits": 20,
+ "generated": "2026-10-11"
+}

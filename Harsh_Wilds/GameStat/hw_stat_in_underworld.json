@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_stat_in_underworld",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_InUnderworld_StatName",
+        "DefaultText": "Harsh Wilds: In the Underworld"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_InUnderworld_StatDescription",
+        "DefaultText": "Hidden 0/1 flag: 1 while you stand in the Underworld, 0 everywhere else."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false,
+    "//InUnderworld": "Feature 30 (pack Prompt 43): the PER-REALM presence flag of the Underworld. Nothing writes it: BaseValue stays 0 and the realm's CardType 8 location card (hwlocunderworld) adds +1 as a PassiveStatEffects value modifier, which the game applies only while that card is in the player's environment. It exists so each realm's own danger (Tgr_HW_RestlessDead) fires only in its own realm: hw_stat_in_realm is the shared 'in any realm' flag the four raid rolls read, and a danger gated on it alone fired in every realm (found live 2026-10-12: Pixie-Led in the Moon Realm)."
+}

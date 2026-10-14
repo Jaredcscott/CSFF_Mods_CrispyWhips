@@ -1,0 +1,70 @@
+{
+    "UniqueID": "hw_spirit_jar",
+    "//RitualObject": "Feature 25 (plan section 25, pack Prompt 33; W0-16: the coats' 'spiritually open' effects key on AlteredMindstate, vanilla jars refuse an essence except copper and glazed ones, no vanilla charm or shrine gives this gift). Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "hw_spirit_jar",
+        "LocalizationKey": "HarshWilds_SpiritJar_CardName",
+        "DefaultText": "Spirit Jar"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_spirit_jar",
+        "LocalizationKey": "HarshWilds_SpiritJar_CardDescription",
+        "DefaultText": "A clay jar marked with spirit signs and sealed with a spirit herb. Unlike a plain clay jar it takes a spirit essence, and nothing in it draws on the essence, so it does not fade there. Pour an essence in while your mind is open to the spirits, and later pour it into an amulet or a coat that can be enchanted."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_spirit_jar",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Clay",
+        "tag_ContainerSealed",
+        "tag_Pretty"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "ObjectWeight": 100.0,
+    "TradingValue": 0.0,
+    "CanBeRenamed": false,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 150.0,
+    "ExclusivelyAcceptedLiquids": [
+        {
+            "Target": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "TargetWarpData": "tag_SpiritLiquid",
+            "TargetWarpType": 3
+        }
+    ]
+}

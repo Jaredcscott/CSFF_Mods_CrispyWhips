@@ -1,0 +1,48 @@
+{
+  "//": "Harsh Wilds feature 33, the lindwurm (plan section 33, Open question 21; Prompt 50): a great serpent of the high caves that lairs in the Great Cave for a week and a half on a few occasions. A GENERATED agent (no Agent.Ref), so Carcass.Card applies. It is homed on the cave W0-21 named (Documentation/Research/HarshWilds/wave0-places.md section 4: Env_CaveOldHollow, a CardType 4 cave board, the way vanilla's bear homes in Env_BearCave), and its wander list is that home ALONE: whether a cave mouth is a forbidden path for AnimalPathfinding is INFERRED (not read), so it never leaves the cave. It is HOSTILE and the hardest of the rare beasts: open question 21's default is that the lindwurm is fightable at about the musk ox's difficulty or above. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. Card art is real (hw_lindwurm.png).",
+  "//Switch": "Spawn.Conditions (framework 2.27.0), ALL of which must hold: the rolled stat hw_stat_lindwurm reads 1 or more (only the Lindwurm collection of SelfTriggeredAction/Tgr_HW_Lindwurm.json writes it, 720 ticks, and it counts itself down) and the switch hw_switch_lindwurm is 1 ([Threats] Lindwurm). While one is false the framework keeps it retired in the Spirit World; it returns on the first tick both hold again (ConditionRespawnTicks 0). DeathRespawnTicks 0: a killed lindwurm stays dead until its condition next goes false and true again, which is the next roll that brings one, so it is a once-in-a-very-long-while kill and the carcass does not respawn on a timer.",
+  "//Encounter": "Encounter.Ref points at HarshWilds/Encounter/hw_encounter_lindwurm.json, which Development_Tools/HarshWilds/derive_content.py rebuilds from vanilla Combat_EncounterBear.json (the lake beast's derivation): the bear's own reach, four attacks and body template, renamed, with blood 450 against the lake beast's 350, a stronger poison resistance and firmer morale. Defeat drains AgentBlood on the associated agent so the generated death action drops the carcass where it fell. No ActivityWindow (a cave beast is always in its lair) and no Aggression Hours: BaseWeight 600 against the wander duty of 100, at most once a day, only when the player is on its board (the Great Cave), so it threatens a player who goes into that cave and nobody else.",
+  "//Tracks": "Off: a beast that exists for a week or so leaves no track cards behind for the hunter to follow to an empty cave after it is retired. TUNABLE.",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17: the same reason as Animals/Wisent.json (the framework's lifecycle ticker counts the agent dead only while its blood sits at 4 or below, and regeneration would walk a killed animal back long before its respawn). Agent.Blood and PoisonResistance match the encounter's Blood 450 and Value4 250.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_lindwurm",
+  "DisplayName": "Lindwurm",
+  "LocalizationKey": "HarshWilds_Lindwurm_AgentName",
+  "Sprite": "hw_lindwurm",
+  "WeightCategory": "Heavy",
+  "Agent": {
+    "Blood": { "Start": 450, "Max": 450, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 250, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "41d2fb7700db4614b8ae12b526d8ec24",
+    "DeathRespawnTicks": 0,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_stat_lindwurm", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_switch_lindwurm", "Comparison": "GreaterOrEqual", "Value": 1 }
+    ],
+    "ConditionRespawnTicks": 0
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "41d2fb7700db4614b8ae12b526d8ec24"
+    ],
+    "WanderWeight": 100
+  },
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_lindwurm",
+    "ApproachButton": true,
+    "Aggression": {
+      "Enabled": true,
+      "BaseWeight": 600,
+      "RequirePlayerInEnv": true,
+      "MaxPerDay": 1
+    }
+  },
+  "Carcass": {
+    "Card": "hw_lindwurm_carcass"
+  }
+}

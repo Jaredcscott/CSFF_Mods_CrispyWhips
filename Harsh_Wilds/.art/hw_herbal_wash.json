@@ -1,0 +1,35 @@
+{
+  "target": "hw_herbal_wash.png",
+  "sourceCard": "CardData/Item/hw_herbal_wash.json",
+  "subject": "the vanilla clay bowl of water (Bowl_Clay_Water) filled almost to the brim with faintly green-brown water, a few small bog myrtle leaves and two small juniper sprigs floating on it; mostly water",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "3:2",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 shows a clay bowl of water from the game. Draw this same bowl, keeping its shape, proportions, grey clay colour, flat posterized shading, dark ink outline and drawing style identical, changed only as follows: the bowl is filled almost to the brim with water tinted faintly green-brown, and floating on the water surface are a few small loose leaves of bog myrtle (small grey-green oval leaves) and two small dark green sprigs of juniper needles. The water fills almost the whole bowl and is clearly the main thing; the herbs are few and small, floating, not heaped.\nSingle subject only, centred and filling most of the frame width with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft airbrushed gradients, photo, photorealistic, 3D render, mash, paste, heap of leaves, steam, spoon, cloth, second bowl, terracotta orange, grey background, off-white background, checkerboard, transparency grid, scenery, text, watermark, border, frame, footprints, tracks.",
+  "historyId": "FN4DFAALJdyB62n9Yvll",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798623112_5ea89337_1791798623172_9435acf8.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "subject",
+      "label": "Bowl_Clay_Water",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_Water_1791798310806_41f9ddf1.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798623112_5ea89337_1791798623172_9435acf8.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: should be mostly water; vanilla clay bowl of water with a few floating leaves and sprigs; the model's flat grey drop shadow was turned into vanilla's semi-transparent black shadow"
+}

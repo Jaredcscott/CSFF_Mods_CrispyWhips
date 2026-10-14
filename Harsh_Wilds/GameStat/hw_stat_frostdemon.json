@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_stat_frostdemon",
+    "//Rolled": "THE FROST DEMON'S ROLLED STAT (plan section 33, Prompt 49): a self-timed hidden effect stat built like the blood moon's timer (range 0 to max, BaseRatePerTick -1) with no status, no alert and no icon: a rare beast is not announced. Written ONLY by the Frost Demon collection of SelfTriggeredAction/Tgr_HW_FrostDemon.json (+HW_FROSTDEMON_TICKS = 44, its max, eleven hours: from the 18:00 roll to about 05:00, a TUNABLE PLACEHOLDER), then it counts itself down and rests at 0. Animals/FrostDemon.json names it in Spawn.Conditions beside a Winter season entry, so the frost demon is in the world exactly while it reads 1 or more on a winter night and is retired to the Spirit World when it returns to 0. A GLOBAL stat.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_FrostDemonRolled_StatName",
+        "DefaultText": "Harsh Wilds: Frost Demon Days"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_FrostDemonRolled_StatDescription",
+        "DefaultText": "Hidden timer: the frost demon hunts the winter night while this reads 1 or more."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 44.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

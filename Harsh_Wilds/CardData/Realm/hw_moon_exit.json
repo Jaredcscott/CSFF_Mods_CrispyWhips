@@ -1,0 +1,80 @@
+{
+  "UniqueID": "hw_moon_exit",
+  "//Exit": "Feature 30 (plan section 30, pack Prompt 43): the Moon Realm way home and STAY CLOCK, the Faerie exit contract (hw_faerie_exit): UsageDurability starts full at HW_MOON_STAY_TICKS = 12 (three in-game hours, a TUNABLE PLACEHOLDER) and falls 1 a tick; the OnZero and the one button both set TravelToPreviousEnv and destroy this card (ModType 3); the OnZero has NO stat gate; the button takes no time. It is destroyed on the way out so a stale clock cannot fire its travel from another board; the next entry seeds a fresh one.",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_MoonExit_CardName",
+    "DefaultText": "The Silver Pool"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_MoonExit_CardDescription",
+    "DefaultText": "The still water you stepped through, bright with the moon. Step back through it whenever you like; when its moonlight runs out the pool sends you home anyway, back to the place you came from."
+  },
+  "CardImageWarpData": "Moon",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 12.0,
+    "MaxValue": 12.0,
+    "CardStatName": {
+      "ParentObjectID": "hw_moon_exit",
+      "LocalizationKey": "HarshWilds_MoonExit_ClockName",
+      "DefaultText": "Moonlight Left"
+    },
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 0,
+    "HasActionOnZero": true,
+    "OnZeroNotification": 1,
+    "OnZero": {
+      "ActionName": {
+        "ParentObjectID": "hw_moon_exit",
+        "LocalizationKey": "HarshWilds_MoonExit_OnZeroName",
+        "DefaultText": "The Pool Lets You Go"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_moon_exit",
+        "LocalizationKey": "HarshWilds_MoonExit_OnZeroDescription",
+        "DefaultText": "The moonlight fades and the pool sends you home, back to the place you came from."
+      },
+      "TravelToPreviousEnv": true,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "ParentObjectID": "hw_moon_exit",
+        "LocalizationKey": "HarshWilds_MoonExit_FadeMessage",
+        "DefaultText": "The pool lets you go..."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hw_moon_exit",
+        "LocalizationKey": "HarshWilds_MoonExit_LeaveName",
+        "DefaultText": "Step Back Through the Pool"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_moon_exit",
+        "LocalizationKey": "HarshWilds_MoonExit_LeaveDescription",
+        "DefaultText": "Step back through the pool and return to the place you came from."
+      },
+      "DaytimeCost": 0,
+      "TravelToPreviousEnv": true,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "ParentObjectID": "hw_moon_exit",
+        "LocalizationKey": "HarshWilds_MoonExit_FadeMessage",
+        "DefaultText": "The pool lets you go..."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

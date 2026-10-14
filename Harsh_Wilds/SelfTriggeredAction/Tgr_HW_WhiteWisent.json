@@ -1,0 +1,103 @@
+{
+    "UniqueID": "Tgr_HW_WhiteWisent",
+    "//Roll": "THE WHITE WISENT'S DAILY ROLL (plan section 33, Prompt 48), the blood moon's pattern (Tgr_HW_BloodMoon.json, whose comment explains the mechanism): a rolled SelfTriggeredAction arms a self-timed hidden stat and there is NO CT3 event card and no alert. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues. Gate 1, hw_switch_whitewisent {1,1}: with [Threats] WhiteWisent off this can never fire. Gate 2, hw_clock_noon {1,1}: the hour from 12:00 to 13:00, so the roll is once a day. RepeatOptions 2 (ResetWhenOutOfRange): it fires once when both gates first hold and is re-armed when the clock goes back to 0. Roll: Nothing (weight HW_WHITEWISENT_NOTHING_WEIGHT = 39) against White Wisent (weight HW_WHITEWISENT_EVENT_WEIGHT = 1, one card-less drop, since a collection with no potential drop gets weight 0 and could never be picked), so the chance is 1 in 40 per day; a pick arms hw_stat_whitewisent by HW_WHITEWISENT_TICKS = 384 (four days, its max). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. INFERRED, harness probe: that the roll fires at all (read hw_stat_whitewisent after a forced roll) and that a sleep spanning the whole noon hour skips the roll (worst case a missed roll, never a wrong event).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_WhiteWisent",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW White Wisent Roll"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_whitewisent",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_clock_noon",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 39,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "White Wisent",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "hw_stat_whitewisent",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {
+                                "x": 384.0,
+                                "y": 384.0
+                            },
+                            "RateModifier": {
+                                "x": 0.0,
+                                "y": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

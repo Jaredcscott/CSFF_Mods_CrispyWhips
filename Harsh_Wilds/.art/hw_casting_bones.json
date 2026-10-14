@@ -1,0 +1,78 @@
+{
+  "target": "hw_casting_bones.png",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "p6EbSjwc0ljMeFWWT6kg",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791837669348_7c727fa8_1791837669432_bc5d5c48.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery round 4 (2026-10-12): tally marks only (previous generation as content reference). Not yet seen by the owner.",
+  "vanilla_score": 65,
+  "previous": {
+    "target": "hw_casting_bones.png",
+    "model": "nano-banana-2",
+    "mode": "image2image",
+    "params": {
+      "imageCount": 1,
+      "resolution": "1K",
+      "aspectRatio": "2:3",
+      "autoEnhancePrompt": false
+    },
+    "historyId": "OKOiwWwpfiCe5xdLBrrp",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791833237433_170ceda0_1791833237513_1558e292.png",
+    "credits": 20,
+    "generated": "2026-10-12",
+    "note": "Owner gallery round 3 (2026-10-12): regenerate = new content. Two vanilla exemplars as style references, flat-ink prompt. Not yet seen by the owner.",
+    "finishing": [
+      "process_card_art.py"
+    ],
+    "vanilla_score": 79,
+    "previous": {
+      "target": "hw_casting_bones.png",
+      "sourceCard": "CardData/Item/hw_casting_bones.json",
+      "subject": "Casting bones: five small pale animal bones (two knucklebones and three short finger bones), scraped clean, each marked with simple black charcoal lines and dots, lying loosely on a small folded square of plain pale tan rawhide. No cord, no beads, no feathers, no skull, no candle, no other objects.",
+      "model": "nano-banana-2",
+      "mode": "image2image",
+      "params": {
+        "imageCount": 1,
+        "aspectRatio": "2:3",
+        "resolution": "1K",
+        "autoEnhancePrompt": false
+      },
+      "references": [
+        {
+          "role": "style",
+          "label": "vanilla Amulet (style)",
+          "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_1791744833077_263b1f4a.png"
+        }
+      ],
+      "historyId": "7KKfbX58im5lDUDwOOMr",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791824730385_4414ec9f_1791824730465_1e681b7f.png",
+      "credits": "see account (2392 before both Prompt 36 images)",
+      "candidates": [
+        {
+          "n": "A",
+          "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791824730385_4414ec9f_1791824730465_1e681b7f.png"
+        }
+      ],
+      "picked": "A",
+      "predicted": "A",
+      "verdict": "one sample, 1K: two knucklebones and three finger bones on a folded tan hide, flat inked style, no cord, beads or skull; MISSED the charcoal marks on the bones (for the owner's gallery review). Shared by the card and its blueprint.",
+      "processed": {
+        "tool": "Development_Tools/CardArt/process_card_art.py",
+        "size": [
+          512,
+          373
+        ],
+        "transparent_pct": 74.0
+      },
+      "generated": "2026-10-12"
+    }
+  }
+}

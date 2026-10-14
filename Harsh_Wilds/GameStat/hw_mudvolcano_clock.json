@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_mudvolcano_clock",
+    "//Tunables": "TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. MUDVOLCANO_CLOCK_TICKS = 48 (the max in MinMaxValue.y, and the same 48 in hw_tgr_mudvolcano's clock trigger and its reset): one roll at most every 12 hours at 96 ticks per day. A fresh stat starts at its max (BaseValue 48), so the first roll is eligible at once; there is no grace because the roll itself can only erupt where Forest Lore's mud volcano card is on the board. The clock climbs at BaseRatePerTick 1, stops at its max and waits there while another gate (the switch, or the player sheltered indoors) is closed. It is only ever read by hw_tgr_mudvolcano.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_MudVolcanoClock_StatName",
+        "DefaultText": "Harsh Wilds: Mud Volcano Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_MudVolcanoClock_StatDescription",
+        "DefaultText": "Hidden counter: how long until the mud volcano may next erupt."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 48.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 48.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

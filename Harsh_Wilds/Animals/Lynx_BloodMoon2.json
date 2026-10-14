@@ -1,0 +1,65 @@
+{
+  "//": "Harsh Wilds phase 4, the blood moon (Documentation/Research/HarshWilds/events_sky.md section 3, the blood moon DECISION): the SECOND of two extra lynxes that are in the world only while a blood moon runs. Each is its own species because the framework has no population (Spawn.Population is warned and ignored), so N individuals means N manifests. It is a lynx in every respect the blood moon does not change: the same movement over the same four areas, the same stalk, the same dusk-and-night window, the same fight (Encounter.Ref hw_encounter_lynx, shared by reference, not copied) and the same carcass (hw_lynx_carcass, shared). HarshWilds/Animals/Lynx.json is NOT edited: the base lynx behaves exactly as it does on any other night.",
+  "//Switch": "Spawn.Conditions (framework 2.27.0), ALL of which must hold: the blood moon timer hw_stat_bloodmoon reads 1 or more (only the Blood Moon collection of SelfTriggeredAction/Tgr_HW_BloodMoon.json writes it, 44 ticks, and it counts itself down), the switch hw_switch_bloodmoon is 1, and the lynx switch hw_switch_lynx is 1 (HarshWilds/Patcher/Switchboard.cs writes both switches from [Threats] at every run start). While one is false the framework keeps the agent retired in the Spirit World, checked every tick and at run start; a switched-off blood moon therefore also retires an extra that is already out. ConditionRespawnTicks 0: it comes back on the first tick every condition holds again, healed to full blood. DeathRespawnTicks 0: a lynx killed on a blood moon stays dead until the moon ends and the next one restores it, so killing one is worth a night, not a week. Conditions cannot ADD an individual, only retire and restore this one, which is why the extras are separate manifests and the base lynx is untouched.",
+  "//Where": "HomeEnv differs from the lynx's (Rocky Pines): this extra starts its night in Mountain Thicket, the other in Mountain Grove, so a blood moon does not stack three lynxes on one square at dusk. WanderEnvs are the lynx's four areas, so the blood moon never puts a lynx where a lynx does not live.",
+  "//Encounter": "Aggression 19 to 5, BaseWeight 1000 and MaxPerDay 1 are the lynx's own, so each extra attacks a player in its area at most once a night and beats its wander and stalk duties exactly as the lynx's does (AnimalValidator check C accepts 1000 against the heaviest movement duty of 400). Up to 1 + 2 lynx fights on one blood moon night, one each. Aggression reading the blood moon stat directly is NOT built and is not needed: the framework (2.28.0) has no stat-conditioned Aggression, and a conditioned SPECIES gives the same result, because a retired agent has no duty to run.",
+  "//Tracks": "Off: fewer moving parts for an extra that lives one night, and no track cards left on the map for a lynx that is retired again at dawn. TUNABLE.",
+  "//Blood": "Agent.Blood.RatePerTick is 0, not vanilla's 0.17 (changed 2026-10-05). The framework's lifecycle ticker (CSFFModFramework/Animals/AnimalLifecycleTicker.cs, TickKillRespawn) counts the agent as dead only while its blood sits at DutyBuilder.SpeciesStats.DeadBloodMax (4) or below, and the generated duties are gated on blood above 4. A kill leaves blood at 0 (the stat's minimum), so at 0.17 a tick it climbed out of the dead band after about 24 ticks (six hours), the ticker cleared the respawn timer, and the duties walked the animal back long before Spawn.DeathRespawnTicks. Vanilla agents can regenerate because their own death action resets the exists and respawn stats; the generated death action writes no stats. At 0 a killed animal stays dead until DeathRespawnTicks (or, with DeathRespawnTicks 0, the next condition restore) heals it to full. The cost: blood an animal loses without dying is not regained before then either.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_lynx_bm2",
+  "DisplayName": "Lynx",
+  "LocalizationKey": "HarshWilds_Lynx_AgentName",
+  "Sprite": "hw_lynx",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": { "Start": 80, "Max": 80, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 30, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "3560005192d0d0a4ea2ff43f17ea0a4a",
+    "DeathRespawnTicks": 0,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_stat_bloodmoon", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_switch_bloodmoon", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_switch_lynx", "Comparison": "GreaterOrEqual", "Value": 1 }
+    ],
+    "ConditionRespawnTicks": 0
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 18, "End": 6 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "df1746be00a5fc74e9536d83cf491b6c",
+      "a7e737858eaebac4981ac595527bc369",
+      "3560005192d0d0a4ea2ff43f17ea0a4a",
+      "f903546ae5022e94ea34c8fed6817b30"
+    ],
+    "WanderWeight": 100,
+    "PlayerAttraction": {
+      "Enabled": true,
+      "BaseWeight": 0,
+      "MovementType": "Pathfind",
+      "DistanceWeight": { "Range": [0, 30], "Weights": [400, 0] },
+      "OnlyDuringActiveHours": true
+    }
+  },
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "hw_encounter_lynx",
+    "ApproachButton": true,
+    "Aggression": {
+      "Enabled": true,
+      "Hours": { "Start": 19, "End": 5 },
+      "BaseWeight": 1000,
+      "RequirePlayerInEnv": true,
+      "MaxPerDay": 1
+    }
+  },
+  "Carcass": {
+    "Card": "hw_lynx_carcass"
+  }
+}

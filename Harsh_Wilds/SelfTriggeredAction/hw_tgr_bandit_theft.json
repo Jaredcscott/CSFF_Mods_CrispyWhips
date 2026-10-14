@@ -1,0 +1,78 @@
+{
+    "UniqueID": "hw_tgr_bandit_theft",
+    "//Theft": "What a LOST bandit fight costs (Documentation/Research/HarshWilds/bandits.md DECISION 4, section 5 rows 4 to 10). The ONLY writer of the marker hw_bandit_robbed (HarshWilds/GameStat/hw_bandit_robbed.json, clamped 0 to 1) is hw_encounter_bandit's PlayerDemoralizedEffects (+1), and the only way that fight ends PlayerDemoralized is its subdual action (EncounterResult 8), so this action runs once per fight the player LOST: never after a win, an escape or a Back away at the start. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: hw_switch_bandits {1,1} (the [Threats] Bandits switch; off, this never fires) and hw_bandit_robbed {1,1}. The action resets the marker itself (-1) and RepeatOptions 2 (ResetWhenOutOfRange) re-arms it only once the marker has gone back to 0, so one loss is one theft. CannotPerformInCombat true: while an encounter is open the action is not ready, and it runs at the next stat check once the fight window has closed.",
+    "//Take": "ONE ExtraDurabilityChange, applied by the action directly (vanilla Tgr_Pee and Tgr_Poop run ExtraDurabilityModifications from a self-triggered action the same way). AppliesTo 3 = AllCardsInHand: the player's hand row, never the ground row (5 = AllCardsInBase) or the location row (6), never a base or a store. LookInInventories true: it also reaches what sits inside a container the player holds (a basket, a pouch) and, because GameManager.CardIsInHand also scans an equipped card flagged InHandWhenEquipped and its inventory, what sits inside such a worn bag. IncludeEquippedCards false, and no allowlisted card can be equipped at all, so nothing WORN is ever taken. CardChanges 1 = Destroy, DropOnDestroyList false. RandomlyAffectedCards 3 with RandomAmountType 1 = Absolute: at most HW_BANDIT_THEFT_MAX (3) individual cards, counted one by one (GameManager.RemoveCard with RemoveAll removes that card and ITS OWN inventory, never its pile siblings, which is why no allowlisted card is a container). The popup is vanilla's cards-destroyed popup, titled by this action's name, with CustomDestroyMessage. There is deliberately NO NoCardsAffectedMessage (the black bear's measured double popup, hw_event_blackbear.json); a loss with none of these foods in hand is silent.",
+    "//Allowlist": "An allowlist by UniqueID (GUID hash), never by tag and never a denylist: the export names tags by file name, so which cards carry tag_HumanFood cannot be computed offline, and a tag reaches every mod's food too. DECISION 4 named AffectedTags tag_HumanFood; this list replaces it because that tag sits on cards other mods require (dried meat, dried berries), which the section 5 row 4 gate forbids. 9 vanilla travel foods: BloodSausageDried, BloodRichSausageDried, BillberriesFatCake, SpringberriesFatCake, CheeseHardWedge, CheeseAgedWedge, MeatCake, PineNutsRoasted, AcornsRoasted. Each is CardType 0, no equipment tag, not InHandWhenEquipped, no inventory, weight or liquid capacity, and none is required by any blueprint, interaction, trigger, errand or quest in any shipping mod or by any vanilla blueprint; Development_Tools/Tests/HarshWilds-Bandits.Tests.ps1 recomputes that from the JSON on every run. Left out on purpose: dried meat, fish and plain sausage (CMC herb paste and cat feeding, Sirus23 companion feeding), dried berries (CMC, H&F and Sirus23 blueprints, the CMC Inn), hardtack and flatbreads (they carry a weight capacity), rope (equippable) and the flint knife (liquid capacity). The danger the list itself carries: an EMPTY resolved list reads as ALL cards (ExtraDurabilityChange.AppliesToAllCards), so HarshWilds/Patcher/BanditTheftGuard.cs removes this change at load unless all 9 entries resolved to such cards.",
+    "//Unmeasured": "For the dispatcher's harness run: that the take lands after the fight's result popup rather than being dropped (CannotPerformInCombat defers it, inferred from GameManager's readiness check and its post-encounter CheckAllStatsForActions), the destroyed-cards popup and its title, that an Absolute 3 takes 3 cards from one pile of 5 and leaves 2, that a card inside a held basket can be taken, and that a save made with the marker at 1 replays exactly one theft on load.",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_tgr_bandit_theft",
+                "LocalizationKey": "HarshWilds_BanditTheft_ActionName",
+                "DefaultText": "Robbed by a Bandit"
+            },
+            "RepeatOptions": 2,
+            "CannotPerformInCombat": true,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_bandits",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_bandit_robbed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_bandit_robbed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -1.0, "y": -1.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCardsWarpData": [
+                        "3a326a87ca81c1f43afb62d15a31261a",
+                        "9744e54b2690a01468e5373f1ae6a2de",
+                        "a88fd9ab304dd974987eefbb4caad171",
+                        "dea9073cd3a589a4fa888b4836d2079a",
+                        "af1831b7f11499c4093447c28b08af5b",
+                        "490d6d58b477a2c40aa6fde29c20f1c7",
+                        "f7e068d821aa2004dafff30c10bc50a6"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AppliesTo": 3,
+                    "LookInInventories": true,
+                    "IncludeEquippedCards": false,
+                    "CardChanges": 1,
+                    "DropOnDestroyList": false,
+                    "RandomlyAffectedCards": 3.0,
+                    "RandomAmountType": 1
+                }
+            ],
+            "CustomDestroyMessage": {
+                "ParentObjectID": "hw_tgr_bandit_theft",
+                "LocalizationKey": "HarshWilds_BanditTheft_LostMessage",
+                "DefaultText": "The bandit goes through your pack and makes off with:"
+            }
+        }
+    ]
+}

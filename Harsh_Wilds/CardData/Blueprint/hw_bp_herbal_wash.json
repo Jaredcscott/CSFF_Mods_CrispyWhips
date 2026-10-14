@@ -1,0 +1,85 @@
+{
+    "UniqueID": "hw_bp_herbal_wash",
+    "//HerbalWashBlueprint": "The recipe for CardData/Item/hw_herbal_wash.json, VANILLA CARDS ONLY so the fleas and lice cure never needs another mod (Documentation/Research/HarshWilds/afflictions.md section 2.5 point 3, the second fleas DECISION). A construction-style blueprint registered through HarshWilds/BlueprintTabs.json under the vanilla Survival > Medical tab, whose TabName.LocalizationKey 'Tab_1_Survival_Subtab_3_Medical_TabName' was read from the export's CardTabGroup/Tab_1_Survival_Subtab_3_Medical.json. Researchable from the start: StartUnlocked false with empty CardsOnBoard, TagsOnBoard and StatValues (the Community_Mod_Chest Bp_CMC_VillageHomeSign shape), basic research time BlueprintUnlockTicksCost HW_HERBAL_WASH_RESEARCH = 4, one stage of BuildingDaytimeCost 1 (the cap is 12). Ingredients: (1) any bog myrtle, fresh, dried or powdered, through the vanilla CardTabGroup GpTag_Myrtle (RequiredTabGroupWarpData, the Advanced Copper Tools precedent for GpTag_LeatherMedium; a tab group resolves by its runtime name, listed in ScriptableObjectObjectName/CardTabGroup.txt); (2) vanilla JuniperNeedlesDry (684f89c7e4f85764fb037b5da5bc21dc), because juniper has no tab group and fresh needles dry into these; (3) vanilla ClayBowl (a968f3eaffc6b9743b82982b5af2ab8c) with DontSpend true and no EffectOnIngredient, so BlueprintElement.DontDestroy keeps the bowl. The quantities are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play; whether the tab group accepts each myrtle form at a real build is a dispatcher harness probe.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_herbal_wash",
+        "LocalizationKey": "HarshWilds_BpHerbalWash_CardName",
+        "DefaultText": "Herbal Wash"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_herbal_wash",
+        "LocalizationKey": "HarshWilds_BpHerbalWash_CardDescription",
+        "DefaultText": "Mash bog myrtle (fresh, dried or powdered) with dry juniper needles in a clay bowl to make a wash that drives out fleas and lice. The bowl is not used up."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "hw_herbal_wash",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": ""
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 4,
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {"m_FileID": 0, "m_PathID": 0},
+                "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                "StatWarpType": 3,
+                "TriggerRange": {"x": 0.0, "y": 100000.0}
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredTabGroupWarpData": "GpTag_Myrtle",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredCardWarpData": "684f89c7e4f85764fb037b5da5bc21dc",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": true
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": ["HandAction", "CraftAction"],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "DroppedCardWarpData": "hw_herbal_wash",
+            "DroppedCardWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_bear_clock",
+    "//Tunables": "TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play, never balanced. BEAR_CLOCK_TICKS = 288 (the max in MinMaxValue.y, and the same 288 in hw_tgr_blackbear's clock trigger and its reset): one roll at most every 3 days at 96 ticks per day. The clock climbs at BaseRatePerTick 1, stops at its max and waits there while another gate (the switch, the season, the grace or the player sheltered indoors) is closed, so the first eligible tick after that fires the roll at once. That is why the grace is NOT this stat's start value but the lower bound of the SeasonCounter_Autumn trigger in hw_tgr_blackbear (BEAR_GRACE_TICKS = 480, the first 5 days of every autumn are quiet): a clock that has waited out three seasons at its max would otherwise roll on the first outdoor tick of every autumn. It is only ever read by hw_tgr_blackbear.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_BearClock_StatName",
+        "DefaultText": "Harsh Wilds: Black Bear Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_BearClock_StatDescription",
+        "DefaultText": "Hidden counter: how long until the Black Bear may next look for meat, fish and sausage in the food stores."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 288.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

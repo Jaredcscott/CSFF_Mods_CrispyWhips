@@ -1,0 +1,15 @@
+{
+  "//": "Feature 32, the wandering shaman's Talk dialog (CMC's DialogScene precedent, Community_Mod_Chest/ScriptableObject/DialogScene/CMC_ApothecaryTalk.json). A non-UID ScriptableObject carrying *WarpData needs framework 2.15.1+ (root CLAUDE.md, Custom Non-UID ScriptableObjects). The four teach lines are listed BEFORE the greeting, in this order, because DialogScene.GetStartingLine walks the list and returns the first StartingPoint line whose StartingConditions hold: whichever teach line fits the spirits bound wins while the shaman has not yet taught, and the greeting answers every other time.",
+  "SceneTitle": {
+    "LocalizationKey": "HarshWilds_Shaman_SceneTitle",
+    "DefaultText": "The Wandering Shaman"
+  },
+  "SceneLinesWarpData": [
+    "hw_shaman_talk_teach_goat",
+    "hw_shaman_talk_teach_lynx",
+    "hw_shaman_talk_teach_lynx_b",
+    "hw_shaman_talk_teach_blood",
+    "hw_shaman_talk_start"
+  ],
+  "SceneLinesWarpType": 3
+}

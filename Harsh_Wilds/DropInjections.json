@@ -1,0 +1,56 @@
+[
+  {
+    "Locations": {
+      "Uids": [
+        "716c18156d6816d40b26b4b81a6b9d22",
+        "f874739d449a5c948a0cfa9890fa344c",
+        "b71c4ef8847555b4abcab5730a529145",
+        "f5db0a50fd23fe44abce34c36b281dcd",
+        "f1f12161603a1674980559b8b1c67325",
+        "d3bccca6f0e37d649923ea9a996e8388",
+        "b9107e4f48ff0d044bd31c7a51d13d40",
+        "3282546098b590d4ba2d40e96460720f",
+        "b618bec5e3d2de64694f5cfb170626d4",
+        "49e2b4be940a84f4ca5c08024b5702b6",
+        "2c3a29815c94ebe46a4bdbd1ccb754d0",
+        "4e870b81748a38f4d8922a3fac6cc69a",
+        "48763d81ff15a3247af3a2a9db6adbb1",
+        "08a9ab83720ce8d43940b3948290fd63",
+        "9222a58ac48eabe4c96aa7c9419a3d53"
+      ]
+    },
+    "Action": "Forage",
+    "ActionMode": "exact",
+    "Drops": [
+      { "Card": "hw_mistletoe", "Chance": 8.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
+    ]
+  },
+  {
+    "Locations": {
+      "Uids": [
+        "716c18156d6816d40b26b4b81a6b9d22",
+        "f874739d449a5c948a0cfa9890fa344c",
+        "b71c4ef8847555b4abcab5730a529145",
+        "f5db0a50fd23fe44abce34c36b281dcd",
+        "f1f12161603a1674980559b8b1c67325",
+        "d3bccca6f0e37d649923ea9a996e8388",
+        "b9107e4f48ff0d044bd31c7a51d13d40",
+        "3282546098b590d4ba2d40e96460720f",
+        "b618bec5e3d2de64694f5cfb170626d4",
+        "49e2b4be940a84f4ca5c08024b5702b6",
+        "2c3a29815c94ebe46a4bdbd1ccb754d0",
+        "4e870b81748a38f4d8922a3fac6cc69a",
+        "48763d81ff15a3247af3a2a9db6adbb1",
+        "08a9ab83720ce8d43940b3948290fd63",
+        "9222a58ac48eabe4c96aa7c9419a3d53",
+        "8b50be9a6a78ea9439b08c653a12a1e7",
+        "08633f82bef215c4a81234b68b23b89a"
+      ]
+    },
+    "Action": "Forage",
+    "ActionMode": "exact",
+    "Drops": [
+      { "Card": "hw_fairy_ring", "Chance": 3.0, "Quantity": [1, 1] }
+    ]
+  }
+]

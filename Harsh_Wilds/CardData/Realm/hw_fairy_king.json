@@ -1,0 +1,40 @@
+{
+  "UniqueID": "hw_fairy_king",
+  "//Court": "Feature 31, the Fairy King (plan Documentation/Design/Harsh_Wilds_Content_Update_As_Built.md section 31, pack Prompt 46). W0-20 (Documentation/Research/HarshWilds/wave0-places.md section 3) MEASURED that an NPCAgent cannot be moved into an instanced realm (new EnvID on an instanced card yields a null env), so the realm's rulers are CardType 2 dialog cards seeded by hwenvfaerierealm's DefaultEnvCardDrops (after the location card and the exit); AlwaysDropUniqueDefaultEnvDrops re-adds a missing one on every entry, so a realm board saved before this build gets its court on the next visit. UniqueOnBoard, so each copy of the realm (one per ring) holds one king. INERT on purpose: no durability, no passive effect, no liquid, so the framework's AlwaysUpdateService leaves AlwaysUpdate false and the card stays on the realm board instead of following the player home (an AlwaysUpdate CardType 2 is IndependentFromEnv). His one button 'Speak with the King' starts the dialog hw_fairy_king_talk (StartDialogWarpData + StartDialogWarpType 3, vanilla SpiritShrine_WestStone's 'Approach' shape) and takes no time, so the realm's stay clock can never cut it off (Prompt 42 measured a timed button cut off by the clock left its card behind). AlwaysShow true is belt and braces: a StartDialog already passes WillHaveAnEffect. The bargain lives in the dialog (ScriptableObject/DialogLine/hw_fairy_king_talk_offer.json). Picture: the vanilla sprite 'Antler' as a PLACEHOLDER (art PARTIAL, a horned fairy king in green and gold).",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "HarshWilds_FairyKing_CardName",
+    "DefaultText": "The Fairy King"
+  },
+  "CardDescription": {
+    "LocalizationKey": "HarshWilds_FairyKing_CardDescription",
+    "DefaultText": "A tall lord of the fair folk, crowned with antlers and dressed in moss and gold. He watches you with a smile that never reaches his eyes, and he is always ready to strike a bargain."
+  },
+  "CardImageWarpData": "Antler",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hw_fairy_king",
+        "LocalizationKey": "HarshWilds_FairyKing_TalkName",
+        "DefaultText": "Speak with the King"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hw_fairy_king",
+        "LocalizationKey": "HarshWilds_FairyKing_TalkDescription",
+        "DefaultText": "Bow, and speak with the Fairy King."
+      },
+      "DaytimeCost": 0,
+      "AlwaysShow": true,
+      "StartDialogWarpData": "hw_fairy_king_talk",
+      "StartDialogWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ]
+}

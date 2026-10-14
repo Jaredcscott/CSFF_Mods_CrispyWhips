@@ -1,0 +1,67 @@
+{
+  "//": "Harsh Wilds feature 33, the golden hind (plan section 33, Open question 21; Prompt 48): a rare hind that flees the player and cannot be fought. There is NO Encounter section, so the agent has no Approach button and no fight can start with it, and no Carcass: nothing can hurt it, so it never dies. It is a generated agent on the sirus_test_hare shape (Movement.FleeFromPlayer: it walks toward the player, then away). The one thing a player can do with it is FOLLOW it: the Interactions entry below is a click button on the hind (the framework's TameInteractionBuilder, a DismantleAction with AlwaysShow) that rolls Skill_Tracking against a weight, and on success gives hw_hind_blessing, a CT0 card whose 'Receive the Blessing' sets Foraging Aid and Escape Aid to 288 (a day's worth, decaying by the game's own statuses) and ends this appearance by writing hw_stat_goldenhind back to 0. On a fail the hind runs to another glade (OnFail.Flee). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. Card art is PARTIAL: the vanilla Doe_Wild sprite stands in until hw_goldenhind.png exists.",
+  "//Distinct": "Not vanilla's Deer spirit blessing (Event_DeerSpiritBlessingGranted, which a stag carcass's Blessing action grants: Alertness Aid and Resilience, both to 288): this one is Foraging Aid and Escape Aid, no carcass, no spirit, no blueprint, and it comes from a living animal the player has to catch up with. Raids.md section 5's distinct-from-vanilla test, W0-21.",
+  "//Switch": "Spawn.Conditions (framework 2.27.0), ALL of which must hold: the rolled stat hw_stat_goldenhind reads 1 or more (only the Golden Hind collection of SelfTriggeredAction/Tgr_HW_GoldenHind.json writes it, 288 ticks, and it counts itself down; the blessing card also clears it), and the switch hw_switch_goldenhind is 1 ([Threats] GoldenHind). While one is false the framework keeps it retired in the Spirit World; it returns on the first tick both hold again. No Spawn.SuppressWhileCardOnBoard is needed: the interaction does not despawn the agent (OnSuccess.DespawnAgent is false), so there is no second retirement for the ticker to confuse with a condition retirement.",
+  "//Blood": "Agent.Blood.RatePerTick is 0, as the other manifests (no regeneration to confuse the lifecycle ticker). Nothing can reduce it.",
+  "//Flee": "FleeFromPlayer reuses the PlayerAttraction duty-weight fields while Enabled stays unset (the validator forbids both): BaseWeight 20 plus a DistanceWeight of 500 at the player's own square falling to 0 at path cost 30 (three ordinary map edges) makes the flee duty beat the wander duty (WanderWeight 50) only near the player, as the sirus_test_hare fixture does. The hind is active from 06:00 to 20:00 and roosts in the Spirit World by night.",
+  "SchemaVersion": 1,
+  "SpeciesId": "hw_goldenhind",
+  "DisplayName": "Golden Hind",
+  "LocalizationKey": "HarshWilds_GoldenHind_AgentName",
+  "Sprite": "Doe_Wild",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": { "Start": 60, "Max": 60, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 100, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "60402000491626042b116556a55e84f5",
+    "DeathRespawnTicks": 0,
+    "Conditions": [
+      { "Type": "StatThreshold", "UID": "hw_stat_goldenhind", "Comparison": "GreaterOrEqual", "Value": 1 },
+      { "Type": "StatThreshold", "UID": "hw_switch_goldenhind", "Comparison": "GreaterOrEqual", "Value": 1 }
+    ],
+    "ConditionRespawnTicks": 0
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 6, "End": 20 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "60402000491626042b116556a55e84f5",
+      "9dc0063ceb4a24f4c815d2efb49256c2",
+      "dd644a21d11b6ca479a91b4ea9c8be76",
+      "43f27aef15c15d04d9b24d700a73cfcd"
+    ],
+    "WanderWeight": 50,
+    "PlayerAttraction": {
+      "BaseWeight": 20,
+      "DistanceWeight": { "Range": [0, 30], "Weights": [500, 0] }
+    },
+    "FleeFromPlayer": true
+  },
+  "//Encounter": "ApproachButton false and no Ref: the hind has no fight, so it has no Approach button (the framework defaults the button on and wires it to the vanilla duck's encounter otherwise, which Animals-ManifestHygiene forbids).",
+  "Encounter": {
+    "ApproachButton": false
+  },
+  "Tracks": {
+    "Enabled": false
+  },
+  "Interactions": [
+    {
+      "Name": "Follow",
+      "LocalizationKey": "HarshWilds_GoldenHind_FollowActionName",
+      "ActionName": "Follow the Hind",
+      "ActionDescription": "Follow the golden hind quietly through the glade. Your tracking skill decides whether you keep up with it or it bolts.",
+      "DaytimeCost": 2,
+      "Skill": "Skill_Tracking",
+      "SuccessWeight": 10,
+      "SkillBonus": { "StatRange": [0, 150], "WeightRange": [0, 20] },
+      "FailWeight": 10,
+      "OnSuccess": { "GiveCard": "hw_hind_blessing", "DespawnAgent": false },
+      "OnFail": { "Flee": true }
+    }
+  ]
+}

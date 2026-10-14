@@ -1,0 +1,58 @@
+{
+    "UniqueID": "hw_event_wolverine",
+    "//Wolverine": "The event card hw_tgr_wolverine spawns: the wolverine's whole presence in the world (plan section 14), in the shape of hw_event_blackbear.json. One popup, one button; clicking it destroys exactly ONE card of the 8 in AffectedCardsWarpData (all vanilla trap catches, by GUID, read from the four triggered traps' InventoryFilter.AcceptedCardsWarpData, wave0-threats.md section 6) found in the LOCATION row of the current location or inside a container there (AppliesTo 6 = AllCardsInLocation, LookInInventories true), never the ground row, the hand or an equipment slot. The button cannot be confined to traps (ExtraDurabilityChange.AffectsCard tests only the affected card), so a catch card kept in a placed chest or shelf is reachable too; README says so. The list is disjoint from the eagle's and the black bear's lists (raids.md distinct-from-vanilla test): the hare, duck, squirrel, mouse, frog and partridge catches are the eagle's. No NoCardsAffectedMessage on purpose (a second after-spawning pass would show it as a SECOND popup right after a successful take; see hw_event_blackbear.json), so a click with nothing to take is silent.",
+    "//Image": "Card art HarshWilds/Resource/Picture/hw_event_wolverine.png, provenance in HarshWilds/.art/hw_event_wolverine.json.",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_WolverineEvent_CardName",
+        "DefaultText": "Wolverine at the Traps"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_WolverineEvent_CardDescription",
+        "DefaultText": "A wolverine, hungry in the deep of winter, has found your trapline and is nosing at the sprung traps. It may find nothing worth taking."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_wolverine",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_WolverineEvent_ActionName",
+                "DefaultText": "See what it takes"
+            },
+            "DaytimeCost": 0,
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCardsWarpData": [
+                        "f017720bc06f6124099894023755f1c2",
+                        "56cd0272e31447646854c521becddd9a",
+                        "24a35218ec733854387c5a66ef3e6628",
+                        "460b7e5a5579f554db61f9e38e59fcf7",
+                        "b25206d42f9d8e9439c2c384df025cf1",
+                        "aad9634a9b5273844bbe2e7a119c5b23",
+                        "04c672bd1794c264bb2d0a43fe95a975",
+                        "100c636cc960dfa419a486a941169934"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AppliesTo": 6,
+                    "LookInInventories": true,
+                    "IncludeEquippedCards": false,
+                    "CardChanges": 1,
+                    "DropOnDestroyList": false,
+                    "RandomlyAffectedCards": 1.0,
+                    "RandomAmountType": 1
+                }
+            ],
+            "CustomDestroyMessage": {
+                "LocalizationKey": "HarshWilds_WolverineEvent_LostMessage",
+                "DefaultText": "The wolverine tears a catch from the traps and drags it off:"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

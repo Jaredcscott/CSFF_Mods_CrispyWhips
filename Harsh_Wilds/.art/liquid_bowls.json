@@ -1,0 +1,23 @@
+{
+ "_note": "Liquid card pictures: vanilla Bowl_Clay_Water with the liquid recoloured. Owner 2026-10-11. The four spirit liquids (hw_lq_spirit_*) keep their own spirit art by owner choice. Build with Development_Tools/CardArt/liquid_bowl.py make HarshWilds --source <Bowl_Clay_Water.png> --link",
+ "bowls": [
+  {
+   "image": "hw_lq_brew_beast",
+   "card": "CardData/Liquid/hw_lq_brew_beast.json",
+   "colour": "#a09a8c",
+   "looks": "thin grey bonemeal and fat"
+  },
+  {
+   "image": "hw_lq_brew_earth",
+   "card": "CardData/Liquid/hw_lq_brew_earth.json",
+   "colour": "#4b4637",
+   "looks": "dark gritty ash and moss"
+  },
+  {
+   "image": "hw_lq_brew_muscle",
+   "card": "CardData/Liquid/hw_lq_brew_muscle.json",
+   "colour": "#b48c4b",
+   "looks": "rich egg and pine-nut mash"
+  }
+ ]
+}

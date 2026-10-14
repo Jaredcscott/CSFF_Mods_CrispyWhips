@@ -1,0 +1,62 @@
+{
+  "target": "hw_spirit_dragon.png",
+  "sourceCard": null,
+  "subject": "a long serpentine spirit dragon coiled in an S-shape: pale ivory-white scaled body shaded with cool blue-grey so it reads against white, small antler horns, flowing whiskers, and a long tail ending in wispy flame-like tufts, the whole body including every tail tuft outlined in dark ink",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "resolution": "1K",
+    "aspectRatio": "2:3",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Game card item illustration of a long serpentine spirit dragon coiled in an S-shape: pale ivory-white scaled body shaded with cool blue-grey so it reads against white, small antler horns, flowing whiskers, and a long tail ending in wispy flame-like tufts, the whole body including every tail tuft outlined in dark ink. The attached reference images are STYLE references only: match their ink linework, flat posterized shading in two or three tonal steps and muted natural palette; do not copy their subjects or composition. A continuous dark ink outline around the whole subject, flat colour fills with a few tonal steps, small ink hatch marks for texture, muted naturalistic palette, light from the upper left, slight three-quarter angle, a single subject only, centred with a white margin on every side and never touching an edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground, no scenery, no cast shadow, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolor, soft gradients, painterly texture, airbrush, photo, photorealistic, 3D render, glossy sheen, neon colors, multiple separate objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, wings, fire breath, background clouds, a second dragon.",
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Amulet (style)",
+      "id": "HqyonBY97MGge0OPQF9d",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_1791744833077_263b1f4a.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla WoodCarving (style)",
+      "id": "jmguv7wvZiCwqTlGfJ5h",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WoodCarving_1791745253091_d6eebc38.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Bear_Wild (style)",
+      "id": "s56iVlmySbUqnAXE0W15",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652734929_38bf6561.png"
+    }
+  ],
+  "historyId": "YcQXBrVo9xwkXVWYKT3P",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791828057756_7c3c5781_1791828057852_088a5fca.png",
+  "credits": 20,
+  "generated": "2026-10-12",
+  "note": "Owner gallery rework 2026-10-12: regenerated because the existing art could not be adjusted to vanilla match 70 with a clean result. Not yet seen by the owner.",
+  "finishing": [
+    "process_card_art.py (GIMP key + trim)",
+    "enclosed pure-white paper keyed on the trimmed image (key_enclosed.py misses it after the 2026-10-11 trim)"
+  ],
+  "vanilla_score": 55,
+  "previous": {
+    "target": "hw_spirit_dragon.png",
+    "sourceCard": "hw_spirit_dragon",
+    "subject": "a translucent pale amber-gold spirit shaped like a coiling wingless serpent-dragon with two short forelegs and a crested head, tail thinning into wisps",
+    "model": "nano-banana-2",
+    "mode": "text2image",
+    "params": {
+      "imageCount": 1,
+      "aspectRatio": "2:3",
+      "resolution": "1K"
+    },
+    "historyId": "q4s6cNLDJ3II7DMO4ygn",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791770635503_d66a8f5a_1791770635551_2b350d8a.png",
+    "credits": 20,
+    "generated": "2026-10-11",
+    "rekeyed": "2026-10-12 (pass 2)",
+    "note": "owner gallery rework pass 2 2026-10-12: too much white removed. Repaired without credits: the pass-1 re-key had keyed a pale streak inside the tail wisps (about 417 px under the coil) as paper; those pixels were restored from the earlier keyed version (commit f91f741f0). The paper keyed in pass 1 (inside the body coil and the pocket under the jaw, both pure paper in the raw) stays keyed; the glow halo is unchanged. Re-palettized by trim_card_art."
+  }
+}

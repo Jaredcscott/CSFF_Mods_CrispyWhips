@@ -1,0 +1,69 @@
+{
+  "UniqueID": "fl_ancient_cairn",
+  "//UnderworldDoor": "Feature 30 (plan section 30, pack Prompt 43): the SOFT ROW. Forest Lore's Ancient Cairn (a CardType 2 site card) gets the same door to the Underworld as Harsh Wilds' own Stone Cairn (hw_cairn): one extra DismantleAction, offered at night, that drops only hwenvunderworld. GameSourceModify patches the card in place when Forest Lore is installed; with it absent the framework lists fl_ancient_cairn as one unresolved reference and nothing is added. The action is appended as a whole object (DismantleActionsWarpData, WarpType 4), after the cairn's own two actions, so Forest Lore's actions are untouched.",
+  "DismantleActionsWarpData": [
+    {
+      "ActionName": {
+        "ParentObjectID": "fl_ancient_cairn",
+        "LocalizationKey": "HarshWilds_FlCairn_DescendName",
+        "DefaultText": "Go Down the Tomb Stair"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "fl_ancient_cairn",
+        "LocalizationKey": "HarshWilds_FlCairn_DescendDescription",
+        "DefaultText": "At night, go down the old stair into the Underworld. You can stay a few hours at most: climb back whenever you like, and when the grey light fails the stair carries you up to this tomb."
+      },
+      "DaytimeCost": 0,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "ParentObjectID": "fl_ancient_cairn",
+        "LocalizationKey": "HarshWilds_FlCairn_DescendFade",
+        "DefaultText": "You go down the old stair..."
+      },
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "413a4f94cfbfb8d4897c9dbf9dfbd49a",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Underworld",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "hwenvunderworld",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DismantleActionsWarpType": 4
+}

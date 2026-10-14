@@ -1,0 +1,35 @@
+{
+  "target": "hw_event_adder.png",
+  "sourceCard": "CardData/Event/hw_event_adder.json",
+  "subject": "Draw: one adder, a small grey-brown viper with a bold dark brown zigzag stripe running down the whole length of its back and a dark V mark on its head, coiled in a loose spiral, its head raised a little and turned toward the viewer, a thin forked tongue just visible; seen from slightly above. The snake only.",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "The attached reference image is a STYLE reference only: match its flat posterized colour fills in a few tonal steps, bold dark ink outline around the whole subject, small ink hatch marks, muted naturalistic palette and fairly dark values; do not copy its subject or composition.\nDraw: one adder, a small grey-brown viper with a bold dark brown zigzag stripe running down the whole length of its back and a dark V mark on its head, coiled in a loose spiral, its head raised a little and turned toward the viewer, a thin forked tongue just visible; seen from slightly above. The snake only.\nSurvival card game creature art in exactly that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, stones, grass, rocks, second snake, rattle.",
+  "historyId": "aIGhKWF1lVobyQ5LJNys",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798542421_72fd7a28_1791798542488_7c606d96.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "Frog",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Frog_1791798309654_d97ad93e.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798542421_72fd7a28_1791798542488_7c606d96.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
+  "generated": "2026-10-12",
+  "note": "owner gallery rework 2026-10-12: look AI generated match game art style please"
+}

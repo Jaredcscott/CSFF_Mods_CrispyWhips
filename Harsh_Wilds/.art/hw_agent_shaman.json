@@ -1,0 +1,13 @@
+{
+  "target": "hw_agent_shaman.png",
+  "sourceCard": "NPCAgent/hw_agent_shaman.json",
+  "subject": "An old wandering shaman: a lean, grey-bearded man in a weathered dark-brown hooded travelling cloak, a bulging pack of dried herbs and bundled mushrooms on his back, a small bone-and-feather charm hanging at his chest, one hand on a plain wooden walking staff, calm weathered face, standing upright and facing forward.",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": { "aspectRatio": "2:3", "resolution": "2K", "imageCount": 1, "autoEnhancePrompt": false },
+  "process": "process_card_art.py --no-trim (AgentImageWarpData sprite: keyed 512x768 canvas, not trimmed; CardArt-ShippedForm holds AgentImage to the full canvas)",
+  "historyId": "QtGtWL7fdldmzyUGZzfC",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791781955051_fd2a2a1d_1791781955629_9546b90f.png",
+  "credits": 30,
+  "generated": "2026-10-11"
+}

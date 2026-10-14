@@ -1,0 +1,178 @@
+{
+    "UniqueID": "Tgr_HW_AlgaeBloom",
+    "//AlgaeBloom": "The algae bloom's roll (plan section 13 as built; Documentation/Research/HarshWilds/wave0-threats.md section 5, the W0-8 finding), the drought's pattern (Tgr_HW_Drought.json): a rolled SelfTriggeredAction arms a self-timed hidden effect stat (hw_stat_algaebloom), and there is NO CT3 event card and no art. A bloom needs a hot, dry summer, so the dry gate is taken from the drought's own measured stats (Documentation/Design/Harsh_Wilds_As_Built.md 6.1), and there are TWO ACTIONS, because an STA gate is one range on one counter and the dry counter is held at 0 while a drought runs: action 0 rolls after a dry spell, action 1 rolls during a drought. The two can never both be eligible: while a drought runs Tgr_HW_DrySpellHold holds hw_stat_dryspell at 0, below action 0's gate, and with no drought running action 1's drought gate is shut. ALL GATES ARE StatChangeTrigger ENTRIES, never RequiredStatValues: an unresolved trigger stat never fires (fails closed) while an unresolved RequiredStatValues stat is skipped (fails open). Action 0, five gates: hw_switch_algaebloom {1,1} (with the [Threats] AlgaeBloom switch off this can never fire); vanilla SeasonCounter_Summer (4a9284146ffc28242b1f591ac7f7541f) {1,2880}, summer only; hw_stat_dryspell {HW_ALGAE_DRYSPELL_TICKS = 288, 1344}, at least three days without rain (the drought itself needs four); vanilla RainValue (773fb34e869224f499d43b441c973c62) {0,0}, not raining at the roll, which matters only with the [Threats] Drought switch off, because hw_stat_dryspell's reset then never runs and the counter sits at its cap (with Drought on, any rain resets the counter below 288, so this gate adds nothing); hw_stat_algaebloom {0,0}, no bloom already running. Action 1, four gates: the switch; summer; hw_stat_drought {1,672}, a drought is running (the timer's whole running range); no bloom running. Both: RepeatOptions 0 (Repeat), ActionCooldown 96 and OncePerTick, one roll a game day while every gate holds; a Nothing pick counts as a firing, so it also starts the cooldown. Roll: Nothing (weight HW_ALGAE_NOTHING_WEIGHT = 5, one card-less drop) against Algae Bloom (weight HW_ALGAE_EVENT_WEIGHT = 1, one card-less drop too, since a collection with no potential drop gets weight 0 and could never be picked), so a 1 in 6 chance on each eligible day. The Algae Bloom collection's own StatModifications (applied only when that collection is picked) arm hw_stat_algaebloom by HW_ALGAE_TICKS = 288, its max; the stat's status does the rest and ends it at 0. THIS STA NEVER WRITES a fish population stat: an STA's StatModifications are Permanent base writes that nothing takes back. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. UNMEASURED: how often a real summer reaches a three day dry spell (the drought's open check C3).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_AlgaeBloom",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Algae Bloom Roll Dry Spell"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_algaebloom",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_dryspell",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 288.0, "y": 1344.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "773fb34e869224f499d43b441c973c62",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_algaebloom",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 5,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Algae Bloom",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_stat_algaebloom",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 288.0, "y": 288.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_AlgaeBloom",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Algae Bloom Roll Drought"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 96,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_algaebloom",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 2880.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_drought",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 672.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_stat_algaebloom",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 5,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Algae Bloom",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {"x": 0, "y": 0},
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ],
+                    "StatModifications": [
+                        {
+                            "Stat": {"m_FileID": 0, "m_PathID": 0},
+                            "StatWarpData": "hw_stat_algaebloom",
+                            "StatWarpType": 3,
+                            "RequiredCardsOnBoard": [],
+                            "ValueModifier": {"x": 288.0, "y": 288.0},
+                            "RateModifier": {"x": 0.0, "y": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

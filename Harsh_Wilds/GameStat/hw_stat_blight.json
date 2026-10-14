@@ -1,0 +1,83 @@
+{
+    "UniqueID": "hw_stat_blight",
+    "//Blight": "The crop blight's timer: a self-timed effect stat (Documentation/Research/HarshWilds/events_stats.md sections 1c skeleton (c) and 5b, its crop blight DECISION), the shape of hw_stat_drought. Written ONLY by the Blight collection of SelfTriggeredAction/Tgr_HW_Blight.json (+HW_BLIGHT_TICKS = 192, its max, 2 days), then counts itself down at BaseRatePerTick -1 and rests at 0. While it reads 1 to HW_BLIGHT_TICKS its one status is active: it raises a Moderate alert when the blight starts (NotifyPlayer 2 NotifyWhenGoingUp, AlertLevel 2 Moderate) and shows the vanilla sprite Fungus in the status strip (Visibility 0 VisibleWithStatus and StatusesHaveNoBar true, the drought's shape). The status ANNOUNCES ONLY and has no EffectsOnStats on purpose: the blight is not a world stat, it is damage done to the planted crops one spread at a time by SelfTriggeredAction/Tgr_HW_BlightSpread.json, which reads this timer as a gate, so no vanilla crop and no vanilla stat is edited (vanilla OakBlight is read by oaks and poison acorns only and no crop reads any such stat, MEASURED in events_stats.md section 5a). The blight ENDS when this stat reaches 0: the spreads stop, and whatever Fungal Infection the crops already carry decays by vanilla's own rate (-1 a tick, -2 while the plot holds fungicide). HW_BLIGHT_TICKS = 192 (MinMaxValue.y, the status's ValueRange.y, the arm in Tgr_HW_Blight and the top of Tgr_HW_BlightSpread's gate) is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play; the status text says 'about two days', so retune it together with the text. Scope, stated so nobody is surprised: it reaches only the crops in the garden plots of the place the player stands, fields and Herbs and Fungi plants are out of scope, and a garden the player never visits during the blight is never touched.",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_Blight_StatName",
+        "DefaultText": "Crop Blight"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_Blight_StatDescription",
+        "DefaultText": "A blight is spreading fungus through the planted crops until it passes."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 192.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Fungus",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "LocalizationKey": "HarshWilds_Blight_StatusName",
+                "DefaultText": "Crop Blight"
+            },
+            "Description": {
+                "LocalizationKey": "HarshWilds_Blight_StatusDescription",
+                "DefaultText": "A blight is spreading fungus through your planted crops for about two days, and infected plants lose health. Put fungicide or garlic water on the garden plot, and do not overwater it."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Fungus",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 192},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 2,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

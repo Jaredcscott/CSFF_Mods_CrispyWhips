@@ -1,0 +1,50 @@
+{
+    "UniqueID": "Tgr_HW_FleasSwitchOff",
+    "//FleasSwitchOff": "Fleas and lice retire with their switch (Documentation/Research/HarshWilds/afflictions.md section 1.7 point 4, the second fleas DECISION): a save whose [Threats] FleasAndLice switch is turned off must not keep a status that nothing in the mod still cures, because every source and every cure STA gates on the switch at {1,1}. ALL GATES ARE StatChangeTrigger ENTRIES (an unresolved one fails closed). Gate 1, hw_switch_fleasandlice {0,0}: runs only while the threat is off (Patcher/Switchboard.cs writes the switch at run start). Gate 2, hw_fleas {1,1000}: there is something to clear (open above the stat's cap of 288, [clamp-own]). RepeatOptions 0 (Repeat), OncePerTick, no cooldown; it writes hw_fleas -HW_FLEAS_MAX = -288, the whole stat, so any value lands on its floor of 0 in one tick and the gate closes. The hw_herbal_wash item still works while the switch is off (it simply has nothing to wash out). Every number is tied to hw_fleas's MinMaxValue.y; retune them together (harness probe P9).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "Tgr_HW_FleasSwitchOff",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Fleas Switch Off"
+            },
+            "RepeatOptions": 0,
+            "OncePerTick": true,
+            "ActionCooldown": 0,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_switch_fleasandlice",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 1.0, "y": 1000.0},
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "hw_fleas",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -288.0, "y": -288.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}
