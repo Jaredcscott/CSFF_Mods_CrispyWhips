@@ -95,7 +95,8 @@ internal static class FrameTimingDiagnostics
     // GeneralCondition.ConditionsValid with an NPC user; "actionPerform" is PerformActionAsEnumerator's
     // MoveNext for an NPC user; "hide" is GameManager.NPCShouldHide; "statsZeroRate" is a stat whose CurrentRate read 0 at the call. A call not
     // made for an NPC still takes part in the nesting stack, but is not attributed.
-    private static readonly string[] PartNames = { "stats", "actions", "dutyRun", "dutySet", "statsZeroRate", "actionConditions", "actionPerform", "hide" };
+    private static readonly string[] PartNames = { "stats", "actions", "dutyRun", "dutySet", "statsZeroRate", "actionConditions", "actionPerform", "hide",
+        "allActSteps", "allSpendDtp", "allRefreshSlots", "allPassiveFx", "allCollectMods", "allPlayerEnv" };
     private const int PartStatsZeroRate = 4;
     private const int PartConditions = 5;
     private const int PartPerform = 6;
@@ -111,6 +112,10 @@ internal static class FrameTimingDiagnostics
     private static readonly System.Collections.Generic.Dictionary<Type, FieldInfo> _actionField = new();
 
     internal struct PartState { public long Start; public int Depth; }
+
+    // Parts of the action pipeline every action pays (agent or player), exclusive CPU, reported under
+    // "elsewhere" with no environment split: an idle run has no player actions, so they are agents'.
+    private static readonly System.Collections.Generic.Dictionary<MethodBase, int> _globalPartOf = new();
 
     private static int PatchTickParts(Harmony harmony)
     {
@@ -178,6 +183,7 @@ internal static class FrameTimingDiagnostics
             else Util.Log.Warn("FrameTimingDiagnostics: GameManager.NPCShouldHide not found; hiding checks are not timed.");
         }
         catch (Exception ex) { Util.Log.Warn($"FrameTimingDiagnostics: timing GameManager.NPCShouldHide failed: {ex.Message}"); }
+        patched += PatchActionPipelineParts(harmony);
         try
         {
             if (SafePatcher.TryPatch(harmony, typeof(NPCAction), "ToAction",
@@ -256,6 +262,51 @@ internal static class FrameTimingDiagnostics
     }
 
     static void ToAction_Postfix() => Interlocked.Increment(ref _actionsPerformed);
+
+    private static int PatchActionPipelineParts(Harmony harmony)
+    {
+        var targets = new (Type type, string method, Type[] args, bool iterator, int part)[]
+        {
+            (typeof(GameManager), "ActionRoutineSteps", null, true, 8),
+            (typeof(GameManager), "SpendDaytimePoints", null, true, 9),
+            (typeof(GraphicsManager), "RefreshSlots", new[] { typeof(bool) }, false, 10),
+            (typeof(GameManager), "UpdatePassiveEffects", new[] { typeof(bool), typeof(bool) }, true, 11),
+            (typeof(CardAction), "CollectActionModifiers", null, false, 12),
+            (typeof(InGameCardBase), "UpdatePlayerEnvironment", null, false, 13),
+        };
+        var prefix = new HarmonyMethod(AccessTools.Method(typeof(FrameTimingDiagnostics), nameof(Part_Prefix)));
+        var postfix = new HarmonyMethod(AccessTools.Method(typeof(FrameTimingDiagnostics), nameof(Global_Postfix)));
+        int patched = 0;
+        foreach (var (type, method, args, iterator, part) in targets)
+        {
+            try
+            {
+                var target = args == null ? AccessTools.Method(type, method) : AccessTools.Method(type, method, args);
+                if (target != null && iterator) target = AccessTools.EnumeratorMoveNext(target);
+                if (target == null)
+                {
+                    Util.Log.Warn($"FrameTimingDiagnostics: {type.Name}.{method} not found; that action-pipeline part is not timed.");
+                    continue;
+                }
+                _globalPartOf[target] = part;
+                harmony.Patch(target, prefix: prefix, postfix: postfix);
+                patched++;
+            }
+            catch (Exception ex)
+            {
+                Util.Log.Warn($"FrameTimingDiagnostics: timing {type.Name}.{method} failed: {ex.Message}");
+            }
+        }
+        return patched;
+    }
+
+    static void Global_Postfix(MethodBase __originalMethod, PartState __state)
+    {
+        long exclusive = CloseFrame(__state);
+        if (!_globalPartOf.TryGetValue(__originalMethod, out int part)) return;
+        _partTicks[part, 0] += exclusive;
+        _partCalls[part, 0]++;
+    }
 
     // Calls count MoveNext steps (one per resume), not iterator runs.
     private static void AppendTickParts(StringBuilder sb)
