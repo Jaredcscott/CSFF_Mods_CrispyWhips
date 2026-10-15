@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "BpCMCIronFishingRod",
     "LocalizationKey": "Bp_CMC_IronFishingRod_CardDescription",
-    "DefaultText": "Assemble a superior fishing rod from iron fittings, a long stick, and a rustic fishing line. Provides a fishing advantage and aids stamina recovery while carried."
+    "DefaultText": "Assemble a superior fishing rod from iron fittings, a long stick and a rustic fishing line. Held in hand, it gives a steady fishing advantage."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

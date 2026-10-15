@@ -52,8 +52,8 @@
                 "y": 0.0
             },
             "MaxValueModifier": {
-                "x": 800.0,
-                "y": 800.0
+                "x": 300.0,
+                "y": 300.0
             },
             "CannotModifyBeyond": {
                 "Active": false,
@@ -100,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your stomach is huge! It holds five times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick.",
+        "DefaultText": "Your stomach is huge! It holds two and a half times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick.",
         "LocalizationKey": "CharacterTraits_Perk_GiantStomach_PerkDescription",
         "ParentObjectID": "traits_perk_giant_stomach"
     },

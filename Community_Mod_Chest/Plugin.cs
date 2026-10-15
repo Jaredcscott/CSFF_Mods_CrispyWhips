@@ -24,7 +24,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.69.16";
+    public const string PluginVersion = "1.69.17";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -315,5 +315,9 @@ internal class Plugin : ContentModPlugin
         // cistern kits, and the full material stockpile on Place, instead of carrying it all
         // from character creation.
         TryApply("HomesteadKitPatch", () => HomesteadKitPatch.Initialize());
+        // Vanilla balance pass (1.69.17): reset the Comfort base older actions wrote permanently, once per save,
+        // and lift old armor pieces to their new Usage maximum on every board they turn up on.
+        TryApply("ComfortFixupPatch", () => ComfortFixupPatch.Initialize());
+        TryApply("ArmorUsageFixupPatch", () => ArmorUsageFixupPatch.Initialize());
     }
 }

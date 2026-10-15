@@ -217,8 +217,9 @@
     "PassiveStatEffects": [],
     "PassiveEffects": [
         {
-            "EffectName": "Comfort (+6)",
+            "EffectName": "Sanctuary (+25)",
             "OnlyWhenEquipped": false,
+            "OnBoardEffectCap": 4,
             "EquippedOnBodyOnly": false,
             "Conditions": {
                 "NotInBackground": true
@@ -226,9 +227,9 @@
             "StatModifiers": [
                 {
                     "Stat": { "m_FileID": 0, "m_PathID": 0 },
-                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
                     "StatWarpType": 3,
-                    "ValueModifier": { "x": 6.0, "y": 6.0 },
+                    "ValueModifier": { "x": 25.0, "y": 25.0 },
                     "RateModifier": { "x": 0.0, "y": 0.0 },
                     "MinValueModifier": { "x": 0.0, "y": 0.0 },
                     "MaxValueModifier": { "x": 0.0, "y": 0.0 },

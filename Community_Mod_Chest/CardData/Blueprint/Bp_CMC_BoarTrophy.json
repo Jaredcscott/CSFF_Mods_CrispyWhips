@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "cmcbpboartrophy",
         "LocalizationKey": "CMC_Bp_BoarTrophy_CardDescription",
-        "DefaultText": "Mount a pair of boar tusks on a plank plaque for a little comfort at camp."
+        "DefaultText": "Mount a pair of boar tusks on a plank plaque to make camp feel a little more like a sanctuary."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {

@@ -1,6 +1,6 @@
 {
     "UniqueID": "apparelleathersandals",
-    "TradingValue": 800,
+    "TradingValue": 300,
     "CardName": {
         "ParentObjectID": "apparelleathersandals",
         "LocalizationKey": "apparel_leather_sandals_CardName",

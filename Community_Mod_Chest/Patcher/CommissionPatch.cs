@@ -20,7 +20,15 @@ namespace CommunityModChest.Patcher
     ///     the poll below arms the sentinel to an absolute day (the ApothecarySchedulePatch potion-brew
     ///     pattern).
     /// The fee is the dragged card, priced by <see cref="CurrencyValue.ValueOf"/>: a Cancel gate refuses a
-    /// card worth less than <see cref="FeeValue"/> before it is consumed. Pocket currency cannot be read
+    /// card worth less than the spec's fee before it is consumed. Vanilla balance pass (1.69.17, plan Part II
+    /// rows CMC-V-B3 and CMC-V-B10): each fee is 60% of its goods' TradingValues.json value (Miller 10 Wheat
+    /// Flour 150, Inn hunter Doe Carcass 150, Weaver Large Cloth 360); a resident takes a new order only
+    /// <see cref="Spec.CooldownDays"/> after the last one was collected (a per-resident day stamp, day plus one,
+    /// written in Deliver); and no resident takes one in the village's first week. The Weaver's 360 is more
+    /// than any single card is worth, so her fee is a DEPOSIT: each card dragged onto her adds its value to the
+    /// clamped hidden stat <see cref="WeaverDepositStatUid"/> (0..360, the root CLAUDE.md "NPC Errand Stat
+    /// Design" rule: never an unclamped counter), the card is taken, and the order opens on the drag that
+    /// reaches 360 (the deposit resets to 0 then; value past 360 is the price of rounding). Pocket currency cannot be read
     /// or spent from an action (memory reference_no_player_inventory_access), which is why the fee is
     /// the card itself and not an amount taken from the player.
     ///
@@ -37,9 +45,17 @@ namespace CommunityModChest.Patcher
     /// </summary>
     internal static class CommissionPatch
     {
-        // TUNABLE placeholders (plan open question 5; the closeout may retune them).
-        /// <summary>The least a dragged card must be worth: one Salt (CurrencyValue's SaltValue, 15).</summary>
-        internal const float FeeValue = 15f;
+        // Vanilla balance pass (1.69.17): fee = 60% of the goods' TradingValues.json value.
+        internal const float MillerFee = 150f;
+        internal const float WeaverFee = 360f;
+        internal const float InnHunterFee = 150f;
+        internal const int MillerCooldownDays = 3;
+        internal const int WeaverCooldownDays = 4;
+        internal const int InnHunterCooldownDays = 7;
+        internal const string WeaverDepositStatUid = "cmcStatWeaverCommissionDeposit";
+        internal const string NotYetKey = "CMC_Commission_NotYet";
+        internal const string FirstWeekKey = "CMC_Commission_FirstWeek";
+        internal const string DepositKey = "CMC_Commission_Deposit";
         internal const int MillerDueDays = 1;
         internal const int WeaverDueDays = 2;
         internal const int InnHunterDueDays = 2;
@@ -72,6 +88,10 @@ namespace CommunityModChest.Patcher
             public string DueStatUid;
             public string DeliveryEnvUid;
             public int DueDays;
+            public float Fee;
+            public int CooldownDays;
+            public string ReadyStatUid;
+            public string DepositStatUid;
             public string ReadyLineKey;
             public Good[] Goods;
         }
@@ -83,6 +103,7 @@ namespace CommunityModChest.Patcher
                 Name = "the Miller", ActionKeyPrefix = "CMC_Miller_Commission",
                 OrderStatUid = "cmcStatMillerOrder", DueStatUid = "cmcStatMillerOrderDue",
                 DeliveryEnvUid = "cmcMillerCottageInterior", DueDays = MillerDueDays,
+                Fee = MillerFee, CooldownDays = MillerCooldownDays, ReadyStatUid = "cmcStatCommissionReadyMiller",
                 ReadyLineKey = "CMC_Commission_Ready_Miller",
                 Goods = new[] { new Good { Uid = "7900a60c205568640a887f30cc6ff8f9", Quantity = 10, Stats = FlourStats } }, // Wheat Flour
             },
@@ -91,6 +112,8 @@ namespace CommunityModChest.Patcher
                 Name = "the Weaver", ActionKeyPrefix = "CMC_Weaver_Commission",
                 OrderStatUid = "cmcStatWeaverOrder", DueStatUid = "cmcStatWeaverOrderDue",
                 DeliveryEnvUid = "cmcWeaverCottageInterior", DueDays = WeaverDueDays,
+                Fee = WeaverFee, CooldownDays = WeaverCooldownDays, ReadyStatUid = "cmcStatCommissionReadyWeaver",
+                DepositStatUid = WeaverDepositStatUid,
                 ReadyLineKey = "CMC_Commission_Ready_Weaver",
                 Goods = new[] { new Good { Uid = "3e94716876eae304787efa2ae0b43711", Quantity = 1, Stats = ClothStats } }, // Large Cloth
             },
@@ -99,6 +122,7 @@ namespace CommunityModChest.Patcher
                 Name = "the Inn Keeper's hunter", ActionKeyPrefix = "CMC_InnKeeper_Commission",
                 OrderStatUid = "cmcStatInnHunterOrder", DueStatUid = "cmcStatInnHunterOrderDue",
                 DeliveryEnvUid = "cmcInnInterior", DueDays = InnHunterDueDays,
+                Fee = InnHunterFee, CooldownDays = InnHunterCooldownDays, ReadyStatUid = "cmcStatCommissionReadyInnKeeper",
                 ReadyLineKey = "CMC_Commission_Ready_Inn",
                 Goods = new[] { new Good { Uid = "460b7e5a5579f554db61f9e38e59fcf7", Quantity = 1, Stats = CarcassStats } }, // Doe Carcass
             },
@@ -135,11 +159,82 @@ namespace CommunityModChest.Patcher
             var spec = SpecForAction(ctx.ActionKey);
             if (spec == null) return false;
 
-            float value = CurrencyValue.ValueOf(ctx.GivenCard);
-            if (value >= FeeValue) return false;
+            // CMC-V-B10: no commissions in the village's first week (week 1 = the intro week; 0 = before the
+            // intro or unreadable, which never blocks).
+            var gm = CardUtil.GetGameManagerInstance();
+            if (gm != null && VillageClock.WeeksSinceIntro(gm) == 1)
+            {
+                Plugin.Logger.LogDebug($"[CommissionPatch] {spec.Name}: refused, the village is in its first week.");
+                ShowMessage(FirstWeekKey, null);
+                return true;
+            }
 
-            Plugin.Logger.LogDebug($"[CommissionPatch] {spec.Name}: the dragged card is worth {value:0}, below the fee of {FeeValue:0}; refused.");
-            ShowMessage(TooLittleKey, null);
+            // Cooldown since the last collected order (stamp = first open day plus one; 0 = never).
+            float ready = HiddenStat.Get(spec.ReadyStatUid);
+            if (!CooldownOver(ready, GameQuery.CurrentDay))
+            {
+                Plugin.Logger.LogDebug($"[CommissionPatch] {spec.Name}: refused, next order from day {ready - 1f:0} (today {GameQuery.CurrentDay}).");
+                ShowMessage(NotYetKey, null);
+                return true;
+            }
+
+            float value = CurrencyValue.ValueOf(ctx.GivenCard);
+            if (spec.DepositStatUid == null)
+            {
+                if (value >= spec.Fee) return false;
+                Plugin.Logger.LogDebug($"[CommissionPatch] {spec.Name}: the dragged card is worth {value:0}, below the fee of {spec.Fee:0}; refused.");
+                ShowMessage(TooLittleKey, null);
+                return true;
+            }
+            return DepositGate(ctx, spec, value);
+        }
+
+        /// <summary>True when a resident whose ready stamp reads <paramref name="stamp"/> takes an order on
+        /// <paramref name="today"/>. An unreadable stamp (below 0) never blocks; 0 means never ordered.</summary>
+        internal static bool CooldownOver(float stamp, int today) => stamp < 1f || today + 1 >= (int)Math.Round(stamp);
+
+        /// <summary>The Weaver's deposit: false lets the drag open the order (the deposit reached the fee and is
+        /// reset first); true cancels it, after the card's value is banked and the card taken. A write that fails
+        /// refuses the drag with nothing taken.</summary>
+        private static bool DepositGate(ActionContext ctx, Spec spec, float value)
+        {
+            if (value <= 0f) { ShowMessage(TooLittleKey, null); return true; }
+            float banked = HiddenStat.Get(spec.DepositStatUid);
+            if (banked < 0f)
+            {
+                WarnOnce("deposit-read", $"[CommissionPatch] {spec.DepositStatUid} is not readable - {spec.Name} takes no deposit until it is.");
+                return true;
+            }
+            if (banked + value >= spec.Fee - 0.01f)
+            {
+                if (!HiddenStat.Set(spec.DepositStatUid, 0f))
+                {
+                    WarnOnce("deposit-reset", $"[CommissionPatch] {spec.DepositStatUid} could not be reset - the order with {spec.Name} is refused so the deposit cannot be spent twice.");
+                    return true;
+                }
+                Plugin.Logger.LogDebug($"[CommissionPatch] {spec.Name}: deposit {banked:0} + {value:0} reaches the fee of {spec.Fee:0}; order opens.");
+                return false;
+            }
+            float after = Math.Min(spec.Fee, banked + value);
+            if (!HiddenStat.Set(spec.DepositStatUid, after))
+            {
+                WarnOnce("deposit-write", $"[CommissionPatch] {spec.DepositStatUid} could not be written - the card was not taken.");
+                return true;
+            }
+            if (!CardUtil.TryRemoveCard(ctx.GivenCard))
+            {
+                HiddenStat.Set(spec.DepositStatUid, banked); // roll back: the card stays with the player
+                WarnOnce("deposit-remove", $"[CommissionPatch] The card dragged onto {spec.Name} could not be taken, so nothing was banked.");
+                return true;
+            }
+            string line = RoadMeetingPatch.LocalizedText(DepositKey);
+            if (!string.IsNullOrWhiteSpace(line))
+            {
+                try { line = string.Format(line, after.ToString("0"), spec.Fee.ToString("0")); }
+                catch (FormatException) { WarnOnce("deposit-format", $"[CommissionPatch] The '{DepositKey}' row is not a valid format string."); }
+                ShowLine("", line);
+            }
+            Plugin.Logger.LogDebug($"[CommissionPatch] {spec.Name}: banked {value:0}, deposit now {after:0}/{spec.Fee:0}.");
             return true;
         }
 
@@ -235,6 +330,9 @@ namespace CommunityModChest.Patcher
                 return;
             }
 
+            // Cooldown from collection: the stamp is the first day a new order is taken, plus one.
+            if (!HiddenStat.Set(spec.ReadyStatUid, GameQuery.CurrentDay + spec.CooldownDays + 1))
+                WarnOnce("ready-write-" + spec.ReadyStatUid, $"[CommissionPatch] {spec.ReadyStatUid} could not be written - {spec.Name} takes the next order with no wait.");
             Plugin.Logger.LogInfo($"[CommissionPatch] Delivered the order from {spec.Name} into {spec.DeliveryEnvUid}: {spawned} cards.");
             ShowMessage(TitleKey, spec.ReadyLineKey);
         }
@@ -262,6 +360,18 @@ namespace CommunityModChest.Patcher
                 return;
             }
             setup.Invoke(popup, new object[] { string.IsNullOrWhiteSpace(title) ? "" : title.Trim(), line.Trim(), null });
+        }
+
+        /// <summary>One already-localized line in the game's message popup.</summary>
+        private static void ShowLine(string title, string line)
+        {
+            var gmType = CardUtil.FindGameType("GraphicsManager");
+            var instance = gmType?.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)?.GetValue(null);
+            var popup = instance == null ? null : Reflect.GetMember(instance, "MessagePopup");
+            var setup = popup?.GetType().GetMethod("Setup", BindingFlags.Instance | BindingFlags.Public, null,
+                new[] { typeof(string), typeof(string), typeof(UnityEngine.Sprite) }, null);
+            if (popup == null || setup == null) { WarnOnce("popup-null", "[CommissionPatch] GraphicsManager.Instance.MessagePopup.Setup is unavailable - commission messages show no line."); return; }
+            setup.Invoke(popup, new object[] { title ?? "", line.Trim(), null });
         }
 
         private static void WarnOnce(string cause, string message)

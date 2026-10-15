@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatOcarinaCooldown",
+    "GameName": {
+        "LocalizationKey": "CMC_OcarinaCooldown_StatName",
+        "DefaultText": "Ocarina Cooldown"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_OcarinaCooldown_StatDescription",
+        "DefaultText": "Hidden cooldown for the Clay Ocarina's Play a Tune: set to 96 when it is played, drains 1 per tick, so the tune settles your nerves once a day."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 96.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

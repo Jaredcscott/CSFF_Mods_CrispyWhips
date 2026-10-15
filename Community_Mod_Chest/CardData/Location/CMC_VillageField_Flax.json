@@ -51,8 +51,8 @@
     },
     "SpecialDurability3": {
         "Active": true,
-        "FloatValue": 5760.0,
-        "MaxValue": 5760.0,
+        "FloatValue": 2880.0,
+        "MaxValue": 2880.0,
         "RatePerDaytimePoint": 0.0,
         "HidingOptions": 0,
         "TextDisplay": 0,

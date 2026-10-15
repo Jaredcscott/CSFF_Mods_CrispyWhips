@@ -15,8 +15,8 @@ namespace CommunityModChest.Patcher
     ///   - Selling: one random item consumed from inventory per day; value = ObjectWeight/10 times
     ///     VillagePricing.Multiplier(PriceSide.Earn) (the Village Reputation bonus curve, halved while
     ///     Banished) added to SD1
-    ///   - "Collect as Copper": drains SD1, spawns MetalNuggets (50 revenue each)
-    ///   - "Collect as Salt":   drains SD1, spawns Salt       (30 revenue each)
+    ///   - "Collect as Copper": drains SD1, spawns copper MetalNuggets (250 revenue each)
+    ///   - "Collect as Salt":   drains SD1, spawns Salt       (15 revenue each)
     ///   - Robbery: 5% chance every 7 days — one item stolen from inventory
     ///   - D6 report: the stolen card is remembered as a 24-bit hash of its UniqueID in a hidden GameStat
     ///     (a GameStat holds a number, not text); any guard's Talk line moves the marker to "reported", a
@@ -42,8 +42,9 @@ namespace CommunityModChest.Patcher
         private const string NuggetGuid = "4b0f4937a5ecb90499428c8c10288afc";
         private const string SaltGuid   = "f91b5676fc26c0e48a4ee6fd9dfc2ffa";
 
-        private const float CostPerNugget      = 50f;
-        private const float CostPerSalt        = 30f;
+        // Vanilla balance pass (1.69.17): priced at vanilla trade value (Metal Nugget 250, Salt 15).
+        private const float CostPerNugget      = 250f;
+        private const float CostPerSalt        = 15f;
         private const float SD1MaxValue        = 480f;
 
         private const float RobberyChance       = 0.05f;
@@ -234,7 +235,7 @@ namespace CommunityModChest.Patcher
             if (float.IsNaN(revenue) || revenue < CostPerNugget) return;
             int count = (int)(revenue / CostPerNugget);
             CardUtil.SetDurability(ctx.Card, "SpecialDurability1", revenue - count * CostPerNugget);
-            for (int i = 0; i < count; i++) SpawnService.Spawn(NuggetGuid);
+            for (int i = 0; i < count; i++) SpawnService.Spawn(NuggetGuid, CurrencyValue.CopperNuggetStats);
             Plugin.Logger.LogDebug($"[MarketStallPatch] Collected {count} copper nugget(s) (revenue was {revenue:0}).");
         }
 

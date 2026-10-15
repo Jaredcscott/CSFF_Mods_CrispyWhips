@@ -52,17 +52,19 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "CMC_OldGrowthBark_CI_TanHide_Desc",
-                "DefaultText": "Rub the bark's tannins into a fleshed hide, curing it into usable leather."
+                "DefaultText": "Rub the bark's tannins into a fleshed hide to start the tanning (a quarter of the way). A hide can be rubbed once, before it is a fifth tanned."
             },
             "DaytimeCost": 1,
             "WorksInverted": true,
             "ReceivingCardChanges": {
                 "ModType": 3
             },
+            "RequiredGivenDurabilities": {
+                "RequiredProgressPercent": { "Active": true, "FloatValue": 0.0, "MaxValue": 0.2 }
+            },
             "GivenCardChanges": {
-                "ModType": 2,
-                "TransformIntoWarpData": "f362a7ba3ad932244b1e9c18569ac98e",
-                "TransformIntoWarpType": 3
+                "ModType": 1,
+                "ChargesChange": { "x": 144.0, "y": 144.0 }
             },
             "CompatibleCards": {
                 "TriggerCardsWarpData": [

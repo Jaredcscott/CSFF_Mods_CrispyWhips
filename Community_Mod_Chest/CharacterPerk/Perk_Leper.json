@@ -40,8 +40,8 @@
             "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": -500.0,
-                "y": -500.0
+                "x": -150.0,
+                "y": -150.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -166,7 +166,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people.",
+        "DefaultText": "A wasting affliction has killed the feeling in your flesh and eaten at your face. Pain sits far lighter on you. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people.",
         "LocalizationKey": "CharacterTraits_Perk_Leper_PerkDescription",
         "ParentObjectID": "traits_perk_leper"
     },

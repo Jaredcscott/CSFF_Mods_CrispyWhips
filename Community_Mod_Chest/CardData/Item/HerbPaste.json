@@ -253,24 +253,6 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
-                    "StatWarpType": 3,
-                    "ValueModifier": {
-                        "x": 8.0,
-                        "y": 8.0
-                    },
-                    "RateModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "ApplyEachTick": false,
-                    "InstantModifier": true
-                },
-                {
-                    "Stat": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
                     "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
                     "StatWarpType": 3,
                     "ValueModifier": {

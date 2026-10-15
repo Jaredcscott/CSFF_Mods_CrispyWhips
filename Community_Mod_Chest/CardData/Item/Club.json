@@ -26,7 +26,7 @@
   "InHandWhenEquipped": true,
   "IsWeapon": true,
   "WeaponReach": 75.0,
-  "WeaponDamage": { "x": 20.0, "y": 80.0 },
+  "WeaponDamage": { "x": 30.0, "y": 100.0 },
   "WrestlingDamageBonus": { "x": 0.0, "y": 0.0 },
   "DamageTypes": [],
   "DamageTypesWarpData": ["DMG_Blunt"],
@@ -88,13 +88,13 @@
   "SpoilageTime": { "Active": false },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 60.0,
+    "FloatValue": 100.0,
     "CardStatName": {
       "ParentObjectID": "combatandarmorclub",
       "LocalizationKey": "Combat_And_Armor_Club_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
-    "MaxValue": 60.0,
+    "MaxValue": 100.0,
     "RatePerDaytimePoint": 0.0,
     "HidingOptions": 0,
     "TextDisplay": 0,

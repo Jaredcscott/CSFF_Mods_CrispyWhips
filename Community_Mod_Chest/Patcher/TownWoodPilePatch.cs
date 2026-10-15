@@ -68,8 +68,9 @@ namespace CommunityModChest.Patcher
 
         /// <summary>Pay-value cost of one payout — same exchange rate Market Stall's Sales Revenue
         /// uses.</summary>
-        private const float CostPerNugget = 50f;
-        private const float CostPerSalt   = 30f;
+        // Vanilla balance pass (1.69.17): priced at vanilla trade value (Metal Nugget 250, Salt 15).
+        private const float CostPerNugget = 250f;
+        private const float CostPerSalt   = 15f;
 
         /// <summary>Player's Pay ceiling. Mirrors the card's SpecialDurability2.MaxValue — same
         /// ceiling Market Stall uses for its own Sales Revenue bar.</summary>
@@ -369,7 +370,13 @@ namespace CommunityModChest.Patcher
                 CardUtil.SetDurability(ctx.Card, "SpecialDurability2", remainder);
                 CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
 
-                for (int i = 0; i < count; i++) SpawnService.Spawn(payoutGuid);
+                // A nugget spawns as real copper (row 2.3); a bare spawn is Metal Type 0.
+                var stats = payoutGuid == NuggetGuid ? CurrencyValue.CopperNuggetStats : null;
+                for (int i = 0; i < count; i++)
+                {
+                    if (stats != null) SpawnService.Spawn(payoutGuid, stats);
+                    else SpawnService.Spawn(payoutGuid);
+                }
 
                 CardVisualsRefresh.RefreshOpenInventoryPopup();
                 Plugin.Logger.LogDebug($"[TownWoodPilePatch] Collected {count} {label}(s) (pay was {pay:0}, now {remainder:0}).");

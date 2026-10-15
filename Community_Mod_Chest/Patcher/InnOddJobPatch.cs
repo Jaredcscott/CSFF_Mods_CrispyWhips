@@ -6,8 +6,9 @@ namespace CommunityModChest.Patcher
 {
     /// <summary>
     /// The Inn Counter's odd-jobs board (round 2 feature J2). Besides the always-on "Work Odd Jobs" shift, the
-    /// counter posts ONE small job each morning: bring a Stone, Rope, Ash or a Clay Bowl and the Inn pays a copper
-    /// nugget. Every number here is a tunable placeholder.
+    /// counter posts ONE small job each morning: bring a Stone, Rope, Ash or a Clay Bowl and the Inn pays a Salt for
+    /// two hours (vanilla balance pass 1.69.17: the same Salt per daytime point as Work Odd Jobs; it paid a copper
+    /// nugget before). Every number here is a tunable placeholder.
     ///
     /// <para><b>State is in the save, never in a static</b> (the stall robbery clock's lesson). Two hidden clamped
     /// GameStats: <see cref="JobStatUid"/> (0 = none or done, 1 to <see cref="JobCount"/> = today's job) and
@@ -22,8 +23,8 @@ namespace CommunityModChest.Patcher
     /// not load, so <c>InnOddJobGate</c> re-checks in C# and refuses unless the stat reads exactly this job: an
     /// unreadable stat blocks the hand-over (nothing consumed) rather than paying four jobs.</para>
     ///
-    /// <para><b>Pay and never-priced.</b> The nugget comes from the button's own ProducedCards (TransferRules set
-    /// so it spawns typed and not at quality 0); the job closes through the button's own stat change and again in
+    /// <para><b>Pay and never-priced.</b> The Salt comes from the button's own ProducedCards; the job closes through
+    /// the button's own stat change and again in
     /// <c>InnOddJobDelivered</c>. Nothing here reaches VillagePricing or InnPatch.BalanceGate: the board is ungated
     /// by crime, so a Banished player keeps a way to raise restitution money, and both handlers are on
     /// VillagePricing.RestitutionHandlers (CMC-Round2.Tests.ps1 keeps it that way). The key prefix does not start

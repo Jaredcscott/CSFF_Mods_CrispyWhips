@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "cmcimpwallpaintingochre",
     "LocalizationKey": "CMC_Imp_WallPaintingOchre_CardDescription",
-    "DefaultText": "Hunts, hands and herds drawn on the walls in ochre. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room."
+    "DefaultText": "Hunts, hands and herds drawn on the walls in ochre. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room."
   },
   "CardType": 10,
   "CardsOnBoard": [
@@ -111,8 +111,9 @@
   "RoadDirection": 0,
   "PassiveEffects": [
     {
-      "EffectName": "Comfort (+10)",
+      "EffectName": "Sanctuary (+50)",
       "OnlyWhenEquipped": false,
+      "OnBoardEffectCap": 4,
       "EquippedOnBodyOnly": false,
       "OnlyWhenNOTInBG": true,
       "Conditions": {
@@ -121,9 +122,9 @@
       "StatModifiers": [
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+          "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 10.0, "y": 10.0 },
+          "ValueModifier": { "x": 50.0, "y": 50.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },

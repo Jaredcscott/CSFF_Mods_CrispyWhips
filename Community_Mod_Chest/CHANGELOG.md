@@ -5,6 +5,34 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.17] - 2026-10-15
+
+A balance pass that brings the mod back in line with the base game. Most of it applies the next time you load a save.
+
+### Fixed
+
+- The Fishing Net's **Cast Net** can now come up empty (4000 of 10000): the miss the balance pass added never happened, so every cast caught something.
+- **Armor no longer breaks on the first hit.** Bone Lamellar now lasts like a Leather Cuirass, the Quilted Cap and Vest (and their wool and dyed versions) like vanilla cloth, which also wears a little while worn, and the Wooden Shield like the base game's shield. Pieces you already own are raised to their new full wear once, on load.
+- **Old Growth Bark's Tan Hide** no longer turns a hide straight into unusable leather. It starts the tanning instead: a quarter of a fleshed hide's tanning, once per hide, before it is a fifth tanned. Finish it in a Tanning Pit.
+- **Copper nuggets paid by the Town Wood Pile and the Market Stall** are real copper nuggets of middling quality, so they smelt.
+- **The Trapper trait is now called Trapline**, so it no longer reads as the base game's Trapper listed twice.
+
+### Changed
+
+- **Comfort comes from what you wear, as in the base game.** Decor you carry or set down (toys, figurines, pottery, hangings, chimes, trophies, canvases, rugs, the Throne, diplomas, signs, wall paintings, the Stone Tile Floor and the Founder's Monument) now raises Sanctuary instead, at base-game values, and at most four of one kind count on a board. The Bedroll, the Garden Trellis and the cottage and cabin exteriors give none. Chatting with a resident, the Herb Paste and the Clay Ocarina no longer raise Comfort for good: the ocarina eases Stress once a day, and an evening at the Inn table leaves you a Warm Evening (Comfort +10 for about half a day). On the first load of a save, Comfort that earlier versions wrote into your character permanently is reset once; what you wear still counts.
+- **The village pays in Salt, at a fair rate.** Work Odd Jobs pays 2 Salt for a four-hour shift, once a day. The odd-jobs board pays a Salt for two hours. Sell Firewood pays a Salt for every fourth bundle. The Town Wood Pile and the Market Stall hand out a copper nugget for every 250 of value and a Salt for every 15.
+- **Community Service** at the Inn Counter: while you have a Village Crime record, four unpaid hours take 6 off it, with no daily limit.
+- **The Inn's meal** is a hearty bowl of stew, bread and water, about as filling as a good meal of your own, still for 50.
+- **Commissions cost what the goods are worth:** 150 for the Miller's ten Wheat Flour or the Inn Keeper's Doe Carcass, and 360 for the Weaver's Large Cloth, paid down card by card. Nobody takes a commission in your first week in the village, and after you collect an order the Miller waits 3 days, the Weaver 4 and the Inn Keeper 7.
+- **Crafted goods trade nearer what went into them.** Goods that traded far above their materials (figurines, clay beads, the straw hat, foot wraps, painted pottery and others) now trade at about a quarter above their inputs, and a dyed garment trades a twentieth above the plain one.
+- **Village fields** yield about ten harvests a season, not twenty. The Weaver's Large Cloth takes 36 fibres, and her rope recipe makes 3 Rope.
+- **Herbalism graduates** get a one-in-four chance of a double find on each herb or mushroom they forage, instead of doubling every forage. The Foraging Forest's base-game finds are half as common.
+- **The Graduate trait** is a quick study: every Academy course takes half its sessions and half its tuition, and you still sit each final exam. It no longer hands out every graduate perk on day one. A run that already holds them keeps them.
+- **Predators and the village:** the Village, the Village Path and the Village Farm stay safe. Hunter's Crossing, Pine Trail, Highland Pines and Stillwater Meadow are hunting grounds now, where predators are turned back about half the time, like the Foraging Forest. A Hunting Stand turns them back about a quarter of the time, not almost half.
+- **The Comfortable Bed** warms you (+3) only while you rest in it, and sleeps a little less deeply.
+- **Combat and crafting:** the Charred-Tip Strike now matches the base game's spear thrust in damage, with a better clash and Char damage. The Fishing Net comes back empty about two casts in five and brings in about 0.7 fish a cast over 8 casts. The Iron Fishing Rod's Fishing Aid is +1.2 and works only while held, and it no longer helps Stamina. The Heather Incense Burner eases Stress more gently. The Club hits harder (30 to 100) and lasts longer, the Wooden Shield guards the left arm (40) like a light version of the base game's shield, and Bone Lamellar's torso armor is 15, the base game's best. Cloth and leather garments, the quilted pieces, the Bone Lamellar and the Ceramic Lamp take longer to research, in line with the base game.
+- **Traits:** Leper's pain relief is 150, Trollblood's 100. Wide Hands keeps its head start in Crafting and Knapping but no longer counts as more skilled. Natural Trader starts Socials at 50. Giant Stomach (designed by Chiwei) holds two and a half times as much. Trapline no longer starts with a Hideout. Nyctophobia's Bright Light eases Stress at the base game's pace, and Nightcrawler's gut tolerance is smaller (and now named in its description). The Carpentry graduate counts Woodworking 15 higher instead of keeping a Beaver Blessing, and the Armorer graduate's Smithing bonus is 10. The Founders Kit unpacks about half its old stockpile (15 Planks, 15 Mud Bricks, 20 Stones, 6 Heavy Stones, 6 Tree Logs, 10 Clay, 5 Rope and 20 Copper Nails); a kit you have not opened yet keeps its old contents.
+
 ## [1.69.16] - 2026-10-14
 
 ### Fixed

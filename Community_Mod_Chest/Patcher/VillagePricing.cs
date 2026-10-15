@@ -82,10 +82,11 @@ namespace CommunityModChest.Patcher
         };
 
         /// <summary>Restitution paths that are pure JSON (no handler can reach this class): the Inn Counter's Work
-        /// Odd Jobs, a DismantleAction whose LocalizationKey is listed here.</summary>
+        /// Odd Jobs and Community Service, DismantleActions whose LocalizationKey is listed here.</summary>
         internal static readonly string[] RestitutionJsonActionKeys =
         {
             "CMC_InnCounter_DA_Work",
+            "CMC_InnCounter_DA_Service",
         };
 
         private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);

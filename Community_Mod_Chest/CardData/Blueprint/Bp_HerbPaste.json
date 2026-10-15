@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "potterysculpturebpherbpaste",
         "LocalizationKey": "Pottery_Sculpture_Bp_HerbPaste_CardDescription",
-        "DefaultText": "Grind wild garlic and old growth bark together using a stone or hammer. The resulting paste provides nourishment and comfort."
+        "DefaultText": "Grind wild garlic and old growth bark together using a stone or hammer. The resulting paste provides nourishment and eases stress."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {

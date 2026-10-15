@@ -80,14 +80,17 @@ namespace CommunityModChest.Patcher
             SpawnService.Spawn(CabinKitId);
             SpawnMany(CisternKitId, 2);
 
-            SpawnMany(PlankGuid, 30, OakPlank);
-            SpawnMany(MudBrickGuid, 30);
-            SpawnMany(StoneSmallGuid, 50);
-            SpawnMany(StoneHeavyGuid, 20);
-            SpawnMany(TreeLogGuid, 15, OakLog);
-            SpawnMany(ClayGuid, 20, WorkedClay);
-            SpawnMany(RopeGuid, 10);
-            SpawnMany(CopperNailUid, 50);
+            // Vanilla balance pass (1.69.17, plan Part II CMC-V-B11): about half the old stockpile, matching
+            // HomesteadPerks' kit (vanilla's 1-Star Cabin Start gives the cabin alone). It was 30 Planks,
+            // 30 Mud Bricks, 50 Stone, 20 Heavy Stone, 15 Tree Logs, 20 Clay, 10 Rope and 50 nails.
+            SpawnMany(PlankGuid, 15, OakPlank);
+            SpawnMany(MudBrickGuid, 15);
+            SpawnMany(StoneSmallGuid, 20);
+            SpawnMany(StoneHeavyGuid, 6);
+            SpawnMany(TreeLogGuid, 6, OakLog);
+            SpawnMany(ClayGuid, 10, WorkedClay);
+            SpawnMany(RopeGuid, 5);
+            SpawnMany(CopperNailUid, 20);
 
             Plugin.Logger.LogDebug("[HomesteadKitPatch] Homestead contents spawned.");
         }

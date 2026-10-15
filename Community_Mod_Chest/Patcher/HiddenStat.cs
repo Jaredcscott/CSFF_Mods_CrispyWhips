@@ -63,6 +63,63 @@ namespace CommunityModChest.Patcher
             return StatAccess.SetCurrentValue(instance, value);
         }
 
+        /// <summary>The stat's BASE value (<c>InGameStat.CurrentBaseValue</c>: what permanent writes moved, with no
+        /// passive or status modifier in it), or NaN when it is not readable yet. Used by the one-time Comfort
+        /// fix-up, which must clear what actions wrote without touching what worn garments add.</summary>
+        public static float GetBase(string statUid)
+        {
+            var instance = ResolveInstance(statUid);
+            if (instance == null) return float.NaN;
+            return Reflect.GetMember(instance, "CurrentBaseValue") is float f ? f : float.NaN;
+        }
+
+        private static bool _gameModifyResolved;
+        private static MethodInfo _gameModify;
+
+        /// <summary>
+        /// Moves the stat's base value to <paramref name="baseValue"/>. Prefers the framework's
+        /// <c>StatAccess.Modify(string, float)</c> (2.28.0+, the game's own permanent change, so statuses update),
+        /// resolved by reflection for the same reason as <see cref="SetWithStatuses"/>; falls back to a raw
+        /// <c>CurrentBaseValue</c> write with one warning. Returns true only when the base reads the target afterwards.
+        /// </summary>
+        public static bool SetBase(string statUid, float baseValue)
+        {
+            float current = GetBase(statUid);
+            if (float.IsNaN(current)) return false;
+            float delta = baseValue - current;
+            if (Math.Abs(delta) < 0.0001f) return true;
+
+            if (!_gameModifyResolved)
+            {
+                _gameModifyResolved = true;
+                _gameModify = typeof(StatAccess).GetMethod("Modify", BindingFlags.Public | BindingFlags.Static,
+                    null, new[] { typeof(string), typeof(float) }, null);
+            }
+            if (_gameModify != null)
+            {
+                try
+                {
+                    _gameModify.Invoke(null, new object[] { statUid, delta });
+                    float after = GetBase(statUid);
+                    if (!float.IsNaN(after) && Math.Abs(after - baseValue) < 0.01f) return true;
+                    WarnOnce("modify-missed:" + statUid, $"StatAccess.Modify('{statUid}', {delta:0.##}) left the base at {after:0.##}, not {baseValue:0.##}; the base is written raw instead.");
+                }
+                catch (Exception ex)
+                {
+                    WarnOnce("modify-threw:" + statUid, $"StatAccess.Modify('{statUid}') threw: {ex.InnerException?.ToString() ?? ex.ToString()}. The base is written raw instead.");
+                }
+            }
+            else
+            {
+                WarnOnce("modify-missing", $"CSFFModFramework.Api.StatAccess.Modify(string, float) is not in the installed framework (it needs CSFFModFramework 2.28.0 or newer), so '{statUid}' has its base written raw and its statuses update on its next change.");
+            }
+            var instance = ResolveInstance(statUid);
+            if (instance == null) return false;
+            Reflect.SetMember(instance, "CurrentBaseValue", baseValue);
+            float raw = GetBase(statUid);
+            return !float.IsNaN(raw) && Math.Abs(raw - baseValue) < 0.01f;
+        }
+
         private static bool _gameSetResolved;
         private static MethodInfo _gameSet;
         private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);

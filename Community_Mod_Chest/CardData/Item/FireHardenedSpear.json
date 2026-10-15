@@ -12,7 +12,7 @@
   },
   "CardType": 0,
   "ObjectWeight": 200.0,
-  "TradingValue": 8.0,
+  "TradingValue": 4.0,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardImageWarpData": "Spear_Rustic",
   "CardImageWarpType": 3,

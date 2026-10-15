@@ -13,7 +13,7 @@
   "CardType": 0,
   "ObjectWeight": 75.0,
   "WeightReductionWhenEquipped": -75.0,
-  "TradingValue": 15.0,
+  "TradingValue": 13.0,
   "CardImage": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -80,14 +80,15 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 60.0,
+    "FloatValue": 34560.0,
     "CardStatName": {
       "ParentObjectID": "combatandarmorquiltedcapdyedcharcoal",
       "LocalizationKey": "Combat_And_Armor_QuiltedCap_dyed_charcoal_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
-    "MaxValue": 60.0,
+    "MaxValue": 34560.0,
     "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": -0.5,
     "HidingOptions": 1,
     "TextDisplay": 1,
     "NumberPrecision": 0,

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatWeaverCommissionDeposit",
+    "GameName": {
+        "LocalizationKey": "CMC_WeaverCommissionDeposit_StatName",
+        "DefaultText": "Weaver Commission Deposit"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WeaverCommissionDeposit_StatDescription",
+        "DefaultText": "Hidden clamped deposit (0 to 360) toward a Weaver commission: each currency dragged onto her adds its value, and the order opens at 360."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 360.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

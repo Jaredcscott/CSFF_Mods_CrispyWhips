@@ -50,7 +50,7 @@
     "BlueprintResult": [
         {
             "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-            "Quantity": { "x": 1, "y": 1 },
+            "Quantity": { "x": 3, "y": 3 },
             "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
             "DroppedCardWarpType": 3
         }

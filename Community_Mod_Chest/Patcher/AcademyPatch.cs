@@ -554,8 +554,33 @@ namespace CommunityModChest.Patcher
             }
             else if (course != null)
             {
+                if (GraduatePerkPatch.Held) hours = GraduateBonus(ctx.Card, course, hours);
                 Plugin.Logger.LogDebug($"[AcademyPatch] Study session complete: {ctx.ActionName} ({hours}/{course.TotalHours}h).");
             }
+        }
+
+        /// <summary>The hours a Graduate's study session leaves on the lectern: one more session's +2, capped at
+        /// the final-exam threshold (TotalHours - 2), so the course takes half the sessions and the exam is never
+        /// skipped. Pure, so CMC tests can pin it (vanilla balance pass 1.69.17, plan Part II row 3.3.2).</summary>
+        internal static float GraduateHours(float hoursAfter, float totalHours)
+        {
+            if (hoursAfter < 0f) return hoursAfter;
+            float cap = totalHours - SessionHours;
+            return hoursAfter >= cap ? hoursAfter : Math.Min(hoursAfter + SessionHours, cap);
+        }
+
+        private static float GraduateBonus(object lectern, CourseInfo course, float hoursAfter)
+        {
+            float target = GraduateHours(hoursAfter, course.TotalHours);
+            if (target <= hoursAfter) return hoursAfter;
+            if (!CardUtil.SetDurability(lectern, course.StatName, target))
+            {
+                Plugin.Logger.LogWarning($"[AcademyPatch] Could not add the Graduate's extra study hours to {course.NameFragment}; this session counted once.");
+                return hoursAfter;
+            }
+            CardVisualsRefresh.RefreshDurabilityVisuals(lectern);
+            CardVisualsRefresh.RefreshOpenInventoryPopup();
+            return target;
         }
 
         // ── Deposit CI ──────────────────────────────────────────────────────────

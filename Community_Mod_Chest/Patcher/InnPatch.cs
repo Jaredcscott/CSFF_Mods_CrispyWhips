@@ -18,8 +18,12 @@ namespace CommunityModChest.Patcher
     ///     DeductBalance and the tooltip all price through VillagePricing.Apply); stat
     ///     effects are applied via JSON StatModifications.
     ///   - "Work Odd Jobs" DA is deliberately NOT gated or paid from the account — it
-    ///     PAYS the player (pure JSON ProducedCards: 1-2 vanilla 50%-quality copper
-    ///     nuggets).
+    ///     PAYS the player (pure JSON ProducedCards: 2 Salt, once a day through the hidden
+    ///     cmcStatInnWorkCooldown; vanilla balance pass 1.69.17, it paid 1-2 copper nuggets
+    ///     with no cap before). "Community Service" beside it pays nothing and lowers
+    ///     Village Crime by 6 (pure JSON, VillagePricing.RestitutionJsonActionKeys).
+    ///   - "Sell Firewood" counts bundles in the clamped hidden cmcStatInnFirewoodCount
+    ///     (0..3) and pays one Salt on every fourth (Firewood trades at 4, Salt at 15).
     ///   - CardAction.CollectActionModifiers postfix sets the native ActionBlockedMessage
     ///     when the balance is too low, so the two buttons show pre-emptively greyed out
     ///     with a clear tooltip reason (vanilla DismantleActionButton reads
@@ -35,7 +39,8 @@ namespace CommunityModChest.Patcher
         private const float  SleepPrice    = 50f;
         private const float  AccountMax    = 500f;
         private const string SaltGuid      = "f91b5676fc26c0e48a4ee6fd9dfc2ffa";
-        private static float _pendingFirewoodSd4 = -1f;
+        internal const string FirewoodCountStatUid = "cmcStatInnFirewoodCount";
+        internal const int FirewoodPerSalt = 4;
 
         private static string NoBalanceMessageFor(float price) =>
             "Inn account balance too low - deposit Salt, coins, or nuggets on the counter. This costs " + price.ToString("0") + ".";
@@ -115,15 +120,7 @@ namespace CommunityModChest.Patcher
                 Before        = DepositApply,
             });
 
-            // Sell Firewood CI — capture SD4 before firewood is consumed, spawn Salt after.
-            ActionRouter.Register(new ActionHandler
-            {
-                Name          = "InnFirewoodCaptureSd4",
-                CardPredicate = ctx => ctx.CardUid == CounterUid && IsFirewoodSellAction(ctx.ActionName),
-                Timing        = ActionTiming.Before,
-                Before        = ctx => { _pendingFirewoodSd4 = CardUtil.GetDurability(ctx.GivenCard, "SpecialDurability4"); return false; },
-            });
-
+            // Sell Firewood CI: count the bundle after it is consumed, pay a Salt on every fourth.
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "InnFirewoodSpawnSalt",
@@ -151,15 +148,34 @@ namespace CommunityModChest.Patcher
 
         // ── Sell Firewood CI ───────────────────────────────────────────────────────
 
+        /// <summary>Whether a sale that finds <paramref name="countBefore"/> bundles already counted pays a Salt,
+        /// and the count it leaves. Pure, so CMC tests can pin the 1-in-4 rate.</summary>
+        internal static bool FirewoodSalePays(float countBefore, out float countAfter)
+        {
+            int c = Math.Max(0, (int)Math.Round(countBefore));
+            if (c + 1 >= FirewoodPerSalt) { countAfter = 0f; return true; }
+            countAfter = c + 1;
+            return false;
+        }
+
         private static void FirewoodSpawnSalt(ActionContext ctx)
         {
-            float sd4   = _pendingFirewoodSd4;
-            _pendingFirewoodSd4 = -1f;
-            // Oak (SD4=1) and Alder (SD4=5) are harder to reach — pay 2 Salt; others 1.
-            int count = (sd4 == 1f || sd4 == 5f) ? 2 : 1;
-            for (int i = 0; i < count; i++)
-                SpawnService.Spawn(SaltGuid);
-            Plugin.Logger.LogDebug($"[InnPatch] Firewood sell (SD4={sd4:0}): spawned {count} salt.");
+            // Vanilla balance pass (1.69.17): Firewood trades at 4 and Salt at 15, so a Salt per bundle (2 for oak
+            // or alder) minted currency from the woodpile. The count lives in a clamped hidden stat, never a static.
+            float before = HiddenStat.Get(FirewoodCountStatUid);
+            if (before < 0f)
+            {
+                Plugin.Logger.LogWarning($"[InnPatch] {FirewoodCountStatUid} is not readable, so this firewood sale was not counted.");
+                return;
+            }
+            bool pays = FirewoodSalePays(before, out float after);
+            if (!HiddenStat.Set(FirewoodCountStatUid, after))
+            {
+                Plugin.Logger.LogWarning($"[InnPatch] {FirewoodCountStatUid} could not be written, so this firewood sale paid nothing.");
+                return;
+            }
+            if (pays) SpawnService.Spawn(SaltGuid);
+            Plugin.Logger.LogDebug($"[InnPatch] Firewood sold: count {before:0} -> {after:0}{(pays ? ", paid 1 Salt" : "")}.");
         }
 
         // ── Pre-emptive blocked-message tooltip (native vanilla gating) ────────

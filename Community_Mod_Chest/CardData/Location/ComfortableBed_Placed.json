@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "comfortablebedplaced",
         "LocalizationKey": "Comfort_ComfortableBed_Placed_CardHelpSection",
-        "DefaultText": "<b>Usage:</b> Nap or Sleep on it for the best rest available, and its warmth passively lifts perceived temperature while you're in this environment.\n\n<b>Take Apart:</b> Splits the bed back into its Down Mattress and Copper Bed Frame so you can move it to a new camp."
+        "DefaultText": "<b>Usage:</b> Nap or Sleep on it for the best rest available, and its bedding keeps you a little warmer while you rest in it.\n\n<b>Take Apart:</b> Splits the bed back into its Down Mattress and Copper Bed Frame so you can move it to a new camp."
     },
     "CardType": 2,
     "MapStructureType": 0,
@@ -51,7 +51,7 @@
             "ActionTagsWarpType": 3,
             "StatModifications": [
                 { "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3", "StatWarpType": 3, "ValueModifier": { "x": -1.5, "y": -1.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
-                { "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10", "StatWarpType": 3, "ValueModifier": { "x": 20.0, "y": 20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10", "StatWarpType": 3, "ValueModifier": { "x": 17.0, "y": 17.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
                 { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
                 { "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8", "StatWarpType": 3, "ValueModifier": { "x": 1.0, "y": 1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
                 { "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5", "StatWarpType": 3, "ValueModifier": { "x": -1.5, "y": -1.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
@@ -80,7 +80,7 @@
             "ActionTagsWarpType": 3,
             "StatModifications": [
                 { "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3", "StatWarpType": 3, "ValueModifier": { "x": -1.5, "y": -1.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
-                { "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10", "StatWarpType": 3, "ValueModifier": { "x": 40.0, "y": 40.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10", "StatWarpType": 3, "ValueModifier": { "x": 34.0, "y": 34.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
                 { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
                 { "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8", "StatWarpType": 3, "ValueModifier": { "x": 1.0, "y": 1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
                 { "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5", "StatWarpType": 3, "ValueModifier": { "x": -1.5, "y": -1.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
@@ -142,11 +142,12 @@
             "OnlyOnBaseActions": true,
             "OnlyOnNOTBaseActions": false,
             "OnlyWhenNOTInBG": true,
+            "Conditions": { "PlayerUsesCard": 1 },
             "StatModifiers": [
                 {
                     "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
                     "StatWarpType": 3,
-                    "ValueModifier": { "x": 25.0, "y": 25.0 }
+                    "ValueModifier": { "x": 3.0, "y": 3.0 }
                 }
             ]
         }

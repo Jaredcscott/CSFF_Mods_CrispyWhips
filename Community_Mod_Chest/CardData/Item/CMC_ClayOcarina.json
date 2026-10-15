@@ -72,7 +72,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "CMC_ClayOcarina_DA_PlayTune_Desc",
-                "DefaultText": "A few low, breathy notes. Nothing fancy, but it settles the nerves."
+                "DefaultText": "A few low, breathy notes. Nothing fancy, but it settles the nerves (Stress -5). Once a day."
             },
             "DaytimeCost": 1,
             "UseMiniTicks": 0,
@@ -81,11 +81,21 @@
             "ReceivingCardChanges": {
                 "ModType": 0
             },
+            "RequiredStatValues": [
+                { "StatWarpData": "cmcStatOcarinaCooldown", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } }
+            ],
             "StatModifications": [
                 {
-                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
                     "StatWarpType": 3,
-                    "ValueModifier": { "x": 3.0, "y": 3.0 },
+                    "ValueModifier": { "x": -5.0, "y": -5.0 },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "cmcStatOcarinaCooldown",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 96.0, "y": 96.0 },
                     "InstantModifier": true,
                     "ApplyEachTick": false
                 }
@@ -94,7 +104,7 @@
     ],
     "PassiveEffects": [],
     "ObjectWeight": 100.0,
-    "TradingValue": 150.0,
+    "TradingValue": 15.0,
     "MaxStack": 1,
     "DroppedCardShadow": 1
 }

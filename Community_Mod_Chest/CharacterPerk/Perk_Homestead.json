@@ -35,7 +35,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once.",
+        "DefaultText": "You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once.",
         "LocalizationKey": "CharacterTraits_Perk_Homestead_PerkDescription",
         "ParentObjectID": "traits_perk_homestead"
     },

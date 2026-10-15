@@ -80,14 +80,15 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 80.0,
+    "FloatValue": 34560.0,
     "CardStatName": {
       "ParentObjectID": "cmcwoolquiltedvest",
       "LocalizationKey": "CMC_WoolQuiltedVest_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
-    "MaxValue": 80.0,
+    "MaxValue": 34560.0,
     "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": -0.5,
     "HidingOptions": 1,
     "TextDisplay": 1,
     "NumberPrecision": 0,

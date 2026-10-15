@@ -116,8 +116,8 @@ CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader,天生商人
 CharacterTraits_Perk_NaturalTrader_PerkDescription,"You have a knack for dealing with people. Start with a significantly advanced Social skill, making trader interactions and NPC negotiations more favourable from the outset.",你天生擅长与人打交道。开局即拥有大幅领先的社交技能，从一开始就能在交易与谈判中占得先机。
 CharacterTraits_Perk_Swimmer_PerkName,Swimmer,游泳好手
 CharacterTraits_Perk_Swimmer_PerkDescription,"You are at home in the water. Start with a head start in Swimming that opens the cheaper river crossing from day one, and keep a steady Swimming Aid as strong as one spirit blessing.",你在水中如鱼得水。开局即拥有领先的游泳技能，从第一天起就能以更省力的方式游过河去，并始终保有相当于一次精魄赐福的游泳援助。
-CharacterTraits_Perk_Trapper_PerkName,Trapper,设陷者
-CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap, a Cage and a Hideout.",你懂得如何布置陷阱，并靠猎获为生。开局拥有一个套索陷阱、一个原木陷阱、一个诱捕笼和一个藏匿点。
+CharacterTraits_Perk_Trapper_PerkName,Trapline,陷阱线
+CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap and a Cage.",你懂得如何布置陷阱，并靠猎获为生。开局拥有一个套索陷阱、一个原木陷阱和一个诱捕笼。
 Pottery_Sculpture_Pigment_CardName,Charcoal Pigment,炭黑颜料
 Pottery_Sculpture_Pigment_CardDescription,"A fine black powder made by grinding charcoal. Used to paint and decorate pottery, or rubbed into cloth, straw or leather to dye it charcoal-grey.",将木炭研磨成的细腻黑色粉末，可用于绘制和装饰陶器，也能揉进布料、草编或皮革，将其染成炭灰色。
 Pottery_Sculpture_PaintedBowl_CardName,Painted Clay Bowl,彩绘陶碗
@@ -256,9 +256,9 @@ Comfort_Bp_CopperBedFrame_CardDescription,Build a bed frame from wood planks bra
 Comfort_Bp_CopperBedFrame_UnlockConditionsDesc,Earn the Inn Keeper's friendship (30) and a Metal Sheet,赢得旅店老板的友谊（30）并拥有一块金属片
 Comfort_ComfortableBed_Placed_CardName,Comfortable Bed,舒适床铺
 Comfort_ComfortableBed_Placed_CardDescription,A proper bed: a down-stuffed mattress mounted on a copper-braced wooden frame. The best night's sleep you can build in the wild.,一张真正的床：羽绒床垫安装在铜件加固的木床架上，是野外能搭建出的最佳睡眠场所。
-Comfort_ComfortableBed_Placed_CardHelpSection,"<b>Usage:</b> Nap or Sleep on it for the best rest available, and its warmth passively lifts perceived temperature while you're in this environment.
+Comfort_ComfortableBed_Placed_CardHelpSection,"<b>Usage:</b> Nap or Sleep on it for the best rest available, and its bedding keeps you a little warmer while you rest in it.
 
-<b>Take Apart:</b> Splits the bed back into its Down Mattress and Copper Bed Frame so you can move it to a new camp.","<b>用途：</b>在上面小睡或过夜可获得最佳休息效果，它的暖意还会在你身处此环境时被动提升体感温度。
+<b>Take Apart:</b> Splits the bed back into its Down Mattress and Copper Bed Frame so you can move it to a new camp.","<b>用途：</b>在上面小睡或过夜可获得最佳休息效果，躺在上面休息时，床褥还能让你稍微暖和一些。
 
 <b>拆解：</b>将床拆分回羽绒床垫和铜制床架，方便你搬到新的营地。"
 Comfort_ComfortableBed_Placed_DA_Nap,Nap,小憩
@@ -380,7 +380,7 @@ CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before —
 CharacterTraits_Perk_QuietVillage_PerkName,Quiet Village,寂静村庄
 CharacterTraits_Perk_QuietVillage_PerkDescription,"The village keeps to itself. The Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of travelling or foraging, and the Town Watch has stood down entirely -- none of the four guards take up their posts. Reduces simulation overhead, at the cost of the Watch's crime-and-pursuit content and the villagers' wandering and forage behavior. Recommended on lower-end systems.",村庄变得安静起来。磨坊主、织工、药剂师和教授都留在家中、学院或旅店，不再外出旅行或采集，镇守卫队也已全面撤岗——四名守卫都不再驻守岗位。这能降低模拟运算负担，但代价是失去守卫队的犯罪与追捕内容，以及村民的游荡与采集行为。推荐配置较低的电脑使用。
 CharacterTraits_Perk_Graduate_PerkName,Graduate,毕业生
-CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall.",你已完成学院的全部学业。建筑学、冶金学、药草学、钓鱼、制甲、医学与木工课程悉数修毕——从一开始你就拥有每门学科的毕业生特质及其蓝图奖励，无需踏入讲堂或木工台半步。
+CharacterTraits_Perk_Graduate_PerkDescription,"You are a quick study. Every Academy course takes you half its sessions, and so half its tuition; you still sit each final exam to earn the course's graduate perk and blueprints.",你学东西很快。每门学院课程你只需上一半的课时，也只付一半学费；你仍需参加每门课的结业考试，才能获得该课程的毕业生特质和蓝图。
 Combat_And_Armor_StoneMace_OnZero,Stone Mace Broken!,石锤已损坏！
 Combat_And_Armor_WoodenShield_OnZero,Shield Destroyed!,盾牌已损毁！
 Combat_And_Armor_QuiltedVest_OnZero,Vest Destroyed!,背心已损毁！
@@ -392,7 +392,7 @@ Bp_CMC_IronFishingRodFittings_CardName,Iron Fishing Rod Fittings,铁制钓竿配
 Bp_CMC_IronFishingRodFittings_CardDescription,Forge iron fittings for a superior fishing rod. Requires a heated iron nugget and a forge hammer.,锻造优质钓竿所需的铁制配件。需要一块加热过的铁块和一把锻造锤。
 Bp_CMC_IronFishingRodFittings_UnlockConditionsDesc,Iron Nugget and Forge Hammer Needed,需要铁块与锻锤
 CMC_IronFishingRod_CardName,Iron Fishing Rod,铁制钓竿
-CMC_IronFishingRod_CardDescription,A well-crafted rod with iron fittings a long stick and rustic line. Provides a fishing advantage and aids stamina recovery while carried.,一根用铁制配件、长木棍和粗制钓线精心制作的钓竿。能提升钓鱼效率，随身携带时还有助于耐力恢复。
+CMC_IronFishingRod_CardDescription,"A well-crafted rod with iron fittings, a long stick and rustic line. Held in hand, it gives a steady fishing advantage.",一根用铁制配件、长木棍和粗制钓线精心制作的钓竿。握在手中时能稳定提升钓鱼效率。
 CMC_IronFishingRod_UsageDurability,Durability,耐久度
 CMC_IronFishingRod_OnZero,Rod Broken!,鱼竿已损坏！
 CMC_IronFishingRod_Dismantle_ActionName,Dismantle,拆解
@@ -400,7 +400,7 @@ CMC_IronFishingRod_Dismantle_ActionDescription,"Take the rod apart to recover th
 CMC_IronFishingRod_Fish_ActionName,Cast Line,抛竿垂钓
 CMC_IronFishingRod_Fish_ActionDescription,Cast your iron-fitted line into the water and wait for a bite.,把这根带铁制配件的钓线抛入水中，等待鱼儿上钩。
 Bp_CMC_IronFishingRod_CardName,Iron Fishing Rod,铁制钓竿
-Bp_CMC_IronFishingRod_CardDescription,Assemble a superior fishing rod from iron fittings a long stick and a rustic fishing line. Provides a fishing advantage and aids stamina recovery while carried.,用铁制配件、长木棍和粗制钓线组装出一根优质钓竿。能提升钓鱼效率，随身携带时还有助于耐力恢复。
+Bp_CMC_IronFishingRod_CardDescription,"Assemble a superior fishing rod from iron fittings, a long stick and a rustic fishing line. Held in hand, it gives a steady fishing advantage.",用铁制配件、长木棍和粗制钓线组装出一根优质钓竿。握在手中时能稳定提升钓鱼效率。
 Bp_CMC_IronFishingRod_UnlockConditionsDesc,Iron Fishing Rod Fittings Needed,需要铁制钓竿配件
 CMC_OldGrowthBark_CardName,Old Growth Bark,古树皮
 CMC_OldGrowthBark_CardDescription,"Thick bark peeled from the ancient oaks of the Foraging Forest. Rich with aromatic tannins, ground together with wild garlic into a soothing herb paste.",从觅食林古老橡树上剥下的厚实树皮，富含芳香单宁，与野蒜一同研磨可制成舒缓的草药糊。
@@ -427,7 +427,7 @@ Pottery_Sculpture_HerbPaste_CardDescription,"A thick paste ground from wild garl
 Pottery_Sculpture_HerbPaste_Spoiled,The herb paste has gone rancid.,草药膏已经变质腐坏。
 Pottery_Sculpture_HerbPaste_DA_Eat,Eat,食用
 Pottery_Sculpture_Bp_HerbPaste_CardName,Herb Paste,草药糊
-Pottery_Sculpture_Bp_HerbPaste_CardDescription,Grind wild garlic and old growth bark together using a stone or hammer. The resulting paste provides nourishment and comfort.,用石头或锤子把野蒜和古树皮一同研磨。制成的糊状物能提供滋养与安慰。
+Pottery_Sculpture_Bp_HerbPaste_CardDescription,Grind wild garlic and old growth bark together using a stone or hammer. The resulting paste provides nourishment and eases stress.,用石头或锤子把野蒜和古树皮一同研磨。制成的糊状物能提供滋养并缓解压力。
 Pottery_Sculpture_Bp_HerbPaste_UnlockConditionsDesc,Help the Apothecary forage three fresh herbs,帮助药剂师采集三种新鲜草药
 Comfort_WovenWallHanging_CardName,Woven Wall Hanging,编织壁挂
 Comfort_WovenWallHanging_CardDescription,A panel of dried rye straw woven into a decorative hanging and dyed with natural pigment. Warm earthy tones make any space feel more like home.,用干黑麦秸秆编织而成的装饰挂饰，并染以天然颜料。温暖的大地色调能让任何空间都更有家的感觉。
@@ -521,7 +521,7 @@ Pottery_PaintedCup_Broken,The painted cup has shattered.,彩绘杯已经碎裂�
 Pottery_PaintedPlate_UsageDurability,Durability,耐久度
 Pottery_PaintedPlate_Broken,The painted plate has shattered.,彩绘盘已经碎裂。
 CMC_FishingNet_CardName,Fishing Net,渔网
-CMC_FishingNet_CardDescription,A hand-thrown casting net knotted from twine and stretched on sticks. Heave it into the water to catch several fish at once. Wears out after repeated use.,一张用麻绳编结、以木棍撑开的手抛渔网。抛入水中即可一次捕获多条鱼，反复使用后会磨损。
+CMC_FishingNet_CardDescription,"A hand-thrown casting net knotted from twine and stretched on sticks. Heave it into the water: often it comes back empty, sometimes with a fish or two. Wears out after repeated use.",一张用麻绳编结、以木棍撑开的手抛渔网。抛入水中，常常一无所获，有时能捞到一两条鱼，反复使用后会磨损。
 CMC_FishingNet_UsageDurability_CardStatName,Casts,撒网次数
 CMC_FishingNet_WornOut,The fishing net has worn through and can no longer be cast.,渔网已经磨破，无法再撒网了。
 CMC_FishingNet_DA_CastNet,Cast Net,撒网
@@ -544,7 +544,7 @@ CharacterTraits_Perk_Trollblood_PerkDescription,"Thick, stubborn blood runs in y
 CharacterTraits_Perk_SpirituallyHarmonious_PerkName,Spiritually Harmonious,灵性和谐
 CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,You are at peace with the world around you. You can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.,你与周遭的世界相处融洽。夺去性命却未送走其魂时积聚的空壳化，你能承受常人的两倍，之后灵体才会对你冷淡。
 CharacterTraits_Perk_WideHands_PerkName,Wide Hands,宽厚双手
-CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start ahead in Crafting and Knapping, and always count as a little more skilled at both, so the things you make come out a little better.",你那双宽厚灵巧的手天生适合劳作。开局即在制作与打制上领先一步，并且始终被视作略微更熟练，因此你做出的东西品质会略好一些。
+CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start well ahead in Crafting and Knapping.",你那双宽厚灵巧的手天生适合劳作。开局即在制作与打制上大幅领先。
 CharacterTraits_Perk_Claws_PerkName,Claws,利爪
 CharacterTraits_Perk_Claws_PerkDescription,"Your fingernails grow hard and talon-like, giving you an edge in close quarters. Start with a head start in Knife Fighting and Melee Fighting, and keep a steady Ambush Aid and Chasing Aid, each as strong as one spirit blessing.",你的指甲坚硬如爪，在近身搏斗中占尽优势。开局即拥有领先的刀术与近战格斗技能，并始终保有伏击援助与追逐援助，各相当于一次精魄赐福。
 CharacterTraits_Perk_Troglodyte_PerkName,Troglodyte,穴居者
@@ -566,7 +566,7 @@ CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not loo
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth,生长迟滞
 CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing.",大地对你格外吝啬。此特质会削弱来自其他来源的觅食援助，单独一次精魄赐福几乎无法维持。它本身不会产生任何效果。
 CharacterTraits_Perk_Leper_PerkName,Leper,麻风病患者
-CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people.",一种消耗性的疾病夺走了你肌肤的知觉，也侵蚀了你的面容。受伤再也不会让你感到疼痛。你的皮肤更难阻挡污秽，残破的容貌让商人敬而远之，你对他人也几乎不再有感情。
+CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Pain sits far lighter on you. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people.",一种消耗性的疾病夺走了你肌肤的知觉，也侵蚀了你的面容。疼痛落在你身上要轻得多。你的皮肤更难阻挡污秽，残破的容貌让商人敬而远之，你对他人也几乎不再有感情。
 CharacterTraits_Perk_Fugitive_PerkName,Fugitive,逃亡者
 CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most. Word of you has reached the village Watch: on your first visit there you are already Suspected.",你匆忙逃离了过去的生活，身上几乎只剩一身衣服。你抵达时紧张又惊恐，被追捕的恐惧让你永远无法彻底放松。但逃亡需要胆量，你的勇气胜过常人。你的消息已传到村庄巡逻队：你第一次到访村庄时就已被列为嫌疑对象。
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist,迷路游客
@@ -648,7 +648,7 @@ CMC_TraitDrunkard_Status_HorriblyDrunk_Description,"Plenty to drink and you are 
 CMC_Imp_RiverBridge_CardName,River Bridge,河桥
 CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.,一座横跨林隙河流的坚固木桥。在河边林隙建造此桥可开通通往村庄的东侧道路。
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor,石砖地面
-CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins, mud huts, and the village building interiors.",用抛光石砖嵌入粘土基层，铺成平整均匀的地面。能提升舒适度和保温效果，可铺设在小屋、泥屋以及村庄建筑室内。
+CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Raises the room's Sanctuary and insulation. Can be laid in cabins, mud huts, and the village building interiors.",用抛光石砖嵌入粘土基层，铺成平整均匀的地面。能提升房间的庇护感和保温效果，可铺设在小屋、泥屋以及村庄建筑室内。
 CMC_MarketStallKit_CardName,Market Stall Kit,集市摊位套件
 CMC_MarketStallKit_CardDesc,"A portable market stall. Can only be assembled in the village: merchants need foot traffic to buy your wares. Once placed, drop trade goods into the stall inventory and collect earnings as copper or salt over time.",一个可携带的集市摊位。只能在村庄内组装：商人需要人流才会购买你的货物。放置之后，把交易货物投入摊位库存，随着时间推移，就能以铜或盐的形式收取收益。
 CMC_MarketStallKit_Help,Market Stall Kit,集市摊位套件
@@ -674,9 +674,9 @@ CMC_InnExit_CardName,Inn Door,旅店大门
 CMC_InnExit_DA_Exit,Exit,离开
 CMC_InnExit_DA_Exit_Fade,Leaving the inn...,正在离开旅店……
 CMC_InnCounter_CardName,Inn Counter,旅店柜台
-CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it for Salt. There is usually odd work available too, paid in copper nuggets.",旅店老板在这个柜台后供应热食、出租床铺。将盐、金属块或杜洛斯硬币拖到柜台上即可为你的旅店账户充值（上限500）；一顿饭或一晚住宿会从余额中扣除50（被通缉或被放逐期间会更多）。将木柴拖到柜台上可以换取盐。这里通常也有些零工可做，报酬以铜块支付。
+CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt.",旅店老板在这个柜台后供应热食、出租床铺。将盐、金属块或杜洛斯硬币拖到柜台上即可为你的旅店账户充值（上限500）；一顿饭或一晚住宿会从余额中扣除50（被通缉或被放逐期间会更多）。将木柴拖到柜台上出售：每四捆换一份盐。这里通常也有些零工可做，报酬以盐支付。
 CMC_InnCounter_DA_Meal,Purchase Meal,购买餐食
-CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Restores Satiation, Thirst, and Fullness. Provides Protein, Iron, and Vitamins. Tastes great.",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。恢复饱食度、口渴度和肠胃充盈度，提供蛋白质、铁和维生素，味道很棒。
+CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you.",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。一大碗炖菜、面包和一杯水：大约相当于你自己做的一顿好饭。
 CMC_InnCounter_DA_Sleep,Stay the Night,留宿一晚
 CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call).",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。最多休息6小时，恢复清醒度和精力。若生命体征达到危急警报（口渴、体温、出血、疾病或如厕需求），你会提前醒来。
 CMC_InnCounter_DA_Sleep_Interrupt_Thirsty,I'm too thirsty to sleep...,太渴了，睡不着……
@@ -693,7 +693,7 @@ CMC_InnCounter_Prog_Account,Inn Account,旅店账户
 CMC_InnCounter_CI_Deposit,Deposit Currency,存入货币
 CMC_InnCounter_CI_Deposit_Desc,"Adds the value of the dragged Salt, Nugget, or Duros Coin to the Inn Account (max 500).",把拖动的盐、金属块或杜洛斯币的价值存入旅店账户（上限500）。
 CMC_InnCounter_CI_SellFirewood,Sell Firewood,出售柴火
-CMC_InnCounter_CI_SellFirewood_Desc,"Hand over a bundle of firewood for the hearth. Oak and Alder fetch 2 Salt; Birch, Pine, and Willow fetch 1.",交出一捆柴火供炉灶使用。橡木和桤木能换2份盐；桦木、松木和柳木能换1份。
+CMC_InnCounter_CI_SellFirewood_Desc,Hand over a bundle of firewood for the hearth. Every fourth bundle earns a Salt.,交出一捆柴火供炉灶使用。每四捆换一份盐。
 CMC_InnKeeper_AgentName,Inn Keeper,旅店老板
 CMC_InnKeeper_AgentDescription,"Keeps the Village Inn running: meals, a bed, and a friendly ear.",打理着村庄旅店的一切事务：饭菜、床铺，还有一双愿意倾听的耳朵。
 CMC_InnKeeper_Chat_ActionName,Chat,交谈
@@ -811,11 +811,11 @@ CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate,冶金学毕业生
 CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet and Bronze Sheet recipes are yours outright, with no research needed, and, with Water-Driven Infrastructure installed and an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的冶金课程。铜板和青铜片配方直接归你所有，无需研究；若已安装水力基础设施（Water-Driven Infrastructure）并持有建筑学位，还可获得水力锻炉和水力工坊。你的金工技能视为高出25点，打造的金属制品品质更好。
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate,药草学毕业生
-CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's herbalism course. Every forage gives you twice as much. The extra finds are added as you gather them, so they do not show up in any drop-chance list.",你完成了学院的草药学课程。每次觅食的收获都会翻倍。额外的收获是在采集时加入的，因此不会显示在任何掉落概率列表中。
+CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's herbalism course. Each herb or mushroom you forage has a one-in-four chance to come in double. The extra finds are added as you gather them, so they do not show up in any drop-chance list.",你完成了学院的草药学课程。你觅食到的每一株草药或蘑菇都有四分之一的几率翻倍。额外的收获是在采集时加入的，因此不会显示在任何掉落概率列表中。
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate,钓鱼毕业生
 CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fishing course. The Iron Fishing Rod recipe is yours, and you've learned to read the water: you keep a steady Fishing Aid as strong as one spirit blessing.",你完成了学院的捕鱼课程。铁钓竿的配方归你所有，你也学会了观察水面：持续获得相当于一次精灵赐福的捕鱼援助。
 CharacterTraits_Perk_GradArmorer_PerkName,Armorer Graduate,制甲毕业生
-CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. Every metal armor recipe is yours (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields), and your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的铠甲课程。所有金属铠甲配方（铜、锡、幽灵青铜、锡青铜、白青铜和铁的胸甲、头盔、护胫、护手，以及铜盾、铁盾和幽灵青铜盾）归你所有，你的金工技能也视为高出25点，打造的金属制品品质更好。
+CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. Every metal armor recipe is yours (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields), and your Smithing counts 10 higher, so your metalwork comes out better.",你完成了学院的铠甲课程。所有金属铠甲配方（铜、锡、幽灵青铜、锡青铜、白青铜和铁的胸甲、头盔、护胫、护手，以及铜盾、铁盾和幽灵青铜盾）归你所有，你的金工技能也视为高出10点，打造的金属制品品质更好。
 CharacterTraits_Perk_GradMedicine_PerkName,Medicine Graduate,医学毕业生
 CharacterTraits_Perk_GradMedicine_PerkDescription,"You completed the Academy's medicine course. You know how to dress a wound and manage pain, so your wounds bleed a little less and aches sit a little lighter.",你完成了学院的医学课程。你懂得如何包扎伤口、控制疼痛，因此你的伤口出血略少，疼痛也略轻一些。
 CMC_AcademyLectern_DA_Fishing,Study Fishing,学习钓鱼
@@ -1231,11 +1231,11 @@ Hunters_Cache_HuntingStandKit_SetUp_ActionName,Set Up,搭建
 Hunters_Cache_HuntingStandKit_SetUp_ActionDescription,Lash the platform to a sturdy tree at this location.,把平台绑在此处一棵结实的树上。
 Hunters_Cache_HuntingStand_CardName,Hunting Stand,猎人瞭望台
 Hunters_Cache_HuntingStand_CardDescription,A simple elevated platform lashed to a tree. Being off the ground makes you much harder for predators to detect.,一座绑在树上的简易高台。离地而立能让掠食者更难发现你。
-Hunters_Cache_HuntingStand_CardHelpSection,"<b>Effect:</b> While this stand is at a location, wild-animal encounters there have a ~45% chance to be averted.
+Hunters_Cache_HuntingStand_CardHelpSection,"<b>Effect:</b> While this stand is at a location, wild-animal encounters there have a ~25% chance to be averted.
 
 <b>Take Down:</b> Recover the stand as a portable kit.
 
-<b>Dismantle:</b> Break it down into planks and sticks.","<b>效果：</b>只要此瞭望台位于该地点，那里发生野生动物遭遇的几率约有45%会被规避。
+<b>Dismantle:</b> Break it down into planks and sticks.","<b>效果：</b>只要此瞭望台位于该地点，那里发生野生动物遭遇的几率约有25%会被规避。
 
 <b>拆卸：</b>将瞭望台回收为便携套件。
 
@@ -1930,7 +1930,7 @@ CMC_BrambleThicket_CI_Cut_Sickle_ActionDescription,"Hack a path through the bram
 CMC_BrambleThicket_CI_Cut_ByHand_ActionName,Tear Through the Bramble Thicket by Hand,徒手撕开荆棘丛
 CMC_BrambleThicket_CI_Cut_ByHand_ActionDescription,"Wrestle through the brambles with your bare hands. Slower and more tiring than a sickle, but it clears the trail to Sett Warren all the same.",徒手撕扯荆棘开路。比用镰刀更慢更累，但同样能清出通往獾巢地的小径。
 CharacterTraits_Perk_Homestead_PerkName,Founders Kit,奠基者套件
-CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once.",你有备而来，准备就此安家落户。开局携带一个「奠基者套件」，已打包好方便携带。放到你想建立家园的地方，然后使用「放置」一次性拆开，取出一个小屋套件、两个集雨桶套件，以及一批建筑材料（30块木板、30块泥砖、50块石头、20块沉重石块、15根原木、20块黏土、10段绳子、50根铜钉）——之后再对每个套件使用「放置」将其搭建起来。所有物品都只能放置一次。
+CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once.",你有备而来，准备就此安家落户。开局携带一个「奠基者套件」，已打包好方便携带。放到你想建立家园的地方，然后使用「放置」一次性拆开，取出一个小屋套件、两个集雨桶套件，以及一批建筑材料（15块木板、15块泥砖、20块石头、6块沉重石块、6根原木、10块黏土、5段绳子、20根铜钉），之后再对每个套件使用「放置」将其搭建起来。所有物品都只能放置一次。
 CMC_ProfessorGreeting_CourseAckArchitecture_Line,"Architecture, passed with a design I'll admit I stole a diagram from for next term's lecture. Water doesn't forgive a bad angle the way earth does, but you found the right one. With Water-Driven Infrastructure installed, a water-driven sawmill and grinding mill are within your skill now, real ones, not the toy models I sketch on the board, and with a Metallurgy degree beside it you'll be casting your own forge fittings before the season turns.",建筑学，通过了，我得承认，你的设计图我打算偷去用在下学期的讲课里。水流可不像土地那样，会原谅一个糟糕的角度，可你找对了那个角度。若已安装水力基础设施（Water-Driven Infrastructure），如今水力锯木厂和水力磨坊都在你的能力范围之内了，是真正的实物，不是我在黑板上画的那种玩具模型；再拿下一个冶金学学位，用不了一季，你就能自己铸造锻炉配件了。
 CMC_ProfessorGreeting_CourseAckArmorer_Line,"Armorer, passed, and passed properly, no student of mine gets a breastplate pattern without proving they understand why the rivets go where they go. Copper will do in a pinch, but iron will actually keep you alive out past the tree line, helm, greaves, gauntlets, the full set is yours to make now. I'd rather you never need it. I'd rather you have it anyway.",制甲，通过了，而且是货真价实地通过。我的学生想拿到胸甲的花样，就必须先证明自己明白铆钉为什么要钉在那些位置上。铜制的凑合一下还行，可真正能在林线之外保住你性命的是铁——头盔、护胫、护手，整套装备现在都在你的制作能力范围之内了。我宁愿你永远用不上它。我也宁愿你无论如何都拥有它。
 CMC_ProfessorGreeting_CourseAckFishing_Line,"You passed Fishing, and unlike most of my courses this one I actually enjoy grading, mostly because it involves an afternoon by the water instead of a stack of essays. The iron fittings for a proper rod are yours to build now, sturdier than anything whittled from green wood. My uncle's mythical river monster is still out there uncaught, incidentally, should you fancy a rematch on his behalf.",你通过了钓鱼课，跟我大多数课程不同，这门课的评分我是真心喜欢，主要是因为它意味着在水边度过一个下午，而不是批改一摞论文。如今你已经能制作一副像样鱼竿所需的铁制配件了，比任何用生木削出来的都结实。顺带一提，我叔叔那条传说中的河怪至今还没被钓上来过，你要是愿意替他打一场复仇之战，我不反对。
@@ -2252,7 +2252,7 @@ CMC_CarpentryBench_DA_CarpentryFinal,Final Exam: Carpentry,期末考试：木工
 CMC_CarpentryBench_DA_CarpentryFinal_Desc,"The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe, Wicker Chair and Training Post blueprints, plus the hunt trophies and camp furnishings.",最后两小时的考试。通过考试即可获得木工学位：解锁套装衣柜、藤椅和训练木桩的蓝图，以及猎物奖杯和营地家具的蓝图。
 CMC_CarpentryBench_FinalNotReady,You are not ready for the final examination.,你还没有准备好参加期末考试。
 CharacterTraits_Perk_GradCarpentry_PerkName,Carpentry Graduate,木工课程毕业生
-CharacterTraits_Perk_GradCarpentry_PerkDescription,"You completed the Academy's carpentry course. The Outfit Wardrobe, Wicker Chair, Training Post, hunt trophy and camp furnishing blueprints are yours, and you keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的木工课程。服装衣柜、柳条椅、训练木桩以及猎物奖杯和营地家具的蓝图归你所有，你还会持续获得相当于一次精灵赐福的河狸赐福。
+CharacterTraits_Perk_GradCarpentry_PerkDescription,"You completed the Academy's carpentry course. The Outfit Wardrobe, Wicker Chair, Training Post, hunt trophy and camp furnishing blueprints are yours, and your Woodworking counts 15 higher.",你完成了学院的木工课程。服装衣柜、柳条椅、训练木桩以及猎物奖杯和营地家具的蓝图归你所有，你的木工技能也视为高出15点。
 CMC_Bp_WickerChair_CardName,Wicker Chair,藤椅
 CMC_Bp_WickerChair_CardDescription,"A lashed-frame chair, woven tight enough to actually sit in.",一把用藤条捆扎编织而成的椅子，编得足够紧实，可以真正坐上去。
 CMC_Bp_WickerChair_UnlockConditionsDesc,Graduate the Academy's Carpentry course,从学院的木工课程毕业
@@ -2270,7 +2270,7 @@ CMC_InnCat_CI_Treat,Give a Treat,给点零食
 CMC_InnCat_CI_Treat_Desc,"A little something extra, just because.",多给一点，就因为想宠他。
 CMC_InnCat_CI_Treat_Fail,He's thoroughly spoiled already.,他早就被宠坏了。
 CMC_OldGrowthBark_CI_TanHide,Tan Hide,鞣制兽皮
-CMC_OldGrowthBark_CI_TanHide_Desc,"Rub the bark's tannins into a fleshed hide, curing it into usable leather.",将树皮中的单宁揉进去肉后的兽皮，将其鞣制成可用的皮革。
+CMC_OldGrowthBark_CI_TanHide_Desc,"Rub the bark's tannins into a fleshed hide to start the tanning (a quarter of the way). A hide can be rubbed once, before it is a fifth tanned.",将树皮中的单宁揉进去肉后的兽皮，开始鞣制（完成四分之一）。每张兽皮只能揉一次，且须在鞣制进度不到五分之一时进行。
 CMC_ShadowCatTamed_CareLow_CardDescription,"Shadow doesn't come when the music starts anymore. You catch him at the treeline sometimes, watching -- gone the moment you take a step toward him.",影子不再在音乐响起时靠近了。你有时会在林缘看见他，只是远远看着——你一迈步他就消失不见。
 CMC_ShadowCatTamed_CareMid_CardDescription,"Shadow still lingers near the drying-racks when you're close, but he keeps more distance than he used to, and slips away sooner.",你在附近时，影子仍会在晾晒架旁徘徊，但他保持的距离比以前更远，也更快地溜走。
 CMC_ShadowCatTamed_CareHigh_CardDescription,"Shadow stays close now, closer than shadows are supposed to get, settling near the firelight until you turn in for the night.",如今影子总待在你身边，比影子该有的距离还要近，一直待到炉火旁，直到你就寝才离开。
@@ -2356,7 +2356,7 @@ CMC_ClayOcarina_CardDescription,"A palm-sized ocarina shaped from fired clay, it
 CMC_ClayOcarina_UsageDurability,Durability,耐久度
 CMC_ClayOcarina_Broken,The clay ocarina has cracked and crumbled.,陶笛已经开裂碎裂了。
 CMC_ClayOcarina_DA_PlayTune,Play a Tune,吹奏一曲
-CMC_ClayOcarina_DA_PlayTune_Desc,"A few low, breathy notes. Nothing fancy, but it settles the nerves.",几个低沉、气声般的音符。没什么花哨，却能让人心绪平静。
+CMC_ClayOcarina_DA_PlayTune_Desc,"A few low, breathy notes. Nothing fancy, but it settles the nerves (Stress -5). Once a day.",几个低沉、气声般的音符。没什么花哨，却能让人心绪平静（压力 -5）。每天一次。
 CMC_HerbPoultice_CardName,Herb Poultice,草药敷剂
 CMC_HerbPoultice_CardDesc,"Mashed healer's moss and wild garlic, bound tight and pressed against a wound. Simple forage, prepared the way the Academy's medicine course teaches: it slows a bleed for as long as the dressing holds.",将愈疗苔藓与野蒜捣碎，紧紧包扎后敷在伤口上。取材简单，却是学院医学课程所教的疗法：只要敷料还在，就能减缓出血。
 CMC_HerbPoultice_Help,"Bind it over a wound to slow the bleeding for about half a day, and to take the edge off the pain for the first few hours. Both fade as the dressing dries out; a second poultice laid over the first holds twice as hard.",敷在伤口上包扎好，可减缓出血约半天，并在最初几个小时里减轻疼痛。敷料变干后，两种效果都会逐渐消退；再敷上第二贴可让止血效果加倍。
@@ -2590,7 +2590,7 @@ CMC_RiverSwim_ActionDescription,"Wade in and swim for the far bank. No bridge ne
 CMC_RiverSwim_ConfirmText,"Swim across? You need most of your stamina, and you will reach the far bank soaked and exhausted.",要游过河吗？这需要你大部分的体力，到达对岸时你会浑身湿透、筋疲力尽。
 CMC_RiverSwim_FadeMessage,You plunge into the cold current and strike out for the far bank...,你一头扎进冰冷的激流，奋力向对岸游去……
 CharacterTraits_Perk_Nightcrawler_PerkName,Nightcrawler,夜行者
-CharacterTraits_Perk_Nightcrawler_PerkDescription,"You suffer from a rare disease, sun harms you, while darkness nourishes you. You can only leave your dwelling at night or when you wear heavy clothing. People fear you, treating you as a freak, even a legendary creature of darkness. You realize the Inquisition will soon find you, so you fled here. In this jungle far from humanity, you can finally be yourself.",你患有一种罕见的疾病，阳光会伤害你，而黑暗滋养着你。你只能在夜晚或穿着厚重衣物时离开住所。人们害怕你，把你当作怪物，甚至传说中的黑暗生物。你知道宗教裁判所很快就会找到你，于是逃到了这里。在这片远离人类的丛林中，你终于可以做回自己。
+CharacterTraits_Perk_Nightcrawler_PerkDescription,"You suffer from a rare disease, sun harms you, while darkness nourishes you. You can only leave your dwelling at night or when you wear heavy clothing. People fear you, treating you as a freak, even a legendary creature of darkness. You realize the Inquisition will soon find you, so you fled here. In this jungle far from humanity, you can finally be yourself. A life in the dark has also hardened your gut against parasites and foul food.",你患有一种罕见的疾病，阳光会伤害你，而黑暗滋养着你。你只能在夜晚或穿着厚重衣物时离开住所。人们害怕你，把你当作怪物，甚至传说中的黑暗生物。你知道宗教裁判所很快就会找到你，于是逃到了这里。在这片远离人类的丛林中，你终于可以做回自己。长年的黑暗生活也让你的肠胃更能抵御寄生虫和腐坏的食物。
 CMC_TraitNightcrawlerSun_StatName,Sunlight Exposure,阳光暴露
 CMC_TraitNightcrawlerSun_StatDescription,How harshly direct sunlight is falling on you. Darkness is where you belong; strong unsheltered daylight burns.,阳光直射你的严重程度。黑暗是你的归宿，强烈无遮蔽的日光会灼伤你。
 CMC_TraitNightcrawlerSun_Status_NourishedByDarkness_Name,Nourished by Darkness,黑暗滋养
@@ -2625,7 +2625,7 @@ CMC_EventNightcrawlerBurned_Dismiss,"Oh no...","不好……"
 CMC_TraitNightcrawlerBurn_Status_Smouldering_Name,Smouldering,开始灼伤
 CMC_TraitNightcrawlerBurn_Status_Smouldering_Description,Your skin is starting to burn. Get out of the light before it catches.,你的皮肤开始灼痛。趁还没烧起来，赶紧离开光下。
 CharacterTraits_Perk_GiantStomach_PerkName,Giant Stomach,巨无霸胃
-CharacterTraits_Perk_GiantStomach_PerkDescription,"Your stomach is huge! It holds five times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick.",你的胃非常大！它能装下常人五倍的食物，装得很满时消化得也更快，而且再怎么吃也不会吃到反胃。
+CharacterTraits_Perk_GiantStomach_PerkDescription,"Your stomach is huge! It holds two and a half times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick.",你的胃非常大！它能装下常人两倍半的食物，装得很满时消化得也更快，而且再怎么吃也不会吃到反胃。
 CMC_GuardThorne_Subdue_Action,Thorne drops her spear low and lunges for your arm.,索恩压低长矛，扑上来抓你的胳膊。
 CMC_GuardThorne_Subdue_Success,Thorne twists your arm behind your back and shouts for the Captain.,索恩把你的胳膊拧到背后，高声呼喊队长。
 CMC_GuardThorne_Subdue_Failure,"You wrench free for a heartbeat, and Thorne has you again.",你挣脱了一瞬，随即又被索恩制住。
@@ -2950,13 +2950,13 @@ CMC_RoadMeeting_Title,A Chance Meeting,偶遇
 CMC_RoadMeeting_Apothecary,"You cross paths with the Apothecary on the road. She stops for a word about the weather and the herbs, and you part in better spirits.","你在路上遇到了药剂师。她停下来和你聊了聊天气和草药，分别时你的心情好了许多。"
 CMC_RoadMeeting_Professor,"You meet the Professor on the road. He pauses to share something he noticed on his rounds, and you walk on in better spirits.","你在路上遇到了教授。他停下脚步，和你分享了沿途的一点见闻，你继续赶路时心情也好起来了。"
 CMC_Miller_Commission_ActionName,Commission Flour,委托磨粉
-CMC_Miller_Commission_ActionDescription,"Pay the Miller one Salt, a metal Nugget or a coin to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time.","向磨坊主支付一份盐、一块金属矿块或一枚硬币，请他为你磨十份小麦粉。次日就在他的小屋里等你来取。每次只能有一份订单。"
+CMC_Miller_Commission_ActionDescription,"Pay the Miller 150 worth (a metal Nugget or a coin) to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time, and he takes a new one 3 days after you collect the last.",向磨坊主支付价值150的报酬（一块金属矿块或一枚硬币），请他为你磨十份小麦粉。次日就在他的小屋里等你来取。每次只能有一份订单，取货3天后他才接新订单。
 CMC_Weaver_Commission_ActionName,Commission Cloth,委托织布
-CMC_Weaver_Commission_ActionDescription,"Pay the Weaver one Salt, a metal Nugget or a coin to weave you a Large Cloth. It is waiting in her cottage two days later. One order at a time.","向织布工支付一份盐、一块金属矿块或一枚硬币，请她为你织一块大布。两天后就在她的小屋里等你来取。每次只能有一份订单。"
+CMC_Weaver_Commission_ActionDescription,"Pay the Weaver 360 worth to weave you a Large Cloth: each card you drag onto her goes toward the fee, and the order starts once the fee is paid. It is waiting in her cottage two days later. One order at a time, and she takes a new one 4 days after you collect the last.",向织布工支付价值360的报酬，请她为你织一块大布：你拖给她的每张卡牌都计入费用，费用付清后订单开始。两天后就在她的小屋里等你来取。每次只能有一份订单，取货4天后她才接新订单。
 CMC_InnKeeper_Commission_ActionName,Hire a Hunter,雇用猎人
-CMC_InnKeeper_Commission_ActionDescription,"Pay the Inn Keeper one Salt, a metal Nugget or a coin and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time.","向旅店老板支付一份盐、一块金属矿块或一枚硬币，他认识的一位猎人会在两天后把一具母鹿尸体送到旅店。每次只能有一份订单。"
+CMC_InnKeeper_Commission_ActionDescription,"Pay the Inn Keeper 150 worth (a metal Nugget or a coin) and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time, and he takes a new one 7 days after you collect the last.",向旅店老板支付价值150的报酬（一块金属矿块或一枚硬币），他认识的一位猎人会在两天后把一具母鹿尸体送到旅店。每次只能有一份订单，取货7天后他才接新订单。
 CMC_Commission_Title,An Order Is Ready,订单已备好
-CMC_Commission_TooLittle,"That is not enough for a commission. Pay at least the worth of one Salt: a Salt, a metal Nugget or a coin.","这点钱不够委托。至少要付一份盐的价值：一份盐、一块金属矿块或一枚硬币。"
+CMC_Commission_TooLittle,That is not enough for a commission. The fee is 150 worth: a metal Nugget or a coin.,这点钱不够委托。费用为价值150：一块金属矿块或一枚硬币。
 CMC_Commission_Ready_Miller,Your order is ready: ten Wheat Flour are waiting in the Miller's cottage.,你的订单已备好：十份小麦粉正放在磨坊主的小屋里等你。
 CMC_Commission_Ready_Weaver,Your order is ready: a Large Cloth is waiting in the Weaver's cottage.,你的订单已备好：一块大布正放在织布工的小屋里等你。
 CMC_Commission_Ready_Inn,Your order is ready: the Inn Keeper's hunter has left a Doe Carcass in the Inn.,你的订单已备好：旅店老板认识的猎人把一具母鹿尸体留在了旅店里。
@@ -3118,7 +3118,7 @@ CMC_MonumentPlaced_StatName,Founder's Monument Placed,创始人纪念碑已放�
 CMC_MonumentPlaced_StatDescription,"Hidden flag: set to 1 by MonumentSeedPatch only after a scan finds the Founder's Monument on the Village board, so the monument is placed once per run and never twice. Clamped 0..1.",隐藏标记：仅在扫描发现创始人纪念碑已在村庄场景中后，才由MonumentSeedPatch设为1，因此每局只会放置一次，绝不会放两座。限制在0到1之间。
 CMC_FoundersMonument_CardName,Founder's Monument,创始人纪念碑
 CMC_FoundersMonument_CardDescription,"A squared stone set on the village square, cut with the names of everyone who helped raise the place. The villagers raised it when your good standing in the village reached its full mark. It is not yours to take down, and standing near it is a comfort.",一块方正的石碑，立在村庄广场上，刻着每一位帮助建起这个村子的人的名字。当你在村中的声望达到满值时，村民们为你立起了它。它不是你能拆走的东西，站在它附近令人安心。
-CMC_FoundersMonument_CardHelpSection,Founder's Monument: appears once in the Village after your Village Reputation first reaches its full mark. Adds 6 Comfort while you are in the village. It cannot be taken down.,创始人纪念碑：你的村庄声望首次达到满值后，村庄中会出现一座。你在村庄时增加6点舒适度。无法拆除。
+CMC_FoundersMonument_CardHelpSection,Founder's Monument: appears once in the Village after your Village Reputation first reaches its full mark. Adds 25 Sanctuary while you are in the village. It cannot be taken down.,创始人纪念碑：你的村庄声望首次达到满值后，村庄中会出现一座。你在村庄时增加25点庇护感。无法拆除。
 CMC_SeasonSeen_StatName,Village Season Last Handled,村庄上次处理的季节
 CMC_SeasonSeen_StatDescription,"Hidden bookkeeping: the season (1 Spring, 2 Summer, 3 Autumn, 4 Winter) whose village beat VillageSeasonsPatch last finished, written only after that beat's work is done, so each beat fires once per season and never again on a reload. Clamped 0..4.",隐藏记录：村庄季节事件脚本上次完成的季节（1春、2夏、3秋、4冬），只在该季节事件的工作完成之后才写入，因此每个事件每季只触发一次，读档也不会重复。范围0到4。
 CMC_SeasonSummer_StatName,Village Market Day Held This Summer,本夏已举行村庄集市日
@@ -3169,13 +3169,13 @@ CMC_WeaverTalk_DyeThanks_Line,"Oh, that colour has taken beautifully, and it is 
 CMC_WeaverTalk_DyeThanks_Answer_Thanks,Glad you like it.,你喜欢就好。
 CMC_Bp_CarpentryDecor_UnlockConditionsDesc,Graduate the Academy's Carpentry course,从学院的木工课程毕业
 CMC_Bp_BoarTrophy_CardName,Boar Tusk Trophy,野猪獠牙奖杯
-CMC_Bp_BoarTrophy_CardDescription,Mount a pair of boar tusks on a plank plaque for a little comfort at camp.,把一对野猪獠牙固定在木板上，为营地增添一点舒适感。
+CMC_Bp_BoarTrophy_CardDescription,Mount a pair of boar tusks on a plank plaque to make camp feel a little more like a sanctuary.,把一对野猪獠牙固定在木板上，让营地多一点庇护感。
 CMC_BoarTrophy_Placed_CardName,Boar Tusk Trophy,野猪獠牙奖杯
 CMC_BoarTrophy_Placed_CardDescription,"A pair of boar tusks mounted on a plank plaque. A hunter's pride, and good company at camp.",一对野猪獠牙固定在木板上。猎人的骄傲，也为营地添一份陪伴。
 CMC_BoarTrophy_Placed_CardHelpSection,"<b>Take Apart:</b> Splits the plaque back into its Plank, Tusks and Twine.",<b>拆解：</b>将奖杯拆回木板、獠牙和麻线。
 CMC_BoarTrophy_Placed_DA_TakeApart,Take Apart,拆解
 CMC_Bp_StagTrophy_CardName,Stag Antler Trophy,雄鹿鹿角奖杯
-CMC_Bp_StagTrophy_CardDescription,Mount a stag's antlers on a plank plaque for a little comfort at camp.,把一对雄鹿鹿角固定在木板上，为营地增添一点舒适感。
+CMC_Bp_StagTrophy_CardDescription,Mount a stag's antlers on a plank plaque to make camp feel a little more like a sanctuary.,把一对雄鹿鹿角固定在木板上，让营地多一点庇护感。
 CMC_StagTrophy_Placed_CardName,Stag Antler Trophy,雄鹿鹿角奖杯
 CMC_StagTrophy_Placed_CardDescription,A stag's antlers mounted on a plank plaque. A fine thing to sit beneath at the end of a hunt.,一对雄鹿鹿角固定在木板上。狩猎归来，坐在它下面再合适不过。
 CMC_StagTrophy_Placed_CardHelpSection,"<b>Take Apart:</b> Splits the plaque back into its Plank, Antlers and Twine.",<b>拆解：</b>将奖杯拆回木板、鹿角和麻线。
@@ -3334,11 +3334,11 @@ Bp_CMC_StockpileBones_CardDescription,Nail together a crate that keeps up to 50 
 CMC_Stockpile_Empty,The stockpile is empty.,这堆已经空了。
 CMC_Stockpile_BoiledBone,"That bone has begun to boil and would come back raw, so the crate will not take it.",这块骨头已经开始煮沸，取回时会变回生骨，所以木箱不肯收。
 CMC_Imp_WallPaintingCharcoal_CardName,Wall Painting (Charcoal),壁画（炭）
-CMC_Imp_WallPaintingCharcoal_CardDescription,"Hunts, hands and herds drawn on the walls in charcoal. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room.",用炭在墙上画出猎人、手印和兽群。能提升舒适度，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
+CMC_Imp_WallPaintingCharcoal_CardDescription,"Hunts, hands and herds drawn on the walls in charcoal. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room.",用炭在墙上画出猎人、手印和兽群。能提升房间的庇护感，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
 CMC_Imp_WallPaintingOchre_CardName,Wall Painting (Ochre),壁画（赭石）
-CMC_Imp_WallPaintingOchre_CardDescription,"Hunts, hands and herds drawn on the walls in ochre. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room.",用赭石在墙上画出猎人、手印和兽群。能提升舒适度，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
+CMC_Imp_WallPaintingOchre_CardDescription,"Hunts, hands and herds drawn on the walls in ochre. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room.",用赭石在墙上画出猎人、手印和兽群。能提升房间的庇护感，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
 CMC_Imp_WallPaintingBillberry_CardName,Wall Painting (Billberry),壁画（越橘）
-CMC_Imp_WallPaintingBillberry_CardDescription,"Hunts, hands and herds drawn on the walls in billberry. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room.",用越橘在墙上画出猎人、手印和兽群。能提升舒适度，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
+CMC_Imp_WallPaintingBillberry_CardDescription,"Hunts, hands and herds drawn on the walls in billberry. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room.",用越橘汁在墙上画出猎人、手印和兽群。能提升房间的庇护感，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
 CMC_Bp_Curtains_CardName,Curtains,窗帘
 CMC_Bp_Curtains_CardDescription,"Hang two large cloths over a window. Drawn, they keep the warmth in; open, the window lets the cabin fever out. Needs a built window in the room.",把两块大布挂在窗上。拉上时能留住暖意，拉开时窗子能缓解幽闭感。房间里需要已建好的窗户。
 CMC_CurtainsOpen_Placed_CardName,Curtains (Open),窗帘（拉开）
@@ -3352,13 +3352,13 @@ CMC_CurtainsDrawn_Placed_CardHelpSection,"<b>Open Curtains:</b> Ties them back. 
 CMC_CurtainsDrawn_Placed_DA_Open,Open Curtains,拉开窗帘
 CMC_CurtainsDrawn_Placed_DA_TakeApart,Take Apart,拆除
 CMC_InnCounter_OddJob_Stone_ActionName,Odd Job: Bring a Stone,零工：送一块石头
-CMC_InnCounter_OddJob_Stone_ActionDescription,"Today's job: the Inn needs a Stone for the hearth wall. Drag a Stone onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一块石头来砌壁炉墙。把一块石头拖到柜台上，劳作三小时（精力 -15，体力 -11），报酬为一枚铜块。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
+CMC_InnCounter_OddJob_Stone_ActionDescription,"Today's job: the Inn needs a Stone for the hearth wall. Drag a Stone onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一块石头来砌壁炉墙。把一块石头拖到柜台上，劳作两小时（精力 -10，体力 -7），报酬为一份盐。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
 CMC_InnCounter_OddJob_Rope_ActionName,Odd Job: Bring Rope,零工：送一段绳索
-CMC_InnCounter_OddJob_Rope_ActionDescription,"Today's job: the Inn needs a length of Rope for the cellar hoist. Drag the Rope onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一段绳索来修地窖的吊架。把绳索拖到柜台上，劳作三小时（精力 -15，体力 -11），报酬为一枚铜块。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
+CMC_InnCounter_OddJob_Rope_ActionDescription,"Today's job: the Inn needs a length of Rope for the cellar hoist. Drag the Rope onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一段绳索来修地窖的吊架。把绳索拖到柜台上，劳作两小时（精力 -10，体力 -7），报酬为一份盐。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
 CMC_InnCounter_OddJob_Ash_ActionName,Odd Job: Bring Ash,零工：送一把灰烬
-CMC_InnCounter_OddJob_Ash_ActionDescription,"Today's job: the Inn needs a handful of Ash for the lye pot. Drag the Ash onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一把灰烬来熬碱水。把灰烬拖到柜台上，劳作三小时（精力 -15，体力 -11），报酬为一枚铜块。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
+CMC_InnCounter_OddJob_Ash_ActionDescription,"Today's job: the Inn needs a handful of Ash for the lye pot. Drag the Ash onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一把灰烬来熬碱水。把灰烬拖到柜台上，劳作两小时（精力 -10，体力 -7），报酬为一份盐。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
 CMC_InnCounter_OddJob_Bowl_ActionName,Odd Job: Bring a Clay Bowl,零工：送一只陶碗
-CMC_InnCounter_OddJob_Bowl_ActionDescription,"Today's job: the Inn needs a Clay Bowl for the kitchen shelf. Drag the Clay Bowl onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一只陶碗放上厨房的架子。把陶碗拖到柜台上，劳作三小时（精力 -15，体力 -11），报酬为一枚铜块。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
+CMC_InnCounter_OddJob_Bowl_ActionDescription,"Today's job: the Inn needs a Clay Bowl for the kitchen shelf. Drag the Clay Bowl onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it.",今日零工：旅店需要一只陶碗放上厨房的架子。把陶碗拖到柜台上，劳作两小时（精力 -10，体力 -7），报酬为一份盐。每天一份，每天清晨张贴；村庄犯罪值不会让它关闭。
 CMC_OddJob_Done,Job done: the Inn hands you a copper nugget.,零工完成：旅店付给你一枚铜块。
 CMC_OddJob_NotToday,Nobody is asking for that today.,今天没有人要这个。
 CMC_InnOddJob_StatName,Inn Odd Job Today,旅店今日零工
@@ -3448,3 +3448,14 @@ CMC_Bp_LimewaterTrough_CardDescription,Four planks and a rope make a trough for 
 CMC_Bp_LimewaterTrough_UnlockConditionsDesc,No requirement,无要求
 CMC_ShadowCatPresent_StatName,Shadow Is Here,影子在此
 CMC_ShadowCatPresent_StatDescription,"Hidden tracker: 1 = a Shadow (wild, tamed or out hunting) exists somewhere in this run, so no second one turns up; 0 = none, or he slipped into the dark. Clamped to 0..1.",隐藏追踪：1 = 本局中某处已有一只影子（野生、已驯服或外出打猎），所以不会再出现第二只；0 = 没有，或他已溜进黑暗。范围限制在0到1。
+CMC_FishingNet_NoLuck,No luck...,一无所获……
+CMC_InnCounter_DA_Work_Desc,"Four hours of chores around the Inn (Energy -20, Stamina -15) for 2 Salt. One paid shift a day.",在旅店里干四小时杂活（精力 -20，体力 -15），报酬为2份盐。每天只有一班有报酬。
+CMC_InnCounter_DA_Service,Community Service,社区服务
+CMC_InnCounter_DA_Service_Desc,"Four hours of unpaid work for the village (Energy -20, Stamina -15). Pays nothing, but takes 6 off your Village Crime. Only while you have a record; no daily limit.",为村庄做四小时无偿劳动（精力 -20，体力 -15）。没有报酬，但会让你的村庄犯罪值降低6。仅在你有案底时可用；没有每日次数限制。
+CMC_InnGlow_StatName,Warm Evening,温暖夜晚
+CMC_InnGlow_StatDescription,An evening at the Inn table still warming you. It makes you more comfortable for a while and wears off over about half a day.,旅店餐桌旁的一晚仍让你心里暖洋洋的。它会让你在一段时间内更舒适，约半天后消退。
+CMC_InnGlow_Status_Name,Warm Evening,温暖夜晚
+CMC_InnGlow_Status_Description,Good company still warms you: you are more comfortable. It wears off within half a day.,良好的陪伴仍温暖着你：你感到更舒适。半天之内会消退。
+CMC_Commission_NotYet,Not yet. Come back a few days after you collect your last order.,还不行。取走上一份订单几天之后再来吧。
+CMC_Commission_FirstWeek,Not this week. Settle in first: commissions open once you have spent a week in the village.,这周不行。先安顿下来吧：在村里待满一周后才接受委托。
+CMC_Commission_Deposit,Put toward your cloth: {0} of {1} paid.,已计入你的布料费用：已付 {0} / {1}。

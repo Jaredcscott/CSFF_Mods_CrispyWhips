@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
@@ -31,6 +32,16 @@ namespace CommunityModChest.Patcher
         public const string CoinUid    = "e5f5d2a633f3437780d6198c3d1e9fdd"; // DurosCoinage: Metal Coin (optional soft dep)
 
         private const float SaltValue = 15f;
+
+        /// <summary>The stats every copper nugget the village pays out spawns with: Metal Quality 50, Quality 50,
+        /// Metal Type 100 (copper). A bare spawn is Metal Type 0, which smelts as nothing (vanilla balance pass row 2.3;
+        /// root CLAUDE.md "A perk's starting items spawn at the card's DEFAULT stats").</summary>
+        internal static readonly Dictionary<string, float> CopperNuggetStats = new()
+        {
+            { "SpecialDurability2", 50f },
+            { "SpecialDurability3", 50f },
+            { "SpecialDurability4", 100f },
+        };
         private const float DefaultMetalTypeValue = 100f; // copper fallback if SD4 is unreadable
         private const float NuggetValueMultiplier = 2.25f; // 90% of the 5-coins-per-nugget mint value (2.5x)
 

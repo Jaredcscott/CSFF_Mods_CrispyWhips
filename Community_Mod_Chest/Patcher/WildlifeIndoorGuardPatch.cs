@@ -110,10 +110,14 @@ namespace CommunityModChest.Patcher
             new ProtectedSet("village", "EncounterGuards/CMC_VillageNoWildlife.json", 1f,
                 "cmcEnvVillage",
                 "cmcEnvVillagePath",
-                "cmcEnvVillageFarm",
-                "cmcEnvHighGrove",
-                "cmcEnvPineTrail",
+                "cmcEnvVillageFarm"),
+            // Vanilla balance pass (1.69.17, plan Part II CMC-V-B5, owner tile 10): the village core stays
+            // safe, the four hunting-ground tiles around it are only half guarded, like the Foraging Forest.
+            // Keep 0.5 equal to CMC_VillageOutskirtsWildlife.json's SuppressChance / 100.
+            new ProtectedSet("outskirts", "EncounterGuards/CMC_VillageOutskirtsWildlife.json", 0.5f,
                 "cmcEnvHuntersCrossing",
+                "cmcEnvPineTrail",
+                "cmcEnvHighGrove",
                 "cmcEnvDeerMeadow"),
             // Plan J6: the Foraging Forest is only half guarded (safer than the open woods, never as
             // safe as the village). 0.5 is tunable; keep it equal to the JSON's SuppressChance / 100.
@@ -123,11 +127,11 @@ namespace CommunityModChest.Patcher
 
         private const string HuntingStandUid = "hunterscachehuntingstand";
 
-        // Tunable placeholder (plan A1): the share of a hostile agent's approaches onto the player's
-        // board that a Hunting Stand there turns back, decided once per agent per day. 0.45 matches
-        // the SuppressChance 45 that EncounterGuards/HuntingStandGuard.json applies to the null-NPC
-        // path and the "~45%" in the stand's help text; change all three together.
-        private const float HuntingStandRefuseChance = 0.45f;
+        // The share of a hostile agent's approaches onto the player's board that a Hunting Stand there
+        // turns back, decided once per agent per day. 0.25 (vanilla balance pass 1.69.17, plan Part II
+        // CMC-V-B6; 0.45 before) matches the SuppressChance 25 that EncounterGuards/HuntingStandGuard.json
+        // applies to the null-NPC path and the "~25%" in the stand's help text; change all three together.
+        private const float HuntingStandRefuseChance = 0.25f;
 
         private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
 

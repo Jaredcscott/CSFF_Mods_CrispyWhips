@@ -80,14 +80,15 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 60.0,
+    "FloatValue": 34560.0,
     "CardStatName": {
       "ParentObjectID": "cmcwoolquiltedcap",
       "LocalizationKey": "CMC_WoolQuiltedCap_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
-    "MaxValue": 60.0,
+    "MaxValue": 34560.0,
     "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": -0.5,
     "HidingOptions": 1,
     "TextDisplay": 1,
     "NumberPrecision": 0,

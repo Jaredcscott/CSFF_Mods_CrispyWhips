@@ -50,7 +50,7 @@
     "DismantleActions": [],
     "PassiveEffects": [],
     "ObjectWeight": 10.0,
-    "TradingValue": 30.0,
+    "TradingValue": 8.0,
     "MaxStack": 10,
     "DroppedCardShadow": 1
 }

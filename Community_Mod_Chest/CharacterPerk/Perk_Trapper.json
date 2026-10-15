@@ -5,8 +5,7 @@
     "AddedCardsWarpData": [
         "ece4346feb9fd2c46b6703a117d0bd3b",
         "7ee6dbdbddc8e7e4e9eb065f6a22df39",
-        "ea864f4a5124cfc4a9fd7ab7b19dfc30",
-        "61c2281634d336f4384916f0dab134e7"
+        "ea864f4a5124cfc4a9fd7ab7b19dfc30"
     ],
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
@@ -38,7 +37,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap, a Cage and a Hideout.",
+        "DefaultText": "You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap and a Cage.",
         "LocalizationKey": "CharacterTraits_Perk_Trapper_PerkDescription",
         "ParentObjectID": "traits_perk_trapper"
     },
@@ -49,7 +48,7 @@
     "PerkIconWarpData": "CMC_Pk_Trapper",
     "PerkIconWarpType": 3,
     "PerkName": {
-        "DefaultText": "Trapper",
+        "DefaultText": "Trapline",
         "LocalizationKey": "CharacterTraits_Perk_Trapper_PerkName",
         "ParentObjectID": "traits_perk_trapper"
     },

@@ -2,5 +2,5 @@
   "Name": "HuntingStandGuard",
   "GuardCardUids": ["hunterscachehuntingstand"],
   "EncounterUids": [],
-  "SuppressChance": 45
+  "SuppressChance": 25
 }

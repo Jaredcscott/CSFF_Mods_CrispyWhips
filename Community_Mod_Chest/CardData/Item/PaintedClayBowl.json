@@ -76,8 +76,9 @@
     "DismantleActions": [],
     "PassiveEffects": [
         {
-            "EffectName": "Comfort (+5)",
+            "EffectName": "Sanctuary (+5)",
             "OnlyWhenEquipped": false,
+            "OnBoardEffectCap": 4,
             "EquippedOnBodyOnly": false,
             "Conditions": {
                 "NotInBackground": true
@@ -85,7 +86,7 @@
             "StatModifiers": [
                 {
                     "Stat": { "m_FileID": 0, "m_PathID": 0 },
-                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
                     "StatWarpType": 3,
                     "ValueModifier": { "x": 5.0, "y": 5.0 },
                     "RateModifier": { "x": 0.0, "y": 0.0 },
@@ -125,7 +126,7 @@
         }
     ],
     "ObjectWeight": 75.0,
-    "TradingValue": 200.0,
+    "TradingValue": 60.0,
     "MaxStack": 1,
     "DroppedCardShadow": 1
 }

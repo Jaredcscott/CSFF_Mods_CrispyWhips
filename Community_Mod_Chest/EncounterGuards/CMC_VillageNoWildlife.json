@@ -3,11 +3,7 @@
   "GuardEnvironmentUids": [
     "cmcEnvVillage",
     "cmcEnvVillagePath",
-    "cmcEnvVillageFarm",
-    "cmcEnvHighGrove",
-    "cmcEnvPineTrail",
-    "cmcEnvHuntersCrossing",
-    "cmcEnvDeerMeadow"
+    "cmcEnvVillageFarm"
   ],
   "EncounterUids": [
     "4ce4b386231d17741aa540b11fd8e832",

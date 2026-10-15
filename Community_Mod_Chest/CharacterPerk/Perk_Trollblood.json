@@ -73,8 +73,8 @@
             "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": -200.0,
-                "y": -200.0
+                "x": -100.0,
+                "y": -100.0
             },
             "RateModifier": {
                 "x": 0.0,

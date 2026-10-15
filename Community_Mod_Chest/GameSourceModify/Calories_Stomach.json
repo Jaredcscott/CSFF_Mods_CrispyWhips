@@ -13,7 +13,7 @@
         "Category": { "m_FileID": 0, "m_PathID": 0 }
       },
       "Icon": { "m_FileID": 0, "m_PathID": 0 },
-      "ValueRange": { "x": 201, "y": 1000 },
+      "ValueRange": { "x": 201, "y": 500 },
       "EffectsOnStats": [
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },

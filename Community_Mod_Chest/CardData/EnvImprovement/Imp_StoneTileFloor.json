@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "cmcimpstonetilefloor",
     "LocalizationKey": "CMC_Imp_StoneTileFloor_CardDescription",
-    "DefaultText": "Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins, mud huts, and the village building interiors."
+    "DefaultText": "Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Raises the room's Sanctuary and insulation. Can be laid in cabins, mud huts, and the village building interiors."
   },
   "CardType": 10,
   "CardsOnBoard": [
@@ -98,8 +98,9 @@
   "RoadDirection": 0,
   "PassiveEffects": [
     {
-      "EffectName": "Comfort (+12)",
+      "EffectName": "Sanctuary (+50)",
       "OnlyWhenEquipped": false,
+      "OnBoardEffectCap": 4,
       "EquippedOnBodyOnly": false,
       "OnlyWhenNOTInBG": true,
       "Conditions": {
@@ -108,9 +109,9 @@
       "StatModifiers": [
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+          "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 12.0, "y": 12.0 },
+          "ValueModifier": { "x": 50.0, "y": 50.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },

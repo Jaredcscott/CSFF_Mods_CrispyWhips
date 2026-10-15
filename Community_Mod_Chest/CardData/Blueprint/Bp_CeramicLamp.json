@@ -114,6 +114,6 @@
     },
     "CardImageWarpData": "CeramicLamp",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 4.0,
+    "BlueprintUnlockTicksCost": 32.0,
     "ResearchedNotification": 0
 }

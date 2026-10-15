@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "cmcfishingnet",
         "LocalizationKey": "CMC_FishingNet_CardDescription",
-        "DefaultText": "A hand-thrown casting net knotted from twine and stretched on sticks. Heave it into the water to catch several fish at once. Wears out after repeated use."
+        "DefaultText": "A hand-thrown casting net knotted from twine and stretched on sticks. Heave it into the water: often it comes back empty, sometimes with a fish or two. Wears out after repeated use."
     },
     "CardType": 0,
     "ObjectWeight": 400.0,
@@ -29,13 +29,13 @@
     },
     "UsageDurability": {
         "Active": true,
-        "FloatValue": 10.0,
+        "FloatValue": 8.0,
         "CardStatName": {
             "ParentObjectID": "cmcfishingnet",
             "LocalizationKey": "CMC_FishingNet_UsageDurability_CardStatName",
             "DefaultText": "Casts"
         },
-        "MaxValue": 10.0,
+        "MaxValue": 8.0,
         "RatePerDaytimePoint": 0.0,
         "HidingOptions": 1,
         "TextDisplay": 1,
@@ -111,69 +111,41 @@
             "HideIfConditionsNotMet": true,
             "ProducedCards": [
                 {
-                    "CollectionName": "Small Catch",
-                    "CollectionWeight": 2000,
+                    "CollectionName": "Nothing", "RevealInventory": true,
+                    "CollectionMessages": [ { "ParentObjectID": "cmcfishingnet", "LocalizationKey": "CMC_FishingNet_NoLuck", "DefaultText": "No luck..." } ],
+                    "CollectionWeight": 4000,
                     "DroppedCards": [
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 2, "y": 2 }
-                        }
+                        { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "Quantity": { "x": 1, "y": 1 } }
+                    ]
+                },
+                {
+                    "CollectionName": "Small Catch",
+                    "CollectionWeight": 3200,
+                    "DroppedCards": [
+                        { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } }
                     ]
                 },
                 {
                     "CollectionName": "Good Catch",
-                    "CollectionWeight": 1500,
+                    "CollectionWeight": 1600,
                     "DroppedCards": [
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 1, "y": 1 }
-                        },
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 1, "y": 1 }
-                        }
+                        { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } }
                     ]
                 },
                 {
                     "CollectionName": "Great Catch",
-                    "CollectionWeight": 1000,
+                    "CollectionWeight": 700,
                     "DroppedCards": [
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 2, "y": 2 }
-                        },
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 1, "y": 1 }
-                        }
+                        { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } },
+                        { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } }
                     ]
                 },
                 {
                     "CollectionName": "Lucky Catch",
                     "CollectionWeight": 500,
                     "DroppedCards": [
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 1, "y": 1 }
-                        },
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "f4972170adc8b3d4f9d4bc09c6e7f760",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 1, "y": 1 }
-                        }
+                        { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } },
+                        { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "f4972170adc8b3d4f9d4bc09c6e7f760", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } }
                     ]
                 }
             ],

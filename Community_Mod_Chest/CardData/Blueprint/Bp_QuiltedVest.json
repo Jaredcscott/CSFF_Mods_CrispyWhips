@@ -86,6 +86,6 @@
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardImageWarpData": "QuiltedVest",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 16.0,
+  "BlueprintUnlockTicksCost": 96.0,
   "ResearchedNotification": 0
 }

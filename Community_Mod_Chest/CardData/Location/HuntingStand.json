@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "hunterscachehuntingstand",
     "LocalizationKey": "Hunters_Cache_HuntingStand_CardHelpSection",
-    "DefaultText": "<b>Effect:</b> While this stand is at a location, wild-animal encounters there have a ~45% chance to be averted.\n\n<b>Take Down:</b> Recover the stand as a portable kit.\n\n<b>Dismantle:</b> Break it down into planks and sticks."
+    "DefaultText": "<b>Effect:</b> While this stand is at a location, wild-animal encounters there have a ~25% chance to be averted.\n\n<b>Take Down:</b> Recover the stand as a portable kit.\n\n<b>Dismantle:</b> Break it down into planks and sticks."
   },
   "CardType": 2,
   "ObjectWeight": 800.0,

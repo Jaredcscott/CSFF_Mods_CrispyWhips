@@ -1,0 +1,89 @@
+{
+    "UniqueID": "cmcStatInnGlow",
+    "GameName": {
+        "ParentObjectID": "cmcStatInnGlow",
+        "LocalizationKey": "CMC_InnGlow_StatName",
+        "DefaultText": "Warm Evening"
+    },
+    "Description": {
+        "ParentObjectID": "cmcStatInnGlow",
+        "LocalizationKey": "CMC_InnGlow_StatDescription",
+        "DefaultText": "An evening at the Inn table still warming you. It makes you more comfortable for a while and wears off over about half a day."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 48.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "DefaultStatusIconWarpData": "Fireplace_On",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatInnGlow",
+                "LocalizationKey": "CMC_InnGlow_Status_Name",
+                "DefaultText": "Warm Evening"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatInnGlow",
+                "LocalizationKey": "CMC_InnGlow_Status_Description",
+                "DefaultText": "Good company still warms you: you are more comfortable. It wears off within half a day."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Fireplace_On",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 1, "y": 48},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 10.0, "y": 10.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

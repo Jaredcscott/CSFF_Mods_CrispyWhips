@@ -9,7 +9,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "CMC_InnCounter_CardDescription",
-    "DefaultText": "The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it for Salt. There is usually odd work available too, paid in copper nuggets."
+    "DefaultText": "The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt."
   },
   "CardImageWarpData": "VillageInnDesk",
   "CardImageWarpType": 3,
@@ -74,7 +74,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_CI_SellFirewood_Desc",
-        "DefaultText": "Hand over a bundle of firewood for the hearth. Oak and Alder fetch 2 Salt; Birch, Pine, and Willow fetch 1."
+        "DefaultText": "Hand over a bundle of firewood for the hearth. Every fourth bundle earns a Salt."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,
@@ -258,9 +258,9 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_OddJob_Stone_ActionDescription",
-        "DefaultText": "Today's job: the Inn needs a Stone for the hearth wall. Drag a Stone onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+        "DefaultText": "Today's job: the Inn needs a Stone for the hearth wall. Drag a Stone onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it."
       },
-      "DaytimeCost": 12,
+      "DaytimeCost": 8,
       "UseMiniTicks": 0,
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
@@ -275,8 +275,8 @@
         "TriggerCardsWarpType": 3
       },
       "StatModifications": [
-        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
-        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -11.0, "y": -11.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -7.0, "y": -7.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "InstantModifier": true, "ApplyEachTick": false }
       ],
       "GivenCardChanges": {
@@ -292,35 +292,9 @@
           "DroppedCards": [
             {
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 1 },
-              "TransferRules": {
-                "Spoilage": 0,
-                "Usage": 0,
-                "Fuel": 0,
-                "Progress": 0,
-                "Special1": 0,
-                "Special2": 3,
-                "Special3": 3,
-                "Special4": 3,
-                "SpoilageValue": 0.0,
-                "UsageValue": 0.0,
-                "FuelValue": 0.0,
-                "ProgressValue": 0.0,
-                "Special1Value": 0.0,
-                "Special2Value": 50.0,
-                "Special3Value": 50.0,
-                "Special4Value": 100.0,
-                "SpoilageFrom": 0,
-                "UsageFrom": 0,
-                "FuelFrom": 0,
-                "ProgressFrom": 0,
-                "Special1From": 0,
-                "Special2From": 0,
-                "Special3From": 0,
-                "Special4From": 0
-              }
+              "Quantity": { "x": 1, "y": 1 }
             }
           ]
         }
@@ -333,9 +307,9 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_OddJob_Rope_ActionDescription",
-        "DefaultText": "Today's job: the Inn needs a length of Rope for the cellar hoist. Drag the Rope onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+        "DefaultText": "Today's job: the Inn needs a length of Rope for the cellar hoist. Drag the Rope onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it."
       },
-      "DaytimeCost": 12,
+      "DaytimeCost": 8,
       "UseMiniTicks": 0,
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
@@ -350,8 +324,8 @@
         "TriggerCardsWarpType": 3
       },
       "StatModifications": [
-        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
-        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -11.0, "y": -11.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -7.0, "y": -7.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "ValueModifier": { "x": -2.0, "y": -2.0 }, "InstantModifier": true, "ApplyEachTick": false }
       ],
       "GivenCardChanges": {
@@ -367,35 +341,9 @@
           "DroppedCards": [
             {
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 1 },
-              "TransferRules": {
-                "Spoilage": 0,
-                "Usage": 0,
-                "Fuel": 0,
-                "Progress": 0,
-                "Special1": 0,
-                "Special2": 3,
-                "Special3": 3,
-                "Special4": 3,
-                "SpoilageValue": 0.0,
-                "UsageValue": 0.0,
-                "FuelValue": 0.0,
-                "ProgressValue": 0.0,
-                "Special1Value": 0.0,
-                "Special2Value": 50.0,
-                "Special3Value": 50.0,
-                "Special4Value": 100.0,
-                "SpoilageFrom": 0,
-                "UsageFrom": 0,
-                "FuelFrom": 0,
-                "ProgressFrom": 0,
-                "Special1From": 0,
-                "Special2From": 0,
-                "Special3From": 0,
-                "Special4From": 0
-              }
+              "Quantity": { "x": 1, "y": 1 }
             }
           ]
         }
@@ -408,9 +356,9 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_OddJob_Ash_ActionDescription",
-        "DefaultText": "Today's job: the Inn needs a handful of Ash for the lye pot. Drag the Ash onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+        "DefaultText": "Today's job: the Inn needs a handful of Ash for the lye pot. Drag the Ash onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it."
       },
-      "DaytimeCost": 12,
+      "DaytimeCost": 8,
       "UseMiniTicks": 0,
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
@@ -425,8 +373,8 @@
         "TriggerCardsWarpType": 3
       },
       "StatModifications": [
-        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
-        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -11.0, "y": -11.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -7.0, "y": -7.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "ValueModifier": { "x": -3.0, "y": -3.0 }, "InstantModifier": true, "ApplyEachTick": false }
       ],
       "GivenCardChanges": {
@@ -442,35 +390,9 @@
           "DroppedCards": [
             {
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 1 },
-              "TransferRules": {
-                "Spoilage": 0,
-                "Usage": 0,
-                "Fuel": 0,
-                "Progress": 0,
-                "Special1": 0,
-                "Special2": 3,
-                "Special3": 3,
-                "Special4": 3,
-                "SpoilageValue": 0.0,
-                "UsageValue": 0.0,
-                "FuelValue": 0.0,
-                "ProgressValue": 0.0,
-                "Special1Value": 0.0,
-                "Special2Value": 50.0,
-                "Special3Value": 50.0,
-                "Special4Value": 100.0,
-                "SpoilageFrom": 0,
-                "UsageFrom": 0,
-                "FuelFrom": 0,
-                "ProgressFrom": 0,
-                "Special1From": 0,
-                "Special2From": 0,
-                "Special3From": 0,
-                "Special4From": 0
-              }
+              "Quantity": { "x": 1, "y": 1 }
             }
           ]
         }
@@ -483,9 +405,9 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_OddJob_Bowl_ActionDescription",
-        "DefaultText": "Today's job: the Inn needs a Clay Bowl for the kitchen shelf. Drag the Clay Bowl onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+        "DefaultText": "Today's job: the Inn needs a Clay Bowl for the kitchen shelf. Drag the Clay Bowl onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it."
       },
-      "DaytimeCost": 12,
+      "DaytimeCost": 8,
       "UseMiniTicks": 0,
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
@@ -500,8 +422,8 @@
         "TriggerCardsWarpType": 3
       },
       "StatModifications": [
-        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
-        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -11.0, "y": -11.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -7.0, "y": -7.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "cmcStatInnOddJob", "StatWarpType": 3, "ValueModifier": { "x": -4.0, "y": -4.0 }, "InstantModifier": true, "ApplyEachTick": false }
       ],
       "GivenCardChanges": {
@@ -517,35 +439,9 @@
           "DroppedCards": [
             {
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 1 },
-              "TransferRules": {
-                "Spoilage": 0,
-                "Usage": 0,
-                "Fuel": 0,
-                "Progress": 0,
-                "Special1": 0,
-                "Special2": 3,
-                "Special3": 3,
-                "Special4": 3,
-                "SpoilageValue": 0.0,
-                "UsageValue": 0.0,
-                "FuelValue": 0.0,
-                "ProgressValue": 0.0,
-                "Special1Value": 0.0,
-                "Special2Value": 50.0,
-                "Special3Value": 50.0,
-                "Special4Value": 100.0,
-                "SpoilageFrom": 0,
-                "UsageFrom": 0,
-                "FuelFrom": 0,
-                "ProgressFrom": 0,
-                "Special1From": 0,
-                "Special2From": 0,
-                "Special3From": 0,
-                "Special4From": 0
-              }
+              "Quantity": { "x": 1, "y": 1 }
             }
           ]
         }
@@ -560,7 +456,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_DA_Meal_Desc",
-        "DefaultText": "Draws 50 from your Inn Account (more while you are Wanted or Banished). Restores Satiation, Thirst, and Fullness. Provides Protein, Iron, and Vitamins. Tastes great."
+        "DefaultText": "Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -571,7 +467,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "930cf914322e9f145af1315d96f85a28",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 120.0, "y": 120.0 },
+          "ValueModifier": { "x": 50.0, "y": 50.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "ApplyEachTick": false,
           "InstantModifier": true
@@ -580,7 +476,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 150.0, "y": 150.0 },
+          "ValueModifier": { "x": 60.0, "y": 60.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "ApplyEachTick": false,
           "InstantModifier": true
@@ -589,7 +485,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 60.0, "y": 60.0 },
+          "ValueModifier": { "x": 55.0, "y": 55.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "ApplyEachTick": false,
           "InstantModifier": true
@@ -598,7 +494,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 200.0, "y": 200.0 },
+          "ValueModifier": { "x": 52.0, "y": 52.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "ApplyEachTick": false,
           "InstantModifier": true
@@ -607,7 +503,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "09c2ec726d9e9f64f87eb675b8e5f005",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 150.0, "y": 150.0 },
+          "ValueModifier": { "x": 48.0, "y": 48.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "ApplyEachTick": false,
           "InstantModifier": true
@@ -616,7 +512,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "f1d5fe40048674e408f56be22beaf6ae",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 120.0, "y": 120.0 },
+          "ValueModifier": { "x": 34.0, "y": 34.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "ApplyEachTick": false,
           "InstantModifier": true
@@ -625,7 +521,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 120.0, "y": 120.0 },
+          "ValueModifier": { "x": 12.0, "y": 12.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "ApplyEachTick": false,
           "InstantModifier": true
@@ -634,7 +530,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
           "StatWarpType": 3,
-          "ValueModifier": { "x": 20.0, "y": 20.0 },
+          "ValueModifier": { "x": 8.0, "y": 8.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "ApplyEachTick": false,
           "InstantModifier": true
@@ -880,11 +776,19 @@
         "LocalizationKey": "CMC_InnCounter_DA_Work",
         "DefaultText": "Work Odd Jobs"
       },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_DA_Work_Desc",
+        "DefaultText": "Four hours of chores around the Inn (Energy -20, Stamina -15) for 2 Salt. One paid shift a day."
+      },
       "DaytimeCost": 16,
       "UseMiniTicks": 0,
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatInnWorkCooldown", "StatWarpType": 3, "TriggerRange": { "x": 0.0, "y": 0.0 } }
+      ],
       "StatModifications": [
+        { "StatWarpData": "cmcStatInnWorkCooldown", "StatWarpType": 3, "ValueModifier": { "x": 96.0, "y": 96.0 }, "InstantModifier": true, "ApplyEachTick": false },
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
@@ -911,13 +815,40 @@
           "DroppedCards": [
             {
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 2 }
+              "Quantity": { "x": 2, "y": 2 }
             }
           ]
         }
       ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_DA_Service",
+        "DefaultText": "Community Service"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_DA_Service_Desc",
+        "DefaultText": "Four hours of unpaid work for the village (Energy -20, Stamina -15). Pays nothing, but takes 6 off your Village Crime. Only while you have a record; no daily limit."
+      },
+      "DaytimeCost": 16,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": { "x": 0.5, "y": 100.0 } }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "ValueModifier": { "x": -6.0, "y": -6.0 }, "InstantModifier": true, "ApplyEachTick": false }
+      ],
+      "ProducedCards": [],
       "ReceivingCardChanges": {
         "ModType": 0
       }
@@ -944,7 +875,7 @@
         { "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": { "x": 30.0, "y": 30.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
-        { "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": { "x": 15.0, "y": 15.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnGlow", "StatWarpType": 3, "ValueModifier": { "x": 48.0, "y": 48.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": { "x": 15.0, "y": 15.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -10.0, "y": -10.0 }, "InstantModifier": true, "ApplyEachTick": false },
@@ -979,7 +910,7 @@
         { "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": { "x": -30.0, "y": -30.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": { "x": 40.0, "y": 40.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "InstantModifier": true, "ApplyEachTick": false },
-        { "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": { "x": 25.0, "y": 25.0 }, "InstantModifier": true, "ApplyEachTick": false },
+        { "StatWarpData": "cmcStatInnGlow", "StatWarpType": 3, "ValueModifier": { "x": 48.0, "y": 48.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": { "x": 35.0, "y": 35.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "InstantModifier": true, "ApplyEachTick": false },
         { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "InstantModifier": true, "ApplyEachTick": false },

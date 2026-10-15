@@ -13,7 +13,7 @@
   "CardType": 0,
   "ObjectWeight": 25.0,
   "WeightReductionWhenEquipped": -25.0,
-  "TradingValue": 6.0,
+  "TradingValue": 5.0,
   "CardImage": {
     "m_FileID": 0,
     "m_PathID": 0

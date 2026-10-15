@@ -51,7 +51,6 @@
                 {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -20.0, "y": -20.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": {"x": 30.0, "y": 30.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false},
-                {"StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false},
                 {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false}

@@ -100,8 +100,8 @@ CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader
 CharacterTraits_Perk_NaturalTrader_PerkDescription,"You have a knack for dealing with people. Start with a significantly advanced Social skill, making trader interactions and NPC negotiations more favourable from the outset."
 CharacterTraits_Perk_Swimmer_PerkName,Swimmer
 CharacterTraits_Perk_Swimmer_PerkDescription,"You are at home in the water. Start with a head start in Swimming that opens the cheaper river crossing from day one, and keep a steady Swimming Aid as strong as one spirit blessing."
-CharacterTraits_Perk_Trapper_PerkName,Trapper
-CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap, a Cage and a Hideout."
+CharacterTraits_Perk_Trapper_PerkName,Trapline
+CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap and a Cage."
 Pottery_Sculpture_Pigment_CardName,Charcoal Pigment
 Pottery_Sculpture_Pigment_CardDescription,"A fine black powder made by grinding charcoal. Used to paint and decorate pottery, or rubbed into cloth, straw or leather to dye it charcoal-grey."
 Pottery_Sculpture_PaintedBowl_CardName,Painted Clay Bowl
@@ -236,7 +236,7 @@ Comfort_Bp_CopperBedFrame_CardDescription,Build a bed frame from wood planks bra
 Comfort_Bp_CopperBedFrame_UnlockConditionsDesc,Earn the Inn Keeper's friendship (30) and a Metal Sheet
 Comfort_ComfortableBed_Placed_CardName,Comfortable Bed
 Comfort_ComfortableBed_Placed_CardDescription,A proper bed: a down-stuffed mattress mounted on a copper-braced wooden frame. The best night's sleep you can build in the wild.
-Comfort_ComfortableBed_Placed_CardHelpSection,"<b>Usage:</b> Nap or Sleep on it for the best rest available, and its warmth passively lifts perceived temperature while you're in this environment.
+Comfort_ComfortableBed_Placed_CardHelpSection,"<b>Usage:</b> Nap or Sleep on it for the best rest available, and its bedding keeps you a little warmer while you rest in it.
 
 <b>Take Apart:</b> Splits the bed back into its Down Mattress and Copper Bed Frame so you can move it to a new camp."
 Comfort_ComfortableBed_Placed_DA_Nap,Nap
@@ -320,7 +320,7 @@ CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before —
 CharacterTraits_Perk_QuietVillage_PerkName,Quiet Village
 CharacterTraits_Perk_QuietVillage_PerkDescription,"The village keeps to itself. The Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of travelling or foraging, and the Town Watch has stood down entirely -- none of the four guards take up their posts. Reduces simulation overhead, at the cost of the Watch's crime-and-pursuit content and the villagers' wandering and forage behavior. Recommended on lower-end systems."
 CharacterTraits_Perk_Graduate_PerkName,Graduate
-CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall."
+CharacterTraits_Perk_Graduate_PerkDescription,"You are a quick study. Every Academy course takes you half its sessions, and so half its tuition; you still sit each final exam to earn the course's graduate perk and blueprints."
 Combat_And_Armor_StoneMace_OnZero,Stone Mace Broken!
 Combat_And_Armor_WoodenShield_OnZero,Shield Destroyed!
 Combat_And_Armor_QuiltedVest_OnZero,Vest Destroyed!
@@ -332,7 +332,7 @@ Bp_CMC_IronFishingRodFittings_CardName,Iron Fishing Rod Fittings
 Bp_CMC_IronFishingRodFittings_CardDescription,Forge iron fittings for a superior fishing rod. Requires a heated iron nugget and a forge hammer.
 Bp_CMC_IronFishingRodFittings_UnlockConditionsDesc,Iron Nugget and Forge Hammer Needed
 CMC_IronFishingRod_CardName,Iron Fishing Rod
-CMC_IronFishingRod_CardDescription,A well-crafted rod with iron fittings a long stick and rustic line. Provides a fishing advantage and aids stamina recovery while carried.
+CMC_IronFishingRod_CardDescription,"A well-crafted rod with iron fittings, a long stick and rustic line. Held in hand, it gives a steady fishing advantage."
 CMC_IronFishingRod_UsageDurability,Durability
 CMC_IronFishingRod_OnZero,Rod Broken!
 CMC_IronFishingRod_Dismantle_ActionName,Dismantle
@@ -340,7 +340,7 @@ CMC_IronFishingRod_Dismantle_ActionDescription,"Take the rod apart to recover th
 CMC_IronFishingRod_Fish_ActionName,Cast Line
 CMC_IronFishingRod_Fish_ActionDescription,Cast your iron-fitted line into the water and wait for a bite.
 Bp_CMC_IronFishingRod_CardName,Iron Fishing Rod
-Bp_CMC_IronFishingRod_CardDescription,Assemble a superior fishing rod from iron fittings a long stick and a rustic fishing line. Provides a fishing advantage and aids stamina recovery while carried.
+Bp_CMC_IronFishingRod_CardDescription,"Assemble a superior fishing rod from iron fittings, a long stick and a rustic fishing line. Held in hand, it gives a steady fishing advantage."
 Bp_CMC_IronFishingRod_UnlockConditionsDesc,Iron Fishing Rod Fittings Needed
 CMC_OldGrowthBark_CardName,Old Growth Bark
 CMC_OldGrowthBark_CardDescription,"Thick bark peeled from the ancient oaks of the Foraging Forest. Rich with aromatic tannins, ground together with wild garlic into a soothing herb paste."
@@ -367,7 +367,7 @@ Pottery_Sculpture_HerbPaste_CardDescription,"A thick paste ground from wild garl
 Pottery_Sculpture_HerbPaste_Spoiled,The herb paste has gone rancid.
 Pottery_Sculpture_HerbPaste_DA_Eat,Eat
 Pottery_Sculpture_Bp_HerbPaste_CardName,Herb Paste
-Pottery_Sculpture_Bp_HerbPaste_CardDescription,Grind wild garlic and old growth bark together using a stone or hammer. The resulting paste provides nourishment and comfort.
+Pottery_Sculpture_Bp_HerbPaste_CardDescription,Grind wild garlic and old growth bark together using a stone or hammer. The resulting paste provides nourishment and eases stress.
 Pottery_Sculpture_Bp_HerbPaste_UnlockConditionsDesc,Help the Apothecary forage three fresh herbs
 Comfort_WovenWallHanging_CardName,Woven Wall Hanging
 Comfort_WovenWallHanging_CardDescription,A panel of dried rye straw woven into a decorative hanging and dyed with natural pigment. Warm earthy tones make any space feel more like home.
@@ -461,7 +461,7 @@ Pottery_PaintedCup_Broken,The painted cup has shattered.
 Pottery_PaintedPlate_UsageDurability,Durability
 Pottery_PaintedPlate_Broken,The painted plate has shattered.
 CMC_FishingNet_CardName,Fishing Net
-CMC_FishingNet_CardDescription,A hand-thrown casting net knotted from twine and stretched on sticks. Heave it into the water to catch several fish at once. Wears out after repeated use.
+CMC_FishingNet_CardDescription,"A hand-thrown casting net knotted from twine and stretched on sticks. Heave it into the water: often it comes back empty, sometimes with a fish or two. Wears out after repeated use."
 CMC_FishingNet_UsageDurability_CardStatName,Casts
 CMC_FishingNet_WornOut,The fishing net has worn through and can no longer be cast.
 CMC_FishingNet_DA_CastNet,Cast Net
@@ -484,7 +484,7 @@ CharacterTraits_Perk_Trollblood_PerkDescription,"Thick, stubborn blood runs in y
 CharacterTraits_Perk_SpirituallyHarmonious_PerkName,Spiritually Harmonious
 CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,You are at peace with the world around you. You can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.
 CharacterTraits_Perk_WideHands_PerkName,Wide Hands
-CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start ahead in Crafting and Knapping, and always count as a little more skilled at both, so the things you make come out a little better."
+CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start well ahead in Crafting and Knapping."
 CharacterTraits_Perk_Claws_PerkName,Claws
 CharacterTraits_Perk_Claws_PerkDescription,"Your fingernails grow hard and talon-like, giving you an edge in close quarters. Start with a head start in Knife Fighting and Melee Fighting, and keep a steady Ambush Aid and Chasing Aid, each as strong as one spirit blessing."
 CharacterTraits_Perk_Troglodyte_PerkName,Troglodyte
@@ -506,7 +506,7 @@ CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not loo
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth
 CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing."
 CharacterTraits_Perk_Leper_PerkName,Leper
-CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people."
+CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Pain sits far lighter on you. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people."
 CharacterTraits_Perk_Fugitive_PerkName,Fugitive
 CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most. Word of you has reached the village Watch: on your first visit there you are already Suspected."
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist
@@ -588,7 +588,7 @@ CMC_TraitDrunkard_Status_HorriblyDrunk_Description,"Plenty to drink and you are 
 CMC_Imp_RiverBridge_CardName,River Bridge
 CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor
-CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins, mud huts, and the village building interiors."
+CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Raises the room's Sanctuary and insulation. Can be laid in cabins, mud huts, and the village building interiors."
 CMC_MarketStallKit_CardName,Market Stall Kit
 CMC_MarketStallKit_CardDesc,"A portable market stall. Can only be assembled in the village: merchants need foot traffic to buy your wares. Once placed, drop trade goods into the stall inventory and collect earnings as copper or salt over time."
 CMC_MarketStallKit_Help,Market Stall Kit
@@ -614,9 +614,9 @@ CMC_InnExit_CardName,Inn Door
 CMC_InnExit_DA_Exit,Exit
 CMC_InnExit_DA_Exit_Fade,Leaving the inn...
 CMC_InnCounter_CardName,Inn Counter
-CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it for Salt. There is usually odd work available too, paid in copper nuggets."
+CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt."
 CMC_InnCounter_DA_Meal,Purchase Meal
-CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Restores Satiation, Thirst, and Fullness. Provides Protein, Iron, and Vitamins. Tastes great."
+CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you."
 CMC_InnCounter_DA_Sleep,Stay the Night
 CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call)."
 CMC_InnCounter_DA_Sleep_Interrupt_Thirsty,I'm too thirsty to sleep...
@@ -633,7 +633,7 @@ CMC_InnCounter_Prog_Account,Inn Account
 CMC_InnCounter_CI_Deposit,Deposit Currency
 CMC_InnCounter_CI_Deposit_Desc,"Adds the value of the dragged Salt, Nugget, or Duros Coin to the Inn Account (max 500)."
 CMC_InnCounter_CI_SellFirewood,Sell Firewood
-CMC_InnCounter_CI_SellFirewood_Desc,"Hand over a bundle of firewood for the hearth. Oak and Alder fetch 2 Salt; Birch, Pine, and Willow fetch 1."
+CMC_InnCounter_CI_SellFirewood_Desc,Hand over a bundle of firewood for the hearth. Every fourth bundle earns a Salt.
 CMC_InnKeeper_AgentName,Inn Keeper
 CMC_InnKeeper_AgentDescription,"Keeps the Village Inn running: meals, a bed, and a friendly ear."
 CMC_InnKeeper_Chat_ActionName,Chat
@@ -751,11 +751,11 @@ CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate
 CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet and Bronze Sheet recipes are yours outright, with no research needed, and, with Water-Driven Infrastructure installed and an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better."
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate
-CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's herbalism course. Every forage gives you twice as much. The extra finds are added as you gather them, so they do not show up in any drop-chance list."
+CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's herbalism course. Each herb or mushroom you forage has a one-in-four chance to come in double. The extra finds are added as you gather them, so they do not show up in any drop-chance list."
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate
 CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fishing course. The Iron Fishing Rod recipe is yours, and you've learned to read the water: you keep a steady Fishing Aid as strong as one spirit blessing."
 CharacterTraits_Perk_GradArmorer_PerkName,Armorer Graduate
-CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. Every metal armor recipe is yours (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields), and your Smithing counts 25 higher, so your metalwork comes out better."
+CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. Every metal armor recipe is yours (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields), and your Smithing counts 10 higher, so your metalwork comes out better."
 CharacterTraits_Perk_GradMedicine_PerkName,Medicine Graduate
 CharacterTraits_Perk_GradMedicine_PerkDescription,"You completed the Academy's medicine course. You know how to dress a wound and manage pain, so your wounds bleed a little less and aches sit a little lighter."
 CMC_AcademyLectern_DA_Fishing,Study Fishing
@@ -1143,7 +1143,7 @@ Hunters_Cache_HuntingStandKit_SetUp_ActionName,Set Up
 Hunters_Cache_HuntingStandKit_SetUp_ActionDescription,Lash the platform to a sturdy tree at this location.
 Hunters_Cache_HuntingStand_CardName,Hunting Stand
 Hunters_Cache_HuntingStand_CardDescription,A simple elevated platform lashed to a tree. Being off the ground makes you much harder for predators to detect.
-Hunters_Cache_HuntingStand_CardHelpSection,"<b>Effect:</b> While this stand is at a location, wild-animal encounters there have a ~45% chance to be averted.
+Hunters_Cache_HuntingStand_CardHelpSection,"<b>Effect:</b> While this stand is at a location, wild-animal encounters there have a ~25% chance to be averted.
 
 <b>Take Down:</b> Recover the stand as a portable kit.
 
@@ -1838,7 +1838,7 @@ CMC_BrambleThicket_CI_Cut_Sickle_ActionDescription,"Hack a path through the bram
 CMC_BrambleThicket_CI_Cut_ByHand_ActionName,Tear Through the Bramble Thicket by Hand
 CMC_BrambleThicket_CI_Cut_ByHand_ActionDescription,"Wrestle through the brambles with your bare hands. Slower and more tiring than a sickle, but it clears the trail to Sett Warren all the same."
 CharacterTraits_Perk_Homestead_PerkName,Founders Kit
-CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once."
+CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once."
 CMC_ProfessorGreeting_CourseAckArchitecture_Line,"Architecture, passed with a design I'll admit I stole a diagram from for next term's lecture. Water doesn't forgive a bad angle the way earth does, but you found the right one. With Water-Driven Infrastructure installed, a water-driven sawmill and grinding mill are within your skill now, real ones, not the toy models I sketch on the board, and with a Metallurgy degree beside it you'll be casting your own forge fittings before the season turns."
 CMC_ProfessorGreeting_CourseAckArmorer_Line,"Armorer, passed, and passed properly, no student of mine gets a breastplate pattern without proving they understand why the rivets go where they go. Copper will do in a pinch, but iron will actually keep you alive out past the tree line, helm, greaves, gauntlets, the full set is yours to make now. I'd rather you never need it. I'd rather you have it anyway."
 CMC_ProfessorGreeting_CourseAckFishing_Line,"You passed Fishing, and unlike most of my courses this one I actually enjoy grading, mostly because it involves an afternoon by the water instead of a stack of essays. The iron fittings for a proper rod are yours to build now, sturdier than anything whittled from green wood. My uncle's mythical river monster is still out there uncaught, incidentally, should you fancy a rematch on his behalf."
@@ -2160,7 +2160,7 @@ CMC_CarpentryBench_DA_CarpentryFinal,Final Exam: Carpentry
 CMC_CarpentryBench_DA_CarpentryFinal_Desc,"The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe, Wicker Chair and Training Post blueprints, plus the hunt trophies and camp furnishings."
 CMC_CarpentryBench_FinalNotReady,You are not ready for the final examination.
 CharacterTraits_Perk_GradCarpentry_PerkName,Carpentry Graduate
-CharacterTraits_Perk_GradCarpentry_PerkDescription,"You completed the Academy's carpentry course. The Outfit Wardrobe, Wicker Chair, Training Post, hunt trophy and camp furnishing blueprints are yours, and you keep a steady Beaver Blessing as strong as one spirit blessing."
+CharacterTraits_Perk_GradCarpentry_PerkDescription,"You completed the Academy's carpentry course. The Outfit Wardrobe, Wicker Chair, Training Post, hunt trophy and camp furnishing blueprints are yours, and your Woodworking counts 15 higher."
 CMC_Bp_WickerChair_CardName,Wicker Chair
 CMC_Bp_WickerChair_CardDescription,"A lashed-frame chair, woven tight enough to actually sit in."
 CMC_Bp_WickerChair_UnlockConditionsDesc,Graduate the Academy's Carpentry course
@@ -2178,7 +2178,7 @@ CMC_InnCat_CI_Treat,Give a Treat
 CMC_InnCat_CI_Treat_Desc,"A little something extra, just because."
 CMC_InnCat_CI_Treat_Fail,He's thoroughly spoiled already.
 CMC_OldGrowthBark_CI_TanHide,Tan Hide
-CMC_OldGrowthBark_CI_TanHide_Desc,"Rub the bark's tannins into a fleshed hide, curing it into usable leather."
+CMC_OldGrowthBark_CI_TanHide_Desc,"Rub the bark's tannins into a fleshed hide to start the tanning (a quarter of the way). A hide can be rubbed once, before it is a fifth tanned."
 CMC_ShadowCatTamed_CareLow_CardDescription,"Shadow doesn't come when the music starts anymore. You catch him at the treeline sometimes, watching -- gone the moment you take a step toward him."
 CMC_ShadowCatTamed_CareMid_CardDescription,"Shadow still lingers near the drying-racks when you're close, but he keeps more distance than he used to, and slips away sooner."
 CMC_ShadowCatTamed_CareHigh_CardDescription,"Shadow stays close now, closer than shadows are supposed to get, settling near the firelight until you turn in for the night."
@@ -2263,7 +2263,7 @@ CMC_ClayOcarina_CardDescription,"A palm-sized ocarina shaped from fired clay, it
 CMC_ClayOcarina_UsageDurability,Durability
 CMC_ClayOcarina_Broken,The clay ocarina has cracked and crumbled.
 CMC_ClayOcarina_DA_PlayTune,Play a Tune
-CMC_ClayOcarina_DA_PlayTune_Desc,"A few low, breathy notes. Nothing fancy, but it settles the nerves."
+CMC_ClayOcarina_DA_PlayTune_Desc,"A few low, breathy notes. Nothing fancy, but it settles the nerves (Stress -5). Once a day."
 CMC_HerbPoultice_CardName,Herb Poultice
 CMC_HerbPoultice_CardDesc,"Mashed healer's moss and wild garlic, bound tight and pressed against a wound. Simple forage, prepared the way the Academy's medicine course teaches: it slows a bleed for as long as the dressing holds."
 CMC_HerbPoultice_Help,"Bind it over a wound to slow the bleeding for about half a day, and to take the edge off the pain for the first few hours. Both fade as the dressing dries out; a second poultice laid over the first holds twice as hard."
@@ -2489,7 +2489,7 @@ CMC_RiverSwim_ActionDescription,"Wade in and swim for the far bank. No bridge ne
 CMC_RiverSwim_ConfirmText,"Swim across? You need most of your stamina, and you will reach the far bank soaked and exhausted."
 CMC_RiverSwim_FadeMessage,You plunge into the cold current and strike out for the far bank...
 CharacterTraits_Perk_Nightcrawler_PerkName,Nightcrawler
-CharacterTraits_Perk_Nightcrawler_PerkDescription,"You suffer from a rare disease, sun harms you, while darkness nourishes you. You can only leave your dwelling at night or when you wear heavy clothing. People fear you, treating you as a freak, even a legendary creature of darkness. You realize the Inquisition will soon find you, so you fled here. In this jungle far from humanity, you can finally be yourself."
+CharacterTraits_Perk_Nightcrawler_PerkDescription,"You suffer from a rare disease, sun harms you, while darkness nourishes you. You can only leave your dwelling at night or when you wear heavy clothing. People fear you, treating you as a freak, even a legendary creature of darkness. You realize the Inquisition will soon find you, so you fled here. In this jungle far from humanity, you can finally be yourself. A life in the dark has also hardened your gut against parasites and foul food."
 CMC_TraitNightcrawlerSun_StatName,Sunlight Exposure
 CMC_TraitNightcrawlerSun_StatDescription,How harshly direct sunlight is falling on you. Darkness is where you belong; strong unsheltered daylight burns.
 CMC_TraitNightcrawlerSun_Status_NourishedByDarkness_Name,Nourished by Darkness
@@ -2524,7 +2524,7 @@ CMC_EventNightcrawlerBurned_Dismiss,"Oh no..."
 CMC_TraitNightcrawlerBurn_Status_Smouldering_Name,Smouldering
 CMC_TraitNightcrawlerBurn_Status_Smouldering_Description,Your skin is starting to burn. Get out of the light before it catches.
 CharacterTraits_Perk_GiantStomach_PerkName,Giant Stomach
-CharacterTraits_Perk_GiantStomach_PerkDescription,"Your stomach is huge! It holds five times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick."
+CharacterTraits_Perk_GiantStomach_PerkDescription,"Your stomach is huge! It holds two and a half times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick."
 CMC_GuardThorne_Subdue_Action,Thorne drops her spear low and lunges for your arm.
 CMC_GuardThorne_Subdue_Success,Thorne twists your arm behind your back and shouts for the Captain.
 CMC_GuardThorne_Subdue_Failure,"You wrench free for a heartbeat, and Thorne has you again."
@@ -2825,13 +2825,13 @@ CMC_RoadMeeting_Title,A Chance Meeting
 CMC_RoadMeeting_Apothecary,"You cross paths with the Apothecary on the road. She stops for a word about the weather and the herbs, and you part in better spirits."
 CMC_RoadMeeting_Professor,"You meet the Professor on the road. He pauses to share something he noticed on his rounds, and you walk on in better spirits."
 CMC_Miller_Commission_ActionName,Commission Flour
-CMC_Miller_Commission_ActionDescription,"Pay the Miller one Salt, a metal Nugget or a coin to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time."
+CMC_Miller_Commission_ActionDescription,"Pay the Miller 150 worth (a metal Nugget or a coin) to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time, and he takes a new one 3 days after you collect the last."
 CMC_Weaver_Commission_ActionName,Commission Cloth
-CMC_Weaver_Commission_ActionDescription,"Pay the Weaver one Salt, a metal Nugget or a coin to weave you a Large Cloth. It is waiting in her cottage two days later. One order at a time."
+CMC_Weaver_Commission_ActionDescription,"Pay the Weaver 360 worth to weave you a Large Cloth: each card you drag onto her goes toward the fee, and the order starts once the fee is paid. It is waiting in her cottage two days later. One order at a time, and she takes a new one 4 days after you collect the last."
 CMC_InnKeeper_Commission_ActionName,Hire a Hunter
-CMC_InnKeeper_Commission_ActionDescription,"Pay the Inn Keeper one Salt, a metal Nugget or a coin and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time."
+CMC_InnKeeper_Commission_ActionDescription,"Pay the Inn Keeper 150 worth (a metal Nugget or a coin) and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time, and he takes a new one 7 days after you collect the last."
 CMC_Commission_Title,An Order Is Ready
-CMC_Commission_TooLittle,"That is not enough for a commission. Pay at least the worth of one Salt: a Salt, a metal Nugget or a coin."
+CMC_Commission_TooLittle,That is not enough for a commission. The fee is 150 worth: a metal Nugget or a coin.
 CMC_Commission_Ready_Miller,Your order is ready: ten Wheat Flour are waiting in the Miller's cottage.
 CMC_Commission_Ready_Weaver,Your order is ready: a Large Cloth is waiting in the Weaver's cottage.
 CMC_Commission_Ready_Inn,Your order is ready: the Inn Keeper's hunter has left a Doe Carcass in the Inn.
@@ -2991,7 +2991,7 @@ CMC_MonumentPlaced_StatName,Founder's Monument Placed
 CMC_MonumentPlaced_StatDescription,"Hidden flag: set to 1 by MonumentSeedPatch only after a scan finds the Founder's Monument on the Village board, so the monument is placed once per run and never twice. Clamped 0..1."
 CMC_FoundersMonument_CardName,Founder's Monument
 CMC_FoundersMonument_CardDescription,"A squared stone set on the village square, cut with the names of everyone who helped raise the place. The villagers raised it when your good standing in the village reached its full mark. It is not yours to take down, and standing near it is a comfort."
-CMC_FoundersMonument_CardHelpSection,Founder's Monument: appears once in the Village after your Village Reputation first reaches its full mark. Adds 6 Comfort while you are in the village. It cannot be taken down.
+CMC_FoundersMonument_CardHelpSection,Founder's Monument: appears once in the Village after your Village Reputation first reaches its full mark. Adds 25 Sanctuary while you are in the village. It cannot be taken down.
 CMC_SeasonSeen_StatName,Village Season Last Handled
 CMC_SeasonSeen_StatDescription,"Hidden bookkeeping: the season (1 Spring, 2 Summer, 3 Autumn, 4 Winter) whose village beat VillageSeasonsPatch last finished, written only after that beat's work is done, so each beat fires once per season and never again on a reload. Clamped 0..4."
 CMC_SeasonSummer_StatName,Village Market Day Held This Summer
@@ -3042,13 +3042,13 @@ CMC_WeaverTalk_DyeThanks_Line,"Oh, that colour has taken beautifully, and it is 
 CMC_WeaverTalk_DyeThanks_Answer_Thanks,Glad you like it.
 CMC_Bp_CarpentryDecor_UnlockConditionsDesc,Graduate the Academy's Carpentry course
 CMC_Bp_BoarTrophy_CardName,Boar Tusk Trophy
-CMC_Bp_BoarTrophy_CardDescription,Mount a pair of boar tusks on a plank plaque for a little comfort at camp.
+CMC_Bp_BoarTrophy_CardDescription,Mount a pair of boar tusks on a plank plaque to make camp feel a little more like a sanctuary.
 CMC_BoarTrophy_Placed_CardName,Boar Tusk Trophy
 CMC_BoarTrophy_Placed_CardDescription,"A pair of boar tusks mounted on a plank plaque. A hunter's pride, and good company at camp."
 CMC_BoarTrophy_Placed_CardHelpSection,"<b>Take Apart:</b> Splits the plaque back into its Plank, Tusks and Twine."
 CMC_BoarTrophy_Placed_DA_TakeApart,Take Apart
 CMC_Bp_StagTrophy_CardName,Stag Antler Trophy
-CMC_Bp_StagTrophy_CardDescription,Mount a stag's antlers on a plank plaque for a little comfort at camp.
+CMC_Bp_StagTrophy_CardDescription,Mount a stag's antlers on a plank plaque to make camp feel a little more like a sanctuary.
 CMC_StagTrophy_Placed_CardName,Stag Antler Trophy
 CMC_StagTrophy_Placed_CardDescription,A stag's antlers mounted on a plank plaque. A fine thing to sit beneath at the end of a hunt.
 CMC_StagTrophy_Placed_CardHelpSection,"<b>Take Apart:</b> Splits the plaque back into its Plank, Antlers and Twine."
@@ -3207,11 +3207,11 @@ Bp_CMC_StockpileBones_CardDescription,Nail together a crate that keeps up to 50 
 CMC_Stockpile_Empty,The stockpile is empty.
 CMC_Stockpile_BoiledBone,"That bone has begun to boil and would come back raw, so the crate will not take it."
 CMC_Imp_WallPaintingCharcoal_CardName,Wall Painting (Charcoal)
-CMC_Imp_WallPaintingCharcoal_CardDescription,"Hunts, hands and herds drawn on the walls in charcoal. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room."
+CMC_Imp_WallPaintingCharcoal_CardDescription,"Hunts, hands and herds drawn on the walls in charcoal. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room."
 CMC_Imp_WallPaintingOchre_CardName,Wall Painting (Ochre)
-CMC_Imp_WallPaintingOchre_CardDescription,"Hunts, hands and herds drawn on the walls in ochre. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room."
+CMC_Imp_WallPaintingOchre_CardDescription,"Hunts, hands and herds drawn on the walls in ochre. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room."
 CMC_Imp_WallPaintingBillberry_CardName,Wall Painting (Billberry)
-CMC_Imp_WallPaintingBillberry_CardDescription,"Hunts, hands and herds drawn on the walls in billberry. Increases comfort. Can be painted in caves, mud huts and cabins, one painting to a room."
+CMC_Imp_WallPaintingBillberry_CardDescription,"Hunts, hands and herds drawn on the walls in billberry. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room."
 CMC_Bp_Curtains_CardName,Curtains
 CMC_Bp_Curtains_CardDescription,"Hang two large cloths over a window. Drawn, they keep the warmth in; open, the window lets the cabin fever out. Needs a built window in the room."
 CMC_CurtainsOpen_Placed_CardName,Curtains (Open)
@@ -3225,13 +3225,13 @@ CMC_CurtainsDrawn_Placed_CardHelpSection,"<b>Open Curtains:</b> Ties them back. 
 CMC_CurtainsDrawn_Placed_DA_Open,Open Curtains
 CMC_CurtainsDrawn_Placed_DA_TakeApart,Take Apart
 CMC_InnCounter_OddJob_Stone_ActionName,Odd Job: Bring a Stone
-CMC_InnCounter_OddJob_Stone_ActionDescription,"Today's job: the Inn needs a Stone for the hearth wall. Drag a Stone onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+CMC_InnCounter_OddJob_Stone_ActionDescription,"Today's job: the Inn needs a Stone for the hearth wall. Drag a Stone onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it."
 CMC_InnCounter_OddJob_Rope_ActionName,Odd Job: Bring Rope
-CMC_InnCounter_OddJob_Rope_ActionDescription,"Today's job: the Inn needs a length of Rope for the cellar hoist. Drag the Rope onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+CMC_InnCounter_OddJob_Rope_ActionDescription,"Today's job: the Inn needs a length of Rope for the cellar hoist. Drag the Rope onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it."
 CMC_InnCounter_OddJob_Ash_ActionName,Odd Job: Bring Ash
-CMC_InnCounter_OddJob_Ash_ActionDescription,"Today's job: the Inn needs a handful of Ash for the lye pot. Drag the Ash onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+CMC_InnCounter_OddJob_Ash_ActionDescription,"Today's job: the Inn needs a handful of Ash for the lye pot. Drag the Ash onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it."
 CMC_InnCounter_OddJob_Bowl_ActionName,Odd Job: Bring a Clay Bowl
-CMC_InnCounter_OddJob_Bowl_ActionDescription,"Today's job: the Inn needs a Clay Bowl for the kitchen shelf. Drag the Clay Bowl onto the counter for three hours of work (Energy -15, Stamina -11) and a copper nugget. One job a day, posted each morning; Village Crime never closes it."
+CMC_InnCounter_OddJob_Bowl_ActionDescription,"Today's job: the Inn needs a Clay Bowl for the kitchen shelf. Drag the Clay Bowl onto the counter for two hours of work (Energy -10, Stamina -7) and a Salt. One job a day, posted each morning; Village Crime never closes it."
 CMC_OddJob_Done,Job done: the Inn hands you a copper nugget.
 CMC_OddJob_NotToday,Nobody is asking for that today.
 CMC_InnOddJob_StatName,Inn Odd Job Today
@@ -3321,3 +3321,14 @@ CMC_Bp_LimewaterTrough_CardDescription,Four planks and a rope make a trough for 
 CMC_Bp_LimewaterTrough_UnlockConditionsDesc,No requirement
 CMC_ShadowCatPresent_StatName,Shadow Is Here
 CMC_ShadowCatPresent_StatDescription,"Hidden tracker: 1 = a Shadow (wild, tamed or out hunting) exists somewhere in this run, so no second one turns up; 0 = none, or he slipped into the dark. Clamped to 0..1."
+CMC_FishingNet_NoLuck,No luck...
+CMC_InnCounter_DA_Work_Desc,"Four hours of chores around the Inn (Energy -20, Stamina -15) for 2 Salt. One paid shift a day."
+CMC_InnCounter_DA_Service,Community Service
+CMC_InnCounter_DA_Service_Desc,"Four hours of unpaid work for the village (Energy -20, Stamina -15). Pays nothing, but takes 6 off your Village Crime. Only while you have a record; no daily limit."
+CMC_InnGlow_StatName,Warm Evening
+CMC_InnGlow_StatDescription,An evening at the Inn table still warming you. It makes you more comfortable for a while and wears off over about half a day.
+CMC_InnGlow_Status_Name,Warm Evening
+CMC_InnGlow_Status_Description,Good company still warms you: you are more comfortable. It wears off within half a day.
+CMC_Commission_NotYet,Not yet. Come back a few days after you collect your last order.
+CMC_Commission_FirstWeek,Not this week. Settle in first: commissions open once you have spent a week in the village.
+CMC_Commission_Deposit,Put toward your cloth: {0} of {1} paid.

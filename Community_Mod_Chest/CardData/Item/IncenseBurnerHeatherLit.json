@@ -153,7 +153,7 @@
     "PassiveStatEffects": [],
     "PassiveEffects": [
         {
-            "EffectName": "Calming Smoke (-0.35 Stress/tick)",
+            "EffectName": "Calming Smoke (-0.15 Stress/tick)",
             "OnlyWhenEquipped": false,
             "EquippedOnBodyOnly": false,
             "Conditions": {
@@ -172,8 +172,8 @@
                         "y": 0.0
                     },
                     "RateModifier": {
-                        "x": -0.35,
-                        "y": -0.35
+                        "x": -0.15,
+                        "y": -0.15
                     },
                     "MinValueModifier": {
                         "x": 0.0,

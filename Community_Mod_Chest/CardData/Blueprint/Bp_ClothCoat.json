@@ -32,7 +32,7 @@
             "ConstantlyChecking": false
         }
     ],
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 96.0,
     "BuildingDaytimeCost": 6,
     "DeconstructDaytimeCost": 2,
     "BlueprintStages": [

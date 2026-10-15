@@ -273,7 +273,7 @@
     {
       "name": "Stone Tile Floor",
       "status": "Tested",
-      "notes": "CT10 improvement injected into Cabin + Mud Hut interior CT8s (7 envs, +Attic added CMC 1.60.1) via InjectImprovementInto.json; consumes 12 Stone Tiles + 4 Clay; Comfort +12, TemperaturePerceived +1. Confirmed PASS in-game via r31 playthrough (2026-08-27, recorded 2026-08-29, item T2.68) after an earlier FAIL report; no further repro detail captured.",
+      "notes": "CT10 improvement injected into Cabin + Mud Hut interior CT8s (7 envs, +Attic added CMC 1.60.1) via InjectImprovementInto.json; consumes 12 Stone Tiles + 4 Clay; Sanctuary +50 since 1.69.17 (Comfort +12 before), TemperaturePerceived +1. Confirmed PASS in-game via r31 playthrough (2026-08-27, recorded 2026-08-29, item T2.68) after an earlier FAIL report; no further repro detail captured.",
       "cards": [
         "cmcimpstonetilefloor"
       ],
@@ -375,7 +375,7 @@
     {
       "name": "Incense Burner",
       "status": "Implemented",
-      "notes": "One crafted clay vessel, two scents. Straw path: unlit/lit, fuel RyeStraw, Comfort +6. Juniper path: pack the empty vessel with JuniperNeedlesDry instead to get the unlit/lit juniper pair, which grants InsectProtection rather than Comfort; 'Tip Out the Needles' returns it to the empty base vessel. Both lit forms are IsSourceOfLight and burn down at -0.5 fuel/DTP back to the base vessel. Juniper pair reuses the base IncenseBurner/IncenseBurnerLit sprites (same pot, different herb) - dedicated art not yet commissioned.",
+      "notes": "One crafted clay vessel, two scents. Straw path: unlit/lit, fuel RyeStraw, Sanctuary +5 since 1.69.17 (Comfort +6 before). Juniper path: pack the empty vessel with JuniperNeedlesDry instead to get the unlit/lit juniper pair, which grants InsectProtection rather than Comfort; 'Tip Out the Needles' returns it to the empty base vessel. Both lit forms are IsSourceOfLight and burn down at -0.5 fuel/DTP back to the base vessel. Juniper pair reuses the base IncenseBurner/IncenseBurnerLit sprites (same pot, different herb) - dedicated art not yet commissioned.",
       "cards": [
         "comfortbpincenseburner",
         "comfortincenseburner",
@@ -547,7 +547,7 @@
     {
       "name": "Village Inn (permanent fixture, enterable)",
       "status": "Implemented",
-      "notes": "The cmcInn entrance always spawns in the Village via framework ConditionalDrops/AlwaysTrue (MaxOnBoard:1, ForceStay) - PR-1 dropped the old HasPerk gate. The Village Inn trait (cmcperkvillageinn, StarsCost 1) is repurposed as a head start: StartingStatModifiers grants +5 cmcStatInnFriendship at run start, and VillageClock checks the trait explicitly (IsPerkEquipped) and backfills cmcStatVillagePhase=1 (introductions waived). Entrance is a vanilla-cabin-style CT2: 'Enter the Inn' DA produces the cmcInnInterior CT4 InstancedEnvironment card (FadeToBlack travel). Interior seeds an Inn Door (TravelToPreviousEnv exit) and the Inn Counter (CMC_MarketStall image). Counter DAs: Purchase Meal (2 DTP; Satiation/Hydration/Fullness/Calories), Stay the Night (32 DTP; Energy +60, Stamina +40) - both currency-gated by InnPatch (consumes Salt or Duros Coin, AfterWrapped); Work Odd Jobs (16 DTP; Energy -20, Stamina -15) pays 1-2 vanilla 50%-quality copper nuggets (Pk_5_1_8_SmithingGear_CopperNugget 7741ded7..., SD2=50/SD4=100) via pure JSON ProducedCards - no currency gate.",
+      "notes": "The cmcInn entrance always spawns in the Village via framework ConditionalDrops/AlwaysTrue (MaxOnBoard:1, ForceStay) - PR-1 dropped the old HasPerk gate. The Village Inn trait (cmcperkvillageinn, StarsCost 1) is repurposed as a head start: StartingStatModifiers grants +5 cmcStatInnFriendship at run start, and VillageClock checks the trait explicitly (IsPerkEquipped) and backfills cmcStatVillagePhase=1 (introductions waived). Entrance is a vanilla-cabin-style CT2: 'Enter the Inn' DA produces the cmcInnInterior CT4 InstancedEnvironment card (FadeToBlack travel). Interior seeds an Inn Door (TravelToPreviousEnv exit) and the Inn Counter (CMC_MarketStall image). Counter DAs: Purchase Meal (2 DTP; Satiation/Hydration/Fullness/Calories), Stay the Night (32 DTP; Energy +60, Stamina +40) - both currency-gated by InnPatch (consumes Salt or Duros Coin, AfterWrapped); Work Odd Jobs (16 DTP; Energy -20, Stamina -15) pays 2 Salt once a day since 1.69.17 (cmcStatInnWorkCooldown; it paid 1-2 vanilla 50%-quality copper nuggets before) via pure JSON ProducedCards - no currency gate.",
       "cards": [
         "cmcperkvillageinn",
         "cmcInn",
@@ -784,7 +784,7 @@
         "cmcbpcatbed",
         "cmccatbed"
       ],
-      "notes": "Place a Cat Bed (Comfort +10 while placed; since round 2 E1, 1.69.3, it also mends both tamed cats' Care by 0.05 a tick, about 4.8 a day, through a RemotePassiveEffects entry while it is set down on the cat's board, and a carried bed is not claimed to work); 'Give a Treat' (uses an Iron Fishing Rod catch) raises Care for the two tamed cats, Ash (the tamed Stray, cmcInnCat) and Shadow (cmcShadowCatTamed). Since 1.68.46 'Play with the Toy' (drag a Bone Dice, Spinning Top or Wheeled Horse onto either cat) raises Care by 20 too (T2.287). Four Care-tier flavor lines (the fourth, Content, from Care 90, round 2 E2) should appear in each tamed cat's description as Care rises/falls. Cross-references the Clay Ocarina and Shadow the Cat groups."
+      "notes": "Place a Cat Bed (Sanctuary +5 while placed since 1.69.17, Comfort +10 before; since round 2 E1, 1.69.3, it also mends both tamed cats' Care by 0.05 a tick, about 4.8 a day, through a RemotePassiveEffects entry while it is set down on the cat's board, and a carried bed is not claimed to work); 'Give a Treat' (uses an Iron Fishing Rod catch) raises Care for the two tamed cats, Ash (the tamed Stray, cmcInnCat) and Shadow (cmcShadowCatTamed). Since 1.68.46 'Play with the Toy' (drag a Bone Dice, Spinning Top or Wheeled Horse onto either cat) raises Care by 20 too (T2.287). Four Care-tier flavor lines (the fourth, Content, from Care 90, round 2 E2) should appear in each tamed cat's description as Care rises/falls. Cross-references the Clay Ocarina and Shadow the Cat groups."
     },
     {
       "name": "Content Cats and Small Gifts",
@@ -835,7 +835,7 @@
         "hunterscachehuntingstandkit",
         "hunterscachehuntingstand"
       ],
-      "notes": "NOT registered in BlueprintTabs.json - by design, same Hidden-until-quest pattern as Garden Trellis (unlocked via the Miller's grain-errand thanks dialog, BlueprintsFullUnlockWarpData). Kit item (3 Planks + 4 Long Sticks + 2 Rope) has a 'Set Up' DA producing the placed CT2 stand; the stand carries 'Take Down' (returns kit) and 'Dismantle' (returns raw materials) DAs. Declarative EncounterGuards/HuntingStandGuard.json gives a 45% chance to suppress wildlife encounters started with no NPC while stationed there; since 1.69.3 Patcher/WildlifeIndoorGuardPatch.cs also refuses a hostile agent's move onto the board with the same chance (HuntingStandRefuseChance 0.45, rolled once per agent per day; see Wildlife Indoor & Village Encounter Suppression)."
+      "notes": "NOT registered in BlueprintTabs.json - by design, same Hidden-until-quest pattern as Garden Trellis (unlocked via the Miller's grain-errand thanks dialog, BlueprintsFullUnlockWarpData). Kit item (3 Planks + 4 Long Sticks + 2 Rope) has a 'Set Up' DA producing the placed CT2 stand; the stand carries 'Take Down' (returns kit) and 'Dismantle' (returns raw materials) DAs. Declarative EncounterGuards/HuntingStandGuard.json gives a 25% chance (45% before 1.69.17) to suppress wildlife encounters started with no NPC while stationed there; since 1.69.3 Patcher/WildlifeIndoorGuardPatch.cs also refuses a hostile agent's move onto the board with the same chance (HuntingStandRefuseChance 0.45, rolled once per agent per day; see Wildlife Indoor & Village Encounter Suppression)."
     },
     {
       "name": "Homestead / Founders Kit Perks",
@@ -1189,7 +1189,7 @@
       "confidence": "MEDIUM",
       "evidence": "T1.27 PASS 2026-08-09, T2.76 PASS 2026-08-15 and T2.151 PASS 2026-09-07 (r33, the interior arrival block) were all recorded on pre-0.68 builds and prove nothing on EA 0.68b, where an agent's own attack never reaches an EncounterGuards guard (Documentation/Research/Community_Mod_Chest/engine_reads.md W0.1). The 1.69.3 arrival refusal for the outdoor village tiles and the Hunting Stand (plan A1) is static evidence only: Development_Tools/Tests/CMC-Round2.Tests.ps1 keeps each C# protected set equal to its guard JSON and the wildlife list covering every agent that drops the village guard's encounters; harness scenarios T2.900 (the protected tables and the refusal verdict) and T2.901 (the stand's 45% roll over 80 agent-days) passed on 2026-10-02 (walkthrough-20261002-090201, CMC 1.69.3 at d7bb6d3dd), driven through the patch's own tables by reflection, and an in-game night at the Village Farm is pending (no harness verb moves an NPC, so a real predator's approach is a person's check)",
       "cards": [],
-      "notes": "Two layers. ARRIVAL: Patcher/WildlifeIndoorGuardPatch.cs prefixes GameManager.MoveNPC and refuses the eight hostile wildlife agents (HostileWildlifeUids) onto each ProtectedSet (the seven interiors, and since 1.69.3 the seven outdoor village tiles, each mirroring one guard JSON's GuardEnvironmentUids) and, at HuntingStandRefuseChance once per agent per day, onto the player's board when a Hunting Stand stands on it. COMBAT: EncounterGuards/CMC_VillageNoWildlife.json, CMC_InteriorsNoWildlife.json and HuntingStandGuard.json only catch null-NPC starts on EA 0.68b; an agent's own attack is the framework plan's A1."
+      "notes": "Two layers. ARRIVAL: Patcher/WildlifeIndoorGuardPatch.cs prefixes GameManager.MoveNPC and refuses the eight hostile wildlife agents (HostileWildlifeUids) onto each ProtectedSet (the seven interiors, since 1.69.3 the village's outdoor tiles, and since 1.69.17 only the three core tiles at full strength with the four hunting-ground tiles in an 'outskirts' set at 0.5, each mirroring one guard JSON's GuardEnvironmentUids) and, at HuntingStandRefuseChance once per agent per day, onto the player's board when a Hunting Stand stands on it. COMBAT: EncounterGuards/CMC_VillageNoWildlife.json, CMC_InteriorsNoWildlife.json and HuntingStandGuard.json only catch null-NPC starts on EA 0.68b; an agent's own attack is the framework plan's A1."
     },
     {
       "name": "Village Tree Respawn",
@@ -1817,7 +1817,7 @@
         "cmcimpwallpaintingochre",
         "cmcimpwallpaintingbillberry"
       ],
-      "notes": "Round 2 I2. Three CT10 improvements (one per pigment: the engine allows one recipe per improvement) sharing one Comfort +10 passive, injected by InjectImprovementInto.json into the six lived-in caves, the mud hut and the cabin (15 CT8 cards); each carries inverted BlueprintCardConditions on the other two so a room takes one painting."
+      "notes": "Round 2 I2. Three CT10 improvements (one per pigment: the engine allows one recipe per improvement) sharing one Sanctuary +50 passive (Comfort +10 before 1.69.17), injected by InjectImprovementInto.json into the six lived-in caves, the mud hut and the cabin (15 CT8 cards); each carries inverted BlueprintCardConditions on the other two so a room takes one painting."
     },
     {
       "name": "Curtains",
