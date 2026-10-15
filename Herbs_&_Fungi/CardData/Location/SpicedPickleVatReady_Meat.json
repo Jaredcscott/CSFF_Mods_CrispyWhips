@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_spiced_pickle_vat_ready_meat",
         "LocalizationKey": "Herbs_And_Fungi_SpicedPickleVatReadyMeat_CardDescription",
-        "DefaultText": "Meat cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+        "DefaultText": "Meat cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
     },
     "CardType": 2,
     "CardTags": [],
@@ -66,7 +66,7 @@
             "LocalizationKey": "Herbs_And_Fungi_SpicedPickleVatReadyMeat_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 8640.0,
+        "MaxValue": 2880.0,
         "RatePerDaytimePoint": 1.0,
         "HidingOptions": 1,
         "TextDisplay": 0,
@@ -161,7 +161,7 @@
             "ActionTagsWarpType": 3,
             "StatModifications": [
                 {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": -27.6, "y": -27.6}, "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "f76360c14c95ac94193a357c220c7efd", "StatWarpType": 3},
-                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 46.0,  "y": 46.0},  "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "930cf914322e9f145af1315d96f85a28", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 34.0, "y": 34.0},  "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "930cf914322e9f145af1315d96f85a28", "StatWarpType": 3},
                 {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 86.25, "y": 86.25}, "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9", "StatWarpType": 3},
                 {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 51.75, "y": 51.75}, "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "278d5a1a68f65cb4883b775e8492464f", "StatWarpType": 3},
                 {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 220.8, "y": 220.8}, "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "09c2ec726d9e9f64f87eb675b8e5f005", "StatWarpType": 3},

@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_grapes",
         "LocalizationKey": "herbsfungigrapes_CardHelpSection",
-        "DefaultText": "<b>Found:</b> Foraging in summer and autumn at the Oak Clearing and the Foraging Path.\n\n<b>Uses:</b> Eat raw. Drag onto a container of water to crush them into Grape Must, which turns into Grape Wine after 4 days. Holding them unlocks Plant Grapes."
+        "DefaultText": "<b>Found:</b> Foraging in summer and autumn at the Mossy Clearing and the Secret Grove.\n\n<b>Uses:</b> Eat raw. Drag onto a container of water to crush them into Grape Must, which turns into Grape Wine after 4 days. Holding them unlocks Plant Grapes."
     },
     "CardType": 0,
     "CardTagsWarpData": [

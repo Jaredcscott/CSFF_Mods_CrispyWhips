@@ -164,7 +164,9 @@ Herbs_Fungi_Bp_HempField_CardDescription,"Plant hemp seeds to create a field tha
 Herbs_Fungi_Bp_HempField_UnlockConditionsDesc,Unlocked after obtaining a Hemp Seed
 herbsfungihempfieldgrowing_CardName,Hemp Field (Growing)
 herbsfungihempfieldgrowing_CardDescription,A field of hemp plants growing steadily. Will be ready to harvest when mature.
-herbsfungihempfieldgrowing_CardHelpSection,"<b>Growth:</b> Takes 11 days to mature. <b>Harvest:</b> Once mature, harvest for hemp stalks, flowers, and seeds."
+herbsfungihempfieldgrowing_CardHelpSection,"<b>Growth:</b> Takes 30 days to mature. <b>Harvest:</b> Once mature, harvest for hemp stalks, flowers, and seeds.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 herbsfungihempfieldgrowing_Progress_CardStatName,Growth
 herbsfungihempfieldgrowing_OnFull_ActionDescription,Hemp field is ready to harvest!
 herbsfungihempfieldmature_CardName,Mature Hemp Field
@@ -693,8 +695,12 @@ Herbs_And_Fungi_DeathCapWard_CardName,Death Cap Ward
 Herbs_And_Fungi_DeathCapWard_CardDescription,A grim totem of stakes strung with death cap mushrooms. Set it in the ground and the reek of the toxins keeps wild animals warier of the place where it stands.
 Herbs_And_Fungi_DeathCapWard_CardHelpSection,"<b>Use:</b> Place it at your camp or any location you want to defend.
 
-<b>Effect:</b> While a placed ward is where you are, a bear, wolf, wolf pack, primeval wolf or boar that attacks you is turned away 45 percent of the time, and so is any other wild-animal encounter that starts without a creature on the map. People are never turned away, and neither is a fight you start yourself."
-Herbs_And_Fungi_DeathCapWardPlaced_CardHelpSection,"<b>Effect:</b> While you are here, a bear, wolf, wolf pack, primeval wolf or boar that attacks you is turned away 45 percent of the time, and so is any other wild-animal encounter that starts without a creature on the map. People are never turned away, and neither is a fight you start yourself.
+<b>Effect:</b> While a placed ward is where you are, a bear, wolf, wolf pack, primeval wolf or boar that attacks you is turned away 25 percent of the time, and so is any other wild-animal encounter that starts without a creature on the map. People are never turned away, and neither is a fight you start yourself.
+
+<b>Decay:</b> The mushrooms rot in about ten days, placed or carried."
+Herbs_And_Fungi_DeathCapWardPlaced_CardHelpSection,"<b>Effect:</b> While you are here, a bear, wolf, wolf pack, primeval wolf or boar that attacks you is turned away 25 percent of the time, and so is any other wild-animal encounter that starts without a creature on the map. People are never turned away, and neither is a fight you start yourself.
+
+<b>Decay:</b> The mushrooms rot in about ten days, and the ward rots with them. Picking it up does not stop the rot.
 
 <b>Pick Up:</b> Retrieve the ward to move it.
 
@@ -838,7 +844,7 @@ Herbs_And_Fungi_PickleVatSealedMeat_Progress_CardStatName,Fermenting
 Herbs_And_Fungi_PickleVatSealedMeat_Progress_OnZero_ActionDescription,Pickled Meat is ready!
 Herbs_And_Fungi_PickleVatSealedMeat_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_PickleVatReadyMeat_CardName,Pickled Meat
-Herbs_And_Fungi_PickleVatReadyMeat_CardDescription,"Meat cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+Herbs_And_Fungi_PickleVatReadyMeat_CardDescription,"Meat cured in salt brine. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
 Herbs_And_Fungi_PickleVatReadyFrogs_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_PickleVatReadyFrogs_SpoilageTime_OnFull_ActionDescription,Pickled Frogs Spoiled!
 Herbs_And_Fungi_PickleVatReadyFrogs_UsageDurability_CardStatName,Servings
@@ -895,7 +901,7 @@ Herbs_And_Fungi_Perk_OilPress_PerkName,Oil Press
 Herbs_And_Fungi_Perk_OilPress_PerkDescription,"Start with an Oil Press Kit. Place it to press seeds, mushrooms, and truffles into oils for cooking and herbal preparations."
 Herbs_And_Fungi_MushroomLogShiitakeGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogShiitakeGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
-Herbs_And_Fungi_MushroomLogShiitakeGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+Herbs_And_Fungi_MushroomLogShiitakeGrowing_CardHelpSection,"<b>Growth Time:</b> About 15 days, and it stops growing in winter.
 
 <b>Harvest:</b> Becomes a ready shiitake log when fully colonized."
 Herbs_And_Fungi_MushroomLogShiitakeGrowing_Progress_CardStatName,Colonizing
@@ -904,15 +910,15 @@ Herbs_And_Fungi_MushroomLogShiitakeGrowing_BreakDown_ActionName,Break Down
 Herbs_And_Fungi_MushroomLogShiitakeGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost."
 Herbs_And_Fungi_MushroomLogShiitakeMature_CardName,Ready Shiitake Log
 Herbs_And_Fungi_MushroomLogShiitakeMature_CardDescription,A cultivated log covered with ready-to-pick shiitake mushrooms.
-Herbs_And_Fungi_MushroomLogShiitakeMature_CardHelpSection,"<b>Harvest:</b> Pick the final shiitake flush for 20 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. You also lift a spore print, which can start a log on its own."
+Herbs_And_Fungi_MushroomLogShiitakeMature_CardHelpSection,"<b>Harvest:</b> Pick the final shiitake flush for 8 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. About 3 times in 10 you also lift a spore print, which can start a log on its own."
 Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionName,Harvest
-Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionDescription,"Pick 20 fresh shiitake mushrooms and a spore print, and break down the spent log."
+Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionDescription,"Pick 8 fresh shiitake mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogShiitake_CardName,Inoculate Shiitake Log
 Herbs_And_Fungi_Bp_MushroomLogShiitake_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 shiitake mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogShiitake_UnlockConditionsDesc,Unlocked after obtaining a shiitake mushroom
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
-Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardHelpSection,"<b>Growth Time:</b> About 15 days, and it stops growing in winter.
 
 <b>Harvest:</b> Becomes a ready lion's mane log when fully colonized."
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_Progress_CardStatName,Colonizing
@@ -921,15 +927,15 @@ Herbs_And_Fungi_MushroomLogLionsManeGrowing_BreakDown_ActionName,Break Down
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost."
 Herbs_And_Fungi_MushroomLogLionsManeMature_CardName,Ready Lion's Mane Log
 Herbs_And_Fungi_MushroomLogLionsManeMature_CardDescription,A cultivated log covered with ready-to-pick lion's mane mushrooms.
-Herbs_And_Fungi_MushroomLogLionsManeMature_CardHelpSection,"<b>Harvest:</b> Pick the final lion's mane flush for 20 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. You also lift a spore print, which can start a log on its own."
+Herbs_And_Fungi_MushroomLogLionsManeMature_CardHelpSection,"<b>Harvest:</b> Pick the final lion's mane flush for 8 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. About 3 times in 10 you also lift a spore print, which can start a log on its own."
 Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionName,Harvest
-Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionDescription,"Pick 20 fresh lion's mane mushrooms and a spore print, and break down the spent log."
+Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionDescription,"Pick 8 fresh lion's mane mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardName,Inoculate Lion's Mane Log
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 lion's mane mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_UnlockConditionsDesc,Unlocked after obtaining a lion's mane mushroom
 Herbs_And_Fungi_MushroomLogReishiGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogReishiGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
-Herbs_And_Fungi_MushroomLogReishiGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+Herbs_And_Fungi_MushroomLogReishiGrowing_CardHelpSection,"<b>Growth Time:</b> About 15 days, and it stops growing in winter.
 
 <b>Harvest:</b> Becomes a ready reishi log when fully colonized."
 Herbs_And_Fungi_MushroomLogReishiGrowing_Progress_CardStatName,Colonizing
@@ -938,15 +944,15 @@ Herbs_And_Fungi_MushroomLogReishiGrowing_BreakDown_ActionName,Break Down
 Herbs_And_Fungi_MushroomLogReishiGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost."
 Herbs_And_Fungi_MushroomLogReishiMature_CardName,Ready Reishi Log
 Herbs_And_Fungi_MushroomLogReishiMature_CardDescription,A cultivated log covered with ready-to-pick reishi mushrooms.
-Herbs_And_Fungi_MushroomLogReishiMature_CardHelpSection,"<b>Harvest:</b> Pick the final reishi flush for 20 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. You also lift a spore print, which can start a log on its own."
+Herbs_And_Fungi_MushroomLogReishiMature_CardHelpSection,"<b>Harvest:</b> Pick the final reishi flush for 8 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. About 3 times in 10 you also lift a spore print, which can start a log on its own."
 Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionName,Harvest
-Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionDescription,"Pick 20 fresh reishi mushrooms and a spore print, and break down the spent log."
+Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionDescription,"Pick 8 fresh reishi mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogReishi_CardName,Inoculate Reishi Log
 Herbs_And_Fungi_Bp_MushroomLogReishi_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 reishi mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogReishi_UnlockConditionsDesc,Unlocked after obtaining a reishi mushroom
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
-Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardHelpSection,"<b>Growth Time:</b> About 15 days, and it stops growing in winter.
 
 <b>Harvest:</b> Becomes a ready chicken of the woods log when fully colonized."
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_Progress_CardStatName,Colonizing
@@ -955,15 +961,15 @@ Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_BreakDown_ActionName,Break Down
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost."
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardName,Ready Chicken of the Woods Log
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardDescription,A cultivated log covered with ready-to-pick chicken of the woods mushrooms.
-Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardHelpSection,"<b>Harvest:</b> Pick the final chicken of the woods flush for 20 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. You also lift a spore print, which can start a log on its own."
+Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardHelpSection,"<b>Harvest:</b> Pick the final chicken of the woods flush for 8 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. About 3 times in 10 you also lift a spore print, which can start a log on its own."
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionName,Harvest
-Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionDescription,"Pick 20 fresh chicken of the woods mushrooms and a spore print, and break down the spent log."
+Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionDescription,"Pick 8 fresh chicken of the woods mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardName,Inoculate Chicken Log
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 chicken of the woods mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_UnlockConditionsDesc,Unlocked after obtaining chicken of the woods
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
-Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 15 days, and it stops growing in winter.
 
 <b>Harvest:</b> Becomes a ready golden oyster log when fully colonized."
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_Progress_CardStatName,Colonizing
@@ -972,15 +978,15 @@ Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_BreakDown_ActionName,Break Down
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost."
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardName,Ready Golden Oyster Log
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardDescription,A cultivated log covered with ready-to-pick golden oyster mushrooms.
-Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardHelpSection,"<b>Harvest:</b> Pick the final golden oyster flush for 20 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. You also lift a spore print, which can start a log on its own."
+Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardHelpSection,"<b>Harvest:</b> Pick the final golden oyster flush for 8 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. About 3 times in 10 you also lift a spore print, which can start a log on its own."
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionName,Harvest
-Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionDescription,"Pick 20 fresh golden oyster mushrooms and a spore print, and break down the spent log."
+Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionDescription,"Pick 8 fresh golden oyster mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardName,Inoculate Golden Oyster Log
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 golden oyster mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_UnlockConditionsDesc,Unlocked after obtaining a golden oyster mushroom
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
-Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 15 days, and it stops growing in winter.
 
 <b>Harvest:</b> Becomes a ready king oyster log when fully colonized."
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_Progress_CardStatName,Colonizing
@@ -989,9 +995,9 @@ Herbs_And_Fungi_MushroomLogKingOysterGrowing_BreakDown_ActionName,Break Down
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost."
 Herbs_And_Fungi_MushroomLogKingOysterMature_CardName,Ready King Oyster Log
 Herbs_And_Fungi_MushroomLogKingOysterMature_CardDescription,A cultivated log covered with ready-to-pick king oyster mushrooms.
-Herbs_And_Fungi_MushroomLogKingOysterMature_CardHelpSection,"<b>Harvest:</b> Pick the final king oyster flush for 20 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. You also lift a spore print, which can start a log on its own."
+Herbs_And_Fungi_MushroomLogKingOysterMature_CardHelpSection,"<b>Harvest:</b> Pick the final king oyster flush for 8 fresh mushrooms. The spent log breaks down into 2 to 3 Wood Shavings and a piece of Firewood, and the shavings start your next log. About 3 times in 10 you also lift a spore print, which can start a log on its own."
 Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionName,Harvest
-Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionDescription,"Pick 20 fresh king oyster mushrooms and a spore print, and break down the spent log."
+Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionDescription,"Pick 8 fresh king oyster mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardName,Inoculate King Oyster Log
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 king oyster mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_UnlockConditionsDesc,Unlocked after obtaining a king oyster mushroom
@@ -1047,7 +1053,7 @@ Herbs_And_Fungi_HempButterInactive_Progress_OnFull_ActionDescription,Hemp butter
 Herbs_And_Fungi_HempButterInactive_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_HempButterInactive_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_HempButterInactive_SpoilageTime_OnFull_ActionDescription,Inactive Hemp Butter Spoiled!
-Herbs_And_Fungi_HempButter_CardDescription,"Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. Effects are 3x stronger than burning hemp flowers. High doses may trigger anxiety."
+Herbs_And_Fungi_HempButter_CardDescription,"Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. High doses may trigger anxiety."
 Herbs_And_Fungi_HempButter_CardHelpSection,"<b>Dosing:</b> Choose your dose carefully.
 <b>Mild:</b> Pleasant effects.
 <b>Medium:</b> Strong effects, small anxiety risk.
@@ -1112,9 +1118,11 @@ Herbs_And_Fungi_HempFlower_SpoilageTime_OnFull_ActionDescription,Hemp Flower Spo
 Herbs_And_Fungi_HempFlower_UsageDurability_CardStatName,Drying
 Herbs_And_Fungi_HempFlower_UsageDurability_OnFull_ActionDescription,Hemp Flower dried!
 Herbs_And_Fungi_HempPlantGrowing_CardDescription,"A young hemp plant growing in a garden. Needs time to mature before harvesting stalks, flowers, and seeds."
-Herbs_And_Fungi_HempPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 7 days. 
+Herbs_And_Fungi_HempPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 21 days. 
 
-<b>Produces:</b> Hemp stalks, flowers, and seeds when mature."
+<b>Produces:</b> Hemp stalks, flowers, and seeds when mature.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_HempPlantGrowing_CardName,Growing Hemp Plant
 Herbs_And_Fungi_HempPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_HempPlantGrowing_Progress_CardStatName,Growth
@@ -1271,7 +1279,7 @@ herbsfungicloudberry_CardName,Cloudberries
 herbsfungicloudberry_CardDescription,"Rare golden-orange berries that grow only in the coldest northern bogs and meadows. Sweet, soft, and highly prized as a delicacy."
 herbsfungicloudberry_CardHelpSection,"<b>Season:</b> Spring to Autumn
 
-<b>Found:</b> Northern regions and pine meadows, and the Foraging Path, Oak Clearing, Alder Woods and Pine Clearing.
+<b>Found:</b> Northern regions and pine meadows, and the Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing and Old Grove.
 
 <b>Uses:</b> Eat raw, dry for long-term storage, or ferment.
 
@@ -1398,13 +1406,13 @@ herbsfungimushroombroth_CardHelpSection,"<b>Made by:</b> Blueprint: Mushroom Bro
 
 <b>Uses:</b> Drink for strong nutrition and hydration.
 
-<b>Benefits:</b> High hydration, solid satiation, mild stress relief. Earthy and savoury flavor profile."
+<b>Benefits:</b> Quenches thirst, solid satiation, mild stress relief. Earthy and savoury flavor profile."
 herbsfungimushroombroth_SpoilageTime_StatName,Spoilage
 herbsfungimushroombroth_Spoiled,The mushroom broth has spoiled.
 herbsfungimushroombroth_Drink,Drink
 herbsfungimushroombroth_Drink_Desc,Drink the mushroom broth. Earthy and warming.
 Herbs_And_Fungi_Bp_MushroomBroth_CardName,Mushroom Broth
-Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl to make a rich, earthy mushroom broth. Warming and deeply nourishing."
+Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl of freshly boiled water (at least 150) to make a rich, earthy mushroom broth. Warming and deeply nourishing."
 Herbs_And_Fungi_Bp_MushroomBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Shiitake and Dried King Oyster
 herbsfungihealersmosstincture_CardName,Healer's Moss Tincture
 herbsfungihealersmosstincture_CardDescription,A concentrated extract of healer's moss pressed in a clay bowl. The longest-lasting pain relief the herbalist can brew.
@@ -1412,7 +1420,7 @@ herbsfungihealersmosstincture_CardHelpSection,"<b>Made by:</b> Blueprint: Healer
 
 <b>Uses:</b> Drink to dull pain.
 
-<b>Benefits:</b> About half a day of relief, the longest of any herbal remedy here. Bitter taste."
+<b>Benefits:</b> About a day of strong relief, the strongest and longest of any herbal remedy here. Bitter taste."
 herbsfungihealersmosstincture_SpoilageTime_StatName,Spoilage
 herbsfungihealersmosstincture_Spoiled,The healer's moss tincture has spoiled.
 herbsfungihealersmosstincture_Drink,Drink
@@ -1420,27 +1428,6 @@ herbsfungihealersmosstincture_Drink_Desc,"Drink the tincture. Bitter and mossy, 
 Herbs_And_Fungi_Bp_HealersMossTincture_CardName,Healer's Moss Tincture
 Herbs_And_Fungi_Bp_HealersMossTincture_CardDescription,Press 3 healer's moss into a clay bowl at the oil press to extract a powerful antiseptic tincture. Fights infection effectively.
 Herbs_And_Fungi_Bp_HealersMossTincture_UnlockConditionsDesc,Unlocked after obtaining Healer's Moss and an Oil Press
-HF_ForagingPath_CardName,Foraging Path
-HF_Env_ForagingPath_CardName,Foraging Path
-HF_PineClearing_CardName,Pine Clearing
-HF_Env_PineClearing_CardName,Pine Clearing
-HF_OakClearing_CardName,Oak Clearing
-HF_Env_OakClearing_CardName,Oak Clearing
-HF_MistyFalls_CardName,Misty Falls
-HF_Env_MistyFalls_CardName,Misty Falls
-HF_AlderWoods_CardName,Alder Woods
-HF_Env_AlderWoods_CardName,Alder Woods
-HF_HighlandMeadow_CardName,Highland Meadow
-HF_Env_HighlandMeadow_CardName,Highland Meadow
-Herbs_And_Fungi_OvergrownForestTrail_CardName,Overgrown Forest Trail
-Herbs_And_Fungi_OvergrownForestTrail_CardDescription,"Brush and bramble have swallowed the old forest trail. Hack it clear with a blade, axe, shovel, or antler to reopen the way through."
-Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionName,Hack Through
-Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionDescription,"Cut back the brush with a blade, axe, shovel, or antler to clear the trail and reopen the foot route."
-Herbs_And_Fungi_ClearedForestTrail_CardName,Cleared Forest Trail
-Herbs_And_Fungi_ClearedForestTrail_CardDescription,"The forest trail is open. Left untended, the brush will creep back over it in about ten days — keep a blade handy."
-Herbs_And_Fungi_ClearedForestTrail_CardHelpSection,"<b>Regrowth:</b> About 10 days. When the Regrowth bar fills, the trail becomes overgrown again and the foot route closes until you hack it clear once more."
-Herbs_And_Fungi_ClearedForestTrail_Regrowth_CardStatName,Regrowth
-Herbs_And_Fungi_ClearedForestTrail_Regrowth_OnFull_ActionDescription,The forest trail has grown over again.
 Herbs_And_Fungi_PeanutPod_CardName,Peanut Pod
 Herbs_And_Fungi_PeanutPod_CardDescription,Clumps of peanut pods just dug from the soil. Still caked in dirt — rinse them in water before shelling.
 Herbs_And_Fungi_PeanutPod_CardHelpSection,"<b>Found:</b> Foraging in oak groves, pine forests, and clearings (spring–fall).
@@ -1576,7 +1563,7 @@ Herbs_And_Fungi_KingOysterGround_Eat,Eat
 Herbs_And_Fungi_KingOysterGround_Eat_Desc,"Eat the concentrated king oyster powder. Savory, earthy umami flavor straight from the jar."
 Herbs_And_Fungi_Spice_PeanutOil_SpiceName,Peanut Oil
 Herbs_And_Fungi_Bp_ReishiBroth_CardName,Reishi Broth
-Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl to make a rich, earthy broth with powerful immune support and stress relief."
+Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl of freshly boiled water (at least 150) to make a rich, earthy broth with powerful immune support and stress relief."
 Herbs_And_Fungi_Bp_ReishiBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Reishi
 herbsfungireishibroth_CardName,Reishi Broth
 herbsfungireishibroth_CardDescription,A rich broth simmered from dried reishi mushroom in a clay bowl. Powerful immune support and stress relief in a warming bowl.
@@ -1584,13 +1571,13 @@ herbsfungireishibroth_CardHelpSection,"<b>Made by:</b> Blueprint: Reishi Broth
 
 <b>Uses:</b> Drink for nutrition, immune support, and stress relief.
 
-<b>Benefits:</b> High hydration, solid satiation, immune boost, stress relief. Earthy flavor profile."
+<b>Benefits:</b> Quenches thirst, solid satiation, immune boost, stress relief. Earthy flavor profile."
 herbsfungireishibroth_SpoilageTime_StatName,Spoilage
 herbsfungireishibroth_Spoiled,The reishi broth has spoiled.
 herbsfungireishibroth_Drink,Drink
 herbsfungireishibroth_Drink_Desc,Drink the reishi broth. Earthy and warming.
 Herbs_And_Fungi_Bp_LionsManeBroth_CardName,Lion's Mane Broth
-Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl to make a rich, nutty broth known for boosting cognitive focus."
+Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl of freshly boiled water (at least 150) to make a rich, nutty broth known for boosting cognitive focus."
 Herbs_And_Fungi_Bp_LionsManeBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Lion's Mane
 herbsfungilionsmanebroth_CardName,Lion's Mane Broth
 herbsfungilionsmanebroth_CardDescription,A rich broth simmered from dried lion's mane mushroom in a clay bowl. Known for boosting cognitive function and focus.
@@ -1598,13 +1585,13 @@ herbsfungilionsmanebroth_CardHelpSection,"<b>Made by:</b> Blueprint: Lion's Mane
 
 <b>Uses:</b> Drink for nutrition and cognitive focus.
 
-<b>Benefits:</b> High hydration, solid satiation, improved focus. Nutty flavor profile."
+<b>Benefits:</b> Quenches thirst, solid satiation, improved focus. Nutty flavor profile."
 herbsfungilionsmanebroth_SpoilageTime_StatName,Spoilage
 herbsfungilionsmanebroth_Spoiled,The lion's mane broth has spoiled.
 herbsfungilionsmanebroth_Drink,Drink
 herbsfungilionsmanebroth_Drink_Desc,Drink the lion's mane broth. Nutty and warming.
 Herbs_And_Fungi_Bp_ChanterelleBroth_CardName,Chanterelle Broth
-Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl to make a rich, earthy broth known for lifting morale."
+Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl of freshly boiled water (at least 150) to make a rich, earthy broth known for lifting morale."
 Herbs_And_Fungi_Bp_ChanterelleBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Chanterelle
 herbsfungichanterellebroth_CardName,Chanterelle Broth
 herbsfungichanterellebroth_CardDescription,A rich broth simmered from dried chanterelle mushroom in a clay bowl. Known for lifting morale.
@@ -1612,7 +1599,7 @@ herbsfungichanterellebroth_CardHelpSection,"<b>Made by:</b> Blueprint: Chanterel
 
 <b>Uses:</b> Drink for nutrition and a morale boost.
 
-<b>Benefits:</b> High hydration, solid satiation, improved morale. Earthy flavor profile."
+<b>Benefits:</b> Quenches thirst, solid satiation, improved morale. Earthy flavor profile."
 herbsfungichanterellebroth_SpoilageTime_StatName,Spoilage
 herbsfungichanterellebroth_Spoiled,The chanterelle broth has spoiled.
 herbsfungichanterellebroth_Drink,Drink
@@ -1621,7 +1608,7 @@ Herbs_And_Fungi_BerryPreserve_CardName,Berry Preserve
 Herbs_And_Fungi_BerryPreserve_CardDescription,"A rich preserve of dried berries, slow-simmered with honeycomb and kept for long-term storage. Sweet, and richly fruity."
 Herbs_And_Fungi_BerryPreserve_CardHelpSection,"<b>Made from:</b> Dried Cloudberry, Dried Lingonberry, Dried Blackcurrant, Dried Redcurrant, Honeycomb - slow-simmered (Cooking tab).
 
-<b>Honeycomb:</b> take it from a Wild Bees' Nest at Foraging Path, Pine Clearing, Oak Clearing or Alder Woods, or from a beehive or bee skep.
+<b>Honeycomb:</b> take it from a beehive or a bee skep.
 
 <b>Uses:</b> Eat for strong satiation. Keeps long-term."
 Herbs_And_Fungi_BerryPreserve_SpoilageTime_CardStatName,Spoilage
@@ -1629,10 +1616,10 @@ Herbs_And_Fungi_BerryPreserve_SpoilageTime_OnFull_ActionDescription,The berry pr
 Herbs_And_Fungi_BerryPreserve_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_BerryPreserve_DismantleActions_Eat_ActionDescription,Eat the rich berry preserve.
 Herbs_And_Fungi_Bp_BerryPreserve_CardName,Berry Preserve
-Herbs_And_Fungi_Bp_BerryPreserve_CardDescription,"Slow-simmer dried cloudberries, lingonberries, blackcurrants, redcurrants, and honeycomb from a wild bees' nest to make a shelf-stable berry preserve."
+Herbs_And_Fungi_Bp_BerryPreserve_CardDescription,"Slow-simmer dried cloudberries, lingonberries, blackcurrants, redcurrants, and honeycomb to make a shelf-stable berry preserve."
 Herbs_And_Fungi_Bp_BerryPreserve_UnlockConditionsDesc,Dried Cloudberry and Honeycomb Needed
 Herbs_And_Fungi_ApothecaryShelf_CardName,Apothecary Shelf
-Herbs_And_Fungi_ApothecaryShelf_CardDescription,"A narrow slatted shelf built for drying stores. It takes only herbs, mushrooms, powders and medicines, and keeps them far better than a food pantry does."
+Herbs_And_Fungi_ApothecaryShelf_CardDescription,"A narrow slatted shelf built for drying stores. It takes only herbs, mushrooms, powders and medicines, and keeps them as well as a food pantry does, safe from the animals that raid one."
 Herbs_And_Fungi_ApothecaryShelf_CardHelpSection,"<b>Accepts:</b> Herbs, fungi, powders and medicines only. Ordinary food and materials are refused.
 
 <b>Place it</b> to get the slower spoilage rate."
@@ -1641,7 +1628,7 @@ Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Place_ActionDescription,Stand t
 Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Dismantle_ActionName,Dismantle
 Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Dismantle_ActionDescription,Take the shelf apart to recover the planks.
 Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Dismantle_FailMessage,Clear the shelf first.
-Herbs_And_Fungi_ApothecaryShelf_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 60% of normal rate for everything on the shelf.
+Herbs_And_Fungi_ApothecaryShelf_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 75% of normal rate for everything on the shelf.
 
 <b>Accepts:</b> Herbs, fungi, powders and medicines only. Ordinary food and materials are refused."
 Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_PickUp_ActionName,Pick Up
@@ -1754,15 +1741,17 @@ Herbs_Fungi_Bp_GinsengPlant_CardDescription,"Plant 2 wild ginseng roots in ferti
 Herbs_Fungi_Bp_GinsengPlant_UnlockConditionsDesc,Unlocked after obtaining Wild Ginseng
 Herbs_And_Fungi_GinsengPlantGrowing_CardName,Growing Ginseng
 Herbs_And_Fungi_GinsengPlantGrowing_CardDescription,Young ginseng seedlings. Ginseng is slow: leave it to grow before harvesting the roots.
-Herbs_And_Fungi_GinsengPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 14 days.
+Herbs_And_Fungi_GinsengPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 30 days.
 
-<b>Produces:</b> 3 to 4 Wild Ginseng roots when mature."
+<b>Produces:</b> 2 to 3 Wild Ginseng roots when mature.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_GinsengPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_GinsengPlantGrowing_Progress_OnFull_ActionDescription,Mature Ginseng is ready!
 Herbs_And_Fungi_GinsengPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_GinsengPlantMature_CardName,Mature Ginseng
 Herbs_And_Fungi_GinsengPlantMature_CardDescription,A mature ginseng plant with its cluster of red berries. Dig it up for its roots.
-Herbs_And_Fungi_GinsengPlantMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Wild Ginseng roots. The plant is used up.
+Herbs_And_Fungi_GinsengPlantMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Wild Ginseng roots. The plant is used up.
 Herbs_And_Fungi_GinsengPlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_GinsengPlantMature_DismantleActions_ActionDescription,Dig up the ginseng plant for its roots.
 Herbs_Fungi_Bp_YarrowPlant_CardName,Plant Yarrow
@@ -1770,15 +1759,17 @@ Herbs_Fungi_Bp_YarrowPlant_CardDescription,"Plant 2 yarrow sprigs in fertile gro
 Herbs_Fungi_Bp_YarrowPlant_UnlockConditionsDesc,Unlocked after obtaining Yarrow
 Herbs_And_Fungi_YarrowPlantGrowing_CardName,Growing Yarrow
 Herbs_And_Fungi_YarrowPlantGrowing_CardDescription,A young clump of feathery yarrow leaves. Leave it to flower before harvesting.
-Herbs_And_Fungi_YarrowPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 5 days.
+Herbs_And_Fungi_YarrowPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
 
-<b>Produces:</b> 3 to 4 Yarrow when mature."
+<b>Produces:</b> 2 to 3 Yarrow when mature.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_YarrowPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_YarrowPlantGrowing_Progress_OnFull_ActionDescription,Flowering Yarrow is ready!
 Herbs_And_Fungi_YarrowPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_YarrowPlantMature_CardName,Flowering Yarrow
 Herbs_And_Fungi_YarrowPlantMature_CardDescription,A clump of yarrow in flower. Cut it for fresh yarrow.
-Herbs_And_Fungi_YarrowPlantMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Yarrow. The plant is used up.
+Herbs_And_Fungi_YarrowPlantMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Yarrow. The plant is used up.
 Herbs_And_Fungi_YarrowPlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_YarrowPlantMature_DismantleActions_ActionDescription,Cut the flowering yarrow.
 Herbs_Fungi_Bp_ChamomilePlant_CardName,Plant Chamomile
@@ -1786,15 +1777,17 @@ Herbs_Fungi_Bp_ChamomilePlant_CardDescription,"Plant 2 chamomile in fertile grou
 Herbs_Fungi_Bp_ChamomilePlant_UnlockConditionsDesc,Unlocked after obtaining Chamomile
 Herbs_And_Fungi_ChamomilePlantGrowing_CardName,Growing Chamomile
 Herbs_And_Fungi_ChamomilePlantGrowing_CardDescription,A low patch of finely divided chamomile leaves. Leave it to flower before harvesting.
-Herbs_And_Fungi_ChamomilePlantGrowing_CardHelpSection,"<b>Growth Time:</b> 5 days.
+Herbs_And_Fungi_ChamomilePlantGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
 
-<b>Produces:</b> 3 to 4 Chamomile when mature."
+<b>Produces:</b> 2 to 3 Chamomile when mature.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_ChamomilePlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_ChamomilePlantGrowing_Progress_OnFull_ActionDescription,Flowering Chamomile is ready!
 Herbs_And_Fungi_ChamomilePlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_ChamomilePlantMature_CardName,Flowering Chamomile
 Herbs_And_Fungi_ChamomilePlantMature_CardDescription,A patch of chamomile covered in small white daisy-like flowers. Cut it for fresh chamomile.
-Herbs_And_Fungi_ChamomilePlantMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Chamomile. The plant is used up.
+Herbs_And_Fungi_ChamomilePlantMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Chamomile. The plant is used up.
 Herbs_And_Fungi_ChamomilePlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_ChamomilePlantMature_DismantleActions_ActionDescription,Cut the flowering chamomile.
 Herbs_Fungi_Bp_PlantainPlant_CardName,Plant Plantain
@@ -1802,15 +1795,17 @@ Herbs_Fungi_Bp_PlantainPlant_CardDescription,"Plant 2 common plantain in fertile
 Herbs_Fungi_Bp_PlantainPlant_UnlockConditionsDesc,Unlocked after obtaining Common Plantain
 Herbs_And_Fungi_PlantainPlantGrowing_CardName,Growing Plantain
 Herbs_And_Fungi_PlantainPlantGrowing_CardDescription,"A low rosette of broad, ribbed plantain leaves. Leave it to send up its flower spikes before harvesting."
-Herbs_And_Fungi_PlantainPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 5 days.
+Herbs_And_Fungi_PlantainPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
 
-<b>Produces:</b> 3 to 4 Common Plantain when mature."
+<b>Produces:</b> 2 to 3 Common Plantain when mature.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_PlantainPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_PlantainPlantGrowing_Progress_OnFull_ActionDescription,Flowering Plantain is ready!
 Herbs_And_Fungi_PlantainPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_PlantainPlantMature_CardName,Flowering Plantain
 Herbs_And_Fungi_PlantainPlantMature_CardDescription,"A rosette of broad plantain leaves with tall, slender flower spikes. Cut it for fresh plantain."
-Herbs_And_Fungi_PlantainPlantMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Common Plantain. The plant is used up.
+Herbs_And_Fungi_PlantainPlantMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Common Plantain. The plant is used up.
 Herbs_And_Fungi_PlantainPlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_PlantainPlantMature_DismantleActions_ActionDescription,Cut the flowering plantain.
 Herbs_Fungi_Bp_DandelionPlant_CardName,Plant Dandelion
@@ -1818,15 +1813,17 @@ Herbs_Fungi_Bp_DandelionPlant_CardDescription,"Plant 2 dandelion in fertile grou
 Herbs_Fungi_Bp_DandelionPlant_UnlockConditionsDesc,Unlocked after obtaining Dandelion
 Herbs_And_Fungi_DandelionPlantGrowing_CardName,Growing Dandelion
 Herbs_And_Fungi_DandelionPlantGrowing_CardDescription,"A low rosette of jagged, toothed dandelion leaves. Leave it to flower before harvesting."
-Herbs_And_Fungi_DandelionPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 5 days.
+Herbs_And_Fungi_DandelionPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
 
-<b>Produces:</b> 3 to 4 Dandelion when mature."
+<b>Produces:</b> 2 to 3 Dandelion when mature.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_DandelionPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_DandelionPlantGrowing_Progress_OnFull_ActionDescription,Flowering Dandelion is ready!
 Herbs_And_Fungi_DandelionPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_DandelionPlantMature_CardName,Flowering Dandelion
 Herbs_And_Fungi_DandelionPlantMature_CardDescription,A rosette of toothed leaves with bright yellow dandelion flowers on tall stems. Cut it for fresh dandelion.
-Herbs_And_Fungi_DandelionPlantMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Dandelion. The plant is used up.
+Herbs_And_Fungi_DandelionPlantMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Dandelion. The plant is used up.
 Herbs_And_Fungi_DandelionPlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_DandelionPlantMature_DismantleActions_ActionDescription,Cut the flowering dandelion.
 Herbs_Fungi_Bp_PeanutPlant_CardName,Plant Peanuts
@@ -1834,15 +1831,17 @@ Herbs_Fungi_Bp_PeanutPlant_CardDescription,Plant 2 raw peanuts in fertile ground
 Herbs_Fungi_Bp_PeanutPlant_UnlockConditionsDesc,Unlocked after obtaining Raw Peanuts
 Herbs_And_Fungi_PeanutPlantGrowing_CardName,Growing Peanuts
 Herbs_And_Fungi_PeanutPlantGrowing_CardDescription,"Young peanut plants, low and bushy. The pods form underground as they grow."
-Herbs_And_Fungi_PeanutPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 10 days.
+Herbs_And_Fungi_PeanutPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 30 days.
 
-<b>Produces:</b> 3 to 5 Peanut Pods when mature."
+<b>Produces:</b> 2 to 4 Peanut Pods when mature.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_PeanutPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_PeanutPlantGrowing_Progress_OnFull_ActionDescription,Mature Peanut Plant is ready!
 Herbs_And_Fungi_PeanutPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_PeanutPlantMature_CardName,Mature Peanut Plant
 Herbs_And_Fungi_PeanutPlantMature_CardDescription,A mature peanut plant with pods ready under the soil. Pull it up to collect them.
-Herbs_And_Fungi_PeanutPlantMature_CardHelpSection,<b>Harvest:</b> 3 to 5 Peanut Pods. The plant is used up.
+Herbs_And_Fungi_PeanutPlantMature_CardHelpSection,<b>Harvest:</b> 2 to 4 Peanut Pods. The plant is used up.
 Herbs_And_Fungi_PeanutPlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_PeanutPlantMature_DismantleActions_ActionDescription,Pull up the peanut plant to collect its pods.
 herbsfungiripepuffball_CardName,Ripe Puffball
@@ -1888,26 +1887,11 @@ herbsfungiwildberrypasty_SpecialDurability1_StatName,Burned
 herbsfungiwildberrypasty_SpecialDurability2_StatName,Quality
 herbsfungiwildberrypasty_Eat_ActionName,Eat
 herbsfungiwildberrypasty_Eat_ActionDescription,Eat the wild berry pasty.
-Herbs_And_Fungi_WildBeesNest_CardName,Wild Bees' Nest
-Herbs_And_Fungi_WildBeesNest_CardDescription,"A knot of grey paper comb wedged in a hollow, loud with wild bees. Smoke settles them, and the comb grows back after it is cut."
-Herbs_And_Fungi_WildBeesNest_CardHelpSection,"<b>Honeycomb:</b> Take the Comb gives 1 to 2 Honeycomb once the Comb bar is nearly full.
-
-<b>Stings:</b> Drag a lit Bee Smoker or a Lit Torch onto the nest to smoke it. The bees stay drowsy for about an hour and a half (the Torpor bar) and Take the Comb costs no stings. Take the comb with the bees awake and they sting you.
-
-<b>Regrowth:</b> The comb grows back in about 7 days and does not grow in winter."
-Herbs_And_Fungi_WildBeesNest_SpoilageTime_CardStatName,Torpor
-Herbs_And_Fungi_WildBeesNest_SpecialDurability1_CardStatName,Comb
-Herbs_And_Fungi_WildBeesNest_Smoke_ActionName,Smoke
-Herbs_And_Fungi_WildBeesNest_Smoke_ActionDescription,Wave the smoke over the nest to make the bees drowsy.
-Herbs_And_Fungi_WildBeesNest_TakeComb_ActionName,Take the Comb
-Herbs_And_Fungi_WildBeesNest_TakeComb_ActionDescription,The smoke has made the bees drowsy.
-Herbs_And_Fungi_WildBeesNest_TakeCombUnsmoked_ActionName,Take the Comb Unsmoked
-Herbs_And_Fungi_WildBeesNest_TakeCombUnsmoked_ActionDescription,The bees are awake and will sting. Smoke the nest first with a lit Bee Smoker or Lit Torch to avoid it.
 Herbs_And_Fungi_HoneySyrup_CardName,Herbal Honey Syrup
 Herbs_And_Fungi_HoneySyrup_CardDescription,A clay bowl of thick honey syrup steeped with dried herbs. A spoonful eases a chest or throat infection for a while.
 Herbs_And_Fungi_HoneySyrup_CardHelpSection,"<b>Made from:</b> 1 Honeycomb, 2 Dried Chamomile or 2 Dried Common Plantain, and a Clay Bowl (Medical tab).
 
-<b>Honeycomb:</b> take it from a Wild Bees' Nest, a beehive or a bee skep.
+<b>Honeycomb:</b> take it from a beehive or a bee skep.
 
 <b>Uses:</b> Take a Spoonful to raise the Heather Effect, which slows a chest or throat infection. Three spoonfuls to a bowl; the empty bowl comes back. It stacks with heather tea and shares its cap."
 Herbs_And_Fungi_HoneySyrup_UsageDurability_CardStatName,Spoonfuls
@@ -1971,73 +1955,72 @@ Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionName,Read
 Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionDescription,"Where and when each plant of the forest turns up. Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter.
 
 Places
-Oak woods: oak groves, thickets and clearings, Foraging Path, Oak Clearing, Misty Falls
-Alder woods: alder groves, thickets and clearings, Alder Woods
-Pine woods: pine groves, thickets and clearings, Pine Clearing, Highland Meadow
-Clearings: other clearings, Oak Clearing, Pine Clearing, Highland Meadow
-Pine meadows: pine meadows, Highland Meadow
-North: the northern places above Grenfell Falls, Highland Meadow
-River banks: river places, Lake Island, Misty Falls
+Oak woods: oak groves, thickets and clearings
+Alder woods: alder groves, thickets and clearings
+Pine woods: pine groves, thickets and clearings
+Clearings: other clearings
+Pine meadows: pine meadows
+North: the northern places above Grenfell Falls
+River banks: river places, Lake Island
 Willow places: willow groves and thickets
 Birch stands: 17 birch-tree places
-Old-Growth Grove: west of Misty Falls, once this mod's six other places have been explored
 
 Plants
-Morel Mushroom: all year. Oak woods, alder woods, river banks, Highland Meadow, Old-Growth Grove.
+Morel Mushroom: all year. Oak woods, alder woods, river banks, Pine Meadows, Old Grove.
 Lion's Mane Mushroom: oak woods, alder woods.
 King Oyster: all year. Oak woods, alder woods, pine woods.
 Golden Oyster: all year. Oak woods, alder woods, pine woods.
-Chanterelle: oak woods, alder woods, Highland Meadow, birch stands.
+Chanterelle: oak woods, alder woods, Pine Meadows, birch stands.
 Reishi Mushroom: oak woods, alder woods, pine woods.
-Giant Puffball: clearings, Foraging Path, Alder Woods.
+Giant Puffball: clearings, Secret Grove, Alder Grove.
 Chicken of the Woods: willow places, oak woods, alder woods.
-Black Trumpet: oak woods, alder woods, Highland Meadow.
-Shiitake Mushroom: oak woods, alder woods, Primeval Woods, Highland Meadow.
-Chaga: all year. Oak Clearing, Alder Woods, Pine Clearing, Highland Meadow, birch stands.
-Death Cap (deadly): north, Foraging Path, Oak Clearing, Alder Woods, Pine Clearing.
-Truffle: spring to autumn, rarely, by digging up mud at a river, and by foraging the Old-Growth Grove; in any season with Dig for Truffles at the vanilla oak and alder groves, thickets and clearings (this mod's own places do not have it).
-Wild Ginseng: Primeval Woods, Lost Woods, Green Grove, Green Glade, Oaken Grove, Foraging Path, Oak Clearing, Alder Woods, Pine Clearing, Highland Meadow.
-Ginger: river banks, willow places, Foraging Path, Oak Clearing, Alder Woods, Pine Clearing, Highland Meadow.
-Yarrow: commonest in pine meadows. Other clearings, Foraging Path, Alder Woods.
+Black Trumpet: oak woods, alder woods, Pine Meadows.
+Shiitake Mushroom: oak woods, alder woods, Primeval Woods, Pine Meadows.
+Chaga: all year. Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows, birch stands.
+Death Cap (deadly): north, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing.
+Truffle: spring to autumn, rarely, by digging up mud at a river, and by foraging the Old Grove; in any season with Dig for Truffles at the oak and alder groves, thickets and clearings.
+Wild Ginseng: Primeval Woods, Lost Woods, Green Grove, Green Glade, Oaken Grove, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.
+Ginger: river banks, willow places, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.
+Yarrow: commonest in pine meadows. Other clearings, Secret Grove, Alder Grove.
 Wolfsbane (poisonous): river banks.
-Wild Flowers: clearings, pine meadows, river banks, Foraging Path, Alder Woods.
+Wild Flowers: clearings, pine meadows, river banks, Secret Grove, Alder Grove.
 Dandelion: clearings, river banks, oak woods, alder woods.
-Common Plantain: clearings, river banks, Foraging Path, Alder Woods, 13 of the birch stands.
-Chamomile: pine meadows, clearings, Foraging Path, Alder Woods, 16 of the birch stands.
-Blackcurrants: summer only. River banks, oak woods, alder woods, Highland Meadow, birch stands.
+Common Plantain: clearings, river banks, Secret Grove, Alder Grove, 13 of the birch stands.
+Chamomile: pine meadows, clearings, Secret Grove, Alder Grove, 16 of the birch stands.
+Blackcurrants: summer only. River banks, oak woods, alder woods, Pine Meadows, birch stands.
 Redcurrants: summer only. Oak woods, alder woods, clearings other than pine meadows, 12 of the birch stands.
-Lingonberries: summer and autumn. Pine meadows, pine woods, north, Foraging Path, Oak Clearing, Alder Woods.
-Cloudberries: north, pine meadows, Foraging Path, Oak Clearing, Alder Woods, Pine Clearing, Old-Growth Grove.
+Lingonberries: summer and autumn. Pine meadows, pine woods, north, Secret Grove, Mossy Clearing, Alder Grove.
+Cloudberries: north, pine meadows, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Old Grove.
 Hemp Seeds and Hemp Plants: Primeval Woods, Lake Island. Seeds also come from clearing the ground in Primeval Woods.
 Peanut Pods: oak woods, alder woods, clearings, pine woods.
-Velvet Shank: winter only. Oak woods, alder woods, willow places, Foraging Path, Oak Clearing, Alder Woods.
+Velvet Shank: winter only. Oak woods, alder woods, willow places, Secret Grove, Mossy Clearing, Alder Grove.
 Watercress: any place with a river.
 Water Lily Rhizome: any place with a river.
-Camas Bulb: spring and summer. Foraging Path, Highland Meadow.
-Fiddleheads: spring only. Oak Clearing, Alder Woods.
-Thistle Greens: spring and summer. Foraging Path, Highland Meadow.
-Goosefoot Greens: spring and summer. Foraging Path, Oak Clearing.
-Rhubarb: spring and summer. Foraging Path, Alder Woods.
-Horseradish Root: spring and autumn. Alder Woods, Pine Clearing.
-Mustard Seeds: summer and autumn. Foraging Path, Highland Meadow.
-Chicory Root: summer and autumn. Foraging Path, Highland Meadow.
-Mandrake Root: summer and autumn. Oak Clearing, Old-Growth Grove.
+Camas Bulb: spring and summer. Secret Grove, Pine Meadows.
+Fiddleheads: spring only. Mossy Clearing, Alder Grove.
+Thistle Greens: spring and summer. Secret Grove, Pine Meadows.
+Goosefoot Greens: spring and summer. Secret Grove, Mossy Clearing.
+Rhubarb: spring and summer. Secret Grove, Alder Grove.
+Horseradish Root: spring and autumn. Alder Grove, Pine Clearing.
+Mustard Seeds: summer and autumn. Secret Grove, Pine Meadows.
+Chicory Root: summer and autumn. Secret Grove, Pine Meadows.
+Mandrake Root: summer and autumn. Mossy Clearing, Old Grove.
 Turnroot Greens: not foraged. About half the times you harvest a mature turnroot field by hand, spring to autumn.
-Crabapples: autumn only. Foraging Path, Oak Clearing.
-Wild Pears: summer and autumn. Oak Clearing, Alder Woods.
-Wild Plums: autumn only. Foraging Path, Pine Clearing.
-Chestnuts: autumn only. Foraging Path, Oak Clearing.
-Hazelnuts: autumn only. Foraging Path, Alder Woods.
-Sloes: autumn only. Foraging Path, Highland Meadow.
-Elderflowers: spring and summer. Foraging Path, Alder Woods.
-Elderberries: autumn only. Foraging Path, Alder Woods.
-Kale: Foraging Path, Highland Meadow.
-Leek: Foraging Path, Alder Woods.
-Carrot: Alder Woods, Highland Meadow.
-Broad Beans: spring and summer. Alder Woods, Highland Meadow.
-Hops: summer and autumn. Oak Clearing, Alder Woods.
-Grapes: summer and autumn. Foraging Path, Oak Clearing.
-Oats: summer and autumn. Foraging Path, Highland Meadow."
+Crabapples: autumn only. Secret Grove, Mossy Clearing.
+Wild Pears: summer and autumn. Mossy Clearing, Alder Grove.
+Wild Plums: autumn only. Secret Grove, Pine Clearing.
+Chestnuts: autumn only. Secret Grove, Mossy Clearing.
+Hazelnuts: autumn only. Secret Grove, Alder Grove.
+Sloes: autumn only. Secret Grove, Pine Meadows.
+Elderflowers: spring and summer. Secret Grove, Alder Grove.
+Elderberries: autumn only. Secret Grove, Alder Grove.
+Kale: Secret Grove, Pine Meadows.
+Leek: Secret Grove, Alder Grove.
+Carrot: Alder Grove, Pine Meadows.
+Broad Beans: spring and summer. Alder Grove, Pine Meadows.
+Hops: summer and autumn. Mossy Clearing, Alder Grove.
+Grapes: summer and autumn. Secret Grove, Mossy Clearing.
+Oats: summer and autumn. Secret Grove, Pine Meadows."
 Herbs_And_Fungi_Bp_HempPulp_CardName,Hemp Pulp
 Herbs_And_Fungi_Bp_HempPulp_CardDescription,Chop hemp stalks and leave them to soak. After about a day the pulp is soft enough to press into paper.
 Herbs_And_Fungi_Bp_HempPulp_UnlockConditionsDesc,Unlocked after obtaining Hemp Stalks
@@ -2166,7 +2149,7 @@ Herbs_And_Fungi_Bp_MushroomLogShiitakePrint_CardDescription,"Use a spoon auger t
 Herbs_And_Fungi_Bp_MushroomLogShiitakePrint_UnlockConditionsDesc,Unlocked after obtaining a shiitake spore print
 Herbs_And_Fungi_GrowBagGoldenOysterGrowing_CardName,Growing Golden Oyster Grow Bag
 Herbs_And_Fungi_GrowBagGoldenOysterGrowing_CardDescription,A cloth bag packed with wood shavings and golden oyster spawn. It fruits indoors or out while the mycelium runs through the shavings.
-Herbs_And_Fungi_GrowBagGoldenOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 2.5 days, half a log.
+Herbs_And_Fungi_GrowBagGoldenOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 2.5 days.
 
 <b>Harvest:</b> Becomes a ready golden oyster grow bag when fully colonized."
 Herbs_And_Fungi_GrowBagGoldenOysterGrowing_Progress_CardStatName,Colonizing
@@ -2175,15 +2158,15 @@ Herbs_And_Fungi_GrowBagGoldenOysterGrowing_BreakDown_ActionName,Break Down
 Herbs_And_Fungi_GrowBagGoldenOysterGrowing_BreakDown_ActionDescription,"Untie the bag. Recovers the cloth and one Wood Shavings, but the spawn is lost."
 Herbs_And_Fungi_GrowBagGoldenOysterMature_CardName,Ready Golden Oyster Grow Bag
 Herbs_And_Fungi_GrowBagGoldenOysterMature_CardDescription,A cloth bag bursting with ready-to-pick golden oyster mushrooms.
-Herbs_And_Fungi_GrowBagGoldenOysterMature_CardHelpSection,<b>Harvest:</b> Pick 12 fresh golden oyster mushrooms. The spent bag gives back 1 to 2 Wood Shavings.
+Herbs_And_Fungi_GrowBagGoldenOysterMature_CardHelpSection,<b>Harvest:</b> Pick 6 fresh golden oyster mushrooms. The spent bag gives back 1 to 2 Wood Shavings.
 Herbs_And_Fungi_GrowBagGoldenOysterMature_Harvest_ActionName,Harvest
-Herbs_And_Fungi_GrowBagGoldenOysterMature_Harvest_ActionDescription,Pick 12 fresh golden oyster mushrooms and open up the spent bag for its shavings.
+Herbs_And_Fungi_GrowBagGoldenOysterMature_Harvest_ActionDescription,Pick 6 fresh golden oyster mushrooms and open up the spent bag for its shavings.
 Herbs_And_Fungi_Bp_GrowBagGoldenOyster_CardName,Pack Golden Oyster Grow Bag
 Herbs_And_Fungi_Bp_GrowBagGoldenOyster_CardDescription,"Pack wood shavings and 5 golden oyster mushrooms into a small cloth. No log or tool needed, and it can be set down indoors."
 Herbs_And_Fungi_Bp_GrowBagGoldenOyster_UnlockConditionsDesc,Unlocked after obtaining a golden oyster mushroom
 Herbs_And_Fungi_GrowBagKingOysterGrowing_CardName,Growing King Oyster Grow Bag
 Herbs_And_Fungi_GrowBagKingOysterGrowing_CardDescription,A cloth bag packed with wood shavings and king oyster spawn. It fruits indoors or out while the mycelium runs through the shavings.
-Herbs_And_Fungi_GrowBagKingOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 2.5 days, half a log.
+Herbs_And_Fungi_GrowBagKingOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 2.5 days.
 
 <b>Harvest:</b> Becomes a ready king oyster grow bag when fully colonized."
 Herbs_And_Fungi_GrowBagKingOysterGrowing_Progress_CardStatName,Colonizing
@@ -2192,9 +2175,9 @@ Herbs_And_Fungi_GrowBagKingOysterGrowing_BreakDown_ActionName,Break Down
 Herbs_And_Fungi_GrowBagKingOysterGrowing_BreakDown_ActionDescription,"Untie the bag. Recovers the cloth and one Wood Shavings, but the spawn is lost."
 Herbs_And_Fungi_GrowBagKingOysterMature_CardName,Ready King Oyster Grow Bag
 Herbs_And_Fungi_GrowBagKingOysterMature_CardDescription,A cloth bag bursting with ready-to-pick king oyster mushrooms.
-Herbs_And_Fungi_GrowBagKingOysterMature_CardHelpSection,<b>Harvest:</b> Pick 12 fresh king oyster mushrooms. The spent bag gives back 1 to 2 Wood Shavings.
+Herbs_And_Fungi_GrowBagKingOysterMature_CardHelpSection,<b>Harvest:</b> Pick 6 fresh king oyster mushrooms. The spent bag gives back 1 to 2 Wood Shavings.
 Herbs_And_Fungi_GrowBagKingOysterMature_Harvest_ActionName,Harvest
-Herbs_And_Fungi_GrowBagKingOysterMature_Harvest_ActionDescription,Pick 12 fresh king oyster mushrooms and open up the spent bag for its shavings.
+Herbs_And_Fungi_GrowBagKingOysterMature_Harvest_ActionDescription,Pick 6 fresh king oyster mushrooms and open up the spent bag for its shavings.
 Herbs_And_Fungi_Bp_GrowBagKingOyster_CardName,Pack King Oyster Grow Bag
 Herbs_And_Fungi_Bp_GrowBagKingOyster_CardDescription,"Pack wood shavings and 5 king oyster mushrooms into a small cloth. No log or tool needed, and it can be set down indoors."
 Herbs_And_Fungi_Bp_GrowBagKingOyster_UnlockConditionsDesc,Unlocked after obtaining a king oyster mushroom
@@ -2221,15 +2204,17 @@ Herbs_Fungi_Bp_Mossbed_CardDescription,"Press 2 Healer's Moss into a bed of fres
 Herbs_Fungi_Bp_Mossbed_UnlockConditionsDesc,Unlocked after obtaining Healer's Moss
 Herbs_And_Fungi_MossbedGrowing_CardName,Growing Mossbed
 Herbs_And_Fungi_MossbedGrowing_CardDescription,Fresh moss pressed into a damp bed. Give it time to take hold.
-Herbs_And_Fungi_MossbedGrowing_CardHelpSection,"<b>Growth Time:</b> 5 days.
+Herbs_And_Fungi_MossbedGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
 
-<b>Produces:</b> 3 to 4 Healer's Moss when mature."
+<b>Produces:</b> 2 to 3 Healer's Moss when mature.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_MossbedGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_MossbedGrowing_Progress_OnFull_ActionDescription,The mossbed has taken hold!
 Herbs_And_Fungi_MossbedGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_MossbedMature_CardName,Mossbed
 Herbs_And_Fungi_MossbedMature_CardDescription,"A thick, healthy bed of moss. Gather it for Healer's Moss."
-Herbs_And_Fungi_MossbedMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Healer's Moss. The bed is used up.
+Herbs_And_Fungi_MossbedMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Healer's Moss. The bed is used up.
 Herbs_And_Fungi_MossbedMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_MossbedMature_DismantleActions_ActionDescription,Gather the healing moss.
 Herbs_And_Fungi_Bp_SpicedPickleFrogs_CardName,Spiced Pickle Frogs
@@ -2273,7 +2258,7 @@ Herbs_And_Fungi_SpicedPickleVatSealedMeat_Progress_CardStatName,Fermenting
 Herbs_And_Fungi_SpicedPickleVatSealedMeat_Progress_OnZero_ActionDescription,Spiced Pickled Meat is ready!
 Herbs_And_Fungi_SpicedPickleVatSealedMeat_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_SpicedPickleVatReadyMeat_CardName,Spiced Pickled Meat
-Herbs_And_Fungi_SpicedPickleVatReadyMeat_CardDescription,"Meat cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+Herbs_And_Fungi_SpicedPickleVatReadyMeat_CardDescription,"Meat cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
 Herbs_And_Fungi_SpicedPickleVatReadyMeat_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_SpicedPickleVatReadyMeat_SpoilageTime_OnFull_ActionDescription,Spiced Pickled Meat Spoiled!
 Herbs_And_Fungi_SpicedPickleVatReadyMeat_UsageDurability_CardStatName,Servings
@@ -2354,7 +2339,7 @@ Herbs_And_Fungi_HoneyedNuts_CardName,Honeyed Nuts
 Herbs_And_Fungi_HoneyedNuts_CardDescription,"Roasted nuts coated in honeycomb. Sweet, dense and slow to spoil."
 Herbs_And_Fungi_HoneyedNuts_CardHelpSection,"<b>Made from:</b> 1 Honeycomb + 3 Roasted Peanuts (or 3 Roasted Pine Nuts) makes 2 (Cooking tab).
 
-<b>Honeycomb:</b> take it from a Wild Bees' Nest, a beehive or a bee skep.
+<b>Honeycomb:</b> take it from a beehive or a bee skep.
 
 <b>Uses:</b> Eat for solid calories. Keeps for about three months."
 Herbs_And_Fungi_HoneyedNuts_SpoilageTime_CardStatName,Spoilage
@@ -2365,7 +2350,7 @@ Herbs_And_Fungi_HoneyedBerries_CardName,Honeyed Berries
 Herbs_And_Fungi_HoneyedBerries_CardDescription,Dried berries pressed into honeycomb. A light sweet that keeps for months.
 Herbs_And_Fungi_HoneyedBerries_CardHelpSection,"<b>Made from:</b> 1 Honeycomb + 1 each of Dried Blackcurrants, Dried Redcurrants, Dried Lingonberries and Dried Cloudberries makes 2 (Cooking tab).
 
-<b>Honeycomb:</b> take it from a Wild Bees' Nest, a beehive or a bee skep.
+<b>Honeycomb:</b> take it from a beehive or a bee skep.
 
 <b>Uses:</b> Eat for a light sweet meal that calms the nerves. Keeps for about three months."
 Herbs_And_Fungi_HoneyedBerries_SpoilageTime_CardStatName,Spoilage
@@ -2385,13 +2370,13 @@ Herbs_And_Fungi_Bp_MashCloudberries_CardName,Mash Cloudberries
 Herbs_And_Fungi_Bp_MashCloudberries_CardDescription,Mash 3 fresh cloudberries into a pulp that can be dried on a Drying Tray.
 Herbs_And_Fungi_Bp_MashCloudberries_UnlockConditionsDesc,Fresh Cloudberries Needed
 Herbs_And_Fungi_Bp_HoneyedNuts_CardName,Honeyed Nuts
-Herbs_And_Fungi_Bp_HoneyedNuts_CardDescription,Coat 3 roasted peanuts in honeycomb from a wild bees' nest to make 2 portions of honeyed nuts.
+Herbs_And_Fungi_Bp_HoneyedNuts_CardDescription,Coat 3 roasted peanuts in honeycomb to make 2 portions of honeyed nuts.
 Herbs_And_Fungi_Bp_HoneyedNuts_UnlockConditionsDesc,Roasted Peanuts and Honeycomb Needed
 Herbs_And_Fungi_Bp_HoneyedPineNuts_CardName,Honeyed Pine Nuts
-Herbs_And_Fungi_Bp_HoneyedPineNuts_CardDescription,Coat 3 roasted pine nuts in honeycomb from a wild bees' nest to make 2 portions of honeyed nuts.
+Herbs_And_Fungi_Bp_HoneyedPineNuts_CardDescription,Coat 3 roasted pine nuts in honeycomb to make 2 portions of honeyed nuts.
 Herbs_And_Fungi_Bp_HoneyedPineNuts_UnlockConditionsDesc,Roasted Pine Nuts and Honeycomb Needed
 Herbs_And_Fungi_Bp_HoneyedBerries_CardName,Honeyed Berries
-Herbs_And_Fungi_Bp_HoneyedBerries_CardDescription,Press one each of the four dried berries into honeycomb from a wild bees' nest to make 2 portions of honeyed berries.
+Herbs_And_Fungi_Bp_HoneyedBerries_CardDescription,Press one each of the four dried berries into honeycomb to make 2 portions of honeyed berries.
 Herbs_And_Fungi_Bp_HoneyedBerries_UnlockConditionsDesc,Dried Cloudberry and Honeycomb Needed
 Herbs_And_Fungi_Watercress_CardName,Watercress
 Herbs_And_Fungi_Watercress_CardDescription,"Peppery green leaves that grow in cold, running water. Eat them raw, or cook them for a milder taste. They wilt within days, so use them fresh."
@@ -2429,10 +2414,6 @@ Herbs_And_Fungi_CressBed_ClearBed_ActionDescription,Pull the cress bed up to fre
 Herbs_And_Fungi_Bp_CressBed_CardName,Cress Bed
 Herbs_And_Fungi_Bp_CressBed_CardDescription,"Plant a cress bed from 4 fresh watercress (1 hour) at a river. It regrows and harvests like a wild patch: about one harvest every 3 days, faster in spring, and none in winter."
 Herbs_And_Fungi_Bp_CressBed_UnlockConditionsDesc,Needs a river
-HF_OldGrowthGrove_CardName,Old-Growth Grove
-HF_Env_OldGrowthGrove_CardName,Old-Growth Grove
-Herbs_And_Fungi_Stat_Grove_Open_StatName,Old-Growth Grove Open
-Herbs_And_Fungi_Stat_Grove_Open_StatDescription,Hidden flag: 1 once all six Herbs and Fungi clearings have been explored. Opens the Old-Growth Grove's path to Misty Falls.
 Herbs_And_Fungi_BlackTrumpetGround_MakeHerbButter_ActionName,Make Herb Butter
 Herbs_And_Fungi_BlackTrumpetGround_MakeHerbButter_ActionDescription,Work Black Trumpet Powder through the butter. The butter is used up and the black trumpet powder becomes Herb Butter.
 Herbs_And_Fungi_BlackTrumpetGround_MakeHerbCheese_ActionName,Make Herb Cheese
@@ -2459,28 +2440,17 @@ Herbs_And_Fungi_HerbButter_SpoilageTime_OnFull_ActionDescription,The herb butter
 Herbs_And_Fungi_HerbButter_Eat_ActionName,Eat
 Herbs_And_Fungi_HerbButter_Eat_ActionDescription,"Eat the herb butter as it is. Rich and savoury, with the taste of the herb."
 Herbs_And_Fungi_HerbCheese_CardName,Herb Cheese
-Herbs_And_Fungi_HerbCheese_CardDescription,Cheese worked through a ground mushroom or dried ginger. It tastes of the herb and keeps longer than plain cheese.
+Herbs_And_Fungi_HerbCheese_CardDescription,Cheese worked through a ground mushroom or dried ginger. It tastes of the herb and keeps about as long as a firm cheese.
 Herbs_And_Fungi_HerbCheese_CardHelpSection,"<b>Made from:</b> Drag Soft Cheese, Firm Cheese, Hard Cheese, Aged Cheese or Cheese Curds onto Black Trumpet Powder, Shiitake Powder, King Oyster Powder or Dried Ginger. The cheese is used up. With Sirus23's Mod Collection, its Sheep Cheese works too.
 
-<b>Uses:</b> Eat it. It spoils more slowly than any plain cheese."
+<b>Uses:</b> Eat it. It keeps about three weeks, like a firm cheese."
 Herbs_And_Fungi_HerbCheese_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_HerbCheese_SpoilageTime_OnFull_ActionDescription,The herb cheese has gone off.
 Herbs_And_Fungi_HerbCheese_Eat_ActionName,Eat
 Herbs_And_Fungi_HerbCheese_Eat_ActionDescription,"Eat the herb cheese as it is. Sharp and savoury, with the taste of the herb."
-Herbs_And_Fungi_FungalBloom_CardName,Fungal Bloom
-Herbs_And_Fungi_FungalBloom_CardDescription,After a wet autumn the forest floor has fruited all at once. Pick what you can before it rots back.
-Herbs_And_Fungi_FungalBloom_CardHelpSection,"<b>Harvest:</b> Pick 3 to 4 Chanterelles, 2 to 3 Black Trumpets, 2 to 3 King Oysters, 1 to 2 Golden Oysters and 1 to 2 Morels. The patch is used up.
-
-<b>Fleeting:</b> It rots away on its own after about 3 days. It appears rarely, at the Herbs and Fungi spots, after a wet spell in autumn."
-Herbs_And_Fungi_FungalBloom_Harvest_ActionName,Harvest
-Herbs_And_Fungi_FungalBloom_Harvest_ActionDescription,Pick the mixed mushrooms of the bloom before it rots.
-Herbs_And_Fungi_FungalBloom_Spoilage_CardStatName,Rotting
-Herbs_And_Fungi_FungalBloom_SpoilageTime_OnFull_ActionDescription,The bloom has rotted back into the ground.
-Herbs_And_Fungi_FungalBloomStat_StatName,Fungal Bloom
-Herbs_And_Fungi_FungalBloomStat_StatDescription,"Hidden timer. While it runs, the Herbs and Fungi spots can carry a Fungal Bloom patch. It counts itself down."
 Herbs_And_Fungi_WaxLeatherDressing_CardName,Wax Leather Dressing
 Herbs_And_Fungi_WaxLeatherDressing_CardDescription,Beeswax softened with linseed oil. Drag it onto a leather garment to rub it in and restore some of the garment's quality.
-Herbs_And_Fungi_WaxLeatherDressing_CardHelpSection,"<b>Made from:</b> drag a Linseed Oil onto Wax (the oil is used up and you keep the clay bowl). Wax comes from honeycomb, from a Wild Bees' Nest, a beehive or a bee skep.
+Herbs_And_Fungi_WaxLeatherDressing_CardHelpSection,"<b>Made from:</b> drag a Linseed Oil onto Wax (the oil is used up and you keep the clay bowl). Wax comes from honeycomb, from a beehive or a bee skep.
 
 <b>Dress leather:</b> drag it onto any leather garment (tunic, trousers, coat, gloves, shoes, helmet and the like). The garment's Quality rises by 5, up to its maximum, and the dressing is used up. A higher Quality means slower wear and a warmer garment.
 
@@ -2681,36 +2651,6 @@ Herbs_And_Fungi_FalseChanterelle_DismantleActions_EatAnyway_ActionName,Eat Anywa
 Herbs_And_Fungi_FalseChanterelle_DismantleActions_EatAnyway_ActionDescription,"It is barely food, and it gives you food poisoning."
 Herbs_And_Fungi_Stat_Academy_Herbalism_StatName,Academy Herbalism Training
 Herbs_And_Fungi_Stat_Academy_Herbalism_StatDescription,"Hidden flag: 1 while the player holds Community Mod Chest's Herbalism graduate perk, else 0. Mirrored every few seconds by AcademyHerbalismBridgePatch; it gates the Identify (Academy training) action on the Unknown Chanterelle. Always 0 without Community Mod Chest."
-Herbs_And_Fungi_HotspotLingonberry_CardName,Lingonberry Patch
-Herbs_And_Fungi_HotspotLingonberry_CardDescription,"A low carpet of lingonberry bushes in a sunny gap, its red berries picked over and slowly coming back."
-Herbs_And_Fungi_HotspotLingonberry_CardHelpSection,"<b>Picking:</b> Pick gives 1 to 2 Lingonberries and uses up a quarter of the patch. The Ripeness bar must be at least a quarter full to pick, so a patch picked clean has to be left alone for a while.
-
-<b>Regrowth:</b> Ripeness refills in about 7 days from empty, so a full patch gives 4 pickings. It does not regrow in winter. The 7 days and the quarter-sized pickings are tunable placeholder numbers.
-
-<b>Where:</b> This patch stays at its place on the map. Placeholder art."
-Herbs_And_Fungi_HotspotLingonberry_SpecialDurability1_CardStatName,Ripeness
-Herbs_And_Fungi_HotspotLingonberry_Harvest_ActionName,Pick
-Herbs_And_Fungi_HotspotLingonberry_Harvest_ActionDescription,Pick what has ripened. Each picking uses up a quarter of the patch.
-Herbs_And_Fungi_HotspotCloudberry_CardName,Cloudberry Patch
-Herbs_And_Fungi_HotspotCloudberry_CardDescription,"A damp tangle of cloudberry plants, amber fruit ripening again after every picking."
-Herbs_And_Fungi_HotspotCloudberry_CardHelpSection,"<b>Picking:</b> Pick gives 1 to 2 Cloudberries and uses up a quarter of the patch. The Ripeness bar must be at least a quarter full to pick, so a patch picked clean has to be left alone for a while.
-
-<b>Regrowth:</b> Ripeness refills in about 7 days from empty, so a full patch gives 4 pickings. It does not regrow in winter. The 7 days and the quarter-sized pickings are tunable placeholder numbers.
-
-<b>Where:</b> This patch stays at its place on the map. Placeholder art."
-Herbs_And_Fungi_HotspotCloudberry_SpecialDurability1_CardStatName,Ripeness
-Herbs_And_Fungi_HotspotCloudberry_Harvest_ActionName,Pick
-Herbs_And_Fungi_HotspotCloudberry_Harvest_ActionDescription,Pick what has ripened. Each picking uses up a quarter of the patch.
-Herbs_And_Fungi_HotspotChamomile_CardName,Chamomile Patch
-Herbs_And_Fungi_HotspotChamomile_CardDescription,A drift of chamomile in the long grass that flowers again after it is picked.
-Herbs_And_Fungi_HotspotChamomile_CardHelpSection,"<b>Picking:</b> Pick gives 1 to 2 Chamomile and uses up a quarter of the patch. The Ripeness bar must be at least a quarter full to pick, so a patch picked clean has to be left alone for a while.
-
-<b>Regrowth:</b> Ripeness refills in about 7 days from empty, so a full patch gives 4 pickings. It does not regrow in winter. The 7 days and the quarter-sized pickings are tunable placeholder numbers.
-
-<b>Where:</b> This patch stays at its place on the map. Placeholder art."
-Herbs_And_Fungi_HotspotChamomile_SpecialDurability1_CardStatName,Ripeness
-Herbs_And_Fungi_HotspotChamomile_Harvest_ActionName,Pick
-Herbs_And_Fungi_HotspotChamomile_Harvest_ActionDescription,Pick what has ripened. Each picking uses up a quarter of the patch.
 Herbs_And_Fungi_ForagersNotebook_CardName,Forager's Notebook
 Herbs_And_Fungi_ForagersNotebook_CardDescription,"A small hemp-paper notebook. Once you carry it, it writes down each wild plant and mushroom you find and the place where you first found it."
 Herbs_And_Fungi_ForagersNotebook_CardHelpSection,"<b>Made from:</b> three sheets of Hemp Paper and twine, from the Support tab.
@@ -2746,15 +2686,17 @@ Herbs_Fungi_Bp_KalePlant_CardDescription,"Plant 2 kale in fertile ground to grow
 Herbs_Fungi_Bp_KalePlant_UnlockConditionsDesc,Unlocked after obtaining Kale
 Herbs_And_Fungi_KalePlantGrowing_CardName,Growing Kale
 Herbs_And_Fungi_KalePlantGrowing_CardDescription,A young patch of kale with curled dark leaves. Leave it to grow before cutting.
-Herbs_And_Fungi_KalePlantGrowing_CardHelpSection,"<b>Growth Time:</b> 5 days.
+Herbs_And_Fungi_KalePlantGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
 
-<b>Produces:</b> 3 to 4 Kale when ready."
+<b>Produces:</b> 2 to 3 Kale when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_KalePlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_KalePlantGrowing_Progress_OnFull_ActionDescription,Kale Patch is ready!
 Herbs_And_Fungi_KalePlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_KalePlantMature_CardName,Kale Patch
 Herbs_And_Fungi_KalePlantMature_CardDescription,A patch of full-grown kale. Cut it for fresh kale.
-Herbs_And_Fungi_KalePlantMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Kale. The plant is used up.
+Herbs_And_Fungi_KalePlantMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Kale. The plant is used up.
 Herbs_And_Fungi_KalePlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_KalePlantMature_DismantleActions_ActionDescription,Cut the full-grown kale.
 herbsfungicarrot_CardName,Carrot
@@ -2768,15 +2710,17 @@ Herbs_Fungi_Bp_CarrotPlant_CardDescription,"Plant 2 carrots in fertile ground to
 Herbs_Fungi_Bp_CarrotPlant_UnlockConditionsDesc,Unlocked after obtaining Carrot
 Herbs_And_Fungi_CarrotPlantGrowing_CardName,Growing Carrots
 Herbs_And_Fungi_CarrotPlantGrowing_CardDescription,"A row of young carrots, only their feathery tops showing. Leave them to swell before pulling."
-Herbs_And_Fungi_CarrotPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 8 days.
+Herbs_And_Fungi_CarrotPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 24 days.
 
-<b>Produces:</b> 3 to 4 Carrot when ready."
+<b>Produces:</b> 2 to 3 Carrot when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_CarrotPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_CarrotPlantGrowing_Progress_OnFull_ActionDescription,Carrot Row is ready!
 Herbs_And_Fungi_CarrotPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_CarrotPlantMature_CardName,Carrot Row
 Herbs_And_Fungi_CarrotPlantMature_CardDescription,A row of full-grown carrots. Pull them for fresh carrots.
-Herbs_And_Fungi_CarrotPlantMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Carrot. The plant is used up.
+Herbs_And_Fungi_CarrotPlantMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Carrot. The plant is used up.
 Herbs_And_Fungi_CarrotPlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_CarrotPlantMature_DismantleActions_ActionDescription,Pull the full-grown carrots.
 herbsfungileek_CardName,Leek
@@ -2790,9 +2734,11 @@ Herbs_Fungi_Bp_LeekPlant_CardDescription,"Plant 2 leeks in fertile ground to gro
 Herbs_Fungi_Bp_LeekPlant_UnlockConditionsDesc,Unlocked after obtaining Leek
 Herbs_And_Fungi_LeekPlantGrowing_CardName,Growing Leeks
 Herbs_And_Fungi_LeekPlantGrowing_CardDescription,"A bed of young leeks, thin as grass. Leave them to thicken before pulling."
-Herbs_And_Fungi_LeekPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 10 days.
+Herbs_And_Fungi_LeekPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 30 days.
 
-<b>Produces:</b> 2 to 3 Leek when ready."
+<b>Produces:</b> 2 to 3 Leek when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_LeekPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_LeekPlantGrowing_Progress_OnFull_ActionDescription,Leek Bed is ready!
 Herbs_And_Fungi_LeekPlantGrowing_DismantleActions_ActionName,Uproot
@@ -3009,7 +2955,7 @@ Herbs_And_Fungi_Bp_NettleBread_Wheat_CardDescription,Knead dried nettle leaves i
 Herbs_And_Fungi_Bp_NettleBread_Wheat_UnlockConditionsDesc,Unlocked after obtaining Dried Nettle Leaves
 herbsfungihops_CardName,Hops
 herbsfungihops_CardDescription,"Papery green hop cones from a climbing vine, bitter and resinous. Drag them onto a bowl of finished rye ale to make hopped ale."
-herbsfungihops_CardHelpSection,"<b>Found:</b> Foraging in summer and autumn at Alder Woods and the Oak Clearing.
+herbsfungihops_CardHelpSection,"<b>Found:</b> Foraging in summer and autumn at the Alder Grove and the Mossy Clearing.
 
 <b>Uses:</b> Drag onto finished rye ale in a bowl to make Hopped Ale (fresh wort will not take them). Holding them unlocks Plant Hops."
 herbsfungihops_SpoilageTime_StatName,Spoilage
@@ -3021,15 +2967,17 @@ Herbs_Fungi_Bp_HopsPlant_CardDescription,Plant 2 hop cones in fertile ground to 
 Herbs_Fungi_Bp_HopsPlant_UnlockConditionsDesc,Unlocked after obtaining Hops
 Herbs_And_Fungi_HopsPlantGrowing_CardName,Growing Hop Vine
 Herbs_And_Fungi_HopsPlantGrowing_CardDescription,A young hop vine winding up its pole. Leave it to climb and flower before picking.
-Herbs_And_Fungi_HopsPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 10 days.
+Herbs_And_Fungi_HopsPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 30 days.
 
-<b>Produces:</b> 3 to 5 Hops when ready."
+<b>Produces:</b> 2 to 4 Hops when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_HopsPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_HopsPlantGrowing_Progress_OnFull_ActionDescription,The hop vine is ready!
 Herbs_And_Fungi_HopsPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_HopsPlantMature_CardName,Hop Vine
 Herbs_And_Fungi_HopsPlantMature_CardDescription,A tall hop vine hung with cones. Pick it for fresh hops.
-Herbs_And_Fungi_HopsPlantMature_CardHelpSection,<b>Harvest:</b> 3 to 5 Hops. The plant is used up.
+Herbs_And_Fungi_HopsPlantMature_CardHelpSection,<b>Harvest:</b> 2 to 4 Hops. The plant is used up.
 Herbs_And_Fungi_HopsPlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_HopsPlantMature_DismantleActions_ActionDescription,Pick the hop cones from the vine.
 Herbs_And_Fungi_HoppedAle_CardName,Hopped Ale
@@ -3049,7 +2997,7 @@ Herbs_And_Fungi_HoppedAle_Drink_ActionName,Drink
 Herbs_And_Fungi_Spice_Hops_SpiceName,Hops
 herbsfungigrapes_CardName,Grapes
 herbsfungigrapes_CardDescription,"A bunch of small dark grapes from a wild vine, sweet and a little sour. Eat them, or crush them into water to start a grape must that ferments into wine."
-herbsfungigrapes_CardHelpSection,"<b>Found:</b> Foraging in summer and autumn at the Oak Clearing and the Foraging Path.
+herbsfungigrapes_CardHelpSection,"<b>Found:</b> Foraging in summer and autumn at the Mossy Clearing and the Secret Grove.
 
 <b>Uses:</b> Eat raw. Drag onto a container of water to crush them into Grape Must, which turns into Grape Wine after 4 days. Holding them unlocks Plant Grapes."
 herbsfungigrapes_SpoilageTime_StatName,Spoilage
@@ -3063,15 +3011,17 @@ Herbs_Fungi_Bp_GrapePlant_CardDescription,Plant 2 bunches of grapes in fertile g
 Herbs_Fungi_Bp_GrapePlant_UnlockConditionsDesc,Unlocked after obtaining Grapes
 Herbs_And_Fungi_GrapePlantGrowing_CardName,Growing Grape Vine
 Herbs_And_Fungi_GrapePlantGrowing_CardDescription,A young grape vine putting out tendrils. Leave it until the bunches ripen.
-Herbs_And_Fungi_GrapePlantGrowing_CardHelpSection,"<b>Growth Time:</b> 12 days.
+Herbs_And_Fungi_GrapePlantGrowing_CardHelpSection,"<b>Growth Time:</b> 30 days.
 
-<b>Produces:</b> 4 to 6 Grapes when ready."
+<b>Produces:</b> 3 to 5 Grapes when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_GrapePlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_GrapePlantGrowing_Progress_OnFull_ActionDescription,The grape vine is ripe!
 Herbs_And_Fungi_GrapePlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_GrapePlantMature_CardName,Grape Vine
 Herbs_And_Fungi_GrapePlantMature_CardDescription,A grape vine heavy with ripe bunches. Pick it for fresh grapes.
-Herbs_And_Fungi_GrapePlantMature_CardHelpSection,<b>Harvest:</b> 4 to 6 Grapes. The plant is used up.
+Herbs_And_Fungi_GrapePlantMature_CardHelpSection,<b>Harvest:</b> 3 to 5 Grapes. The plant is used up.
 Herbs_And_Fungi_GrapePlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_GrapePlantMature_DismantleActions_ActionDescription,Pick the ripe bunches from the vine.
 Herbs_And_Fungi_GrapeMust_CardName,Grape Must
@@ -3095,7 +3045,7 @@ Herbs_And_Fungi_GrapeWine_SpecialDurability3_CardStatName,Alcohol
 Herbs_And_Fungi_GrapeWine_Drink_ActionName,Drink
 herbsfungioats_CardName,Oats
 herbsfungioats_CardDescription,"A handful of oat grains in their husks. Chewable raw, better ground into oatmeal for porridge, and good animal feed."
-herbsfungioats_CardHelpSection,"<b>Found:</b> Foraging in summer and autumn at the Highland Meadow and the Foraging Path.
+herbsfungioats_CardHelpSection,"<b>Found:</b> Foraging in summer and autumn at Pine Meadows and the Secret Grove.
 
 <b>Uses:</b> Eat raw. Grind with a stone mortar, a grinding tool or a Grinding Mill into Oatmeal. Livestock feed. Holding them unlocks the Oat Field."
 herbsfungioats_SpoilageTime_StatName,Spoilage
@@ -3116,20 +3066,22 @@ Herbs_Fungi_Bp_OatField_CardDescription,Sow 6 oats in fertile ground to grow a f
 Herbs_Fungi_Bp_OatField_UnlockConditionsDesc,Unlocked after obtaining Oats
 herbsfungioatfieldgrowing_CardName,Growing Oat Field
 herbsfungioatfieldgrowing_CardDescription,A field of green oats growing steadily. It will be ready to harvest when the heads turn pale.
-herbsfungioatfieldgrowing_CardHelpSection,"<b>Growth:</b> Takes 9 days to mature.
+herbsfungioatfieldgrowing_CardHelpSection,"<b>Growth:</b> Takes 27 days to mature.
 
-<b>Harvest:</b> Once mature, harvest for 8 to 12 Oats."
+<b>Harvest:</b> Once mature, harvest for 6 to 9 Oats.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 herbsfungioatfieldgrowing_Progress_CardStatName,Growth
 herbsfungioatfieldgrowing_OnFull_ActionDescription,The oat field is ready to harvest!
 herbsfungioatfieldgrowing_DismantleActions_0_ActionName,Destroy
 herbsfungioatfieldmature_CardName,Mature Oat Field
 herbsfungioatfieldmature_CardDescription,A field of ripe oats ready for harvest.
-herbsfungioatfieldmature_CardHelpSection,<b>Harvest:</b> 8 to 12 Oats. Harvesting uses the field up.
+herbsfungioatfieldmature_CardHelpSection,<b>Harvest:</b> 6 to 9 Oats. Harvesting uses the field up.
 herbsfungioatfieldmature_DismantleActions_0_ActionName,Harvest
 herbsfungioatfieldmature_DismantleActions_0_ActionDescription,Cut and thresh the ripe oats.
 herbsfungibroadbeans_CardName,Broad Beans
 herbsfungibroadbeans_CardDescription,"Fat green beans shelled from their woolly pods. Edible raw, but better cooked into a stew."
-herbsfungibroadbeans_CardHelpSection,"<b>Found:</b> Foraging in spring and summer at the Highland Meadow and Alder Woods.
+herbsfungibroadbeans_CardHelpSection,"<b>Found:</b> Foraging in spring and summer at Pine Meadows and the Alder Grove.
 
 <b>Uses:</b> Eat raw, or drag onto hot water in a pot or bowl to stir them into a stew. Holding them unlocks the Broad Bean Field."
 herbsfungibroadbeans_SpoilageTime_StatName,Spoilage
@@ -3141,15 +3093,17 @@ Herbs_Fungi_Bp_BroadBeanField_CardDescription,Sow 6 broad beans in fertile groun
 Herbs_Fungi_Bp_BroadBeanField_UnlockConditionsDesc,Unlocked after obtaining Broad Beans
 herbsfungibroadbeanfieldgrowing_CardName,Growing Broad Bean Field
 herbsfungibroadbeanfieldgrowing_CardDescription,Rows of grey-green bean plants with black-and-white flowers. The beans will be ready when the pods swell.
-herbsfungibroadbeanfieldgrowing_CardHelpSection,"<b>Growth:</b> Takes 10 days to mature.
+herbsfungibroadbeanfieldgrowing_CardHelpSection,"<b>Growth:</b> Takes 30 days to mature.
 
-<b>Harvest:</b> Once mature, harvest for 8 to 12 Broad Beans."
+<b>Harvest:</b> Once mature, harvest for 6 to 9 Broad Beans.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 herbsfungibroadbeanfieldgrowing_Progress_CardStatName,Growth
 herbsfungibroadbeanfieldgrowing_OnFull_ActionDescription,The broad bean field is ready to harvest!
 herbsfungibroadbeanfieldgrowing_DismantleActions_0_ActionName,Destroy
 herbsfungibroadbeanfieldmature_CardName,Mature Broad Bean Field
 herbsfungibroadbeanfieldmature_CardDescription,"A field of tall bean plants hung with fat green pods, ready for picking."
-herbsfungibroadbeanfieldmature_CardHelpSection,<b>Harvest:</b> 8 to 12 Broad Beans. Harvesting uses the field up.
+herbsfungibroadbeanfieldmature_CardHelpSection,<b>Harvest:</b> 6 to 9 Broad Beans. Harvesting uses the field up.
 herbsfungibroadbeanfieldmature_DismantleActions_0_ActionName,Harvest
 herbsfungibroadbeanfieldmature_DismantleActions_0_ActionDescription,Pick the pods and shell the beans.
 Herbs_And_Fungi_LiverSausageRaw_UsageDurability_CardStatName,Drying
@@ -3396,7 +3350,7 @@ Herbs_And_Fungi_Fiddleheads_SpecialDurability1_StatName,Cook
 Herbs_And_Fungi_Fiddleheads_SpecialDurability1_Cooked,The fiddleheads are cooked through.
 Herbs_And_Fungi_Fiddleheads_EatRaw,Eat Raw
 Herbs_And_Fungi_Fiddleheads_EatRaw_Desc,Eat the fiddleheads raw. Warning: raw fern shoots cause a short bout of food poisoning.
-Herbs_And_Fungi_Fiddleheads_CardHelpSection,"<b>Season:</b> Spring only, in the Alder Woods and the Oak Clearing.
+Herbs_And_Fungi_Fiddleheads_CardHelpSection,"<b>Season:</b> Spring only, in the Alder Grove and the Mossy Clearing.
 
 <b>Warning:</b> Eaten raw they give a short bout of food poisoning.
 
@@ -3416,7 +3370,7 @@ herbsfungithistle_SpoilageTime_StatName,Spoilage
 herbsfungithistle_SpoilageTime_OnFull,The thistle greens have wilted and rotted.
 herbsfungithistle_Eat,Eat
 herbsfungithistle_Eat_Desc,"Eat the thistle greens. Crisp, juicy and a little bitter."
-herbsfungithistle_CardHelpSection,"<b>Season:</b> Spring and summer, on the Foraging Path and the Highland Meadow.
+herbsfungithistle_CardHelpSection,"<b>Season:</b> Spring and summer, at the Secret Grove and Pine Meadows.
 
 <b>Uses:</b> Eat it raw, or add it to a stew."
 Herbs_And_Fungi_CamasBulb_CardName,Camas Bulb
@@ -3425,7 +3379,7 @@ Herbs_And_Fungi_CamasBulb_SpoilageTime_StatName,Spoilage
 Herbs_And_Fungi_CamasBulb_SpoilageTime_Spoiled,The camas bulb has gone soft and rotted.
 Herbs_And_Fungi_CamasBulb_SpecialDurability1_StatName,Cook
 Herbs_And_Fungi_CamasBulb_SpecialDurability1_Cooked,The camas bulb is roasted soft and sweet.
-Herbs_And_Fungi_CamasBulb_CardHelpSection,"<b>Season:</b> Spring and summer, on the Highland Meadow and the Foraging Path.
+Herbs_And_Fungi_CamasBulb_CardHelpSection,"<b>Season:</b> Spring and summer, at Pine Meadows and the Secret Grove.
 
 <b>Uses:</b> Roast it by a fire into Roasted Camas, or add it to a stew. It cannot be eaten raw."
 Herbs_And_Fungi_CamasRoasted_CardName,Roasted Camas
@@ -3480,7 +3434,7 @@ Herbs_And_Fungi_CamasFlatbread_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_CamasFlatbread_DismantleActions_Eat_ActionDescription,Eat the camas flatbread.
 herbsfungimandrakeroot_CardName,Mandrake Root
 herbsfungimandrakeroot_CardDescription,"A thick, forked root with a strange, almost human shape. Not food. Steep it in hot water for a sleeping draught."
-herbsfungimandrakeroot_CardHelpSection,"<b>Season:</b> Summer and autumn, at the Oak Clearing and the Old-Growth Grove.
+herbsfungimandrakeroot_CardHelpSection,"<b>Season:</b> Summer and autumn, at the Mossy Clearing and the Old Grove.
 
 <b>Uses:</b> Steep it in a bowl of hot water to make a Mandrake Draught, a sleeping draught."
 herbsfungimandrakeroot_SpoilageTime_StatName,Spoilage
@@ -3504,14 +3458,14 @@ herbsfungirhubarb_SpoilageTime_StatName,Spoilage
 herbsfungirhubarb_SpoilageTime_OnFull,The rhubarb stalks have gone limp and rotted.
 herbsfungirhubarb_Eat,Eat
 herbsfungirhubarb_Eat_Desc,"Eat the rhubarb stalks raw. Mouth-puckeringly sour, but juicy."
-herbsfungirhubarb_CardHelpSection,"<b>Season:</b> Spring and summer, at Alder Woods and on the Foraging Path.
+herbsfungirhubarb_CardHelpSection,"<b>Season:</b> Spring and summer, at the Alder Grove and the Secret Grove.
 
 <b>Uses:</b> Eat it raw, add it to a stew, cook 3 stalks with 2 honeycomb into Rhubarb Preserve (Cooking tab), or plant 2 with a hoe to grow a rhubarb patch (Farming tab)."
 Herbs_And_Fungi_RhubarbPreserve_CardName,Rhubarb Preserve
 Herbs_And_Fungi_RhubarbPreserve_CardDescription,"Rhubarb stalks cooked down with honeycomb into a thick, tart preserve that keeps for a long time. Sweet and sour at once."
 Herbs_And_Fungi_RhubarbPreserve_CardHelpSection,"<b>Made from:</b> 3 Rhubarb and 2 Honeycomb (Cooking tab).
 
-<b>Honeycomb:</b> take it from a Wild Bees' Nest at Foraging Path, Pine Clearing, Oak Clearing or Alder Woods, or from a beehive or bee skep.
+<b>Honeycomb:</b> take it from a beehive or a bee skep.
 
 <b>Uses:</b> Eat for strong satiation. Keeps long-term."
 Herbs_And_Fungi_RhubarbPreserve_SpoilageTime_CardStatName,Spoilage
@@ -3519,27 +3473,29 @@ Herbs_And_Fungi_RhubarbPreserve_SpoilageTime_OnFull_ActionDescription,The rhubar
 Herbs_And_Fungi_RhubarbPreserve_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_RhubarbPreserve_DismantleActions_Eat_ActionDescription,Eat the tart rhubarb preserve.
 Herbs_And_Fungi_Bp_RhubarbPreserve_CardName,Rhubarb Preserve
-Herbs_And_Fungi_Bp_RhubarbPreserve_CardDescription,Cook 3 rhubarb stalks down with 2 honeycomb from a wild bees' nest to make a tart preserve that keeps.
+Herbs_And_Fungi_Bp_RhubarbPreserve_CardDescription,Cook 3 rhubarb stalks down with 2 honeycomb to make a tart preserve that keeps.
 Herbs_And_Fungi_Bp_RhubarbPreserve_UnlockConditionsDesc,Rhubarb and Honeycomb Needed
 Herbs_Fungi_Bp_RhubarbPlant_CardName,Plant Rhubarb
 Herbs_Fungi_Bp_RhubarbPlant_CardDescription,Plant 2 rhubarb stalks in fertile ground to grow a rhubarb patch. It gives back more than you planted.
 Herbs_Fungi_Bp_RhubarbPlant_UnlockConditionsDesc,Unlocked after obtaining Rhubarb
 Herbs_And_Fungi_RhubarbPlantGrowing_CardName,Growing Rhubarb
 Herbs_And_Fungi_RhubarbPlantGrowing_CardDescription,"A young rhubarb patch, broad leaves unfolding over thin red stalks. Leave it to grow before pulling."
-Herbs_And_Fungi_RhubarbPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 5 days.
+Herbs_And_Fungi_RhubarbPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
 
-<b>Produces:</b> 3 to 4 Rhubarb when ready."
+<b>Produces:</b> 2 to 3 Rhubarb when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
 Herbs_And_Fungi_RhubarbPlantGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_RhubarbPlantGrowing_Progress_OnFull_ActionDescription,Rhubarb Patch is ready!
 Herbs_And_Fungi_RhubarbPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_RhubarbPlantMature_CardName,Rhubarb Patch
 Herbs_And_Fungi_RhubarbPlantMature_CardDescription,A full-grown rhubarb patch with thick red stalks. Pull it for fresh rhubarb.
-Herbs_And_Fungi_RhubarbPlantMature_CardHelpSection,<b>Harvest:</b> 3 to 4 Rhubarb. The plant is used up.
+Herbs_And_Fungi_RhubarbPlantMature_CardHelpSection,<b>Harvest:</b> 2 to 3 Rhubarb. The plant is used up.
 Herbs_And_Fungi_RhubarbPlantMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_RhubarbPlantMature_DismantleActions_ActionDescription,Pull the thick rhubarb stalks.
 Herbs_And_Fungi_MustardSeeds_CardName,Mustard Seeds
 Herbs_And_Fungi_MustardSeeds_CardDescription,"A handful of small, hot wild mustard seeds. Not food on their own: drag them onto a plateable food to season it with a sharp, pungent bite. A handful seasons two plates."
-Herbs_And_Fungi_MustardSeeds_CardHelpSection,"<b>Season:</b> Summer and autumn, on the Highland Meadow and the Foraging Path.
+Herbs_And_Fungi_MustardSeeds_CardHelpSection,"<b>Season:</b> Summer and autumn, at Pine Meadows and the Secret Grove.
 
 <b>Uses:</b> Drag the seeds onto a plateable food (cooked meat, fish, eggs and the like) to season it, pungent with a bitter edge. Each drag uses up one of its two pinches."
 Herbs_And_Fungi_MustardSeeds_UsageDurability_CardStatName,Pinches
@@ -3548,7 +3504,7 @@ Herbs_And_Fungi_MustardSeeds_CardInteractions_Add_ActionName,Add
 Herbs_And_Fungi_Spice_Mustard_SpiceName,Mustard
 herbsfungihorseradishroot_CardName,Horseradish Root
 herbsfungihorseradishroot_CardDescription,"A thick, pale, knobbly root with a fierce bite that clears the head. Not food on its own: slice it with a knife into a sharp seasoning."
-herbsfungihorseradishroot_CardHelpSection,"<b>Season:</b> Spring and autumn, at the Pine Clearing and Alder Woods.
+herbsfungihorseradishroot_CardHelpSection,"<b>Season:</b> Spring and autumn, at the Pine Clearing and the Alder Grove.
 
 <b>Uses:</b> Cut it with a knife into Sliced Horseradish, which seasons a plateable food, or dries into Dried Horseradish that keeps."
 herbsfungihorseradishroot_SpoilageTime_StatName,Spoilage
@@ -3574,7 +3530,7 @@ herbsfungihorseradishdried_Add_Desc,Season a plateable food with it.
 Herbs_And_Fungi_Spice_Horseradish_SpiceName,Horseradish
 herbsfungichicoryroot_CardName,Chicory Root
 herbsfungichicoryroot_CardDescription,"The long, pale taproot of the blue-flowered chicory. Too bitter and woody to eat; roasted dark by a fire it brews into a strong, bitter drink."
-herbsfungichicoryroot_CardHelpSection,"<b>Season:</b> Summer and autumn, on the Highland Meadow and the Foraging Path.
+herbsfungichicoryroot_CardHelpSection,"<b>Season:</b> Summer and autumn, at Pine Meadows and the Secret Grove.
 
 <b>Uses:</b> Roast it by a fire into Roasted Chicory, then steep that in a bowl of hot water for Chicory Brew. It cannot be eaten raw."
 herbsfungichicoryroot_SpoilageTime_StatName,Spoilage
@@ -3617,7 +3573,7 @@ herbsfungigoosefoot_SpoilageTime_StatName,Spoilage
 herbsfungigoosefoot_SpoilageTime_OnFull,The goosefoot greens have wilted and rotted.
 herbsfungigoosefoot_Eat,Eat
 herbsfungigoosefoot_Eat_Desc,Eat the goosefoot greens. Mild and a little earthy; they slowly drive out gut parasites.
-herbsfungigoosefoot_CardHelpSection,"<b>Season:</b> Spring and summer, on the Foraging Path and at the Oak Clearing.
+herbsfungigoosefoot_CardHelpSection,"<b>Season:</b> Spring and summer, at the Secret Grove and the Mossy Clearing.
 
 <b>Uses:</b> Eat it raw for Goosefoot Purge, a gentle effect that slowly lowers gut parasites with no sickness, or add it to a stew (the stew gives food, not the purge)."
 Herbs_And_Fungi_WaterLilyRhizome_CardName,Water Lily Rhizome
@@ -3651,7 +3607,7 @@ herbsfungicrabapple_CardName,Crabapples
 herbsfungicrabapple_CardDescription,"Small, hard wild apples, sharply sour even when ripe. Better dried or cooked than eaten straight from the tree."
 herbsfungicrabapple_CardHelpSection,"<b>Season:</b> Autumn
 
-<b>Found:</b> Foraging Path and the Oak Clearing.
+<b>Found:</b> The Secret Grove and the Mossy Clearing.
 
 <b>Uses:</b> Eat raw, dry for long-term storage, or add to a stew."
 herbsfungicrabapple_SpoilageTime_CardStatName,Spoilage
@@ -3670,7 +3626,7 @@ herbsfungipear_CardName,Wild Pears
 herbsfungipear_CardDescription,"Small, gritty wild pears, sweet when they soften late in the season."
 herbsfungipear_CardHelpSection,"<b>Season:</b> Summer and autumn
 
-<b>Found:</b> Alder Woods and the Oak Clearing.
+<b>Found:</b> The Alder Grove and the Mossy Clearing.
 
 <b>Uses:</b> Eat raw, dry for long-term storage, or add to a stew."
 herbsfungipear_SpoilageTime_CardStatName,Spoilage
@@ -3689,7 +3645,7 @@ herbsfungiplum_CardName,Wild Plums
 herbsfungiplum_CardDescription,Small purple wild plums with a dusty bloom. Juicy and sweet around a sour skin.
 herbsfungiplum_CardHelpSection,"<b>Season:</b> Autumn
 
-<b>Found:</b> Foraging Path and the Pine Clearing.
+<b>Found:</b> The Secret Grove and the Pine Clearing.
 
 <b>Uses:</b> Eat raw, dry into prunes, cook into a Plum Preserve (Cooking tab), or add to a stew."
 herbsfungiplum_SpoilageTime_CardStatName,Spoilage
@@ -3708,7 +3664,7 @@ Herbs_And_Fungi_PlumPreserve_CardName,Plum Preserve
 Herbs_And_Fungi_PlumPreserve_CardDescription,"Wild plums cooked down with honeycomb into a dark, sweet preserve that keeps for a long time."
 Herbs_And_Fungi_PlumPreserve_CardHelpSection,"<b>Made from:</b> 3 Wild Plums and 2 Honeycomb (Cooking tab).
 
-<b>Honeycomb:</b> take it from a Wild Bees' Nest at the mod's clearings, or from vanilla beehives.
+<b>Honeycomb:</b> take it from a beehive or a bee skep.
 
 <b>Uses:</b> Eat it; it keeps far longer than fresh plums."
 Herbs_And_Fungi_PlumPreserve_SpoilageTime_CardStatName,Spoilage
@@ -3722,7 +3678,7 @@ Herbs_And_Fungi_Chestnut_CardName,Chestnuts
 Herbs_And_Fungi_Chestnut_CardDescription,"Glossy brown chestnuts from a wild tree, starchy and bitter-sweet. Edible raw, far better roasted."
 Herbs_And_Fungi_Chestnut_CardHelpSection,"<b>Season:</b> Autumn
 
-<b>Found:</b> Foraging at the Oak Clearing and the Foraging Path.
+<b>Found:</b> Foraging at the Mossy Clearing and the Secret Grove.
 
 <b>Uses:</b> Eat raw for modest nourishment, or place on a fire and use Roast. Keeps for about three weeks."
 Herbs_And_Fungi_Chestnut_SpoilageTime_CardStatName,Spoilage
@@ -3774,7 +3730,7 @@ Herbs_And_Fungi_Hazelnut_CardName,Hazelnuts
 Herbs_And_Fungi_Hazelnut_CardDescription,"Small round nuts from a hazel thicket, rich and sweet. Good raw, better roasted."
 Herbs_And_Fungi_Hazelnut_CardHelpSection,"<b>Season:</b> Autumn
 
-<b>Found:</b> Foraging at the Foraging Path and the Alder Woods.
+<b>Found:</b> Foraging at the Secret Grove and the Alder Grove.
 
 <b>Uses:</b> Eat raw for moderate nourishment, or place on a fire and use Roast for a richer boost. Keeps for about a month."
 Herbs_And_Fungi_Hazelnut_SpoilageTime_CardStatName,Spoilage
@@ -3793,7 +3749,7 @@ herbsfungisloe_CardName,Sloes
 herbsfungisloe_CardDescription,"Tiny blue-black fruit of the blackthorn, so astringent they pucker the whole mouth. Hardly worth eating raw; crush them into water to start a sloe must that ferments into wine."
 herbsfungisloe_CardHelpSection,"<b>Season:</b> Autumn
 
-<b>Found:</b> Foraging at the Foraging Path and the Highland Meadow.
+<b>Found:</b> Foraging at the Secret Grove and Pine Meadows.
 
 <b>Uses:</b> Eat raw if you must. Drag onto a container of water to crush them into Sloe Must, which turns into Sloe Wine after 4 days."
 herbsfungisloe_SpoilageTime_StatName,Spoilage
@@ -3822,7 +3778,7 @@ Herbs_And_Fungi_SloeWine_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_SloeWine_SpecialDurability3_CardStatName,Alcohol
 Herbs_And_Fungi_SloeWine_Drink_ActionName,Drink
 herbsfungielderflower_CardName,Elderflowers
-herbsfungielderflower_CardDescription,"Frothy plates of tiny cream flowers with a sweet, musky scent. Found in spring and summer at the Alder Woods and the Foraging Path. Best dried and steeped into a cordial."
+herbsfungielderflower_CardDescription,"Frothy plates of tiny cream flowers with a sweet, musky scent. Found in spring and summer at the Alder Grove and the Secret Grove. Best dried and steeped into a cordial."
 herbsfungielderflower_SpoilageTime_StatName,Spoilage
 herbsfungielderflower_SpoilageTime_OnFull,The elderflowers have wilted and rotted.
 herbsfungielderflower_UsageDurability_StatName,Dry
@@ -3848,7 +3804,7 @@ herbsfungielderberry_CardName,Elderberries
 herbsfungielderberry_CardDescription,"Heavy clusters of tiny purple-black berries, tart and a little bitter. Best dried or cooked rather than eaten raw."
 herbsfungielderberry_CardHelpSection,"<b>Season:</b> Autumn
 
-<b>Found:</b> Foraging at the Alder Woods and the Foraging Path.
+<b>Found:</b> Foraging at the Alder Grove and the Secret Grove.
 
 <b>Uses:</b> Eat raw, dry for long-term storage, or add to a stew."
 herbsfungielderberry_SpoilageTime_CardStatName,Spoilage
@@ -3867,3 +3823,18 @@ Herbs_And_Fungi_Quest_Ginger_Collection_StatName,Ginger Quest Completed
 Herbs_And_Fungi_Quest_Ginger_Collection_StatDescription,"Hidden flag: 1 once Dried Ginger has been obtained, or the CMC Apothecary's herb quest is completed (whichever first). Gates the Anti-Nausea Tea blueprint."
 Herbs_And_Fungi_Quest_Ginseng_Collection_StatName,Ginseng Quest Completed
 Herbs_And_Fungi_Quest_Ginseng_Collection_StatDescription,"Hidden flag: 1 once Ground Ginseng has been obtained, or the CMC Apothecary's herb quest is completed (whichever first). Gates the Stimulant Tea blueprint."
+Herbs_And_Fungi_Crop_Health_CardStatName,Health
+Herbs_And_Fungi_Crop_Care_CardStatName,Care
+Herbs_And_Fungi_Crop_Health_OnZero_ActionDescription,The crop has died.
+Herbs_And_Fungi_Crop_Tend_ActionName,Tend
+Herbs_And_Fungi_Crop_Tend_ActionDescription,"Weed, water and loosen the soil around the crop. Keeps it healthy for a day."
+Herbs_And_Fungi_DeadCrop_CardName,Dead Crop
+Herbs_And_Fungi_DeadCrop_CardDescription,"A withered, blackened crop. Nothing on it can be saved."
+Herbs_And_Fungi_DeadCrop_CardHelpSection,"<b>Why:</b> A crop dies when it is left untended for about ten days, or left out in winter.
+
+<b>Clear Away:</b> Pull it up to free the ground. Nothing is gained."
+Herbs_And_Fungi_DeadCrop_ClearAway_ActionName,Clear Away
+Herbs_And_Fungi_DeadCrop_ClearAway_ActionDescription,Pull up the dead plants.
+Herbs_And_Fungi_Preserve_Servings_CardStatName,Servings
+Herbs_And_Fungi_DeathCapWard_Usage_CardStatName,Potency
+Herbs_And_Fungi_DeathCapWard_Usage_OnZero_ActionDescription,The death cap ward has rotted away.

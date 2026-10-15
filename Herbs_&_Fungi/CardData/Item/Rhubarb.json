@@ -429,6 +429,6 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_rhubarb",
         "LocalizationKey": "herbsfungirhubarb_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Spring and summer, at Alder Woods and on the Foraging Path.\n\n<b>Uses:</b> Eat it raw, add it to a stew, cook 3 stalks with 2 honeycomb into Rhubarb Preserve (Cooking tab), or plant 2 with a hoe to grow a rhubarb patch (Farming tab)."
+        "DefaultText": "<b>Season:</b> Spring and summer, at the Alder Grove and the Secret Grove.\n\n<b>Uses:</b> Eat it raw, add it to a stew, cook 3 stalks with 2 honeycomb into Rhubarb Preserve (Cooking tab), or plant 2 with a hoe to grow a rhubarb patch (Farming tab)."
     }
 }

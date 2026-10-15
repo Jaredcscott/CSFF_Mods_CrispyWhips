@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_chicory_root",
         "LocalizationKey": "herbsfungichicoryroot_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Summer and autumn, on the Highland Meadow and the Foraging Path.\n\n<b>Uses:</b> Roast it by a fire into Roasted Chicory, then steep that in a bowl of hot water for Chicory Brew. It cannot be eaten raw."
+        "DefaultText": "<b>Season:</b> Summer and autumn, at Pine Meadows and the Secret Grove.\n\n<b>Uses:</b> Roast it by a fire into Roasted Chicory, then steep that in a bowl of hot water for Chicory Brew. It cannot be eaten raw."
     },
     "CardType": 0,
     "CardTagsWarpData": [

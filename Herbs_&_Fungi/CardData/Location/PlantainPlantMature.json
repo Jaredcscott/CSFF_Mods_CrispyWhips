@@ -15,7 +15,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_plantain_plant_mature",
         "LocalizationKey": "Herbs_And_Fungi_PlantainPlantMature_CardHelpSection",
-        "DefaultText": "<b>Harvest:</b> 3 to 4 Common Plantain. The plant is used up."
+        "DefaultText": "<b>Harvest:</b> 2 to 3 Common Plantain. The plant is used up."
     },
     "CardType": 2,
     "ObjectWeight": 300.0,
@@ -86,8 +86,8 @@
                             "DroppedCardWarpData": "herbs_fungi_common_plantain",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 3,
-                                "y": 4
+                                "x": 2,
+                                "y": 3
                             }
                         }
                     ]

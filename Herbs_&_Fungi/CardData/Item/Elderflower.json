@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_elderflower",
         "LocalizationKey": "herbsfungielderflower_CardDescription",
-        "DefaultText": "Frothy plates of tiny cream flowers with a sweet, musky scent. Found in spring and summer at the Alder Woods and the Foraging Path. Best dried and steeped into a cordial."
+        "DefaultText": "Frothy plates of tiny cream flowers with a sweet, musky scent. Found in spring and summer at the Alder Grove and the Secret Grove. Best dried and steeped into a cordial."
     },
     "CardType": 0,
     "CardTagsWarpData": [

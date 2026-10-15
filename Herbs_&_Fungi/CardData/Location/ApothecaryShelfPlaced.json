@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_apothecary_shelf_placed",
         "LocalizationKey": "Herbs_And_Fungi_ApothecaryShelf_CardDescription",
-        "DefaultText": "A narrow slatted shelf built for drying stores. It takes only herbs, mushrooms, powders and medicines, and keeps them far better than a food pantry does."
+        "DefaultText": "A narrow slatted shelf built for drying stores. It takes only herbs, mushrooms, powders and medicines, and keeps them as well as a food pantry does, safe from the animals that raid one."
     },
     "CanBeRenamed": true,
     "AlternateNames": [],
@@ -20,7 +20,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_apothecary_shelf_placed",
         "LocalizationKey": "Herbs_And_Fungi_ApothecaryShelf_Placed_CardHelpSection",
-        "DefaultText": "<b>Spoilage:</b> Slows to 60% of normal rate for everything on the shelf.\n\n<b>Accepts:</b> Herbs, fungi, powders and medicines only. Ordinary food and materials are refused."
+        "DefaultText": "<b>Spoilage:</b> Slows to 75% of normal rate for everything on the shelf.\n\n<b>Accepts:</b> Herbs, fungi, powders and medicines only. Ordinary food and materials are refused."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -159,7 +159,7 @@
             "MultiplySpoilageRate": true,
             "SpoilageRateModifier": {
                 "Active": true,
-                "FloatValue": 0.6
+                "FloatValue": 0.75
             },
             "UsageRateModifier": {
                 "Active": false,

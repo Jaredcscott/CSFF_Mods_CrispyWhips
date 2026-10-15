@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_honeyed_berries",
         "LocalizationKey": "Herbs_And_Fungi_HoneyedBerries_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> 1 Honeycomb + 1 each of Dried Blackcurrants, Dried Redcurrants, Dried Lingonberries and Dried Cloudberries makes 2 (Cooking tab).\n\n<b>Honeycomb:</b> take it from a Wild Bees' Nest, a beehive or a bee skep.\n\n<b>Uses:</b> Eat for a light sweet meal that calms the nerves. Keeps for about three months."
+        "DefaultText": "<b>Made from:</b> 1 Honeycomb + 1 each of Dried Blackcurrants, Dried Redcurrants, Dried Lingonberries and Dried Cloudberries makes 2 (Cooking tab).\n\n<b>Honeycomb:</b> take it from a beehive or a bee skep.\n\n<b>Uses:</b> Eat for a light sweet meal that calms the nerves. Keeps for about three months."
     },
     "CardImage": {
         "m_FileID": 0,

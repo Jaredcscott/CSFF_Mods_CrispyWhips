@@ -15,7 +15,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_grape_plant_mature",
         "LocalizationKey": "Herbs_And_Fungi_GrapePlantMature_CardHelpSection",
-        "DefaultText": "<b>Harvest:</b> 4 to 6 Grapes. The plant is used up."
+        "DefaultText": "<b>Harvest:</b> 3 to 5 Grapes. The plant is used up."
     },
     "CardType": 2,
     "ObjectWeight": 300.0,
@@ -86,8 +86,8 @@
                             "DroppedCardWarpData": "herbs_fungi_grapes",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 4,
-                                "y": 6
+                                "x": 3,
+                                "y": 5
                             }
                         }
                     ]

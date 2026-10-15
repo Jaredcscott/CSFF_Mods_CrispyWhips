@@ -81,7 +81,7 @@
             "LocalizationKey": "Herbs_And_Fungi_SproutBread_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 720.0,
+        "MaxValue": 360.0,
         "RatePerDaytimePoint": 1.0,
         "HidingOptions": 1,
         "OverrideIconWarpData": "Bacteria",

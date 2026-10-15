@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_honeyed_nuts",
         "LocalizationKey": "Herbs_And_Fungi_HoneyedNuts_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> 1 Honeycomb + 3 Roasted Peanuts (or 3 Roasted Pine Nuts) makes 2 (Cooking tab).\n\n<b>Honeycomb:</b> take it from a Wild Bees' Nest, a beehive or a bee skep.\n\n<b>Uses:</b> Eat for solid calories. Keeps for about three months."
+        "DefaultText": "<b>Made from:</b> 1 Honeycomb + 3 Roasted Peanuts (or 3 Roasted Pine Nuts) makes 2 (Cooking tab).\n\n<b>Honeycomb:</b> take it from a beehive or a bee skep.\n\n<b>Uses:</b> Eat for solid calories. Keeps for about three months."
     },
     "CardImage": {
         "m_FileID": 0,

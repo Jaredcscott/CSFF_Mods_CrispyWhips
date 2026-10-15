@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
         "LocalizationKey": "herbsfungibroadbeanfieldgrowing_CardHelpSection",
-        "DefaultText": "<b>Growth:</b> Takes 10 days to mature.\n\n<b>Harvest:</b> Once mature, harvest for 8 to 12 Broad Beans."
+        "DefaultText": "<b>Growth:</b> Takes 30 days to mature.\n\n<b>Harvest:</b> Once mature, harvest for 6 to 9 Broad Beans.\n\n<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days. In winter it stops growing and dies in about two days, so harvest before the frost."
     },
     "CardType": 2,
     "ObjectWeight": 100.0,
@@ -27,7 +27,7 @@
             "LocalizationKey": "herbsfungibroadbeanfieldgrowing_Progress_CardStatName",
             "DefaultText": "Growth"
         },
-        "MaxValue": 960.0,
+        "MaxValue": 2880.0,
         "RatePerDaytimePoint": 1.0,
         "HidingOptions": 0,
         "HasActionOnFull": true,
@@ -46,6 +46,117 @@
             }
         }
     },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 96.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+            "LocalizationKey": "Herbs_And_Fungi_Crop_Health_CardStatName",
+            "DefaultText": "Health"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "Health",
+        "OverrideIconWarpType": 3,
+        "ResetWhenLoadedAtZero": true,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+                "LocalizationKey": "Herbs_And_Fungi_Crop_Health_OnZero_ActionDescription",
+                "DefaultText": "The crop has died."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_dead_crop",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "HasActionOnFull": false
+    },
+    "SpecialDurability4": {
+        "Active": true,
+        "FloatValue": 96.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+            "LocalizationKey": "Herbs_And_Fungi_Crop_Care_CardStatName",
+            "DefaultText": "Care"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": -1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "Wakefulness4",
+        "OverrideIconWarpType": 3,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false
+    },
+    "PassiveEffects": [
+        {
+            "EffectName": "Cared for (Health +0.05)",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "Special4Range": {
+                        "x": 1.0,
+                        "y": 96.0
+                    }
+                }
+            },
+            "Special2RateModifier": {
+                "Active": true,
+                "FloatValue": 0.05
+            }
+        },
+        {
+            "EffectName": "Neglected (Health -0.1)",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.5
+                    }
+                }
+            },
+            "Special2RateModifier": {
+                "Active": true,
+                "FloatValue": -0.1
+            }
+        },
+        {
+            "EffectName": "Winter (Health -0.5, Growth -1)",
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        }
+                    }
+                ]
+            },
+            "Special2RateModifier": {
+                "Active": true,
+                "FloatValue": -0.5
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": -1.0
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
@@ -57,6 +168,57 @@
             "DaytimeCost": 1,
             "ReceivingCardChanges": {
                 "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+                "LocalizationKey": "Herbs_And_Fungi_Crop_Tend_ActionName",
+                "DefaultText": "Tend"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_broad_bean_field_growing",
+                "LocalizationKey": "Herbs_And_Fungi_Crop_Tend_ActionDescription",
+                "DefaultText": "Weed, water and loosen the soil around the crop. Keeps it healthy for a day."
+            },
+            "DaytimeCost": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -2.0,
+                        "y": -2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special4Change": {
+                    "x": 96.0,
+                    "y": 96.0
+                }
             }
         }
     ],

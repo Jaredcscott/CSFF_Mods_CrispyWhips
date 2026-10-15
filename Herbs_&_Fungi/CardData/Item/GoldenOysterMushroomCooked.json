@@ -95,7 +95,7 @@
             "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
-        "MaxValue": 480.0,
+        "MaxValue": 144.0,
         "RatePerDaytimePoint": 1.0,
         "ExtraRateWhenEquipped": 0.0,
         "PauseRateWhenEnvWeightIsFull": false,

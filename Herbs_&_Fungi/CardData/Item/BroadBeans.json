@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_broad_beans",
         "LocalizationKey": "herbsfungibroadbeans_CardHelpSection",
-        "DefaultText": "<b>Found:</b> Foraging in spring and summer at the Highland Meadow and Alder Woods.\n\n<b>Uses:</b> Eat raw, or drag onto hot water in a pot or bowl to stir them into a stew. Holding them unlocks the Broad Bean Field."
+        "DefaultText": "<b>Found:</b> Foraging in spring and summer at Pine Meadows and the Alder Grove.\n\n<b>Uses:</b> Eat raw, or drag onto hot water in a pot or bowl to stir them into a stew. Holding them unlocks the Broad Bean Field."
     },
     "CardType": 0,
     "CardTagsWarpData": [

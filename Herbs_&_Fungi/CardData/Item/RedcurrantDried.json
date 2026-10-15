@@ -35,7 +35,7 @@
             "LocalizationKey": "herbsfungiredcurrantdried_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 3600.0,
+        "MaxValue": 1800.0,
         "RatePerDaytimePoint": 1.0,
         "HasActionOnFull": true,
         "OnFull": {

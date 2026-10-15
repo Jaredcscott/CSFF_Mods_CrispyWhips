@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_chestnut",
         "LocalizationKey": "Herbs_And_Fungi_Chestnut_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Autumn\n\n<b>Found:</b> Foraging at the Oak Clearing and the Foraging Path.\n\n<b>Uses:</b> Eat raw for modest nourishment, or place on a fire and use Roast. Keeps for about three weeks."
+        "DefaultText": "<b>Season:</b> Autumn\n\n<b>Found:</b> Foraging at the Mossy Clearing and the Secret Grove.\n\n<b>Uses:</b> Eat raw for modest nourishment, or place on a fire and use Roast. Keeps for about three weeks."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -29,7 +29,7 @@
     "CardType": 0,
     "CannotBeTransferred": false,
     "NotAutoSolvableEvent": false,
-    "ObjectWeight": 25,
+    "ObjectWeight": 60,
     "TradingValue": 15.0,
     "MaxStack": 10,
     "AlwaysUpdate": false,
@@ -148,8 +148,8 @@
                     "StatWarpData": "930cf914322e9f145af1315d96f85a28",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 25,
-                        "y": 25
+                        "x": 15,
+                        "y": 15
                     },
                     "TriggerStat": {
                         "m_FileID": 0,

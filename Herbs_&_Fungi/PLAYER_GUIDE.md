@@ -6,7 +6,7 @@ A complete how-to for every item, plant, and structure in the mod.
 
 ## Getting Started
 
-Most content is foraged — start exploring forest biomes (oak, alder and pine woods, meadows, river banks and the mod's own clearings) to discover mushrooms and herbs. The caves have no forage, so they hold none of this mod's finds. Build a **Drying Tray** early (Support crafting tab) so nothing rots before you can process it.
+Most content is foraged: start exploring forest biomes (oak, alder and pine woods, meadows and river banks) to discover mushrooms and herbs. The caves have no forage, so they hold none of this mod's finds. Build a **Drying Tray** early (Support crafting tab) so nothing rots before you can process it.
 
 **Suggested early priorities:**
 1. Find Yarrow → dry → grind → Yarrow Tea (free wound treatment)
@@ -56,7 +56,7 @@ These are primarily used for grinding and brewing rather than eating directly.
 
 The rarest and most valuable mushroom.
 
-- Found underground: at a vanilla **oak or alder** location (oak and alder groves, thickets and clearings) use the location's **Dig for Truffles** action. The mod's own locations do not have it. Digging up mud at a river can also turn one up, rarely, from spring to autumn. Foraging at the **Old-Growth Grove** (west of Misty Falls; it opens once all six of the mod's clearings have been explored) finds one 6% of the time from spring to autumn, a placeholder chance.
+- Found underground: at a vanilla **oak or alder** location (oak and alder groves, thickets and clearings) use the location's **Dig for Truffles** action. Digging up mud at a river can also turn one up, rarely, from spring to autumn. Foraging at the vanilla **Old Grove** finds one 6% of the time from spring to autumn, a placeholder chance.
 - Spoils in 1 day (fastest of any mushroom) — dry immediately or use right away.
 - Eat raw for a huge hunger boost, or dry → slice → cook with fat (see Truffle Cooking below).
 - Press in the Oil Press to produce **Truffle Oil** — a luxury cooking ingredient.
@@ -71,7 +71,7 @@ The rarest and most valuable mushroom.
 - **Death Cap Tincture** (craft at a kiln) — a bitter amatoxin extract that kills gut parasites when consumed in small doses.
 - **Dried Death Cap** (dry a Death Cap on the Drying Tray): **Taste a Sliver** gives a short, mild bout of food poisoning (+4) and builds **Toxin Tolerance**, which makes later food poisoning (raw Morel, raw Chicken of the Woods, an unidentified Chanterelle) fade faster for about two days. It does not stop the poisoning itself, and each sliver uses up the dried cap. The numbers are starting values, not tuned; the card uses the fresh Death Cap picture; not checked in game.
 - **Poison a weapon** (Apply Poison): drag a Death Cap onto a spear, a cutting tool, an axe or a stack of arrows (or the weapon onto the cap) to coat it with the game's own poison. Handling the cap gives you a little food poisoning.
-- **Death Cap Ward** (Support tab, once you hold a Death Cap): lash 5 Death Caps to 2 long sticks and Place the ward where you camp. While it stands where you are, a bear, wolf, wolf pack, primeval wolf or boar that attacks you is turned away 45 percent of the time, and so are other wild-animal encounters that start without a creature on the map. It never keeps people away, never stops a fight you start, and does not reach the Forest Beast, the Moontouched or other mods' animals. Pick it up to move it; Dismantle gives the sticks back. The 45 percent is a starting value, not tuned, and it has not been checked in game.
+- **Death Cap Ward** (Support tab, once you hold a Death Cap): lash 5 Death Caps to 2 long sticks and Place the ward where you camp. While it stands where you are, a bear, wolf, wolf pack, primeval wolf or boar that attacks you is turned away 25 percent of the time, and so are other wild-animal encounters that start without a creature on the map. It never keeps people away, never stops a fight you start, and does not reach the Forest Beast, the Moontouched or other mods' animals. Pick it up to move it; Dismantle gives the sticks back. The death caps rot in about ten days, placed or carried, and the ward rots with them.
 
 Handle them like tools, not food.
 
@@ -116,31 +116,31 @@ A spice and food ingredient.
 
 ### Fiddleheads, Thistle Greens and Camas
 
-Three more wild foods for the mod's own clearings. Forage chances, food values and spoilage are tunable placeholders, Fiddleheads have their own picture and the others share vanilla or existing ones, and none of this has been checked in game yet.
+Three more wild foods, foraged at a few vanilla woods and meadows. Forage chances, food values and spoilage are tunable placeholders, Fiddleheads have their own picture and the others share vanilla or existing ones, and none of this has been checked in game yet.
 
-- **Fiddleheads** (spring only, Alder Woods and the Oak Clearing): curled fern shoots. **Eat Raw** gives a short bout of food poisoning (+8, the raw-morel dose); cook them by a fire into **Cooked Fiddleheads**, which are safe to **Eat**. Either can go into a stew.
-- **Thistle Greens** (spring and summer, the Foraging Path and the Highland Meadow): peeled thistle stalks you **Eat** raw or add to a stew.
-- **Camas Bulb** (spring and summer, the Highland Meadow and the Foraging Path): cannot be eaten raw. Roast it by a fire into **Roasted Camas** (**Eat**, or add to a stew). Holding Roasted Camas unlocks the **Camas Cake** blueprint (Cooking tab, 2 Roasted Camas). **Grind** the cake with a stone mortar or any grinding tool (or Water Driven Infrastructure's Grinding Mill) into **Camas Flour**, drag the flour onto a bowl or pot holding at least 150 of cool fresh water to **Soak** it into **Camas Dough**, and bake the dough near a fire into **Camas Flatbread** (**Eat**).
+- **Fiddleheads** (spring only, the Alder Grove and the Mossy Clearing): curled fern shoots. **Eat Raw** gives a short bout of food poisoning (+8, the raw-morel dose); cook them by a fire into **Cooked Fiddleheads**, which are safe to **Eat**. Either can go into a stew.
+- **Thistle Greens** (spring and summer, the Secret Grove and Pine Meadows): peeled thistle stalks you **Eat** raw or add to a stew.
+- **Camas Bulb** (spring and summer, Pine Meadows and the Secret Grove): cannot be eaten raw. Roast it by a fire into **Roasted Camas** (**Eat**, or add to a stew). Holding Roasted Camas unlocks the **Camas Cake** blueprint (Cooking tab, 2 Roasted Camas). **Grind** the cake with a stone mortar or any grinding tool (or Water Driven Infrastructure's Grinding Mill) into **Camas Flour**, drag the flour onto a bowl or pot holding at least 150 of cool fresh water to **Soak** it into **Camas Dough**, and bake the dough near a fire into **Camas Flatbread** (**Eat**).
 
 ### Mandrake, Rhubarb and Mustard
 
-Three more wild finds for the mod's own clearings. Forage chances, doses, food values and spoilage are tunable placeholders, Mandrake Root, Rhubarb and Mustard Seeds have their own pictures, and none of this has been checked in game yet.
+Three more wild finds, foraged at a few vanilla woods and meadows. Forage chances, doses, food values and spoilage are tunable placeholders, Mandrake Root, Rhubarb and Mustard Seeds have their own pictures, and none of this has been checked in game yet.
 
-- **Mandrake Root** (summer and autumn, the Oak Clearing and the Old-Growth Grove): a forked root, not food. Drag a bowl of hot water onto it (**Steep in Hot Water**) to make a **Mandrake Draught**. Its **Drink** gives the same soporific effect as vanilla Fairy Tea: stress and wakefulness fall while it lasts, and it fades over about a day. It is a medicine, so an allied Partner never drinks it.
-- **Rhubarb** (spring and summer, Alder Woods and the Foraging Path): sour red stalks you **Eat** raw or add to a stew. With 2 Honeycomb, 3 Rhubarb make a **Rhubarb Preserve** (Cooking tab, unlocks once you hold Rhubarb and Honeycomb) that keeps for weeks and is eaten like the Berry Preserve. **Plant Rhubarb** (Farming > Agriculture, 2 Rhubarb and a hoe that loses one use) grows a patch on fertile ground that you **Harvest** for 3 to 4 stalks after 5 days.
-- **Mustard Seeds** (summer and autumn, the Highland Meadow and the Foraging Path): not food. Drag them onto a plateable food such as cooked meat, fish or eggs (**Add**) to season it, pungent with a bitter edge. A handful seasons two plates, then it is used up.
+- **Mandrake Root** (summer and autumn, the Mossy Clearing and the Old Grove): a forked root, not food. Drag a bowl of hot water onto it (**Steep in Hot Water**) to make a **Mandrake Draught**. Its **Drink** gives the same soporific effect as vanilla Fairy Tea: stress and wakefulness fall while it lasts, and it fades over about a day. It is a medicine, so an allied Partner never drinks it.
+- **Rhubarb** (spring and summer, the Alder Grove and the Secret Grove): sour red stalks you **Eat** raw or add to a stew. With 2 Honeycomb, 3 Rhubarb make a **Rhubarb Preserve** (Cooking tab, unlocks once you hold Rhubarb and Honeycomb) that keeps for weeks and is eaten like the Berry Preserve. **Plant Rhubarb** (Farming > Agriculture, 2 Rhubarb and a hoe that loses one use) grows a patch on fertile ground that you **Harvest** for 3 to 4 stalks after 5 days.
+- **Mustard Seeds** (summer and autumn, Pine Meadows and the Secret Grove): not food. Drag them onto a plateable food such as cooked meat, fish or eggs (**Add**) to season it, pungent with a bitter edge. A handful seasons two plates, then it is used up.
 
 ### Horseradish, Chicory and Goosefoot
 
-Three more wild finds for the mod's own clearings. Forage chances, doses, effect rates, food values and spoilage are tunable placeholders, Sliced Horseradish and Chicory Root have their own pictures and the others share vanilla or existing ones, and none of this has been checked in game yet.
+Three more wild finds, foraged at a few vanilla woods and meadows. Forage chances, doses, effect rates, food values and spoilage are tunable placeholders, Sliced Horseradish and Chicory Root have their own pictures and the others share vanilla or existing ones, and none of this has been checked in game yet.
 
-- **Horseradish Root** (spring and autumn, the Pine Clearing and Alder Woods): a fierce, pale root, not food. **Cut** it with a knife into **Sliced Horseradish**. Drag the slices onto a plateable food such as cooked meat, fish or eggs (**Add**) to season it with Horseradish, sharply pungent with a little heat; that uses the slices up. Left alone the slices dry (slowly by themselves, quickly on a Drying Tray) into **Dried Horseradish**, which keeps and seasons three plates.
-- **Chicory Root** (summer and autumn, the Highland Meadow and the Foraging Path): a bitter taproot, not food. Roast it by a fire into **Roasted Chicory**, which keeps well, then drag a bowl of hot water onto it (**Steep in Hot Water**) for **Chicory Brew**. Its **Drink** quenches thirst and gives **Chicory Lift** for a few hours: you tire more slowly, and stress rises a little faster. A second cup soon after makes you **Jittery** (both effects doubled). Allied Partners leave it alone.
-- **Goosefoot Greens** (spring and summer, the Foraging Path and the Oak Clearing): mild, spinach-like leaves you **Eat** raw or add to a stew. Eating them gives **Goosefoot Purge**, which slowly lowers gut Parasites (5 a tick, 10 after a second helping close together) and wears off over about a day. It is the gentle path next to Death Cap Tincture: slower, but with no nausea or food poisoning. A stew made with goosefoot gives food only, not the purge. Allied Partners leave it alone.
+- **Horseradish Root** (spring and autumn, the Pine Clearing and the Alder Grove): a fierce, pale root, not food. **Cut** it with a knife into **Sliced Horseradish**. Drag the slices onto a plateable food such as cooked meat, fish or eggs (**Add**) to season it with Horseradish, sharply pungent with a little heat; that uses the slices up. Left alone the slices dry (slowly by themselves, quickly on a Drying Tray) into **Dried Horseradish**, which keeps and seasons three plates.
+- **Chicory Root** (summer and autumn, Pine Meadows and the Secret Grove): a bitter taproot, not food. Roast it by a fire into **Roasted Chicory**, which keeps well, then drag a bowl of hot water onto it (**Steep in Hot Water**) for **Chicory Brew**. Its **Drink** quenches thirst and gives **Chicory Lift** for a few hours: you tire more slowly, and stress rises a little faster. A second cup soon after makes you **Jittery** (both effects doubled). Allied Partners leave it alone.
+- **Goosefoot Greens** (spring and summer, the Secret Grove and the Mossy Clearing): mild, spinach-like leaves you **Eat** raw or add to a stew. Eating them gives **Goosefoot Purge**, which slowly lowers gut Parasites (5 a tick, 10 after a second helping close together) and wears off over about a day. It is the gentle path next to Death Cap Tincture: slower, but with no nausea or food poisoning. A stew made with goosefoot gives food only, not the purge. Allied Partners leave it alone.
 - **Water Lily Rhizome** (spring to autumn, at the river places): a starchy rootstock, not food raw. Cook it by a fire into a **Cooked Water Lily Rhizome** you **Eat**, or add either to a stew.
 - **Turnroot Greens**: harvest a mature turnroot field by hand and about half the time you also get a handful of greens (spring to autumn; the sickle harvest does not give them). **Eat** them raw or add them to a stew.
-- **Crabapples** (autumn, the Foraging Path and the Oak Clearing), **Wild Pears** (summer and autumn, Alder Woods and the Oak Clearing) and **Wild Plums** (autumn, the Foraging Path and the Pine Clearing): eat them fresh, let them dry into a dried form that keeps much longer, or add them to a stew. Cook 3 Wild Plums with 2 Honeycomb into a **Plum Preserve** (Cooking tab).
-- **Chestnuts** (autumn, the Foraging Path and the Oak Clearing) and **Hazelnuts** (autumn, the Foraging Path and the Alder Woods): eat them raw or roast them on a fire. Grind a roasted chestnut with any grinding tool into Chestnut Flour, soak it in water for Chestnut Dough, and bake the dough near a fire into Chestnut Flatbread. **Sloes** (autumn, the Foraging Path and the Highland Meadow): drag them onto a container of water to crush them into Sloe Must, which turns into Sloe Wine after 4 days. **Elderflowers** (spring and summer) and **Elderberries** (autumn), at the Foraging Path and the Alder Woods: dry the flowers, then steep them in hot water for an Elderflower Cordial; eat, dry or stew the berries.
+- **Crabapples** (autumn, the Secret Grove and the Mossy Clearing), **Wild Pears** (summer and autumn, the Alder Grove and the Mossy Clearing) and **Wild Plums** (autumn, the Secret Grove and the Pine Clearing): eat them fresh, let them dry into a dried form that keeps much longer, or add them to a stew. Cook 3 Wild Plums with 2 Honeycomb into a **Plum Preserve** (Cooking tab).
+- **Chestnuts** (autumn, the Secret Grove and the Mossy Clearing) and **Hazelnuts** (autumn, the Secret Grove and the Alder Grove): eat them raw or roast them on a fire. Grind a roasted chestnut with any grinding tool into Chestnut Flour, soak it in water for Chestnut Dough, and bake the dough near a fire into Chestnut Flatbread. **Sloes** (autumn, the Secret Grove and Pine Meadows): drag them onto a container of water to crush them into Sloe Must, which turns into Sloe Wine after 4 days. **Elderflowers** (spring and summer) and **Elderberries** (autumn), at the Secret Grove and the Alder Grove: dry the flowers, then steep them in hot water for an Elderflower Cordial; eat, dry or stew the berries.
 
 ---
 
@@ -174,7 +174,7 @@ A sealed cool-storage cabinet that slows spoilage to **75% of normal**. Built fr
 ### Apothecary Shelf
 
 A narrow slatted shelf that takes **only** herbs, fungi, powders and medicines, and slows their
-spoilage to **60% of normal**, better than the pantry, over a much narrower range. Built from the
+spoilage to **75% of normal**, like the pantry, over a much narrower range, and animals cannot raid it. Built from the
 Furniture tab once you have dried yarrow: 3 Planks, 2 Twine and a hammer.
 
 - Ordinary food, tools and building materials are refused outright.
@@ -198,7 +198,7 @@ Hemp provides fiber (from stalks), food (from seeds), smokeable material (from f
 
 1. Research **Hemp Field** or **Plant Hemp Seeds** blueprint (Farming Agriculture tab) after finding seeds.
 2. Build it on fertile ground with 2 seeds and a hoe (the hoe loses one use). The blueprint is the only way to plant hemp.
-3. The same way, **Plant Ginseng** (2 Wild Ginseng, 14 days), **Plant Yarrow** (2 Yarrow, 5 days), **Plant Chamomile** (2 Chamomile, 5 days), **Plant Plantain** (2 Common Plantain, 5 days), **Plant Dandelion** (2 Dandelion, 5 days), **Plant Rhubarb** (2 Rhubarb, 5 days) and **Plant Peanuts** (2 Raw Peanuts, 10 days) grow the herbs and peanut pods at home. **Make Mossbed** (2 Healer's Moss and 1 Fresh Moss, 5 days) grows Healer's Moss the same way (placeholder timing and art). **Cress Bed** (4 fresh Watercress, buildable only at a river) grows Watercress, which you can also forage at riversides from spring to autumn (placeholder values and art, not checked in game).
+3. The same way, **Plant Ginseng** (2 Wild Ginseng, 30 days), **Plant Yarrow** (2 Yarrow, 15 days), **Plant Chamomile** (2 Chamomile, 15 days), **Plant Plantain** (2 Common Plantain, 15 days), **Plant Dandelion** (2 Dandelion, 15 days), **Plant Rhubarb** (2 Rhubarb, 15 days) and **Plant Peanuts** (2 Raw Peanuts, 30 days) grow the herbs and peanut pods at home. **Make Mossbed** (2 Healer's Moss and 1 Fresh Moss, 15 days) grows Healer's Moss the same way (placeholder timing and art). **Cress Bed** (4 fresh Watercress, buildable only at a river) grows Watercress, which you can also forage at riversides from spring to autumn (placeholder values and art, not checked in game).
 
 ### Harvesting
 
@@ -266,10 +266,10 @@ Grow your own mushrooms indoors from inoculated logs.
 1. Find at least 5 of the target mushroom type (you need them to inoculate the log).
 2. Research the matching **Inoculate Mushroom Log** blueprint (Farming Agriculture tab). Blueprint becomes researchable after you possess the mushroom type.
 3. Craft from: 1 log + 1 spoon auger + 5 matching mushrooms + 1 wood shavings.
-4. The log becomes a **Growing Fungal Log** — keep it indoors or sheltered while it colonizes (about 5 in-game days).
-5. Harvest the ready log for fresh mushrooms and one Spore Print of that species. Harvesting also trains Herbalism.
+4. The log becomes a **Growing Fungal Log**: keep it indoors or sheltered while it colonizes (about 15 in-game days; it does not grow in winter).
+5. Harvest the ready log for 8 fresh mushrooms and, about 3 times in 10, a Spore Print of that species. Harvesting also trains Herbalism.
 6. Optional: research the matching **Inoculate ... Log from a Spore Print** blueprint (it unlocks once you hold the print) and craft a new log from 1 log + 1 spoon auger + 1 spore print + 1 wood shavings. The 10-mushroom recipe still works.
-7. Golden Oyster and King Oyster also have a **Pack ... Grow Bag** blueprint: 1 wood shavings + 5 matching mushrooms + 1 Small Cloth, no log or tool, and it can be set down indoors. It colonizes in about 2.5 days and Harvest gives 12 mushrooms and 1 to 2 wood shavings back. These numbers are untuned starting values and the bags are not yet checked in game.
+7. Golden Oyster and King Oyster also have a **Pack ... Grow Bag** blueprint: 1 wood shavings + 5 matching mushrooms + 1 Small Cloth, no log or tool, and it can be set down indoors. It colonizes in about 2.5 days and Harvest gives 6 mushrooms and 1 to 2 wood shavings back. These numbers are untuned starting values and the bags are not yet checked in game.
 
 **Tip:** Inoculated logs are an excellent source of medicinal mushrooms (Reishi, Lion's Mane) that are harder to find in the wild.
 
@@ -325,7 +325,7 @@ The Appleweed, Fairyweed, Frostleaf and Hemp herbal oils provide the same mood/r
 
 Every pressed oil carries the `tag_Oil` lamp-oil tag, so with Advanced Copper Tools 1.17.0 or later installed it refuels ACT's Metal Lantern, Copper Brazier and Copper Oil Flask.
 
-**Wax Leather Dressing** - drag a Linseed Oil onto Beeswax (from honeycomb, for example a Wild Bees' Nest) to make a Wax Leather Dressing; the oil is used up and you keep the clay bowl. Drag the dressing onto a leather garment (tunic, trousers, coat, gloves, shoes, helmet and the like) and its Quality goes up by 5, to a maximum of 100; the dressing is used up. Higher Quality means slower wear and a warmer garment, and a needle repair costs the garment 5 Quality, which this gives back. The 5 is a starting value, not tuned, it shares the Herbal Salve picture, and it has not been checked in game.
+**Wax Leather Dressing** - drag a Linseed Oil onto Beeswax (from honeycomb, see Honeycomb below) to make a Wax Leather Dressing; the oil is used up and you keep the clay bowl. Drag the dressing onto a leather garment (tunic, trousers, coat, gloves, shoes, helmet and the like) and its Quality goes up by 5, to a maximum of 100; the dressing is used up. Higher Quality means slower wear and a warmer garment, and a needle repair costs the garment 5 Quality, which this gives back. The 5 is a starting value, not tuned, it shares the Herbal Salve picture, and it has not been checked in game.
 
 ---
 
@@ -383,7 +383,7 @@ Brew ground medicinal powder in hot water.
 
 **Herbal Tincture** — An alcohol-based herbal extract; more potent than tea in some situations.
 
-**Herbal Honey Syrup** - One Honeycomb (from a Wild Bees' Nest), two Dried Chamomile or two Dried Common Plantain and a Clay Bowl, from the Medical tab once you hold Honeycomb. **Take a Spoonful** raises the Heather Effect (the same stat vanilla heather tea raises, capped at 48, so they do not add past it), which slows chest and throat infections for a while; three spoonfuls to a bowl, then you get the empty bowl back. The dose and spoonful count are starting values, not tuned, and it has not been checked in game.
+**Herbal Honey Syrup** - One Honeycomb (see Honeycomb below), two Dried Chamomile or two Dried Common Plantain and a Clay Bowl, from the Medical tab once you hold Honeycomb. **Take a Spoonful** raises the Heather Effect (the same stat vanilla heather tea raises, capped at 48, so they do not add past it), which slows chest and throat infections for a while; three spoonfuls to a bowl, then you get the empty bowl back. The dose and spoonful count are starting values, not tuned, and it has not been checked in game.
 
 **Botanical Field Guide** - Hemp Stalks make Hemp Pulp (Support tab; it unlocks once you hold Hemp Stalks). Leave the pulp alone for about a day and it becomes Soaked Hemp Pulp, 2 of which press into 3 Hemp Paper. Six paper and a Twine bind into the guide. Choose Read to see where and when each plant can be found; the guide is not used up. The quantities and times are starting values, not tuned, and it has not been checked in game.
 
@@ -399,7 +399,7 @@ Brew ground medicinal powder in hot water.
 
 **Lutefisk** - Make Soak Fish in Lye from the Cooking tab (one dried fish and a bowl of Lye; the lye is used up). After about 2 days it becomes Lye-Cured Fish, which is caustic: drag it onto water to rinse it (uses up 100 of the water), then cook the Rinsed Lye Fish over a fire to get Lutefisk, which you can eat. Placeholder values and art.
 
-**Tendon Soup** - Make it from the Cooking tab (two Tendon, one Dried Yarrow and a Clay Bowl; it unlocks once you hold Tendon). Drink it for water and a solid meal; the bowl comes back. Placeholder values and art.
+**Tendon Soup** - Make it from the Cooking tab (two Tendon, one Dried Yarrow and a Clay Bowl; it unlocks once you hold Tendon). Drink it to quench thirst and for a solid meal; the bowl comes back. Placeholder values and art.
 
 **Fishcake** - Make it from the Cooking tab (one Raw Fish Filling, one rye or wheat flour and one Dried Dandelion; it unlocks once you hold Raw Fish Filling). Cook the Raw Fishcake near a fire and eat the Fishcake. Placeholder values and art.
 
@@ -457,27 +457,13 @@ pasties, not tuned for these, and none of it has been checked in game yet.
 
 ---
 
-## Fungal Bloom
-
-Rarely, after a wet spell in autumn, the forest fruits all at once. For about 2 days afterwards, the first time you arrive at each of the six Herbs and Fungi clearings a **Fungal Bloom** patch appears there. **Harvest** it for 3 to 4 Chanterelles, 2 to 3 Black Trumpets, 2 to 3 King Oysters, 1 to 2 Golden Oysters and 1 to 2 Morels (it trains Herbalism and is used up). An untouched patch rots away after about 3 days, so pick it quickly. The odds, timings and yields are placeholder starting values, not tuned; the patch shares the Raw Morel picture; not checked in game.
-
-## Forage Hotspots and the Forager's Notebook
-
-**Hotspots.** A Lingonberry Patch (Oak Clearing), a Cloudberry Patch (Pine Clearing) and a Chamomile Patch (Alder Woods) stay at their place. Choose **Pick** for 1 to 2 of the plant; each pick uses up a quarter of the patch. It must be at least a quarter ripe to pick (the Ripeness bar), refills in about 7 days from empty and does not grow in winter. These numbers are placeholders, and each patch shares its plant's picture.
+## Forager's Notebook
 
 **Forager's Notebook.** Bind 3 Hemp Paper and Twine (Support tab). Keep it in your inventory: each wild plant or mushroom of this mod that turns up is written in it, under the place, the first time only. Open the card to read the list. It shares the Botanical Field Guide picture.
 
-## Wild Bees' Nest
+## Honeycomb
 
-**Where.** A Wild Bees' Nest sits at four of the mod's locations: Foraging Path, Pine Clearing, Oak Clearing and Alder Woods (not Highland Meadow or Misty Falls). Honeycomb has no other source in the vanilla game data of this version (checked 2026-10-02), so the nest is what makes the Berry Preserve craftable. Honeycomb is also food, and vanilla's own Extract Honey action turns it into Beeswax.
-
-**Taking the comb.** The nest has a Comb bar and a Torpor bar. Once the Comb bar is at 98 percent or more, **Take the Comb** (3 daytime points) gives 1 to 2 Honeycomb and empties the bar. The nest stays where it is.
-
-**Avoiding stings.** Drag a Lit Torch onto the nest (**Smoke**); a lit Bee Smoker works too, but nothing in this version of the game makes one (its vanilla blueprint is unused). That fills Torpor, and the bees stay drowsy for about an hour and a half, long enough for Take the Comb to cost no stings. With Torpor at zero only **Take the Comb Unsmoked** is offered, and it adds 4 to 16 to vanilla's Bee Stings effect, the figure vanilla's own hive and skep use for an unsmoked harvest. Bee Stings raises Pain while it lasts and drains by 1 every quarter hour, so a full sting wears off in about four hours.
-
-**Regrowth.** The Comb bar grows by 1 every quarter hour, 672 for a full comb, which is about 7 days, and it does not grow while the Winter Counter is running (winter).
-
-The 7 days, the 1 to 2 yield, the sting size, the 3 daytime points and the choice of these four locations are starting values, not tuned, and none of it has been checked in game yet.
+Honeycomb (for the Berry, Plum and Rhubarb Preserves, Honeyed Nuts and Berries, the Herbal Honey Syrup, Herbal Ferment and Beeswax) comes from vanilla's own bees, such as a Bee Skep built from the vanilla Bee Skep blueprint (Farming > Animal Husbandry in EA 0.69c). This mod no longer adds a honeycomb source of its own.
 
 ---
 

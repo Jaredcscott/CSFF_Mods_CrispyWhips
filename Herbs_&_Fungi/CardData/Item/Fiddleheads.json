@@ -442,6 +442,6 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_fiddleheads",
         "LocalizationKey": "Herbs_And_Fungi_Fiddleheads_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Spring only, in the Alder Woods and the Oak Clearing.\n\n<b>Warning:</b> Eaten raw they give a short bout of food poisoning.\n\n<b>Uses:</b> Cook them by a fire into Cooked Fiddleheads, or add them to a stew."
+        "DefaultText": "<b>Season:</b> Spring only, in the Alder Grove and the Mossy Clearing.\n\n<b>Warning:</b> Eaten raw they give a short bout of food poisoning.\n\n<b>Uses:</b> Cook them by a fire into Cooked Fiddleheads, or add them to a stew."
     }
 }

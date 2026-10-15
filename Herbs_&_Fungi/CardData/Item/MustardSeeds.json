@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_mustard_seeds",
         "LocalizationKey": "Herbs_And_Fungi_MustardSeeds_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Summer and autumn, on the Highland Meadow and the Foraging Path.\n\n<b>Uses:</b> Drag the seeds onto a plateable food (cooked meat, fish, eggs and the like) to season it, pungent with a bitter edge. Each drag uses up one of its two pinches."
+        "DefaultText": "<b>Season:</b> Summer and autumn, at Pine Meadows and the Secret Grove.\n\n<b>Uses:</b> Drag the seeds onto a plateable food (cooked meat, fish, eggs and the like) to season it, pungent with a bitter edge. Each drag uses up one of its two pinches."
     },
     "CardType": 0,
     "ObjectWeight": 15,

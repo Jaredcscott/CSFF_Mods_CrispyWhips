@@ -11,7 +11,7 @@
     },
     "CardHelpSection": {
         "LocalizationKey": "herbsfungicloudberry_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Spring to Autumn\n\n<b>Found:</b> Northern regions and pine meadows, and the Foraging Path, Oak Clearing, Alder Woods and Pine Clearing.\n\n<b>Uses:</b> Eat raw, dry for long-term storage, or ferment.\n\n<b>Benefits:</b> Excellent nutrition. Rare and rewarding find."
+        "DefaultText": "<b>Season:</b> Spring to Autumn\n\n<b>Found:</b> Northern regions and pine meadows, and the Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing and Old Grove.\n\n<b>Uses:</b> Eat raw, dry for long-term storage, or ferment.\n\n<b>Benefits:</b> Excellent nutrition. Rare and rewarding find."
     },
     "CardType": 0,
     "AlwaysUpdate": true,
@@ -41,7 +41,7 @@
             "LocalizationKey": "herbsfungicloudberry_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 576.0,
+        "MaxValue": 288.0,
         "RatePerDaytimePoint": 1.0,
         "HasActionOnFull": true,
         "OnFull": {
@@ -727,7 +727,7 @@
             ]
         }
     ],
-    "ObjectWeight": 25,
+    "ObjectWeight": 100,
     "MaxStack": 20,
     "DroppedCardShadow": 1,
     "FlavourTags": [

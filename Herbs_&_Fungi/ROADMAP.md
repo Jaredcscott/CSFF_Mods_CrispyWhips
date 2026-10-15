@@ -5,9 +5,9 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 7 WARNINGS, 6 MINOR) - see [
 
 ## Current State
 
-**Theme**: The repo's gold-standard DATA mod - a deep foraging, herbalism and preservation system: 14 mushrooms, 9 berries/wild fruits, 7 medicinal herbs, teas and a mushroom broth, drying/pickling/fermentation chains, an Oil Press, an Apothecary Shelf, 6+1 WorldMap forage locations, Wild Bees' Nests, a Death Cap Ward, and 16 character-creation perks. Pairs with Community Mod Chest (Academy Herbalism course identifies Unknown Chanterelles).
+**Theme**: The repo's gold-standard DATA mod - a deep foraging, herbalism and preservation system: 14 mushrooms, 9 berries/wild fruits, 7 medicinal herbs, teas and a mushroom broth, drying/pickling/fermentation chains, an Oil Press, an Apothecary Shelf, a Death Cap Ward, and 16 character-creation perks. Pairs with Community Mod Chest (Academy Herbalism course identifies Unknown Chanterelles).
 
-**Content**: 249 items / 126 blueprints / 79 structures / 16 perks / 237 custom images / 45 liquids / 13 GameStats / 3 SelfTriggeredActions.
+**Content**: 249 items / 126 blueprints / 72 structures / 16 perks / 234 custom images / 45 liquids / 11 GameStats / 0 SelfTriggeredActions (counted 2026-10-14, after the 1.14.9 forest removal). No map locations: all forage is injected into vanilla locations.
 
 **Stability**: 9/10 - release-ready. 0 CRITICAL, 0 DESIGN GAP. Clean Release build (0 errors / 0 warnings); versions synced 1.14.2 across ModInfo.json, Plugin.cs and README.md; localization EN/CN parity complete (3171/3171, 0 CJK-in-English, 0 stale). The adversarial critical-analysis (2026-10-13) returns SOLID with 0 failures. Open items are maintainability hardening, not defects: 5 code-quality warnings (silent-exit WarnOnce guards + one FieldInfo cache) plus a player-facing ModInfo under-claim and a bin/ tracking-hygiene item.
 
@@ -41,7 +41,8 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 7 WARNINGS, 6 MINOR) - see [
 
 > No active plan. The round-2 MASTER_PLAN (67 features) was drained and archived 2026-10-12. Every feature is either built (48 sections, shipped across 1.14.0-1.14.2, awaiting human verification) or closed into the archive's "Considered, not selected" table with its reason. **Do not re-promote a Considered row** - each carries why it was ruled out (vanilla already ships it, dead mechanism, design call). New content for this mod starts from a fresh `/generate-ideas` + plan, not from the archive's Considered table.
 
-- **Shipped, awaiting human verification** (code done; the only "expansion" left is confirming it plays): the T2.1xxx / T2.13xx rows in `.claude/playthrough-test-status.json` - Add-to-Stew absorption, honey syrup, gruit/needle/mulled ales, Forager's Seasoning, Bath Soak, Wild Bees' Nest, Old-Growth Grove, Unknown Chanterelles, and the rest. Source of truth: `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md`.
+- **Shipped, awaiting human verification** (code done; the only "expansion" left is confirming it plays): the T2.1xxx / T2.13xx rows in `.claude/playthrough-test-status.json` - Add-to-Stew absorption, honey syrup, gruit/needle/mulled ales, Forager's Seasoning, Bath Soak, Unknown Chanterelles, and the rest. Source of truth: `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md`.
+- **2026-10-14 (1.14.9): the Foraging Forest is retired.** Owner decision once Far Territory took over mod-made locations: the 7 forest nodes, the Wild Bees' Nest, the three forage hotspots, the Fungal Bloom, the Overgrown Forest Trail and the Old-Growth Grove unlock are removed, and every forest forage rule moved to the vanilla location its node cloned (see CHANGELOG 1.14.9). Any roadmap, audit or tracker row about those features (for example T2.1007, the Wild Bees' Nest) no longer applies and is not work to do.
 - **No new content is scheduled.** The mod is feature-complete for round 2; the next build phase would be a new planning pass, not continuation of a drained plan.
 
 ---

@@ -15,7 +15,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_kale_plant_mature",
         "LocalizationKey": "Herbs_And_Fungi_KalePlantMature_CardHelpSection",
-        "DefaultText": "<b>Harvest:</b> 3 to 4 Kale. The plant is used up."
+        "DefaultText": "<b>Harvest:</b> 2 to 3 Kale. The plant is used up."
     },
     "CardType": 2,
     "ObjectWeight": 300.0,
@@ -86,8 +86,8 @@
                             "DroppedCardWarpData": "herbs_fungi_kale",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 3,
-                                "y": 4
+                                "x": 2,
+                                "y": 3
                             }
                         }
                     ]

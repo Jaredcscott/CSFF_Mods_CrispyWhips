@@ -135,7 +135,7 @@
                 },
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "ValueModifier": {"x": -40.0, "y": -40.0},
+                    "ValueModifier": {"x": -15.0, "y": -15.0},
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
                     "StatWarpType": 3
                 },

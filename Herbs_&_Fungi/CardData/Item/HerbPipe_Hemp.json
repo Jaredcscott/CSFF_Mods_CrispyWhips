@@ -132,8 +132,8 @@
                     "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 30.0,
-                        "y": 40.0
+                        "x": 10.0,
+                        "y": 12.0
                     },
                     "InstantModifier": true,
                     "ApplyEachTick": false

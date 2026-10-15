@@ -178,8 +178,8 @@
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": -20,
-                        "y": -20
+                        "x": -8,
+                        "y": -8
                     },
                     "TriggerStat": {
                         "m_FileID": 0,

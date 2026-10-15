@@ -8,12 +8,12 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herb_cheese",
         "LocalizationKey": "Herbs_And_Fungi_HerbCheese_CardDescription",
-        "DefaultText": "Cheese worked through a ground mushroom or dried ginger. It tastes of the herb and keeps longer than plain cheese."
+        "DefaultText": "Cheese worked through a ground mushroom or dried ginger. It tastes of the herb and keeps about as long as a firm cheese."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_herb_cheese",
         "LocalizationKey": "Herbs_And_Fungi_HerbCheese_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Drag Soft Cheese, Firm Cheese, Hard Cheese, Aged Cheese or Cheese Curds onto Black Trumpet Powder, Shiitake Powder, King Oyster Powder or Dried Ginger. The cheese is used up. With Sirus23's Mod Collection, its Sheep Cheese works too.\n\n<b>Uses:</b> Eat it. It spoils more slowly than any plain cheese."
+        "DefaultText": "<b>Made from:</b> Drag Soft Cheese, Firm Cheese, Hard Cheese, Aged Cheese or Cheese Curds onto Black Trumpet Powder, Shiitake Powder, King Oyster Powder or Dried Ginger. The cheese is used up. With Sirus23's Mod Collection, its Sheep Cheese works too.\n\n<b>Uses:</b> Eat it. It keeps about three weeks, like a firm cheese."
     },
     "CardType": 0,
     "ObjectWeight": 60,
@@ -47,7 +47,7 @@
             "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
-        "MaxValue": 12000.0,
+        "MaxValue": 2016.0,
         "RatePerDaytimePoint": 1.0,
         "ExtraRateWhenEquipped": 0.0,
         "HidingOptions": 1,

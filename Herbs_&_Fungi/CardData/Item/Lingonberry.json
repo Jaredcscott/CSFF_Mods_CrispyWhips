@@ -41,7 +41,7 @@
             "LocalizationKey": "herbsfungilingonberry_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 576.0,
+        "MaxValue": 288.0,
         "RatePerDaytimePoint": 1.0,
         "HasActionOnFull": true,
         "OnFull": {
@@ -704,7 +704,7 @@
             ]
         }
     ],
-    "ObjectWeight": 25,
+    "ObjectWeight": 100,
     "MaxStack": 20,
     "DroppedCardShadow": 1,
     "FlavourTags": [

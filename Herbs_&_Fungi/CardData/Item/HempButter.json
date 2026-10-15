@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_butter",
         "LocalizationKey": "Herbs_And_Fungi_HempButter_CardDescription",
-        "DefaultText": "Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. Effects are 3x stronger than burning hemp flowers. High doses may trigger anxiety."
+        "DefaultText": "Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. High doses may trigger anxiety."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_butter",
@@ -435,8 +435,8 @@
                     "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 90.0,
-                        "y": 90.0
+                        "x": 10.0,
+                        "y": 10.0
                     },
                     "InstantModifier": true
                 },
@@ -785,8 +785,8 @@
                     "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 180.0,
-                        "y": 180.0
+                        "x": 20.0,
+                        "y": 20.0
                     },
                     "InstantModifier": true
                 },
@@ -1144,8 +1144,8 @@
                     "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 270.0,
-                        "y": 270.0
+                        "x": 30.0,
+                        "y": 30.0
                     },
                     "InstantModifier": true
                 },

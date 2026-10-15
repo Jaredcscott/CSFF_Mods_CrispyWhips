@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_horseradish_root",
         "LocalizationKey": "herbsfungihorseradishroot_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Spring and autumn, at the Pine Clearing and Alder Woods.\n\n<b>Uses:</b> Cut it with a knife into Sliced Horseradish, which seasons a plateable food, or dries into Dried Horseradish that keeps."
+        "DefaultText": "<b>Season:</b> Spring and autumn, at the Pine Clearing and the Alder Grove.\n\n<b>Uses:</b> Cut it with a knife into Sliced Horseradish, which seasons a plateable food, or dries into Dried Horseradish that keeps."
     },
     "CardType": 0,
     "CardTagsWarpData": [

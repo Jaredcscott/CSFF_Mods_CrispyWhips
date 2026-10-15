@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
         "LocalizationKey": "Herbs_And_Fungi_DeathCapWardPlaced_CardHelpSection",
-        "DefaultText": "<b>Effect:</b> While you are here, a bear, wolf, wolf pack, primeval wolf or boar that attacks you is turned away 45 percent of the time, and so is any other wild-animal encounter that starts without a creature on the map. People are never turned away, and neither is a fight you start yourself.\n\n<b>Pick Up:</b> Retrieve the ward to move it.\n\n<b>Dismantle:</b> Get the 2 long sticks back; the mushrooms are lost."
+        "DefaultText": "<b>Effect:</b> While you are here, a bear, wolf, wolf pack, primeval wolf or boar that attacks you is turned away 25 percent of the time, and so is any other wild-animal encounter that starts without a creature on the map. People are never turned away, and neither is a fight you start yourself.\n\n<b>Decay:</b> The mushrooms rot in about ten days, and the ward rots with them. Picking it up does not stop the rot.\n\n<b>Pick Up:</b> Retrieve the ward to move it.\n\n<b>Dismantle:</b> Get the 2 long sticks back; the mushrooms are lost."
     },
     "CardType": 2,
     "CardTagsWarpData": [
@@ -32,6 +32,39 @@
     "CardImageWarpData": "HF_DeathCapWardPlaced",
     "CardImageWarpType": 3,
     "ObjectWeight": 2.0,
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 960.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+            "LocalizationKey": "Herbs_And_Fungi_DeathCapWard_Usage_CardStatName",
+            "DefaultText": "Potency"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 960.0,
+        "RatePerDaytimePoint": -1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "ResetWhenLoadedAtZero": true,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DeathCapWard_Usage_OnZero_ActionDescription",
+                "DefaultText": "The death cap ward has rotted away."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "HasActionOnFull": false
+    },
     "MaxStack": 1,
     "DroppedCardShadow": 2,
     "DoesNotPile": true,
@@ -65,7 +98,8 @@
                 },
                 "TransformIntoWarpData": "herbs_fungi_death_cap_ward",
                 "TransformIntoWarpType": 3,
-                "SpawnTransformAtSource": false
+                "SpawnTransformAtSource": false,
+                "TransferUsage": true
             }
         },
         {

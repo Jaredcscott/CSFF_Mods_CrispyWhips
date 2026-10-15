@@ -11,7 +11,7 @@
     },
     "CardHelpSection": {
         "LocalizationKey": "herbsfungichanterellebroth_CardHelpSection",
-        "DefaultText": "<b>Made by:</b> Blueprint: Chanterelle Broth\n\n<b>Uses:</b> Drink for nutrition and a morale boost.\n\n<b>Benefits:</b> High hydration, solid satiation, improved morale. Earthy flavor profile."
+        "DefaultText": "<b>Made by:</b> Blueprint: Chanterelle Broth\n\n<b>Uses:</b> Drink for nutrition and a morale boost.\n\n<b>Benefits:</b> Quenches thirst, solid satiation, improved morale. Earthy flavor profile."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -95,8 +95,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": 35.0,
-                        "y": 35.0
+                        "x": 22.0,
+                        "y": 22.0
                     },
                     "StatWarpData": "930cf914322e9f145af1315d96f85a28",
                     "StatWarpType": 3
@@ -107,10 +107,10 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": 80.0,
-                        "y": 80.0
+                        "x": 40.0,
+                        "y": 40.0
                     },
-                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
                     "StatWarpType": 3
                 },
                 {
@@ -131,8 +131,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": 150.0,
-                        "y": 150.0
+                        "x": 30.0,
+                        "y": 30.0
                     },
                     "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
                     "StatWarpType": 3
@@ -143,8 +143,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": 15.0,
-                        "y": 15.0
+                        "x": 5.0,
+                        "y": 5.0
                     },
                     "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
                     "StatWarpType": 3

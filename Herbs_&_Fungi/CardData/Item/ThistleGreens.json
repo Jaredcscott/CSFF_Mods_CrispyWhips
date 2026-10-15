@@ -429,6 +429,6 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_thistle",
         "LocalizationKey": "herbsfungithistle_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Spring and summer, on the Foraging Path and the Highland Meadow.\n\n<b>Uses:</b> Eat it raw, or add it to a stew."
+        "DefaultText": "<b>Season:</b> Spring and summer, at the Secret Grove and Pine Meadows.\n\n<b>Uses:</b> Eat it raw, or add it to a stew."
     }
 }

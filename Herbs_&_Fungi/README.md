@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.8
+**Version:** 1.14.9
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -10,7 +10,7 @@
 
 Herbs and Fungi adds foraged mushrooms, medicinal herbs, wild fruit and vegetables, hemp farming, mushroom logs, oil pressing, pickling and drying. You forage, grow and dry, press oils, brew medicinal teas and seal pickles in clay vats.
 
-It ships 499 cards (267 items, 27 liquids, 79 placed structures and growth stages, 126 blueprints), 16 character perks, 13 custom stats, 16 flavour spices, 3 triggered events, 2 encounter guards and a set of world-map locations.
+It ships 492 cards (267 items, 27 liquids, 72 placed structures and growth stages, 126 blueprints), 16 character perks, 11 custom stats, 16 flavour spices and 2 encounter guards. It adds no map locations: everything is foraged at the vanilla woods, groves, clearings and meadows.
 
 Many numbers added since 1.14.0 are starting values and may change, and a few cards still share another card's picture. Features marked "not yet confirmed in game" have not been played through by a person.
 
@@ -33,13 +33,13 @@ Many numbers added since 1.14.0 are starting values and may change, and a few ca
 | **Black Trumpet** | Gourmet, smoky truffle flavour |
 | **King Oyster** | Dense and meaty |
 | **Golden Oyster** | Nutty |
-| **Velvet Shank** | Winter only. Found foraging oak, alder and willow woods (14% a forage). Cook it, or let it dry on the card |
+| **Velvet Shank** | Winter only. Found foraging oak, alder and willow woods (7% a forage). Cook it, or let it dry on the card |
 | **Morel Mushroom** | Rare delicacy. Food poisoning raw, so cook it |
 | **Lion's Mane Mushroom** | Medicinal. Chew it raw or grind it for tea |
 | **Reishi Mushroom** | Medicinal. Chew it raw or grind it for tea |
 | **Death Cap** | Deadly. Brew it into Death Cap Tincture, coat a spear, cutting tool, axe or arrows with it (**Apply Poison**), or dry it on the Drying Tray into a **Dried Death Cap**. **Taste a Sliver** of the dried cap gives mild food poisoning (+4) and a fading Toxin Tolerance that makes later food poisoning wear off faster |
-| **Truffle** | Buried. Use **Dig for Truffles** at an oak or alder location, forage the Old-Growth Grove, or rarely dig up mud at a river from spring to autumn |
-| **Chaga** | A birch conk too hard to eat. Dry it, grind it and brew Chaga Tea. Found in any season, most often in Alder Woods |
+| **Truffle** | Buried. Use **Dig for Truffles** at an oak or alder location, forage the Old Grove, or rarely dig up mud at a river from spring to autumn |
+| **Chaga** | A birch conk too hard to eat. Dry it, grind it and brew Chaga Tea. Found in any season, most often at the Alder Grove |
 
 ### Berries (Foraged)
 | Berry | Where found | Notes |
@@ -47,7 +47,7 @@ Many numbers added since 1.14.0 are starting values and may change, and a few ca
 | **Blackcurrants** | Pine clearings, river banks, oak and alder groves | Tart, rich in vitamins |
 | **Redcurrants** | Pine clearings, oak and alder groves and thickets, river places | Sweet-tart clusters |
 | **Lingonberries** | Pine forests, northern regions | Tart and plentiful. Best dried |
-| **Cloudberries** | Old-Growth Grove (12%), northern lake bank and rapids (10%), pine clearings and meadows (6%), rarely elsewhere | Golden, the most nourishing |
+| **Cloudberries** | Old Grove (6%), northern lake bank and rapids (5%), pine clearings and meadows (3%), rarely elsewhere | Golden, the most nourishing |
 
 Eat them raw, stew them or dry them. They stack to 20 and spoil in about 6 days fresh.
 
@@ -60,73 +60,72 @@ Eat them raw, stew them or dry them. They stack to 20 and spoil in about 6 days 
 - **Common Plantain**: dry the leaves for a Plantain Poultice. Grow it with **Plant Plantain**.
 - **Wild Flowers**: dry them and make a Flower Garland.
 
-### Wild Foods at the Mod's Clearings
-Each is a forage find at 3 to 10% a forage. Allied Partners eat the foods listed as safe and leave the rest alone (see Allied Partners).
+### Wild Foods of the Vanilla Woods and Meadows
+Each is a forage find at 1.5 to 5% a forage. Allied Partners eat the foods listed as safe and leave the rest alone (see Allied Partners).
 
 | Find | Season and places | What to do with it |
 |------|-------------------|--------------------|
-| **Fiddleheads** | Spring. Alder Woods, Oak Clearing | Raw gives food poisoning (+8). Cook into Cooked Fiddleheads |
-| **Thistle Greens** | Spring, summer. Foraging Path, Highland Meadow | Eat raw |
-| **Camas Bulb** | Spring, summer. Highland Meadow, Foraging Path | Roast into Roasted Camas. The **Camas Cake** blueprint (2 Roasted Camas) grinds into Camas Flour |
-| **Mandrake Root** | Summer, autumn. Oak Clearing, Old-Growth Grove | Not food. Drag hot water onto it (**Steep in Hot Water**) for a Mandrake Draught. Its **Drink** gives vanilla Fairy Tea's sleepy effect (+60) |
-| **Rhubarb** | Spring, summer. Alder Woods, Foraging Path | Eat raw or stew it. **Rhubarb Preserve** (3 Rhubarb, 2 Honeycomb) keeps long. **Plant Rhubarb** (2 Rhubarb, hoe) gives 3 to 4 after 5 days |
-| **Mustard Seeds** | Summer, autumn. Highland Meadow, Foraging Path | Not food. Drag onto a plateable food (**Add**) to season it. A handful seasons two plates |
-| **Horseradish Root** | Spring, autumn. Pine Clearing, Alder Woods | Not food. **Cut** it into Sliced Horseradish, then **Add** it to a plateable food (Pungent, Spicy), or dry it into Dried Horseradish, which seasons three plates |
-| **Chicory Root** | Summer, autumn. Highland Meadow, Foraging Path | Not food. Roast it, then **Steep in Hot Water** for Chicory Brew. Its **Drink** quenches thirst and gives **Chicory Lift** (12 of 24, fading 1 every 15 minutes): you tire more slowly and stress rises a little faster. A second cup doubles both |
-| **Goosefoot Greens** | Spring, summer. Foraging Path, Oak Clearing | Eat raw or stew. Eating gives **Goosefoot Purge** (24 of 48, fading 1 every 15 minutes), lowering gut parasites by 5 every 15 minutes, or 10 after a second helping, with no nausea. In a stew they give only food |
+| **Fiddleheads** | Spring. Alder Grove, Mossy Clearing | Raw gives food poisoning (+8). Cook into Cooked Fiddleheads |
+| **Thistle Greens** | Spring, summer. Secret Grove, Pine Meadows | Eat raw |
+| **Camas Bulb** | Spring, summer. Pine Meadows, Secret Grove | Roast into Roasted Camas. The **Camas Cake** blueprint (2 Roasted Camas) grinds into Camas Flour |
+| **Mandrake Root** | Summer, autumn. Mossy Clearing, Old Grove | Not food. Drag hot water onto it (**Steep in Hot Water**) for a Mandrake Draught. Its **Drink** gives vanilla Fairy Tea's sleepy effect (+60) |
+| **Rhubarb** | Spring, summer. Alder Grove, Secret Grove | Eat raw or stew it. **Rhubarb Preserve** (3 Rhubarb, 2 Honeycomb) keeps long. **Plant Rhubarb** (2 Rhubarb, hoe) gives 2 to 3 after 15 days |
+| **Mustard Seeds** | Summer, autumn. Pine Meadows, Secret Grove | Not food. Drag onto a plateable food (**Add**) to season it. A handful seasons two plates |
+| **Horseradish Root** | Spring, autumn. Pine Clearing, Alder Grove | Not food. **Cut** it into Sliced Horseradish, then **Add** it to a plateable food (Pungent, Spicy), or dry it into Dried Horseradish, which seasons three plates |
+| **Chicory Root** | Summer, autumn. Pine Meadows, Secret Grove | Not food. Roast it, then **Steep in Hot Water** for Chicory Brew. Its **Drink** quenches thirst and gives **Chicory Lift** (12 of 24, fading 1 every 15 minutes): you tire more slowly and stress rises a little faster. A second cup doubles both |
+| **Goosefoot Greens** | Spring, summer. Secret Grove, Mossy Clearing | Eat raw or stew. Eating gives **Goosefoot Purge** (24 of 48, fading 1 every 15 minutes), lowering gut parasites by 5 every 15 minutes, or 10 after a second helping, with no nausea. In a stew they give only food |
 | **Water Lily Rhizome** | Spring to autumn. Every river place | Cook by a fire before eating |
 | **Turnroot Greens** | Spring to autumn | Come about half the time when you harvest a mature turnroot field by hand, not with a sickle. Eat raw |
-| **Crabapples, Wild Pears, Wild Plums** | Autumn (pears also summer). Foraging Path, Oak Clearing, Alder Woods, Pine Clearing | Eat fresh, dry for long keeping, or stew. **Plum Preserve** (3 Wild Plums, 2 Honeycomb) |
-| **Chestnuts, Hazelnuts** | Autumn. Foraging Path, Oak Clearing, Alder Woods | Eat raw or roast on a fire. Grind Roasted Chestnuts into Chestnut Flour, soak it into Chestnut Dough and bake Chestnut Flatbread |
-| **Sloes** | Autumn. Foraging Path, Highland Meadow | Crush into water for Sloe Must, which ferments into **Sloe Wine** in four days |
-| **Elderflowers, Elderberries** | Flowers spring and summer, berries autumn. Foraging Path, Alder Woods | Dry the flowers and steep in hot water for **Elderflower Cordial**. Eat, dry or stew the berries |
+| **Crabapples, Wild Pears, Wild Plums** | Autumn (pears also summer). Crabapples at the Secret Grove and Mossy Clearing, pears at the Mossy Clearing and Alder Grove, plums at the Secret Grove and Pine Clearing | Eat fresh, dry for long keeping, or stew. **Plum Preserve** (3 Wild Plums, 2 Honeycomb) |
+| **Chestnuts, Hazelnuts** | Autumn. Chestnuts at the Secret Grove and Mossy Clearing, hazelnuts at the Secret Grove and Alder Grove | Eat raw or roast on a fire. Grind Roasted Chestnuts into Chestnut Flour, soak it into Chestnut Dough and bake Chestnut Flatbread |
+| **Sloes** | Autumn. Secret Grove, Pine Meadows | Crush into water for Sloe Must, which ferments into **Sloe Wine** in four days |
+| **Elderflowers, Elderberries** | Flowers spring and summer, berries autumn. Secret Grove, Alder Grove | Dry the flowers and steep in hot water for **Elderflower Cordial**. Eat, dry or stew the berries |
 
 Everything above goes into a stew.
 
 ### Garden Vegetables and Crops
-- **Kale, Carrot and Leek** are found foraging from spring to autumn (4 to 5% a forage). Kale at the Foraging Path and Highland Meadow, Carrot at Alder Woods and Highland Meadow, Leek at the Foraging Path and Alder Woods.
+- **Kale, Carrot and Leek** are found foraging from spring to autumn (2 to 2.5% a forage). Kale at the Secret Grove and Pine Meadows, Carrot at the Alder Grove and Pine Meadows, Leek at the Secret Grove and Alder Grove.
   - Eat them raw, or drag one onto hot water to stew it.
   - Holding one unlocks **Plant Kale**, **Plant Carrot** or **Plant Leek** (Farming > Agriculture): 2 of the vegetable and a hoe, which loses 1 use.
-  - Kale grows in 5 days for 3 to 4, Carrot in 8 days for 3 to 4, Leek in 10 days for 2 to 3. **Harvest** uses the plant up.
-- **Hops, Grapes and Oats** are found foraging in summer and autumn (3 to 5%). Hops at Alder Woods and the Oak Clearing, Grapes at the Oak Clearing and Foraging Path, Oats at the Highland Meadow and Foraging Path.
+  - Kale grows in 15 days for 2 to 3, Carrot in 24 days for 2 to 3, Leek in 30 days for 2 to 3. **Harvest** uses the plant up.
+  - Every planted crop and field needs care: **Tend** it (1 hour, a little stamina) once a day. Left untended it dies in about ten days, and in winter it stops growing and dies in about two days, leaving a Dead Crop to clear away.
+- **Hops, Grapes and Oats** are found foraging in summer and autumn (1.5 to 2.5%). Hops at the Alder Grove and Mossy Clearing, Grapes at the Mossy Clearing and Secret Grove, Oats at Pine Meadows and the Secret Grove.
   - **Hops** are not eaten. Drag them onto finished rye ale (**Steep in Ale**) for **Hopped Ale**: Bitter and Floral, drinks like rye ale, spoils half as fast. Fresh wort will not take them.
   - **Grapes** can be eaten. **Crush into Must** on a container of water makes Grape Must, which becomes **Grape Wine** after 4 days in any container. It needs no Fermentation Bin and does not freeze or age in a barrel.
   - **Oats** can be eaten and count as livestock feed. **Grind** them with a stone mortar, a grinding tool or Water Driven Infrastructure's Grinding Mill into **Oatmeal**, then drag it onto hot water for porridge.
-  - **Plant Hops** and **Plant Grapes** take 2 of the crop and a hoe that loses 1 use. Hops give 3 to 5 after 10 days, Grapes 4 to 6 after 12 days.
-    - **Oat Field** takes 6 Oats and a hoe that loses 3 uses, needs light and stamina, and gives 8 to 12 Oats after 9 days.
-- **Broad Beans** are found in spring and summer at the Highland Meadow and Alder Woods (4%). Eat them or stew them. The **Broad Bean Field** (6 Broad Beans, a hoe that loses 3 uses) gives 8 to 12 after 10 days.
+  - **Plant Hops** and **Plant Grapes** take 2 of the crop and a hoe that loses 1 use. Hops give 2 to 4 after 30 days, Grapes 3 to 5 after 30 days.
+    - **Oat Field** takes 6 Oats and a hoe that loses 3 uses, needs light and stamina, and gives 6 to 9 Oats after 27 days.
+- **Broad Beans** are found in spring and summer at Pine Meadows and the Alder Grove (2%). Eat them or stew them. The **Broad Bean Field** (6 Broad Beans, a hoe that loses 3 uses) gives 6 to 9 after 30 days.
 
 ### Hemp
 - **Hemp Seeds**: eat raw or roast them, or plant them with **Plant Hemp Seeds** and **Hemp Field**.
 - **Hemp Stalks** give fiber. **Hemp Flower** is used fresh or dried.
 - **Hemp Flower Powder**: ground from dried flower. You can smoke it.
-- **Hemp Butter**: fat plus powder. Heat activates it. A mild dose is about three times a pipe, stronger doses more.
+- **Hemp Butter**: fat plus powder. Heat activates it. A mild dose lifts Morale about as much as a pipe, a high dose about three times as much, and every dose clouds the mind.
 - **Hemp Seed Oil**: pressed from seeds in the Oil Press.
 
 ### Mushroom Log Cultivation
 - **Start a log** from a Tree Log, a Metal Spoon Auger, wood shavings and 10 matching mushrooms. It works for Shiitake, Lion's Mane, Reishi, Chicken of the Woods, Golden Oyster and King Oyster.
-- **It colonizes** for about 5 days as a Growing Fungal Log, then becomes the ready log.
-- **A ready log** gives 20 mushrooms, then breaks down into 2 to 3 wood shavings and a piece of firewood.
-- **Spore Prints**: each harvest also gives one print of that species. **Inoculate ... Log from a Spore Print** (Farming > Agriculture) starts a log from 1 print instead of 10 mushrooms.
+- **It colonizes** for about 15 days as a Growing Fungal Log, then becomes the ready log. It does not grow in winter.
+- **A ready log** gives 8 mushrooms, then breaks down into 2 to 3 wood shavings and a piece of firewood.
+- **Spore Prints**: about 3 harvests in 10 also give one print of that species. **Inoculate ... Log from a Spore Print** (Farming > Agriculture) starts a log from 1 print instead of 10 mushrooms.
 - **Grow Bags** (Golden Oyster, King Oyster): **Pack Golden Oyster Grow Bag** and **Pack King Oyster Grow Bag** take 1 wood shavings, 5 mushrooms and 1 Small Cloth, no log or tool.
-  - A bag can sit indoors, colonizes in about 2.5 days and gives 12 mushrooms and 1 to 2 shavings.
+  - A bag can sit indoors, colonizes in about 2.5 days and gives 6 mushrooms and 1 to 2 shavings.
 
 ### Crafted Items and Structures
 - **Drying Tray**: a 6-slot tray for drying herbs, mushrooms, hemp flower or meat. Meat, fish, organs and sausages dry at a quarter of the speed (about a day for Bird Meat).
 - **Drying Stack**: furniture that holds up to 3 trays.
 - **Wooden Pantry**: cool storage that slows spoilage to 75% of normal. Wild animals can break into it.
-- **Apothecary Shelf**: filtered storage for herbs, fungi, powders and medicines, slowing spoilage more than the pantry. Wild Ginseng and Wild Flowers count as herbs. The Herbal Incense Bundle does not go on it.
+- **Apothecary Shelf**: filtered storage for herbs, fungi, powders and medicines, slowing spoilage as much as the pantry (to 75%) but safe from raiding animals. Wild Ginseng and Wild Flowers count as herbs. The Herbal Incense Bundle does not go on it.
 - **Herb Pipe**: a carved wooden pipe, reusable with herbal powders.
 - **Herbal Incense Bundle**: dried flowers and herbs you burn to ease stress and raise Sanctuary across your board for about three hours. You can snuff it out to keep the rest.
 - **Flower Garland**: made from dried wild flowers. Hang it to ease Stress by 8.
 - **Herbal Bath Soak**: dried chamomile and yarrow. In hot water in a pot it makes an **Herbal Steam** that eases stress for about half a day.
   - In a filled Copper Bathtub (Advanced Copper Tools 1.18.0 or later) it gives a soak of about a day. The soak is used up and does not wash you.
 - **Death Cap Ward**: 5 Death Caps lashed to 2 long sticks, placed at a location.
-  - While you are there, it turns away 45% of attacks by a bear, wolf, wolf pack, primeval wolf or boar, and 45% of other wild-animal encounters that start without a creature on the map.
+  - While you are there, it turns away 25% of attacks by a bear, wolf, wolf pack, primeval wolf or boar, and 25% of other wild-animal encounters that start without a creature on the map.
   - It never stops people, a fight you start, or other mods' animals.
-- **Wild Bees' Nest**: a honeycomb source at four forest locations (see World Map Locations).
-- **Forage hotspots**: a Lingonberry Patch at the Oak Clearing, a Cloudberry Patch at the Pine Clearing and a Chamomile Patch at Alder Woods. **Pick** gives 1 to 2 of the plant and uses a quarter of the patch.
-  - The Ripeness bar refills in about 7 days from empty, not in winter, and Pick is hidden below a quarter. Not yet confirmed in game.
+  - Its death caps rot in about ten days, placed or carried, and the ward rots with them.
 - **Forager's Notebook**: 3 Hemp Paper and Twine (Support tab). Carried in your inventory, it records each wild plant or mushroom from this mod the first time one turns up, under the place you found it.
   - Open the card to read the list. Not yet confirmed in game.
 - **Hemp Paper and the Botanical Field Guide**: Hemp Stalks make Hemp Pulp, which soaks for about a day and presses into Hemp Paper. 6 paper and Twine bind the Field Guide, whose **Read** action lists every plant this mod adds with its seasons and places.
@@ -184,7 +183,7 @@ Blueprints are in the Cooking tab unless noted. No vanilla card changes.
 | **Healer's Moss Tincture** | Strong pain relief |
 | **Pain Relief Powder** | A ground herbal painkiller |
 | **Death Cap Tincture** | A bitter extract that kills gut parasites |
-| **Mushroom Broth** | A nourishing broth from dried mushrooms |
+| **Mushroom Broth** | A broth of dried mushrooms simmered in a clay bowl of freshly boiled water; quenches thirst and feeds you a little |
 | **Pickle Brine** | The liquid for the pickle vat |
 
 **Herbal Tonic.** Some forms of ginseng, lion's mane, reishi and shiitake, Black Trumpet Powder, King Oyster Powder, Bowl of Truffle Oil, the Ginseng, Reishi and Lion's Mane teas, Reishi Broth, Chaga Tea, Herbal Ferment and Vigor Elixir strengthen your immune system through a **Herbal Tonic** status.
@@ -213,7 +212,7 @@ All 16 perks appear in the **Situational** tab. The items from a perk land on th
 | **Add Fungi** | 5 Suns | Morel Mushroom, Golden Oyster, King Oyster, Lion's Mane Mushroom |
 | **Apothecary** | 1 Moon | Salves, tincture, pain powders, Anti-Nausea Tea and Sleep Tea |
 | **Fungal Cultivator** | 15 Suns | Chanterelles, Black Trumpet, Shiitake, Giant Puffballs and Wild Ginseng |
-| **Add Hemp** | 4 Moons | 10 Hemp Seeds |
+| **Add Hemp** | 5 Suns | 10 Hemp Seeds |
 | **Mushroom Basket** | 1 Moon | A quality 50 Hand Basket and 16 mushrooms (2 each of 8 kinds) |
 | **Edibles Kit** | 10 Suns | Fat, Dried Hemp Flower, raw meat, clay bowl |
 | **Oil Press** | 3 Moons | Oil Press Kit, so you skip the multi-stage build |
@@ -221,7 +220,7 @@ All 16 perks appear in the **Situational** tab. The items from a perk land on th
 | **Master Herbalist** | 10 Suns | Wild Ginseng, Reishi Mushroom and Yarrow, fresh and dried |
 | **Smoke Kit** | 1 Moon | Herb Pipe, 4 each of hemp, fairyweed, appleweed and frostleaf powder, and fiber |
 | **Hemp Farmer** | 2 Moons | Pipe, hemp powder, seeds, fresh and dried flowers, stalks for fiber |
-| **Herbalist's Advantage** | 30 Suns | A head start in Herbalism instead of items |
+| **Herbalist's Advantage** | 15 Suns | A head start in Herbalism instead of items |
 
 ---
 
@@ -248,15 +247,15 @@ Grinding dried Black Trumpet, Chaga, Ginseng, Reishi, Hemp Flower, King Oyster, 
 ### Hemp Farming
 1. Find hemp seeds, then research **Plant Hemp Seeds** or **Hemp Field** (Farming > Agriculture).
 2. Build on fertile ground. **Plant Hemp Seeds** takes 2 seeds and a hoe. **Hemp Field** takes 6 seeds and a hoe that loses 3 uses.
-3. A plant gives 3 stalks, 3 flowers, 2 to 3 seeds, 1 to 2 Golden Oysters and sometimes a King Oyster or Morel.
-   - A field gives 8 to 12 stalks, 8 to 12 flowers, 6 to 12 seeds, 1 to 6 Golden Oysters, 1 to 3 King Oysters and 1 to 2 Morels.
+3. A plant grows for 21 days and gives 2 stalks, 2 flowers and 2 to 3 seeds.
+   - A field grows for 30 days and gives 6 to 9 stalks, 6 to 9 flowers and 5 to 9 seeds.
 4. Roast the seeds, dry the flowers for powder, or press the seeds into oil.
 
 ### Mushroom Logs Step by Step
 1. Research the matching **Inoculate ... Log** blueprint after finding that mushroom.
 2. Craft it from 1 Tree Log, a Metal Spoon Auger, 10 matching mushrooms and 1 wood shavings.
-3. The Growing Fungal Log colonizes for about 5 days.
-4. Harvest the ready log for mushrooms, 2 to 3 wood shavings, a piece of firewood and one Spore Print. Harvesting trains Herbalism.
+3. The Growing Fungal Log colonizes for about 15 days, and not in winter.
+4. Harvest the ready log for 8 mushrooms, 2 to 3 wood shavings, a piece of firewood and, about 3 times in 10, a Spore Print. Harvesting trains Herbalism.
 
 The **from a Spore Print** blueprint unlocks once you hold the print and takes 1 Tree Log, a Metal Spoon Auger, 1 print and 1 wood shavings.
 
@@ -265,18 +264,18 @@ The **from a Spore Print** blueprint unlocks once you hold the print and takes 1
 
 | Crop | Plant with | Grows for | Harvest |
 |------|-----------|-----------|---------|
-| Ginseng | 2 Wild Ginseng | 14 days | 3 to 4 Wild Ginseng |
-| Yarrow | 2 Yarrow | 5 days | 3 to 4 Yarrow |
-| Chamomile | 2 Chamomile | 5 days | 3 to 4 Chamomile |
-| Common Plantain | 2 Common Plantain | 5 days | 3 to 4 Common Plantain |
-| Dandelion | 2 Dandelion | 5 days | 3 to 4 Dandelion |
-| Peanuts | 2 Raw Peanuts (roasted ones will not sprout) | 10 days | 3 to 5 Peanut Pods |
+| Ginseng | 2 Wild Ginseng | 30 days | 2 to 3 Wild Ginseng |
+| Yarrow | 2 Yarrow | 15 days | 2 to 3 Yarrow |
+| Chamomile | 2 Chamomile | 15 days | 2 to 3 Chamomile |
+| Common Plantain | 2 Common Plantain | 15 days | 2 to 3 Common Plantain |
+| Dandelion | 2 Dandelion | 15 days | 2 to 3 Dandelion |
+| Peanuts | 2 Raw Peanuts (roasted ones will not sprout) | 30 days | 2 to 4 Peanut Pods |
 
-Harvesting uses the plant up, so replant from the harvest. It trains Herbalism for the herbs.
+Harvesting uses the plant up, so replant from the harvest. It trains Herbalism for the herbs. Tend each plant once a day, and harvest before winter.
 
 **Raw Peanuts** roast by themselves in a lit fire (campfire, fire pit or fireplace) into Roasted Peanuts in about 15 minutes. Left in the fire about 4 hours, they char into Charred Remains.
 
-**Make Mossbed** (Farming > Agriculture) unlocks once you hold Healer's Moss. Build it on fertile ground from 2 Healer's Moss and 1 Moss, no tool. After 5 days it gives 3 to 4 Healer's Moss per Harvest and trains Herbalism.
+**Make Mossbed** (Farming > Agriculture) unlocks once you hold Healer's Moss. Build it on fertile ground from 2 Healer's Moss and 1 Moss, no tool. After 15 days it gives 2 to 3 Healer's Moss per Harvest and trains Herbalism.
 
 Vanilla gives Healer's Moss only from foraging, so this is a camp source.
 
@@ -304,19 +303,11 @@ The **Oil Press** perk starts you with the Kit.
 
 Spiced pickles taste stronger (Pungent Strong, Savoury Medium). Servings, spoilage and returns match the plain ones.
 
-**Watercress and the Cress Bed.** Foraging at a riverside location from spring to autumn has a 10% chance of 1 to 2 **Watercress**. Riverside means the vanilla River locations, Misty Falls and, with Community Mod Chest, Clay Flats.
+**Watercress and the Cress Bed.** Foraging at a riverside location from spring to autumn has a 5% chance of 1 to 2 **Watercress**. Riverside means the vanilla River locations and, with Community Mod Chest, Clay Flats.
 
 Eat it raw or cook it. The **Cress Bed** blueprint (Farming > Agriculture, 4 fresh Watercress) can only be built at a river location.
 
 It regrows about every 3 days, faster in spring and not in winter, and Harvest by hand, scythe or sickle gives 2 to 4 Watercress.
-
-**Fungal Bloom.** Rarely, after a wet spell in autumn, the forest fruits all at once.
-
-Once autumn is running and the swamp water stat has passed 300 (a few hours of moderate rain), each wet spell has a one in three chance to start it.
-
-For about 2 days, the first arrival at each of the six clearings leaves a **Fungal Bloom** patch there.
-- Harvest it for 3 to 4 Chanterelles, 2 to 3 Black Trumpets, 2 to 3 King Oysters, 1 to 2 Golden Oysters and 1 to 2 Morels. It trains Herbalism and is used up.
-- An unharvested patch rots after about 3 days. Only one stands on a board at a time.
 
 ### Cooking
 - Put raw mushrooms on any heat source (campfire, stove or copper stove). Watch the cook stat and take them off before they overcook. Cooked mushrooms are more nourishing.
@@ -369,36 +360,6 @@ Oil-pressing and pickle blueprints appear once their workstation is built and th
 
 ---
 
-## World Map Locations
-
-Herbs and Fungi adds six forest locations west of Primeval Woods, and a seventh, the Old-Growth Grove, that opens once you have explored all six.
-
-| Location | Access | Description |
-|----------|--------|-------------|
-| **Foraging Path** | West from Primeval Woods, behind an Overgrown Forest Trail | The hub that connects the other clearings |
-| **Pine Clearing** | North from Foraging Path | Pine forest with pine mushrooms and a Cloudberry Patch |
-| **Highland Meadow** | North from Pine Clearing | Pine meadow with ginseng, ginger, morels, chanterelles, shiitake, black trumpets and blackcurrants |
-| **Oak Clearing** | West from Foraging Path | Oak forest with oak mushrooms and a Lingonberry Patch |
-| **Misty Falls** | North from Oak Clearing | A waterfall grove at the west edge of the forest. A hidden path leads back to Waterfall Caves |
-| **Alder Woods** | South from Foraging Path | Alder forest with alder and birch mushrooms and berries |
-| **Old-Growth Grove** | West from Misty Falls, once all six are explored | An old oak grove like the vanilla Old Grove, with common truffles, morels and cloudberries |
-
-An **Overgrown Forest Trail** blocks the foot route from Primeval Woods for every character. **Hack Through** with a blade, axe, shovel or antler, from either side, opens it. It grows back after about 10 days. A portal reaches the forest directly.
-
-**Old-Growth Grove.** A clearing counts as explored once you have arrived and then left, so the path opens just after you leave the last new one.
-
-Foraging there can turn up a **Truffle** (6%, spring to autumn), a **Morel Mushroom** (12%, all year), **Cloudberries** (12%, spring to autumn) and a **Mandrake Root** (4%, summer and autumn), on top of the vanilla Old Grove finds.
-
-Each location copies a vanilla forest, with its usual trees and forage. With Water Driven Infrastructure installed, its mill race network includes them.
-
-The Foraging Path, Pine Clearing, Oak Clearing and Alder Woods each hold a **Wild Bees' Nest**, the source of Honeycomb.
-
-Drag a Lit Torch onto it to calm the bees, then **Take the Comb** for 1 to 2 Honeycomb without stings. A lit Bee Smoker also works, though nothing in this game version makes one.
-
-Taking the comb unsmoked stings you. The comb grows back in about 7 days, not in winter.
-
----
-
 ## Companion Wound Care
 
 With Sirus23's Mod Collection, Dried Yarrow, Ground Yarrow, Yarrow Tea, Herbal Salve and Plantain Poultice treat a companion's wounds through its Treat Wounds action. Reishi Tea does not. Without Sirus23 nothing changes.
@@ -439,15 +400,15 @@ Other changes:
 - Primeval Woods' Clear can also turn up Hemp Seeds.
 - Digging up mud at a river rarely turns up a Truffle, spring to autumn.
 - The 51 vanilla oak and alder locations get **Dig for Truffles**, with a 25% chance of a Truffle all year.
-- The caves at Old Hollow, Shady Thicket and Still Hollow have no Forage action, so nothing is added inside them. The forest locations of those names do get forage. The mod's own locations have no Dig for Truffles.
+- The caves at Old Hollow, Shady Thicket and Still Hollow have no Forage action, so nothing is added inside them. The forest locations of those names do get forage.
 
 Berries follow their biomes: Blackcurrants and Redcurrants in oak and birch areas, Lingonberries in pine areas, and Cloudberries, rarely, in northern pine meadows.
 
 "Birch areas" are the 17 vanilla forest spots with a large birch tree, where Chaga also turns up. There Blackcurrants and Chanterelle drop at all 17, Chamomile at 16, Common Plantain at 13 and Redcurrants at 12, each in its own seasons.
 
-At the mod's own forage spots, a few cards are twice as likely in their best season: Wild Flowers and Common Plantain in spring at the Foraging Path and Alder Woods, and Chanterelle and Black Trumpet in autumn at the Highland Meadow.
+At a few vanilla places, some cards are twice as likely in their best season: Wild Flowers and Common Plantain in spring at the Secret Grove and Alder Grove, and Chanterelle and Black Trumpet in autumn at Pine Meadows.
 
-This needs CSFFModFramework 2.28.0. It and seasonal forage at the mod's own locations are not yet confirmed in game.
+This needs CSFFModFramework 2.28.0. It and the seasonal forage at those places are not yet confirmed in game.
 
 ---
 
@@ -503,6 +464,7 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.14.9**: the Foraging Forest is gone. Its plants are foraged at the vanilla places it copied (Secret Grove, Pine Clearing, Pine Meadows, Mossy Clearing, Alder Grove, Old Grove), and the Wild Bees' Nest, forage hotspots and Fungal Bloom are removed. Vanilla-balance pass: planted crops grow slower, need daily tending and die in winter; mushroom logs give 8; mood, calming and thirst effects on the base game's scale; every forage find is half as likely; broths need a bowl of boiled water; shorter shelf lives; the Death Cap Ward turns away 25% and rots. Needs CSFF Mod Framework 2.28.5.
 - **1.14.7**: meat dries at a quarter of the speed on the Drying Tray (about a day for Bird Meat); spoilage shows the bacteria icon and drying the hammer icon, as vanilla food does; berries, mushrooms and herbs taste of something when eaten straight, not only from a bowl.
 - **1.14.6**: Hemp Butter, raw pasties, Inactive Hemp Butter and Sliced Horseradish keep their ingredient's freshness instead of rotting the moment they are made; the forest trails stay still.
 - **1.14.5**: the Smouldering Incense Bundle and the Wild Bees' Nest have animated card art, and the berry and chamomile plants sway.

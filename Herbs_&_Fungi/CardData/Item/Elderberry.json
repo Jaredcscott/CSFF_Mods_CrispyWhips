@@ -11,7 +11,7 @@
     },
     "CardHelpSection": {
         "LocalizationKey": "herbsfungielderberry_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Autumn\n\n<b>Found:</b> Foraging at the Alder Woods and the Foraging Path.\n\n<b>Uses:</b> Eat raw, dry for long-term storage, or add to a stew."
+        "DefaultText": "<b>Season:</b> Autumn\n\n<b>Found:</b> Foraging at the Alder Grove and the Secret Grove.\n\n<b>Uses:</b> Eat raw, dry for long-term storage, or add to a stew."
     },
     "CardType": 0,
     "AlwaysUpdate": true,
@@ -41,7 +41,7 @@
             "LocalizationKey": "herbsfungielderberry_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 576.0,
+        "MaxValue": 288.0,
         "RatePerDaytimePoint": 1.0,
         "HasActionOnFull": true,
         "OnFull": {
@@ -600,7 +600,7 @@
             ]
         }
     ],
-    "ObjectWeight": 25,
+    "ObjectWeight": 100,
     "MaxStack": 20,
     "DroppedCardShadow": 1,
     "FlavourTags": [

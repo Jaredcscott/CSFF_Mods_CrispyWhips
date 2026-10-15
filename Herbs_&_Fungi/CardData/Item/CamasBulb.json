@@ -318,6 +318,6 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_camas_bulb",
         "LocalizationKey": "Herbs_And_Fungi_CamasBulb_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Spring and summer, on the Highland Meadow and the Foraging Path.\n\n<b>Uses:</b> Roast it by a fire into Roasted Camas, or add it to a stew. It cannot be eaten raw."
+        "DefaultText": "<b>Season:</b> Spring and summer, at Pine Meadows and the Secret Grove.\n\n<b>Uses:</b> Roast it by a fire into Roasted Camas, or add it to a stew. It cannot be eaten raw."
     }
 }

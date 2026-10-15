@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_mandrake_root",
         "LocalizationKey": "herbsfungimandrakeroot_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Summer and autumn, at the Oak Clearing and the Old-Growth Grove.\n\n<b>Uses:</b> Steep it in a bowl of hot water to make a Mandrake Draught, a sleeping draught."
+        "DefaultText": "<b>Season:</b> Summer and autumn, at the Mossy Clearing and the Old Grove.\n\n<b>Uses:</b> Steep it in a bowl of hot water to make a Mandrake Draught, a sleeping draught."
     },
     "CardType": 0,
     "CardTagsWarpData": [

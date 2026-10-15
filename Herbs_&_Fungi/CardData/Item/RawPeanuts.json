@@ -29,7 +29,7 @@
     "CardType": 0,
     "CannotBeTransferred": false,
     "NotAutoSolvableEvent": false,
-    "ObjectWeight": 25,
+    "ObjectWeight": 60,
     "TradingValue": 15.0,
     "MaxStack": 10,
     "AlwaysUpdate": false,
@@ -177,8 +177,8 @@
                     "StatWarpData": "930cf914322e9f145af1315d96f85a28",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 25,
-                        "y": 25
+                        "x": 15,
+                        "y": 15
                     },
                     "TriggerStat": {
                         "m_FileID": 0,

@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_lions_mane_broth",
         "LocalizationKey": "Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription",
-        "DefaultText": "Simmer dried lion's mane mushroom in a clay bowl to make a rich, nutty broth known for boosting cognitive focus."
+        "DefaultText": "Simmer dried lion's mane mushroom in a clay bowl of freshly boiled water (at least 150) to make a rich, nutty broth known for boosting cognitive focus."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -75,6 +75,23 @@
                     },
                     "RequiredQuantity": 1,
                     "DontSpend": false,
+                    "RequiredLiquidContent": {
+                        "IsActive": true,
+                        "RequiredLiquid": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "RequiredLiquidWarpData": "a0e1cf6d47685a741b5cd9889fb39227",
+                        "RequiredLiquidWarpType": 3,
+                        "RequiredGroup": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "RequiredQuantity": {
+                            "x": 150.0,
+                            "y": 300.0
+                        }
+                    },
                     "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
                     "RequiredCardWarpType": 3
                 }

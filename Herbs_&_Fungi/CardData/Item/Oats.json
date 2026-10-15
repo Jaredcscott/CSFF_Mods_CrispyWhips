@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_oats",
         "LocalizationKey": "herbsfungioats_CardHelpSection",
-        "DefaultText": "<b>Found:</b> Foraging in summer and autumn at the Highland Meadow and the Foraging Path.\n\n<b>Uses:</b> Eat raw. Grind with a stone mortar, a grinding tool or a Grinding Mill into Oatmeal. Livestock feed. Holding them unlocks the Oat Field."
+        "DefaultText": "<b>Found:</b> Foraging in summer and autumn at Pine Meadows and the Secret Grove.\n\n<b>Uses:</b> Eat raw. Grind with a stone mortar, a grinding tool or a Grinding Mill into Oatmeal. Livestock feed. Holding them unlocks the Oat Field."
     },
     "CardType": 0,
     "CardTagsWarpData": [

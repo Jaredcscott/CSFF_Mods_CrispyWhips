@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_sloe",
         "LocalizationKey": "herbsfungisloe_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Autumn\n\n<b>Found:</b> Foraging at the Foraging Path and the Highland Meadow.\n\n<b>Uses:</b> Eat raw if you must. Drag onto a container of water to crush them into Sloe Must, which turns into Sloe Wine after 4 days."
+        "DefaultText": "<b>Season:</b> Autumn\n\n<b>Found:</b> Foraging at the Secret Grove and Pine Meadows.\n\n<b>Uses:</b> Eat raw if you must. Drag onto a container of water to crush them into Sloe Must, which turns into Sloe Wine after 4 days."
     },
     "CardType": 0,
     "CardTagsWarpData": [

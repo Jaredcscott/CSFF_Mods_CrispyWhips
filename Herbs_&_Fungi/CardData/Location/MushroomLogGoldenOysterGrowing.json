@@ -4,7 +4,7 @@
     "CardDescription": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardDescription", "DefaultText": "A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood." },
     "CanBeRenamed": false,
     "AlternateNames": [],
-    "CardHelpSection": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardHelpSection", "DefaultText": "<b>Growth Time:</b> About 5 days.\n\n<b>Harvest:</b> Becomes a ready golden oyster log when fully colonized." },
+    "CardHelpSection": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardHelpSection", "DefaultText": "<b>Growth Time:</b> About 15 days, and it stops growing in winter.\n\n<b>Harvest:</b> Becomes a ready golden oyster log when fully colonized." },
     "CardType": 2,
     "ObjectWeight": 80.0,
     "TradingValue": 0.0,
@@ -17,11 +17,32 @@
     "SpoilageTime": { "Active": false },
     "UsageDurability": { "Active": false },
     "FuelCapacity": { "Active": false },
-    "Progress": { "Active": true, "FloatValue": 0.0, "CardStatName": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_Progress_CardStatName", "DefaultText": "Colonizing" }, "RandomStartingOffset": 0.0, "MaxValue": 480.0, "RatePerDaytimePoint": 1.0, "ExtraRateWhenEquipped": 0.0, "PauseRateWhenEnvWeightIsFull": false, "PauseRateWhenInventoryIsFull": false, "HidingOptions": 3, "TextDisplay": 0, "NumberPrecision": 0, "ResetWhenLoadedAtZero": false, "HasActionOnZero": false, "ShowPopupOnZero": false, "OnZeroNotification": 0, "HasActionOnFull": true, "ShowPopupOnFull": false, "OnFullNotification": 1, "OnFull": { "ActionDescription": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_Progress_OnFull_ActionDescription", "DefaultText": "Golden oyster log is ready to harvest!" }, "ReceivingCardChanges": { "ModType": 2, "TransformIntoWarpData": "herbs_fungi_mushroom_log_golden_oyster_mature", "TransformIntoWarpType": 3 } }, "CountsForTradingValue": false, "TradingValueCustomRanges": [], "OverrideIconWarpData": "Growth", "OverrideIconWarpType": 3 },
+    "Progress": { "Active": true, "FloatValue": 0.0, "CardStatName": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_Progress_CardStatName", "DefaultText": "Colonizing" }, "RandomStartingOffset": 0.0, "MaxValue": 1440.0, "RatePerDaytimePoint": 1.0, "ExtraRateWhenEquipped": 0.0, "PauseRateWhenEnvWeightIsFull": false, "PauseRateWhenInventoryIsFull": false, "HidingOptions": 3, "TextDisplay": 0, "NumberPrecision": 0, "ResetWhenLoadedAtZero": false, "HasActionOnZero": false, "ShowPopupOnZero": false, "OnZeroNotification": 0, "HasActionOnFull": true, "ShowPopupOnFull": false, "OnFullNotification": 1, "OnFull": { "ActionDescription": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_Progress_OnFull_ActionDescription", "DefaultText": "Golden oyster log is ready to harvest!" }, "ReceivingCardChanges": { "ModType": 2, "TransformIntoWarpData": "herbs_fungi_mushroom_log_golden_oyster_mature", "TransformIntoWarpType": 3 } }, "CountsForTradingValue": false, "TradingValueCustomRanges": [], "OverrideIconWarpData": "Growth", "OverrideIconWarpType": 3 },
     "SpecialDurability1": { "Active": false },
     "SpecialDurability2": { "Active": false },
     "SpecialDurability3": { "Active": false },
     "SpecialDurability4": { "Active": false },
+    "PassiveEffects": [
+        {
+            "EffectName": "Winter (Growth -1)",
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        }
+                    }
+                ]
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": -1.0
+            }
+        }
+    ],
     "DurabilitySorting": { "SortingList": [] },
     "CardInteractions": [],
     "DismantleActions": [{ "ActionName": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_BreakDown_ActionName", "DefaultText": "Break Down" }, "ActionDescription": { "ParentObjectID": "herbs_fungi_mushroom_log_golden_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_BreakDown_ActionDescription", "DefaultText": "Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost." }, "DaytimeCost": 1, "ConfirmPopup": true, "ProducedCards": [{ "CollectionName": "", "CollectionWeight": 1, "DroppedCards": [{ "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 },"TransferRules":{"Spoilage":0,"Usage":3,"Fuel":3,"Progress":0,"Special1":0,"Special2":3,"Special3":0,"Special4":3,"SpoilageValue":0.0,"UsageValue":18.0,"FuelValue":35.0,"ProgressValue":0.0,"Special1Value":0.0,"Special2Value":96.0,"Special3Value":0.0,"Special4Value":1.0,"SpoilageFrom":0,"UsageFrom":0,"FuelFrom":0,"ProgressFrom":0,"Special1From":0,"Special2From":0,"Special3From":0,"Special4From":0} }] }], "ReceivingCardChanges": { "ModType": 3 } }],

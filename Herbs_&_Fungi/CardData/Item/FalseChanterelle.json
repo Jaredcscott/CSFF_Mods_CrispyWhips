@@ -44,7 +44,7 @@
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
-        "MaxValue": 720.0,
+        "MaxValue": 288.0,
         "RatePerDaytimePoint": 1.0,
         "RateMultiplier": 1.0,
         "HasActionOnFull": true,

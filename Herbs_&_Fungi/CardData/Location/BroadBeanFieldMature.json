@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_broad_bean_field_mature",
         "LocalizationKey": "herbsfungibroadbeanfieldmature_CardHelpSection",
-        "DefaultText": "<b>Harvest:</b> 8 to 12 Broad Beans. Harvesting uses the field up."
+        "DefaultText": "<b>Harvest:</b> 6 to 9 Broad Beans. Harvesting uses the field up."
     },
     "CardType": 2,
     "ObjectWeight": 100.0,
@@ -52,8 +52,8 @@
                             "DroppedCardWarpData": "herbs_fungi_broad_beans",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 8,
-                                "y": 12
+                                "x": 6,
+                                "y": 9
                             }
                         }
                     ]

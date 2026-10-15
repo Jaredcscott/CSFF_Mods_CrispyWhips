@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_honey_syrup",
         "LocalizationKey": "Herbs_And_Fungi_HoneySyrup_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> 1 Honeycomb, 2 Dried Chamomile or 2 Dried Common Plantain, and a Clay Bowl (Medical tab).\n\n<b>Honeycomb:</b> take it from a Wild Bees' Nest, a beehive or a bee skep.\n\n<b>Uses:</b> Take a Spoonful to raise the Heather Effect, which slows a chest or throat infection. Three spoonfuls to a bowl; the empty bowl comes back. It stacks with heather tea and shares its cap."
+        "DefaultText": "<b>Made from:</b> 1 Honeycomb, 2 Dried Chamomile or 2 Dried Common Plantain, and a Clay Bowl (Medical tab).\n\n<b>Honeycomb:</b> take it from a beehive or a bee skep.\n\n<b>Uses:</b> Take a Spoonful to raise the Heather Effect, which slows a chest or throat infection. Three spoonfuls to a bowl; the empty bowl comes back. It stacks with heather tea and shares its cap."
     },
     "CardType": 0,
     "CardTagsWarpData": [

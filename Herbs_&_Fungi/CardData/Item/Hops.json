@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hops",
         "LocalizationKey": "herbsfungihops_CardHelpSection",
-        "DefaultText": "<b>Found:</b> Foraging in summer and autumn at Alder Woods and the Oak Clearing.\n\n<b>Uses:</b> Drag onto finished rye ale in a bowl to make Hopped Ale (fresh wort will not take them). Holding them unlocks Plant Hops."
+        "DefaultText": "<b>Found:</b> Foraging in summer and autumn at the Alder Grove and the Mossy Clearing.\n\n<b>Uses:</b> Drag onto finished rye ale in a bowl to make Hopped Ale (fresh wort will not take them). Holding them unlocks Plant Hops."
     },
     "CardType": 0,
     "CardTagsWarpData": [],

@@ -42,7 +42,7 @@
       "name": "Foraged Berries",
       "status": "Implemented",
       "confidence": "MEDIUM",
-      "evidence": "T1.5 pass 2026-07-21 explicitly names the 4 species, but predates the 1.10.16 isClearing double-count fix (Redcurrant) and T2.171's still-pending seasonal-suppression re-verification - the base forage drops remain unconfirmed since. Berry Preserve (1.11.0, all 4 dried berries + honeycomb) is separately VERIFIED: T2.211 PASS 2026-09-25 (r41 harness review) covers craft, consumption, shelf life and Eat. That run was handed its Honeycomb: the game data of EA 0.68b places no vanilla hive or skep, so a player had no Honeycomb source until the Wild Bees' Nest (built 1.14.1, unverified; see the Foraging Forest WorldMap row).",
+      "evidence": "T1.5 pass 2026-07-21 explicitly names the 4 species, but predates the 1.10.16 isClearing double-count fix (Redcurrant) and T2.171's still-pending seasonal-suppression re-verification - the base forage drops remain unconfirmed since. Berry Preserve (1.11.0, all 4 dried berries + honeycomb) is separately VERIFIED: T2.211 PASS 2026-09-25 (r41 harness review) covers craft, consumption, shelf life and Eat. That run was handed its Honeycomb: the game data of EA 0.68b placed no vanilla hive or skep. The Wild Bees' Nest that filled that gap (1.14.1) was removed with the Foraging Forest in 1.14.9; in EA 0.69c the vanilla Bee Skep blueprint (Farming > Animal Husbandry) gives Honeycomb, not yet checked in game with this mod.",
       "cards": [
         "herbs_fungi_blackcurrant", "herbs_fungi_blackcurrant_dried",
         "herbs_fungi_redcurrant", "herbs_fungi_redcurrant_dried",
@@ -237,15 +237,6 @@
         "herbs_fungi_bp_herbal_tincture", "herbs_fungi_herbal_tincture",
         "herbs_fungi_bp_healers_moss_tincture", "herbs_fungi_healers_moss_tincture",
         "herbs_fungi_bp_death_cap_tincture", "herbs_fungi_death_cap_tincture"
-      ]
-    },
-    {
-      "name": "Foraging Forest WorldMap",
-      "status": "Implemented",
-      "confidence": "MEDIUM",
-      "evidence": "Most heavily playtested feature in the mod historically: T1.34 (2026-08-14), T1.64 (2026-08-29), T2.1/T2.2/T3.1 (2026-07-21 sealablegates retro), T2.84 (2026-08-15 Misty Falls). MapNodes.json still has the same 6 nodes matching ModInfo.json. Downgraded from VERIFIED because 1.14.0's DropInjections.json now carries the mod's own forage tables for all 5 forage-capable nodes with per-drop Seasons gating (Chaga forages here too, deliberately year-round) - T2.291/T2.296 pending, and T2.296 is confirmed NOT YET in the build deployed to the dev install as of 2026-09-27, so H&F must be redeployed before it can even be checked. The Overgrown and Cleared Forest Trail cards are the Foraging Path's sealable gate (T1.34, T2.1, T3.1). The Wild Bees' Nest (MapNodes ConditionalDrops at Foraging Path, Pine Clearing, Oak Clearing and Alder Woods, honeycomb for the Berry Preserve) is built and unverified; its tracker row is not filed yet.",
-      "cards": [
-        "herbs_fungi_overgrown_forest_trail", "herbs_fungi_cleared_forest_trail", "herbs_fungi_wild_bees_nest"
       ]
     },
     {

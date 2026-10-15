@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_wax_leather_dressing",
         "LocalizationKey": "Herbs_And_Fungi_WaxLeatherDressing_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> drag a Linseed Oil onto Wax (the oil is used up and you keep the clay bowl). Wax comes from honeycomb, from a Wild Bees' Nest, a beehive or a bee skep.\n\n<b>Dress leather:</b> drag it onto any leather garment (tunic, trousers, coat, gloves, shoes, helmet and the like). The garment's Quality rises by 5, up to its maximum, and the dressing is used up. A higher Quality means slower wear and a warmer garment.\n\nThe 5 is a tunable placeholder, the same amount a needle repair costs the garment."
+        "DefaultText": "<b>Made from:</b> drag a Linseed Oil onto Wax (the oil is used up and you keep the clay bowl). Wax comes from honeycomb, from a beehive or a bee skep.\n\n<b>Dress leather:</b> drag it onto any leather garment (tunic, trousers, coat, gloves, shoes, helmet and the like). The garment's Quality rises by 5, up to its maximum, and the dressing is used up. A higher Quality means slower wear and a warmer garment.\n\nThe 5 is a tunable placeholder, the same amount a needle repair costs the garment."
     },
     "CardType": 0,
     "ObjectWeight": 30,

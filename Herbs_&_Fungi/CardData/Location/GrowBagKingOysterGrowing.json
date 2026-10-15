@@ -4,7 +4,7 @@
     "CardDescription": { "ParentObjectID": "herbs_fungi_grow_bag_king_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_GrowBagKingOysterGrowing_CardDescription", "DefaultText": "A cloth bag packed with wood shavings and king oyster spawn. It fruits indoors or out while the mycelium runs through the shavings." },
     "CanBeRenamed": false,
     "AlternateNames": [],
-    "CardHelpSection": { "ParentObjectID": "herbs_fungi_grow_bag_king_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_GrowBagKingOysterGrowing_CardHelpSection", "DefaultText": "<b>Growth Time:</b> About 2.5 days, half a log.\n\n<b>Harvest:</b> Becomes a ready king oyster grow bag when fully colonized." },
+    "CardHelpSection": { "ParentObjectID": "herbs_fungi_grow_bag_king_oyster_growing", "LocalizationKey": "Herbs_And_Fungi_GrowBagKingOysterGrowing_CardHelpSection", "DefaultText": "<b>Growth Time:</b> About 2.5 days.\n\n<b>Harvest:</b> Becomes a ready king oyster grow bag when fully colonized." },
     "CardType": 2,
     "ObjectWeight": 40.0,
     "TradingValue": 0.0,

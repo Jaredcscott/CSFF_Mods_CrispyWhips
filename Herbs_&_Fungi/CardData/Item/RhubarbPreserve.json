@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_rhubarb_preserve",
         "LocalizationKey": "Herbs_And_Fungi_RhubarbPreserve_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> 3 Rhubarb and 2 Honeycomb (Cooking tab).\n\n<b>Honeycomb:</b> take it from a Wild Bees' Nest at Foraging Path, Pine Clearing, Oak Clearing or Alder Woods, or from a beehive or bee skep.\n\n<b>Uses:</b> Eat for strong satiation. Keeps long-term."
+        "DefaultText": "<b>Made from:</b> 3 Rhubarb and 2 Honeycomb (Cooking tab).\n\n<b>Honeycomb:</b> take it from a beehive or a bee skep.\n\n<b>Uses:</b> Eat for strong satiation. Keeps long-term."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -88,7 +88,30 @@
         "OverrideIconWarpType": 3
     },
     "UsageDurability": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 2.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_rhubarb_preserve",
+            "LocalizationKey": "Herbs_And_Fungi_Preserve_Servings_CardStatName",
+            "DefaultText": "Servings"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 2.0,
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "ResetWhenLoadedAtZero": true,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "OnZero": {
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "HasActionOnFull": false
     },
     "FuelCapacity": {
         "Active": false
@@ -153,8 +176,8 @@
                     "StatWarpData": "930cf914322e9f145af1315d96f85a28",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 40,
-                        "y": 40
+                        "x": 20,
+                        "y": 20
                     },
                     "TriggerStat": {
                         "m_FileID": 0,
@@ -176,8 +199,8 @@
                     "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": -5,
-                        "y": -5
+                        "x": -2.5,
+                        "y": -2.5
                     },
                     "TriggerStat": {
                         "m_FileID": 0,
@@ -199,8 +222,8 @@
                     "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 40,
-                        "y": 40
+                        "x": 20,
+                        "y": 20
                     },
                     "TriggerStat": {
                         "m_FileID": 0,
@@ -222,8 +245,8 @@
                     "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 345,
-                        "y": 345
+                        "x": 172.5,
+                        "y": 172.5
                     },
                     "TriggerStat": {
                         "m_FileID": 0,
@@ -245,8 +268,8 @@
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": -8,
-                        "y": -8
+                        "x": -4,
+                        "y": -4
                     },
                     "TriggerStat": {
                         "m_FileID": 0,
@@ -262,7 +285,11 @@
                 }
             ],
             "ReceivingCardChanges": {
-                "ModType": 3
+                "ModType": 1,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
             }
         }
     ],

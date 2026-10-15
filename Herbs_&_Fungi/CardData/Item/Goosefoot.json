@@ -431,6 +431,6 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_goosefoot",
         "LocalizationKey": "herbsfungigoosefoot_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Spring and summer, on the Foraging Path and at the Oak Clearing.\n\n<b>Uses:</b> Eat it raw for Goosefoot Purge, a gentle effect that slowly lowers gut parasites with no sickness, or add it to a stew (the stew gives food, not the purge)."
+        "DefaultText": "<b>Season:</b> Spring and summer, at the Secret Grove and the Mossy Clearing.\n\n<b>Uses:</b> Eat it raw for Goosefoot Purge, a gentle effect that slowly lowers gut parasites with no sickness, or add it to a stew (the stew gives food, not the purge)."
     }
 }

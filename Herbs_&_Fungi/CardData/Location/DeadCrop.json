@@ -1,0 +1,54 @@
+{
+    "UniqueID": "herbs_fungi_dead_crop",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_dead_crop",
+        "LocalizationKey": "Herbs_And_Fungi_DeadCrop_CardName",
+        "DefaultText": "Dead Crop"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_dead_crop",
+        "LocalizationKey": "Herbs_And_Fungi_DeadCrop_CardDescription",
+        "DefaultText": "A withered, blackened crop. Nothing on it can be saved."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_dead_crop",
+        "LocalizationKey": "Herbs_And_Fungi_DeadCrop_CardHelpSection",
+        "DefaultText": "<b>Why:</b> A crop dies when it is left untended for about ten days, or left out in winter.\n\n<b>Clear Away:</b> Pull it up to free the ground. Nothing is gained."
+    },
+    "CardType": 2,
+    "ObjectWeight": 100.0,
+    "AlwaysUpdate": false,
+    "CardTags": [],
+    "DoesNotPile": true,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dead_crop",
+                "LocalizationKey": "Herbs_And_Fungi_DeadCrop_ClearAway_ActionName",
+                "DefaultText": "Clear Away"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dead_crop",
+                "LocalizationKey": "Herbs_And_Fungi_DeadCrop_ClearAway_ActionDescription",
+                "DefaultText": "Pull up the dead plants."
+            },
+            "DaytimeCost": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "RottenRemains",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3
+}

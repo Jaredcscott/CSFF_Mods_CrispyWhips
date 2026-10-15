@@ -29,7 +29,7 @@
     "CardType": 0,
     "CannotBeTransferred": false,
     "NotAutoSolvableEvent": false,
-    "ObjectWeight": 20,
+    "ObjectWeight": 60,
     "TradingValue": 25.0,
     "MaxStack": 10,
     "AlwaysUpdate": false,
@@ -52,7 +52,7 @@
             "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
-        "MaxValue": 4320.0,
+        "MaxValue": 768.0,
         "RatePerDaytimePoint": 1.0,
         "ExtraRateWhenEquipped": 0.0,
         "PauseRateWhenEnvWeightIsFull": false,
@@ -247,8 +247,8 @@
                     "StatWarpData": "930cf914322e9f145af1315d96f85a28",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 40,
-                        "y": 40
+                        "x": 20,
+                        "y": 20
                     },
                     "TriggerStat": {
                         "m_FileID": 0,
@@ -316,8 +316,8 @@
                     "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 65,
-                        "y": 65
+                        "x": 30,
+                        "y": 30
                     },
                     "TriggerStat": {
                         "m_FileID": 0,

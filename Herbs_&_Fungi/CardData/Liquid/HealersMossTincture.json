@@ -11,7 +11,7 @@
     },
     "CardHelpSection": {
         "LocalizationKey": "herbsfungihealersmosstincture_CardHelpSection",
-        "DefaultText": "<b>Made by:</b> Blueprint: Healer's Moss Tincture\n\n<b>Uses:</b> Drink to dull pain.\n\n<b>Benefits:</b> About half a day of relief, the longest of any herbal remedy here. Bitter taste."
+        "DefaultText": "<b>Made by:</b> Blueprint: Healer's Moss Tincture\n\n<b>Uses:</b> Drink to dull pain.\n\n<b>Benefits:</b> About a day of strong relief, the strongest and longest of any herbal remedy here. Bitter taste."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -76,7 +76,7 @@
                     "Stat": { "m_FileID": 0, "m_PathID": 0 },
                     "StatWarpData": "herbs_fungi_stat_herbal_analgesic",
                     "StatWarpType": 3,
-                    "ValueModifier": { "x": 48.0, "y": 48.0 }
+                    "ValueModifier": {"x": 96.0, "y": 96.0}
                 },
                 {
                     "Stat": { "m_FileID": 0, "m_PathID": 0 },

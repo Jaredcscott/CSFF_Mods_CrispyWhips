@@ -5,6 +5,49 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.9] - 2026-10-15
+
+Needs CSFF Mod Framework 2.28.5 or later.
+
+### Removed
+
+- **The Foraging Forest is gone.** Its seven places west of Primeval Woods (Foraging Path, Pine Clearing, Highland Meadow, Oak Clearing, Misty Falls, Alder Woods and the Old-Growth Grove) are no longer on the map. Far Territory now holds the mod-made locations, and these plants belong in the vanilla woods. Each of those places was a copy of a vanilla one, so every plant they had is now foraged at the vanilla original, in the same seasons. The plants that grew only in the forest keep their forest chances; a herb the vanilla place already gave (chamomile, dandelion, plantain, currants, chaga and the like) keeps the chance it already had there, so nothing you already forage changes:
+
+| Was found at | Now foraged at |
+|---|---|
+| Foraging Path | Secret Grove |
+| Pine Clearing | Pine Clearing (vanilla) |
+| Highland Meadow | Pine Meadows |
+| Oak Clearing | Mossy Clearing |
+| Alder Woods | Alder Grove |
+| Old-Growth Grove | Old Grove, which needs no unlocking |
+| Misty Falls | Greenfalls (it had no forage of its own) |
+
+- All 24 plants that grew only in the forest move with it: Camas Bulb, Chestnuts, Chicory Root, Crabapples, Elderberries, Elderflowers, Fiddleheads, Goosefoot Greens, Hazelnuts, Horseradish Root, Mandrake Root, Mustard Seeds, Wild Pears, Wild Plums, Sloes, Thistle Greens, Kale, Leek, Carrot, Broad Beans, Hops, Grapes, Oats and Rhubarb. Truffles, Morels and Cloudberries from the Old-Growth Grove are now found at the Old Grove.
+- **Gone entirely:** the Wild Bees' Nest (Honeycomb itself is vanilla and still used by every honey recipe), the three forage hotspots (Lingonberry, Cloudberry and Chamomile Patches), the Fungal Bloom, the Overgrown Forest Trail and the Old-Growth Grove unlock.
+- Card help texts, the Botanical Field Guide and the README name the vanilla places now.
+
+### Saves
+
+- A save made inside the forest loads at the vanilla place that forest place copied, with the cards that were on its board. This uses the framework's UID aliases (`UidAliases.json`), which is why 2.28.5 is needed.
+
+### Changed: vanilla-balance pass
+
+- **Planted crops need looking after.** Every planted herb, vegetable, vine and field grows three times as long (15 to 30 days), gives a little less (Kale, herbs, Carrot, Ginseng and Mossbed 2 to 3; Grapes 3 to 5; Hops and Peanuts 2 to 4; Oat and Broad Bean fields 6 to 9), and has Health and Care like the base game's crops. **Tend** it once a day (1 hour, a little stamina). Left untended it dies in about ten days, and in winter it stops growing and dies in about two days, leaving a Dead Crop to clear away. Crops planted in an older save start healthy.
+- **Hemp no longer grows mushrooms.** The hemp plant and field gave Golden Oysters, King Oysters and Morels; they now give only stalks, flowers and seeds.
+- **Mushroom logs are slower and smaller.** A log colonizes in about 15 days, stops in winter and gives 8 mushrooms; a spore print comes about 3 harvests in 10. Grow bags give 6.
+- **Mood boosts are on the base game's scale.** Hemp Butter gives Morale 10, 20 or 30 by dose (was 90, 180, 270), herbal oils match their pipes, and Cooked Truffle, Truffle Butter and Chanterelle Broth lift Morale less. The Fairyweed pipe stays the strongest pipe.
+- **Calming teas and remedies are gentler**: Reishi Tea lowers Stress by 15, Ginseng and the Vigor Elixir by 12, the other teas by 12, dried calming herbs by 8.
+- **Broths quench thirst instead of filling your water.** The four mushroom broths are simmered in a clay bowl of freshly boiled water (at least 150), quench thirst and feed you a little (30 calories). Teas, Tendon Soup and Shaved Ice quench thirst too.
+- **Nuts, berries and mushrooms keep and weigh like the base game's.** Nuts and roasted nuts weigh more and fill less, roasted nuts keep about 8 days; fresh berries keep 3 days, dried ones about 19; raw mushrooms keep 3 days, cooked ones 1.5, dried ones about 19.
+- **Breads keep about 4 days, Herb Cheese about three weeks, pickled meat about a month** (and fills a little less).
+- **Forage finds are half as likely.** Every plant and mushroom this mod adds to a Forage action turns up half as often as before, including those moved from the Foraging Forest (Velvet Shank 7%, Watercress 5%, Cloudberries 6% at the Old Grove). Truffle digging is unchanged.
+- **Preserves have 2 servings**, each half of the old jar.
+- **Yarrow stops bleeding half as fast**, and Healer's Moss Tincture's pain relief lasts about a day.
+- **The Death Cap Ward turns away 25% of wild-animal attacks** (was 45%), and its death caps rot in about ten days, placed or carried.
+- **The Apothecary Shelf keeps herbs like a pantry** (75% spoilage) and is safe from raiding animals; the shelf and the Wooden Pantry take a day to research.
+- **Perk prices**: Herbalist's Advantage costs 15 Suns, Add Hemp 5 Suns.
+
 ## [1.14.8] - 2026-10-14
 
 ### Fixed

@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_honeyed_berries",
         "LocalizationKey": "Herbs_And_Fungi_Bp_HoneyedBerries_CardDescription",
-        "DefaultText": "Press one each of the four dried berries into honeycomb from a wild bees' nest to make 2 portions of honeyed berries."
+        "DefaultText": "Press one each of the four dried berries into honeycomb to make 2 portions of honeyed berries."
     },
     "CardType": 7,
     "StartUnlocked": false,

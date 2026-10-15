@@ -46,37 +46,19 @@
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "herbs_fungi_hemp_stalks",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 8, "y": 12}
+              "Quantity": {"x": 6, "y": 9}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "herbs_fungi_hemp_flower",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 8, "y": 12}
+              "Quantity": {"x": 6, "y": 9}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "herbs_fungi_hemp_seeds",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 6, "y": 12}
-            },
-            {
-              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-              "DroppedCardWarpData": "herbs_fungi_king_oyster",
-              "DroppedCardWarpType": 3,
-              "Quantity": {"x": 1, "y": 3}
-            },
-            {
-              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-              "DroppedCardWarpData": "herbs_fungi_golden_oyster",
-              "DroppedCardWarpType": 3,
-              "Quantity": {"x": 1, "y": 6}
-            },
-            {
-              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-              "DroppedCardWarpData": "herbs_fungi_morel_mushroom",
-              "DroppedCardWarpType": 3,
-              "Quantity": {"x": 1, "y": 2}
+              "Quantity": {"x": 5, "y": 9}
             }
           ]
         }
