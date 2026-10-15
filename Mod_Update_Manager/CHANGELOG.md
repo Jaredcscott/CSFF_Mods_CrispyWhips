@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.69] - 2026-10-15
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.5, Herbs and Fungi 1.14.9, Advanced Copper Tools 1.18.9, Water Driven Infrastructure 1.12.10, Community Mod Chest 1.69.17, Homestead Perks 1.3.5, Repeat Action 2.2.2, Quick Transfer 1.9.1, Skill Speed Boost 1.11.1, and the pre-release Partner Overhaul 1.1.3, Harsh Wilds 0.11.6, Far Territory 0.1.7, Forest Lore 0.1.5, Utility Belt 0.1.3 and Sirus23 Mod Collection 1.22.6. Advanced Copper Tools and Herbs and Fungi no longer add their own caves and forest clearings now that Far Territory covers that ground: their items come from vanilla places instead, and a save made inside one of the removed places loads at the vanilla place it was built from. Most mods also get a balance pass that brings their numbers closer to vanilla's.
+
+---
+
 ## [2.1.68] - 2026-10-14
 
 ### Changed
