@@ -4,6 +4,16 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.28.5] - 2026-10-14
+
+### Fixed
+
+- **Saves keep every board when a mod removes a location.** A mod that removes a location now lists where its players should land instead, and the framework moves the save there: if you saved standing in the removed place you arrive at that one, and the cards you left on the removed location's board are moved onto it, beside what was already there. Before this, when two removed places led to the same spot, one board replaced the other: a test save lost its whole vanilla Mossy Clearing board this way. The removed place's own trees and river copies are left behind, so the spot does not end up with two of each. Advanced Copper Tools 1.18.9 (its caves, to the Waterfall Caves) and Herbs and Fungi 1.14.9 (its Foraging Forest, to the vanilla woods each spot was copied from) are the first to use it.
+
+### For mod authors
+
+- An entry in a mod's `UidAliases.json` that maps a removed **environment** UID to a live environment card now also repairs saves: `Patching/BugFixes/RetiredEnvironmentSaveRepair` folds the removed environment's saved board into the target's (or renames it when the save holds none) before `GameManager.LoadCards` reads it, drops the removed board's travel cards, and rewrites the current and previous environment keys. Only plain (non-instanced) environment keys whose UID is no longer a live card are touched.
+
 ## [2.28.4] - 2026-10-14
 
 ### Fixed

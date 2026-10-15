@@ -4,7 +4,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
-- **Version:** 2.28.4
+- **Version:** 2.28.5
 - **Game version:** EA 0.69c
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese
@@ -204,7 +204,7 @@ Every `*WarpData` key needs its `*WarpType` sibling: 3 Reference, 4 Add, 5 Modif
 | `WorldMap/MapNodes.json`, `WorldMap/FullMap.json` | New map locations and connections |
 | `Animals/*.json` | Roaming animals from one manifest each |
 | `GameSourceModify/*.json` | Patches an existing vanilla or mod object in place |
-| `UidAliases.json` | `{ "old_uid": "new_uid" }` beside `ModInfo.json`, for a card you renamed or merged. Any mod's `*WarpData` naming the old UID resolves to the new card, and the old UID is registered as a second key so a save that names it finds the new card. An old UID that is still a real card is never shadowed. The save half is not yet confirmed in a running game |
+| `UidAliases.json` | `{ "old_uid": "new_uid" }` beside `ModInfo.json`, for a card you renamed or merged. Any mod's `*WarpData` naming the old UID resolves to the new card, and the old UID is registered as a second key so a save that names it finds the new card. An old UID that is still a real card is never shadowed. Aliasing a removed **environment** to a live one (2.28.5) also moves a save made inside it: the removed board's cards are folded into the target's board and the player arrives there. The removed-environment half was measured on a test rig on 2026-10-15 (a save made inside ACT's Metal Mines and one inside H&F's Foraging Path both landed at their vanilla place with every card); the renamed-card half is not confirmed in a running game yet |
 
 **Smelting rows** look like `{ "Item": "<uid>", "NuggetReturn": 3, "Duration": 32 }`. Optional `"MetalType"` (a number above 0 and up to 1000: Copper 100, Tin 120, Iron 200) sets the Metal Type of the returned Metal Nuggets, which otherwise come back as Copper.
 

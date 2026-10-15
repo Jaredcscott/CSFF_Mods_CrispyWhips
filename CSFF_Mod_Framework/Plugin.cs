@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.28.4";
+    public const string PluginVersion = "2.28.5";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -222,6 +222,10 @@ public class Plugin : BaseUnityPlugin
         // GameLoad.SaveGameByReference throws on its null CardModel inside ActionRoutine. This
         // prefix drops such broken entries before every save (player report 2026-09-19).
         Patching.BugFixes.SaveStaleCardGuard.ApplyPatch(Harmony);
+        // A removed mod location aliased in UidAliases.json resolves to its target, so several saved
+        // boards can share one key and LoadCards keeps one of them, overwriting the target's real
+        // board. This folds each removed board into the target's before LoadCards reads the save.
+        Patching.BugFixes.RetiredEnvironmentSaveRepair.ApplyPatch(Harmony);
         // A portal arrival runs AddCard outside any action routine, so a stat-triggered action on
         // the departure card can empty NextEnvironment mid-switch and leave the player in no
         // environment (CalculateEnvironmentWeight NRE, T2.763). Restores it only while an arrival
