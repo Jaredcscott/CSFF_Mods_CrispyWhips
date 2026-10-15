@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.4 (2026-10-14)
+
+- **Card pictures sit where they belong again.** In the previous update every item picture was stretched to fill its whole card, sitting high with the name banner over it. The pictures are back in the game's own framing: centred, low on the card, with space above, like the vanilla cards beside them. Thanks to CHIWEI for the report.
+
 ## 1.3.3 (2026-10-14)
 
 - **The Rustic Stool and the Bookshelf have pictures.** The game ships both with no card art at all, so the stool from the Rustic Table Kit perk and the bookshelf from the Bookshelf Kit perk were blank cards, carried or placed. They now show paintings shipped with this mod.
