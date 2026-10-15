@@ -8,7 +8,7 @@
     "Description": {
         "ParentObjectID": "sh_felt_outfit_pieces",
         "LocalizationKey": "sh_felt_outfit_pieces_Description",
-        "DefaultText": "Counts the felt pieces worn at once (Felt Hat, Felt Mittens, Felt Vest, Felt Boots). Each worn piece adds 1, and three or more together add a little extra Cold Resistance, once. Never shown, and rebuilt from the worn pieces on every load."
+        "DefaultText": "Counts the felt pieces worn at once (Felt Hat, Felt Mittens, Felt Vest, Felt Boots). Each worn piece adds 1, and three or more together add Perceived Temperature +1, once. Never shown, and rebuilt from the worn pieces on every load."
     },
     "IsRuntimeOnly": true,
     "BaseValue": 0.0,
@@ -42,7 +42,7 @@
             "Description": {
                 "ParentObjectID": "sh_felt_outfit_pieces",
                 "LocalizationKey": "sh_felt_outfit_pieces_Status_Description",
-                "DefaultText": "Three or more felt pieces worn together hold the heat in a little better, adding a small amount of Cold Resistance."
+                "DefaultText": "Three or more felt pieces worn together hold the heat in a little better: Perceived Temperature +1."
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -57,9 +57,9 @@
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "StatWarpData": "727304b2887d9504982aa4f911881608",
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 4.0, "y": 4.0},
+                    "ValueModifier": {"x": 1.0, "y": 1.0},
                     "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},

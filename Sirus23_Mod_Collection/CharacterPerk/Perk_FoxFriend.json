@@ -38,7 +38,7 @@
     "PerkIconWarpData": "FoxCompanion",
     "PerkIconWarpType": 3,
     "PointsCost": 0,
-    "SunsCost": 2,
+    "SunsCost": 15,
     "StartingStatModifiers": [],
     "PassiveStatModifiers": [],
     "PerkUnlockConditions": {

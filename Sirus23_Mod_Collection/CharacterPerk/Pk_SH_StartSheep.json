@@ -18,8 +18,8 @@
     "NotifyWhenNotChecked": false,
     "CheckingNotificationDetails": 0,
     "DebugCompletion": false,
-    "SunsCost": 0,
-    "MoonsCost": 2,
+    "SunsCost": 15,
+    "MoonsCost": 0,
     "ResetLockInEditor": false,
     "PerkName": {
         "ParentObjectID": "sh_perk_start_sheep",

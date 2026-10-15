@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_predator_tracks",
         "LocalizationKey": "sh_predator_tracks_CardDescription",
-        "DefaultText": "Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. With your Wolf Companion here the predator keeps its distance and you cannot follow it; a fox or owl at your side may scare it off before you catch up. The trail goes cold in about a day."
+        "DefaultText": "Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. The trail goes cold in about a day."
     },
     "CardType": 2,
     "ObjectWeight": 0.0,
@@ -71,17 +71,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "RequiredCardsOnBoard": [
-                {
-                    "TriggerCard": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "TriggerCardWarpData": "fc_wolf_companion",
-                    "TriggerCardWarpType": 3,
-                    "Inverted": true
-                }
-            ],
+            "RequiredCardsOnBoard": [],
             "HideIfConditionsNotMet": true,
             "ProducedCards": [
                 {

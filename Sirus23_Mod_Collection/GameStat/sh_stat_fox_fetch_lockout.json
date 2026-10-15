@@ -1,0 +1,60 @@
+{
+    "UniqueID": "sh_stat_fox_fetch_lockout",
+    "GameName": {
+        "ParentObjectID": "sh_stat_fox_fetch_lockout",
+        "LocalizationKey": "sh_stat_fox_fetch_lockout_GameName",
+        "DefaultText": "Fox Fetch Rest"
+    },
+    "Description": {
+        "ParentObjectID": "sh_stat_fox_fetch_lockout",
+        "LocalizationKey": "sh_stat_fox_fetch_lockout_Description",
+        "DefaultText": "Hidden. Set to 96 by a fox fetch and counts down 1 a tick, so the fox fetches again a day later. A fetch needs it at 0."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 96.0
+    },
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Stress",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [],
+    "UsesNovelty": false
+}

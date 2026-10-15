@@ -392,10 +392,20 @@
             "ActionDescription": {
                 "ParentObjectID": "fc_owl_companion",
                 "LocalizationKey": "FC_OwlCompanion_DA1_ActionDescription",
-                "DefaultText": "Let the owl stand guard while you sleep. You rest more deeply knowing it watches."
+                "DefaultText": "Let the owl keep watch over your camp tonight. Knowing it watches eases your mind a little. Once a night."
             },
             "DaytimeCost": 4,
             "UseMiniTicks": 0,
+            "RequiredStatValues": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "sh_stat_owl_watch_lockout",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
             "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": ["HandAction"],
@@ -408,16 +418,16 @@
             },
             "StatModifications": [
                 {
-                    "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+                    "StatWarpData": "sh_stat_owl_watch_lockout",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 90.0, "y": 90.0},
+                    "ValueModifier": {"x": 96.0, "y": 96.0},
                     "InstantModifier": true,
                     "ApplyEachTick": false
                 },
                 {
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": -40.0, "y": -40.0},
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
                     "InstantModifier": true,
                     "ApplyEachTick": false
                 }
@@ -432,18 +442,36 @@
             "ActionDescription": {
                 "ParentObjectID": "fc_owl_companion",
                 "LocalizationKey": "FC_OwlCompanion_DA2_ActionDescription",
-                "DefaultText": "The owl drifts silently into the undergrowth and returns with a mouse."
+                "DefaultText": "The owl drifts silently into the undergrowth and returns with a mouse about half the time. It costs the owl some Hunger and Morale, and it needs a day before it hunts for you again."
             },
             "DaytimeCost": 2,
             "UseMiniTicks": 0,
+            "RequiredStatValues": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "sh_stat_owl_fetch_lockout",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
             "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": ["HandAction"],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
-            "ReceivingCardChanges": {"ModType": 0},
-            "StatModifications": []
+            "ReceivingCardChanges": {"ModType": 1, "SpoilageChange": {"x": -48.0, "y": -48.0}, "ChargesChange": {"x": -30.0, "y": -30.0}},
+            "StatModifications": [
+                {
+                    "StatWarpData": "sh_stat_owl_fetch_lockout",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 96.0, "y": 96.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
         },
         {
             "ActionName": {

@@ -67,6 +67,57 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
+                    "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3,
+            "BuildingDaytimeCost": 8
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
                     "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
                     "RequiredCardWarpType": 3,
                     "RequiredQuantity": 4,
@@ -134,7 +185,7 @@
     ],
     "BuildingDaytimeCost": 8,
     "DeconstructDaytimeCost": 1,
-    "BlueprintUnlockTicksCost": 16,
+    "BlueprintUnlockTicksCost": 96,
     "BlueprintResult": [
         {
             "DroppedCard": {

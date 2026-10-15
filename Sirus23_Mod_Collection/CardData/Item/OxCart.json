@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_ox_cart",
         "LocalizationKey": "sh_ox_cart_CardDescription",
-        "DefaultText": "A plank cart with a yoke for a Bull. Hold it in your hand to haul far more than a travois. While a Bull is on the board with you it adds no travel penalty."
+        "DefaultText": "A plank cart with a yoke for a Bull. Hold it in your hand to haul half again what a travois carries. Without a Bull on the board it slows you badly; with a Bull it still slows you a little."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -226,10 +226,36 @@
                     }
                 }
             ]
+        },
+        {
+            "EffectName": "Movement Penalty (Bull)",
+            "OnlyWhenInHand": true,
+            "OnlyWhenNOTInBG": true,
+            "Conditions": {
+                "NotInBackground": true,
+                "RequiredCardsOnBoardWarpData": [
+                    "8afae8650c0818e4eaea6194c099ecdb"
+                ],
+                "RequiredCardsOnBoardWarpType": 3
+            },
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5326db2677ef1734c9298d881dcf0794",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                }
+            ]
         }
     ],
     "IsMiniInventory": false,
-    "MaxWeightCapacity": 8000.0,
+    "MaxWeightCapacity": 6000.0,
     "ContentWeightReduction": -2500.0,
     "MaxLiquidCapacity": 0.0,
     "InventorySlots": [],

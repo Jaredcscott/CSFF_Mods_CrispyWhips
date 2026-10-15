@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Sirus23ModCollection";
     public const string PluginName = "Sirus23 Mod Collection";
-    public const string PluginVersion = "1.22.5";
+    public const string PluginVersion = "1.22.6";
 
     internal new static ManualLogSource Logger { get; private set; }
 
@@ -31,6 +31,8 @@ internal class Plugin : ContentModPlugin
         TryApply("RecallWhistle", RecallWhistlePatch.Register);
         // Truffle hog (feature 37): a run-start pass, subscribed once per process, that does nothing without Herbs and Fungi.
         TryApply("TruffleHog", TruffleHogPatch.Register);
+        // One-time Comfort reset per save (S23-B6): clears the permanent Comfort older Lanolin Salves wrote.
+        TryApply("ComfortFixup", ComfortFixupPatch.Register);
         TryApply("CompanionContainerGuard", () => CompanionContainerGuardPatch.ApplyPatch(harmony));
         // "Stay Here"/"Follow Me" DAs toggle SpecialDurability2; this patch makes the
         // toggle actually suppress/resume the AlwaysUpdate follow-along behavior.

@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_male_sheep",
         "LocalizationKey": "sh_male_sheep_CardDescription",
-        "DefaultText": "A tame ram. Shear it for wool, keep it near tame sheep to impregnate them over time, or slaughter it for resources."
+        "DefaultText": "A tame ram. Shear it for wool, keep it near tame sheep to impregnate them over time, or slaughter it for resources. Below a quarter Nourishment it grows no wool."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -1665,8 +1665,8 @@
                             "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 3,
-                                "y": 3
+                                "x": 10,
+                                "y": 10
                             },
                             "FinishUnlocking": false,
                             "TransferRules": {
@@ -1676,7 +1676,7 @@
                                 "Progress": 0,
                                 "Special1": 0,
                                 "Special2": 3,
-                                "Special3": 0,
+                                "Special3": 3,
                                 "Special4": 0,
                                 "SpoilageValue": 0.0,
                                 "UsageValue": 0.0,
@@ -1684,7 +1684,7 @@
                                 "ProgressValue": 0.0,
                                 "Special1Value": 0.0,
                                 "Special2Value": 96.0,
-                                "Special3Value": 0.0,
+                                "Special3Value": 3.0,
                                 "Special4Value": 0.0,
                                 "SpoilageFrom": 0,
                                 "UsageFrom": 0,
@@ -2167,8 +2167,8 @@
                             "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 3,
-                                "y": 3
+                                "x": 10,
+                                "y": 10
                             },
                             "FinishUnlocking": false,
                             "TransferRules": {
@@ -2178,7 +2178,7 @@
                                 "Progress": 0,
                                 "Special1": 0,
                                 "Special2": 3,
-                                "Special3": 0,
+                                "Special3": 3,
                                 "Special4": 0,
                                 "SpoilageValue": 0.0,
                                 "UsageValue": 0.0,
@@ -2186,7 +2186,7 @@
                                 "ProgressValue": 0.0,
                                 "Special1Value": 0.0,
                                 "Special2Value": 96.0,
-                                "Special3Value": 0.0,
+                                "Special3Value": 3.0,
                                 "Special4Value": 0.0,
                                 "SpoilageFrom": 0,
                                 "UsageFrom": 0,
@@ -3721,6 +3721,26 @@
     "DismantleActions": [],
     "PassiveStatEffects": [],
     "PassiveEffects": [
+        {
+            "EffectName": "Underfed (no wool below 72 Nourishment)",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 71.9
+                    }
+                }
+            },
+            "Special1RateModifier": {
+                "Active": true,
+                "FloatValue": -0.00208
+            },
+            "MultiplySpecial1Rate": false,
+            "StatModifiers": [],
+            "NPCStatModifiers": [],
+            "DroppedCards": [],
+            "GrantedPathfindingTags": []
+        },
         {
             "EffectName": "Well Fed (Wool +50%)",
             "Conditions": {

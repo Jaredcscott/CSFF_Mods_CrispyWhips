@@ -263,7 +263,7 @@
     {
       "name": "Felt Set Bonus",
       "status": "Implemented",
-      "_note": "1.22.0 (2026-10-03): a hidden runtime counter GameStat (sh_felt_outfit_pieces, 0 to 4) that each worn felt wearable raises by 1 through one PassiveEffect (OnlyWhenEquipped, EquippedOnBodyOnly), with one status at 3 to 4 adding +4 (a tunable placeholder) to vanilla Cold Resistance; one status on one stat is what makes the bonus apply once. No tag, no C#; the csproj gained a GameStat include.",
+      "_note": "1.22.0 (2026-10-03): a hidden runtime counter GameStat (sh_felt_outfit_pieces, 0 to 4) that each worn felt wearable raises by 1 through one PassiveEffect (OnlyWhenEquipped, EquippedOnBodyOnly), with one status at 3 to 4 adding +4 (a tunable placeholder) to vanilla Cold Resistance; one status on one stat is what makes the bonus apply once. 1.22.6 (S23-B18): the status and every garment now raise TemperaturePerceived (set bonus +1) instead of ColdResistance, an encoding stat whose exact-value statuses a +N breaks. No tag, no C#; the csproj gained a GameStat include.",
       "cards": [
         "sh_felt_hat",
         "sh_felt_mittens",
@@ -340,7 +340,7 @@
     {
       "name": "Lanolin Salve",
       "status": "Implemented",
-      "_note": "Blueprint sh_bp_lanolin_salve (Survival>Medical, gated on sh_lanolin on board): 1 lanolin + 1 vanilla FrostleafPowder -> salve. DA 'Apply to Skin' ModType:3 restores +15 Comfort.",
+      "_note": "Blueprint sh_bp_lanolin_salve (Survival>Medical, gated on sh_lanolin on board): 1 lanolin + 1 vanilla FrostleafPowder -> salve. DA 'Apply to Skin' ModType:3 restores +15 Comfort. 1.22.6 (S23-B6): it now sets sh_stat_lanolin_soothe to 96 (falls 1 a tick), whose status gives Comfort +15 while it lasts; Patcher/ComfortFixupPatch.cs clears the permanent Comfort older salves wrote, once per save.",
       "cards": [
         "sh_lanolin_salve",
         "sh_bp_lanolin_salve"

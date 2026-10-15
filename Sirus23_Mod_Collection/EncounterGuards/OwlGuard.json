@@ -1,6 +1,14 @@
 {
     "Name": "OwlCompanionGuard",
     "GuardCardUids": ["fc_owl_companion"],
+    "AgentUids": [
+        "61dd2882b59388346b42628f5e76432b",
+        "0cb137c5a8daaed47ba291779d8146f8",
+        "c3ac5867e8021ce43a5094a2bb469935",
+        "d1602c74669f2e642983a004355a3f81",
+        "80cf123c1b0d049459ab4e3fb1b316ff",
+        "5957ab4b2d66bca44b6502b40eb30a9c"
+    ],
     "EncounterUids": [],
-    "SuppressChance": 35
+    "SuppressChance": 15
 }

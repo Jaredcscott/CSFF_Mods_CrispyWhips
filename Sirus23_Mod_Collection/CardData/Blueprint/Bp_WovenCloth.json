@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_bp_woven_cloth",
         "LocalizationKey": "sh_bp_woven_cloth_CardDescription",
-        "DefaultText": "Weave two skeins of yarn into woven woollen cloth."
+        "DefaultText": "Weave two skeins of Wool Yarn into woven woollen cloth at a Weighted Loom."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -33,6 +33,36 @@
             "CardWarpType": 3,
             "Quantity": 1,
             "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintCardConditions": [
+        {
+            "TriggerCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "895cd9023f75faf43aba1a756502834e",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "BuildingCardConditions": [
+        {
+            "TriggerCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "895cd9023f75faf43aba1a756502834e",
+            "TriggerCardWarpType": 3
         }
     ],
     "TagsOnBoard": [],
@@ -71,7 +101,7 @@
     ],
     "BuildingDaytimeCost": 2,
     "DeconstructDaytimeCost": 0,
-    "BlueprintUnlockTicksCost": 8,
+    "BlueprintUnlockTicksCost": 24,
     "BlueprintResult": [
         {
             "DroppedCard": {

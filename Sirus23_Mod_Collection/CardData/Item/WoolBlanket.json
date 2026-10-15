@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_wool_blanket",
         "LocalizationKey": "sh_wool_blanket_CardDescription",
-        "DefaultText": "A thick woollen blanket. Greatly improves sleep quality in cold weather."
+        "DefaultText": "A thick woollen blanket. Carried in your pack it keeps your body temperature 10 points higher in the cold. A second blanket adds nothing."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -94,11 +94,11 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+            "StatWarpData": "sh_stat_blanket_carried",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 10.0,
-                "y": 10.0
+                "x": 1.0,
+                "y": 1.0
             },
             "RateModifier": {
                 "x": 0.0,

@@ -29,8 +29,8 @@ namespace Sirus23ModCollection.Patcher
     /// unchanged, since a guard deters predators but does not herd. Until 1.21.2 the wolf
     /// suppressed the roll entirely, which left the pen with no consequence to create for
     /// every wolf owner (T2.101, r33: five nights of "stood guard", zero losses); decided
-    /// 2026-09-09. Wolf presence mirrors the wolf's existing EncounterGuards/WolfGuard.json
-    /// wildlife-suppression scoping: presence-in-current-env, not a "Guard Camp" action
+    /// 2026-09-09. Wolf presence mirrors the wolf's EncounterGuards/WolfGuard.json scoping
+    /// (an agent-only guard since 1.22.6): presence-in-current-env, not a "Guard Camp" action
     /// toggle - the wolf has no persistent "guarding" state to gate on, see CardInteractions
     /// on WolfCompanion.json.
     ///
@@ -62,9 +62,9 @@ namespace Sirus23ModCollection.Patcher
     /// Predator Tracks card (<see cref="PredatorTracksUid"/>) beside the remains. Its "Follow
     /// the Tracks" DismantleAction starts the vanilla wolf encounter with no NPC attached
     /// (Documentation/Research/Sirus23_Mod_Collection/pen_and_predators.md, W0-16 DECISION);
-    /// the action is hidden while the Wolf Companion is on the board, because this mod's
-    /// WolfGuard suppresses every NPC-less start there, and the 35 percent Fox/Owl guards are
-    /// accepted and stated on the card. The tracks fade after about a day.
+    /// since 1.22.6 (S23-B3) the companion guards name predator AGENTS only (AgentUids, empty
+    /// EncounterUids), so they never touch an NPC-less start and the action is no longer hidden
+    /// while the Wolf Companion is on the board. The tracks fade after about a day.
     ///
     /// HARSH WILDS RAIDS (feature 26, optional cross-mod): a Harsh Wilds black bear or eagle
     /// raid is an Event card that is queued, shown as a modal for zero game time and destroyed

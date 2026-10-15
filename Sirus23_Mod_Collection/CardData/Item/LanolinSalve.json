@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_lanolin_salve",
         "LocalizationKey": "sh_lanolin_salve_CardDescription",
-        "DefaultText": "A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort. It does not spoil."
+        "DefaultText": "A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for Comfort +15 that lasts about a day. It does not spoil."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -1076,11 +1076,11 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpData": "sh_stat_lanolin_soothe",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 15.0,
-                        "y": 15.0
+                        "x": 96.0,
+                        "y": 96.0
                     },
                     "RateModifier": {
                         "x": 0.0,

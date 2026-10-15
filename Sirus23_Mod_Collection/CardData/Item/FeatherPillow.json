@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_feather_pillow",
         "LocalizationKey": "sh_feather_pillow_CardDescription",
-        "DefaultText": "A cloth sack packed with owl down. Sleeping with it under your head takes the edge off a hard night."
+        "DefaultText": "A cloth sack packed with owl down. Kept among your things, it makes camp feel a little more like home (Sanctuary +10). More pillows, or a Felt Rug as well, add nothing."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -92,11 +92,11 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+            "StatWarpData": "sh_stat_soft_furnishing",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 10.0,
-                "y": 10.0
+                "x": 1.0,
+                "y": 1.0
             },
             "RateModifier": {
                 "x": 0.0,

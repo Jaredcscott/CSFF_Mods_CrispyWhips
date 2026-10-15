@@ -137,7 +137,7 @@
     ],
     "BuildingDaytimeCost": 6,
     "DeconstructDaytimeCost": 1,
-    "BlueprintUnlockTicksCost": 16,
+    "BlueprintUnlockTicksCost": 96,
     "BlueprintResult": [
         {
             "DroppedCard": {

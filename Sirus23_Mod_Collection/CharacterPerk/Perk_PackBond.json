@@ -45,7 +45,7 @@
         {
             "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
             "StatWarpType": 3,
-            "ValueModifier": {"x": 15.0, "y": 15.0},
+            "ValueModifier": {"x": 5.0, "y": 5.0},
             "InstantModifier": true,
             "ApplyEachTick": false
         }

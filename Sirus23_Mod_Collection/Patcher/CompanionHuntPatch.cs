@@ -9,8 +9,9 @@ using UnityEngine;
 namespace Sirus23ModCollection.Patcher;
 
 /// <summary>
-/// Implements "Send on Hunt" (wolf) and "Scout Ahead" (fox) by spawning items
-/// after the action's DaytimeCost timer completes.
+/// Implements "Send on Hunt" (wolf) and the four fetches (Flush Prey, Scout Ahead, Retrieve
+/// Partridge, Retrieve Mouse) by spawning items after the action's DaytimeCost timer completes.
+/// Every one of them is a chance roll (S23-B2).
 ///
 /// CardsToCreate in ReceivingCardChanges is not processed by the vanilla game
 /// engine (zero vanilla DAs use it). ActionRouter.AfterWrapped handles the
@@ -52,10 +53,24 @@ internal static class CompanionHuntPatch
     // way vanilla's own kill path does, so the burrow can eventually spawn a fresh one.
     private const string AgentExistsStatUid = "16eb4865d583a1d4d82def0680f3065d";
 
-    private static readonly (string uid, int min, int max)[] FoxScoutDrops =
-    {
-        (RawMeatUid, 1, 2),
-    };
+    // S23-B2 (vanilla balance pass, 1.22.6): the four fetches were guaranteed food on demand. Each is now a
+    // chance roll; the DA itself (JSON) costs the companion Hunger 48 and Morale 30 and arms a one-day
+    // lockout stat (sh_stat_<companion>_fetch_lockout) that its RequiredStatValues checks, so a fetch is
+    // at most once a day and can come back empty. Percent chances, rolled 1-100.
+    private const int FlushPreyChance = 30;
+    private const int FoxScoutChance = 40;
+    private const int FoxRetrieveChance = 35;
+    private const int OwlRetrieveChance = 50;
+
+    // A fetched MeatRaw used to spawn at the card's defaults, Quality 0 and Meat Type 0 (no such cut),
+    // the "spawned at default stats" defect in CLAUDE.md. Vanilla MeatRaw drops carry Quality 96; Meat
+    // Type 3 is the plain "Meat" cut. SpawnService.Spawn(uid, stats) applies them (framework 2.28.0).
+    private static readonly System.Collections.Generic.Dictionary<string, float> FetchedMeatStats =
+        new(StringComparer.Ordinal)
+        {
+            ["SpecialDurability2"] = 96f,
+            ["SpecialDurability3"] = 3f,
+        };
 
     public static void Register()
     {
@@ -81,7 +96,7 @@ internal static class CompanionHuntPatch
             ActionKeyPrefix = "FC_FoxCompanion_DA2",
             ActionNamePrefix = "Scout Ahead",
             Timing = ActionTiming.AfterWrapped,
-            After = _ => SpawnDrops(FoxScoutDrops),
+            After = _ => RollFetch("fox scout", FoxScoutChance, RawMeatUid, FetchedMeatStats),
         });
 
         ActionRouter.Register(new ActionHandler
@@ -91,7 +106,7 @@ internal static class CompanionHuntPatch
             ActionKeyPrefix = "FC_WolfCompanion_DA5",
             ActionNamePrefix = "Flush Prey",
             Timing = ActionTiming.AfterWrapped,
-            After = _ => SpawnService.Spawn(RawMeatUid),
+            After = _ => RollFetch("flush prey", FlushPreyChance, RawMeatUid, FetchedMeatStats),
         });
 
         ActionRouter.Register(new ActionHandler
@@ -101,7 +116,7 @@ internal static class CompanionHuntPatch
             ActionKeyPrefix = "FC_OwlCompanion_DA2",
             ActionNamePrefix = "Retrieve Mouse",
             Timing = ActionTiming.AfterWrapped,
-            After = _ => SpawnService.Spawn(DeadMouseUid),
+            After = _ => RollFetch("owl retrieve", OwlRetrieveChance, DeadMouseUid, null),
         });
 
         // Registered here, once per process (RegisterActionHandlers runs once from Plugin), like the rest.
@@ -122,7 +137,7 @@ internal static class CompanionHuntPatch
             ActionKeyPrefix = "FC_FoxCompanion_DA3",
             ActionNamePrefix = "Retrieve Partridge",
             Timing = ActionTiming.AfterWrapped,
-            After = _ => SpawnService.Spawn(DeadPartridgeUid),
+            After = _ => RollFetch("fox retrieve", FoxRetrieveChance, DeadPartridgeUid, null),
         });
 
         ActionRouter.Register(new ActionHandler
@@ -562,14 +577,19 @@ internal static class CompanionHuntPatch
             SpawnService.Spawn(uid);
     }
 
-    private static void SpawnDrops((string uid, int min, int max)[] drops)
+    /// <summary>S23-B2: one fetch roll. <paramref name="chance"/> is a percent; on a hit one
+    /// <paramref name="uid"/> is spawned on the player's board, with <paramref name="stats"/> when given.</summary>
+    private static void RollFetch(string label, int chance, string uid,
+        System.Collections.Generic.Dictionary<string, float> stats)
     {
-        foreach (var (uid, min, max) in drops)
-        {
-            int qty = max <= min ? min : UnityEngine.Random.Range(min, max + 1);
-            for (int i = 0; i < qty; i++)
-                SpawnService.Spawn(uid);
-        }
+        int roll = UnityEngine.Random.Range(1, 101);  // 1-100 inclusive
+        bool hit = roll <= chance;
+        Plugin.Logger.LogDebug($"[CompanionHunt] {label} roll={roll} chance={chance} -> {(hit ? uid : "nothing")}");
+        if (!hit) return;
+        if (stats != null)
+            SpawnService.Spawn(uid, stats);
+        else
+            SpawnService.Spawn(uid);
     }
 
     private static void GrantPackBondPerk()

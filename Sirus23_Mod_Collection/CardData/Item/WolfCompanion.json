@@ -512,7 +512,7 @@
                 {
                     "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 10.0, "y": 10.0},
+                    "ValueModifier": {"x": 1.0, "y": 1.0},
                     "InstantModifier": true,
                     "ApplyEachTick": false
                 },
@@ -534,7 +534,7 @@
             "ActionDescription": {
                 "ParentObjectID": "fc_wolf_companion",
                 "LocalizationKey": "FC_WolfCompanion_DA4_ActionDescription",
-                "DefaultText": "The wolf patrols the perimeter while you rest. You sleep more soundly."
+                "DefaultText": "The wolf patrols the perimeter while you rest by the fire. Knowing it is out there eases your mind."
             },
             "DaytimeCost": 6,
             "UseMiniTicks": 0,
@@ -546,13 +546,6 @@
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {"ModType": 1, "ChargesChange": {"x": 30.0, "y": 30.0}},
             "StatModifications": [
-                {
-                    "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
-                    "StatWarpType": 3,
-                    "ValueModifier": {"x": 20.0, "y": 20.0},
-                    "InstantModifier": true,
-                    "ApplyEachTick": false
-                },
                 {
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
                     "StatWarpType": 3,
@@ -578,24 +571,39 @@
             "ActionDescription": {
                 "ParentObjectID": "fc_wolf_companion",
                 "LocalizationKey": "FC_WolfCompanion_DA5_ActionDescription",
-                "DefaultText": "Send the wolf ahead on the trail. Prey scatter; you pick off stragglers."
+                "DefaultText": "Send the wolf ahead on the trail to scatter prey; about 1 time in 3 you pick off a straggler. It costs the wolf some Hunger and Morale, and it needs a day before it will flush prey again."
             },
             "DaytimeCost": 2,
             "UseMiniTicks": 0,
+            "RequiredStatValues": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "sh_stat_wolf_fetch_lockout",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
             "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": ["HandAction"],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
-            "ReceivingCardChanges": {
-                "ModType": 0
-            },
+            "ReceivingCardChanges": {"ModType": 1, "SpoilageChange": {"x": -48.0, "y": -48.0}, "ChargesChange": {"x": -30.0, "y": -30.0}},
             "StatModifications": [
+                {
+                    "StatWarpData": "sh_stat_wolf_fetch_lockout",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 96.0, "y": 96.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
                 {
                     "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 10.0, "y": 10.0},
+                    "ValueModifier": {"x": 1.0, "y": 1.0},
                     "InstantModifier": true,
                     "ApplyEachTick": false
                 },

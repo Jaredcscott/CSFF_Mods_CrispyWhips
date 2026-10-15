@@ -15,9 +15,9 @@ FC_WolfCompanion_DA2_ActionDescription,"The wolf disappears into the undergrowth
 FC_WolfCompanion_DA3_ActionName,Track Scents,追踪气味
 FC_WolfCompanion_DA3_ActionDescription,Follow the wolf as it reads the forest. Your tracking improves.,跟随狼读懂森林。你的追踪技能提升了。
 FC_WolfCompanion_DA4_ActionName,Guard Camp,守卫营地
-FC_WolfCompanion_DA4_ActionDescription,The wolf patrols the perimeter while you rest. You sleep more soundly.,你休息时狼在周围巡逻。你睡得更安稳了。
+FC_WolfCompanion_DA4_ActionDescription,The wolf patrols the perimeter while you rest by the fire. Knowing it is out there eases your mind.,你在火边休息时，狼在营地四周巡逻。知道它在外面守着，你安心了许多。
 FC_WolfCompanion_DA5_ActionName,Flush Prey,驱赶猎物
-FC_WolfCompanion_DA5_ActionDescription,Send the wolf ahead on the trail. Prey scatter; you pick off stragglers.,让狼在猎径上打前哨。猎物四散逃跑，你拦截落单者。
+FC_WolfCompanion_DA5_ActionDescription,"Send the wolf ahead on the trail to scatter prey; about 1 time in 3 you pick off a straggler. It costs the wolf some Hunger and Morale, and it needs a day before it will flush prey again.",让狼在猎径上打前哨驱散猎物，大约每三次中有一次你能拦截一只落单者。这会消耗狼的饥饿值和士气，之后它需要休息一天才会再次驱赶猎物。
 FC_WolfCompanion_CI2_ActionName,Treat Wounds,治疗伤口
 FC_WolfCompanion_CI2_ActionDescription,Apply the remedy to the wolf's injuries. It holds still while you work.,将药物涂抹在狼的伤口上。它一动不动地让你处理。
 FC_WolfCompanion_Progress_CardStatName,Morale,士气
@@ -25,17 +25,17 @@ FC_WolfCompanion_SpoilageTime_CardStatName,Hunger,饥饿
 FC_WolfCompanion_UsageDurability_CardStatName,Thirst,口渴
 FC_WolfCompanion_SpecialDurability1_CardStatName,Health,健康度
 sh_wild_sheep_CardName,Wild Sheep,野生绵羊
-sh_wild_sheep_CardDescription,"A wild sheep roaming the forest. Offer it fresh meadowgrass to tame it, or slaughter it for resources.",一只在森林中游荡的野生绵羊。喂它新鲜草地牧草可以驯服它，或将其屠宰以获取资源。
+sh_wild_sheep_CardDescription,"A wild sheep roaming the forest. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.",一只在森林中游荡的野生绵羊。喂它新鲜草地牧草可以尝试驯服它（大约每三次喂食能赢得一次信任），或将其屠宰以获取资源。
 sh_wild_male_sheep_CardName,Wild Ram,野生公羊
-sh_wild_male_sheep_CardDescription,"A wild ram. Offer it fresh meadowgrass to tame it, or slaughter it for resources.",一只野生公羊。喂它新鲜草地牧草可以驯服它，或将其屠宰以获取资源。
+sh_wild_male_sheep_CardDescription,"A wild ram. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.",一只野生公羊。喂它新鲜草地牧草可以尝试驯服它（大约每三次喂食能赢得一次信任），或将其屠宰以获取资源。
 sh_tame_sheep_CardName,Tame Sheep,驯养绵羊
-sh_tame_sheep_CardDescription,"A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it.",一只驯养的绵羊。剪毛可获取羊毛，让它靠近公羊可随时间繁殖，也可将其屠宰。
+sh_tame_sheep_CardDescription,"A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it. Below a quarter Nourishment it grows no wool.",一只驯养的绵羊。剪毛可获取羊毛，让它靠近公羊可随时间繁殖，也可将其屠宰。营养低于四分之一时不长羊毛。
 sh_male_sheep_CardName,Ram,公羊
-sh_male_sheep_CardDescription,"A tame ram. Shear it for wool, keep it near tame sheep to impregnate them over time, or slaughter it for resources.",一只驯养的公羊。剪毛可获取羊毛，让它靠近驯养的绵羊可随时间使其受孕，也可将其屠宰以获取资源。
+sh_male_sheep_CardDescription,"A tame ram. Shear it for wool, keep it near tame sheep to impregnate them over time, or slaughter it for resources. Below a quarter Nourishment it grows no wool.",一只驯养的公羊。剪毛可获取羊毛，让它靠近驯养的绵羊可随时间使其受孕，也可将其屠宰以获取资源。营养低于四分之一时不长羊毛。
 sh_lactating_sheep_CardName,Lactating Sheep,泌乳母羊
-sh_lactating_sheep_CardDescription,"A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it.",一只刚生产不久的母羊。每天用陶碗为它挤奶，也可剪毛取羊毛，或将其屠宰。
+sh_lactating_sheep_CardDescription,"A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it. Below a quarter Nourishment it grows no wool and gives no milk.",一只刚生产不久的母羊。每天用陶碗为它挤奶，也可剪毛取羊毛，或将其屠宰。营养低于四分之一时不长羊毛，也不产奶。
 sh_lamb_CardName,Lamb,羊羔
-sh_lamb_CardDescription,"A young lamb. It will grow into a tame sheep or ram by the end of fall. You can feed it meadowgrass or straw to mature it early, or slaughter it for a small amount of meat and hide.",一只幼小的羊羔。到秋末它会长成驯养的绵羊或公羊。喂它草地牧草或干草可以让它提早成熟，也可将其屠宰以获取少量肉和兽皮。
+sh_lamb_CardDescription,"A young lamb. It grows into a tame sheep or ram in about 60 days. Each feed of meadowgrass or straw brings that five days closer, or slaughter it for a small amount of meat and hide.",一只幼小的羊羔。大约60天后会长成驯养的绵羊或公羊。每喂一次草地牧草或干草，它就能提前五天长大；也可将其屠宰以获取少量肉和兽皮。
 sh_sheep_milk_CardName,Sheep Milk,羊奶
 sh_sheep_milk_CardDescription,Fresh sheep milk.,新鲜羊奶。
 sh_sheep_milk_LiquidSuffixName,Sheep Milk,羊奶
@@ -46,7 +46,7 @@ sh_curdled_milk_CardDescription,Curdled sheep milk. Press it over a fire to make
 sh_sheep_cheese_CardName,Sheep Cheese,羊奶酪
 sh_sheep_cheese_CardDescription,Fresh sheep cheese. Leave it out to age into a richer variety — the spoilage bar fills as it ages.,新鲜羊奶酪。放置一段时间可熟成为风味更浓郁的品种——变质槽会随熟成而增长。
 sh_aged_sheep_cheese_CardName,Aged Sheep Cheese,熟成羊奶酪
-sh_aged_sheep_cheese_CardDescription,Richly flavoured aged sheep cheese. Excellent nutrition.,风味浓郁的熟成羊奶酪。营养极佳。
+sh_aged_sheep_cheese_CardDescription,"Richly flavoured aged sheep cheese. Excellent nutrition, and it keeps for about a month.",风味浓郁的熟成羊奶酪。营养极佳，可以存放约一个月。
 sh_whey_CardName,Whey,乳清
 sh_whey_CardDescription,"Liquid whey, a byproduct of cheese making. Mildly nutritious.",液态乳清，制作奶酪的副产品。营养温和。
 sh_butter_CardName,Butter,黄油
@@ -65,7 +65,7 @@ sh_woven_cloth_CardDescription,Woven woollen cloth. Provides a small amount of w
 sh_wool_tunic_CardName,Wool Tunic,羊毛长衫
 sh_wool_tunic_CardDescription,A warm woollen tunic that provides excellent insulation.,一件保暖的羊毛长衫，隔热效果极佳。
 sh_wool_blanket_CardName,Wool Blanket,羊毛毯
-sh_wool_blanket_CardDescription,A thick woollen blanket. Greatly improves sleep quality in cold weather.,一条厚实的羊毛毯。在寒冷天气中能大幅提升睡眠质量。
+sh_wool_blanket_CardDescription,A thick woollen blanket. Carried in your pack it keeps your body temperature 10 points higher in the cold. A second blanket adds nothing.,一条厚实的羊毛毯。放在背包里能让你在寒冷中体温高出10点。多带一条也不会更暖。
 sh_bp_wool_blanket_CardName,Wool Blanket Blueprint,羊毛毯图纸
 sh_bp_wool_blanket_CardDescription,Weave 4 woven cloths together into a thick woollen blanket.,将4块织布缝合成一条厚实的羊毛毯。
 sh_shears_CardName,Shears,剪毛刀
@@ -139,7 +139,7 @@ sh_bp_yarn_CardName,Wool Yarn,羊毛纱线
 sh_bp_yarn_CardDescription,Spin raw wool into yarn by hand.,用手将生羊毛纺成纱线。
 sh_bp_yarn_UnlockConditionsDesc,Requires: Wool,需要：羊毛
 sh_bp_woven_cloth_CardName,Woven Cloth,织布
-sh_bp_woven_cloth_CardDescription,Weave two skeins of yarn into woven woollen cloth.,将两团纱线织成羊毛织布。
+sh_bp_woven_cloth_CardDescription,Weave two skeins of Wool Yarn into woven woollen cloth at a Weighted Loom.,在重锤织机旁将两团羊毛纱线织成羊毛织布。
 sh_bp_wool_tunic_CardName,Wool Tunic Blueprint,羊毛长衫图纸
 sh_bp_wool_tunic_CardDescription,Sew a wool blanket into a warm woollen tunic.,将羊毛毯缝制成一件保暖的羊毛长衫。
 sh_cream_CardName,Cream,奶油
@@ -183,9 +183,9 @@ FC_FoxCompanion_DA0_ActionDescription,Scratch behind its ears. It leans into you
 FC_FoxCompanion_DA1_ActionName,Play with Fox,与狐狸玩耍
 FC_FoxCompanion_DA1_ActionDescription,Chase each other through the ferns. Pure mischievous fun.,在蕨丛间互相追逐。纯粹的调皮乐趣。
 FC_FoxCompanion_DA2_ActionName,Scout Ahead,前方侦察
-FC_FoxCompanion_DA2_ActionDescription,Send the fox to nose around. It comes back with something useful.,让狐狸四处探查。它带着有用的东西回来了。
+FC_FoxCompanion_DA2_ActionDescription,"Send the fox to nose around. About 2 times in 5 it comes back with some meat. It costs the fox some Hunger and Morale, and it needs a day before it fetches again.",让狐狸四处探查。大约每五次中有两次它会叼回一些肉。这会消耗狐狸的饥饿值和士气，之后它需要休息一天才会再次取物。
 FC_FoxCompanion_DA3_ActionName,Retrieve Partridge,叼回灰山鹑
-FC_FoxCompanion_DA3_ActionDescription,The fox flushes a partridge from the brush and chases it down. It trots back proudly.,狐狸把一只灰山鹑从灌木丛中赶出并追上了它。它骄傲地小跑回来。
+FC_FoxCompanion_DA3_ActionDescription,"The fox goes after a partridge in the brush and catches one about 1 time in 3. It costs the fox some Hunger and Morale, and it needs a day before it fetches again.",狐狸钻进灌木丛追捕灰山鹑，大约每三次能抓到一只。这会消耗狐狸的饥饿值和士气，之后它需要休息一天才会再次取物。
 FC_FoxCompanion_SpoilageTime_CardStatName,Hunger,饥饿
 FC_FoxCompanion_UsageDurability_CardStatName,Thirst,口渴
 FC_FoxCompanion_CI2_ActionName,Give Water,喂水
@@ -205,9 +205,9 @@ FC_OwlCompanion_CI0_ActionDescription,Offer the owl a scrap of meat. It bobs its
 FC_OwlCompanion_DA0_ActionName,Pet Owl,抚摸猫头鹰
 FC_OwlCompanion_DA0_ActionDescription,Gently stroke its feathers. It closes its eyes in contentment.,轻轻抚摸它的羽毛。它满足地闭上了眼睛。
 FC_OwlCompanion_DA1_ActionName,Night Watch,夜间守望
-FC_OwlCompanion_DA1_ActionDescription,Let the owl stand guard while you sleep. You rest more deeply knowing it watches.,让猫头鹰在你睡觉时放哨。知道有它守护，你睡得更沉了。
+FC_OwlCompanion_DA1_ActionDescription,Let the owl keep watch over your camp tonight. Knowing it watches eases your mind a little. Once a night.,今晚让猫头鹰守护你的营地。知道有它看着，你会稍微安心一些。每晚一次。
 FC_OwlCompanion_DA2_ActionName,Retrieve Mouse,叼回老鼠
-FC_OwlCompanion_DA2_ActionDescription,The owl drifts silently into the undergrowth and returns with a mouse.,猫头鹰无声地滑入灌木丛，叼着一只老鼠回来了。
+FC_OwlCompanion_DA2_ActionDescription,"The owl drifts silently into the undergrowth and returns with a mouse about half the time. It costs the owl some Hunger and Morale, and it needs a day before it hunts for you again.",猫头鹰无声地滑入灌木丛，大约一半的时候会叼着一只老鼠回来。这会消耗猫头鹰的饥饿值和士气，之后它需要休息一天才会再次为你捕猎。
 FC_OwlCompanion_SpoilageTime_CardStatName,Hunger,饥饿
 FC_OwlCompanion_SpecialDurability1_CardStatName,Health,健康度
 FC_OwlCompanion_SpecialDurability1_OnZero_ActionName,Owl Has Flown Away!,猫头鹰已飞走！
@@ -255,7 +255,7 @@ sh_wool_socks_CardDescription,Knitted wool socks. Worn beneath boots to keep the
 sh_bp_wool_socks_CardName,Wool Socks Blueprint,羊毛袜图纸
 sh_bp_wool_socks_CardDescription,Knit yarn into a pair of warm wool socks.,用纱线织成一双保暖羊毛袜。
 sh_lanolin_salve_CardName,Lanolin Salve,羊毛脂药膏
-sh_lanolin_salve_CardDescription,"A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort. It does not spoil.",一种由羊毛脂与霜叶调制而成的舒缓护肤膏。涂抹于磨损、风吹皲裂的皮肤上可带来持久舒缓。它不会变质。
+sh_lanolin_salve_CardDescription,"A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for Comfort +15 that lasts about a day. It does not spoil.",一种由羊毛脂与霜叶调制而成的舒缓护肤膏。涂抹于磨损、风吹皲裂的皮肤上，舒适度+15，持续约一天。它不会变质。
 sh_lanolin_salve_DismantleActions[0].ActionName,Apply to Skin,涂抹于皮肤
 sh_bp_lanolin_salve_CardName,Lanolin Salve Blueprint,羊毛脂药膏图纸
 sh_bp_lanolin_salve_CardDescription,Blend lanolin with frostleaf powder into a soothing skin salve.,将羊毛脂与霜叶粉调制成舒缓护肤膏。
@@ -288,7 +288,7 @@ sh_bp_felt_mittens_CardDescription,Cut and stitch felted wool into a pair of war
 sh_bp_felt_vest_CardName,Felt Vest Blueprint,毛毡背心图纸
 sh_bp_felt_vest_CardDescription,Cut and shape felted wool into a sleeveless vest.,将毛毡裁剪塑形，制成一件无袖背心。
 sh_felt_bedroll_CardName,Felt Bedroll,毛毡睡垫
-sh_felt_bedroll_CardDescription,"A dense felt bedroll, warmer and easier to carry than a simple wool blanket. Nap or sleep on it as on any bedroll, and it keeps you warmer through a cold night.",一张厚实的毛毡睡垫，比普通羊毛毯更保暖、更便于携带。可以像普通睡垫一样在上面小睡或睡觉，寒冷的夜里能让你更暖和。
+sh_felt_bedroll_CardDescription,"A dense felt bedroll, light to carry. Nap or sleep on it as on any bedroll; while you rest on it, it keeps the cold off a little better than a log bed (Perceived Temperature +3).",一张厚实的毛毡睡垫，便于携带。可以像普通睡垫一样在上面小睡或睡觉；躺在上面休息时，它比原木床更能抵御寒气（体感温度+3）。
 sh_bp_felt_bedroll_CardName,Felt Bedroll Blueprint,毛毡睡垫图纸
 sh_bp_felt_bedroll_CardDescription,"Felt a thick layer of wool into a warm, portable bedroll.",将厚厚一层羊毛毡制成温暖便携的睡垫。
 sh_sheep_pen_CardName,Sheep Pen,羊圈
@@ -312,7 +312,7 @@ sh_bp_sheep_bell_UnlockConditionsDesc,Requires: Tame Sheep,需要：驯养绵羊
 sh_sheep_remains_CardName,Sheep Remains,羊的残骸
 sh_sheep_remains_CardDescription,All that's left of a sheep or ram taken by a predator overnight. It was left unpenned - a Sheep Pen keeps the rest of the flock safe.,这是一只绵羊或公羊在夜间被捕食者猎杀后留下的残骸。它当时没有被圈养——羊圈能让羊群的其余部分保持安全。
 sh_predator_tracks_CardName,Predator Tracks,捕食者的足迹
-sh_predator_tracks_CardDescription,Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. With your Wolf Companion here the predator keeps its distance and you cannot follow it; a fox or owl at your side may scare it off before you catch up. The trail goes cold in about a day.,爪印和拖拽的痕迹从残骸处延伸而去。顺着它们追踪，去面对夺走你羊的捕食者。你的狼伙伴在这里时，捕食者会远远避开，你无法追踪它；身边的狐狸或猫头鹰也可能在你追上之前把它吓跑。足迹大约一天后就会消失。
+sh_predator_tracks_CardDescription,Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. The trail goes cold in about a day.,爪印和拖拽的痕迹从残骸处延伸而去。顺着它们追踪，去面对夺走你羊的捕食者。足迹大约一天后就会消失。
 sh_predator_tracks_SpoilageTime_CardStatName,Freshness,新鲜度
 sh_predator_tracks_DismantleActions[0].ActionName,Follow the Tracks,追踪足迹
 sh_predator_tracks_DismantleActions[0].ActionDescription,Follow the trail away from the remains and face the predator. It takes half an hour.,顺着足迹离开残骸，去面对那只捕食者。需要半小时。
@@ -352,7 +352,7 @@ sh_salted_butter_CardDescription,Sheep butter worked through with salt. It keeps
 sh_salted_butter_DismantleActions[0].ActionName,Eat,吃
 sh_salted_butter_SpoilageTime_CardStatName,Spoilage,腐坏
 sh_smoked_cheese_CardName,Smoked Cheese,烟熏奶酪
-sh_smoked_cheese_CardDescription,A wheel of sheep cheese hung in the smoke until the rind darkened. Keeps for a season.,悬挂在烟中熏至外皮发黑的羊奶酪，可以存放一整季。
+sh_smoked_cheese_CardDescription,A wheel of sheep cheese hung in the smoke until the rind darkened. Keeps for about eight days.,悬挂在烟中熏至外皮发黑的羊奶酪，可以存放约八天。
 sh_smoked_cheese_DismantleActions[0].ActionName,Eat,吃
 sh_smoked_cheese_SpoilageTime_CardStatName,Spoilage,腐坏
 sh_berry_yogurt_CardName,Berry Yogurt,浆果酸奶
@@ -372,7 +372,7 @@ sh_buttermilk_hardtack_CardDescription,"Hardtack soaked soft in buttermilk. Stil
 sh_buttermilk_hardtack_DismantleActions[0].ActionName,Eat,吃
 sh_buttermilk_hardtack_SpoilageTime_CardStatName,Spoilage,腐坏
 sh_feather_pillow_CardName,Feather Pillow,羽绒枕
-sh_feather_pillow_CardDescription,A cloth sack packed with owl down. Sleeping with it under your head takes the edge off a hard night.,填满猫头鹰细羽的布袋。柕着它入睡，难熬的夜晚也好过些。
+sh_feather_pillow_CardDescription,"A cloth sack packed with owl down. Kept among your things, it makes camp feel a little more like home (Sanctuary +10). More pillows, or a Felt Rug as well, add nothing.",填满猫头鹰细羽的布袋。放在行囊里，营地会多几分家的感觉（庇护度+10）。多带几个枕头或再加一块毛毡地毯，效果也不会叠加。
 sh_bp_feather_pillow_CardName,Feather Pillow Blueprint,羽绒枕蓝图
 sh_bp_feather_pillow_CardDescription,Stuff a woven cloth with owl down and stitch it shut.,将猫头鹰细羽填入织布并缝合。
 sh_bp_feather_pillow_UnlockConditionsDesc,Requires: Feathers,需要：羽毛
@@ -451,19 +451,19 @@ sh_felt_boots_AlternateNames[0].Name,Green Felt Boots,绿色毛毡靴
 sh_felt_boots_AlternateNames[1].Name,Red Felt Boots,红色毛毡靴
 sh_felt_boots_AlternateNames[2].Name,Brown Felt Boots,棕色毛毡靴
 sh_felt_rug_CardName,Felt Rug,毛毡地毯
-sh_felt_rug_CardDescription,"A thick rug of pressed felt with a darker border stitched on. Laid out in your camp, it makes the ground a little kinder underfoot.",一块厚实的压制毛毡地毯，四周缝有一圈颜色较深的毡边。铺在营地里，脚下的地面会舒服许多。
+sh_felt_rug_CardDescription,"A thick rug of pressed felt with a darker border stitched on. Kept among your things, it makes camp feel a little more like home (Sanctuary +10). More rugs, or a Feather Pillow as well, add nothing.",一块厚实的压制毛毡地毯，四周缝有一圈颜色较深的毡边。放在行囊里，营地会多几分家的感觉（庇护度+10）。多带几块地毯或再加一个羽绒枕，效果也不会叠加。
 sh_bp_felt_rug_CardName,Felt Rug Blueprint,毛毡地毯图纸
 sh_bp_felt_rug_CardDescription,Lay felted wool into a thick rug and stitch a darker felt border around the edge.,将毛毡片铺成一块厚实的地毯，并在边缘缝上一圈颜色较深的毡边。
 sh_bp_felt_rug_UnlockConditionsDesc,Requires: Felted Wool,需要：毛毡
 sh_felt_outfit_pieces_GameName,Felt Outfit,毛毡套装
-sh_felt_outfit_pieces_Description,"Counts the felt pieces worn at once (Felt Hat, Felt Mittens, Felt Vest, Felt Boots). Each worn piece adds 1, and three or more together add a little extra Cold Resistance, once. Never shown, and rebuilt from the worn pieces on every load.",统计同时穿戴的毛毡物件数量（毛毡帽、毛毡手套、毛毡背心、毛毡靴）。每件加1，三件或以上一起穿戴时，会额外增加少量抗寒，且只算一次。此项不会显示，每次读档时都会根据所穿戴的物件重新计算。
+sh_felt_outfit_pieces_Description,"Counts the felt pieces worn at once (Felt Hat, Felt Mittens, Felt Vest, Felt Boots). Each worn piece adds 1, and three or more together add Perceived Temperature +1, once. Never shown, and rebuilt from the worn pieces on every load.",统计同时穿戴的毛毡物件数量（毛毡帽、毛毡手套、毛毡背心、毛毡靴）。每件加1，三件或以上一起穿戴时，体感温度额外+1，且只算一次。此项不会显示，每次读档时都会根据所穿戴的物件重新计算。
 sh_felt_outfit_pieces_Status_Name,Felt Outfit Warmth,毛毡套装保暖
-sh_felt_outfit_pieces_Status_Description,"Three or more felt pieces worn together hold the heat in a little better, adding a small amount of Cold Resistance.",同时穿戴三件或以上毛毡物件，能更好地保存热量，额外增加少量抗寒。
+sh_felt_outfit_pieces_Status_Description,Three or more felt pieces worn together hold the heat in a little better: Perceived Temperature +1.,同时穿戴三件或以上毛毡物件，能更好地保存热量：体感温度+1。
 sh_butter_SpecialDurability1_CardStatName,Liquidity,流动性
 sh_salted_butter_SpecialDurability1_CardStatName,Liquidity,流动性
 sh_clarified_butter_SpecialDurability1_CardStatName,Liquidity,流动性
 sh_ox_cart_CardName,Ox Cart,牛车
-sh_ox_cart_CardDescription,A plank cart with a yoke for a Bull. Hold it in your hand to haul far more than a travois. While a Bull is on the board with you it adds no travel penalty.,带牛轭的木板车。握在手中可比拖橇运载多得多的东西。有公牛在身边时，它不会增加行程负担。
+sh_ox_cart_CardDescription,A plank cart with a yoke for a Bull. Hold it in your hand to haul half again what a travois carries. Without a Bull on the board it slows you badly; with a Bull it still slows you a little.,带牛轭的木板车。握在手中可运载比拖橇多一半的东西。没有公牛在身边时会严重拖慢你；有公牛在身边时仍会稍微拖慢你。
 sh_ox_cart_SpoilageTime_CardStatName,Durability,耐久度
 sh_ox_cart_CI_Repair_ActionName,Repair,修理
 sh_ox_cart_CI_Repair_ActionDescription,Nail a plank into the cart's frame to restore some of its durability.,将一块木板钉入车架，恢复部分耐久度。
@@ -618,3 +618,25 @@ SIR_TruffleHog_Train_ActionName,Train to Root,训练拱土
 SIR_TruffleHog_Train_ActionDescription,Show a fully trusting piglet an acorn and teach it to root for truffles.,给完全信任你的小猪看一颗橡子，教它拱土寻找松露。
 sh_sheep_Feed_FailMessage,This sheep is not hungry,这只羊还不饿
 sh_sheep_Shear_FailMessage,Not enough wool to shear,羊毛还不够剪
+sh_stat_wolf_fetch_lockout_GameName,Wolf Fetch Rest,狼取物休息
+sh_stat_wolf_fetch_lockout_Description,"Hidden. Set to 96 by a wolf fetch and counts down 1 a tick, so the wolf fetches again a day later. A fetch needs it at 0.",隐藏数值。狼每次取物后设为96，每刻减少1，一天后才能再次取物。取物需要此值为0。
+sh_stat_fox_fetch_lockout_GameName,Fox Fetch Rest,狐狸取物休息
+sh_stat_fox_fetch_lockout_Description,"Hidden. Set to 96 by a fox fetch and counts down 1 a tick, so the fox fetches again a day later. A fetch needs it at 0.",隐藏数值。狐狸每次取物后设为96，每刻减少1，一天后才能再次取物。取物需要此值为0。
+sh_stat_owl_fetch_lockout_GameName,Owl Fetch Rest,猫头鹰取物休息
+sh_stat_owl_fetch_lockout_Description,"Hidden. Set to 96 by a owl fetch and counts down 1 a tick, so the owl fetches again a day later. A fetch needs it at 0.",隐藏数值。猫头鹰每次取物后设为96，每刻减少1，一天后才能再次取物。取物需要此值为0。
+sh_stat_owl_watch_lockout_GameName,Owl Night Watch Rest,猫头鹰守夜休息
+sh_stat_owl_watch_lockout_Description,"Hidden. Set to 96 by Night Watch and counts down 1 a tick, so the owl keeps watch once a night. Night Watch needs it at 0.",隐藏数值。守夜后设为96，每刻减少1，因此猫头鹰每晚只守夜一次。守夜需要此值为0。
+sh_stat_lanolin_soothe_GameName,Soothed Skin,舒缓的皮肤
+sh_stat_lanolin_soothe_Description,"A Lanolin Salve eases chafed, wind-burned skin for about a day.",羊毛脂药膏能舒缓磨损、风吹皲裂的皮肤，持续约一天。
+sh_stat_lanolin_soothe_Status_Name,Soothed Skin,舒缓的皮肤
+sh_stat_lanolin_soothe_Status_Description,"Lanolin Salve on chafed skin: Comfort +15 while it lasts, about a day.",涂了羊毛脂药膏的皮肤：药效持续期间（约一天）舒适度+15。
+sh_stat_blanket_carried_GameName,Wool Blanket Carried,携带羊毛毯
+sh_stat_blanket_carried_Description,Hidden. Counts the Wool Blankets you carry; any number of them gives the blanket warmth once. Rebuilt from the carried blankets on every load.,隐藏数值。统计你携带的羊毛毯数量；无论携带多少条，毯子的保暖效果只算一次。每次读档时根据携带的毯子重新计算。
+sh_stat_blanket_carried_Status_Name,Wool Blanket,羊毛毯
+sh_stat_blanket_carried_Status_Description,A Wool Blanket in your pack keeps your body temperature 10 points higher. More blankets do not add more.,背包里的羊毛毯让你的体温高出10点。多带几条也不会更暖。
+sh_stat_soft_furnishing_GameName,Soft Furnishings Carried,携带软装
+sh_stat_soft_furnishing_Description,Hidden. Counts the Feather Pillows and Felt Rugs you carry; any number of them adds Sanctuary once. Rebuilt from the carried items on every load.,隐藏数值。统计你携带的羽绒枕和毛毡地毯数量；无论携带多少件，庇护度只增加一次。每次读档时根据携带的物品重新计算。
+sh_stat_soft_furnishing_Status_Name,Soft Furnishings,软装
+sh_stat_soft_furnishing_Status_Description,A Feather Pillow or Felt Rug among your things makes camp feel a little more like home: Sanctuary +10. More of them do not add more.,行囊里有羽绒枕或毛毡地毯，营地就多了几分家的感觉：庇护度+10。多带几件也不会更多。
+sh_stat_comfort_fixup_done_GameName,Comfort Reset Done,舒适度重置完成
+sh_stat_comfort_fixup_done_Description,"Hidden. Set to 1 once Sirus23 1.22.6 has cleared the permanent Comfort that older Lanolin Salves wrote into this save, so the reset runs once per save.",隐藏数值。Sirus23 1.22.6 清除了旧版羊毛脂药膏写入本存档的永久舒适度后设为1，因此每个存档只重置一次。

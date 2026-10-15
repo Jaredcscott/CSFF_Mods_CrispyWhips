@@ -16,7 +16,7 @@
     },
     "TriggerCardWarpData": "sh_wild_male_sheep",
     "TriggerCardWarpType": 3,
-    "SpawnChance": 15,
+    "SpawnChance": 5,
     "SpawnLocation": 1,
     "TriggerFrequency": 192,
     "MaxOnBoard": 1,

@@ -1,6 +1,6 @@
 # Sirus23 Mod Collection
 
-**Version:** 1.22.5
+**Version:** 1.22.6
 **Author:** Sirus, Jared
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFF Mod Framework 2.28.0 or later. Older frameworks back to 2.14.1 still load the mod, but the Wild Owl, the Hawk and the features marked "needs 2.28.0" below do not work fully.
@@ -41,6 +41,8 @@ All eight are in the Situational tab.
 | Shepherd's Start | two Tame Sheep, a Ram, a Lactating Sheep and Shears |
 | Shepherd's Crafting Kit | 4 Wool, 2 Warm Milk, a Butter Churn and 2 Cheese Cloths |
 
+Wolf Friend costs 30 Suns, Fox Friend and Owl Friend 15 Suns each, Start with Sheep 15 Suns and Shepherd's Start 1 Moon and 10 Suns, in line with the base game's own perks.
+
 The ninth perk, Pack Bond, is hidden. Only the wolf's Bond with Wolf action grants it.
 
 ## Animal Companions
@@ -61,13 +63,19 @@ The fox's, owl's and hawk's falls only while a bar is empty, by 2 points every 1
 
 A fox or owl from an older save loads with full Health. The 480, the drain and the 192 are the wolf's numbers and a first guess.
 
+### Fetching
+
+Four companion actions bring food back: the wolf's **Flush Prey** (a 30% chance of a piece of Meat), the fox's **Scout Ahead** (40%, a piece of Meat) and **Retrieve Partridge** (35%), and the owl's **Retrieve Mouse** (50%). Each costs the companion 48 Hunger and 30 Morale whether or not it finds anything, and each companion fetches once a day: the fox's two fetches share one day. Fetched meat has normal quality and cut. The wolf's Send on Hunt is unchanged.
+
+### Guarding Against Predators
+
+While the wolf shares your location, a wild bear, wolf, wolf pack, primeval wolf or boar that comes onto your board to attack is turned away 40% of the time. The fox and the owl each turn one away 15% of the time. They never stop a fight you start (Approach, Follow the Tracks, Corner the Boar), a scripted fight, or a bandit.
+
 ### Wolf Companion
 
-The Wolf Friend perk starts you with a wolf. Feed, water, treat, pet and play with it, send it hunting, have it Track Scents, Flush Prey for a piece of Meat, or set it to Guard Camp.
+The Wolf Friend perk starts you with a wolf. Feed, water, treat, pet and play with it, send it hunting, have it Track Scents (+1 Tracking), Flush Prey, or set it to Guard Camp. Guard Camp no longer puts you to sleep.
 
-While the wolf shares your location, encounters that start with no animal or person on your board stay away. An animal or person who walks onto your board and attacks still can, and a fight you start is never stopped.
-
-**Bond with Wolf** is a one-time, two-hour action. It grants the hidden Pack Bond perk: +15 Tracking.
+**Bond with Wolf** is a one-time, two-hour action. It grants the hidden Pack Bond perk: +5 Tracking.
 
 **Taming a wild wolf.** Use Attempt to Tame on the lone wild wolf with Meat, Bird Meat, Lean or Fatty Fish Meat, Dried Meat or Dried Bird Meat. It becomes a Wolf Companion with full Hunger, Thirst and Morale, and the wild wolf leaves. A wolf pack or the primeval wolf cannot be tamed this way.
 
@@ -79,7 +87,7 @@ Only one wolf or pup follows you at a time, so the wild wolf and the pack offer 
 
 The Fox Friend perk starts you with a fox. It eats meat, bird meat, fish and bones, takes dried-berry treats, and can be watered, treated, petted and played with. Its Morale drains more slowly than the wolf's.
 
-**Scout Ahead** (45 minutes) sharpens your Tracking and brings back 1 or 2 raw meat. **Retrieve Partridge** is a timed hunt. While the fox is with you, it stops the same encounters as the wolf about one time in three.
+**Scout Ahead** (45 minutes) sharpens your Tracking (+1) and may bring back a piece of raw meat. **Retrieve Partridge** is a timed hunt that may bring back a partridge. Both are fetches (see Fetching).
 
 **Taming a wild fox.** Offer an ordinary wild fox Springberries, Billberries or Juniper Berries, fresh or dried.
 
@@ -89,7 +97,7 @@ The Fox Friend perk starts you with a fox. It eats meat, bird meat, fish and bon
 
 The Owl Friend perk starts you with an owl. It eats meat and bird meat, takes dried-meat treats, and can be watered, treated and petted. Its Hunger and Thirst drain more slowly than the wolf's or fox's.
 
-**Night Watch** is a one-hour rest that restores sleep and reduces stress. **Retrieve Mouse** brings back a Dead Mouse. While the owl is with you, it stops the same encounters as the fox, about one time in three.
+**Night Watch** is a one-hour watch, once a night, that eases Stress by 10. It does not put you to sleep. **Retrieve Mouse** may bring back a Dead Mouse (see Fetching).
 
 The owl keeps night hours, 20:00 to 06:00. At dawn it flies to the nearest natural cave to roost. At dusk, if you are outdoors, it returns with its stats as they were. By day it does not travel with you, and it never follows you into a cave or building. An owl told to Stay Here is left alone.
 
@@ -190,7 +198,7 @@ Tame sheep, lactating sheep and rams can all be sheared. Drag Shears onto one wh
 
 Shears last 50 shearings, then wear out.
 
-Each shearing has a 25% chance to give **Lanolin**. Blend it with Frostleaf Powder into a **Lanolin Salve** (Survival > Medical, shown once you have Lanolin) and rub it on for a lasting Comfort boost. The salve does not spoil.
+Each shearing has a 25% chance to give **Lanolin**. Blend it with Frostleaf Powder into a **Lanolin Salve** (Survival > Medical, shown once you have Lanolin) and rub it on for **Soothed Skin**: +15 Comfort for about a day. The salve does not spoil. Before 1.22.6 each salve added Comfort for good; the first time a save loads in 1.22.6 that leftover Comfort is cleared once.
 
 ### Tend Flock
 
@@ -204,7 +212,7 @@ Tend Flock does not milk. Drag a container onto a Lactating Sheep to milk her by
 
 Tame sheep, lactating sheep and rams have a Nourishment bar of 288 that falls 1 point every 15 minutes, so a full bar lasts three days. Drag grass, hay or any herbivore feed onto a sheep to **Feed** it (+144). A sheep that is nearly full says "This sheep is not hungry".
 
-At 96 or more a sheep is well fed: wool regrows 50% faster and a lactating sheep's milk comes 50% faster. A hungry sheep never starves and produces at the normal rate. A ewe keeps her Nourishment when she gives birth, sheep from older saves load with a full bar, and lambs that have just grown up may start empty.
+At 96 or more a sheep is well fed: wool regrows 50% faster and a lactating sheep's milk comes 50% faster. A hungry sheep never starves, but below 72 Nourishment (a quarter of the bar) it grows no wool and a lactating sheep gives no milk. A ewe keeps her Nourishment when she gives birth, sheep from older saves load with a full bar, and lambs that have just grown up may start empty.
 
 In spring wool regrows 25% faster. In winter milk comes 25% slower and Nourishment drains twice as fast, unless the sheep is in a Sheep Pen, even one with a worn fence. The bonuses multiply, so a well-fed sheep in spring regrows wool 87.5% faster.
 
@@ -218,7 +226,11 @@ Tame sheep, lactating sheep and rams each drop a base-game **Manure** about ever
 
 A pregnant ewe has **twins** 15% of the time ("Twin lambs!"), otherwise one lamb. The 15% is a first guess.
 
-The sheep's yarn is called **Wool Yarn**, so it is not confused with the base game's Yarn. Any base-game loom recipe that takes Yarn also takes Wool Yarn, and the cloth comes out at base quality. Sirus's recipes still need Wool Yarn.
+The sheep's yarn is called **Wool Yarn**, so it is not confused with the base game's Yarn. Any base-game loom recipe that takes Yarn also takes Wool Yarn, and the cloth comes out at base quality. Sirus's recipes still need Wool Yarn. Weaving Sirus's woollen cloth from Wool Yarn needs a base-game Weighted Loom on the board, like base-game cloth.
+
+### Wild Sheep and Lambs
+
+Wild sheep and rams turn up rarely. Feeding one is a 30% chance to tame it; otherwise it stays wild and you can feed it again. A lamb grows up over time. Feeding it brings that about five days closer, but never turns it into an adult on the spot.
 
 ### Washing Wool
 
@@ -230,15 +242,17 @@ The **Ox Plough** (Farming > Agriculture, 4 Planks and 2 Rope) appears once a ba
 
 ### Ox Cart
 
-The **Ox Cart** (Survival > Support, 8 Planks and 4 Rope, 2 hours to build) appears once a Bull has been on your board. In your hand it works like the Travois but carries 8000 instead of 4000.
+The **Ox Cart** (Survival > Support, 8 Planks and 4 Rope, 2 hours to build) appears once a Bull has been on your board. In your hand it works like the Travois but carries 6000 instead of 4000. Its blueprint takes 24 hours to research.
 
-With a Bull on the board beside you, the Travois's extra travel time and effort is lifted. A Bull loose beside a hand-held cart lifts it for the first leg only, then stays behind.
+Without a Bull it slows you like the Travois. With a Bull on the board beside you it still slows you a little. A Bull loose beside a hand-held cart helps for the first leg only, then stays behind.
 
 Hauling wears the cart down. Drag a Plank onto it to **Repair** it. At zero it falls apart into two or three oak Planks and a Rope. The capacity, durability, repair and cost are first guesses.
 
 ### Slaughtering a Sheep in Full Fleece
 
 Slaughter a Tame Sheep, Lactating Sheep or Ram as usual and its Wool bar decides the pelt. At half full or more you get the usual meat, fat, bones and offal plus a base-game **Fresh Fur** instead of the Fresh Skin. Below half, the sheep counts as shorn: a Fresh Skin, plus loose Wool from a Tame Sheep.
+
+A sheep gives 8 Meat, a ram or lactating sheep 10, a lamb 3 and a wild sheep or ram 8 or 10, all at normal quality and cut.
 
 A Tame Sheep in full fleece drops no loose Wool, because the pelt carries it, so shear her first. The pelt is a small fur, in the range of a fox pelt and below a wolf's, so it scrapes into a small fleshed skin for base-game fur clothing of that size, such as Fur Mittens. Its Fur and Quality are first guesses.
 
@@ -254,7 +268,7 @@ A sheep taken by a predator leaves **Sheep Remains**. Drag a cutting tool onto i
 
 ### Sheep Pen
 
-The **Sheep Pen** (Farming > Animal Husbandry, 8 Planks, 4 Rope and 4 Stone, plus a hammering tool that is not used up) holds up to four tame sheep and rams. Inside, wool, milk and breeding carry on as normal. Pick Up puts the sheep on the ground before packing the pen.
+The **Sheep Pen** (Farming > Animal Husbandry, 24 hours to research, built in two stages: 8 Planks and 4 Long Sticks, then 4 Rope and 4 Stone, each with a hammering tool that is not used up) holds up to four tame sheep and rams. Inside, wool, milk and breeding carry on as normal. Pick Up puts the sheep on the ground before packing the pen.
 
 **Pen or perish.** Each night, every tame sheep, ram or lactating sheep outside a pen may wander off (4%) or be taken by a predator (6%). A kill where you stand leaves Sheep Remains. A **Wolf Companion** in that location cuts the predator chance to 1% but does not stop wandering. Only a pen keeps a flock fully safe. The 4% and 6% are cautious first guesses.
 
@@ -288,7 +302,7 @@ Drag a dairy product onto the base-game food below. Both are used up and you get
 | Ricotta | Rye Roundbread | Ricotta Rye Round |
 | Buttermilk | Wheat Hardtack | Buttermilk Hardtack |
 
-Each dish is more filling than either ingredient alone. The nutrition values and pairings are first guesses.
+Each dish is worth a little more than its two parts eaten apart (Cheese-Stuffed Flatbread 77 Satiation). Dishes spoil: the flatbread keeps about five days, Buttered Roots and Creamy Mash about two. Clarified Butter and Aged Sheep Cheese keep about a month. The nutrition values and pairings are first guesses.
 
 ### Dairy Preservation
 
@@ -318,27 +332,29 @@ Drag the Cheese Cloth onto **Curdled Milk** to **Strain Curds** (45 minutes) wit
 
 Felt is the alternative to spinning and weaving. Press 4 raw Wool into a sheet of **Felted Wool**, then make:
 
-| Item | Slot | Cold Resistance | Notes |
+| Item | Slot | Warmth | Notes |
 |---|---|---|---|
-| Felt Hat | head | +8 | |
-| Felt Mittens | hands | +5 | |
-| Felt Vest | outer torso | +12 | shares the slot with the Wool Tunic |
-| Felt Boots | outer shoes | +8 | also needs Twine |
-| Wool Socks | inner shoes | +5 | knitted from 2 Wool Yarn |
+| Felt Hat | head | +2 | |
+| Felt Mittens | hands | +2 | |
+| Felt Vest | outer torso | +4 | shares the slot with the Wool Tunic (+4) |
+| Felt Boots | outer shoes | +2 | also needs Twine |
+| Wool Socks | inner shoes | +1 | knitted from 2 Wool Yarn |
 
-The **Felt Bedroll** (3 Felted Wool) has the base-game Bedroll's Nap and Sleep actions. As bedding it is warmer than the Wool Blanket: +16 Body Temperature against +10, at 900 g against 700 g. Sleeping on it is not yet confirmed in the game.
+Warmth is the base game's Perceived Temperature, the same stat its cloth, leather and fur clothing raise. Before 1.22.6 these pieces raised Cold Resistance instead, which warmed nothing and could cost you the Frost Blessed status.
 
-The **Felt Rug** (3 Felted Wool, shown once you have Felted Wool) is a flat rug with a darker border. It gives +10 Comfort and weighs 1000 g.
+The **Felt Bedroll** (3 Felted Wool) has the base-game Bedroll's Nap and Sleep actions. It warms you only while you nap or sleep on it (+3 warmth, like a base-game bed). Sleeping on it is not yet confirmed in the game. A **Wool Blanket** in your pack keeps your Body Temperature 10 points higher; more blankets do not add more.
 
-All eight blueprints are in Tailoring > Cloth. The Mittens, Vest and Bedroll numbers, the set bonus and the rug's stats are first guesses.
+The **Felt Rug** (3 Felted Wool, shown once you have Felted Wool) is a flat rug with a darker border. Carried, it gives +10 Sanctuary and weighs 1000 g. A rug and a Feather Pillow, or several of either, still give +10 once.
+
+All eight blueprints are in Tailoring > Cloth. Each garment, the bedroll, rug and blanket take 24 hours to research; Felted Wool, Wool Yarn and Woven Cloth take 6. The Mittens, Vest and Bedroll numbers, the set bonus and the rug's stats are first guesses.
 
 **Dyeing.** Put a Felt Hat, Mittens, Vest or Boots into a Clay Basin, Rain Cistern or Tanning Pit holding a base-game dye. The cloth dye recipes run on it and rename it for the colour (Green Felt Hat, Red Felt Vest). A dyed piece gains a Colour Intensity bar that fades over a couple of days, sooner with Lye or Urine in the station. Dye changes only the name: warmth stays the same, and the cloth shirt's colour bonuses do not carry over. The Felt Bedroll, Felt Rug and Wool Socks cannot be dyed.
 
-**Set bonus.** Wear three or more of the Felt Hat, Mittens, Vest and Boots for **+4 Cold Resistance** on top of their own. Four pieces give the same +4 as three. The Wool Tunic and Wool Socks do not count.
+**Set bonus.** Wear three or more of the Felt Hat, Mittens, Vest and Boots for **+1 warmth** on top of their own. Four pieces give the same +1 as three. The Wool Tunic and Wool Socks do not count.
 
 ## Feather Pillow
 
-Processing an Owl Carcass or a Hawk Carcass gives six Feathers. The **Feather Pillow** (Tailoring > Cloth, shown once you have Feathers) takes 1 Woven Cloth, 12 Feathers and 4 Twine. It gives **+10 Comfort** while carried, a first guess.
+Processing an Owl Carcass or a Hawk Carcass gives six Feathers. The **Feather Pillow** (Tailoring > Cloth, shown once you have Feathers) takes 1 Woven Cloth, 12 Feathers and 4 Twine. It gives **+10 Sanctuary** while carried, not stacking with the Felt Rug, a first guess.
 
 ## Working with Other Mods
 
@@ -349,7 +365,7 @@ Processing an Owl Carcass or a Hawk Carcass gives six Feathers. The **Feather Pi
 
 ## For Modders
 
-**Contents of this build:** 9 perks, 71 item cards, 1 liquid, 7 location cards (Butter Churn, Sheep Feeder, Sheep Pen, Wolf Den, Owl Perch, Predator Tracks, Owl Pellets & Feathers), 29 blueprints, 2 spawn triggers (wild sheep and wild ram) and 3 encounter guards (wolf, fox, owl). It also has 2 declarative animals (Owl and Hawk), 1 NPC agent (Wild Owl) with 5 NPC stats, 2 game stats (felt outfit pieces, fox scout pace) and 4 `GameSourceModify` patches adding Attempt to Tame to the vanilla wolf, wolf pack and both fox agents.
+**Contents of this build:** 9 perks, 71 item cards, 1 liquid, 7 location cards (Butter Churn, Sheep Feeder, Sheep Pen, Wolf Den, Owl Perch, Predator Tracks, Owl Pellets & Feathers), 29 blueprints, 2 spawn triggers (wild sheep and wild ram) and 3 encounter guards (wolf, fox, owl). It also has 2 declarative animals (Owl and Hawk), 1 NPC agent (Wild Owl) with 5 NPC stats, 10 game stats (felt outfit pieces, fox scout pace, four fetch and watch lockouts, Soothed Skin, the blanket and soft-furnishing counters, and the one-time Comfort reset latch) and 4 `GameSourceModify` patches adding Attempt to Tame to the vanilla wolf, wolf pack and both fox agents.
 
 **Hooks for other mods:** Treat Wounds accepts any card tagged `tag_x_AnimalRemedy`. The Partner Overhaul dishes carry the vanilla Partner eat duties and `tag_HumanFood`.
 

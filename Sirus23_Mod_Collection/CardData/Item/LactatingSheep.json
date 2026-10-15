@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_lactating_sheep",
         "LocalizationKey": "sh_lactating_sheep_CardDescription",
-        "DefaultText": "A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it."
+        "DefaultText": "A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it. Below a quarter Nourishment it grows no wool and gives no milk."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -2256,8 +2256,8 @@
                             "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 3,
-                                "y": 3
+                                "x": 10,
+                                "y": 10
                             },
                             "FinishUnlocking": false,
                             "TransferRules": {
@@ -2267,7 +2267,7 @@
                                 "Progress": 0,
                                 "Special1": 0,
                                 "Special2": 3,
-                                "Special3": 0,
+                                "Special3": 3,
                                 "Special4": 0,
                                 "SpoilageValue": 0.0,
                                 "UsageValue": 0.0,
@@ -2275,7 +2275,7 @@
                                 "ProgressValue": 0.0,
                                 "Special1Value": 0.0,
                                 "Special2Value": 96.0,
-                                "Special3Value": 0.0,
+                                "Special3Value": 3.0,
                                 "Special4Value": 0.0,
                                 "SpoilageFrom": 0,
                                 "UsageFrom": 0,
@@ -2758,8 +2758,8 @@
                             "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 3,
-                                "y": 3
+                                "x": 10,
+                                "y": 10
                             },
                             "FinishUnlocking": false,
                             "TransferRules": {
@@ -2769,7 +2769,7 @@
                                 "Progress": 0,
                                 "Special1": 0,
                                 "Special2": 3,
-                                "Special3": 0,
+                                "Special3": 3,
                                 "Special4": 0,
                                 "SpoilageValue": 0.0,
                                 "UsageValue": 0.0,
@@ -2777,7 +2777,7 @@
                                 "ProgressValue": 0.0,
                                 "Special1Value": 0.0,
                                 "Special2Value": 96.0,
-                                "Special3Value": 0.0,
+                                "Special3Value": 3.0,
                                 "Special4Value": 0.0,
                                 "SpoilageFrom": 0,
                                 "UsageFrom": 0,
@@ -4076,6 +4076,31 @@
     "DismantleActions": [],
     "PassiveStatEffects": [],
     "PassiveEffects": [
+        {
+            "EffectName": "Underfed (no wool or milk below 72 Nourishment)",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 71.9
+                    }
+                }
+            },
+            "Special1RateModifier": {
+                "Active": true,
+                "FloatValue": -0.00208
+            },
+            "MultiplySpecial1Rate": false,
+            "UsageRateModifier": {
+                "Active": true,
+                "FloatValue": -0.0091
+            },
+            "MultiplyUsageRate": false,
+            "StatModifiers": [],
+            "NPCStatModifiers": [],
+            "DroppedCards": [],
+            "GrantedPathfindingTags": []
+        },
         {
             "EffectName": "Well Fed (Wool +50%, Milk +50%)",
             "Conditions": {

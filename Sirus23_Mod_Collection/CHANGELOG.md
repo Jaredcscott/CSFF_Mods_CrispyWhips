@@ -5,6 +5,36 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.6] - 2026-10-15
+
+A balance pass to sit beside the base game instead of steamrolling it. Ships with CSFF Mod Framework 2.28.0 or later.
+
+### Fixed
+
+- Taming a wild sheep or ram now fails 70% of the time (**Not yet**), as the balance pass intended; the miss never happened before, so every attempt tamed.
+- **The wolf, fox and owl no longer cancel fights you start.** Their guards stopped fights with no animal on the board, which were the fights you chose (Follow the Tracks, Corner the Boar) and the scripted Flintclaw fight, and never reached a real predator attack. Now they turn away a wild bear, wolf, wolf pack or boar that comes to attack: the wolf 40% of the time, the fox and owl 15%. Follow the Tracks is no longer hidden while the wolf is with you.
+- **Night Watch and Guard Camp no longer put you to sleep.** They wrote the game's asleep clock. Night Watch now eases Stress by 10, once a night.
+- **Felt and wool clothing warms you.** It raised Cold Resistance, which gave no warmth and could cost you Frost Blessed. Each piece now adds warmth like base-game clothing: Hat, Mittens and Boots +2, Vest and Wool Tunic +4, Wool Socks +1, set bonus +1.
+- **Foods no longer start out looking spoiled.** Berry Mix, Bone Treat, Owl Treat, Berry Yogurt, Buttermilk Hardtack, Ricotta Rye Round, Salted Butter, Smoked Cheese, Soured Turnroot and the owl and hawk carcasses started with a full spoilage bar that never finished. They start fresh and now spoil when the bar fills. Cards already in a save keep their bar.
+- **Fetched and slaughtered meat has real quality.** Meat from Flush Prey, Scout Ahead, a slaughtered sheep and Sheep Remains came out at Quality 0 with no cut.
+
+### Changed
+
+- **Companion perks cost like the base game's:** Wolf Friend 30 Suns, Fox and Owl Friend 15. Start with Sheep 15 Suns, Shepherd's Start 1 Moon and 10 Suns. Characters already made keep their companions.
+- **Fetches are chances, not certainties.** Flush Prey 30%, Scout Ahead 40% (one Meat), Retrieve Partridge 35%, Retrieve Mouse 50%. Each costs the companion 48 Hunger and 30 Morale and can be done once a day per companion.
+- **Tracking grows slower:** Track Scents, Flush Prey and Scout Ahead give +1 Tracking; Pack Bond gives +5.
+- **Lambs grow up over time.** Feeding a lamb brings it about five days closer to adult instead of making it one at once.
+- **Lanolin Salve** gives +15 Comfort for about a day instead of for good. The Comfort older salves left in a save is cleared once, the first time the save loads in 1.22.6.
+- **Wool Blanket, Felt Bedroll, Feather Pillow and Felt Rug no longer stack.** The bedroll warms you only while you nap or sleep on it. Any number of Wool Blankets give +10 Body Temperature once. The pillow and rug give +10 Sanctuary once, instead of +10 Comfort each.
+- **Wild sheep** turn up a third as often, and feeding one is a 30% chance to tame it.
+- **An underfed sheep** (below a quarter Nourishment) grows no wool and gives no milk.
+- **Ox Cart** carries 6000 (was 8000), still slows you a little with a Bull, and takes 24 hours to research.
+- **Research takes longer** for felt and wool clothing, the bedroll, rug and blanket, the Sheep Pen, Sheep Feeder, Cheese Cloth and Wolf Den (24 hours); Felted Wool, Wool Yarn and Woven Cloth take 6 hours.
+- **Sheep Pen** is built in two stages and needs 4 Long Sticks as well.
+- **Woven Cloth** needs a Weighted Loom on the board.
+- **Dairy dishes** spoil (the flatbread in about five days, Buttered Roots and Creamy Mash in about two, Clarified Butter in about a month) and are worth more: each is a little more filling than its two parts. Aged Sheep Cheese keeps about a month.
+- **Slaughter gives more meat:** sheep 8, ram and lactating sheep 10, lamb 3.
+
 ## [1.22.5] - 2026-10-14
 
 ### Fixed

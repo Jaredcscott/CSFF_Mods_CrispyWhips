@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_lamb",
         "LocalizationKey": "sh_lamb_CardDescription",
-        "DefaultText": "A young lamb. It will grow into a tame sheep or ram by the end of fall. You can feed it meadowgrass or straw to mature it early, or slaughter it for a small amount of meat and hide."
+        "DefaultText": "A young lamb. It grows into a tame sheep or ram in about 60 days. Each feed of meadowgrass or straw brings that five days closer, or slaughter it for a small amount of meat and hide."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -506,7 +506,7 @@
             "ActionDescription": {
                 "ParentObjectID": "",
                 "LocalizationKey": "",
-                "DefaultText": "Feed the lamb grass to mature it early instead of waiting for it to grow naturally."
+                "DefaultText": "Feed the lamb grass. Each feed brings it five days closer to grown."
             },
             "NoveltyShared": false,
             "VictorySettings": {
@@ -772,300 +772,9 @@
             },
             "WorksInverted": false,
             "WorksBothWays": false,
-            "ProducedCards": [
-                {
-                    "CollectionName": "Grow",
-                    "CollectionWeight": 1,
-                    "MinCollectionCount": 1,
-                    "MaxCollectionCount": 1,
-                    "DropSavedBpIngredients": false,
-                    "DroppedIfNoBpIngredient": [],
-                    "DropCardsInsideInventory": false,
-                    "DropCardsInPlayerHand": false,
-                    "DroppedEncounter": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "EncounterNPC": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "SkipEncounterEvent": false,
-                    "StatModifications": [],
-                    "ReceivingCardDurabilityModifications": {
-                        "SpoilageChange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "UsageChange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "FuelChange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "ChargesChange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Special1Change": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Special2Change": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Special3Change": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Special4Change": {
-                            "x": 0.0,
-                            "y": 0.0
-                        }
-                    },
-                    "BpDropDurabilityChangesReplaceStartingValue": {
-                        "MaskValue": 0
-                    },
-                    "DropsStatInterpolatedDurabilityChanges": [],
-                    "CreatedLiquid": {
-                        "LiquidCard": {
-                            "m_FileID": 0,
-                            "m_PathID": 0
-                        },
-                        "Quantity": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Durabilities": {
-                            "Spoilage": 0,
-                            "Usage": 0,
-                            "Fuel": 0,
-                            "Progress": 0,
-                            "Special1": 0,
-                            "Special2": 0,
-                            "Special3": 0,
-                            "Special4": 0,
-                            "SpoilageValue": 0.0,
-                            "UsageValue": 0.0,
-                            "FuelValue": 0.0,
-                            "ProgressValue": 0.0,
-                            "Special1Value": 0.0,
-                            "Special2Value": 0.0,
-                            "Special3Value": 0.0,
-                            "Special4Value": 0.0,
-                            "SpoilageFrom": 0,
-                            "UsageFrom": 0,
-                            "FuelFrom": 0,
-                            "ProgressFrom": 0,
-                            "Special1From": 0,
-                            "Special2From": 0,
-                            "Special3From": 0,
-                            "Special4From": 0
-                        }
-                    },
-                    "DroppedCards": [
-                        {
-                            "DroppedCard": {
-                                "m_FileID": 0,
-                                "m_PathID": 0
-                            },
-                            "DroppedCardWarpData": "sh_tame_sheep",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": {
-                                "x": 1,
-                                "y": 1
-                            },
-                            "FinishUnlocking": false,
-                            "TransferRules": {
-                                "Spoilage": 0,
-                                "Usage": 0,
-                                "Fuel": 0,
-                                "Progress": 0,
-                                "Special1": 0,
-                                "Special2": 0,
-                                "Special3": 0,
-                                "Special4": 0,
-                                "SpoilageValue": 0.0,
-                                "UsageValue": 0.0,
-                                "FuelValue": 0.0,
-                                "ProgressValue": 0.0,
-                                "Special1Value": 0.0,
-                                "Special2Value": 0.0,
-                                "Special3Value": 0.0,
-                                "Special4Value": 0.0,
-                                "SpoilageFrom": 0,
-                                "UsageFrom": 0,
-                                "FuelFrom": 0,
-                                "ProgressFrom": 0,
-                                "Special1From": 0,
-                                "Special2From": 0,
-                                "Special3From": 0,
-                                "Special4From": 0
-                            },
-                            "DropChance": {
-                                "Active": false,
-                                "BaseDropChance": 0.0,
-                                "DurabilitiesModifiers": [],
-                                "StatsModifiers": [],
-                                "CardsModifiers": [],
-                                "NPCStatsModifiers": []
-                            },
-                            "DropsDurabilityMultipliers": [],
-                            "DropsStatMultipliers": []
-                        }
-                    ]
-                },
-                {
-                    "CollectionName": "Grow Male",
-                    "CollectionWeight": 1,
-                    "MinCollectionCount": 1,
-                    "MaxCollectionCount": 1,
-                    "DropSavedBpIngredients": false,
-                    "DroppedIfNoBpIngredient": [],
-                    "DropCardsInsideInventory": false,
-                    "DropCardsInPlayerHand": false,
-                    "DroppedEncounter": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "EncounterNPC": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "SkipEncounterEvent": false,
-                    "StatModifications": [],
-                    "ReceivingCardDurabilityModifications": {
-                        "SpoilageChange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "UsageChange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "FuelChange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "ChargesChange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Special1Change": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Special2Change": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Special3Change": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Special4Change": {
-                            "x": 0.0,
-                            "y": 0.0
-                        }
-                    },
-                    "BpDropDurabilityChangesReplaceStartingValue": {
-                        "MaskValue": 0
-                    },
-                    "DropsStatInterpolatedDurabilityChanges": [],
-                    "CreatedLiquid": {
-                        "LiquidCard": {
-                            "m_FileID": 0,
-                            "m_PathID": 0
-                        },
-                        "Quantity": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "Durabilities": {
-                            "Spoilage": 0,
-                            "Usage": 0,
-                            "Fuel": 0,
-                            "Progress": 0,
-                            "Special1": 0,
-                            "Special2": 0,
-                            "Special3": 0,
-                            "Special4": 0,
-                            "SpoilageValue": 0.0,
-                            "UsageValue": 0.0,
-                            "FuelValue": 0.0,
-                            "ProgressValue": 0.0,
-                            "Special1Value": 0.0,
-                            "Special2Value": 0.0,
-                            "Special3Value": 0.0,
-                            "Special4Value": 0.0,
-                            "SpoilageFrom": 0,
-                            "UsageFrom": 0,
-                            "FuelFrom": 0,
-                            "ProgressFrom": 0,
-                            "Special1From": 0,
-                            "Special2From": 0,
-                            "Special3From": 0,
-                            "Special4From": 0
-                        }
-                    },
-                    "DroppedCards": [
-                        {
-                            "DroppedCard": {
-                                "m_FileID": 0,
-                                "m_PathID": 0
-                            },
-                            "DroppedCardWarpData": "sh_male_sheep",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": {
-                                "x": 1,
-                                "y": 1
-                            },
-                            "FinishUnlocking": false,
-                            "TransferRules": {
-                                "Spoilage": 0,
-                                "Usage": 0,
-                                "Fuel": 0,
-                                "Progress": 0,
-                                "Special1": 0,
-                                "Special2": 0,
-                                "Special3": 0,
-                                "Special4": 0,
-                                "SpoilageValue": 0.0,
-                                "UsageValue": 0.0,
-                                "FuelValue": 0.0,
-                                "ProgressValue": 0.0,
-                                "Special1Value": 0.0,
-                                "Special2Value": 0.0,
-                                "Special3Value": 0.0,
-                                "Special4Value": 0.0,
-                                "SpoilageFrom": 0,
-                                "UsageFrom": 0,
-                                "FuelFrom": 0,
-                                "ProgressFrom": 0,
-                                "Special1From": 0,
-                                "Special2From": 0,
-                                "Special3From": 0,
-                                "Special4From": 0
-                            },
-                            "DropChance": {
-                                "Active": false,
-                                "BaseDropChance": 0.0,
-                                "DurabilitiesModifiers": [],
-                                "StatsModifiers": [],
-                                "CardsModifiers": [],
-                                "NPCStatsModifiers": []
-                            },
-                            "DropsDurabilityMultipliers": [],
-                            "DropsStatMultipliers": []
-                        }
-                    ]
-                }
-            ],
+            "ProducedCards": [],
             "ReceivingCardChanges": {
-                "ModType": 3,
+                "ModType": 1,
                 "TransformInto": {
                     "m_FileID": 0,
                     "m_PathID": 0
@@ -1125,8 +834,8 @@
                 "AddedFlavours": [],
                 "AddedSpiceTags": [],
                 "SpoilageChange": {
-                    "x": 0.0,
-                    "y": 0.0
+                    "x": -480.0,
+                    "y": -480.0
                 },
                 "GetSpoilageFromOtherCard": false,
                 "UsageChange": {
@@ -1369,13 +1078,13 @@
                             "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
                             "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
                             "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 1, "y": 1 },
+                            "Quantity": { "x": 3, "y": 3 },
                             "FinishUnlocking": false,
                             "TransferRules": {
                                 "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
-                                "Special1": 0, "Special2": 3, "Special3": 0, "Special4": 0,
+                                "Special1": 0, "Special2": 3, "Special3": 3, "Special4": 0,
                                 "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
-                                "Special1Value": 0.0, "Special2Value": 96.0, "Special3Value": 0.0, "Special4Value": 0.0,
+                                "Special1Value": 0.0, "Special2Value": 96.0, "Special3Value": 3.0, "Special4Value": 0.0,
                                 "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
                                 "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
                             },

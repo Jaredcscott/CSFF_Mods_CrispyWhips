@@ -38,7 +38,7 @@
     "PerkIconWarpData": "OwlCompanion",
     "PerkIconWarpType": 3,
     "PointsCost": 0,
-    "SunsCost": 1,
+    "SunsCost": 15,
     "StartingStatModifiers": [],
     "PassiveStatModifiers": [],
     "PerkUnlockConditions": {

@@ -454,24 +454,39 @@
             "ActionDescription": {
                 "ParentObjectID": "fc_fox_companion",
                 "LocalizationKey": "FC_FoxCompanion_DA2_ActionDescription",
-                "DefaultText": "Send the fox to nose around. It comes back with something useful."
+                "DefaultText": "Send the fox to nose around. About 2 times in 5 it comes back with some meat. It costs the fox some Hunger and Morale, and it needs a day before it fetches again."
             },
             "DaytimeCost": 3,
             "UseMiniTicks": 0,
+            "RequiredStatValues": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "sh_stat_fox_fetch_lockout",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
             "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": ["HandAction"],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
-            "ReceivingCardChanges": {
-                "ModType": 0
-            },
+            "ReceivingCardChanges": {"ModType": 1, "SpoilageChange": {"x": -48.0, "y": -48.0}, "ChargesChange": {"x": -30.0, "y": -30.0}},
             "StatModifications": [
+                {
+                    "StatWarpData": "sh_stat_fox_fetch_lockout",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 96.0, "y": 96.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
                 {
                     "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 8.0, "y": 8.0},
+                    "ValueModifier": {"x": 1.0, "y": 1.0},
                     "InstantModifier": true,
                     "ApplyEachTick": false
                 },
@@ -493,18 +508,36 @@
             "ActionDescription": {
                 "ParentObjectID": "fc_fox_companion",
                 "LocalizationKey": "FC_FoxCompanion_DA3_ActionDescription",
-                "DefaultText": "The fox flushes a partridge from the brush and chases it down. It trots back proudly."
+                "DefaultText": "The fox goes after a partridge in the brush and catches one about 1 time in 3. It costs the fox some Hunger and Morale, and it needs a day before it fetches again."
             },
             "DaytimeCost": 3,
             "UseMiniTicks": 0,
+            "RequiredStatValues": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "sh_stat_fox_fetch_lockout",
+                    "StatWarpType": 3,
+                    "TriggerRange": {"x": 0.0, "y": 0.0},
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
             "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": ["HandAction"],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
-            "ReceivingCardChanges": {"ModType": 0},
-            "StatModifications": []
+            "ReceivingCardChanges": {"ModType": 1, "SpoilageChange": {"x": -48.0, "y": -48.0}, "ChargesChange": {"x": -30.0, "y": -30.0}},
+            "StatModifications": [
+                {
+                    "StatWarpData": "sh_stat_fox_fetch_lockout",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 96.0, "y": 96.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
         },
         {
             "ActionName": {

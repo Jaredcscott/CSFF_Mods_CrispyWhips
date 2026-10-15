@@ -2092,9 +2092,9 @@
     "PassiveStatEffects": [
         {
             "Stat": { "m_FileID": 0, "m_PathID": 0 },
-            "StatWarpData": "727304b2887d9504982aa4f911881608",
+            "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
             "StatWarpType": 3,
-            "ValueModifier": { "x": 12.0, "y": 12.0 },
+            "ValueModifier": { "x": 4.0, "y": 4.0 },
             "RateModifier": { "x": 0.0, "y": 0.0 },
             "MinValueModifier": { "x": 0.0, "y": 0.0 },
             "MaxValueModifier": { "x": 0.0, "y": 0.0 },

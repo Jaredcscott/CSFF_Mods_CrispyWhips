@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_aged_sheep_cheese",
         "LocalizationKey": "sh_aged_sheep_cheese_CardDescription",
-        "DefaultText": "Richly flavoured aged sheep cheese. Excellent nutrition."
+        "DefaultText": "Richly flavoured aged sheep cheese. Excellent nutrition, and it keeps for about a month."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -107,7 +107,7 @@
             "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
-        "MaxValue": 288.0,
+        "MaxValue": 2880.0,
         "RestrictToSpecificValues": false,
         "ValidValues": [],
         "RatePerDaytimePoint": 1.0,

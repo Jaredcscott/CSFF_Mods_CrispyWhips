@@ -15,9 +15,9 @@ FC_WolfCompanion_DA2_ActionDescription,"The wolf disappears into the undergrowth
 FC_WolfCompanion_DA3_ActionName,Track Scents,追踪气味
 FC_WolfCompanion_DA3_ActionDescription,Follow the wolf as it reads the forest. Your tracking improves.,跟随狼读懂森林。你的追踪技能提升了。
 FC_WolfCompanion_DA4_ActionName,Guard Camp,守卫营地
-FC_WolfCompanion_DA4_ActionDescription,The wolf patrols the perimeter while you rest. You sleep more soundly.,你休息时狼在周围巡逻。你睡得更安稳了。
+FC_WolfCompanion_DA4_ActionDescription,The wolf patrols the perimeter while you rest by the fire. Knowing it is out there eases your mind.,你在火边休息时，狼在营地四周巡逻。知道它在外面守着，你安心了许多。
 FC_WolfCompanion_DA5_ActionName,Flush Prey,驱赶猎物
-FC_WolfCompanion_DA5_ActionDescription,Send the wolf ahead on the trail. Prey scatter; you pick off stragglers.,让狼在猎径上打前哨。猎物四散逃跑，你拦截落单者。
+FC_WolfCompanion_DA5_ActionDescription,"Send the wolf ahead on the trail to scatter prey; about 1 time in 3 you pick off a straggler. It costs the wolf some Hunger and Morale, and it needs a day before it will flush prey again.",让狼在猎径上打前哨驱散猎物，大约每三次中有一次你能拦截一只落单者。这会消耗狼的饥饿值和士气，之后它需要休息一天才会再次驱赶猎物。
 FC_WolfCompanion_CI2_ActionName,Treat Wounds,治疗伤口
 FC_WolfCompanion_CI2_ActionDescription,Apply the remedy to the wolf's injuries. It holds still while you work.,将药物涂抹在狼的伤口上。它一动不动地让你处理。
 FC_WolfCompanion_Progress_CardStatName,Morale,士气
@@ -25,17 +25,17 @@ FC_WolfCompanion_SpoilageTime_CardStatName,Hunger,饥饿
 FC_WolfCompanion_UsageDurability_CardStatName,Thirst,口渴
 FC_WolfCompanion_SpecialDurability1_CardStatName,Health,Health
 sh_wild_sheep_CardName,Wild Sheep,Wild Sheep
-sh_wild_sheep_CardDescription,"A wild sheep roaming the forest. Offer it fresh meadowgrass to tame it, or slaughter it for resources.","A wild sheep roaming the forest. Offer it fresh meadowgrass to tame it, or slaughter it for resources."
+sh_wild_sheep_CardDescription,"A wild sheep roaming the forest. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.","A wild sheep roaming the forest. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources."
 sh_wild_male_sheep_CardName,Wild Ram,Wild Ram
-sh_wild_male_sheep_CardDescription,"A wild ram. Offer it fresh meadowgrass to tame it, or slaughter it for resources.","A wild ram. Offer it fresh meadowgrass to tame it, or slaughter it for resources."
+sh_wild_male_sheep_CardDescription,"A wild ram. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.","A wild ram. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources."
 sh_tame_sheep_CardName,Tame Sheep,Tame Sheep
-sh_tame_sheep_CardDescription,"A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it.","A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it."
+sh_tame_sheep_CardDescription,"A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it. Below a quarter Nourishment it grows no wool.","A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it. Below a quarter Nourishment it grows no wool."
 sh_male_sheep_CardName,Ram,Ram
-sh_male_sheep_CardDescription,"A tame ram. Shear it for wool, keep it near tame sheep to impregnate them over time, or slaughter it for resources.","A tame ram. Shear it for wool, keep it near tame sheep to impregnate them over time, or slaughter it for resources."
+sh_male_sheep_CardDescription,"A tame ram. Shear it for wool, keep it near tame sheep to impregnate them over time, or slaughter it for resources. Below a quarter Nourishment it grows no wool.","A tame ram. Shear it for wool, keep it near tame sheep to impregnate them over time, or slaughter it for resources. Below a quarter Nourishment it grows no wool."
 sh_lactating_sheep_CardName,Lactating Sheep,Lactating Sheep
-sh_lactating_sheep_CardDescription,"A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it.","A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it."
+sh_lactating_sheep_CardDescription,"A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it. Below a quarter Nourishment it grows no wool and gives no milk.","A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it. Below a quarter Nourishment it grows no wool and gives no milk."
 sh_lamb_CardName,Lamb,Lamb
-sh_lamb_CardDescription,"A young lamb. It will grow into a tame sheep or ram by the end of fall. You can feed it meadowgrass or straw to mature it early, or slaughter it for a small amount of meat and hide.","A young lamb. It will grow into a tame sheep or ram by the end of fall. You can feed it meadowgrass or straw to mature it early, or slaughter it for a small amount of meat and hide."
+sh_lamb_CardDescription,"A young lamb. It grows into a tame sheep or ram in about 60 days. Each feed of meadowgrass or straw brings that five days closer, or slaughter it for a small amount of meat and hide.","A young lamb. It grows into a tame sheep or ram in about 60 days. Each feed of meadowgrass or straw brings that five days closer, or slaughter it for a small amount of meat and hide."
 sh_sheep_milk_CardName,Sheep Milk,Sheep Milk
 sh_sheep_milk_CardDescription,Fresh sheep milk.,Fresh sheep milk.
 sh_sheep_milk_LiquidSuffixName,Sheep Milk,Sheep Milk
@@ -46,7 +46,7 @@ sh_curdled_milk_CardDescription,Curdled sheep milk. Press it over a fire to make
 sh_sheep_cheese_CardName,Sheep Cheese,Sheep Cheese
 sh_sheep_cheese_CardDescription,Fresh sheep cheese. Leave it out to age into a richer variety — the spoilage bar fills as it ages.,Fresh sheep cheese. Leave it out to age into a richer variety — the spoilage bar fills as it ages.
 sh_aged_sheep_cheese_CardName,Aged Sheep Cheese,Aged Sheep Cheese
-sh_aged_sheep_cheese_CardDescription,Richly flavoured aged sheep cheese. Excellent nutrition.,Richly flavoured aged sheep cheese. Excellent nutrition.
+sh_aged_sheep_cheese_CardDescription,"Richly flavoured aged sheep cheese. Excellent nutrition, and it keeps for about a month.","Richly flavoured aged sheep cheese. Excellent nutrition, and it keeps for about a month."
 sh_whey_CardName,Whey,Whey
 sh_whey_CardDescription,"Liquid whey, a byproduct of cheese making. Mildly nutritious.","Liquid whey, a byproduct of cheese making. Mildly nutritious."
 sh_butter_CardName,Butter,Butter
@@ -65,7 +65,7 @@ sh_woven_cloth_CardDescription,Woven woollen cloth. Provides a small amount of w
 sh_wool_tunic_CardName,Wool Tunic,Wool Tunic
 sh_wool_tunic_CardDescription,A warm woollen tunic that provides excellent insulation.,A warm woollen tunic that provides excellent insulation.
 sh_wool_blanket_CardName,Wool Blanket,Wool Blanket
-sh_wool_blanket_CardDescription,A thick woollen blanket. Greatly improves sleep quality in cold weather.,A thick woollen blanket. Greatly improves sleep quality in cold weather.
+sh_wool_blanket_CardDescription,A thick woollen blanket. Carried in your pack it keeps your body temperature 10 points higher in the cold. A second blanket adds nothing.,A thick woollen blanket. Carried in your pack it keeps your body temperature 10 points higher in the cold. A second blanket adds nothing.
 sh_bp_wool_blanket_CardName,Wool Blanket Blueprint,Wool Blanket Blueprint
 sh_bp_wool_blanket_CardDescription,Weave 4 woven cloths together into a thick woollen blanket.,Weave 4 woven cloths together into a thick woollen blanket.
 sh_shears_CardName,Shears,Shears
@@ -139,7 +139,7 @@ sh_bp_yarn_CardName,Wool Yarn,Wool Yarn
 sh_bp_yarn_CardDescription,Spin raw wool into yarn by hand.,Spin raw wool into yarn by hand.
 sh_bp_yarn_UnlockConditionsDesc,Requires: Wool,Requires: Wool
 sh_bp_woven_cloth_CardName,Woven Cloth,Woven Cloth
-sh_bp_woven_cloth_CardDescription,Weave two skeins of yarn into woven woollen cloth.,Weave two skeins of yarn into woven woollen cloth.
+sh_bp_woven_cloth_CardDescription,Weave two skeins of Wool Yarn into woven woollen cloth at a Weighted Loom.,Weave two skeins of Wool Yarn into woven woollen cloth at a Weighted Loom.
 sh_bp_wool_tunic_CardName,Wool Tunic Blueprint,Wool Tunic Blueprint
 sh_bp_wool_tunic_CardDescription,Sew a wool blanket into a warm woollen tunic.,Sew a wool blanket into a warm woollen tunic.
 sh_cream_CardName,Cream,Cream
@@ -183,9 +183,9 @@ FC_FoxCompanion_DA0_ActionDescription,Scratch behind its ears. It leans into you
 FC_FoxCompanion_DA1_ActionName,Play with Fox,Play with Fox
 FC_FoxCompanion_DA1_ActionDescription,Chase each other through the ferns. Pure mischievous fun.,Chase each other through the ferns. Pure mischievous fun.
 FC_FoxCompanion_DA2_ActionName,Scout Ahead,Scout Ahead
-FC_FoxCompanion_DA2_ActionDescription,Send the fox to nose around. It comes back with something useful.,Send the fox to nose around. It comes back with something useful.
+FC_FoxCompanion_DA2_ActionDescription,"Send the fox to nose around. About 2 times in 5 it comes back with some meat. It costs the fox some Hunger and Morale, and it needs a day before it fetches again.","Send the fox to nose around. About 2 times in 5 it comes back with some meat. It costs the fox some Hunger and Morale, and it needs a day before it fetches again."
 FC_FoxCompanion_DA3_ActionName,Retrieve Partridge,Retrieve Partridge
-FC_FoxCompanion_DA3_ActionDescription,The fox flushes a partridge from the brush and chases it down. It trots back proudly.,The fox flushes a partridge from the brush and chases it down. It trots back proudly.
+FC_FoxCompanion_DA3_ActionDescription,"The fox goes after a partridge in the brush and catches one about 1 time in 3. It costs the fox some Hunger and Morale, and it needs a day before it fetches again.","The fox goes after a partridge in the brush and catches one about 1 time in 3. It costs the fox some Hunger and Morale, and it needs a day before it fetches again."
 FC_FoxCompanion_SpoilageTime_CardStatName,Hunger,Hunger
 FC_FoxCompanion_UsageDurability_CardStatName,Thirst,口渴
 FC_FoxCompanion_CI2_ActionName,Give Water,喂水
@@ -205,9 +205,9 @@ FC_OwlCompanion_CI0_ActionDescription,Offer the owl a scrap of meat. It bobs its
 FC_OwlCompanion_DA0_ActionName,Pet Owl,Pet Owl
 FC_OwlCompanion_DA0_ActionDescription,Gently stroke its feathers. It closes its eyes in contentment.,Gently stroke its feathers. It closes its eyes in contentment.
 FC_OwlCompanion_DA1_ActionName,Night Watch,Night Watch
-FC_OwlCompanion_DA1_ActionDescription,Let the owl stand guard while you sleep. You rest more deeply knowing it watches.,Let the owl stand guard while you sleep. You rest more deeply knowing it watches.
+FC_OwlCompanion_DA1_ActionDescription,Let the owl keep watch over your camp tonight. Knowing it watches eases your mind a little. Once a night.,Let the owl keep watch over your camp tonight. Knowing it watches eases your mind a little. Once a night.
 FC_OwlCompanion_DA2_ActionName,Retrieve Mouse,Retrieve Mouse
-FC_OwlCompanion_DA2_ActionDescription,The owl drifts silently into the undergrowth and returns with a mouse.,The owl drifts silently into the undergrowth and returns with a mouse.
+FC_OwlCompanion_DA2_ActionDescription,"The owl drifts silently into the undergrowth and returns with a mouse about half the time. It costs the owl some Hunger and Morale, and it needs a day before it hunts for you again.","The owl drifts silently into the undergrowth and returns with a mouse about half the time. It costs the owl some Hunger and Morale, and it needs a day before it hunts for you again."
 FC_OwlCompanion_SpoilageTime_CardStatName,Hunger,Hunger
 FC_OwlCompanion_SpecialDurability1_CardStatName,Health,Health
 FC_OwlCompanion_SpecialDurability1_OnZero_ActionName,Owl Has Flown Away!,Owl Has Flown Away!
@@ -255,7 +255,7 @@ sh_wool_socks_CardDescription,Knitted wool socks. Worn beneath boots to keep the
 sh_bp_wool_socks_CardName,Wool Socks Blueprint,Wool Socks Blueprint
 sh_bp_wool_socks_CardDescription,Knit yarn into a pair of warm wool socks.,Knit yarn into a pair of warm wool socks.
 sh_lanolin_salve_CardName,Lanolin Salve,Lanolin Salve
-sh_lanolin_salve_CardDescription,"A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort. It does not spoil.","A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort. It does not spoil."
+sh_lanolin_salve_CardDescription,"A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for Comfort +15 that lasts about a day. It does not spoil.","A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for Comfort +15 that lasts about a day. It does not spoil."
 sh_lanolin_salve_DismantleActions[0].ActionName,Apply to Skin,Apply to Skin
 sh_bp_lanolin_salve_CardName,Lanolin Salve Blueprint,Lanolin Salve Blueprint
 sh_bp_lanolin_salve_CardDescription,Blend lanolin with frostleaf powder into a soothing skin salve.,Blend lanolin with frostleaf powder into a soothing skin salve.
@@ -288,7 +288,7 @@ sh_bp_felt_mittens_CardDescription,Cut and stitch felted wool into a pair of war
 sh_bp_felt_vest_CardName,Felt Vest Blueprint,Felt Vest Blueprint
 sh_bp_felt_vest_CardDescription,Cut and shape felted wool into a sleeveless vest.,Cut and shape felted wool into a sleeveless vest.
 sh_felt_bedroll_CardName,Felt Bedroll,Felt Bedroll
-sh_felt_bedroll_CardDescription,"A dense felt bedroll, warmer and easier to carry than a simple wool blanket. Nap or sleep on it as on any bedroll, and it keeps you warmer through a cold night.","A dense felt bedroll, warmer and easier to carry than a simple wool blanket. Nap or sleep on it as on any bedroll, and it keeps you warmer through a cold night."
+sh_felt_bedroll_CardDescription,"A dense felt bedroll, light to carry. Nap or sleep on it as on any bedroll; while you rest on it, it keeps the cold off a little better than a log bed (Perceived Temperature +3).","A dense felt bedroll, light to carry. Nap or sleep on it as on any bedroll; while you rest on it, it keeps the cold off a little better than a log bed (Perceived Temperature +3)."
 sh_bp_felt_bedroll_CardName,Felt Bedroll Blueprint,Felt Bedroll Blueprint
 sh_bp_felt_bedroll_CardDescription,"Felt a thick layer of wool into a warm, portable bedroll.","Felt a thick layer of wool into a warm, portable bedroll."
 sh_sheep_pen_CardName,Sheep Pen,Sheep Pen
@@ -312,7 +312,7 @@ sh_bp_sheep_bell_UnlockConditionsDesc,Requires: Tame Sheep,Requires: Tame Sheep
 sh_sheep_remains_CardName,Sheep Remains,Sheep Remains
 sh_sheep_remains_CardDescription,All that's left of a sheep or ram taken by a predator overnight. It was left unpenned - a Sheep Pen keeps the rest of the flock safe.,All that's left of a sheep or ram taken by a predator overnight. It was left unpenned - a Sheep Pen keeps the rest of the flock safe.
 sh_predator_tracks_CardName,Predator Tracks,Predator Tracks
-sh_predator_tracks_CardDescription,Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. With your Wolf Companion here the predator keeps its distance and you cannot follow it; a fox or owl at your side may scare it off before you catch up. The trail goes cold in about a day.,Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. With your Wolf Companion here the predator keeps its distance and you cannot follow it; a fox or owl at your side may scare it off before you catch up. The trail goes cold in about a day.
+sh_predator_tracks_CardDescription,Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. The trail goes cold in about a day.,Paw prints and drag marks lead away from the remains. Follow them to face the predator that took your sheep. The trail goes cold in about a day.
 sh_predator_tracks_SpoilageTime_CardStatName,Freshness,Freshness
 sh_predator_tracks_DismantleActions[0].ActionName,Follow the Tracks,Follow the Tracks
 sh_predator_tracks_DismantleActions[0].ActionDescription,Follow the trail away from the remains and face the predator. It takes half an hour.,Follow the trail away from the remains and face the predator. It takes half an hour.
@@ -352,7 +352,7 @@ sh_salted_butter_CardDescription,Sheep butter worked through with salt. It keeps
 sh_salted_butter_DismantleActions[0].ActionName,Eat,吃
 sh_salted_butter_SpoilageTime_CardStatName,Spoilage,腐坏
 sh_smoked_cheese_CardName,Smoked Cheese,烟熏奶酪
-sh_smoked_cheese_CardDescription,A wheel of sheep cheese hung in the smoke until the rind darkened. Keeps for a season.,悬挂在烟中熏至外皮发黑的羊奶酪，可以存放一整季。
+sh_smoked_cheese_CardDescription,A wheel of sheep cheese hung in the smoke until the rind darkened. Keeps for about eight days.,悬挂在烟中熏至外皮发黑的羊奶酪，可以存放约八天。
 sh_smoked_cheese_DismantleActions[0].ActionName,Eat,吃
 sh_smoked_cheese_SpoilageTime_CardStatName,Spoilage,腐坏
 sh_berry_yogurt_CardName,Berry Yogurt,浆果酸奶
@@ -372,7 +372,7 @@ sh_buttermilk_hardtack_CardDescription,"Hardtack soaked soft in buttermilk. Stil
 sh_buttermilk_hardtack_DismantleActions[0].ActionName,Eat,吃
 sh_buttermilk_hardtack_SpoilageTime_CardStatName,Spoilage,腐坏
 sh_feather_pillow_CardName,Feather Pillow,羽绒枕
-sh_feather_pillow_CardDescription,A cloth sack packed with owl down. Sleeping with it under your head takes the edge off a hard night.,填满猫头鹰细羽的布袋。柕着它入睡，难熬的夜晚也好过些。
+sh_feather_pillow_CardDescription,"A cloth sack packed with owl down. Kept among your things, it makes camp feel a little more like home (Sanctuary +10). More pillows, or a Felt Rug as well, add nothing.",填满猫头鹰细羽的布袋。放在行囊里，营地会多几分家的感觉（庇护度+10）。多带几个枕头或再加一块毛毡地毯，效果也不会叠加。
 sh_bp_feather_pillow_CardName,Feather Pillow Blueprint,羽绒枕蓝图
 sh_bp_feather_pillow_CardDescription,Stuff a woven cloth with owl down and stitch it shut.,将猫头鹰细羽填入织布并缝合。
 sh_bp_feather_pillow_UnlockConditionsDesc,Requires: Feathers,需要：羽毛
@@ -451,19 +451,19 @@ sh_felt_boots_AlternateNames[0].Name,Green Felt Boots,Green Felt Boots
 sh_felt_boots_AlternateNames[1].Name,Red Felt Boots,Red Felt Boots
 sh_felt_boots_AlternateNames[2].Name,Brown Felt Boots,Brown Felt Boots
 sh_felt_rug_CardName,Felt Rug,毛毡地毯
-sh_felt_rug_CardDescription,"A thick rug of pressed felt with a darker border stitched on. Laid out in your camp, it makes the ground a little kinder underfoot.",一块厚实的压制毛毡地毯，四周缝有一圈颜色较深的毡边。铺在营地里，脚下的地面会舒服许多。
+sh_felt_rug_CardDescription,"A thick rug of pressed felt with a darker border stitched on. Kept among your things, it makes camp feel a little more like home (Sanctuary +10). More rugs, or a Feather Pillow as well, add nothing.",一块厚实的压制毛毡地毯，四周缝有一圈颜色较深的毡边。放在行囊里，营地会多几分家的感觉（庇护度+10）。多带几块地毯或再加一个羽绒枕，效果也不会叠加。
 sh_bp_felt_rug_CardName,Felt Rug Blueprint,毛毡地毯图纸
 sh_bp_felt_rug_CardDescription,Lay felted wool into a thick rug and stitch a darker felt border around the edge.,将毛毡片铺成一块厚实的地毯，并在边缘缝上一圈颜色较深的毡边。
 sh_bp_felt_rug_UnlockConditionsDesc,Requires: Felted Wool,需要：毛毡
 sh_felt_outfit_pieces_GameName,Felt Outfit,毛毡套装
-sh_felt_outfit_pieces_Description,"Counts the felt pieces worn at once (Felt Hat, Felt Mittens, Felt Vest, Felt Boots). Each worn piece adds 1, and three or more together add a little extra Cold Resistance, once. Never shown, and rebuilt from the worn pieces on every load.",统计同时穿戴的毛毡物件数量（毛毡帽、毛毡手套、毛毡背心、毛毡靴）。每件加1，三件或以上一起穿戴时，会额外增加少量抗寒，且只算一次。此项不会显示，每次读档时都会根据所穿戴的物件重新计算。
+sh_felt_outfit_pieces_Description,"Counts the felt pieces worn at once (Felt Hat, Felt Mittens, Felt Vest, Felt Boots). Each worn piece adds 1, and three or more together add Perceived Temperature +1, once. Never shown, and rebuilt from the worn pieces on every load.",统计同时穿戴的毛毡物件数量（毛毡帽、毛毡手套、毛毡背心、毛毡靴）。每件加1，三件或以上一起穿戴时，体感温度额外+1，且只算一次。此项不会显示，每次读档时都会根据所穿戴的物件重新计算。
 sh_felt_outfit_pieces_Status_Name,Felt Outfit Warmth,毛毡套装保暖
-sh_felt_outfit_pieces_Status_Description,"Three or more felt pieces worn together hold the heat in a little better, adding a small amount of Cold Resistance.",同时穿戴三件或以上毛毡物件，能更好地保存热量，额外增加少量抗寒。
+sh_felt_outfit_pieces_Status_Description,Three or more felt pieces worn together hold the heat in a little better: Perceived Temperature +1.,同时穿戴三件或以上毛毡物件，能更好地保存热量：体感温度+1。
 sh_butter_SpecialDurability1_CardStatName,Liquidity,Liquidity
 sh_salted_butter_SpecialDurability1_CardStatName,Liquidity,Liquidity
 sh_clarified_butter_SpecialDurability1_CardStatName,Liquidity,Liquidity
 sh_ox_cart_CardName,Ox Cart,Ox Cart
-sh_ox_cart_CardDescription,A plank cart with a yoke for a Bull. Hold it in your hand to haul far more than a travois. While a Bull is on the board with you it adds no travel penalty.,A plank cart with a yoke for a Bull. Hold it in your hand to haul far more than a travois. While a Bull is on the board with you it adds no travel penalty.
+sh_ox_cart_CardDescription,A plank cart with a yoke for a Bull. Hold it in your hand to haul half again what a travois carries. Without a Bull on the board it slows you badly; with a Bull it still slows you a little.,A plank cart with a yoke for a Bull. Hold it in your hand to haul half again what a travois carries. Without a Bull on the board it slows you badly; with a Bull it still slows you a little.
 sh_ox_cart_SpoilageTime_CardStatName,Durability,Durability
 sh_ox_cart_CI_Repair_ActionName,Repair,Repair
 sh_ox_cart_CI_Repair_ActionDescription,Nail a plank into the cart's frame to restore some of its durability.,Nail a plank into the cart's frame to restore some of its durability.
@@ -618,3 +618,25 @@ SIR_TruffleHog_Train_ActionName,Train to Root,训练拱土
 SIR_TruffleHog_Train_ActionDescription,Show a fully trusting piglet an acorn and teach it to root for truffles.,给完全信任你的小猪看一颗橡子，教它拱土寻找松露。
 sh_sheep_Feed_FailMessage,This sheep is not hungry,This sheep is not hungry
 sh_sheep_Shear_FailMessage,Not enough wool to shear,Not enough wool to shear
+sh_stat_wolf_fetch_lockout_GameName,Wolf Fetch Rest,Wolf Fetch Rest
+sh_stat_wolf_fetch_lockout_Description,"Hidden. Set to 96 by a wolf fetch and counts down 1 a tick, so the wolf fetches again a day later. A fetch needs it at 0.","Hidden. Set to 96 by a wolf fetch and counts down 1 a tick, so the wolf fetches again a day later. A fetch needs it at 0."
+sh_stat_fox_fetch_lockout_GameName,Fox Fetch Rest,Fox Fetch Rest
+sh_stat_fox_fetch_lockout_Description,"Hidden. Set to 96 by a fox fetch and counts down 1 a tick, so the fox fetches again a day later. A fetch needs it at 0.","Hidden. Set to 96 by a fox fetch and counts down 1 a tick, so the fox fetches again a day later. A fetch needs it at 0."
+sh_stat_owl_fetch_lockout_GameName,Owl Fetch Rest,Owl Fetch Rest
+sh_stat_owl_fetch_lockout_Description,"Hidden. Set to 96 by a owl fetch and counts down 1 a tick, so the owl fetches again a day later. A fetch needs it at 0.","Hidden. Set to 96 by a owl fetch and counts down 1 a tick, so the owl fetches again a day later. A fetch needs it at 0."
+sh_stat_owl_watch_lockout_GameName,Owl Night Watch Rest,Owl Night Watch Rest
+sh_stat_owl_watch_lockout_Description,"Hidden. Set to 96 by Night Watch and counts down 1 a tick, so the owl keeps watch once a night. Night Watch needs it at 0.","Hidden. Set to 96 by Night Watch and counts down 1 a tick, so the owl keeps watch once a night. Night Watch needs it at 0."
+sh_stat_lanolin_soothe_GameName,Soothed Skin,Soothed Skin
+sh_stat_lanolin_soothe_Description,"A Lanolin Salve eases chafed, wind-burned skin for about a day.","A Lanolin Salve eases chafed, wind-burned skin for about a day."
+sh_stat_lanolin_soothe_Status_Name,Soothed Skin,Soothed Skin
+sh_stat_lanolin_soothe_Status_Description,"Lanolin Salve on chafed skin: Comfort +15 while it lasts, about a day.","Lanolin Salve on chafed skin: Comfort +15 while it lasts, about a day."
+sh_stat_blanket_carried_GameName,Wool Blanket Carried,Wool Blanket Carried
+sh_stat_blanket_carried_Description,Hidden. Counts the Wool Blankets you carry; any number of them gives the blanket warmth once. Rebuilt from the carried blankets on every load.,Hidden. Counts the Wool Blankets you carry; any number of them gives the blanket warmth once. Rebuilt from the carried blankets on every load.
+sh_stat_blanket_carried_Status_Name,Wool Blanket,Wool Blanket
+sh_stat_blanket_carried_Status_Description,A Wool Blanket in your pack keeps your body temperature 10 points higher. More blankets do not add more.,A Wool Blanket in your pack keeps your body temperature 10 points higher. More blankets do not add more.
+sh_stat_soft_furnishing_GameName,Soft Furnishings Carried,Soft Furnishings Carried
+sh_stat_soft_furnishing_Description,Hidden. Counts the Feather Pillows and Felt Rugs you carry; any number of them adds Sanctuary once. Rebuilt from the carried items on every load.,Hidden. Counts the Feather Pillows and Felt Rugs you carry; any number of them adds Sanctuary once. Rebuilt from the carried items on every load.
+sh_stat_soft_furnishing_Status_Name,Soft Furnishings,Soft Furnishings
+sh_stat_soft_furnishing_Status_Description,A Feather Pillow or Felt Rug among your things makes camp feel a little more like home: Sanctuary +10. More of them do not add more.,A Feather Pillow or Felt Rug among your things makes camp feel a little more like home: Sanctuary +10. More of them do not add more.
+sh_stat_comfort_fixup_done_GameName,Comfort Reset Done,Comfort Reset Done
+sh_stat_comfort_fixup_done_Description,"Hidden. Set to 1 once Sirus23 1.22.6 has cleared the permanent Comfort that older Lanolin Salves wrote into this save, so the reset runs once per save.","Hidden. Set to 1 once Sirus23 1.22.6 has cleared the permanent Comfort that older Lanolin Salves wrote into this save, so the reset runs once per save."

@@ -1,0 +1,60 @@
+{
+    "UniqueID": "sh_stat_comfort_fixup_done",
+    "GameName": {
+        "ParentObjectID": "sh_stat_comfort_fixup_done",
+        "LocalizationKey": "sh_stat_comfort_fixup_done_GameName",
+        "DefaultText": "Comfort Reset Done"
+    },
+    "Description": {
+        "ParentObjectID": "sh_stat_comfort_fixup_done",
+        "LocalizationKey": "sh_stat_comfort_fixup_done_Description",
+        "DefaultText": "Hidden. Set to 1 once Sirus23 1.22.6 has cleared the permanent Comfort that older Lanolin Salves wrote into this save, so the reset runs once per save."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DefaultStatusIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "DefaultStatusIconWarpData": "Comfort",
+    "DefaultStatusIconWarpType": 3,
+    "Statuses": [],
+    "UsesNovelty": false
+}

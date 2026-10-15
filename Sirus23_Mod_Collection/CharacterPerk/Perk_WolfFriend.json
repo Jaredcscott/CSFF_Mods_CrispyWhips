@@ -38,7 +38,7 @@
     "PerkIconWarpData": "WolfCompanion",
     "PerkIconWarpType": 3,
     "PointsCost": 0,
-    "SunsCost": 3,
+    "SunsCost": 30,
     "StartingStatModifiers": [],
     "PassiveStatModifiers": [],
     "PerkUnlockConditions": {

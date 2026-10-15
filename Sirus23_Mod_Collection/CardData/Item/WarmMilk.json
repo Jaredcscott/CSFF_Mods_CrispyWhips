@@ -1461,6 +1461,8 @@
             },
             "ProducedCards": [
                 {
+                    "CollectionName": "Ferment",
+                    "CollectionWeight": 1,
                     "DroppedCards": [
                         {
                             "DroppedCard": {
@@ -1473,8 +1475,7 @@
                                 "x": 1,
                                 "y": 1
                             },
-                            "DropChance": 1.0,
-                            "QualityBasedChance": false
+                            "FinishUnlocking": false
                         }
                     ],
                     "CollectionTag": {
