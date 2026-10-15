@@ -1,6 +1,6 @@
 # Far Territory
 
-**Version:** 0.1.5
+**Version:** 0.1.6
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release. Every number below is a placeholder to be tuned, not a balanced value.
