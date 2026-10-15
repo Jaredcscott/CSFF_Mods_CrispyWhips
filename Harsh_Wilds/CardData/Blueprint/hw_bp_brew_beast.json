@@ -23,7 +23,7 @@
         "DefaultText": ""
     },
     "StartUnlocked": false,
-    "BlueprintUnlockTicksCost": 8,
+    "BlueprintUnlockTicksCost": 32,
     "BuildingDaytimeCost": 1,
     "DeconstructDaytimeCost": 1,
     "CardsOnBoard": [],

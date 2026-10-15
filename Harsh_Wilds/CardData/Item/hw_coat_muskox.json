@@ -84,7 +84,7 @@
     "DismantleActions": [],
     "PassiveEffects": [
         {
-            "EffectName": "Temperature Perceived (+10)",
+            "EffectName": "Temperature Perceived (+7.5)",
             "OnlyWhenEquipped": true,
             "EquippedOnBodyOnly": true,
             "StatModifiers": [
@@ -96,8 +96,8 @@
                     "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 10.0,
-                        "y": 10.0
+                        "x": 7.5,
+                        "y": 7.5
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -396,6 +396,29 @@
             }
         }
     ],
+    "IsArmor": true,
+    "ArmorValues": {
+        "HeadArmor": 0.0,
+        "HeadArmorModifiers": [],
+        "HeadHitProbabilityModifier": 0.0,
+        "TorsoArmor": 10.0,
+        "TorsoArmorModifiers": [],
+        "TorsoHitProbabilityModifier": 0.0,
+        "LArmArmor": 0.0,
+        "LArmArmorModifiers": [],
+        "LArmHitProbabilityModifier": 0.0,
+        "RArmArmor": 0.0,
+        "RArmArmorModifiers": [],
+        "RArmHitProbabilityModifier": 0.0,
+        "LLegArmor": 0.0,
+        "LLegArmorModifiers": [],
+        "LLegHitProbabilityModifier": 0.0,
+        "RLegArmor": 0.0,
+        "RLegArmorModifiers": [],
+        "RLegHitProbabilityModifier": 0.0
+    },
+    "ArmorValueDurabilitiesMultiplier": [],
+    "ArmorHitProbabilityDurabilitiesMultiplier": [],
     "MaxLiquidCapacity": 600.0,
     "ExclusivelyAcceptedLiquids": [
         {

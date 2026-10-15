@@ -1,9 +1,9 @@
 # Harsh Wilds
 
-**Version:** 0.11.5
+**Version:** 0.11.6
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
-**Status:** pre-release. Every chance, number and length is a first guess that has not been balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
+**Status:** pre-release. Rewards (meat, affinity, coats, rites) were tuned to their base-game equivalents in 0.11.6; the threats' chances, numbers and lengths are still first guesses not yet balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
 
 Harsh Wilds makes the forest harder and older. It adds optional threats for players who find the base game's wilderness too tame, plus the forest's old powers: spirits to call, rites and brews, rare beasts, the fair folk, and realms beyond the forest.
 
@@ -49,8 +49,8 @@ A shaggy ox that visits the northern clearings (Pine Meadows, Still Hollow, Moon
 
 - There are three. Each roams on its own, so you may meet one, two or all three.
 - It never attacks first. Fighting it means facing the herd's ring: it is hard to surprise, hard to hit from a distance and slow to give up.
-- Its carcass is bleed, skin for a Large Fresh Fur, then four cuts for meat, fat, organs, tendons, bones and two horns.
-- A killed musk ox is replaced after about two weeks, in winter. The other two stay.
+- Its carcass is bleed, skin for a Large Fresh Fur, then four cuts for meat (about 62, a stag's and a third), fat, organs, tendons, bones and two horns.
+- A killed musk ox is replaced after about 30 days, in winter. The other two stay.
 
 ### Bandit
 A ragged spearman who waylays travellers on the river (Southern Rapids, Rocky Bank, Northern Rapids, River Pass). He appears nowhere else.
@@ -70,7 +70,7 @@ Each comes only on rare days or nights, announces nothing, and is not replaced o
 - **White wisent** (`WhiteWisent`, also needs `Wisent`). About one day in forty, at noon, a rare albino wisent comes to the wisent's glades for about four days. It never attacks first. Its fight is the wisent's with a stouter hide. Its carcass is butchered like the wisent's, and **Release the Spirit** on it gives Beast Affinity +100, where other wild carcasses give +25. It uses the cow's picture for now.
 - **Lake beast** (`LakeBeast`). About one day in sixty, one comes into the lake and its banks (Northern and Southern Lake Bank, Lake Grove) for about three days. At night, 20:00 to 05:00, it can come for you on a bank, once a night, and fights about as hard as a bear. You can also approach it. Its carcass is bleed, skin, four cuts.
 - **Frost demon** (`FrostDemon`). On about one winter evening in fifteen, one comes down to the northern hills and meadows at 18:00 and stays until about 05:00. Out of doors there it can hunt you once a night. Its bites are Frostnip and Frostbite wounds. A roof is the way out. Its carcass is butchered in one go for meat, fat, bones and a white fur.
-- **Lindwurm** (`Lindwurm`). About one day in a hundred and twenty, a great serpent takes up its lair in the Great Cave for about a week and a half and never leaves it. If you are in the cave, it can come for you once a day at any hour, and you can approach it yourself. It fights harder than the lake beast. Its carcass is a heavy single butchering (a lot of meat and fat, bones, a Very Large Fresh Skin) and holds a spirit: see the Dragon Spirit below.
+- **Lindwurm** (`Lindwurm`). About one day in a hundred and twenty, a great serpent takes up its lair in the Great Cave for about a week and a half and never leaves it. If you are in the cave, it can come for you once a day at any hour, and you can approach it yourself. It fights harder than the lake beast. Its carcass is a heavy single butchering (about 150 meat, about what a bear gives, plus fat, bones and a Very Large Fresh Skin) and holds a spirit: see the Dragon Spirit below.
 
 ## Raids
 
@@ -194,9 +194,9 @@ Done on purpose, with the base game's own magic. No switch.
 
 - **Mistletoe.** In winter only, foraging one of the fifteen oak places (twelve oak groves, three oak clearings) may turn up Mistletoe, about one forage in twelve. It works in saves you already have. Research **Bless the Grove with Mistletoe** (Magic > Rituals): it spends one Mistletoe in place of a Spirit Acorn and makes the base game's blessed grove, with the same requirements. The acorn rite still works. Both use the Frostleaf picture for now. Not yet confirmed in a running game.
 - **Athame.** A bone-bladed ritual knife (Magic > Implements; a Bone Knife, charcoal and twine). It also butchers like a knife. Each rite costs one of its 40 uses. Not yet confirmed in a running game.
-  - **Let Blood** (an hour) gives you the Arm Laceration wound and Beast Affinity +150, fading over about two weeks. It is refused while an arm wound is open.
+  - **Let Blood** (an hour) gives you the Arm Laceration wound and Beast Affinity +100, fading over about two weeks. It is refused while an arm wound is open.
   - **Call Rain** (two hours, once every two days) thickens the clouds so the weather refreshes straight away. Rain is likely, never certain, and snow comes instead in the cold.
-  - **Incense.** Beside a lit Herbs and Fungi Incense Bundle, or Community Mod Chest's lit Incense Burner, Heather Burner or Juniper Burner, each rite has an extra button that gives more (250 Beast Affinity, or 350 Clouds). The incense is not used up. Without those mods, only the base buttons appear.
+  - **Incense.** Beside a lit Herbs and Fungi Incense Bundle, or Community Mod Chest's lit Incense Burner, Heather Burner or Juniper Burner, each rite has an extra button that gives more (150 Beast Affinity, or 300 Clouds) and burns up one point of that incense's fuel. Without those mods, only the base buttons appear.
 - **Casting bones.** A handful of marked bones (Magic > Implements; three Bones and a Charcoal), good for 30 castings. **Cast the Bones** (half an hour) drops one card saying whether the eagle, the black bear, both or neither can come for your food within a day. The reading is always true, because it reads the same clocks and switches the raids wait on. A raid it names may still not come. The bones say nothing of the wolverine, heron, adder or world events. Not yet confirmed in a running game.
 
 ## Brews and witchfire
@@ -204,7 +204,7 @@ Done on purpose, with the base game's own magic. No switch.
 Made from base-game ingredients. No switch. Not yet confirmed in a running game.
 
 - **Beast Brew** (bonemeal and fat), **Earth Brew** (ash and dry moss) and **Musclebrew** (a wild egg and dried pine nuts). Research each in Magic > Rituals and make it from a bowl of ordinary clean water; you keep the bowl.
-- Drinking one quenches some thirst and starts a timer of about half a day (a second draught makes it a day). Beast Brew and Earth Brew raise Beast or Earth Affinity faster than it fades. Musclebrew makes hard work and heavy loads grow muscle sooner, and does nothing if you only sit. Each shows in the status strip.
+- Drinking one quenches some thirst and starts a timer of about half a day (a second draught makes it a day). Beast Brew and Earth Brew raise Beast or Earth Affinity by 0.5 a tick (about 24 over half a day), the pace of the base game's Sacred Oak; each takes 8 hours to research. Musclebrew makes hard work and heavy loads grow muscle sooner, and does nothing if you only sit. Each shows in the status strip.
 - **Witchfire** (Survival > Fire; witchstone dust and beeswax). Kindle it (a quarter hour) and it gives light for 12 hours while you carry it, then burns out to ash, which **Scatter the Ash** removes. It needs no fuel and gives no heat.
 - All pictures are base-game stand-ins for now.
 
@@ -215,7 +215,7 @@ Made on purpose for the spirit path. No switch. Not yet confirmed in a running g
 - **Spirit Jar** (Magic > Implements; a fired Clay Jar, a spirit herb and charcoal). Takes a spirit's essence (up to 150), which the base game's clay jars refuse, and keeps it. Pour an essence in from a bound spirit while your mind is open. Later pour it into an Amulet or one of the coats below.
 - **Spirit Mask** (Magic > Implements). Worn on the face. While your mind is open (altered mind 50 or more), Beast Affinity rises by 0.6 a tick. It wears out after about four weeks of wear.
 - **Lynx, Goat and Blood Charms** (Magic > Implements). Each recipe appears once you have bound that spirit. Worn at the neck, each holds half of its spirit's gift (Climbing Aid, Resilience, Strength) at the lowest level, with no binding needed. They wear out after about four weeks.
-- **Lynx, Musk Ox and Wisent Coats** (Tailoring > Leather, Leatherworking 15). Sewn from each beast's own tanned leather (medium, large and very large), two twine and a kept needle. Each gives warmth, comfort, armour and weather protection, takes a spirit essence, and with an open mind lends its beast's help: the lynx coat Climbing Aid, Ambush Aid and the Fox Urge, the musk ox coat Resilience, the wisent coat Strength. Whether each hide tans to the leather its coat needs is read from game data, not yet seen in play.
+- **Lynx, Musk Ox and Wisent Coats** (Tailoring > Leather, Leatherworking 15). Sewn from each beast's own tanned leather (medium, large and very large), two twine and a kept needle. Each gives warmth (the musk ox coat +7.5, as the base game's Bear Coat), comfort, armour (Torso 10 in a fight, as the base game's coats) and weather protection, takes a spirit essence, and with an open mind lends its beast's help: the lynx coat Climbing Aid and Ambush Aid (8.4 each, the size of the base game's Wolf Coat's two aids) and the Fox Urge, the musk ox coat Resilience, the wisent coat Strength. Whether each hide tans to the leather its coat needs is read from game data, not yet seen in play.
 - **Beast Totem** (Magic > Shrines). A carved post for camp. While you are there, Beast Affinity rises by 0.5 a tick.
 - **Stone Cairn** (Magic > Shrines; three heavy stones, then twelve stones). One to a place. Home of the Ancestor Spirit and a door to the Underworld.
 
@@ -227,7 +227,7 @@ Rare night threats, a stone that keeps them kinder, and the fairy king and queen
 - **Nixie** (`Nixie`). At night on a river or lake bank (27 places), a nixie may sing. Hold fast (Courage helps) or follow. Drawn in, you stay soaked, cold and uneasy for about four hours. At most once every four days.
 - **Selkie** (`Selkie`, needs Far Territory). At night on Far Territory's Driftwood Shore, a selkie may sing from the surf, with the same choice and cost. At most once every three days. Without Far Territory she never comes.
 - **Wild Hunt** (`WildHunt`). On a winter night the Hunt may ride for about five hours. Outside, each quarter hour adds stress and may bruise you. Under a roof nothing happens. At most once every six days.
-- **Threshold Stone** (Magic > Shrines; a heavy stone and three small stones; one to a camp). Drag salt, a flatbread, a honeycomb or cheese curds onto it to leave an offering. For about three days the four threats above are less likely, never impossible.
+- **Threshold Stone** (Magic > Shrines; a heavy stone and three small stones; one to a camp). Drag salt, a flatbread, a honeycomb or cheese curds onto it to leave an offering. For about three days the four threats above are less likely, never impossible. A Fairy Stone (**Offer a Fairy Stone**) keeps the offering for about six days; the threats come back gradually over its last three.
 - **Fairy King and Fairy Queen.** They hold court in the Faerie Realm on every visit and never follow you home. **Speak with the King** or **Speak with the Queen** offers one bargain each, once a run, and only while you can pay. The King gives two Fairy Stones for 60 Willpower. The Queen takes away 40 Stress and gives a sprig of Mistletoe for 16 Stamina. Turn one down and it is offered again next time. Gifts land on the realm's board, so pick them up before you leave. Checked in a test harness, not yet in real play.
 
 ## Fairy ring and realms
@@ -280,6 +280,8 @@ File: `BepInEx/config/crispywhips.harsh_wilds.cfg`. A change takes effect after 
 
 Section `[Tuning]`: `RaidPressure` is `Low`, `Normal` (default) or `High`; see Raid pressure.
 
+**A gentler game.** Every threat is on by default, because that is what the mod is for. For the forest's powers and creatures without its harshest surprises, set these to `false`: the rare beasts (`WhiteWisent`, `LakeBeast`, `FrostDemon`, `Lindwurm`), the fair folk (`Banshee`, `Nixie`, `Selkie`, `WildHunt`) and the afflictions (`FleasAndLice`, `ToothDecay`, `SpiritSickness`, `DancingPlague`). Then restart the game.
+
 ## Compatibility
 
 - Works alone. No other content mod is needed.
@@ -321,6 +323,7 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
 
 Full notes in `CHANGELOG.md`. Latest:
 
+- **0.11.6:** balance pass: musk oxen give less and return monthly, slower brews and athame rites, base-game coat tiers with real armour, a fuller lindwurm, a use for Fairy Stones.
 - **0.11.5:** the golden hind is removed; the base game's White Deer covers it.
 - **0.11.4:** the Faerie Realm stays still; the people, animals and spirits still breathe.
 - **0.11.3:** the shaman, the bandits, the frost demon, the animals and the spirits breathe, on their cards and in their encounters.

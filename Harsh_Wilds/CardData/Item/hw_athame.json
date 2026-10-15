@@ -48,7 +48,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "HarshWilds_Athame_Blood_Base_ActionDescription",
-                "DefaultText": "Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 150 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade."
+                "DefaultText": "Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 100 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade."
             },
             "DaytimeCost": 4,
             "RequiredCardsOnBoard": [
@@ -63,6 +63,99 @@
                     "NotInHand": false,
                     "ExcludeInventories": false,
                     "Inverted": true,
+                    "OnlyEquipped": false
+                }
+            ],
+            "RequiredStatValues": [],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Cut",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "98f10547125d5614f951a14a11fba847",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Bundle_ActionName",
+                "DefaultText": "Let Blood by the Incense Bundle"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Athame_Blood_Bundle_ActionDescription",
+                "DefaultText": "As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you."
+            },
+            "DaytimeCost": 4,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "98f10547125d5614f951a14a11fba847",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": true,
+                    "OnlyEquipped": false
+                },
+                {
+                    "TriggerCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerCardWarpData": "herbs_fungi_incense_bundle_lit",
+                    "TriggerCardWarpType": 3,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
                     "OnlyEquipped": false
                 }
             ],
@@ -119,100 +212,27 @@
                     "x": -1.0,
                     "y": -1.0
                 }
-            }
-        },
-        {
-            "ActionName": {
-                "LocalizationKey": "HarshWilds_Athame_Blood_Bundle_ActionName",
-                "DefaultText": "Let Blood by the Incense Bundle"
             },
-            "ActionDescription": {
-                "LocalizationKey": "HarshWilds_Athame_Blood_Bundle_ActionDescription",
-                "DefaultText": "As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
-            },
-            "DaytimeCost": 4,
-            "RequiredCardsOnBoard": [
+            "ExtraDurabilityModifications": [
                 {
-                    "TriggerCard": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
+                    "AffectedCards": [],
+                    "AffectedCardsWarpData": [
+                        "herbs_fungi_incense_bundle_lit"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AffectedTags": [],
+                    "NOTAffectedThings": [],
+                    "AppliesTo": 0,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "FuelChange": {
+                        "x": -1.0,
+                        "y": -1.0
                     },
-                    "TriggerCardWarpData": "98f10547125d5614f951a14a11fba847",
-                    "TriggerCardWarpType": 3,
-                    "OnlyInHand": false,
-                    "NotInHand": false,
-                    "ExcludeInventories": false,
-                    "Inverted": true,
-                    "OnlyEquipped": false
-                },
-                {
-                    "TriggerCard": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "TriggerCardWarpData": "herbs_fungi_incense_bundle_lit",
-                    "TriggerCardWarpType": 3,
-                    "OnlyInHand": false,
-                    "NotInHand": false,
-                    "ExcludeInventories": false,
-                    "Inverted": false,
-                    "OnlyEquipped": false
+                    "RandomlyAffectedCards": 0.0,
+                    "RandomAmountType": 0
                 }
-            ],
-            "RequiredStatValues": [],
-            "StatModifications": [
-                {
-                    "Stat": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "StatWarpData": "e5950a4d4517da64497120fe949057c6",
-                    "StatWarpType": 3,
-                    "ValueModifier": {
-                        "x": 250.0,
-                        "y": 250.0
-                    },
-                    "RateModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    }
-                }
-            ],
-            "ProducedCards": [
-                {
-                    "CollectionName": "Cut",
-                    "CollectionMessages": [],
-                    "CountsAsSuccess": false,
-                    "RevealInventory": false,
-                    "CollectionUses": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "CollectionWeight": 1,
-                    "DroppedCards": [
-                        {
-                            "DroppedCard": {
-                                "m_FileID": 0,
-                                "m_PathID": 0
-                            },
-                            "DroppedCardWarpData": "98f10547125d5614f951a14a11fba847",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": {
-                                "x": 1,
-                                "y": 1
-                            }
-                        }
-                    ]
-                }
-            ],
-            "ReceivingCardChanges": {
-                "ModType": 1,
-                "ModifyDurability": true,
-                "UsageChange": {
-                    "x": -1.0,
-                    "y": -1.0
-                }
-            }
+            ]
         },
         {
             "ActionName": {
@@ -221,7 +241,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "HarshWilds_Athame_Blood_Burner_ActionDescription",
-                "DefaultText": "As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+                "DefaultText": "As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you."
             },
             "DaytimeCost": 4,
             "RequiredCardsOnBoard": [
@@ -262,8 +282,8 @@
                     "StatWarpData": "e5950a4d4517da64497120fe949057c6",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 250.0,
-                        "y": 250.0
+                        "x": 150.0,
+                        "y": 150.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -305,7 +325,27 @@
                     "x": -1.0,
                     "y": -1.0
                 }
-            }
+            },
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCards": [],
+                    "AffectedCardsWarpData": [
+                        "comfortincenseburnerlit"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AffectedTags": [],
+                    "NOTAffectedThings": [],
+                    "AppliesTo": 0,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "FuelChange": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RandomlyAffectedCards": 0.0,
+                    "RandomAmountType": 0
+                }
+            ]
         },
         {
             "ActionName": {
@@ -314,7 +354,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "HarshWilds_Athame_Blood_Heather_ActionDescription",
-                "DefaultText": "As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+                "DefaultText": "As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you."
             },
             "DaytimeCost": 4,
             "RequiredCardsOnBoard": [
@@ -355,8 +395,8 @@
                     "StatWarpData": "e5950a4d4517da64497120fe949057c6",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 250.0,
-                        "y": 250.0
+                        "x": 150.0,
+                        "y": 150.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -398,7 +438,27 @@
                     "x": -1.0,
                     "y": -1.0
                 }
-            }
+            },
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCards": [],
+                    "AffectedCardsWarpData": [
+                        "comfortincenseburnerheatherlit"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AffectedTags": [],
+                    "NOTAffectedThings": [],
+                    "AppliesTo": 0,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "FuelChange": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RandomlyAffectedCards": 0.0,
+                    "RandomAmountType": 0
+                }
+            ]
         },
         {
             "ActionName": {
@@ -407,7 +467,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "HarshWilds_Athame_Blood_Juniper_ActionDescription",
-                "DefaultText": "As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+                "DefaultText": "As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you."
             },
             "DaytimeCost": 4,
             "RequiredCardsOnBoard": [
@@ -448,8 +508,8 @@
                     "StatWarpData": "e5950a4d4517da64497120fe949057c6",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 250.0,
-                        "y": 250.0
+                        "x": 150.0,
+                        "y": 150.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -491,7 +551,27 @@
                     "x": -1.0,
                     "y": -1.0
                 }
-            }
+            },
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCards": [],
+                    "AffectedCardsWarpData": [
+                        "comfortincenseburnerjuniperlit"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AffectedTags": [],
+                    "NOTAffectedThings": [],
+                    "AppliesTo": 0,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "FuelChange": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RandomlyAffectedCards": 0.0,
+                    "RandomAmountType": 0
+                }
+            ]
         },
         {
             "ActionName": {
@@ -586,7 +666,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "HarshWilds_Athame_Rain_Bundle_ActionDescription",
-                "DefaultText": "As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+                "DefaultText": "As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you."
             },
             "DaytimeCost": 8,
             "RequiredCardsOnBoard": [
@@ -645,8 +725,8 @@
                     "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 350.0,
-                        "y": 350.0
+                        "x": 300.0,
+                        "y": 300.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -677,7 +757,27 @@
                     "x": -1.0,
                     "y": -1.0
                 }
-            }
+            },
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCards": [],
+                    "AffectedCardsWarpData": [
+                        "herbs_fungi_incense_bundle_lit"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AffectedTags": [],
+                    "NOTAffectedThings": [],
+                    "AppliesTo": 0,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "FuelChange": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RandomlyAffectedCards": 0.0,
+                    "RandomAmountType": 0
+                }
+            ]
         },
         {
             "ActionName": {
@@ -686,7 +786,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "HarshWilds_Athame_Rain_Burner_ActionDescription",
-                "DefaultText": "As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+                "DefaultText": "As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you."
             },
             "DaytimeCost": 8,
             "RequiredCardsOnBoard": [
@@ -745,8 +845,8 @@
                     "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 350.0,
-                        "y": 350.0
+                        "x": 300.0,
+                        "y": 300.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -777,7 +877,27 @@
                     "x": -1.0,
                     "y": -1.0
                 }
-            }
+            },
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCards": [],
+                    "AffectedCardsWarpData": [
+                        "comfortincenseburnerlit"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AffectedTags": [],
+                    "NOTAffectedThings": [],
+                    "AppliesTo": 0,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "FuelChange": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RandomlyAffectedCards": 0.0,
+                    "RandomAmountType": 0
+                }
+            ]
         },
         {
             "ActionName": {
@@ -786,7 +906,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "HarshWilds_Athame_Rain_Heather_ActionDescription",
-                "DefaultText": "As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+                "DefaultText": "As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you."
             },
             "DaytimeCost": 8,
             "RequiredCardsOnBoard": [
@@ -845,8 +965,8 @@
                     "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 350.0,
-                        "y": 350.0
+                        "x": 300.0,
+                        "y": 300.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -877,7 +997,27 @@
                     "x": -1.0,
                     "y": -1.0
                 }
-            }
+            },
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCards": [],
+                    "AffectedCardsWarpData": [
+                        "comfortincenseburnerheatherlit"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AffectedTags": [],
+                    "NOTAffectedThings": [],
+                    "AppliesTo": 0,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "FuelChange": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RandomlyAffectedCards": 0.0,
+                    "RandomAmountType": 0
+                }
+            ]
         },
         {
             "ActionName": {
@@ -886,7 +1026,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "HarshWilds_Athame_Rain_Juniper_ActionDescription",
-                "DefaultText": "As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+                "DefaultText": "As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you."
             },
             "DaytimeCost": 8,
             "RequiredCardsOnBoard": [
@@ -945,8 +1085,8 @@
                     "StatWarpData": "ab93837086c9d25469daee60e0f9d90e",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 350.0,
-                        "y": 350.0
+                        "x": 300.0,
+                        "y": 300.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -977,7 +1117,27 @@
                     "x": -1.0,
                     "y": -1.0
                 }
-            }
+            },
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCards": [],
+                    "AffectedCardsWarpData": [
+                        "comfortincenseburnerjuniperlit"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AffectedTags": [],
+                    "NOTAffectedThings": [],
+                    "AppliesTo": 0,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "FuelChange": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RandomlyAffectedCards": 0.0,
+                    "RandomAmountType": 0
+                }
+            ]
         }
     ]
 }

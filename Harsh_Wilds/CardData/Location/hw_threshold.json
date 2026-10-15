@@ -8,7 +8,7 @@
     },
     "CardDescription": {
         "LocalizationKey": "HarshWilds_Threshold_CardDescription",
-        "DefaultText": "A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while."
+        "DefaultText": "A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while; a Fairy Stone keeps them kind twice as long."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -82,6 +82,73 @@
                     "3772ac4d09c1a034e800fdd229a5a7e4",
                     "33cf4067563dac649b026a87ba0766bd",
                     "95f159ffff4d0ea4da53dfa8e54ede89"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_Threshold_FairyStoneName",
+                "DefaultText": "Offer a Fairy Stone"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_Threshold_FairyStoneDescription",
+                "DefaultText": "Set a Fairy Stone on the threshold stone. The fair folk prize it above food: for about six days instead of three the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
+            },
+            "StackCompatible": false,
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_offering",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 576.0,
+                        "y": 576.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "563078cfd4356834f960cdd2e3085b3f"
                 ],
                 "TriggerCardsWarpType": 3
             },

@@ -61,7 +61,7 @@
                     "CollectionName": "Splash",
                     "CollectionMessages": [],
                     "CountsAsSuccess": false,
-                    "RevealInventory": false,
+                    "RevealInventory": true,
                     "CollectionUses": {"x": 0, "y": 0},
                     "CollectionWeight": 60,
                     "DroppedCards": [

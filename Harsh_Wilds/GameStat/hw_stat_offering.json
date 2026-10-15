@@ -12,7 +12,7 @@
     "BaseValue": 0.0,
     "MinMaxValue": {
         "x": 0.0,
-        "y": 288.0
+        "y": 576.0
     },
     "BaseRatePerTick": -1.0,
     "MinMaxRate": {
@@ -61,7 +61,7 @@
             },
             "Description": {
                 "LocalizationKey": "HarshWilds_Offering_StatusDescription",
-                "DefaultText": "You left an offering at the threshold. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
+                "DefaultText": "You left an offering at the threshold. For about three days (six after a Fairy Stone) the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
             },
             "StatusLog": {
                 "LogText": {
@@ -83,7 +83,7 @@
             "IconWarpType": 3,
             "ValueRange": {
                 "x": 1.0,
-                "y": 288.0
+                "y": 576.0
             },
             "UsePercentageForRange": false,
             "EffectsOnStats": [],

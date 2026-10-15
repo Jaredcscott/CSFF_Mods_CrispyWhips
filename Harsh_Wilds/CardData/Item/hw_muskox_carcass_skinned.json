@@ -10049,8 +10049,8 @@
               "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 17,
-                "y": 20
+                "x": 11,
+                "y": 13
               },
               "FinishUnlocking": false,
               "TransferRules": {
@@ -12081,8 +12081,8 @@
               "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 11,
-                "y": 14
+                "x": 10,
+                "y": 12
               },
               "FinishUnlocking": false,
               "TransferRules": {
@@ -12182,8 +12182,8 @@
               "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 11,
-                "y": 14
+                "x": 10,
+                "y": 12
               },
               "FinishUnlocking": false,
               "TransferRules": {
@@ -14346,8 +14346,8 @@
               "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 5,
-                "y": 8
+                "x": 4,
+                "y": 6
               },
               "FinishUnlocking": false,
               "TransferRules": {
@@ -14447,8 +14447,8 @@
               "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 5,
-                "y": 8
+                "x": 4,
+                "y": 6
               },
               "FinishUnlocking": false,
               "TransferRules": {
@@ -16557,7 +16557,7 @@
               "DroppedCardWarpType": 3,
               "Quantity": {
                 "x": 8,
-                "y": 11
+                "y": 10
               },
               "FinishUnlocking": false,
               "TransferRules": {
@@ -16658,7 +16658,7 @@
               "DroppedCardWarpType": 3,
               "Quantity": {
                 "x": 8,
-                "y": 11
+                "y": 10
               },
               "FinishUnlocking": false,
               "TransferRules": {

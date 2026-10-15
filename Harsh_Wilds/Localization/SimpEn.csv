@@ -363,7 +363,7 @@ HarshWilds_WildHunt_StatusDescription,"Hooves, horns and baying hounds sweep acr
 HarshWilds_WildHunt_StatName,The Wild Hunt
 HarshWilds_WildHunt_StatDescription,The Wild Hunt rides through the winter night.
 HarshWilds_Offering_StatusName,Offering at the threshold
-HarshWilds_Offering_StatusDescription,"You left an offering at the threshold. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
+HarshWilds_Offering_StatusDescription,"You left an offering at the threshold. For about three days (six after a Fairy Stone) the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
 HarshWilds_Offering_StatName,Threshold Offering
 HarshWilds_Offering_StatDescription,An offering left at your threshold: the fair folk are kinder for a while.
 HarshWilds_BansheeEvent_ActionName,Steel yourself
@@ -378,8 +378,10 @@ HarshWilds_NixieEvent_CardName,A voice from the water
 HarshWilds_NixieEvent_CardDescription,"At the water's edge a sweet voice sings your name, and the black river looks suddenly warm. A nixie is calling you in. You can hold fast, or follow."
 HarshWilds_Threshold_OfferName,Leave an Offering
 HarshWilds_Threshold_OfferDescription,"Leave a pinch of salt, a flatbread, a comb of honey or a curd of cheese on the threshold stone. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
+HarshWilds_Threshold_FairyStoneName,Offer a Fairy Stone
+HarshWilds_Threshold_FairyStoneDescription,"Set a Fairy Stone on the threshold stone. The fair folk prize it above food: for about six days instead of three the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come."
 HarshWilds_Threshold_CardName,Threshold Stone
-HarshWilds_Threshold_CardDescription,"A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while."
+HarshWilds_Threshold_CardDescription,"A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while; a Fairy Stone keeps them kind twice as long."
 HarshWilds_BpThreshold_CardName,Threshold Stone
 HarshWilds_BpThreshold_CardDescription,"Set a flat stone at the edge of camp. Leave small offerings on it to keep the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie away."
 HarshWilds_BpThreshold_UnlockConditionsDesc,Known from the start.
@@ -431,25 +433,25 @@ HarshWilds_WolverineEvent_CardDescription,"A wolverine, hungry in the deep of wi
 HarshWilds_WolverineEvent_ActionName,See what it takes
 HarshWilds_WolverineEvent_LostMessage,The wolverine tears a catch from the traps and drags it off:
 HarshWilds_Athame_Blood_Base_ActionName,Let Blood
-HarshWilds_Athame_Blood_Base_ActionDescription,"Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 150 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade."
+HarshWilds_Athame_Blood_Base_ActionDescription,"Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 100 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade."
 HarshWilds_Athame_Blood_Bundle_ActionName,Let Blood by the Incense Bundle
-HarshWilds_Athame_Blood_Bundle_ActionDescription,"As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+HarshWilds_Athame_Blood_Bundle_ActionDescription,"As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you."
 HarshWilds_Athame_Blood_Burner_ActionName,Let Blood by the Incense Burner
-HarshWilds_Athame_Blood_Burner_ActionDescription,"As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+HarshWilds_Athame_Blood_Burner_ActionDescription,"As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you."
 HarshWilds_Athame_Blood_Heather_ActionName,Let Blood by the Heather Burner
-HarshWilds_Athame_Blood_Heather_ActionDescription,"As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+HarshWilds_Athame_Blood_Heather_ActionDescription,"As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you."
 HarshWilds_Athame_Blood_Juniper_ActionName,Let Blood by the Juniper Burner
-HarshWilds_Athame_Blood_Juniper_ActionDescription,"As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you."
+HarshWilds_Athame_Blood_Juniper_ActionDescription,"As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you."
 HarshWilds_Athame_Rain_Base_ActionName,Call Rain
 HarshWilds_Athame_Rain_Base_ActionDescription,"Point the athame at the sky and call the rain down. The clouds thicken and the weather is drawn to change at once, so rain is likely but never certain. You can only do it once every two days. It takes two hours and wears the blade."
 HarshWilds_Athame_Rain_Bundle_ActionName,Call Rain by the Incense Bundle
-HarshWilds_Athame_Rain_Bundle_ActionDescription,"As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+HarshWilds_Athame_Rain_Bundle_ActionDescription,"As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you."
 HarshWilds_Athame_Rain_Burner_ActionName,Call Rain by the Incense Burner
-HarshWilds_Athame_Rain_Burner_ActionDescription,"As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+HarshWilds_Athame_Rain_Burner_ActionDescription,"As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you."
 HarshWilds_Athame_Rain_Heather_ActionName,Call Rain by the Heather Burner
-HarshWilds_Athame_Rain_Heather_ActionDescription,"As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+HarshWilds_Athame_Rain_Heather_ActionDescription,"As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you."
 HarshWilds_Athame_Rain_Juniper_ActionName,Call Rain by the Juniper Burner
-HarshWilds_Athame_Rain_Juniper_ActionDescription,"As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you."
+HarshWilds_Athame_Rain_Juniper_ActionDescription,"As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you."
 HarshWilds_Athame_CardName,Athame
 HarshWilds_Athame_CardDescription,"A short bone-bladed knife with a hilt wrapped in blackened twine, kept for rites. It cuts and butchers like any knife. With it you can let your own blood for the beasts, or call down rain; a lit incense burner or bundle nearby makes either rite stronger."
 HarshWilds_BpAthame_CardName,Athame

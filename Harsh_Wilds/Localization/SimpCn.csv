@@ -375,7 +375,7 @@ HarshWilds_WildHunt_StatusDescription,"Hooves, horns and baying hounds sweep acr
 HarshWilds_WildHunt_StatName,The Wild Hunt,狂猎
 HarshWilds_WildHunt_StatDescription,The Wild Hunt rides through the winter night.,狂猎在冬夜里驰过。
 HarshWilds_Offering_StatusName,Offering at the threshold,门槛上的供品
-HarshWilds_Offering_StatusDescription,"You left an offering at the threshold. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come.",你在门槛上留下了供品。大约三天内，女妖、水妖、狂猎，以及（装有远方领土时）海豹仙女不太会来。
+HarshWilds_Offering_StatusDescription,"You left an offering at the threshold. For about three days (six after a Fairy Stone) the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come.",你在门槛上留下了供品。大约三天内（献上仙灵石则为六天），女妖、水妖、狂猎，以及（装有远方领土时）海豹仙女不太会来。
 HarshWilds_Offering_StatName,Threshold Offering,门槛供品
 HarshWilds_Offering_StatDescription,An offering left at your threshold: the fair folk are kinder for a while.,门槛上的供品：一段时间内精灵们会更和善。
 HarshWilds_BansheeEvent_ActionName,Steel yourself,咬紧牙关
@@ -390,8 +390,10 @@ HarshWilds_NixieEvent_CardName,A voice from the water,河边的歌声
 HarshWilds_NixieEvent_CardDescription,"At the water's edge a sweet voice sings your name, and the black river looks suddenly warm. A nixie is calling you in. You can hold fast, or follow.",水边有甜美的声音在唱你的名字，黑色的河水忽然显得温暖。水妖在召唤你。你可以坚守，也可以跟去。
 HarshWilds_Threshold_OfferName,Leave an Offering,留下供品
 HarshWilds_Threshold_OfferDescription,"Leave a pinch of salt, a flatbread, a comb of honey or a curd of cheese on the threshold stone. For about three days the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come.",在门槛石上留下一撮盐、一块面饼、一块蜂巢或一块凝乳。大约三天内，女妖、水妖、狂猎，以及（装有远方领土时）海豹仙女不太会来。
+HarshWilds_Threshold_FairyStoneName,Offer a Fairy Stone,献上仙灵石
+HarshWilds_Threshold_FairyStoneDescription,"Set a Fairy Stone on the threshold stone. The fair folk prize it above food: for about six days instead of three the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie are less likely to come.",把一块仙灵石放在门槛石上。精灵看重它胜过食物：大约六天（而不是三天）内，女妖、水妖、狂猎，以及（装有远方领土时）海豹仙女不太会来。
 HarshWilds_Threshold_CardName,Threshold Stone,门槛石
-HarshWilds_Threshold_CardDescription,"A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while.",营地边缘放着的一块平石，传说精灵会在此驻足张望。在上面留下一份小供品，它们会和善一阵子。
+HarshWilds_Threshold_CardDescription,"A flat stone set at the edge of your camp, where the fair folk are said to stop and look. Leave a small offering on it and they will be kinder for a while; a Fairy Stone keeps them kind twice as long.",营地边缘放着的一块平石，传说精灵会在此驻足张望。在上面留下一份小供品，它们会和善一阵子；献上一块仙灵石，这份和善会持续两倍之久。
 HarshWilds_BpThreshold_CardName,Threshold Stone,门槛石
 HarshWilds_BpThreshold_CardDescription,"Set a flat stone at the edge of camp. Leave small offerings on it to keep the banshee, the nixie, the Wild Hunt and, with Far Territory, the selkie away.",在营地边缘放一块平石。在上面留下小供品，让女妖、水妖、狂猎，以及（装有远方领土时）海豹仙女远离。
 HarshWilds_BpThreshold_UnlockConditionsDesc,Known from the start.,一开始就会。
@@ -443,25 +445,25 @@ HarshWilds_WolverineEvent_CardDescription,"A wolverine, hungry in the deep of wi
 HarshWilds_WolverineEvent_ActionName,See what it takes,看看它带走了什么
 HarshWilds_WolverineEvent_LostMessage,The wolverine tears a catch from the traps and drags it off:,狼獾从陷阱里撕下一份猎物拖走了：
 HarshWilds_Athame_Blood_Base_ActionName,Let Blood,放血
-HarshWilds_Athame_Blood_Base_ActionDescription,"Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 150 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade.",用祭刀划开前臂，放一点血献给野兽。会留下一道未愈的手臂伤口，并使兽亲和提高150点（约两周后消退），召唤仪式需要这个。手臂伤口未愈时不能再做。耗时一小时，刀刃会磨损。
+HarshWilds_Athame_Blood_Base_ActionDescription,"Cut your forearm with the athame and let a little blood run for the beasts. It leaves an open arm wound and raises Beast Affinity by 100 (it fades over about two weeks), the way a calling needs. You cannot do it while an arm wound is still open. It takes an hour and wears the blade.",用祭刀划开前臂，放一点血献给野兽。会留下一道未愈的手臂伤口，并使兽亲和提高100点（约两周后消退），召唤仪式需要这个。手臂伤口未愈时不能再做。耗时一小时，刀刃会磨损。
 HarshWilds_Athame_Blood_Bundle_ActionName,Let Blood by the Incense Bundle,在线香束旁放血
-HarshWilds_Athame_Blood_Bundle_ActionDescription,"As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you.",与放血相同，但在点燃的线香束旁进行：烟气稳住仪式，兽亲和改为提高250点。需要焚香就在身边。
+HarshWilds_Athame_Blood_Bundle_ActionDescription,"As Let Blood, but done beside a lit Incense Bundle: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you.",与放血相同，但在点燃的线香束旁进行：烟气稳住仪式，兽亲和改为提高150点。仪式会烧掉一点焚香，焚香必须在身边点着。
 HarshWilds_Athame_Blood_Burner_ActionName,Let Blood by the Incense Burner,在香炉旁放血
-HarshWilds_Athame_Blood_Burner_ActionDescription,"As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you.",与放血相同，但在点燃的香炉旁进行：烟气稳住仪式，兽亲和改为提高250点。需要焚香就在身边。
+HarshWilds_Athame_Blood_Burner_ActionDescription,"As Let Blood, but done beside a lit Incense Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you.",与放血相同，但在点燃的香炉旁进行：烟气稳住仪式，兽亲和改为提高150点。仪式会烧掉一点焚香，焚香必须在身边点着。
 HarshWilds_Athame_Blood_Heather_ActionName,Let Blood by the Heather Burner,在石楠香炉旁放血
-HarshWilds_Athame_Blood_Heather_ActionDescription,"As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you.",与放血相同，但在点燃的石楠香炉旁进行：烟气稳住仪式，兽亲和改为提高250点。需要焚香就在身边。
+HarshWilds_Athame_Blood_Heather_ActionDescription,"As Let Blood, but done beside a lit Heather Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you.",与放血相同，但在点燃的石楠香炉旁进行：烟气稳住仪式，兽亲和改为提高150点。仪式会烧掉一点焚香，焚香必须在身边点着。
 HarshWilds_Athame_Blood_Juniper_ActionName,Let Blood by the Juniper Burner,在杜松香炉旁放血
-HarshWilds_Athame_Blood_Juniper_ActionDescription,"As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 250 instead. Needs the incense burning near you.",与放血相同，但在点燃的杜松香炉旁进行：烟气稳住仪式，兽亲和改为提高250点。需要焚香就在身边。
+HarshWilds_Athame_Blood_Juniper_ActionDescription,"As Let Blood, but done beside a lit Juniper Burner: its smoke steadies the rite and Beast Affinity rises by 150 instead. The rite burns up a little of the incense, which must be lit near you.",与放血相同，但在点燃的杜松香炉旁进行：烟气稳住仪式，兽亲和改为提高150点。仪式会烧掉一点焚香，焚香必须在身边点着。
 HarshWilds_Athame_Rain_Base_ActionName,Call Rain,唤雨
 HarshWilds_Athame_Rain_Base_ActionDescription,"Point the athame at the sky and call the rain down. The clouds thicken and the weather is drawn to change at once, so rain is likely but never certain. You can only do it once every two days. It takes two hours and wears the blade.",举起祭刀指向天空，唤雨降下。云层变厚，天气立刻被牵引着改变，很可能下雨，但并非一定。每两天只能做一次。耗时两小时，刀刃会磨损。
 HarshWilds_Athame_Rain_Bundle_ActionName,Call Rain by the Incense Bundle,在线香束旁唤雨
-HarshWilds_Athame_Rain_Bundle_ActionDescription,"As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you.",与唤雨相同，但在点燃的线香束旁进行：烟气让云聚得更厚，更容易下雨。需要焚香就在身边。
+HarshWilds_Athame_Rain_Bundle_ActionDescription,"As Call Rain, but done beside a lit Incense Bundle: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you.",与唤雨相同，但在点燃的线香束旁进行：烟气让云聚得更厚，更容易下雨。仪式会烧掉一点焚香，焚香必须在身边点着。
 HarshWilds_Athame_Rain_Burner_ActionName,Call Rain by the Incense Burner,在香炉旁唤雨
-HarshWilds_Athame_Rain_Burner_ActionDescription,"As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you.",与唤雨相同，但在点燃的香炉旁进行：烟气让云聚得更厚，更容易下雨。需要焚香就在身边。
+HarshWilds_Athame_Rain_Burner_ActionDescription,"As Call Rain, but done beside a lit Incense Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you.",与唤雨相同，但在点燃的香炉旁进行：烟气让云聚得更厚，更容易下雨。仪式会烧掉一点焚香，焚香必须在身边点着。
 HarshWilds_Athame_Rain_Heather_ActionName,Call Rain by the Heather Burner,在石楠香炉旁唤雨
-HarshWilds_Athame_Rain_Heather_ActionDescription,"As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you.",与唤雨相同，但在点燃的石楠香炉旁进行：烟气让云聚得更厚，更容易下雨。需要焚香就在身边。
+HarshWilds_Athame_Rain_Heather_ActionDescription,"As Call Rain, but done beside a lit Heather Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you.",与唤雨相同，但在点燃的石楠香炉旁进行：烟气让云聚得更厚，更容易下雨。仪式会烧掉一点焚香，焚香必须在身边点着。
 HarshWilds_Athame_Rain_Juniper_ActionName,Call Rain by the Juniper Burner,在杜松香炉旁唤雨
-HarshWilds_Athame_Rain_Juniper_ActionDescription,"As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. Needs the incense burning near you.",与唤雨相同，但在点燃的杜松香炉旁进行：烟气让云聚得更厚，更容易下雨。需要焚香就在身边。
+HarshWilds_Athame_Rain_Juniper_ActionDescription,"As Call Rain, but done beside a lit Juniper Burner: its smoke gathers the clouds harder, so rain is likelier. The rite burns up a little of the incense, which must be lit near you.",与唤雨相同，但在点燃的杜松香炉旁进行：烟气让云聚得更厚，更容易下雨。仪式会烧掉一点焚香，焚香必须在身边点着。
 HarshWilds_Athame_CardName,Athame,祭刀
 HarshWilds_Athame_CardDescription,"A short bone-bladed knife with a hilt wrapped in blackened twine, kept for rites. It cuts and butchers like any knife. With it you can let your own blood for the beasts, or call down rain; a lit incense burner or bundle nearby makes either rite stronger.",一把短骨刃刀，刀柄缠着熏黑的细线，专为仪式而留。它和普通刀一样能切割、剔肉。用它可以为野兽放出自己的血，或唤来降雨；附近点着香炉或线香，两种仪式都会更强。
 HarshWilds_BpAthame_CardName,Athame,祭刀

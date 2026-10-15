@@ -114,7 +114,7 @@
                     "CollectionName": "Resisted",
                     "CollectionMessages": [],
                     "CountsAsSuccess": false,
-                    "RevealInventory": false,
+                    "RevealInventory": true,
                     "CollectionUses": {
                         "x": 0,
                         "y": 0
@@ -152,7 +152,7 @@
                     "CollectionName": "Drawn",
                     "CollectionMessages": [],
                     "CountsAsSuccess": false,
-                    "RevealInventory": false,
+                    "RevealInventory": true,
                     "CollectionUses": {
                         "x": 0,
                         "y": 0

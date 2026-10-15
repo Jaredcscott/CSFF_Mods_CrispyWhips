@@ -300,8 +300,8 @@
                         "y": 0.0
                     },
                     "RateModifier": {
-                        "x": 16.8,
-                        "y": 16.8
+                        "x": 8.4,
+                        "y": 8.4
                     },
                     "MinValueModifier": {
                         "x": 0.0,
@@ -356,8 +356,8 @@
                         "y": 0.0
                     },
                     "RateModifier": {
-                        "x": 16.8,
-                        "y": 16.8
+                        "x": 8.4,
+                        "y": 8.4
                     },
                     "MinValueModifier": {
                         "x": 0.0,
@@ -508,6 +508,29 @@
             }
         }
     ],
+    "IsArmor": true,
+    "ArmorValues": {
+        "HeadArmor": 0.0,
+        "HeadArmorModifiers": [],
+        "HeadHitProbabilityModifier": 0.0,
+        "TorsoArmor": 10.0,
+        "TorsoArmorModifiers": [],
+        "TorsoHitProbabilityModifier": 0.0,
+        "LArmArmor": 0.0,
+        "LArmArmorModifiers": [],
+        "LArmHitProbabilityModifier": 0.0,
+        "RArmArmor": 0.0,
+        "RArmArmorModifiers": [],
+        "RArmHitProbabilityModifier": 0.0,
+        "LLegArmor": 0.0,
+        "LLegArmorModifiers": [],
+        "LLegHitProbabilityModifier": 0.0,
+        "RLegArmor": 0.0,
+        "RLegArmorModifiers": [],
+        "RLegHitProbabilityModifier": 0.0
+    },
+    "ArmorValueDurabilitiesMultiplier": [],
+    "ArmorHitProbabilityDurabilitiesMultiplier": [],
     "MaxLiquidCapacity": 600.0,
     "ExclusivelyAcceptedLiquids": [
         {

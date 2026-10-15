@@ -15,7 +15,7 @@
   },
   "Spawn": {
     "HomeEnv": "d5ed3b56f92b3bf44b6220ddc246d9e9",
-    "DeathRespawnTicks": 1344,
+    "DeathRespawnTicks": 2880,
     "Conditions": [
       { "Type": "StatThreshold", "UID": "hw_switch_muskox", "Comparison": "GreaterOrEqual", "Value": 1 },
       { "Type": "Season", "UID": "Winter" }

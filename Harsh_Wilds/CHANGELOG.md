@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.11.6 (2026-10-15)
+
+A balance pass to keep Harsh Wilds' rewards in step with the base game. The threats are unchanged.
+
+### Fixed
+
+- The Mud Volcano's **Shield yourself** can now splash you (60 of 100), and the Nixie's and Selkie's **Hold fast** now really decides between resisting and being drawn in (40 to 60); before, the splash and both of those outcomes never happened.
+- **The Lynx, Musk Ox and Wisent Coats now protect you in a fight.** They carried an Armor bonus but none of the armour a base-game coat has, so a hit to the torso went straight through. Each now has Torso armour 10, as the Bear and Wolf Coats do, and wears like them.
+- **Fairy Stones have a use.** The stones from the Fairy Ring, the Faerie Realm and the Fairy King did nothing. Drag one onto the Threshold Stone (**Offer a Fairy Stone**) and its offering lasts about six days instead of three.
+
+### Changed
+
+- **Musk oxen are a winter treat, not a larder.** A carcass gives about 62 meat (was about 75), a stag's and a third for the harder fight, and a killed ox returns after about 30 days (was about 14). The herd is still three.
+- **Beast Brew and Earth Brew build affinity at the Sacred Oak's pace:** +0.5 a tick (was +2), so a draught gives about 24 over half a day (was 96). Each now takes 8 hours to research (was 2).
+- **Athame rites:** Let Blood gives Beast Affinity +100 (was +150); beside lit incense +150 (was +250). Call Rain beside incense thickens the clouds by 300 (was 350). Every incense rite now burns up one point of that incense's fuel.
+- **Coats match their base-game tier:** the Lynx Coat's Climbing Aid and Ambush Aid are halved to 8.4 each, the size of the Wolf Coat's two aids, and the Musk Ox Coat warms +7.5 (was +10), as the Bear Coat does. The Wisent Coat is unchanged.
+- **The lindwurm pays like a large beast:** its Butcher now gives 150 meat (was 20), about what a bear gives.
+- The README describes a gentler setup: the switches to turn off for the forest's powers without its harshest surprises.
+
 ## 0.11.5 (2026-10-14)
 - Fixed: **card pictures sit where they belong again.** In the previous update every item picture was stretched to fill its whole card, sitting high with the name banner over it. The pictures are back in the game's own framing: centred, low on the card, with space above. Thanks to CHIWEI for the report.
 - Removed: the **golden hind**, its **Blessing of the Golden Hind** and the `[Threats] GoldenHind` switch. The base game's White Deer (game 0.69c) covers the same ground, so we no longer add a rare deer of our own (Chiwei's report). A hind already in a save is gone after a full restart; a blessing card already in your inventory can no longer be used.
