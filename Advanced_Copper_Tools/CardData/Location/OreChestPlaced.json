@@ -20,7 +20,7 @@
     "CardHelpSection": {
         "ParentObjectID": "advanced_copper_tools_ore_chest_placed",
         "LocalizationKey": "Advanced_Copper_Tools_OreChest_Placed_CardHelpSection",
-        "DefaultText": "<b>Holds:</b> mined ore only: Greenstone, bog iron (fresh, dried, roasted or crushed), Tin Ore and Flint.\n\n<b>Capacity:</b> 15000 weight. No spoilage protection."
+        "DefaultText": "<b>Holds:</b> mined ore only: Greenstone, bog iron (fresh, dried, roasted or crushed), Tin Ore and Flint.\n\n<b>Capacity:</b> 10000 weight. No spoilage protection."
     },
     "CardImage": { "m_FileID": 0, "m_PathID": 0 },
     "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
@@ -65,7 +65,7 @@
     "IsWeaponSheath": false,
     "OpenOnTab": 0,
     "DontRememberLastOpenTab": false,
-    "MaxWeightCapacity": 15000.0,
+    "MaxWeightCapacity": 10000.0,
     "ContentWeightReduction": 0.0,
     "InventorySlots": [],
     "InventoryFilter": {

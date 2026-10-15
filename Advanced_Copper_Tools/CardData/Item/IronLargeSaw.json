@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "act_iron_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_CardDescription",
-    "DefaultText": "A large two-handled saw with a forged iron blade. Tougher than the copper saw, and it drops a large pine, willow or birch in one pull."
+    "DefaultText": "A large two-handled saw with a forged iron blade. Tougher than the copper saw, and it drops a large pine or willow in one pull."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "act_iron_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 2 iron sheets, 4 metal nails and 2 wood using a hammer.\n\n<b>Uses:</b> Cuts large trees faster than the copper saw: a large pine, willow or birch falls in one pull and a large oak in two. Can be recycled in a furnace."
+    "DefaultText": "<b>Crafted:</b> From 2 iron sheets, 4 metal nails and 2 wood using a hammer.\n\n<b>Uses:</b> Cuts large trees faster than the copper saw while sharp: a large pine or willow falls in one pull and a large birch or oak in two. Each pull adds 1 Dullness; at 25 it is blunt and cuts like an axe until you drag a stone or whetstone onto it. Can be recycled in a furnace."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -119,7 +119,20 @@
     "Active": false
   },
   "SpecialDurability1": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_large_saw",
+      "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_SpecialDurability1.CardStatName",
+      "DefaultText": "Dullness"
+    },
+    "MaxValue": 25.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
   },
   "SpecialDurability2": {
     "Active": false
@@ -130,7 +143,146 @@
   "SpecialDurability4": {
     "Active": false
   },
-  "CardInteractions": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_Sharpen_ActionName",
+        "DefaultText": "Sharpen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_Sharpen_ActionDescription",
+        "DefaultText": "Sharpen the saw's teeth so it fells fast again."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "SharpeningMetal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "8695a7aa22521aa45be582d3c1558f78"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -25.0,
+          "y": -25.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_Sharpen_ActionName",
+        "DefaultText": "Sharpen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_Sharpen_ActionDescription",
+        "DefaultText": "Sharpen the saw's teeth so it fells fast again."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "SharpeningMetal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "a7384e5147b23a642809451cc4ef24fb"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -25.0,
+          "y": -25.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_Sharpen_ActionName",
+        "DefaultText": "Sharpen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_IronLargeSaw_Sharpen_ActionDescription",
+        "DefaultText": "Sharpen the saw's teeth so it fells fast again."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "SharpeningMetal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "82c2223daea9801488123f7264fd4527"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -25.0,
+          "y": -25.0
+        }
+      }
+    }
+  ],
   "DismantleActions": [],
   "PassiveStatEffects": [],
   "PassiveEffects": [],

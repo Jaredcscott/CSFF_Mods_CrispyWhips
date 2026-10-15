@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm",
     "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Take a warm bath to reduce dirtiness and greatly improve mood. Add more firewood to keep it warm longer."
+    "DefaultText": "<b>Usage:</b> Take a warm bath to reduce dirtiness and improve mood. Add more firewood to keep it warm longer."
   },
   "CardType": 0,
   "ObjectWeight": 900.0,

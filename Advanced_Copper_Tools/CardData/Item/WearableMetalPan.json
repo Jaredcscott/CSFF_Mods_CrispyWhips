@@ -489,7 +489,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
         "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_MeltFat_ActionDescription",
-        "DefaultText": "Render fat in the hot pan to produce cooking oil."
+        "DefaultText": "Render fat in the hot pan into an empty clay bowl to produce cooking oil. Uses up the bowl."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -501,6 +501,9 @@
         "Fire_Generic_Large"
       ],
       "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [
+        { "TriggerCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c", "TriggerCardWarpType": 3 }
+      ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],
@@ -747,7 +750,7 @@
               },
               "DropChance": {
                 "Active": true,
-                "BaseDropChance": 15.0
+                "BaseDropChance": 35.0
               }
             }
           ]

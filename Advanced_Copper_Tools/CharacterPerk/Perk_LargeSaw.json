@@ -18,6 +18,9 @@
     "advanced_copper_tools_large_saw"
   ],
   "EquippedCardsWarpType": 3,
+  "EquippedCardsStats": [
+    { "Card": "advanced_copper_tools_large_saw", "UsageDurability": 50, "SpecialDurability4": 100 }
+  ],
   "HiddenUntilUnlocked": false,
   "MoonsCost": 0,
   "NestedObjectives": [],
@@ -34,7 +37,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with a large copper saw for cutting trees quickly.",
+    "DefaultText": "Start with a worn large copper saw (half its durability left) for cutting trees quickly.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_LargeSaw_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_large_saw"
   },
@@ -63,7 +66,7 @@
   "StartUnlocked": false,
   "StartingStatModifiers": [],
   "StatsObjectives": [],
-  "SunsCost": 45,
+  "SunsCost": 30,
   "TagsOnBoardObjectives": [],
   "TimeObjectives": [],
   "UniqueID": "advanced_copper_tools_perk_large_saw",

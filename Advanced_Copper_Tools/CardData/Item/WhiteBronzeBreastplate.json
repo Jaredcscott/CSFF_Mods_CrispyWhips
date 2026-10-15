@@ -64,13 +64,13 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 100.0,
+    "FloatValue": 46080.0,
     "CardStatName": {
       "ParentObjectID": "act_whitebronze_breastplate",
       "LocalizationKey": "Advanced_Copper_Tools_WhiteBronzeBreastplate_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
-    "MaxValue": 100.0,
+    "MaxValue": 46080.0,
     "RatePerDaytimePoint": 0.0,
     "HidingOptions": 1,
     "TextDisplay": 1,

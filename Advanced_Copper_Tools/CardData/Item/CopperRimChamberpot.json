@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
     "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_CardDescription",
-    "DefaultText": "A clay chamberpot with a hammered copper rim. Saves a cold trip outside at night. Holds four uses before it needs emptying."
+    "DefaultText": "A clay chamberpot with a hammered copper rim. Relieve yourself in it instead of a cold trip outside. Holds four uses before it needs emptying."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
     "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_CardHelpSection",
-    "DefaultText": "<b>Use:</b> A small mood bump for not having to go outside. Fills up after 4 uses.\n\n<b>Empty:</b> Empty it out once full to use it again. The waste makes a pile of manure for the compost bin or fields."
+    "DefaultText": "<b>Use:</b> Urinate or defecate in it when you need to, with a small mood bump for not having to go outside. Fills up after 4 uses.\n\n<b>Empty:</b> Empty it out to use it again. If you defecated in it, the waste makes a pile of manure for the compost bin or fields."
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
@@ -69,7 +69,22 @@
     "HasActionOnZero": false,
     "CountsForTradingValue": false
   },
-  "SpecialDurability2": { "Active": false },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_SpecialDurability2.CardStatName",
+      "DefaultText": "Waste"
+    },
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
+  },
   "SpecialDurability3": { "Active": false },
   "SpecialDurability4": { "Active": false },
   "CardInteractions": [],
@@ -77,12 +92,12 @@
     {
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Use_ActionName",
-        "DefaultText": "Use"
+        "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Urinate_ActionName",
+        "DefaultText": "Urinate"
       },
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Use_ActionDescription",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Urinate_ActionDescription",
         "DefaultText": "No need to brave the cold and dark."
       },
       "DaytimeCost": 0,
@@ -91,10 +106,28 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [ "Clay" ],
+      "ActionSoundsWarpData": [
+        "Clay"
+      ],
       "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "6463ed10fe0942e4993dbdab67c0c5a1",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 23.5,
+            "y": 1000000000.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
       "RequiredReceivingDurabilities": {
-        "RequiredSpecial1Percent": { "Active": true, "FloatValue": 0.0, "MaxValue": 0.99 },
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.99
+        },
         "HideActionIfNotMet": true,
         "FailMessage": {
           "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
@@ -104,16 +137,226 @@
       },
       "StatModifications": [
         {
-          "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "ValueModifier": { "x": 5.0, "y": 5.0 },
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -10000.0,
+            "y": -10000.0
+          },
+          "StatWarpData": "6463ed10fe0942e4993dbdab67c0c5a1",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
           "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
           "StatWarpType": 3
         }
       ],
       "ReceivingCardChanges": {
         "ModType": 1,
-        "Special1Change": { "x": 1.0, "y": 1.0 }
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
       }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Defecate_ActionName",
+        "DefaultText": "Defecate"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Defecate_ActionDescription",
+        "DefaultText": "No need to brave the cold and dark. Leaves waste in the pot that will make manure when you empty it."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Clay"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "e75e3b618f3185d4ba088108d39023a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 171.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "StatWarpData": "7d92f27f60c110a45b9682a476b836f5",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 148.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.99
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
+          "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Use_FailMessage",
+          "DefaultText": "It's full. Empty it first."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": -384.0,
+            "y": -384.0
+          },
+          "StatWarpData": "e75e3b618f3185d4ba088108d39023a2",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+          "StatWarpType": 3
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "Special2Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_EmptyManure_ActionName",
+        "DefaultText": "Empty and Collect Manure"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_EmptyManure_ActionDescription",
+        "DefaultText": "Empty it out so it can be used again. The waste makes a pile of manure."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
+          "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Empty_FailMessage",
+          "DefaultText": "Already empty."
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -4.0,
+          "y": -4.0
+        },
+        "Special2Change": {
+          "x": -4.0,
+          "y": -4.0
+        }
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "13a8c87f287f39b45b3bfdde3d860cbe",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "ActionName": {
@@ -124,7 +367,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
         "LocalizationKey": "Advanced_Copper_Tools_CopperRimChamberpot_Empty_ActionDescription",
-        "DefaultText": "Empty it out so it can be used again. Leaves a pile of manure."
+        "DefaultText": "Empty it out so it can be used again."
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
@@ -132,10 +375,21 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [ "Water" ],
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
-        "RequiredSpecial1Percent": { "Active": true, "FloatValue": 0.01, "MaxValue": 1.0 },
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.01
+        },
         "HideActionIfNotMet": true,
         "FailMessage": {
           "ParentObjectID": "advanced_copper_tools_copper_rim_chamberpot",
@@ -145,22 +399,11 @@
       },
       "ReceivingCardChanges": {
         "ModType": 1,
-        "Special1Change": { "x": -4.0, "y": -4.0 }
-      },
-      "ProducedCards": [
-        {
-          "CollectionName": "",
-          "CollectionWeight": 1,
-          "DroppedCards": [
-            {
-              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "13a8c87f287f39b45b3bfdde3d860cbe",
-              "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 1 }
-            }
-          ]
+        "Special1Change": {
+          "x": -4.0,
+          "y": -4.0
         }
-      ]
+      }
     }
   ],
   "PassiveStatEffects": [],

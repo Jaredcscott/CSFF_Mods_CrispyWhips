@@ -102,43 +102,6 @@
     {
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_copper_watering_can",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperWateringCan_Drink_ActionName",
-        "DefaultText": "Drink"
-      },
-      "ActionSounds": [],
-      "ActionTags": [],
-      "DaytimeCost": 0,
-      "UseMiniTicks": 1,
-      "ActionTagsWarpData": [ "EatingAction" ],
-      "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [ "Drink" ],
-      "ActionSoundsWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredLiquidQuantity": 1.0,
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "ParentObjectID": "advanced_copper_tools_copper_watering_can",
-          "LocalizationKey": "Advanced_Copper_Tools_CopperWateringCan_Drink_FailMessage",
-          "DefaultText": "The can is empty."
-        }
-      },
-      "StatModifications": [
-        {
-          "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "ValueModifier": { "x": 40.0, "y": 40.0 },
-          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
-          "StatWarpType": 3
-        }
-      ],
-      "ReceivingCardChanges": {
-        "ModType": 1,
-        "ModifyLiquid": true,
-        "LiquidQuantityChange": { "x": -300.0, "y": -300.0 }
-      }
-    },
-    {
-      "ActionName": {
-        "ParentObjectID": "advanced_copper_tools_copper_watering_can",
         "LocalizationKey": "Advanced_Copper_Tools_CopperWateringCan_Empty_ActionName",
         "DefaultText": "Empty Out"
       },

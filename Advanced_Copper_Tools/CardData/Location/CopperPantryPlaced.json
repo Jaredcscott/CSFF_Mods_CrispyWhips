@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_pantry_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_CardDescription",
-        "DefaultText": "A sealed copper chest with thick insulated walls. Keeps food dramatically colder, greatly slowing spoilage and keeping vanilla wildlife out."
+        "DefaultText": "A sealed copper chest with thick insulated walls. Keeps food cool, slowing spoilage and keeping vanilla wildlife out."
     },
     "CanBeRenamed": true,
     "AlternateNames": [],
@@ -20,7 +20,7 @@
     "CardHelpSection": {
         "ParentObjectID": "advanced_copper_tools_copper_pantry_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_Placed_CardHelpSection",
-        "DefaultText": "<b>Spoilage:</b> Slows to 20% of normal rate.\n\n<b>Animals:</b> Vanilla wildlife cannot raid this chest. If Harsh Wilds is installed, its autumn black bear can still take meat or fish stored in a placed chest."
+        "DefaultText": "<b>Spoilage:</b> Slows to 55% of normal rate.\n\n<b>Animals:</b> Vanilla wildlife cannot raid this chest. If Harsh Wilds is installed, its autumn black bear can still take meat or fish stored in a placed chest."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -71,7 +71,7 @@
     "IsWeaponSheath": false,
     "OpenOnTab": 0,
     "DontRememberLastOpenTab": false,
-    "MaxWeightCapacity": 10000.0,
+    "MaxWeightCapacity": 5000.0,
     "ContentWeightReduction": 0.0,
     "InventorySlots": [],
     "InventoryFilter": {
@@ -156,7 +156,7 @@
             },
             "StatModifiers": [],
             "MultiplySpoilageRate": true,
-            "SpoilageRateModifier": { "Active": true, "FloatValue": 0.20 },
+            "SpoilageRateModifier": { "Active": true, "FloatValue": 0.55 },
             "UsageRateModifier": { "Active": false, "FloatValue": 0.0 },
             "FuelRateModifier": { "Active": false, "FloatValue": 0.0 },
             "ConsumableChargesModifier": { "Active": false, "FloatValue": 0.0 },

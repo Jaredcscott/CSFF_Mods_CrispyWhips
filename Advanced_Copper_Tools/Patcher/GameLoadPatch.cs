@@ -59,7 +59,6 @@ namespace Advanced_Copper_Tools.Patcher
                 PatchNailInterchangeability(allData);
                 PatchSheetInterchangeability(allData);
                 HammerGroupPatch.Populate(allData);
-                MineDarknessPatch.Apply(allData);
             }
             catch (Exception ex)
             {
@@ -307,6 +306,9 @@ namespace Advanced_Copper_Tools.Patcher
                 added++;
             }
 
+            if (modArmorCards.Count > 0)
+                RaisePreLeatherParityUsage(modArmorCards, phase);
+
             if (modArmorCards.Count > 0 && string.Equals(phase, "save-load", StringComparison.OrdinalIgnoreCase))
                 RefreshArmorPassiveEffects(modArmorCards);
 
@@ -314,6 +316,64 @@ namespace Advanced_Copper_Tools.Patcher
                 Logger?.LogDebug($"[ACT-Fix] Armor combat list repaired ({added} card(s), {phase}).");
 
             return added;
+        }
+
+        // ACT 1.18.9 (ACT-B7): every helmet, armor, bracer and greave had Usage 90..140 while each
+        // enemy hit on its slot costs 250 (EncounterPopup.ArmorDefaultDurabilityDamage), so the first
+        // hit destroyed it. The JSON now carries leather parity, 46080 (185 hits). A piece saved before
+        // the change keeps its old CURRENT Usage, so raise it once here. Idempotent across every
+        // OnGMInitialized re-fire and every encounter: only a piece sitting EXACTLY on its own old
+        // maximum is raised. A new piece worn by k hits reads 46080 - 250k, which is 80 mod 250, and
+        // none of 90, 100, 120, 140 is, so a raised piece can never be raised twice. Any old piece
+        // that was hit even once was destroyed, so every surviving old piece is at its old maximum.
+        // Shields are not in this table (their Usage was already in the thousands).
+        private const float LeatherParityUsage = 46080f;
+
+        private static readonly System.Collections.Generic.Dictionary<string, float> PreParityArmorUsageMax =
+            BuildPreParityArmorUsageMax();
+
+        private static System.Collections.Generic.Dictionary<string, float> BuildPreParityArmorUsageMax()
+        {
+            var map = new System.Collections.Generic.Dictionary<string, float>(StringComparer.OrdinalIgnoreCase);
+            string[] pieces = { "helmet", "breastplate", "gauntlets", "greaves" };
+            foreach (var p in pieces)
+            {
+                map["act_tin_" + p] = 90f;
+                map["advanced_copper_tools_copper_" + p] = 100f;
+                map["act_whitebronze_" + p] = 100f;
+                map["act_bronze_" + p] = 120f;
+                map["act_ghostbronze_" + p] = 120f;
+            }
+            map["act_iron_helmet"] = 140f;
+            map["act_iron_breastplate_f"] = 140f;
+            map["act_iron_breastplate_m"] = 140f;
+            map["act_iron_gauntlets"] = 140f;
+            map["act_iron_greaves"] = 140f;
+            return map;
+        }
+
+        private static void RaisePreLeatherParityUsage(System.Collections.Generic.List<object> modArmorCards, string phase)
+        {
+            int raised = 0;
+            foreach (var card in modArmorCards)
+            {
+                var uid = GetCardUid(card);
+                if (uid == null || !PreParityArmorUsageMax.TryGetValue(uid, out float oldMax)) continue;
+
+                float current = CardUtil.GetDurability(card, "UsageDurability");
+                if (float.IsNaN(current))
+                {
+                    WarnArmorRepairOnce("ArmorUsage-NaN", "RaisePreLeatherParityUsage: UsageDurability not readable (reflection miss) - pre-1.18.9 armor keeps its old one-hit durability. Possible field rename after a game update.");
+                    continue;
+                }
+                if (Math.Abs(current - oldMax) > 0.01f) continue;
+
+                if (CardUtil.SetDurability(card, "UsageDurability", LeatherParityUsage)) raised++;
+                else WarnArmorRepairOnce("ArmorUsage-write", "RaisePreLeatherParityUsage: UsageDurability write failed - pre-1.18.9 armor keeps its old one-hit durability.");
+            }
+
+            if (raised > 0)
+                Logger?.LogInfo($"[ACT-Fix] Raised {raised} pre-1.18.9 armor piece(s) to {LeatherParityUsage} durability ({phase}).");
         }
 
         private static int AddArmorFromList(IEnumerable cards, System.Collections.IList armorCards, System.Collections.Generic.List<object> modArmorCards)

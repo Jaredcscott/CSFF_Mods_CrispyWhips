@@ -52,11 +52,11 @@ A portable fireplace that holds cooking like a campfire. Burns longer than a cam
 
 **Recipe (two stages):** first cast the stove top with a Small Molten Crucible (not consumed), 2 mud bricks and 2 clay; then assemble it from 4 metal sheets of one metal + 4 copper nails + a forge hammer, mallet, stone, antler or shovel (not consumed) + 1 Tin Solder. The stove is the metal of its sheets (Small Tin Stove, Small White Bronze Stove and so on) and keeps it when placed, lit, put out and picked up. A Stove Top or Stove Top Mold from an older save still works as an item: Break the mold with a hammer, then use Cut Up on the Stove Top to get 2 metal sheets of its metal.
 
-**Unlock:** once you hold a Metal Sheet, the stove can be researched (64 ticks). The Cast Stove Top Mold blueprint is gone: the stove casts its own top.
+**Unlock:** once you hold a Metal Sheet, the stove can be researched (96 ticks). The Cast Stove Top Mold blueprint is gone: the stove casts its own top.
 
 **How to use:**
 1. Place the stove anywhere (outdoors or in a sheltered location).
-2. Add firewood, twigs, or charcoal as fuel. Fuel capacity: 300 units (oak +96, charcoal +8, twigs +24).
+2. Add firewood, twigs, or charcoal as fuel. Fuel capacity: 144 units (oak +42, charcoal +8, twigs +7).
 3. Drag a fire source (tinder, torch, another fire) onto the stove to light it.
 4. Place food items or liquid containers on it. It holds 600 weight, the same as a Campfire: one cooking pot or two clay bowls. A clay or copper cauldron is too heavy for it.
 5. The stove generates charcoal and ash during burning. Collect them for other uses.
@@ -65,7 +65,7 @@ A portable fireplace that holds cooking like a campfire. Burns longer than a cam
 
 **Comfort:** a placed stove, lit or not, adds Sanctuary to where it stands: +75 in copper or Tin Bronze, +80 in Ghost Bronze, +65 in Tin, +90 in White Bronze.
 
-**Burn time:** a full lit stove burns about 75 hours in copper or White Bronze, 83 in Ghost Bronze, 60 in Tin and 94 in Tin Bronze. These per-metal numbers may change in a later version.
+**Burn time:** a full lit stove burns about 36 hours in copper or White Bronze, 40 in Ghost Bronze, 29 in Tin and 45 in Tin Bronze. These per-metal numbers may change in a later version.
 
 **Pick up:** Extinguish first, then use the Pick Up action. You can carry it to a new location and place it again; the fuel left in it goes with it.
 
@@ -93,13 +93,13 @@ A multi-metal frying pan that you can wear, cook in, and use to purify water.
 
 **To recover:** Dismantle the wearable pan to get back the shaped pan head and the parts that went into it.
 
-**Panning for tin:** At any place with a river, the wearable pan offers **Pan for Stream Tin** (the unassembled pan head does not). Each try takes an hour and has a 15% chance of one Tin Ore, which smelts like mined ore. Each try costs the wearable pan 1 of its 100 uses. It is slow, but it gets Tin Solder going before you reach the Tin Vein Cave.
+**Panning for tin:** Wherever a river is on the board, the wearable pan offers **Pan for Stream Tin** (the unassembled pan head does not). Each try takes an hour and has a 35% chance of one Tin Ore, which smelts into tin nuggets for Tin Solder. Each try costs the wearable pan 1 of its 100 uses. Panning is the only source of Tin Ore, so keep the pan with you near rivers.
 
 ---
 
 ## Large Copper Saw
 
-A two-handed saw that fells large trees significantly faster than any vanilla axe.
+A two-handed saw that fells large trees faster than any vanilla axe while it is sharp.
 
 **Recipe:** 3 metal sheets of one metal + 2 wood + 2 copper nails + hammer (not consumed) + 1 Tin Solder. The saw is the metal of its sheets.
 
@@ -107,13 +107,15 @@ A two-handed saw that fells large trees significantly faster than any vanilla ax
 
 | Saw | Large pine or willow | Large birch | Large oak | Lasts about |
 |-----|:--:|:--:|:--:|:--:|
-| Copper | 1 pull | 2 pulls | 2 pulls | 100 pulls |
-| Ghost Bronze | 1 pull | 2 pulls | 2 pulls | 166 pulls |
+| Copper | 2 pulls | 3 pulls | 3 pulls | 100 pulls |
+| Ghost Bronze | 2 pulls | 3 pulls | 3 pulls | 166 pulls |
 | Tin | 2 pulls | 2 pulls | 3 pulls | 66 pulls |
-| Tin Bronze | 1 pull | 2 pulls | 2 pulls | 200 pulls |
-| White Bronze | 1 pull | 1 pull | 2 pulls | 80 pulls |
+| Tin Bronze | 2 pulls | 3 pulls | 3 pulls | 200 pulls |
+| White Bronze | 1 pull | 2 pulls | 2 pulls | 80 pulls |
 
 These per-metal numbers may change in a later version.
+
+**Sharpening:** each bonus pull adds 1 Dullness. At 25 the saw is blunt and fells like an axe (2, 3 and 4 pulls) until you drag a heavy stone, a stone or a whetstone onto it to **Sharpen** it.
 
 **Small trees:** Works normally through the standard `tag_Axe` tree-cutting interaction; no extra bonus on small trees.
 
@@ -123,7 +125,7 @@ These per-metal numbers may change in a later version.
 
 **Recipe:** 2 Iron Sheets + 2 wood + 4 nails of any metal + hammer (not consumed). It unlocks once you hold an Iron Sheet and needs no Tin Solder.
 
-It adds **−50 Progress** instead of −25, so −75 per swing: a large pine, willow or birch falls in one swing and a large oak in two. It lasts 150 uses against the copper saw's 100.
+It adds **−25 Progress** while sharp, so −50 per swing: a large pine or willow falls in one swing and a large birch or oak in two. It blunts and sharpens like the copper saw. It lasts 150 uses against the copper saw's 100.
 
 ---
 
@@ -146,9 +148,9 @@ Three wooden shields faced with metal, all in **Construction → Metal Tools**. 
 
 | Shield | Recipe (hammer is not consumed) | Arm armor (vs spiritual) | Durability | Melts to |
 |---|---|:--:|:--:|:--:|
-| Copper Shield | 3 copper sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder, once you have a Metal Sheet | 90 (140) | 8000 | 22 copper nuggets |
-| Iron Shield | 3 iron sheets + 1 plank + 4 nails of any metal + 1 medium leather, once you have an Iron Sheet | 110 (160) | 10000 | 30 iron nuggets |
-| Ghost Bronze Shield | 3 Ghost Bronze sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder, once you have a Ghost Bronze sheet | 95 (175) | 9000 | 25 Ghost Bronze nuggets |
+| Copper Shield | 3 copper sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder, once you have a Metal Sheet | 80 (130) | 5000 | 22 copper nuggets |
+| Iron Shield | 3 iron sheets + 1 plank + 4 nails of any metal + 1 medium leather, once you have an Iron Sheet | 95 (145) | 6500 | 30 iron nuggets |
+| Ghost Bronze Shield | 3 Ghost Bronze sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder, once you have a Ghost Bronze sheet | 85 (165) | 5500 | 25 Ghost Bronze nuggets |
 
 The Iron Shield blocks the most against any blow. The Ghost Bronze Shield blocks a little less in general but is the best ward against spiritual attacks, which is how most animals strike. With Community Mod Chest, the Iron and Ghost Bronze Shields are not yet taught by the Armorer course and use normal research.
 
@@ -158,14 +160,14 @@ Tin, Ghost Bronze, Tin Bronze and White Bronze each make their own four-piece su
 
 | Suit (Metal Type) | Head / Torso | Arms / Legs (each) | Durability | Special |
 |---|---:|---:|---:|---|
-| Copper (100) | 30 | 15 | 100 | the cheap first suit |
-| Tin (120) | 32.5 | 16 | 90 | the lightest metal suit; no Tin Solder and 2 copper nails a piece |
-| Ghost Bronze (110) | 35 | 16.5 | 120 | +12.5 head and torso, +7.5 each arm and leg against spiritual attacks; each piece makes Fear fall 0.25 faster per tick |
-| Tin Bronze (130) | 37.5 | 17.5 | 120 | the toughest bronze |
-| White Bronze (140) | 42.5 | 19 | 100 | +3 Courage per piece |
-| Iron (200) | 45 | 20 | 140 | the best raw protection |
+| Copper (100) | 30 | 15 | 46080 | the cheap first suit |
+| Tin (120) | 32.5 | 16 | 46080 | the lightest metal suit; no Tin Solder and 2 copper nails a piece |
+| Ghost Bronze (110) | 35 | 16.5 | 46080 | +12.5 head and torso, +7.5 each arm and leg against spiritual attacks; each piece makes Fear fall 0.25 faster per tick |
+| Tin Bronze (130) | 37.5 | 17.5 | 46080 | the middle bronze |
+| White Bronze (140) | 42.5 | 19 | 46080 | +3 Courage per piece |
+| Iron (200) | 45 | 20 | 46080 | the best raw protection |
 
-**Which one?** Ghost Bronze is for animal fights: wolves, bears, foxes, badgers and beavers attack with purely spiritual blows, and against those a Ghost Bronze piece blocks more than iron. White Bronze is the best armor short of iron and steadies your nerve. Tin is the step up when you have tin but no crucible. Tin Bronze (the old "Bronze" set) lasts longest. Dismantle a piece for sheets of its own metal, or melt it for nuggets of that metal.
+**Which one?** Ghost Bronze is for animal fights: wolves, bears, foxes, badgers and beavers attack with purely spiritual blows, and against those a Ghost Bronze piece blocks more than iron. White Bronze is the best armor short of iron and steadies your nerve. Tin is the step up when you have tin but no crucible. Tin Bronze (the old "Bronze" set) sits between copper and White Bronze. Every suit lasts as long as vanilla leather armor: about 185 hits on each piece. Dismantle a piece for sheets of its own metal, or melt it for nuggets of that metal.
 
 ---
 
@@ -182,9 +184,9 @@ A wearable cargo container that reduces the effective weight of everything you c
 | **Wheel Rim** | 1 heated metal bar + hammer |
 | **Wheel Hub** | Forged: 3 copper nuggets + hammer, or Cast: 2 mud bricks + 2 clay with a Small Molten Crucible (not consumed) |
 | **Wheel Assembly** | 1 rim + 1 hub + 1 wood + hammer + 1 Tin Solder |
-| **Wheelbarrow** | Bucket + handles + wheel assembly + 1 Tin Solder |
+| **Metal Wheelbarrow** | 1 wooden Wheelbarrow + bucket + handles + wheel assembly + 1 Tin Solder |
 
-**How to use:** Equip the Wheelbarrow. Items you load into it weigh less than they would in your hands. Permanent: does not degrade from normal use.
+**How to use:** The Metal Wheelbarrow is built on a vanilla wooden Wheelbarrow, which the recipe uses up. It holds 6000 weight, and 4500 of it does not count toward your load. Like the wooden one it slows you down while you hold it. Permanent: does not degrade from normal use.
 
 **Dismantle:** Returns bucket, handles, and wheel assembly.
 
@@ -194,7 +196,7 @@ A wearable cargo container that reduces the effective weight of everything you c
 
 ## Copper Bathtub
 
-A 3-state relaxation and cleansing structure. One of the best morale investments in the mod.
+A 3-state relaxation and cleansing structure.
 
 **Recipe:** 1 Wheelbarrow Bucket + 1 Small Copper Stove + 4 planks + 8 mud bricks + 1 large cloth + 4 long sticks + 3 small leather + hammer + 1 Tin Solder.
 
@@ -206,12 +208,11 @@ A 3-state relaxation and cleansing structure. One of the best morale investments
 - Fill from a water container or directly from a river (drag a filled container onto the tub).
 
 **Full (Cold)**
-- Take a **cold bath**: cleans one step below the river (Filth -400), clears rashes and wolfsbane, modest morale boost. You come out wet.
+- Take a **cold bath**: cleans one step below the river (Filth -400), clears rashes and wolfsbane, a little morale (3 to 5). You come out wet.
 - To heat: Add fuel, then drag a fire source (tinder/torch) to light the stove.
 
 **Full (Warm)** (Heat stat: 0–96, drains ~−0.25/daytime point ≈ 1 in-game day of warmth)
-- Take a **warm bath**: cleans as well as the river (Filth -500) and clears rashes and wolfsbane, with a major morale boost, spiritual benefit and body warmth. Keep the heat above half for a **hot bath**: the same wash with a bigger morale boost and less Stress. You come out wet.
-- Booked as one of the best available morale/hygiene actions in the game.
+- Take a **warm bath**: cleans as well as the river (Filth -500) and clears rashes and wolfsbane, with a small morale boost (8 to 12, less on repeats), spiritual benefit and body warmth. Keep the heat above half for a **hot bath**: the same wash and morale plus less Stress. You come out wet.
 
 ### Other Actions
 - **Wash with Soap** - drag vanilla Soap onto the warm tub for a clean as good as soap anywhere else (Filth -400, rashes and wolfsbane cleared) and a mood boost, without lighting the fire
@@ -377,11 +378,11 @@ A copper fire-bowl on a stick tripod that burns lamp oil. Place the kit, pour in
 
 A liquid container that heats water on a lit fire or stove.
 
-**Recipe:** 2 metal sheets + hammer (not consumed) + 1 Tin Solder. The water in it weighs nothing.
+**Recipe:** 2 metal sheets + hammer (not consumed) + 1 Tin Solder. It holds 1200 ml, like the vanilla Cooking Pot, and the water in it weighs nothing.
 
 **How to use:**
 1. Fill the kettle with water (drag a water source or water container onto it).
-2. Place the filled kettle on a lit fire or stove. Like a vanilla pot, it fits only a fire with room for its weight: the kettle weighs 180 and its water weighs nothing (content weight reduction 2400, its full capacity), so even a full kettle is 180 and fits a Campfire or the Small Copper Stove (capacity 600 each) as well as a Fireplace, Fire Pit or Oven.
+2. Place the filled kettle on a lit fire or stove. Like a vanilla pot, it fits only a fire with room for its weight: the kettle weighs 180 and its water weighs nothing (content weight reduction 1200, its full capacity), so even a full kettle is 180 and fits a Campfire or the Small Copper Stove (capacity 600 each) as well as a Fireplace, Fire Pit or Oven.
 3. The kettle's temperature rises via heat-transfer; the liquid runs its own boil-to-safe-water transform once hot enough.
 4. Remove from fire when boiled. Kettle cools down naturally once off the heat source.
 
@@ -424,13 +425,13 @@ A dedicated herb-processing workbench with six slots, a built-in water reservoir
 ### Using the Six Herb Slots
 
 Place fresh herbs, mushrooms, or dry-able items directly into the six slots:
-- Items dry passively over time, even unlit.
-- Lighting the stove speeds up drying and unlocks heating/cooking/water-boiling inside the slots.
+- Items dry passively over time, even unlit, at the vanilla Drying Rack pace.
+- Lighting the stove speeds up drying by half and unlocks heating/cooking/water-boiling inside the slots.
 - Suitable items: anything tagged `tag_Dryable` or `tag_DryableFastSpoilable`.
 
 ### Grind All
 
-The "Grind All" action button reads each slot item's own Grind interaction and grinds everything in one step (30 minutes). Works on any dried or millable item, with no need to drag grinding tools individually. Each powder keeps the freshness and quality a hand grind would give it, so an old herb makes old powder.
+The "Grind All" action button reads each slot item's own Grind interaction and grinds everything in one step, 15 minutes for each item ground. Works on any dried or millable item, with no need to drag grinding tools individually. Each powder keeps the freshness and quality a hand grind would give it, so an old herb makes old powder.
 
 ### Water Reservoir (built-in, 8 bowls of water)
 
@@ -444,7 +445,7 @@ The lit station heats its own reservoir: cold water in a lit station warms to us
 
 - **Light:** Drag a fire source (tinder/torch) onto the unlit station (requires ≥10% fuel).
 - **Extinguish:** DismantleAction button.
-- **Fuel:** Standard firewood/charcoal; same capacity as the Small Copper Stove.
+- **Fuel:** Standard firewood/charcoal; holds 300.
 
 ### Picking Up
 
@@ -458,7 +459,7 @@ A sealed, insulated storage chest that keeps food fresh far longer than open sto
 
 **Recipe:** 4 metal sheets + 4 planks + 6 copper nails + hammer + 1 Tin Solder.
 
-**Spoilage reduction:** Items stored inside spoil at **20% of their normal rate**, five times slower than leaving them out.
+**Spoilage reduction:** Items stored inside spoil at **55% of their normal rate**, a little better than a vanilla Rustic Barrel (60%). It holds 2500 weight carried and 5000 placed.
 
 **Animals:** Vanilla wildlife cannot raid the Copper Chest. Unlike the Wooden Pantry, it lacks the tag that animals can detect and target. If Harsh Wilds is installed, its autumn black bear can still destroy meat or fish stored in a placed Copper Chest.
 
@@ -470,7 +471,7 @@ A sealed, insulated storage chest that keeps food fresh far longer than open sto
 
 - **Fill:** drag the can onto a river, pond or other shallow water source. It holds 1500 ml.
 - **Water a garden plot:** drag the filled can onto a garden plot. Each watering takes 300 ml from the can, so a full can waters five times.
-- **Drink or empty:** Drink in a pinch, or Empty Out onto the ground.
+- **Drink or empty:** drinking from it uses the water's own Drink, as with any vessel, or Empty Out onto the ground.
 
 ## Salt-Cured Meat and Salt-Cured Fish
 
@@ -478,16 +479,6 @@ A sealed, insulated storage chest that keeps food fresh far longer than open sto
 - **Keeps:** both spoil far slower than the dried version (the fish lasts over twice as long as vanilla dried lean fish).
 - **Eat:** the salt costs a little Hydration. The fish is lighter than the meat.
 - **Partners:** an allied Partner eats both, and rendered Oil, when hungry, since all three count as human food (not yet confirmed in play); it leaves teas and the Watering Can alone.
-
-## Mother Lodes
-
-The Copper Vein Cave and the Iron Vein Cave each hide one collapsed seam, a **Copper Lode** or an **Iron Lode**. Drag a pickaxe (or a shovel, axe, antler or knife) onto it to **Clear the Seam**: each strike takes two hours, removes 1 of its 18 Rubble and wears the tool by 2. After the eighteenth strike the seam is a mother lode: **Mine** it with a pickaxe or **Chip Away** with an axe, hammer, shovel or antler, a little slower than the ordinary veins (2 hours 30 minutes a strike, like the game's own copper mine, with its Stamina cost), and it never runs out. Caves you built before this version have no lode; a new run or a cave first visited after this version does.
-
-## The Mines Are Dark
-
-All five ACT caves are dark. Without a light you cannot Mine, Chip Away, Clear the Seam or Dig Through: the game says "It's too dark for this action...". Carry a lit Metal Lantern or a torch, or set down a lit lantern, Copper Brazier or Small Copper Stove in the cave, and you can work. You can always leave a cave in the dark: travel never needs light.
-
-The Tin Vein Cave (Metal Mines) has a **Daylight Shaft**, a small hole in the roof. From 8:00 to 16:00 it lets in just enough light to see and dig by; at night that cave is dark too. Caught there with no light? Wait for morning, then dig out.
 
 ## Smelting Recovery
 

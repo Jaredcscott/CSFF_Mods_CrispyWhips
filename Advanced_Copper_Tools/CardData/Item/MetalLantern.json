@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_metal_lantern",
     "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_CardDescription",
-    "DefaultText": "A durable lantern built from a metal sheet and an oilwell, with a copper wire frame and an oiled parchment shade. Burns fuel to provide light. The mines are dark: carry it lit, or set it down lit, to mine and dig underground."
+    "DefaultText": "A durable lantern built from a metal sheet and an oilwell, with a copper wire frame and an oiled parchment shade. Burns fuel to provide light, carried or set down."
   },
   "AlternateNames": [
     {

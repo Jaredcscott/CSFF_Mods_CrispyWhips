@@ -163,6 +163,6 @@
   },
   "CardImageWarpData": "CopperArmor",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 32.0,
+  "BlueprintUnlockTicksCost": 96.0,
   "ResearchedNotification": 0
 }

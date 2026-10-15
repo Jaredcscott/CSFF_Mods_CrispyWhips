@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_tea_kettle",
     "LocalizationKey": "Advanced_Copper_Tools_CopperTeaKettle_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Fill with water (clean or dirty), place on fire or stove to heat. Boiling cleans dirty water and prepares it for brewing tea."
+    "DefaultText": "<b>Usage:</b> Fill with water (clean or dirty), place on fire or stove to heat. Boiling cleans dirty water and prepares it for brewing tea. Holds 1200 ml, like the vanilla Cooking Pot, and the water in it weighs nothing."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -292,8 +292,8 @@
       }
     }
   ],
-  "MaxLiquidCapacity": 2400.0,
-  "ContentWeightReduction": -2400.0,
+  "MaxLiquidCapacity": 1200.0,
+  "ContentWeightReduction": -1200.0,
   "InventorySlots": [],
   "InventorySlotsWarpData": [],
   "InventorySlotsWarpType": 3,

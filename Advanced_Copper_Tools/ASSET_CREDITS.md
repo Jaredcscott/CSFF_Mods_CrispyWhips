@@ -15,6 +15,6 @@ Since the 2026-10-12 owner art review, the Small Copper Stove, Large Saw (copper
 
 `ACT_CalmingTea.png`, `ACT_FocusTea.png`, `ACT_WarmingTea.png` and `ACT_Oil.png` are recoloured copies of the game's own `Bowl_Clay_Water` sprite (Card Survival: Fantasy Forest, EA 0.68b), made with `Development_Tools/CardArt/liquid_bowl.py`; only the liquid surface colour was changed.
 
-The tea station (`Tea_Station_Placed/Lit/Kit`), copper bathtub (`CopperBathtub_Empty/Full_Unlit/Warm/Kit`), `CopperSpigot`, `MineDaylightShaft` and `ToolBelt` pictures were regenerated 2026-10-12 with OpenArt (Nano Banana 2, image-to-image) using Chiwei's copper stove, the game's own sprites and this mod's tapped-tree art as references; provenance per image is in `.art/<ImageName>.json` (not shipped).
+The tea station (`Tea_Station_Placed/Lit/Kit`), copper bathtub (`CopperBathtub_Empty/Full_Unlit/Warm/Kit`), `CopperSpigot` and `ToolBelt` pictures were regenerated 2026-10-12 with OpenArt (Nano Banana 2, image-to-image) using Chiwei's copper stove, the game's own sprites and this mod's tapped-tree art as references; provenance per image is in `.art/<ImageName>.json` (not shipped).
 
 When adding external, commissioned, AI-generated, or derived artwork, record the source, author/tool, license or terms, and any attribution text here before publishing the mod package.

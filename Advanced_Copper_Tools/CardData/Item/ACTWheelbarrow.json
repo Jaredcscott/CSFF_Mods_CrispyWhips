@@ -3,12 +3,12 @@
   "CardName": {
     "ParentObjectID": "advanced_copper_tools_wheelbarrow",
     "LocalizationKey": "Advanced_Copper_Tools_Wheelbarrow_CardName",
-    "DefaultText": "Wheelbarrow"
+    "DefaultText": "Metal Wheelbarrow"
   },
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_wheelbarrow",
     "LocalizationKey": "Advanced_Copper_Tools_Wheelbarrow_CardDescription",
-    "DefaultText": "A sturdy wheelbarrow for hauling heavy loads."
+    "DefaultText": "A metal wheelbarrow built on a wooden one. Hauls more than the wooden wheelbarrow and never wears out, but slows you down while you push it."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_wheelbarrow",
     "LocalizationKey": "Advanced_Copper_Tools_Wheelbarrow_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From a bucket, handles, a wheel assembly and 1 tin solder.\n\n<b>Uses:</b> Transport heavy loads. Can be dismantled to recover components."
+    "DefaultText": "<b>Crafted:</b> From a wooden wheelbarrow, a bucket, handles, a wheel assembly and 1 tin solder.\n\n<b>Uses:</b> Holds 6000 weight, and 4500 of it does not count toward your load. Slows you down while held, like the wooden wheelbarrow. Can be dismantled to recover the bucket, handles and wheel assembly; the wooden wheelbarrow is used up."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -180,14 +180,64 @@
     }
   ],
   "PassiveStatEffects": [],
-  "PassiveEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Movement Penalty",
+      "OnlyWhenEquipped": false,
+      "OnlyWhenInHand": true,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "NotInBackground": true,
+        "InBackground": false,
+        "PlayerUsesCard": 0
+      },
+      "StatModifiers": [
+        {
+          "StatWarpData": "5326db2677ef1734c9298d881dcf0794",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 2.0, "y": 2.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "StatWarpData": "8612ed28995d13747b398b2c87ad81f1",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.0, "y": 1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "StatWarpData": "53d18ca1ad7ebd54e970ed24b0dab73c",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.0, "y": 1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ],
   "MaxLiquidCapacity": 0.0,
   "InventoryIsHidden": false,
   "IsMiniInventory": false,
   "CannotPutItemsIn": false,
   "CannotTakeItemsOut": false,
-  "MaxWeightCapacity": 13500.0,
-  "ContentWeightReduction": -13500.0,
+  "MaxWeightCapacity": 6000.0,
+  "ContentWeightReduction": -4500.0,
   "InventorySlots": [],
   "InventoryFilter": {
     "AcceptedCards": [],

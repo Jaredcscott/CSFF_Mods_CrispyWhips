@@ -116,6 +116,6 @@
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardImageWarpData": "IronHelmet",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 32.0,
+  "BlueprintUnlockTicksCost": 96.0,
   "ResearchedNotification": 0
 }

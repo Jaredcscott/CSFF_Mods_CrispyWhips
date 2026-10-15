@@ -195,6 +195,6 @@
   },
   "CardImageWarpData": "TinArmor",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 24.0,
+  "BlueprintUnlockTicksCost": 96.0,
   "ResearchedNotification": 0
 }

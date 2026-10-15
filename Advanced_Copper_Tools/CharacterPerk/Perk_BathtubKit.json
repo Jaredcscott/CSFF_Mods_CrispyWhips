@@ -46,7 +46,7 @@
   "EquippedCardsWarpData": [],
   "EquippedCardsWarpType": 3,
   "HiddenUntilUnlocked": false,
-  "MoonsCost": 1,
+  "MoonsCost": 2,
   "NestedObjectives": [],
   "NoSafetyMode": false,
   "NotifyWhenNotChecked": false,

@@ -19,7 +19,11 @@
       "cards": [
         "advanced_copper_tools_copper_nails",
         "advanced_copper_tools_bp_copper_nails",
-        "advanced_copper_tools_bp_cast_copper_nails"
+        "advanced_copper_tools_bp_cast_copper_nails",
+        "act_iron_nail",
+        "advanced_copper_tools_bp_iron_nails",
+        "act_tin_solder",
+        "advanced_copper_tools_bp_tin_solder"
       ]
     },
     {
@@ -42,7 +46,8 @@
         "advanced_copper_tools_wearable_metal_pan",
         "advanced_copper_tools_shape_metal_pan",
         "advanced_copper_tools_bp_pan_blank",
-        "advanced_copper_tools_bp_wearable_metal_pan"
+        "advanced_copper_tools_bp_wearable_metal_pan",
+        "act_tin_ore"
       ]
     },
     {
@@ -213,48 +218,6 @@
         "advanced_copper_tools_bp_copper_gauntlets",
         "advanced_copper_tools_bp_copper_greaves",
         "advanced_copper_tools_bp_copper_breastplate"
-      ]
-    },
-    {
-      "name": "Cave System",
-      "status": "Implemented",
-      "confidence": "MEDIUM",
-      "evidence": "multiple PASS (T1.33, T1.63, T2.5, T2.51); mother lodes (act_copper_lode, act_iron_lode) added 1.18.0, unverified; but T2.52's own note documents an unresolved reseal-on-reload regression on SealableGates (candidate fix fwk 2.21.3 never re-confirmed)",
-      "cards": [
-        "actCopperCaveLoc",
-        "actTinCaveLoc",
-        "actIronCaveLoc",
-        "actSaltMineLoc",
-        "actRockQuarryLoc",
-        "act_tin_vein",
-        "act_iron_vein",
-        "act_salt_vein",
-        "act_rock_vein",
-        "act_copper_vein",
-        "act_copper_lode",
-        "act_iron_lode",
-        "act_tin_ore",
-        "act_tin_solder",
-        "act_iron_nail",
-        "act_collapsed_wall_salt",
-        "act_collapsed_wall_quarry",
-        "act_collapsed_wall_salt_quarry",
-        "act_collapsed_wall_copper",
-        "act_collapsed_wall_iron",
-        "act_collapsed_wall_tin",
-        "advanced_copper_tools_bp_tin_solder",
-        "advanced_copper_tools_bp_iron_nails"
-      ]
-    },
-    {
-      "name": "Dark Mines",
-      "status": "Implemented",
-      "confidence": "unverified",
-      "evidence": "brand new in 1.18.0 (2026-10-02, plan C3): act_mine_darkness (CT13, InDarkPlace +1) in four caves and act_mine_daylight_shaft in the Metal Mines (InDarkPlace +1 plus a Light +15 08:00-16:00 TimeOfDayMods entry added by Patcher/MineDarknessPatch.cs, which also sets IsDarkPlace on the five cave env cards); Light 10..100 on all 22 mine, clear and dig CIs; old-save delivery through MapNodes ConditionalDrops is inferred, not run; harness scenario TestHarness/client/scenarios/ACT/T2.763_act_dark_mines.json and person rows T2.763 and T2.764 pending",
-      "cards": [
-        "act_mine_darkness",
-        "act_mine_daylight_shaft",
-        "advanced_copper_tools_metal_lantern"
       ]
     },
     {

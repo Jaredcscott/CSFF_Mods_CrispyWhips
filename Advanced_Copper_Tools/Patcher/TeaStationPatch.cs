@@ -81,9 +81,15 @@ namespace Advanced_Copper_Tools.Patcher
                     CardPredicate = ctx => ctx.CardUid == StationUnlitID || ctx.CardUid == StationLitID,
                     ActionNamePrefix = GrindAllName,
                     Timing = ActionTiming.AfterWrapped,
-                    Before = ctx => { MarkGrindPending(ctx.Card); return true; },
+                    Before = ctx =>
+                    {
+                        MarkGrindPending(ctx.Card);
+                        SetGrindCost(ctx.Action, ctx.Card);
+                        return true;
+                    },
                     After = ctx =>
                     {
+                        RestoreGrindCost(ctx.Action);
                         if (TakeGrindPending(ctx.Card))
                             HandleGrindAll(ctx.Card);
                         else
@@ -109,38 +115,68 @@ namespace Advanced_Copper_Tools.Patcher
         // ============================================================
         //  GRIND ALL HANDLER
         // ============================================================
-        private static void HandleGrindAll(object station)
-        {
-            if (station == null)
-            {
-                WarnOnce("station-null", "GrindAll: the router handed over a null station card; nothing ground");
-                return;
-            }
+        // ACT 1.18.9 (ACT-B11): Grind All costs one tick (15 min) per card it will grind, stacked
+        // cards included, like grinding each by hand, instead of a flat 2. The router's Before
+        // runs in the ActionRoutine prefix, before ActionRoutineSteps calls CollectActionModifiers
+        // (which copies DaytimeCost into TotalDaytimeCost), so the action's own time spend is the
+        // per-card cost. The action object is shared card data: the original cost is kept per
+        // action and restored in After, and every Set starts from the stored original.
+        private static readonly Dictionary<object, int> _grindBaseCost = new Dictionary<object, int>(ReferenceComparer.Instance);
+        private static FieldInfo _daytimeCostField;
 
-            // GetInventoryList returns null (it does not throw) when the station's inventory
-            // member cannot be read, which is a fault; an empty list is a player who loaded
-            // nothing, which is not.
+        private static FieldInfo DaytimeCostField(object action)
+        {
+            if (_daytimeCostField != null) return _daytimeCostField;
+            for (var t = action?.GetType(); t != null && _daytimeCostField == null; t = t.BaseType)
+                _daytimeCostField = t.GetField("DaytimeCost", Flags | BindingFlags.DeclaredOnly);
+            if (_daytimeCostField == null)
+                WarnOnce("daytimecost-field", "GrindAll: CardAction.DaytimeCost not found (reflection miss); Grind All keeps its flat cost");
+            return _daytimeCostField;
+        }
+
+        private static void SetGrindCost(object action, object station)
+        {
+            if (action == null || station == null) return;
+            var field = DaytimeCostField(action);
+            if (field == null) return;
+            try
+            {
+                if (!_grindBaseCost.ContainsKey(action))
+                    _grindBaseCost[action] = (int)field.GetValue(action);
+                var toGrind = CollectGrindables(station);
+                int cost = Math.Max(1, toGrind?.Count ?? 0);
+                field.SetValue(action, cost);
+                Logger?.LogDebug($"[TeaStation] GrindAll: {toGrind?.Count ?? 0} card(s) to grind, cost {cost} tick(s)");
+            }
+            catch (Exception ex) { WarnOnce("daytimecost-set", $"GrindAll: could not set the per-card cost: {FullException(ex)}"); }
+        }
+
+        private static void RestoreGrindCost(object action)
+        {
+            if (action == null || !_grindBaseCost.TryGetValue(action, out int original)) return;
+            var field = DaytimeCostField(action);
+            if (field == null) return;
+            try { field.SetValue(action, original); }
+            catch (Exception ex) { WarnOnce("daytimecost-restore", $"GrindAll: could not restore the action's cost: {FullException(ex)}"); }
+        }
+
+        // Every card the station would grind now, stacked cards included. Null when the
+        // inventory cannot be read (a fault, already warned); empty when nothing is millable.
+        private static List<(object card, GrindMatch match)> CollectGrindables(object station)
+        {
             var inventory = CardUtil.GetInventoryList(station);
             if (inventory == null)
             {
                 WarnOnce("station-inventory-null", "GrindAll: the station's inventory could not be read (reflection returned null); nothing ground");
-                return;
-            }
-            if (inventory.Count == 0)
-            {
-                Logger?.Log(LogLevel.Debug, "[TeaStation] GrindAll: empty station inventory");
-                return;
+                return null;
             }
 
-            // Collect individual cards that are millable, paired with the grind CI that makes them.
-            // The station holds InventorySlot wrappers; each slot holds 1+ stacked herb cards.
             var toGrind = new List<(object card, GrindMatch match)>();
-
             foreach (var slotItem in inventory)
             {
                 if (slotItem == null) continue;
 
-                // Try to get inner cards from the slot (InventorySlot wraps stacked cards)
+                // The station holds InventorySlot wrappers; each slot holds 1+ stacked herb cards.
                 var innerCards = CardUtil.GetInventoryList(slotItem);
                 if (innerCards != null && innerCards.Count > 0)
                 {
@@ -160,6 +196,22 @@ namespace Advanced_Copper_Tools.Patcher
                         toGrind.Add((slotItem, match));
                 }
             }
+            return toGrind;
+        }
+
+        private static void HandleGrindAll(object station)
+        {
+            if (station == null)
+            {
+                WarnOnce("station-null", "GrindAll: the router handed over a null station card; nothing ground");
+                return;
+            }
+
+            // GetInventoryList returns null (it does not throw) when the station's inventory
+            // member cannot be read, which is a fault (CollectGrindables warns and returns
+            // null); an empty list is a player who loaded nothing, which is not.
+            var toGrind = CollectGrindables(station);
+            if (toGrind == null) return;
 
             if (toGrind.Count == 0)
             {

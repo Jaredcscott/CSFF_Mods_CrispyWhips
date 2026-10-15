@@ -88,6 +88,6 @@
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardImageWarpData": "CopperRimChamberpot",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 4.0,
+  "BlueprintUnlockTicksCost": 48.0,
   "ResearchedNotification": 0
 }

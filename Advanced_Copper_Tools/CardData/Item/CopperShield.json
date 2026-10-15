@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "act_copper_shield",
     "LocalizationKey": "Advanced_Copper_Tools_CopperShield_CardDescription",
-    "DefaultText": "A wooden shield faced with hammered copper sheet. Held in hand like the wooden Shield, it guards the shield arm with 90 armor, 140 against spiritual attacks, and lasts much longer. Can be recycled in a furnace."
+    "DefaultText": "A wooden shield faced with hammered copper sheet. Held in hand like the wooden Shield, it guards the shield arm with 80 armor, 130 against spiritual attacks, and lasts as long as the wooden Shield. Can be recycled in a furnace."
   },
   "CardHelpSection": {
     "ParentObjectID": "act_copper_shield",
     "LocalizationKey": "Advanced_Copper_Tools_CopperShield_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 3 copper sheets, 1 plank, 4 copper nails, 1 medium leather and 1 tin solder using a hammer.\n\n<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 90 armor, 140 against spiritual attacks. It wears down slowly while equipped."
+    "DefaultText": "<b>Crafted:</b> From 3 copper sheets, 1 plank, 4 copper nails, 1 medium leather and 1 tin solder using a hammer.\n\n<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 80 armor, 130 against spiritual attacks. It wears down slowly while equipped."
   },
   "CardType": 0,
   "ObjectWeight": 800.0,
@@ -46,7 +46,7 @@
     "TorsoArmor": 0.0,
     "TorsoArmorModifiers": [],
     "TorsoHitProbabilityModifier": 0.0,
-    "LArmArmor": 90.0,
+    "LArmArmor": 80.0,
     "LArmArmorModifiers": [
       {
         "DmgType": {
@@ -80,13 +80,13 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 8000.0,
+    "FloatValue": 5000.0,
     "CardStatName": {
       "ParentObjectID": "act_copper_shield",
       "LocalizationKey": "Advanced_Copper_Tools_CopperShield_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
-    "MaxValue": 8000.0,
+    "MaxValue": 5000.0,
     "RatePerDaytimePoint": 0.0,
     "ExtraRateWhenEquipped": -1.0,
     "HidingOptions": 1,

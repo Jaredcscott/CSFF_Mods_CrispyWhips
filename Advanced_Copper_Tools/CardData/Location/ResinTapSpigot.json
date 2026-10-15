@@ -30,7 +30,7 @@
     "OnFull": {
       "ProducedCards": [
         {
-          "CollectionName": "Nothing",
+          "CollectionName": "Nothing", "RevealInventory": true,
           "CollectionWeight": 250,
           "DurabilitiesDropChanceModifier": {
             "Usage": {

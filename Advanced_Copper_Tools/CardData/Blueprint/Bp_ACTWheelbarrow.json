@@ -3,12 +3,12 @@
     "CardName": {
         "ParentObjectID": "advanced_copper_tools_bp_wheelbarrow",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_CardName",
-        "DefaultText": "Wheelbarrow"
+        "DefaultText": "Metal Wheelbarrow"
     },
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_wheelbarrow",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_CardDescription",
-        "DefaultText": "Construct a wheelbarrow for hauling heavy loads. Requires a bucket, handles, a wheel assembly and a Tin Solder."
+        "DefaultText": "Rebuild a wooden wheelbarrow in metal for hauling heavier loads. Requires a wooden wheelbarrow, a bucket, handles, a wheel assembly and a Tin Solder."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -88,6 +88,16 @@
                     "RequiredQuantity": 1,
                     "DontSpend": false,
                     "RequiredCardWarpData": "act_tin_solder",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "dce02ae0d98467f4fa175df16841500e",
                     "RequiredCardWarpType": 3
                 }
             ],

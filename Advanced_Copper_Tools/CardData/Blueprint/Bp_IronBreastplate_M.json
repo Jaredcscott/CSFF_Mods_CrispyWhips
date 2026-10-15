@@ -115,6 +115,6 @@
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardImageWarpData": "IronArmor_M",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 40.0,
+  "BlueprintUnlockTicksCost": 96.0,
   "ResearchedNotification": 0
 }

@@ -18,9 +18,9 @@ Audit score: 9/10 - PASS (0 open CRITICAL; consolidated 2026-10-11)
 
 **Theme**: Mid-game copper-and-bronze metalworking - a comfort/throughput/light tier layered on vanilla
 metallurgy, fully multi-metal (copper -> ghost/tin/tin-bronze/white bronze -> iron) with SD4 metal-type gating
-end to end, fed by its own mineable cave system (copper/tin/iron veins, salt mine, rock quarry).
+end to end, fed by vanilla ore sources plus Stream Tin panning (its own cave system was removed in 1.18.9).
 
-**Content**: 74 items / 64 blueprints / 29 structures (CT2) / 7 perks / 150 custom images / 1 WorldMap.
+**Content**: 74 items / 64 blueprints / 29 structures (CT2) / 7 perks / 150 custom images / 1 WorldMap (snapshot at 1.18.1; 1.18.9 removed the WorldMap and the cave cards).
 
 **Stability**: 9/10 PASS - 0 open CRITICAL, 0 Design Gap, 3 WARNING (2 reliability, 1 interop doctrine),
 2 MINOR. Builds clean after the 2026-10-11 lib refresh; code-quality 10/10.
@@ -29,7 +29,7 @@ end to end, fed by its own mineable cave system (copper/tin/iron veins, salt min
 `wikimod-old-save-load-crash` is Pending Verification and applies to every DATA mod, not to ACT code.
 
 **Framework compliance**: Tier 2 - uses `Api.*` / `ActionRouter` / `SpawnService`-class services across
-~8 patchers (`GameLoadPatch`, `HeatHeldLiquidPatch`, `TinOreSmeltPatch`, `IronVeinQualityPatch`,
+~7 patchers (`GameLoadPatch`, `HeatHeldLiquidPatch`, `TinOreSmeltPatch`,
 `SawEffectPatch`, `TeaStationPatch`, `VanillaFireKettlePatch`, `PartnerBlueprintGatePatch`). No deprecated
 patterns (`DropCollectionGuardPatch` / `InitializeNullFields` / `PatchAll()`). Versions synced 1.18.1 x3.
 Chinese localization present (`SimpCn.csv`, parity clean).
@@ -65,7 +65,7 @@ Chinese localization present (`SimpCn.csv`, parity clean).
 ### Copper Ore Crusher / secondary smelting yield
 **What**: a placed crusher (or drag-hammer CI on the stove/station) turning raw ore into a distinct
 "crushed ore" item that smelts at a better nugget yield.
-**Why**: the keystone that turns the cave veins from a flat drop into a processing chain the mining loop
+**Why**: the keystone that turns raw ore (vanilla greenstone and bog iron, panned tin ore) from a flat drop into a processing chain the mining loop
 already feeds; named as the mod's next major addition.
 **Requires**: crushed ore MUST be its own item with its OWN smelting entry - never a second recipe on the
 same item (CLAUDE.md Smelting, the WDI 48-vs-12 copper bug). Decide standalone-structure vs CI, and the
@@ -94,12 +94,8 @@ one comfort system; today their heat reaches only held liquids.
 (`CSFF_Patterns.md` light + fuel).
 **Complexity**: Medium.
 
-### Cave-lantern utility
-**What**: tie comfortable mining to carrying a lit Metal Lantern if vanilla exposes a cave-darkness penalty.
-**Why**: the mines are already dark and the lantern already lights them; this would deepen the dependency
-rather than leave the lantern optional.
-**Requires**: confirm the vanilla cave-darkness hook first.
-**Complexity**: Medium.
+### Cave-lantern utility (retired)
+2026-10-14: cave system removed (owner decision). ACT 1.18.9 dropped the five caves and the dark-mine mechanic, so this row has nothing left to build on; the Metal Lantern stays a plain light source.
 
 ---
 
@@ -115,8 +111,8 @@ rather than leave the lantern optional.
 ## Long-term Vision
 
 At v1.18+, ACT is the complete mid-game metallurgy layer: raw ore -> crushed ore -> alloyed nuggets ->
-graded sheets -> a full copper/bronze/iron gear tree, sourced end-to-end from its own cave system and
-interchangeable with WDI's water-driven hardware. The Ore Crusher is the keystone that turns the cave veins
+graded sheets -> a full copper/bronze/iron gear tree, sourced from vanilla ore plus Stream Tin panning and
+interchangeable with WDI's water-driven hardware. The Ore Crusher is the keystone that turns raw ore
 into a processing chain; the alloy step rounds out the "everything has an upgrade path" identity.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):

@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.advanced_copper_tools";
     public const string PluginName = "Advanced_Copper_Tools";
-    public const string PluginVersion = "1.18.8";
+    public const string PluginVersion = "1.18.9";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
@@ -34,13 +34,11 @@ internal class Plugin : ContentModPlugin
     protected override void RegisterPatches(Harmony harmony)
     {
         TryApply("SawEffectPatch", () => Advanced_Copper_Tools.Patcher.SawEffectPatch.ApplyPatch(harmony));
+        TryApply("PanMeltFatPatch", () => Advanced_Copper_Tools.Patcher.PanMeltFatPatch.ApplyPatch(harmony));
         TryApply("TeaStationPatch", () => Advanced_Copper_Tools.Patcher.TeaStationPatch.ApplyPatch(harmony));
         TryApply("GameLoadPatch", () => Advanced_Copper_Tools.Patcher.GameLoadPatch.ApplyPatch(harmony));
         TryApply("TinOreSmeltPatch", () => Advanced_Copper_Tools.Patcher.TinOreSmeltPatch.ApplyPatch(harmony));
-        TryApply("IronVeinQualityPatch", () => Advanced_Copper_Tools.Patcher.IronVeinQualityPatch.ApplyPatch(harmony));
         TryApply("PartnerBlueprintGatePatch", () => Advanced_Copper_Tools.Patcher.PartnerBlueprintGatePatch.ApplyPatch(harmony));
-        // Cave Prospector perk gating moved to WorldMap/MapNodes.json SealableGates (framework
-        // CSFFModFramework.Injection.SealableGateService) — ACTCaveGatePatch.cs retired.
         if (EnableLegacyStationLiquidHeater.Value)
         {
             TryApply("HeatHeldLiquidPatch", () => Advanced_Copper_Tools.Patcher.HeatHeldLiquidPatch.ApplyPatch(harmony));

@@ -221,6 +221,6 @@
     },
     "CardImageWarpData": "ACT_MetalStove_Off_Copper",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 64.0,
+    "BlueprintUnlockTicksCost": 96.0,
     "ResearchedNotification": 0
 }

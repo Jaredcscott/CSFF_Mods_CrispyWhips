@@ -107,6 +107,6 @@
     },
     "CardImageWarpData": "Fat",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 48.0,
     "ResearchedNotification": 0
 }

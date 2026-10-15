@@ -613,9 +613,9 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
         "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_GrindAll_ActionDescription",
-        "DefaultText": "Turn the rotary quern to grind every dried herb or millable root placed on the station."
+        "DefaultText": "Turn the rotary quern to grind every dried herb or millable root placed on the station. Takes 15 minutes for each item ground."
       },
-      "DaytimeCost": 2,
+      "DaytimeCost": 1,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -782,7 +782,7 @@
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
         "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_DryHerbsLit_ActionName",
-        "DefaultText": "Dry Herbs with Heat (Accelerated, Quality +0.3)"
+        "DefaultText": "Dry Herbs with Heat (Faster, Quality +0.3)"
       },
       "CustomCookingText": {
         "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
@@ -805,12 +805,12 @@
       "IngredientChanges": {
         "ModType": 1,
         "UsageChange": {
-          "x": 3.0,
-          "y": 3.0
+          "x": 1.5,
+          "y": 1.5
         },
         "SpoilageChange": {
-          "x": -2.5,
-          "y": -2.5
+          "x": -1.62,
+          "y": -1.62
         },
         "Special2Change": {
           "x": 0.3,

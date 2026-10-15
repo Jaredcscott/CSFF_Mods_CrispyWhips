@@ -334,7 +334,7 @@
   "FuelCapacity": {
     "Active": true,
     "FloatValue": 0.0,
-    "MaxValue": 300.0
+    "MaxValue": 144.0
   },
   "Progress": {
     "Active": false
@@ -417,7 +417,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_stove_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription",
-        "DefaultText": "Add oak wood as fuel (96h)"
+        "DefaultText": "Add oak wood as fuel (+42 fuel)"
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
@@ -442,8 +442,8 @@
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": {
-          "x": 96.0,
-          "y": 96.0
+          "x": 42.0,
+          "y": 42.0
         }
       },
       "CompatibleNPCDuties": [
@@ -462,7 +462,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_stove_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionDescription",
-        "DefaultText": "Add 3 twigs as fuel (24h)"
+        "DefaultText": "Add 3 twigs as fuel (+7 fuel)"
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
@@ -491,8 +491,8 @@
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": {
-          "x": 24.0,
-          "y": 24.0
+          "x": 7.0,
+          "y": 7.0
         }
       },
       "CompatibleNPCDuties": [

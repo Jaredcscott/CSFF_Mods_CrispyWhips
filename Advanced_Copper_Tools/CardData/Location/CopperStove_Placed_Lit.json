@@ -281,7 +281,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
     "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> A lit stove that holds 600 weight of cooking, like a campfire, and gives the same Sanctuary as its metal does unlit. Warms you in cold weather, dries you out, keeps bugs down and lights the area, but its fire makes you easier to spot. Consumes fuel over time: a full stove burns about 75 hours in copper or White Bronze, 83 in Ghost Bronze, 60 in Tin and 94 in Tin Bronze. Goes out when fuel is empty or when manually extinguished."
+    "DefaultText": "<b>Usage:</b> A lit stove that holds 600 weight of cooking, like a campfire, and gives the same Sanctuary as its metal does unlit. Warms you in cold weather, dries you out, keeps bugs down and lights the area, but its fire makes you easier to spot. Consumes fuel over time: a full stove burns about 36 hours in copper or White Bronze, 40 in Ghost Bronze, 29 in Tin and 45 in Tin Bronze. Goes out when fuel is empty or when manually extinguished."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -336,7 +336,7 @@
   },
   "FuelCapacity": {
     "Active": true,
-    "MaxValue": 300.0,
+    "MaxValue": 144.0,
     "RatePerDaytimePoint": -1.0,
     "HidingOptions": 0,
     "TextDisplay": 0,
@@ -542,7 +542,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription",
-        "DefaultText": "Add oak wood as fuel"
+        "DefaultText": "Add oak wood as fuel (+42 fuel)"
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
@@ -569,8 +569,8 @@
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": {
-          "x": 96.0,
-          "y": 96.0
+          "x": 42.0,
+          "y": 42.0
         }
       },
       "GivenCardChanges": {
@@ -592,7 +592,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionDescription",
-        "DefaultText": "Add twigs as fuel"
+        "DefaultText": "Add 3 twigs as fuel (+7 fuel)"
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
@@ -619,8 +619,8 @@
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": {
-          "x": 24.0,
-          "y": 24.0
+          "x": 7.0,
+          "y": 7.0
         }
       },
       "GivenCardChanges": {
@@ -1567,8 +1567,8 @@
           "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
           "StatWarpType": 3,
           "ValueModifier": {
-            "x": 12.0,
-            "y": 12.0
+            "x": 10.0,
+            "y": 10.0
           }
         }
       ]
@@ -1599,8 +1599,8 @@
           "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
           "StatWarpType": 3,
           "ValueModifier": {
-            "x": 6.0,
-            "y": 6.0
+            "x": 5.0,
+            "y": 5.0
           }
         }
       ]

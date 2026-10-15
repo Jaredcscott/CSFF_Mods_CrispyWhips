@@ -53,15 +53,13 @@
     "6c2001f42a960db4583cdd65a47ecf3c",
     "6c2001f42a960db4583cdd65a47ecf3c",
     "6c2001f42a960db4583cdd65a47ecf3c",
-    "3e94716876eae304787efa2ae0b43711",
-    "d324975282dbe87448ab07c28d6c62ea"
+    "3e94716876eae304787efa2ae0b43711"
   ],
   "AddedCardsWarpType": 3,
   "AddedCardsStats": [
     { "Card": "57460207bbf77fa4fb6720aed5d84851", "SpecialDurability4": 1 },
     { "Card": "669497ecaa30b634c86bea6b61f31e63", "SpecialDurability2": 50, "SpecialDurability4": 200 },
-    { "Card": "3e94716876eae304787efa2ae0b43711", "SpecialDurability2": 50 },
-    { "Card": "d324975282dbe87448ab07c28d6c62ea", "SpecialDurability2": 50, "SpecialDurability3": 50, "SpecialDurability4": 100 }
+    { "Card": "3e94716876eae304787efa2ae0b43711", "SpecialDurability2": 50 }
   ],
   "AddedStartingHours": 0,
   "CardsOnBoardObjectives": [],
@@ -91,7 +89,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with essential building materials: 10 planks, 10 small leather, 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger.",
+    "DefaultText": "Start with essential building materials: 10 planks, 10 small leather (raw: tan before using in blueprints), 10 long sticks, 20 mud bricks and a large cloth.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_building_materials"
   },

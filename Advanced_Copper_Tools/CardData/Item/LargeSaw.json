@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_CardDescription",
-    "DefaultText": "A large two-handled saw with a copper blade. Cuts trees much faster than an axe."
+    "DefaultText": "A large two-handled saw with a copper blade. Cuts large trees faster than an axe while it is sharp."
   },
   "CanBeRenamed": false,
   "AlternateNames": [
@@ -57,7 +57,7 @@
       },
       "Description": {
         "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[0].Description",
-        "DefaultText": "A large two-handled saw with a copper blade. Fells a large pine or willow in one pull, a large birch or oak in two, and lasts about 100 pulls."
+        "DefaultText": "A large two-handled saw with a copper blade. Fells a large pine or willow in two pulls, a large birch or oak in three, and lasts about 100 pulls."
       },
       "Art": {
         "CardImage": {
@@ -113,7 +113,7 @@
       },
       "Description": {
         "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[1].Description",
-        "DefaultText": "A large two-handled saw with a ghost bronze blade. Fells like copper (a large pine or willow in one pull, a large birch or oak in two) but wears slower: about 166 pulls."
+        "DefaultText": "A large two-handled saw with a ghost bronze blade. Fells like copper (a large pine or willow in two pulls, a large birch or oak in three) but wears slower: about 166 pulls."
       },
       "Art": {
         "CardImage": {
@@ -225,7 +225,7 @@
       },
       "Description": {
         "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[3].Description",
-        "DefaultText": "A large two-handled saw with a tin bronze blade. Fells like copper (a large pine or willow in one pull, a large birch or oak in two) and is the toughest: about 200 pulls."
+        "DefaultText": "A large two-handled saw with a tin bronze blade. Fells like copper (a large pine or willow in two pulls, a large birch or oak in three) and is the toughest: about 200 pulls."
       },
       "Art": {
         "CardImage": {
@@ -281,7 +281,7 @@
       },
       "Description": {
         "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[4].Description",
-        "DefaultText": "A large two-handled saw with a hard white bronze blade. Fells a large pine, willow or birch in one pull and a large oak in two, but it is brittle: about 80 pulls."
+        "DefaultText": "A large two-handled saw with a hard white bronze blade. Fells a large pine or willow in one pull and a large birch or oak in two, but it is brittle: about 80 pulls."
       },
       "Art": {
         "CardImage": {
@@ -301,7 +301,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 3 metal sheets of one metal, 2 Wood, 2 copper nails and 1 tin solder using a hammer. The saw is the metal of its sheets.\n\n<b>Uses:</b> Cuts large trees faster than an axe. Copper, Ghost Bronze and Tin Bronze fell a large pine or willow in one pull and a large birch or oak in two; White Bronze fells a pine, willow or birch in one pull and an oak in two; Tin takes two pulls for a pine, willow or birch and three for an oak. A saw lasts about 100 pulls in copper, 166 in Ghost Bronze, 66 in Tin, 200 in Tin Bronze and 80 in White Bronze. Use as a cutting tool."
+    "DefaultText": "<b>Crafted:</b> From 3 metal sheets of one metal, 2 Wood, 2 copper nails and 1 tin solder using a hammer. The saw is the metal of its sheets.\n\n<b>Uses:</b> Cuts large trees faster than an axe while sharp. Copper, Ghost Bronze and Tin Bronze fell a large pine or willow in two pulls and a large birch or oak in three; White Bronze fells a pine or willow in one pull and a birch or oak in two; Tin takes two pulls for a pine, willow or birch and three for an oak. Each pull adds 1 Dullness; at 25 the saw is blunt and cuts like an axe until you drag a stone or whetstone onto it to sharpen it. A saw lasts about 100 pulls in copper, 166 in Ghost Bronze, 66 in Tin, 200 in Tin Bronze and 80 in White Bronze. Use as a cutting tool."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -400,7 +400,20 @@
     "Active": false
   },
   "SpecialDurability1": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_large_saw",
+      "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_SpecialDurability1.CardStatName",
+      "DefaultText": "Dullness"
+    },
+    "MaxValue": 25.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
   },
   "SpecialDurability2": {
     "Active": false
@@ -433,7 +446,146 @@
     "HasActionOnFull": false,
     "CountsForTradingValue": false
   },
-  "CardInteractions": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Sharpen_ActionName",
+        "DefaultText": "Sharpen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Sharpen_ActionDescription",
+        "DefaultText": "Sharpen the saw's teeth so it fells fast again."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "SharpeningMetal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "8695a7aa22521aa45be582d3c1558f78"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -25.0,
+          "y": -25.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Sharpen_ActionName",
+        "DefaultText": "Sharpen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Sharpen_ActionDescription",
+        "DefaultText": "Sharpen the saw's teeth so it fells fast again."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "SharpeningMetal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "a7384e5147b23a642809451cc4ef24fb"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -25.0,
+          "y": -25.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Sharpen_ActionName",
+        "DefaultText": "Sharpen"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Sharpen_ActionDescription",
+        "DefaultText": "Sharpen the saw's teeth so it fells fast again."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "SharpeningMetal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "82c2223daea9801488123f7264fd4527"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -25.0,
+          "y": -25.0
+        }
+      }
+    }
+  ],
   "DismantleActions": [],
   "PassiveStatEffects": [],
   "PassiveEffects": [],

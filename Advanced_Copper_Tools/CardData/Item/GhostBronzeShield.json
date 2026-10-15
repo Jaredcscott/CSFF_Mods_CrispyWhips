@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "act_ghostbronze_shield",
     "LocalizationKey": "Advanced_Copper_Tools_GhostBronzeShield_CardDescription",
-    "DefaultText": "A wooden shield faced with pale Ghost Bronze sheet, cold to the touch. Held in hand like the wooden Shield, it guards the shield arm with 95 armor, 175 against spiritual attacks, a better ward against them than any other shield. Can be recycled in a furnace."
+    "DefaultText": "A wooden shield faced with pale Ghost Bronze sheet, cold to the touch. Held in hand like the wooden Shield, it guards the shield arm with 85 armor, 165 against spiritual attacks, a better ward against them than any other shield. Can be recycled in a furnace."
   },
   "CardHelpSection": {
     "ParentObjectID": "act_ghostbronze_shield",
     "LocalizationKey": "Advanced_Copper_Tools_GhostBronzeShield_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 3 Ghost Bronze sheets, 1 plank, 4 copper nails, 1 medium leather and 1 tin solder using a hammer.\n\n<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 95 armor, 175 against spiritual attacks. It wears down slowly while equipped."
+    "DefaultText": "<b>Crafted:</b> From 3 Ghost Bronze sheets, 1 plank, 4 copper nails, 1 medium leather and 1 tin solder using a hammer.\n\n<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 85 armor, 165 against spiritual attacks. It wears down slowly while equipped."
   },
   "CardType": 0,
   "ObjectWeight": 850.0,
@@ -46,7 +46,7 @@
     "TorsoArmor": 0.0,
     "TorsoArmorModifiers": [],
     "TorsoHitProbabilityModifier": 0.0,
-    "LArmArmor": 95.0,
+    "LArmArmor": 85.0,
     "LArmArmorModifiers": [
       {
         "DmgType": {
@@ -80,13 +80,13 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 9000.0,
+    "FloatValue": 5500.0,
     "CardStatName": {
       "ParentObjectID": "act_ghostbronze_shield",
       "LocalizationKey": "Advanced_Copper_Tools_GhostBronzeShield_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
-    "MaxValue": 9000.0,
+    "MaxValue": 5500.0,
     "RatePerDaytimePoint": 0.0,
     "ExtraRateWhenEquipped": -1.0,
     "HidingOptions": 1,

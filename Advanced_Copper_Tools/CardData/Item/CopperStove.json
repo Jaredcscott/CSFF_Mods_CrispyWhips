@@ -332,7 +332,7 @@
   "FuelCapacity": {
     "Active": true,
     "FloatValue": 0.0,
-    "MaxValue": 300.0
+    "MaxValue": 144.0
   },
   "Progress": {
     "Active": false

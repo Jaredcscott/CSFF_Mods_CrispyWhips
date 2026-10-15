@@ -15,12 +15,18 @@ namespace Advanced_Copper_Tools.Patcher
     /// The Large Copper Saw carries a Metal Type (SpecialDurability4, ACT 1.18.0, Documentation/Design/AdvancedCopperTools_Metal_Variant_Art_As_Built.md step 3)
     /// and its felling power and wear follow it (tunable placeholders, research
     /// Documentation/Research/AdvancedCopperTools/tierb-per-metal-stats.md section 3.1):
-    ///   Copper 100       -25 extra (50 per pull), wear 1.0  (100 pulls)
-    ///   Ghost Bronze 110 -25 extra (50 per pull), wear 0.6  (~166 pulls)
+    ///   Copper 100       -12 extra (37 per pull), wear 1.0  (100 pulls)
+    ///   Ghost Bronze 110 -12 extra (37 per pull), wear 0.6  (~166 pulls)
     ///   Tin 120          -15 extra (40 per pull), wear 1.5  (~66 pulls)
-    ///   Tin Bronze 130   -25 extra (50 per pull), wear 0.5  (200 pulls)
-    ///   White Bronze 140 -50 extra (75 per pull), wear 1.25 (80 pulls)
-    /// The Iron saw (its own card, no Metal Type) keeps -50 extra and vanilla's wear of 1.
+    ///   Tin Bronze 130   -12 extra (37 per pull), wear 0.5  (200 pulls)
+    ///   White Bronze 140 -25 extra (50 per pull), wear 1.25 (80 pulls)
+    /// The Iron saw (its own card, no Metal Type) has -25 extra and vanilla's wear of 1.
+    /// (ACT 1.18.9, ACT-B10: halved from -25 / -50 so a saw beats an axe without replacing it.)
+    ///
+    /// Dullness (SpecialDurability1, ACT 1.18.9): each pull that gets the extra adds 1; at
+    /// DullnessMax the saw is blunt and fells at the vanilla axe rate (no extra) until it is
+    /// sharpened on a stone or whetstone (JSON CardInteractions reset the stat to 0). The stat
+    /// counts UP from 0 so a saw saved before 1.18.9, whose new slot loads at 0, starts sharp.
     ///
     /// Wear is the vanilla -1 plus a delta. Extra wear (delta below 0) is paid in Before, so the
     /// vanilla -1 that follows is what takes a worn saw to 0 and fires its own OnZero ("Saw Broken!");
@@ -42,18 +48,21 @@ namespace Advanced_Copper_Tools.Patcher
             public SawMetal(float extraProgress, float wearDelta) { ExtraProgress = extraProgress; WearDelta = wearDelta; }
         }
 
-        private static readonly SawMetal Copper = new SawMetal(-25f, 0f);
-        private static readonly SawMetal Iron = new SawMetal(-50f, 0f);
+        private static readonly SawMetal Copper = new SawMetal(-12f, 0f);
+        private static readonly SawMetal Iron = new SawMetal(-25f, 0f);
 
         // Metal Type rung -> stats. Tunable placeholders.
         private static readonly Dictionary<int, SawMetal> CopperSawByMetal = new Dictionary<int, SawMetal>
         {
             { 100, Copper },
-            { 110, new SawMetal(-25f, 0.4f) },   // Ghost Bronze: wear 0.6
+            { 110, new SawMetal(-12f, 0.4f) },   // Ghost Bronze: wear 0.6
             { 120, new SawMetal(-15f, -0.5f) },  // Tin: wear 1.5
-            { 130, new SawMetal(-25f, 0.5f) },   // Tin Bronze: wear 0.5
-            { 140, new SawMetal(-50f, -0.25f) }, // White Bronze: wear 1.25
+            { 130, new SawMetal(-12f, 0.5f) },   // Tin Bronze: wear 0.5
+            { 140, new SawMetal(-25f, -0.25f) }, // White Bronze: wear 1.25
         };
+
+        // Must equal SpecialDurability1.MaxValue on LargeSaw.json and IronLargeSaw.json.
+        internal const float DullnessMax = 25f;
 
         private static readonly HashSet<string> LargeTreeGuids = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
@@ -94,10 +103,15 @@ namespace Advanced_Copper_Tools.Patcher
                         else if (string.Equals(sawUid, CopperSawUid, StringComparison.Ordinal)) metal = ResolveMetal(ctx.GivenCard);
                         else return false;
 
-                        if (CardUtil.ModifyDurabilityStat(ctx.Card, "CurrentProgress", metal.ExtraProgress))
-                            Logger.LogDebug($"[SawEffect] Applied extra {metal.ExtraProgress} Progress to {ctx.CardUid}");
+                        if (TryDull(ctx.GivenCard))
+                        {
+                            if (CardUtil.ModifyDurabilityStat(ctx.Card, "CurrentProgress", metal.ExtraProgress))
+                                Logger.LogDebug($"[SawEffect] Applied extra {metal.ExtraProgress} Progress to {ctx.CardUid}");
+                            else
+                                WarnOnce("progress-write", $"could not write CurrentProgress on {ctx.CardUid}; the saw fells at the vanilla rate");
+                        }
                         else
-                            WarnOnce("progress-write", $"could not write CurrentProgress on {ctx.CardUid}; the saw fells at the vanilla rate");
+                            Logger.LogDebug($"[SawEffect] Saw is blunt; no extra Progress on {ctx.CardUid}");
 
                         if (metal.WearDelta < 0f) PrepayWear(ctx.GivenCard, metal.WearDelta);
                         else if (metal.WearDelta > 0f) ctx.Tag = metal.WearDelta;
@@ -128,6 +142,23 @@ namespace Advanced_Copper_Tools.Patcher
             if (CopperSawByMetal.TryGetValue(rung, out var metal)) return metal;
             WarnOnce("sd4-rung-" + rung, $"Large Copper Saw has Metal Type {sd4}, not a known rung (100-140); treating it as copper");
             return Copper;
+        }
+
+        // True when the saw is sharp enough for its extra felling; adds one pull of Dullness.
+        // A blunt saw (Dullness at max) returns false. An unreadable stat keeps the old
+        // behaviour (extra applies) rather than silently disabling the saw.
+        private static bool TryDull(object saw)
+        {
+            float dull = CardUtil.GetDurability(saw, "SpecialDurability1");
+            if (float.IsNaN(dull))
+            {
+                WarnOnce("dullness-read", "could not read the saw's Dullness (SpecialDurability1); treating it as sharp");
+                return true;
+            }
+            if (dull >= DullnessMax - 0.01f) return false;
+            if (!CardUtil.SetDurability(saw, "SpecialDurability1", Math.Min(DullnessMax, dull + 1f)))
+                WarnOnce("dullness-write", "could not write the saw's Dullness (SpecialDurability1); it will not blunt");
+            return true;
         }
 
         private static void PrepayWear(object saw, float delta)

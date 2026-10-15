@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_copper_cauldron",
     "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_CardDescription",
-    "DefaultText": "A broad copper cauldron with a large open basin. Place it on a fireplace or fire pit to heat it up and cook or brew several items at once. 25% larger than a clay cauldron. Food stored inside spoils 30% slower than normal."
+    "DefaultText": "A broad copper cauldron with a large open basin. Place it on a fireplace or fire pit to heat it up and cook or brew several items at once. 25% larger than a clay cauldron."
   },
   "CanBeRenamed": false,
   "AlternateNames": [
@@ -96,7 +96,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_cauldron",
     "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Fill at a river or lake, then place on a fireplace or fire pit to heat up. Weighs 600 and is 25% larger than a clay cauldron: 8000 weight of cooking and up to 6000 ml of liquid. Temperature must reach 100 before cooking or boiling begins. Copper slows food spoilage by 30% while stored inside."
+    "DefaultText": "<b>Usage:</b> Fill at a river or lake, then place on a fireplace or fire pit to heat up. Weighs 600 and is 25% larger than a clay cauldron: 8000 weight of cooking and up to 6000 ml of liquid. Temperature must reach 100 before cooking or boiling begins."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -295,47 +295,7 @@
       }
     }
   ],
-  "EffectsToInventoryContent": [
-    {
-      "EffectName": "Copper Cauldron Preserve",
-      "SpoilageRateModifier": {
-        "Active": true,
-        "FloatValue": 0.7
-      },
-      "MultiplySpoilageRate": true,
-      "Conditions": {},
-      "StatModifiers": [],
-      "UsageRateModifier": {
-        "Active": false,
-        "FloatValue": 0.0
-      },
-      "FuelRateModifier": {
-        "Active": false,
-        "FloatValue": 0.0
-      },
-      "Special1RateModifier": {
-        "Active": false,
-        "FloatValue": 0.0
-      },
-      "Special2RateModifier": {
-        "Active": false,
-        "FloatValue": 0.0
-      },
-      "Special3RateModifier": {
-        "Active": false,
-        "FloatValue": 0.0
-      },
-      "Special4RateModifier": {
-        "Active": false,
-        "FloatValue": 0.0
-      },
-      "ConsumableChargesModifier": {
-        "Active": false,
-        "FloatValue": 0.0
-      },
-      "WeightCapacityModifier": 0.0
-    }
-  ],
+  "EffectsToInventoryContent": [],
   "MaxLiquidCapacity": 6000.0,
   "CanContainLiquidAndSolidsTogether": true,
   "IsMiniInventory": false,
@@ -534,8 +494,8 @@
           "y": 1.0
         },
         "Special2Change": {
-          "x": 2.5,
-          "y": 2.5
+          "x": 2.0,
+          "y": 2.0
         }
       },
       "FeedbackMode": 1,
@@ -700,8 +660,8 @@
           "y": 200.0
         },
         "Special2Change": {
-          "x": 2.5,
-          "y": 2.5
+          "x": 2.0,
+          "y": 2.0
         },
         "Special4Change": {
           "x": 1.0,

@@ -2,6 +2,42 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.9] - 2026-10-15
+
+### Removed
+
+- **The cave system is gone.** The Metal Mines, the Copper Vein Cave, the Iron Vein Cave, the Salt Mine and the Rock Quarry are no longer on the world map, along with their ore veins, the Collapsed Rock Faces you dug through, the Copper and Iron mother lodes, and the dark mines with their Daylight Shaft. Places made by mods now live in the separate Far Territory mod, and the base game's own lands already give each of these resources a home.
+- **A save made inside one of the caves loads at the Waterfall Caves**, and anything you left on a cave's board moves there too. This needs CSFF Mod Framework 2.28.5 or later.
+
+### Changed
+
+- **Tin Ore now comes only from panning.** Wherever a river is on the board, the Wearable Metal Pan's **Pan for Stream Tin** takes an hour and now has a 35% chance of one Tin Ore (up from 15%, so the river is a workable supply on its own). Greenstone, bog iron, salt and stone come from their usual places in the base game.
+- **The Metal Lantern** is still a light to carry or set down; it just has no mine to light any more.
+
+### Balance pass: closer to the base game
+
+- **Metal armor lasts as long as leather armor.** Every helmet, armor, bracer and greave in all six metals now has 46080 durability, about 185 hits on its body zone, instead of breaking after one. Protection values are unchanged. Pieces in an existing save are raised when the save loads.
+- **Metal armor research takes 24 hours** for every piece (it took 4 to 10).
+- **The Copper Watering Can no longer has its own Drink button.** It was hidden behind the water's own Drink anyway; drinking from the can works as with any vessel.
+- **The Copper-Rim Chamberpot works like going outside.** Urinate and Defecate appear when you need to go, ease the same need, and give a small mood lift (+1 Morale). A pot you defecated in gives a pile of manure when you empty it. Research takes 12 hours.
+- **The Metal Wheelbarrow is built on a vanilla wooden Wheelbarrow.** It holds 6000 weight, 4500 of it weightless (was 13500, all weightless), and slows you down while you hold it, like the wooden one. It still does not wear out.
+- **Copper Chest:** spoilage inside is 55% of normal (was 20%); it holds 2500 carried and 5000 placed.
+- **Copper Bathtub:** a warm or hot bath gives a small morale boost (8 to 12, was 60 to 80), a cold bath 3 to 5, Wash with Soap 4 to 6 and takes 15 minutes.
+- **Small Copper Stove:** holds 144 fuel (was 300); an oak log adds 42 and twigs 7; it warms a little less. A full lit stove burns about 36 hours in copper. It still keeps the night safe and carries its fuel when picked up.
+- **Large saws blunt with use.** Every bonus pull adds 1 Dullness; at 25 the saw fells at the axe rate until you Sharpen it on a heavy stone, a stone or a whetstone. The bonus is smaller: copper, Ghost Bronze and Tin Bronze fell a large pine in 2 pulls and an oak in 3, White Bronze and the Iron saw a pine in 1 and an oak in 2. Saws in an existing save start sharp.
+- **Tea Blending Station:** herbs dry at the vanilla Drying Rack pace unlit and half again as fast lit; Grind All takes 15 minutes for each item it grinds. Research takes 24 hours.
+- **Shields:** Copper 80 armor and 5000 durability, Iron 95 and 6500, Ghost Bronze 85 and 5500.
+- **Copper Tea Kettle holds 1200 ml**, like the vanilla Cooking Pot (was 2400), so a full kettle still fits on any fire.
+- **Copper Cauldron:** no longer slows spoilage of what it holds, and Cook and Boil progress a little slower.
+- **Ore Bin** holds 10000 placed (was 15000).
+- **Metal Lantern, Lantern Oilwell, Copper Brazier and Rendered Oil** research takes 12 hours.
+- **Melt Fat on the Wearable Metal Pan needs an empty clay bowl on the board**, and uses it up: the Oil gives the bowl back when you use it.
+- **Perks:** Copper Bathtub and Bathtub Kit cost 2 Moons, Tea Blending Station 3 Moons; Large Saw costs 30 Suns and the saw comes half worn; Building Materials no longer includes a spoon auger.
+
+### Fixed
+
+- The Sap and Resin Tap Spigots' **Nothing** outcome now happens: a spigot's yield can now come up empty (250 of 850), as the base game's taps do; before, it always gave leaves, sticks or wood.
+
 ## [1.18.8] - 2026-10-14
 
 ### Fixed

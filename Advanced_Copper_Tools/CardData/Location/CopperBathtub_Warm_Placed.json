@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
     "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Take a warm bath to wash as clean as the river does, clear rashes and wolfsbane from your skin, and improve mood. Keep the fire above half heat for a Hot Bath instead: the same cleaning plus a bigger mood boost and a genuine Stress reduction. Any bath leaves you wet, so dry off at a stove or brazier. Add more firewood to keep it hot longer."
+    "DefaultText": "<b>Usage:</b> Take a warm bath to wash as clean as the river does, clear rashes and wolfsbane from your skin, and improve mood. Keep the fire above half heat for a Hot Bath instead: the same cleaning and mood, plus a genuine Stress reduction. Any bath leaves you wet, so dry off at a stove or brazier. Add more firewood to keep it hot longer."
   },
   "CardType": 2,
   "MapStructureType": 0,
@@ -427,7 +427,7 @@
         "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription",
         "DefaultText": "Scrub down with soap for a quick clean, as good as washing with soap anywhere else, and a mood boost that doesn't need the fire lit. Clears rashes and wolfsbane from your skin and leaves you wet."
       },
-      "DaytimeCost": 0,
+      "DaytimeCost": 1,
       "UseMiniTicks": 1,
       "ActionSounds": [],
       "ActionTags": [],
@@ -469,7 +469,7 @@
         },
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "ValueModifier": { "x": 30.0, "y": 40.0 },
+          "ValueModifier": { "x": 4.0, "y": 6.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },
@@ -631,8 +631,8 @@
             "m_PathID": 0
           },
           "ValueModifier": {
-            "x": 60.0,
-            "y": 80.0
+            "x": 8.0,
+            "y": 12.0
           },
           "RateModifier": {
             "x": 0.0,
@@ -655,8 +655,8 @@
             "m_PathID": 0
           },
           "ValueModifier": {
-            "x": 30.0,
-            "y": 40.0
+            "x": 10.0,
+            "y": 15.0
           },
           "RateModifier": {
             "x": 0.0,
@@ -703,8 +703,8 @@
             "m_PathID": 0
           },
           "ValueModifier": {
-            "x": 20.0,
-            "y": 30.0
+            "x": 5.0,
+            "y": 8.0
           },
           "RateModifier": {
             "x": 0.0,
@@ -864,7 +864,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionDescription",
-        "DefaultText": "Soak in piping-hot water. Greatly improves mood and body warmth, melts away stress, and cleans as well as the river, clearing rashes and wolfsbane too. You come out wet, so dry off at a stove or brazier."
+        "DefaultText": "Soak in piping-hot water. Improves mood and body warmth, melts away stress, and cleans as well as the river, clearing rashes and wolfsbane too. You come out wet, so dry off at a stove or brazier."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -906,7 +906,7 @@
         },
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "ValueModifier": { "x": 60.0, "y": 80.0 },
+          "ValueModifier": { "x": 8.0, "y": 12.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },
@@ -915,7 +915,7 @@
         },
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "ValueModifier": { "x": 30.0, "y": 40.0 },
+          "ValueModifier": { "x": 10.0, "y": 15.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },
@@ -933,7 +933,7 @@
         },
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "ValueModifier": { "x": 20.0, "y": 30.0 },
+          "ValueModifier": { "x": 5.0, "y": 8.0 },
           "RateModifier": { "x": 0.0, "y": 0.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },

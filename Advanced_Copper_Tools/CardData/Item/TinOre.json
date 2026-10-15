@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "act_tin_ore",
     "LocalizationKey": "Advanced_Copper_Tools_TinOre_CardDescription",
-    "DefaultText": "A crude tin ore chunk. Mined from a tin vein, or panned from river gravel with a metal pan. Smelt it in a forge or furnace at 900°C to produce a tin-grade metal nugget."
+    "DefaultText": "A crude tin ore chunk, panned from river gravel with a wearable metal pan. Smelt it in a forge or furnace at 900°C to produce a tin-grade metal nugget."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],

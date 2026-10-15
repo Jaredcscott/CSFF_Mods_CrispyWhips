@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.18.8
+**Version:** 1.18.9
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -11,7 +11,7 @@
 
 Advanced Copper Tools turns copper, and the other metals where it makes sense, into crafted gear for comfort, throughput and light. It runs on [CSFFModFramework](https://github.com/jscott3/CSFF_Mods), so blueprints appear in the right crafting tabs and perks appear on the Situational tab by themselves.
 
-The mod ships 65 blueprints, 75 items, 30 location, structure and world cards, 7 character perks, 1 effect stat, 1 equipment slot and 5 cave environments.
+The mod ships 65 blueprints, 75 items, 15 location and structure cards, 7 character perks, 1 effect stat, 1 equipment slot.
 
 | Area | What it covers | Section |
 |------|----------------|---------|
@@ -22,10 +22,10 @@ The mod ships 65 blueprints, 75 items, 30 location, structure and world cards, 7
 | Comfort | Copper Bathtub, Bedwarming Pan, Copper-Rim Chamberpot, Metal Lantern, Wheelbarrow | Copper Bathtub and following |
 | Food and drink | Salt-Cured Meat and Fish, rendered Oil, Tea Station and its three teas | Salt-Cured Meat, Tea Station, Teas |
 | Storage | Copper Chest (slow spoilage), Ore Bin | Copper Chest, Ore Bin |
-| World | Five mine caves with veins, mother lodes, darkness and a daylight shaft; Stream Tin panning | Cave System |
+| Tin | Stream Tin panning with the Wearable Metal Pan, the only source of Tin Ore | Tin Ore |
 | Perks | Seven starting-kit perks | Character Perks |
 
-Nearly every finished recipe needs 1 Tin Solder. The Metal Mines is the fast source of tin, and river panning gives the odd Tin Ore before you reach it. Sheets, nails, the pan blank and wheel parts do not need solder.
+Nearly every finished recipe needs 1 Tin Solder. Tin Ore, the only source of tin, comes from panning river gravel with the Wearable Metal Pan. Sheets, nails, the pan blank and wheel parts do not need solder.
 
 ---
 
@@ -85,12 +85,12 @@ A portable fireplace that holds cooking like a campfire. It burns longer than on
 
 **Recipe** (two stages, 1 h 15 min each). Stage 1 casts the stove top: a small molten crucible (kept, emptied), 2 mud bricks and 2 clay. Stage 2: 4 metal sheets of one metal, 4 copper nails, 1 Tin Solder, and a forge hammer, mallet, stone, antler or shovel (not used up). The stove takes the sheets' metal.
 
-**Research:** holding a Metal Sheet makes the stove researchable (16 hours). A Stove Top Mold or Stove Top you already hold still loads, and the Stove Top's **Cut Up** button turns it into 2 metal sheets of its own metal.
+**Research:** holding a Metal Sheet makes the stove researchable (24 hours). A Stove Top Mold or Stove Top you already hold still loads, and the Stove Top's **Cut Up** button turns it into 2 metal sheets of its own metal.
 
 - Holds 600 weight of cooking, like a vanilla Campfire: one cooking pot or two clay bowls. A clay or copper cauldron does not fit.
-- Holds 300 fuel (oak +96, twigs +24, charcoal +8). The fuel stays in the stove when you pick it up.
+- Holds 144 fuel (oak +42, twigs +7, charcoal +8), the same scale as a vanilla Campfire (96). The fuel stays in the stove when you pick it up.
 - Sanctuary while placed, lit or not: +75 copper, +80 Ghost Bronze, +65 Tin, +75 Tin Bronze, +90 White Bronze.
-- A full lit stove burns about 75 hours in copper or White Bronze, 83 in Ghost Bronze, 60 in Tin and 94 in Tin Bronze.
+- A full lit stove burns about 36 hours in copper or White Bronze, 40 in Ghost Bronze, 29 in Tin and 45 in Tin Bronze.
 - It keeps its metal through Place, Pick Up, lighting, putting out and burning out. Dismantling returns its 4 sheets in its metal, but not the cast top.
 - While lit it dries you out, keeps bugs down, lights the area and makes you easier to spot (Stealth -150), like a vanilla fire. **Warm Up** and **Wait by Fire** warm you beside it.
 - It heats any liquid container on it (kettle, wearable pan, clay bowl) and goes into the Copper Bathtub and Tea Station recipes.
@@ -113,16 +113,17 @@ A pan you can wear, cook in, and use to purify water on a stove or campfire.
 
 - Put it on a stove or fire to cook in it. A filled pan on a lit fire boils river or dirty water safe, as in vanilla.
 - Holds 1200 ml of liquid and 1600 weight. What it holds adds nothing to your load, as with the vanilla Cooking Pot.
+- **Melt Fat:** drag animal fat onto the hot pan while an empty clay bowl is on the board. It makes one Oil and uses up the bowl, which the Oil gives back when you use it.
 - Weighs 300 in a bag and nothing when worn, like the vanilla waterskin. Wear it in a quiver slot to carry it hands-free.
 - Comes in copper, Ghost Bronze, Tin, Tin Bronze and White Bronze, from whichever sheet you use.
 - Dismantles into the shaped pan blank, 3 twine and 1 wood.
-- **Pan for Stream Tin** at any river: see Cave System.
+- **Pan for Stream Tin** wherever a river is on the board: see Tin Ore.
 
 ---
 
 ## Large Copper Saw
 
-A two-handled saw that fells large trees much faster than the vanilla advanced axe.
+A two-handled saw that fells large trees faster than the vanilla advanced axe while it is sharp.
 
 - **Recipe:** 3 metal sheets of one metal + 2 Wood + 2 metal nails + 1 Tin Solder + hammer (not used up). Build 1 hour, research 8 hours. The saw takes the sheets' metal. Iron Sheets do not fit; the Iron Large Saw is its own recipe.
 - **Counts as** an axe and an advanced axe.
@@ -130,11 +131,13 @@ A two-handled saw that fells large trees much faster than the vanilla advanced a
 
 | Metal | Extra Progress | Per pull | Pine / Willow, Birch, Oak | Wear per pull | Lasts about |
 |-------|---------------:|---------:|---------------------------|--------------:|------------:|
-| Copper | −25 | −50 | 1, 2, 2 pulls | 1 | 100 pulls |
-| Ghost Bronze | −25 | −50 | 1, 2, 2 pulls | 0.6 | 166 pulls |
+| Copper | −12 | −37 | 2, 3, 3 pulls | 1 | 100 pulls |
+| Ghost Bronze | −12 | −37 | 2, 3, 3 pulls | 0.6 | 166 pulls |
 | Tin | −15 | −40 | 2, 2, 3 pulls | 1.5 | 66 pulls |
-| Tin Bronze | −25 | −50 | 1, 2, 2 pulls | 0.5 | 200 pulls |
-| White Bronze | −50 | −75 | 1, 1, 2 pulls | 1.25 | 80 pulls |
+| Tin Bronze | −12 | −37 | 2, 3, 3 pulls | 0.5 | 200 pulls |
+| White Bronze | −25 | −50 | 1, 2, 2 pulls | 1.25 | 80 pulls |
+
+**Dullness:** each pull that gets the bonus adds 1 Dullness. At 25 the saw is blunt and fells at the axe rate (2, 3, 4 pulls) until you drag a heavy stone, a stone or a whetstone onto it to **Sharpen** it, as you would a metal axe. Saws made before 1.18.9 start sharp.
 
 The saw cuts small trees like any axe. The bonus and the per-metal wear apply only to the four large trees, and any other axe use wears it 1 whatever its metal.
 
@@ -144,7 +147,7 @@ The same saw with a forged iron blade.
 
 - **Recipe:** 2 Iron Sheets + 2 Wood + 4 metal nails of any metal + hammer (not used up). Build 1 hour, research 8 hours; researchable once you hold an Iron Sheet. Like the iron armor, it needs no Tin Solder.
 - **Durability:** 150 uses (the copper saw has 100).
-- **Bonus:** an extra -50 Progress, so -75 a pull. Pine, willow and birch fall in 1 pull, oak in 2.
+- **Bonus:** an extra -25 Progress, so -50 a pull while sharp. Pine and willow fall in 1 pull, birch and oak in 2. It blunts and sharpens like the copper saw.
 
 ---
 
@@ -152,14 +155,14 @@ The same saw with a forged iron blade.
 
 ### Copper Armor Set
 
-Copper armor protects specific body zones when worn, and each piece dismantles back into its materials. Armor value stays the same at any durability.
+Copper armor protects specific body zones when worn, and each piece dismantles back into its materials. Armor value stays the same at any durability. Every helmet, armor, bracer and greave (all six metals) has 46080 durability, the same as vanilla leather armor: each enemy hit on its body zone wears 250, so a piece takes about 185 hits. Pieces from before 1.18.9 are raised to 46080 when the save loads.
 
 | Piece | Protection | Recipe | Build | Research |
 |-------|------------|--------|------:|-------:|
-| **Copper Helmet** | Head +30 | 2 metal sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 6 h |
-| **Copper Bracers** | Arms +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 4 h |
-| **Copper Greaves** | Legs +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 6 h |
-| **Copper Armor** | Torso +30 | 4 metal sheets + 4 copper nails + 1 medium leather + 4 sinew + 1 Tin Solder + hammer | 1 h 30 min | 8 h |
+| **Copper Helmet** | Head +30 | 2 metal sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
+| **Copper Bracers** | Arms +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
+| **Copper Greaves** | Legs +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
+| **Copper Armor** | Torso +30 | 4 metal sheets + 4 copper nails + 1 medium leather + 4 sinew + 1 Tin Solder + hammer | 1 h 30 min | 24 h |
 
 The hammer is not used up. Holding a Metal Sheet makes the Helmet and Armor researchable; a Heated Metal Lump does the same for the Bracers and Greaves. Copper armor takes copper only.
 
@@ -171,21 +174,21 @@ The bronzes come from the vanilla crucible recipes: Tin Bronze is 5 copper + 1 t
 
 | Suit | Head / Torso | Arms / Legs (each) | Durability | Special |
 |---|---:|---:|---:|---|
-| Copper | 30 | 15 | 100 | the cheap first suit |
-| Tin | 32.5 | 16 | 90 | the lightest metal suit; no Tin Solder and 2 copper nails a piece |
-| Ghost Bronze | 35 | 16.5 | 120 | +12.5 head and torso, +7.5 each arm and leg against spiritual attacks; each piece makes Fear fall 0.25 faster every 15 minutes |
-| Tin Bronze | 37.5 | 17.5 | 120 | the toughest bronze |
-| White Bronze | 42.5 | 19 | 100 | +3 Courage per piece |
-| Iron | 45 | 20 | 140 | the best raw protection |
+| Copper | 30 | 15 | 46080 | the cheap first suit |
+| Tin | 32.5 | 16 | 46080 | the lightest metal suit; no Tin Solder and 2 copper nails a piece |
+| Ghost Bronze | 35 | 16.5 | 46080 | +12.5 head and torso, +7.5 each arm and leg against spiritual attacks; each piece makes Fear fall 0.25 faster every 15 minutes |
+| Tin Bronze | 37.5 | 17.5 | 46080 | the middle bronze |
+| White Bronze | 42.5 | 19 | 46080 | +3 Courage per piece |
+| Iron | 45 | 20 | 46080 | the best raw protection |
 
 Many animal attacks (wolves, bears, foxes, badgers, beavers and others) are purely spiritual. Against those, Ghost Bronze out-blocks iron: 47.5 on the head and torso, 24 on each limb.
 
-| Piece | Recipe (any alloy suit) | Build | Research (Tin / Tin Bronze / Ghost and White Bronze) |
+| Piece | Recipe (any alloy suit) | Build | Research |
 |-------|--------|------:|------:|
-| **Helmet** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 5 / 7 / 9 h |
-| **Bracers** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 5 / 7 / 9 h |
-| **Greaves** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 5 / 7 / 9 h |
-| **Armor** | 4 sheets + 4 copper nails + 1 medium leather + 4 sinew + 1 Tin Solder + hammer | 1 h 30 min | 6 / 8 / 10 h |
+| **Helmet** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
+| **Bracers** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
+| **Greaves** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
+| **Armor** | 4 sheets + 4 copper nails + 1 medium leather + 4 sinew + 1 Tin Solder + hammer | 1 h 30 min | 24 h |
 
 Tin pieces use 2 copper nails and no Tin Solder. Dismantling a piece returns sheets of its own metal, and a furnace melts it back into nuggets of that metal. The suit called "Bronze" before 1.18.0 is now Tin Bronze, and pieces you already have keep working.
 
@@ -199,9 +202,9 @@ Three wooden shields faced with metal, held in hand like the vanilla wooden Shie
 
 | Shield | Recipe | Left arm armor (spiritual) | Durability | Weight (carried) | Smelts to |
 |--------|--------|:--:|:--:|:--:|:--:|
-| **Copper Shield** | 3 copper sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder + hammer; build 1 h, research 6 h; researchable once you hold a Metal Sheet | 90 (140) | 8000 | 800 (400) | 22 copper nuggets |
-| **Iron Shield** | 3 Iron Sheets + 1 plank + 4 metal nails of any metal + 1 medium leather + hammer, no Tin Solder; build 1 h, research 8 h; researchable once you hold an Iron Sheet | 110 (160) | 10000 | 1000 (500) | 30 iron nuggets |
-| **Ghost Bronze Shield** | 3 Ghost Bronze sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder + hammer; build 1 h, research 10 h; researchable once you hold a Ghost Bronze sheet | 95 (175) | 9000 | 850 (425) | 25 Ghost Bronze nuggets |
+| **Copper Shield** | 3 copper sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder + hammer; build 1 h, research 6 h; researchable once you hold a Metal Sheet | 80 (130) | 5000 | 800 (400) | 22 copper nuggets |
+| **Iron Shield** | 3 Iron Sheets + 1 plank + 4 metal nails of any metal + 1 medium leather + hammer, no Tin Solder; build 1 h, research 8 h; researchable once you hold an Iron Sheet | 95 (145) | 6500 | 1000 (500) | 30 iron nuggets |
+| **Ghost Bronze Shield** | 3 Ghost Bronze sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder + hammer; build 1 h, research 10 h; researchable once you hold a Ghost Bronze sheet | 85 (165) | 5500 | 850 (425) | 25 Ghost Bronze nuggets |
 
 - The vanilla wooden Shield blocks 75 (125 against spiritual attacks) with 5000 durability. The Iron Shield blocks the most against any blow. The Ghost Bronze Shield blocks a little less overall but wards off spiritual attacks better than any other shield.
 - Shields stay in your combat armor after a save loads, like the rest of ACT's armor.
@@ -209,9 +212,9 @@ Three wooden shields faced with metal, held in hand like the vanilla wooden Shie
 
 ---
 
-## Wheelbarrow
+## Metal Wheelbarrow
 
-A wearable container built from sub-assemblies and a wheel.
+A metal upgrade of the vanilla wooden wheelbarrow, built from sub-assemblies and a wheel.
 
 | Component | Recipe | Build |
 |-----------|--------|-----:|
@@ -221,11 +224,12 @@ A wearable container built from sub-assemblies and a wheel.
 | **Forged Wheel Hub** | 3 heated copper nuggets + hammer (not used up) | 45 min |
 | **Cast Wheel Hub** | 1 small molten crucible + 2 mud bricks + 2 clay molds | 45 min |
 | **Wheel Assembly** | 1 wheel rim + 1 wheel hub + 1 wood + 1 Tin Solder + hammer (not used up) | 30 min |
-| **Wheelbarrow** | bucket + handles + wheel assembly + 1 Tin Solder | 2 h |
+| **Metal Wheelbarrow** | 1 vanilla wooden Wheelbarrow + bucket + handles + wheel assembly + 1 Tin Solder | 2 h |
 
-- Holds 13500 weight, and what it holds adds nothing to your load.
-- Does not wear out from normal use.
-- Dismantles back to bucket, handles and wheel assembly.
+- Holds 6000 weight, and 4500 of it adds nothing to your load (the wooden one holds 4000 and takes 2500 off).
+- Slows you down while you hold it, like the wooden one.
+- Does not wear out from normal use (the wooden one does).
+- Dismantles back to bucket, handles and wheel assembly; the wooden wheelbarrow is used up.
 - The bucket is also the body of the Copper Bathtub.
 
 ---
@@ -244,9 +248,9 @@ Every bath and the soap wash clean you like vanilla's river and Soap washes:
 
 | Wash | Filth | Also |
 |------|------:|------|
-| Warm Bath, Hot Bath | -500 | major morale, a spiritual boost, body warmth; Hot Bath also lowers Stress |
-| Cold Bath | -400 | a modest morale boost |
-| Wash with Soap | -400 | a mood boost; uses a Soap |
+| Warm Bath, Hot Bath | -500 | a small morale boost (8 to 12), a spiritual boost, body warmth; Hot Bath also lowers Stress |
+| Cold Bath | -400 | a little morale (3 to 5) |
+| Wash with Soap | -400 | a little morale (4 to 6); uses a Soap; takes 15 minutes |
 
 All four also take Rash and Wolfsbane Exposure down by 100 and Mud Applied and Soothing Cream Applied by 50, and leave you fully wet. None removes bug repellent or sun protection. Dry off with Wait by Fire at a lit Small Copper Stove or Copper Brazier.
 
@@ -260,13 +264,12 @@ All four also take Rash and Wolfsbane Exposure down by 100 and Mud Applied and S
 
 A portable light, carried or placed, lit or unlit. Each change between the four forms keeps its fuel.
 
-**Recipe** (build 30 minutes, research 4 hours): 1 metal sheet + 1 Lantern Oilwell + 1 copper wire + 1 parchment + 1 fat (the oiled-parchment shade) + hammer. The lantern takes the sheet's metal and has no glass or stone in it.
+**Recipe** (build 30 minutes, research 12 hours): 1 metal sheet + 1 Lantern Oilwell + 1 copper wire + 1 parchment + 1 fat (the oiled-parchment shade) + hammer. The lantern takes the sheet's metal and has no glass or stone in it.
 
 - **Fuel:** pour any lamp oil in a clay bowl onto the unlit lantern and you get the bowl back, or drag a Copper Oil Flask onto it. A bowl adds 55.2 fuel, 15% more than the 48 a Ceramic Lamp gets. The flask gives up 48.
 - It holds 96 and burns 0.5 every 15 minutes, so a full lantern lasts about 48 hours and two bowls fill it.
 - The Lantern Oilwell lights on its own. It holds 96 and burns 1 every 15 minutes (24 hours full) for a smaller light (+10 Light against the lantern's +20).
 - Light it by dragging a fire source onto it; it needs at least 10% fuel. When the fuel runs out, a lit lantern goes back to unlit where it stands.
-- **Underground:** a lit lantern, carried or set down, gives the Light +20 that mining in ACT's dark caves needs.
 - A recruited Partner can be given the vanilla Fire keeping duty on a placed lantern. A Partner actually refuelling it is not confirmed yet.
 
 The fuel, burn and light figures are placeholders for tuning.
@@ -382,11 +385,11 @@ The **Oil** card is rendered animal fat or fish. It is both food and lamp fuel.
 
 | Blueprint | Recipe | Build | Research |
 |-----------|--------|------:|------:|
-| **Rendered Oil** | 2 animal fat + 1 clay bowl | 1 h | 4 h |
+| **Rendered Oil** | 2 animal fat + 1 clay bowl | 1 h | 12 h |
 | **Rendered Fish Oil** | 2 fatty fish meat + 1 clay bowl | 1 h | 4 h |
 | **Render Hemp Seed Oil** | 1 Herbs and Fungi Hemp Seed Oil makes 1 Oil (hidden without Herbs and Fungi; a save that already learned it keeps it) | 1 h | 4 h |
-| **Lantern Oilwell** | 1 metal sheet + 1 twine + 1 Tin Solder + hammer (not used up) | 30 min | 4 h |
-| **Metal Lantern** | 1 metal sheet + 1 Lantern Oilwell + 1 copper wire + 1 parchment + 1 fat + hammer (not used up) | 30 min | 4 h |
+| **Lantern Oilwell** | 1 metal sheet + 1 twine + 1 Tin Solder + hammer (not used up) | 30 min | 12 h |
+| **Metal Lantern** | 1 metal sheet + 1 Lantern Oilwell + 1 copper wire + 1 parchment + 1 fat + hammer (not used up) | 30 min | 12 h |
 | **Copper Oil Flask** | 2 metal sheets + 1 medium leather + 1 Tin Solder + hammer (not used up) | 45 min | 4 h |
 
 The flask holds 4 bowls of oil (192 fuel), enough to refill a lantern twice. Drag it onto a lantern, oilwell or brazier to pour in one bowl's worth: 48 out of the flask, and 48 into the oilwell or brazier or 55.2 into the Metal Lantern.
@@ -397,9 +400,9 @@ The flask holds 4 bowls of oil (192 fuel), enough to refill a lantern twice. Dra
 
 A copper kettle that boils water on a lit fire or stove (build 45 minutes, research 8 hours; 2 metal sheets + 1 Tin Solder + hammer).
 
-- Holds 2400 ml and heats up to 200 Temperature. Off the fire it cools down.
+- Holds 1200 ml, like the vanilla Cooking Pot, and heats up to 200 Temperature. Off the fire it cools down.
 - The water turns safe the way vanilla water does.
-- The kettle weighs 180 and its water weighs nothing, so a full kettle fits a Campfire (600), the Small Copper Stove (600), a Fireplace (1200), a Fire Pit (2400) or an Oven (1200). The weightless water is a placeholder for tuning.
+- The kettle weighs 180 and its water weighs nothing, so a full kettle fits a Campfire (600), the Small Copper Stove (600), a Fireplace (1200), a Fire Pit (2400) or an Oven (1200), as the Cooking Pot does.
 
 ---
 
@@ -422,7 +425,7 @@ The sizes and weight are placeholders for tuning.
 
 A workbench with six herb and grinding slots, an 8-bowl water reservoir, a built-in copper stove and a Grind All button.
 
-**Recipe** (build 1 hour, research 16 hours): 2 planks + 4 twine + 1 Copper Tea Kettle + 1 Small Copper Stove + 1 rotary quern + 15 stone. Place the kit to set up the workbench.
+**Recipe** (build 1 hour, research 24 hours): 2 planks + 4 twine + 1 Copper Tea Kettle + 1 Small Copper Stove + 1 rotary quern + 15 stone. Place the kit to set up the workbench.
 
 | Form | Pick up? | Burns fuel? |
 |---------|:--------:|:------------:|
@@ -432,8 +435,8 @@ A workbench with six herb and grinding slots, an 8-bowl water reservoir, a built
 
 Every change between forms keeps the water and fuel. Lighting and putting out also keep what sits in the six slots. Picking it up does not, because the kit has no slots, so anything still in them is set down beside you.
 
-- **Slots:** fresh herbs dry over time, even unlit. Lighting the stove dries them faster and lets the slots cook, heat and boil.
-- **Grind All** (30 minutes) grinds everything grindable in the slots at once. Each powder keeps what a hand grind keeps: freshness, quality and the grind's own quality change.
+- **Slots:** fresh herbs dry over time, even unlit, at the vanilla Drying Rack pace. Lighting the stove dries them half again as fast and lets the slots cook, heat and boil.
+- **Grind All** grinds everything grindable in the slots at once and takes 15 minutes for each item it grinds, stacked items included. Each powder keeps what a hand grind keeps: freshness, quality and the grind's own quality change.
 - **Reservoir (8 Water Charges):** drag clay bowls of water onto the station to fill it, and use **Draw Cold Water** with an empty bowl to take some out.
 - **Lit:** the station heats its water from cold to hot in about 30 minutes, and **Draw Boiled Water** works once the reservoir is at least half hot.
 - **Lighting:** drag a fire source onto it (it needs at least 10% fuel). Put it out with its button. Pick Up appears only on the unlit station.
@@ -442,7 +445,7 @@ Every change between forms keeps the water and fuel. Lighting and putting out al
 
 ## Copper Brazier
 
-A copper fire bowl on a stick tripod (build 1 hour, research 4 hours; 3 metal sheets + 4 copper nails + 3 long sticks + 1 Tin Solder). Researchable once you hold a Metal Sheet. Its blueprint is in both **Construction → Furniture** and **Survival → Fire**.
+A copper fire bowl on a stick tripod (build 1 hour, research 12 hours; 3 metal sheets + 4 copper nails + 3 long sticks + 1 Tin Solder). Researchable once you hold a Metal Sheet. Its blueprint is in both **Construction → Furniture** and **Survival → Fire**.
 
 - **Forms:** Copper Brazier Kit (carried), Copper Brazier (placed) and Lit Copper Brazier.
 - **Fuel:** drag any lamp oil in a clay bowl onto the placed brazier. Each bowl adds 48 and you get the bowl back; it holds 96, two bowls. Drag a fire source onto it to light it.
@@ -457,7 +460,7 @@ A copper fire bowl on a stick tripod (build 1 hour, research 4 hours; 3 metal sh
 
 A sealed copper chest with thick insulated walls (build 2 hours 30 minutes, research 16 hours; 4 metal sheets + 4 planks + 6 copper nails + 1 Tin Solder + hammer).
 
-- Slows spoilage of what it holds to 20% of normal.
+- Slows spoilage of what it holds to 55% of normal. Holds 2500 weight carried and 5000 placed.
 - Vanilla wildlife cannot raid it. With Harsh Wilds installed, its autumn black bear can still destroy meat or fish in a placed chest.
 - Items go in and out by hand only.
 
@@ -468,7 +471,7 @@ A sealed copper chest with thick insulated walls (build 2 hours 30 minutes, rese
 A large open-topped metal bin for mined ore (build 2 hours 30 minutes, research 16 hours; 6 metal sheets + 4 planks + 8 copper nails + 1 Tin Solder + hammer).
 
 - Holds only Greenstone, bog iron (fresh, dried, roasted or crushed), Tin Ore and Flint. Everything else, food, Salt and Stone included, is refused. Keep perishables in the Copper Chest.
-- Holds 6000 weight carried and 15000 placed. It gives no spoilage protection.
+- Holds 6000 weight carried and 10000 placed. It gives no spoilage protection.
 - Because it holds no food, neither vanilla wildlife nor the Harsh Wilds black bear has anything to take from it.
 - A bin that already holds other things keeps them until you take them out.
 
@@ -492,7 +495,7 @@ The eating values, spoilage and Salty strength are placeholders for tuning.
 
 A hammered copper can with a rope-bound handle (Construction → Metal Tools; takes any metal sheet, iron included).
 
-- **Fill from Water** at any shallow water, **Drink** from it, or **Empty Out**.
+- **Fill from Water** at any shallow water or **Empty Out**. Drinking from it uses the water's own Drink, as with any vessel.
 - Drag it onto a garden plot to water it. Each watering uses 300 ml, so a full 1500 ml can waters five times.
 - It does not douse fires or pour into other containers. It melts down to 10 nuggets.
 
@@ -500,7 +503,7 @@ A hammered copper can with a rope-bound handle (Construction → Metal Tools; ta
 
 ## Copper-Rim Chamberpot
 
-A clay chamberpot with a hammered copper rim (Construction → Furniture; takes any metal sheet). **Use** it at night for a small mood bonus. It holds four uses, then you **Empty** it. Melts down to 6 nuggets.
+A clay chamberpot with a hammered copper rim (Construction → Furniture; takes any metal sheet). **Urinate** or **Defecate** in it when you need to (the same need levels as going outside) for a small mood bonus (+1 Morale). It holds four uses, then you **Empty** it; a pot you defecated in gives a pile of manure when emptied. Melts down to 6 nuggets.
 
 ---
 
@@ -548,45 +551,13 @@ Alloy and iron armor, the Iron Large Saw, the Iron and Ghost Bronze Shields, and
 
 ---
 
-## Cave System
+## Tin Ore
 
-ACT adds five caves east of the Waterfall Caves on the world map. You enter at the **Metal Mines** by travelling east from Waterfall Caves.
+Tin Ore comes only from panning. Wherever a river is on the board, the Wearable Metal Pan offers **Pan for Stream Tin**: an hour of work with a 35% chance of one Tin Ore. Each try wears the pan by 1 of its 100 uses. The Shaped Metal Pan Head cannot pan until it is made into the wearable pan.
 
-| Cave | Contents | Connections |
-|------|----------|-------|
-| **Metal Mines** | 3 Tin Veins, 1 Daylight Shaft | Waterfall Caves to the west, Copper Vein Cave to the north, Iron Vein Cave to the south, Rock Quarry to the east |
-| **Copper Vein Cave** | 3 Copper Veins, 1 Copper Lode | Salt Mine to the east |
-| **Iron Vein Cave** | 3 Iron Veins, 1 Iron Lode | Metal Mines to the north |
-| **Salt Mine** | 3 Salt Veins | Rock Quarry to the south |
-| **Rock Quarry** | 3 Rock Veins | Salt Mine to the north |
+Smelt Tin Ore in a forge or furnace at 900°C for tin nuggets, then forge them into Tin Solder with **Forge Tin Solder**.
 
-**Veins.** Each vein offers **Mine** with a pickaxe and **Chip Away** with an axe, hammer, shovel or antler (1 ore a strike, more tool wear). A vein runs out after 6 strikes.
-
-- **Copper, Tin and Iron veins** mine at the game's own copper-mine pace. **Mine** takes 2 hours, needs Stamina 24 or more and costs 12. It gives 1 ore plus a chance of a second that grows with Smithing, up to 50% for copper, 40% for tin and 30% for iron at Smithing 150. **Chip Away** takes 6 hours.
-- **Salt and Rock veins** keep the quicker pace: Mine 45 minutes, Chip Away 2 hours.
-
-**Mother lodes.** The Copper and Iron caves each hold a **Copper Lode** or **Iron Lode**, a collapsed seam under fallen rock.
-
-- While its Rubble bar is above zero, the only action is **Clear the Seam** with a pickaxe, shovel, axe, antler or knife: 2 hours a strike, 2 tool uses each. Eighteen strikes clear it, a day and a half of digging.
-- A cleared lode offers **Mine** (2 hours 30 minutes, same Stamina cost and Smithing bonus as the veins) and **Chip Away** (6 hours), and it never runs out.
-- Lodes appear only in caves first visited on 1.18.0 or later. A cave you visited earlier has none.
-
-**The mines are dark.** No daylight reaches the caves, so Light is 0 there (vanilla's "Very Dark", which wears on Wakefulness and Mental Structure) and the screen darkens. Mine, Chip Away, Clear the Seam and Dig Through all need Light 10 or more.
-
-- Any light is enough: a lit Metal Lantern carried or set down (+20), a lit Copper Brazier (+30) or Small Copper Stove (+25) placed in the cave, or a vanilla torch (+20).
-- **Every exit works with no light at all**, so you can always walk out.
-- **The daylight shaft** in the Metal Mines gives Light 15 from 8:00 to 16:00 and 0 at night. If you are caught there without light, wait for morning and dig out through the Collapsed Rock Faces.
-- Each cave turns dark the first time you enter it on 1.18.0 or later.
-
-**Ore yields and uses**
-
-- **Copper Vein:** Greenstone, 1 to 2 a strike. Smelt it in any forge or furnace for copper nuggets.
-- **Iron Vein:** Bog Iron, 1 to 2 a strike. Smelt it the vanilla way for wrought iron. Finding Bog Iron also makes **Forge Iron Nails** researchable.
-- **Tin Vein:** Tin Ore, 1 to 2 a strike. Smelt it for tin nuggets, then forge them into Tin Solder with **Forge Tin Solder**.
-- **Salt Vein:** vanilla Salt, 1 to 2 a strike.
-- **Rock Vein:** 3 Stone and 3 Heavy Stone every strike, for 18 of each before it runs out.
-
-**Stream Tin.** At any river, the Wearable Metal Pan offers **Pan for Stream Tin**: an hour of work with a 15% chance of one Tin Ore, which smelts like mined ore. Each try wears the pan by 1 of its 100 uses. The Shaped Metal Pan Head cannot pan until it is made into the wearable pan. The Metal Mines stays about ten times faster.
+Greenstone, bog iron, salt and stone come from their usual places in the base game.
 
 Water-Driven Infrastructure 1.12.3 or later builds with the same Tin Solder, and any of its old Alloy Solder in a save turns into Tin Solder by itself.
 
@@ -596,13 +567,13 @@ Water-Driven Infrastructure 1.12.3 or later builds with the same Tin Solder, and
 
 | Perk | Cost | You start with |
 |------|------|-------------|
-| **Wheelbarrow** | 3 Moons | a fully assembled wheelbarrow |
+| **Wheelbarrow** | 3 Moons | a fully assembled Metal Wheelbarrow |
 | **Wheelbarrow Kit** | 2 Moons | bucket, handles and wheel assembly |
-| **Copper Bathtub** | 1 Moon | a copper bathtub |
-| **Bathtub Kit** | 1 Moon | the bathtub materials: bucket, Small Copper Stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks and 3 leather (raw, tan it before use) |
-| **Large Saw** | 45 Suns | a Large Copper Saw |
-| **Tea Blending Station** | 2 Moons | a Tea Station Kit ready to place |
-| **Building Materials** | 2 Moons | 10 planks, 10 small leather (raw, tan it before use), 10 long sticks, 20 mud bricks, 1 large cloth and 1 spoon auger |
+| **Copper Bathtub** | 2 Moons | a copper bathtub |
+| **Bathtub Kit** | 2 Moons | the bathtub materials: bucket, Small Copper Stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks and 3 leather (raw, tan it before use) |
+| **Large Saw** | 30 Suns | a Large Copper Saw at half durability |
+| **Tea Blending Station** | 3 Moons | a Tea Station Kit ready to place |
+| **Building Materials** | 2 Moons | 10 planks, 10 small leather (raw, tan it before use), 10 long sticks, 20 mud bricks and 1 large cloth |
 
 All seven perks are on the Situational tab.
 
@@ -617,9 +588,7 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 - **`GameLoadPatch`**: a `LoadMainGameData` postfix. Every Metal Nail slot also accepts an old Iron Nail, and only the seven iron recipes accept an old Iron Sheet.
 - **`GameLoadPatch` (armor)**: prefixes `EncounterPopup.GenerateAndApplyPlayerWound` and subscribes to `GameManager.OnGMInitialized`, keeping equipped and carried ACT armor and shields in the game's combat armor list, including after a save loads.
 - **`TinOreSmeltPatch`**: an ActionRouter hook on Tin Ore smelting. Sets the nugget's Metal Type (SpecialDurability4) to tin and carries the ore's Quality to the nugget's Metal Quality (SpecialDurability2).
-- **`IronVeinQualityPatch`**: an ActionRouter hook on the Iron Vein. Sets Quality on vein-mined Dried Bog Iron.
 - **`HammerGroupPatch`**: fills `GpTag_ACT_ShapingHammer`, the hammer slot of the pan blank, wearable pan and stove blueprints, with the forge hammer, mallet, stone, antler and shovel.
-- **`MineDarknessPatch`**: sets `IsDarkPlace` on the five cave environments and appends one daylight entry to the vanilla Light stat's `TimeOfDayMods`, active only while the Daylight Shaft is on the current board.
 - **`PartnerBlueprintGatePatch`**: a `GameManager.InitializeStatsAndActions` postfix over (blueprint, partner card) rows. Copper Shears needs Sirus23's `sh_shears`; Render Hemp Seed Oil needs H&F's `herbs_fungi_hemp_seed_oil`. A missing partner hides that blueprint unless it is already researched.
 - **`HeatHeldLiquidPatch`**: off by default. Enable `Compatibility.EnableLegacyStationLiquidHeater` only for old beta layouts where a lit Tea Station stores liquid on the station card itself.
 - **`VanillaFireKettlePatch`**: the one hook that edits vanilla cards, described under Compatibility.
@@ -628,12 +597,12 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 
 ## Installation
 
-**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.0 or later (it ships the Metal Sheet, Metal Nail and Tin Solder this mod builds with), and Card Survival: Fantasy Forest (EA 0.69c).
+**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.5 or later (it ships the Metal Sheet, Metal Nail and Tin Solder this mod builds with, and moves a save made inside one of the caves removed in 1.18.9 to the Waterfall Caves), and Card Survival: Fantasy Forest (EA 0.69c).
 
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Put this mod's folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.8 loaded.`
+4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.9 loaded.`
 
 ### Configuration
 
@@ -653,7 +622,6 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 - Render Hemp Seed Oil uses a Herbs and Fungi card. Without Herbs and Fungi its recipe is hidden.
 - **Vanilla fires:** ACT adds the Copper Tea Kettle and Copper Cauldron to the cards that the Campfire, Fireplace, Fire Pit, their put-out forms, the Hearth, the Awakened Hearth and the lit Oven accept, plus a heating recipe for those two cards. The lit Oven takes the kettle only.
 - ACT never changes a fire's weight capacity, never touches the Sauna Stove, and never lets a fire accept or heat other vanilla items.
-- The only other vanilla change is one daylight entry on the Light stat that applies while ACT's Daylight Shaft is on the board.
 - Safe to add to an existing save. Safe to remove: the mod's items disappear without corrupting the save.
 
 ### Depended on by
@@ -665,7 +633,7 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.8 loaded.`
+**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.9 loaded.`
 
 **Pan or kettle won't boil?** It must sit on a lit fire with fuel left, and hold a liquid the game can heat.
 
@@ -681,6 +649,7 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 Full detail for every version is in `CHANGELOG.md`.
 
+- **1.18.9:** the cave system is removed; Tin Ore comes from panning with the Wearable Metal Pan, and a save made inside a cave loads at the Waterfall Caves. Balance pass: metal armor lasts as long as leather instead of breaking on the first hit, and many items move closer to the base game: see `CHANGELOG.md`.
 - **1.18.7:** Salt-Cured Fish and Salt-Cured Meat show the bacteria spoilage icon and taste of something when eaten.
 - **1.18.6:** the mine locations stay still (the slow drift added in 1.18.5 is off for now).
 - **1.18.5:** animated card art for the lit Copper Brazier, Metal Lantern and Lantern Oilwell, and for warm copper: the Bathtub steams, the Small Copper Stove and Tea Blending Station glow, the Cauldron's lid rattles and the Tea Kettle steams.
