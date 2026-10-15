@@ -2,6 +2,12 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.9] - 2026-10-14
+
+### Fixed
+
+- **Card pictures sit where they belong again.** In the previous update every item picture was stretched to fill its whole card, sitting high with the name banner over it. The pictures are back in the game's own framing: centred, low on the card, with space above, like the vanilla cards beside them. Thanks to CHIWEI for the report.
+
 ## [1.12.8] - 2026-10-14
 
 ### Changed
