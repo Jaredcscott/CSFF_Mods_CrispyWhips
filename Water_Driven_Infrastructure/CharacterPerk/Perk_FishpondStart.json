@@ -28,7 +28,7 @@
   "PerkDescription": {
     "ParentObjectID": "water_sawmill_perk_fishpond_start",
     "LocalizationKey": "Water_Sawmill_Perk_FishpondStart_PerkDescription",
-    "DefaultText": "Start with a fishpond kit ready to dig near water."
+    "DefaultText": "Start with a fishpond kit ready to dig near water. The pond starts empty: stock it with fish you catch."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",
@@ -54,6 +54,9 @@
   "ActionModifiers": [],
   "AddedPlayerTags": [],
   "AddedCardsWarpData": ["water_sawmill_fishpond_kit"],
+  "AddedCardsStats": [
+    { "Card": "water_sawmill_fishpond_kit", "SpecialDurability1": 1 }
+  ],
   "AddedCardsWarpType": 3,
   "NoSafetyMode": false
 }

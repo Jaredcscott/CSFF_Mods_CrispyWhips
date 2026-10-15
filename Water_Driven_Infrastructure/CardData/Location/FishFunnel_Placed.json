@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_fish_funnel_placed",
     "LocalizationKey": "Water_Sawmill_FishFunnelPlaced_CardHelpSection",
-    "DefaultText": "<b>Effect:</b> A Funnel Trap in the same location gains fish twice as fast (+10 population per time point on top of its own 10). The funnel does nothing on its own, so set a Funnel Trap here as well. <b>Pack Up:</b> Recover the funnel as a portable kit."
+    "DefaultText": "<b>Effect:</b> A Funnel Trap in the same location gains fish twice as fast (+10 population per time point on top of its own 10). The funnel does nothing on its own, so set a Funnel Trap here as well. A second funnel here adds nothing. <b>Pack Up:</b> Recover the funnel as a portable kit."
   },
   "CardType": 2,
   "ObjectWeight": 400.0,
@@ -359,7 +359,7 @@
         "StatModifiers": [],
         "NPCStatModifiers": [],
         "EffectStacksWithRequiredCards": false,
-        "OnBoardEffectCap": 0,
+        "OnBoardEffectCap": 1,
         "EffectScalesWithDurabilities": {
           "Active": false,
           "Inputs": [],

@@ -26,7 +26,7 @@
         "water_sawmill_bp_mill_race_outlet"
       ],
       "confidence": "MEDIUM",
-      "evidence": "T2.13 PASS 2026-07-21 for the water draw. 1.12.0 (2026-09-28) added the Rain Cistern feed (a RemotePassiveEffects entry on MillRaceOutlet_Placed.json), so the card is no longer the one that passed; the feed is covered only by the Pester contract and PENDING T2.380-T2.383."
+      "evidence": "T2.13 PASS 2026-07-21 for the water draw. 1.12.0 (2026-09-28) added the Rain Cistern feed (a RemotePassiveEffects entry on MillRaceOutlet_Placed.json), so the card is no longer the one that passed; the feed is covered only by the Pester contract and PENDING T2.380-T2.383. 1.12.10 balance pass: research 24 h, a stone footing stage, cistern feed 10 per tick (about 22 days); not yet seen in game."
     },
     {
       "name": "Water-Driven Sawmill",
@@ -38,7 +38,7 @@
         "water_sawmill_bp_water_driven_sawmill"
       ],
       "confidence": "MEDIUM",
-      "evidence": "T2.14 PASS 2026-07-21 for Cut; but Cut is a drag CardInteraction gated by MillRaceGate (card-unbounded CardPredicate=_=>true), exposed to the OPEN framework ActionRouter CardOnCardAction index defect (T1.56, unfixed as of framework 2.25.x) - MEDIUM at best per that risk. 1.12.0 added a Saw All button (DaytimeCost 4, an ActionRouter handler registered AfterWrapped) and a log inventory (the filter admits the Tree Log; capacity 20000); that part is covered by the Pester contract and PENDING T2.604, and the Cut it sits beside is unchanged."
+      "evidence": "T2.14 PASS 2026-07-21 for Cut; but Cut is a drag CardInteraction gated by MillRaceGate (card-unbounded CardPredicate=_=>true), exposed to the OPEN framework ActionRouter CardOnCardAction index defect (T1.56, unfixed as of framework 2.25.x) - MEDIUM at best per that risk. 1.12.0 added a Saw All button (DaytimeCost 4, an ActionRouter handler registered AfterWrapped) and a log inventory (the filter admits the Tree Log; capacity 20000); that part is covered by the Pester contract and PENDING T2.604, and the Cut it sits beside is unchanged. 1.12.10 balance pass: Cut 1.5 h, Saw All 3 h, a 60-log blade wear with Replace Saw Blade, expanded cap 30000; earlier PASS rows predate it, not yet seen in game."
     },
     {
       "name": "Water-Driven Grinding Mill",
@@ -49,7 +49,7 @@
         "water_sawmill_bp_grinding_mill"
       ],
       "confidence": "VERIFIED",
-      "evidence": "T2.14/T2.15 PASS 2026-07-21 for Grind All (a DismantleAction, not CardOnCardAction, so not exposed to T1.56); WaterDrivenGrindingMill_Placed.json only duty-marker-touched since (2026-08-14, non-behavior-changing for Grind All itself)."
+      "evidence": "T2.14/T2.15 PASS 2026-07-21 for Grind All (a DismantleAction, not CardOnCardAction, so not exposed to T1.56); WaterDrivenGrindingMill_Placed.json only duty-marker-touched since (2026-08-14, non-behavior-changing for Grind All itself). 1.12.10 balance pass: capacity 5000 (was 8000); not yet seen in game."
     },
     {
       "name": "Water-Driven Forge",
@@ -60,7 +60,7 @@
         "water_sawmill_bp_water_driven_forge"
       ],
       "confidence": "MEDIUM",
-      "evidence": "Core Blast/Smelt Ore VERIFIED-ish (T2.12, T2.14 PASS 2026-07-21; T2.44 Blast-quality fix PASS 2026-08-09 via shared ActionInterceptPatch code with Workshop) but Natural Windflow rescue (T2.115 PENDING), self-smelt quality/container-tag chain (T2.131 PENDING, memory project_wdi_copper_selfsmelt_quality_floor unverified), and Smelt Ore's own CI-drag path riding T1.56 keep the group at MEDIUM."
+      "evidence": "Core Blast/Smelt Ore VERIFIED-ish (T2.12, T2.14 PASS 2026-07-21; T2.44 Blast-quality fix PASS 2026-08-09 via shared ActionInterceptPatch code with Workshop) but Natural Windflow rescue (T2.115 PENDING), self-smelt quality/container-tag chain (T2.131 PENDING, memory project_wdi_copper_selfsmelt_quality_floor unverified), and Smelt Ore's own CI-drag path riding T1.56 keep the group at MEDIUM. 1.12.10 balance pass: Smelt Ore gives 1 nugget at the ore's Quality plus 1 Greenstone Slag, Heat Metal Items adds 200 fuel (was 600), research 48 h; not yet seen in game."
     },
     {
       "name": "Water-Driven Workshop",
@@ -72,7 +72,7 @@
         "water_sawmill_bp_water_driven_workshop_kit"
       ],
       "confidence": "MEDIUM",
-      "evidence": "Same base evidence as Forge, plus Hammer All's dual-quality-stat fix (1.10.19, T2.132 PENDING) and the Cast Metal Lump -> Hammer All InventoryFilter fix (1.10.15, T2.116 PENDING) both explicitly unverified in-game per CHANGELOG. 1.12.0 added Forge Iron Rivets and Hammer Iron Sheet (six iron-grade nuggets, Metal Type 200, into six rivets or one sheet; ACT's Iron Nail and Iron Sheet with ACT); that part is covered by the Pester contract and PENDING T2.605 and T2.606, and the three copper crafts it sits beside are unchanged."
+      "evidence": "Same base evidence as Forge, plus Hammer All's dual-quality-stat fix (1.10.19, T2.132 PENDING) and the Cast Metal Lump -> Hammer All InventoryFilter fix (1.10.15, T2.116 PENDING) both explicitly unverified in-game per CHANGELOG. 1.12.0 added Forge Iron Rivets and Hammer Iron Sheet (six iron-grade nuggets, Metal Type 200, into six rivets or one sheet; ACT's Iron Nail and Iron Sheet with ACT); that part is covered by the Pester contract and PENDING T2.605 and T2.606, and the three copper crafts it sits beside are unchanged. 1.12.10 balance pass: Hammer All +2 per press up to 60 (was +5 to the cap); not yet seen in game."
     },
     {
       "name": "Copper Gear / Saw Blade",
@@ -151,8 +151,8 @@
         "water_sawmill_fishpond_winter",
         "water_sawmill_bp_fishpond"
       ],
-      "confidence": "VERIFIED",
-      "evidence": "T2.16 + T2.33 PASS 2026-07-21 for Catch/Stock/Drain; FishpondPopulationPatch.cs unchanged since 2026-07-20. The background breeding/Filled<->Stocked threshold-swap timer has no explicit confirmed observation (MEDIUM nuance, see feature-map.md). 1.12.0 added the Scatter Fish Food CI (PENDING T2.384-T2.385) and Fishing XP on the catch actions (PENDING T2.391), and the Eel (SpecialDurability4 count; Stock Eel, Catch Eel and Ice Fish Eel; carried by the Freeze and Thaw; PENDING T2.603) while retiring the legacy Catch Other Fish code; the other species' Catch/Stock are unchanged."
+      "confidence": "MEDIUM",
+      "evidence": "T2.16 + T2.33 PASS 2026-07-21 for Catch/Stock/Drain; FishpondPopulationPatch.cs unchanged since 2026-07-20. The background breeding/Filled<->Stocked threshold-swap timer has no explicit confirmed observation (MEDIUM nuance, see feature-map.md). 1.12.0 added the Scatter Fish Food CI (PENDING T2.384-T2.385) and Fishing XP on the catch actions (PENDING T2.391), and the Eel (SpecialDurability4 count; Stock Eel, Catch Eel and Ice Fish Eel; carried by the Freeze and Thaw; PENDING T2.603) while retiring the legacy Catch Other Fish code; the other species' Catch/Stock are unchanged. 1.12.10 balance pass changed breeding (0.003 per tick), catch times (1 h, crayfish and frog 30 min), feeding (one feed a day, smallest breeding species), frogs (a shared pool of 6) and the drained kit (places an empty pond); the PASS rows above predate it, so confidence drops to MEDIUM until re-checked."
     },
     {
       "name": "Reed and Cattail Beds",
@@ -212,7 +212,7 @@
         "water_sawmill_perk_outlet_start"
       ],
       "confidence": "HIGH",
-      "evidence": "perks-report.md 10/10 clean (2026-07-27, re-verified under 2026-08-23 critical-analysis consolidation); standard AddedCardsWarpData pattern, no custom C#, no playtest item needed."
+      "evidence": "perks-report.md 10/10 clean (2026-07-27, re-verified under 2026-08-23 critical-analysis consolidation); standard AddedCardsWarpData pattern, no custom C#, no playtest item needed. 1.12.10 balance pass changed the Forge, Sawmill, Ore Sluice and Fishpond starts' contents and the Grinding Mill and Outlet costs; not yet seen in game."
     },
     {
       "name": "Millwright",
@@ -221,7 +221,7 @@
         "water_sawmill_perk_millwright"
       ],
       "confidence": "HIGH",
-      "evidence": "Same clean perks-report.md pass; standalone StartingStatModifiers (Woodworking head start) perk, no custom C#."
+      "evidence": "Same clean perks-report.md pass; standalone StartingStatModifiers (Woodworking head start) perk, no custom C#. 1.12.10: cost 15 Suns (was 30)."
     },
     {
       "name": "Partner Duty Assignment",
@@ -234,7 +234,7 @@
         "wdiOperateWorkshop_Duty"
       ],
       "confidence": "LOW",
-      "evidence": "4 of 5 duties PENDING/never observed (T2.87 Sluice, T2.88 Sawmill, T2.89 Forge, T2.90 Workshop). The 5th (Grinding Mill) shows PASS at T2.80 (2026-08-15), but CHANGELOG [1.10.13] (2026-08-16, one day later) raised every custom duty's BaseWeight 20->850 after finding the old value was a starvation bug, and explicitly states 'the Grinding Mill's earlier confirmed working in-game result was probably a low-competition window, not evidence that 20 was adequate' - the current 850-weight code has never itself been confirmed."
+      "evidence": "4 of 5 duties PENDING/never observed (T2.87 Sluice, T2.88 Sawmill, T2.89 Forge, T2.90 Workshop). The 5th (Grinding Mill) shows PASS at T2.80 (2026-08-15), but CHANGELOG [1.10.13] (2026-08-16, one day later) raised every custom duty's BaseWeight 20->850 after finding the old value was a starvation bug, and explicitly states 'the Grinding Mill's earlier confirmed working in-game result was probably a low-competition window, not evidence that 20 was adequate' - the current 850-weight code has never itself been confirmed. 1.12.10: the Grinding Mill, Ore Sluice, Stamp Mill, Workshop and Expanded Workshop duties run at most 4 times a day (MaxPerformPerDay)."
     }
   ]
 }

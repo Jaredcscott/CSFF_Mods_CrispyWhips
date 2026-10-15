@@ -59,7 +59,7 @@
   "IsWeaponSheath": false,
   "OpenOnTab": 0,
   "DontRememberLastOpenTab": false,
-  "MaxWeightCapacity": 8000.0,
+  "MaxWeightCapacity": 5000.0,
   "ContentWeightReduction": 0.0,
   "InventorySlots": [
     {"m_FileID": 0, "m_PathID": 0},

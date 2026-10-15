@@ -28,7 +28,7 @@
   "PerkDescription": {
     "ParentObjectID": "water_sawmill_perk_forge_start",
     "LocalizationKey": "Water_Sawmill_Perk_ForgeStart_PerkDescription",
-    "DefaultText": "Start with a water-driven forge kit and mill race component. Place near water or a connected mill race outlet to build a water-powered metalworking station."
+    "DefaultText": "Start with the Water-Driven Forge blueprint already researched, a Mill Race section and a Large Copper Gear toward the Water Mill it needs. You still build the forge."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",
@@ -53,7 +53,10 @@
   "PassiveStatModifiers": [],
   "ActionModifiers": [],
   "AddedPlayerTags": [],
-  "AddedCardsWarpData": ["water_sawmill_forge_kit", "water_sawmill_mill_race"],
+  "AddedCardsWarpData": ["water_sawmill_bp_water_driven_forge", "water_sawmill_mill_race", "water_sawmill_copper_gear_large"],
+  "AddedCardsStats": [
+    { "Card": "water_sawmill_copper_gear_large", "SpecialDurability2": 50 }
+  ],
   "AddedCardsWarpType": 3,
   "NoSafetyMode": false
 }

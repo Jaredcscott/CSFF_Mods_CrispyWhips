@@ -1,0 +1,30 @@
+{
+    "UniqueID": "water_sawmill_stat_pond_fed",
+    "GameName": {
+        "LocalizationKey": "Water_Sawmill_Stat_PondFed_StatName",
+        "DefaultText": "Fish Fed Today"
+    },
+    "Description": {
+        "LocalizationKey": "Water_Sawmill_Stat_PondFed_StatDescription",
+        "DefaultText": "Hidden: 1 after fish food is scattered on a fishpond, wearing off over one day. Scatter Fish Food needs it at 0, so the ponds take one feed a day."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": -0.0104166667,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_fishpond_filled",
     "LocalizationKey": "Water_Sawmill_FishpondFilled_CardHelpSection",
-    "DefaultText": "<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (~2 days per fish per species).\n\n<b>Trout / Char / Sturgeon / Eel:</b> Each tracked separately (cap 10 each). They do not breed.\n\n<b>Catch:</b> Use a spear to catch one fish at a time. Each catch reduces that species' population by 1.\n\n<b>Stocked Threshold:</b> When the breeding population (pike+perch+minnow) exceeds 10, the pond transitions to Stocked and frogs can be caught.\n\n<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. Each one adds a quarter of a fish to the pike, perch and minnow. Only a species with at least two fish breeds, so food does nothing for a species of one, and food for a species already at 10 is wasted.\n\n<b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).\n\n<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
+    "DefaultText": "<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (about 3.5 days per fish per species).\n\n<b>Trout / Char / Sturgeon / Eel:</b> Each tracked separately (cap 10 each). They do not breed.\n\n<b>Catch:</b> Use a spear to catch one fish at a time (1 hour; Crayfish 30 minutes). Each catch reduces that species' population by 1.\n\n<b>Stocked Threshold:</b> When the breeding population (pike+perch+minnow) exceeds 10, the pond transitions to Stocked and frogs can be caught.\n\n<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. The ponds take one feed a day. It adds a quarter of a fish to the smallest breeding species among the pike, perch and minnow (2 to 9 fish); with none breeding the food is wasted.\n\n<b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).\n\n<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
   },
   "CardType": 2,
   "ObjectWeight": 1500.0,
@@ -195,7 +195,7 @@
     "MaxValue": 10.0,
     "RestrictToSpecificValues": false,
     "ValidValues": [],
-    "RatePerDaytimePoint": 0.005,
+    "RatePerDaytimePoint": 0.003,
     "ExtraRateWhenEquipped": 0.0,
     "PauseRateWhenEnvWeightIsFull": false,
     "PauseRateWhenInventoryIsFull": false,
@@ -234,7 +234,7 @@
     "MaxValue": 10.0,
     "RestrictToSpecificValues": false,
     "ValidValues": [],
-    "RatePerDaytimePoint": 0.005,
+    "RatePerDaytimePoint": 0.003,
     "ExtraRateWhenEquipped": 0.0,
     "PauseRateWhenEnvWeightIsFull": false,
     "PauseRateWhenInventoryIsFull": false,
@@ -273,7 +273,7 @@
     "MaxValue": 10.0,
     "RestrictToSpecificValues": false,
     "ValidValues": [],
-    "RatePerDaytimePoint": 0.005,
+    "RatePerDaytimePoint": 0.003,
     "ExtraRateWhenEquipped": 0.0,
     "PauseRateWhenEnvWeightIsFull": false,
     "PauseRateWhenInventoryIsFull": false,
@@ -773,7 +773,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_fishpond_filled",
         "LocalizationKey": "Water_Sawmill_FishpondFilled_Feed_ActionDescription",
-        "DefaultText": "Scatter fish scraps, bugs or bait over the water. Adds a quarter of a fish to the pike, perch and minnow. Only a species with at least two fish breeds, so food does nothing for a species of one, and food scattered for a species already at 10 is wasted."
+        "DefaultText": "Scatter fish scraps, bugs or bait over the water, once a day. Adds a quarter of a fish to the smallest breeding species among pike, perch and minnow (2 to 9 fish). With none breeding the food is wasted."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 0,
@@ -784,8 +784,34 @@
       "ActionSoundsWarpData": ["Water"],
       "ActionSoundsWarpType": 3,
       "WorksInverted": false,
-      "StackCompatible": true,
+      "StackCompatible": false,
       "NotBaseAction": true,
+      "RequiredStatValues": [
+        {
+          "Stat": {"m_FileID": 0, "m_PathID": 0},
+          "StatWarpData": "water_sawmill_stat_pond_fed",
+          "StatWarpType": 3,
+          "TriggerRange": {"x": 0.0, "y": 0.02},
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": {"m_FileID": 0, "m_PathID": 0},
+          "StatWarpData": "water_sawmill_stat_pond_fed",
+          "StatWarpType": 3,
+          "ValueModifier": {"x": 1.0, "y": 1.0},
+          "RateModifier": {"x": 0.0, "y": 0.0},
+          "MinValueModifier": {"x": 0.0, "y": 0.0},
+          "MaxValueModifier": {"x": 0.0, "y": 0.0},
+          "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerCardsWarpData": ["b25f1f9bfc2a0bc44a93079ed02cb43f", "64c4dd2e834526541935792cbbdd7f87", "e3a3984267c59214cbf0ab931a9e7f23", "585e25832914e6f43bfa3e86594a1454", "93b9f1458ce0c6d4eafb7a02a0a7129a"],
@@ -798,10 +824,7 @@
         "ModType": 3
       },
       "ReceivingCardChanges": {
-        "ModType": 1,
-        "Special1Change": {"x": 0.25, "y": 0.25},
-        "Special2Change": {"x": 0.25, "y": 0.25},
-        "Special3Change": {"x": 0.25, "y": 0.25}
+        "ModType": 0
       }
     },
     {
@@ -1051,7 +1074,7 @@
           "TargetWarpType": 3
         }
       ],
-      "DaytimeCost": 2,
+      "DaytimeCost": 4,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -1151,7 +1174,7 @@
           "TargetWarpType": 3
         }
       ],
-      "DaytimeCost": 2,
+      "DaytimeCost": 4,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -1251,7 +1274,7 @@
           "TargetWarpType": 3
         }
       ],
-      "DaytimeCost": 2,
+      "DaytimeCost": 4,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -1351,7 +1374,7 @@
           "TargetWarpType": 3
         }
       ],
-      "DaytimeCost": 2,
+      "DaytimeCost": 4,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -1451,7 +1474,7 @@
           "TargetWarpType": 3
         }
       ],
-      "DaytimeCost": 2,
+      "DaytimeCost": 4,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -1551,7 +1574,7 @@
           "TargetWarpType": 3
         }
       ],
-      "DaytimeCost": 2,
+      "DaytimeCost": 4,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -1651,7 +1674,7 @@
           "TargetWarpType": 3
         }
       ],
-      "DaytimeCost": 2,
+      "DaytimeCost": 4,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -1751,7 +1774,7 @@
           "TargetWarpType": 3
         }
       ],
-      "DaytimeCost": 1,
+      "DaytimeCost": 2,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -1827,7 +1850,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_fishpond_filled",
         "LocalizationKey": "Water_Sawmill_FishpondFilled_Drain_ActionDescription",
-        "DefaultText": "Abandon the fish and pack the pond back into a fishpond kit."
+        "DefaultText": "Abandon the fish and drain the pond back to a fishpond kit. The kit then places an empty pond."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,

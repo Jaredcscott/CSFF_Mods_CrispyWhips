@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_fishpond_kit",
     "LocalizationKey": "Water_Sawmill_FishpondKit_CardDescription",
-    "DefaultText": "A pre-stocked fishpond kit ready for placement near water or a connected mill race outlet. Fish populations grow slowly over time."
+    "DefaultText": "A fishpond kit ready for placement near water or a connected mill race outlet. A kit from the blueprint places a pond with two pike, perch and minnow; a drained kit or the Angler's Start kit places an empty pond."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
@@ -36,7 +36,7 @@
   "UsageDurability": {"Active": false},
   "FuelCapacity": {"Active": false},
   "Progress": {"Active": false},
-  "SpecialDurability1": {"Active": false},
+  "SpecialDurability1": {"Active": true, "FloatValue": 0.0, "MaxValue": 1.0, "CardStatName": {"ParentObjectID": "water_sawmill_fishpond_kit", "LocalizationKey": "Water_Sawmill_FishpondKit_Unstocked_StatName", "DefaultText": "Unstocked"}, "RatePerDaytimePoint": 0.0, "HidingOptions": 2},
   "SpecialDurability2": {"Active": false},
   "SpecialDurability3": {"Active": false},
   "SpecialDurability4": {"Active": false},
@@ -120,7 +120,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_fishpond_kit",
         "LocalizationKey": "Water_Sawmill_FishpondKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the kit and recover most of the planks and rope."
+        "DefaultText": "Break down the kit and recover half of the planks and heavy stones."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -142,14 +142,14 @@
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 3, "y": 3},
+              "Quantity": {"x": 5, "y": 5},
               "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 1.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-              "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+              "DroppedCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 1, "y": 1}
+              "Quantity": {"x": 7, "y": 7}
             }
           ]
         }

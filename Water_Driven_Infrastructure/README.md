@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.12.9
+**Version:** 1.12.10
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
@@ -57,11 +57,11 @@ The four Mill Race improvements appear in the **Environment Improvements** panel
 
 Finishing a Mill Race also connects the location at its far end, even one you have never visited. A race still under construction connects nothing.
 
-**Mill Race Outlet:** draw unclean water at any outdoor location. Build a Mill Race first, then the outlet (research 8 hours). The water never runs out, but purify it before drinking. It freezes in winter and thaws in spring.
+**Mill Race Outlet:** draw unclean water at any outdoor location. Build a Mill Race first, then the outlet (research 24 hours, two 1-hour stages: a footing of 12 Stone and 4 Heavy Stone, then a Mill Race, 4 Wooden Planks and 4 Metal Nails*). The water never runs out, but purify it before drinking. It freezes in winter and thaws in spring.
 
 - **Control Valve:** "Close Valve" (15 minutes) shuts the outlet. Nothing can be drawn, a Rain Cistern there stops filling, and stations that rely on it stop. "Open Valve" (15 minutes) reverses it. A closed outlet neither freezes nor thaws.
 - **Winter heat:** stations at a frozen outlet keep working if a heat source stands there. That means a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery, Forge or Copper Brazier, or a Water-Driven Forge or Workshop at Temperature 900 or more. Heat does not thaw the outlet.
-- **Rain Cistern feed:** a Rain Cistern at the same location fills with River Water at 50 every 15 minutes, about 4.5 days from empty, so summer water lasts into winter. Each outlet adds its own flow.
+- **Rain Cistern feed:** a Rain Cistern at the same location fills with River Water at 10 every 15 minutes, about 22 days from empty, so water banked in summer and autumn lasts into winter. Each outlet adds its own flow.
 - A cistern already holding rainwater or any other liquid is left alone until drawn empty. A frozen outlet feeds nothing until the thaw.
 
 ---
@@ -78,7 +78,7 @@ Drag it onto a Sawmill, Grinding Mill, Workshop or Ore Sluice (30 minutes). That
 
 | Button | Normal | With wheel |
 |--------|--------|-----------|
-| Saw All | 1 hour | 30 minutes |
+| Saw All | 3 hours | 1.5 hours |
 | Grind All, Hammer All | 30 minutes | 15 minutes |
 | Sluice All | 45 minutes | 15 minutes |
 
@@ -99,9 +99,10 @@ Drag a log onto the sawmill to cut planks.
 | 3 | 20 Wooden Planks, a Forge Hammer or Stone (kept) |
 | 4 | Water-Driven Mill, Mill Race, 2 Large Copper Gears, 4 Small Copper Gears, Copper Saw Blade, 2 Iron Parts, 2 Iron Bearings, 1 Iron Axle, 12 Metal Nails*, 1 Tin Solder* |
 
-- **Cut** (30 minutes): a log gives 8 Wooden Planks and 2 Wood Shavings. The planks keep the log's wood and dryness, so a birch log gives birch planks.
-- **Saw All** (1 hour): the sawmill holds 20,000 weight (6 logs). Saw All saws every log inside, each giving what Cut gives. The saw blade stays. It trains no skill.
-- **Expand** (30 minutes): rebuilds the sawmill in place as the **Expanded Water-Driven Sawmill**, holding 40,000 instead of 20,000. Contents and a fitted Overshot Wheel stay. It costs 6 Wooden Planks and 4 Iron Nails (Metal Nails at Metal Type Iron), taken from your inventory or cards at the location.
+- **Cut** (1.5 hours): a log gives 8 Wooden Planks and 2 Wood Shavings. The planks keep the log's wood and dryness, so a birch log gives birch planks.
+- **Saw All** (3 hours): the sawmill holds 20,000 weight (6 logs). Saw All saws every log inside, each giving what Cut gives. It trains no skill.
+- **Saw Blade:** every log sawn, by Cut or Saw All, wears the blade by 1. After 60 logs Cut and Saw All stop, and Saw All saws only the logs the blade has left. Drag a Copper Saw Blade onto the sawmill and **Replace Saw Blade** (30 minutes) fits it, using the blade up. Packing up keeps the wear.
+- **Expand** (30 minutes): rebuilds the sawmill in place as the **Expanded Water-Driven Sawmill**, holding 30,000 instead of 20,000 (10 logs). Contents and a fitted Overshot Wheel stay. It costs 6 Wooden Planks and 4 Iron Nails (Metal Nails at Metal Type Iron), taken from your inventory or cards at the location.
 - There is no way back from Expand, and Pack Up returns the plain kit. Cost and capacity may change.
 - **Pack Up** (1 hour) returns the kit.
 - **Operate the Sawmill** (Partner duty): mark it and a Partner cuts logs there. The expanded sawmill has its own duty.
@@ -112,7 +113,7 @@ Drag a log onto the sawmill to cut planks.
 
 A water-powered forge that smelts at 1,100 degrees and above.
 
-**Build** (research 16 hours, four 3-hour stages, needs a Water-Driven Mill):
+**Build** (research 48 hours, four 3-hour stages, needs a Water-Driven Mill):
 
 | Stage | Materials |
 |-------|-----------|
@@ -129,7 +130,7 @@ A water-powered forge that smelts at 1,100 degrees and above.
 
 **What it does**
 
-- **Smelt Ore:** drag copper ore onto the hot forge.
+- **Smelt Ore:** drag Greenstone onto the hot forge. It gives one copper Metal Nugget at the ore's Quality, plus one Greenstone Slag.
 - **Smelt Greenstone:** Greenstone Powder becomes one copper Metal Nugget at the powder's Quality, plus one Greenstone Slag.
 - **Iron parts** (Iron Parts, Bearing, Axle, Wrench) smelt at 1,100 or more. A Bearing, Axle or Wrench gives 6 iron nuggets and Iron Parts give 3, at the quality of the bar they came from.
 - The forge copies the vanilla kiln and smelting recipes, so clay fires and vanilla ores smelt in it.
@@ -145,7 +146,7 @@ Adds batch metalworking and 5,000 weight of storage to the forge.
 
 The Workshop keeps every forge action and adds these:
 
-- **Hammer All** (30 minutes): hammers everything inside at once.
+- **Hammer All** (30 minutes): hammers everything inside at once, raising Metal Quality and Quality by 2 a press, up to 60. Past 60, only the game's own hammering raises them.
 - **Hammer Copper Sheet** (1 hour): 6 copper nuggets make 1 Metal Sheet at the nuggets' average Metal Quality.
 - **Forge Copper Nails** (1 hour): 6 copper nuggets make 6 copper Metal Nails.
 - **Forge Iron Nails** (1 hour): 6 iron nuggets make 6 Iron Nails (Metal Nails at Metal Type Iron).
@@ -225,7 +226,9 @@ A dug and stocked pond for a steady supply of fish.
 | 4 | Line: 10 Wooden Planks, 4 Metal Nails*, 3 Bugs, 15 Heavy Stone, 30 Stone |
 | 5 | Stock: 2 Pike, 2 Perch, 2 Minnow |
 
-The population grows over time. Harvest it with the **Catch** buttons (30 minutes each, 15 for Crayfish and Frog). Each needs at least one whole fish of that species.
+The population grows slowly, about one Pike, Perch or Minnow every 3.5 days. Harvest it with the **Catch** buttons (1 hour each, 30 minutes for Crayfish and Frog). Each needs at least one whole fish of that species.
+
+**Frogs:** the Stocked pond's **Catch Frog** takes a frog from a pool your ponds share: up to 6 frogs, and one more arrives each day. With none left, Catch Frog cannot be used until one arrives.
 
 In winter the pond becomes the Fishpond (Frozen), with Ice Fish buttons, and cannot be packed up until spring.
 
@@ -233,7 +236,8 @@ In winter the pond becomes the Fishpond (Frozen), with Ice Fish buttons, and can
 - **What you catch:** a random species, weighted by how many the pond holds, at Quality 72. Crayfish are not caught this way. With no fish, nothing happens and no time passes.
 - **Partner fishing:** mark a pond with **Fish the Fishpond** in the Duty Assignment menu. The Partner presses the Catch buttons under the same rules, taking the first species still in the pond (Pike, Perch, Minnow, Sturgeon, Trout, Char, Eel, Crayfish, Frog). Mark the pond again if it switches between Fishpond and Fishpond (Stocked).
 - **Eel:** drag a vanilla Eel onto a pond and **Stock Eel** adds it, up to 10. Eels do not breed. **Catch Eel** (spear in reach) or **Ice Fish Eel** takes one out. Eels survive the freeze and thaw.
-- **Feeding:** drag Fish Scraps, Bugs or any fishing bait onto a working pond, and **Scatter Fish Food** adds a quarter fish each to Pike, Perch and Minnow. Only a species of two or more breeds, so food is wasted on a species of one or of 10. The frozen pond cannot be fed.
+- **Feeding:** drag Fish Scraps, Bugs or any fishing bait onto a working pond, and **Scatter Fish Food** adds a quarter fish to the smallest breeding species among Pike, Perch and Minnow (2 to 9 fish). Your ponds take one feed a day between them, and with no species breeding the food is wasted. The frozen pond cannot be fed.
+- **Kit:** Pack Up keeps the fish. A kit from **Drain**, or the Angler's Start kit, places as an empty Fishpond to stock again.
 
 ---
 
@@ -243,9 +247,9 @@ A woven timber wing-wall staked across a river to steer fish into a trap.
 
 **Build** (research 4 hours, 1.5 hours, needs a Mill Race): 6 Wooden Planks, 2 Rope, 4 Twine. It gives a **Fish Funnel Kit**. Place it at a river, and **Pack Up** returns the kit.
 
-Disassembling the kit gives back 4 Wooden Planks, 1 Rope and 2 Twine.
+Disassembling the kit gives back 3 Wooden Planks, 1 Rope and 2 Twine.
 
-A placed funnel doubles how fast a vanilla Funnel Trap at the same location gains fish. It catches nothing alone, so you still need the trap in the same water. Two funnels give triple speed. The rate may be rebalanced.
+A placed funnel doubles how fast a vanilla Funnel Trap at the same location gains fish. It catches nothing alone, so you still need the trap in the same water. A second funnel at the same location adds nothing. The rate may be rebalanced.
 
 ---
 
@@ -341,13 +345,13 @@ All perks are in the **Situational** tab.
 
 | Perk | Cost | Starting items |
 |------|-----:|---------------|
-| **Forge Start** | 1 Star | Water-Driven Forge Kit, 1 Mill Race |
-| **Sawmill Start** | 2 Moons | Water-Driven Sawmill Kit |
-| **Grinding Mill Start** | 2 Moons | Water-Driven Grinding Mill Kit, 1 Mill Race |
-| **Prospector's Start** | 2 Moons | Ore Sluice Kit |
-| **Angler's Start** | 2 Moons | Fishpond Kit |
-| **Homesteader's Waterworks** | 2 Moons | Mill Race Outlet (packed), 1 Mill Race |
-| **Millwright** | 30 Suns | +75 Woodworking head start |
+| **Forge Start** | 1 Star | Water-Driven Forge blueprint (researched), 1 Mill Race, 1 Large Copper Gear |
+| **Sawmill Start** | 2 Moons | Water-Driven Sawmill blueprint (researched), 1 Copper Saw Blade |
+| **Grinding Mill Start** | 1 Star | Water-Driven Grinding Mill Kit, 1 Mill Race |
+| **Prospector's Start** | 2 Moons | Ore Sluice Frame |
+| **Angler's Start** | 2 Moons | Fishpond Kit (no fish: stock it yourself) |
+| **Homesteader's Waterworks** | 1 Moon | Mill Race Outlet (packed), 1 Mill Race |
+| **Millwright** | 15 Suns | +75 Woodworking head start |
 
 ---
 
@@ -360,7 +364,7 @@ Assign these to a recruited Partner in the Duty Assignment menu:
 - Harvest the Reed Bed and Harvest the Cattail Bed
 - Fish the Fishpond (one duty each for the Fishpond and the Fishpond (Stocked))
 
-A Partner works only the stations you mark. The Forge and Workshop also take vanilla's fire-tending duty.
+A Partner works only the stations you mark. The Grinding Mill, Ore Sluice, Stamp Mill, Workshop and Expanded Workshop duties run at most 4 times a day per Partner. The Forge and Workshop also take vanilla's fire-tending duty.
 
 ---
 
@@ -372,7 +376,7 @@ A Partner works only the stations you mark. The Forge and Workshop also take van
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.12.9 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.12.10 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
@@ -380,7 +384,7 @@ A Partner works only the stations you mark. The Forge and Workshop also take van
 
 BepInEx writes `BepInEx/config/crispywhips.waterdriveninfrastructure.cfg` on first launch. A changed value needs a full game restart, not a save reload.
 
-- **Seasons > Winter Station Lock** (default `false`): when on, the water-powered stations stop in winter everywhere, even beside a river, unless a heat source from the winter heat list stands there. It never blocks packing up, fuel, lighting, smelting or a pond's own freeze.
+- **Seasons > Winter Station Lock** (default `true` since 1.12.10; BepInEx keeps a value already in your file, so an existing install stays as it was): when on, the water-powered stations stop in winter everywhere, even beside a river, unless a heat source from the winter heat list stands there. It never blocks packing up, fuel, lighting, smelting or a pond's own freeze.
 - When off, only a frozen outlet stops a station in winter, and stations at a river or lake work all year.
 
 ---
@@ -403,12 +407,13 @@ Most features were checked by scripted tests in a running game. Not yet tried in
 - The animated Sawmill, Grinding Mill, Forge, Workshop and Overshot Wheel art (1.12.6): built and checked frame by frame, not yet seen in a running game.
 - The pile toggle on Bronze Gears (1.12.5).
 - Partner duties for the Stamp Mill, Fishpond and expanded stations: scripted checks only.
+- The 1.12.10 balance pass (Smelt Ore, the saw blade, the slower pond, the frog pool, once-a-day feeding, the empty drained pond, kit refunds, outlet and duty limits, the new perk contents): checked against the data by scripted tests, not yet seen in a running game.
 
 ---
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.9 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.10 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.

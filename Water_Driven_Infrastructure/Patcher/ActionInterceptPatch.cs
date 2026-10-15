@@ -44,7 +44,13 @@ namespace WaterDrivenInfrastructure.Patcher
         private const string FishpondStockedID  = "water_sawmill_fishpond_stocked";
         private const string FishpondWinterID   = "water_sawmill_fishpond_winter";
         private const float  FishCaughtQuality  = 72f;   // 75 % of SpecialDurability2 max (96)
-        private const float  WorkshopMetalQualityBoost = 5f;
+        // Hammer All's flat quality boost per press, and the quality it stops at (balance pass 2026-10-14,
+        // WDI-B7: was +5 per press with no ceiling, so a stack of sluice nuggets at 35 reached 100 in 13 presses
+        // with no Smithing skill; vanilla smithing quality is skill-scaled per strike, so the press now only
+        // brings poor metal up to fair and the rest is the player's own Smith strikes).
+        private const float  WorkshopMetalQualityBoost = 2f;
+        private const float  WorkshopQualityBoostCeiling = 60f;
+        private const string FishpondKitID      = "water_sawmill_fishpond_kit";
         private const string CopperNuggetGUID = "4b0f4937a5ecb90499428c8c10288afc";
         private const string VanillaAshGUID   = "65f9b26c048cd474d9fb14d1c9e46754"; // vanilla Ash — Blast byproduct
         // The Workshop crafts always hand over the shared Metal Sheet and Metal Nail that CSFFModFramework 2.28.0
@@ -515,6 +521,140 @@ namespace WaterDrivenInfrastructure.Patcher
                         StartDelayedCopperSelfSmeltQualityRetry(tagged.Item1, tagged.Item2);
                 }
             });
+
+            // Fishpond - "Scatter Fish Food" (balance pass 2026-10-14, WDI-B2). The JSON action no longer raises
+            // the three breeding species itself (it raised Pike, Perch AND Minnow by 0.25 each, so every scrap was
+            // three quarters of a fish); it takes the daily latch stat and this handler adds the quarter fish to
+            // ONE species, the smallest that is breeding (2 or more, below the cap of 10). No Before and no
+            // ctx.Tag: FishCatchStats keeps its snapshot there on the same pond cards.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "FishpondFeedOneSpecies",
+                CardPredicate = ctx => ctx.CardUid == FishpondFilledID || ctx.CardUid == FishpondStockedID,
+                Timing = ActionTiming.AfterWrapped,
+                After = ctx =>
+                {
+                    if (IsPondFeedAction(ctx.ActionKey)) FeedSmallestBreedingSpecies(ctx.Card);
+                }
+            });
+
+            // Fishpond kit (balance pass 2026-10-14, WDI-B15). A kit whose hidden "Unstocked" flag
+            // (SpecialDurability1) is set places an EMPTY pond instead of the fresh pond's two of each breeding
+            // species. The Angler's Start perk hands its kit over flagged (AddedCardsStats) and Drain hands the
+            // kit back flagged, so a drained pond is restocked by the player, never by packing and placing. A kit
+            // crafted from the blueprint, or saved before 1.12.10, reads 0 and places stocked as before.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "FishpondKitUnstocked",
+                CardPredicate = ctx => ctx.CardUid == FishpondKitID,
+                ActionKeyPrefix = "Water_Sawmill_FishpondKit_Place_",
+                Timing = ActionTiming.AfterWrapped,
+                Before = ctx => { ctx.Tag = IsUnstockedFishpondKit(ctx.Card) ? (object)true : null; return true; },
+                After = ctx =>
+                {
+                    if (ctx.Tag is bool unstocked && unstocked) EmptyPlacedFishpond(ctx);
+                }
+            });
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "FishpondDrainFlagsKit",
+                CardPredicate = ctx => ctx.CardUid == FishpondFilledID || ctx.CardUid == FishpondStockedID,
+                Timing = ActionTiming.AfterWrapped,
+                After = ctx =>
+                {
+                    if (IsPondDrainAction(ctx.ActionKey)) FlagDrainedFishpondKit(ctx);
+                }
+            });
+        }
+
+        // ============================================================
+        //  FISHPOND - feeding and the unstocked kit (balance pass 2026-10-14, WDI-B2 / WDI-B15)
+        // ============================================================
+        private const float PondFeedPerScatter = 0.25f;
+        private const float PondBreedingFloor = 2f;    // FishpondPopulationPatch: a species breeds at 2 or more
+        private const float PondSpeciesCap = 10f;      // Fishpond_*.json SD1-3 MaxValue
+        private const string FishpondKitUnstockedStat = "SpecialDurability1";
+        private static readonly string[] PondBreedingStats = { "SpecialDurability1", "SpecialDurability2", "SpecialDurability3" };
+
+        private static bool IsPondFeedAction(string actionKey)
+        {
+            return !string.IsNullOrEmpty(actionKey) && actionKey.EndsWith("_Feed_ActionName", StringComparison.Ordinal);
+        }
+
+        private static bool IsPondDrainAction(string actionKey)
+        {
+            return !string.IsNullOrEmpty(actionKey) && actionKey.EndsWith("_Drain_ActionName", StringComparison.Ordinal);
+        }
+
+        // The smallest breeding species (Pike, Perch or Minnow at 2 or more and below 10) gains a quarter fish.
+        // With none breeding the food is wasted, as the action's text says.
+        private static void FeedSmallestBreedingSpecies(object pond)
+        {
+            int pick = -1;
+            float lowest = float.MaxValue;
+            for (int i = 0; i < PondBreedingStats.Length; i++)
+            {
+                float count = CardUtil.GetDurability(pond, PondBreedingStats[i]);
+                if (float.IsNaN(count))
+                {
+                    WarnOnce("PondFeed-read-" + PondBreedingStats[i],
+                        $"CardUtil.GetDurability could not read the pond's {PondBreedingStats[i]} (reflection miss): that species is left out of Scatter Fish Food");
+                    continue;
+                }
+                if (count < PondBreedingFloor || count >= PondSpeciesCap) continue;
+                if (count < lowest) { lowest = count; pick = i; }
+            }
+            if (pick < 0)
+            {
+                Logger?.LogDebug("[ActionIntercept] PondFeed: no species is breeding below the cap; the food is wasted");
+                return;
+            }
+            float fed = Math.Min(PondSpeciesCap, lowest + PondFeedPerScatter);
+            if (!CardUtil.SetDurability(pond, PondBreedingStats[pick], fed))
+                WarnOnce("PondFeed-write-" + PondBreedingStats[pick], $"could not raise the pond's {PondBreedingStats[pick]} after Scatter Fish Food (reflection miss)");
+            else
+                Logger?.LogDebug($"[ActionIntercept] PondFeed: {PondBreedingStats[pick]} {lowest:F2} -> {fed:F2}");
+        }
+
+        private static bool IsUnstockedFishpondKit(object kit)
+        {
+            float flag = CardUtil.GetDurability(kit, FishpondKitUnstockedStat);
+            if (float.IsNaN(flag))
+            {
+                WarnOnce("PondKit-read", $"CardUtil.GetDurability could not read the fishpond kit's {FishpondKitUnstockedStat} (reflection miss): the kit places a stocked pond");
+                return false;
+            }
+            return flag >= 0.5f;
+        }
+
+        private static void EmptyPlacedFishpond(ActionContext ctx)
+        {
+            int emptied = 0;
+            for (int i = 0; i < ctx.ProducedUids.Count; i++)
+            {
+                if (ctx.ProducedUids[i] != FishpondFilledID) continue;
+                foreach (var stat in PondBreedingStats)
+                {
+                    if (CardUtil.SetDurability(ctx.Produced[i], stat, 0f)) continue;
+                    WarnOnce("PondKit-empty-" + stat, $"could not empty the placed pond's {stat} (reflection miss): an unstocked kit placed a stocked pond");
+                }
+                emptied++;
+            }
+            if (emptied == 0)
+                WarnOnce("PondKit-no-pond", "an unstocked fishpond kit was placed but no Fishpond appeared among the action's produced cards; the pond keeps its starting fish");
+        }
+
+        private static void FlagDrainedFishpondKit(ActionContext ctx)
+        {
+            int flagged = 0;
+            for (int i = 0; i < ctx.ProducedUids.Count; i++)
+            {
+                if (ctx.ProducedUids[i] != FishpondKitID) continue;
+                if (CardUtil.SetDurability(ctx.Produced[i], FishpondKitUnstockedStat, 1f)) flagged++;
+                else WarnOnce("PondKit-flag", $"could not set the drained kit's {FishpondKitUnstockedStat} (reflection miss): it will place a stocked pond");
+            }
+            if (flagged == 0)
+                WarnOnce("PondKit-no-kit", "a fishpond was drained but no Fishpond Kit appeared among the action's produced cards; the kit will place a stocked pond");
         }
 
         static void GetSelectedContainedBlueprint_Postfix(object __instance, ref object __result)
@@ -1247,8 +1387,8 @@ namespace WaterDrivenInfrastructure.Patcher
             ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
         }
 
-        // A catch costs exactly its DismantleAction's own DaytimeCost (Catch 2, Ice Fish 3, Crayfish and Frog
-        // 1, Ice Fish Crayfish 2): the game spends it before the fish spawns. This coroutine charges no time of
+        // A catch costs exactly its DismantleAction's own DaytimeCost (Catch 4, Ice Fish 3, Crayfish and Frog
+        // 2, Ice Fish Crayfish 2; balance pass 2026-10-14): the game spends it before the fish spawns. This coroutine charges no time of
         // its own. It used to spend one extra daytime point through a reflected GameManager.SpendDaytimePoints,
         // added on 2026-05-17 while chasing the 0%-quality fish (Documentation/Retrospectives/_Archive/
         // wdi-fish-quality.md, attempt 5) and kept after attempt 6 moved the stat write ahead of it. On EA 0.68b
@@ -2230,7 +2370,10 @@ namespace WaterDrivenInfrastructure.Patcher
                 float maxQuality = CardUtil.GetDurabilityMax(card, stat);
                 if (float.IsNaN(maxQuality) || maxQuality <= 0f) maxQuality = 100f;
 
-                float newQuality = Math.Min(maxQuality, currentQuality + WorkshopMetalQualityBoost);
+                // WDI-B7: the boost stops at WorkshopQualityBoostCeiling; a slot at or above it gains nothing.
+                float ceiling = Math.Min(maxQuality, WorkshopQualityBoostCeiling);
+                if (currentQuality >= ceiling) continue;
+                float newQuality = Math.Min(ceiling, currentQuality + WorkshopMetalQualityBoost);
                 if (newQuality <= currentQuality) continue;
 
                 bool ok = CardUtil.SetDurability(card, stat, newQuality);
@@ -2654,6 +2797,9 @@ namespace WaterDrivenInfrastructure.Patcher
         // A log's wood ID and Dryness live in the same two stats on the Plank. Both names are in
         // SpawnService.StatNames; one the framework does not know is ignored, so the contract checks it.
         private const string SawAllWoodIdStat  = "SpecialDurability4";
+        // Blade Wear: WaterDrivenSawmill_Placed*.json UsageDurability (MaxValue 60), +1 per Cut in JSON.
+        private const string SawBladeWearStat = "UsageDurability";
+        private const float  SawBladeLife     = 60f;
         private const string SawAllDrynessStat = "Progress";
 
         private static void HandleSawAllInner(object sawmill)
@@ -2690,6 +2836,26 @@ namespace WaterDrivenInfrastructure.Patcher
                 return;
             }
 
+            // WDI-B4 (balance pass 2026-10-14): the blade wears one point per log (Blade Wear, the sawmill's
+            // UsageDurability, counting up to SawBladeLife), the same as one Cut. A batch saws only the logs the
+            // blade has left; the rest stay in the sawmill until a Copper Saw Blade is fitted.
+            float bladeWear = CardUtil.GetDurability(sawmill, SawBladeWearStat);
+            if (float.IsNaN(bladeWear))
+            {
+                WarnOnce("SawAll-blade-unreadable",
+                    $"Saw All could not read the sawmill's {SawBladeWearStat} (Blade Wear; reflection miss or a renamed stat), so this batch is sawn without wearing the blade");
+            }
+            else
+            {
+                int cutsLeft = (int)Math.Floor(SawBladeLife - bladeWear + 0.001f);
+                if (cutsLeft <= 0)
+                {
+                    Logger?.LogDebug("[ActionIntercept] SawAll: the saw blade is worn out");
+                    return;
+                }
+                if (logs.Count > cutsLeft) logs = logs.GetRange(0, cutsLeft);
+            }
+
             // Read every log's wood ID and Dryness BEFORE the first eject, so nothing here depends on what
             // an ejected card still reports.
             var plankStats = new List<Dictionary<string, float>>(logs.Count);
@@ -2704,6 +2870,8 @@ namespace WaterDrivenInfrastructure.Patcher
             }
 
             EjectCardsFromStructure(sawmill, logs);
+            if (!float.IsNaN(bladeWear) && !CardUtil.SetDurability(sawmill, SawBladeWearStat, Math.Min(SawBladeLife, bladeWear + logs.Count)))
+                WarnOnce("SawAll-blade-write", $"Saw All could not raise the sawmill's {SawBladeWearStat} (Blade Wear; reflection miss), so this batch did not wear the blade");
             RefreshOpenInventoryPopup();
 
             Logger?.LogDebug($"[ActionIntercept] SawAll: sawed {logs.Count} log(s) into {logs.Count * SawAllPlanksPerLog} plank(s) and {logs.Count * SawAllShavingsPerLog} wood shaving(s)");

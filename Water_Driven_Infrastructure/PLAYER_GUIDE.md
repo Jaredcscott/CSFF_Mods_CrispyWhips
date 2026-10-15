@@ -104,15 +104,17 @@ The **Copper Saw Blade** (Metal Crafts tab): one large molten copper crucible + 
 ### Using the Sawmill
 
 1. Place the sawmill near your Mill Race network.
-2. Drag a **log** onto the sawmill to trigger the **Cut** action (30 min).
+2. Drag a **log** onto the sawmill to trigger the **Cut** action (1.5 hours).
 3. The log is consumed and **8 Planks + 2 Wood Shavings** are produced directly onto the ground/board. The shavings make excellent tinder. The planks keep the
    log's wood and dryness (a birch log gives birch planks).
-4. The sawmill has a **6-slot inventory** that takes logs (capacity 20,000 weight; a log weighs 3,000), so you can pre-load it for batch processing.
-5. Press **Saw All** (1 hour) and every log inside is sawn at once: 8 Planks + 2 Wood Shavings per log, each log's planks keeping that log's own wood and dryness. The saw blade and anything else inside stays, and Saw All trains no skill. To load logs, open the sawmill's inventory and drag them into its slots (dragging a log onto the sawmill itself runs **Cut**).
+4. The sawmill has a **6-slot inventory** that takes logs (capacity 20,000 weight; a log weighs 3,000), so you can pre-load it for batch processing. The Expanded sawmill holds 30,000 (10 logs).
+5. Press **Saw All** (3 hours, 1.5 with an Overshot Wheel) and every log inside is sawn at once: 8 Planks + 2 Wood Shavings per log, each log's planks keeping that log's own wood and dryness. Anything else inside stays, and Saw All trains no skill. To load logs, open the sawmill's inventory and drag them into its slots (dragging a log onto the sawmill itself runs **Cut**).
+
+6. **Blade wear:** each log sawn wears the blade by 1. At 60 the sawmill stops cutting until you drag a Copper Saw Blade onto it and press **Replace Saw Blade** (30 min), which uses the new blade up.
 
 ### Pack Up
 
-Use the **Pack Up** dismantle action (1 hour) to return the sawmill to a portable kit.
+Use the **Pack Up** dismantle action (1 hour) to return the sawmill to a portable kit. The kit keeps the blade wear.
 
 ---
 
@@ -149,7 +151,7 @@ Multi-stage build (unlock 64 ticks, requires Water Mill):
 
 ### Smelting
 
-- **Smelt Ore** (CardInteraction — drag copper ore): requires the forge at smelting temperature (1100°+). Produces 1–2 Copper Ingots; costs −400° temperature and −8 fuel.
+- **Smelt Ore** (CardInteraction: drag Greenstone): requires the forge at smelting temperature (1100°+). Produces one copper Metal Nugget at the ore's Quality plus one Greenstone Slag; costs 400° temperature and 8 fuel.
 - **Smelt Greenstone** (auto CookingRecipe at 1100°+): Greenstone Powder inside the forge smelts into one copper Metal Nugget at the powder's Quality, plus one Greenstone Slag, once the forge is hot enough.
 - **Smelt High-Heat Ore / Iron Components** (Parts/Bearing/Axle/Wrench, `tag_SmeltsAt1100`): same 1100°+ threshold as copper. A Bearing, Axle or Wrench smelts back into 6 iron-typed metal nuggets and an Iron Parts into 3 (not a bar), at the Metal Quality of the bar it was forged from. Parts made before 1.12.3 melt at quality 0.
 
@@ -174,7 +176,7 @@ All batch actions require the forge at smelting temperature (1100°+, same gate 
 
 | Action | Time | Input | Output |
 |--------|------|-------|--------|
-| **Hammer All** | 30 min | Items in inventory | Applies one water-hammer strike to each item simultaneously |
+| **Hammer All** | 30 min | Items in inventory | Applies one water-hammer strike to each item simultaneously: Metal Quality and Quality +2, up to 60 |
 | **Hammer Copper Sheet** | 1 hour | 6 copper nuggets (from inventory) | 1 Copper Sheet (the shared Metal Sheet) at the average Metal Quality of the six nuggets |
 | **Forge Copper Nails** | 1 hour | 6 copper nuggets (from inventory) | 6 Copper Nails (the shared Metal Nail) |
 | **Forge Iron Nails** | 1 hour | 6 iron-grade nuggets (Metal Type Iron, from inventory) | 6 Iron Nails (the shared Metal Nail at Metal Type Iron) |
@@ -276,17 +278,17 @@ Multi-stage build (unlock 64 ticks, requires Mill Race):
 
 | Species | Breeds naturally? | Catch tool | Catch time |
 |---------|:-----------------:|-----------|:----------:|
-| **Pike** | Yes (~0.5%/DTP) | Spear | 2 daytime |
-| **Perch** | Yes (~0.5%/DTP) | Spear | 2 daytime |
-| **Minnow** | Yes (~0.5%/DTP) | Spear | 2 daytime |
-| **Trout** | No (stock only, cap 10) | Spear | 2 daytime |
-| **Char** | No (stock only, cap 10) | Spear | 2 daytime |
-| **Sturgeon** | No (stock only, cap 10) | Spear | 2 daytime |
-| **Eel** | No (stock only, cap 10) | Spear | 2 daytime |
-| **Crayfish** | No (stock only, cap 10) | None (hand) | 1 daytime |
-| **Frog** | Once the pond promotes to Stocked (breeding population >10) | None (hand) | 1 daytime |
+| **Pike** | Yes (~0.3%/DTP) | Spear | 4 daytime |
+| **Perch** | Yes (~0.3%/DTP) | Spear | 4 daytime |
+| **Minnow** | Yes (~0.3%/DTP) | Spear | 4 daytime |
+| **Trout** | No (stock only, cap 10) | Spear | 4 daytime |
+| **Char** | No (stock only, cap 10) | Spear | 4 daytime |
+| **Sturgeon** | No (stock only, cap 10) | Spear | 4 daytime |
+| **Eel** | No (stock only, cap 10) | Spear | 4 daytime |
+| **Crayfish** | No (stock only, cap 10) | None (hand) | 2 daytime |
+| **Frog** | Once the pond promotes to Stocked (breeding population >10); your ponds share up to 6 frogs, one more each day | None (hand) | 2 daytime |
 
-**Breeding:** Only Pike, Perch, and Minnow breed, each at roughly 0.5%/daytime point toward a cap of 10. Once their combined population exceeds 10, the pond promotes from Filled to Stocked and Frog catching unlocks. Trout, Char, Sturgeon, and Eel are tracked separately (cap 10 each) and never breed — you must stock them directly.
+**Breeding:** Only Pike, Perch, and Minnow breed, each at roughly 0.3%/daytime point (about one fish every 3.5 days) toward a cap of 10. Feeding (once a day across your ponds) adds a quarter fish to the smallest breeding species. Once their combined population exceeds 10, the pond promotes from Filled to Stocked and Frog catching unlocks. Trout, Char, Sturgeon, and Eel are tracked separately (cap 10 each) and never breed: you must stock them directly.
 
 **Stocking:** Drag a Live [Species] card directly onto the placed fishpond to add it.
 

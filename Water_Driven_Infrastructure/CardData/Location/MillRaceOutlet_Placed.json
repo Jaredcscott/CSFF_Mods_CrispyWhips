@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_CardHelpSection",
-    "DefaultText": "<b>Fill containers:</b> Drag an empty water container onto the outlet to draw unclean water.\n\n<b>Rain Cistern:</b> A Rain Cistern built in the same location slowly fills with river water, about 4.5 days from empty to full, so water banked in summer and autumn lasts into winter. Each outlet in the location adds its own flow. A cistern already holding a different liquid, such as rainwater, is left alone until it is drawn empty.\n\n<b>Winter:</b> The outlet freezes in winter: no water can be drawn and the cistern stops filling until the spring thaw.\n\n<b>Close Valve:</b> Shut the water off without packing the outlet up (15 minutes): nothing can be drawn, the cistern stops filling and the stations that run on this outlet stop until you open the valve again.\n\n<b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation."
+    "DefaultText": "<b>Fill containers:</b> Drag an empty water container onto the outlet to draw unclean water.\n\n<b>Rain Cistern:</b> A Rain Cistern built in the same location slowly fills with river water, about 22 days from empty to full, so water banked in summer and autumn lasts into winter. Each outlet in the location adds its own flow. A cistern already holding a different liquid, such as rainwater, is left alone until it is drawn empty.\n\n<b>Winter:</b> The outlet freezes in winter: no water can be drawn and the cistern stops filling until the spring thaw.\n\n<b>Close Valve:</b> Shut the water off without packing the outlet up (15 minutes): nothing can be drawn, the cistern stops filling and the stations that run on this outlet stop until you open the valve again.\n\n<b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation."
   },
   "CardType": 2,
   "ObjectWeight": 500.0,
@@ -531,8 +531,8 @@
           "LiquidCardWarpData": "397594d260e114749ab6e1a76a732fbb",
           "LiquidCardWarpType": 3,
           "Quantity": {
-            "x": 50.0,
-            "y": 50.0
+            "x": 10.0,
+            "y": 10.0
           },
           "Durabilities": {
             "Spoilage": 0,

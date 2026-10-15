@@ -312,6 +312,6 @@
         "Wood"
     ],
     "WhenCreatedSoundsWarpType": 3,
-    "BlueprintUnlockTicksCost": 64.0,
+    "BlueprintUnlockTicksCost": 192.0,
     "ResearchedNotification": 0
 }

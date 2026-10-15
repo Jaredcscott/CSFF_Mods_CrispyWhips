@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.waterdriveninfrastructure";
     public const string PluginName = "WaterDrivenInfrastructure";
-    public const string PluginVersion = "1.12.9";
+    public const string PluginVersion = "1.12.10";
 
     internal new static ManualLogSource Logger;
     internal static Plugin Instance { get; private set; }
@@ -32,8 +32,8 @@ internal class Plugin : BaseUnityPlugin
         WinterStationLock = Config.Bind(
             "Seasons",
             "Winter Station Lock",
-            false,
-            "When true, water-powered stations (sawmill, grinding mill, forge, workshop, ore sluice, fishpond) stop working in winter at every location, even beside a river, while their water is frozen; a heat source at the same location lets them run (a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier from Advanced Copper Tools, or a Water-Driven Forge or Workshop at least half hot). When false (the default) only a frozen Mill Race Outlet stops a station in winter, and stations at a river or lake keep working. A change here takes effect after a full game relaunch, not a save reload.");
+            true,
+            "When true, water-powered stations (sawmill, grinding mill, forge, workshop, ore sluice, fishpond) stop working in winter at every location, even beside a river, while their water is frozen; a heat source at the same location lets them run (a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier from Advanced Copper Tools, or a Water-Driven Forge or Workshop at least half hot). On by default since 1.12.10. When false only a frozen Mill Race Outlet stops a station in winter, and stations at a river or lake keep working. A change here takes effect after a full game relaunch, not a save reload.");
 
         _harmony = new Harmony(PluginGuid);
         try

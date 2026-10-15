@@ -6,7 +6,7 @@
     "DefaultText": "Operate the Stamp Mill"
   },
   "RequiresMarkedCard": true,
-  "MaxPerformPerDay": 0,
+  "MaxPerformPerDay": 4,
   "DutyExecutionOptions": 0,
   "GiveUpOptions": 0,
   "DutyConditions": {}

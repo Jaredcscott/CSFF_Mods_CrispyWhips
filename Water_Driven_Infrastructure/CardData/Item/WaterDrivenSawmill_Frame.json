@@ -33,7 +33,7 @@
   "WhenCreatedSoundsWarpData": ["Wood"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {"Active": false},
-  "UsageDurability": {"Active": false},
+  "UsageDurability": {"Active": true, "FloatValue": 0.0, "MaxValue": 60.0, "CardStatName": {"ParentObjectID": "water_sawmill_frame", "LocalizationKey": "Water_Sawmill_SawmillPlaced_BladeWear_StatName", "DefaultText": "Blade Wear"}, "RatePerDaytimePoint": 0.0, "HidingOptions": 3},
   "FuelCapacity": {"Active": false},
   "Progress": {"Active": false},
   "SpecialDurability1": {"Active": false},
@@ -70,6 +70,7 @@
         "TransformIntoWarpData": "water_sawmill_placed",
         "TransformIntoWarpType": 3,
         "TransferInventory": true,
+        "TransferUsage": true,
         "SpawnTransformAtSource": true
       }
     },
@@ -82,7 +83,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_frame",
         "LocalizationKey": "Water_Sawmill_Frame_Disassemble_ActionDescription",
-        "DefaultText": "Break down the kit into its component parts."
+        "DefaultText": "Break down the kit: the Water Mill, saw blade, metal parts and gears come back whole, bulk materials at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -104,30 +105,30 @@
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 25, "y": 25}
+              "Quantity": {"x": 12, "y": 12}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "c8de2fee0c31ea64583a2f833a6d0a22",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 10, "y": 10}
+              "Quantity": {"x": 5, "y": 5}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 8, "y": 8}
+              "Quantity": {"x": 4, "y": 4}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 20, "y": 20},
+              "Quantity": {"x": 10, "y": 10},
               "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 1.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-              "DroppedCardWarpData": "water_sawmill_water_wheel",
+              "DroppedCardWarpData": "water_sawmill_water_mill",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 1, "y": 1}
             },

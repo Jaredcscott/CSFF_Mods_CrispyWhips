@@ -28,7 +28,7 @@
   "PerkDescription": {
     "ParentObjectID": "water_sawmill_perk_sawmill_start",
     "LocalizationKey": "Water_Sawmill_Perk_SawmillStart_PerkDescription",
-    "DefaultText": "Start with a water-driven sawmill kit ready to place near water or a connected mill race outlet."
+    "DefaultText": "Start with the Water-Driven Sawmill blueprint already researched and the Copper Saw Blade it needs. You still build the sawmill."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",
@@ -53,7 +53,10 @@
   "PassiveStatModifiers": [],
   "ActionModifiers": [],
   "AddedPlayerTags": [],
-  "AddedCardsWarpData": ["water_sawmill_frame"],
+  "AddedCardsWarpData": ["water_sawmill_bp_water_driven_sawmill", "water_sawmill_copper_saw_blade"],
+  "AddedCardsStats": [
+    { "Card": "water_sawmill_copper_saw_blade", "SpecialDurability2": 50 }
+  ],
   "AddedCardsWarpType": 3,
   "NoSafetyMode": false
 }

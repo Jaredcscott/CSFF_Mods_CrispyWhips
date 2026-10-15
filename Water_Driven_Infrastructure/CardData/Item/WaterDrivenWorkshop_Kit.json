@@ -100,7 +100,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_kit",
         "LocalizationKey": "Water_Sawmill_WorkshopKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the workshop kit into its component parts."
+        "DefaultText": "Break down the workshop kit: the forge kit, Water Mill, tools, metal parts and gears come back whole, the charcoal at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -141,7 +141,7 @@
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "51c751469bd15ce46804e399479d1764",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 10, "y": 10}
+              "Quantity": {"x": 5, "y": 5}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},

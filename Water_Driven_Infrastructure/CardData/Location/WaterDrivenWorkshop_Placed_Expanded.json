@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_workshop_placed_expanded",
     "LocalizationKey": "Water_Sawmill_WorkshopPlacedExpanded_CardHelpSection",
-    "DefaultText": "<b>Expanded:</b> This workshop was rebuilt larger in place and holds 7000 weight instead of 5000. It works exactly like the standard workshop. Pack Up returns the plain kit, so a rebuilt workshop must be expanded again.\n\n<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The optional Winter Station Lock setting (off by default) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own - no Blast needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing - each strike also raises the item's Metal Quality by a small amount (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output. Six iron-grade nuggets (Metal Type 200, from the Ore Sluice or from smelting iron items) work the same way with Forge Iron Nails or Hammer Iron Sheet, and each craft takes only nuggets of its own grade. Results appear on the ground beside the workshop.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.\n\n<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the workshop to fit it (30 minutes): Hammer All then takes 15 minutes instead of 30; Blast and the crafts are unchanged. Pack Up (Overshot) packs the workshop and gives the wheel back."
+    "DefaultText": "<b>Expanded:</b> This workshop was rebuilt larger in place and holds 7000 weight instead of 5000. It works exactly like the standard workshop. Pack Up returns the plain kit, so a rebuilt workshop must be expanded again.\n\n<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The Winter Station Lock setting (on by default since 1.12.10) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own, so no Blast is needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing. Each press also raises the item's Metal Quality and Quality by 2, up to 60; above that only your own Smith strikes raise it (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output. Six iron-grade nuggets (Metal Type 200, from the Ore Sluice or from smelting iron items) work the same way with Forge Iron Nails or Hammer Iron Sheet, and each craft takes only nuggets of its own grade. Results appear on the ground beside the workshop.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.\n\n<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the workshop to fit it (30 minutes): Hammer All then takes 15 minutes instead of 30; Blast and the crafts are unchanged. Pack Up (Overshot) packs the workshop and gives the wheel back."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -1228,7 +1228,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_placed_expanded",
         "LocalizationKey": "Water_Sawmill_ForgePlaced_SmeltOre_ActionDescription",
-        "DefaultText": "Drag copper ore onto the hot forge to smelt it into an ingot."
+        "DefaultText": "Drag Greenstone onto the hot forge to smelt it into one copper Metal Nugget at the ore's Quality plus one Greenstone Slag."
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
@@ -1326,13 +1326,26 @@
                 "m_FileID": 0,
                 "m_PathID": 0
               },
-              "DroppedCardWarpData": "b92071e54dac7e54db99b48794e737ad",
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 1.0,
-                "y": 2.0
+                "x": 1,
+                "y": 1
               },
-              "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 2, "Special3": 0, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 100.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
+              "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 2, "Special3": 5, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 100.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 64, "Special4From": 0}
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "efde4db74f8cb194e9ad7cd014bfd7d6",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 2, "Special3": 0, "Special4": 0, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 0.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
             }
           ]
         }
@@ -1444,7 +1457,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_placed_expanded",
         "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_ActionDescription",
-        "DefaultText": "Apply one hammer strike to all items in the forge using the water-driven hammer."
+        "DefaultText": "Apply one hammer strike to all items in the forge using the water-driven hammer, raising their Metal Quality and Quality by 2 up to 60. Requires flowing water."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -3278,8 +3291,8 @@
       "IngredientChanges": {
         "ModType": 1,
         "FuelChange": {
-          "x": 600.0,
-          "y": 600.0
+          "x": 200.0,
+          "y": 200.0
         }
       },
       "FeedbackMode": 1,

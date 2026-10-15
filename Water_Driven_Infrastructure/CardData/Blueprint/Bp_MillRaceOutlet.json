@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_bp_mill_race_outlet",
     "LocalizationKey": "Water_Sawmill_Bp_MillRaceOutlet_CardDescription",
-    "DefaultText": "Build a mill race outlet at any outdoor location (1 hour). Requires a Mill Race, which is consumed in construction. Once built, provides a steady source of unclean water. Freezes solid in winter."
+    "DefaultText": "Build a mill race outlet at any outdoor location in two stages (2 hours): a stone footing of 12 Stone and 4 Heavy Stones, then a Mill Race, 4 Planks and 4 Metal Nails. Once built, provides a steady source of unclean water. Freezes solid in winter."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -67,6 +67,34 @@
     }
   ],
   "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 12,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    },
     {
       "CannotRevertToThisStage": false,
       "RequiredElements": [
@@ -166,6 +194,6 @@
     "LegAction"
   ],
   "BlueprintActionTagsWarpType": 3,
-  "BlueprintUnlockTicksCost": 32.0,
+  "BlueprintUnlockTicksCost": 96.0,
   "ResearchedNotification": 0
 }

@@ -28,7 +28,7 @@
   "PerkDescription": {
     "ParentObjectID": "water_sawmill_perk_ore_sluice_start",
     "LocalizationKey": "Water_Sawmill_Perk_OreSluiceStart_PerkDescription",
-    "DefaultText": "Start with an ore sluice kit ready to place beside running water."
+    "DefaultText": "Start with an Ore Sluice frame. Finish the sluice from it with planks, heavy stones and nails, then place it beside running water."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",
@@ -53,7 +53,7 @@
   "PassiveStatModifiers": [],
   "ActionModifiers": [],
   "AddedPlayerTags": [],
-  "AddedCardsWarpData": ["water_sawmill_ore_sluice_kit"],
+  "AddedCardsWarpData": ["water_sawmill_ore_sluice_empty"],
   "AddedCardsWarpType": 3,
   "NoSafetyMode": false
 }

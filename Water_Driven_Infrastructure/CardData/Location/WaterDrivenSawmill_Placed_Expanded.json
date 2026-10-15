@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_placed_expanded",
     "LocalizationKey": "Water_Sawmill_PlacedExpanded_CardDescription",
-    "DefaultText": "A water-powered sawmill rebuilt larger in place: it holds 40000 weight instead of 20000, room for twelve logs instead of six."
+    "DefaultText": "A water-powered sawmill rebuilt larger in place: it holds 30000 weight instead of 20000, room for ten logs instead of six."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_placed_expanded",
     "LocalizationKey": "Water_Sawmill_PlacedExpanded_CardHelpSection",
-    "DefaultText": "<b>Expanded:</b> This sawmill was rebuilt larger in place and holds 40000 weight instead of 20000, room for 12 logs instead of 6. It works exactly like the standard sawmill. Pack Up returns the plain frame, so a rebuilt sawmill must be expanded again.\n\n<b>Placement:</b> Build it at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. Anywhere else the build is refused.\n\n<b>Operation:</b> Drag a log onto the sawmill to Cut it into planks and wood shavings.\n\n<b>Saw All:</b> Load logs into the sawmill's slots, then press Saw All (1 hour) to saw every log at once into 8 planks and 2 wood shavings each. Each log's planks keep its wood and dryness. The saw blade stays.\n\n<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 30 minutes instead of 1 hour. Pack Up (Overshot) packs the sawmill and gives the wheel back."
+    "DefaultText": "<b>Expanded:</b> This sawmill was rebuilt larger in place and holds 30000 weight instead of 20000, room for 10 logs instead of 6. It works exactly like the standard sawmill. Pack Up returns the plain frame, so a rebuilt sawmill must be expanded again.\n\n<b>Placement:</b> Build it at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. Anywhere else the build is refused.\n\n<b>Operation:</b> Drag a log onto the sawmill to Cut it into planks and wood shavings (1.5 hours).\n\n<b>Saw All:</b> Load logs into the sawmill's slots, then press Saw All (3 hours) to saw every log at once into 8 planks and 2 wood shavings each. Each log's planks keep its wood and dryness.\n\n<b>Saw Blade:</b> Every log sawn, by Cut or Saw All, adds 1 Blade Wear. At 60 the sawmill stops cutting until you drag a Copper Saw Blade onto it (Replace Saw Blade, 30 minutes), which uses the blade up. Saw All saws only as many logs as the blade has left. Packing the sawmill up keeps its wear.\n\n<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 1.5 hours instead of 3. Pack Up (Overshot) packs the sawmill and gives the wheel back."
   },
   "CardType": 2,
   "ObjectWeight": 1000.0,
@@ -30,7 +30,7 @@
   "WhenCreatedSoundsWarpData": ["Wood"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {"Active": false},
-  "UsageDurability": {"Active": false},
+  "UsageDurability": {"Active": true, "FloatValue": 0.0, "MaxValue": 60.0, "CardStatName": {"ParentObjectID": "water_sawmill_placed_expanded", "LocalizationKey": "Water_Sawmill_SawmillPlaced_BladeWear_StatName", "DefaultText": "Blade Wear"}, "RatePerDaytimePoint": 0.0, "HidingOptions": 3},
   "FuelCapacity": {"Active": false},
   "Progress": {"Active": false},
   "SpecialDurability1": {"Active": false},
@@ -49,7 +49,7 @@
   "IsWeaponSheath": false,
   "OpenOnTab": 0,
   "DontRememberLastOpenTab": false,
-  "MaxWeightCapacity": 40000.0,
+  "MaxWeightCapacity": 30000.0,
   "ContentWeightReduction": 0.0,
   "InventorySlots": [
     {"m_FileID": 0, "m_PathID": 0},
@@ -317,7 +317,7 @@
         "LocalizationKey": "",
         "DefaultText": ""
       },
-      "DurationModifier": -2,
+      "DurationModifier": -6,
       "AddedStatModifiers": [],
       "ReceivingDurabilities": {
         "SpoilageChange": {
@@ -542,9 +542,9 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_placed_expanded",
         "LocalizationKey": "Water_Sawmill_Placed_Cut_ActionDescription",
-        "DefaultText": "Drag a log onto the sawmill to cut it into planks and wood shavings."
+        "DefaultText": "Drag a log onto the sawmill to cut it into planks and wood shavings. Adds 1 Blade Wear."
       },
-      "DaytimeCost": 2,
+      "DaytimeCost": 6,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -565,8 +565,59 @@
       "StackCompatible": false,
       "DontCloseInspectionWindow": false,
       "AppearsOnCardsInInventory": false,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.99
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_placed_expanded",
+          "LocalizationKey": "Water_Sawmill_Placed_BladeWorn_FailMessage",
+          "DefaultText": "The saw blade is worn out. Drag a Copper Saw Blade onto the sawmill to replace it."
+        },
+        "SpecificFailMessages": []
+      },
       "ReceivingCardChanges": {
-        "ModType": 0
+        "ModType": 1,
+        "UsageChange": {"x": 1.0, "y": 1.0}
       },
       "GivenCardChanges": {
         "ModType": 3
@@ -630,6 +681,101 @@
       "CompatibleNPCDuties": [
         {"TargetWarpData": "wdiOperateSawmillExpanded_Duty", "TargetWarpType": 3}
       ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_placed_expanded",
+        "LocalizationKey": "Water_Sawmill_Placed_ReplaceSawBlade_ActionName",
+        "DefaultText": "Replace Saw Blade"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_placed_expanded",
+        "LocalizationKey": "Water_Sawmill_Placed_ReplaceSawBlade_ActionDescription",
+        "DefaultText": "Fit a new Copper Saw Blade in place of the worn one. The blade is used up and the sawmill can cut 60 logs again."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [
+          "water_sawmill_copper_saw_blade"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -60.0,
+          "y": -60.0
+        }
+      }
     }
   ],
   "DismantleActions": [
@@ -644,7 +790,7 @@
         "LocalizationKey": "Water_Sawmill_Placed_SawAll_ActionDescription",
         "DefaultText": "Saw every log in the sawmill into planks and wood shavings in one batch."
       },
-      "DaytimeCost": 4,
+      "DaytimeCost": 12,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -652,6 +798,56 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": ["Wood"],
       "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.99
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_placed_expanded",
+          "LocalizationKey": "Water_Sawmill_Placed_BladeWorn_FailMessage",
+          "DefaultText": "The saw blade is worn out. Drag a Copper Saw Blade onto the sawmill to replace it."
+        },
+        "SpecificFailMessages": []
+      },
       "ReceivingCardChanges": {
         "ModType": 0
       },
@@ -684,6 +880,7 @@
         "TransformIntoWarpData": "water_sawmill_frame",
         "TransformIntoWarpType": 3,
         "TransferInventory": true,
+        "TransferUsage": true,
         "SpawnTransformAtSource": true
       },
       "RequiredReceivingDurabilities": {
@@ -763,6 +960,7 @@
         "TransformIntoWarpData": "water_sawmill_frame",
         "TransformIntoWarpType": 3,
         "TransferInventory": true,
+        "TransferUsage": true,
         "SpawnTransformAtSource": true
       },
       "RequiredReceivingDurabilities": {

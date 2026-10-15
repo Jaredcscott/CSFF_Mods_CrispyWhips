@@ -1,0 +1,30 @@
+{
+    "UniqueID": "water_sawmill_stat_pond_frogs",
+    "GameName": {
+        "LocalizationKey": "Water_Sawmill_Stat_PondFrogs_StatName",
+        "DefaultText": "Pond Frogs"
+    },
+    "Description": {
+        "LocalizationKey": "Water_Sawmill_Stat_PondFrogs_StatDescription",
+        "DefaultText": "Frogs living at the edge of your stocked fishponds. Catch Frog takes one; one more arrives every day, up to 6."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 6.0,
+    "MinMaxValue": {"x": 0.0, "y": 6.0},
+    "BaseRatePerTick": 0.0104166667,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

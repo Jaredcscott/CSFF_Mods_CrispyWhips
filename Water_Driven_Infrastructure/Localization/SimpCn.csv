@@ -14,25 +14,33 @@ Water_Sawmill_Placed_CardName,Water-Driven Sawmill,水力锯木厂
 Water_Sawmill_Placed_CardDescription,"A large, fixed water-powered sawmill fed by direct water or a mill race outlet.",一座由直接水源或引水渠出口驱动的大型固定水力锯木厂。
 Water_Sawmill_Placed_CardHelpSection,"<b>Placement:</b> Build it at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. Anywhere else the build is refused.
 
-<b>Operation:</b> Drag a log onto the sawmill to Cut it into planks and wood shavings.
+<b>Operation:</b> Drag a log onto the sawmill to Cut it into planks and wood shavings (1.5 hours).
 
-<b>Saw All:</b> Load logs into the sawmill's slots, then press Saw All (1 hour) to saw every log at once into 8 planks and 2 wood shavings each. Each log's planks keep its wood and dryness. The saw blade stays.
+<b>Saw All:</b> Load logs into the sawmill's slots, then press Saw All (3 hours) to saw every log at once into 8 planks and 2 wood shavings each. Each log's planks keep its wood and dryness.
 
-<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 30 minutes instead of 1 hour. Pack Up (Overshot) packs the sawmill and gives the wheel back.
+<b>Saw Blade:</b> Every log sawn, by Cut or Saw All, adds 1 Blade Wear. At 60 the sawmill stops cutting until you drag a Copper Saw Blade onto it (Replace Saw Blade, 30 minutes), which uses the blade up. Saw All saws only as many logs as the blade has left. Packing the sawmill up keeps its wear.
 
-<b>Expand:</b> Press Expand (30 minutes) to rebuild the sawmill larger in place: its capacity doubles from 20000 to 40000 weight, room for 12 logs instead of 6. Everything inside it and any fitted Overshot Wheel are kept. It costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200), taken from your inventory or from cards lying at this location, never from the sawmill's own slots; Expand does nothing until you hold them. Pack Up returns the plain frame, so the expansion is paid for again.","<b>放置：</b> 可在河边、湖边或任何有已连通引水渠出口供水的户外地点建造，其他地方无法建造。
+<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 1.5 hours instead of 3. Pack Up (Overshot) packs the sawmill and gives the wheel back.
 
-<b>操作：</b> 将原木拖到锯木厂上进行切割，锯成木板和木屑。
+<b>Expand:</b> Press Expand (30 minutes) to rebuild the sawmill larger in place: its capacity grows from 20000 to 30000 weight, room for 10 logs instead of 6. Everything inside it and any fitted Overshot Wheel are kept. It costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200), taken from your inventory or from cards lying at this location, never from the sawmill's own slots; Expand does nothing until you hold them. Pack Up returns the plain frame, so the expansion is paid for again.","<b>放置：</b> 可在河边、湖边或任何有已连通引水渠出口供水的户外地点建造，其他地方无法建造。
 
-<b>全部锯切：</b> 将原木放入锯木厂的格子，再按下全部锯切（1小时），一次把所有原木各锯成8块木板和2份木屑。木板保留各自原木的木材种类和干燥度。锯条会留在锯木厂中。
+<b>操作：</b> 将原木拖到锯木厂上进行切割（1.5小时），锯成木板和木屑。
 
-<b>上射式水车：</b>将上射式水车拖到锯木厂上安装（30分钟）：之后全部锯切由1小时缩短为30分钟。“收起（上射式水车）”会收起锯木厂并退还水车。
+<b>全部锯切：</b> 将原木放入锯木厂的格子，再按下全部锯切（3小时），一次把所有原木各锯成8块木板和2份木屑。木板保留各自原木的木材种类和干燥度。
 
-<b>扩建：</b>按下扩建（30分钟），可在原地扩建锯木厂，载重由20000翻倍至40000（可放12根原木而不是6根），里面的物品和已安装的上射式水车都会保留。需要6块木板和4枚铁钉（金属类型200的金属钉），取自你的背包或本地点地面上的卡牌，不会取用锯木厂自身格子里的物品；材料不足时扩建没有任何效果。收起只会得到原来的框架，因此需要重新扩建。"
+<b>锯条：</b>每锯一根原木（切割或全部锯切）锯条磨损加1。磨损达到60时锯木厂停止锯切，直到你把一把铜锯条拖到锯木厂上（更换锯条，30分钟），这把锯条会被装上消耗掉。全部锯切只会锯锯条剩余寿命所能锯的原木。收起锯木厂会保留磨损。
+
+<b>上射式水车：</b>将上射式水车拖到锯木厂上安装（30分钟）：之后全部锯切由3小时缩短为1.5小时。“收起（上射式水车）”会收起锯木厂并退还水车。
+
+<b>扩建：</b>按下扩建（30分钟），可在原地扩建锯木厂，载重由20000增至30000（可放10根原木而不是6根），里面的物品和已安装的上射式水车都会保留。需要6块木板和4枚铁钉（金属类型200的金属钉），取自你的背包或本地点地面上的卡牌，不会取用锯木厂自身格子里的物品；材料不足时扩建没有任何效果。收起只会得到原来的框架，因此需要重新扩建。"
 Water_Sawmill_Placed_PickUp_ActionName,Pack Up,收起
 Water_Sawmill_Placed_PickUp_ActionDescription,Pack up the sawmill back into a transportable kit.,将锯木厂收回为可携带套件。
 Water_Sawmill_Placed_Cut_ActionName,Cut,切割
-Water_Sawmill_Placed_Cut_ActionDescription,Drag a log onto the sawmill to cut it into planks and wood shavings.,将原木拖到锯木厂，切割成木板和刨花。
+Water_Sawmill_Placed_Cut_ActionDescription,Drag a log onto the sawmill to cut it into planks and wood shavings. Adds 1 Blade Wear.,将原木拖到锯木厂，切割成木板和刨花。锯条磨损加1。
+Water_Sawmill_Placed_ReplaceSawBlade_ActionName,Replace Saw Blade,更换锯条
+Water_Sawmill_Placed_ReplaceSawBlade_ActionDescription,Fit a new Copper Saw Blade in place of the worn one. The blade is used up and the sawmill can cut 60 logs again.,装上一把新的铜锯条替换磨损的锯条。这把锯条会被消耗，锯木厂可再锯60根原木。
+Water_Sawmill_Placed_BladeWorn_FailMessage,The saw blade is worn out. Drag a Copper Saw Blade onto the sawmill to replace it.,锯条已经磨损殆尽。把一把铜锯条拖到锯木厂上进行更换。
+Water_Sawmill_SawmillPlaced_BladeWear_StatName,Blade Wear,锯条磨损
 Water_Sawmill_Placed_Duty_DutyName,Operate the Sawmill,操作锯木厂
 Water_Sawmill_MillRace_CardName,Mill Race,引水渠
 Water_Sawmill_MillRace_CardDescription,A channel segment used to carry and direct water flow to river-powered machines.,用于将水流引导至水力机械的渠道段。
@@ -73,9 +81,9 @@ Water_Sawmill_Bp_WaterDrivenForge_CardName,Water-Driven Forge,水力锻炉
 Water_Sawmill_Bp_WaterDrivenForge_CardDescription,"Build a large forge in 4 phases: (1) Water mill and excavation, (2) Stone foundation and mud brick structure, (3) Fire chamber with leather bellows, (4) Final plaster, iron fittings, bearings, and axle. Total construction time: 12 hours (3 hours per phase).",分4阶段建造大型锻炉：(1)水力磨坊和挖掘，(2)石质地基和泥砖结构，(3)带皮风箱的火膛，(4)最终抹灰、铁制配件、轴承和铁轴。总建造时间：12小时（每阶段3小时）。
 Water_Sawmill_Bp_WaterDrivenForge_UnlockConditionsDesc,Water-Driven Mill,水力磨坊
 Water_Sawmill_Perk_SawmillStart_PerkName,Sawmill Start,锯木厂起步
-Water_Sawmill_Perk_SawmillStart_PerkDescription,Start with a water-driven sawmill kit ready to place near water or a connected mill race outlet.,携带一个水力锯木厂套件开始游戏，可放置在水源旁或引水渠出口附近。
+Water_Sawmill_Perk_SawmillStart_PerkDescription,Start with the Water-Driven Sawmill blueprint already researched and the Copper Saw Blade it needs. You still build the sawmill.,开局即已研究水力锯木厂蓝图，并携带建造所需的铜锯条。锯木厂仍需你亲手建造。
 Water_Sawmill_Frame_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_Frame_Disassemble_ActionDescription,Break down the kit into its component parts.,将套件拆解为各组件。
+Water_Sawmill_Frame_Disassemble_ActionDescription,"Break down the kit: the Water Mill, saw blade, metal parts and gears come back whole, bulk materials at half.",拆解套件：水力磨坊、锯条、金属零件和齿轮全数返还，大宗材料返还一半。
 Water_Sawmill_ForgeKit_CardName,Water-Driven Forge Kit,水力锻炉套件
 Water_Sawmill_ForgeKit_CardDescription,"A complete forge kit with all components for a large water-powered metalworking forge, including iron fittings, bearings, and an axle.",包含大型水力锻炉所有组件的完整套件，包括铁制配件、轴承和铁轴。
 Water_Sawmill_ForgeKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the forge.
@@ -86,7 +94,7 @@ Water_Sawmill_ForgeKit_CardHelpSection,"<b>Use:</b> Place near water or a connec
 Water_Sawmill_ForgeKit_Place_ActionName,Place,放置
 Water_Sawmill_ForgeKit_Place_ActionDescription,Place the forge kit into the environment.,将锻炉套件放置在环境中。
 Water_Sawmill_ForgeKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_ForgeKit_Disassemble_ActionDescription,Break down the kit into its component parts.,将套件拆解为各组件。
+Water_Sawmill_ForgeKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts and fittings come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件和配件全数返还，大宗材料返还一半。
 Water_Sawmill_WorkshopKit_CardName,Water-Driven Workshop Kit,水力工坊套件
 Water_Sawmill_WorkshopKit_CardDescription,"A bundled upgrade kit combining the water-driven forge, mill drive, forge hammer, iron reinforcements, bearing and axle support, an iron workshop wrench, charcoal reserve, and gear train for heavy metalworking.",集水力锻炉、磨坊驱动装置、锻锤、铁制加固件、轴承和铁轴支撑、铁制工坊扳手、木炭储备和齿轮系于一体的重型金属加工升级套件。
 Water_Sawmill_WorkshopKit_CardHelpSection,"<b>Purpose:</b> A bundled upgrade kit for extending the water-driven forge into a workshop.
@@ -95,13 +103,13 @@ Water_Sawmill_WorkshopKit_CardHelpSection,"<b>Purpose:</b> A bundled upgrade kit
 
 <b>内容：</b> 水力锻炉套件、水力磨坊、锻锤、铁制零件、铁轴承、铁轴、铁扳手、木炭和铜齿轮。"
 Water_Sawmill_WorkshopKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_WorkshopKit_Disassemble_ActionDescription,Break down the workshop kit into its component parts.,将工坊套件拆解为各组件。
+Water_Sawmill_WorkshopKit_Disassemble_ActionDescription,"Break down the workshop kit: the forge kit, Water Mill, tools, metal parts and gears come back whole, the charcoal at half.",拆解工坊套件：锻炉套件、水力磨坊、工具、金属零件和齿轮全数返还，木炭返还一半。
 Water_Sawmill_WorkshopKit_FuelCapacity.CardStatName,Temperature,温度
 Water_Sawmill_ForgePlaced_CardName,Water-Driven Forge,水力锻炉
 Water_Sawmill_ForgePlaced_CardDescription,"A large water-powered forge for high-temperature metalworking, copper smelting, and clay firing.",用于高温金属加工、铜冶炼和烧陶的大型水力锻炉。
-Water_Sawmill_ForgePlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The optional Winter Station Lock setting (off by default) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.
+Water_Sawmill_ForgePlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The Winter Station Lock setting (on by default since 1.12.10) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.
 
-<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. You can also place metal nuggets and clay items in the inventory.","<b>需求：</b> 需要本地引水渠提供水力。当唯一的水源是结冰的引水渠出口时，水力动作会停止。可选设置“Winter Station Lock”（冬季站点锁定，默认关闭）还会在冬季使所有地点的水力动作停止。该地点有热源即可使其继续运转：点燃的营火、火坑、壁炉、烤箱、窑炉、熔炉、块炼炉或锻造台，点燃的铜制火盆（Advanced Copper Tools），或温度至少过半的水力锻炉或水力工坊。
+<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. You can also place metal nuggets and clay items in the inventory.","<b>需求：</b> 需要本地引水渠提供水力。当唯一的水源是结冰的引水渠出口时，水力动作会停止。设置“Winter Station Lock”（冬季站点锁定，自1.12.10起默认开启）还会在冬季使所有地点的水力动作停止。该地点有热源即可使其继续运转：点燃的营火、火坑、壁炉、烤箱、窑炉、熔炉、块炼炉或锻造台，点燃的铜制火盆（Advanced Copper Tools），或温度至少过半的水力锻炉或水力工坊。
 
 <b>操作：</b> 将柴火或木炭拖至锻炉补充燃料，然后用余烬点燃。锻炉会自然升温至约1000度。在多风的高地环境中，自然风会逐渐将锻炉升温至冶炼温度（1100度）。水流流动时可使用鼓风，或手动将风箱拖至已点燃的锻炉上，以快速达到冶炼温度。也可在库存中放入金属块和陶土物品。"
 Water_Sawmill_ForgePlaced_FeedFirewood_ActionName,Feed Firewood,投入柴火
@@ -124,11 +132,11 @@ Water_Sawmill_ForgePlaced_Blast_ActionName,Blast,鼓风
 Water_Sawmill_ForgePlaced_Blast_ActionDescription,"Drive the water-powered bellows to push the forge to smelting heat. Requires fuel, a lit fire, and flowing water.",驱动水力风箱使锻炉升至冶炼温度。需要燃料、已点燃的火焰和流动的水源。
 Water_Sawmill_ForgePlaced_Blast_FailMessage,Light the forge first.,请先点燃锻炉。
 Water_Sawmill_ForgePlaced_HammerAll_ActionName,Hammer All,全部锤打
-Water_Sawmill_ForgePlaced_HammerAll_ActionDescription,Apply one hammer strike to all items in the forge using the water-driven hammer. Requires flowing water.,使用水力锤对锻炉中的所有物品施加一次锤击。需要流动的水源。
+Water_Sawmill_ForgePlaced_HammerAll_ActionDescription,"Apply one hammer strike to all items in the forge using the water-driven hammer, raising their Metal Quality and Quality by 2 up to 60. Requires flowing water.",使用水力锤对锻炉中的所有物品施加一次锤击，使其金属品质和品质提升2点，最高到60。需要流动的水源。
 Water_Sawmill_ForgePlaced_HammerAll_FailMessage,Forge must be at working heat. Use Blast or Bellows first.,锻炉必须达到工作温度。请先使用鼓风或风箱。
 Water_Sawmill_ForgePlaced_SmeltOre_FailMessage,The forge is not hot enough. Use Blast or Bellows first.,锻炉温度不够高。请先使用鼓风或风箱。
 Water_Sawmill_ForgePlaced_SmeltOre_ActionName,Smelt Ore,冶炼矿石
-Water_Sawmill_ForgePlaced_SmeltOre_ActionDescription,Drag copper ore onto the hot forge to smelt it into an ingot.,将铜矿拖至热锻炉冶炼成铜锭。
+Water_Sawmill_ForgePlaced_SmeltOre_ActionDescription,Drag Greenstone onto the hot forge to smelt it into one copper Metal Nugget at the ore's Quality plus one Greenstone Slag.,将绿石拖至热锻炉，冶炼成一块铜块（品质与矿石相同），另得一块绿石矿渣。
 Water_Sawmill_ForgePlaced_SmeltGreenstone_ActionName,Smelt Greenstone,冶炼绿石
 Water_Sawmill_ForgePlaced_RefineCopper_ActionName,Refine Copper,精炼铜
 Water_Sawmill_GrindingMillKit_CardName,Water-Driven Grinding Mill Kit,水力磨坊套件
@@ -141,7 +149,7 @@ Water_Sawmill_GrindingMillKit_CardHelpSection,"<b>Use:</b> Place near water or a
 Water_Sawmill_GrindingMillKit_Place_ActionName,Place,放置
 Water_Sawmill_GrindingMillKit_Place_ActionDescription,Place the grinding mill kit into the environment.,将磨坊套件放置在环境中。
 Water_Sawmill_GrindingMillKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_GrindingMillKit_Disassemble_ActionDescription,Break down the kit into its component parts.,将套件拆解为各组件。
+Water_Sawmill_GrindingMillKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts and fittings come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件和配件全数返还，大宗材料返还一半。
 Water_Sawmill_GrindingMillPlaced_CardName,Water-Driven Grinding Mill,水力磨坊
 Water_Sawmill_GrindingMillPlaced_CardDescription,A large water-powered grinding mill for batch processing millable materials.,用于批量处理可磨材料的大型水力磨坊。
 Water_Sawmill_GrindingMillPlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power.
@@ -169,20 +177,20 @@ Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardName,Water-Driven Workshop Kit,水�
 Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardDescription,"Upgrade a completed water-driven forge kit with a water mill, forge hammer, iron parts, iron bearings, an iron axle, an iron wrench, charcoal, and copper gears into a workshop kit.",将完成的水力锻炉套件与水力磨坊、锻锤、铁制零件、铁轴承、铁轴、铁扳手、木炭和铜齿轮升级为工坊套件。
 Water_Sawmill_Bp_WaterDrivenWorkshopKit_UnlockConditionsDesc,Water-Driven Forge Kit,水力锻炉套件
 Water_Sawmill_Perk_ForgeStart_PerkName,Forge Start,锻炉起步
-Water_Sawmill_Perk_ForgeStart_PerkDescription,Start with a water-driven forge kit and mill race component. Place near water or a connected mill race outlet to build a water-powered metalworking station.,携带水力锻炉套件和引水渠组件开始游戏。放置在水源旁或引水渠出口附近以建造水力金属加工站。
+Water_Sawmill_Perk_ForgeStart_PerkDescription,"Start with the Water-Driven Forge blueprint already researched, a Mill Race section and a Large Copper Gear toward the Water Mill it needs. You still build the forge.",开局即已研究水力锻炉蓝图，并携带一段引水渠和一个大铜齿轮，用于建造它所需的水力磨坊。锻炉仍需你亲手建造。
 Water_Sawmill_Perk_GrindingMillStart_PerkName,Grinding Mill Start,磨坊起步
 Water_Sawmill_Perk_GrindingMillStart_PerkDescription,Start with a grinding mill kit and mill race component. Place near water or a connected mill race outlet to build a water-powered grain mill.,携带磨坊套件和引水渠组件开始游戏。放置在水源旁或引水渠出口附近以建造水力谷物磨。
 Water_Sawmill_OreSluiceKit_CardName,Ore Sluice Kit,矿石淘洗槽套件
 Water_Sawmill_OreSluiceKit_CardDescription,"A complete ore sluice kit with iron bearing and axle hardware, ready to be placed near water or a connected mill race outlet for mineral prospecting.",带有铁轴承和铁轴五金的完整矿石淘洗槽套件，可放置在水源旁或引水渠出口附近用于矿物勘探。
 Water_Sawmill_OreSluiceKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.
 
-<b>Purpose:</b> Wash soil to extract greenstone nuggets. Requires iron bearing and axle hardware.","<b>用途：</b> 放置在水源旁或引水渠出口附近建立矿石淘洗槽。
+<b>Purpose:</b> Wash soil for greenstone, flint, stone, clay and the odd metal nugget.","<b>用途：</b> 放置在水源旁或引水渠出口附近建立矿石淘洗槽。
 
-<b>目的：</b> 冲洗土壤以提取绿石块。需要铁轴承和铁轴五金。"
+<b>目的：</b> 冲洗土壤，提取绿石、燧石、石头、黏土和偶尔的金属矿块。"
 Water_Sawmill_OreSluiceKit_Place_ActionName,Place,放置
 Water_Sawmill_OreSluiceKit_Place_ActionDescription,Place the ore sluice kit into the environment.,将矿石淘洗槽套件放置在环境中。
 Water_Sawmill_OreSluiceKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription,Break down the sluice kit into its component parts.,将淘洗槽套件拆解为各组件。
+Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription,"Break down the sluice kit: the sluice frame comes back whole, the planks and heavy stones at half.",拆解淘洗槽套件：淘洗槽框架完整返还，木板和重石返还一半。
 Water_Sawmill_OreSluicePlaced_CardName,Ore Sluice,矿石淘洗槽
 Water_Sawmill_OreSluicePlaced_CardDescription,"A water-powered sluice box for washing soil and separating mineral deposits. Load mud piles, dirt piles, or fine dirt, then run the sluice to process them for greenstone, flint, stone, and occasionally metal nuggets.",用于冲洗土壤和分离矿物沉积物的水力淘洗槽。装入泥堆、污土堆或细沙土后运行淘洗槽以提取绿石、燧石、石头和偶尔的金属矿块。
 Water_Sawmill_OreSluicePlaced_CardHelpSection,"<b>Requirements:</b> Requires a local mill race for water power.
@@ -254,9 +262,9 @@ Water_Sawmill_WaterMill_Dismantle_ActionName,Dismantle,拆除
 Water_Sawmill_WaterMill_Dismantle_ActionDescription,"Break down the water mill into its wheel, race, and drive gear.",将水力磨坊拆解为水轮、引水渠和驱动齿轮。
 Water_Sawmill_OreSluiceEmpty_CardName,Ore Sluice Frame,矿石淘洗槽框架
 Water_Sawmill_OreSluiceEmpty_CardDescription,An unfinished sluice box frame. Needs rope and a mill race connection to become a working ore sluice.,未完工的淘洗槽框架。需要绳索和引水渠连接才能成为可用的矿石淘洗槽。
-Water_Sawmill_OreSluiceEmpty_CardHelpSection,<b>Use:</b> Combine with rope and a mill race in the Ore Sluice blueprint to finish construction.,<b>用途：</b> 在矿石淘洗槽蓝图中与绳索和引水渠结合以完成建造。
+Water_Sawmill_OreSluiceEmpty_CardHelpSection,"<b>Use:</b> Finish it in the Ore Sluice blueprint with 10 Planks, 4 Heavy Stones and 6 Metal Nails.",<b>用途：</b> 在矿石淘洗槽蓝图中加上10块木板、4块重石和6枚金属钉即可完成建造。
 Water_Sawmill_OreSluiceEmpty_Dismantle_ActionName,Dismantle,拆除
-Water_Sawmill_OreSluiceEmpty_Dismantle_ActionDescription,Break down the sluice frame and recover planks.,拆除淘洗槽框架并回收木板。
+Water_Sawmill_OreSluiceEmpty_Dismantle_ActionDescription,Break down the sluice frame and recover half of the planks.,拆除淘洗槽框架并回收一半的木板。
 Water_Sawmill_Bp_OreSluiceEmpty_CardName,Ore Sluice Frame,矿石淘洗槽框架
 Water_Sawmill_Bp_OreSluiceEmpty_CardDescription,Hammer together a basic sluice box frame from planks and copper nails.,用木板和铜钉锤制基础淘洗槽框架。
 Water_Sawmill_Bp_OreSluiceEmpty_UnlockConditionsDesc,Mill Race,引水渠
@@ -267,12 +275,17 @@ Water_Sawmill_Bp_Fishpond_CardName,Fishpond,鱼塘
 Water_Sawmill_Bp_Fishpond_CardDescription,"Dig a fishpond near water or a connected mill race outlet in 5 stages (2 hours each, 10 hours total): 3 digging stages with a shovel, then 2 stocking stages with live fish and planks. Fish will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter.",在水源旁或引水渠出口附近分5阶段挖掘鱼塘（每阶段2小时，共10小时）：3个挖掘阶段（需铲子），然后2个放鱼阶段（需活鱼和木板）。鱼会随时间增长。当总鱼数超过10条时，鱼塘变为满载状态，可捕捉青蛙。鱼塘在冬天结冰。
 Water_Sawmill_Bp_Fishpond_UnlockConditionsDesc,Mill Race Needed,需要引水渠
 Water_Sawmill_FishpondKit_CardName,Fishpond Kit,鱼塘套件
-Water_Sawmill_FishpondKit_CardDescription,A pre-stocked fishpond kit ready for placement near water or a connected mill race outlet. Fish populations grow slowly over time.,预先放鱼的鱼塘套件，可放置在水源旁或引水渠出口附近。鱼群数量随时间缓慢增长。
+Water_Sawmill_FishpondKit_CardDescription,"A fishpond kit ready for placement near water or a connected mill race outlet. A kit from the blueprint places a pond with two pike, perch and minnow; a drained kit or the Angler's Start kit places an empty pond.",鱼塘套件，可放置在水源旁或引水渠出口附近。由蓝图建成的套件放置后，鱼塘中有狗鱼、鲈鱼和小鱼各两条；排水得到的套件或垂钓者起步的套件放置后是空鱼塘。
 Water_Sawmill_FishpondKit_CardHelpSection,<b>Use:</b> Place near water or a connected mill race outlet. Fish grow over time. The pond becomes stocked when the total fish count exceeds 10. Fish are caught with a spear.,<b>用途：</b> 放置在水源旁或引水渠出口附近。鱼会随时间增长。当总鱼数超过10条时鱼塘变为满载状态。用标枪捕鱼。
 Water_Sawmill_FishpondKit_Place_ActionName,Place,放置
 Water_Sawmill_FishpondKit_Place_ActionDescription,Place the fishpond near the river.,将鱼塘放置在河边。
 Water_Sawmill_FishpondKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_FishpondKit_Disassemble_ActionDescription,Break down the kit and recover most of the planks and rope.,拆解套件并回收大部分木板和绳索。
+Water_Sawmill_FishpondKit_Disassemble_ActionDescription,Break down the kit and recover half of the planks and heavy stones.,拆解套件并回收一半的木板和重石。
+Water_Sawmill_FishpondKit_Unstocked_StatName,Unstocked,未放养
+Water_Sawmill_Stat_PondFrogs_StatName,Pond Frogs,鱼塘青蛙
+Water_Sawmill_Stat_PondFrogs_StatDescription,"Frogs living at the edge of your stocked fishponds. Catch Frog takes one; one more arrives every day, up to 6.",生活在你满塘鱼塘边的青蛙。捕青蛙每次捕走一只；每天会新来一只，最多6只。
+Water_Sawmill_Stat_PondFed_StatName,Fish Fed Today,今日已喂鱼
+Water_Sawmill_Stat_PondFed_StatDescription,"Hidden: 1 after fish food is scattered on a fishpond, wearing off over one day. Scatter Fish Food needs it at 0, so the ponds take one feed a day.",隐藏：在鱼塘撒下鱼食后为1，一天内逐渐降为0。撒鱼食需要它为0，因此鱼塘每天只能喂食一次。
 Water_Sawmill_FishpondFilled_CardName,Fishpond,鱼塘
 Water_Sawmill_FishpondFilled_CardDescription,"A working fishpond with a small population of pike, perch, and minnow. Only those three breed; trout, char, sturgeon, and eel can be stocked separately but do not breed. Once the breeding population exceeds 10 the pond becomes a fully Stocked Fishpond.",一个有少量狗鱼、鲈鱼和小鱼的运作鱼塘。只有这三种鱼繁殖；鳟鱼、鲑鱼、鲟鱼和鳗鱼可单独放养但不繁殖。繁殖种群超过10条后鱼塘变为满载鱼塘。
 Water_Sawmill_IronWrench_CardName,Iron Wrench,铁扳手
@@ -283,27 +296,27 @@ Water_Sawmill_Bp_IronWrench_CardDescription,Forge one heavy iron wrench from a w
 Water_Sawmill_Bp_IronWrench_UnlockConditionsDesc,Wrought Iron Bar Needed,需要熟铁条
 Water_Sawmill_FishpondKit_RequiresWater_ActionName,Requires Water,需在水边
 Water_Sawmill_FishpondKit_RequiresWater_ActionDescription,This kit must be placed at a river or lake. Travel to a water environment to build it.,此套件必须在河流或湖泊旁放置，前往有水的环境才能建造。
-Water_Sawmill_FishpondFilled_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (~2 days per fish per species).
+Water_Sawmill_FishpondFilled_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (about 3.5 days per fish per species).
 
 <b>Trout / Char / Sturgeon / Eel:</b> Each tracked separately (cap 10 each). They do not breed.
 
-<b>Catch:</b> Use a spear to catch one fish at a time. Each catch reduces that species' population by 1.
+<b>Catch:</b> Use a spear to catch one fish at a time (1 hour; Crayfish 30 minutes). Each catch reduces that species' population by 1.
 
 <b>Stocked Threshold:</b> When the breeding population (pike+perch+minnow) exceeds 10, the pond transitions to Stocked and frogs can be caught.
 
-<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. Each one adds a quarter of a fish to the pike, perch and minnow. Only a species with at least two fish breeds, so food does nothing for a species of one, and food for a species already at 10 is wasted.
+<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. The ponds take one feed a day. It adds a quarter of a fish to the smallest breeding species among the pike, perch and minnow (2 to 9 fish); with none breeding the food is wasted.
 
 <b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).
 
-<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available.","<b>鱼群：</b>梭鲈、鲈鱼和鲦鱼以相同的缓慢速率增长（每种约2天1条）。
+<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available.","<b>鱼群：</b>梭鲈、鲈鱼和鲦鱼以相同的缓慢速率增长（每种约3.5天1条）。
 
 <b>鳟鱼/红点鲑/鲟鱼/鳗鱼：</b>各自独立追踪（上限各10条）。不会繁殖。
 
-<b>捕鱼：</b>使用鱼叉每次捕获一条鱼。每次捕获使该鱼种数量减少1。
+<b>捕鱼：</b>使用鱼叉每次捕获一条鱼（1小时；小龙虾30分钟）。每次捕获使该鱼种数量减少1。
 
 <b>满塘阈值：</b>当繁殖鱼群（梭鲈+鲈鱼+鲦鱼）超过10条时，鱼塘转变为满塘状态，可以捕捉青蛙。
 
-<b>喂食：</b>将鱼杂、虫子或鱼饵拖到鱼塘上撒下鱼食。每份使梭鲈、鲈鱼和鲦鱼各增加四分之一条。只有数量至少为2条的鱼种才会繁殖，因此只有1条的鱼种喂食无效，已达10条的鱼种所得的鱼食也会浪费。
+<b>喂食：</b>将鱼杂、虫子或鱼饵拖到鱼塘上撒下鱼食。鱼塘每天只能喂食一次。每次使梭鲈、鲈鱼和鲦鱼中数量最少且正在繁殖（2至9条）的一种增加四分之一条；没有正在繁殖的鱼种时，鱼食会浪费。
 
 <b>取水：</b>将空水容器拖入以汲取不洁水（饮用前需煮沸）。
 
@@ -320,9 +333,9 @@ Water_Sawmill_FishpondFilled_CatchMinnow_ActionDescription,Spear a minnow from t
 Water_Sawmill_FishpondFilled_Fill_ActionName,Fill with Unsafe Water,汲取不安全的水
 Water_Sawmill_FishpondFilled_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.,从鱼塘汲取不安全的水装入容器。饮用前需煮沸。
 Water_Sawmill_FishpondFilled_Feed_ActionName,Scatter Fish Food,撒鱼食
-Water_Sawmill_FishpondFilled_Feed_ActionDescription,"Scatter fish scraps, bugs or bait over the water. Adds a quarter of a fish to the pike, perch and minnow. Only a species with at least two fish breeds, so food does nothing for a species of one, and food scattered for a species already at 10 is wasted.",将鱼杂、虫子或鱼饵撒到水面上。梭鲈、鲈鱼和鲦鱼各增加四分之一条。只有数量至少为2条的鱼种才会繁殖，因此只有1条的鱼种喂食无效，已达10条的鱼种所得的鱼食也会浪费。
+Water_Sawmill_FishpondFilled_Feed_ActionDescription,"Scatter fish scraps, bugs or bait over the water, once a day. Adds a quarter of a fish to the smallest breeding species among pike, perch and minnow (2 to 9 fish). With none breeding the food is wasted.",将鱼杂、虫子或鱼饵撒到水面上，每天一次。使梭鲈、鲈鱼和鲦鱼中数量最少且正在繁殖（2至9条）的一种增加四分之一条。没有正在繁殖的鱼种时，鱼食会浪费。
 Water_Sawmill_FishpondFilled_Drain_ActionName,Drain,排水
-Water_Sawmill_FishpondFilled_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit.,放弃鱼群，将鱼塘排水还原为鱼塘套件。
+Water_Sawmill_FishpondFilled_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit. The kit then places an empty pond.,放弃鱼群，将鱼塘排水还原为鱼塘套件。之后放置该套件会得到空鱼塘。
 Water_Sawmill_FishpondFilled_Freeze_ActionName,Freeze Over,结冰
 Water_Sawmill_FishpondStocked_CardName,Fishpond (Stocked),鱼塘（满载）
 Water_Sawmill_FishpondStocked_CardDescription,"A mature fishpond rich with pike, perch, and minnow. Trout, char, sturgeon, and eel can also be stocked but do not breed. The thriving ecosystem also attracts frogs to the water's edge.",一个富含狗鱼、鲈鱼和小鱼的成熟鱼塘。鳟鱼、鲑鱼、鲟鱼和鳗鱼也可放养但不繁殖。繁盛的生态系统也会吸引青蛙来到水边。
@@ -330,13 +343,13 @@ Water_Sawmill_FishpondStocked_CardHelpSection,"<b>Populations:</b> Pike, perch, 
 
 <b>Trout / Char / Sturgeon / Eel:</b> Each tracked separately (cap 10 each). They do not breed.
 
-<b>Catch:</b> Use a spear to catch one fish at a time. Each catch reduces that species' population by 1.
+<b>Catch:</b> Use a spear to catch one fish at a time (1 hour; Crayfish 30 minutes). Each catch reduces that species' population by 1.
 
-<b>Frogs:</b> The Catch Frog action is available while the pond is Stocked (no spear required).
+<b>Frogs:</b> The Catch Frog action (30 minutes) is available while the pond is Stocked (no spear required). Your ponds hold up to 6 frogs between them: each catch takes one and one more arrives every day.
 
 <b>Reverts:</b> If the breeding population (pike+perch+minnow) drops below 10 the pond reverts to its working Fishpond state and the frogs depart.
 
-<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. Each one adds a quarter of a fish to the pike, perch and minnow. Only a species with at least two fish breeds, so food does nothing for a species of one, and food for a species already at 10 is wasted.
+<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. The ponds take one feed a day. It adds a quarter of a fish to the smallest breeding species among the pike, perch and minnow (2 to 9 fish); with none breeding the food is wasted.
 
 <b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).
 
@@ -344,13 +357,13 @@ Water_Sawmill_FishpondStocked_CardHelpSection,"<b>Populations:</b> Pike, perch, 
 
 <b>鳟鱼/红点鲑/鲟鱼/鳗鱼：</b>各自独立追踪（上限各10条）。不会繁殖。
 
-<b>捕鱼：</b>使用鱼叉每次捕获一条鱼。每次捕获使该鱼种数量减少1。
+<b>捕鱼：</b>使用鱼叉每次捕获一条鱼（1小时；小龙虾30分钟）。每次捕获使该鱼种数量减少1。
 
-<b>青蛙：</b>鱼塘满塘时可使用“捕青蛙”操作（无需鱼叉）。
+<b>青蛙：</b>鱼塘满塘时可使用“捕青蛙”操作（30分钟，无需鱼叉）。你所有的鱼塘合计最多有6只青蛙：每捕一只少一只，每天会新来一只。
 
 <b>退化：</b>若繁殖鱼群（梭鲈+鲈鱼+鲦鱼）降至10以下，鱼塘退化回普通运作状态，青蛙离开。
 
-<b>喂食：</b>将鱼杂、虫子或鱼饵拖到鱼塘上撒下鱼食。每份使梭鲈、鲈鱼和鲦鱼各增加四分之一条。只有数量至少为2条的鱼种才会繁殖，因此只有1条的鱼种喂食无效，已达10条的鱼种所得的鱼食也会浪费。
+<b>喂食：</b>将鱼杂、虫子或鱼饵拖到鱼塘上撒下鱼食。鱼塘每天只能喂食一次。每次使梭鲈、鲈鱼和鲦鱼中数量最少且正在繁殖（2至9条）的一种增加四分之一条；没有正在繁殖的鱼种时，鱼食会浪费。
 
 <b>取水：</b>将空水容器拖入以汲取不洁水（饮用前需煮沸）。
 
@@ -365,13 +378,13 @@ Water_Sawmill_FishpondStocked_CatchPerch_ActionDescription,Spear a perch from th
 Water_Sawmill_FishpondStocked_CatchMinnow_ActionName,Catch Minnow,捕捞小鱼
 Water_Sawmill_FishpondStocked_CatchMinnow_ActionDescription,Spear a minnow from the pond.,用标枪从鱼塘捕捞一条小鱼。
 Water_Sawmill_FishpondStocked_CatchFrog_ActionName,Catch Frog,捕捉青蛙
-Water_Sawmill_FishpondStocked_CatchFrog_ActionDescription,Catch a frog by hand from the pond's edge.,用手从鱼塘边缘捕捉青蛙。
+Water_Sawmill_FishpondStocked_CatchFrog_ActionDescription,"Catch a frog by hand from the pond's edge. Frogs come back one a day, up to 6.",用手从鱼塘边缘捕捉青蛙。青蛙每天回来一只，最多6只。
 Water_Sawmill_FishpondStocked_Fill_ActionName,Fill with Unsafe Water,汲取不安全的水
 Water_Sawmill_FishpondStocked_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.,从鱼塘汲取不安全的水装入容器。饮用前需煮沸。
 Water_Sawmill_FishpondStocked_Feed_ActionName,Scatter Fish Food,撒鱼食
-Water_Sawmill_FishpondStocked_Feed_ActionDescription,"Scatter fish scraps, bugs or bait over the water. Adds a quarter of a fish to the pike, perch and minnow. Only a species with at least two fish breeds, so food does nothing for a species of one, and food scattered for a species already at 10 is wasted.",将鱼杂、虫子或鱼饵撒到水面上。梭鲈、鲈鱼和鲦鱼各增加四分之一条。只有数量至少为2条的鱼种才会繁殖，因此只有1条的鱼种喂食无效，已达10条的鱼种所得的鱼食也会浪费。
+Water_Sawmill_FishpondStocked_Feed_ActionDescription,"Scatter fish scraps, bugs or bait over the water, once a day. Adds a quarter of a fish to the smallest breeding species among pike, perch and minnow (2 to 9 fish). With none breeding the food is wasted.",将鱼杂、虫子或鱼饵撒到水面上，每天一次。使梭鲈、鲈鱼和鲦鱼中数量最少且正在繁殖（2至9条）的一种增加四分之一条。没有正在繁殖的鱼种时，鱼食会浪费。
 Water_Sawmill_FishpondStocked_Drain_ActionName,Drain,排水
-Water_Sawmill_FishpondStocked_Drain_ActionDescription,Drain the pond back into a fishpond kit. WARNING: the entire fish population is lost and cannot be recovered.,将鱼塘排水还原为鱼塘套件。警告：全部鱼群将永久流失，无法恢复。
+Water_Sawmill_FishpondStocked_Drain_ActionDescription,Drain the pond back into a fishpond kit. WARNING: the entire fish population is lost and cannot be recovered. The kit then places an empty pond.,将鱼塘排水还原为鱼塘套件。警告：全部鱼群将永久损失，无法恢复。之后放置该套件会得到空鱼塘。
 Water_Sawmill_FishpondStocked_Freeze_ActionName,Freeze Over,结冰
 Water_Sawmill_FishpondWinter_CardName,Fishpond (Frozen),鱼塘（冰封）
 Water_Sawmill_FishpondWinter_CardDescription,The fishpond is frozen over. The fish remain under the ice but no longer grow until spring. Only ice fishing is possible.,鱼塘已结冰。鱼仍在冰下但在春天前不再生长。只能进行冰钓。
@@ -483,14 +496,14 @@ Water_Sawmill_MillRaceOutletFrozen_PackUp_ActionName,Pack Up,收起
 Water_Sawmill_MillRaceOutletFrozen_PackUp_ActionDescription,Pack up the frozen mill race outlet for relocation.,收起冰封的引水渠出口以便迁移。
 Water_Sawmill_MillRaceOutletFrozen_Thaw_ActionName,Thaw,解冻
 Water_Sawmill_Bp_MillRaceOutlet_CardName,Mill Race Outlet,引水渠出口
-Water_Sawmill_Bp_MillRaceOutlet_CardDescription,"Build a mill race outlet at any outdoor location (1 hour). Requires a Mill Race, which is consumed in construction. Once built, provides a steady source of unclean water. Freezes solid in winter.",在任意户外地点建造引水渠出口（1小时）。需要一段引水渠，建造时消耗。建成后持续提供不洁净水源。冬季完全结冰。
+Water_Sawmill_Bp_MillRaceOutlet_CardDescription,"Build a mill race outlet at any outdoor location in two stages (2 hours): a stone footing of 12 Stone and 4 Heavy Stones, then a Mill Race, 4 Planks and 4 Metal Nails. Once built, provides a steady source of unclean water. Freezes solid in winter.",在任意户外地点分两个阶段建造引水渠出口（2小时）：先用12块石头和4块重石打好石质基座，再用一段引水渠、4块木板和4枚金属钉完成。建成后持续提供不洁净水源。冬季完全结冰。
 Water_Sawmill_Bp_MillRaceOutlet_UnlockConditionsDesc,Requires Mill Race,需要引水渠
 Water_Sawmill_MillRaceOutletKit_CardName,Mill Race Outlet,引水渠出口
 Water_Sawmill_MillRaceOutletKit_CardDescription,A portable mill race outlet ready to be installed at any outdoor location.,可安装在任意户外地点的便携式引水渠出口。
 Water_Sawmill_MillRaceOutletKit_Place_ActionName,Place,放置
 Water_Sawmill_MillRaceOutletKit_Place_ActionDescription,Install the mill race outlet in the current outdoor location.,在当前户外地点安装引水渠出口。
 Water_Sawmill_MillRaceOutletKit_Dismantle_ActionName,Dismantle,拆除
-Water_Sawmill_MillRaceOutletKit_Dismantle_ActionDescription,Break down the mill race outlet and recover all materials.,拆除引水渠出口并回收所有材料。
+Water_Sawmill_MillRaceOutletKit_Dismantle_ActionDescription,"Break down the mill race outlet and recover the Mill Race, the nails and half of the planks.",拆除引水渠出口，回收引水渠、钉子和一半的木板。
 Water_Sawmill_WorkshopPlaced_CardName,Water-Driven Workshop,水力工坊
 Water_Sawmill_WorkshopPlaced_CardDescription,A water-powered metalworking workshop with an upgraded forge hammer that gradually improves the quality of heated metal items.,配备升级锻锤的水力金属加工工坊，可逐渐提升加热金属物品的品质。
 Water_Sawmill_WorkshopPlaced_PickUp_ActionName,Pack Up,收起
@@ -507,14 +520,14 @@ Water_Sawmill_CopperSawBladeDull_Sharpen_ActionName,Sharpen,磨刀
 Water_Sawmill_CopperSawBladeDull_Sharpen_ActionDescription,Use a sharpening stone to hone the saw blade back to cutting condition.,用磨刀石将锯片重新磨利。
 Water_Sawmill_MillRaceOutletKit_CardHelpSection,"<b>Place:</b> Install the outlet outdoors to provide a steady flow of unclean water.
 
-<b>Dismantle:</b> Break it down to recover all materials.","<b>放置：</b> 在户外安装出口以持续提供不洁净水流。
+<b>Dismantle:</b> Break it down to recover the Mill Race, the nails and half of the planks.","<b>放置：</b> 在户外安装出口以持续提供不洁净水流。
 
-<b>拆除：</b> 拆解以回收所有材料。"
+<b>拆除：</b> 拆解以回收引水渠、钉子和一半的木板。"
 Water_Sawmill_MillRaceOutletKit_RequiresOutdoors_ActionName,Must be Outdoors,需在户外
 Water_Sawmill_MillRaceOutletKit_RequiresOutdoors_ActionDescription,The mill race outlet can only be installed in an outdoor environment. Go outside to place it.,引水渠出口只能安装在户外环境中，请前往室外放置。
 Water_Sawmill_MillRaceOutletPlaced_CardHelpSection,"<b>Fill containers:</b> Drag an empty water container onto the outlet to draw unclean water.
 
-<b>Rain Cistern:</b> A Rain Cistern built in the same location slowly fills with river water, about 4.5 days from empty to full, so water banked in summer and autumn lasts into winter. Each outlet in the location adds its own flow. A cistern already holding a different liquid, such as rainwater, is left alone until it is drawn empty.
+<b>Rain Cistern:</b> A Rain Cistern built in the same location slowly fills with river water, about 22 days from empty to full, so water banked in summer and autumn lasts into winter. Each outlet in the location adds its own flow. A cistern already holding a different liquid, such as rainwater, is left alone until it is drawn empty.
 
 <b>Winter:</b> The outlet freezes in winter: no water can be drawn and the cistern stops filling until the spring thaw.
 
@@ -522,7 +535,7 @@ Water_Sawmill_MillRaceOutletPlaced_CardHelpSection,"<b>Fill containers:</b> Drag
 
 <b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation.","<b>取水：</b>将空水容器拖到出口上以汲取不洁水。
 
-<b>雨水窖：</b>建在同一地点的雨水窖会被缓慢注入河水，从空到满约需4.5天，因此夏秋两季蓄下的水可以留到冬季使用。同一地点的每个出口都会各自注水。已装有其他液体（例如雨水）的雨水窖不会被注水，直到其中的液体被取空。
+<b>雨水窖：</b>建在同一地点的雨水窖会被缓慢注入河水，从空到满约需22天，因此夏秋两季蓄下的水可以留到冬季使用。同一地点的每个出口都会各自注水。已装有其他液体（例如雨水）的雨水窖不会被注水，直到其中的液体被取空。
 
 <b>冬季：</b>冬季出口结冰：春天解冻前无法取水，雨水窖也不再注水。
 
@@ -546,17 +559,17 @@ Water_Sawmill_MillRaceOutletFrozen_CardHelpSection,"<b>Frozen:</b> No water can 
 <b>春季解冻：</b>冬季结束时出口自动恢复。
 
 <b>收起：</b>即使结冰也可收回为可搬运物品以便重新安置。"
-Water_Sawmill_WorkshopPlaced_CardHelpSection,"<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The optional Winter Station Lock setting (off by default) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.
+Water_Sawmill_WorkshopPlaced_CardHelpSection,"<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The Winter Station Lock setting (on by default since 1.12.10) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.
 
-<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own — no Blast needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing — each strike also raises the item's Metal Quality by a small amount (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output. Six iron-grade nuggets (Metal Type 200, from the Ore Sluice or from smelting iron items) work the same way with Forge Iron Nails or Hammer Iron Sheet, and each craft takes only nuggets of its own grade. Results appear on the ground beside the workshop.
+<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own, so no Blast is needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing. Each press also raises the item's Metal Quality and Quality by 2, up to 60; above that only your own Smith strikes raise it (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output. Six iron-grade nuggets (Metal Type 200, from the Ore Sluice or from smelting iron items) work the same way with Forge Iron Nails or Hammer Iron Sheet, and each craft takes only nuggets of its own grade. Results appear on the ground beside the workshop.
 
 <b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.
 
 <b>Overshot Wheel:</b> Drag an Overshot Wheel onto the workshop to fit it (30 minutes): Hammer All then takes 15 minutes instead of 30; Blast and the crafts are unchanged. Pack Up (Overshot) packs the workshop and gives the wheel back.
 
-<b>Expand:</b> Press Expand (30 minutes) to rebuild the workshop larger in place: its capacity grows from 5000 to 7000 weight. Everything inside it, its temperature and any fitted Overshot Wheel are kept. It costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200), taken from your inventory or from cards lying at this location, never from the workshop's own slots; Expand does nothing until you hold them. Pack Up returns the plain kit, so the expansion is paid for again.","<b>需求：</b>需要水道提供水力。当唯一的水源是结冰的引水渠出口时，水力动作会停止。可选设置“Winter Station Lock”（冬季站点锁定，默认关闭）还会在冬季使所有地点的水力动作停止。该地点有热源即可使其继续运转：点燃的营火、火坑、壁炉、烤箱、窑炉、熔炉、块炼炉或锻造台，点燃的铜制火盆（Advanced Copper Tools），或温度至少过半的水力锻炉或水力工坊。
+<b>Expand:</b> Press Expand (30 minutes) to rebuild the workshop larger in place: its capacity grows from 5000 to 7000 weight. Everything inside it, its temperature and any fitted Overshot Wheel are kept. It costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200), taken from your inventory or from cards lying at this location, never from the workshop's own slots; Expand does nothing until you hold them. Pack Up returns the plain kit, so the expansion is paid for again.","<b>需求：</b>需要水道提供水力。当唯一的水源是结冰的引水渠出口时，水力动作会停止。设置“Winter Station Lock”（冬季站点锁定，自1.12.10起默认开启）还会在冬季使所有地点的水力动作停止。该地点有热源即可使其继续运转：点燃的营火、火坑、壁炉、烤箱、窑炉、熔炉、块炼炉或锻造台，点燃的铜制火盆（Advanced Copper Tools），或温度至少过半的水力锻炉或水力工坊。
 
-<b>操作方法：</b>将木柴或木炭拖到作坊锻炉上加燃料。用余烬点火，在有风的高地环境中，自然风力会自动将锻炉升温至冶炼温度（1100）——无需鼓风。水流畅通时按“鼓风”升温，或手动将风箱拖到点燃的锻炉上快速达到冶炼温度。将加热的金属工具坯料或铜零件放入库存，然后按“全部锤打”对每件物品施加一次水锤击——每次锤击还会小幅提升物品的金属品质（该数值不会以可见数字显示在物品上，但会在物品完成或转变时保留下来）。将六块铜块放入工坊库存，使用锤打铜片或锻造铜钉生产产品。六块铁级金属块（金属类型200，来自矿石淘洗槽或冶炼铁制物品）同样适用，使用锻造铁钉或锤打铁板，且每种制作只消耗对应等级的金属块。产出物品出现在工坊旁边的地面上。
+<b>操作方法：</b>将木柴或木炭拖到作坊锻炉上加燃料。用余烬点火，在有风的高地环境中，自然风力会自动将锻炉升温至冶炼温度（1100），无需鼓风。水流畅通时按“鼓风”升温，或手动将风箱拖到点燃的锻炉上快速达到冶炼温度。将加热的金属工具坯料或铜零件放入库存，然后按“全部锤打”对每件物品施加一次水锤击，每次按下还会使物品的金属品质和品质提升2点，最高到60，超过60只能靠你亲手锻打提升（该数值不会以可见数字显示在物品上，但会在物品完成或转变时保留下来）。将六块铜块放入工坊库存，使用锤打铜片或锻造铜钉生产产品。六块铁级金属块（金属类型200，来自矿石淘洗槽或冶炼铁制物品）同样适用，使用锻造铁钉或锤打铁板，且每种制作只消耗对应等级的金属块。产出物品出现在工坊旁边的地面上。
 
 <b>接受：</b>所有加热的工具坯料、加热金属块、铜齿轮零件，以及任何标记为可加热或铜质的物品。
 
@@ -621,9 +634,9 @@ Water_Sawmill_MillRaceOutletFrozen_ChipIce_ActionDescription,Chip a block of ice
 Water_Sawmill_Fishpond_DrawWater_ActionName,Draw Unclean Water,取不洁水
 Water_Sawmill_Fishpond_DrawWater_ActionDescription,Draw unclean water from the fishpond into the container.,从鱼塘中取不洁水装入容器。
 Water_Sawmill_Perk_OreSluiceStart_PerkName,Prospector's Start,淘金者起步
-Water_Sawmill_Perk_OreSluiceStart_PerkDescription,Start with an ore sluice kit ready to place beside running water.,携带一个矿石淘洗槽套件开始游戏，可放置在流水旁。
+Water_Sawmill_Perk_OreSluiceStart_PerkDescription,"Start with an Ore Sluice frame. Finish the sluice from it with planks, heavy stones and nails, then place it beside running water.",携带一个矿石淘洗槽框架开始游戏。用木板、重石和钉子将其完成为淘洗槽，再放置在流水旁。
 Water_Sawmill_Perk_FishpondStart_PerkName,Angler's Start,垂钓者起步
-Water_Sawmill_Perk_FishpondStart_PerkDescription,Start with a fishpond kit ready to dig near water.,携带一个鱼塘套件开始游戏，可在水边挖掘。
+Water_Sawmill_Perk_FishpondStart_PerkDescription,Start with a fishpond kit ready to dig near water. The pond starts empty: stock it with fish you catch.,携带一个鱼塘套件开始游戏，可在水边挖掘。鱼塘起初是空的：需用你捕到的鱼放养。
 Water_Sawmill_Perk_OutletStart_PerkName,Homesteader's Waterworks,家园水利
 Water_Sawmill_Perk_OutletStart_PerkDescription,Start with a mill race outlet kit and a mill race section to bring water anywhere.,携带一个引水渠出水口套件和一段引水渠开始游戏，把水引到任何地方。
 Water_Sawmill_Perk_Millwright_PerkName,Millwright,水车匠
@@ -656,14 +669,14 @@ Water_Sawmill_Bp_CattailBed_CardDescription,"Plant a cattail bed from 3 cattail 
 Water_Sawmill_Bp_CattailBed_UnlockConditionsDesc,Mill Race Needed,需要引水渠
 Water_Sawmill_FishFunnelKit_CardName,Fish Funnel Kit,引鱼堰套件
 Water_Sawmill_FishFunnelKit_CardDescription,"A bundle of planks and woven twine, ready to be staked out in a river as a fish funnel.",一捆木板和编织细线，可在河中架设为引鱼堰。
-Water_Sawmill_FishFunnelKit_CardHelpSection,"<b>Use:</b> Place at a river. Once staked out, a fish funnel doubles how fast a Funnel Trap standing in the same water fills with fish. Two funnels stack. <b>Disassemble:</b> Recover most of the planks and twine.",<b>用途：</b> 放置在河边。架设完成后，引鱼堰可使同一水域中鱼篓陷阱的捕鱼速度提高一倍。两座引鱼堰的效果可叠加。<b>拆卸：</b> 回收大部分木板和细线。
+Water_Sawmill_FishFunnelKit_CardHelpSection,"<b>Use:</b> Place at a river. Once staked out, a fish funnel doubles how fast a Funnel Trap standing in the same water fills with fish. Only one funnel at a location counts. <b>Disassemble:</b> Recover half of the planks, rope and twine.",<b>用途：</b> 放置在河边。架设完成后，引鱼堰可使同一水域中鱼篓陷阱的捕鱼速度提高一倍。每个地点只有一座引鱼堰生效。<b>拆卸：</b> 回收一半的木板、绳索和细线。
 Water_Sawmill_FishFunnelKit_Place_ActionName,Place,放置
 Water_Sawmill_FishFunnelKit_Place_ActionDescription,Stake the fish funnel out in the river.,将引鱼堰架设在河中。
 Water_Sawmill_FishFunnelKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_FishFunnelKit_Disassemble_ActionDescription,Break down the kit and recover most of the planks and twine.,拆解套件并回收大部分木板和细线。
+Water_Sawmill_FishFunnelKit_Disassemble_ActionDescription,"Break down the kit and recover half of the planks, rope and twine.",拆解套件并回收一半的木板、绳索和细线。
 Water_Sawmill_FishFunnelPlaced_CardName,Fish Funnel,引鱼堰
 Water_Sawmill_FishFunnelPlaced_CardDescription,A woven timber wing-wall staked out across the current. It steers passing fish toward any funnel trap set in the same water.,一道横跨水流架设的编织木翼墙，可将经过的鱼引向设在同一水域中的鱼篓陷阱。
-Water_Sawmill_FishFunnelPlaced_CardHelpSection,"<b>Effect:</b> A Funnel Trap in the same location gains fish twice as fast (+10 population per time point on top of its own 10). The funnel does nothing on its own, so set a Funnel Trap here as well. <b>Pack Up:</b> Recover the funnel as a portable kit.",<b>效果：</b> 同一地点的鱼篓陷阱聚鱼速度提高一倍（在其自身每时间点10点的基础上再加10点）。引鱼堰本身不会捕鱼，因此还需在此处设置鱼篓陷阱。<b>收起：</b> 将引鱼堰收回为便携套件。
+Water_Sawmill_FishFunnelPlaced_CardHelpSection,"<b>Effect:</b> A Funnel Trap in the same location gains fish twice as fast (+10 population per time point on top of its own 10). The funnel does nothing on its own, so set a Funnel Trap here as well. A second funnel here adds nothing. <b>Pack Up:</b> Recover the funnel as a portable kit.",<b>效果：</b> 同一地点的鱼篓陷阱聚鱼速度提高一倍（在其自身每时间点10点的基础上再加10点）。引鱼堰本身不会捕鱼，因此还需在此处设置鱼篓陷阱。此处的第二座引鱼堰不会再增加效果。<b>收起：</b> 将引鱼堰收回为便携套件。
 Water_Sawmill_FishFunnelPlaced_PackUp_ActionName,Pack Up,收起
 Water_Sawmill_FishFunnelPlaced_PackUp_ActionDescription,Pull the fish funnel out of the water and pack it up for relocation.,将引鱼堰从水中拔出并收起以便迁移。
 Water_Sawmill_ReedBed_CardName,Reed Bed,芦苇田
@@ -782,7 +795,7 @@ Water_Sawmill_OvershotWheel_CardName,Overshot Wheel,上射式水车
 Water_Sawmill_OvershotWheel_CardDescription,"A water wheel fed from above, geared for speed. Fit it to a Water-Driven Sawmill, Grinding Mill, Workshop or Ore Sluice to shorten its batch action.",由上方来水驱动、为速度而配齿的水车。装到水力锯木厂、研磨坊、工坊或矿石淘洗槽上，可缩短其批量操作的耗时。
 Water_Sawmill_OvershotWheel_CardHelpSection,"<b>Fit:</b> Drag it onto a Water-Driven Sawmill, Grinding Mill, Workshop or Ore Sluice (30 minutes). Saw All then takes 30 minutes instead of 1 hour, Grind All and Hammer All 15 minutes instead of 30, and Sluice All 15 minutes instead of 45, when you run them yourself (a Partner's duty work takes no time either way). One wheel per station; Pack Up (Overshot) gives it back.
 
-<b>Forge:</b> The Water-Driven Forge has no batch action to shorten, so it takes no wheel.","<b>安装：</b>将其拖到水力锯木厂、研磨坊、工坊或矿石淘洗槽上（30分钟）。之后全部锯切由1小时缩短为30分钟，全部研磨和全部锤打由30分钟缩短为15分钟，全部淘洗由45分钟缩短为15分钟，适用于你亲自操作时（伙伴的值守工作本来就不耗时）。每个工作站只能装一个；“收起（上射式水车）”会将其退还。
+<b>Forge:</b> The Water-Driven Forge has no batch action to shorten, so it takes no wheel.","<b>安装：</b>将其拖到水力锯木厂、研磨坊、工坊或矿石淘洗槽上（30分钟）。之后全部锯切由3小时缩短为1.5小时，全部研磨和全部锤打由30分钟缩短为15分钟，全部淘洗由45分钟缩短为15分钟，适用于你亲自操作时（伙伴的值守工作本来就不耗时）。每个工作站只能装一个；“收起（上射式水车）”会将其退还。
 
 <b>锻炉：</b>水力锻炉没有可缩短的批量操作，因此无法安装。"
 Water_Sawmill_OvershotWheel_Dismantle_ActionName,Dismantle,拆除
@@ -813,7 +826,7 @@ Water_Sawmill_StampMillKit_CardHelpSection,<b>Use:</b> Place near water or a con
 Water_Sawmill_StampMillKit_Place_ActionName,Place,放置
 Water_Sawmill_StampMillKit_Place_ActionDescription,Place the stamp mill kit into the environment.,将捣矿机套件放置在环境中。
 Water_Sawmill_StampMillKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_StampMillKit_Disassemble_ActionDescription,Break down the kit into its component parts.,将套件拆解为各组件。
+Water_Sawmill_StampMillKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts and fittings come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件和配件全数返还，大宗材料返还一半。
 Water_Sawmill_StampMillPlaced_CardName,Water-Driven Stamp Mill,水力捣矿机
 Water_Sawmill_StampMillPlaced_CardDescription,"Water-driven stamps crush a hopper of ore at once, each piece a little better than by hand.",水力驱动的重锤一次捣碎一整斗矿石，每块都比手工略好。
 Water_Sawmill_StampMillPlaced_CardHelpSection,"<b>Requirements:</b> Water at this location (a river or lake, or a connected mill race outlet).
@@ -865,42 +878,46 @@ Water_Sawmill_FishpondFilled_Duty_DutyName,Fish the Fishpond,在鱼塘钓鱼
 Water_Sawmill_FishpondStocked_Duty_DutyName,Fish the Fishpond,在鱼塘钓鱼
 
 Water_Sawmill_PlacedExpanded_CardName,Expanded Water-Driven Sawmill,扩建水力锯木厂
-Water_Sawmill_PlacedExpanded_CardDescription,"A water-powered sawmill rebuilt larger in place: it holds 40000 weight instead of 20000, room for twelve logs instead of six.",在原地扩建的水力锯木厂：载重由20000增至40000，可容纳十二根原木而不是六根。
-Water_Sawmill_PlacedExpanded_CardHelpSection,"<b>Expanded:</b> This sawmill was rebuilt larger in place and holds 40000 weight instead of 20000, room for 12 logs instead of 6. It works exactly like the standard sawmill. Pack Up returns the plain frame, so a rebuilt sawmill must be expanded again.
+Water_Sawmill_PlacedExpanded_CardDescription,"A water-powered sawmill rebuilt larger in place: it holds 30000 weight instead of 20000, room for ten logs instead of six.",在原地扩建的水力锯木厂：载重由20000增至30000，可容纳十根原木而不是六根。
+Water_Sawmill_PlacedExpanded_CardHelpSection,"<b>Expanded:</b> This sawmill was rebuilt larger in place and holds 30000 weight instead of 20000, room for 10 logs instead of 6. It works exactly like the standard sawmill. Pack Up returns the plain frame, so a rebuilt sawmill must be expanded again.
 
 <b>Placement:</b> Build it at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. Anywhere else the build is refused.
 
-<b>Operation:</b> Drag a log onto the sawmill to Cut it into planks and wood shavings.
+<b>Operation:</b> Drag a log onto the sawmill to Cut it into planks and wood shavings (1.5 hours).
 
-<b>Saw All:</b> Load logs into the sawmill's slots, then press Saw All (1 hour) to saw every log at once into 8 planks and 2 wood shavings each. Each log's planks keep its wood and dryness. The saw blade stays.
+<b>Saw All:</b> Load logs into the sawmill's slots, then press Saw All (3 hours) to saw every log at once into 8 planks and 2 wood shavings each. Each log's planks keep its wood and dryness.
 
-<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 30 minutes instead of 1 hour. Pack Up (Overshot) packs the sawmill and gives the wheel back.","<b>已扩建：</b>这座锯木厂已在原地扩建，载重由20000增至40000，可放12根原木而不是6根，用法与普通锯木厂完全相同。收起只会得到原来的框架，重建后需要重新扩建。
+<b>Saw Blade:</b> Every log sawn, by Cut or Saw All, adds 1 Blade Wear. At 60 the sawmill stops cutting until you drag a Copper Saw Blade onto it (Replace Saw Blade, 30 minutes), which uses the blade up. Saw All saws only as many logs as the blade has left. Packing the sawmill up keeps its wear.
+
+<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 1.5 hours instead of 3. Pack Up (Overshot) packs the sawmill and gives the wheel back.","<b>已扩建：</b>这座锯木厂已在原地扩建，载重由20000增至30000，可放10根原木而不是6根，用法与普通锯木厂完全相同。收起只会得到原来的框架，重建后需要重新扩建。
 
 <b>放置：</b> 可在河边、湖边或任何有已连通引水渠出口供水的户外地点建造，其他地方无法建造。
 
-<b>操作：</b> 将原木拖到锯木厂上进行切割，锯成木板和木屑。
+<b>操作：</b> 将原木拖到锯木厂上进行切割（1.5小时），锯成木板和木屑。
 
-<b>全部锯切：</b> 将原木放入锯木厂的格子，再按下全部锯切（1小时），一次把所有原木各锯成8块木板和2份木屑。木板保留各自原木的木材种类和干燥度。锯条会留在锯木厂中。
+<b>全部锯切：</b> 将原木放入锯木厂的格子，再按下全部锯切（3小时），一次把所有原木各锯成8块木板和2份木屑。木板保留各自原木的木材种类和干燥度。
 
-<b>上射式水车：</b>将上射式水车拖到锯木厂上安装（30分钟）：之后全部锯切由1小时缩短为30分钟。“收起（上射式水车）”会收起锯木厂并退还水车。"
+<b>锯条：</b>每锯一根原木（切割或全部锯切）锯条磨损加1。磨损达到60时锯木厂停止锯切，直到你把一把铜锯条拖到锯木厂上（更换锯条，30分钟），这把锯条会被装上消耗掉。全部锯切只会锯锯条剩余寿命所能锯的原木。收起锯木厂会保留磨损。
+
+<b>上射式水车：</b>将上射式水车拖到锯木厂上安装（30分钟）：之后全部锯切由3小时缩短为1.5小时。“收起（上射式水车）”会收起锯木厂并退还水车。"
 Water_Sawmill_PlacedExpanded_Duty_DutyName,Operate the Expanded Sawmill,操作扩建锯木厂
 Water_Sawmill_Placed_Expand_ActionName,Expand,扩建
-Water_Sawmill_Placed_Expand_ActionDescription,"Rebuild this sawmill larger in place: capacity doubles to 40000 weight (12 logs instead of 6). Costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200) from your inventory or this location, never from the sawmill's own slots.",在原地扩建锯木厂，载重翻倍至40000（可放12根原木而不是6根）。需要6块木板和4枚铁钉（金属类型200的金属钉），取自你的背包或本地点，不会取用锯木厂自身格子里的物品。
+Water_Sawmill_Placed_Expand_ActionDescription,"Rebuild this sawmill larger in place: capacity grows to 30000 weight (10 logs instead of 6). Costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200) from your inventory or this location, never from the sawmill's own slots.",在原地扩建锯木厂，载重增至30000（可放10根原木而不是6根）。需要6块木板和4枚铁钉（金属类型200的金属钉），取自你的背包或本地点，不会取用锯木厂自身格子里的物品。
 Water_Sawmill_WorkshopPlacedExpanded_CardName,Expanded Water-Driven Workshop,扩建水力工坊
 Water_Sawmill_WorkshopPlacedExpanded_CardDescription,A water-powered metalworking workshop rebuilt larger in place: it holds 7000 weight instead of 5000.,在原地扩建的水力金属加工工坊：载重由5000增至7000。
 Water_Sawmill_WorkshopPlacedExpanded_CardHelpSection,"<b>Expanded:</b> This workshop was rebuilt larger in place and holds 7000 weight instead of 5000. It works exactly like the standard workshop. Pack Up returns the plain kit, so a rebuilt workshop must be expanded again.
 
-<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The optional Winter Station Lock setting (off by default) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.
+<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop while a frozen Mill Race Outlet is the only water. The Winter Station Lock setting (on by default since 1.12.10) also stops them at every location in winter. Heat at the location keeps them running: a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery or Forge, a lit Copper Brazier (Advanced Copper Tools), or a Water-Driven Forge or Workshop at least half hot.
 
-<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own - no Blast needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing - each strike also raises the item's Metal Quality by a small amount (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output. Six iron-grade nuggets (Metal Type 200, from the Ore Sluice or from smelting iron items) work the same way with Forge Iron Nails or Hammer Iron Sheet, and each craft takes only nuggets of its own grade. Results appear on the ground beside the workshop.
+<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own, so no Blast is needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing. Each press also raises the item's Metal Quality and Quality by 2, up to 60; above that only your own Smith strikes raise it (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output. Six iron-grade nuggets (Metal Type 200, from the Ore Sluice or from smelting iron items) work the same way with Forge Iron Nails or Hammer Iron Sheet, and each craft takes only nuggets of its own grade. Results appear on the ground beside the workshop.
 
 <b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.
 
 <b>Overshot Wheel:</b> Drag an Overshot Wheel onto the workshop to fit it (30 minutes): Hammer All then takes 15 minutes instead of 30; Blast and the crafts are unchanged. Pack Up (Overshot) packs the workshop and gives the wheel back.","<b>已扩建：</b>这座工坊已在原地扩建，载重由5000增至7000，用法与普通工坊完全相同。收起只会得到原来的套件，重建后需要重新扩建。
 
-<b>需求：</b> 需要引水渠提供水力。当唯一的水源是结冰的引水渠出口时，水力动作会停止。可选设置“Winter Station Lock”（冬季站点锁定，默认关闭）还会在冬季使所有地点的水力动作停止。该地点有热源即可使其继续运转：点燃的营火、火坑、壁炉、烤箱、窑炉、熔炉、块炼炉或锻造台，点燃的铜制火盆（Advanced Copper Tools），或温度至少过半的水力锻炉或水力工坊。
+<b>需求：</b> 需要引水渠提供水力。当唯一的水源是结冰的引水渠出口时，水力动作会停止。设置“Winter Station Lock”（冬季站点锁定，自1.12.10起默认开启）还会在冬季使所有地点的水力动作停止。该地点有热源即可使其继续运转：点燃的营火、火坑、壁炉、烤箱、窑炉、熔炉、块炼炉或锻造台，点燃的铜制火盆（Advanced Copper Tools），或温度至少过半的水力锻炉或水力工坊。
 
-<b>操作：</b> 将柴火或木炭拖至工坊锻炉补充燃料，然后用余烬点火。锻炉会自然升温至约1000。在有风的高地环境中，自然风力会自动将锻炉升温至冶炼温度（1100）-无需鼓风。水流畅通时可使用鼓风，或手动将风箱拖到已点燃的锻炉上快速达到冶炼温度。将加热的金属工具坯料或铜零件放入库存，然后在水流畅通时按全部锤打-每次锤击还会小幅提升物品的金属品质。将六块铜块放入工坊库存，使用锤打铜片或锻造铜钉生产产品。六块铁级金属块（金属类型200，来自矿石淘洗槽或冶炼铁制物品）同样适用，使用锻造铁钉或锤打铁板，且每种制作只消耗对应等级的金属块。产出物品出现在工坊旁边的地面上。
+<b>操作：</b> 将柴火或木炭拖至工坊锻炉补充燃料，然后用余烬点火。锻炉会自然升温至约1000。在有风的高地环境中，自然风力会自动将锻炉升温至冶炼温度（1100），无需鼓风。水流畅通时可使用鼓风，或手动将风箱拖到已点燃的锻炉上快速达到冶炼温度。将加热的金属工具坯料或铜零件放入库存，然后在水流畅通时按全部锤打，每次按下还会使物品的金属品质和品质提升2点，最高到60，超过60只能靠你亲手锻打提升。将六块铜块放入工坊库存，使用锤打铜片或锻造铜钉生产产品。六块铁级金属块（金属类型200，来自矿石淘洗槽或冶炼铁制物品）同样适用，使用锻造铁钉或锤打铁板，且每种制作只消耗对应等级的金属块。产出物品出现在工坊旁边的地面上。
 
 <b>接受：</b> 所有加热工具坯料、加热金属块、铜齿轮零件，以及任何带有可加热或铜标签的物品。
 

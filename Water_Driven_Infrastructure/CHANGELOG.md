@@ -2,6 +2,31 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.10] - 2026-10-15
+
+A balance pass: the water-driven stations now cost and pay out closer to the game around them.
+
+### Changed
+
+- **Smelt Ore takes Greenstone and gives one copper Metal Nugget at the ore's Quality plus one Greenstone Slag**, like vanilla smelting. It used to give 1 to 2 Unfinished Metal Bars and no slag. Forge, Workshop and Expanded Workshop.
+- **Hammer All raises Metal Quality and Quality by 2 a press, up to 60** (was 5 a press, to the top). Past 60 only the game's own hammering raises them.
+- **Heat Metal Items adds 200 fuel** (was 600), and the Water-Driven Forge takes 48 hours to research (was 16).
+- **The sawmill is slower and its blade wears out.** Cut takes 1.5 hours (was 30 minutes) and Saw All 3 hours (was 1 hour; 1.5 with an Overshot Wheel). Every log sawn wears the blade by 1; after 60 logs the sawmill stops until you drag a Copper Saw Blade onto it and press **Replace Saw Blade** (30 minutes). The Expanded Sawmill holds 30,000 weight, 10 logs (was 40,000).
+- **The fishpond breeds and pays out more slowly.** Pike, Perch and Minnow grow about one fish every 3.5 days (was about 2). Catches take 1 hour (Crayfish and Frog 30 minutes).
+- **Feeding the fishpond works once a day** across your ponds and adds a quarter fish to the smallest breeding species (2 to 9 fish), instead of to all three every time.
+- **Frogs are no longer endless.** Your ponds share up to 6 frogs and one more arrives each day; Catch Frog cannot be used while none are left.
+- **A drained fishpond kit places an empty pond.** Draining no longer hands the fish back on the next placement. Packing up a working pond still keeps its fish.
+- **Mill Race Outlet:** research 24 hours (was 8) and a first build stage of 12 Stone and 4 Heavy Stone. It feeds a Rain Cistern at 10 every 15 minutes, about 22 days from empty (was 50, about 4.5 days).
+- **The Grinding Mill holds 5,000 weight** (was 8,000).
+- **A second Fish Funnel at the same location adds nothing**; one funnel still doubles a Funnel Trap's speed.
+- **Partner duties at the Grinding Mill, Ore Sluice, Stamp Mill, Workshop and Expanded Workshop run at most 4 times a day** per Partner.
+- **Winter Station Lock is on by default**: stations stop in winter without a heat source, even beside a river. BepInEx keeps a value already in your config file, so an existing install keeps its old setting until you change it.
+- **Starting perks:** Forge Start gives the researched Water-Driven Forge blueprint, a Mill Race and a Large Copper Gear instead of a finished forge kit; Sawmill Start gives the researched Water-Driven Sawmill blueprint and a Copper Saw Blade; Prospector's Start gives an Ore Sluice Frame; Angler's Start gives a pond kit with no fish. Grinding Mill Start costs 1 Star (was 2 Moons), Homesteader's Waterworks 1 Moon (was 2), Millwright 15 Suns (was 30). A perk you already own gives the new contents to characters you create from now on; a character already created keeps what it started with.
+
+### Fixed
+
+- **Disassembling a kit no longer gives back more than went in.** Kits return only parts their build used, bulk materials at about half: the Forge kit no longer hands out a free wooden shovel, the Sawmill Frame returns the Water Mill rather than a Water Wheel, and the Ore Sluice kit no longer returns an iron bearing and axle its build never took. The Ore Sluice and Fishpond kits return Heavy Stone in place of Rope.
+
 ## [1.12.9] - 2026-10-14
 
 ### Fixed

@@ -14,7 +14,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_ore_sluice_kit",
     "LocalizationKey": "Water_Sawmill_OreSluiceKit_CardHelpSection",
-    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.\n\n<b>Purpose:</b> Wash soil to extract greenstone nuggets. Requires iron bearing and axle hardware."
+    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.\n\n<b>Purpose:</b> Wash soil for greenstone, flint, stone, clay and the odd metal nugget."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -82,7 +82,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_ore_sluice_kit",
         "LocalizationKey": "Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the sluice kit into its component parts."
+        "DefaultText": "Break down the sluice kit: the sluice frame comes back whole, the planks and heavy stones at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -104,30 +104,18 @@
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 10, "y": 10},
+              "Quantity": {"x": 5, "y": 5},
               "TransferRules": {"Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 1.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-              "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+              "DroppedCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 4, "y": 4}
+              "Quantity": {"x": 2, "y": 2}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "water_sawmill_ore_sluice_empty",
-              "DroppedCardWarpType": 3,
-              "Quantity": {"x": 1, "y": 1}
-            },
-            {
-              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-              "DroppedCardWarpData": "water_sawmill_iron_bearing",
-              "DroppedCardWarpType": 3,
-              "Quantity": {"x": 1, "y": 1}
-            },
-            {
-              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-              "DroppedCardWarpData": "water_sawmill_iron_axle",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 1, "y": 1}
             }

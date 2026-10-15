@@ -108,7 +108,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_stamp_mill_kit",
         "LocalizationKey": "Water_Sawmill_StampMillKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the kit into its component parts."
+        "DefaultText": "Break down the kit: the Water Mill, metal parts and fittings come back whole, bulk materials at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -186,8 +186,8 @@
               "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 20,
-                "y": 20
+                "x": 10,
+                "y": 10
               },
               "TransferRules": {
                 "Spoilage": 0,
@@ -224,8 +224,8 @@
               "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 10,
-                "y": 10
+                "x": 5,
+                "y": 5
               }
             },
             {
