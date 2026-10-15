@@ -158,11 +158,6 @@ internal static class Switchboard
             "own range, and stays about four days. It never attacks first, and a hunter who kills it gets a carcass whose " +
             "Release the Spirit gives far more Beast Affinity than any other. It needs the Wisent switch too: with Wisent off " +
             "none comes. Set to false to remove it from the world. Takes effect after a full game restart.");
-        Add(config, "GoldenHind", "hw_switch_goldenhind",
-            "Golden hind: about one day in sixty (a first guess) a golden hind comes into the oak glades for about three days. " +
-            "It runs from you and cannot be fought; if you follow it and your tracking keeps up, it lets you receive its " +
-            "blessing (a day or so of better foraging and escaping) and leaves. Set to false to remove it from the world. " +
-            "Takes effect after a full game restart.");
         Add(config, "Banshee", "hw_switch_banshee",
             "Banshee: at night, while you are bleeding badly (the game has no health bar, so bleeding profusely stands for being near death), " +
             "a banshee may keen outside. It raises your stress for some hours and tells you to bind the wound. " +

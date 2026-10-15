@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.11.5 (2026-10-14)
+- Removed: the **golden hind**, its **Blessing of the Golden Hind** and the `[Threats] GoldenHind` switch. The base game's White Deer (game 0.69c) covers the same ground, so we no longer add a rare deer of our own (Chiwei's report). A hind already in a save is gone after a full restart; a blessing card already in your inventory can no longer be used.
+
 ## 0.11.4 (2026-10-14)
 - Change: the Faerie Realm no longer drifts; location motion is off for now. The people, animals and spirits still breathe.
 

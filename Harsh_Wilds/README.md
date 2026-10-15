@@ -1,6 +1,6 @@
 # Harsh Wilds
 
-**Version:** 0.11.4
+**Version:** 0.11.5
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release. Every chance, number and length is a first guess that has not been balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
@@ -14,7 +14,7 @@ Every threat has its own switch in the config file. Things you do on purpose (sp
 | Area | Contents |
 |---|---|
 | Creatures | Lynx, wisent, musk ox, bandit |
-| Rare beasts | White wisent, golden hind, lake beast, frost demon, lindwurm |
+| Rare beasts | White wisent, lake beast, frost demon, lindwurm |
 | Raids | Eagle, black bear, wolverine, heron (needs Water-Driven Infrastructure) |
 | Hazards | Adder, smithing burns, foraging bites, mud volcano (needs Forest Lore) |
 | World events | Drought, insect plague, crop blight, blood moon, eclipse, aurora, cold snap, algae bloom |
@@ -68,7 +68,6 @@ A ragged spearman who waylays travellers on the river (Southern Rapids, Rocky Ba
 Each comes only on rare days or nights, announces nothing, and is not replaced on a timer: the next one comes when a later day brings one. Each has its own switch.
 
 - **White wisent** (`WhiteWisent`, also needs `Wisent`). About one day in forty, at noon, a rare albino wisent comes to the wisent's glades for about four days. It never attacks first. Its fight is the wisent's with a stouter hide. Its carcass is butchered like the wisent's, and **Release the Spirit** on it gives Beast Affinity +100, where other wild carcasses give +25. It uses the cow's picture for now.
-- **Golden hind** (`GoldenHind`). About one day in sixty, a golden hind visits the same glades by day (06:00 to 20:00) for about three days. It runs from you and cannot be fought or hurt. **Follow the Hind** (two quarter hours) succeeds on an even chance with no Tracking and three in four at Tracking 150. Success gives a **Blessing of the Golden Hind**: Foraging Aid and Escape Aid at their top for a day or so, and the hind leaves. It uses the doe's picture for now.
 - **Lake beast** (`LakeBeast`). About one day in sixty, one comes into the lake and its banks (Northern and Southern Lake Bank, Lake Grove) for about three days. At night, 20:00 to 05:00, it can come for you on a bank, once a night, and fights about as hard as a bear. You can also approach it. Its carcass is bleed, skin, four cuts.
 - **Frost demon** (`FrostDemon`). On about one winter evening in fifteen, one comes down to the northern hills and meadows at 18:00 and stays until about 05:00. Out of doors there it can hunt you once a night. Its bites are Frostnip and Frostbite wounds. A roof is the way out. Its carcass is butchered in one go for meat, fat, bones and a white fur.
 - **Lindwurm** (`Lindwurm`). About one day in a hundred and twenty, a great serpent takes up its lair in the Great Cave for about a week and a half and never leaves it. If you are in the cave, it can come for you once a day at any hour, and you can approach it yourself. It fights harder than the lake beast. Its carcass is a heavy single butchering (a lot of meat and fat, bones, a Very Large Fresh Skin) and holds a spirit: see the Dragon Spirit below.
@@ -276,7 +275,7 @@ File: `BepInEx/config/crispywhips.harsh_wilds.cfg`. A change takes effect after 
 | `Drought`, `InsectPlague`, `CropBlight`, `BloodMoon`, `Eclipse`, `Aurora`, `ColdSnap`, `AlgaeBloom` | That world event. `BloodMoon`'s extra lynxes also need `Lynx`. |
 | `FleasAndLice`, `ToothDecay`, `SpiritSickness`, `DancingPlague` | New cases, and clears any you have. `DancingPlague` also hides Dance in the Ring. |
 | `Banshee`, `Nixie`, `Selkie`, `WildHunt` | That fair-folk threat. |
-| `WhiteWisent`, `GoldenHind`, `LakeBeast`, `FrostDemon`, `Lindwurm` | That rare beast. One already in the world leaves after a full restart. `WhiteWisent` also needs `Wisent`. |
+| `WhiteWisent`, `LakeBeast`, `FrostDemon`, `Lindwurm` | That rare beast. One already in the world leaves after a full restart. `WhiteWisent` also needs `Wisent`. |
 | `FaerieTricks`, `MoonGlamour`, `RestlessDead` | The danger in that realm. The realm itself has no switch. |
 
 Section `[Tuning]`: `RaidPressure` is `Low`, `Normal` (default) or `High`; see Raid pressure.
@@ -310,11 +309,10 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
   - `hw_muskox3`: `f571b9399b6e091ebabc39f412841d61`
   - `hw_bandit`: `dceca78df703345480f33de23207e32c`
   - `hw_whitewisent`: `71e0aadabeab63439637465e07781dcd`
-  - `hw_goldenhind`: `5cbebd21e7a6f2031b5187080f0524bc`
   - `hw_lakebeast`: `d9a558a7d39e26cb7f468b59b95caf46`
   - `hw_frostdemon`: `c443b4053a7413294b5b01e252b80044`
   - `hw_lindwurm`: `bc8c1c79f001823ce106881987ee028e`
-- Switch stats (1 while that threat is switched on, 0 when off; a reader may check them): `hw_switch_lynx`, `hw_switch_wisent`, `hw_switch_muskox`, `hw_switch_eagle`, `hw_switch_blackbear`, `hw_switch_wolverine`, `hw_switch_bandits`, `hw_switch_drought`, `hw_switch_insectplague`, `hw_switch_cropblight`, `hw_switch_bloodmoon`, `hw_switch_eclipse`, `hw_switch_aurora`, `hw_switch_fleasandlice`, `hw_switch_toothdecay`, `hw_switch_heron`, `hw_switch_adder`, `hw_switch_coldsnap`, `hw_switch_algaebloom`, `hw_switch_smithingburns`, `hw_switch_foragebites`, `hw_switch_mudvolcano`, `hw_switch_whitewisent`, `hw_switch_goldenhind`, `hw_switch_lakebeast`, `hw_switch_frostdemon`, `hw_switch_lindwurm`, `hw_switch_spiritsickness`, `hw_switch_dancingplague`.
+- Switch stats (1 while that threat is switched on, 0 when off; a reader may check them): `hw_switch_lynx`, `hw_switch_wisent`, `hw_switch_muskox`, `hw_switch_eagle`, `hw_switch_blackbear`, `hw_switch_wolverine`, `hw_switch_bandits`, `hw_switch_drought`, `hw_switch_insectplague`, `hw_switch_cropblight`, `hw_switch_bloodmoon`, `hw_switch_eclipse`, `hw_switch_aurora`, `hw_switch_fleasandlice`, `hw_switch_toothdecay`, `hw_switch_heron`, `hw_switch_adder`, `hw_switch_coldsnap`, `hw_switch_algaebloom`, `hw_switch_smithingburns`, `hw_switch_foragebites`, `hw_switch_mudvolcano`, `hw_switch_whitewisent`, `hw_switch_lakebeast`, `hw_switch_frostdemon`, `hw_switch_lindwurm`, `hw_switch_spiritsickness`, `hw_switch_dancingplague`.
 - Spirit stats (each 0 to 1, set to 1 the first time and never reset, as the base game's are): `hw_stat_lynx_spirit_bound`, `hw_stat_lynx_spirit_encountered`, `hw_stat_goat_spirit_bound`, `hw_stat_goat_spirit_encountered`, `hw_stat_blood_spirit_bound`, `hw_stat_blood_spirit_encountered`, `hw_stat_dragon_spirit_bound`, `hw_stat_dragon_spirit_encountered`. The bound spirit cards are `hw_spirit_lynx`, `hw_spirit_goat`, `hw_spirit_blood` and `hw_spirit_dragon`. The Ancestor Spirit's, in the West Stone's shape: `hw_stat_ancestor_magic` (0 to 3, hidden; 2 once the Ancestors have answered), `hw_stat_ancestor_propinquity` (hidden, rises at the cairn) and `hw_stat_ancestor_blessing` (0 to 288, the blessing's effect stat); the cairn is `hw_cairn`.
 - Realms: the three realm environments `hwenvfaerierealm`, `hwenvmoonrealm` and `hwenvunderworld`, their location cards `hwlocfaerierealm`, `hwlocmoonrealm` and `hwlocunderworld`, and the exits `hw_faerie_exit`, `hw_moon_exit` and `hw_underworld_exit`. Presence flags (hidden, 1 while the player is in that realm, 0 elsewhere): `hw_stat_in_realm` for any realm, and `hw_stat_in_faerie`, `hw_stat_in_moon` and `hw_stat_in_underworld` for one. Danger switch stats: `hw_switch_faerietricks`, `hw_switch_moonglamour` and `hw_switch_restlessdead`. A realm is an instanced environment and never a map node.
 - A guard stops a Harsh Wilds fight only if it names that encounter or animal: through the encounter's UniqueID, or through the animal's agent UniqueID in its agent list. A guard that names neither does not stop the lynx or the bandit.
@@ -323,6 +321,7 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
 
 Full notes in `CHANGELOG.md`. Latest:
 
+- **0.11.5:** the golden hind is removed; the base game's White Deer covers it.
 - **0.11.4:** the Faerie Realm stays still; the people, animals and spirits still breathe.
 - **0.11.3:** the shaman, the bandits, the frost demon, the animals and the spirits breathe, on their cards and in their encounters.
 - **0.11.2:** fixes for spirit sickness rolling forever, the crop blight stalling, and the Fallen Bandit's weight.

@@ -238,19 +238,9 @@ HarshWilds_BpWitchfire_CardName,Witchfire
 HarshWilds_BpWitchfire_CardDescription,Bind a pinch of witchstone dust in beeswax to make a cold light that burns without fuel for one night.
 HarshWilds_SwitchWhiteWisent_StatName,Harsh Wilds: White Wisent
 HarshWilds_SwitchWhiteWisent_StatDescription,Hidden 0/1 switch: 1 while the White Wisent is on in the Harsh Wilds config.
-HarshWilds_SwitchGoldenHind_StatName,Harsh Wilds: Golden Hind
-HarshWilds_SwitchGoldenHind_StatDescription,Hidden 0/1 switch: 1 while the Golden Hind is on in the Harsh Wilds config.
 HarshWilds_WhiteWisentRolled_StatName,Harsh Wilds: White Wisent Days
 HarshWilds_WhiteWisentRolled_StatDescription,Hidden timer: the white wisent walks the oak glades while this reads 1 or more.
-HarshWilds_GoldenHindRolled_StatName,Harsh Wilds: Golden Hind Days
-HarshWilds_GoldenHindRolled_StatDescription,Hidden timer: the golden hind walks the oak glades while this reads 1 or more.
 HarshWilds_WhiteWisent_AgentName,White Wisent
-HarshWilds_GoldenHind_AgentName,Golden Hind
-HarshWilds_GoldenHind_FollowActionName,Follow the Hind
-HarshWilds_HindBlessing_CardName,Blessing of the Golden Hind
-HarshWilds_HindBlessing_CardDescription,"The golden hind let you follow it a while, and its stillness stayed with you. Receive the blessing to forage and slip away with a lighter step for a day or so."
-HarshWilds_HindBlessing_ActionName,Receive the Blessing
-HarshWilds_HindBlessing_ActionDescription,Receive the golden hind's blessing: a day or so of surer foraging and a quicker getaway.
 HarshWilds_SpiritJar_CardName,Spirit Jar
 HarshWilds_SpiritJar_CardDescription,"A clay jar marked with spirit signs and sealed with a spirit herb. Unlike a plain clay jar it takes a spirit essence, and nothing in it draws on the essence, so it does not fade there. Pour an essence in while your mind is open to the spirits, and later pour it into an amulet or a coat that can be enchanted."
 HarshWilds_BpSpiritJar_CardName,Spirit Jar

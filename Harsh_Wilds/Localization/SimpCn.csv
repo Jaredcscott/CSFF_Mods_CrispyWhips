@@ -244,19 +244,9 @@ HarshWilds_BpWitchfire_CardName,Witchfire,巫火
 HarshWilds_BpWitchfire_CardDescription,Bind a pinch of witchstone dust in beeswax to make a cold light that burns without fuel for one night.,把一撮巫石粉用蜂蜡裹住，做成一夜不需要燃料的冷色灯火。
 HarshWilds_SwitchWhiteWisent_StatName,Harsh Wilds: White Wisent,严酷荒野：白色欧洲野牛
 HarshWilds_SwitchWhiteWisent_StatDescription,Hidden 0/1 switch: 1 while the White Wisent is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用白色欧洲野牛时为 1。
-HarshWilds_SwitchGoldenHind_StatName,Harsh Wilds: Golden Hind,严酷荒野：金色母鹿
-HarshWilds_SwitchGoldenHind_StatDescription,Hidden 0/1 switch: 1 while the Golden Hind is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用金色母鹿时为 1。
 HarshWilds_WhiteWisentRolled_StatName,Harsh Wilds: White Wisent Days,严酷荒野：白色欧洲野牛出没日
 HarshWilds_WhiteWisentRolled_StatDescription,Hidden timer: the white wisent walks the oak glades while this reads 1 or more.,隐藏的计时器：此数值不小于 1 时，白色欧洲野牛会在橡树林间游荡。
-HarshWilds_GoldenHindRolled_StatName,Harsh Wilds: Golden Hind Days,严酷荒野：金色母鹿出没日
-HarshWilds_GoldenHindRolled_StatDescription,Hidden timer: the golden hind walks the oak glades while this reads 1 or more.,隐藏的计时器：此数值不小于 1 时，金色母鹿会在橡树林间游荡。
 HarshWilds_WhiteWisent_AgentName,White Wisent,白色欧洲野牛
-HarshWilds_GoldenHind_AgentName,Golden Hind,金色母鹿
-HarshWilds_GoldenHind_FollowActionName,Follow the Hind,跟随母鹿
-HarshWilds_HindBlessing_CardName,Blessing of the Golden Hind,金色母鹿的祝福
-HarshWilds_HindBlessing_CardDescription,"The golden hind let you follow it a while, and its stillness stayed with you. Receive the blessing to forage and slip away with a lighter step for a day or so.",金色母鹿允许你跟随了它一会儿，它的宁静也留在了你的心里。接受祝福后，你在一天左右的时间里觅食更顺利，脱身也更轻盈。
-HarshWilds_HindBlessing_ActionName,Receive the Blessing,接受祝福
-HarshWilds_HindBlessing_ActionDescription,Receive the golden hind's blessing: a day or so of surer foraging and a quicker getaway.,接受金色母鹿的祝福：一天左右觅食更稳、脱身更快。
 HarshWilds_SpiritJar_CardName,Spirit Jar,灵魄陶罐
 HarshWilds_SpiritJar_CardDescription,"A clay jar marked with spirit signs and sealed with a spirit herb. Unlike a plain clay jar it takes a spirit essence, and nothing in it draws on the essence, so it does not fade there. Pour an essence in while your mind is open to the spirits, and later pour it into an amulet or a coat that can be enchanted.",一只画着灵魄符号、用灵草封口的陶罐。与普通陶罐不同，它能盛放灵魄精华，而且罐中没有任何东西汲取精华，所以精华在里面不会消散。在你心灵向灵魄敞开时把精华倒进去，之后再倒入可附魔的护身符或大衣。
 HarshWilds_BpSpiritJar_CardName,Spirit Jar,灵魄陶罐
