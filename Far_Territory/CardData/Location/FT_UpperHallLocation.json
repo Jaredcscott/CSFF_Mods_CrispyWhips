@@ -11,7 +11,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_UpperHall_CardDescription",
-    "DefaultText": "The highest chamber, a few steps in from the Lava Tube, where the smooth tunnel gives way to broken rock and a copper vein. A shaft drops away into the dark below. No daylight reaches here: bring a lit torch or lantern to work."
+    "DefaultText": "The highest chamber, a few steps in from the Lava Tube, where the smooth tunnel gives way to broken rock. A shaft drops away into the dark below. No daylight reaches here: bring a lit torch or lantern to work."
   },
   "CardImageWarpData": "FT_UpperHall",
   "CardImageWarpType": 3,
@@ -209,6 +209,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 2,
           "DroppedCards": []
         }

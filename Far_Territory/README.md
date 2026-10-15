@@ -1,9 +1,9 @@
 # Far Territory
 
-**Version:** 0.1.6
+**Version:** 0.1.7
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
-**Status:** pre-release. Every number below is a placeholder to be tuned, not a balanced value.
+**Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned.
 
 Far Territory adds lands beyond the forest, reached by ordinary travel. Follow the river to the sea and cross to a warm island that recreates Card Survival: Tropical Island's island as a tribute (all text and art are new). Past the forest lie a grassland, mountains and fjords.
 
@@ -48,7 +48,11 @@ A **Dugout Canoe** takes you down the river in one paddle. Its blueprint is in C
 
 ## Crossing to the island
 
-An **Outrigger Canoe** lies on Seaward Sands. **Set Sail for the Island** takes you to **Landfall Strand** in 6 hours, with no tool, stamina check or season needed. A second canoe on Landfall Strand sails back with **Set Sail for the Mainland**.
+An **Outrigger Canoe** lies on Seaward Sands. **Set Sail for the Island** takes you to **Landfall Strand** in 6 hours, with no tool or season needed. A second canoe on Landfall Strand sails back with **Set Sail for the Mainland**.
+
+- The paddle costs 2 stamina every 15 minutes and you arrive wet (+30).
+- About 1 crossing in 20 is rough: 15 more stamina and another +30 wetness.
+- In winter about 1 crossing in 5 meets a storm instead: 25 more stamina and +60 wetness. You always arrive, in both directions.
 
 - The canoe is the only way across, and the paper map draws no line over the sea.
 - A Partner following you stays behind on Seaward Sands. Animals and other people cannot cross.
@@ -111,13 +115,13 @@ Only the Black Grotto and the eight halls below are dark. In the dark the screen
 
 **The chamber chain.** Eight dark halls join the surface at the Black Grotto, the Sinkhole, the Lava Tube and Cliffbound Cove, so you can walk underground between Reed Marsh, Cliffbound Cove, Western Uplands and Eastern Uplands.
 
-- Black Grotto, a few steps to the **Dripping Hall** (a Spring that fills with water), then 15 minutes to **The Squeeze** (a Copper Vein).
+- Black Grotto, a few steps to the **Dripping Hall** (a Spring that fills with water), then 15 minutes to **The Squeeze**.
 - The Squeeze to the **Lower Hall** by a half-hour **Narrow Crack** crawl that costs 15 stamina, adds filth and scrapes your hands.
 - Lower Hall: a few steps to the **Glittering Hall** (Copper Vein, crystal, now and then a Geode), with a shaft down to the **Drowned Hall** (still sea water: crabs, prawns).
-- Shafts climb from the Lower Hall to the **Middle Hall** and on to the **Upper Hall**, a few steps from the Lava Tube. Middle and Upper have Copper Veins.
+- Shafts climb from the Lower Hall to the **Middle Hall** and on to the **Upper Hall**, a few steps from the Lava Tube. The Middle Hall has a Copper Vein.
 - The Middle Hall is a few steps from the **Lightless Hall**, which is a few steps from the Sinkhole. Little grows there.
 - An **Underwater Passage** joins the Drowned Hall and Cliffbound Cove: half an hour, Stamina 12, soaking, 5 stamina every 15 minutes. It needs no Swimming skill or daylight.
-- Shaft climbs follow the climb rules above (up costs 5 stamina, down 10) and need no daylight. Mine the Copper Veins with a pickaxe for greenstone. A mined-out vein does not return.
+- Shaft climbs follow the climb rules above (up costs 5 stamina, down 10) and need no daylight. Mine the Copper Veins with a pickaxe for greenstone. A mined-out vein does not return. The caves hold three veins in all (Greenstone Grotto, Glittering Hall, Middle Hall), 36 greenstone, near the base game's own two natural veins.
 
 ## Climate
 
@@ -125,13 +129,13 @@ The mod adjusts how warm you feel (the base game's Perceived Temperature) from t
 
 | Place | Change |
 |---|---|
-| Island places | +9, and no snow shows |
-| Fire Mountain and Sour Crater | +16, and no snow shows |
+| Island places | +9 in spring and autumn, +5 in winter, and in summer +9 rising to +13 from 11:00 to 16:00; no snow shows |
+| Fire Mountain and Sour Crater | +10 (a campfire's warmth), and no snow shows |
 | Scree Slope, Steaming Shelf, Windgap Col | -6 |
 | The three fjord places | -8 |
 | Caves | none |
 
-- A forest winter's day becomes comfortable on the island, but a forest summer is hotter there and winter nights stay chilly.
+- A forest winter's day is milder on the island but still cold, and a summer midday there is hot: find shade or water. Winter nights stay chilly.
 - Weather, season and day length are the forest's own: a forest blizzard still shows on the island, though no snow lies there. The forest itself is unaffected.
 - Fire Mountain can overheat you, more so in summer.
 
@@ -141,12 +145,12 @@ The mod adjusts how warm you feel (the base game's Perceived Temperature) from t
 
 - **Driftwood Log**: **Haul Out** turns it into a Tree Log with oak values.
 - **Shell-Strewn Sand**: **Comb the Sand** gives 1 to 3 Seashells. It refills about 3 days per comb.
-- **Seashells**: drag a Stone onto them to grind them into Bonemeal (half an hour).
+- **Seashells**: drag a Stone onto them to grind them (half an hour). About every second handful makes a Bonemeal.
 - **The Sea**: **Wash in the Sea** (15 minutes) and **Dive for Shells** (half an hour, 4 stamina every 15 minutes, wets you). A dive brings up Seashells, Seaweed or nothing, plus shellfish. There is no salt water or tide.
 - **Tide Pool** (Seaward Sands, Boulder Shore, Bleak Strand, Gull Stack): **Forage the Pool** gives a Shore Crab, Rock Prawns or Seaweed, needs daylight and stamina, and restocks in about 2.5 days per forage.
-- **Seaweed**, **Shore Crab** and **Rock Prawn** can be eaten raw (spoiling in 2 to 3 days). There are no cooked island foods yet.
+- **Seaweed**, **Shore Crab** and **Rock Prawn** can be eaten raw (spoiling in 2 to 3 days), with the base game's raw-food risks. There are no cooked island foods yet.
 - Every island coast has its own sea card with the same wash and dive: **The Reef Water**, **The Rocky Swell**, **The Grey Surf**, **The Brackish Shallows** and **The Cove Water**. Each coast's dive finds its own shells, seaweed, stones, flint or crabs.
-- **Forage** works on every Far Territory place, and Forage and combing need some stamina. Outside they need daylight, in the dark caves a light, and in the other caves neither. Each forage uses part of a Gleanings bar that refills over time.
+- **Forage** works on every Far Territory place, and Forage and combing need some stamina. Outside they need daylight, in the dark caves a light, and in the other caves neither. Each forage uses part of a Gleanings bar that refills over time, and a forage, wash or dive can turn up nothing.
 
 ## Fishing
 
@@ -167,11 +171,11 @@ Every fishing tool works on every sea card except the fjords, which have no fish
 | Cliffbound Cove | Goatfish, Parrotfish, Bonefish, Reef Grouper |
 | Rootwater Thicket | Goatfish, Parrotfish, Bonefish, Threadfin, Mudskipper |
 
-**Stocks.** Each species has a hidden stock that sets how likely it is to bite. Every catch lowers it, and time restores it: about 5 days per catch for the common fish, 10 for Reef Grouper, Threadfin and Conch, and about 21 for Oyster and Sea Urchin. All coasts share the stocks.
+**Stocks.** Each species has a hidden stock that sets how likely it is to bite. Every catch lowers it, and time restores it: about 5 days per catch for the common fish, 10 for Reef Grouper, Threadfin and Conch, and about 21 for Oyster and Sea Urchin. A line, net or spear catch takes twice that from the stock (a trap catch the base amount), so a coast fished hard goes quiet for days. All coasts share the stocks.
 
-**Eating.** Sea fish (12 to 50 satiation) spoil in 2 days. Shellfish (Conch, Oyster, Sea Urchin, 12 to 20 satiation) come from dives and spoil in 2.5 days. Seaward Sands gives Conch and Sea Urchin, Coral Inlet adds Oyster, Boulder Shore and Cliffbound Cove give Conch and Sea Urchin, and Bleak Strand gives Conch. None has a cooked form yet.
+**Eating.** Sea fish (12 to 50 satiation) spoil in 2 days. Shellfish (Conch, Oyster, Sea Urchin, 12 to 20 satiation) come from dives and spoil in 2.5 days. Seaward Sands gives Conch and Sea Urchin, Coral Inlet adds Oyster, Boulder Shore and Cliffbound Cove give Conch and Sea Urchin, and Bleak Strand gives Conch. Eaten raw they carry the base game's raw-fish risks: parasites (shellfish more, and Oyster and Conch can upset your stomach), a little filth, fish fatigue and no pleasure. None has a cooked form yet.
 
-**Fish Trap** (Hunting, Fishing blueprint): 2 hours to research, 1.5 hours to build from 4 Twigs and 3 Twine. Set on the sea, it becomes a **Fish Trap (Set)** that springs every 24 to 30 hours. **Haul Out the Trap** (15 minutes) gives you the trap back with its catch, which keeps fresh inside. It holds four fish and never wears out. The **Funnel Trap (Set)** catches the same way, and its haul-out spills the catch onto the shore because the base game's trap holds only Perch.
+**Fish Trap** (Hunting, Fishing blueprint): 12 hours to research, 1.5 hours to build from 4 Twigs and 3 Twine. Set on the sea, it becomes a **Fish Trap (Set)** that springs every 24 to 30 hours. **Haul Out the Trap** (15 minutes) gives you the trap back with its catch, which keeps fresh inside. It holds four fish and never wears out. The **Funnel Trap (Set)** catches the same way, and its haul-out spills the catch onto the shore because the base game's trap holds only Perch.
 
 Net and funnel-trap fishing have not been confirmed in game yet.
 
@@ -182,7 +186,7 @@ Net and funnel-trap fishing have not been confirmed in game yet.
 - **Fell the Palm** (any axe, half an hour) gives 2 to 4 Green Coconuts and 6 to 10 Palm Fronds. A shoot rises from the stump after 10 days as a **Young Palm**, which grows into a palm in 30 more. A Young Palm can be cut with any blade for 2 to 3 Palm Fronds.
 - **Green Coconut** (spoils in 20 days): drag a knife or axe onto it to **Husk the Coconut** (15 minutes) for a Husked Coconut and 2 Fibers.
 - **Husked Coconut**: drag a hammer, hard hammering stone or axe onto it to **Crack Open** (15 minutes) for 1 Coconut Water (Thirst +90), 2 Coconut Meat (Satiation +28) and a **Coconut Shell Bowl**.
-- **Coconut Shell Bowl**: a small water container that catches rain like the base game's Rain Catcher. This has not been watched in a real shower yet.
+- **Coconut Shell Bowl**: a small water container. Like a clay bowl, what it holds slowly dries off; it does not catch rain (the base game's Rain Catcher does that).
 - **Palm Frond**: weak fuel. Whether a campfire accepts it has not been confirmed in game, and fuel is its only use.
 
 ## Tropical food plants
@@ -201,7 +205,9 @@ Seven wild plants stand on the island where the original game places them. Each 
 
 Picking takes 15 minutes. Most foods spoil in 3 to 5 days, and all are eaten raw.
 
-**In a garden.** Put a Banana, Mango, Tropical Almond, Jujube, Nipa Fruit, Yam or Sago Shoot into the Garden Plot and within 15 minutes it takes root. It grows only while it sits there, in every season, and ignores the plot's watering, nutrients, acidity and pests. **Harvest** takes 15 minutes and **Uproot** removes it.
+**In a garden.** Put a Banana, Mango, Tropical Almond, Jujube, Nipa Fruit, Yam or Sago Shoot into the Garden Plot and within 15 minutes it takes root. It grows only while it sits there. **Harvest** takes 15 minutes and **Uproot** removes it.
+
+**Care.** A plant in the plot has Health and Care, like the base game's field crops and Herbs and Fungi's crops. **Tend** it (15 minutes, 2 stamina) to fill Care for a day. Left untended it weakens and dies in about ten days; in winter it stops growing and dies in about two days. A dead plant becomes a **Dead Plant**: **Clear Away** frees the plot. Harvesting a fruiting plant starts its next crop at full Health and Care. Taken out of the plot, a plant loses Health even when tended.
 
 | Plant | Ready after | Harvest gives | Then |
 |---|---|---|---|
@@ -299,11 +305,11 @@ Open grassland well west of the forest, with the forest's own weather and season
 | **Wildrye Plain** | Two Meadowgrass Patches, Forage (fibres, stones) and **Search the Grazing Grounds**. West exit to Sedge Fen. |
 | **Sedge Fen** | A Cattail Patch and a Reed Patch, Forage (fibres, willow twigs). East exit back. |
 
-**The moose.** A **Moose** browses Sedge Fen and grazes Wildrye Plain, with or without any other mod. It never attacks on its own. **Approach** it to **Leave it alone** or fight it (a hard fight: it swings antlers, knocks you down, charges and stamps, with bruises, sprains, lacerations, fractures and Puncture Wounds). A kill leaves a **Moose Carcass**: **Butcher** it (1.5 hours) for 8 to 10 raw Meat, 3 Bones, 6 Fresh Skins and, half the time, an Antler. The carcass rots in 3 days and a killed moose returns after two weeks.
+**The moose.** A **Moose** browses Sedge Fen and grazes Wildrye Plain, with or without any other mod. It never attacks on its own. **Approach** it to **Leave it alone** or fight it (a hard fight: it swings antlers, knocks you down, charges and stamps, with bruises, sprains, lacerations, fractures and Puncture Wounds). A kill leaves a **Moose Carcass**: **Butcher** it (1.5 hours) for 40 to 50 raw Meat, 6 to 8 Fat Chunks, 3 Bones, one Fresh Skin that fleshes into a very large hide and, half the time, an Antler. The carcass rots in 3.75 days and a killed moose returns after two weeks.
 
-**Search the Grazing Grounds** (45 minutes, needs daylight and stamina) finds Bones now and then, or nothing.
+**Search the Grazing Grounds** (45 minutes, needs daylight and stamina) finds Bones now and then, or nothing. It works off a **Herd Sign** bar: one search empties it, and it refills in 3 days.
 
-**With Harsh Wilds installed**, the same search can also turn up a **Wisent Carcass** and, in winter, a **Musk Ox Carcass**. They are Harsh Wilds' own cards, butchered with its own actions. The living animals do not come here. Without Harsh Wilds nothing breaks: the search gives bones or nothing.
+**With Harsh Wilds installed**, the same search can also turn up a **Wisent Carcass** (about 2 searches in 100) and, in winter, a **Musk Ox Carcass** (about 3 in 100). They are Harsh Wilds' own cards, butchered with its own actions. The living animals do not come here. Without Harsh Wilds nothing breaks: the search gives bones or nothing.
 
 **With Forest Lore installed**, its **Standing Stones** also stand on Wildrye Plain, one ring only, with Forest Lore's own actions. Without it nothing is placed.
 
@@ -318,8 +324,8 @@ The snowy heights north of the forest.
 | **Scree Slope** | Forage (stones, flint), the way into the Greenstone Grotto and the cliff up to Windgap Col. East exit to Steaming Shelf. |
 | **Steaming Shelf** | A **Hot Spring**, a **Rock Salt Seam** and Forage (stones). |
 | **Windgap Col** | A snowy saddle: Forage (stones, flint) and ways into the Rust Grotto and the Glimmer Grotto. |
-| **Greenstone Grotto** | Two Copper Veins (mine with a pickaxe for greenstone) and Forage. |
-| **Rust Grotto** | Forage for Dried Bog Iron ore. |
+| **Greenstone Grotto** | A Copper Vein (mine with a pickaxe for greenstone) and Forage. |
+| **Rust Grotto** | Forage for Fresh Bog Iron ore, which you dry as the base game's bog iron. |
 | **Glimmer Grotto** | Forage for stones and, about 1 search in 9, a **Geode** that cracks into a Calcite Crystal. |
 
 The caves are off the paper map and keep the forest's temperature.
@@ -356,16 +362,16 @@ A cold, steep coast beyond the mountains. There is no boat.
 | **Walrus** | Seal Skerry | always; a hard, dangerous fight | Walrus Carcass |
 | **Puffin** | Puffin Cliffs, Fjord Head, Seal Skerry | 05:00 to 20:00; by night on Puffin Cliffs | Bird Meat, Feathers, Bird Bones |
 
-- **Seal Carcass**: **Butcher** (45 minutes) for 3 to 4 raw Meat, 1 to 2 Fat Chunks, 2 Fresh Skins and 1 to 2 Bones. It rots in 2.5 days, and a killed seal returns after a week.
-- **Walrus Carcass**: **Butcher** (1.5 hours) for 8 to 10 raw Meat, 3 to 4 Fat Chunks, 6 Fresh Skins, 3 Bones and 2 Tusks. It rots in 3 days, and a killed walrus returns after two weeks (a puffin after three days).
-- **Search the Snowfield** (Fjord Head, 45 minutes, needs daylight and stamina) finds Bones or nothing. With Harsh Wilds installed it can also turn up a **Musk Ox Carcass** in winter. Without it nothing breaks.
+- **Seal Carcass**: **Butcher** (45 minutes) for 3 to 4 raw Meat, 1 to 2 Fat Chunks, one Fresh Skin that fleshes into a large hide and 1 to 2 Bones. It rots in 2.5 days, and a killed seal returns after a week.
+- **Walrus Carcass**: **Butcher** (1.5 hours) for 30 to 40 raw Meat, 6 to 8 Fat Chunks, one Fresh Skin that fleshes into a very large hide, 3 Bones and 2 Tusks. It rots in 3.75 days, and a killed walrus returns after two weeks (a puffin after three days).
+- **Search the Snowfield** (Fjord Head, 45 minutes, needs daylight and stamina) finds Bones or nothing, once per 3 days (its own Herd Sign bar). With Harsh Wilds installed it can also turn up a **Musk Ox Carcass** in winter (about 3 searches in 100). Without it nothing breaks.
 
 ## Notes on existing saves
 
-- **No new run needed:** the fjord, mountain and grassland places, the sixteen caves and the interior boards get their save entries when a run starts. The Trail West and Trail North are forage finds, so an older save finds them on its next forage there. Fishing, the Fish Trap, path cards, canoes, and the Reef Water are put back or added on arrival. Growing plants in the Garden Plot needs nothing new.
+- **No new run needed:** the fjord, mountain and grassland places, the sixteen caves and the interior boards get their save entries when a run starts. The Trail West and Trail North are forage finds, so an older save finds them on its next forage there. Fishing, the Fish Trap, path cards, canoes, and the Reef Water are put back or added on arrival. Growing plants in the Garden Plot needs nothing new; a plant already in the plot from an older version loads at full Health and Care.
 - **A new run is needed** to see the palms, the wild plants, the Seagull Nest, the Sea and Tide Pool at Seaward Sands: these are among a board's first cards, so a save that already visited the board does not gain them, and lost ones are not put back.
 - The animals are not board cards and are expected to appear in an existing save too, but that has not been confirmed in game. An older save's new path cards and caves should appear on its next visit, which has not been watched in a real older save yet.
-- Copper Veins and the Spring are not put back, and a mined-out vein does not return.
+- Copper Veins and the Spring are not put back, and a mined-out vein does not return. A cave you had already visited before 0.1.7 keeps the veins it had.
 - The old Island Air, Mountain Air, Fjord Chill and Volcanic Heat cards no longer exist. An existing save simply loses them.
 - Each new place adds a small entry (about 5 KB) to the save.
 - **Long island stays:** when you return to a place you left, the game catches up on the time that passed, but the framework caps that at 14 in-game days. After a longer island stay your home base catches up for 14 days only: food spoils, fires burn down and crops grow as if you had been away 14 days.
@@ -411,6 +417,7 @@ BepInEx/
 
 See `CHANGELOG.md` for the full list.
 
+- **0.1.7:** vanilla-balance pass: garden plants need tending and die in winter, forage, washes, dives and fishing can come up empty, sea fishing is about half as rich, raw seafood carries parasites, the crossing costs stamina and can be rough, moose and walrus give real meat and a hide, the carcass searches run on a 3-day stock, three copper veins instead of seven, and the island's warmth follows the season.
 - **0.1.5:** spoilage shows the bacteria icon on 49 foods, plants and carcasses, and Chilli, China Rose petals, Jasmine flowers, Ginger and Lemongrass taste of something when eaten straight.
 - **0.1.4:** the island's locations stay still; the animals still breathe and the plants still sway.
 - **0.1.3:** calmer animated sea: about half the speed and less strong.

@@ -32,8 +32,8 @@
     "Action": "Search the Grazing Grounds",
     "ActionMode": "exact",
     "Drops": [
-      { "Card": "hw_wisent_carcass", "Chance": 12.0, "Quantity": [1, 1] },
-      { "Card": "hw_muskox_carcass", "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
+      { "Card": "hw_wisent_carcass", "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "hw_muskox_carcass", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
     ]
   },
   {
@@ -45,7 +45,7 @@
     "Action": "Search the Snowfield",
     "ActionMode": "exact",
     "Drops": [
-      { "Card": "hw_muskox_carcass", "Chance": 15.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
+      { "Card": "hw_muskox_carcass", "Chance": 6.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
     ]
   }
 ]

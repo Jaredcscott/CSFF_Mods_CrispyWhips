@@ -11,7 +11,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_GreenstoneGrotto_CardDescription",
-    "DefaultText": "A cave at the foot of the cliffs, its walls streaked green. Two veins of greenstone run through the rock, ready for a pickaxe, and green chips lie among the rubble on the floor."
+    "DefaultText": "A cave at the foot of the cliffs, its walls streaked green. A vein of greenstone runs through the rock, ready for a pickaxe, and green chips lie among the rubble on the floor."
   },
   "CardImageWarpData": "FT_GreenstoneGrotto",
   "CardImageWarpType": 3,
@@ -177,6 +177,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 3,
           "DroppedCards": []
         }

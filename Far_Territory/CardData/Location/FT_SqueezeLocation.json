@@ -11,7 +11,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_Squeeze_CardDescription",
-    "DefaultText": "A crack between two walls of wet rock that runs on and down, so tight in places that you push your pack ahead of you. A green-stained copper vein shows in one wall. No daylight reaches here: bring a lit torch or lantern to work."
+    "DefaultText": "A crack between two walls of wet rock that runs on and down, so tight in places that you push your pack ahead of you. Green stains run down one wall. No daylight reaches here: bring a lit torch or lantern to work."
   },
   "CardImageWarpData": "FT_Squeeze",
   "CardImageWarpType": 3,
@@ -191,6 +191,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 3,
           "DroppedCards": []
         }

@@ -387,6 +387,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Whale",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_SeaFjord_Whale",
@@ -404,6 +405,7 @@
         },
         {
           "CollectionName": "Seals",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_SeaFjord_Seals",
@@ -421,6 +423,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_SeaFjord_Nothing",

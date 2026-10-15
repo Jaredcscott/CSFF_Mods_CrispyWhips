@@ -13,7 +13,7 @@
     "LocalizationKey": "Far_Territory_BpFishTrap_UnlockConditionsDesc",
     "DefaultText": "Available from the start"
   },
-  "BlueprintUnlockTicksCost": 8.0,
+  "BlueprintUnlockTicksCost": 48.0,
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "CardsOnBoard": [],

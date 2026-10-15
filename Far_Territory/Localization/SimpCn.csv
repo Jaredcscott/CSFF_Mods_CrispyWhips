@@ -1,9 +1,9 @@
 Far_Territory_Env_LandingBeach_CardName,Seaward Sands,向海沙滩
 Far_Territory_Env_Shore_CardName,Driftwood Shore,漂流木海岸
 Far_Territory_Seashells_CardName,Seashells,贝壳
-Far_Territory_Seashells_CardDescription,"A handful of empty shells, ridged and chalky. Ground with a stone they crumble into bonemeal for gardens and fields.",一把空贝壳，带着棱纹，质地像白垩。用石头研磨后会碎成骨粉，可用于菜园和田地。
+Far_Territory_Seashells_CardDescription,"A handful of empty shells, ridged and chalky. Ground with a stone, about every second handful crumbles into bonemeal for gardens and fields.",一把空贝壳，带着棱纹，质地像白垩。用石头研磨，大约每两把能碎成一份骨粉，可用于菜园和田地。
 Far_Territory_Seashells_CI_Grind,Grind,研磨
-Far_Territory_Seashells_CI_Grind_Desc,Crush the shells into a coarse powder.,把贝壳压碎成粗粉。
+Far_Territory_Seashells_CI_Grind_Desc,Crush the shells into a coarse powder. About half the time there is enough to make Bonemeal.,把贝壳压碎成粗粉。大约一半的时候够做成骨粉。
 Far_Territory_Driftwood_CardName,Driftwood Log,漂流木
 Far_Territory_Driftwood_CardDescription,"A whole trunk the river brought down and the tide threw back, bleached and smooth. Hauled clear of the water it is an ordinary log.",一整根树干，被河水冲下、又被潮水抛回岸边，已被晒白磨光。拖离水边后，它就是一根普通的原木。
 Far_Territory_Driftwood_DA_HaulOut,Haul Out,拖上岸
@@ -54,12 +54,12 @@ Far_Territory_LandfallStrand_DA_Forage_Fail,Nothing worth picking up yet,暂时�
 Far_Territory_MooredBoatMainland_CardName,Misty Coast,迷雾海滨
 Far_Territory_MooredBoatMainland_CardDescription,"A stony shore under low mist, dark firs crowding down to the water and a weathered driftwood post standing at the waterline with a rope wound round it. Far out to the south-east, on a clear day, there is land.",低雾笼罩下的一片石滩，幽暗的冷杉一直挤到水边，水线处立着一根饱经风霜的漂流木桩，上面缠着绳子。天气晴朗时，可以望见遥远的东南方有一片陆地。
 Far_Territory_MooredBoatMainland_DA_SetSail,Set Sail for the Island,启航前往海岛
-Far_Territory_MooredBoatMainland_DA_SetSail_Desc,Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours.,冲过碎浪，划过开阔的海面前往海岛。航程大约需要六小时。
+Far_Territory_MooredBoatMainland_DA_SetSail_Desc,"Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours. It is hard paddling and you arrive wet. Now and then the sea is rough, and in winter storms are common.",冲过碎浪，划过开阔的海面前往海岛。航程大约需要六小时。划桨很费力，上岸时会浑身湿透。海上偶尔风浪很大，冬天更常遇到风暴。
 Far_Territory_MooredBoatMainland_DA_SetSail_Fade,Sailing for the island...,正在驶向海岛……
 Far_Territory_MooredBoatIsland_CardName,Homeward Sand,归乡沙滩
 Far_Territory_MooredBoatIsland_CardDescription,"Fine white sand slopes gently into clear shallows here, the easiest place on this shore to come in through the surf. Back to the north-west, past the open water, lies the mainland coast.",细腻的白沙缓缓没入清澈的浅水，这里是这片海岸上最容易穿过浪花靠岸的地方。往西北方向，越过开阔的海面，便是大陆海岸。
 Far_Territory_MooredBoatIsland_DA_SetSail,Set Sail for the Mainland,启航返回大陆
-Far_Territory_MooredBoatIsland_DA_SetSail_Desc,Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours.,把边架独木舟推回浪中，划回大陆的海滩。航程大约需要六小时。
+Far_Territory_MooredBoatIsland_DA_SetSail_Desc,"Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours. It is hard paddling and you arrive wet. Now and then the sea is rough, and in winter storms are common.",把边架独木舟推回浪中，划回大陆的海滩。航程大约需要六小时。划桨很费力，上岸时会浑身湿透。海上偶尔风浪很大，冬天更常遇到风暴。
 Far_Territory_MooredBoatIsland_DA_SetSail_Fade,Sailing for the mainland...,正在驶向大陆……
 Far_Territory_Outrigger_CardName,Outrigger Canoe,边架独木舟
 Far_Territory_Outrigger_CardDescription,"A narrow dugout canoe lashed by two poles to a slim log float, a paddle laid along its bottom. It carries you across the open water between the mainland coast and the island.",一艘狭长的独木舟，用两根横杆绑在一根细长的浮木上，舟底平放着一支桨。它能载你横渡大陆海岸与海岛之间的开阔海面。
@@ -366,7 +366,7 @@ Far_Territory_CoconutMeat_DA_Eat_Desc,Eat the coconut meat raw.,生吃椰肉。
 Far_Territory_CoconutMeat_CardName,Coconut Meat,椰肉
 Far_Territory_CoconutMeat_CardDescription,"White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy.",从敲开的椰子里取出的果肉，洁白、紧实、富含油脂。生吃就很顶饱，还能提供不少体力。
 Far_Territory_CoconutShellBowl_CardName,Coconut Shell Bowl,椰壳碗
-Far_Territory_CoconutShellBowl_CardDescription,"Half a coconut shell, smoothed inside. It holds a drink and, left out in the open, catches rain.",半个椰壳，内侧已经磨光。可以盛饮品，放在露天还能接雨水。
+Far_Territory_CoconutShellBowl_CardDescription,"Half a coconut shell, smoothed inside. It holds a drink, which slowly dries off if left standing.",半个椰壳，内侧已经磨光。可以盛饮品，放久了会慢慢蒸发。
 Far_Territory_PalmFrond_FuelCapacity,Fuel,燃料
 Far_Territory_PalmFrond_CardName,Palm Frond,棕榈叶
 Far_Territory_PalmFrond_CardDescription,"A long, tough leaf of the palm. Dry, it burns quickly as weak fuel.",棕榈树又长又韧的叶子。晒干后可作燃料，烧得很快，火力较弱。
@@ -740,14 +740,14 @@ Far_Territory_DrippingHall_DA_Forage_Desc,Search the wet floor and the edge of t
 Far_Territory_DrippingHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
 Far_Territory_Env_Squeeze_CardName,The Squeeze,窄隙
 Far_Territory_Squeeze_CardName,The Squeeze,窄隙
-Far_Territory_Squeeze_CardDescription,"A crack between two walls of wet rock that runs on and down, so tight in places that you push your pack ahead of you. A green-stained copper vein shows in one wall. No daylight reaches here: bring a lit torch or lantern to work.",两面湿岩之间的一道裂缝，一路向前向下延伸，有些地方窄得只能把背包推在身前。一面岩壁上露出一道染着绿锈的铜矿脉。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_Squeeze_CardDescription,"A crack between two walls of wet rock that runs on and down, so tight in places that you push your pack ahead of you. Green stains run down one wall. No daylight reaches here: bring a lit torch or lantern to work.",两面湿岩之间的一道裂缝，一路向前向下延伸，有些地方窄得只能把背包推在身前。一面岩壁上淌着绿色的锈痕。这里照不到日光：须带点燃的火炬或提灯才能干活。
 Far_Territory_Squeeze_Gleanings,Gleanings,拾获物
 Far_Territory_Squeeze_DA_Forage,Forage,觅食
 Far_Territory_Squeeze_DA_Forage_Desc,Pick over the rubble on the floor of the crack by torchlight.,借着火炬的光翻拣裂缝底部的碎石。
 Far_Territory_Squeeze_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
 Far_Territory_Env_LowerHall_CardName,Lower Hall,下层洞厅
 Far_Territory_LowerHall_CardName,Lower Hall,下层洞厅
-Far_Territory_LowerHall_CardDescription,"A long, low chamber at the bottom of the cave, its floor littered with broken rock and flint. A shaft climbs to the Middle Hall, a squeeze runs off toward the Dripping Hall, a side opening glitters, and a copper vein shows in the wall. No daylight reaches here: bring a lit torch or lantern to work.",洞穴底部一间狭长低矮的石室，地上散落着碎石和燧石。一道竖井通往中层洞厅，一条窄隙伸向滴水洞厅，一个侧口闪闪发光，岩壁上还露出一道铜矿脉。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_LowerHall_CardDescription,"A long, low chamber at the bottom of the cave, its floor littered with broken rock and flint. A shaft climbs to the Middle Hall, a squeeze runs off toward the Dripping Hall, and a side opening glitters. No daylight reaches here: bring a lit torch or lantern to work.",洞穴底部一间狭长低矮的石室，地上散落着碎石和燧石。一道竖井通往中层洞厅，一条窄隙伸向滴水洞厅，还有一个侧口闪闪发光。这里照不到日光：须带点燃的火炬或提灯才能干活。
 Far_Territory_LowerHall_Gleanings,Gleanings,拾获物
 Far_Territory_LowerHall_DA_Forage,Forage,觅食
 Far_Territory_LowerHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.,借着火炬的光翻拣地上的碎石。
@@ -775,7 +775,7 @@ Far_Territory_MiddleHall_DA_Forage_Desc,Pick over the broken rock on the floor b
 Far_Territory_MiddleHall_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
 Far_Territory_Env_UpperHall_CardName,Upper Hall,上层洞厅
 Far_Territory_UpperHall_CardName,Upper Hall,上层洞厅
-Far_Territory_UpperHall_CardDescription,"The highest chamber, a few steps in from the Lava Tube, where the smooth tunnel gives way to broken rock and a copper vein. A shaft drops away into the dark below. No daylight reaches here: bring a lit torch or lantern to work.",最高的一间石室，从熔岩隧洞往里走几步便到，光滑的隧道在这里变成碎裂的岩石和一道铜矿脉。一道竖井向下没入黑暗。这里照不到日光：须带点燃的火炬或提灯才能干活。
+Far_Territory_UpperHall_CardDescription,"The highest chamber, a few steps in from the Lava Tube, where the smooth tunnel gives way to broken rock. A shaft drops away into the dark below. No daylight reaches here: bring a lit torch or lantern to work.",最高的一间石室，从熔岩隧洞往里走几步便到，光滑的隧道在这里变成碎裂的岩石。一道竖井向下没入黑暗。这里照不到日光：须带点燃的火炬或提灯才能干活。
 Far_Territory_UpperHall_Gleanings,Gleanings,拾获物
 Far_Territory_UpperHall_DA_Forage,Forage,觅食
 Far_Territory_UpperHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.,借着火炬的光翻拣地上的碎石。
@@ -912,7 +912,7 @@ Far_Territory_BananaPlant_CardName,Banana Plant,香蕉株
 Far_Territory_BananaPlant_CardDescription,"A broad-leaved banana plant, its heavy bunch hanging under the leaves. A new bunch ripens in time.",一株阔叶香蕉，沉甸甸的果串垂在叶下。过些时日会再结出新的一串。
 Far_Territory_BananaPlant_Yield,Ripe Bunches,成熟果串
 Far_Territory_BananaGrowing_CardName,Growing Banana,生长中的香蕉
-Far_Territory_BananaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there.",一株正在菜园里扎根的幼苗。它只有待在菜园里时才会生长，在那里大约20天后即可收获。
+Far_Territory_BananaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",一株正在菜园里扎根的幼苗。它只有待在菜园里时才会生长，在那里大约20天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_BananaGrowing_Growth,Growth,成长度
 Far_Territory_BananaGrowing_Ready,The banana is ready to harvest.,香蕉可以收获了。
 Far_Territory_BananaGrowing_DA_Uproot,Uproot,拔除
@@ -938,7 +938,7 @@ Far_Territory_MangoTree_CardName,Mango Tree,芒果树
 Far_Territory_MangoTree_CardDescription,A spreading mango tree hung with fruit. Mangoes ripen on it a few at a time.,一棵枝叶舒展、挂满果实的芒果树。芒果每次只熟几个。
 Far_Territory_MangoTree_Yield,Ripe Mangoes,成熟芒果
 Far_Territory_MangoGrowing_CardName,Growing Mango,生长中的芒果树
-Far_Territory_MangoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",一株正在菜园里扎根的幼苗。它只有待在菜园里时才会生长，在那里大约30天后即可收获。
+Far_Territory_MangoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",一株正在菜园里扎根的幼苗。它只有待在菜园里时才会生长，在那里大约30天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_MangoGrowing_Growth,Growth,成长度
 Far_Territory_MangoGrowing_Ready,The mango is ready to harvest.,芒果可以收获了。
 Far_Territory_MangoGrowing_DA_Uproot,Uproot,拔除
@@ -964,7 +964,7 @@ Far_Territory_AlmondTree_CardName,Tropical Almond Tree,榄仁树
 Far_Territory_AlmondTree_CardDescription,A tiered beach almond tree with broad leaves. Its nuts fall and gather beneath it.,一棵枝叶层层分明、叶片宽大的海滩榄仁树。果实落下后会堆积在树下。
 Far_Territory_AlmondTree_Yield,Fallen Nuts,落果
 Far_Territory_TropicalAlmondGrowing_CardName,Growing Almond Tree,生长中的榄仁树
-Far_Territory_TropicalAlmondGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。
+Far_Territory_TropicalAlmondGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_TropicalAlmondGrowing_Growth,Growth,成长度
 Far_Territory_TropicalAlmondGrowing_Ready,The almond tree is ready to harvest.,榄仁树可以收获了。
 Far_Territory_TropicalAlmondGrowing_DA_Uproot,Uproot,拔除
@@ -990,7 +990,7 @@ Far_Territory_JujubeBush_CardName,Wild Jujube,野枣丛
 Far_Territory_JujubeBush_CardDescription,A thorny wild jujube shrub dotted with red fruit. More fruit ripens in time.,一丛长满棘刺的野枣灌木，点缀着红色的果实。过些时候还会有更多果实成熟。
 Far_Territory_JujubeBush_Yield,Ripe Jujubes,成熟枣子
 Far_Territory_JujubeGrowing_CardName,Growing Jujube,生长中的枣丛
-Far_Territory_JujubeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约20天后即可收获。
+Far_Territory_JujubeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约20天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_JujubeGrowing_Growth,Growth,成长度
 Far_Territory_JujubeGrowing_Ready,The jujube is ready to harvest.,枣丛可以收获了。
 Far_Territory_JujubeGrowing_DA_Uproot,Uproot,拔除
@@ -1016,7 +1016,7 @@ Far_Territory_NipaPalm_CardName,Nipa Palm,水椰
 Far_Territory_NipaPalm_CardDescription,"A stemless palm growing out of the brackish mud, its fronds rising straight from the ground. Fruit heads ripen low among them.",一种无茎的棕榈，生长在咸淡水交汇的泥滩中，叶片直接从地面挺立而出。果球低低地在叶丛间成熟。
 Far_Territory_NipaPalm_Yield,Fruit Heads,果球
 Far_Territory_NipaFruitGrowing_CardName,Growing Nipa Palm,生长中的水椰
-Far_Territory_NipaFruitGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。
+Far_Territory_NipaFruitGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_NipaFruitGrowing_Growth,Growth,成长度
 Far_Territory_NipaFruitGrowing_Ready,The nipa palm is ready to harvest.,水椰可以收获了。
 Far_Territory_NipaFruitGrowing_DA_Uproot,Uproot,拔除
@@ -1042,7 +1042,7 @@ Far_Territory_WildYam_CardName,Wild Yam Vine,野山药藤
 Far_Territory_WildYam_CardDescription,A twining yam vine with heart-shaped leaves. Its tubers swell underground and can be dug up.,一株缠绕生长的山药藤，叶片呈心形。它的块茎在地下膨大，可以挖出来。
 Far_Territory_WildYam_Yield,Tubers,块茎
 Far_Territory_YamGrowing_CardName,Growing Yam,生长中的山药
-Far_Territory_YamGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约15天后即可收获。
+Far_Territory_YamGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约15天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_YamGrowing_Growth,Growth,成长度
 Far_Territory_YamGrowing_Ready,The yam is ready to harvest.,山药可以收获了。
 Far_Territory_YamGrowing_DA_Uproot,Uproot,拔除
@@ -1066,7 +1066,7 @@ Far_Territory_SagoShoot_Spoiled,The sago shoot has spoiled.,西米棕榈嫩芽�
 Far_Territory_SagoShoot_Planting,Planting,种植
 Far_Territory_SagoShoot_Planted,The sago shoot has taken root in the garden plot.,西米棕榈嫩芽已在菜园中扎根。
 Far_Territory_SagoGrowing_CardName,Growing Sago Palm,生长中的西米棕榈
-Far_Territory_SagoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。
+Far_Territory_SagoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",一株正在菜园中扎根的幼苗。它只有待在菜园里才会生长，在那里约30天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_SagoGrowing_Growth,Growth,成长度
 Far_Territory_SagoGrowing_Ready,The sago palm is ready to harvest.,西米棕榈可以收获了。
 Far_Territory_SagoGrowing_DA_Uproot,Uproot,拔除
@@ -1240,7 +1240,7 @@ Far_Territory_CoffeeBerries_Planted,The coffee berries has taken root in the gar
 Far_Territory_CoffeeBerries_DA_Eat,Eat,吃掉
 Far_Territory_CoffeeBerries_DA_Eat_Desc,"Eat the berries, spitting out the beans. You feel more awake for a while (Coffee Buzz).",吃下浆果，吐掉豆子。一段时间内更加清醒（咖啡提神）。
 Far_Territory_GingerGrowing_CardName,Growing Ginger,生长中的姜
-Far_Territory_GingerGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约15天后即可收获。
+Far_Territory_GingerGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼株。只有留在菜园里才会生长，约15天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_GingerGrowing_Growth,Growth,成长度
 Far_Territory_GingerGrowing_Ready,The ginger is ready to harvest.,姜可以收获了。
 Far_Territory_GingerGrowing_DA_Uproot,Uproot,拔除
@@ -1252,7 +1252,7 @@ Far_Territory_GingerGarden_DA_Harvest_Desc,Gather the crop. The plant is used up
 Far_Territory_GingerGarden_DA_Uproot,Uproot,拔除
 Far_Territory_GingerGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
 Far_Territory_KavaGrowing_CardName,Growing Kava,生长中的卡瓦
-Far_Territory_KavaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。
+Far_Territory_KavaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_KavaGrowing_Growth,Growth,成长度
 Far_Territory_KavaGrowing_Ready,The kava is ready to harvest.,卡瓦可以收获了。
 Far_Territory_KavaGrowing_DA_Uproot,Uproot,拔除
@@ -1264,7 +1264,7 @@ Far_Territory_KavaGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.,
 Far_Territory_KavaGarden_DA_Uproot,Uproot,拔除
 Far_Territory_KavaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
 Far_Territory_ChilliGrowing_CardName,Growing Chilli,生长中的辣椒
-Far_Territory_ChilliGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约15天后即可收获。
+Far_Territory_ChilliGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼株。只有留在菜园里才会生长，约15天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_ChilliGrowing_Growth,Growth,成长度
 Far_Territory_ChilliGrowing_Ready,The chilli is ready to harvest.,辣椒可以收获了。
 Far_Territory_ChilliGrowing_DA_Uproot,Uproot,拔除
@@ -1276,7 +1276,7 @@ Far_Territory_ChilliGarden_DA_Harvest_Desc,Gather the crop. The plant stays in t
 Far_Territory_ChilliGarden_DA_Uproot,Uproot,拔除
 Far_Territory_ChilliGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
 Far_Territory_LemongrassGrowing_CardName,Growing Lemongrass,生长中的香茅
-Far_Territory_LemongrassGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 10 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约10天后即可收获。
+Far_Territory_LemongrassGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 10 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼株。只有留在菜园里才会生长，约10天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_LemongrassGrowing_Growth,Growth,成长度
 Far_Territory_LemongrassGrowing_Ready,The lemongrass is ready to harvest.,香茅可以收获了。
 Far_Territory_LemongrassGrowing_DA_Uproot,Uproot,拔除
@@ -1288,7 +1288,7 @@ Far_Territory_LemongrassGarden_DA_Harvest_Desc,Gather the crop. The plant stays 
 Far_Territory_LemongrassGarden_DA_Uproot,Uproot,拔除
 Far_Territory_LemongrassGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
 Far_Territory_JasmineGrowing_CardName,Growing Jasmine,生长中的茉莉
-Far_Territory_JasmineGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约20天后即可收获。
+Far_Territory_JasmineGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼株。只有留在菜园里才会生长，约20天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_JasmineGrowing_Growth,Growth,成长度
 Far_Territory_JasmineGrowing_Ready,The jasmine is ready to harvest.,茉莉可以收获了。
 Far_Territory_JasmineGrowing_DA_Uproot,Uproot,拔除
@@ -1300,7 +1300,7 @@ Far_Territory_JasmineGarden_DA_Harvest_Desc,Gather the crop. The plant stays in 
 Far_Territory_JasmineGarden_DA_Uproot,Uproot,拔除
 Far_Territory_JasmineGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
 Far_Territory_AloeGrowing_CardName,Growing Aloe,生长中的芦荟
-Far_Territory_AloeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约20天后即可收获。
+Far_Territory_AloeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼株。只有留在菜园里才会生长，约20天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_AloeGrowing_Growth,Growth,成长度
 Far_Territory_AloeGrowing_Ready,The aloe is ready to harvest.,芦荟可以收获了。
 Far_Territory_AloeGrowing_DA_Uproot,Uproot,拔除
@@ -1312,7 +1312,7 @@ Far_Territory_AloeGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the
 Far_Territory_AloeGarden_DA_Uproot,Uproot,拔除
 Far_Territory_AloeGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
 Far_Territory_CinchonaGrowing_CardName,Growing Cinchona,生长中的金鸡纳树
-Far_Territory_CinchonaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。
+Far_Territory_CinchonaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_CinchonaGrowing_Growth,Growth,成长度
 Far_Territory_CinchonaGrowing_Ready,The cinchona is ready to harvest.,金鸡纳树可以收获了。
 Far_Territory_CinchonaGrowing_DA_Uproot,Uproot,拔除
@@ -1324,7 +1324,7 @@ Far_Territory_CinchonaGarden_DA_Harvest_Desc,Gather the crop. The plant stays in
 Far_Territory_CinchonaGarden_DA_Uproot,Uproot,拔除
 Far_Territory_CinchonaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,把植株拔起扔掉，什么也得不到。
 Far_Territory_CoffeeGrowing_CardName,Growing Coffee,生长中的咖啡丛
-Far_Territory_CoffeeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。
+Far_Territory_CoffeeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼株。只有留在菜园里才会生长，约30天后即可收获。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_CoffeeGrowing_Growth,Growth,成长度
 Far_Territory_CoffeeGrowing_Ready,The coffee is ready to harvest.,咖啡可以收获了。
 Far_Territory_CoffeeGrowing_DA_Uproot,Uproot,拔除
@@ -1357,7 +1357,7 @@ Far_Territory_ChinaRoseCutting_Spoiled,The China rose cutting has spoiled.,月�
 Far_Territory_ChinaRoseCutting_Planting,Planting,种植
 Far_Territory_ChinaRoseCutting_Planted,The China rose cutting has taken root in the garden plot.,月季插条已在菜园里扎根。
 Far_Territory_ChinaRoseGrowing_CardName,Growing China Rose,生长中的月季
-Far_Territory_ChinaRoseGrowing_CardDescription,"A young shrub taking hold in a garden plot. It grows only while it sits in the plot, and flowers after about 20 days there.",在菜园中扎根的幼小灌木。只有留在菜园里才会生长，约20天后开花。
+Far_Territory_ChinaRoseGrowing_CardDescription,"A young shrub taking hold in a garden plot. It grows only while it sits in the plot, and flowers after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼小灌木。只有留在菜园里才会生长，约20天后开花。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_ChinaRoseGrowing_Growth,Growth,成长度
 Far_Territory_ChinaRoseGrowing_Ready,The China rose is in flower.,月季开花了。
 Far_Territory_ChinaRoseGrowing_DA_Uproot,Uproot,拔除
@@ -1390,7 +1390,7 @@ Far_Territory_SpiderLilyBulb_Spoiled,The spider lily bulb has spoiled.,蜘蛛兰
 Far_Territory_SpiderLilyBulb_Planting,Planting,种植
 Far_Territory_SpiderLilyBulb_Planted,The spider lily bulb has taken root in the garden plot.,蜘蛛兰鳞茎已在菜园里扎根。
 Far_Territory_SpiderLilyGrowing_CardName,Growing Spider Lily,生长中的蜘蛛兰
-Far_Territory_SpiderLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there.",在菜园中扎根的幼小株丛。只有留在菜园里才会生长，约15天后即可割取。
+Far_Territory_SpiderLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",在菜园中扎根的幼小株丛。只有留在菜园里才会生长，约15天后即可割取。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_SpiderLilyGrowing_Growth,Growth,成长度
 Far_Territory_SpiderLilyGrowing_Ready,The spider lily is ready to cut.,蜘蛛兰可以割取了。
 Far_Territory_SpiderLilyGrowing_DA_Uproot,Uproot,拔除
@@ -1423,7 +1423,7 @@ Far_Territory_WeevilLilyRhizome_Spoiled,The weevil lily rhizome has spoiled.,仙
 Far_Territory_WeevilLilyRhizome_Planting,Planting,种植
 Far_Territory_WeevilLilyRhizome_Planted,The weevil lily rhizome has taken root in the garden plot.,仙茅根茎已在菜园里扎根。
 Far_Territory_WeevilLilyGrowing_CardName,Growing Weevil Lily,生长中的仙茅
-Far_Territory_WeevilLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there.",一丛正在菜园里扎根的幼株。它只有待在菜园里时才会生长，在那里大约15天后即可收割。
+Far_Territory_WeevilLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",一丛正在菜园里扎根的幼株。它只有待在菜园里时才会生长，在那里大约15天后即可收割。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_WeevilLilyGrowing_Growth,Growth,成长度
 Far_Territory_WeevilLilyGrowing_Ready,The weevil lily is ready to cut.,仙茅可以收割了。
 Far_Territory_WeevilLilyGrowing_DA_Uproot,Uproot,拔除
@@ -1449,7 +1449,7 @@ Far_Territory_SnakeGrass_Planted,The snake grass has taken root in the garden pl
 Far_Territory_SnakeGrass_DA_Strip,Strip into Fibers,剥取纤维
 Far_Territory_SnakeGrass_DA_Strip_Desc,Crush the blade and scrape out its long fibres. Gives 2 Fibers. Takes about fifteen minutes.,把叶片压碎，刮出其中的长纤维。获得2份纤维。大约需要十五分钟。
 Far_Territory_SnakeGrassGrowing_CardName,Growing Snake Grass,生长中的蛇草
-Far_Territory_SnakeGrassGrowing_CardDescription,"Young blades taking hold in a garden plot. They grow only while they sit in the plot, and are ready to cut after about 10 days there.",正在菜园里扎根的嫩叶。它们只有待在菜园里时才会生长，在那里大约10天后即可收割。
+Far_Territory_SnakeGrassGrowing_CardDescription,"Young blades taking hold in a garden plot. They grow only while they sit in the plot, and are ready to cut after about 10 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two.",正在菜园里扎根的嫩叶。它们只有待在菜园里时才会生长，在那里大约10天后即可收割。每天照料一次：无人照料大约十天就会衰弱枯死；冬天它会停止生长，大约两天就会枯死。
 Far_Territory_SnakeGrassGrowing_Growth,Growth,成长度
 Far_Territory_SnakeGrassGrowing_Ready,The snake grass is ready to cut.,蛇草可以收割了。
 Far_Territory_SnakeGrassGrowing_DA_Uproot,Uproot,拔除
@@ -1684,7 +1684,7 @@ Far_Territory_WindgapCol_DA_Forage_Desc,Search the wind-scoured rock for loose s
 Far_Territory_WindgapCol_DA_Forage_Fail,Nothing worth picking up yet,暂时没什么值得捡的了
 Far_Territory_Env_GreenstoneGrotto_CardName,Greenstone Grotto,绿石岩洞
 Far_Territory_GreenstoneGrotto_CardName,Greenstone Grotto,绿石岩洞
-Far_Territory_GreenstoneGrotto_CardDescription,"A cave at the foot of the cliffs, its walls streaked green. Two veins of greenstone run through the rock, ready for a pickaxe, and green chips lie among the rubble on the floor.",悬崖脚下的一个洞穴，洞壁布满绿色条纹。两道绿石矿脉贯穿岩层，可以用镐开采，地上的碎石间还散落着绿色碎片。
+Far_Territory_GreenstoneGrotto_CardDescription,"A cave at the foot of the cliffs, its walls streaked green. A vein of greenstone runs through the rock, ready for a pickaxe, and green chips lie among the rubble on the floor.",悬崖脚下的一个洞穴，洞壁布满绿色条纹。一道绿石矿脉贯穿岩层，可以用镐开采，地上的碎石间还散落着绿色碎片。
 Far_Territory_GreenstoneGrotto_Gleanings,Gleanings,可拾之物
 Far_Territory_GreenstoneGrotto_DA_Forage,Forage,觅食
 Far_Territory_GreenstoneGrotto_DA_Forage_Desc,Sift the rubble on the cave floor for stones and loose chips of greenstone.,在洞底的碎石中筛找石头和松散的绿石碎片。
@@ -1867,3 +1867,18 @@ Far_Territory_FunnelTrapPlaced_CardDescription,A funnel trap staked in the shall
 Far_Territory_FunnelTrapPlaced_DA_HaulOut,Haul Out the Trap,收起陷阱
 Far_Territory_FunnelTrapPlaced_DA_HaulOut_Desc,Wade out and lift the funnel trap onto the shore. Whatever it caught spills out beside it.,蹚水出去，把鱼篓陷阱提上岸。捕到的东西会倒在它旁边。
 Far_Territory_FunnelTrapPlaced_Triggered,Trap Triggered!,陷阱触发了！
+Far_Territory_Crop_Health_CardStatName,Health,健康
+Far_Territory_Crop_Care_CardStatName,Care,照料
+Far_Territory_Crop_Health_OnZero_ActionDescription,The crop has died.,作物已经枯死。
+Far_Territory_Crop_Tend_ActionName,Tend,照料
+Far_Territory_Crop_Tend_ActionDescription,"Weed, water and loosen the soil around the crop. Keeps it healthy for a day.",除草、浇水、松土。可让作物保持一天的健康。
+Far_Territory_DeadPlant_CardName,Dead Plant,枯死的植株
+Far_Territory_DeadPlant_CardDescription,"A withered, blackened plant. Nothing on it can be saved. A garden plant dies when it is left untended for about ten days, or left in the plot through winter.",一株枯萎发黑的植株，已经没有什么可以挽救的了。菜园里的植物无人照料大约十天，或冬天留在菜园里，就会枯死。
+Far_Territory_DeadPlant_DA_ClearAway,Clear Away,清除
+Far_Territory_DeadPlant_DA_ClearAway_Desc,Pull up the dead plant to free the plot. Nothing is gained.,拔掉枯死的植株，腾出菜园。什么也得不到。
+Far_Territory_Outrigger_RoughCrossing,The swell got up halfway across. You fought the paddle the rest of the way and came in soaked and spent.,航程过半时涌浪大了起来。你一路奋力划桨，上岸时浑身湿透，筋疲力尽。
+Far_Territory_Outrigger_WinterStorm,"A winter squall caught you on the open water. Spray and sleet came over the side, and you made the beach half frozen and worn out.",你在开阔的海面上遇到了冬天的狂风。浪花和雨夹雪打进船里，你上岸时已经冻得半僵，精疲力竭。
+Far_Territory_WildryePlain_HerdSign,Herd Sign,兽群踪迹
+Far_Territory_WildryePlain_DA_Search_Fail,The herds have not been back since you last looked,自从上次查看后，兽群还没有回来过
+Far_Territory_FjordHead_HerdSign,Herd Sign,兽群踪迹
+Far_Territory_FjordHead_DA_Search_Fail,The herds have not been back since you last looked,自从上次查看后，兽群还没有回来过

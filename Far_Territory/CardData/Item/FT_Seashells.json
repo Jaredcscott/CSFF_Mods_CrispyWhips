@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_Seashells_CardDescription",
-    "DefaultText": "A handful of empty shells, ridged and chalky. Ground with a stone they crumble into bonemeal for gardens and fields."
+    "DefaultText": "A handful of empty shells, ridged and chalky. Ground with a stone, about every second handful crumbles into bonemeal for gardens and fields."
   },
   "CardImageWarpData": "FT_Seashells",
   "CardImageWarpType": 3,
@@ -24,7 +24,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "Far_Territory_Seashells_CI_Grind_Desc",
-        "DefaultText": "Crush the shells into a coarse powder."
+        "DefaultText": "Crush the shells into a coarse powder. About half the time there is enough to make Bonemeal."
       },
       "DaytimeCost": 2,
       "ActionTagsWarpData": [
@@ -32,9 +32,7 @@
       ],
       "ActionTagsWarpType": 3,
       "ReceivingCardChanges": {
-        "ModType": 2,
-        "TransformIntoWarpData": "0b0e10564f04caf4c99f8a4860411e9e",
-        "TransformIntoWarpType": 3
+        "ModType": 3
       },
       "GivenCardChanges": {
         "ModType": 1,
@@ -48,7 +46,31 @@
           "a7384e5147b23a642809451cc4ef24fb"
         ],
         "TriggerCardsWarpType": 3
-      }
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Bonemeal",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCardWarpData": "0b0e10564f04caf4c99f8a4860411e9e",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 50.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

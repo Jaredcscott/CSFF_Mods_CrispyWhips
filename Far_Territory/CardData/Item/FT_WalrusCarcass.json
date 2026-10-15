@@ -17,7 +17,7 @@
     "OverrideIconWarpType": 3,
     "Active": true,
     "FloatValue": 0.0,
-    "MaxValue": 288.0,
+    "MaxValue": 360.0,
     "RatePerDaytimePoint": 1.0,
     "CardStatName": {
       "LocalizationKey": "Far_Territory_WalrusCarcass_Spoilage",
@@ -108,8 +108,8 @@
               "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 8,
-                "y": 10
+                "x": 30,
+                "y": 40
               },
               "TransferRules": {
                 "Spoilage": 0,
@@ -146,8 +146,8 @@
               "DroppedCardWarpData": "39ec586d846bac14e96e7f8c2431945d",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 3,
-                "y": 4
+                "x": 6,
+                "y": 8
               }
             },
             {
@@ -158,8 +158,8 @@
               "DroppedCardWarpData": "4afdb5fa70412c4468f5b2b0590732d3",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 6,
-                "y": 6
+                "x": 1,
+                "y": 1
               },
               "TransferRules": {
                 "Spoilage": 0,
@@ -177,7 +177,7 @@
                 "Special1Value": 0.0,
                 "Special2Value": 5.0,
                 "Special3Value": 0.0,
-                "Special4Value": 100.0,
+                "Special4Value": 500.0,
                 "SpoilageFrom": 0,
                 "UsageFrom": 0,
                 "FuelFrom": 0,

@@ -11,7 +11,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_LowerHall_CardDescription",
-    "DefaultText": "A long, low chamber at the bottom of the cave, its floor littered with broken rock and flint. A shaft climbs to the Middle Hall, a squeeze runs off toward the Dripping Hall, a side opening glitters, and a copper vein shows in the wall. No daylight reaches here: bring a lit torch or lantern to work."
+    "DefaultText": "A long, low chamber at the bottom of the cave, its floor littered with broken rock and flint. A shaft climbs to the Middle Hall, a squeeze runs off toward the Dripping Hall, and a side opening glitters. No daylight reaches here: bring a lit torch or lantern to work."
   },
   "CardImageWarpData": "FT_LowerHall",
   "CardImageWarpType": 3,
@@ -209,6 +209,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 2,
           "DroppedCards": []
         }

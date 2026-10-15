@@ -663,6 +663,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 30,
           "DroppedCards": []
         }
@@ -915,6 +916,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_Fishing_NoLuck",
@@ -981,7 +983,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 40
+                "y": 20
               },
               "WhenOutOfRange": 1
             }
@@ -1009,8 +1011,8 @@
               "StatWarpData": "ft_pop_goatfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1041,7 +1043,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 40
+                "y": 20
               },
               "WhenOutOfRange": 1
             }
@@ -1069,8 +1071,8 @@
               "StatWarpData": "ft_pop_parrotfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1101,7 +1103,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 20
+                "y": 10
               },
               "WhenOutOfRange": 1
             }
@@ -1129,8 +1131,8 @@
               "StatWarpData": "ft_pop_herring",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1374,6 +1376,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_Fishing_NoLuck",
@@ -1440,7 +1443,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 40
+                "y": 20
               },
               "WhenOutOfRange": 1
             }
@@ -1468,8 +1471,8 @@
               "StatWarpData": "ft_pop_goatfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -2000.0,
-                "y": -2000.0
+                "x": -4000.0,
+                "y": -4000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1500,7 +1503,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 40
+                "y": 20
               },
               "WhenOutOfRange": 1
             }
@@ -1528,8 +1531,8 @@
               "StatWarpData": "ft_pop_parrotfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -2000.0,
-                "y": -2000.0
+                "x": -4000.0,
+                "y": -4000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1560,7 +1563,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 20
+                "y": 10
               },
               "WhenOutOfRange": 1
             }
@@ -1588,8 +1591,8 @@
               "StatWarpData": "ft_pop_herring",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -2000.0,
-                "y": -2000.0
+                "x": -4000.0,
+                "y": -4000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1939,6 +1942,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_Fishing_NoLuck",
@@ -2005,7 +2009,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 40
+                "y": 20
               },
               "WhenOutOfRange": 1
             }
@@ -2033,8 +2037,8 @@
               "StatWarpData": "ft_pop_goatfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -2065,7 +2069,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 40
+                "y": 20
               },
               "WhenOutOfRange": 1
             }
@@ -2093,8 +2097,8 @@
               "StatWarpData": "ft_pop_parrotfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,

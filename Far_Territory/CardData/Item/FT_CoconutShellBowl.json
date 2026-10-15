@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_CoconutShellBowl_CardDescription",
-    "DefaultText": "Half a coconut shell, smoothed inside. It holds a drink and, left out in the open, catches rain."
+    "DefaultText": "Half a coconut shell, smoothed inside. It holds a drink, which slowly dries off if left standing."
   },
   "CardImageWarpData": "FT_CoconutShellBowl",
   "CardImageWarpType": 3,
@@ -20,38 +20,6 @@
   ],
   "CardTagsWarpType": 3,
   "AlwaysUpdate": true,
-  "PassiveEffects": [
-    {
-      "EffectName": "Rain",
-      "Conditions": {
-        "RequiredStatValues": [
-          {
-            "Stat": {
-              "m_FileID": 0,
-              "m_PathID": 0
-            },
-            "StatWarpData": "773fb34e869224f499d43b441c973c62",
-            "StatWarpType": 3,
-            "TriggerRange": {
-              "x": 1.0,
-              "y": 5.0
-            }
-          }
-        ]
-      },
-      "GeneratedLiquid": {
-        "LiquidCard": {
-          "m_FileID": 0,
-          "m_PathID": 0
-        },
-        "LiquidCardWarpData": "425259cb06b869d45be2e7f1b5b54aff",
-        "LiquidCardWarpType": 3,
-        "Quantity": {
-          "x": 50.0,
-          "y": 50.0
-        }
-      }
-    }
-  ],
-  "MaxLiquidCapacity": 300.0
+  "MaxLiquidCapacity": 300.0,
+  "LiquidEvaporationRate": 1.0
 }

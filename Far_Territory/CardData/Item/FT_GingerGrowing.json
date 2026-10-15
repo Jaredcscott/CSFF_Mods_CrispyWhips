@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_GingerGrowing_CardDescription",
-    "DefaultText": "A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there."
+    "DefaultText": "A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
   },
   "CardImageWarpData": "FT_GrowingStrap",
   "CardImageWarpType": 3,
@@ -41,6 +41,101 @@
       }
     }
   },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 96.0,
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": -0.25,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_Crop_Health_CardStatName",
+      "DefaultText": "Health"
+    },
+    "HidingOptions": 1,
+    "OverrideIconWarpData": "Health",
+    "OverrideIconWarpType": 3,
+    "ResetWhenLoadedAtZero": true,
+    "HasActionOnZero": true,
+    "OnZeroNotification": 1,
+    "OnZero": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Crop_Health_OnZero_ActionDescription",
+        "DefaultText": "The crop has died."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_dead_plant",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 96.0,
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": -1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_Crop_Care_CardStatName",
+      "DefaultText": "Care"
+    },
+    "HidingOptions": 0,
+    "OverrideIconWarpData": "Wakefulness4",
+    "OverrideIconWarpType": 3
+  },
+  "PassiveEffects": [
+    {
+      "EffectName": "Cared for (Health +0.05)",
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 1.0,
+            "y": 96.0
+          }
+        }
+      },
+      "Special2RateModifier": {
+        "Active": true,
+        "FloatValue": 0.05
+      }
+    },
+    {
+      "EffectName": "Neglected (Health -0.1)",
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.5
+          }
+        }
+      },
+      "Special2RateModifier": {
+        "Active": true,
+        "FloatValue": -0.1
+      }
+    },
+    {
+      "EffectName": "Winter (Health -0.5, Growth -1)",
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 1.0,
+              "y": 2880.0
+            }
+          }
+        ]
+      },
+      "Special2RateModifier": {
+        "Active": true,
+        "FloatValue": -0.5
+      },
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {
@@ -59,6 +154,63 @@
       "ActionTagsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_Crop_Tend_ActionName",
+        "DefaultText": "Tend"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Crop_Tend_ActionDescription",
+        "DefaultText": "Weed, water and loosen the soil around the crop. Keeps it healthy for a day."
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special4Change": {
+          "x": 96.0,
+          "y": 96.0
+        }
       }
     }
   ]

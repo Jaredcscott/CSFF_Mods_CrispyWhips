@@ -142,8 +142,8 @@
           "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
           "StatWarpType": 3,
           "ValueModifier": {
-            "x": -100.0,
-            "y": -100.0
+            "x": -50.0,
+            "y": -50.0
           },
           "RateModifier": {
             "x": 0.0,
@@ -241,8 +241,8 @@
           "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
           "StatWarpType": 3,
           "ValueModifier": {
-            "x": -500.0,
-            "y": -500.0
+            "x": -300.0,
+            "y": -300.0
           },
           "RateModifier": {
             "x": 0.0,
@@ -369,6 +369,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 100,
           "DroppedCards": []
         },
@@ -1087,6 +1088,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 30,
           "DroppedCards": []
         }
@@ -1339,6 +1341,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_Fishing_NoLuck",
@@ -1405,7 +1408,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 32
+                "y": 16
               },
               "WhenOutOfRange": 1
             }
@@ -1433,8 +1436,8 @@
               "StatWarpData": "ft_pop_goatfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1465,7 +1468,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 32
+                "y": 16
               },
               "WhenOutOfRange": 1
             }
@@ -1493,8 +1496,8 @@
               "StatWarpData": "ft_pop_parrotfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1525,7 +1528,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 24
+                "y": 12
               },
               "WhenOutOfRange": 1
             }
@@ -1553,8 +1556,8 @@
               "StatWarpData": "ft_pop_bonefish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1585,7 +1588,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 8
+                "y": 4
               },
               "WhenOutOfRange": 1
             }
@@ -1613,8 +1616,8 @@
               "StatWarpData": "ft_pop_grouper",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1858,6 +1861,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_Fishing_NoLuck",
@@ -1924,7 +1928,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 32
+                "y": 16
               },
               "WhenOutOfRange": 1
             }
@@ -1952,8 +1956,8 @@
               "StatWarpData": "ft_pop_goatfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -2000.0,
-                "y": -2000.0
+                "x": -4000.0,
+                "y": -4000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -1984,7 +1988,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 32
+                "y": 16
               },
               "WhenOutOfRange": 1
             }
@@ -2012,8 +2016,8 @@
               "StatWarpData": "ft_pop_parrotfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -2000.0,
-                "y": -2000.0
+                "x": -4000.0,
+                "y": -4000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -2044,7 +2048,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 24
+                "y": 12
               },
               "WhenOutOfRange": 1
             }
@@ -2072,8 +2076,8 @@
               "StatWarpData": "ft_pop_bonefish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -2000.0,
-                "y": -2000.0
+                "x": -4000.0,
+                "y": -4000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -2104,7 +2108,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 8
+                "y": 4
               },
               "WhenOutOfRange": 1
             }
@@ -2132,8 +2136,8 @@
               "StatWarpData": "ft_pop_grouper",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -2000.0,
-                "y": -2000.0
+                "x": -4000.0,
+                "y": -4000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -2483,6 +2487,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionMessages": [
             {
               "LocalizationKey": "Far_Territory_Fishing_NoLuck",
@@ -2549,7 +2554,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 32
+                "y": 16
               },
               "WhenOutOfRange": 1
             }
@@ -2577,8 +2582,8 @@
               "StatWarpData": "ft_pop_goatfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -2609,7 +2614,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 32
+                "y": 16
               },
               "WhenOutOfRange": 1
             }
@@ -2637,8 +2642,8 @@
               "StatWarpData": "ft_pop_parrotfish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -2669,7 +2674,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 24
+                "y": 12
               },
               "WhenOutOfRange": 1
             }
@@ -2697,8 +2702,8 @@
               "StatWarpData": "ft_pop_bonefish",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,
@@ -2729,7 +2734,7 @@
               },
               "InterpWeightRange": {
                 "x": 0,
-                "y": 8
+                "y": 4
               },
               "WhenOutOfRange": 1
             }
@@ -2757,8 +2762,8 @@
               "StatWarpData": "ft_pop_grouper",
               "StatWarpType": 3,
               "ValueModifier": {
-                "x": -1000.0,
-                "y": -1000.0
+                "x": -2000.0,
+                "y": -2000.0
               },
               "RateModifier": {
                 "x": 0.0,

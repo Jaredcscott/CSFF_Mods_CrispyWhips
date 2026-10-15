@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.1.7] - 2026-10-15
+
+A balance pass to bring Far Territory in line with the base game instead of outdoing it.
+
+### Fixed
+
+- **A forage, wash, dive or search can come up empty again.** Every "nothing" outcome was being skipped by the game, so every island forage always found something, and a wash at Coral Inlet always ended in a shark or sea krait bite or an urchin, never the plain wash it should almost always be. All 82 of them now count.
+- **Moose, walrus and seal give a hide.** Their six (or two) Fresh Skins were the scrap kind. They now give one Fresh Skin that fleshes into a very large hide (moose, walrus) or a large hide (seal).
+- **Rust Grotto bog iron has a quality.** It now gives Fresh Bog Iron at the base game's quality, which you dry yourself, instead of quality-less Dried Bog Iron.
+
+### Changed
+
+- **Garden plants need care.** A Far Territory plant in the Garden Plot now has Health and Care, like the base game's field crops: **Tend** it once a day. Left untended it dies in about ten days, and in winter it stops growing and dies in about two. A dead plant becomes a **Dead Plant** you clear away. Plants already in a plot load healthy.
+- **Raw seafood carries the base game's raw-fish risks:** parasites, a little filth and fish fatigue, and no pleasure in eating it. Shellfish carry more parasites, and Oyster and Conch can upset your stomach.
+- **Sea fishing is about half as rich.** Each species bites half as often on a line, net or spear, and each catch takes twice as much from the stock. The Fish Trap is unchanged but takes 12 hours to research instead of 2.
+- **The outrigger crossing takes effort.** It costs 2 stamina every 15 minutes and you arrive wet. About 1 crossing in 20 is rough, and in winter about 1 in 5 meets a storm; you always arrive.
+- **Large carcasses give real meat.** A moose gives 40 to 50 Meat and 6 to 8 Fat Chunks, a walrus 30 to 40 Meat and 6 to 8 Fat Chunks, and both now rot in 3.75 days instead of 3.
+- **The carcass searches run on a stock.** Search the Grazing Grounds and Search the Snowfield each work once per 3 days (a Herd Sign bar). With Harsh Wilds installed a wisent turns up about 2 searches in 100 and a winter musk ox about 3 in 100.
+- **Island warmth follows the season:** +9 in spring and autumn, +5 in winter, and in summer +13 at midday (11:00 to 16:00). Fire Mountain and Sour Crater warm you by +10 instead of +16.
+- **Three copper veins instead of seven** (Greenstone Grotto, Glittering Hall and Middle Hall). Caves you had already visited keep the veins they had.
+- **Washing in the sea** removes 300 filth and eases a rash a little less, like washing in river water.
+- **Seashells**: about every second handful you grind makes a Bonemeal.
+- **The Coconut Shell Bowl** no longer catches rain, and what it holds slowly dries off like a clay bowl's.
+
 ## [0.1.6] - 2026-10-14
 
 ### Fixed

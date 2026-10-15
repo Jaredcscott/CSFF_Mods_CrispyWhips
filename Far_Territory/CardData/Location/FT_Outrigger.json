@@ -23,7 +23,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "Far_Territory_MooredBoatMainland_DA_SetSail_Desc",
-        "DefaultText": "Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours."
+        "DefaultText": "Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours. It is hard paddling and you arrive wet. Now and then the sea is rough, and in winter storms are common."
       },
       "DaytimeCost": 24,
       "NotBaseAction": true,
@@ -46,7 +46,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Voyage",
-          "CollectionWeight": 1,
+          "CollectionWeight": 95,
           "DroppedCards": [
             {
               "DroppedCard": {
@@ -61,6 +61,228 @@
               }
             }
           ]
+        },
+        {
+          "CollectionName": "Rough crossing",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_Outrigger_RoughCrossing",
+              "DefaultText": "The swell got up halfway across. You fought the paddle the rest of the way and came in soaked and spent."
+            }
+          ],
+          "CollectionWeight": 5,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 1.0,
+                "y": 2880.0
+              },
+              "InterpWeightRange": {
+                "x": -5,
+                "y": -5
+              },
+              "WhenOutOfRange": 0
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvLandfallStrand",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -15.0,
+                "y": -15.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+              },
+              "ApplyEachTick": false,
+              "InstantModifier": false,
+              "IgnoreNovelty": false,
+              "IsInverse": false
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": 30.0,
+                "y": 30.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+              },
+              "ApplyEachTick": false,
+              "InstantModifier": false,
+              "IgnoreNovelty": false,
+              "IsInverse": false
+            }
+          ]
+        },
+        {
+          "CollectionName": "Winter storm",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_Outrigger_WinterStorm",
+              "DefaultText": "A winter squall caught you on the open water. Spray and sleet came over the side, and you made the beach half frozen and worn out."
+            }
+          ],
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 1.0,
+                "y": 2880.0
+              },
+              "InterpWeightRange": {
+                "x": 24,
+                "y": 24
+              },
+              "WhenOutOfRange": 0
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvLandfallStrand",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -25.0,
+                "y": -25.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+              },
+              "ApplyEachTick": false,
+              "InstantModifier": false,
+              "IgnoreNovelty": false,
+              "IsInverse": false
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": 60.0,
+                "y": 60.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+              },
+              "ApplyEachTick": false,
+              "InstantModifier": false,
+              "IgnoreNovelty": false,
+              "IsInverse": false
+            }
+          ]
         }
       ],
       "ReceivingCardChanges": {
@@ -70,7 +292,75 @@
       "FadeMessage": {
         "LocalizationKey": "Far_Territory_MooredBoatMainland_DA_SetSail_Fade",
         "DefaultText": "Sailing for the island..."
-      }
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
     },
     {
       "ActionName": {
@@ -79,7 +369,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "Far_Territory_MooredBoatIsland_DA_SetSail_Desc",
-        "DefaultText": "Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours."
+        "DefaultText": "Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours. It is hard paddling and you arrive wet. Now and then the sea is rough, and in winter storms are common."
       },
       "DaytimeCost": 24,
       "NotBaseAction": true,
@@ -102,7 +392,7 @@
       "ProducedCards": [
         {
           "CollectionName": "Voyage",
-          "CollectionWeight": 1,
+          "CollectionWeight": 95,
           "DroppedCards": [
             {
               "DroppedCard": {
@@ -117,6 +407,228 @@
               }
             }
           ]
+        },
+        {
+          "CollectionName": "Rough crossing",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_Outrigger_RoughCrossing",
+              "DefaultText": "The swell got up halfway across. You fought the paddle the rest of the way and came in soaked and spent."
+            }
+          ],
+          "CollectionWeight": 5,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 1.0,
+                "y": 2880.0
+              },
+              "InterpWeightRange": {
+                "x": -5,
+                "y": -5
+              },
+              "WhenOutOfRange": 0
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvLandingBeach",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -15.0,
+                "y": -15.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+              },
+              "ApplyEachTick": false,
+              "InstantModifier": false,
+              "IgnoreNovelty": false,
+              "IsInverse": false
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": 30.0,
+                "y": 30.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+              },
+              "ApplyEachTick": false,
+              "InstantModifier": false,
+              "IgnoreNovelty": false,
+              "IsInverse": false
+            }
+          ]
+        },
+        {
+          "CollectionName": "Winter storm",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_Outrigger_WinterStorm",
+              "DefaultText": "A winter squall caught you on the open water. Spray and sleet came over the side, and you made the beach half frozen and worn out."
+            }
+          ],
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 1.0,
+                "y": 2880.0
+              },
+              "InterpWeightRange": {
+                "x": 24,
+                "y": 24
+              },
+              "WhenOutOfRange": 0
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvLandingBeach",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -25.0,
+                "y": -25.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+              },
+              "ApplyEachTick": false,
+              "InstantModifier": false,
+              "IgnoreNovelty": false,
+              "IsInverse": false
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": 60.0,
+                "y": 60.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+              },
+              "ApplyEachTick": false,
+              "InstantModifier": false,
+              "IgnoreNovelty": false,
+              "IsInverse": false
+            }
+          ]
         }
       ],
       "ReceivingCardChanges": {
@@ -126,7 +638,75 @@
       "FadeMessage": {
         "LocalizationKey": "Far_Territory_MooredBoatIsland_DA_SetSail_Fade",
         "DefaultText": "Sailing for the mainland..."
-      }
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
     }
   ]
 }

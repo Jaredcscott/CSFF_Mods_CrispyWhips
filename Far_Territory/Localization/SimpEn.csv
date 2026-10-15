@@ -1,9 +1,9 @@
 Far_Territory_Env_LandingBeach_CardName,Seaward Sands
 Far_Territory_Env_Shore_CardName,Driftwood Shore
 Far_Territory_Seashells_CardName,Seashells
-Far_Territory_Seashells_CardDescription,"A handful of empty shells, ridged and chalky. Ground with a stone they crumble into bonemeal for gardens and fields."
+Far_Territory_Seashells_CardDescription,"A handful of empty shells, ridged and chalky. Ground with a stone, about every second handful crumbles into bonemeal for gardens and fields."
 Far_Territory_Seashells_CI_Grind,Grind
-Far_Territory_Seashells_CI_Grind_Desc,Crush the shells into a coarse powder.
+Far_Territory_Seashells_CI_Grind_Desc,Crush the shells into a coarse powder. About half the time there is enough to make Bonemeal.
 Far_Territory_Driftwood_CardName,Driftwood Log
 Far_Territory_Driftwood_CardDescription,"A whole trunk the river brought down and the tide threw back, bleached and smooth. Hauled clear of the water it is an ordinary log."
 Far_Territory_Driftwood_DA_HaulOut,Haul Out
@@ -48,12 +48,12 @@ Far_Territory_LandfallStrand_DA_Forage_Fail,Nothing worth picking up yet
 Far_Territory_MooredBoatMainland_CardName,Misty Coast
 Far_Territory_MooredBoatMainland_CardDescription,"A stony shore under low mist, dark firs crowding down to the water and a weathered driftwood post standing at the waterline with a rope wound round it. Far out to the south-east, on a clear day, there is land."
 Far_Territory_MooredBoatMainland_DA_SetSail,Set Sail for the Island
-Far_Territory_MooredBoatMainland_DA_SetSail_Desc,Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours.
+Far_Territory_MooredBoatMainland_DA_SetSail_Desc,"Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours. It is hard paddling and you arrive wet. Now and then the sea is rough, and in winter storms are common."
 Far_Territory_MooredBoatMainland_DA_SetSail_Fade,Sailing for the island...
 Far_Territory_MooredBoatIsland_CardName,Homeward Sand
 Far_Territory_MooredBoatIsland_CardDescription,"Fine white sand slopes gently into clear shallows here, the easiest place on this shore to come in through the surf. Back to the north-west, past the open water, lies the mainland coast."
 Far_Territory_MooredBoatIsland_DA_SetSail,Set Sail for the Mainland
-Far_Territory_MooredBoatIsland_DA_SetSail_Desc,Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours.
+Far_Territory_MooredBoatIsland_DA_SetSail_Desc,"Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours. It is hard paddling and you arrive wet. Now and then the sea is rough, and in winter storms are common."
 Far_Territory_MooredBoatIsland_DA_SetSail_Fade,Sailing for the mainland...
 Far_Territory_Outrigger_CardName,Outrigger Canoe
 Far_Territory_Outrigger_CardDescription,"A narrow dugout canoe lashed by two poles to a slim log float, a paddle laid along its bottom. It carries you across the open water between the mainland coast and the island."
@@ -360,7 +360,7 @@ Far_Territory_CoconutMeat_DA_Eat_Desc,Eat the coconut meat raw.
 Far_Territory_CoconutMeat_CardName,Coconut Meat
 Far_Territory_CoconutMeat_CardDescription,"White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy."
 Far_Territory_CoconutShellBowl_CardName,Coconut Shell Bowl
-Far_Territory_CoconutShellBowl_CardDescription,"Half a coconut shell, smoothed inside. It holds a drink and, left out in the open, catches rain."
+Far_Territory_CoconutShellBowl_CardDescription,"Half a coconut shell, smoothed inside. It holds a drink, which slowly dries off if left standing."
 Far_Territory_PalmFrond_FuelCapacity,Fuel
 Far_Territory_PalmFrond_CardName,Palm Frond
 Far_Territory_PalmFrond_CardDescription,"A long, tough leaf of the palm. Dry, it burns quickly as weak fuel."
@@ -734,14 +734,14 @@ Far_Territory_DrippingHall_DA_Forage_Desc,Search the wet floor and the edge of t
 Far_Territory_DrippingHall_DA_Forage_Fail,Nothing worth picking up yet
 Far_Territory_Env_Squeeze_CardName,The Squeeze
 Far_Territory_Squeeze_CardName,The Squeeze
-Far_Territory_Squeeze_CardDescription,"A crack between two walls of wet rock that runs on and down, so tight in places that you push your pack ahead of you. A green-stained copper vein shows in one wall. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_Squeeze_CardDescription,"A crack between two walls of wet rock that runs on and down, so tight in places that you push your pack ahead of you. Green stains run down one wall. No daylight reaches here: bring a lit torch or lantern to work."
 Far_Territory_Squeeze_Gleanings,Gleanings
 Far_Territory_Squeeze_DA_Forage,Forage
 Far_Territory_Squeeze_DA_Forage_Desc,Pick over the rubble on the floor of the crack by torchlight.
 Far_Territory_Squeeze_DA_Forage_Fail,Nothing worth picking up yet
 Far_Territory_Env_LowerHall_CardName,Lower Hall
 Far_Territory_LowerHall_CardName,Lower Hall
-Far_Territory_LowerHall_CardDescription,"A long, low chamber at the bottom of the cave, its floor littered with broken rock and flint. A shaft climbs to the Middle Hall, a squeeze runs off toward the Dripping Hall, a side opening glitters, and a copper vein shows in the wall. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_LowerHall_CardDescription,"A long, low chamber at the bottom of the cave, its floor littered with broken rock and flint. A shaft climbs to the Middle Hall, a squeeze runs off toward the Dripping Hall, and a side opening glitters. No daylight reaches here: bring a lit torch or lantern to work."
 Far_Territory_LowerHall_Gleanings,Gleanings
 Far_Territory_LowerHall_DA_Forage,Forage
 Far_Territory_LowerHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.
@@ -769,7 +769,7 @@ Far_Territory_MiddleHall_DA_Forage_Desc,Pick over the broken rock on the floor b
 Far_Territory_MiddleHall_DA_Forage_Fail,Nothing worth picking up yet
 Far_Territory_Env_UpperHall_CardName,Upper Hall
 Far_Territory_UpperHall_CardName,Upper Hall
-Far_Territory_UpperHall_CardDescription,"The highest chamber, a few steps in from the Lava Tube, where the smooth tunnel gives way to broken rock and a copper vein. A shaft drops away into the dark below. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_UpperHall_CardDescription,"The highest chamber, a few steps in from the Lava Tube, where the smooth tunnel gives way to broken rock. A shaft drops away into the dark below. No daylight reaches here: bring a lit torch or lantern to work."
 Far_Territory_UpperHall_Gleanings,Gleanings
 Far_Territory_UpperHall_DA_Forage,Forage
 Far_Territory_UpperHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.
@@ -906,7 +906,7 @@ Far_Territory_BananaPlant_CardName,Banana Plant
 Far_Territory_BananaPlant_CardDescription,"A broad-leaved banana plant, its heavy bunch hanging under the leaves. A new bunch ripens in time."
 Far_Territory_BananaPlant_Yield,Ripe Bunches
 Far_Territory_BananaGrowing_CardName,Growing Banana
-Far_Territory_BananaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there."
+Far_Territory_BananaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_BananaGrowing_Growth,Growth
 Far_Territory_BananaGrowing_Ready,The banana is ready to harvest.
 Far_Territory_BananaGrowing_DA_Uproot,Uproot
@@ -932,7 +932,7 @@ Far_Territory_MangoTree_CardName,Mango Tree
 Far_Territory_MangoTree_CardDescription,A spreading mango tree hung with fruit. Mangoes ripen on it a few at a time.
 Far_Territory_MangoTree_Yield,Ripe Mangoes
 Far_Territory_MangoGrowing_CardName,Growing Mango
-Far_Territory_MangoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_MangoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_MangoGrowing_Growth,Growth
 Far_Territory_MangoGrowing_Ready,The mango is ready to harvest.
 Far_Territory_MangoGrowing_DA_Uproot,Uproot
@@ -958,7 +958,7 @@ Far_Territory_AlmondTree_CardName,Tropical Almond Tree
 Far_Territory_AlmondTree_CardDescription,A tiered beach almond tree with broad leaves. Its nuts fall and gather beneath it.
 Far_Territory_AlmondTree_Yield,Fallen Nuts
 Far_Territory_TropicalAlmondGrowing_CardName,Growing Almond Tree
-Far_Territory_TropicalAlmondGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_TropicalAlmondGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_TropicalAlmondGrowing_Growth,Growth
 Far_Territory_TropicalAlmondGrowing_Ready,The almond tree is ready to harvest.
 Far_Territory_TropicalAlmondGrowing_DA_Uproot,Uproot
@@ -984,7 +984,7 @@ Far_Territory_JujubeBush_CardName,Wild Jujube
 Far_Territory_JujubeBush_CardDescription,A thorny wild jujube shrub dotted with red fruit. More fruit ripens in time.
 Far_Territory_JujubeBush_Yield,Ripe Jujubes
 Far_Territory_JujubeGrowing_CardName,Growing Jujube
-Far_Territory_JujubeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there."
+Far_Territory_JujubeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_JujubeGrowing_Growth,Growth
 Far_Territory_JujubeGrowing_Ready,The jujube is ready to harvest.
 Far_Territory_JujubeGrowing_DA_Uproot,Uproot
@@ -1010,7 +1010,7 @@ Far_Territory_NipaPalm_CardName,Nipa Palm
 Far_Territory_NipaPalm_CardDescription,"A stemless palm growing out of the brackish mud, its fronds rising straight from the ground. Fruit heads ripen low among them."
 Far_Territory_NipaPalm_Yield,Fruit Heads
 Far_Territory_NipaFruitGrowing_CardName,Growing Nipa Palm
-Far_Territory_NipaFruitGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_NipaFruitGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_NipaFruitGrowing_Growth,Growth
 Far_Territory_NipaFruitGrowing_Ready,The nipa palm is ready to harvest.
 Far_Territory_NipaFruitGrowing_DA_Uproot,Uproot
@@ -1036,7 +1036,7 @@ Far_Territory_WildYam_CardName,Wild Yam Vine
 Far_Territory_WildYam_CardDescription,A twining yam vine with heart-shaped leaves. Its tubers swell underground and can be dug up.
 Far_Territory_WildYam_Yield,Tubers
 Far_Territory_YamGrowing_CardName,Growing Yam
-Far_Territory_YamGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there."
+Far_Territory_YamGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_YamGrowing_Growth,Growth
 Far_Territory_YamGrowing_Ready,The yam is ready to harvest.
 Far_Territory_YamGrowing_DA_Uproot,Uproot
@@ -1060,7 +1060,7 @@ Far_Territory_SagoShoot_Spoiled,The sago shoot has spoiled.
 Far_Territory_SagoShoot_Planting,Planting
 Far_Territory_SagoShoot_Planted,The sago shoot has taken root in the garden plot.
 Far_Territory_SagoGrowing_CardName,Growing Sago Palm
-Far_Territory_SagoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_SagoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_SagoGrowing_Growth,Growth
 Far_Territory_SagoGrowing_Ready,The sago palm is ready to harvest.
 Far_Territory_SagoGrowing_DA_Uproot,Uproot
@@ -1234,7 +1234,7 @@ Far_Territory_CoffeeBerries_Planted,The coffee berries has taken root in the gar
 Far_Territory_CoffeeBerries_DA_Eat,Eat
 Far_Territory_CoffeeBerries_DA_Eat_Desc,"Eat the berries, spitting out the beans. You feel more awake for a while (Coffee Buzz)."
 Far_Territory_GingerGrowing_CardName,Growing Ginger
-Far_Territory_GingerGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there."
+Far_Territory_GingerGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_GingerGrowing_Growth,Growth
 Far_Territory_GingerGrowing_Ready,The ginger is ready to harvest.
 Far_Territory_GingerGrowing_DA_Uproot,Uproot
@@ -1246,7 +1246,7 @@ Far_Territory_GingerGarden_DA_Harvest_Desc,Gather the crop. The plant is used up
 Far_Territory_GingerGarden_DA_Uproot,Uproot
 Far_Territory_GingerGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_KavaGrowing_CardName,Growing Kava
-Far_Territory_KavaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_KavaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_KavaGrowing_Growth,Growth
 Far_Territory_KavaGrowing_Ready,The kava is ready to harvest.
 Far_Territory_KavaGrowing_DA_Uproot,Uproot
@@ -1258,7 +1258,7 @@ Far_Territory_KavaGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.
 Far_Territory_KavaGarden_DA_Uproot,Uproot
 Far_Territory_KavaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_ChilliGrowing_CardName,Growing Chilli
-Far_Territory_ChilliGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there."
+Far_Territory_ChilliGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_ChilliGrowing_Growth,Growth
 Far_Territory_ChilliGrowing_Ready,The chilli is ready to harvest.
 Far_Territory_ChilliGrowing_DA_Uproot,Uproot
@@ -1270,7 +1270,7 @@ Far_Territory_ChilliGarden_DA_Harvest_Desc,Gather the crop. The plant stays in t
 Far_Territory_ChilliGarden_DA_Uproot,Uproot
 Far_Territory_ChilliGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_LemongrassGrowing_CardName,Growing Lemongrass
-Far_Territory_LemongrassGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 10 days there."
+Far_Territory_LemongrassGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 10 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_LemongrassGrowing_Growth,Growth
 Far_Territory_LemongrassGrowing_Ready,The lemongrass is ready to harvest.
 Far_Territory_LemongrassGrowing_DA_Uproot,Uproot
@@ -1282,7 +1282,7 @@ Far_Territory_LemongrassGarden_DA_Harvest_Desc,Gather the crop. The plant stays 
 Far_Territory_LemongrassGarden_DA_Uproot,Uproot
 Far_Territory_LemongrassGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_JasmineGrowing_CardName,Growing Jasmine
-Far_Territory_JasmineGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there."
+Far_Territory_JasmineGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_JasmineGrowing_Growth,Growth
 Far_Territory_JasmineGrowing_Ready,The jasmine is ready to harvest.
 Far_Territory_JasmineGrowing_DA_Uproot,Uproot
@@ -1294,7 +1294,7 @@ Far_Territory_JasmineGarden_DA_Harvest_Desc,Gather the crop. The plant stays in 
 Far_Territory_JasmineGarden_DA_Uproot,Uproot
 Far_Territory_JasmineGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_AloeGrowing_CardName,Growing Aloe
-Far_Territory_AloeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there."
+Far_Territory_AloeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_AloeGrowing_Growth,Growth
 Far_Territory_AloeGrowing_Ready,The aloe is ready to harvest.
 Far_Territory_AloeGrowing_DA_Uproot,Uproot
@@ -1306,7 +1306,7 @@ Far_Territory_AloeGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the
 Far_Territory_AloeGarden_DA_Uproot,Uproot
 Far_Territory_AloeGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_CinchonaGrowing_CardName,Growing Cinchona
-Far_Territory_CinchonaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_CinchonaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_CinchonaGrowing_Growth,Growth
 Far_Territory_CinchonaGrowing_Ready,The cinchona is ready to harvest.
 Far_Territory_CinchonaGrowing_DA_Uproot,Uproot
@@ -1318,7 +1318,7 @@ Far_Territory_CinchonaGarden_DA_Harvest_Desc,Gather the crop. The plant stays in
 Far_Territory_CinchonaGarden_DA_Uproot,Uproot
 Far_Territory_CinchonaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_CoffeeGrowing_CardName,Growing Coffee
-Far_Territory_CoffeeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_CoffeeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_CoffeeGrowing_Growth,Growth
 Far_Territory_CoffeeGrowing_Ready,The coffee is ready to harvest.
 Far_Territory_CoffeeGrowing_DA_Uproot,Uproot
@@ -1351,7 +1351,7 @@ Far_Territory_ChinaRoseCutting_Spoiled,The China rose cutting has spoiled.
 Far_Territory_ChinaRoseCutting_Planting,Planting
 Far_Territory_ChinaRoseCutting_Planted,The China rose cutting has taken root in the garden plot.
 Far_Territory_ChinaRoseGrowing_CardName,Growing China Rose
-Far_Territory_ChinaRoseGrowing_CardDescription,"A young shrub taking hold in a garden plot. It grows only while it sits in the plot, and flowers after about 20 days there."
+Far_Territory_ChinaRoseGrowing_CardDescription,"A young shrub taking hold in a garden plot. It grows only while it sits in the plot, and flowers after about 20 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_ChinaRoseGrowing_Growth,Growth
 Far_Territory_ChinaRoseGrowing_Ready,The China rose is in flower.
 Far_Territory_ChinaRoseGrowing_DA_Uproot,Uproot
@@ -1384,7 +1384,7 @@ Far_Territory_SpiderLilyBulb_Spoiled,The spider lily bulb has spoiled.
 Far_Territory_SpiderLilyBulb_Planting,Planting
 Far_Territory_SpiderLilyBulb_Planted,The spider lily bulb has taken root in the garden plot.
 Far_Territory_SpiderLilyGrowing_CardName,Growing Spider Lily
-Far_Territory_SpiderLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there."
+Far_Territory_SpiderLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_SpiderLilyGrowing_Growth,Growth
 Far_Territory_SpiderLilyGrowing_Ready,The spider lily is ready to cut.
 Far_Territory_SpiderLilyGrowing_DA_Uproot,Uproot
@@ -1417,7 +1417,7 @@ Far_Territory_WeevilLilyRhizome_Spoiled,The weevil lily rhizome has spoiled.
 Far_Territory_WeevilLilyRhizome_Planting,Planting
 Far_Territory_WeevilLilyRhizome_Planted,The weevil lily rhizome has taken root in the garden plot.
 Far_Territory_WeevilLilyGrowing_CardName,Growing Weevil Lily
-Far_Territory_WeevilLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there."
+Far_Territory_WeevilLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_WeevilLilyGrowing_Growth,Growth
 Far_Territory_WeevilLilyGrowing_Ready,The weevil lily is ready to cut.
 Far_Territory_WeevilLilyGrowing_DA_Uproot,Uproot
@@ -1443,7 +1443,7 @@ Far_Territory_SnakeGrass_Planted,The snake grass has taken root in the garden pl
 Far_Territory_SnakeGrass_DA_Strip,Strip into Fibers
 Far_Territory_SnakeGrass_DA_Strip_Desc,Crush the blade and scrape out its long fibres. Gives 2 Fibers. Takes about fifteen minutes.
 Far_Territory_SnakeGrassGrowing_CardName,Growing Snake Grass
-Far_Territory_SnakeGrassGrowing_CardDescription,"Young blades taking hold in a garden plot. They grow only while they sit in the plot, and are ready to cut after about 10 days there."
+Far_Territory_SnakeGrassGrowing_CardDescription,"Young blades taking hold in a garden plot. They grow only while they sit in the plot, and are ready to cut after about 10 days there. Tend it once a day: left untended it weakens and dies in about ten days, and in winter it stops growing and dies in about two."
 Far_Territory_SnakeGrassGrowing_Growth,Growth
 Far_Territory_SnakeGrassGrowing_Ready,The snake grass is ready to cut.
 Far_Territory_SnakeGrassGrowing_DA_Uproot,Uproot
@@ -1678,7 +1678,7 @@ Far_Territory_WindgapCol_DA_Forage_Desc,Search the wind-scoured rock for loose s
 Far_Territory_WindgapCol_DA_Forage_Fail,Nothing worth picking up yet
 Far_Territory_Env_GreenstoneGrotto_CardName,Greenstone Grotto
 Far_Territory_GreenstoneGrotto_CardName,Greenstone Grotto
-Far_Territory_GreenstoneGrotto_CardDescription,"A cave at the foot of the cliffs, its walls streaked green. Two veins of greenstone run through the rock, ready for a pickaxe, and green chips lie among the rubble on the floor."
+Far_Territory_GreenstoneGrotto_CardDescription,"A cave at the foot of the cliffs, its walls streaked green. A vein of greenstone runs through the rock, ready for a pickaxe, and green chips lie among the rubble on the floor."
 Far_Territory_GreenstoneGrotto_Gleanings,Gleanings
 Far_Territory_GreenstoneGrotto_DA_Forage,Forage
 Far_Territory_GreenstoneGrotto_DA_Forage_Desc,Sift the rubble on the cave floor for stones and loose chips of greenstone.
@@ -1861,3 +1861,18 @@ Far_Territory_FunnelTrapPlaced_CardDescription,A funnel trap staked in the shall
 Far_Territory_FunnelTrapPlaced_DA_HaulOut,Haul Out the Trap
 Far_Territory_FunnelTrapPlaced_DA_HaulOut_Desc,Wade out and lift the funnel trap onto the shore. Whatever it caught spills out beside it.
 Far_Territory_FunnelTrapPlaced_Triggered,Trap Triggered!
+Far_Territory_Crop_Health_CardStatName,Health
+Far_Territory_Crop_Care_CardStatName,Care
+Far_Territory_Crop_Health_OnZero_ActionDescription,The crop has died.
+Far_Territory_Crop_Tend_ActionName,Tend
+Far_Territory_Crop_Tend_ActionDescription,"Weed, water and loosen the soil around the crop. Keeps it healthy for a day."
+Far_Territory_DeadPlant_CardName,Dead Plant
+Far_Territory_DeadPlant_CardDescription,"A withered, blackened plant. Nothing on it can be saved. A garden plant dies when it is left untended for about ten days, or left in the plot through winter."
+Far_Territory_DeadPlant_DA_ClearAway,Clear Away
+Far_Territory_DeadPlant_DA_ClearAway_Desc,Pull up the dead plant to free the plot. Nothing is gained.
+Far_Territory_Outrigger_RoughCrossing,The swell got up halfway across. You fought the paddle the rest of the way and came in soaked and spent.
+Far_Territory_Outrigger_WinterStorm,"A winter squall caught you on the open water. Spray and sleet came over the side, and you made the beach half frozen and worn out."
+Far_Territory_WildryePlain_HerdSign,Herd Sign
+Far_Territory_WildryePlain_DA_Search_Fail,The herds have not been back since you last looked
+Far_Territory_FjordHead_HerdSign,Herd Sign
+Far_Territory_FjordHead_DA_Search_Fail,The herds have not been back since you last looked

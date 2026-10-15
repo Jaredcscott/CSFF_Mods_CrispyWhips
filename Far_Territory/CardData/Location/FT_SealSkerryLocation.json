@@ -278,6 +278,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 3,
           "DroppedCards": []
         }

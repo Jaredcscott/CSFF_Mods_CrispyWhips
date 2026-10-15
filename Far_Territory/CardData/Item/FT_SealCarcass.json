@@ -158,8 +158,8 @@
               "DroppedCardWarpData": "4afdb5fa70412c4468f5b2b0590732d3",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 2,
-                "y": 2
+                "x": 1,
+                "y": 1
               },
               "TransferRules": {
                 "Spoilage": 0,
@@ -177,7 +177,7 @@
                 "Special1Value": 0.0,
                 "Special2Value": 5.0,
                 "Special3Value": 0.0,
-                "Special4Value": 100.0,
+                "Special4Value": 400.0,
                 "SpoilageFrom": 0,
                 "UsageFrom": 0,
                 "FuelFrom": 0,

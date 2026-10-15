@@ -1,0 +1,36 @@
+{
+  "UniqueID": "ft_dead_plant",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_DeadPlant_CardName",
+    "DefaultText": "Dead Plant"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_DeadPlant_CardDescription",
+    "DefaultText": "A withered, blackened plant. Nothing on it can be saved. A garden plant dies when it is left untended for about ten days, or left in the plot through winter."
+  },
+  "CardImageWarpData": "RottenRemains",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "DoesNotPile": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_DeadPlant_DA_ClearAway",
+        "DefaultText": "Clear Away"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_DeadPlant_DA_ClearAway_Desc",
+        "DefaultText": "Pull up the dead plant to free the plot. Nothing is gained."
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

@@ -27,6 +27,17 @@
     },
     "HidingOptions": 1
   },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 288.0,
+    "MaxValue": 288.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_FjordHead_HerdSign",
+      "DefaultText": "Herd Sign"
+    },
+    "HidingOptions": 1
+  },
   "AffectStatsOnlyWhenNotInBackground": true,
   "PassiveStatEffects": [
     {
@@ -278,6 +289,7 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 3,
           "DroppedCards": []
         }
@@ -980,6 +992,17 @@
           "HideAllWhenNotMet": false
         }
       ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.99,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_FjordHead_DA_Search_Fail",
+          "DefaultText": "The herds have not been back since you last looked"
+        }
+      },
       "StatModifications": [
         {
           "Stat": {
@@ -1077,12 +1100,17 @@
         },
         {
           "CollectionName": "Nothing",
+          "RevealInventory": true,
           "CollectionWeight": 1,
           "DroppedCards": []
         }
       ],
       "ReceivingCardChanges": {
-        "ModType": 0
+        "ModType": 1,
+        "Special2Change": {
+          "x": -288.0,
+          "y": -288.0
+        }
       }
     }
   ]

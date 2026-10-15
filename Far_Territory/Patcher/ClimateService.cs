@@ -35,14 +35,23 @@ internal static class ClimateService
     {
         public readonly float Temperature;
         public readonly float Snow;
-        public Climate(float temperature, float snow) { Temperature = temperature; Snow = snow; }
+        /// <summary>True for the island: the temperature follows the season and the hour (see IslandTemperature).</summary>
+        public readonly bool Seasonal;
+        public Climate(float temperature, float snow, bool seasonal = false) { Temperature = temperature; Snow = snow; Seasonal = seasonal; }
     }
 
-    // Warm island: milder than the forest (a winter day reads like spring) and no snow. Measured on the first
-    // build that 30 made a winter body sweat, so 9.
-    private static readonly Climate Island = new(9f, NoSnow);
-    // Volcano: dry, steady heat, no snow.
-    private static readonly Climate Volcano = new(16f, NoSnow);
+    // Warm island: milder than the forest and no snow. Measured on the first build that 30 made a winter body
+    // sweat, so 9. Since 0.1.7 (vanilla-balance pass, FT-B6) it follows the season: +9 in spring and autumn,
+    // +5 in winter, and in summer +9 with +4 more from 11:00 to 16:00, the midday heat, so shade and water matter.
+    // Vanilla gives location warmth only indoors, at most +6 (a cabin room), so +9 outdoors is already generous.
+    private const float IslandMild = 9f;
+    private const float IslandWinter = 5f;
+    private const float IslandMiddayExtra = 4f;
+    private const float MiddayFrom = 11f;
+    private const float MiddayTo = 16f;
+    private static readonly Climate Island = new(IslandMild, NoSnow, seasonal: true);
+    // Volcano: dry, steady heat, no snow. +10 since 0.1.7 (FT-B6), a burning Campfire's warmth; it was +16.
+    private static readonly Climate Volcano = new(10f, NoSnow);
     // Mountains and fjords are colder than the forest at the same hour; the weather and snow stay the forest's own.
     private static readonly Climate Mountain = new(-6f, 0f);
     private static readonly Climate Fjord = new(-8f, 0f);
@@ -104,7 +113,7 @@ internal static class ClimateService
             _temperatureStat ??= UniqueIDScriptable.GetFromID<GameStat>(TemperaturePerceivedUid);
             _snowStat ??= UniqueIDScriptable.GetFromID<GameStat>(SnowVisibleUid);
 
-            Apply(gm, TemperaturePerceivedUid, _temperatureStat, want.Temperature);
+            Apply(gm, TemperaturePerceivedUid, _temperatureStat, want.Seasonal ? IslandTemperature() : want.Temperature);
             Apply(gm, SnowVisibleUid, _snowStat, want.Snow);
         }
         catch (Exception ex)
@@ -112,6 +121,20 @@ internal static class ClimateService
             WarnOnce("exception-" + ex.GetType().Name,
                 $"[ClimateService] Reconcile threw, so the climate offset was not applied this pass: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
+    }
+
+    /// <summary>The island's warmth for the current season and clock hour. GameQuery.CurrentSeason reads the
+    /// game's own season name and GameQuery.HourOfDay the clock hour (framework 2.26.0+, which this mod already
+    /// requires). An unknown season (null) reads as mild, the pre-0.1.7 value.</summary>
+    private static float IslandTemperature()
+    {
+        if (GameQuery.IsWinter) return IslandWinter;
+        if (GameQuery.IsSummer)
+        {
+            float hour = GameQuery.HourOfDay;
+            if (hour >= MiddayFrom && hour < MiddayTo) return IslandMild + IslandMiddayExtra;
+        }
+        return IslandMild;
     }
 
     private static void Apply(GameManager gm, string key, GameStat model, float wanted)
