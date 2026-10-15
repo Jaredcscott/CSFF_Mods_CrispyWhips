@@ -91,9 +91,11 @@ namespace PartnerOverhaul.Patcher
             (PartnerComfortUid, "Partner_Comfort"),
         };
 
-        // Above this current Hydration %, GardenPlot's "Water" CardInteraction is gated off —
-        // stops a Partner from endlessly re-watering an already-saturated plot.
-        private const float GardenOverwaterGatePercent = 90f;
+        // Above this current Hydration fraction, GardenPlot's "Water" CardInteraction is gated off:
+        // stops a Partner from endlessly re-watering an already-saturated plot. A FRACTION, not a
+        // percent: DurabilityConditions compares RequiredFuelPercent with CurrentFuelPercent, which
+        // is CurrentFuel / FuelCapacity.Max on a 0..1 scale, so 1.1.x's 90f (0..90) always passed.
+        private const float GardenOverwaterGateFraction = 0.9f;
 
         public static void ApplyPatch(Harmony harmony)
         {
@@ -120,7 +122,12 @@ namespace PartnerOverhaul.Patcher
             try { FixFireplaceFuelGap(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixFireplaceFuelGap failed: {ex}"); }
             try { GuardReservedFuelBranches(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] GuardReservedFuelBranches failed: {ex}"); }
             try { FixStrayDefecateButton(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixStrayDefecateButton failed: {ex}"); }
-            try { FixHearthDuties(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixHearthDuties failed: {ex}"); }
+            // Opt-in since 1.1.3: vanilla's Hearth has no duties, so Partner tending is a design change,
+            // not a bug fix. Read at game load; a Hearth mark in a save stays inert while this is off.
+            if (Plugin.PartnersTendTheHearth != null && Plugin.PartnersTendTheHearth.Value)
+            {
+                try { FixHearthDuties(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixHearthDuties failed: {ex}"); }
+            }
             try { FixOneCardWiringSlips(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixOneCardWiringSlips failed: {ex}"); }
             try { FixSeasonalTwinMarks(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixSeasonalTwinMarks failed: {ex}"); }
             if (Plugin.PartnersDrinkFromLakes != null && Plugin.PartnersDrinkFromLakes.Value)
@@ -216,8 +223,8 @@ namespace PartnerOverhaul.Patcher
 
             // SetActiveWithValue(Vector2) is OptionalRangeValue's public mutator — sets
             // Active=true plus FloatValue/MaxValue from the (min,max) pair in one call.
-            water.RequiredReceivingDurabilities.RequiredFuelPercent.SetActiveWithValue(new Vector2(0f, GardenOverwaterGatePercent));
-            Logger.LogInfo($"[GameLoadPatch] GardenPlot.Water: armed RequiredFuelPercent gate (0-{GardenOverwaterGatePercent}%).");
+            water.RequiredReceivingDurabilities.RequiredFuelPercent.SetActiveWithValue(new Vector2(0f, GardenOverwaterGateFraction));
+            Logger.LogInfo($"[GameLoadPatch] GardenPlot.Water: armed RequiredFuelPercent gate (0-{GardenOverwaterGateFraction * 100f:0}% Hydration).");
         }
 
         // ── Fix 4: Fireplace and Fire Pit "Feed Charcoal" invisible to the Firekeeping duty ──

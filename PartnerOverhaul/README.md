@@ -2,7 +2,7 @@
 
 Fixes a batch of bugs in the base game's Partner companions and adds opt-in diagnostics for reporting new ones. It adds no cards: it only patches vanilla content.
 
-**Version:** 1.1.2
+**Version:** 1.1.3
 **Author:** Jared
 **Language:** English (the mod has no text of its own; all in-game text is the game's)
 **Requires:** BepInEx 5. CSFFModFramework is a soft dependency, used only for load order.
@@ -22,9 +22,8 @@ All of these are always on, except the powder pour fix, which has a setting.
   - A hungry (not starving) Partner still ignores broth in its own pack. The starving duty takes a bowl on the ground that nobody owns.
   - Stew (the old stew-water card) restores nothing, even for you.
 - **Partners clean finished homes again.** They cleaned a Cabin, Mud Hut or Enclosure while it was being built, then never again once it was finished.
-- **Partners stop over-watering a full garden plot.** They kept draining water containers after the plot was full.
+- **Partners stop over-watering a full garden plot.** They kept draining water containers after the plot was full. A Garden Plot at 90% Hydration or more no longer offers "Water", to a Partner or to you, so no water is wasted on a full plot; below 90% it waters as before. This fix shipped in 1.1.0 but never worked until 1.1.3. Not yet confirmed in a running game.
 - **Partners feed Charcoal into a Fireplace or a Fire Pit.** Fire Keeping now counts Charcoal as fuel, so a fire with only Charcoal nearby is tended. Confirmed in a scripted run on both fires. Pine Needles are not fed: Fire Keeping has no step for them, and earlier versions of this page were wrong to say otherwise.
-- **Partners tend a Hearth and warm themselves at it.** A Hearth and a Hearth (Awakened) can now be marked for Fire Keeping and are fed Firewood, fuel and Charcoal like a Campfire. The mark survives the fire dying. Checked in a scripted run, not yet confirmed.
 - **Four small gaps closed.** Confirmed in a scripted run.
   - You can mark a Boar Piglet carcass for Butchering. Skinning stays listed so old marks are not lost.
   - A Partner smiths the Arrowhead and Chisel blade blanks, eats Wheat Bloodbread, and cleans the Mud Hut's Right Room.
@@ -50,7 +49,8 @@ These were reported as Partner bugs and checked in a running game. Each works as
 
 These are design changes, not bug fixes.
 
-- **Reduce Partner Move Costs** discounts the resource cost of a Partner's travel by `Partner Move Cost Reduction (%)` (0 to 100, default 50). It is a general discount, since NPC movement has no path bonus. It applies only to your Partner: wild animals pay in full. Confirmed in a scripted run.
+- **Partners Tend The Hearth** lets you mark a Hearth or a Hearth (Awakened) for Fire Keeping, so a Partner feeds it Firewood, fuel and Charcoal like a Campfire, and lets a Partner warm itself at it. The mark survives the fire dying. The game gives the Hearth no Partner duties, and it is already its strongest fire, so this is a choice rather than a fix. It was always on up to 1.1.2. With it off, a Hearth mark in your save does nothing and is not lost. Takes effect at game load. Checked in a scripted run, not yet confirmed.
+- **Reduce Partner Move Costs** lets your Partner skip the cost of a hop between places on a chance of `Partner Move Cost Reduction (%)` (0 to 100, default 50): at 50 it skips the cost on about half of hops and pays in full on the rest. It is not a path bonus, since NPC movement has none. It applies only to your Partner: wild animals pay in full. Confirmed in a scripted run.
 - **Reserved Fuel/Wood UIDs** is a comma-separated list of card UniqueIDs your Partner never picks for Fire Keeping. Edit the config value and restart; there is no in-game screen.
   - It applies only to your Partner's Fire Keeping, on any fire that offers it, modded stoves and forges included.
   - A listed Firewood, Wood or Dried Peat makes the Partner move on to other fuel such as Twigs. If every fuel in reach is listed, it feeds nothing. Confirmed in a scripted run.
@@ -58,7 +58,7 @@ These are design changes, not bug fixes.
 - **Cold Partner Asks For Warmth** makes a following Partner on your board ask for a fire when it "Looks very cold." (Body Temperature 1 to 50) and no fire is in reach. The game only lets it ask at "Looks hypothermic.", one step from death.
   - It uses the game's own request and cooldown. Nobody moves, and the Partner still cannot warm itself without a fire on your board.
   - Takes effect at game load. Checked in a scripted run, not yet in a hand-played game.
-- **Consolidate Duplicate Wounds** stops a combat round from adding a wound you already have, such as a 28th separate Minor Laceration. Damage, stats, armour wear and the encounter log are untouched. Confirmed in a running game.
+- **Consolidate Duplicate Wounds** makes combat less dangerous. A combat round no longer adds a wound you already have, such as a 28th separate Minor Laceration, so the pain, bleeding and infection of repeat wounds no longer stack: each Minor Laceration carries its own Pain +100 and Blood Loss +0.5 and can raise your Sepsis rate. The hit's own damage, armour wear and the encounter log are untouched. Confirmed in a running game.
 
 ## Configuration
 
@@ -67,10 +67,11 @@ File: `BepInEx/config/crispywhips.partner_overhaul.cfg`
 | Section | Setting | Default | Effect |
 |---------|---------|---------|--------|
 | Fixes | Refuse Partial Powder Pours | true | Refuse a powder pour that cannot fit whole instead of destroying the card |
-| QoL | Reduce Partner Move Costs | false | Discount your Partner's travel resource cost |
-| QoL | Partner Move Cost Reduction (%) | 50 | Size of that discount, 0 to 100 |
+| QoL | Partners Tend The Hearth | false | Hearth and Hearth (Awakened) take Fire Keeping and Warm Up (read at game load) |
+| QoL | Reduce Partner Move Costs | false | Your Partner sometimes skips the cost of a hop |
+| QoL | Partner Move Cost Reduction (%) | 50 | Chance of skipping, 0 to 100 |
 | QoL | Reserved Fuel/Wood UIDs | empty | Card UniqueIDs Fire Keeping never selects (read at game start) |
-| QoL | Consolidate Duplicate Wounds | false | No repeated same-type wound cards in combat |
+| QoL | Consolidate Duplicate Wounds | false | Easier combat: repeat wounds of one type no longer stack |
 | QoL | Partners Drink From Lakes And Streams | false | Lake, Bog, Marsh, Mire, Swamp and Stream count as drinking water (read at game load) |
 | QoL | Cold Partner Asks For Warmth | false | Ask for a fire at "Looks very cold." (read at game load) |
 | Diagnostics | Enable Diagnostics | false | `[PartnerDiagnostics]` log lines |
@@ -94,6 +95,7 @@ Turn on the diagnostics you need in the config, play until the problem shows, an
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.1.3:** The garden plot fix works; Hearth tending becomes an opt-in setting.
 - **1.1.2:** Partners eat Night Broth and Stew when starving.
 - **1.1.1:** Version number only.
 - **1.1.0:** Hearth tending, seasonal duty marks, Comfort display, powder pour fix, and the lake-drinking and cold-warmth options.

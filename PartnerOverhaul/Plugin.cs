@@ -17,7 +17,7 @@ namespace PartnerOverhaul
     {
         private const string PluginGuid = "crispywhips.partner_overhaul";
         public const string PluginName = "PartnerOverhaul";
-        public const string PluginVersion = "1.1.2";
+        public const string PluginVersion = "1.1.3";
 
         internal new static BepInEx.Logging.ManualLogSource Logger;
         internal static Plugin Instance { get; private set; }
@@ -48,6 +48,9 @@ namespace PartnerOverhaul
         public static ConfigEntry<bool> ConsolidateWounds { get; private set; }
         public static ConfigEntry<bool> PartnersDrinkFromLakes { get; private set; }
         public static ConfigEntry<bool> ColdPartnerAsksForWarmth { get; private set; }
+        // 1.1.3: Hearth Fire Keeping and Warm Up moved from an always-on fix to this opt-in (vanilla's
+        // Hearth carries no duties; it is the strongest vanilla fire). Default OFF.
+        public static ConfigEntry<bool> PartnersTendTheHearth { get; private set; }
 
         private void Awake()
         {
@@ -77,14 +80,14 @@ namespace PartnerOverhaul
                 "QoL (opt-in feature, not a bug fix)",
                 "Reduce Partner Move Costs",
                 false,
-                "Discounts the resource-stat cost a Partner pays for inter-environment travel. Note: vanilla has no 'path tile' concept for NPC movement (only the player's own travel-DA speed bonus does), so this is a general move-cost discount, not a path-specific one.");
+                "Lets a Partner skip the resource-stat cost of an inter-environment hop on a chance set by the percentage below (at 50, it pays nothing on about half of its hops and the full cost on the rest). Only your Partner: wild animals pay in full. Note: vanilla has no 'path tile' concept for NPC movement (only the player's own travel-DA speed bonus does), so this is not a path-specific bonus.");
 
             NPCMoveCostReductionPercent = Config.Bind(
                 "QoL (opt-in feature, not a bug fix)",
                 "Partner Move Cost Reduction (%)",
                 50,
                 new BepInEx.Configuration.ConfigDescription(
-                    "How much to discount Partner travel move-costs by, if the option above is enabled.",
+                    "The chance, in percent, that a Partner's hop costs nothing, if the option above is enabled.",
                     new BepInEx.Configuration.AcceptableValueRange<int>(0, 100)));
 
             ReservedFuelUIDs = Config.Bind(
@@ -97,7 +100,7 @@ namespace PartnerOverhaul
                 "QoL (opt-in feature, not a bug fix)",
                 "Consolidate Duplicate Wounds",
                 false,
-                "Stops a combat round from applying a wound you already have equipped (e.g. accumulating 28 separate Minor Lacerations). Vanilla spawns a fresh, independently-healing wound card every round with no dedup — the count is accurate, not a display bug, so removing it is a combat design change, not a bug fix. Damage, stat changes, armor wear and the encounter log are unaffected. Confirmed in-game (2026-09-07).");
+                "Makes combat LESS DANGEROUS: a combat round no longer adds a wound you already have equipped, so a repeat wound's pain, bleeding and infection no longer stack (vanilla gives every Minor Laceration its own Pain +100, Blood Loss +0.5 and Sepsis rate +10, and 28 of them can pile up). Vanilla spawns a fresh, independently-healing wound card every round with no dedup; the count is accurate, not a display bug, so removing it is a combat design change, not a bug fix. The hit's own damage, armor wear and the encounter log are unaffected. Confirmed in-game (2026-09-07).");
 
             PartnersDrinkFromLakes = Config.Bind(
                 "QoL (opt-in feature, not a bug fix)",
@@ -110,6 +113,12 @@ namespace PartnerOverhaul
                 "Cold Partner Asks For Warmth",
                 false,
                 "Makes a following Partner ask you for warmth while it \"Looks very cold.\" (Body Temperature 1 to 50) with no fire in reach, instead of only once it \"Looks hypothermic.\" (0 and below), when vanilla first lets it. It reuses the game's own Express Need for Warmth request, so it asks at most once per dialog cooldown, only while it is on your board, and moves nobody: it does not change what the Partner does about the cold, and no other duty is affected. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
+
+            PartnersTendTheHearth = Config.Bind(
+                "QoL (opt-in feature, not a bug fix)",
+                "Partners Tend The Hearth",
+                false,
+                "Lets you mark a Hearth or a Hearth (Awakened) for Fire Keeping, so a Partner feeds it Firewood, fuel and Charcoal like a Campfire (the mark survives the fire dying), and lets a Partner Warm Up at it. Default OFF: vanilla gives the Hearth no Partner duties, and it is already the strongest fire in the game. Up to 1.1.2 this was always on. With it off, a Hearth mark already in a save does nothing and is not lost. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
 
             try { Patcher.GameLoadPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"GameLoadPatch failed: {ex}"); }

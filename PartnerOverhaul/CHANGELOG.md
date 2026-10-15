@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.3 (2026-10-15)
+
+A balance pass to keep the mod in step with the base game.
+
+### Fixed
+- **Partners really stop over-watering a full garden plot.** The 1.1.0 fix never worked: it set its 90% limit on a scale that runs from 0 to 1, so every plot passed. A Garden Plot at 90% Hydration or more now offers no "Water" to a Partner or to you; below 90% it waters as before.
+
+### Changed
+- **Hearth tending is now an opt-in setting, `Partners Tend The Hearth`, default OFF.** The game gives the Hearth no Partner duties and it is already the strongest fire, so this is a choice rather than a bug fix. With it off, a Partner no longer feeds or warms itself at a Hearth or a Hearth (Awakened), and a Hearth mark already in your save does nothing but is not lost. This is a new setting, so every install, existing ones included, starts with it off: set it to true in `crispywhips.partner_overhaul.cfg` and restart to keep the 1.1.2 behaviour. From then on BepInEx keeps whatever value you set until you change it or delete the entry.
+- Clearer text for two opt-in settings. `Consolidate Duplicate Wounds` now says it makes combat less dangerous, because repeat wounds' pain, bleeding and infection no longer stack. `Reduce Partner Move Costs` now says it skips the whole cost on a share of hops (about half at the default 50) rather than discounting every hop. Neither setting's behaviour changed.
+
 ## 1.1.2 (2026-10-13)
 
 ### Fixed
