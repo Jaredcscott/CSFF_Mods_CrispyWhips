@@ -1,6 +1,7 @@
 # Changelog
 
 ## 0.11.5 (2026-10-14)
+- Fixed: **card pictures sit where they belong again.** In the previous update every item picture was stretched to fill its whole card, sitting high with the name banner over it. The pictures are back in the game's own framing: centred, low on the card, with space above. Thanks to CHIWEI for the report.
 - Removed: the **golden hind**, its **Blessing of the Golden Hind** and the `[Threats] GoldenHind` switch. The base game's White Deer (game 0.69c) covers the same ground, so we no longer add a rare deer of our own (Chiwei's report). A hind already in a save is gone after a full restart; a blessing card already in your inventory can no longer be used.
 
 ## 0.11.4 (2026-10-14)
