@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.5] - 2026-10-15
+
+A balance pass to bring Forest Lore in line with the base game rather than ahead of it.
+
+### Changed
+
+- **Fewer bronze nuggets.** Opening the Ancient Cairn and searching the Old Battlefield now find a Tin Bronze nugget one time in five (was two in five). All the sites together give about four on average, so a full Tin Bronze crucible (six) now needs some luck or a trader.
+- **The Sunken Lake is a stocked eel pond.** It holds ten Eels, shown on the card; each Eel caught takes one and the lake refills about one a day. While no whole Eel is left, Fish and Spearfish are refused. A line now catches an Eel about one cast in seven at no skill (was two in five) and about one in two at full Fishing skill. On a save from 0.1.4 the lake starts full.
+- **The Mud Volcano warms you by +3** Perceived Temperature (was +8), like a mud hut room. Vanilla only warms you indoors.
+- **Scoop Mud gives three Mud Piles** (was one), the same as digging mud by hand at a pond.
+- **The Homestead stores and lasts like vanilla shelters.** It holds 4000 weight, as much as a Storage Chest (was 10000), and decays like the vanilla Hideout: about 30 days after it was raised or last repaired it falls back into a Ruined Homestead and its contents spill onto the floor. Drag a Wooden Plank onto it (**Repair**) to restore the full 30 days. On a save from 0.1.4 an existing Homestead starts with the full 30 days, and if it holds more than 4000, nothing already stored is thrown out: you just cannot add more until it is under the limit (read from the game's code, not yet seen in a game).
+
+### Fixed
+
+- Fishing and spearfishing at the Cave Lake can now come up empty (85 of 100 casts, half of spear throws): the miss never happened before, so every try caught an eel or a crayfish.
+
 ## [0.1.4] - 2026-10-14
 
 ### Changed

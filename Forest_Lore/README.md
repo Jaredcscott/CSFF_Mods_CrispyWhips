@@ -1,6 +1,6 @@
 # Forest Lore
 
-**Version:** 0.1.4
+**Version:** 0.1.5
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release, early development.
@@ -28,9 +28,9 @@ An old oak wood south of the Old Glade, reached by a new South exit. It is a cop
 
 **Ancient Cairn.** A grass-grown burial mound.
 - **Clear the Entrance** (1 hour, three times) clears the brambles and fallen stones.
-- **Open the Tomb** (30 minutes, four times) brings out Bones, often Bone Pieces, sometimes a bronze nugget and rarely a Blunt Rusty Axe. A Stone sharpens the axe into a usable Rusty Axe.
+- **Open the Tomb** (30 minutes, four times) brings out Bones, often Bone Pieces, a bronze nugget one time in five and rarely a Blunt Rusty Axe. A Stone sharpens the axe into a usable Rusty Axe.
 
-The bronze nugget, here and everywhere below, is a vanilla Metal Nugget of Tin Bronze at Metal Quality 40. A Tin Bronze crucible needs six, so one cairn will not fill it.
+The bronze nugget, here and everywhere below, is a vanilla Metal Nugget of Tin Bronze at Metal Quality 40. A Tin Bronze crucible needs six. All of Forest Lore's sites together give about four on average, so a full crucible needs some luck or a trader.
 
 **Standing Stones.** A ring of tall stones, one carrying the runes "Halfdan was here". **Read the Stones** (15 minutes) is free and repeatable. **Search the Centre** (30 minutes) works once and gives Flint and a bronze nugget.
 
@@ -49,7 +49,7 @@ An emptied cairn stays empty for good. Finds go straight into your hands, and an
 
 A field north of the Moon Hills, reached by a new North exit. It is a copy of the vanilla Badger Hill without the Moon Hills' shrine.
 
-- **Search the Field** (30 minutes) works six times. Each search gives Bones, often Bone Pieces, sometimes a bronze nugget and rarely a Blunt Rusty Axe.
+- **Search the Field** (30 minutes) works six times. Each search gives Bones, often Bone Pieces, a bronze nugget one time in five and rarely a Blunt Rusty Axe.
 - **Clear the Rubble** on the Fallen Watchtower (1 hour) works once and gives Stone, Wood and Long Sticks.
 
 Both stay spent once used.
@@ -63,7 +63,8 @@ A homestead east of the Clay Banks across the river meadow, reached by a new Eas
 - Once nothing is left, drag a Wooden Plank or a Rope onto it (**Repair the Homestead**, 30 minutes). Six repairs are needed, in any mix, and each item is used up.
 - **Raise the Roof** (1 hour) then turns the ruin into the Homestead.
 
-**Homestead.** Nap (4 hours) and Sleep (8 hours) work like the vanilla Hideout's. It gives +1 Rain Protection and +1 Sun Protection while you are there, has six storage slots that keep their contents, and never decays.
+**Homestead.** Nap (4 hours) and Sleep (8 hours) work like the vanilla Hideout's. It gives +1 Rain Protection and +1 Sun Protection while you are there, and has six storage slots that hold up to 4000 weight, as much as a Storage Chest.
+- Like the vanilla Hideout it decays: about 30 days after it was raised or last repaired it falls back into a Ruined Homestead, and whatever it holds spills onto the floor. Drag a Wooden Plank onto it (**Repair**, 30 minutes) to restore the full 30 days at any time.
 
 **Grinding Slab.** A fixed Saddle Quern by the door. Put a millable card in the hollow (edible acorns, rye grains, charcoal, greenstone, bog iron) and **Mill** (30 minutes) it into flour or powder.
 
@@ -71,7 +72,7 @@ A homestead east of the Clay Banks across the river meadow, reached by a new Eas
 
 Warm mud south of the Peat Bog, reached by a new South exit. It is a copy of the vanilla Fetid Bog, so Dig Peat works here too. Each patch refills slowly while you are on the board.
 
-- **Mud Volcano.** **Scoop Mud** (15 minutes) gives a Mud Pile, eight scoops from a full crater. While you stand here it also warms you (+8 Perceived Temperature).
+- **Mud Volcano.** **Scoop Mud** (15 minutes) gives three Mud Piles, eight scoops from a full crater. While you stand here it also warms you a little (+3 Perceived Temperature, like a mud hut room).
 - **Salt Crust.** **Scrape Salt** (15 minutes) gives Salt, two scrapes from a full crust. It regrows about ten days per scrape, so salt stays scarce.
 - **Tar Seep.** **Collect Tar** (15 minutes) gives Heated Tar, four collections from a full pool at about five days each. The tar cools into vanilla Cold Tar by itself.
 
@@ -122,7 +123,9 @@ Three chambers lie in a line, reachable only through the Cave Mouth and not draw
 **Cave Lake.** A still lake that never freezes or floods.
 - **Drink**, **Fill** (drag a water container onto it) and **Wash yourself** work like the vanilla pond's. The water is unsafe: it quenches thirst but can bring a stomach infection or parasites.
 - **Fish** (drag a fishing rod or line onto it) gives Eels. **Spearfish** (drag a spear onto it) gives Eels and Crayfish, and needs light and stamina. Catch chances rise with Fishing and Spear Fishing skill.
-- There is no ice, no frogs or leeches, and no fish stock to run down.
+- The lake holds a stock of ten Eels, shown on the card. Each Eel caught takes one, and it refills about one a day. While no whole Eel is left, Fish and Spearfish are refused, Crayfish included.
+- A line catches an Eel about one cast in seven at no skill and about one in two at full Fishing skill.
+- There is no ice and no frogs or leeches.
 - The caves are lit like the Waterfall Caves: daylight by day, dark by night.
 
 ## Known limitations
@@ -133,6 +136,7 @@ Three chambers lie in a line, reachable only through the Cave Mouth and not draw
 ## Version history
 
 Full notes are in CHANGELOG.md.
+- **0.1.5:** balance pass: fewer bronze nuggets, a stocked eel lake, a gentler Mud Volcano, a Homestead that decays and stores less, three Mud Piles a scoop.
 - **0.1.4:** the lore sites stay still; the Tree Hollow's branches still sway.
 - **0.1.3:** the lore sites drift slowly and the Tree Hollow's branches sway.
 - **0.1.2:** the Fairy Hole Ladder (Foot) now helps the climb up The Shaft.

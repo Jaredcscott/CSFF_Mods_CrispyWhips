@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "fl_homestead",
         "LocalizationKey": "Forest_Lore_Homestead_CardDescription",
-        "DefaultText": "The old homestead, patched up and dry again. The mended roof keeps off the rain and the sun, there is room by the hearth wall to sleep, and its shelves and corners will hold your things. It is a house again, and it stays where it stands."
+        "DefaultText": "The old homestead, patched up and dry again. The mended roof keeps off the rain and the sun, there is room by the hearth wall to sleep, and its shelves and corners will hold about a chest's worth of your things. Left alone, the weather undoes the repairs within a month: work a plank in now and then, or it falls back into ruin and whatever it holds spills onto the floor."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -28,7 +28,32 @@
     "DoesNotPile": true,
     "NeedsRoomInLocationToSpawn": false,
     "SpoilageTime": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 2880.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_homestead",
+            "LocalizationKey": "Forest_Lore_Homestead_SpoilageTime_CardStatName",
+            "DefaultText": "Upkeep"
+        },
+        "MaxValue": 2880.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "HasActionOnZero": true,
+        "RepeatActionOnZero": false,
+        "ResetWhenLoadedAtZero": false,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "fl_ruined_homestead",
+                "TransformIntoWarpType": 3
+            }
+        }
     },
     "UsageDurability": {
         "Active": false
@@ -51,7 +76,39 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_homestead",
+                "LocalizationKey": "Forest_Lore_Homestead_Repair_ActionName",
+                "DefaultText": "Repair"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_homestead",
+                "LocalizationKey": "Forest_Lore_Homestead_Repair_ActionDescription",
+                "DefaultText": "Work a plank into the roof and walls to keep the weather out for another month."
+            },
+            "DaytimeCost": 2,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "57460207bbf77fa4fb6720aed5d84851"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": 2880.0,
+                    "y": 2880.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
@@ -2314,7 +2371,7 @@
     ],
     "PassiveEffects": [],
     "MaxLiquidCapacity": 0.0,
-    "MaxWeightCapacity": 10000.0,
+    "MaxWeightCapacity": 4000.0,
     "IsMiniInventory": false,
     "InventorySlots": [
         {
@@ -2342,6 +2399,7 @@
             "m_PathID": 0
         }
     ],
+    "SpillsInventoryOnDestroy": true,
     "CookingRecipes": [],
     "BlueprintStages": [],
     "BlueprintResult": [],

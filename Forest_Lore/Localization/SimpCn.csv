@@ -76,7 +76,10 @@ Forest_Lore_RuinedHomestead_Salvage_ActionDescription,"Pull the sound sticks, co
 Forest_Lore_RuinedHomestead_RaiseRoof_ActionName,Raise the Roof,架起屋顶
 Forest_Lore_RuinedHomestead_RaiseRoof_ActionDescription,Lift the patched roof back onto the walls and make the homestead whole.,把修补好的屋顶抬回墙上，让农庄恢复完整。
 Forest_Lore_Homestead_CardName,Homestead,农庄
-Forest_Lore_Homestead_CardDescription,"The old homestead, patched up and dry again. The mended roof keeps off the rain and the sun, there is room by the hearth wall to sleep, and its shelves and corners will hold your things. It is a house again, and it stays where it stands.",这座老农庄已经修补好，重新变得干燥。修好的屋顶能挡住雨水和阳光，靠壁炉的墙边有地方睡觉，架子和角落里也能存放你的东西。它又成了一座房子，并且会一直立在原地。
+Forest_Lore_Homestead_CardDescription,"The old homestead, patched up and dry again. The mended roof keeps off the rain and the sun, there is room by the hearth wall to sleep, and its shelves and corners will hold about a chest's worth of your things. Left alone, the weather undoes the repairs within a month: work a plank in now and then, or it falls back into ruin and whatever it holds spills onto the floor.",这座老农庄已经修补好，重新变得干燥。修好的屋顶能挡住雨水和阳光，靠壁炉的墙边有地方睡觉，架子和角落里能存放大约一个箱子的东西。若置之不理，风雨会在一个月内毁掉修补：时不时用一块木板修缮，否则它会重新变成废墟，里面存放的东西会散落一地。
+Forest_Lore_Homestead_SpoilageTime_CardStatName,Upkeep,维护
+Forest_Lore_Homestead_Repair_ActionName,Repair,修缮
+Forest_Lore_Homestead_Repair_ActionDescription,Work a plank into the roof and walls to keep the weather out for another month.,把一块木板用到屋顶和墙壁上，再挡一个月的风雨。
 Forest_Lore_Homestead_Nap_ActionName,Nap,小憩
 Forest_Lore_Homestead_Nap_Interrupt0,Its flooding!,被淹了！
 Forest_Lore_Homestead_Nap_Interrupt2,I'm too thirsty to sleep...,太渴了我睡不着……
@@ -138,7 +141,8 @@ Forest_Lore_CaveExit_Leave_ActionName,Leave the Caves,离开洞穴
 Forest_Lore_CaveExit_Leave_ActionDescription,Climb back up to the daylight.,爬回有日光的地方。
 Forest_Lore_CaveExit_Leave_FadeMessage,Leaving the caves...,正在离开洞穴……
 Forest_Lore_CaveLake_CardName,Cave Lake,洞中湖
-Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Like any pond's, the water is not safe to drink.",一汪静止的黑色湖水填满了洞底，冰冷而清澈，一侧边缘有一道浅色石台可供跪下。无论上面天气如何，它从不结冰，也从不泛滥。你可以在这里饮水、给容器取水、清洗身体，还能钓鱼或叉捕鳗鱼和小龙虾。和任何池塘一样，这里的水喝了并不安全。
+Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink.",一汪静止的黑色湖水填满了洞底，冰冷而清澈，一侧边缘有一道浅色石台可供跪下。无论上面天气如何，它从不结冰，也从不泛滥。你可以在这里饮水、给容器取水、清洗身体，还能钓鱼或叉捕鳗鱼和小龙虾。这里的鳗鱼不多：捕光之后，湖里大约每天才会再有一条。和任何池塘一样，这里的水喝了并不安全。
+Forest_Lore_CaveLake_SpecialDurability1_CardStatName,Eels,鳗鱼
 Forest_Lore_CaveLake_Fill_ActionName,Fill,取水
 Forest_Lore_CaveLake_Fill_ActionDescription,Draw unsafe lake water into the container.,往容器里灌入不安全的湖水。
 Forest_Lore_CaveLake_Fish_ActionName,Fish,钓鱼
@@ -147,6 +151,7 @@ Forest_Lore_CaveLake_Fish_NoLuck,No luck...,运气不佳……
 Forest_Lore_CaveLake_Spearfish_ActionName,Spearfish,叉鱼
 Forest_Lore_CaveLake_Spearfish_ActionDescription,Stand on the stone shelf and spear what moves below.,站在石台上，叉刺水下游动的东西。
 Forest_Lore_CaveLake_Spearfish_NoLuck,Nothing but dark water...,只有一片漆黑的水……
+Forest_Lore_CaveLake_Eels_FailMessage,The eels are fished out for now; give the lake a day to give up another.,鳗鱼暂时被捕光了；给湖一天时间，它才会再出一条。
 Forest_Lore_CaveLake_Drink_ActionName,Drink,饮用
 Forest_Lore_CaveLake_Drink_ActionDescription,Cup your hands and drink. The water is cold and not safe.,双手捧水来喝。水很冰凉，并不安全。
 Forest_Lore_CaveLake_Wash_ActionName,Wash yourself,洗个澡

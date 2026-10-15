@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "fl_sunken_lake",
         "LocalizationKey": "Forest_Lore_CaveLake_CardDescription",
-        "DefaultText": "A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Like any pond's, the water is not safe to drink."
+        "DefaultText": "A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -40,7 +40,17 @@
         "Active": false
     },
     "SpecialDurability1": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 10.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_sunken_lake",
+            "LocalizationKey": "Forest_Lore_CaveLake_SpecialDurability1_CardStatName",
+            "DefaultText": "Eels"
+        },
+        "MaxValue": 10.0,
+        "RatePerDaytimePoint": 0.0104,
+        "HidingOptions": 0,
+        "TextDisplay": 0
     },
     "SpecialDurability2": {
         "Active": false
@@ -108,6 +118,18 @@
                 ],
                 "TriggerTagsWarpType": 3
             },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.099,
+                    "MaxValue": 1.0
+                },
+                "FailMessage": {
+                    "ParentObjectID": "fl_sunken_lake",
+                    "LocalizationKey": "Forest_Lore_CaveLake_Eels_FailMessage",
+                    "DefaultText": "The eels are fished out for now; give the lake a day to give up another."
+                }
+            },
             "StatModifications": [
                 {
                     "StatWarpData": "61a14db03419ad34ea39f82968082c06",
@@ -174,8 +196,8 @@
             },
             "ProducedCards": [
                 {
-                    "CollectionName": "Nothing",
-                    "CollectionWeight": 60,
+                    "CollectionName": "Nothing", "RevealInventory": true,
+                    "CollectionWeight": 85,
                     "CollectionMessages": [
                         {
                             "ParentObjectID": "fl_sunken_lake",
@@ -217,7 +239,7 @@
                 },
                 {
                     "CollectionName": "Eel",
-                    "CollectionWeight": 40,
+                    "CollectionWeight": 15,
                     "StatsDropChanceModifiers": [
                         {
                             "Stat": {
@@ -250,7 +272,13 @@
                                 "y": 1
                             }
                         }
-                    ]
+                    ],
+                    "ReceivingCardDurabilityModifications": {
+                        "Special1Change": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    }
                 }
             ]
         },
@@ -294,6 +322,18 @@
                     "tag_Spear"
                 ],
                 "TriggerTagsWarpType": 3
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial1Percent": {
+                    "Active": true,
+                    "FloatValue": 0.099,
+                    "MaxValue": 1.0
+                },
+                "FailMessage": {
+                    "ParentObjectID": "fl_sunken_lake",
+                    "LocalizationKey": "Forest_Lore_CaveLake_Eels_FailMessage",
+                    "DefaultText": "The eels are fished out for now; give the lake a day to give up another."
+                }
             },
             "StatModifications": [
                 {
@@ -387,7 +427,7 @@
             },
             "ProducedCards": [
                 {
-                    "CollectionName": "Nothing",
+                    "CollectionName": "Nothing", "RevealInventory": true,
                     "CollectionWeight": 50,
                     "CollectionMessages": [
                         {
@@ -463,7 +503,13 @@
                                 "y": 1
                             }
                         }
-                    ]
+                    ],
+                    "ReceivingCardDurabilityModifications": {
+                        "Special1Change": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    }
                 },
                 {
                     "CollectionName": "Crayfish",

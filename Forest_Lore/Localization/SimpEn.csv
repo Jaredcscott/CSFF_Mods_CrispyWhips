@@ -76,7 +76,10 @@ Forest_Lore_RuinedHomestead_Salvage_ActionDescription,"Pull the sound sticks, co
 Forest_Lore_RuinedHomestead_RaiseRoof_ActionName,Raise the Roof
 Forest_Lore_RuinedHomestead_RaiseRoof_ActionDescription,Lift the patched roof back onto the walls and make the homestead whole.
 Forest_Lore_Homestead_CardName,Homestead
-Forest_Lore_Homestead_CardDescription,"The old homestead, patched up and dry again. The mended roof keeps off the rain and the sun, there is room by the hearth wall to sleep, and its shelves and corners will hold your things. It is a house again, and it stays where it stands."
+Forest_Lore_Homestead_CardDescription,"The old homestead, patched up and dry again. The mended roof keeps off the rain and the sun, there is room by the hearth wall to sleep, and its shelves and corners will hold about a chest's worth of your things. Left alone, the weather undoes the repairs within a month: work a plank in now and then, or it falls back into ruin and whatever it holds spills onto the floor."
+Forest_Lore_Homestead_SpoilageTime_CardStatName,Upkeep
+Forest_Lore_Homestead_Repair_ActionName,Repair
+Forest_Lore_Homestead_Repair_ActionDescription,Work a plank into the roof and walls to keep the weather out for another month.
 Forest_Lore_Homestead_Nap_ActionName,Nap
 Forest_Lore_Homestead_Nap_Interrupt0,Its flooding!
 Forest_Lore_Homestead_Nap_Interrupt2,I'm too thirsty to sleep...
@@ -138,7 +141,8 @@ Forest_Lore_CaveExit_Leave_ActionName,Leave the Caves
 Forest_Lore_CaveExit_Leave_ActionDescription,Climb back up to the daylight.
 Forest_Lore_CaveExit_Leave_FadeMessage,Leaving the caves...
 Forest_Lore_CaveLake_CardName,Cave Lake
-Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Like any pond's, the water is not safe to drink."
+Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink."
+Forest_Lore_CaveLake_SpecialDurability1_CardStatName,Eels
 Forest_Lore_CaveLake_Fill_ActionName,Fill
 Forest_Lore_CaveLake_Fill_ActionDescription,Draw unsafe lake water into the container.
 Forest_Lore_CaveLake_Fish_ActionName,Fish
@@ -147,6 +151,7 @@ Forest_Lore_CaveLake_Fish_NoLuck,No luck...
 Forest_Lore_CaveLake_Spearfish_ActionName,Spearfish
 Forest_Lore_CaveLake_Spearfish_ActionDescription,Stand on the stone shelf and spear what moves below.
 Forest_Lore_CaveLake_Spearfish_NoLuck,Nothing but dark water...
+Forest_Lore_CaveLake_Eels_FailMessage,The eels are fished out for now; give the lake a day to give up another.
 Forest_Lore_CaveLake_Drink_ActionName,Drink
 Forest_Lore_CaveLake_Drink_ActionDescription,Cup your hands and drink. The water is cold and not safe.
 Forest_Lore_CaveLake_Wash_ActionName,Wash yourself

@@ -146,7 +146,7 @@
                             },
                             "DropChance": {
                                 "Active": true,
-                                "BaseDropChance": 40.0
+                                "BaseDropChance": 20.0
                             }
                         },
                         {

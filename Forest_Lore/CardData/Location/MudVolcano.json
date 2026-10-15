@@ -115,8 +115,8 @@
                             "DroppedCardWarpData": "22427beeefed8a9469a997bdce087332",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 1,
-                                "y": 1
+                                "x": 3,
+                                "y": 3
                             },
                             "DropChance": {
                                 "Active": true,
@@ -133,8 +133,8 @@
             "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 8.0,
-                "y": 8.0
+                "x": 3.0,
+                "y": 3.0
             }
         }
     ],
