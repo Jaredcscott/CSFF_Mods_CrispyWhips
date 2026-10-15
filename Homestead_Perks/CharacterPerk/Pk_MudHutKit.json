@@ -17,8 +17,8 @@
   "NotifyWhenNotChecked": false,
   "CheckingNotificationDetails": 0,
   "DebugCompletion": false,
-  "SunsCost": 40,
-  "MoonsCost": 0,
+  "SunsCost": 0,
+  "MoonsCost": 1,
   "StarsCost": 0,
   "ResetLockInEditor": false,
   "PerkName": {

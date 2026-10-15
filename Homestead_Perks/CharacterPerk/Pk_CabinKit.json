@@ -17,9 +17,9 @@
   "NotifyWhenNotChecked": false,
   "CheckingNotificationDetails": 0,
   "DebugCompletion": false,
-  "SunsCost": 60,
+  "SunsCost": 0,
   "MoonsCost": 0,
-  "StarsCost": 0,
+  "StarsCost": 1,
   "ResetLockInEditor": false,
   "PerkName": {
     "ParentObjectID": "hsptraitsperkcabinkit",

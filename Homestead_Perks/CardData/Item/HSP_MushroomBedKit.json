@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "hspmushroombedkit",
     "LocalizationKey": "HSP_MushroomBedKit_CardDescription",
-    "DefaultText": "Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it. Can only be placed once, and not inside an animal enclosure."
+    "DefaultText": "Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it; fresh mushrooms put in the bed take root and grow. Can only be placed once, and not inside an animal enclosure."
   },
   "CardType": 0,
   "ObjectWeight": 300.0,

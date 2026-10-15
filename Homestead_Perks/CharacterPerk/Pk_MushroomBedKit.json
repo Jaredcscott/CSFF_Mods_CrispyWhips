@@ -32,7 +32,7 @@
   "PerkDescription": {
     "ParentObjectID": "hsptraitsperkmushroombedkit",
     "LocalizationKey": "HSP_Perk_MushroomBedKit_PerkDescription",
-    "DefaultText": "Start with a mushroom bed kit, a bed vanilla gives you no way to build. Use Place to lay it out wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure."
+    "DefaultText": "Start with a mushroom bed kit, a bed vanilla gives you no way to build. Use Place to lay it out wherever you want it. Put fresh Forest Caps, Fly Agaric or Spirit Mushrooms in its six slots and they take root and grow, twice as fast as in a Garden Plot. It can only be placed once and cannot be placed inside an animal enclosure."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",

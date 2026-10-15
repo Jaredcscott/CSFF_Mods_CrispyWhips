@@ -17,7 +17,7 @@
   "NotifyWhenNotChecked": false,
   "CheckingNotificationDetails": 0,
   "DebugCompletion": false,
-  "SunsCost": 10,
+  "SunsCost": 15,
   "MoonsCost": 0,
   "StarsCost": 0,
   "ResetLockInEditor": false,

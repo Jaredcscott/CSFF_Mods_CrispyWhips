@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.5 (2026-10-15)
+
+A balance pass so the perks fit the vanilla game instead of skipping it.
+
+- **Built structures now cost Moons and Stars, as vanilla prices its own.** Vanilla sells its Cabin Start for 1 Star and its Mudhut Start for 1 Moon. Cabin Kit is now 1 Star (was 60 Suns). Mud Hut, Cellar, Well and the Copper, Flint and Witchstone Mine Kits are now 1 Moon each (were 35 to 40 Suns). A perk you have already bought stays yours.
+- **Homestead is now 1 Moon and 1 Star (was 100 Suns), and its stockpile is smaller:** 15 Planks, 15 Mud Bricks, 20 Stones, 6 Heavy Stones, 6 Tree Logs, 10 Clay, 5 Rope, 9 Metal Nuggets (vanilla Smithing Gear's count) and 20 Metal Nails. The Cabin Kit and two Rain Cistern Kits are unchanged. If you already own the perk, your next run unpacks the new stockpile; a Homestead Kit already unpacked in a save keeps its pile.
+- **Path Kit now gives 3 kits** (was 6), still 20 Suns. Kits already in a save stay.
+- **Higher Sun prices:** Weaver's Workshop Kit 50 (was 35), Bloomery Kit 40 (was 30), Forge Kit 35 (was 25), Pottery Wheel Kit 25 (was 15), Rain Cistern Kit 20 (was 10), Snow Shelter Kit 20 (was 15), Drying Rack Kit 15 (was 10).
+- **The Mushroom Bed grows mushrooms.** The description used to say nothing plants mushrooms in it. That was wrong: the vanilla bed has six slots and its own growing recipes. Put fresh Forest Caps, Fly Agaric or Spirit Mushrooms in it and they take root and grow, twice as fast as in a Garden Plot. The perk and kit text now say so.
+
 ## 1.3.4 (2026-10-14)
 
 - **Card pictures sit where they belong again.** In the previous update every item picture was stretched to fill its whole card, sitting high with the name banner over it. The pictures are back in the game's own framing: centred, low on the card, with space above, like the vanilla cards beside them. Thanks to CHIWEI for the report.

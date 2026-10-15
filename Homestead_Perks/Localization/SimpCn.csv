@@ -1,5 +1,5 @@
 HSP_Perk_Homestead_PerkName,Homestead,安家
-HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets, plus 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once.","你已经准备好安顿下来。开局获得一个便于携带的家园套件。放到你想建造家园的地方，然后使用「放置」一次性拆开小屋套件、两个集雨桶套件和一批建筑材料（30块木板、30块泥砖、50块石头、20块大石头、15根原木、20份黏土、10份绳索、20块金属块，另有50枚铜钉）——然后依次「放置」每个套件将其立起。所有内容都只能放置一次。"
+HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 9 metal nuggets, plus 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once.","你已经准备好安顿下来。开局获得一个便于携带的家园套件。放到你想建造家园的地方，然后使用「放置」一次性拆开小屋套件、两个集雨桶套件和一批建筑材料（15块木板、15块泥砖、20块石头、6块大石头、6根原木、10份黏土、5份绳索、9块金属块，另有20枚铜钉），然后依次「放置」每个套件将其立起。所有内容都只能放置一次。"
 HSP_HomesteadKit_CardName,Homestead Kit,家园套件
 HSP_HomesteadKit_CardDescription,"Everything you need to start a homestead, bundled into one portable pack: a cabin kit, two rain cistern kits, and a stockpile of building materials. Drop it wherever you want to settle, then use Place to unpack it all at once. Can only be placed once.",开启家园所需的一切，全部打包进一个便携行囊：一个小屋套件、两个集雨桶套件，还有一批建筑材料。放到你想定居的地方，然后使用「放置」一次性全部拆开。只能放置一次。
 HSP_HomesteadKit_DA_Place,Place,放置
@@ -53,7 +53,7 @@ HSP_TanningPitKit_CardDescription,Everything needed to line and frame a tanning 
 HSP_TanningPitKit_DA_Place,Place,放置
 HSP_TanningPitKit_DA_Place_Desc,Dig your tanning pit on this spot.,在此处挖设你的鞣制坑。
 HSP_Perk_PathKit_PerkName,Path Kit,道路套件
-HSP_Perk_PathKit_PerkDescription,"Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting. Heavy: the six kits weigh 900 together, so set them down before a long trip.",开局获得6个道路套件。每个都能让你在所在位置立即修好一条通往指定方向的道路——无需挖掘，无需等待。很重：六个套件共重900，长途跋涉前请先放下。
+HSP_Perk_PathKit_PerkDescription,"Start with 3 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing: no digging, no waiting.",开局获得3个道路套件。每个都能让你在所在位置立即修好一条通往指定方向的道路，无需挖掘，无需等待。
 HSP_PathKit_CardName,Path Kit,道路套件
 HSP_PathKit_CardDescription,"Stones and gravel for laying a stretch of road. Pick a direction below to instantly finish a path leading that way from your current spot. Works outdoors, and only takes effect where a route actually leads that direction.",铺路用的石块与碎石。在下方选择一个方向，即可立即修好一条从你所在位置通往该方向的道路。仅限户外使用，且只有该方向确实有路可通时才会生效。
 HSP_PathKit_DA_North,Build Path North,修建北向道路
@@ -279,8 +279,8 @@ HSP_LeveeKit_DA_Place_Desc,Raise your levee on this spot.,在此处筑起你的�
 HSP_MushroomBedKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
 HSP_MushroomBedKit_DA_NoEnclosure_Desc,The mushroom bed cannot be laid out inside an animal enclosure. Carry the kit outside to place it.,蘑菇床不能铺在动物围栏里。把套件带到外面再放置。
 HSP_Perk_MushroomBedKit_PerkName,Mushroom Bed Kit,蘑菇床套件
-HSP_Perk_MushroomBedKit_PerkDescription,"Start with a mushroom bed kit, a bed vanilla gives you no way to build. Use Place to lay it out wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure.",开局获得一套蘑菇床套件，原版没有任何办法建造蘑菇床。使用“放置”在任意地点铺设。只能放置一次，且不能放在动物围栏里。
+HSP_Perk_MushroomBedKit_PerkDescription,"Start with a mushroom bed kit, a bed vanilla gives you no way to build. Use Place to lay it out wherever you want it. Put fresh Forest Caps, Fly Agaric or Spirit Mushrooms in its six slots and they take root and grow, twice as fast as in a Garden Plot. It can only be placed once and cannot be placed inside an animal enclosure.",开局获得一套蘑菇床套件，原版没有任何办法建造蘑菇床。使用“放置”在任意地点铺设。把新鲜的森林帽、毒蝇伞或灵魂菇放进它的六个格子，它们就会扎根生长，速度是菜园的两倍。只能放置一次，且不能放在动物围栏里。
 HSP_MushroomBedKit_CardName,Mushroom Bed Kit,蘑菇床套件
-HSP_MushroomBedKit_CardDescription,"Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it. Can only be placed once, and not inside an animal enclosure.",做蘑菇床用的木板和培养基，原版没有任何办法建造它。使用“放置”在你想要的地方铺设。只能放置一次，且不能放在动物围栏里。
+HSP_MushroomBedKit_CardDescription,"Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it; fresh mushrooms put in the bed take root and grow. Can only be placed once, and not inside an animal enclosure.",做蘑菇床用的木板和培养基，原版没有任何办法建造它。使用“放置”在你想要的地方铺设；放进床里的新鲜蘑菇会扎根生长。只能放置一次，且不能放在动物围栏里。
 HSP_MushroomBedKit_DA_Place,Place,放置
 HSP_MushroomBedKit_DA_Place_Desc,Lay out your mushroom bed on this spot.,在此处铺设你的蘑菇床。

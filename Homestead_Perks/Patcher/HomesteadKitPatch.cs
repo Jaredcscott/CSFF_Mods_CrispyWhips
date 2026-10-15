@@ -81,26 +81,30 @@ namespace HomesteadPerks.Patcher
 
         private static void SpawnHomesteadContents()
         {
+            // Vanilla balance pass (plan section 1.1, HSP-B2, 1.3.5): the stockpile was halved or more
+            // so the perk no longer covers shelter, water and the first metal tier on day 1. 9 nuggets
+            // match vanilla Smithing Gear; 20 nails pay one WDI build (Outlet 4 or Forge 10), not all.
+            // CMC's Founders Kit (Community_Mod_Chest) hands over the same counts.
             SpawnService.Spawn(CabinKitId);
             SpawnMany(CisternKitId, 2);
 
-            SpawnMany(PlankGuid, 30, OakPlank);
-            SpawnMany(MudBrickGuid, 30);
-            SpawnMany(StoneSmallGuid, 50);
-            SpawnMany(StoneHeavyGuid, 20);
-            SpawnMany(TreeLogGuid, 15, OakLog);
-            SpawnMany(ClayGuid, 20, WorkedClay);
-            SpawnMany(RopeGuid, 10);
-            SpawnMany(MetalNuggetGuid, 20, CopperNugget);
+            SpawnMany(PlankGuid, 15, OakPlank);
+            SpawnMany(MudBrickGuid, 15);
+            SpawnMany(StoneSmallGuid, 20);
+            SpawnMany(StoneHeavyGuid, 6);
+            SpawnMany(TreeLogGuid, 6, OakLog);
+            SpawnMany(ClayGuid, 10, WorkedClay);
+            SpawnMany(RopeGuid, 5);
+            SpawnMany(MetalNuggetGuid, 9, CopperNugget);
 
             // The Metal Nail ships in CSFFModFramework 2.28.0 and later (and in ACT before it), so the
             // grant asks whether the CARD exists, never whether ACT is installed (Fleet plan feature 3).
             // It spawns at its card defaults (fuel 0, Metal Type Copper), so no stats are passed. One
-            // lookup up front: a missing card would otherwise log 50 SpawnService errors.
+            // lookup up front: a missing card would otherwise log 20 SpawnService errors.
             if (CardUtil.GetCardDataById(CopperNailsId) != null)
             {
-                SpawnMany(CopperNailsId, 50);
-                Plugin.Logger.LogDebug("[HomesteadKitPatch] Metal Nail card loaded: spawned 50 copper nails.");
+                SpawnMany(CopperNailsId, 20);
+                Plugin.Logger.LogDebug("[HomesteadKitPatch] Metal Nail card loaded: spawned 20 copper nails.");
             }
             else
             {

@@ -1,5 +1,5 @@
 HSP_Perk_Homestead_PerkName,Homestead
-HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets, plus 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once."
+HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 9 metal nuggets, plus 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once."
 HSP_HomesteadKit_CardName,Homestead Kit
 HSP_HomesteadKit_CardDescription,"Everything you need to start a homestead, bundled into one portable pack: a cabin kit, two rain cistern kits, and a stockpile of building materials. Drop it wherever you want to settle, then use Place to unpack it all at once. Can only be placed once."
 HSP_HomesteadKit_DA_Place,Place
@@ -53,7 +53,7 @@ HSP_TanningPitKit_CardDescription,Everything needed to line and frame a tanning 
 HSP_TanningPitKit_DA_Place,Place
 HSP_TanningPitKit_DA_Place_Desc,Dig your tanning pit on this spot.
 HSP_Perk_PathKit_PerkName,Path Kit
-HSP_Perk_PathKit_PerkDescription,"Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting. Heavy: the six kits weigh 900 together, so set them down before a long trip."
+HSP_Perk_PathKit_PerkDescription,"Start with 3 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing: no digging, no waiting."
 HSP_PathKit_CardName,Path Kit
 HSP_PathKit_CardDescription,"Stones and gravel for laying a stretch of road. Pick a direction below to instantly finish a path leading that way from your current spot. Works outdoors, and only takes effect where a route actually leads that direction."
 HSP_PathKit_DA_North,Build Path North
@@ -279,8 +279,8 @@ HSP_LeveeKit_DA_Place_Desc,Raise your levee on this spot.
 HSP_MushroomBedKit_DA_NoEnclosure,Not in a Pen
 HSP_MushroomBedKit_DA_NoEnclosure_Desc,The mushroom bed cannot be laid out inside an animal enclosure. Carry the kit outside to place it.
 HSP_Perk_MushroomBedKit_PerkName,Mushroom Bed Kit
-HSP_Perk_MushroomBedKit_PerkDescription,"Start with a mushroom bed kit, a bed vanilla gives you no way to build. Use Place to lay it out wherever you want it. It can only be placed once and cannot be placed inside an animal enclosure."
+HSP_Perk_MushroomBedKit_PerkDescription,"Start with a mushroom bed kit, a bed vanilla gives you no way to build. Use Place to lay it out wherever you want it. Put fresh Forest Caps, Fly Agaric or Spirit Mushrooms in its six slots and they take root and grow, twice as fast as in a Garden Plot. It can only be placed once and cannot be placed inside an animal enclosure."
 HSP_MushroomBedKit_CardName,Mushroom Bed Kit
-HSP_MushroomBedKit_CardDescription,"Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it. Can only be placed once, and not inside an animal enclosure."
+HSP_MushroomBedKit_CardDescription,"Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it; fresh mushrooms put in the bed take root and grow. Can only be placed once, and not inside an animal enclosure."
 HSP_MushroomBedKit_DA_Place,Place
 HSP_MushroomBedKit_DA_Place_Desc,Lay out your mushroom bed on this spot.
