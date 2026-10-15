@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Sirus23ModCollection";
     public const string PluginName = "Sirus23 Mod Collection";
-    public const string PluginVersion = "1.22.4";
+    public const string PluginVersion = "1.22.5";
 
     internal new static ManualLogSource Logger { get; private set; }
 
