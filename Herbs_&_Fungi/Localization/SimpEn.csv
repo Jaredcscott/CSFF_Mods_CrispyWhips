@@ -558,14 +558,14 @@ herbsfungiginger_SpoilageTime_Spoiled,The ginger has spoiled.
 herbsfungiginger_Cut,Cut
 herbsfungiginger_Cut_Desc,"Slice the ginger root into thin pieces, ready to be dried."
 herbsfungigingercut_CardName,Cut Ginger
-herbsfungigingercut_CardDescription,Fresh ginger that has been sliced into thin pieces. Ready to be dried for long-term preservation.
+herbsfungigingercut_CardDescription,"Fresh ginger that has been sliced into thin pieces. Ready to be dried for long-term preservation. Eating it gives the vanilla Ginger status (Small Dose): Pain drops, Courage, Appetite and the immune system rise, for a few hours."
 herbsfungigingercut_Eat,Eat
 herbsfungigingercut_Eat_Desc,Chew the cut ginger pieces. Spicy and warming.
 herbsfungigingercut_SpoilageTime_StatName,Spoilage
 herbsfungigingercut_SpoilageTime_Spoiled,The cut ginger has spoiled.
 herbsfungigingercut_UsageDurability_Dried,The cut ginger has dried properly.
 herbsfungidriedginger_CardName,Dried Ginger
-herbsfungidriedginger_CardDescription,Dried ginger root. More concentrated flavor and medicinal properties. Keeps indefinitely.
+herbsfungidriedginger_CardDescription,"Dried ginger root. More concentrated flavor and medicinal properties. Keeps indefinitely. Eating it gives the vanilla Ginger status (Small Dose): Pain drops, Courage, Appetite and the immune system rise, for a few hours."
 herbsfungidriedginger_Eat,Eat
 herbsfungidriedginger_Eat_Desc,Chew the dried ginger. Concentrated flavor and warmth.
 Herbs_And_Fungi_Bp_OilPressSeeds_CardName,Press Hemp Seeds
@@ -3838,3 +3838,18 @@ Herbs_And_Fungi_DeadCrop_ClearAway_ActionDescription,Pull up the dead plants.
 Herbs_And_Fungi_Preserve_Servings_CardStatName,Servings
 Herbs_And_Fungi_DeathCapWard_Usage_CardStatName,Potency
 Herbs_And_Fungi_DeathCapWard_Usage_OnZero_ActionDescription,The death cap ward has rotted away.
+Herbs_And_Fungi_WinterGrowBagKaleGrowing_CardName,Kale Grow Bag
+Herbs_And_Fungi_WinterGrowBagKaleGrowing_CardDescription,Kale sprouting from a cloth grow bag. Set it down indoors by a lit fire and it keeps growing through the frost.
+Herbs_And_Fungi_WinterGrowBagKaleGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
+
+<b>Produces:</b> 2 to 3 Kale when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days.
+
+<b>Winter:</b> Keep a lit fire on the same board. With a fire it keeps growing and stays healthy through winter. Let the fire go out in winter and it stops growing and dies in about two days."
+Herbs_And_Fungi_WinterGrowBagKaleGrowing_Progress_CardStatName,Growth
+Herbs_And_Fungi_WinterGrowBagKaleGrowing_Progress_OnFull_ActionDescription,Kale Grow Bag is ready!
+Herbs_And_Fungi_WinterGrowBagKaleGrowing_DismantleActions_ActionName,Uproot
+Herbs_And_Fungi_Bp_WinterGrowBagKale_CardName,Pack Kale Grow Bag
+Herbs_And_Fungi_Bp_WinterGrowBagKale_CardDescription,"Pack soil and 2 kale into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow kale through winter."
+Herbs_And_Fungi_Bp_WinterGrowBagKale_UnlockConditionsDesc,Unlocked after obtaining Kale

@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/IncenseBundleLit.gif",
   "source": "Resource/Picture/IncenseBundleLit.png",
+  "work_source": ".art/gif_work/IncenseBundleLit.png",
+  "place": { "scale": 1.05821, "offset": [95.68, 190.13] },
   "sourceCard": "CardData/Gif (herbs_fungi_incense_bundle_lit CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

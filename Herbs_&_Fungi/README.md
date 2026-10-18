@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.9
+**Version:** 1.14.11
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -10,7 +10,7 @@
 
 Herbs and Fungi adds foraged mushrooms, medicinal herbs, wild fruit and vegetables, hemp farming, mushroom logs, oil pressing, pickling and drying. You forage, grow and dry, press oils, brew medicinal teas and seal pickles in clay vats.
 
-It ships 492 cards (267 items, 27 liquids, 72 placed structures and growth stages, 126 blueprints), 16 character perks, 11 custom stats, 16 flavour spices and 2 encounter guards. It adds no map locations: everything is foraged at the vanilla woods, groves, clearings and meadows.
+It ships 494 cards (267 items, 27 liquids, 73 placed structures and growth stages, 127 blueprints), 16 character perks, 11 custom stats, 16 flavour spices and 2 encounter guards. It adds no map locations: everything is foraged at the vanilla woods, groves, clearings and meadows.
 
 Many numbers added since 1.14.0 are starting values and may change, and a few cards still share another card's picture. Features marked "not yet confirmed in game" have not been played through by a person.
 
@@ -56,7 +56,7 @@ Eat them raw, stew them or dry them. They stack to 20 and spoil in about 6 days 
 - **Wild Ginseng**: dry and grind it for Ginseng Tea. Grow it with **Plant Ginseng**.
 - **Chamomile**: dry the flowers for a calming tea. Grow it with **Plant Chamomile**.
 - **Dandelion**: eat it fresh or dried, or brew dried flowers into tea. Grow it with **Plant Dandelion**.
-- **Ginger**: a foraged spice. Dry it, cut it into Cut Ginger, or process it.
+- **Ginger**: a foraged spice. Dry it, cut it into Cut Ginger, or process it. Eating Cut Ginger or Dried Ginger also gives vanilla's Ginger status (Small Dose): Pain drops, Courage, Appetite and the immune system rise for a few hours.
 - **Common Plantain**: dry the leaves for a Plantain Poultice. Grow it with **Plant Plantain**.
 - **Wild Flowers**: dry them and make a Flower Garland.
 
@@ -89,6 +89,7 @@ Everything above goes into a stew.
   - Holding one unlocks **Plant Kale**, **Plant Carrot** or **Plant Leek** (Farming > Agriculture): 2 of the vegetable and a hoe, which loses 1 use.
   - Kale grows in 15 days for 2 to 3, Carrot in 24 days for 2 to 3, Leek in 30 days for 2 to 3. **Harvest** uses the plant up.
   - Every planted crop and field needs care: **Tend** it (1 hour, a little stamina) once a day. Left untended it dies in about ten days, and in winter it stops growing and dies in about two days, leaving a Dead Crop to clear away.
+  - **Kale Grow Bag** (**Pack Kale Grow Bag**, 1 Wood Shavings and 2 Kale, no fertile ground, unlocked once you have Kale) is the paid winter option: set it down anywhere, indoors included, keep a lit fire on the same board, and it keeps growing and stays alive through winter. Let the fire go out in winter and it dies in about two days like any other crop. Tend it daily as usual.
 - **Hops, Grapes and Oats** are found foraging in summer and autumn (1.5 to 2.5%). Hops at the Alder Grove and Mossy Clearing, Grapes at the Mossy Clearing and Secret Grove, Oats at Pine Meadows and the Secret Grove.
   - **Hops** are not eaten. Drag them onto finished rye ale (**Steep in Ale**) for **Hopped Ale**: Bitter and Floral, drinks like rye ale, spoils half as fast. Fresh wort will not take them.
   - **Grapes** can be eaten. **Crush into Must** on a container of water makes Grape Must, which becomes **Grape Wine** after 4 days in any container. It needs no Fermentation Bin and does not freeze or age in a barrel.
@@ -353,7 +354,7 @@ It regrows about every 3 days, faster in spring and not in winter, and Harvest b
 | **Medical** | Pain Relief Powder, Herbal Salve, Plantain Poultice, Herbal Honey Syrup, Herbal Tincture, Healer's Moss Tincture, Death Cap Tincture, Herbal Bath Soak |
 | **Utensils** | Unfired Pickle Vat |
 | **Materials** | Oil Press Legs, Oil Press Frame, Press Bed Frame, Pressing Screw, Pressing Bag, Press Plate, Oil Press Utensils, Prepared Press Bag |
-| **Farming > Agriculture** | Hemp Field, Plant Hemp Seeds, Ginseng, Yarrow, Chamomile, Plantain, Dandelion, Peanuts, Kale, Rhubarb, Carrot, Leek, Hops and Grapes, Make Mossbed, Oat Field, Broad Bean Field, Cress Bed, the six Inoculate ... Log blueprints, the six from a Spore Print, and Pack Golden Oyster and King Oyster Grow Bags |
+| **Farming > Agriculture** | Hemp Field, Plant Hemp Seeds, Ginseng, Yarrow, Chamomile, Plantain, Dandelion, Peanuts, Kale, Rhubarb, Carrot, Leek, Hops and Grapes, Make Mossbed, Oat Field, Broad Bean Field, Cress Bed, the six Inoculate ... Log blueprints, the six from a Spore Print, Pack Golden Oyster and King Oyster Grow Bags, and Pack Kale Grow Bag |
 | **Furniture** | Wooden Pantry, Drying Stack, Oil Press Kit, Apothecary Shelf |
 
 Oil-pressing and pickle blueprints appear once their workstation is built and the ingredients are there.
@@ -416,7 +417,7 @@ This needs CSFFModFramework 2.28.0. It and the seasonal forage at those places a
 
 ### Requirements
 - **BepInEx 5.x**
-- **CSFFModFramework** 2.28.0 or newer
+- **CSFFModFramework** 2.28.6 or newer
 - **Card Survival: Fantasy Forest** EA 0.69c
 
 ### Installation
@@ -464,6 +465,8 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.14.11**: washing at a river no longer drains the fuel from wood and candles (the fix is in CSFF Mod Framework 2.28.6, which this version needs); the lit Incense Bundle's animation sits where its still picture does; four mushroom Cook bars show their icon.
+- **1.14.10**: a Kale Grow Bag keeps growing through winter while a lit fire is on its board; Cut and Dried Ginger give the vanilla Ginger status; burning hemp flowers or powder lifts Morale only as much as smoking hemp in the Herb Pipe; raw breads no longer bake into spoiled bread.
 - **1.14.9**: the Foraging Forest is gone. Its plants are foraged at the vanilla places it copied (Secret Grove, Pine Clearing, Pine Meadows, Mossy Clearing, Alder Grove, Old Grove), and the Wild Bees' Nest, forage hotspots and Fungal Bloom are removed. Vanilla-balance pass: planted crops grow slower, need daily tending and die in winter; mushroom logs give 8; mood, calming and thirst effects on the base game's scale; every forage find is half as likely; broths need a bowl of boiled water; shorter shelf lives; the Death Cap Ward turns away 25% and rots. Needs CSFF Mod Framework 2.28.5.
 - **1.14.7**: meat dries at a quarter of the speed on the Drying Tray (about a day for Bird Meat); spoilage shows the bacteria icon and drying the hammer icon, as vanilla food does; berries, mushrooms and herbs taste of something when eaten straight, not only from a bowl.
 - **1.14.6**: Hemp Butter, raw pasties, Inactive Hemp Butter and Sliced Horseradish keep their ingredient's freshness instead of rotting the moment they are made; the forest trails stay still.

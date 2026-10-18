@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_ginger_cut",
         "LocalizationKey": "herbsfungigingercut_CardDescription",
-        "DefaultText": "Fresh ginger that has been sliced into thin pieces. Ready to be dried for long-term preservation."
+        "DefaultText": "Fresh ginger that has been sliced into thin pieces. Ready to be dried for long-term preservation. Eating it gives the vanilla Ginger status (Small Dose): Pain drops, Courage, Appetite and the immune system rise, for a few hours."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -324,6 +324,29 @@
                 "ModType": 3
             },
             "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5a8bc3ef47ca9484082a804d2e8decc0",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 12,
+                        "y": 12
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
                 {
                     "Stat": {
                         "m_FileID": 0,

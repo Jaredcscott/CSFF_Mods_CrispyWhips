@@ -5,6 +5,36 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.11] - 2026-10-17
+
+Needs CSFF Mod Framework 2.28.6 or later.
+
+### Fixed
+
+- **The lit Incense Bundle no longer swells to fill the card.** Its moving picture was still on the old cropped canvas, so the card stretched it over its whole face and under the name banner whenever they played (the same problem the still pictures had, reported by Chiwei). They now sit exactly where the still picture does.
+- **Wood and candles no longer lose all their fuel when you wash at a river.** With this mod installed, "Wash yourself" on a River set the fuel of every card on the board to 0: Oak Wood did nothing on a fire and candles burned out and vanished. The fix is in CSFF Mod Framework 2.28.6, so update the framework; nothing in this mod changes. Items a wash already drained stay drained. Thanks to Banana Monk for the report and the save.
+- **Cook bars show their icon.** Chicken of the Woods, Dried Chicken of the Woods, Dried Chanterelle and Puffball showed a blank white circle on their Cook bar; it now shows the cooking icon like every other Herbs and Fungi Cook bar.
+
+
+## [1.14.10] - 2026-10-16
+
+Needs CSFF Mod Framework 2.28.5 or later.
+
+### Added
+
+- **Kale Grow Bag: fresh food in winter, at the cost of a lit fire.** A new **Pack Kale Grow Bag** blueprint (Farming > Agriculture, unlocked once you have Kale) packs 1 Wood Shavings and 2 Kale into a grow bag. It needs no fertile ground, so you can set it down indoors. The bag grows kale like an ordinary patch and takes the same daily **Tend**, but in winter it only keeps growing and stays alive while a lit fire is on the same board; let the fire go out in winter and it dies into a Dead Crop in about two days. This is the paid winter-growing option that replaces the free winter crops the balance pass removed. The warming rates are placeholders, still tunable. The fire is what keeps it alive, indoors or out. The bag is simply the only kale that can sit indoors, and it does not need to be indoors.
+
+### Changed
+
+- **Eating Cut Ginger or Dried Ginger now gives the base game's Ginger status, which nothing in the base game gave.** Small Dose: Pain -25, Courage +50, Appetite +50, Immune System +50, a little more Wakefulness, less Nausea and looser stool, fading at 1 point per 15 minutes. Cut Ginger adds 12 and Dried Ginger 16 (about 3 and 4 hours). These doses are placeholders and still tunable, not balanced. Their old Eat stats are unchanged.
+- **Burning Dried Hemp Flowers or Hemp Powder on a fire now lifts Morale by 10 to 12**, the same as smoking hemp in the Herb Pipe (it was 15 to 20 and 20 to 25, above every pipe). The Altered Mindstate cost of burning is unchanged.
+
+### Fixed
+
+- **Raw Pea, Nettle and Sprouted Rye Bread no longer bake into spoiled bread.** Since 1.14.9 a baked loaf keeps for less time than its dough, so dough that had sat a while came out of the fire already spoiled. The bread now takes three quarters of the dough's spoilage.
+
+
+
 ## [1.14.9] - 2026-10-15
 
 Needs CSFF Mod Framework 2.28.5 or later.

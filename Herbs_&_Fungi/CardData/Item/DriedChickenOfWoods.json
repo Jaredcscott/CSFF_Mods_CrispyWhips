@@ -101,7 +101,9 @@
                 "TransformIntoWarpType": 3,
                 "SpawnTransformAtSource": false
             }
-        }
+        },
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3
     },
     "DismantleActions": [
         {

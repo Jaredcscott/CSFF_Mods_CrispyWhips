@@ -106,6 +106,10 @@
                 "TransformIntoWarpData": "herbs_fungi_pea_bread",
                 "TransformIntoWarpType": 3,
                 "TransferSpoilage": true,
+                "SpoilageTransferScale": {
+                    "Active": true,
+                    "FloatValue": 0.75
+                },
                 "ModifyDurability": true
             }
         }

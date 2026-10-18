@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_dried_ginger",
         "LocalizationKey": "herbsfungidriedginger_CardDescription",
-        "DefaultText": "Dried ginger root. More concentrated flavor and medicinal properties. Keeps indefinitely."
+        "DefaultText": "Dried ginger root. More concentrated flavor and medicinal properties. Keeps indefinitely. Eating it gives the vanilla Ginger status (Small Dose): Pain drops, Courage, Appetite and the immune system rise, for a few hours."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -592,6 +592,29 @@
                 "ModType": 3
             },
             "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5a8bc3ef47ca9484082a804d2e8decc0",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 16,
+                        "y": 16
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
                 {
                     "Stat": {
                         "m_FileID": 0,
