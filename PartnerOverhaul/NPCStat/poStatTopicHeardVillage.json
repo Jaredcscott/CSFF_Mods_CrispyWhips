@@ -1,0 +1,17 @@
+{
+    "UniqueID": "poStatTopicHeardVillage",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "PO heard-topic marker (Village): set to a season length when the Partner has talked about it, counts down to 0, hides the topic meanwhile"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 2880.0
+    },
+    "DefaultRate": -1.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

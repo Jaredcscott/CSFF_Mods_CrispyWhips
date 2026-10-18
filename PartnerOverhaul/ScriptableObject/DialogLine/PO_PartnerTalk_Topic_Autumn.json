@@ -1,0 +1,53 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Topic_Autumn_Line",
+        "DefaultText": "Everything is turning, and the air has a sharp edge to it. It feels like the forest is counting up what it kept."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            },
+            {
+                "TargetStatWarpData": "poStatTopicHeardAutumn",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 2880.0,
+                    "y": 2880.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Answer_More",
+                "DefaultText": "Talk about something else"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topics",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
+                "DefaultText": "Step back"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

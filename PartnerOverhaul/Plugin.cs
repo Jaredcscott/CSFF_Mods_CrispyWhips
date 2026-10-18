@@ -17,7 +17,7 @@ namespace PartnerOverhaul
     {
         private const string PluginGuid = "crispywhips.partner_overhaul";
         public const string PluginName = "PartnerOverhaul";
-        public const string PluginVersion = "1.1.3";
+        public const string PluginVersion = "1.1.4";
 
         internal new static BepInEx.Logging.ManualLogSource Logger;
         internal static Plugin Instance { get; private set; }
@@ -51,6 +51,12 @@ namespace PartnerOverhaul
         // 1.1.3: Hearth Fire Keeping and Warm Up moved from an always-on fix to this opt-in (vanilla's
         // Hearth carries no duties; it is the strongest vanilla fire). Default OFF.
         public static ConfigEntry<bool> PartnersTendTheHearth { get; private set; }
+        // 1.1.4 (PO-C6) - the Partner opens PO's talk scene by itself. Partner-started, so opt-in,
+        // default OFF (plan section 3.0, owner tile 4 A). Read at game load.
+        public static ConfigEntry<bool> PartnerStartsConversations { get; private set; }
+        // 1.1.4 (PO-C1) - the "Talk with <name>" answer in the Partner's Talk menu. Player-started and
+        // costs time like vanilla's Casual Talk, so default ON (plan section 3.0 opt-in rule).
+        public static ConfigEntry<bool> PartnerTalkAnswer { get; private set; }
 
         private void Awake()
         {
@@ -94,13 +100,13 @@ namespace PartnerOverhaul
                 "QoL (opt-in feature, not a bug fix)",
                 "Reserved Fuel/Wood UIDs",
                 "",
-                "Comma-separated CardData UniqueIDs a Partner should NEVER auto-select for Fire Keeping (e.g. to keep Wood for crafting and let it burn twigs instead). Scope: only an allied Partner's Fire Keeping duty (PartnerDuty_Firekeeping, on any fire that offers it, modded ones included); every other duty and every other NPC, wild animals included, still sees these items. No in-game UI for this yet: edit this config value directly.");
+                "Comma-separated CardData UniqueIDs a Partner should NEVER auto-select for Fire Keeping (e.g. to keep Wood for crafting and let it burn twigs instead; Charcoal, 51c751469bd15ce46804e399479d1764, can be listed too). Scope: only an allied Partner's Fire Keeping duty (PartnerDuty_Firekeeping, on any fire that offers it, modded ones included); every other duty and every other NPC, wild animals included, still sees these items. No in-game UI for this yet: edit this config value directly.");
 
             ConsolidateWounds = Config.Bind(
                 "QoL (opt-in feature, not a bug fix)",
                 "Consolidate Duplicate Wounds",
                 false,
-                "Makes combat LESS DANGEROUS: a combat round no longer adds a wound you already have equipped, so a repeat wound's pain, bleeding and infection no longer stack (vanilla gives every Minor Laceration its own Pain +100, Blood Loss +0.5 and Sepsis rate +10, and 28 of them can pile up). Vanilla spawns a fresh, independently-healing wound card every round with no dedup; the count is accurate, not a display bug, so removing it is a combat design change, not a bug fix. The hit's own damage, armor wear and the encounter log are unaffected. Confirmed in-game (2026-09-07).");
+                "Makes combat LESS DANGEROUS: a combat round no longer adds a wound you already have equipped, so a repeat wound's pain, bleeding and infection no longer stack (vanilla gives every Minor Laceration its own Pain +100, Blood Loss +0.5 and Sepsis rate +10, and 28 of them can pile up). Vanilla spawns a fresh, independently-healing wound card every round with no dedup; the count is accurate, not a display bug, so removing it is a combat design change, not a bug fix. The hit's own damage, armor wear and the encounter log are unaffected. Confirmed in-game (2026-09-07). Leave this false to choose per run instead: a game started with the character screen's Easy Mode toggle ticked consolidates wounds for that run only.");
 
             PartnersDrinkFromLakes = Config.Bind(
                 "QoL (opt-in feature, not a bug fix)",
@@ -118,7 +124,19 @@ namespace PartnerOverhaul
                 "QoL (opt-in feature, not a bug fix)",
                 "Partners Tend The Hearth",
                 false,
-                "Lets you mark a Hearth or a Hearth (Awakened) for Fire Keeping, so a Partner feeds it Firewood, fuel and Charcoal like a Campfire (the mark survives the fire dying), and lets a Partner Warm Up at it. Default OFF: vanilla gives the Hearth no Partner duties, and it is already the strongest fire in the game. Up to 1.1.2 this was always on. With it off, a Hearth mark already in a save does nothing and is not lost. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
+                "Lets you mark a Hearth or a Hearth (Awakened) for Fire Keeping, so a Partner feeds it Firewood, fuel and Charcoal like a Campfire (the mark survives the fire dying), and lets a Partner Warm Up at it. The Hearth only accepts a feed while its fuel is below 50% (a placeholder limit, tunable in a later version), which also applies to you; Campfires and Fireplaces are unchanged. Default OFF: vanilla gives the Hearth no Partner duties, and it is already the strongest fire in the game. Up to 1.1.2 this was always on. With it off, a Hearth mark already in a save does nothing and is not lost. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
+
+            PartnerStartsConversations = Config.Bind(
+                "QoL (opt-in feature, not a bug fix)",
+                "Partner Starts Conversations",
+                false,
+                "Lets your Partner start a short conversation with you by itself (the same talk as \"Talk with <name>\"), at most once a day, only while it is on your board and more likely in the morning. It never interrupts a ritual, and it stays quiet while it is hungry, cold, guarded, neglected, stressed or close to leaving, so the game's own requests always come first. Each line takes 15 minutes and gives no stats. Needs CSFFModFramework. Default OFF: vanilla's Partner never starts small talk. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
+
+            PartnerTalkAnswer = Config.Bind(
+                "Conversations",
+                "Talk With Your Partner",
+                true,
+                "Adds a \"Talk with <name>\" answer to your Partner's Talk menu that opens a short spoken conversation. Each line it says takes 15 minutes and, like Casual Talk, puts off the Partner's own next remark; it gives no stats. Needs CSFFModFramework, which loads the conversation: without it the Talk menu is exactly vanilla. Default ON because you choose to start it. Changing it needs a restart.");
 
             try { Patcher.GameLoadPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"GameLoadPatch failed: {ex}"); }
@@ -128,6 +146,9 @@ namespace PartnerOverhaul
 
             try { Patcher.DialogInterruptPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"DialogInterruptPatch failed: {ex}"); }
+
+            try { Patcher.PartnerNameInDialogPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartnerNameInDialogPatch failed: {ex}"); }
 
             try { Patcher.PartnerDiagnosticsPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"PartnerDiagnosticsPatch failed: {ex}"); }
@@ -150,11 +171,24 @@ namespace PartnerOverhaul
             try { Patcher.WoundStackingPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"WoundStackingPatch failed: {ex}"); }
 
+            try { Patcher.PartnerTalkAnswerPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartnerTalkAnswerPatch failed: {ex}"); }
+
+            try { Patcher.PartnerCmcTopicPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartnerCmcTopicPatch failed: {ex}"); }
+
+            try { Patcher.PartnerMemoryPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartnerMemoryPatch failed: {ex}"); }
+
+            try { Patcher.PartnerStartsTalkDutyPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartnerStartsTalkDutyPatch failed: {ex}"); }
+
             Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
         }
 
         private void OnDestroy()
         {
+            Patcher.PartnerMemoryPatch.Unsubscribe();
             _harmony?.UnpatchSelf();
         }
     }

@@ -18,6 +18,10 @@ namespace PartnerOverhaul.Patcher
     /// installed by replacing the one step in the Fire Keeping duty's ActionSequence, never by
     /// mutating the vanilla decision asset, which other duties may share. Step indices do not move,
     /// so a saved duty step stays valid with or without the mod.
+    ///
+    /// PO-N1 (1.1.4): the Charcoal alternative honours "Reserved Fuel/Wood UIDs" with the same
+    /// test ReserveAwareDecision uses, so a reserved Charcoal never opens the feed branch.
+    /// GameLoadPatch.GuardReservedFuelBranches still skips this subclass: the guard lives here.
     /// </summary>
     public class CharcoalFuelDecision : TakeSimpleDecisionDutyAction
     {
@@ -26,7 +30,7 @@ namespace PartnerOverhaul.Patcher
 
         private static bool _warnedEvaluate;
 
-        private bool Evaluate(InGameNPC npc)
+        private bool Evaluate(InGameNPC npc, NPCDuty duty)
         {
             try
             {
@@ -34,7 +38,14 @@ namespace PartnerOverhaul.Patcher
                 bool notInBase = gm != null && gm.NotInBase;
                 var fromCard = npc ? npc.AssociatedCard : null;
                 if (!Conditions.IsEmpty && Conditions.ConditionsValid(notInBase, fromCard, null, npc)) return true;
-                return !AlternativeConditions.IsEmpty && AlternativeConditions.ConditionsValid(notInBase, fromCard, null, npc);
+                if (AlternativeConditions.IsEmpty) return false;
+                // PO-N1: the alternative names Charcoal. When Charcoal is on the "Reserved Fuel/Wood
+                // UIDs" list the reserve filter empties the feed step's item list, so the branch is
+                // answered false here and the duty falls through (the T3.39 shape). Empty list: no change.
+                if (WoodReserveListPatch.AppliesTo(duty, npc && npc.AlliedWithPlayer)
+                    && ReserveAwareDecision.NamesReservedCard(AlternativeConditions, WoodReserveListPatch.IsReserved))
+                    return false;
+                return AlternativeConditions.ConditionsValid(notInBase, fromCard, null, npc);
             }
             catch (Exception ex)
             {
@@ -51,14 +62,15 @@ namespace PartnerOverhaul.Patcher
         public override IEnumerator StartDutyAction(InGameNPC _OnNPC)
         {
             // Vanilla's own body: set the outcome synchronously on the first MoveNext.
-            _OnNPC.CurrentDuty.SetDutyDecisionOutcome(Evaluate(_OnNPC) ? OnTrue : OnFalse);
+            var duty = _OnNPC ? _OnNPC.CurrentDuty.Duty : null;
+            _OnNPC.CurrentDuty.SetDutyDecisionOutcome(Evaluate(_OnNPC, duty) ? OnTrue : OnFalse);
             yield break;
         }
 
         public override bool CanBePerformed(InGameNPC _FromNPC, NPCDuty _FromDuty, bool _ActionStarted, int _FromStep)
         {
             if (!_FromNPC || !_FromDuty) return false;
-            var outcome = Evaluate(_FromNPC) ? OnTrue : OnFalse;
+            var outcome = Evaluate(_FromNPC, _FromDuty) ? OnTrue : OnFalse;
             // Mirrors vanilla's private CheckIfNextActionCanBePerformed.
             if (outcome.Outcome == DutyDecisionOutcomes.CancelDuty) return false;
             var next = _FromDuty.GetAction(outcome, _FromStep, out int nextStep);

@@ -1,0 +1,98 @@
+{
+    "UniqueID": "b6a4cc575cf9ddd41b321ec619db21fd",
+    "AgentStatsWarpData": [
+        {
+            "ModelStatWarpData": "poStatTopicHeardSpring",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardSummer",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardAutumn",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardWinter",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardMorning",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardNight",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardHome",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardGarden",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardHearth",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardSnow",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardRain",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardStorm",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardVillage",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatTopicHeardInn",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMemoryFight",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMemoryEscape",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMemoryBuild",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMemoryCatch",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMilestoneTrust",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMilestoneAffection",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMilestoneDay100",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMilestoneDay30",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatMilestoneDay7",
+            "ModelStatWarpType": 3
+        }
+    ],
+    "AgentStatsWarpType": 4
+}

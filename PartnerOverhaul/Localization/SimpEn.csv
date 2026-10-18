@@ -1,0 +1,100 @@
+PartnerOverhaul_Talk_Answer,Talk with your partner
+PartnerOverhaul_Talk_Answer_Named,Talk with {0}
+PartnerOverhaul_Talk_Start_Line,"It's good to just sit for a moment. Out here the days run together, and talking helps me keep track of them."
+PartnerOverhaul_Talk_Start_Answer_Day,How has your day been?
+PartnerOverhaul_Talk_Day_Line,"Much like most days. A little work, a lot of listening to the forest. There's always something moving out there, even when it seems quiet. It's better with someone to tell it to."
+PartnerOverhaul_Talk_Answer_StepBack,Step back
+PartnerOverhaul_Comfort_AtEase,Looks at ease.
+PartnerOverhaul_Talk_Answer_HoldingUp,How are you holding up?
+PartnerOverhaul_Talk_Mood_Cold_Line,"I'm cold, honestly. The chill has got into me. A fire, or something warm to wear, would help more than talk."
+PartnerOverhaul_Talk_Mood_Hungry_Line,"I'm hungry. It's hard to think about much else until I've eaten something."
+PartnerOverhaul_Talk_Mood_Tired_Line,"I'm worn out. I haven't had enough rest, and it's catching up with me."
+PartnerOverhaul_Talk_Mood_Stressed_Line,"I'm wound tight. Everything feels like it's pressing in. Just having you here to talk to takes the edge off."
+PartnerOverhaul_Talk_Mood_Neglected_Line,"I've missed you. It's been a while since we really spent time together, and it shows."
+PartnerOverhaul_Talk_Mood_Unhappy_Line,"I'm low, if I'm honest. It's been a heavy stretch. Thank you for asking."
+PartnerOverhaul_Talk_Mood_Happy_Line,"I'm good. Better than good, really. It feels like things are going our way."
+PartnerOverhaul_Talk_Mood_Plain_Line,"I'm doing fine, thanks. Nothing pressing. It's good to just sit for a moment and talk."
+PartnerOverhaul_Talk_Moods_Line,"(Router: never shown. Holds the mood weights the Talk answer copies.)"
+PartnerOverhaul_Talk_Start_Answer_Topics,Talk about...
+PartnerOverhaul_Talk_Topics_Line,We could talk about what's around us. What would you like to hear about?
+PartnerOverhaul_Talk_Topic_Answer_More,Talk about something else
+PartnerOverhaul_Talk_Topic_Spring_Answer,The spring
+PartnerOverhaul_Talk_Topic_Spring_Line,"The thaw always smells like something starting over. The ground is soft again, and everything wants to grow at once."
+PartnerOverhaul_Talk_Topic_Summer_Answer,The summer
+PartnerOverhaul_Talk_Topic_Summer_Line,"Long days, and the light hangs around late. It's good work weather, though I wouldn't say no to some shade."
+PartnerOverhaul_Talk_Topic_Autumn_Answer,The autumn
+PartnerOverhaul_Talk_Topic_Autumn_Line,"Everything is turning, and the air has a sharp edge to it. It feels like the forest is counting up what it kept."
+PartnerOverhaul_Talk_Topic_Winter_Answer,The winter
+PartnerOverhaul_Talk_Topic_Winter_Line,"The cold makes everything quiet. I don't mind it, as long as there's a fire and someone to share it with."
+PartnerOverhaul_Talk_Topic_Morning_Answer,The morning
+PartnerOverhaul_Talk_Topic_Morning_Line,"Mornings are my favorite. Everything is still damp and untouched, and the whole day is ahead of us."
+PartnerOverhaul_Talk_Topic_Night_Answer,The night
+PartnerOverhaul_Talk_Topic_Night_Line,"Nights out here are enormous. It's easier to talk in the dark, somehow. Things feel less urgent."
+PartnerOverhaul_Talk_Topic_Home_Answer,This home
+PartnerOverhaul_Talk_Topic_Home_Line,"It's strange how a few walls change everything. This feels like somewhere we belong, not somewhere we're passing through."
+PartnerOverhaul_Talk_Topic_Garden_Answer,The garden
+PartnerOverhaul_Talk_Topic_Garden_Line,I like checking on the garden. Watching something we planted push up through the soil feels like a promise kept.
+PartnerOverhaul_Talk_Topic_Hearth_Answer,The hearth
+PartnerOverhaul_Talk_Topic_Hearth_Line,"There's nothing like a fire burning in the hearth. The warmth gets into your bones, and the whole place feels alive."
+PartnerOverhaul_Talk_Topic_Snow_Answer,The snow
+PartnerOverhaul_Talk_Topic_Snow_Line,"Look at it come down. Everything goes soft and hushed, and for a moment the whole forest looks new."
+PartnerOverhaul_Talk_Voice_Cold_Reserved_Line,"Cold. A fire would help. Not much else to say about it."
+PartnerOverhaul_Talk_Voice_Cold_Anxious_Line,"I'm so cold, and I keep thinking it will only get worse out here. Could we sort out a fire? Please?"
+PartnerOverhaul_Talk_Voice_Cold_Warm_Line,"I'm a bit cold, but I'm glad you asked. Having you near helps. A fire would be lovely though."
+PartnerOverhaul_Talk_Voice_Cold_Assertive_Line,"I'm cold. Get a fire going or find me something warm to wear, and then we can talk properly."
+PartnerOverhaul_Talk_Voice_Hungry_Reserved_Line,"Hungry. I'd like to eat something. That's all."
+PartnerOverhaul_Talk_Voice_Hungry_Anxious_Line,"I'm hungry, and I can't stop wondering how long the food will last. Could we eat something soon?"
+PartnerOverhaul_Talk_Voice_Hungry_Warm_Line,"I'm hungry, but it's nice to be asked. Let's find something to share and eat together."
+PartnerOverhaul_Talk_Voice_Hungry_Assertive_Line,"I'm hungry. Let's eat first. I'll think better with something in me."
+PartnerOverhaul_Talk_Voice_Tired_Reserved_Line,"Tired. I haven't rested enough. I'll manage."
+PartnerOverhaul_Talk_Voice_Tired_Anxious_Line,"I'm so tired, and when I'm tired everything starts to feel like too much. I need to rest, I think."
+PartnerOverhaul_Talk_Voice_Tired_Warm_Line,"I'm worn out, but sitting here with you is a good way to end the day. A proper rest would be wonderful too."
+PartnerOverhaul_Talk_Voice_Tired_Assertive_Line,"I'm worn out. I need rest, so let's make that happen soon."
+PartnerOverhaul_Talk_Voice_Stressed_Reserved_Line,"Stressed. It's a lot right now. I'd rather not go into it, but your company helps."
+PartnerOverhaul_Talk_Voice_Stressed_Anxious_Line,"Everything is pressing in and I can't switch my head off. I'm sorry. Talking to you helps a little."
+PartnerOverhaul_Talk_Voice_Stressed_Warm_Line,"I'm stretched thin, truly. But you being here makes it easier to carry. Thank you for sitting with me."
+PartnerOverhaul_Talk_Voice_Stressed_Assertive_Line,"I'm wound tight and I won't pretend otherwise. Something has to change, and I'd like to work out what with you."
+PartnerOverhaul_Talk_Voice_Neglected_Reserved_Line,"It has been a while. I noticed. I'm glad you're here now."
+PartnerOverhaul_Talk_Voice_Neglected_Anxious_Line,"I've been wondering whether you've forgotten about me. It's been so long. Are we all right?"
+PartnerOverhaul_Talk_Voice_Neglected_Warm_Line,"I've missed you. It's good to have you here again. Let's not leave it so long next time."
+PartnerOverhaul_Talk_Voice_Neglected_Assertive_Line,"It's been too long since we spent time together. I want that to change. Stay a while."
+PartnerOverhaul_Talk_Voice_Unhappy_Reserved_Line,"Low. It's been a heavy stretch. Thank you for asking."
+PartnerOverhaul_Talk_Voice_Unhappy_Anxious_Line,"I'm not doing well. It feels like nothing will get better, and I don't know how to make it stop."
+PartnerOverhaul_Talk_Voice_Unhappy_Warm_Line,"I'm low, if I'm honest. It's been heavy. Thank you for asking. It means a great deal to me."
+PartnerOverhaul_Talk_Voice_Unhappy_Assertive_Line,"I'm low, and I'd rather say so than hide it. It's been a heavy stretch and I want it to lift."
+PartnerOverhaul_Talk_Voice_Happy_Reserved_Line,"I'm well. Better than usual. Quietly pleased, you could say."
+PartnerOverhaul_Talk_Voice_Happy_Anxious_Line,"I'm happy, actually. I keep waiting for something to go wrong, but for now it feels lovely."
+PartnerOverhaul_Talk_Voice_Happy_Warm_Line,"I'm happy, truly. Days like this, with you, are the ones I'll remember."
+PartnerOverhaul_Talk_Voice_Happy_Assertive_Line,"I'm in good spirits. Things are going our way, and I intend to keep it so."
+PartnerOverhaul_Talk_Voice_Plain_Reserved_Line,"Fine. Nothing pressing. It's nice to sit."
+PartnerOverhaul_Talk_Voice_Plain_Anxious_Line,"I'm fine, I think. Nothing wrong that I know of. Is something wrong with you, though?"
+PartnerOverhaul_Talk_Voice_Plain_Warm_Line,"I'm doing well, thank you for asking. It's good to sit here with you for a while."
+PartnerOverhaul_Talk_Voice_Plain_Assertive_Line,"I'm fine. Nothing pressing. Ask me whatever you like."
+PartnerOverhaul_Duty_StartTalk_Name,Make Small Talk
+PartnerOverhaul_Duty_StartTalk_Summary,Wants to talk with you.
+PartnerOverhaul_Talk_Memory_Fight_Line,"You held your ground back there. My hands are still shaking a little, but we're both still standing."
+PartnerOverhaul_Talk_Memory_Fight_Answer,That fight earlier
+PartnerOverhaul_Talk_Memory_Escape_Line,That was too close. I'm glad we ran when we did. There's no shame in getting home in one piece.
+PartnerOverhaul_Talk_Memory_Escape_Answer,Getting away earlier
+PartnerOverhaul_Talk_Memory_Build_Line,Look at what we put up today. Every time I walk past it I think: we made that.
+PartnerOverhaul_Talk_Memory_Build_Answer,What we built today
+PartnerOverhaul_Talk_Memory_Catch_Line,First fish of the day! I could almost smell supper the moment it came out of the water.
+PartnerOverhaul_Talk_Memory_Catch_Answer,Today's catch
+PartnerOverhaul_Talk_Milestone_Trust_Line,"I used to watch your hands whenever you came near. I don't anymore. I trust you, and I could not tell you the day that changed."
+PartnerOverhaul_Talk_Milestone_Affection_Line,"I caught myself smiling at nothing today, and then I knew it was not nothing. It was you being here."
+PartnerOverhaul_Talk_Milestone_Day100_Line,A hundred days. I stopped counting them as days a while ago. They are just ours now.
+PartnerOverhaul_Talk_Milestone_Day30_Line,"A month since I came to you. I did not think I would still be here, and I am glad that I am."
+PartnerOverhaul_Talk_Milestone_Day7_Line,It has been a week already. The first days felt long. This one went by before I noticed.
+PartnerOverhaul_Talk_Player_Pain_Line,"You're limping and trying not to show it. Sit down a while. Whatever needs doing can wait until you've caught your breath."
+PartnerOverhaul_Talk_Player_Blood_Line,"You're bleeding, and you keep working as if it were nothing. Please see to it before it gets worse."
+PartnerOverhaul_Talk_Player_Sepsis_Line,"You look gray and feverish, and that sickness has gone deep. Please don't push yourself any harder than you have to."
+PartnerOverhaul_Talk_Player_Hungry_Line,"You've gone too long without eating. I can hear your stomach from here. Eat something before you do anything else."
+PartnerOverhaul_Talk_Player_Cold_Line,"You're shivering, and your lips have gone pale. Get close to a fire before the cold settles in."
+PartnerOverhaul_Talk_Topic_Rain_Answer,The rain
+PartnerOverhaul_Talk_Topic_Rain_Line,"Listen to that. Rain on the roof, on the leaves, on everything, steady and soft. It makes even this place feel kept."
+PartnerOverhaul_Talk_Topic_Storm_Answer,The storm
+PartnerOverhaul_Talk_Topic_Storm_Line,"That sky looks furious. Rain like this, I would rather we stayed close, kept the fire in and waited for it to wear itself out."
+PartnerOverhaul_Talk_Topic_Village_Answer,The village
+PartnerOverhaul_Talk_Topic_Village_Line,"The village is quieter than I expected from out here. A little smoke from the chimneys, someone's washing on a line. It makes this place feel less alone."
+PartnerOverhaul_Talk_Topic_Inn_Answer,The Inn
+PartnerOverhaul_Talk_Topic_Inn_Line,"Busy at the Inn tonight. You can hear it through the walls, cups and laughter and somebody's old song. I had forgotten how good it is to hear people."

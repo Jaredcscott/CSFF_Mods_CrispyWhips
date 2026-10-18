@@ -97,6 +97,12 @@ namespace PartnerOverhaul.Patcher
         // is CurrentFuel / FuelCapacity.Max on a 0..1 scale, so 1.1.x's 90f (0..90) always passed.
         private const float GardenOverwaterGateFraction = 0.9f;
 
+        // Hearth and Hearth (Awakened) Feed CardInteractions only offer while the Hearth's fuel is
+        // below this FRACTION of its capacity (0..1 CurrentFuelPercent scale, same trap as above).
+        // PLACEHOLDER, TUNABLE (plan section 2, "Fire Keeping by fire tier"): armed only when
+        // Partners Tend The Hearth is true, and only on the Hearth cards, never Campfire/Fireplace.
+        private const float HearthFeedGateFraction = 0.5f;
+
         public static void ApplyPatch(Harmony harmony)
         {
             var targetType = AccessTools.TypeByName("GameLoad");
@@ -341,7 +347,8 @@ namespace PartnerOverhaul.Patcher
         // board no longer sends the duty into a feed branch the reserve filter empties (T3.39).
         // Only this duty's ActionSequence array changes, no step index moves, and nothing happens
         // when the option is empty (the default). Only exact TakeSimpleDecisionDutyAction steps are
-        // replaced: CharcoalFuelDecision (the tag-fuel step) is a subclass and is left alone.
+        // replaced: CharcoalFuelDecision (the tag-fuel step) is a subclass and is left alone
+        // here because it guards its own Charcoal alternative (PO-N1).
         private static void GuardReservedFuelBranches()
         {
             var raw = Plugin.ReservedFuelUIDs != null ? Plugin.ReservedFuelUIDs.Value : null;
@@ -415,6 +422,52 @@ namespace PartnerOverhaul.Patcher
                 try { MakeStatStatusesVisible(uid, label, visibleField); }
                 catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixPartnerStatVisibility failed for {label}: {ex}"); }
             }
+
+            try { AddComfortAtEaseStatus(visibleField); }
+            catch (Exception ex) { Logger.LogError($"[GameLoadPatch] AddComfortAtEaseStatus failed: {ex}"); }
+        }
+
+        // PO-N2: vanilla's Partner_Comfort bands skip 0 to 32, so a Partner there shows no status.
+        // Append one information-only status over that gap (no stat effect). Idempotent: skipped
+        // when a status already carries our LocalizationKey.
+        private const string ComfortAtEaseKey = "PartnerOverhaul_Comfort_AtEase";
+        private const string ComfortAtEaseText = "Looks at ease.";
+
+        private static void AddComfortAtEaseStatus(FieldInfo visibleField)
+        {
+            var stat = UniqueIDScriptable.GetFromID<NPCStat>(PartnerComfortUid);
+            if (stat == null) { Logger.LogWarning("[GameLoadPatch] Partner_Comfort not resolvable - skipping at-ease status."); return; }
+            if (stat.Statuses == null) { Logger.LogWarning("[GameLoadPatch] Partner_Comfort has no Statuses - skipping at-ease status."); return; }
+
+            foreach (var existing in stat.Statuses)
+            {
+                if (existing != null && existing.GameName.LocalizationKey == ComfortAtEaseKey)
+                {
+                    Logger.LogDebug("[GameLoadPatch] Partner_Comfort at-ease status already present - skipping (idempotent).");
+                    return;
+                }
+            }
+
+            var status = new NPCStatStatus
+            {
+                GameName = new LocalizedString { ParentObjectID = PartnerComfortUid, LocalizationKey = ComfortAtEaseKey, DefaultText = ComfortAtEaseText },
+                ShowInMainTab = true,
+                Priority = 0,
+                ValueRange = new Vector2Int(0, 32),
+                UsePercentageForRange = false,
+                EffectsOnStats = new StatModifier[0],
+                EffectsOnNPCStats = new NPCStatPassiveModifierEffect[0],
+                EffectsOnNPCStatModifiers = new NPCStatDutyScaler[0],
+                DeleteThisAgent = false,
+                DeleteAgentMessage = new OptionalLocalizedStringValue(false, default(LocalizedString)),
+            };
+            visibleField.SetValue(status, true);
+
+            var grown = new NPCStatStatus[stat.Statuses.Length + 1];
+            Array.Copy(stat.Statuses, grown, stat.Statuses.Length);
+            grown[grown.Length - 1] = status;
+            stat.Statuses = grown;
+            Logger.LogInfo("[GameLoadPatch] Partner_Comfort: added the 0 to 32 'Looks at ease.' status (information only).");
         }
 
         private static void MakeStatStatusesVisible(string uid, string label, FieldInfo visibleField)
@@ -494,6 +547,14 @@ namespace PartnerOverhaul.Patcher
                         AppendDutyRefIfMissing(target, firekeeping, "PartnerDuty_Firekeeping", where);
                         MirrorActionTags(target, reference, where);
                         if (row.ExtraP3 && partnerAction3 != null) AppendActionTagIfMissing(target, partnerAction3, "PartnerAction3", where);
+                        // Feed only while the Hearth's own fuel is below the threshold (0..1 scale).
+                        if (target.RequiredReceivingDurabilities.RequiredFuelPercent)
+                            Logger.LogDebug($"[GameLoadPatch] {where} already fuel-gated - skipping (idempotent).");
+                        else
+                        {
+                            target.RequiredReceivingDurabilities.RequiredFuelPercent.SetActiveWithValue(new Vector2(0f, HearthFeedGateFraction));
+                            Logger.LogInfo($"[GameLoadPatch] {where}: armed RequiredFuelPercent gate (0-{HearthFeedGateFraction * 100f:0}% fuel).");
+                        }
                     }
 
                     var warmTarget = ActionAt(card.DismantleActions, warmUpDa, "Warm Up", label);

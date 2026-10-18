@@ -1,0 +1,10 @@
+{
+    "UniqueID": "33c2b227107e39545b41137f8d094133",
+    "AddedNPCStatsWarpData": [
+        {
+            "ModelStatWarpData": "poStatVoiceWarm",
+            "ModelStatWarpType": 3
+        }
+    ],
+    "AddedNPCStatsWarpType": 4
+}

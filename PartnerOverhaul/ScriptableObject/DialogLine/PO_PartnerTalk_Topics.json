@@ -1,0 +1,745 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Topics_Line",
+        "DefaultText": "We could talk about what's around us. What would you like to hear about?"
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 3,
+                        "SeasonValue": {
+                            "MaskValue": 1
+                        }
+                    }
+                ],
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardSpring",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Spring_Answer",
+                "DefaultText": "The spring"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Spring",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 3,
+                        "SeasonValue": {
+                            "MaskValue": 2
+                        }
+                    }
+                ],
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardSummer",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Summer_Answer",
+                "DefaultText": "The summer"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Summer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 3,
+                        "SeasonValue": {
+                            "MaskValue": 4
+                        }
+                    }
+                ],
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardAutumn",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Autumn_Answer",
+                "DefaultText": "The autumn"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Autumn",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 3,
+                        "SeasonValue": {
+                            "MaskValue": 8
+                        }
+                    }
+                ],
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardWinter",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Winter_Answer",
+                "DefaultText": "The winter"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Winter",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 2,
+                        "MomentOfDayValue": {
+                            "MaskValue": 3
+                        }
+                    }
+                ],
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardMorning",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Morning_Answer",
+                "DefaultText": "The morning"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Morning",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {
+                        "TimeType": 2,
+                        "MomentOfDayValue": {
+                            "MaskValue": 224
+                        }
+                    }
+                ],
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardNight",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Night_Answer",
+                "DefaultText": "The night"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Night",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "73cc0442edacf1e4f8cb5a5ee66bf7a9",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardHome",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Home_Answer",
+                "DefaultText": "This home"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Home",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "b60b06a6405702a45bf2e3985e76d213",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardHome",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Home_Answer",
+                "DefaultText": "This home"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Home",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "193f3be30d3891547a95d0d7e8539ccb",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardHome",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Home_Answer",
+                "DefaultText": "This home"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Home",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "3f89d243941334e4a8e07f953fd4ddd5",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardHome",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Home_Answer",
+                "DefaultText": "This home"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Home",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "f853a0a8ad6c64c4b81eabb8367c0c5c"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardGarden",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Garden_Answer",
+                "DefaultText": "The garden"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Garden",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredComplexCardConditions": [
+                    {
+                        "Scope": 0,
+                        "CardWarpData": "e6cc2a4d002a46745abc87aac39680b6",
+                        "CardWarpType": 3,
+                        "IgnoreLiquid": true,
+                        "IgnoreContainer": true,
+                        "UseDurabilities": true,
+                        "CardDurabilities": {
+                            "FuelRange": {
+                                "x": 1.0,
+                                "y": 1.0
+                            }
+                        }
+                    }
+                ],
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardHearth",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Hearth_Answer",
+                "DefaultText": "The hearth"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Hearth",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "ffb984b763c267d4fab15ed30e759254"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardSnow",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Snow_Answer",
+                "DefaultText": "The snow"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Snow",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "71e3cdf49de6e3d4dbfb135e6bd66a77"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardSnow",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Snow_Answer",
+                "DefaultText": "The snow"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Snow",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "98770b605d219a444a914de7d46458b2"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardSnow",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Snow_Answer",
+                "DefaultText": "The snow"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Snow",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "d7483678feb08fb46ac00e871daaf17c"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardSnow",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Snow_Answer",
+                "DefaultText": "The snow"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Snow",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "30c49a756fe637542afc6941c42cbc79"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardRain",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Rain_Answer",
+                "DefaultText": "The rain"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Rain",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "95baf593a469ff54c97b426526a09715"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardRain",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Rain_Answer",
+                "DefaultText": "The rain"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Rain",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "d149e2ac01681a34da0d1bbb3a5b63f3"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardRain",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Rain_Answer",
+                "DefaultText": "The rain"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Rain",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "46baf2cf3f0d77340979b7b46332e467"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardStorm",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Storm_Answer",
+                "DefaultText": "The storm"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Storm",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "893164a371c87144eae67456aeffa8a9"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatTopicHeardStorm",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Topic_Storm_Answer",
+                "DefaultText": "The storm"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topic_Storm",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatMemoryFight",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 96.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Memory_Fight_Answer",
+                "DefaultText": "That fight earlier"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Memory_Fight",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatMemoryEscape",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 96.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Memory_Escape_Answer",
+                "DefaultText": "Getting away earlier"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Memory_Escape",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatMemoryBuild",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 96.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Memory_Build_Answer",
+                "DefaultText": "What we built today"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Memory_Build",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "poStatMemoryCatch",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 96.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Memory_Catch_Answer",
+                "DefaultText": "Today's catch"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Memory_Catch",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
+                "DefaultText": "Step back"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

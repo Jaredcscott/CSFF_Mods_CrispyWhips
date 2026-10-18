@@ -25,6 +25,12 @@
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ModInfo.json')" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
+        <!-- 1.1.4 (PO-C1): framework-loaded dialog SOs and the mod's first CSV -->
+        <Content Include="ScriptableObject\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="ScriptableObject\%(RecursiveDir)%(Filename)%(Extension)" />
+        <!-- 1.1.4 (PO-C4): heard-topic marker NPCStats and their Agent_Partner registration -->
+        <Content Include="NPCStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCStat\%(Filename)%(Extension)" Condition="Exists('NPCStat')" />
+        <Content Include="GameSourceModify\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameSourceModify\%(Filename)%(Extension)" Condition="Exists('GameSourceModify')" />
+        <Content Include="Localization\*.csv" CopyToOutputDirectory="PreserveNewest" Link="Localization\%(Filename)%(Extension)" />
     </ItemGroup>
 
     <ItemGroup>
@@ -66,6 +72,9 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.AudioModule" HintPath="lib\UnityEngine.AudioModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro" HintPath="lib\Unity.TextMeshPro.dll">
             <Private>False</Private>
         </Reference>
     </ItemGroup>

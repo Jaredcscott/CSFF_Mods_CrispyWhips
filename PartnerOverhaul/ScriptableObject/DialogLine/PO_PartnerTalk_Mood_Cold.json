@@ -1,0 +1,44 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Mood_Cold_Line",
+        "DefaultText": "I'm cold, honestly. The chill has got into me. A fire, or something warm to wear, would help more than talk."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Start_Answer_Day",
+                "DefaultText": "How has your day been?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Day",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
+                "DefaultText": "Step back"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

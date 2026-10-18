@@ -1,0 +1,17 @@
+{
+    "UniqueID": "poStatMilestoneDay7",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "PO milestone latch (Day7): 0 until the Partner has said the milestone line, then 1 for good (clamped marker, never a counter)"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

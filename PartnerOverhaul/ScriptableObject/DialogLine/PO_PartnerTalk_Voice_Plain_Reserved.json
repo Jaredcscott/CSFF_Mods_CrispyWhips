@@ -1,0 +1,250 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Voice_Plain_Reserved_Line",
+        "DefaultText": "Fine. Nothing pressing. It's nice to sit."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24,
+                    "y": 24
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Start_Answer_Day",
+                "DefaultText": "How has your day been?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Day",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_HoldingUp",
+                "DefaultText": "How are you holding up?"
+            },
+            "UseWeightsForNextStep": true,
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Mood_Plain",
+                "NextLineWarpType": 3
+            },
+            "NextStepsWithWeights": [
+                {
+                    "Line": {
+                        "NextStep": 0,
+                        "NextLineWarpData": "PO_PartnerTalk_Mood_Cold",
+                        "NextLineWarpType": 3
+                    },
+                    "Weights": {
+                        "BaseWeight": 80,
+                        "AgentStatsWeightModifiers": [
+                            {
+                                "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                                "StatWarpType": 3,
+                                "UseAssociatedAgent": true,
+                                "StatRange": {
+                                    "x": 1,
+                                    "y": 50
+                                },
+                                "InterpWeightRange": {
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "WhenOutOfRange": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Line": {
+                        "NextStep": 0,
+                        "NextLineWarpData": "PO_PartnerTalk_Mood_Hungry",
+                        "NextLineWarpType": 3
+                    },
+                    "Weights": {
+                        "BaseWeight": 70,
+                        "AgentStatsWeightModifiers": [
+                            {
+                                "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                                "StatWarpType": 3,
+                                "UseAssociatedAgent": true,
+                                "StatRange": {
+                                    "x": 0,
+                                    "y": 70
+                                },
+                                "InterpWeightRange": {
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "WhenOutOfRange": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Line": {
+                        "NextStep": 0,
+                        "NextLineWarpData": "PO_PartnerTalk_Mood_Tired",
+                        "NextLineWarpType": 3
+                    },
+                    "Weights": {
+                        "BaseWeight": 60,
+                        "AgentStatsWeightModifiers": [
+                            {
+                                "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                                "StatWarpType": 3,
+                                "UseAssociatedAgent": true,
+                                "StatRange": {
+                                    "x": 0,
+                                    "y": 40
+                                },
+                                "InterpWeightRange": {
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "WhenOutOfRange": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Line": {
+                        "NextStep": 0,
+                        "NextLineWarpData": "PO_PartnerTalk_Mood_Stressed",
+                        "NextLineWarpType": 3
+                    },
+                    "Weights": {
+                        "BaseWeight": 50,
+                        "AgentStatsWeightModifiers": [
+                            {
+                                "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                                "StatWarpType": 3,
+                                "UseAssociatedAgent": true,
+                                "StatRange": {
+                                    "x": 145,
+                                    "y": 240
+                                },
+                                "InterpWeightRange": {
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "WhenOutOfRange": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Line": {
+                        "NextStep": 0,
+                        "NextLineWarpData": "PO_PartnerTalk_Mood_Neglected",
+                        "NextLineWarpType": 3
+                    },
+                    "Weights": {
+                        "BaseWeight": 40,
+                        "AgentStatsWeightModifiers": [
+                            {
+                                "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                                "StatWarpType": 3,
+                                "UseAssociatedAgent": true,
+                                "StatRange": {
+                                    "x": 0,
+                                    "y": 90
+                                },
+                                "InterpWeightRange": {
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "WhenOutOfRange": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Line": {
+                        "NextStep": 0,
+                        "NextLineWarpData": "PO_PartnerTalk_Mood_Unhappy",
+                        "NextLineWarpType": 3
+                    },
+                    "Weights": {
+                        "BaseWeight": 30,
+                        "AgentStatsWeightModifiers": [
+                            {
+                                "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                                "StatWarpType": 3,
+                                "UseAssociatedAgent": true,
+                                "StatRange": {
+                                    "x": -350,
+                                    "y": -101
+                                },
+                                "InterpWeightRange": {
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "WhenOutOfRange": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Line": {
+                        "NextStep": 0,
+                        "NextLineWarpData": "PO_PartnerTalk_Mood_Happy",
+                        "NextLineWarpType": 3
+                    },
+                    "Weights": {
+                        "BaseWeight": 20,
+                        "AgentStatsWeightModifiers": [
+                            {
+                                "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                                "StatWarpType": 3,
+                                "UseAssociatedAgent": true,
+                                "StatRange": {
+                                    "x": 101,
+                                    "y": 350
+                                },
+                                "InterpWeightRange": {
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "WhenOutOfRange": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Line": {
+                        "NextStep": 0,
+                        "NextLineWarpData": "PO_PartnerTalk_Mood_Plain",
+                        "NextLineWarpType": 3
+                    },
+                    "Weights": {
+                        "BaseWeight": 10
+                    }
+                }
+            ]
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
+                "DefaultText": "Step back"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

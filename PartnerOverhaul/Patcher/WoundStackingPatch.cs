@@ -51,8 +51,30 @@ namespace PartnerOverhaul.Patcher
         // armor-model list4.Add) are hundreds of instructions away from any DroppedCards load.
         private const int MarkerLookbackWindow = 12;
 
+        // ── Easy Mode preset (plan section 2, wound preset row; 1.1.4) ──────────────────────
+        // Vanilla's character screen has an "Easy Mode" toggle that adds the selected character's
+        // EasyPackage to the run's GameManager.CurrentModifierPackages (.decomp/MainMenu.cs
+        // OnEasyPackageValueChanged / StartGame). Every vanilla character points it at this one
+        // package, which is EMPTY on EA 0.69c, so the toggle has no vanilla effect. Its presence in
+        // THIS run's package list switches the wound dedup on for this run only, alongside the
+        // config entry (whose default stays false).
+        internal const string VanillaEasyModePackageUid = "98c493b5cf9df4449a845c647b175bf2";
+
+        // Per-run latch: reset and re-decided in every GameManager.Awake (new game or load).
+        private static bool _runEasyModePreset;
+
+        /// <summary>True when the dedup should run: the config entry is on, or this run is Easy Mode.</summary>
+        public static bool ConsolidationOn
+            => (Plugin.ConsolidateWounds != null && Plugin.ConsolidateWounds.Value) || _runEasyModePreset;
+
         public static void ApplyPatch(Harmony harmony)
         {
+            var awake = AccessTools.Method(typeof(GameManager), "Awake");
+            if (awake == null)
+                Logger.LogError("[WoundStackingPatch] GameManager.Awake not found - the Easy Mode wound preset is inactive (the config entry still works).");
+            else
+                harmony.Patch(awake, postfix: new HarmonyMethod(typeof(WoundStackingPatch), nameof(GameManagerAwake_Postfix)));
+
             var target = AccessTools.Method(typeof(EncounterPopup), "GenerateAndApplyPlayerWound");
             if (target == null)
             {
@@ -130,7 +152,7 @@ namespace PartnerOverhaul.Patcher
         {
             try
             {
-                if (Plugin.ConsolidateWounds != null && Plugin.ConsolidateWounds.Value
+                if (ConsolidationOn
                     && _Card != null && IsWoundAlreadyPresent(_List, _Card))
                 {
                     // Per-event, fires on every suppressed wound: Debug, not Info.
@@ -206,6 +228,64 @@ namespace PartnerOverhaul.Patcher
             _warnedScreenUnavailable = true;
             Logger.LogDebug("[WoundStacking] ConsolidateWounds is ON but the character screen / equipment "
                 + "slots are not resolvable at wound time - dedup is inactive this event (vanilla stacking).");
+        }
+
+        // Runs after the whole of GameManager.Awake, so vanilla has already rebuilt
+        // CurrentModifierPackages from a loaded save (near .decomp/GameManager.cs:2610) or kept the
+        // fresh list MainMenu.StartGame built for a new game.
+        private static void GameManagerAwake_Postfix(GameManager __instance)
+        {
+            _runEasyModePreset = false;
+            try
+            {
+                if (__instance == null) return;
+                var save = __instance.CurrentSaveData;
+                var packages = GameManager.CurrentModifierPackages;
+
+                // Vanilla leak: Awake rebuilds the static list only when the loaded save HAS packages,
+                // so a save that started with none keeps the PREVIOUS run's list (same process), and
+                // the save writer (.decomp/GameLoad.cs near 673) then writes it into this save. Clear
+                // it so an Easy Mode run never spreads to the next save loaded in the session.
+                if (save != null && save.HasCardsData
+                    && (save.ModifierPackages == null || save.ModifierPackages.Count == 0)
+                    && packages != null && packages.Count > 0)
+                {
+                    Logger.LogInfo($"[WoundStacking] Cleared {packages.Count} modifier package(s) left over from an earlier run; this save started with none.");
+                    packages.Clear();
+                }
+
+                if (packages == null) return;
+                var character = __instance.CurrentPlayerCharacter;
+                for (int i = 0; i < packages.Count; i++)
+                {
+                    if (IsEasyModePackage(packages[i], character))
+                    {
+                        _runEasyModePreset = true;
+                        break;
+                    }
+                }
+
+                if (_runEasyModePreset)
+                    Logger.LogInfo("[WoundStacking] Easy Mode run: duplicate wounds are consolidated this run.");
+            }
+            catch (Exception ex)
+            {
+                // Breadcrumb (root CLAUDE.md section Silent Catch Blocks): the latch stays false, so a
+                // failure here can only leave vanilla wound stacking in place, never add the dedup.
+                Logger.LogWarning($"[WoundStackingPatch] Easy Mode preset check failed: {ex}");
+            }
+        }
+
+        /// <summary>
+        /// True for vanilla's Easy Mode package, or for the run character's own EasyPackage (a modded
+        /// character may point its Easy Mode toggle at a package of its own).
+        /// </summary>
+        internal static bool IsEasyModePackage(GameModifierPackage _Package, PlayerCharacter _Character)
+        {
+            if (_Package == null) return false;
+            if (_Package.UniqueID == VanillaEasyModePackageUid) return true;
+            return _Character != null && _Character.EasyPackage != null
+                && ReferenceEquals(_Package, _Character.EasyPackage);
         }
 
         private static bool IsSameWound(CardData _A, CardData _B)

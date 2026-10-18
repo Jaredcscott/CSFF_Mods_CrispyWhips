@@ -1,0 +1,17 @@
+{
+    "UniqueID": "poStatVoiceReserved",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "PO personality voice marker (Reserved): 1 on a Partner holding Introvert or Reserved or Independent, added by that perk's AddedNPCStats, absent otherwise; selects the reserved wording of the mood openers"
+    },
+    "DefaultStartingValue": 1.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}
