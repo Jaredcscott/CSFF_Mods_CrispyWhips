@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_SagoPith_CardDescription",
-    "DefaultText": "Pale, fibrous starch scraped from inside a sago palm's trunk. Eaten raw it is bland and heavy, but it fills an empty belly."
+    "DefaultText": "Pale, fibrous starch scraped from inside a sago palm's trunk. Eaten raw it is bland and heavy, but it fills an empty belly. Dried on a rack it keeps, and can be soaked into a dough."
   },
   "CardImageWarpData": "FT_SagoPith",
   "CardImageWarpType": 3,
@@ -15,7 +15,8 @@
   "MaxStack": 8,
   "CardTagsWarpData": [
     "tag_HumanFood",
-    "tag_Plateable"
+    "tag_Plateable",
+    "tag_Dryable"
   ],
   "CardTagsWarpType": 3,
   "SpoilageTime": {
@@ -231,5 +232,29 @@
         "ModType": 3
       }
     }
-  ]
+  ],
+  "UsageDurability": {
+    "Active": true,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SagoPith_Drying",
+      "DefaultText": "Drying"
+    },
+    "MaxValue": 24.0,
+    "OverrideIconWarpData": "Drying",
+    "OverrideIconWarpType": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SagoPith_Dried",
+        "DefaultText": "The sago pith has dried hard and pale."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_sago_pith_dried",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "ModifyDurability": true
+      }
+    }
+  }
 }

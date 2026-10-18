@@ -117,7 +117,7 @@ Far_Territory_BoulderShore_DA_Forage_Desc,"Pick over the rocks and pools for she
 Far_Territory_BoulderShore_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得捡的东西
 Far_Territory_Env_RootwaterThicket_CardName,Rootwater Thicket,根水丛林
 Far_Territory_RootwaterThicket_CardName,Rootwater Thicket,根水丛林
-Far_Territory_RootwaterThicket_CardDescription,"A drowned wood of stilt-rooted trees standing in brown, brackish water. Crabs scuttle over the mud between the roots, and the sea seeps in and out beneath the canopy.",一片被淹没的树林，长着高跷般支根的树木立在褐色的咸淡水中。螃蟹在根间的泥滩上爬来爬去，海水在树冠下渗进渗出。
+Far_Territory_RootwaterThicket_CardDescription,"A drowned wood of stilt-rooted trees standing in brown, brackish water. Crabs scuttle over the mud between the roots, and the sea seeps in and out beneath the canopy. Mosquitoes breed in the still water, thickest in summer, and their bites can bring on swamp fever.",一片被淹没的树林，长着高跷般支根的树木立在褐色的咸淡水中。螃蟹在根间的泥滩上爬来爬去，海水在树冠下渗进渗出。静水中滋生着蚊子，夏季最密，被叮咬可能引发沼泽热。
 Far_Territory_RootwaterThicket_Gleanings,Gleanings,拾获物
 Far_Territory_RootwaterThicket_DA_Forage,Forage,觅食
 Far_Territory_RootwaterThicket_DA_Forage_Desc,"Wade among the roots for crabs, sticks and the weed the tide leaves hanging in them.",在树根间涉水寻找螃蟹、树枝以及潮水挂在根上的海藻。
@@ -272,7 +272,7 @@ Far_Territory_EastgrassPlain_DA_Forage_Desc,"Walk the grass for fibres, stones a
 Far_Territory_EastgrassPlain_DA_Forage_Fail,Nothing worth picking up yet,暂时没有值得拾取的东西
 Far_Territory_Env_EastgrassPlain_CardName,Eastgrass Plain,东草平原
 Far_Territory_ReedMarsh_CardName,Reed Marsh,芦苇沼泽
-Far_Territory_ReedMarsh_CardDescription,"Low ground of standing water, black mud and tall reeds. The air hums with insects, and the way south goes deeper into the trees. A broken rock face rises to the east.",一片低洼地，积水、黑泥和高高的芦苇遍布其间。空气中满是虫鸣，往南则深入林中。东边耸立着一面破碎的岩壁。
+Far_Territory_ReedMarsh_CardDescription,"Low ground of standing water, black mud and tall reeds. The air hums with insects, and the way south goes deeper into the trees. A broken rock face rises to the east. The mosquitoes are worst in summer, and their bites can bring on swamp fever.",一片低洼地，积水、黑泥和高高的芦苇遍布其间。空气中满是虫鸣，往南则深入林中。东边耸立着一面破碎的岩壁。蚊子在夏季最为猖獗，被叮咬可能引发沼泽热。
 Far_Territory_ReedMarsh_Gleanings,Gleanings,拾遗
 Far_Territory_ReedMarsh_DA_Forage,Forage,觅食
 Far_Territory_ReedMarsh_DA_Forage_Desc,"Wade the edges for mud, reed fibres and sticks.",沿着沼泽边缘涉水，寻找泥巴、芦苇纤维和树枝。
@@ -364,7 +364,7 @@ Far_Territory_CoconutMeat_Spoiled,The coconut meat has spoiled.,椰肉已经变�
 Far_Territory_CoconutMeat_DA_Eat,Eat,吃掉
 Far_Territory_CoconutMeat_DA_Eat_Desc,Eat the coconut meat raw.,生吃椰肉。
 Far_Territory_CoconutMeat_CardName,Coconut Meat,椰肉
-Far_Territory_CoconutMeat_CardDescription,"White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy.",从敲开的椰子里取出的果肉，洁白、紧实、富含油脂。生吃就很顶饱，还能提供不少体力。
+Far_Territory_CoconutMeat_CardDescription,"White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy. Boiled in a pot of hot water it goes into the stew.",从敲开的椰子里取出的果肉，洁白、紧实、富含油脂。生吃就很顶饱，还能提供不少体力。放进一锅热水里煮，就成了炖菜的料。
 Far_Territory_CoconutShellBowl_CardName,Coconut Shell Bowl,椰壳碗
 Far_Territory_CoconutShellBowl_CardDescription,"Half a coconut shell, smoothed inside. It holds a drink, which slowly dries off if left standing.",半个椰壳，内侧已经磨光。可以盛饮品，放久了会慢慢蒸发。
 Far_Territory_PalmFrond_FuelCapacity,Fuel,燃料
@@ -1028,7 +1028,7 @@ Far_Territory_NipaFruitGarden_DA_Harvest_Desc,Gather the crop. The plant stays i
 Far_Territory_NipaFruitGarden_DA_Uproot,Uproot,拔除
 Far_Territory_NipaFruitGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
 Far_Territory_Yam_CardName,Yam,山药
-Far_Territory_Yam_CardDescription,"A long, earthy wild yam root. Eaten raw it is starchy, filling and dull. Set one in a garden plot and it sprouts.",一根细长、带着泥土气息的野山药块根。生吃粉糯顶饱，但味道寡淡。种进菜园就会发芽。
+Far_Territory_Yam_CardDescription,"A long, earthy wild yam root. Eaten raw it is starchy, filling and dull. Set one in a garden plot and it sprouts, or bake it by a fire until it turns soft and sweet.",一根细长、带着泥土气息的野山药块根。生吃粉糯顶饱，但味道寡淡。种进菜园就会发芽，放在火边烤熟则软糯香甜。
 Far_Territory_Yam_Spoilage,Spoilage,变质
 Far_Territory_Yam_Spoiled,The yam has spoiled.,山药已经变质了。
 Far_Territory_Yam_Planting,Planting,种植
@@ -1054,7 +1054,7 @@ Far_Territory_YamGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.,�
 Far_Territory_YamGarden_DA_Uproot,Uproot,拔除
 Far_Territory_YamGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.,将植株拔起丢弃，不会获得任何东西。
 Far_Territory_SagoPith_CardName,Sago Pith,西米髓
-Far_Territory_SagoPith_CardDescription,"Pale, fibrous starch scraped from inside a sago palm's trunk. Eaten raw it is bland and heavy, but it fills an empty belly.",从西米棕榈树干里刮出的淡色纤维状淀粉。生吃寡淡又难消化，但能填饱空空的肚子。
+Far_Territory_SagoPith_CardDescription,"Pale, fibrous starch scraped from inside a sago palm's trunk. Eaten raw it is bland and heavy, but it fills an empty belly. Dried on a rack it keeps, and can be soaked into a dough.",从西米棕榈树干里刮出的淡色纤维状淀粉。生吃寡淡又难消化，但能填饱空空的肚子。放在晾架上晾干就能久存，还能浸泡成面团。
 Far_Territory_SagoPith_Spoilage,Spoilage,变质
 Far_Territory_SagoPith_Spoiled,The sago pith has spoiled.,西米髓已经变质了。
 Far_Territory_SagoPith_DA_Eat,Eat,吃掉
@@ -1168,13 +1168,13 @@ Far_Territory_CoffeeBush_DA_Pick,Pick Coffee Berries,采摘咖啡果
 Far_Territory_CoffeeBush_DA_Pick_Desc,Pick the red berries. Takes about fifteen minutes.,摘下红色的浆果。大约需要十五分钟。
 Far_Territory_CoffeeBush_DA_Pick_Fail,No berry is ripe on this bush yet,这丛灌木上还没有成熟的浆果
 Far_Territory_Ginger_CardName,Ginger Root,姜根
-Far_Territory_Ginger_CardDescription,"A knobbly root with pale, fiery flesh. Chewed raw it settles a queasy stomach for a few hours and dulls aches a little. A strong, pungent spice. Set one in a garden plot and it sprouts.",一块多节的根茎，淡色的姜肉辛辣如火。生嚼可以平复恶心的肠胃几个小时，并稍稍缓解疼痛。一种浓烈辛辣的香料。种进菜园就会发芽。
+Far_Territory_Ginger_CardDescription,"A knobbly root with pale, fiery flesh. Chewed raw it settles a queasy stomach and dulls aches for a few hours. A strong, pungent spice. Set one in a garden plot and it sprouts.",一块多节的根茎，淡色的姜肉辛辣如火。生嚼可以平复恶心的肠胃几个小时，并稍稍缓解疼痛。一种浓烈辛辣的香料。种进菜园就会发芽。
 Far_Territory_Ginger_Spoilage,Spoilage,变质
 Far_Territory_Ginger_Spoiled,The ginger root has spoiled.,姜根已经变质了。
 Far_Territory_Ginger_Planting,Planting,种植
 Far_Territory_Ginger_Planted,The ginger root has taken root in the garden plot.,姜根已在菜园中扎根。
 Far_Territory_Ginger_DA_Chew,Chew,咀嚼
-Far_Territory_Ginger_DA_Chew_Desc,"Chew the raw root. Hot and sharp, it settles the stomach for a few hours (Ginger Warmth).",嚼食生姜根。又辣又冲，能平复肠胃几个小时（姜之暖意）。
+Far_Territory_Ginger_DA_Chew_Desc,"Chew the raw root. Hot and sharp, it settles the stomach and dulls aches for a few hours (Ginger).",嚼食生姜根。又辣又冲，能平复肠胃几个小时（姜之暖意）。
 Far_Territory_KavaRoot_CardName,Kava Root,卡瓦根
 Far_Territory_KavaRoot_CardDescription,"A thick, woody root with an earthy, peppery bite. Chewed raw it numbs the mouth, eases worry and dulls aches for a few hours; too much leaves you drowsy. Set one in a garden plot and it sprouts.",一截粗壮的木质根，带着泥土气和胡椒般的辛辣。生嚼会让嘴里发麻，几个小时内缓解忧虑、减轻疼痛；嚼多了会让人昏昏欲睡。种进菜园就会发芽。
 Far_Territory_KavaRoot_Spoilage,Spoilage,变质
@@ -1204,7 +1204,7 @@ Far_Territory_JasmineFlowers_CardDescription,"A handful of small white flowers w
 Far_Territory_JasmineFlowers_Spoilage,Spoilage,变质
 Far_Territory_JasmineFlowers_Spoiled,The jasmine flowers has spoiled.,茉莉花变质了。
 Far_Territory_JasmineFlowers_DA_Eat,Eat the Petals,吃花瓣
-Far_Territory_JasmineFlowers_DA_Eat_Desc,Eat the flowers. They taste much as they smell.,吃下这些花。吃起来和闻起来差不多。
+Far_Territory_JasmineFlowers_DA_Eat_Desc,"Eat the flowers. They taste much as they smell. Soothes you for a few hours (Jasmine Effect: less stress, a little drowsy).",吃下这些花。吃起来和闻起来差不多。能让你放松几个小时（茉莉效果：压力减轻，略带困意）。
 Far_Territory_JasmineCutting_CardName,Jasmine Cutting,茉莉插条
 Far_Territory_JasmineCutting_CardDescription,A young green shoot snapped from a jasmine bush. Set it in a garden plot and it roots.,从茉莉丛上折下的一根青嫩新枝。种进菜园就会生根。
 Far_Territory_JasmineCutting_Spoilage,Spoilage,变质
@@ -1349,7 +1349,7 @@ Far_Territory_ChinaRose_CardDescription,"A big red flower with a long golden spi
 Far_Territory_ChinaRose_Spoilage,Spoilage,变质
 Far_Territory_ChinaRose_Spoiled,The China rose has wilted and spoiled.,月季凋谢变质了。
 Far_Territory_ChinaRose_DA_Eat,Eat the Petals,吃花瓣
-Far_Territory_ChinaRose_DA_Eat_Desc,Eat the flower. Tart and a little slimy.,吃下这朵花。酸酸的，有点黏滑。
+Far_Territory_ChinaRose_DA_Eat_Desc,"Eat the flower. Tart and a little slimy. Soothes you for a few hours (China Rose Effect: less stress, a little more morale).",吃下这朵花。酸酸的，有点黏滑。能让你放松几个小时（月季效果：压力减轻，士气略有提升）。
 Far_Territory_ChinaRoseCutting_CardName,China Rose Cutting,月季插条
 Far_Territory_ChinaRoseCutting_CardDescription,A young green stem snapped from a China rose. Set it in a garden plot and it roots.,从月季上折下的一根青嫩枝条。种进菜园就会生根。
 Far_Territory_ChinaRoseCutting_Spoilage,Spoilage,变质
@@ -1882,3 +1882,94 @@ Far_Territory_WildryePlain_HerdSign,Herd Sign,兽群踪迹
 Far_Territory_WildryePlain_DA_Search_Fail,The herds have not been back since you last looked,自从上次查看后，兽群还没有回来过
 Far_Territory_FjordHead_HerdSign,Herd Sign,兽群踪迹
 Far_Territory_FjordHead_DA_Search_Fail,The herds have not been back since you last looked,自从上次查看后，兽群还没有回来过
+Far_Territory_RootwaterThicket_CardHelpSection,"<b>Rootwater Thicket:</b> A brackish tidal swamp. <b>Flora:</b> Seaweed. <b>Fauna:</b> Crabs, Mosquitoes. Mosquitoes breed here, worst in summer, and their bites can bring on swamp fever.",<b>根水丛林：</b>一片咸淡水交汇的潮汐沼泽。<b>植物：</b>海藻。<b>动物：</b>螃蟹、蚊子。这里滋生蚊子，夏季最盛，被叮咬可能引发沼泽热。
+Far_Territory_ReedMarsh_CardHelpSection,"<b>Reed Marsh:</b> A reedy freshwater marsh. <b>Flora:</b> Reeds. <b>Fauna:</b> Mosquitoes. Mosquitoes breed here, worst in summer, and their bites can bring on swamp fever.",<b>芦苇沼泽：</b>一片长满芦苇的淡水沼泽。<b>植物：</b>芦苇。<b>动物：</b>蚊子。这里滋生蚊子，夏季最盛，被叮咬可能引发沼泽热。
+Far_Territory_CinchonaDecoction_CardName,Cinchona Decoction,金鸡纳煎剂
+Far_Territory_CinchonaDecoction_CardDescription,"Cinchona bark boiled down in a pot to a bitter red-brown liquor. It turns the stomach, but it works against swamp fever far better than chewing the bark. It goes off in about two days.",金鸡纳树皮在锅中熬成的苦涩红褐色药汁。喝下会让胃里翻腾，但对沼泽热的效果远胜直接嚼树皮。大约两天后就会变质。
+Far_Territory_CinchonaDecoction_CardHelpSection,"<b>Preparation:</b> Boil clean water in a cooking pot, then simmer 2 Cinchona Bark in it for an hour.
+
+<b>Benefits:</b> Each dose lowers Swamp Fever by 1 but adds Nausea.","<b>制作：</b>在炊锅中烧开清水，再放入2份金鸡纳树皮煮一小时。
+
+<b>功效：</b>每剂使沼泽热减轻1，但会增加恶心。"
+Far_Territory_CinchonaDecoction_Spoilage_StatName,Bacteria,细菌
+Far_Territory_CinchonaDecoction_Spoiled,The decoction has gone off.,煎剂已经变质。
+Far_Territory_CinchonaDecoction_DA_Drink,Drink,饮用
+Far_Territory_CinchonaDecoction_DA_Drink_Desc,"Drink a dose of the bitter decoction. Swamp fever eases by one step, and your stomach turns.",喝下一剂苦涩的煎剂。沼泽热减轻一档，胃里随之翻腾。
+Far_Territory_BpCinchonaDecoction_CardName,Cinchona Decoction,金鸡纳煎剂
+Far_Territory_BpCinchonaDecoction_CardDescription,Simmer 2 Cinchona Bark for an hour in a cooking pot of freshly boiled water to make a decoction that eases swamp fever. The pot is not used up. Boil the water first: it cools within the hour.,把2份金鸡纳树皮放入盛有刚烧开清水的炊锅中煮一小时，制成缓解沼泽热的煎剂。炊锅不会消耗。请先烧水：水在一小时内就会变凉。
+Far_Territory_Bonefish_CI_Gut,Gut,开膛
+Far_Territory_Bonefish_CI_Gut_Desc,Gut the bonefish with a blade for its meat.,用刀把骨鱼开膛，取出鱼肉。
+Far_Territory_Goatfish_CI_Gut,Gut,开膛
+Far_Territory_Goatfish_CI_Gut_Desc,Gut the goatfish with a blade for its meat.,用刀把羊鱼开膛，取出鱼肉。
+Far_Territory_Mudskipper_CI_Gut,Gut,开膛
+Far_Territory_Mudskipper_CI_Gut_Desc,Gut the mudskipper with a blade for its meat.,用刀把弹涂鱼开膛，取出鱼肉。
+Far_Territory_Parrotfish_CI_Gut,Gut,开膛
+Far_Territory_Parrotfish_CI_Gut_Desc,Gut the parrotfish with a blade for its meat.,用刀把鹦嘴鱼开膛，取出鱼肉。
+Far_Territory_ReefGrouper_CI_Gut,Gut,开膛
+Far_Territory_ReefGrouper_CI_Gut_Desc,Gut the reef grouper with a blade for its meat.,用刀把礁石斑鱼开膛，取出鱼肉。
+Far_Territory_SilverHerring_CI_Gut,Gut,开膛
+Far_Territory_SilverHerring_CI_Gut_Desc,Gut the silver herring with a blade for its meat.,用刀把银鲱开膛，取出鱼肉。
+Far_Territory_Threadfin_CI_Gut,Gut,开膛
+Far_Territory_Threadfin_CI_Gut_Desc,Gut the threadfin with a blade for its meat.,用刀把马鲅开膛，取出鱼肉。
+Far_Territory_YamBaked_CardName,Baked Yam,烤山药
+Far_Territory_YamBaked_CardDescription,"A yam baked whole by the fire until the skin splits and the flesh turns soft and sweet. Filling, but it will not keep long.",整块山药在火边烤到外皮裂开，果肉变得软糯香甜。管饱，但放不久。
+Far_Territory_YamBaked_Spoilage,Spoilage,变质
+Far_Territory_YamBaked_Spoiled,The baked yam has spoiled.,烤山药已经变质了。
+Far_Territory_YamBaked_Temperature,Temperature,温度
+Far_Territory_YamBaked_Burned,Burned,烧焦
+Far_Territory_YamBaked_BurnedAway,The baked yam has burned to a black husk.,烤山药烧成了一块焦黑的硬壳。
+Far_Territory_YamBaked_DA_Eat,Eat,吃掉
+Far_Territory_YamBaked_DA_Eat_Desc,Eat the baked yam.,吃下烤山药。
+Far_Territory_Yam_Temperature,Temperature,温度
+Far_Territory_Yam_Cook,Cook,烹饪
+Far_Territory_Yam_Cooked,The yam is baked soft and sweet.,山药烤得又软又甜。
+Far_Territory_SagoPithDried_CardName,Dried Sago Pith,干西米髓
+Far_Territory_SagoPithDried_CardDescription,"Sago pith dried hard and pale, so it keeps. Soak it in fresh water to work it into a dough.",晾得又硬又白的西米髓，可以存放很久。用清水浸泡，就能和成面团。
+Far_Territory_SagoPithDried_Spoilage,Spoilage,变质
+Far_Territory_SagoPithDried_Spoiled,The dried sago pith has spoiled.,干西米髓已经变质了。
+Far_Territory_SagoPithDried_Soak_ActionName,Soak,浸泡
+Far_Territory_SagoPithDried_Soak_ActionDescription,Work the dried pith into a dough with fresh water.,用清水把干西米髓和成面团。
+Far_Territory_SagoDough_CardName,Sago Dough,西米面团
+Far_Territory_SagoDough_CardDescription,"A grey, sticky dough of soaked sago starch. Bake it by a fire into a flatbread.",浸泡过的西米淀粉揉成的灰白粘稠面团。放在火边烤成薄饼。
+Far_Territory_SagoDough_Spoilage,Spoilage,变质
+Far_Territory_SagoDough_Spoiled,The sago dough has spoiled.,西米面团已经变质了。
+Far_Territory_SagoDough_Temperature,Temperature,温度
+Far_Territory_SagoDough_Cook,Cook,烹饪
+Far_Territory_SagoDough_Cooked,The sago flatbread is baked.,西米薄饼烤好了。
+Far_Territory_SagoFlatbread_CardName,Sago Flatbread,西米薄饼
+Far_Territory_SagoFlatbread_CardDescription,"A flat, chewy cake of sago starch baked on the fire. Plain, but it fills the belly.",用西米淀粉在火上烤成的扁平耐嚼的饼。味道平淡，但很顶饱。
+Far_Territory_SagoFlatbread_Spoilage,Spoilage,变质
+Far_Territory_SagoFlatbread_Spoiled,The sago flatbread has spoiled.,西米薄饼已经变质了。
+Far_Territory_SagoFlatbread_DA_Eat,Eat,吃掉
+Far_Territory_SagoFlatbread_DA_Eat_Desc,Eat the sago flatbread.,吃下西米薄饼。
+Far_Territory_SagoPith_Drying,Drying,晾干
+Far_Territory_SagoPith_Dried,The sago pith has dried hard and pale.,西米髓已经晾干变硬、色泽苍白。
+Far_Territory_CoconutMeat_Boil,Boil,煮沸
+Far_Territory_SeaWater_CardName,Sea Water,海水
+Far_Territory_SeaWater_CardDescription,"A bowl of green sea water, far too salty to drink. Set it in a lit fire and the water boils away over many hours, leaving a little salt caked in the bowl.",一碗绿色的海水，太咸了，不能饮用。把它放进点燃的火里，水会在许多小时里慢慢煮干，在碗里留下一点盐。
+Far_Territory_SeaWater_CardHelpSection,"<b>Use:</b> Place the filled bowl in a lit fire and leave it. While it is hot the water slowly boils off (the Drying bar), and when the bowl runs dry it leaves a little Salt. It is not drinkable.",<b>用法：</b>把装满的碗放进点燃的火里，然后离开。趁热时水会慢慢蒸发（“烘干”进度条），碗烧干后会留下一点盐。它不能饮用。
+Far_Territory_SeaWater_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+Far_Territory_SeaWater_SpecialDurability1_CardStatName,Drying,烘干
+Far_Territory_SeaWater_SpecialDurability1_OnFull_ActionDescription,"The sea water has boiled dry, leaving salt.",海水已煮干，留下了盐。
+Far_Territory_SeaWater_CI_Fill,Fill with Sea Water,舀取海水
+Far_Territory_SeaWater_CI_Fill_Desc,Dip a bowl or other liquid container into the sea and fill it with salt water. Boil it dry in a fire for a little salt; it is not fit to drink.,把碗或其他液体容器浸入海中，装满咸水。放进火里煮干可得到一点盐；它不宜饮用。
+Far_Territory_CastawayLanding_DA_CoralInlet,Land at Coral Inlet,在珊瑚水湾登陆
+Far_Territory_CastawayLanding_DA_CoralInlet_Desc,"Start your run on Coral Inlet instead. The reef water, the richest fishing on the island. Takes no time.",改为从珊瑚水湾开始。珊瑚礁水域，岛上渔获最丰富的地方。不花费时间。
+Far_Territory_CastawayLanding_DA_BoulderShore,Land at Boulder Shore,在巨石海岸登陆
+Far_Territory_CastawayLanding_DA_BoulderShore_Desc,"Start your run on Boulder Shore instead. Rocks, a tide pool and flint in the forage. Takes no time.",改为从巨石海岸开始。礁石、潮池，搜寻时能找到燧石。不花费时间。
+Far_Territory_CastawayLanding_DA_RootwaterThicket,Land at Rootwater Thicket,在根水丛林登陆
+Far_Territory_CastawayLanding_DA_RootwaterThicket_Desc,Start your run on Rootwater Thicket instead. A drowned wood. Mosquitoes breed here in summer. Takes no time.,改为从根水丛林开始。被水淹没的树林。夏天这里会滋生蚊子。不花费时间。
+Far_Territory_CastawayLanding_DA_BleakStrand,Land at Bleak Strand,在荒凉海滩登陆
+Far_Territory_CastawayLanding_DA_BleakStrand_Desc,Start your run on Bleak Strand instead. A grey beach far down the coast. Takes no time.,改为从荒凉海滩开始。海岸远处一片灰色的海滩。不花费时间。
+Far_Territory_CastawayLanding_DA_CliffboundCove,Land at Cliffbound Cove,在崖环海湾登陆
+Far_Territory_CastawayLanding_DA_CliffboundCove_Desc,"Start your run on Cliffbound Cove instead. A hidden beach under the cliffs, reached by swim or climb. Takes no time.",改为从崖环海湾开始。悬崖下的隐秘海滩，只能游泳或攀爬到达。不花费时间。
+Far_Territory_CastawayLanding_DA_GullStack,Land at Gull Stack,在海鸥石柱登陆
+Far_Territory_CastawayLanding_DA_GullStack_Desc,Start your run on Gull Stack instead. A gull rock off the coast. The only way off is a swim. Takes no time.,改为从海鸥石柱开始。海岸外的海鸥岩。离开的唯一办法是游泳。不花费时间。
+Far_Territory_CastawayLanding_DA_Random,Let the Sea Decide,听凭大海安排
+Far_Territory_CastawayLanding_DA_Random_Desc,"For the adventurous: the current carries you to one of the six other island shores, picked at random. Gull Stack is among them. Takes no time.",给喜欢冒险的人：海流会把你随机带到岛上另外六处海岸之一，海鸥石柱也在其中。不花费时间。
+Far_Territory_CastawayLanding_DA_Stay,Stay on Landfall Strand,留在登陆海滩
+Far_Territory_CastawayLanding_DA_Stay_Desc,"Start here, where the outrigger to the mainland lies. Takes no time.",就从这里开始，返回大陆的边架独木舟就在这里。不花费时间。
+Far_Territory_CastawayLanding_CardName,Choose Your Landing,选择登陆地点
+Far_Territory_CastawayLanding_CardDescription,"The current brought you ashore on Landfall Strand. Start here, land on another island shore, or let the sea decide. Choosing takes no time, and the card is gone once you choose.",海流把你冲上了登陆海滩。可以从这里开始，也可以在岛上另一处海岸登陆，或者听凭大海安排。选择不花费时间，选择后此卡消失。
+Far_Territory_Perk_IslandStart_PerkName,Island Start,海岛开局
+Far_Territory_Perk_IslandStart_PerkDescription,"Start as a castaway on Far Territory's island, with none of the usual starting stones and kindling. A card in hand lets you pick which shore to start on, or leave it to the sea.",以漂流者身份在远方领地的海岛上开局，没有通常的起始石头和引火物。手中的一张卡让你选择从哪处海岸开始，或者听凭大海安排。

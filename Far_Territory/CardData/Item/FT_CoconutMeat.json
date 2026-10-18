@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_CoconutMeat_CardDescription",
-    "DefaultText": "White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy."
+    "DefaultText": "White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy. Boiled in a pot of hot water it goes into the stew."
   },
   "CardImageWarpData": "FT_CoconutMeat",
   "CardImageWarpType": 3,
@@ -15,7 +15,8 @@
   "MaxStack": 8,
   "CardTagsWarpData": [
     "tag_HumanFood",
-    "tag_Plateable"
+    "tag_Plateable",
+    "tag_Boilable"
   ],
   "CardTagsWarpType": 3,
   "SpoilageTime": {
@@ -165,5 +166,16 @@
         "ModType": 3
       }
     }
-  ]
+  ],
+  "SpecialDurability4": {
+    "Active": true,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_CoconutMeat_Boil",
+      "DefaultText": "Boil"
+    },
+    "MaxValue": 4.0,
+    "HidingOptions": 3,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3
+  }
 }

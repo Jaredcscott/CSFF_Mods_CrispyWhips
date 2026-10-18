@@ -111,7 +111,7 @@ Far_Territory_BoulderShore_DA_Forage_Desc,"Pick over the rocks and pools for she
 Far_Territory_BoulderShore_DA_Forage_Fail,Nothing worth picking up yet
 Far_Territory_Env_RootwaterThicket_CardName,Rootwater Thicket
 Far_Territory_RootwaterThicket_CardName,Rootwater Thicket
-Far_Territory_RootwaterThicket_CardDescription,"A drowned wood of stilt-rooted trees standing in brown, brackish water. Crabs scuttle over the mud between the roots, and the sea seeps in and out beneath the canopy."
+Far_Territory_RootwaterThicket_CardDescription,"A drowned wood of stilt-rooted trees standing in brown, brackish water. Crabs scuttle over the mud between the roots, and the sea seeps in and out beneath the canopy. Mosquitoes breed in the still water, thickest in summer, and their bites can bring on swamp fever."
 Far_Territory_RootwaterThicket_Gleanings,Gleanings
 Far_Territory_RootwaterThicket_DA_Forage,Forage
 Far_Territory_RootwaterThicket_DA_Forage_Desc,"Wade among the roots for crabs, sticks and the weed the tide leaves hanging in them."
@@ -266,7 +266,7 @@ Far_Territory_EastgrassPlain_DA_Forage_Desc,"Walk the grass for fibres, stones a
 Far_Territory_EastgrassPlain_DA_Forage_Fail,Nothing worth picking up yet
 Far_Territory_Env_EastgrassPlain_CardName,Eastgrass Plain
 Far_Territory_ReedMarsh_CardName,Reed Marsh
-Far_Territory_ReedMarsh_CardDescription,"Low ground of standing water, black mud and tall reeds. The air hums with insects, and the way south goes deeper into the trees. A broken rock face rises to the east."
+Far_Territory_ReedMarsh_CardDescription,"Low ground of standing water, black mud and tall reeds. The air hums with insects, and the way south goes deeper into the trees. A broken rock face rises to the east. The mosquitoes are worst in summer, and their bites can bring on swamp fever."
 Far_Territory_ReedMarsh_Gleanings,Gleanings
 Far_Territory_ReedMarsh_DA_Forage,Forage
 Far_Territory_ReedMarsh_DA_Forage_Desc,"Wade the edges for mud, reed fibres and sticks."
@@ -358,7 +358,7 @@ Far_Territory_CoconutMeat_Spoiled,The coconut meat has spoiled.
 Far_Territory_CoconutMeat_DA_Eat,Eat
 Far_Territory_CoconutMeat_DA_Eat_Desc,Eat the coconut meat raw.
 Far_Territory_CoconutMeat_CardName,Coconut Meat
-Far_Territory_CoconutMeat_CardDescription,"White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy."
+Far_Territory_CoconutMeat_CardDescription,"White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy. Boiled in a pot of hot water it goes into the stew."
 Far_Territory_CoconutShellBowl_CardName,Coconut Shell Bowl
 Far_Territory_CoconutShellBowl_CardDescription,"Half a coconut shell, smoothed inside. It holds a drink, which slowly dries off if left standing."
 Far_Territory_PalmFrond_FuelCapacity,Fuel
@@ -1022,7 +1022,7 @@ Far_Territory_NipaFruitGarden_DA_Harvest_Desc,Gather the crop. The plant stays i
 Far_Territory_NipaFruitGarden_DA_Uproot,Uproot
 Far_Territory_NipaFruitGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_Yam_CardName,Yam
-Far_Territory_Yam_CardDescription,"A long, earthy wild yam root. Eaten raw it is starchy, filling and dull. Set one in a garden plot and it sprouts."
+Far_Territory_Yam_CardDescription,"A long, earthy wild yam root. Eaten raw it is starchy, filling and dull. Set one in a garden plot and it sprouts, or bake it by a fire until it turns soft and sweet."
 Far_Territory_Yam_Spoilage,Spoilage
 Far_Territory_Yam_Spoiled,The yam has spoiled.
 Far_Territory_Yam_Planting,Planting
@@ -1048,7 +1048,7 @@ Far_Territory_YamGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.
 Far_Territory_YamGarden_DA_Uproot,Uproot
 Far_Territory_YamGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
 Far_Territory_SagoPith_CardName,Sago Pith
-Far_Territory_SagoPith_CardDescription,"Pale, fibrous starch scraped from inside a sago palm's trunk. Eaten raw it is bland and heavy, but it fills an empty belly."
+Far_Territory_SagoPith_CardDescription,"Pale, fibrous starch scraped from inside a sago palm's trunk. Eaten raw it is bland and heavy, but it fills an empty belly. Dried on a rack it keeps, and can be soaked into a dough."
 Far_Territory_SagoPith_Spoilage,Spoilage
 Far_Territory_SagoPith_Spoiled,The sago pith has spoiled.
 Far_Territory_SagoPith_DA_Eat,Eat
@@ -1162,13 +1162,13 @@ Far_Territory_CoffeeBush_DA_Pick,Pick Coffee Berries
 Far_Territory_CoffeeBush_DA_Pick_Desc,Pick the red berries. Takes about fifteen minutes.
 Far_Territory_CoffeeBush_DA_Pick_Fail,No berry is ripe on this bush yet
 Far_Territory_Ginger_CardName,Ginger Root
-Far_Territory_Ginger_CardDescription,"A knobbly root with pale, fiery flesh. Chewed raw it settles a queasy stomach for a few hours and dulls aches a little. A strong, pungent spice. Set one in a garden plot and it sprouts."
+Far_Territory_Ginger_CardDescription,"A knobbly root with pale, fiery flesh. Chewed raw it settles a queasy stomach and dulls aches for a few hours. A strong, pungent spice. Set one in a garden plot and it sprouts."
 Far_Territory_Ginger_Spoilage,Spoilage
 Far_Territory_Ginger_Spoiled,The ginger root has spoiled.
 Far_Territory_Ginger_Planting,Planting
 Far_Territory_Ginger_Planted,The ginger root has taken root in the garden plot.
 Far_Territory_Ginger_DA_Chew,Chew
-Far_Territory_Ginger_DA_Chew_Desc,"Chew the raw root. Hot and sharp, it settles the stomach for a few hours (Ginger Warmth)."
+Far_Territory_Ginger_DA_Chew_Desc,"Chew the raw root. Hot and sharp, it settles the stomach and dulls aches for a few hours (Ginger)."
 Far_Territory_KavaRoot_CardName,Kava Root
 Far_Territory_KavaRoot_CardDescription,"A thick, woody root with an earthy, peppery bite. Chewed raw it numbs the mouth, eases worry and dulls aches for a few hours; too much leaves you drowsy. Set one in a garden plot and it sprouts."
 Far_Territory_KavaRoot_Spoilage,Spoilage
@@ -1198,7 +1198,7 @@ Far_Territory_JasmineFlowers_CardDescription,"A handful of small white flowers w
 Far_Territory_JasmineFlowers_Spoilage,Spoilage
 Far_Territory_JasmineFlowers_Spoiled,The jasmine flowers has spoiled.
 Far_Territory_JasmineFlowers_DA_Eat,Eat the Petals
-Far_Territory_JasmineFlowers_DA_Eat_Desc,Eat the flowers. They taste much as they smell.
+Far_Territory_JasmineFlowers_DA_Eat_Desc,"Eat the flowers. They taste much as they smell. Soothes you for a few hours (Jasmine Effect: less stress, a little drowsy)."
 Far_Territory_JasmineCutting_CardName,Jasmine Cutting
 Far_Territory_JasmineCutting_CardDescription,A young green shoot snapped from a jasmine bush. Set it in a garden plot and it roots.
 Far_Territory_JasmineCutting_Spoilage,Spoilage
@@ -1343,7 +1343,7 @@ Far_Territory_ChinaRose_CardDescription,"A big red flower with a long golden spi
 Far_Territory_ChinaRose_Spoilage,Spoilage
 Far_Territory_ChinaRose_Spoiled,The China rose has wilted and spoiled.
 Far_Territory_ChinaRose_DA_Eat,Eat the Petals
-Far_Territory_ChinaRose_DA_Eat_Desc,Eat the flower. Tart and a little slimy.
+Far_Territory_ChinaRose_DA_Eat_Desc,"Eat the flower. Tart and a little slimy. Soothes you for a few hours (China Rose Effect: less stress, a little more morale)."
 Far_Territory_ChinaRoseCutting_CardName,China Rose Cutting
 Far_Territory_ChinaRoseCutting_CardDescription,A young green stem snapped from a China rose. Set it in a garden plot and it roots.
 Far_Territory_ChinaRoseCutting_Spoilage,Spoilage
@@ -1876,3 +1876,92 @@ Far_Territory_WildryePlain_HerdSign,Herd Sign
 Far_Territory_WildryePlain_DA_Search_Fail,The herds have not been back since you last looked
 Far_Territory_FjordHead_HerdSign,Herd Sign
 Far_Territory_FjordHead_DA_Search_Fail,The herds have not been back since you last looked
+Far_Territory_RootwaterThicket_CardHelpSection,"<b>Rootwater Thicket:</b> A brackish tidal swamp. <b>Flora:</b> Seaweed. <b>Fauna:</b> Crabs, Mosquitoes. Mosquitoes breed here, worst in summer, and their bites can bring on swamp fever."
+Far_Territory_ReedMarsh_CardHelpSection,"<b>Reed Marsh:</b> A reedy freshwater marsh. <b>Flora:</b> Reeds. <b>Fauna:</b> Mosquitoes. Mosquitoes breed here, worst in summer, and their bites can bring on swamp fever."
+Far_Territory_CinchonaDecoction_CardName,Cinchona Decoction
+Far_Territory_CinchonaDecoction_CardDescription,"Cinchona bark boiled down in a pot to a bitter red-brown liquor. It turns the stomach, but it works against swamp fever far better than chewing the bark. It goes off in about two days."
+Far_Territory_CinchonaDecoction_CardHelpSection,"<b>Preparation:</b> Boil clean water in a cooking pot, then simmer 2 Cinchona Bark in it for an hour.
+
+<b>Benefits:</b> Each dose lowers Swamp Fever by 1 but adds Nausea."
+Far_Territory_CinchonaDecoction_Spoilage_StatName,Bacteria
+Far_Territory_CinchonaDecoction_Spoiled,The decoction has gone off.
+Far_Territory_CinchonaDecoction_DA_Drink,Drink
+Far_Territory_CinchonaDecoction_DA_Drink_Desc,"Drink a dose of the bitter decoction. Swamp fever eases by one step, and your stomach turns."
+Far_Territory_BpCinchonaDecoction_CardName,Cinchona Decoction
+Far_Territory_BpCinchonaDecoction_CardDescription,Simmer 2 Cinchona Bark for an hour in a cooking pot of freshly boiled water to make a decoction that eases swamp fever. The pot is not used up. Boil the water first: it cools within the hour.
+Far_Territory_Bonefish_CI_Gut,Gut
+Far_Territory_Bonefish_CI_Gut_Desc,Gut the bonefish with a blade for its meat.
+Far_Territory_Goatfish_CI_Gut,Gut
+Far_Territory_Goatfish_CI_Gut_Desc,Gut the goatfish with a blade for its meat.
+Far_Territory_Mudskipper_CI_Gut,Gut
+Far_Territory_Mudskipper_CI_Gut_Desc,Gut the mudskipper with a blade for its meat.
+Far_Territory_Parrotfish_CI_Gut,Gut
+Far_Territory_Parrotfish_CI_Gut_Desc,Gut the parrotfish with a blade for its meat.
+Far_Territory_ReefGrouper_CI_Gut,Gut
+Far_Territory_ReefGrouper_CI_Gut_Desc,Gut the reef grouper with a blade for its meat.
+Far_Territory_SilverHerring_CI_Gut,Gut
+Far_Territory_SilverHerring_CI_Gut_Desc,Gut the silver herring with a blade for its meat.
+Far_Territory_Threadfin_CI_Gut,Gut
+Far_Territory_Threadfin_CI_Gut_Desc,Gut the threadfin with a blade for its meat.
+Far_Territory_YamBaked_CardName,Baked Yam
+Far_Territory_YamBaked_CardDescription,"A yam baked whole by the fire until the skin splits and the flesh turns soft and sweet. Filling, but it will not keep long."
+Far_Territory_YamBaked_Spoilage,Spoilage
+Far_Territory_YamBaked_Spoiled,The baked yam has spoiled.
+Far_Territory_YamBaked_Temperature,Temperature
+Far_Territory_YamBaked_Burned,Burned
+Far_Territory_YamBaked_BurnedAway,The baked yam has burned to a black husk.
+Far_Territory_YamBaked_DA_Eat,Eat
+Far_Territory_YamBaked_DA_Eat_Desc,Eat the baked yam.
+Far_Territory_Yam_Temperature,Temperature
+Far_Territory_Yam_Cook,Cook
+Far_Territory_Yam_Cooked,The yam is baked soft and sweet.
+Far_Territory_SagoPithDried_CardName,Dried Sago Pith
+Far_Territory_SagoPithDried_CardDescription,"Sago pith dried hard and pale, so it keeps. Soak it in fresh water to work it into a dough."
+Far_Territory_SagoPithDried_Spoilage,Spoilage
+Far_Territory_SagoPithDried_Spoiled,The dried sago pith has spoiled.
+Far_Territory_SagoPithDried_Soak_ActionName,Soak
+Far_Territory_SagoPithDried_Soak_ActionDescription,Work the dried pith into a dough with fresh water.
+Far_Territory_SagoDough_CardName,Sago Dough
+Far_Territory_SagoDough_CardDescription,"A grey, sticky dough of soaked sago starch. Bake it by a fire into a flatbread."
+Far_Territory_SagoDough_Spoilage,Spoilage
+Far_Territory_SagoDough_Spoiled,The sago dough has spoiled.
+Far_Territory_SagoDough_Temperature,Temperature
+Far_Territory_SagoDough_Cook,Cook
+Far_Territory_SagoDough_Cooked,The sago flatbread is baked.
+Far_Territory_SagoFlatbread_CardName,Sago Flatbread
+Far_Territory_SagoFlatbread_CardDescription,"A flat, chewy cake of sago starch baked on the fire. Plain, but it fills the belly."
+Far_Territory_SagoFlatbread_Spoilage,Spoilage
+Far_Territory_SagoFlatbread_Spoiled,The sago flatbread has spoiled.
+Far_Territory_SagoFlatbread_DA_Eat,Eat
+Far_Territory_SagoFlatbread_DA_Eat_Desc,Eat the sago flatbread.
+Far_Territory_SagoPith_Drying,Drying
+Far_Territory_SagoPith_Dried,The sago pith has dried hard and pale.
+Far_Territory_CoconutMeat_Boil,Boil
+Far_Territory_SeaWater_CardName,Sea Water
+Far_Territory_SeaWater_CardDescription,"A bowl of green sea water, far too salty to drink. Set it in a lit fire and the water boils away over many hours, leaving a little salt caked in the bowl."
+Far_Territory_SeaWater_CardHelpSection,"<b>Use:</b> Place the filled bowl in a lit fire and leave it. While it is hot the water slowly boils off (the Drying bar), and when the bowl runs dry it leaves a little Salt. It is not drinkable."
+Far_Territory_SeaWater_FuelCapacity_CardStatName,Liquid Temperature
+Far_Territory_SeaWater_SpecialDurability1_CardStatName,Drying
+Far_Territory_SeaWater_SpecialDurability1_OnFull_ActionDescription,"The sea water has boiled dry, leaving salt."
+Far_Territory_SeaWater_CI_Fill,Fill with Sea Water
+Far_Territory_SeaWater_CI_Fill_Desc,Dip a bowl or other liquid container into the sea and fill it with salt water. Boil it dry in a fire for a little salt; it is not fit to drink.
+Far_Territory_CastawayLanding_DA_CoralInlet,Land at Coral Inlet
+Far_Territory_CastawayLanding_DA_CoralInlet_Desc,"Start your run on Coral Inlet instead. The reef water, the richest fishing on the island. Takes no time."
+Far_Territory_CastawayLanding_DA_BoulderShore,Land at Boulder Shore
+Far_Territory_CastawayLanding_DA_BoulderShore_Desc,"Start your run on Boulder Shore instead. Rocks, a tide pool and flint in the forage. Takes no time."
+Far_Territory_CastawayLanding_DA_RootwaterThicket,Land at Rootwater Thicket
+Far_Territory_CastawayLanding_DA_RootwaterThicket_Desc,Start your run on Rootwater Thicket instead. A drowned wood. Mosquitoes breed here in summer. Takes no time.
+Far_Territory_CastawayLanding_DA_BleakStrand,Land at Bleak Strand
+Far_Territory_CastawayLanding_DA_BleakStrand_Desc,Start your run on Bleak Strand instead. A grey beach far down the coast. Takes no time.
+Far_Territory_CastawayLanding_DA_CliffboundCove,Land at Cliffbound Cove
+Far_Territory_CastawayLanding_DA_CliffboundCove_Desc,"Start your run on Cliffbound Cove instead. A hidden beach under the cliffs, reached by swim or climb. Takes no time."
+Far_Territory_CastawayLanding_DA_GullStack,Land at Gull Stack
+Far_Territory_CastawayLanding_DA_GullStack_Desc,Start your run on Gull Stack instead. A gull rock off the coast. The only way off is a swim. Takes no time.
+Far_Territory_CastawayLanding_DA_Random,Let the Sea Decide
+Far_Territory_CastawayLanding_DA_Random_Desc,"For the adventurous: the current carries you to one of the six other island shores, picked at random. Gull Stack is among them. Takes no time."
+Far_Territory_CastawayLanding_DA_Stay,Stay on Landfall Strand
+Far_Territory_CastawayLanding_DA_Stay_Desc,"Start here, where the outrigger to the mainland lies. Takes no time."
+Far_Territory_CastawayLanding_CardName,Choose Your Landing
+Far_Territory_CastawayLanding_CardDescription,"The current brought you ashore on Landfall Strand. Start here, land on another island shore, or let the sea decide. Choosing takes no time, and the card is gone once you choose."
+Far_Territory_Perk_IslandStart_PerkName,Island Start
+Far_Territory_Perk_IslandStart_PerkDescription,"Start as a castaway on Far Territory's island, with none of the usual starting stones and kindling. A card in hand lets you pick which shore to start on, or leave it to the sea."

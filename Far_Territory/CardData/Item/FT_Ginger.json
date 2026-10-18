@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_Ginger_CardDescription",
-    "DefaultText": "A knobbly root with pale, fiery flesh. Chewed raw it settles a queasy stomach for a few hours and dulls aches a little. A strong, pungent spice. Set one in a garden plot and it sprouts."
+    "DefaultText": "A knobbly root with pale, fiery flesh. Chewed raw it settles a queasy stomach and dulls aches for a few hours. A strong, pungent spice. Set one in a garden plot and it sprouts."
   },
   "CardImageWarpData": "FT_Ginger",
   "CardImageWarpType": 3,
@@ -95,7 +95,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "Far_Territory_Ginger_DA_Chew_Desc",
-        "DefaultText": "Chew the raw root. Hot and sharp, it settles the stomach for a few hours (Ginger Warmth)."
+        "DefaultText": "Chew the raw root. Hot and sharp, it settles the stomach and dulls aches for a few hours (Ginger)."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,
@@ -242,7 +242,7 @@
             "m_FileID": 0,
             "m_PathID": 0
           },
-          "StatWarpData": "ft_stat_ginger",
+          "StatWarpData": "5a8bc3ef47ca9484082a804d2e8decc0",
           "StatWarpType": 3,
           "ValueModifier": {
             "x": 12.0,

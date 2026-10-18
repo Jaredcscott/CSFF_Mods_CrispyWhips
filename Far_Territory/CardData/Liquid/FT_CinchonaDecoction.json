@@ -1,0 +1,170 @@
+{
+    "UniqueID": "ft_lq_cinchona_decoction",
+    "//Brew": "N1 (plan section 2): boiled Cinchona Decoction. Every number is a TUNABLE PLACEHOLDER from the plan, session-inferred and unmeasured against play: 2 bark, boiled water in a cooking pot, 4 ticks (an hour), 300 units = 3 doses of 100, each dose SwampFeverMerozoites -1 and Nausea +6, spoils in 2 days (192 ticks). Merozoites is a 0-8 disease counter with BaseRatePerTick 0 that vanilla's Tgr_SwampFeverCycle writes, so a -1 is permanent by design and floors at 0; Nausea is 0-24 with BaseRatePerTick -1, so +6 decays and sits far below the cap. The dose is on the Drink only. The existing Cinchona Bark chew effect (ft_stat_cinchona) is unchanged.",
+    "CardName": {
+        "ParentObjectID": "ft_lq_cinchona_decoction",
+        "LocalizationKey": "Far_Territory_CinchonaDecoction_CardName",
+        "DefaultText": "Cinchona Decoction"
+    },
+    "CardDescription": {
+        "ParentObjectID": "ft_lq_cinchona_decoction",
+        "LocalizationKey": "Far_Territory_CinchonaDecoction_CardDescription",
+        "DefaultText": "Cinchona bark boiled down in a pot to a bitter red-brown liquor. It turns the stomach, but it works against swamp fever far better than chewing the bark. It goes off in about two days."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardHelpSection": {
+        "ParentObjectID": "ft_lq_cinchona_decoction",
+        "LocalizationKey": "Far_Territory_CinchonaDecoction_CardHelpSection",
+        "DefaultText": "<b>Preparation:</b> Boil clean water in a cooking pot, then simmer 2 Cinchona Bark in it for an hour.\n\n<b>Benefits:</b> Each dose lowers Swamp Fever by 1 but adds Nausea."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "ft_lq_cinchona_decoction",
+    "CardImageWarpType": 3,
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 9,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 0.33,
+    "TradingValue": 0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Heatable",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "ft_lq_cinchona_decoction",
+            "LocalizationKey": "Far_Territory_CinchonaDecoction_Spoilage_StatName",
+            "DefaultText": "Bacteria"
+        },
+        "MaxValue": 192.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "ft_lq_cinchona_decoction",
+                "LocalizationKey": "Far_Territory_CinchonaDecoction_Spoiled",
+                "DefaultText": "The decoction has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "aa33d3104cc682c4e9a163e7df9a7e13",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "ft_lq_cinchona_decoction",
+                "LocalizationKey": "Far_Territory_CinchonaDecoction_DA_Drink",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "ft_lq_cinchona_decoction",
+                "LocalizationKey": "Far_Territory_CinchonaDecoction_DA_Drink_Desc",
+                "DefaultText": "Drink a dose of the bitter decoction. Swamp fever eases by one step, and your stomach turns."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "DrinkingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "StatWarpData": "a5e7e1edcf197cc4380ec17f096228d7",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 6.0,
+                        "y": 6.0
+                    },
+                    "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidEffectScaling": 2,
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "LiquidQuantityChange": {
+                    "x": -100.0,
+                    "y": -100.0
+                }
+            }
+        }
+    ],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

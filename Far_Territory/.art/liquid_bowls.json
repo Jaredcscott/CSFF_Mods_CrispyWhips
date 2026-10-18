@@ -1,0 +1,17 @@
+{
+ "_note": "Liquid card pictures: vanilla Bowl_Clay_Water with the liquid recoloured. Owner 2026-10-11. Build with Development_Tools/CardArt/liquid_bowl.py make FarTerritory --source <Bowl_Clay_Water.png> --link",
+ "bowls": [
+  {
+   "image": "ft_lq_cinchona_decoction",
+   "card": "CardData/Liquid/FT_CinchonaDecoction.json",
+   "colour": "#7a3b22",
+   "looks": "bitter red-brown bark liquor"
+  },
+  {
+   "image": "FT_SeaWater",
+   "card": "CardData/Liquid/FT_SeaWater.json",
+   "colour": "#4f9a82",
+   "looks": "pale sea green"
+  }
+ ]
+}

@@ -63,7 +63,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "Far_Territory_JasmineFlowers_DA_Eat_Desc",
-        "DefaultText": "Eat the flowers. They taste much as they smell."
+        "DefaultText": "Eat the flowers. They taste much as they smell. Soothes you for a few hours (Jasmine Effect: less stress, a little drowsy)."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,
@@ -116,6 +116,39 @@
           "ValueModifier": {
             "x": 2.0,
             "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "47bb20a30a5e8944eb4b5ca22f5f1702",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 12.0,
+            "y": 12.0
           },
           "RateModifier": {
             "x": 0.0,

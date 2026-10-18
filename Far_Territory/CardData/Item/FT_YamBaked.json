@@ -1,0 +1,380 @@
+{
+  "UniqueID": "ft_yam_baked",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_YamBaked_CardName",
+    "DefaultText": "Baked Yam"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_YamBaked_CardDescription",
+    "DefaultText": "A yam baked whole by the fire until the skin splits and the flesh turns soft and sweet. Filling, but it will not keep long."
+  },
+  "CardImageWarpData": "FT_Yam",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "MaxStack": 8,
+  "CardTagsWarpData": [
+    "tag_HumanFood",
+    "tag_Plateable",
+    "tag_FoodStarchy",
+    "tag_SlowlyCharsOnMediumHeat"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "OverrideIconWarpData": "Bacteria",
+    "OverrideIconWarpType": 3,
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 120.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_YamBaked_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_YamBaked_Spoiled",
+        "DefaultText": "The baked yam has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_YamBaked_Temperature",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 200.0,
+    "HidingOptions": 3,
+    "TextDisplay": 2,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_YamBaked_Burned",
+      "DefaultText": "Burned"
+    },
+    "MaxValue": 8.0,
+    "HidingOptions": 3,
+    "OverrideIconWarpData": "Flame",
+    "OverrideIconWarpType": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_YamBaked_BurnedAway",
+        "DefaultText": "The baked yam has burned to a black husk."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "274b94170226fcd479d2e73891000c9a",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_YamBaked_DA_Eat",
+        "DefaultText": "Eat"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_YamBaked_DA_Eat_Desc",
+        "DefaultText": "Eat the baked yam."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [
+        "VegetarianAction",
+        "EatingAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 25.0,
+            "y": 25.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 8.0,
+            "y": 8.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 24.0,
+            "y": 24.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 48.0,
+            "y": 48.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 5.0,
+            "y": 5.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c88a8dd710996d64982b4948ca1ec996",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 35.0,
+            "y": 35.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveEffects": [
+    {
+      "EffectName": "Cool Down",
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -100.0
+      }
+    }
+  ]
+}

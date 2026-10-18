@@ -1,0 +1,330 @@
+{
+    "UniqueID": "ft_bp_cinchona_decoction",
+    "//Brew": "N1 (plan section 2): boiled Cinchona Decoction. Every number is a TUNABLE PLACEHOLDER from the plan, session-inferred and unmeasured against play: 2 bark, boiled water in a cooking pot, 4 ticks (an hour), 300 units = 3 doses of 100, each dose SwampFeverMerozoites -1 and Nausea +6, spoils in 2 days (192 ticks). Merozoites is a 0-8 disease counter with BaseRatePerTick 0 that vanilla's Tgr_SwampFeverCycle writes, so a -1 is permanent by design and floors at 0; Nausea is 0-24 with BaseRatePerTick -1, so +6 decays and sits far below the cap. The dose is on the Drink only. The existing Cinchona Bark chew effect (ft_stat_cinchona) is unchanged. Made on the chassis of HarshWilds hw_bp_brew_beast: the pot is kept (DontSpend) and its boiled water becomes the decoction.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "ft_bp_cinchona_decoction",
+        "LocalizationKey": "Far_Territory_BpCinchonaDecoction_CardName",
+        "DefaultText": "Cinchona Decoction"
+    },
+    "CardDescription": {
+        "ParentObjectID": "ft_bp_cinchona_decoction",
+        "LocalizationKey": "Far_Territory_BpCinchonaDecoction_CardDescription",
+        "DefaultText": "Simmer 2 Cinchona Bark for an hour in a cooking pot of freshly boiled water to make a decoction that eases swamp fever. The pot is not used up. Boil the water first: it cools within the hour."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "FT_CinchonaBark",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": ""
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 16,
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ResearchableFromStart",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 100000.0
+                }
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "5d5ebb1bb10a9904fa2dfd8d58f21048",
+                    "RequiredCardWarpType": 3,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "Spoilage": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "Usage": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "Progress": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "Special1": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "Special2": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "Special3": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "Special4": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "DurabilityFeedback": 0,
+                    "FilterStackWithDurability": {
+                        "MaskValue": 0
+                    },
+                    "DontSpend": true,
+                    "RequiredLiquidContent": {
+                        "IsActive": true,
+                        "RequiredLiquid": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "RequiredLiquidWarpData": "a0e1cf6d47685a741b5cd9889fb39227",
+                        "RequiredLiquidWarpType": 3,
+                        "RequiredGroup": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "RequiredQuantity": {
+                            "x": 290.0,
+                            "y": 300.0
+                        }
+                    },
+                    "EffectOnIngredient": {
+                        "ModType": 0,
+                        "TransformInto": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "TransformToLiquidQuantity": 0.0,
+                        "TransferSpoilage": false,
+                        "TransferUsage": false,
+                        "TransferFuel": false,
+                        "TransferCharges": false,
+                        "TransferSpecial1": false,
+                        "TransferSpecial2": false,
+                        "TransferSpecial3": false,
+                        "TransferSpecial4": false,
+                        "TransferInventory": false,
+                        "TransferSavedIngredients": false,
+                        "AverageGivenAndReceivingCards": false,
+                        "TransferLiquid": true,
+                        "SpoilageTransferScale": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "UsageTransferScale": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "FuelTransferScale": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "ProgressTransferScale": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "Special1TransferScale": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "Special2TransferScale": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "Special3TransferScale": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "Special4TransferScale": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "ModifyDurability": false,
+                        "ModifyLiquid": true,
+                        "DropOnDestroyList": false,
+                        "LiquidEffectScaling": 0,
+                        "AddFlavoursFromTargetCard": false,
+                        "AddFlavoursFromOtherCard": false,
+                        "AddSpicesFromTargetCard": false,
+                        "AddSpicesFromOtherCard": false,
+                        "AddedFlavours": [],
+                        "AddedSpiceTags": [],
+                        "SpoilageChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "GetSpoilageFromOtherCard": false,
+                        "UsageChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "GetUsageFromOtherCard": false,
+                        "FuelChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "GetFuelFromOtherCard": false,
+                        "ChargesChange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "GetProgressFromOtherCard": false,
+                        "LiquidQuantityChange": {
+                            "x": 300.0,
+                            "y": 300.0
+                        },
+                        "Special1Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "GetSpecial1FromOtherCard": false,
+                        "Special2Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "GetSpecial2FromOtherCard": false,
+                        "Special3Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "GetSpecial3FromOtherCard": false,
+                        "Special4Change": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "GetSpecial4FromOtherCard": false,
+                        "StatInterpolatedDurabilityChanges": [],
+                        "DurabilityInterpolatedTransfers": [],
+                        "ScaleChangesPerPortionOfLiquid": {
+                            "Active": false,
+                            "FloatValue": 0.0
+                        },
+                        "UseOtherCardForLiquidQuantity": false
+                    },
+                    "LiquidBecomesResult": true,
+                    "AffectResultDurabilities": {
+                        "MaskValue": 0
+                    },
+                    "Remember": false
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "ft_cinchona_bark",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "ft_lq_cinchona_decoction",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 300,
+                "y": 300
+            },
+            "FinishUnlocking": false,
+            "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 0,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 1,
+                "UsageFrom": 1,
+                "FuelFrom": 1,
+                "ProgressFrom": 1,
+                "Special1From": 1,
+                "Special2From": 1,
+                "Special3From": 1,
+                "Special4From": 1
+            },
+            "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+            },
+            "DropsDurabilityMultipliers": [],
+            "DropsStatMultipliers": [],
+            "AddFlavoursFromTargetCard": false,
+            "AddFlavoursFromOtherCard": false,
+            "AddSpicesFromTargetCard": false,
+            "AddSpicesFromOtherCard": false,
+            "AddedFlavours": [],
+            "AddedSpiceTags": []
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

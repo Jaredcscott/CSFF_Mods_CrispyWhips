@@ -1,0 +1,106 @@
+{
+  "UniqueID": "ft_lq_sea_water",
+  "CardName": {
+    "ParentObjectID": "ft_lq_sea_water",
+    "LocalizationKey": "Far_Territory_SeaWater_CardName",
+    "DefaultText": "Sea Water"
+  },
+  "CardDescription": {
+    "ParentObjectID": "ft_lq_sea_water",
+    "LocalizationKey": "Far_Territory_SeaWater_CardDescription",
+    "DefaultText": "A bowl of green sea water, far too salty to drink. Set it in a lit fire and the water boils away over many hours, leaving a little salt caked in the bowl."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "ft_lq_sea_water",
+    "LocalizationKey": "Far_Territory_SeaWater_CardHelpSection",
+    "DefaultText": "<b>Use:</b> Place the filled bowl in a lit fire and leave it. While it is hot the water slowly boils off (the Drying bar), and when the bowl runs dry it leaves a little Salt. It is not drinkable."
+  },
+  "CardImage": {"m_FileID": 0, "m_PathID": 0},
+  "CardImageWarpData": "FT_SeaWater",
+  "CardImageWarpType": 3,
+  "CardBackground": {"m_FileID": 0, "m_PathID": 0},
+  "CardType": 9,
+  "ObjectWeight": 0.33,
+  "TradingValue": 0,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Heatable", "tag_Boilable"],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "AlwaysUpdate": true,
+  "CannotBeTrashed": false,
+  "DoesNotPile": false,
+  "ToggleablePiling": true,
+  "MaxStack": 1,
+  "MaxLiquidCapacity": 0.0,
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "ft_lq_sea_water",
+      "LocalizationKey": "Far_Territory_SeaWater_FuelCapacity_CardStatName",
+      "DefaultText": "Liquid Temperature"
+    },
+    "MaxValue": 200.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 3,
+    "TextDisplay": 2,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "UsageDurability": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "ft_lq_sea_water",
+      "LocalizationKey": "Far_Territory_SeaWater_SpecialDurability1_CardStatName",
+      "DefaultText": "Drying"
+    },
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "ShowPopupOnFull": true,
+    "OnFullNotification": 1,
+    "OnFull": {
+      "ActionName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+      "ActionDescription": {
+        "ParentObjectID": "ft_lq_sea_water",
+        "LocalizationKey": "Far_Territory_SeaWater_SpecialDurability1_OnFull_ActionDescription",
+        "DefaultText": "The sea water has boiled dry, leaving salt."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+        "TransformIntoWarpType": 3,
+        "TransformToLiquidQuantity": 0.0
+      }
+    }
+  },
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Cool Down",
+      "FuelRateModifier": {"Active": true, "FloatValue": -100.0}
+    },
+    {
+      "EffectName": "Boiling down by a fire",
+      "Special1RateModifier": {"Active": true, "FloatValue": 0.8},
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "FuelRange": {"x": 100.0, "y": 200.0}
+        }
+      }
+    }
+  ],
+  "DroppedCardShadow": 1
+}

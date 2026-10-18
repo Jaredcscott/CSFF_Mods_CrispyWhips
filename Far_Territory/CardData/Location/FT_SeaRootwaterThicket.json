@@ -776,6 +776,73 @@
   "CardInteractions": [
     {
       "ActionName": {
+        "LocalizationKey": "Far_Territory_SeaWater_CI_Fill",
+        "DefaultText": "Fill with Sea Water"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SeaWater_CI_Fill_Desc",
+        "DefaultText": "Dip a bowl or other liquid container into the sea and fill it with salt water. Boil it dry in a fire for a little salt; it is not fit to drink."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ActionSoundsWarpData": [
+        "DiveShort"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CreatedLiquidInGivenCard": {
+        "LiquidCard": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "LiquidCardWarpData": "ft_lq_sea_water",
+        "LiquidCardWarpType": 3,
+        "Quantity": {
+          "x": 100000.0,
+          "y": 100000.0
+        },
+        "Durabilities": {
+          "Spoilage": 0,
+          "Usage": 0,
+          "Fuel": 0,
+          "Progress": 0,
+          "Special1": 0,
+          "Special2": 0,
+          "Special3": 0,
+          "Special4": 0,
+          "SpoilageValue": 0.0,
+          "UsageValue": 0.0,
+          "FuelValue": 0.0,
+          "ProgressValue": 0.0,
+          "Special1Value": 0.0,
+          "Special2Value": 0.0,
+          "Special3Value": 0.0,
+          "Special4Value": 0.0,
+          "SpoilageFrom": 0,
+          "UsageFrom": 0,
+          "FuelFrom": 0,
+          "ProgressFrom": 0,
+          "Special1From": 0,
+          "Special2From": 0,
+          "Special3From": 0,
+          "Special4From": 0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTagsWarpData": [
+          "tag_WaterContainer"
+        ],
+        "TriggerTagsWarpType": 3
+      }
+    },
+    {
+      "ActionName": {
         "LocalizationKey": "Far_Territory_SeaRootwaterThicket_CI_Fish",
         "DefaultText": "Fish with a Line"
       },

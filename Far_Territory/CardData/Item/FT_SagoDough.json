@@ -1,0 +1,83 @@
+{
+  "UniqueID": "ft_sago_dough",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SagoDough_CardName",
+    "DefaultText": "Sago Dough"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SagoDough_CardDescription",
+    "DefaultText": "A grey, sticky dough of soaked sago starch. Bake it by a fire into a flatbread."
+  },
+  "CardImageWarpData": "FT_SagoPith",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 75.0,
+  "MaxStack": 6,
+  "CardTagsWarpData": [
+    "tag_Heatable",
+    "tag_Cookable"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "OverrideIconWarpData": "Bacteria",
+    "OverrideIconWarpType": 3,
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SagoDough_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SagoDough_Spoiled",
+        "DefaultText": "The sago dough has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SagoDough_Temperature",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 200.0,
+    "HidingOptions": 3,
+    "TextDisplay": 2,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SagoDough_Cook",
+      "DefaultText": "Cook"
+    },
+    "MaxValue": 1.0,
+    "HidingOptions": 3,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SagoDough_Cooked",
+        "DefaultText": "The sago flatbread is baked."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_sago_flatbread",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "ModifyDurability": true
+      }
+    }
+  }
+}

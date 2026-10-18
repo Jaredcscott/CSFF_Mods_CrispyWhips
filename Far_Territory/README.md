@@ -1,17 +1,18 @@
 # Far Territory
 
-**Version:** 0.1.7
+**Version:** 0.1.9
 **Author:** Jared
-**Requires:** CSFFModFramework 2.28.0 or later
-**Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned.
+**Requires:** CSFFModFramework 2.28.2 or later
+**Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned. Version 0.1.8 added swamp fever and its cure, fish gutting, cooked island food and sea salt, and 0.1.9 the Island Start perk; their numbers are first guesses.
 
 Far Territory adds lands beyond the forest, reached by ordinary travel. Follow the river to the sea and cross to a warm island that recreates Card Survival: Tropical Island's island as a tribute (all text and art are new). Past the forest lie a grassland, mountains and fjords.
 
 - **Coast and island:** three new shore places at the river's end, an outrigger crossing, and an island with seven shore places, a gull islet, a whole interior, a volcano and sixteen caves (eight of them a chain of dark halls).
 - **Far lands:** a grassland west of the forest with a moose, snowy mountains north of it with a hot spring and rock salt, and cold fjords beyond with seals, walrus and puffins.
-- **Things to do:** fish every coast, climb and fell coconut palms, gather tropical food, medicine, spice and fibre plants (all also grown in the base game's Garden Plot), and fight island animals.
+- **Things to do:** fish every coast and gut the catch, climb and fell coconut palms, gather tropical food, medicine, spice and fibre plants (all also grown in the base game's Garden Plot), bake yams and sago flatbread, boil sea water into salt, and fight island animals.
+- **Island Start:** a starting perk that begins your run as a castaway on the island shore of your choice.
 
-Every card has its own picture except Brackwater Mouth's map picture, the set Funnel Trap and the effect icons, which use the base game's art.
+Every card has its own picture except Brackwater Mouth's map picture, the set Funnel Trap and the effect icons, which use the base game's art. Choose Your Landing borrows the Outrigger Canoe's picture, and the Island Start perk uses Landfall Strand's.
 
 ## At a glance
 
@@ -20,11 +21,13 @@ Every card has its own picture except Brackwater Mouth's map picture, the set Fu
 | Map | 51 places: Brackwater Mouth (built on a copy of a base-game river place) plus 50 new ones |
 | Travel | Dugout Canoe (downstream), Outrigger Canoe (sea crossing), compass hops, paths, swims, climbs that can end in a fall, a Rope and Pitons cliff |
 | Climate | The island, volcano, mountains and fjords each change how warm you feel, with no cards, plus Spring Warmth |
-| Cards | 93 items and 167 location and structure cards |
-| Blueprints | 3: Dugout Canoe, Rope and Pitons, Fish Trap |
+| Cards | 99 items, 2 liquids and 167 location and structure cards |
+| Blueprints | 4: Dugout Canoe, Rope and Pitons, Fish Trap, Cinchona Decoction |
+| Cooking | Baked Yam, Sago Flatbread, Coconut Meat in the stew, gutted fish, salt boiled from sea water |
+| Perks | Island Start |
 | Fishing | Line, net, spear and trap on each coast, 10 hidden fish and shellfish stocks, diving for shellfish |
 | Plants | Coconut chain, 7 food plants, 8 medicine and spice plants, 4 fibre and flowering plants, 7 effects |
-| Animals | 9 animals with 9 fights, carcasses to butcher, sea dangers (shark, sea krait, urchin) |
+| Animals | 9 animals with 9 fights, carcasses to butcher, sea dangers (shark, sea krait, urchin), and swamp fever from the mosquitoes on Rootwater Thicket and Reed Marsh |
 
 ## Getting there
 
@@ -32,8 +35,8 @@ Follow the river south to Duck Point, which now has a **South** exit. Each step 
 
 | Place | What is there |
 |---|---|
-| **Brackwater Mouth** (south of Duck Point) | The estuary. Still river water, so it keeps Duck Point's river and mosquitoes. A reed patch, a stone pile, a driftwood log. |
-| **Driftwood Shore** (east) | A shingle shore with a stone pile, a driftwood log and Forage. |
+| **Brackwater Mouth** (south of Duck Point) | The estuary. Still river water, so it keeps Duck Point's river and mosquitoes. A reed patch and a driftwood log. |
+| **Driftwood Shore** (east) | A shingle shore with a driftwood log and Forage. |
 | **Seaward Sands** (east again) | A wide beach: shell-strewn sand, a driftwood log, Forage, the sea (wash, dive) and a tide pool. |
 
 ### The dugout canoe
@@ -58,6 +61,19 @@ An **Outrigger Canoe** lies on Seaward Sands. **Set Sail for the Island** takes 
 - A Partner following you stays behind on Seaward Sands. Animals and other people cannot cross.
 - The canoes and the shores they leave from (**Misty Coast**, **Homeward Sand**) cannot be trashed, and a missing one comes back when you arrive on its beach.
 
+## Island Start
+
+To play an island run from day one, take the **Island Start** perk (1 Moon) at character creation. It sits with the base game's starting-location perks, so it replaces Lake Start, Swamp Start and the rest.
+
+- You start on **Landfall Strand** as a castaway, without the usual pile of starting stones, pine wood, twigs and needles. Every shore has Forage for stones, sticks and driftwood.
+- A **Choose Your Landing** card is in your hand. Each choice takes no time, and the card is gone once used:
+
+| Choice | Where you start |
+|---|---|
+| Stay on Landfall Strand | Here, beside the outrigger back to the mainland |
+| Land at Coral Inlet / Boulder Shore / Rootwater Thicket / Bleak Strand / Cliffbound Cove / Gull Stack | That shore |
+| Let the Sea Decide | One of those six shores, picked at random (Gull Stack included, whose only way off is a swim) |
+
 ## The island
 
 All island places are warm (see Climate below), and the coast and interior can be walked end to end.
@@ -68,13 +84,13 @@ All island places are warm (see Climate below), and the coast and interior can b
 | **Coral Inlet** | south of Landfall Strand | The reef water (wash, dive), sand, driftwood, a palm, Forage. The richest fishing on the island. |
 | **Boulder Shore** | east of Landfall Strand | The Rocky Swell, a tide pool, a palm, Forage (stones, shells, flint, seaweed). |
 | **Palm Fringe** | short path from Landfall Strand (no time) | Two coconut palms and a young palm, driftwood, Forage, a path into Vine Woods. No sea. |
-| **Rootwater Thicket** | long shore walk from Coral Inlet | A drowned wood: The Brackish Shallows (wash, grope for crabs and weed), Forage. |
+| **Rootwater Thicket** | long shore walk from Coral Inlet | A drowned wood: The Brackish Shallows (wash, grope for crabs and weed), Forage. Mosquitoes breed here; a summer visit without a repellent can start swamp fever. |
 | **Bleak Strand** | long shore walk on from Rootwater Thicket | A grey beach: The Grey Surf, a tide pool, Forage. |
 | **Gull Stack** | swim only | A gull rock: The Rocky Swell, a tide pool, a palm, a **Seagull Nest**, Forage. |
 | **Cliffbound Cove** | swim from Gull Stack, or climb from Misty Ridge | A hidden beach with deep calm water, Forage, an underwater passage into the Drowned Hall. |
 | **Vine Woods** | east of Coral Inlet | Vine-hung trees: Forage. |
 | **Westgrass Plain**, **Eastgrass Plain** | east of Vine Woods, one hop each | Open grass: Forage. |
-| **Reed Marsh** | south of Vine Woods | Water and reeds: Forage, a climb to Misty Ridge. |
+| **Reed Marsh** | south of Vine Woods | Water and reeds: Forage, a climb to Misty Ridge. Mosquitoes breed here; a summer visit without a repellent can start swamp fever. |
 | **Green Deep** | south of Reed Marsh | The deep wood: Forage. |
 | **Hidden Vale** | south of Green Deep | A closed valley: Forage. |
 | **Misty Ridge** | east of Green Deep | A windswept ridge: Forage, climbs down to Reed Marsh and Cliffbound Cove. |
@@ -146,10 +162,10 @@ The mod adjusts how warm you feel (the base game's Perceived Temperature) from t
 - **Driftwood Log**: **Haul Out** turns it into a Tree Log with oak values.
 - **Shell-Strewn Sand**: **Comb the Sand** gives 1 to 3 Seashells. It refills about 3 days per comb.
 - **Seashells**: drag a Stone onto them to grind them (half an hour). About every second handful makes a Bonemeal.
-- **The Sea**: **Wash in the Sea** (15 minutes) and **Dive for Shells** (half an hour, 4 stamina every 15 minutes, wets you). A dive brings up Seashells, Seaweed or nothing, plus shellfish. There is no salt water or tide.
+- **The Sea**: **Wash in the Sea** (15 minutes) and **Dive for Shells** (half an hour, 4 stamina every 15 minutes, wets you). A dive brings up Seashells, Seaweed or nothing, plus shellfish. **Fill with Sea Water** dips any bowl or liquid container into the sea. Sea water is too salty to drink, but set a filled bowl in a lit fire and it boils dry in about 30 hours of continuous fire, leaving a **Salt**. That is a little less a day than the Rock Salt Seam, paid for in fuel and tending. The timing is a first guess. There is no tide. (The icy Fjord gives no salt.)
 - **Tide Pool** (Seaward Sands, Boulder Shore, Bleak Strand, Gull Stack): **Forage the Pool** gives a Shore Crab, Rock Prawns or Seaweed, needs daylight and stamina, and restocks in about 2.5 days per forage.
-- **Seaweed**, **Shore Crab** and **Rock Prawn** can be eaten raw (spoiling in 2 to 3 days), with the base game's raw-food risks. There are no cooked island foods yet.
-- Every island coast has its own sea card with the same wash and dive: **The Reef Water**, **The Rocky Swell**, **The Grey Surf**, **The Brackish Shallows** and **The Cove Water**. Each coast's dive finds its own shells, seaweed, stones, flint or crabs.
+- **Seaweed**, **Shore Crab** and **Rock Prawn** can be eaten raw (spoiling in 2 to 3 days), with the base game's raw-food risks. They have no cooked form; for island cooking see Fishing (gutting) and Cooked island food.
+- Every island coast has its own sea card with the same wash, dive and Fill with Sea Water: **The Reef Water**, **The Rocky Swell**, **The Grey Surf**, **The Brackish Shallows** and **The Cove Water**. Each coast's dive finds its own shells, seaweed, stones, flint or crabs.
 - **Forage** works on every Far Territory place, and Forage and combing need some stamina. Outside they need daylight, in the dark caves a light, and in the other caves neither. Each forage uses part of a Gleanings bar that refills over time, and a forage, wash or dive can turn up nothing.
 
 ## Fishing
@@ -173,7 +189,7 @@ Every fishing tool works on every sea card except the fjords, which have no fish
 
 **Stocks.** Each species has a hidden stock that sets how likely it is to bite. Every catch lowers it, and time restores it: about 5 days per catch for the common fish, 10 for Reef Grouper, Threadfin and Conch, and about 21 for Oyster and Sea Urchin. A line, net or spear catch takes twice that from the stock (a trap catch the base amount), so a coast fished hard goes quiet for days. All coasts share the stocks.
 
-**Eating.** Sea fish (12 to 50 satiation) spoil in 2 days. Shellfish (Conch, Oyster, Sea Urchin, 12 to 20 satiation) come from dives and spoil in 2.5 days. Seaward Sands gives Conch and Sea Urchin, Coral Inlet adds Oyster, Boulder Shore and Cliffbound Cove give Conch and Sea Urchin, and Bleak Strand gives Conch. Eaten raw they carry the base game's raw-fish risks: parasites (shellfish more, and Oyster and Conch can upset your stomach), a little filth, fish fatigue and no pleasure. None has a cooked form yet.
+**Eating.** Sea fish (12 to 50 satiation) spoil in 2 days. Shellfish (Conch, Oyster, Sea Urchin, 12 to 20 satiation) come from dives and spoil in 2.5 days. Seaward Sands gives Conch and Sea Urchin, Coral Inlet adds Oyster, Boulder Shore and Cliffbound Cove give Conch and Sea Urchin, and Bleak Strand gives Conch. Eaten raw they carry the base game's raw-fish risks: parasites (shellfish more, and Oyster and Conch can upset your stomach), a little filth, fish fatigue and no pleasure. **Gut** a fish with a knife or other blade (any card tagged as a cutter, dragged onto the fish) to get the base game's Raw Lean or Raw Fatty Fish Meat plus Fish Scraps, which cook on the base game's fire like any other fish: Bonefish, Goatfish, Mudskipper, Parrotfish and Reef Grouper give lean meat, Silver Herring and Threadfin fatty. One meat and one scraps per 225 weight, at least one (Reef Grouper gives 3, Threadfin 2). Shellfish and Seaweed have no cooked form yet.
 
 **Fish Trap** (Hunting, Fishing blueprint): 12 hours to research, 1.5 hours to build from 4 Twigs and 3 Twine. Set on the sea, it becomes a **Fish Trap (Set)** that springs every 24 to 30 hours. **Haul Out the Trap** (15 minutes) gives you the trap back with its catch, which keeps fresh inside. It holds four fish and never wears out. The **Funnel Trap (Set)** catches the same way, and its haul-out spills the catch onto the shore because the base game's trap holds only Perch.
 
@@ -203,7 +219,7 @@ Seven wild plants stand on the island where the original game places them. Each 
 | **Wild Yam Vine** | Vine Woods, Green Deep | **Dig up a Yam** (half an hour) | 1 Yam (keeps 15 days) |
 | **Sago Palm** | Reed Marsh | drag an axe on it to **Fell the Sago Palm** (45 minutes) | 4 to 6 Sago Pith, 2 to 4 Palm Fronds, 1 Sago Shoot; leaves a Young Sago Palm that regrows in 30 days |
 
-Picking takes 15 minutes. Most foods spoil in 3 to 5 days, and all are eaten raw.
+Picking takes 15 minutes. Most foods spoil in 3 to 5 days and are eaten raw; Yam, Sago Pith and Coconut Meat can also be cooked (see Cooked island food).
 
 **In a garden.** Put a Banana, Mango, Tropical Almond, Jujube, Nipa Fruit, Yam or Sago Shoot into the Garden Plot and within 15 minutes it takes root. It grows only while it sits there. **Harvest** takes 15 minutes and **Uproot** removes it.
 
@@ -218,6 +234,21 @@ Picking takes 15 minutes. Most foods spoil in 3 to 5 days, and all are eaten raw
 | Nipa Fruit | 30 days | 1 to 2 | grows again |
 | Yam | 15 days | 2 to 3 | used up |
 | Sago Shoot | 30 days | 3 to 5 Sago Pith and a new Shoot | used up |
+
+## Cooked island food
+
+Three dishes sit on the base game's cooking chain. Their numbers are copied from the nearest base-game counterpart, and every Far Territory-only number (weights, the dried pith's 18 days) is a tunable placeholder.
+
+| Dish | How | Eat | Spoils in | Copied from |
+|---|---|---|---|---|
+| **Baked Yam** | set a **Yam** by a fire (campfire, fireplace); a baked yam left on the fire burns | Satiation +30 | 30 hours | Roasted Turnroot |
+| **Sago Flatbread** | dry **Sago Pith** on a rack into **Dried Sago Pith**; drag fresh water onto it to **Soak** it into **Sago Dough**; bake the dough by a fire | Satiation +35, Fullness +45, Calories +40, Stress -10 | 45 hours | Acorn Flatbread |
+| **Coconut stew** | put **Coconut Meat** into a pot of hot water over a fire; it boils into the broth | thickens the stew (+25) with Vitamins +12 and Calories +30 | the stew's own | the acorn in the base game's stew |
+
+- **Rack drying** follows the base game's Drying Rack: it needs the rack's smoke upkeep, and fresh pith takes 24 rack ticks.
+- Dried Sago Pith and Sago Dough are ingredients and have no Eat button.
+- There is no Coconut Milk in Far Territory, so there is no coconut-milk stew. Coconut Meat in the stew needs CSFF Mod Framework 2.28.2 or later.
+- Not yet confirmed in game: all three dishes.
 
 ## Medicine and spice plants
 
@@ -234,7 +265,7 @@ Eight wild plants stand where the original game places them. Each has a pick, cu
 | **Cinchona Tree** | Vine Woods, Misty Ridge | 1 to 2 Cinchona Bark (keeps 60 days); or a Seedling for a garden |
 | **Coffee Bush** | Misty Ridge | 3 to 5 Coffee Berries (**Pick Coffee Berries**) |
 
-**Remedies.** Using one raises a Far Territory effect that falls by 4 an hour. While it is up, it changes the base game's stats below. Nothing writes your immune system or pain directly, so doses do not stack for the rest of the run.
+**Remedies.** Using one raises an effect that falls by 4 an hour (Aloe Salve, Cinchona Bitters, Kava Calm and Coffee Buzz are Far Territory's own; Ginger, China Rose Effect and Jasmine are the base game's, which no base-game card used until now). One dose of each of those three is 12, so two doses still stay at the low level. While it is up, it changes the base game's stats below. Nothing writes your immune system or pain directly, so doses do not stack for the rest of the run.
 
 | Effect | Source | While it is up | At a high level (25 or more) |
 |---|---|---|---|
@@ -242,9 +273,13 @@ Eight wild plants stand where the original game places them. Each has a pick, cu
 | **Cinchona Bitters** | Chew the Bark | fever falls 40 an hour faster, Pain -25 | fever 80 an hour faster, Pain -50 |
 | **Kava Calm** | Chew the Root | stress falls 4 an hour faster, Pain -25 | stress 8 faster, Pain -50, you grow drowsy |
 | **Coffee Buzz** | Eat the berries | wakefulness rises 6 an hour faster, you grow stressed and thirsty 1 an hour faster | all three doubled (at 13 or more) |
-| **Ginger Warmth** | Chew the Root | nausea falls 2 an hour faster, Pain -10 | none |
+| **Ginger** (base game) | Chew the Root | Pain -25, nausea falls 2 an hour faster, Appetite and Courage up, immune system +50 | Pain -50, nausea 3 an hour faster, immune system +100 |
+| **China Rose Effect** (base game) | Eat the Petals (China Rose) | stress falls 8 an hour faster, a little more morale, immune system +10 | stress 16 an hour faster, immune system +30 |
+| **Jasmine** (base game) | Eat the Petals (Jasmine Flowers) | stress falls 12 an hour faster, you grow a little drowsy | stress 24 faster, more drowsy |
 
 Cinchona Bitters brings a fever down. It does not cure the base game's Swamp Fever infection.
+
+**Cinchona Decoction.** The way to wear Swamp Fever down. Research the Cinchona Decoction blueprint (Survival, Medical), boil clean water in a cooking pot, then make it with 2 Cinchona Bark: it takes an hour, and the pot is kept. The pot's water becomes 300 of decoction, three doses of 100. Each Drink lowers the base game's Swamp Fever by 1 (it cannot go below 0) and adds Nausea +6, which fades by itself. The decoction goes off in about two days. These numbers are first guesses, not yet balanced, and the in-game check is still open.
 
 **Spices.** Ginger Root, Chillies, Lemongrass and Jasmine Flowers carry the base game's flavour tags (Pungent, Spicy, Herbal, Sour, Floral). Whether a base-game dish picks these up has not been checked in game.
 
@@ -254,7 +289,7 @@ Cinchona Bitters brings a fever down. It does not cure the base game's Swamp Fev
 
 Four more wild plants hold 4 yields each and regrow in 30 days while you are on that board.
 
-- **China Rose** (Misty Ridge): **Pick China Roses** gives 2 to 3 flowers to eat (Satiation +1). **Take a China Rose Cutting** gives a cutting for a garden.
+- **China Rose** (Misty Ridge): **Pick China Roses** gives 2 to 3 flowers to eat (Satiation +1 and the base game's China Rose Effect, see Remedies). **Take a China Rose Cutting** gives a cutting for a garden.
 - **Spider Lily** (Reed Marsh): **Cut Spider Lily Leaves** gives 1 to 2 poisonous leaves. **Lift a Spider Lily Bulb** gives a bulb for a garden. **Bind as a Poultice** on a leaf raises **Lily Poultice**, which gives Pain -20 and falls by 4 an hour.
 - **Weevil Lily** (Vine Woods, Green Deep): **Cut Weevil Lily Leaves** gives 2 to 3 leaves. **Dig up a Weevil Lily Rhizome** gives one for a garden. **Strip into Fibers** turns a leaf into 1 Fibers.
 - **Snake Grass** (Vine Woods, Green Deep, Misty Ridge, Rootwater Thicket, Reed Marsh): **Cut Snake Grass** gives 2 to 3 blades. **Strip into Fibers** turns a blade into 2 Fibers.
@@ -332,7 +367,7 @@ The caves are off the paper map and keep the forest's temperature.
 
 **The Hot Spring.** **Bathe in the Hot Spring** (half an hour) washes off 30 filth and wets you. It also gives **Spring Warmth**, which adds 16 to how warm you feel and fades over 4 hours. While you are wet the net is about +6, and the full +16 holds once you dry.
 
-**The Rock Salt Seam.** **Chip out Salt** (half an hour, needs stamina) gives 1 or 2 Salt. The seam regrows a little under one chip a day. The base game's Salt Bed is not used: its Scrape Salt buttons give nothing in this game version.
+**The Rock Salt Seam.** **Chip out Salt** (half an hour, needs stamina) gives 1 or 2 Salt. The seam regrows a little under one chip a day. The base game's Salt Bed is not used: its Scrape Salt buttons give nothing in this game version. Away from the seam you can also boil sea water down to salt (see **The Sea**, above): slower and fuel-hungry, but it works on the coast and the island.
 
 **Rope and Pitons.** A blueprint in Advanced Tools, unlocked once you have a Rope. It takes 2 hours to research and an hour to make, from a Rope, 2 metal nuggets and a hard hammering tool. Held in your hand it raises the base game's Climbing Aid by a quarter of its range, which makes every climb that reads it safer. With Advanced Copper Tools' Grappling Hook the two reach half the range, so a climb never becomes certain.
 
@@ -373,6 +408,8 @@ A cold, steep coast beyond the mountains. There is no boat.
 - The animals are not board cards and are expected to appear in an existing save too, but that has not been confirmed in game. An older save's new path cards and caves should appear on its next visit, which has not been watched in a real older save yet.
 - Copper Veins and the Spring are not put back, and a mined-out vein does not return. A cave you had already visited before 0.1.7 keeps the veins it had.
 - The old Island Air, Mountain Air, Fjord Chill and Volcanic Heat cards no longer exist. An existing save simply loses them.
+- Brackwater Mouth and Driftwood Shore no longer get the picture-less Stone Pile. A pile already on one of those boards in an older save stays where it is.
+- Island Start is chosen at character creation, so it needs a new run. Everything else from 0.1.8 and 0.1.9 (gutting, cooking, sea water, the decoction, the swamps' mosquitoes) needs no new run.
 - Each new place adds a small entry (about 5 KB) to the save.
 - **Long island stays:** when you return to a place you left, the game catches up on the time that passed, but the framework caps that at 14 in-game days. After a longer island stay your home base catches up for 14 days only: food spoils, fires burn down and crops grow as if you had been away 14 days.
 
@@ -393,7 +430,7 @@ Download Far Territory from its [Nexus Mods page](https://www.nexusmods.com/card
 
 ### Requirements
 - [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
-- CSFF Mod Framework 2.28.0 or later (`CSFF_Mod_Framework`)
+- CSFF Mod Framework 2.28.2 or later (`CSFF_Mod_Framework`)
 
 ### Steps
 1. Install BepInEx 5 and CSFF Mod Framework.
@@ -417,7 +454,10 @@ BepInEx/
 
 See `CHANGELOG.md` for the full list.
 
+- **0.1.9:** the Island Start perk: begin as a castaway and choose your landing shore, or let the sea decide.
+- **0.1.8:** swamp fever from the mosquitoes on Rootwater Thicket and Reed Marsh, a boiled Cinchona Decoction that wears it down, gutting for the seven island fish, Baked Yam, Sago Flatbread and Coconut Meat in the stew, salt boiled from sea water, China Rose, Jasmine and Ginger on the base game's effects, and no more blank Stone Pile on the river-mouth shores.
 - **0.1.7:** vanilla-balance pass: garden plants need tending and die in winter, forage, washes, dives and fishing can come up empty, sea fishing is about half as rich, raw seafood carries parasites, the crossing costs stamina and can be rough, moose and walrus give real meat and a hide, the carcass searches run on a 3-day stock, three copper veins instead of seven, and the island's warmth follows the season.
+- **0.1.6:** card pictures sit in the game's own framing again.
 - **0.1.5:** spoilage shows the bacteria icon on 49 foods, plants and carcasses, and Chilli, China Rose petals, Jasmine flowers, Ginger and Lemongrass taste of something when eaten straight.
 - **0.1.4:** the island's locations stay still; the animals still breathe and the plants still sway.
 - **0.1.3:** calmer animated sea: about half the speed and less strong.

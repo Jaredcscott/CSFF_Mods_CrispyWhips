@@ -1,0 +1,369 @@
+{
+  "UniqueID": "ft_castaway_landing",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_CastawayLanding_CardName",
+    "DefaultText": "Choose Your Landing"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_CastawayLanding_CardDescription",
+    "DefaultText": "The current brought you ashore on Landfall Strand. Start here, land on another island shore, or let the sea decide. Choosing takes no time, and the card is gone once you choose."
+  },
+  "CardImageWarpData": "FT_Outrigger",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_CoralInlet",
+        "DefaultText": "Land at Coral Inlet"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_CoralInlet_Desc",
+        "DefaultText": "Start your run on Coral Inlet instead. The reef water, the richest fishing on the island. Takes no time."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "CoralInlet",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvCoralInlet",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_BoulderShore",
+        "DefaultText": "Land at Boulder Shore"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_BoulderShore_Desc",
+        "DefaultText": "Start your run on Boulder Shore instead. Rocks, a tide pool and flint in the forage. Takes no time."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "BoulderShore",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvBoulderShore",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_RootwaterThicket",
+        "DefaultText": "Land at Rootwater Thicket"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_RootwaterThicket_Desc",
+        "DefaultText": "Start your run on Rootwater Thicket instead. A drowned wood. Mosquitoes breed here in summer. Takes no time."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "RootwaterThicket",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvRootwaterThicket",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_BleakStrand",
+        "DefaultText": "Land at Bleak Strand"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_BleakStrand_Desc",
+        "DefaultText": "Start your run on Bleak Strand instead. A grey beach far down the coast. Takes no time."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "BleakStrand",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvBleakStrand",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_CliffboundCove",
+        "DefaultText": "Land at Cliffbound Cove"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_CliffboundCove_Desc",
+        "DefaultText": "Start your run on Cliffbound Cove instead. A hidden beach under the cliffs, reached by swim or climb. Takes no time."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "CliffboundCove",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvCliffboundCove",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_GullStack",
+        "DefaultText": "Land at Gull Stack"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_GullStack_Desc",
+        "DefaultText": "Start your run on Gull Stack instead. A gull rock off the coast. The only way off is a swim. Takes no time."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "GullStack",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvGullStack",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_Random",
+        "DefaultText": "Let the Sea Decide"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_Random_Desc",
+        "DefaultText": "For the adventurous: the current carries you to one of the six other island shores, picked at random. Gull Stack is among them. Takes no time."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "CoralInlet",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvCoralInlet",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "BoulderShore",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvBoulderShore",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "RootwaterThicket",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvRootwaterThicket",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "BleakStrand",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvBleakStrand",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "CliffboundCove",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvCliffboundCove",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "GullStack",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvGullStack",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_Stay",
+        "DefaultText": "Stay on Landfall Strand"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CastawayLanding_DA_Stay_Desc",
+        "DefaultText": "Start here, where the outrigger to the mainland lies. Takes no time."
+      },
+      "DaytimeCost": 0,
+      "NotBaseAction": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

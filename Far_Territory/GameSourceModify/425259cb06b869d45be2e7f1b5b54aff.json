@@ -1,0 +1,588 @@
+{
+  "UniqueID": "425259cb06b869d45be2e7f1b5b54aff",
+  "DurabilityTransferEffectsWarpData": [
+    {
+      "EffectName": "Absorb Far Territory Coconut Meat",
+      "Targets": [
+        {
+          "Target": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TargetWarpData": "ft_coconut_meat",
+          "TargetWarpType": 3
+        }
+      ],
+      "PickTargetsInSameContainer": true,
+      "TargetSelection": 2,
+      "InvertTargetScore": false,
+      "TargetConditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 4.0,
+          "y": 4.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "TargetConditionFailMessage": {
+        "Active": false,
+        "Text": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        }
+      },
+      "TargetConditionSpecificFailMessages": [],
+      "SelfConditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 100.0,
+          "y": 200.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 99.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "LiquidQuantityRange": {
+          "x": 290.0,
+          "y": 0.0
+        }
+      },
+      "SelfConditionFailMessage": {
+        "Active": false,
+        "Text": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        }
+      },
+      "SelfConditionSpecificFailMessages": [
+        {
+          "Durabilities": {
+            "MaskValue": 16
+          },
+          "Message": {
+            "ParentObjectID": "",
+            "LocalizationKey": "",
+            "DefaultText": "Not enough liquid"
+          }
+        },
+        {
+          "Durabilities": {
+            "MaskValue": 8
+          },
+          "Message": {
+            "ParentObjectID": "",
+            "LocalizationKey": "",
+            "DefaultText": "Too thick"
+          }
+        },
+        {
+          "Durabilities": {
+            "MaskValue": 4
+          },
+          "Message": {
+            "ParentObjectID": "",
+            "LocalizationKey": "",
+            "DefaultText": "Not hot enough"
+          }
+        }
+      ],
+      "OtherConditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredComplexCardConditions": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "RequiredInventoryWeight": {
+          "Active": false,
+          "Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsePercentage": false,
+          "Invert": false
+        },
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "ReceivingCardSpices": [],
+        "GivenCardSpices": [],
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredNPCActiveDuties": [],
+        "RequiredNPCAtHome": [],
+        "RequiredNPCAtSpecialLocation": [],
+        "RequiredPresentNPCS": [],
+        "RequiredInGameTimes": [],
+        "RequiredAlreadyVisitedEnvironments": [],
+        "RequiredUnlockedBps": [],
+        "RequiredNOTUnlockedBps": [],
+        "NPCInventoryConditions": [],
+        "NPCExists": []
+      },
+      "PerformEvenIfTransferIs0": true,
+      "CheckConditionsOnEveryTarget": true,
+      "Transfer": {
+        "TakeFrom": 1,
+        "SendTo": 1,
+        "TransferDirection": 0,
+        "TransferValue": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "DifferentReceivedValue": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "ScaleChangesPerPortionOfLiquid": {
+          "Active": true,
+          "FloatValue": 300.0
+        },
+        "ApplyLiquidScalingTo": 0,
+        "ScaleChangesWithSelfDurabilities": {
+          "Active": false,
+          "Inputs": [],
+          "EffectScalingOutput": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ScaleChangesWithTargetDurabilities": {
+          "Active": false,
+          "Inputs": [],
+          "EffectScalingOutput": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ApplyDurabilityScalingTo": 0
+      },
+      "SelfDurabilityChanges": [
+        {
+          "Durability": 2,
+          "Value": {
+            "x": 12.0,
+            "y": 12.0
+          }
+        },
+        {
+          "Durability": 8,
+          "Value": {
+            "x": 25.0,
+            "y": 25.0
+          }
+        },
+        {
+          "Durability": 32,
+          "Value": {
+            "x": 30.0,
+            "y": 30.0
+          }
+        },
+        {
+          "Durability": 128,
+          "Value": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "Durability": 256,
+          "Value": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "TargetDurabilityChanges": [],
+      "SelfInterpolatedDurabilityChanges": [
+        {
+          "InputDurability": 64,
+          "OutputDurability": 64,
+          "UseOtherCard": true,
+          "Value": {
+            "Active": true,
+            "InputValueRange": {
+              "x": 100.0,
+              "y": 0.0
+            },
+            "OutputValueRange": {
+              "x": 0.0,
+              "y": -30.0
+            },
+            "WhenOutOfRange": 1,
+            "OutOfRangeCustomValue": 0.0
+          }
+        }
+      ],
+      "ScaleOtherChangesFromTransferQuantity": false,
+      "ScaleOtherChangesWithLiquidQuantity": true,
+      "SelfCardChange": {
+        "ModType": 0,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformToLiquidQuantity": 0.0,
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": false,
+        "TransferSpecial3": false,
+        "TransferSpecial4": false,
+        "TransferInventory": false,
+        "TransferSavedIngredients": false,
+        "AverageGivenAndReceivingCards": false,
+        "TransferLiquid": false,
+        "SpoilageTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "UsageTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "FuelTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "ProgressTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special1TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special2TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special3TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special4TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "ModifyDurability": false,
+        "ModifyLiquid": false,
+        "DropOnDestroyList": false,
+        "LiquidEffectScaling": 0,
+        "AddFlavoursFromTargetCard": false,
+        "AddFlavoursFromOtherCard": false,
+        "AddSpicesFromTargetCard": false,
+        "AddSpicesFromOtherCard": false,
+        "AddedFlavours": [],
+        "AddedSpiceTags": [],
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpoilageFromOtherCard": false,
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetUsageFromOtherCard": false,
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetFuelFromOtherCard": false,
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetProgressFromOtherCard": false,
+        "LiquidQuantityChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial1FromOtherCard": false,
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial2FromOtherCard": false,
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial3FromOtherCard": false,
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial4FromOtherCard": false,
+        "StatInterpolatedDurabilityChanges": [],
+        "DurabilityInterpolatedTransfers": [],
+        "ScaleChangesPerPortionOfLiquid": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "UseOtherCardForLiquidQuantity": false
+      },
+      "DestroySelf": false,
+      "CopyFlavoursAndSpicesToTargets": false,
+      "DestroyTargets": true,
+      "CopyFlavoursAndSpicesToSelf": true,
+      "SelfAddedFlavours": [],
+      "TargetsAddedFlavours": [],
+      "SelfAddedSpices": [],
+      "TargetsAddedSpices": [],
+      "ScaleFlavourChangesWithLiquid": true,
+      "NotifyWhenDone": true,
+      "CustomNotificationSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "NotificationText": 2,
+      "CustomNotificationText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "Debug": false
+    }
+  ],
+  "DurabilityTransferEffectsWarpType": 4
+}

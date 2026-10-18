@@ -1,0 +1,97 @@
+{
+  "UniqueID": "ft_sago_pith_dried",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SagoPithDried_CardName",
+    "DefaultText": "Dried Sago Pith"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SagoPithDried_CardDescription",
+    "DefaultText": "Sago pith dried hard and pale, so it keeps. Soak it in fresh water to work it into a dough."
+  },
+  "CardImageWarpData": "FT_SagoPith",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 120.0,
+  "MaxStack": 10,
+  "CardTagsWarpData": [],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "OverrideIconWarpData": "Bacteria",
+    "OverrideIconWarpType": 3,
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1800.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SagoPithDried_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SagoPithDried_Spoiled",
+        "DefaultText": "The dried sago pith has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SagoPithDried_Soak_ActionName",
+        "DefaultText": "Soak"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SagoPithDried_Soak_ActionDescription",
+        "DefaultText": "Work the dried pith into a dough with fresh water."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_WaterFresh"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "WorksBothWays": true,
+      "RequiredGivenDurabilities": {
+        "RequiredProgressPercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.01
+        },
+        "RequiredLiquidQuantity": 150.0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "ft_sago_dough",
+        "TransformIntoWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 0,
+        "ModifyLiquid": true,
+        "LiquidQuantityChange": {
+          "x": -300.0,
+          "y": -300.0
+        }
+      }
+    }
+  ]
+}

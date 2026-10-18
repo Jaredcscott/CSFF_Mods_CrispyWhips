@@ -59,6 +59,7 @@
         <Content Include="DropInjections.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="WorldMap\*.json" CopyToOutputDirectory="PreserveNewest" Link="WorldMap\%(Filename)%(Extension)" />
         <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Content Include="CharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="CharacterPerk\%(Filename)%(Extension)" />
         <Content Include="GameStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameStat\%(Filename)%(Extension)" />
         <Content Include="Animals\*.json" CopyToOutputDirectory="PreserveNewest" Link="Animals\%(Filename)%(Extension)" />
         <Content Include="Encounter\*.json" CopyToOutputDirectory="PreserveNewest" Link="Encounter\%(Filename)%(Extension)" />

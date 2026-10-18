@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.1.9] - 2026-10-17
+
+### Added
+
+- **Island Start perk.** A new starting-location perk (1 Moon, taken instead of Lake Start and the other starting places) starts your run on the island as a castaway, with none of the usual starting stones and kindling. A **Choose Your Landing** card in hand picks the shore: stay on Landfall Strand, land at Coral Inlet, Boulder Shore, Rootwater Thicket, Bleak Strand, Cliffbound Cove or Gull Stack, or **Let the Sea Decide** for a random one of those six. Choosing takes no time.
+
+## [0.1.8] - 2026-10-17
+
+### Added
+
+- **Swamp fever on the island.** Rootwater Thicket and Reed Marsh now breed mosquitoes, exactly as the base game's swamps do: strongest in summer, lighter in spring and autumn, and gone in winter. Linger there without a repellent and the bites can bring on swamp fever. Bog myrtle, juniper, fly agaric and campfire smoke keep the mosquitoes off, just as they do in the base game.
+- **Cinchona Decoction, a real answer to Swamp Fever.** Boil clean water in a cooking pot, then simmer 2 Cinchona Bark in it for an hour (a Medical blueprint, researched like any other; the pot is kept). Each of the three doses in the pot lowers the base game's Swamp Fever by 1 and adds a little Nausea, and the decoction goes off in about two days. Chewing the bark is unchanged. The numbers are first guesses, not yet balanced.
+- **Gut a fish.** Drag a knife or other blade onto Bonefish, Goatfish, Mudskipper, Parrotfish, Reef Grouper, Silver Herring or Threadfin to get the base game's Raw Fish Meat plus Fish Scraps, which cook on any fire. Lean meat from the first five, fatty from Silver Herring and Threadfin. One of each per 225 weight (Reef Grouper gives 3, Threadfin 2, the rest 1). Eating a fish raw still works.
+- **Cooked island food on the base game's cooking chain.** Three dishes, each copied from its nearest base-game counterpart:
+  - **Baked Yam.** A Yam set by a fire bakes into a Baked Yam (Satiation +30, spoils in 30 hours; left on the fire it burns, like a roasted root).
+  - **Sago Flatbread.** Sago Pith now dries on a rack into **Dried Sago Pith** (keeps about 18 days). Drag fresh water onto it to **Soak** it into **Sago Dough**, and bake the dough by a fire into **Sago Flatbread** (Satiation +35, spoils in 45 hours), the same way Acorn Flour becomes Acorn Flatbread.
+  - **Coconut Meat goes into the stew.** Drop it in a pot of hot water with a fire under it and it boils into the broth like an acorn, thickening it and adding Calories and Vitamins. There is no Coconut Milk in Far Territory, so there is no coconut-milk stew. The stew needs CSFF Mod Framework 2.28.2 or later.
+- **Boil sea water into salt.** The Sea and the island's other seas (The Reef Water, The Rocky Swell, The Grey Surf, The Brackish Shallows, The Cove Water) now have a **Fill with Sea Water** action: dip any bowl or liquid container to fill it with sea water. Sea water is too salty to drink, but set a filled bowl in a lit fire and the water boils dry in about 30 hours of continuous fire, leaving a Salt. That is a little less salt a day than the Rock Salt Seam, and it costs fuel and tending instead of a trip to the mountains, so you can make salt on the coast and the island. The icy Fjord gives none. The timing is a first guess, not yet balanced.
+
+### Changed
+
+- **China Rose, Jasmine Flowers and Ginger use the base game's own effects.** Eating a China Rose or Jasmine Flowers now raises the base game's China Rose Effect or Jasmine effect (less stress, a little drowsy for Jasmine), which fades after a few hours; before, they gave only a little food value. Chewing Ginger Root raises the base game's Ginger effect (Pain -25, nausea eases, appetite and immune system up) instead of Far Territory's weaker Ginger Warmth. A dose is 12 of the effect's 48, so two doses stay at the low level. Ginger Warmth is no longer raised by anything; if a save still holds some it wears off on its own.
+
+### Removed
+
+- **No more blank Stone Pile.** Brackwater Mouth and Driftwood Shore no longer get the base game's Stone Pile, a card the game never gave a picture. A pile already on one of those boards in an existing save stays where it is.
+
 ## [0.1.7] - 2026-10-15
 
 A balance pass to bring Far Territory in line with the base game instead of outdoing it.

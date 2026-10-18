@@ -3,6 +3,9 @@
     "ft_bp_canoe",
     "ft_bp_rope_and_pitons"
   ],
+  "Tab_1_Survival_Subtab_3_Medical_TabName": [
+    "ft_bp_cinchona_decoction"
+  ],
   "Tab_3_Hunting_Subtab_1_Fishing_TabName": [
     "ft_bp_fish_trap"
   ]

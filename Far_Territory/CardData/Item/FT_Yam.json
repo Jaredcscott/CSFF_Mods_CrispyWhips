@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_Yam_CardDescription",
-    "DefaultText": "A long, earthy wild yam root. Eaten raw it is starchy, filling and dull. Set one in a garden plot and it sprouts."
+    "DefaultText": "A long, earthy wild yam root. Eaten raw it is starchy, filling and dull. Set one in a garden plot and it sprouts, or bake it by a fire until it turns soft and sweet."
   },
   "CardImageWarpData": "FT_Yam",
   "CardImageWarpType": 3,
@@ -16,7 +16,9 @@
   "CardTagsWarpData": [
     "tag_HumanFood",
     "tag_Plateable",
-    "tag_Gardenable"
+    "tag_Gardenable",
+    "tag_Heatable",
+    "tag_Cookable"
   ],
   "CardTagsWarpType": 3,
   "SpoilageTime": {
@@ -288,5 +290,46 @@
         "ModType": 3
       }
     }
-  ]
+  ],
+  "FuelCapacity": {
+    "Active": true,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_Yam_Temperature",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 200.0,
+    "HidingOptions": 3,
+    "TextDisplay": 2,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_Yam_Cook",
+      "DefaultText": "Cook"
+    },
+    "MaxValue": 1.0,
+    "HidingOptions": 3,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Yam_Cooked",
+        "DefaultText": "The yam is baked soft and sweet."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_yam_baked",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "ModifyDurability": true,
+        "SpoilageTransferScale": {
+          "Active": true,
+          "FloatValue": 0.0833
+        }
+      }
+    }
+  }
 }
