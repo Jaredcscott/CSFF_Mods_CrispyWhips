@@ -37,6 +37,9 @@ namespace mod_update_manager
         public float Progress => _totalChecks > 0 ? (float)_checksCompleted / _totalChecks : 0f;
         public List<InstalledModInfo> InstalledMods => _installedMods;
 
+        /// <summary>Mod Update Manager's own latest version on Nexus, as the last check read it; null until one did.</summary>
+        public string LatestMumVersion { get; private set; }
+
         public UpdateChecker(NexusApiClient apiClient, ModMappingManager mappingManager, NexusModDiscovery modDiscovery = null, ModPreferences preferences = null,
             NexusPublicClient publicClient = null, Func<bool> usePublicWithoutKey = null)
         {
@@ -315,11 +318,44 @@ namespace mod_update_manager
                     toAsk.Add(mod);
                 }
             }
-            if (toAsk.Count == 0) yield break;
+            // MUM's own page rides in the same query (the upgrade handoff, MumHandoff): it is never a row,
+            // only the version the Install and Update tab compares with the running one.
+            var selfId = KnownModRegistry.SelfNexusModId;
+            bool askSelf = true;
+            if (_apiClient.TryGetCachedAnswer(selfId, bypassCache, out var cachedSelf))
+            {
+                LatestMumVersion = cachedSelf.Version;
+                askSelf = false;
+            }
+            if (toAsk.Count == 0 && !askSelf) yield break;
 
             NexusPublicAnswer answer = null;
             if (_publicClient != null)
-                yield return _publicClient.FetchMods(toAsk.Select(GetNexusModId).ToList(), received => answer = received);
+            {
+                var ids = toAsk.Select(GetNexusModId).ToList();
+                if (askSelf) ids.Add(selfId);
+                yield return _publicClient.FetchMods(ids, received => answer = received);
+            }
+
+            if (askSelf && answer != null && answer.Ok && NexusPublicQuery.TryReadId(selfId, out int selfInt))
+            {
+                var self = answer.Find(selfInt);
+                if (self != null && string.Equals(self.Status, PublicCheckPlan.PublishedStatus, StringComparison.OrdinalIgnoreCase)
+                    && !string.IsNullOrWhiteSpace(self.Version))
+                {
+                    LatestMumVersion = self.Version;
+                    _apiClient.CacheAnswer(selfId, new NexusModResponse
+                    {
+                        ModId = self.ModId, Name = self.Name, Version = self.Version,
+                        Summary = self.Summary, Status = self.Status, EndorsementCount = self.Endorsements
+                    });
+                }
+                else
+                {
+                    Plugin.Logger.LogDebug("Nexus did not list Mod Update Manager's own page as published with a version; no MUM upgrade offered.");
+                }
+            }
+            if (toAsk.Count == 0) yield break;
 
             if (answer == null || !answer.Ok)
             {

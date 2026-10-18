@@ -1,6 +1,6 @@
 # Mod Update Manager
 
-**Version:** 2.1.69  
+**Version:** 2.1.70  
 **Author:** Jared (crispywhips)  
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -73,6 +73,20 @@ Disk cost: each kept copy is the size of that mod's folder. On a developer insta
 
 Turning the option off stops new copies. Copies already kept stay and are still offered. Delete their folders under `BepInEx/mum_work/kept/` to remove them.
 
+### Updating the whole suite: download only Mod Update Manager
+
+Every Mod Update Manager release carries the newest version of all fifteen suite mods, so you never need to download them one by one:
+
+1. Download the newest Mod Update Manager from Nexus and replace your `Mod_Update_Manager` folder with it.
+2. Start the game. The window opens on Install & Update with every suite mod you have that this release updates already ticked, and a line saying which version you came from.
+3. Press **Apply Updates**, then restart when asked.
+
+Only mods you already have are ticked: the upgrade never adds a mod you did not install. Nothing is installed until you press Apply.
+
+When an update check runs (with an API key, or with **Check for updates without an API key** on), it also asks Nexus about Mod Update Manager's own page, in the same request. If a newer one is out, the line at the top of Install & Update says so with a **Download** button for its Nexus files page. When the startup check also finds updates, its one automatic open lands on this tab instead of My Mods. It also leaves a small note, `BepInEx/config/ModUpdateManager_Handoff.txt`, naming the suite mods Nexus had newer versions of. The new Mod Update Manager reads it on its first start, and if Nexus had a newer version of a mod than even the new release carries, it says so instead of reading as done. The note is deleted once read.
+
+Coming from 2.1.63 to 2.1.69, which leave no note, the first start still finds the upgrade from the version history and ticks the same mods. From an older one, which kept no history, press **Select Out of Date / Not Installed** instead.
+
 ## My Mods tab
 
 ### Finding your mods
@@ -81,7 +95,7 @@ The scan runs when the game starts and when you press **Refresh Mod List**. It r
 
 Mods link to Nexus IDs through a built-in registry of known CSFF mods, a `NexusModId` in a mod's `ModInfo.json`, or a mapping you add (see "Linking mods to Nexus").
 
-- **Self-exclusion**: Mod Update Manager never checks itself against Nexus. The Install & Update tab shows a read-only line for it with its version and a **Nexus page** button, because it cannot replace its own running DLL. Select All and Apply Updates never touch that line. Newer suite versions arrive inside each new release.
+- **Self-exclusion**: Mod Update Manager is never a row in My Mods, and it cannot replace its own running DLL. The Install & Update tab shows a read-only line for it with its version and a **Nexus page** button, which becomes a **Download** button when a check found a newer one (see "Updating the whole suite"). Select All and Apply Updates never touch that line. Newer suite versions arrive inside each new release.
 
 ### Update checks
 
@@ -143,7 +157,7 @@ Settings holds the API key, the Endorse button, manual Nexus mappings, keeping t
 
 The mod list export builds a plain-text list of your installed mods (name, version, author, status, latest version, favorites, ignored marks and notes) with a **Copy to Clipboard** button for bug reports.
 
-**Profiles** saves your installed mods (folder, name, version) under a name of up to 60 letters, numbers, spaces, hyphens or underscores. **Compare** shows **Missing here**, **Extra here**, **Older here** and **Newer here** against the current install. **Delete** removes only that profile's file. Profiles install and remove nothing and send nothing. Copy a profile file to a friend and they can drop it into the same folder.
+**Profiles** saves your installed mods (folder, name, version) under a name of up to 60 letters, numbers, spaces, hyphens or underscores. **Compare** shows **Missing here**, **Extra here**, **Older here** and **Newer here** against the current install. **Delete** removes only that profile's file. Deleting or saving over the profile you last compared clears that comparison. Profiles install and remove nothing and send nothing. Copy a profile file to a friend and they can drop it into the same folder.
 
 ## Requirements
 
@@ -232,6 +246,7 @@ For anyone reading the source: every request above is made by `NexusApiClient` (
 - Favorites, ignore, notes, and the My Mods search text and sort order: `BepInEx/config/ModUpdateManager_Preferences.json`
 - Version history for the NEW chips and History lists: `BepInEx/config/ModUpdateManager_VersionLog.txt`, one line per change (`folder|from|to|date|source`) plus a `#seen|date` line for Mark all as seen. An unreadable line is skipped and counted in one log line. Delete the file to start the history over.
 - Saved profiles: `BepInEx/config/ModUpdateManager_Profiles/<name>.profile.txt`, one line per mod (`folder|name|version`). Lines starting with `#` are ignored, and a line that cannot be read is skipped and counted in the Compare summary.
+- Upgrade note for the next Mod Update Manager: `BepInEx/config/ModUpdateManager_Handoff.txt`, written only after a check found a newer one on Nexus, deleted when the newer one has read it. Deleting it by hand only loses the "still behind Nexus" line; the new release still ticks the mods it updates.
 - The **New and updated** list has no file. It lives in memory for the running game only.
 - Install & Update work folder: `BepInEx/mum_work/`, beside `plugins/`, so nothing in it is loaded. Its `staging/` and `old/` folders are empty except during Apply Updates or after one was cut short.
 - An Apply is cut short when the game closes mid-update, a row shows `[Install Incomplete]`, or a replaced copy cannot be deleted. The next Apply of that mod clears it, putting a moved-aside copy back first.
@@ -246,7 +261,7 @@ The newest such line shows under the changelog as **Tested: EA x.y**. It is gree
 ## Troubleshooting
 
 **The window does not open with F3**
-- Check `BepInEx/LogOutput.log` for errors and look for `Mod_Update_Manager v2.1.69 loaded.`
+- Check `BepInEx/LogOutput.log` for errors and look for `Mod_Update_Manager v2.1.70 loaded.`
 - Make sure BepInEx is installed correctly.
 
 **Install & Update shows "[Unknown]" for every mod**

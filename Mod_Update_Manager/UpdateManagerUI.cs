@@ -202,8 +202,36 @@ namespace mod_update_manager
             var wasOpen = _showWindow;
             Show();
             if (wasOpen) return;
+            // A newer MUM on Nexus is the one download that updates the suite, so the window opens where
+            // it says so (MumHandoff) rather than on the per-mod list.
+            if (MumHandoff.NewerMumAvailable(Plugin.PluginVersion, _updateChecker.LatestMumVersion))
+            {
+                _selectedTab = 0;
+                return;
+            }
             _selectedTab = 1;
             _myModsFilterMode = 1;
+        }
+
+        // The upgrade handoff's plan, shown as a banner on Install & Update until dismissed; null when
+        // this start was not an upgrade.
+        private HandoffPlan _handoff;
+
+        /// <summary>
+        /// The first start after the player replaced MUM with a newer one (Plugin.RunUpgradeHandoff):
+        /// ticks every installed suite mod this MUM bundles a newer copy of and opens on Install &amp;
+        /// Update, so one Apply press finishes the upgrade. Nothing is installed until that press. The
+        /// window opens only when there is something to say.
+        /// </summary>
+        public void ShowForHandoff(HandoffPlan plan)
+        {
+            if (plan == null) return;
+            _handoff = plan;
+            _suiteDeclined.Clear();
+            _suiteSelected = new HashSet<string>(plan.Ticked);
+            if (plan.Ticked.Count == 0 && plan.StillBehind.Count == 0) return;
+            Show();
+            _selectedTab = 0;
         }
 
         public void Hide() => _showWindow = false;
@@ -1204,11 +1232,40 @@ namespace mod_update_manager
 
             // MUM's own line (feature 23): drawn here, above the suite list and ahead of the restart
             // banner further down, so it shows whether or not a restart is pending or an apply is running.
+            // When the last check read a newer MUM on Nexus, the line recommends it instead (MumHandoff):
+            // one download replaces every suite mod's, and the new MUM ticks what needs updating.
+            var latestMum = _updateChecker.LatestMumVersion;
+            bool newerMum = MumHandoff.NewerMumAvailable(Plugin.PluginVersion, latestMum);
             GUILayout.BeginHorizontal(GUI.skin.box);
-            GUILayout.Label(string.Format(SelfLineFormat, Plugin.PluginVersion), _summaryStyle);
-            if (GUILayout.Button(SelfNexusPageText, GUILayout.Width(110)))
-                Application.OpenURL(KnownModRegistry.GetNexusUrl(KnownModRegistry.SelfNexusModId));
+            if (newerMum)
+            {
+                GUILayout.Label(string.Format(MumText.Get("MumNewerFormat"), latestMum, Plugin.PluginVersion), _summaryStyle);
+                if (GUILayout.Button(string.Format(MumText.Get("MumDownloadFormat"), latestMum), GUILayout.Width(130)))
+                    Application.OpenURL(KnownModRegistry.GetNexusUrl(KnownModRegistry.SelfNexusModId) + "?tab=files");
+            }
+            else
+            {
+                GUILayout.Label(string.Format(SelfLineFormat, Plugin.PluginVersion), _summaryStyle);
+                if (GUILayout.Button(SelfNexusPageText, GUILayout.Width(110)))
+                    Application.OpenURL(KnownModRegistry.GetNexusUrl(KnownModRegistry.SelfNexusModId));
+            }
             GUILayout.EndHorizontal();
+
+            // The first start after an upgrade (MumHandoff.Plan): what was ticked, and anything Nexus has
+            // that even this release does not bundle.
+            if (_handoff != null)
+            {
+                GUILayout.BeginHorizontal(GUI.skin.box);
+                GUILayout.BeginVertical();
+                GUILayout.Label(_handoff.Ticked.Count > 0
+                    ? string.Format(MumText.Get("HandoffTickedFormat"), _handoff.From, _handoff.Ticked.Count)
+                    : string.Format(MumText.Get("HandoffNothingFormat"), _handoff.From), _summaryStyle);
+                if (_handoff.StillBehind.Count > 0)
+                    GUILayout.Label(string.Format(MumText.Get("HandoffStillBehindFormat"), string.Join(", ", _handoff.StillBehind.ToArray())), _summaryStyle);
+                GUILayout.EndVertical();
+                if (GUILayout.Button(MumText.Get("HandoffDismiss"), GUILayout.Width(80))) _handoff = null;
+                GUILayout.EndHorizontal();
+            }
             GUILayout.Space(6);
 
             // What Apply would install from the current ticks (feature 11): the rows a ticked row needs,
@@ -1703,11 +1760,19 @@ namespace mod_update_manager
         private string _profileName = "";
         private string _profileStatus = "";
         private string _profileDiffTitle = "";
+        private string _profileDiffName;
         private List<ProfileDiffRow> _profileDiff;
         private List<string> _profileNames;
         private ProfileStore _profileStore;
 
         private ProfileStore Profiles => _profileStore ?? (_profileStore = new ProfileStore(_config.ProfilesDir));
+
+        private void ClearProfileDiff()
+        {
+            _profileDiff = null;
+            _profileDiffTitle = "";
+            _profileDiffName = null;
+        }
 
         private void DrawProfiles()
         {
@@ -1723,14 +1788,23 @@ namespace mod_update_manager
             {
                 var rows = ModProfile.Snapshot(_updateChecker.InstalledMods);
                 if (ModProfile.SafeName(_profileName) == null) _profileStatus = ProfileBadNameText;
-                else if (Profiles.Save(_profileName, rows)) { _profileStatus = string.Format(ProfileSavedFormat, _profileName.Trim(), rows.Count); _profileNames = null; }
+                else if (Profiles.Save(_profileName, rows))
+                {
+                    _profileStatus = string.Format(ProfileSavedFormat, _profileName.Trim(), rows.Count);
+                    _profileNames = null;
+                    ClearProfileDiff(); // the saved snapshot now equals the install, so the old comparison is stale
+                }
                 else _profileStatus = ProfileSaveFailedText;
             }
             GUILayout.EndHorizontal();
 
             if (!string.IsNullOrEmpty(_profileStatus)) GUILayout.Label(_profileStatus, _upToDateStyle);
 
-            if (_profileNames == null) _profileNames = Profiles.List();
+            if (_profileNames == null)
+            {
+                _profileNames = Profiles.List();
+                if (_profileDiffName != null && !_profileNames.Contains(_profileDiffName)) ClearProfileDiff();
+            }
             if (_profileNames.Count == 0) GUILayout.Label(ProfileNoneText, _errorStyle);
 
             string toDelete = null;
@@ -1748,6 +1822,7 @@ namespace mod_update_manager
                         var different = _profileDiff.Count(d => d.Kind != ProfileDiffKind.Same);
                         _profileDiffTitle = string.Format(ProfileSummaryFormat, name, different, _profileDiff.Count - different)
                             + (skipped > 0 ? " " + string.Format(ProfileUnreadableFormat, skipped) : "");
+                        _profileDiffName = name;
                     }
                 }
                 if (GUILayout.Button(ProfileDeleteText, GUILayout.Width(80))) toDelete = name;
@@ -1757,6 +1832,7 @@ namespace mod_update_manager
             {
                 Profiles.Delete(toDelete);
                 _profileNames = null;
+                if (toDelete == _profileDiffName) ClearProfileDiff();
             }
 
             if (_profileDiff != null)

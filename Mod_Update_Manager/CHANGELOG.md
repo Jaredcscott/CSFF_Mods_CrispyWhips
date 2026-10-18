@@ -5,6 +5,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.70] - 2026-10-17
+
+### Added
+
+- **Update the whole suite by downloading only Mod Update Manager.** Replace Mod Update Manager with a newer one and start the game: the window opens on Install & Update with every suite mod you have that the new release updates already ticked, so one Apply Updates press finishes the job. Mods you do not have are never ticked.
+- **Mod Update Manager tells you when a newer one is out.** An update check now also asks Nexus about Mod Update Manager's own page, in the same request it already sends. When a newer one is out, the top line of Install & Update says so with a Download button, and it leaves a small note in `BepInEx/config/` for the new one, which reads it on its first start and also tells you about any mod Nexus has newer than even the new release carries.
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.7, Herbs and Fungi 1.14.11, Advanced Copper Tools 1.18.10, Water Driven Infrastructure 1.12.11, Community Mod Chest 1.69.18, Homestead Perks 1.3.6, Repeat Action 2.2.2, Quick Transfer 1.9.1, Skill Speed Boost 1.11.1, and the pre-release Partner Overhaul 1.1.4, Harsh Wilds 0.11.7, Far Territory 0.1.9, Forest Lore 0.1.6, Utility Belt 0.1.4 and Sirus23 Mod Collection 1.22.7. Long runs no longer freeze for a few seconds at every autosave, washing yourself at a river no longer empties the fuel of every card on the board, Herbs and Fungi's raw breads no longer bake into spoiled bread and four of its mushrooms show their Cook icon again, Far Territory's Brackwater Mouth and Driftwood Shore no longer get a blank Stone Pile, Far Territory adds swamp fever with a Cinchona Decoction to wear it down, fish gutting, cooked island food, salt boiled from sea water and an Island Start perk, and lit lanterns, candles, braziers, the cooking cauldron, the Portal and the Water Basin no longer swell over the card while their animation plays.
+
+### Fixed
+
+- **Deleting the profile you last compared with clears that comparison from the Settings tab.** Saving over it clears it too, since the saved snapshot is new.
+
 ## [2.1.69] - 2026-10-15
 
 ### Changed

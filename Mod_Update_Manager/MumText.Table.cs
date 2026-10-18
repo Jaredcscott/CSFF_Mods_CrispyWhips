@@ -256,6 +256,12 @@ namespace mod_update_manager
             { "CheckerProgressFormat", "Checking mods... ({0}/{1})" },
             { "CheckerVersionUnknown", "Mod version could not be determined" },
             { "CheckerNoNexusId", "No Nexus Mod ID configured" },
+            { "MumNewerFormat", "Mod Update Manager v{0} is on Nexus (you have v{1}). Download it and replace this one: it carries the newest suite mods, and the next time you start the game it ticks the ones you need, so one Apply Updates press finishes the job." },
+            { "MumDownloadFormat", "Download v{0}" },
+            { "HandoffTickedFormat", "Updated from Mod Update Manager v{0}. {1} of your mods have newer versions in this release and are ticked: press Apply Updates below." },
+            { "HandoffNothingFormat", "Updated from Mod Update Manager v{0}. Your suite mods already match this release." },
+            { "HandoffStillBehindFormat", "Nexus has newer versions of {0} than this release carries. A later Mod Update Manager will bring them." },
+            { "HandoffDismiss", "Dismiss" },
         };
     }
 }

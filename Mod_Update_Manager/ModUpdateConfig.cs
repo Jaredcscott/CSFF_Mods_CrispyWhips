@@ -40,6 +40,7 @@ namespace mod_update_manager
         public string ModMappingsPath { get; private set; }
         public string ResponseCachePath { get; private set; }
         public string PreferencesPath { get; private set; }
+        public string HandoffPath { get; private set; }
         public string VersionLogPath { get; private set; }
         public string ProfilesDir { get; private set; }
 
@@ -49,6 +50,8 @@ namespace mod_update_manager
             ModMappingsPath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Mappings.json");
             ResponseCachePath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Cache.json");
             PreferencesPath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Preferences.json");
+            // The upgrade handoff note (MumHandoff): in config/, which replacing MUM's plugin folder never touches.
+            HandoffPath = Path.Combine(Paths.ConfigPath, MumHandoff.FileName);
             // A text file, not JSON; named so it cannot meet the empty ModUpdateManager_History directory an older build left.
             VersionLogPath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_VersionLog.txt");
             ProfilesDir = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Profiles");

@@ -7,7 +7,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.1.69";
+    public const string PluginVersion = "2.1.70";
 
     // PluginMetadataReader is host-free, so it carries BepInEx's DependencyFlags.SoftDependency value as
     // a constant of its own. A division by a constant zero is a compile error, so this line fails the
@@ -171,9 +171,10 @@ internal class Plugin : BaseUnityPlugin
         _updateChecker.ScanMods();
 
         // Once per launch: what changed since the last one (the NEW chips and the History lists).
+        System.Collections.Generic.List<VersionEvent> changes = null;
         try
         {
-            var changes = _versionLedger.Observe(_updateChecker.InstalledMods);
+            changes = _versionLedger.Observe(_updateChecker.InstalledMods);
             Logger.LogDebug($"Version log: {changes.Count} change(s) since the last launch");
         }
         catch (System.Exception ex)
@@ -190,6 +191,17 @@ internal class Plugin : BaseUnityPlugin
         catch (System.Exception ex)
         {
             Logger.LogError($"SuiteVersionReader.RefreshAll failed after the mod scan (the Install & Update rows keep their earlier status): {ex}");
+        }
+
+        // The upgrade handoff: right after the player replaced MUM with a newer one, open on Install &
+        // Update with every installed suite mod this MUM bundles a newer copy of already ticked.
+        try
+        {
+            RunUpgradeHandoff(changes);
+        }
+        catch (System.Exception ex)
+        {
+            Logger.LogWarning($"Upgrade handoff skipped: {ex}");
         }
 
         // Optional Nexus mod discovery walks IDs slowly and can use API quota.
@@ -233,10 +245,50 @@ internal class Plugin : BaseUnityPlugin
             Logger.LogDebug($"Found {updateCount} mod(s) with updates available!");
         }
 
+        LeaveHandoffNote(mods);
+
         if (UpdateWindowPolicy.ShouldAutoOpen(_config.OpenWindowOnUpdates.Value, startupCheck, _autoOpenedThisSession, updateCount))
         {
             _autoOpenedThisSession = true;
             _ui.ShowForUpdates();
+        }
+    }
+
+    private void RunUpgradeHandoff(System.Collections.Generic.List<VersionEvent> changes)
+    {
+        var note = MumHandoff.Read(_config.HandoffPath);
+        var from = MumHandoff.UpgradedFrom(note, changes, PluginVersion);
+        if (from == null) return;
+
+        var plan = MumHandoff.Plan(from, MumHandoff.IsForThisMum(note, PluginVersion) ? note : null, SuiteModRegistry.All);
+        Logger.LogInfo($"Upgraded from Mod Update Manager v{from}: {plan.Ticked.Count} suite mod(s) ticked for update" +
+            (plan.StillBehind.Count > 0 ? $", {plan.StillBehind.Count} still behind Nexus ({string.Join(", ", plan.StillBehind.ToArray())})" : "") + ".");
+        _ui.ShowForHandoff(plan);
+        // Acted on: the next start is not an upgrade. A note this MUM leaves later replaces it.
+        MumHandoff.Delete(_config.HandoffPath);
+    }
+
+    // After any check that read MUM's own Nexus version: leave the note for the newer MUM when there is
+    // one, and remove a note this version left when Nexus no longer lists anything newer.
+    private void LeaveHandoffNote(System.Collections.Generic.List<InstalledModInfo> mods)
+    {
+        var latest = _updateChecker.LatestMumVersion;
+        if (string.IsNullOrWhiteSpace(latest)) return;
+
+        if (MumHandoff.NewerMumAvailable(PluginVersion, latest))
+        {
+            var seen = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.KeyValuePair<string, string>>(System.StringComparer.OrdinalIgnoreCase);
+            foreach (var m in mods)
+                if (m != null && !string.IsNullOrEmpty(m.FolderName) && !seen.ContainsKey(m.FolderName))
+                    seen[m.FolderName] = new System.Collections.Generic.KeyValuePair<string, string>(m.Version, m.LatestVersion);
+            var note = MumHandoff.BuildNote(PluginVersion, latest, System.DateTime.UtcNow, SuiteModRegistry.All, seen);
+            if (MumHandoff.Write(_config.HandoffPath, note))
+                Logger.LogInfo($"Mod Update Manager v{latest} is on Nexus (this is v{PluginVersion}); left a handoff note naming {note.Mods.Count} suite mod(s) with newer versions.");
+        }
+        else
+        {
+            var old = MumHandoff.Read(_config.HandoffPath);
+            if (old != null && !MumHandoff.IsForThisMum(old, PluginVersion)) MumHandoff.Delete(_config.HandoffPath);
         }
     }
 

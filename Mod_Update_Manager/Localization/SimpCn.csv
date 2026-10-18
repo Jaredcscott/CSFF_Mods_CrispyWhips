@@ -245,3 +245,9 @@ Mod_Update_Manager_CheckerContextRateLimited,rate-limited mod(s),被限流的模
 Mod_Update_Manager_CheckerProgressFormat,Checking mods... ({0}/{1}),正在检查模组...（{0}/{1}）
 Mod_Update_Manager_CheckerVersionUnknown,Mod version could not be determined,无法确定模组版本
 Mod_Update_Manager_CheckerNoNexusId,No Nexus Mod ID configured,未配置 Nexus 模组 ID
+Mod_Update_Manager_MumNewerFormat,"Mod Update Manager v{0} is on Nexus (you have v{1}). Download it and replace this one: it carries the newest suite mods, and the next time you start the game it ticks the ones you need, so one Apply Updates press finishes the job.",模组更新管理器 v{0} 已在 Nexus 发布（你当前为 v{1}）。下载并替换当前版本：新版本自带最新的套件模组，下次启动游戏时会自动勾选需要更新的模组，只需按一次“应用更新”即可完成。
+Mod_Update_Manager_MumDownloadFormat,Download v{0},下载 v{0}
+Mod_Update_Manager_HandoffTickedFormat,Updated from Mod Update Manager v{0}. {1} of your mods have newer versions in this release and are ticked: press Apply Updates below.,已从模组更新管理器 v{0} 升级。本版本包含你的 {1} 个模组的新版本，已为你勾选：请按下方的“应用更新”。
+Mod_Update_Manager_HandoffNothingFormat,Updated from Mod Update Manager v{0}. Your suite mods already match this release.,已从模组更新管理器 v{0} 升级。你的套件模组已与本版本一致。
+Mod_Update_Manager_HandoffStillBehindFormat,Nexus has newer versions of {0} than this release carries. A later Mod Update Manager will bring them.,Nexus 上的 {0} 比本版本自带的更新。之后的模组更新管理器版本会包含它们。
+Mod_Update_Manager_HandoffDismiss,Dismiss,关闭
