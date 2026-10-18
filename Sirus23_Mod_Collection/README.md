@@ -1,6 +1,6 @@
 # Sirus23 Mod Collection
 
-**Version:** 1.22.6
+**Version:** 1.22.7
 **Author:** Sirus, Jared
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFF Mod Framework 2.28.0 or later. Older frameworks back to 2.14.1 still load the mod, but the Wild Owl, the Hawk and the features marked "needs 2.28.0" below do not work fully.
@@ -73,7 +73,7 @@ While the wolf shares your location, a wild bear, wolf, wolf pack, primeval wolf
 
 ### Wolf Companion
 
-The Wolf Friend perk starts you with a wolf. Feed, water, treat, pet and play with it, send it hunting, have it Track Scents (+1 Tracking), Flush Prey, or set it to Guard Camp. Guard Camp no longer puts you to sleep.
+The Wolf Friend perk starts you with a wolf. Feed, water, treat, pet and play with it, send it hunting, have it Track Scents (+1 Tracking), Flush Prey, or set it to Guard Camp. Guard Camp no longer puts you to sleep. With your sheep it herds as well as guards: see Tend Flock and Sheep Pen below.
 
 **Bond with Wolf** is a one-time, two-hour action. It grants the hidden Pack Bond perk: +5 Tracking.
 
@@ -206,6 +206,8 @@ The Sheep Feeder's **Tend Flock** shears every ready tame sheep, lactating sheep
 
 First it feeds the flock. Any sheep below two thirds Nourishment eats one feed card from the feeder (grass, hay or any herbivore feed) and gains 144. When the feeder is empty it uses a base-game Dry Fodder pile in the same location, one unit per sheep. A pile below one unit is left for cattle.
 
+With your Wolf Companion in the same location the button reads **Tend Flock with the Wolf** and costs 1 time unit instead of 2; it does exactly the same work. Only one of the two buttons shows at a time.
+
 Tend Flock does not milk. Drag a container onto a Lactating Sheep to milk her by hand.
 
 ### Well-Fed Flock and Seasons
@@ -270,19 +272,19 @@ A sheep taken by a predator leaves **Sheep Remains**. Drag a cutting tool onto i
 
 The **Sheep Pen** (Farming > Animal Husbandry, 24 hours to research, built in two stages: 8 Planks and 4 Long Sticks, then 4 Rope and 4 Stone, each with a hammering tool that is not used up) holds up to four tame sheep and rams. Inside, wool, milk and breeding carry on as normal. Pick Up puts the sheep on the ground before packing the pen.
 
-**Pen or perish.** Each night, every tame sheep, ram or lactating sheep outside a pen may wander off (4%) or be taken by a predator (6%). A kill where you stand leaves Sheep Remains. A **Wolf Companion** in that location cuts the predator chance to 1% but does not stop wandering. Only a pen keeps a flock fully safe. The 4% and 6% are cautious first guesses.
+**Pen or perish.** Each night, every tame sheep, ram or lactating sheep outside a pen may wander off (4%) or be taken by a predator (6%). A kill where you stand leaves Sheep Remains. A **Wolf Companion** in that location herds as well as guards: it cuts the predator chance to 1% and the wandering chance to 1%. Only a pen keeps a flock fully safe. The 4% and 6% are cautious first guesses.
 
 **The base game's Enclosure counts as a pen.** Drag sheep onto its entrance. They roll nothing overnight, with or without a wolf, and stay safe while you are away.
 
 **Fence Condition.** A placed Sheep Pen's fence wears down over about twenty days. At zero the sheep stay inside but roll each night like loose sheep, and the log says the fence is worn. Drag a **Plank** onto the pen to **Mend the Fence** and restore half the bar. Packing and placing the pen does not mend it, and a pen from an older save loads at full. The twenty days and the half are first guesses.
 
-**Sheep Bell.** A bell on a rope collar: 1 Metal Nugget and 1 Rope (Farming > Animal Husbandry, shown once a Tame Sheep has been on your board). Unpenned sheep and rams in its location are half as likely to wander off (2% instead of 4%). It does nothing against predators and works only in its own location.
+**Sheep Bell.** A bell on a rope collar: 1 Metal Nugget and 1 Rope (Farming > Animal Husbandry, shown once a Tame Sheep has been on your board). Unpenned sheep and rams in its location are half as likely to wander off (2% instead of 4%, or 0.5% instead of 1% with the Wolf Companion there: the two multiply). It does nothing against predators and works only in its own location.
 
 **Predator Tracks.** A predator kill also leaves **Predator Tracks**. **Follow the Tracks** (half an hour) starts the base game's wolf fight, and a win gives only the fight's own rewards. The trail fades after about a day. With your Wolf Companion on the board the button is hidden, since the wolf keeps predators away. With a Fox or Owl Companion the predator is scared off about one time in three.
 
 **Orphan lambs.** When a predator takes a Lactating Sheep, half the time her lamb is left beside the remains: a newborn Lamb with a full Growth bar (the full bar needs CSFF Mod Framework 2.28.0 or later). The 50% is a first guess.
 
-**A flock you leave behind is still at risk.** Only sheep in your hands travel with you. Sheep left loose roll every night to wander off or be taken, as if you were there. A Wolf Companion told to Stay Here with them guards them (1% predator chance), and a Sheep Bell left with them halves the wandering.
+**A flock you leave behind is still at risk.** Only sheep in your hands travel with you. Sheep left loose roll every night to wander off or be taken, as if you were there. A Wolf Companion told to Stay Here with them guards and herds them (1% predator chance, 1% wandering), and a Sheep Bell left with them halves the wandering.
 
 A loss while you are away leaves no remains, tracks or lamb, since the game can only place cards where you stand. You come back to a smaller flock, and the log names each loss. Reloading neither rolls a night again nor brings a sheep back. The bell and Enclosure parts are not yet confirmed in the game.
 
@@ -342,7 +344,7 @@ Felt is the alternative to spinning and weaving. Press 4 raw Wool into a sheet o
 
 Warmth is the base game's Perceived Temperature, the same stat its cloth, leather and fur clothing raise. Before 1.22.6 these pieces raised Cold Resistance instead, which warmed nothing and could cost you the Frost Blessed status.
 
-The **Felt Bedroll** (3 Felted Wool) has the base-game Bedroll's Nap and Sleep actions. It warms you only while you nap or sleep on it (+3 warmth, like a base-game bed). Sleeping on it is not yet confirmed in the game. A **Wool Blanket** in your pack keeps your Body Temperature 10 points higher; more blankets do not add more.
+The **Felt Bedroll** (3 Felted Wool) has the base-game Bedroll's Nap and Sleep actions. It warms you only while you nap or sleep on it (+3 warmth, like a base-game bed). Sleeping on it is not yet confirmed in the game. A **Wool Blanket** in your pack keeps your Body Temperature 10 points higher; more blankets do not add more. A blanket, pillow or rug left on another map does nothing for you there.
 
 The **Felt Rug** (3 Felted Wool, shown once you have Felted Wool) is a flat rug with a darker border. Carried, it gives +10 Sanctuary and weighs 1000 g. A rug and a Feather Pillow, or several of either, still give +10 once.
 

@@ -174,6 +174,8 @@ sh_sheep_feeder_DismantleActions[0].ActionName,Pick Up,Pick Up
 sh_sheep_feeder_DismantleActions[0].ActionDescription,Pack up the feeder to carry it.,Pack up the feeder to carry it.
 sh_sheep_feeder_DismantleActions[1].ActionName,Tend Flock,Tend Flock
 sh_sheep_feeder_DismantleActions[1].ActionDescription,Shear every ready tame sheep and ram nearby in one go.,Shear every ready tame sheep and ram nearby in one go.
+sh_sheep_feeder_DismantleActions[2].ActionName,Tend Flock with the Wolf,Tend Flock with the Wolf
+sh_sheep_feeder_DismantleActions[2].ActionDescription,"Your wolf companion herds the flock, so tending it takes half the time. Feeds and shears every ready tame sheep and ram nearby, the same as Tend Flock.","Your wolf companion herds the flock, so tending it takes half the time. Feeds and shears every ready tame sheep and ram nearby, the same as Tend Flock."
 FC_FoxCompanion_CardName,Fox Companion,Fox Companion
 FC_FoxCompanion_CardDescription,A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off.,A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off.
 FC_FoxCompanion_CI0_ActionName,Feed Fox,Feed Fox

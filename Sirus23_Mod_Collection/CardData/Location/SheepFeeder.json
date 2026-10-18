@@ -132,6 +132,56 @@
             "ActionTagsWarpData": ["HandAction"],
             "ActionTagsWarpType": 3,
             "AlwaysShow": true,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": true,
+                    "OnlyEquipped": false,
+                    "TriggerCardWarpData": "fc_wolf_companion",
+                    "TriggerCardWarpType": 3
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_feeder",
+                "LocalizationKey": "sh_sheep_feeder_DismantleActions[2].ActionName",
+                "DefaultText": "Tend Flock with the Wolf"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_sheep_feeder",
+                "LocalizationKey": "sh_sheep_feeder_DismantleActions[2].ActionDescription",
+                "DefaultText": "Your wolf companion herds the flock, so tending it takes half the time. Feeds and shears every ready tame sheep and ram nearby, the same as Tend Flock."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "AlwaysShow": true,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false,
+                    "TriggerCardWarpData": "fc_wolf_companion",
+                    "TriggerCardWarpType": 3
+                }
+            ],
+            "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {
                 "ModType": 0
             }

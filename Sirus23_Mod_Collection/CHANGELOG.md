@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.7] - 2026-10-15
+
+### Changed
+
+- **The wolf now herds your flock as well as guarding it.** With your Wolf Companion in the same location, unpenned sheep wander off at 1% a night instead of 4% (the predator chance was already 1%). It stacks with the Sheep Bell by multiplying: wolf and bell together give 0.5%. The same applies to a flock you left behind with a wolf on Stay Here. The 1% is a first guess.
+- **Tend Flock is faster with the wolf.** With the Wolf Companion in your location the Sheep Feeder shows **Tend Flock with the Wolf** for 1 time unit instead of 2, and the normal Tend Flock button is hidden; without the wolf nothing changes. Both do the same work. The 1 unit is a first guess.
+
+### Fixed
+
+- **A Wool Blanket, Feather Pillow or Felt Rug left on another map no longer keeps working.** Measured in the game: a blanket and a pillow left on the starting map, and a rug left in the Village, still counted after you travelled away, so their +10 Body Temperature or +10 Sanctuary followed you. They now count only on the map you are standing on. Carried in your pack they behave as before.
+
+---
+
 ## [1.22.6] - 2026-10-15
 
 A balance pass to sit beside the base game instead of steamrolling it. Ships with CSFF Mod Framework 2.28.0 or later.

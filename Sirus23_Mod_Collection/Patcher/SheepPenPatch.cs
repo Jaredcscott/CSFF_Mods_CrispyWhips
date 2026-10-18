@@ -25,8 +25,8 @@ namespace Sirus23ModCollection.Patcher
     ///
     /// SAFETY: a penned sheep (CurrentContainer == the Sheep Pen) is EXEMPT - checked before
     /// any roll. A Wolf companion present in the player's current environment REDUCES the
-    /// predation roll for every unpenned sheep that night (6% to 1%); the escape roll is
-    /// unchanged, since a guard deters predators but does not herd. Until 1.21.2 the wolf
+    /// predation roll for every unpenned sheep that night (6% to 1%) AND the escape roll (4% to 1%,
+    /// plan N2: the wolf herds as well as guards; with a Sheep Bell the two multiply to 0.5%). Until 1.21.2 the wolf
     /// suppressed the roll entirely, which left the pen with no consequence to create for
     /// every wolf owner (T2.101, r33: five nights of "stood guard", zero losses); decided
     /// 2026-09-09. Wolf presence mirrors the wolf's EncounterGuards/WolfGuard.json scoping
@@ -121,10 +121,15 @@ namespace Sirus23ModCollection.Patcher
 
         // BALANCE PLACEHOLDER (see class doc comment) - not final-tuned. Combined per-sheep
         // nightly loss risk when unpenned: 4% escape + 6% predation = 10% with no wolf,
-        // 4% escape + 1% predation = 5% with a wolf companion on the board. Penned: 0%.
+        // 1% escape + 1% predation = 2% with a wolf companion on the board. Penned: 0%.
         private const float EscapeChance = 0.04f;
         private const float PredationChance = 0.06f;
         private const float GuardedPredationChance = 0.01f;
+        // BALANCE PLACEHOLDER (plan N2): with the wolf companion on the board the flock is herded,
+        // so the escape roll drops 4% -> 1%. COMPOSES WITH THE BELL BY MULTIPLYING: a wolf and a
+        // Sheep Bell together give 1% x 0.5 = 0.5%, because both are things the player built or
+        // kept for this and stacking them should be worth more than either alone.
+        private const float GuardedEscapeChance = 0.01f;
         // BALANCE PLACEHOLDER (open question 11): a Sheep Bell in the environment halves escape.
         private const float BellEscapeMultiplier = 0.5f;
         // BALANCE PLACEHOLDER (open question 12): chance a taken nursing ewe leaves her lamb.
@@ -279,16 +284,26 @@ namespace Sirus23ModCollection.Patcher
                 RollAwayFlocks(gm as GameManager, away);
         }
 
+        /// <summary>Per-sheep nightly escape chance: the wolf lowers the base (herding), the Sheep Bell then halves it.</summary>
+        private static float EscapeChanceFor(bool wolf, bool bell)
+        {
+            float baseChance = wolf ? GuardedEscapeChance : EscapeChance;
+            return bell ? baseChance * BellEscapeMultiplier : baseChance;
+        }
+
         private static void RollCurrentEnvironment(List<object> atRisk, HashSet<object> inWornPen, bool wolfPresent, bool bellPresent)
         {
             bool raid = RaidRaisesTonight(GameQuery.CurrentEnvironmentStringDictionaryKey);
             float raidMultiplier = raid ? RaidPredationMultiplier : 1f;
             float predationChance = (wolfPresent ? GuardedPredationChance : PredationChance) * raidMultiplier;
             string raidText = raid ? $", doubled by a Harsh Wilds {_raidName} raid" : "";
-            float escapeChance = bellPresent ? EscapeChance * BellEscapeMultiplier : EscapeChance;
+            float escapeChance = EscapeChanceFor(wolfPresent, bellPresent);
+            float unbelledEscape = EscapeChanceFor(wolfPresent, false);
             string escapeText = bellPresent
-                ? $"{Percent(escapeChance)} escape ({Percent(EscapeChance)} without the Sheep Bell)"
-                : $"{Percent(escapeChance)} escape";
+                ? $"{Percent(escapeChance)} escape ({Percent(unbelledEscape)} without the Sheep Bell, {Percent(EscapeChance)} with neither)"
+                : wolfPresent
+                    ? $"{Percent(escapeChance)} escape ({Percent(EscapeChance)} unguarded)"
+                    : $"{Percent(escapeChance)} escape";
             if (inWornPen.Count > 0)
                 Logger?.LogInfo($"[SheepPen] a Sheep Pen's fence is worn through - {inWornPen.Count} sheep/ram(s) inside it roll like loose ones tonight. Drag a Plank onto the pen to mend it.");
             if (wolfPresent)
@@ -443,8 +458,8 @@ namespace Sirus23ModCollection.Patcher
                 bool raid = RaidRaisesTonight(flock.Key);
                 float raidMultiplier = raid ? RaidPredationMultiplier : 1f;
                 float predationChance = (wolf ? GuardedPredationChance : PredationChance) * raidMultiplier;
-                float escapeChance = bell ? EscapeChance * BellEscapeMultiplier : EscapeChance;
-                string guardText = wolf ? " (the wolf left there stands guard)" : "";
+                float escapeChance = EscapeChanceFor(wolf, bell);
+                string guardText = wolf ? $" (the wolf left there stands guard; escape {Percent(EscapeChanceFor(true, false))} unbelled vs {Percent(EscapeChance)} without it)" : "";
                 string raidText = raid ? $", doubled by a Harsh Wilds {_raidName} raid" : "";
                 string bellText = bell ? " (halved by the Sheep Bell there)" : "";
 

@@ -51,6 +51,7 @@
     "FlavourTags": [],
     "SpiceTags": [],
     "AlwaysUpdate": false,
+    "AffectStatsOnlyWhenNotInBackground": true,
     "CannotBeTrashed": false,
     "DoesNotPile": false,
     "ToggleablePiling": false,

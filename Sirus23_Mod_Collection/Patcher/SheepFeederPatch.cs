@@ -40,6 +40,9 @@ internal static class SheepFeederPatch
 {
     private const string FeederUid = "sh_sheep_feeder";
     private const string TendFlockKeyPrefix = "sh_sheep_feeder_DismantleActions[1]";
+    // Also matches N2's "Tend Flock with the Wolf" (DismantleActions[2]) through the name tier:
+    // ActionRouter ORs the key and name prefixes against DefaultText, so ONE handler covers both
+    // buttons. A second handler for [2] would also match here and run TendFlock twice per click.
     private const string TendFlockNamePrefix = "Tend Flock";
 
     private const string TameSheepUid = "sh_tame_sheep";
