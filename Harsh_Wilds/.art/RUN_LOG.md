@@ -79,3 +79,4 @@
 | 2026-10-12 | hw_casting_bones (owner gallery round 3: regenerate, new content; score 79) | nano-banana-2 image2image | 1K | 20 | OKOiwWwpfiCe5xdLBrrp | OK |
 | 2026-10-12 | hw_chewing_stick (owner gallery round 3: regenerate, new content; score 77) | nano-banana-2 image2image | 1K | 20 | MCJxYAPAhcncgeEjMN68 | OK |
 | 2026-10-12 | hw_casting_bones (owner gallery round 4: tally marks only (previous generation as content reference); score 65) | nano-banana-2 image2image | 1K | 20 | p6EbSjwc0ljMeFWWT6kg | OK |
+| 2026-10-15 | hw_tooth_puller (owner: now metal tongs; words-only redraw, style refs Knife_Flint + Axe_Stone; jaw gap keyed) | nano-banana-2 image2image | 1K | 20 | yi9AuGOAMNTSFyh4VKZU | OK |

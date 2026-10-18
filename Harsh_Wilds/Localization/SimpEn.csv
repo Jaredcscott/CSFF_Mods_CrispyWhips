@@ -121,11 +121,11 @@ HarshWilds_ChewingStick_HerbsActionDescription,Work the herb into the chewed end
 HarshWilds_BpChewingStick_CardName,Chewing Stick
 HarshWilds_BpChewingStick_CardDescription,Chew the end of a willow twig into a brush. Chewing it scrubs the teeth and wears down tooth decay.
 HarshWilds_ToothPuller_CardName,Tooth Puller
-HarshWilds_ToothPuller_CardDescription,"A hooked sliver of bone lashed to a twine loop, for pulling a rotten tooth. It only works on a tooth that has rotted right through, takes half an hour and leaves you badly shaken. It can be used a few times before it falls apart."
+HarshWilds_ToothPuller_CardDescription,"A pair of narrow metal tongs, for pulling a rotten tooth. They only work on a tooth that has rotted right through, take half an hour and leave you badly shaken. The jaws wear loose after a few pulls."
 HarshWilds_ToothPuller_ActionName,Pull the Bad Tooth
 HarshWilds_ToothPuller_ActionDescription,"Pull the rotten tooth out. It clears tooth decay (sweets and time can start it again), but it takes half an hour and leaves you badly shaken."
 HarshWilds_BpToothPuller_CardName,Tooth Puller
-HarshWilds_BpToothPuller_CardDescription,Lash a hooked bone to a twine loop to make a tool for pulling a rotten tooth. It works a few times before it falls apart.
+HarshWilds_BpToothPuller_CardDescription,Work a metal bar into a pair of narrow tongs for pulling a rotten tooth. The jaws wear loose after a few pulls.
 HarshWilds_SwitchHeron_StatName,Harsh Wilds: Heron
 HarshWilds_SwitchHeron_StatDescription,Hidden 0/1 switch: 1 while the Heron is on in the Harsh Wilds config.
 HarshWilds_HeronClock_StatName,Harsh Wilds: Heron Clock

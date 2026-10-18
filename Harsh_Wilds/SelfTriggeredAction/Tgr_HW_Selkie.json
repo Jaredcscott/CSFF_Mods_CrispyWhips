@@ -172,7 +172,7 @@
                         {
                             "CardOnBoardWarpData": "ftEnvShore",
                             "CardOnBoardWarpType": 3,
-                            "NotInHand": true,
+                            "NotInHand": false,
                             "ExcludeInventory": true,
                             "MaxWeightPerCard": 25
                         }

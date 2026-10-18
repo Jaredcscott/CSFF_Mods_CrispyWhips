@@ -121,11 +121,11 @@ HarshWilds_ChewingStick_HerbsActionDescription,Work the herb into the chewed end
 HarshWilds_BpChewingStick_CardName,Chewing Stick,嚼棒
 HarshWilds_BpChewingStick_CardDescription,Chew the end of a willow twig into a brush. Chewing it scrubs the teeth and wears down tooth decay.,把一根柳枝的一端嚼成刷子状。嚼着它能刷洗牙齿，减轻蛀牙。
 HarshWilds_ToothPuller_CardName,Tooth Puller,拔牙器
-HarshWilds_ToothPuller_CardDescription,"A hooked sliver of bone lashed to a twine loop, for pulling a rotten tooth. It only works on a tooth that has rotted right through, takes half an hour and leaves you badly shaken. It can be used a few times before it falls apart.",一片带钩的骨头绑在一圈细线上，用来拔掉烂牙。它只对已经烂穿的牙有用，要花半小时，还会让你惊魂未定。用上几次就会散架。
+HarshWilds_ToothPuller_CardDescription,"A pair of narrow metal tongs, for pulling a rotten tooth. They only work on a tooth that has rotted right through, take half an hour and leave you badly shaken. The jaws wear loose after a few pulls.",一把细长的金属钳，用来拔掉烂牙。它只对已经烂穿的牙有用，要花半小时，还会让你惊魂未定。拔上几次，钳口就会松动。
 HarshWilds_ToothPuller_ActionName,Pull the Bad Tooth,拔掉坏牙
 HarshWilds_ToothPuller_ActionDescription,"Pull the rotten tooth out. It clears tooth decay (sweets and time can start it again), but it takes half an hour and leaves you badly shaken.",把烂牙拔掉。它能清除蛀牙（甜食和时间还会让它卷土重来），但要花半小时，还会让你惊魂未定。
 HarshWilds_BpToothPuller_CardName,Tooth Puller,拔牙器
-HarshWilds_BpToothPuller_CardDescription,Lash a hooked bone to a twine loop to make a tool for pulling a rotten tooth. It works a few times before it falls apart.,把带钩的骨头绑在一圈细线上，做成拔烂牙的工具。用上几次就会散架。
+HarshWilds_BpToothPuller_CardDescription,Work a metal bar into a pair of narrow tongs for pulling a rotten tooth. The jaws wear loose after a few pulls.,把一根金属锭打成一把细长的钳子，用来拔烂牙。拔上几次，钳口就会松动。
 HarshWilds_SwitchHeron_StatName,Harsh Wilds: Heron,严酷荒野：苍鹭
 HarshWilds_SwitchHeron_StatDescription,Hidden 0/1 switch: 1 while the Heron is on in the Harsh Wilds config.,隐藏的 0/1 开关：严酷荒野配置中启用苍鹭时为 1。
 HarshWilds_HeronClock_StatName,Harsh Wilds: Heron Clock,严酷荒野：苍鹭计时器

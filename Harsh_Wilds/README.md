@@ -1,6 +1,6 @@
 # Harsh Wilds
 
-**Version:** 0.11.6
+**Version:** 0.11.7
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release. Rewards (meat, affinity, coats, rites) were tuned to their base-game equivalents in 0.11.6; the threats' chances, numbers and lengths are still first guesses not yet balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
@@ -161,7 +161,7 @@ Each is a status with an icon and an alert at each new stage. Each has a recipe 
 ### Tooth decay (`ToothDecay`)
 - **How you get it:** reaching "tired of eating sweet things" with honeycomb or sugar (about 1 time in 3); eating a lot of fruit quickly (about 1 in 6); plain time (about 1 day in 60).
 - **Cost:** three stages (Sore Tooth, Toothache, Rotten Tooth) add 30, 60 and 90 to Pain and make stress build faster by 0.25, 0.5 and 0.75 a quarter hour.
-- **Cure:** a Chewing Stick (one Willow Twigs) takes half a stage per **Chew**. With Herbs and Fungi, **Chew with Herbs** takes a whole stage. A Tooth Puller (Bones and Twine, three uses) offers **Pull the Bad Tooth** at Rotten Tooth only: half an hour, clears the decay, adds 40 stress at once. Painkillers dull the pain but do not cure it.
+- **Cure:** a Chewing Stick (one Willow Twigs) takes half a stage per **Chew**. With Herbs and Fungi, **Chew with Herbs** takes a whole stage. A Tooth Puller (metal tongs worked from one Heated Metal Bar of any metal, three uses) offers **Pull the Bad Tooth** at Rotten Tooth only: half an hour, clears the decay, adds 40 stress at once. Painkillers dull the pain but do not cure it.
 
 ### Spirit sickness (`SpiritSickness`)
 - **How you get it:** when you fail to bind the Lynx, Goat or Blood Spirit and it is angered, its angry card waits on the board until you press Continue. While it waits, a roll once a game day (two in three) may leave you spirit-sick. The base game's own spirits are never a source.
@@ -323,6 +323,7 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
 
 Full notes in `CHANGELOG.md`. Latest:
 
+- **0.11.7:** the Tooth Puller is metal tongs made from a Heated Metal Bar, and the selkie can now rise on Far Territory's shore.
 - **0.11.6:** balance pass: musk oxen give less and return monthly, slower brews and athame rites, base-game coat tiers with real armour, a fuller lindwurm, a use for Fairy Stones.
 - **0.11.5:** the golden hind is removed; the base game's White Deer covers it.
 - **0.11.4:** the Faerie Realm stays still; the people, animals and spirits still breathe.

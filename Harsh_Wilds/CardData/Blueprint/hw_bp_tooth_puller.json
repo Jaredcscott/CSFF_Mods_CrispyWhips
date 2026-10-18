@@ -1,6 +1,6 @@
 {
     "UniqueID": "hw_bp_tooth_puller",
-    "//ToothPullerBlueprint": "The recipe for CardData/Item/hw_tooth_puller.json, VANILLA CARDS ONLY so the last-resort tooth decay cure never needs another mod (Documentation/Research/HarshWilds/afflictions.md section 3.5 point 3, the second tooth decay DECISION; shape copied from CardData/Blueprint/hw_bp_herbal_wash.json, read its note). A construction-style blueprint registered through HarshWilds/BlueprintTabs.json under the vanilla Survival > Medical tab ('Tab_1_Survival_Subtab_3_Medical_TabName'). Researchable from the start: StartUnlocked false with empty CardsOnBoard, TagsOnBoard and StatValues, basic research time BlueprintUnlockTicksCost HW_TOOTH_PULLER_RESEARCH = 4, one stage of BuildingDaytimeCost 2 (HW_TOOTH_PULLER_BUILD, the cap is 12). Ingredients, both vanilla and both spent: Bones (674b640f46671f1418af4559b259b442) and Twine (f6e8281ffa0e6eb4b8bf1dc5e5ae1338). The quantities are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play.",
+    "//ToothPullerBlueprint": "The recipe for CardData/Item/hw_tooth_puller.json, metal tongs (owner, 2026-10-15: 'the tooth puller needs to be a metal tongs object that you craft'), VANILLA CARDS ONLY so the last-resort tooth decay cure never needs another mod (Documentation/Research/HarshWilds/afflictions.md section 3.5 point 3, the second tooth decay DECISION; shape copied from CardData/Blueprint/hw_bp_herbal_wash.json, read its note). A construction-style blueprint registered through HarshWilds/BlueprintTabs.json under the vanilla Survival > Medical tab ('Tab_1_Survival_Subtab_3_Medical_TabName'). Researchable from the start: StartUnlocked false with empty CardsOnBoard, TagsOnBoard and StatValues, basic research time BlueprintUnlockTicksCost HW_TOOTH_PULLER_RESEARCH = 4, one stage of BuildingDaytimeCost 2 (HW_TOOTH_PULLER_BUILD, the cap is 12). Ingredient, vanilla and spent: one metal bar (MetalBarFinished, 14f7ddfe60496b54881d5a25de8abb20, the card vanilla's smithed blanks and ACT's Cautery Iron consume; its in-game name reads Heated Metal Bar), any metal type, with no AffectResultDurabilities mask because the tongs carry no metal or quality stat. No hammer is required: a vanilla tool requirement is a tab-group reference whose export names are obfuscated, so it cannot be authored here. Until 0.11.7 the recipe was Bones (674b640f46671f1418af4559b259b442) and Twine (f6e8281ffa0e6eb4b8bf1dc5e5ae1338) for a bone hook. The quantities are TUNABLE PLACEHOLDERS, session-inferred and unmeasured against play.",
     "CardType": 7,
     "CardName": {
         "ParentObjectID": "hw_bp_tooth_puller",
@@ -10,7 +10,7 @@
     "CardDescription": {
         "ParentObjectID": "hw_bp_tooth_puller",
         "LocalizationKey": "HarshWilds_BpToothPuller_CardDescription",
-        "DefaultText": "Lash a hooked bone to a twine loop to make a tool for pulling a rotten tooth. It works a few times before it falls apart."
+        "DefaultText": "Work a metal bar into a pair of narrow tongs for pulling a rotten tooth. The jaws wear loose after a few pulls."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
     "CardImageWarpData": "hw_tooth_puller",
@@ -44,14 +44,7 @@
             "RequiredElements": [
                 {
                     "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
-                    "RequiredCardWarpData": "674b640f46671f1418af4559b259b442",
-                    "RequiredCardWarpType": 3,
-                    "RequiredQuantity": 1,
-                    "DontSpend": false
-                },
-                {
-                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
-                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
                     "RequiredCardWarpType": 3,
                     "RequiredQuantity": 1,
                     "DontSpend": false
@@ -71,6 +64,8 @@
         }
     ],
     "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Metal"],
+    "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
     "BlueprintActionTagsWarpType": 3,
     "ResearchedNotification": 0

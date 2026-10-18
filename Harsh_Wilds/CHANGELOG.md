@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.11.7 (2026-10-15)
+
+### Changed
+
+- **The Tooth Puller is now a pair of metal tongs.** Its recipe (Survival > Medical) takes one Heated Metal Bar of any metal instead of Bones and Twine. It still works only on a Rotten Tooth and lasts three pulls.
+
+### Fixed
+
+- **The selkie can now appear on Far Territory's Driftwood Shore.** The shore only counted as a card lying in your base or on the board, never as the place you were standing in, so the selkie never rose there. Now she can, at night, out in the open, at most once every three days.
+
 ## 0.11.6 (2026-10-15)
 
 A balance pass to keep Harsh Wilds' rewards in step with the base game. The threats are unchanged.

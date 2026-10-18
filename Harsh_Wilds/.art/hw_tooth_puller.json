@@ -1,29 +1,33 @@
 {
   "target": "hw_tooth_puller.png",
   "sourceCard": "CardData/Item/hw_tooth_puller.json",
-  "subject": "one hooked sliver of pale cream-white bone, curved like a small fishhook with a sharp pointed tip, about the length of a finger, its straight end lashed with tan twine into a small plain twine loop, no handle",
+  "subject": "one pair of narrow dark iron tongs for pulling teeth, two long straight riveted arms crossing at a single round rivet near the front, short slim curved jaws that meet at the tips, plain straight handles with no grips and no rings, dull grey forged metal with faint hammer marks",
   "model": "nano-banana-2",
-  "mode": "text2image",
+  "mode": "image2image",
   "params": {
     "imageCount": 1,
     "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Knife_Flint (style) srLsfbRhzXdoz1JBwH7G",
+      "vanilla Axe_Stone (style) ebT0Y8iL0opmjcDS78lT"
+    ]
   },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of one hooked sliver of pale cream-white bone, curved like a small fishhook with a sharp pointed tip, about the length of a finger, its straight end lashed with tan twine into a small plain twine loop, no handle, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, metal pliers, forceps, wooden handle, metal hook, a tooth, teeth, blood, gore, knife, painted ground patch.",
-  "historyId": "LsKhipAelEWRy2RFI01x",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1790864376067_d6a71873_1790864376624_ae6641a6.png",
-  "credits": 30,
-  "verdict": "accepted on the first sample: one cream-white bone hook with a barbed point, tan twine lashed round the straight end into a small loop, no handle, no tooth, no blood. The interior of the twine loop stayed opaque white (the keyer only removes border-connected paper), which a person may judge in the afflictions text-and-art tracker row. The art is shared by the card (CardData/Item/hw_tooth_puller.json) and its blueprint (CardData/Blueprint/hw_bp_tooth_puller.json).",
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one pair of narrow dark iron tongs for pulling teeth, two long straight riveted arms crossing at a single round rivet near the front, short slim curved jaws that meet at the tips, plain straight handles with no grips and no rings, dull grey forged metal with faint hammer marks, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. The reference images are STYLE references only (line weight, colour handling, framing of a vanilla tool card): do not copy their objects.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, knife, axe, stone, flint, wooden handle, rubber or leather grips, finger rings, scissors, bone, twine, cord, a tooth, teeth, blood, gore, a second tool.",
+  "historyId": "yi9AuGOAMNTSFyh4VKZU",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792095636301_ddebddba_1792095637311_820f0a83.png",
+  "credits": 20,
+  "verdict": "first sample: one pair of plain grey forged tongs, single rivet, slim jaws meeting at the tips, no grips, no rings, no tooth. Awaiting the owner's gallery review.",
   "processed": {
     "tool": "Development_Tools/CardArt/process_card_art.py",
     "size": [
       512,
       768
     ],
-    "transparent_pct": 90.1
+    "transparent_pct": 87.9,
+    "enclosed_key": "the paper inside the open jaws stayed opaque (border-connected keying only); keyed on the finished image with the keyer's own ramp, confined to box 40,520,190,700, one component of 1255 px, 1315 px changed. key_enclosed.py was not used: its header records that it misaligns on reframed art."
   },
-  "generated": "2026-10-01",
-  "rekeyed": "2026-10-12",
-  "note": "owner gallery rework 2026-10-12: has white to remove; re-keyed from the raw generation: the paper inside the twine loop keyed (key_enclosed.py confined to the loop, box 330,140,410,260, so the pale bone stays solid), white edge trim removed, trimmed"
+  "generated": "2026-10-15",
+  "note": "owner 2026-10-15: 'the tooth puller needs to be a metal tongs object that you craft'. Replaces the bone-hook-on-twine image (historyId LsKhipAelEWRy2RFI01x, generated 2026-10-01, re-keyed 2026-10-12). Drawn from words with vanilla tool sprites as style references, never the old image, because the shape changed."
 }
