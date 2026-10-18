@@ -88,11 +88,117 @@
   },
   "Progress": { "Active": false },
   "SpecialDurability1": { "Active": false },
-  "SpecialDurability2": { "Active": false },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_greaves",
+      "LocalizationKey": "Advanced_Copper_Tools_IronGreaves_SpecialDurability2.CardStatName",
+      "DefaultText": "Oil Coat"
+    },
+    "MaxValue": 288.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
+  },
   "SpecialDurability3": { "Active": false },
   "SpecialDurability4": { "Active": false },
   "DurabilitySorting": { "SortingList": [] },
-  "CardInteractions": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_greaves",
+        "LocalizationKey": "Advanced_Copper_Tools_IronGreaves_Grease_ActionName",
+        "DefaultText": "Grease with Fat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_greaves",
+        "LocalizationKey": "Advanced_Copper_Tools_IronGreaves_Grease_ActionDescription",
+        "DefaultText": "Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "0eb3634f696991b4d97b91626270e035"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special2Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_greaves",
+        "LocalizationKey": "Advanced_Copper_Tools_IronGreaves_Oil_ActionName",
+        "DefaultText": "Oil"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_greaves",
+        "LocalizationKey": "Advanced_Copper_Tools_IronGreaves_Oil_ActionDescription",
+        "DefaultText": "Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "advanced_copper_tools_oil"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special2Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "FinishUnlocking": false,
+              "DropChance": { "Active": false, "BaseDropChance": 0.0 }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {
@@ -154,6 +260,62 @@
         "Active": false,
         "Inputs": [ { "Durability": 64, "Range": { "x": 0.0, "y": 100.0 } } ],
         "EffectScalingOutput": { "x": 1.0, "y": 1.5 }
+      }
+    },
+    {
+      "EffectName": "Rust (wet, uncoated)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.9
+          }
+        },
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 51.0,
+              "y": 100.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [],
+      "UsageRateModifier": {
+        "Active": true,
+        "FloatValue": -4.8
+      }
+    },
+    {
+      "EffectName": "Oil coat wear (wet)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special2Range": {
+            "x": 1.0,
+            "y": 288.0
+          }
+        },
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 51.0,
+              "y": 100.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [],
+      "Special2RateModifier": {
+        "Active": true,
+        "FloatValue": -1.0
       }
     }
   ]

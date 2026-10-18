@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/Tea_Station_Lit.gif",
   "source": "Resource/Picture/Tea_Station_Lit.png",
+  "work_source": ".art/gif_work/Tea_Station_Lit.png",
+  "place": { "scale": 1.014, "offset": [39.0, 200.91] },
   "sourceCard": "CardData/Gif (advanced_copper_tools_tea_blending_station_lit CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

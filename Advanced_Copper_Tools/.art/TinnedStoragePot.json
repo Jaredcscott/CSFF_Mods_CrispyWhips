@@ -1,0 +1,12 @@
+{
+  "target": "TinnedStoragePot.png",
+  "sourceCard": "TinnedPot",
+  "subject": "a round-bellied terracotta clay storage pot with a visible silvery tin lining at the rim and a flat tin lid resting on top, no handles, no wood",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {"aspectRatio": "2:3", "resolution": "1K", "imageCount": 1, "autoEnhancePrompt": false},
+  "historyId": "gJsMMCPUSbPTM1cJ5mvb",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792125264414_ae45d4da_1792125264727_f1d92723.png",
+  "credits": null,
+  "generated": "2026-10-15"
+}

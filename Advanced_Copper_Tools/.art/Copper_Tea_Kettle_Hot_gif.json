@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/Copper_Tea_Kettle_Hot.gif",
   "source": "Resource/Picture/Copper_Tea_Kettle.png",
+  "work_source": ".art/gif_work/Copper_Tea_Kettle.png",
+  "place": { "scale": 1.0, "offset": [41.0, 240.0] },
   "sourceCard": "CardData/Gif (advanced_copper_tools_copper_tea_kettle ConditionSets: Temperature in the top half)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

@@ -29,21 +29,25 @@
   },
   {
     "Item": "advanced_copper_tools_lantern_oilwell",
+    "InheritMetal": true,
     "NuggetReturn": 6,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_lantern_oilwell_lit",
+    "InheritMetal": true,
     "NuggetReturn": 6,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_metal_lantern",
+    "InheritMetal": true,
     "NuggetReturn": 18,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_metal_lantern_lit",
+    "InheritMetal": true,
     "NuggetReturn": 18,
     "Duration": 8
   },

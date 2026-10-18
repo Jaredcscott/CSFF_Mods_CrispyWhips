@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/ACT_MetalCauldron_Copper_Cooking.gif",
   "source": "Resource/Picture/ACT_MetalCauldron_Copper.png",
+  "work_source": ".art/gif_work/ACT_MetalCauldron_Copper.png",
+  "place": { "scale": 1.0, "offset": [10.0, 312.0] },
   "sourceCard": "CardData/Gif (advanced_copper_tools_copper_cauldron CookingGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.18.9
+**Version:** 1.18.10
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -11,7 +11,7 @@
 
 Advanced Copper Tools turns copper, and the other metals where it makes sense, into crafted gear for comfort, throughput and light. It runs on [CSFFModFramework](https://github.com/jscott3/CSFF_Mods), so blueprints appear in the right crafting tabs and perks appear on the Situational tab by themselves.
 
-The mod ships 65 blueprints, 75 items, 15 location and structure cards, 7 character perks, 1 effect stat, 1 equipment slot.
+The mod ships 66 blueprints, 76 items, 16 location and structure cards, 7 character perks, 1 effect stat, 1 equipment slot.
 
 | Area | What it covers | Section |
 |------|----------------|---------|
@@ -21,7 +21,7 @@ The mod ships 65 blueprints, 75 items, 15 location and structure cards, 7 charac
 | Armor | Copper, Tin, Ghost Bronze, Tin Bronze, White Bronze and Iron suits (four pieces each) and three shields | Armor, Shields |
 | Comfort | Copper Bathtub, Bedwarming Pan, Copper-Rim Chamberpot, Metal Lantern, Wheelbarrow | Copper Bathtub and following |
 | Food and drink | Salt-Cured Meat and Fish, rendered Oil, Tea Station and its three teas | Salt-Cured Meat, Tea Station, Teas |
-| Storage | Copper Chest (slow spoilage), Ore Bin | Copper Chest, Ore Bin |
+| Storage | Copper Chest (slow spoilage), Tinned Storage Pot, Ore Bin | Copper Chest, Tinned Storage Pot, Ore Bin |
 | Tin | Stream Tin panning with the Wearable Metal Pan, the only source of Tin Ore | Tin Ore |
 | Perks | Seven starting-kit perks | Character Perks |
 
@@ -38,7 +38,7 @@ Nearly every finished recipe needs 1 Tin Solder. Tin Ore, the only source of tin
 | **Metal & Clay → Metal Crafts** | Forged Pan Blank, Forged Wheel Rim, Forged Wheel Hub, Cast Wheel Hub; from the framework (2.28.0+): Metal Sheet, Forged Copper Nail, Cast Copper Nails, Forge Iron Nails, Forge Tin Solder, Iron Sheet, Bronze Sheet |
 | **Construction → Metal Tools** | Wearable Metal Pan, Large Copper Saw, Iron Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, all armor pieces and shields, Bedwarming Pan, Tool Belt, Cautery Iron, Copper Spigot, Copper Sap Bucket, Grappling Hook, Copper Shears (with Sirus23), Copper Watering Can |
 | **Construction → Advanced Tools** | Metal Lantern, Wheelbarrow Bucket, Wheelbarrow Handles, Wheel Assembly, Wheelbarrow |
-| **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Station, Copper Chest, Copper Brazier, Copper-Rim Chamberpot, Ore Bin |
+| **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Station, Copper Chest, Tinned Storage Pot, Copper Brazier, Copper-Rim Chamberpot, Ore Bin |
 
 In the tables below, **Build** is the time to build each stage and **Research** is the time to research the blueprint, both in in-game time.
 
@@ -65,7 +65,8 @@ These blueprints and the Metal Sheet, Metal Nail and Tin Solder cards ship in CS
 **Which sheets fit where**
 
 - Iron recipes take only Iron Sheets.
-- The Small Copper Stove, Large Saw, Copper Cauldron, Copper Oil Flask, Forged Pan Blank, Lantern Oilwell, Metal Lantern and Wheelbarrow Bucket take any non-iron sheet, because their products have no iron form.
+- The Small Copper Stove, Large Saw, Copper Cauldron, Copper Oil Flask, Forged Pan Blank and Wheelbarrow Bucket take any non-iron sheet, because their products have no iron form.
+- The Metal Lantern and Lantern Oilwell take any sheet, iron included, and become an Iron Lantern or Iron Lantern Oilwell from an Iron Sheet.
 - The Copper Brazier, Copper Watering Can, Copper Tea Kettle, Copper Chest, Ore Bin, Copper-Rim Chamberpot, Copper Spigot and Copper Sap Bucket take any sheet, iron included.
 - A nail of any metal fits every nail slot.
 - Each alloy armor suit takes only sheets of its own metal.
@@ -193,6 +194,13 @@ Many animal attacks (wolves, bears, foxes, badgers, beavers and others) are pure
 Tin pieces use 2 copper nails and no Tin Solder. Dismantling a piece returns sheets of its own metal, and a furnace melts it back into nuggets of that metal. The suit called "Bronze" before 1.18.0 is now Tin Bronze, and pieces you already have keep working.
 
 With Community Mod Chest installed, the Village Academy's Armorer course teaches every armor recipe and all three shields instead of normal research.
+
+### Rust and the oil coat (iron gear)
+
+Iron armor (Helmet, Armor, Bracers, Greaves), the Iron Shield and the Iron Large Saw rust while you wear them, or carry them in a bag you are wearing, and your Wetness is above 50: their durability slowly falls. An **Oil Coat** on the item stops the rust and wears off instead, only while you are wet. Drag Fat or Oil onto the item to give it a fresh coat (**Grease with Fat** or **Oil**, 15 minutes; it uses up the Fat, or the Oil and gives back its Clay Bowl). A coat never restores durability that rust has already taken. Copper, tin and the bronzes do not rust. The rates are early placeholders and may change.
+
+- Rust is checked once per action, so a long sleep right after a swim can still charge a little rust.
+- A Partner wearing iron rusts by your Wetness, not theirs.
 
 ---
 
@@ -466,6 +474,17 @@ A sealed copper chest with thick insulated walls (build 2 hours 30 minutes, rese
 
 ---
 
+## Tinned Storage Pot
+
+A clay storage pot lined with tin (Construction → Furniture; 1 vanilla Clay Storage Pot, the unsealed one, + 1 tin nugget, Metal Type 120; build 1 hour, research 4 hours; researchable once a clay storage pot is on the board). Tin comes from panned Tin Ore, a trader's tin nugget or the Smithing Gear perk.
+
+- Everything inside spoils at 50% of the normal rate: between a plain clay pot (70%) and a sealed one (40%), and a little better than the Copper Chest (55%).
+- Holds 2000 carried and 3000 placed, less than the Copper Chest.
+- Its **Tin Lining** wears away over about one season, carried or placed. Then it turns back into a plain clay pot, and everything inside stays inside. Placing it and picking it up keep the lining it has left.
+- It does not smelt back into tin. All numbers are placeholders for tuning.
+
+---
+
 ## Ore Bin
 
 A large open-topped metal bin for mined ore (build 2 hours 30 minutes, research 16 hours; 6 metal sheets + 4 planks + 8 copper nails + 1 Tin Solder + hammer).
@@ -481,9 +500,9 @@ Not yet tried in a running game.
 
 ## Salt-Cured Meat
 
-Raw meat packed in Salt and cured into a slow-spoiling travel ration (1 raw meat + 2 Salt; build 30 minutes, research 2 hours; Survival → Support). The salt leaves you thirstier than plain cooked meat. In a dish it adds Savoury, Earthy and Salty flavours.
+Raw meat packed in Salt and cured into a slow-spoiling travel ration (1 raw meat + 2 Salt; build 30 minutes, research 2 hours; Survival → Support). The salt leaves you thirstier than plain cooked meat. Eating it gives Proteins 96, half of vanilla dried meat's 192. In a dish it adds Savoury, Earthy and Salty flavours.
 
-**Salt-Cured Fish** is the same cure for lean fish (1 raw lean fish + 2 Salt; build 30 minutes, research 2 hours; researchable once you hold Salt). It keeps up to 1800 spoilage, against 840 for vanilla dried lean fish. Eating it gives Satiation 19, Fullness 7, Calories 18 and Hydration -5. In a dish it adds Savoury and Salty.
+**Salt-Cured Fish** is the same cure for lean fish (1 raw lean fish + 2 Salt; build 30 minutes, research 2 hours; researchable once you hold Salt). It keeps up to 1800 spoilage, against 840 for vanilla dried lean fish. Eating it gives Satiation 19, Fullness 7, Calories 18, Proteins 96 and Hydration -5. In a dish it adds Savoury and Salty.
 
 Allied Partners (Partner Overhaul's or vanilla's) eat the meat, the fish and Oil when hungry. They leave the teas and the Watering Can alone.
 
@@ -521,7 +540,7 @@ The Tea Station brews three herbal teas from herbs you dry or grind there. Each 
 
 ## Smelting Recovery
 
-Every crafted metal item melts back into nuggets in the furnace, in 2 hours each, except the Copper Oil Flask and the newer tools: the Bedwarming Pan, Tool Belt, Cautery Iron, Copper Spigot, Copper Sap Bucket, Grappling Hook and Copper Shears do not smelt.
+Every crafted metal item melts back into nuggets in the furnace, in 2 hours each, except the Copper Oil Flask and the newer tools: the Bedwarming Pan, Tool Belt, Cautery Iron, Copper Spigot, Copper Sap Bucket, Grappling Hook, Copper Shears and Tinned Storage Pot do not smelt.
 
 | Item | Nuggets returned |
 |------|-----------------:|
@@ -547,7 +566,7 @@ Every crafted metal item melts back into nuggets in the furnace, in 2 hours each
 | Tea Station Kit / Wheelbarrow Bucket | 48 |
 | Copper Bathtub | 78 |
 
-Alloy and iron armor, the Iron Large Saw, the Iron and Ghost Bronze Shields, and a Metal Sheet, Large Saw, nail, Small Copper Stove, Stove Top Mold, Stove Top, Copper Cauldron or Wheelbarrow Bucket of any metal return nuggets of their own metal. Everything else returns copper nuggets unless the table says otherwise.
+Alloy and iron armor, the Iron Large Saw, the Iron and Ghost Bronze Shields, and a Metal Sheet, Large Saw, nail, Small Copper Stove, Stove Top Mold, Stove Top, Copper Cauldron, Wheelbarrow Bucket, Metal Lantern or Lantern Oilwell of any metal return nuggets of their own metal. Everything else returns copper nuggets unless the table says otherwise.
 
 ---
 
@@ -602,7 +621,7 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Put this mod's folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.9 loaded.`
+4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.10 loaded.`
 
 ### Configuration
 
@@ -633,7 +652,7 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.9 loaded.`
+**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.10 loaded.`
 
 **Pan or kettle won't boil?** It must sit on a lit fire with fuel left, and hold a liquid the game can heat.
 
@@ -649,6 +668,7 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 Full detail for every version is in `CHANGELOG.md`.
 
+- **1.18.10:** the Metal Lantern and Lantern Oilwell come in iron and melt back to their own metal; iron gear rusts while you are wet unless you give it an Oil Coat of Fat or Oil; the new Tinned Storage Pot slows spoilage to 50%; Salt-Cured Meat and Fish give Proteins. The animated copper pictures sit where their still pictures do, and a wandering hare on your board no longer logs a false error.
 - **1.18.9:** the cave system is removed; Tin Ore comes from panning with the Wearable Metal Pan, and a save made inside a cave loads at the Waterfall Caves. Balance pass: metal armor lasts as long as leather instead of breaking on the first hit, and many items move closer to the base game: see `CHANGELOG.md`.
 - **1.18.7:** Salt-Cured Fish and Salt-Cured Meat show the bacteria spoilage icon and taste of something when eaten.
 - **1.18.6:** the mine locations stay still (the slow drift added in 1.18.5 is off for now).

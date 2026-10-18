@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/CopperBathtub_Warm.gif",
   "source": "Resource/Picture/CopperBathtub_Warm.png",
+  "work_source": ".art/gif_work/CopperBathtub_Warm.png",
+  "place": { "scale": 1.0694, "offset": [38.95, 286.65] },
   "sourceCard": "CardData/Gif (advanced_copper_tools_copper_bathtub_warm and _warm_placed CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

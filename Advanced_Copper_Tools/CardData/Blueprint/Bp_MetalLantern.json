@@ -59,7 +59,7 @@
           "DontSpend": false,
           "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
           "RequiredCardWarpType": 3,
-          "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 140.0 },
+          "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 200.0 },
           "AffectResultDurabilities": {
             "MaskValue": 256
           },

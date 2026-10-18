@@ -270,6 +270,58 @@
         "CardImageWarpData": "ACT_MetalLantern_On_WhiteBronze",
         "CardImageWarpType": 3
       }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[5].Name",
+        "DefaultText": "Lit Iron Lantern"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalLantern_On_Iron",
+        "CardImageWarpType": 3
+      }
     }
   ],
   "CardHelpSection": {
@@ -420,7 +472,8 @@
       110.0,
       120.0,
       130.0,
-      140.0
+      140.0,
+      200.0
     ],
     "RatePerDaytimePoint": 0.0,
     "HidingOptions": 2,

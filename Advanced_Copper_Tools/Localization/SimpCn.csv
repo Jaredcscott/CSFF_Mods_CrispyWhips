@@ -379,7 +379,7 @@ Advanced_Copper_Tools_Perk_LargeSaw_PerkDescription,Start with a worn large copp
 Advanced_Copper_Tools_MetalLantern_CardName,Metal Lantern,金属提灯
 Advanced_Copper_Tools_MetalLantern_CardDescription,"A durable lantern built from a metal sheet and an oilwell, with a copper wire frame and an oiled parchment shade. Burns fuel to provide light, carried or set down.",一盏由金属片和提灯油井制成的耐用提灯，配有铜丝框架和涂油羊皮纸灯罩。燃烧燃料以提供照明，可随身携带，也可放下使用。
 Advanced_Copper_Tools_Bp_MetalLantern_CardName,Metal Lantern,金属提灯
-Advanced_Copper_Tools_Bp_MetalLantern_CardDescription,"Assemble a lantern from 1 metal sheet and an oilwell, with a copper wire frame, an oiled parchment shade (a parchment and a fat) and a hammer. The lantern takes the sheet's metal. Takes copper, tin or bronze sheets, not iron.",用一块金属片和一个提灯油井，配合铜丝框架、涂油羊皮纸灯罩（羊皮纸和油脂）和锤子组装一盏提灯。提灯沿用金属片的金属类型。只接受铜、锡或青铜片，不接受铁片。
+Advanced_Copper_Tools_Bp_MetalLantern_CardDescription,"Assemble a lantern from 1 metal sheet and an oilwell, with a copper wire frame, an oiled parchment shade (a parchment and a fat) and a hammer. The lantern takes the sheet's metal. Takes any sheet, iron included.",用一块金属片和一个提灯油井，配合铜丝框架、涂油羊皮纸灯罩（羊皮纸和油脂）和锤子组装一盏提灯。提灯沿用金属片的金属类型。接受任何金属片，包括铁片。
 Advanced_Copper_Tools_Bp_MetalLantern_UnlockConditionsDesc,Lantern Oilwell Needed,需要提灯油井
 Advanced_Copper_Tools_LanternOilwell_CardName,Lantern Oilwell,提灯油井
 Advanced_Copper_Tools_LanternOilwell_CardDescription,"A small metal reservoir hammered into a cup shape to hold lamp oil, with a twine wick. Holds 96 fuel (two bowls of oil). Light it on its own for a 24-hour lamp, or build it into a Metal Lantern.",一个锤打成杯形、带麻绳灯芯的小型金属储油器，可盛放灯油。容量96（两碗油）。可单独点燃作为持续24小时的油灯，也可用来制作金属提灯。
@@ -394,7 +394,7 @@ Advanced_Copper_Tools_LanternOilwell_CardHelpSection,"<b>Crafted:</b> Hammered f
 <b>用途：</b> 也是金属提灯的油槽部件，提灯的燃烧时间是它的两倍。"
 Advanced_Copper_Tools_LanternOilwell_FuelCapacity.CardStatName,Oil,灯油
 Advanced_Copper_Tools_Bp_LanternOilwell_CardName,Lantern Oilwell,提灯油井
-Advanced_Copper_Tools_Bp_LanternOilwell_CardDescription,"Hammer a metal sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick and sealed with 1 tin solder. The oilwell takes the sheet's metal. Takes copper, tin or bronze sheets, not iron.",将一块金属片锤打成小杯形储油器，用麻绳作灯芯缠绕，并用1块焊锡封口。储油器采用金属片的金属。只接受铜、锡或青铜片，不接受铁片。
+Advanced_Copper_Tools_Bp_LanternOilwell_CardDescription,"Hammer a metal sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick and sealed with 1 tin solder. The oilwell takes the sheet's metal. Takes any sheet, iron included.",将一块金属片锤打成小杯形储油器，用麻绳作灯芯缠绕，并用1块焊锡封口。储油器采用金属片的金属。接受任何金属片，包括铁片。
 Advanced_Copper_Tools_Bp_LanternOilwell_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_CopperTeaKettle_CardName,Copper Tea Kettle,铜制茶壶
 Advanced_Copper_Tools_CopperTeaKettle_CardDescription,"A copper kettle for holding and boiling water. Fill with water, then place on a fire or stove to boil it clean for tea.",一个用于盛水和煮水的铜壶。注入水后，放置在火源或炉子上煮沸，为泡茶做准备。
@@ -1035,30 +1035,35 @@ Advanced_Copper_Tools_MetalLantern_AlternateNames[1].Name,Ghost Bronze Lantern,�
 Advanced_Copper_Tools_MetalLantern_AlternateNames[2].Name,Tin Lantern,锡提灯
 Advanced_Copper_Tools_MetalLantern_AlternateNames[3].Name,Tin Bronze Lantern,锡青铜提灯
 Advanced_Copper_Tools_MetalLantern_AlternateNames[4].Name,White Bronze Lantern,白青铜提灯
+Advanced_Copper_Tools_MetalLantern_AlternateNames[5].Name,Iron Lantern,铁提灯
 Advanced_Copper_Tools_MetalLantern_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[0].Name,Lit Copper Lantern,已点燃的铜提灯
 Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[1].Name,Lit Ghost Bronze Lantern,已点燃的幽灵青铜提灯
 Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[2].Name,Lit Tin Lantern,已点燃的锡提灯
 Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[3].Name,Lit Tin Bronze Lantern,已点燃的锡青铜提灯
 Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[4].Name,Lit White Bronze Lantern,已点燃的白青铜提灯
+Advanced_Copper_Tools_MetalLantern_Lit_AlternateNames[5].Name,Lit Iron Lantern,已点燃的铁提灯
 Advanced_Copper_Tools_MetalLantern_Lit_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[0].Name,Copper Lantern,铜提灯
 Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[1].Name,Ghost Bronze Lantern,幽灵青铜提灯
 Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[2].Name,Tin Lantern,锡提灯
 Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[3].Name,Tin Bronze Lantern,锡青铜提灯
 Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[4].Name,White Bronze Lantern,白青铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_AlternateNames[5].Name,Iron Lantern,铁提灯
 Advanced_Copper_Tools_MetalLantern_Placed_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[0].Name,Lit Copper Lantern,已点燃的铜提灯
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[1].Name,Lit Ghost Bronze Lantern,已点燃的幽灵青铜提灯
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[2].Name,Lit Tin Lantern,已点燃的锡提灯
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[3].Name,Lit Tin Bronze Lantern,已点燃的锡青铜提灯
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[4].Name,Lit White Bronze Lantern,已点燃的白青铜提灯
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_AlternateNames[5].Name,Lit Iron Lantern,已点燃的铁提灯
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_LanternOilwell_AlternateNames[0].Name,Copper Lantern Oilwell,铜提灯油井
 Advanced_Copper_Tools_LanternOilwell_AlternateNames[1].Name,Ghost Bronze Lantern Oilwell,幽灵青铜提灯油井
 Advanced_Copper_Tools_LanternOilwell_AlternateNames[2].Name,Tin Lantern Oilwell,锡提灯油井
 Advanced_Copper_Tools_LanternOilwell_AlternateNames[3].Name,Tin Bronze Lantern Oilwell,锡青铜提灯油井
 Advanced_Copper_Tools_LanternOilwell_AlternateNames[4].Name,White Bronze Lantern Oilwell,白青铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_AlternateNames[5].Name,Iron Lantern Oilwell,铁提灯油井
 Advanced_Copper_Tools_LanternOilwell_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_CastStoveTop_Salvage_ActionName,Cut Up,切开
 Advanced_Copper_Tools_CastStoveTop_Salvage_ActionDescription,The Small Copper Stove now casts its own top. Cut this old stove top into metal sheets of its metal.,小型铜炉现在自行铸造炉顶。把这个旧炉顶切成同种金属的金属片。
@@ -1071,6 +1076,7 @@ Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[1].Name,Lit Ghost Bronze
 Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[2].Name,Lit Tin Lantern Oilwell,已点燃的锡提灯油井
 Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[3].Name,Lit Tin Bronze Lantern Oilwell,已点燃的锡青铜提灯油井
 Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[4].Name,Lit White Bronze Lantern Oilwell,已点燃的白青铜提灯油井
+Advanced_Copper_Tools_LanternOilwell_Lit_AlternateNames[5].Name,Lit Iron Lantern Oilwell,已点燃的铁提灯油井
 Advanced_Copper_Tools_LanternOilwell_Refuel_ActionName,Refuel with Oil,用油补充燃料
 Advanced_Copper_Tools_LanternOilwell_Refuel_ActionDescription,Poured oil into the oilwell.,向提灯油井中倒入油脂。
 Advanced_Copper_Tools_LanternOilwell_RefuelFlask_ActionName,Refuel from Flask,从油瓶补充燃料
@@ -1106,3 +1112,63 @@ Advanced_Copper_Tools_Bp_CopperSapBucket_CardDescription,"Hammer two metal sheet
 Advanced_Copper_Tools_Bp_CopperSapBucket_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_ResinTapSpigot_GatherResinBucket_ActionName,Gather Resin,收集松脂
 Advanced_Copper_Tools_ResinTapSpigot_GatherResinBucket_CustomCookingText,Gathering Resin...,收集松脂中……
+Advanced_Copper_Tools_IronHelmet_SpecialDurability2.CardStatName,Oil Coat,油膜
+Advanced_Copper_Tools_IronHelmet_Grease_ActionName,Grease with Fat,涂抹油脂
+Advanced_Copper_Tools_IronHelmet_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronHelmet_Oil_ActionName,Oil,上油
+Advanced_Copper_Tools_IronHelmet_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronBreastplateM_SpecialDurability2.CardStatName,Oil Coat,油膜
+Advanced_Copper_Tools_IronBreastplateM_Grease_ActionName,Grease with Fat,涂抹油脂
+Advanced_Copper_Tools_IronBreastplateM_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronBreastplateM_Oil_ActionName,Oil,上油
+Advanced_Copper_Tools_IronBreastplateM_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronBreastplateF_SpecialDurability2.CardStatName,Oil Coat,油膜
+Advanced_Copper_Tools_IronBreastplateF_Grease_ActionName,Grease with Fat,涂抹油脂
+Advanced_Copper_Tools_IronBreastplateF_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronBreastplateF_Oil_ActionName,Oil,上油
+Advanced_Copper_Tools_IronBreastplateF_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronGauntlets_SpecialDurability2.CardStatName,Oil Coat,油膜
+Advanced_Copper_Tools_IronGauntlets_Grease_ActionName,Grease with Fat,涂抹油脂
+Advanced_Copper_Tools_IronGauntlets_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronGauntlets_Oil_ActionName,Oil,上油
+Advanced_Copper_Tools_IronGauntlets_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronGreaves_SpecialDurability2.CardStatName,Oil Coat,油膜
+Advanced_Copper_Tools_IronGreaves_Grease_ActionName,Grease with Fat,涂抹油脂
+Advanced_Copper_Tools_IronGreaves_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronGreaves_Oil_ActionName,Oil,上油
+Advanced_Copper_Tools_IronGreaves_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronShield_SpecialDurability2.CardStatName,Oil Coat,油膜
+Advanced_Copper_Tools_IronShield_Grease_ActionName,Grease with Fat,涂抹油脂
+Advanced_Copper_Tools_IronShield_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronShield_Oil_ActionName,Oil,上油
+Advanced_Copper_Tools_IronShield_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronLargeSaw_SpecialDurability2.CardStatName,Oil Coat,油膜
+Advanced_Copper_Tools_IronLargeSaw_Grease_ActionName,Grease with Fat,涂抹油脂
+Advanced_Copper_Tools_IronLargeSaw_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronLargeSaw_Oil_ActionName,Oil,上油
+Advanced_Copper_Tools_IronLargeSaw_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_TinnedPot_CardName,Tinned Storage Pot,镀锡储物罐
+Advanced_Copper_Tools_TinnedPot_CardDescription,"A clay storage pot lined with a thin coat of tin and fitted with a tin lid. Food spoils more slowly in it than in a plain clay pot. The tin wears away over about a season, then the pot turns back into a plain clay pot and keeps its contents.",内衬薄锡、配有锡盖的陶制储物罐。比普通陶罐更能延缓食物腐坏。锡层约一个季节后磨损殆尽，罐子变回普通陶罐，里面的东西不会丢失。
+Advanced_Copper_Tools_TinnedPot_CardHelpSection,"<b>Spoilage:</b> Slows to 50% of normal rate (a plain clay pot is 70%, a sealed one 40%).
+
+<b>Tin lining:</b> Wears away over about one season, whether the pot is carried or placed. When it is gone the pot turns into a plain clay pot and everything inside stays inside.","<b>腐坏：</b>减缓至正常速度的50%（普通陶罐为70%，密封陶罐为40%）。
+
+<b>锡层：</b>无论携带还是放置，约一个季节后磨损殆尽。磨损后罐子变回普通陶罐，里面的东西不会丢失。"
+Advanced_Copper_Tools_TinnedPot_Carried_UsageName,Tin Lining,锡层
+Advanced_Copper_Tools_TinnedPot_Carried_Corrode_ActionName,Tin Lining Wears Through,锡层磨穿
+Advanced_Copper_Tools_TinnedPot_Carried_Corrode_ActionDescription,The tin lining has worn away. The pot is a plain clay pot again and keeps its contents.,锡层已磨损殆尽，罐子变回普通陶罐，里面的东西保持原样。
+Advanced_Copper_Tools_TinnedPot_DismantleActions_Place_ActionName,Place,放置
+Advanced_Copper_Tools_TinnedPot_DismantleActions_Place_ActionDescription,Set the tinned pot down in your environment.,将镀锡储物罐放置在您的环境中。
+Advanced_Copper_Tools_TinnedPot_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 50% of normal rate (a plain clay pot is 70%, a sealed one 40%).
+
+<b>Tin lining:</b> Wears away over about one season, whether the pot is carried or placed. When it is gone the pot turns into a plain clay pot and everything inside stays inside.","<b>腐坏：</b>减缓至正常速度的50%（普通陶罐为70%，密封陶罐为40%）。
+
+<b>锡层：</b>无论携带还是放置，约一个季节后磨损殆尽。磨损后罐子变回普通陶罐，里面的东西不会丢失。"
+Advanced_Copper_Tools_TinnedPot_Placed_UsageName,Tin Lining,锡层
+Advanced_Copper_Tools_TinnedPot_Placed_Corrode_ActionName,Tin Lining Wears Through,锡层磨穿
+Advanced_Copper_Tools_TinnedPot_Placed_Corrode_ActionDescription,The tin lining has worn away. The pot is a plain clay pot again and keeps its contents.,锡层已磨损殆尽，罐子变回普通陶罐，里面的东西保持原样。
+Advanced_Copper_Tools_TinnedPot_DismantleActions_PickUp_ActionName,Pick Up,拾起
+Advanced_Copper_Tools_TinnedPot_DismantleActions_PickUp_ActionDescription,Pick up the tinned pot to carry it.,拾起镀锡储物罐并携带。
+Advanced_Copper_Tools_Bp_TinnedPot_CardName,Tinned Storage Pot,镀锡储物罐
+Advanced_Copper_Tools_Bp_TinnedPot_CardDescription,"Line a clay storage pot with tin. Slows food spoilage a little more than plain clay, and the lining wears away over about a season. Requires 1 clay storage pot and 1 tin nugget.",为陶制储物罐内衬锡层。比普通陶罐更能延缓食物腐坏，锡层约一个季节后磨损。需要1个陶制储物罐和1块锡块。
+Advanced_Copper_Tools_Bp_TinnedPot_UnlockConditionsDesc,Clay Storage Pot Needed,需要陶制储物罐

@@ -472,14 +472,31 @@ namespace Advanced_Copper_Tools.Patcher
         private static string GetCardUid(object cardObject)
         {
             // A null card or a null CardModel is routine (an empty equipment slot, a pooled card),
-            // so only a live model with no readable UniqueID is reported: that is a rename, and it
-            // would make every armor card silently miss ArmorUidSet.
+            // and so is a null UniqueID VALUE: the game builds a wandering NPC's board card (Agent_Hare
+            // and the like) at runtime with no UniqueID, and that card is not armor. Only a model type
+            // with no UniqueID MEMBER is reported: that is a rename, and it would make every armor card
+            // silently miss ArmorUidSet. (Until 1.18.10 any null value logged this as an Error: a save
+            // with a hare on the board did so on every load.)
             var model = Reflect.GetMember(cardObject, "CardModel");
             if (model == null) return null;
             var uid = Reflect.GetMember(model, "UniqueID") as string;
-            if (uid == null)
-                WarnArmorRepairOnce("UniqueID-null", "GetCardUid: CardModel.UniqueID not readable (reflection miss) - armor cards cannot be identified, repair disabled. Possible field rename after a game update.");
+            if (uid == null && !HasUniqueIdMember(model.GetType()))
+                WarnArmorRepairOnce("UniqueID-null", "GetCardUid: CardModel has no UniqueID member (reflection miss) - armor cards cannot be identified, repair disabled. Possible field rename after a game update.");
             return uid;
+        }
+
+        private static readonly System.Collections.Generic.Dictionary<Type, bool> _hasUniqueIdMember =
+            new System.Collections.Generic.Dictionary<Type, bool>();
+
+        private static bool HasUniqueIdMember(Type modelType)
+        {
+            if (_hasUniqueIdMember.TryGetValue(modelType, out bool has)) return has;
+            const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
+            has = false;
+            for (var t = modelType; t != null && !has; t = t.BaseType)
+                has = t.GetField("UniqueID", flags) != null || t.GetProperty("UniqueID", flags) != null;
+            _hasUniqueIdMember[modelType] = has;
+            return has;
         }
     }
 }

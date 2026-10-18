@@ -1,0 +1,117 @@
+{
+  "UniqueID": "advanced_copper_tools_bp_tinned_pot",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_bp_tinned_pot",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_TinnedPot_CardName",
+    "DefaultText": "Tinned Storage Pot"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_bp_tinned_pot",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_TinnedPot_CardDescription",
+    "DefaultText": "Line a clay storage pot with tin. Slows food spoilage a little more than plain clay, and the lining wears away over about a season. Requires 1 clay storage pot and 1 tin nugget."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "advanced_copper_tools_bp_tinned_pot",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_TinnedPot_UnlockConditionsDesc",
+    "DefaultText": "Clay Storage Pot Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasClayStoragePot",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "CardWarpData": "d31a1dd6772813444a0cb8370aa59464",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "d31a1dd6772813444a0cb8370aa59464",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+          "RequiredCardWarpType": 3,
+          "Special4": {
+            "Active": true,
+            "FloatValue": 120.0,
+            "MaxValue": 120.0
+          }
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [
+        "HandAction"
+      ],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 4,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "advanced_copper_tools_tinned_pot",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "TinnedStoragePot",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 16.0,
+  "ResearchedNotification": 0
+}

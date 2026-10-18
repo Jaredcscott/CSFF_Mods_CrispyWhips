@@ -64,10 +64,10 @@
       ]
     },
     "Picture/ACT_CollapsedWall.png": {
-      "status": "approved",
-      "notes": "",
+      "status": "alter",
+      "notes": "This image can be static",
       "sha1": "54b7fb3acfeb964dfae269310c7b66b128e03298",
-      "at": "2026-10-14T04:29:59+00:00",
+      "at": "2026-10-14T14:42:06+00:00",
       "history": [
         {
           "status": "approved",
@@ -80,14 +80,20 @@
           "notes": "",
           "sha1": "c74ae183d8acd59f07d39e312b6969c6c6efe9e3",
           "at": "2026-10-12T17:24:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "This image can be static",
+          "sha1": "54b7fb3acfeb964dfae269310c7b66b128e03298",
+          "at": "2026-10-14T14:42:02+00:00"
         }
       ]
     },
     "Picture/act_copper_lode.png": {
-      "status": "approved",
-      "notes": "",
+      "status": "alter",
+      "notes": "This image can be static",
       "sha1": "0258089807c025dba2dc94e0d716b044c8b842da",
-      "at": "2026-10-14T04:30:00+00:00",
+      "at": "2026-10-14T14:42:08+00:00",
       "history": [
         {
           "status": "approved",
@@ -100,6 +106,12 @@
           "notes": "",
           "sha1": "a1d9bb1ef7ef647a69737d1f5e95900c06ac97d2",
           "at": "2026-10-12T17:24:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0258089807c025dba2dc94e0d716b044c8b842da",
+          "at": "2026-10-14T04:30:00+00:00"
         }
       ]
     },

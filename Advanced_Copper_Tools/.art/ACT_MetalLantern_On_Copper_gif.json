@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/ACT_MetalLantern_On_Copper.gif",
   "source": "Resource/Picture/ACT_MetalLantern_On_Copper.png",
+  "work_source": ".art/gif_work/ACT_MetalLantern_On_Copper.png",
+  "place": { "scale": 1.04341, "offset": [82.79, 177.97] },
   "sourceCard": "CardData/Gif (advanced_copper_tools_metal_lantern_lit and _placed_lit CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

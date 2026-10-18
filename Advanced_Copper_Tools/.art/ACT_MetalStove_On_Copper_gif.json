@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/ACT_MetalStove_On_Copper.gif",
   "source": "Resource/Picture/ACT_MetalStove_On_Copper.png",
+  "work_source": ".art/gif_work/ACT_MetalStove_On_Copper.png",
+  "place": { "scale": 1.05858, "offset": [95.48, 190.03] },
   "sourceCard": "CardData/Gif (advanced_copper_tools_copper_stove_placed_lit CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

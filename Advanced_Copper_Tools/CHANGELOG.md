@@ -2,6 +2,25 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.10] - 2026-10-17
+
+### Added
+
+- **Iron Lantern and Iron Lantern Oilwell.** The Metal Lantern and Lantern Oilwell can now be made from an Iron Sheet as well as the other metals, and the result is named and drawn as iron in all its forms (carried, lit, placed, placed and lit), using Chiwei's iron art. It keeps its metal when you light it, put it out, place it, pick it up or let it burn out.
+- **Iron gear rusts when you are wet.** The iron armor, Iron Shield and Iron Large Saw lose durability slowly while you wear them, or carry them in a bag you are wearing, with Wetness above 50 (placeholder rate: about 1% of their durability per fully wet day).
+- **Oil Coat.** Drag Fat or Oil onto any of that iron gear (**Grease with Fat** or **Oil**, 15 minutes; it uses up the Fat, or the Oil and gives back its Clay Bowl) to coat it. A coated item does not rust; the coat wears off instead, only while you are wet. The coat never restores durability.
+- **Tinned Storage Pot** (Construction → Furniture): a vanilla clay storage pot lined with one tin nugget. Food inside spoils at 50% of the normal rate (a plain clay pot is 70%, a sealed one 40%); it holds 2000 carried and 3000 placed. Its tin lining wears away over about a season, then it turns back into a plain clay pot and keeps everything inside. Numbers are placeholders for tuning.
+
+### Changed
+
+- **Salt-Cured Meat and Salt-Cured Fish now give Proteins 96** when eaten, half of what vanilla dried meat and fish give (192). They gave none.
+- **A Metal Lantern or Lantern Oilwell melts back into nuggets of its own metal** (it always gave copper). An alloy lantern made before this version melts to its own metal too.
+
+### Fixed
+
+- **Animated copper items no longer swell to fill the card.** The moving pictures for the lit lanterns and lantern oilwells, the lit stove, brazier and tea station, the cooking cauldron, the warm bathtub and the hot tea kettle were still on the old cropped canvas, so the card stretched them over its whole face and under the name banner whenever they played (the same problem the still pictures had, reported by Chiwei). They now sit exactly where the still picture does.
+- **No more false "[ACT-Fix] GetCardUid ... reflection miss" error when a hare or other wandering animal is on your board.** The game builds those animals' board cards without an ID, and the armor check read that as a broken game update and logged an error on every load. Nothing was actually wrong and your armor was never affected; the error is now only raised when the game really changes. Found while checking Banana Monk's save.
+
 ## [1.18.9] - 2026-10-15
 
 ### Removed

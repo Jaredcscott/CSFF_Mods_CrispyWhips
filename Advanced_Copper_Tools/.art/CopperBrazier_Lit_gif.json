@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/CopperBrazier_Lit.gif",
   "source": "Resource/Picture/CopperBrazier_Lit.png",
+  "work_source": ".art/gif_work/CopperBrazier_Lit.png",
+  "place": { "scale": 1.19764, "offset": [8.69, 114.3] },
   "sourceCard": "CardData/Gif (advanced_copper_tools_copper_brazier_placed_lit CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

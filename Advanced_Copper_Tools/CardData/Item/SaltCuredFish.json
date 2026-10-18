@@ -134,6 +134,17 @@
           "TriggerStatWarpType": 3,
           "TriggerValue": { "x": 0.0, "y": 0.0 },
           "TriggerStatValueIsMax": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "09c2ec726d9e9f64f87eb675b8e5f005",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 96, "y": 96 },
+          "TriggerStat": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerStatWarpData": "",
+          "TriggerStatWarpType": 3,
+          "TriggerValue": { "x": 0.0, "y": 0.0 },
+          "TriggerStatValueIsMax": false
         }
       ]
     }
