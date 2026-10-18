@@ -4,6 +4,27 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.28.7] - 2026-10-17
+
+### Fixed
+
+- **The animated Portal no longer swells to fill the card.** The moving picture of a placed Portal and its Exit was still on the old cropped canvas, so the card stretched it over its whole face and under the name banner whenever they played (the same problem the still pictures had, reported by Chiwei). They now sit exactly where the still picture does.
+- **No more freeze every two in-game hours on a long run.** The game autosaves every two in-game hours, and on an old save that could stall everything for a few seconds. The base game only clears animal tracks in the place you are standing, so every other place you have been kept every track an animal ever left there, long after the tracks ran out, and each autosave wrote them all again. One day-408 save held 47,648 of them, 71% of the file. The framework now drops the tracks that have already run out before each save, the same ones the game would throw away the moment you walked in. Tracks you can still find are untouched. On that save the file went from 29.7 MB to 9.3 MB and each save took half the time. On an old save, the first save after updating does the big cleanup and logs one line saying how many tracks it removed. Thanks to Chiwei for the report and for spotting the "Success!" lines.
+
+### For mod authors
+
+- New `Patching/BugFixes/ExpiredTrackPruner`, a void prefix on `GameLoad.SaveGameByReference`. For every `GameManager.EnvironmentsData` entry it removes each `NPCTrackingInfo` with `TrackLifetime > 0` and `CurrentTickInfo.z - TrackTick >= TrackLifetime`, the test `EnvironmentSaveDataByReference.CheckForTracks` applies before any discovery roll (it removes such a track without raising `OnTrackingAttempt`). Logs Info at 1,000 or more removed, Debug below. Measurements: `Documentation/Benches/FW_Autosave_Tracks_2026-10-17/`. Harness row T2.1910 (red on 2.28.6, green on 2.28.7).
+
+## [2.28.6] - 2026-10-17
+
+### Fixed
+
+- **Washing yourself at a river no longer drains the fuel out of everything around you.** With Herbs and Fungi installed, using "Wash yourself" on a River set the fuel of every card on the board to nothing: firewood and Oak Wood read 0 and did nothing on a fire, and candles burned out and vanished. The base game's wash only ever meant to affect you. The framework's load-time cleanup had been removing a deliberately empty reference from that vanilla action, which turned it into "every card". The cleanup now leaves the base game's own data exactly as it ships. Items already drained in a save stay drained; new wood and candles are safe. Thanks to Banana Monk for the report and the save.
+
+### For mod authors
+
+- `Loading/NullReferenceCompactor` no longer walks vanilla objects (any UniqueID no mod loaded), in either the guided or the full-sweep pass; its Info line counts them as "vanilla object(s) left as shipped, N of them holding nulls", and a Debug line per such object names each kept list (`kept vanilla null(s) on River: DismantleActions[3].ExtraDurabilityModifications[0].AffectedCards (1 of 1)`). Measured with 20 mods installed: the River's wash list is the only vanilla null any of them exposed. Vanilla ships nulls that carry meaning: `ExtraDurabilityChange.AppliesToAllCards` is true for an EMPTY `AffectedCards`/`AffectedTags`, and the River's "Wash yourself" ships `AffectedCards = [null]` with `FuelChange -75` on `AllCardsOnBoard`. Any service that marked the River dirty (here a `DropInjections.json` drop on its "Dig up Mud") exposed it. A `GameSourceModify` patch on a vanilla object now compacts that object itself (`NullReferenceCompactor.CompactVanillaPatch`), keeping every collection that already held a null before the patch, so unresolved refs the patch left are still removed. Harness row T2.1900 (red on 2.28.5, green on 2.28.6).
+
 ## [2.28.5] - 2026-10-14
 
 ### Fixed

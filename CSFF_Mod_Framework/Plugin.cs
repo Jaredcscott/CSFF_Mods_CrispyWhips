@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.28.5";
+    public const string PluginVersion = "2.28.7";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -222,6 +222,11 @@ public class Plugin : BaseUnityPlugin
         // GameLoad.SaveGameByReference throws on its null CardModel inside ActionRoutine. This
         // prefix drops such broken entries before every save (player report 2026-09-19).
         Patching.BugFixes.SaveStaleCardGuard.ApplyPatch(Harmony);
+        // Animal tracks are only ever cleared in the player's current environment, so every other
+        // place keeps every track ever left in it and each autosave writes them all (a day-408 save
+        // held 47,648, 71% of the file; a seconds-long freeze every autosave, report 2026-10-16).
+        // This prefix drops tracks past their lifetime, the same test vanilla applies on arrival.
+        Patching.BugFixes.ExpiredTrackPruner.ApplyPatch(Harmony);
         // A removed mod location aliased in UidAliases.json resolves to its target, so several saved
         // boards can share one key and LoadCards keeps one of them, overwriting the target's real
         // board. This folds each removed board into the target's before LoadCards reads the save.

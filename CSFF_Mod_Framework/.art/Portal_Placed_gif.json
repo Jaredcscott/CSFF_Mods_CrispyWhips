@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/Portal_Placed.gif",
   "source": "Resource/Picture/Portal_Placed.png",
+  "work_source": ".art/gif_work/Portal_Placed.png",
+  "place": { "scale": 1.06998, "offset": [87.44, 189.65] },
   "sourceCard": "CardData/Gif (csffmfwportalplaced and the Exit card 653ab779572b47039c856911d02c9d51 CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

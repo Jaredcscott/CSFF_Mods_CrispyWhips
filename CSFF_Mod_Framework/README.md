@@ -4,7 +4,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
-- **Version:** 2.28.5
+- **Version:** 2.28.7
 - **Game version:** EA 0.69c
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese
@@ -79,6 +79,8 @@ These are always on and need nothing from you.
 - Placed blueprint containers that lost a contained blueprint get it back on load, without freezing the game.
 - Card swaps (the jail bed to tunnel, pickle vats, the Tea Station) and stat-gated actions work on EA 0.69c.
 - Mod rooms no longer share one saved board, so the Inn's cards and the Bear Cave's bear stay out of the jail cell and the other mod rooms.
+- Animal tracks that have already run out are dropped before each save. The game only clears them where you stand, so on a long run every other place kept every track ever left there, and the autosave every two in-game hours could freeze the game for seconds. Tracks you can still follow are kept.
+- The framework's load-time cleanup leaves the base game's own cards exactly as they ship, so "Wash yourself" at a river no longer drains the fuel from every card on the board.
 
 ### Compatibility with other mods
 
@@ -537,6 +539,14 @@ Localization, audio, perks and blueprint tabs come last. Read that file for the 
 | `Stubs/LitJson/` | Source of the bundled `LitJSON.dll` (v0.19.0.0) |
 
 ## Recent releases
+
+**2.28.7.** No more freeze every two in-game hours on a long run: animal tracks that have already run out are dropped before each save, which shrank one old save from 29.7 MB to 9.3 MB. The animated Portal sits where its still picture does.
+
+**2.28.6.** Washing yourself at a river no longer drains the fuel from every card on the board (seen with Herbs and Fungi installed): the framework's load-time cleanup leaves the base game's own data as it ships.
+
+**2.28.5.** When a mod removes a location, a save made there moves you and that board's cards to the place the mod names, so no board is lost.
+
+**2.28.4.** Card pictures are back in the game's own framing instead of stretched over the whole card.
 
 **2.28.3.** Card motion (NPCs and animals breathe, plants sway), animations tied to a stat follow it while the card is on the board, and the Portal Hub and its Exit are animated.
 

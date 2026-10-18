@@ -14,10 +14,22 @@ namespace CSFFModFramework.Loading;
 ///   - CardOnCardAction.DurabilitiesAreCorrect (drag-start) — null tag/durability
 ///   - GameManager.TagIsOnBoard (day-tick / ApplyExtraDurabilitiesChanges) — null CardTag
 ///
-/// Removing null slots from collections of Unity object refs is always safe: the
-/// game iterates them with foreach and dereferences each element, so a missing
-/// reference is functionally identical to the entry not existing in the first
-/// place.
+/// Removing a null slot a MOD left is safe: the game iterates those collections with
+/// foreach and dereferences each element, so a missing reference reads like no entry.
+///
+/// <para><strong>Vanilla objects are never walked (2.28.6).</strong> Vanilla ships nulls
+/// that carry meaning, because for several fields an EMPTY list means "everything":
+/// <c>ExtraDurabilityChange.AppliesToAllCards</c> is true for empty
+/// <c>AffectedCards</c>/<c>AffectedTags</c>, and the River's "Wash yourself" ships
+/// <c>AffectedCards = [null]</c> with <c>FuelChange -75</c> on <c>AllCardsOnBoard</c>.
+/// Herbs and Fungi's truffle drop on the River's "Dig up Mud" marked the River dirty, this
+/// pass stripped that null, and washing then drained 75 fuel from every card on the board:
+/// Oak Wood went to 0 and candles burned out (Banana Monk report, 2026-10-17; the Land
+/// Sickness <c>[null]</c> in <see cref="Patching.BugFixes.NullTagOnBoardGuard"/> is the same
+/// shape). So <see cref="CompactAll"/> skips every object whose UniqueID is not mod-loaded,
+/// and a service that writes possibly-unresolved refs INTO a vanilla object compacts it
+/// with <see cref="CompactVanillaPatch"/>, which keeps every collection that held a null
+/// before the write.</para>
 /// </summary>
 internal static class NullReferenceCompactor
 {
@@ -46,6 +58,15 @@ internal static class NullReferenceCompactor
     private static int _nullsRemoved;
     private static int _arraysCompacted;
     private static int _objectsVisited;
+
+    // Collections Walk must leave as they are: the null-bearing collections a vanilla object
+    // held before a patch (CompactVanillaPatch). Null outside that call.
+    private static HashSet<object> _preserve;
+
+    /// <summary>True when <paramref name="item"/> is a UniqueIDScriptable no mod loaded: vanilla data.</summary>
+    internal static bool IsVanillaObject(object item)
+        => item is UniqueIDScriptable u
+           && (string.IsNullOrEmpty(u.UniqueID) || !JsonDataLoader.AllModUniqueIds.Contains(u.UniqueID));
 
     /// <summary>
     /// Compact null entries on every object that any framework service has marked
@@ -85,14 +106,30 @@ internal static class NullReferenceCompactor
             guided = false;
         }
 
+        int vanillaSkipped = 0, vanillaWithNulls = 0;
         foreach (var item in targets)
         {
             if (item == null) continue;
+            if (IsVanillaObject(item))
+            {
+                vanillaSkipped++;
+                // Census of what the pre-2.28.6 compactor would have stripped from this vanilla object.
+                var paths = new List<string>();
+                try { Collect(item, new HashSet<object>(ReferenceEqualityComparer.Default), null, paths, ""); }
+                catch (Exception ex) { Log.Debug($"NullReferenceCompactor: vanilla census failed on {item.GetType().Name}: {Log.ExceptionText(ex)}"); }
+                if (paths.Count > 0)
+                {
+                    vanillaWithNulls++;
+                    Log.Debug($"NullReferenceCompactor: kept vanilla null(s) on {(item as UnityEngine.Object)?.name}: {string.Join(", ", paths)}");
+                }
+                continue;
+            }
             try { Walk(item, visited); }
             catch (Exception ex) { Log.Debug($"NullReferenceCompactor: walk failed on {item.GetType().Name}: {Log.ExceptionText(ex)}"); }
         }
 
-        var mode = guided ? $"guided ({dirtyCount} dirty)" : "full sweep";
+        var mode = (guided ? $"guided ({dirtyCount} dirty)" : "full sweep")
+                 + (vanillaSkipped > 0 ? $", {vanillaSkipped} vanilla object(s) left as shipped, {vanillaWithNulls} of them holding nulls" : "");
         if (_arraysCompacted > 0 || _nullsRemoved > 0)
             Log.Info($"NullReferenceCompactor: removed {_nullsRemoved} null entries from {_arraysCompacted} collection(s) across {_objectsVisited} objects [{mode}]");
         else
@@ -102,6 +139,86 @@ internal static class NullReferenceCompactor
         // are intentionally NOT cleared here: game types are static at runtime so the metadata
         // never becomes stale. Persisting them avoids rebuilding the type analysis for every
         // subsequent CompactAll pass (two per load, plus any future passes).
+    }
+
+    /// <summary>
+    /// The UnityEngine.Object collections reachable from <paramref name="target"/> that hold a
+    /// null right now, by reference. Call it on a vanilla object BEFORE writing into it and
+    /// hand the result to <see cref="CompactVanillaPatch"/>.
+    /// </summary>
+    public static HashSet<object> CaptureNullBearingCollections(object target)
+    {
+        var found = new HashSet<object>(ReferenceEqualityComparer.Default);
+        if (target == null) return found;
+        try { Collect(target, new HashSet<object>(ReferenceEqualityComparer.Default), found, null, ""); }
+        catch (Exception ex) { Log.Debug($"NullReferenceCompactor: null census failed on {target.GetType().Name}: {Log.ExceptionText(ex)}"); }
+        return found;
+    }
+
+    /// <summary>
+    /// Compacts a vanilla object after a write that may have left unresolved (null) refs in it,
+    /// keeping every collection in <paramref name="preserve"/> exactly as vanilla shipped it.
+    /// A collection the write replaced is a new instance and is compacted.
+    /// </summary>
+    public static int CompactVanillaPatch(object target, HashSet<object> preserve)
+    {
+        if (target == null) return 0;
+        int before = _nullsRemoved;
+        _preserve = preserve;
+        try { Walk(target, new HashSet<object>(ReferenceEqualityComparer.Default)); }
+        catch (Exception ex) { Log.Debug($"NullReferenceCompactor: patch walk failed on {target.GetType().Name}: {Log.ExceptionText(ex)}"); }
+        finally { _preserve = null; }
+        return _nullsRemoved - before;
+    }
+
+    // Records each UnityEngine.Object collection holding a null: by reference into found, and by
+    // field path into paths (either may be null).
+    private static void Collect(object obj, HashSet<object> visited, HashSet<object> found, List<string> paths, string path)
+    {
+        if (obj == null) return;
+        var type = obj.GetType();
+        if (!type.IsValueType && !visited.Add(obj)) return;
+
+        var fields = GetWalkableFields(type);
+        if (fields == null) return;
+        foreach (var field in fields)
+        {
+            object value;
+            try { value = field.GetValue(obj); }
+            catch (Exception ex) { Log.Debug($"NullReferenceCompactor: census read of {field.Name} on {type.Name} failed: {ex.GetType().Name} {ex.Message}"); continue; }
+            if (value == null) continue;
+            var fieldType = field.FieldType;
+            var here = path.Length == 0 ? field.Name : path + "." + field.Name;
+
+            Type elemType = null;
+            if (value is Array arr && arr.Rank == 1) elemType = fieldType.GetElementType();
+            else if (value is IList && fieldType.IsGenericType && fieldType.GetGenericTypeDefinition() == typeof(List<>))
+                elemType = fieldType.GetGenericArguments()[0];
+
+            if (elemType != null)
+            {
+                var items = (IList)value;
+                if (typeof(UnityEngine.Object).IsAssignableFrom(elemType))
+                {
+                    int nulls = 0;
+                    foreach (var e in items)
+                        if (e == null || (e is UnityEngine.Object uo && uo == null)) nulls++;
+                    if (nulls > 0)
+                    {
+                        found?.Add(value);
+                        paths?.Add($"{here} ({nulls} of {items.Count})");
+                    }
+                }
+                else if (IsRecursable(elemType))
+                {
+                    for (int i = 0; i < items.Count; i++)
+                        if (items[i] != null) Collect(items[i], visited, found, paths, $"{here}[{i}]");
+                }
+                continue;
+            }
+
+            if (IsRecursable(fieldType)) Collect(value, visited, found, paths, here);
+        }
     }
 
     private static void Walk(object obj, HashSet<object> visited)
@@ -142,6 +259,7 @@ internal static class NullReferenceCompactor
 
                 if (typeof(UnityEngine.Object).IsAssignableFrom(elemType))
                 {
+                    if (_preserve != null && _preserve.Contains(arr)) continue;
                     var compacted = CompactUnityObjectArray(arr, elemType);
                     if (compacted != null) field.SetValue(obj, compacted);
                 }
@@ -166,6 +284,7 @@ internal static class NullReferenceCompactor
                 var elemType = fieldType.GetGenericArguments()[0];
                 if (typeof(UnityEngine.Object).IsAssignableFrom(elemType))
                 {
+                    if (_preserve != null && _preserve.Contains(list)) continue;
                     CompactUnityObjectList(list);
                 }
                 else if (IsRecursable(elemType))

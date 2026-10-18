@@ -191,8 +191,8 @@ internal static class DropInjector
                 }
             }
 
-            // Vanilla location cards must be marked dirty so NullReferenceCompactor
-            // re-walks their mutated DroppedCards arrays.
+            // Marked for the record; NullReferenceCompactor leaves vanilla cards as shipped
+            // (2.28.6), and every drop appended here is a resolved card, never a null.
             if (cardModified)
                 Loading.FrameworkDirtyTracker.MarkDirty(card);
         }

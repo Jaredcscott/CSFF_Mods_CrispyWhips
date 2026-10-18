@@ -162,8 +162,9 @@ internal static class LoadOrchestrator
             //      ScriptableObject. Unresolved WarpData refs leave nulls in CardTag[] /
             //      CardData[] / GameStat[] / RequiredDurability[]; the game NREs when it
             //      iterates those collections (DurabilitiesAreCorrect on drag, TagIsOnBoard
-            //      on day-tick). Removing null slots is always safe — a missing reference is
-            //      functionally identical to no entry.
+            //      on day-tick). Only mod-loaded objects are compacted: vanilla nulls carry
+            //      meaning (an empty AffectedCards list means "every card"), see the
+            //      NullReferenceCompactor header.
             RunPhase(sw, "NullReferenceCompactor", () => NullReferenceCompactor.CompactAll(allData));
 
             // 5b. Normalize PassiveEffects null fields (prevents NullRef in UpdatePassiveEffectStacks)
@@ -416,9 +417,9 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] CharacterRosterInjector: no mod ships Characters.json");
 
-            // 11e. Second NullReferenceCompactor pass — picks up vanilla objects that
-            //      GameSourceModifier / SmeltingRecipeInjector / PerkInjector mutated
-            //      after the first compaction at step 5a2. allowFullSweep:false makes this
+            // 11e. Second NullReferenceCompactor pass: picks up mod-loaded objects marked
+            //      after the first compaction at step 5a2 (vanilla objects are skipped; a
+            //      GameSourceModify patch on one compacts it itself). allowFullSweep:false makes this
             //      a no-op when nothing was touched (avoids paying the full sweep twice).
             RunPhase(sw, "NullReferenceCompactor (post-injection)",
                 () => NullReferenceCompactor.CompactAll(allData, allowFullSweep: false));

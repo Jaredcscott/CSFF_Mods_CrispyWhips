@@ -131,6 +131,12 @@ internal static class GameSourceModifier
         if (root != null)
             WarnOnEmptyArrayZeroing(target, root, modName, filePath);
 
+        // NullReferenceCompactor never walks vanilla objects (their shipped nulls carry meaning),
+        // so a vanilla target is compacted here instead, keeping every collection that already
+        // held a null before this patch.
+        bool vanillaTarget = Loading.NullReferenceCompactor.IsVanillaObject(target);
+        var shippedNulls = vanillaTarget ? Loading.NullReferenceCompactor.CaptureNullBearingCollections(target) : null;
+
         JsonUtility.FromJsonOverwrite(json, target);
 
         // Re-resolve WarpData on the patched object and apply _appendArrays
@@ -147,8 +153,14 @@ internal static class GameSourceModifier
             Log.Warn($"GameSourceModify: WarpData re-resolve failed for {target.name}: {Log.ExceptionText(ex)}");
         }
 
-        // Mark patched object as dirty so NullReferenceCompactor picks it up.
-        if (target is UniqueIDScriptable uidTarget)
+        // A mod-loaded target is compacted by the post-injection NullReferenceCompactor pass.
+        if (vanillaTarget)
+        {
+            int removed = Loading.NullReferenceCompactor.CompactVanillaPatch(target, shippedNulls);
+            if (removed > 0)
+                Log.Debug($"GameSourceModify: [{modName}] removed {removed} unresolved (null) entr{(removed == 1 ? "y" : "ies")} the patch left on {target.name}");
+        }
+        else if (target is UniqueIDScriptable uidTarget)
             Loading.FrameworkDirtyTracker.MarkDirty(uidTarget);
 
         Log.Debug($"GameSourceModify: [{modName}] patched {target.name} via {Path.GetFileName(filePath)}");

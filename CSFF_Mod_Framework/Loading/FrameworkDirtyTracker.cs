@@ -11,9 +11,10 @@ namespace CSFFModFramework.Loading;
 ///
 /// Services must call <see cref="MarkDirty"/> for every object they mutate.
 /// JSON-loaded mod content is bulk-marked from <see cref="JsonDataLoader.JsonByUniqueId"/>
-/// at the end of the JSON load step. Services that touch vanilla objects
-/// (GameSourceModifier, PerkInjector, SmeltingRecipeInjector) must call
-/// <see cref="MarkDirty"/> per modification target.
+/// at the end of the JSON load step. Since 2.28.6 the compactor skips a marked
+/// VANILLA object (its shipped nulls carry meaning): a service that can leave
+/// unresolved refs inside one compacts it itself with
+/// <see cref="NullReferenceCompactor.CompactVanillaPatch"/>, as GameSourceModifier does.
 /// </summary>
 internal static class FrameworkDirtyTracker
 {
