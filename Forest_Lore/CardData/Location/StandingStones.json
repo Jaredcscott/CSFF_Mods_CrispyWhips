@@ -53,7 +53,17 @@
         "TextDisplay": 0
     },
     "SpecialDurability2": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_standing_stones",
+            "LocalizationKey": "Forest_Lore_StandingStones_SpecialDurability2_CardStatName",
+            "DefaultText": "Calm Left Today"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0104,
+        "HidingOptions": 0,
+        "TextDisplay": 0
     },
     "SpecialDurability3": {
         "Active": false
@@ -72,13 +82,64 @@
             "ActionDescription": {
                 "ParentObjectID": "fl_standing_stones",
                 "LocalizationKey": "Forest_Lore_StandingStones_Read_ActionDescription",
-                "DefaultText": "Walk the ring and read the runes on the low stone: Halfdan was here."
+                "DefaultText": "Walk the ring and read the runes on the low stone: Halfdan was here. Reading them calms the mind (Stress -10), once a day."
             },
             "DaytimeCost": 1,
             "AlwaysShow": true,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial2Percent": {
+                    "Active": true,
+                    "FloatValue": 0.99,
+                    "MaxValue": 1.0
+                },
+                "FailMessage": {
+                    "ParentObjectID": "fl_standing_stones",
+                    "LocalizationKey": "Forest_Lore_StandingStones_Read_FailMessage",
+                    "DefaultText": "You have read these stones already today; let the day turn before you read them again."
+                }
+            },
             "ReceivingCardChanges": {
-                "ModType": 0
-            }
+                "ModType": 1,
+                "Special2Change": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
         },
         {
             "ActionName": {

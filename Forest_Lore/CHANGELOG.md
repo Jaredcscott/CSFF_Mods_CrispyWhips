@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.6] - 2026-10-16
+
+### Added
+
+- **Flavour finds at the Ossuary and the Bog Body.** **Sift the Mounds** has about a 6 percent chance to turn up a Rusty Axe, and **Search the Body** about a 6 percent chance each for a Copper Fish and a Copper Turtle (placeholder chances, not balanced). These are vanilla cards the base game never hands out. The Bones, Bone Pieces and bronze nugget finds are unchanged.
+- **Weeping Pine at Barrow Wood.** A lone old pine among the barrows. **Collect Resin** (15 minutes) gives a vanilla Cold Resin, four collections from a full tree, then about one every five days while the scars refill (a vanilla Resin Tap gives one a day). A place's cards are written into a save only when its board is first created, so a save that has already run Forest Lore will not gain the pine; a new game does. It uses the vanilla pine picture until bespoke art is made.
+
+### Changed
+
+- **The Cave Lake says it is winter water.** Its description now says what was already true: it never freezes, so in winter, when the rivers need an ice hole, it is still open water. Text only.
+- **The four reading actions give a small calm, once a day.** Read the Stones, Read the Stone, Read the Line and Study the Paintings now lower Stress by 10 (placeholder value, not yet balanced), like the base game's Gaze at Water spends time for calm. Each site card carries a new one-point stock that refills about once a day; reading spends it, and a second reading the same day is refused with a message. The reading text still shows. On an old save the stock loads full.
+
+### Fixed
+
+- The Blunt Rusty Axe that the Ancient Cairn and the Old Battlefield give now shows a picture (the game ships it with none, so the card was blank).
+
 ## [0.1.5] - 2026-10-15
 
 A balance pass to bring Forest Lore in line with the base game rather than ahead of it.

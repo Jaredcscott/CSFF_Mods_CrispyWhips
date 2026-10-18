@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "fl_sunken_lake",
         "LocalizationKey": "Forest_Lore_CaveLake_CardDescription",
-        "DefaultText": "A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink."
+        "DefaultText": "A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. In winter, when the rivers freeze and need an ice hole, it is still open water. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],

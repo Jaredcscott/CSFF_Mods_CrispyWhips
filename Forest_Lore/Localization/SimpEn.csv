@@ -12,21 +12,21 @@ Forest_Lore_StandingStones_CardName,Standing Stones
 Forest_Lore_StandingStones_CardDescription,"A ring of tall grey stones stands in a clearing of the wood, each leaning a little toward the one beside it, the north faces gone green with moss. On one stone, low down where the light finds it, someone cut runes long ago: Halfdan was here. The ground at the centre of the ring looks as if something was set down there and never taken up."
 Forest_Lore_StandingStones_SpecialDurability1_CardStatName,Centre Unsearched
 Forest_Lore_StandingStones_Read_ActionName,Read the Stones
-Forest_Lore_StandingStones_Read_ActionDescription,Walk the ring and read the runes on the low stone: Halfdan was here.
+Forest_Lore_StandingStones_Read_ActionDescription,"Walk the ring and read the runes on the low stone: Halfdan was here. Reading them calms the mind (Stress -10), once a day."
 Forest_Lore_StandingStones_Search_ActionName,Search the Centre
 Forest_Lore_StandingStones_Search_ActionDescription,Kneel in the middle of the ring and dig through the turf with your hands.
 Forest_Lore_CircleStone_CardName,Circle Stone
 Forest_Lore_CircleStone_CardDescription,"A great grey stone as tall as a man, with a hole worn clean through it near the top, wide enough to put an arm through. Small stones have been pushed into the grass at its foot, one at a time, by people who are not here now. The oaks have leaned around it."
 Forest_Lore_CircleStone_SpecialDurability1_CardStatName,Foot Unsearched
 Forest_Lore_CircleStone_Read_ActionName,Read the Stone
-Forest_Lore_CircleStone_Read_ActionDescription,Look through the hole and along the line it makes toward the sunrise.
+Forest_Lore_CircleStone_Read_ActionDescription,"Look through the hole and along the line it makes toward the sunrise. The long look calms the mind (Stress -10), once a day."
 Forest_Lore_CircleStone_Search_ActionName,Search Beneath the Stone
 Forest_Lore_CircleStone_Search_ActionDescription,"Feel under the stone's foot, where people used to leave things."
 Forest_Lore_Petrospheres_CardName,Line of Petrospheres
 Forest_Lore_Petrospheres_CardDescription,"A row of round stones, each the size of a loaf, set along a bank in a straight line. Every one is carved all over with spirals and knobs, and the carving is the same on each. Nothing in the forest says what they were for."
 Forest_Lore_Petrospheres_SpecialDurability1_CardStatName,Line Unsearched
 Forest_Lore_Petrospheres_Read_ActionName,Read the Line
-Forest_Lore_Petrospheres_Read_ActionDescription,Follow the row of carved stones and trace the patterns with a finger.
+Forest_Lore_Petrospheres_Read_ActionDescription,"Follow the row of carved stones and trace the patterns with a finger. The slow work calms the mind (Stress -10), once a day."
 Forest_Lore_Petrospheres_Search_ActionName,Search Along the Line
 Forest_Lore_Petrospheres_Search_ActionDescription,Look in the grass and between the carved stones.
 Forest_Lore_TreeHollow_CardName,Tree Hollow
@@ -141,7 +141,7 @@ Forest_Lore_CaveExit_Leave_ActionName,Leave the Caves
 Forest_Lore_CaveExit_Leave_ActionDescription,Climb back up to the daylight.
 Forest_Lore_CaveExit_Leave_FadeMessage,Leaving the caves...
 Forest_Lore_CaveLake_CardName,Cave Lake
-Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink."
+Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. In winter, when the rivers freeze and need an ice hole, it is still open water. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink."
 Forest_Lore_CaveLake_SpecialDurability1_CardStatName,Eels
 Forest_Lore_CaveLake_Fill_ActionName,Fill
 Forest_Lore_CaveLake_Fill_ActionDescription,Draw unsafe lake water into the container.
@@ -191,12 +191,12 @@ Forest_Lore_OverhangingRock_Sleep_FadeMessage,Sleeping...
 Forest_Lore_CavePaintings_CardName,Cave Paintings
 Forest_Lore_CavePaintings_CardDescription,"The walls of this chamber are covered in paint gone the colour of dried blood and old rust. Hunters with long spears ring a herd of deer, a bear rears over a man with his arms flung up, and a line of fish swims along the foot of the wall. Handprints crowd the edges, small ones among them. Nobody has added to it in a very long time."
 Forest_Lore_CavePaintings_Study_ActionName,Study the Paintings
-Forest_Lore_CavePaintings_Study_ActionDescription,Hold a light close to the wall and follow the hunting scenes from one end of the chamber to the other.
+Forest_Lore_CavePaintings_Study_ActionDescription,"Hold a light close to the wall and follow the hunting scenes from one end of the chamber to the other. Studying them calms the mind (Stress -10), once a day."
 Forest_Lore_BoneMounds_CardName,Bone Mounds
 Forest_Lore_BoneMounds_CardDescription,"Bones are heaped against the walls of this chamber in long mounds: long bones stacked like firewood, skulls set in rows along the top, the older layers sunk and gone grey. Whoever came here brought their dead down into the dark and left them. Most of what could be carried off has been, but the lower heaps have never been turned."
 Forest_Lore_BoneMounds_SpecialDurability1_CardStatName,Mounds Unsifted
 Forest_Lore_BoneMounds_Sift_ActionName,Sift the Mounds
-Forest_Lore_BoneMounds_Sift_ActionDescription,Kneel and sift through the lower heaps for bones still whole enough to use.
+Forest_Lore_BoneMounds_Sift_ActionDescription,Kneel and sift through the lower heaps for bones still whole enough to use. Now and then something older turns up among them.
 Forest_Lore_Squeeze_CardName,The Squeeze
 Forest_Lore_Squeeze_CardDescription,"Between the Ossuary and the Sunken Lake the roof comes down to a slot in the rock, and the way on is a crawl on your belly, pushing what you carry ahead of you. Very little fits through with you: a light load of tools and food, and no more. If you carry too much, the way on is not offered, from either side, until you carry less."
 Forest_Lore_Squeeze_SizeUp_ActionName,Size Up the Squeeze
@@ -220,3 +220,17 @@ Forest_Lore_LadderTop_CardName,Fairy Hole Ladder (Top)
 Forest_Lore_LadderTop_CardDescription,"A ladder lashed fast at the lip of the Fairy Hole. While you stand here the climb down is easier, so a fall is less likely. Skill still counts, and a ladder fixed at the foot helps the climb back up."
 Forest_Lore_LadderFoot_CardName,Fairy Hole Ladder (Foot)
 Forest_Lore_LadderFoot_CardDescription,"The foot of a ladder set against the shaft wall under the Fairy Hole. While you stand here the climb up is easier, so a fall is less likely. Skill still counts, and a ladder fixed at the lip helps the climb down."
+Forest_Lore_StandingStones_SpecialDurability2_CardStatName,Calm Left Today
+Forest_Lore_StandingStones_Read_FailMessage,You have read these stones already today; let the day turn before you read them again.
+Forest_Lore_CircleStone_SpecialDurability2_CardStatName,Calm Left Today
+Forest_Lore_CircleStone_Read_FailMessage,You have read this stone already today; let the day turn before you read it again.
+Forest_Lore_Petrospheres_SpecialDurability2_CardStatName,Calm Left Today
+Forest_Lore_Petrospheres_Read_FailMessage,You have traced this line already today; let the day turn before you trace it again.
+Forest_Lore_CavePaintings_SpecialDurability1_CardStatName,Calm Left Today
+Forest_Lore_CavePaintings_Study_FailMessage,You have studied these paintings already today; let the day turn before you study them again.
+Forest_Lore_ResinPine_CardName,Weeping Pine
+Forest_Lore_ResinPine_CardDescription,"A lone old pine stands among the barrows, its bark split and beaded with pale resin that weeps slowly down the trunk. The scars seal over once picked, and fill again over days."
+Forest_Lore_ResinPine_SpoilageTime_CardStatName,Resin Weeping
+Forest_Lore_ResinPine_Harvest_ActionName,Collect Resin
+Forest_Lore_ResinPine_Harvest_ActionDescription,Pick the hardened beads of resin from the pine's weeping scars.
+Forest_Lore_ResinPine_Harvest_FailMessage,The pine has wept itself dry for now; the scars have not filled with fresh resin yet.

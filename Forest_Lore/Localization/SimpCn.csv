@@ -12,21 +12,21 @@ Forest_Lore_StandingStones_CardName,Standing Stones,立石阵
 Forest_Lore_StandingStones_CardDescription,"A ring of tall grey stones stands in a clearing of the wood, each leaning a little toward the one beside it, the north faces gone green with moss. On one stone, low down where the light finds it, someone cut runes long ago: Halfdan was here. The ground at the centre of the ring looks as if something was set down there and never taken up.",林间空地上立着一圈高大的灰色石头，每块都微微倾向身旁的那块，朝北的一面已被青苔染绿。其中一块石头的低处，光线照得到的地方，很久以前有人刻下了如尼文：哈夫丹到此一游。石阵中央的地面看上去像是曾有什么东西被放在那里，却再也没人拿走。
 Forest_Lore_StandingStones_SpecialDurability1_CardStatName,Centre Unsearched,中央未搜索
 Forest_Lore_StandingStones_Read_ActionName,Read the Stones,解读石阵
-Forest_Lore_StandingStones_Read_ActionDescription,Walk the ring and read the runes on the low stone: Halfdan was here.,绕着石阵走一圈，读出那块低矮石头上的如尼文：哈夫丹到此一游。
+Forest_Lore_StandingStones_Read_ActionDescription,"Walk the ring and read the runes on the low stone: Halfdan was here. Reading them calms the mind (Stress -10), once a day.",绕着石阵走一圈，读出那块低矮石头上的如尼文：哈夫丹到此一游。读这些石头能让心神平静（压力 -10），每天一次。
 Forest_Lore_StandingStones_Search_ActionName,Search the Centre,搜索中央
 Forest_Lore_StandingStones_Search_ActionDescription,Kneel in the middle of the ring and dig through the turf with your hands.,跪在石阵正中，用双手刨开草皮。
 Forest_Lore_CircleStone_CardName,Circle Stone,环石
 Forest_Lore_CircleStone_CardDescription,"A great grey stone as tall as a man, with a hole worn clean through it near the top, wide enough to put an arm through. Small stones have been pushed into the grass at its foot, one at a time, by people who are not here now. The oaks have leaned around it.",一块和人一般高的巨大灰石，靠近顶部有一个磨得光滑通透的孔洞，宽得足以伸进一条手臂。它脚下的草丛里被人一颗一颗地按进了小石子，而那些人如今已不在此处。周围的橡树都向它倾身环绕。
 Forest_Lore_CircleStone_SpecialDurability1_CardStatName,Foot Unsearched,石脚未搜索
 Forest_Lore_CircleStone_Read_ActionName,Read the Stone,解读石头
-Forest_Lore_CircleStone_Read_ActionDescription,Look through the hole and along the line it makes toward the sunrise.,透过孔洞望去，顺着它指向日出的方向看。
+Forest_Lore_CircleStone_Read_ActionDescription,"Look through the hole and along the line it makes toward the sunrise. The long look calms the mind (Stress -10), once a day.",透过孔洞望去，顺着它指向日出的方向看。久久凝望能让心神平静（压力 -10），每天一次。
 Forest_Lore_CircleStone_Search_ActionName,Search Beneath the Stone,搜索石下
 Forest_Lore_CircleStone_Search_ActionDescription,"Feel under the stone's foot, where people used to leave things.",在石头脚下摸索，人们过去常把东西留在那里。
 Forest_Lore_Petrospheres_CardName,Line of Petrospheres,石球列
 Forest_Lore_Petrospheres_CardDescription,"A row of round stones, each the size of a loaf, set along a bank in a straight line. Every one is carved all over with spirals and knobs, and the carving is the same on each. Nothing in the forest says what they were for.",一排圆石沿着土坡排成一条直线，每块都有一条面包大小。每一块表面都刻满了螺旋纹和凸纽，而且每块上的雕刻都一模一样。森林里没有任何东西能说明它们曾作何用。
 Forest_Lore_Petrospheres_SpecialDurability1_CardStatName,Line Unsearched,石列未搜索
 Forest_Lore_Petrospheres_Read_ActionName,Read the Line,解读石列
-Forest_Lore_Petrospheres_Read_ActionDescription,Follow the row of carved stones and trace the patterns with a finger.,沿着这排雕刻石走，用手指描摹上面的纹样。
+Forest_Lore_Petrospheres_Read_ActionDescription,"Follow the row of carved stones and trace the patterns with a finger. The slow work calms the mind (Stress -10), once a day.",沿着这排雕刻石走，用手指描摹上面的纹样。这份缓慢的功夫能让心神平静（压力 -10），每天一次。
 Forest_Lore_Petrospheres_Search_ActionName,Search Along the Line,沿石列搜索
 Forest_Lore_Petrospheres_Search_ActionDescription,Look in the grass and between the carved stones.,在草丛里和雕刻石之间寻找。
 Forest_Lore_TreeHollow_CardName,Tree Hollow,树洞
@@ -141,7 +141,7 @@ Forest_Lore_CaveExit_Leave_ActionName,Leave the Caves,离开洞穴
 Forest_Lore_CaveExit_Leave_ActionDescription,Climb back up to the daylight.,爬回有日光的地方。
 Forest_Lore_CaveExit_Leave_FadeMessage,Leaving the caves...,正在离开洞穴……
 Forest_Lore_CaveLake_CardName,Cave Lake,洞中湖
-Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink.",一汪静止的黑色湖水填满了洞底，冰冷而清澈，一侧边缘有一道浅色石台可供跪下。无论上面天气如何，它从不结冰，也从不泛滥。你可以在这里饮水、给容器取水、清洗身体，还能钓鱼或叉捕鳗鱼和小龙虾。这里的鳗鱼不多：捕光之后，湖里大约每天才会再有一条。和任何池塘一样，这里的水喝了并不安全。
+Forest_Lore_CaveLake_CardDescription,"A still black lake fills the floor of the cave, cold and clear, with a shelf of pale stone along one edge to kneel on. It never skins over and never floods, whatever the weather is doing above. In winter, when the rivers freeze and need an ice hole, it is still open water. You can drink from it, fill a container, wash in it, and fish or spear for eels and crayfish. Only a few eels live here: fish them out and the lake gives up about one a day. Like any pond's, the water is not safe to drink.",一汪静止的黑色湖水填满了洞底，冰冷而清澈，一侧边缘有一道浅色石台可供跪下。无论上面天气如何，它从不结冰，也从不泛滥。到了冬天，河流封冻、要凿冰洞才能取水时，这里依然是敞开的水面。你可以在这里饮水、给容器取水、清洗身体，还能钓鱼或叉捕鳗鱼和小龙虾。这里的鳗鱼不多：捕光之后，湖里大约每天才会再有一条。和任何池塘一样，这里的水喝了并不安全。
 Forest_Lore_CaveLake_SpecialDurability1_CardStatName,Eels,鳗鱼
 Forest_Lore_CaveLake_Fill_ActionName,Fill,取水
 Forest_Lore_CaveLake_Fill_ActionDescription,Draw unsafe lake water into the container.,往容器里灌入不安全的湖水。
@@ -191,12 +191,12 @@ Forest_Lore_OverhangingRock_Sleep_FadeMessage,Sleeping...,睡眠中……
 Forest_Lore_CavePaintings_CardName,Cave Paintings,洞穴壁画
 Forest_Lore_CavePaintings_CardDescription,"The walls of this chamber are covered in paint gone the colour of dried blood and old rust. Hunters with long spears ring a herd of deer, a bear rears over a man with his arms flung up, and a line of fish swims along the foot of the wall. Handprints crowd the edges, small ones among them. Nobody has added to it in a very long time.",这间洞室的墙壁上布满了颜料，颜色已褪成干血和旧锈般的色泽。手持长矛的猎人围住一群鹿，一头熊人立而起，扑向一个高举双臂的人，一排鱼沿着墙脚游动。边缘挤满了手印，其中也有小小的手印。已经很久很久没有人在上面添画了。
 Forest_Lore_CavePaintings_Study_ActionName,Study the Paintings,研究壁画
-Forest_Lore_CavePaintings_Study_ActionDescription,Hold a light close to the wall and follow the hunting scenes from one end of the chamber to the other.,把光源凑近墙壁，从洞室一端到另一端追看那些狩猎场景。
+Forest_Lore_CavePaintings_Study_ActionDescription,"Hold a light close to the wall and follow the hunting scenes from one end of the chamber to the other. Studying them calms the mind (Stress -10), once a day.",把光源凑近墙壁，从洞室一端到另一端追看那些狩猎场景。细看壁画能让心神平静（压力 -10），每天一次。
 Forest_Lore_BoneMounds_CardName,Bone Mounds,骨头堆
 Forest_Lore_BoneMounds_CardDescription,"Bones are heaped against the walls of this chamber in long mounds: long bones stacked like firewood, skulls set in rows along the top, the older layers sunk and gone grey. Whoever came here brought their dead down into the dark and left them. Most of what could be carried off has been, but the lower heaps have never been turned.",骨头沿着这间洞室的墙壁堆成一道道长堆：长骨像柴火一样垛起，头骨沿着顶部排成一行行，较老的层次已经下沉、变得灰白。不管是谁来过这里，他们都把死者带进黑暗中留了下来。能搬走的东西大多已被搬走，但下层的骨堆从未被翻动过。
 Forest_Lore_BoneMounds_SpecialDurability1_CardStatName,Mounds Unsifted,骨堆未筛
 Forest_Lore_BoneMounds_Sift_ActionName,Sift the Mounds,翻检骨堆
-Forest_Lore_BoneMounds_Sift_ActionDescription,Kneel and sift through the lower heaps for bones still whole enough to use.,跪下来翻检下层的骨堆，寻找仍然完整、还能用的骨头。
+Forest_Lore_BoneMounds_Sift_ActionDescription,Kneel and sift through the lower heaps for bones still whole enough to use. Now and then something older turns up among them.,跪下来翻检下层的骨堆，寻找仍然完整、还能用的骨头。偶尔会有更古老的东西混在其中。
 Forest_Lore_Squeeze_CardName,The Squeeze,窄隙
 Forest_Lore_Squeeze_CardDescription,"Between the Ossuary and the Sunken Lake the roof comes down to a slot in the rock, and the way on is a crawl on your belly, pushing what you carry ahead of you. Very little fits through with you: a light load of tools and food, and no more. If you carry too much, the way on is not offered, from either side, until you carry less.",在藏骨堂和下陷湖之间，洞顶压低成岩石中的一道窄缝，前进只能趴着匍匐爬行，把携带的东西推在前面。能随你一起过去的东西很少：只有少量的工具和食物，不能再多。如果你携带太多，无论从哪一侧，前进的选项都不会出现，直到你减轻负重为止。
 Forest_Lore_Squeeze_SizeUp_ActionName,Size Up the Squeeze,估量窄隙
@@ -220,3 +220,17 @@ Forest_Lore_LadderTop_CardName,Fairy Hole Ladder (Top),仙灵洞梯子（顶端�
 Forest_Lore_LadderTop_CardDescription,"A ladder lashed fast at the lip of the Fairy Hole. While you stand here the climb down is easier, so a fall is less likely. Skill still counts, and a ladder fixed at the foot helps the climb back up.",一架牢牢绑在仙灵洞口边缘的梯子。你站在这里时向下攀爬会更容易，因此不太容易摔落。技能仍然起作用，而在底部固定一架梯子有助于爬回上来。
 Forest_Lore_LadderFoot_CardName,Fairy Hole Ladder (Foot),仙灵洞梯子（底部）
 Forest_Lore_LadderFoot_CardDescription,"The foot of a ladder set against the shaft wall under the Fairy Hole. While you stand here the climb up is easier, so a fall is less likely. Skill still counts, and a ladder fixed at the lip helps the climb down.",一架靠在仙灵洞下方竖井壁上的梯子的底端。你站在这里时向上攀爬会更容易，因此不太容易摔落。技能仍然起作用，而在洞口边缘固定一架梯子有助于向下攀爬。
+Forest_Lore_StandingStones_SpecialDurability2_CardStatName,Calm Left Today,今日余宁
+Forest_Lore_StandingStones_Read_FailMessage,You have read these stones already today; let the day turn before you read them again.,今天你已经读过这些石头了；等一天过去再读吧。
+Forest_Lore_CircleStone_SpecialDurability2_CardStatName,Calm Left Today,今日余宁
+Forest_Lore_CircleStone_Read_FailMessage,You have read this stone already today; let the day turn before you read it again.,今天你已经读过这块石头了；等一天过去再读吧。
+Forest_Lore_Petrospheres_SpecialDurability2_CardStatName,Calm Left Today,今日余宁
+Forest_Lore_Petrospheres_Read_FailMessage,You have traced this line already today; let the day turn before you trace it again.,今天你已经描过这排石头了；等一天过去再描吧。
+Forest_Lore_CavePaintings_SpecialDurability1_CardStatName,Calm Left Today,今日余宁
+Forest_Lore_CavePaintings_Study_FailMessage,You have studied these paintings already today; let the day turn before you study them again.,今天你已经细看过这些壁画了；等一天过去再看吧。
+Forest_Lore_ResinPine_CardName,Weeping Pine,垂泪松
+Forest_Lore_ResinPine_CardDescription,"A lone old pine stands among the barrows, its bark split and beaded with pale resin that weeps slowly down the trunk. The scars seal over once picked, and fill again over days.",一棵孤零零的老松树立在古冢之间，树皮开裂，淡色的树脂如珠串般缓缓顺着树干流下。树脂被摘走后伤口会愈合，数日后又会重新渗满。
+Forest_Lore_ResinPine_SpoilageTime_CardStatName,Resin Weeping,树脂渗出
+Forest_Lore_ResinPine_Harvest_ActionName,Collect Resin,采集树脂
+Forest_Lore_ResinPine_Harvest_ActionDescription,Pick the hardened beads of resin from the pine's weeping scars.,从松树渗泪的伤口上摘下变硬的树脂珠。
+Forest_Lore_ResinPine_Harvest_FailMessage,The pine has wept itself dry for now; the scars have not filled with fresh resin yet.,这棵松树暂时渗干了；伤口里还没有新的树脂。

@@ -72,7 +72,7 @@
             "ActionDescription": {
                 "ParentObjectID": "fl_bone_mounds",
                 "LocalizationKey": "Forest_Lore_BoneMounds_Sift_ActionDescription",
-                "DefaultText": "Kneel and sift through the lower heaps for bones still whole enough to use."
+                "DefaultText": "Kneel and sift through the lower heaps for bones still whole enough to use. Now and then something older turns up among them."
             },
             "DaytimeCost": 2,
             "RequiredReceivingDurabilities": {
@@ -125,6 +125,22 @@
                             "DropChance": {
                                 "Active": true,
                                 "BaseDropChance": 100.0
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "5a5b31be26b363c4da6e9cd65750500f",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 6.0
                             }
                         }
                     ]

@@ -1,6 +1,6 @@
 # Forest Lore
 
-**Version:** 0.1.5
+**Version:** 0.1.6
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release, early development.
@@ -9,7 +9,7 @@ Forest Lore adds the forest's own landmarks, ruins and hidden places. Each is a 
 
 | Place | What you find |
 |---|---|
-| Barrow Wood (south of the Old Glade) | Ancient Cairn, Standing Stones, Circle Stone, Line of Petrospheres, Tree Hollow shelter |
+| Barrow Wood (south of the Old Glade) | Ancient Cairn, Standing Stones, Circle Stone, Line of Petrospheres, Tree Hollow shelter, Weeping Pine |
 | Old Battlefield (north of the Moon Hills) | A field to search six times, a Fallen Watchtower to clear |
 | Abandoned Homestead (east of the Clay Banks) | A ruin to salvage and repair into a shelter with storage, plus a Grinding Slab |
 | Mud Springs (south of the Peat Bog) | Mud Volcano, Salt Crust, Tar Seep |
@@ -32,16 +32,18 @@ An old oak wood south of the Old Glade, reached by a new South exit. It is a cop
 
 The bronze nugget, here and everywhere below, is a vanilla Metal Nugget of Tin Bronze at Metal Quality 40. A Tin Bronze crucible needs six. All of Forest Lore's sites together give about four on average, so a full crucible needs some luck or a trader.
 
-**Standing Stones.** A ring of tall stones, one carrying the runes "Halfdan was here". **Read the Stones** (15 minutes) is free and repeatable. **Search the Centre** (30 minutes) works once and gives Flint and a bronze nugget.
+**Standing Stones.** A ring of tall stones, one carrying the runes "Halfdan was here". **Read the Stones** (15 minutes) calms the mind (Stress -10), once a day. **Search the Centre** (30 minutes) works once and gives Flint and a bronze nugget.
 
-**Circle Stone.** **Read the Stone** repeats freely. **Search Beneath the Stone** works once and gives Stone and Flint.
+**Circle Stone.** **Read the Stone** calms the mind (Stress -10), once a day. **Search Beneath the Stone** works once and gives Stone and Flint.
 
-**Line of Petrospheres.** **Read the Line** repeats freely. **Search Along the Line** works once and gives Stone.
+**Line of Petrospheres.** **Read the Line** calms the mind (Stress -10), once a day. **Search Along the Line** works once and gives Stone.
 
 **Tree Hollow.** A hollow oak to shelter in.
 - **Nap** (4 hours) and **Sleep** (8 hours) work like the vanilla Hideout's.
 - While you are in Barrow Wood it gives +1 Rain Protection and +1 Sun Protection.
 - It never decays and cannot be repaired or deconstructed.
+
+**Weeping Pine.** A lone old pine among the barrows, its bark beaded with resin. **Collect Resin** (15 minutes) gives vanilla Cold Resin, four collections from a full tree, then about one every five days while the scars refill. A vanilla Resin Tap gives one a day once built and refreshed, so the pine is a slow extra, not a replacement.
 
 An emptied cairn stays empty for good. Finds go straight into your hands, and anything you leave in Barrow Wood stays there.
 
@@ -90,7 +92,7 @@ A bare rock in the lake east of the Lake Island, reached by a swim. It is a copy
 
 A rare find in the vanilla Peat Bog north of the Mud Springs. Each **Dig Peat** with a shovel there has about a 1 in 33 chance to turn up a Bog Body. Dig Peat still gives its six Peat every time.
 
-- **Search the Body** (30 minutes) works once and gives a bronze nugget and two or three Bones.
+- **Search the Body** (30 minutes) works once and gives a bronze nugget and two or three Bones. It also has about a 1 in 17 chance each (placeholder, not balanced) to turn up a Copper Fish or a Copper Turtle, small offerings buried with him.
 - Only one body turns up per save. A save that already ran the mod can still find it.
 
 ## Climbing Aids
@@ -114,13 +116,13 @@ A rock overhang with a cave under it, west of the Old Hollow, reached by a new W
 **Cave Mouth.** **Enter the Caves** takes you down into the Painted Chamber.
 
 Three chambers lie in a line, reachable only through the Cave Mouth and not drawn on the paper map. Each is a copy of the vanilla Waterfall Caves without its exit, shrine and flint vein.
-- **Painted Chamber.** **Leave the Caves** climbs back to the shelter, and West leads to the Ossuary. **Study the Paintings** as often as you like; there is nothing to take.
-- **Ossuary.** West to the Sunken Lake, East back. **Sift the Mounds** once for Bones and Bone Pieces, then they are spent.
+- **Painted Chamber.** **Leave the Caves** climbs back to the shelter, and West leads to the Ossuary. **Study the Paintings** calms the mind (Stress -10), once a day; there is nothing to take.
+- **Ossuary.** West to the Sunken Lake, East back. **Sift the Mounds** once for Bones and Bone Pieces, then they are spent. Each sift also has about a 1 in 17 chance (placeholder, not balanced) to turn up a vanilla Rusty Axe.
 - **Sunken Lake.** The end of the caves.
 
 **The Squeeze.** The crawl between the Ossuary and the Sunken Lake only fits a light load. While your Encumbrance is above 1000 (eight Stones read 100), its buttons are hidden both ways and return when you carry less. A **Size Up the Squeeze** card on each side explains this. No other button in the caves is gated.
 
-**Cave Lake.** A still lake that never freezes or floods.
+**Cave Lake.** A still lake that never freezes or floods. In winter, when the rivers freeze and need an ice hole, it is still open water to drink, fill and fish from (the base game's Cave Water Spring stays open too).
 - **Drink**, **Fill** (drag a water container onto it) and **Wash yourself** work like the vanilla pond's. The water is unsafe: it quenches thirst but can bring a stomach infection or parasites.
 - **Fish** (drag a fishing rod or line onto it) gives Eels. **Spearfish** (drag a spear onto it) gives Eels and Crayfish, and needs light and stamina. Catch chances rise with Fishing and Spear Fishing skill.
 - The lake holds a stock of ten Eels, shown on the card. Each Eel caught takes one, and it refills about one a day. While no whole Eel is left, Fish and Spearfish are refused, Crayfish included.
@@ -136,6 +138,7 @@ Three chambers lie in a line, reachable only through the Cave Mouth and not draw
 ## Version history
 
 Full notes are in CHANGELOG.md.
+- **0.1.6:** the four reading actions calm you once a day, a Weeping Pine at Barrow Wood, rare relic finds at the Ossuary and the Bog Body, the Cave Lake's winter text, a picture for the Blunt Rusty Axe.
 - **0.1.5:** balance pass: fewer bronze nuggets, a stocked eel lake, a gentler Mud Volcano, a Homestead that decays and stores less, three Mud Piles a scoop.
 - **0.1.4:** the lore sites stay still; the Tree Hollow's branches still sway.
 - **0.1.3:** the lore sites drift slowly and the Tree Hollow's branches sway.

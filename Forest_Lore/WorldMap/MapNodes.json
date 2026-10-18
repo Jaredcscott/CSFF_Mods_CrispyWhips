@@ -9,7 +9,7 @@
     "Coords": { "x": -60.0, "y": 0.0, "z": 30.0, "w": 0.0 },
     "HideFromMap": false,
     "StripAllInheritedDrops": false,
-    "ExtraDropUIDs": ["fl_ancient_cairn", "fl_standing_stones", "fl_circle_stone", "fl_petrospheres", "fl_tree_hollow"],
+    "ExtraDropUIDs": ["fl_ancient_cairn", "fl_standing_stones", "fl_circle_stone", "fl_petrospheres", "fl_tree_hollow", "fl_resin_pine"],
     "Connections": [
       {
         "EnvironmentUID": "69bfd218f65d27a4e80c9b8365091f93",

@@ -1,0 +1,39 @@
+{
+  "target": "FL_AxeRustyBlunt.png",
+  "sourceCard": "vanilla AxeRustyBlunt 95da1742320318348b0fa4f03e81c2f3 (GameSourceModify patch)",
+  "subject": "a blunt, rust-pitted old felling axe head on a short worn wooden haft, bare",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "historyId": "fcAyvsilCqs1JYd4vx3k",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792126155836_a1fa6ee6_1792126155871_fa27f174.png",
+  "credits": 20,
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Knife_Flint (style)",
+      "id": "srLsfbRhzXdoz1JBwH7G"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Axe_Stone (style)",
+      "id": "ebT0Y8iL0opmjcDS78lT"
+    }
+  ],
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792126155836_a1fa6ee6_1792126155871_fa27f174.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "finish": "keyed",
+  "generated": "2026-10-15",
+  "note": "first sample; awaits owner gallery review"
+}
