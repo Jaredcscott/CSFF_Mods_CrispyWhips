@@ -1,17 +1,17 @@
 # Homestead Perks
 
-**Version:** 1.3.5
+**Version:** 1.3.6
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency)
 **Language:** English, Simplified Chinese
 
-Forty-four character-creation perks for Card Survival: Fantasy Forest. Most hand you a kit you carry and Place once, so a cabin, forge or mine stands from day one with no research or building. The perks appear in the Situational tab.
+Forty-five character-creation perks for Card Survival: Fantasy Forest. Most hand you a kit you carry and Place once, so a cabin, forge or mine stands from day one with no research or building. The perks appear in the Situational tab.
 
 ## What you get
 
 | Group | Perks | Count |
 |---|---|---|
-| Bundle | Homestead | 1 |
+| Bundles | Homestead, Smallholding | 2 |
 | Placeable kits | Cabin, Mud Hut, Cellar, Well, Forge, Furnace, Oven, Pit Trap, Log Bed, Tanning Pit, Rain Cistern, Kiln, Drying Rack, Bloomery, Enclosure, Copper/Flint/Witchstone Mine | 18 |
 | Station kits | Stretching Frame, Charcoal Mound, Wall Shelf, Snow Shelter, Compost Bin, Weighted Loom, Ritual Pyre, Frost Shrine, Garden Plot, Deadfall Trap, Log Boom, Tilled Field, Levee, Mushroom Bed | 14 |
 | Road charges | Path Kit | 1 |
@@ -33,6 +33,7 @@ Costs are in Suns unless a Moon or a Star is named. Weights are what the item we
 - **Cabin Kit** (1 Star) and **Mud Hut Kit** (1 Moon). Each also grants a broom blueprint. Neither can be placed indoors or in a cave.
 - **Cellar Kit** (1 Moon). An underground room where stored food lasts longer. It cannot be placed in an animal enclosure, indoors, in a cave, beside a river or in wetlands.
 - **Well Kit** (1 Moon). A permanent water source. Not in an animal enclosure.
+- **Well blueprint** (no perk needed). Vanilla's own Well blueprint was never in the journal, so no one could build a Well. With a shovel on the board it can now be researched and is built from Farming > Agriculture at vanilla's own cost (eleven stages). The Well Kit above still places a Well at once.
 - **Forge Kit** (35), **Furnace Kit** (20), **Oven Kit** (15), **Rain Cistern Kit** (20).
 - **Log Bed Kit** (15). Cannot be placed while a Log Bed already stands on the board.
 - **Tanning Pit Kit** (15). Not in an animal enclosure.
@@ -41,6 +42,7 @@ Costs are in Suns unless a Moon or a Star is named. Weights are what the item we
 - **Drying Rack Kit** (15, weight 250).
 - **Bloomery Kit** (40, weight 900). A vanilla Bloomery for smelting iron. It still needs charcoal, plus bellows or a windy spot.
 - **Enclosure Kit** (25, weight 800). An animal Enclosure entrance whose Enter opens the pen, a home for vanilla's Starting Poultry and Starting Cattle. Not in an animal enclosure.
+- **Smallholding** (1 Moon). An Enclosure Kit plus vanilla's Nesting Box, both placed with Place: a pen and a nest for the animals vanilla's Starting Poultry or Starting Cattle (1 Moon each) bring. Starting Poultry already gives one Nesting Box, so taken together you have two.
 - **Copper Mine Kit**, **Flint Mine Kit** and **Witchstone Mine Kit** (1 Moon each, weight 800). Place one at a deposit of its ore to open vanilla's mine entrance, skipping the 12-stage build and 48 hours of research.
   - Away from a deposit, a "Needs a Deposit" action says why. Once an entrance stands there, a second kit shows "Already Have a Mine Here".
   - Advanced Copper Tools' and Forest Lore's caves also count as flint deposits.
@@ -50,8 +52,8 @@ Costs are in Suns unless a Moon or a Star is named. Weights are what the item we
 - **Stretching Frame Kit**, **Charcoal Mound Kit**, **Wall Shelf Kit**, **Compost Bin Kit** (15 each), **Snow Shelter Kit** (20) and **Weighted Loom Kit** (30). Place the kit to get that vanilla structure. They weigh 300, 300, 250, 400, 200 and 700.
   - The Charcoal Mound is placed already burning and spends no wood.
   - The Weighted Loom is the upright loom, not the treadle loom. The Wall Shelf is a plain shelf, not the bookshelf.
-  - Snow Shelter: "Already Have One" while one stands. Compost Bin: "Not in a Pen" inside an animal enclosure.
-  - Not checked: the Wall Shelf's sheltered-room requirement, the Snow Shelter's snow, and the light and stamina vanilla asks of every build.
+  - Snow Shelter: "Already Have One" while one stands. It places only where snow lies on the ground, the "Snow Needed" vanilla asks before you can research its blueprint. With no snow, Place is greyed out with a notice. Compost Bin: "Not in a Pen" inside an animal enclosure.
+  - Not checked: the Wall Shelf's sheltered-room requirement, and the light and stamina vanilla asks of every build.
 - **Ritual Pyre Kit** and **Frost Shrine Kit** (15 each, weight 1000). Place the kit to get the shrine without research or building. Only one of each can stand on a board ("Already Have One"). The Frost Shrine places only in freezing cold (base temperature -20 or below), as vanilla requires.
 - **Garden Plot Kit**, **Deadfall Trap Kit**, **Log Boom Kit** (15 each), **Tilled Field Kit** (30), **Levee Kit** (40) and **Mushroom Bed Kit** (15). They weigh 300, 300, 700, 600, 500 and 300.
   - Garden Plot, Tilled Field and Mushroom Bed: "Not in a Pen" inside an animal enclosure. Deadfall Trap: "Not Indoors". Log Boom and Levee: "Needs a River".
@@ -83,7 +85,7 @@ A few environments mark a river or wetland only on the environment itself. There
 
 ## Notes
 
-Nine perks (Homestead, Cabin, Mud Hut, Log Bed, Furnace, Forge, Oven, Rain Cistern, Tanning Pit) are a trimmed extraction of Community Mod Chest's Homestead perks. None of its village content, NPCs or quests is included. The other thirty-five perks are new.
+Nine perks (Homestead, Cabin, Mud Hut, Log Bed, Furnace, Forge, Oven, Rain Cistern, Tanning Pit) are a trimmed extraction of Community Mod Chest's Homestead perks. None of its village content, NPCs or quests is included. The other thirty-six perks are new.
 
 Community Mod Chest now keeps two kit perks that overlap with this mod: its "Founders Kit" is the same bundle as Homestead, and its "Extra Rain Cistern Kit" matches the Rain Cistern Kit. Running both is safe but redundant, and you will see both at character creation.
 
@@ -96,6 +98,8 @@ Carried items count toward the 4000 Encumbrance cap. At the cap, vanilla blocks 
 ## Version history
 
 Full list in CHANGELOG.md.
+
+- 1.3.6: vanilla's Well blueprint can be researched and built; new Smallholding perk; the Snow Shelter Kit places only where snow lies.
 - 1.3.5: vanilla balance pass: structure starts cost Moons and Stars, a smaller Homestead stockpile, 3 Path Kits, several higher Sun prices; the Mushroom Bed's growing is documented.
 - 1.3.4: card pictures framed like vanilla's again (1.3.2's crop stretched them over the whole card).
 - 1.3.3: the Rustic Stool and the Bookshelf have pictures (the game ships both blank).

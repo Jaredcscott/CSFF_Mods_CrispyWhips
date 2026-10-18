@@ -1,0 +1,15 @@
+{
+    "//Bp_Well": "Vanilla Well blueprint (Bp_Well). Vanilla leaves all five unlock lists empty, so it can never be researched; this adds vanilla's own 'Shovel Needed' condition so it can.",
+    "TagsOnBoardWarpData": [
+        {
+            "ObjectiveName": "Shovel",
+            "CompletionWeight": 1,
+            "TagWarpData": "tag_Shovel",
+            "TagWarpType": 3,
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyIfEquipped": false
+        }
+    ],
+    "TagsOnBoardWarpType": 4
+}

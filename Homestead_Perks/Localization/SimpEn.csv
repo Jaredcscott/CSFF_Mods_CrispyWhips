@@ -207,9 +207,9 @@ HSP_WallShelfKit_DA_Place_Desc,Put up your shelf on this spot.
 HSP_SnowShelterKit_DA_HaveOne,Already Have One
 HSP_SnowShelterKit_DA_HaveOne_Desc,"A snow shelter already stands here, and only one can be set up on a board. Carry the kit somewhere else to place it."
 HSP_Perk_SnowShelterKit_PerkName,Snow Shelter Kit
-HSP_Perk_SnowShelterKit_PerkDescription,Start with a snow shelter kit. Use Place to build your shelter wherever you want it. Only one can stand on a board.
+HSP_Perk_SnowShelterKit_PerkDescription,Start with a snow shelter kit. Use Place to build your shelter wherever snow lies on the ground. Only one can stand on a board.
 HSP_SnowShelterKit_CardName,Snow Shelter Kit
-HSP_SnowShelterKit_CardDescription,"Poles and twigs for a snow shelter, with the snow already counted in. Use Place to raise it where you need to rest. Only one can stand on a board."
+HSP_SnowShelterKit_CardDescription,"Poles and twigs for a snow shelter. Use Place to raise it where you need to rest, but only where snow lies on the ground. Only one can stand on a board."
 HSP_SnowShelterKit_DA_Place,Place
 HSP_SnowShelterKit_DA_Place_Desc,Raise your snow shelter on this spot.
 HSP_CompostBinKit_DA_NoEnclosure,Not in a Pen
@@ -284,3 +284,5 @@ HSP_MushroomBedKit_CardName,Mushroom Bed Kit
 HSP_MushroomBedKit_CardDescription,"Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it; fresh mushrooms put in the bed take root and grow. Can only be placed once, and not inside an animal enclosure."
 HSP_MushroomBedKit_DA_Place,Place
 HSP_MushroomBedKit_DA_Place_Desc,Lay out your mushroom bed on this spot.
+HSP_Perk_Smallholding_PerkName,Smallholding
+HSP_Perk_Smallholding_PerkDescription,"Start with an enclosure kit and a nesting box, a home for vanilla's Starting Poultry or Starting Cattle animals. Use Place on each to set it up. Heavy: the enclosure kit weighs 800, so set it down before a long trip."

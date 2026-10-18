@@ -207,9 +207,9 @@ HSP_WallShelfKit_DA_Place_Desc,Put up your shelf on this spot.,在此处装上�
 HSP_SnowShelterKit_DA_HaveOne,Already Have One,已经有一座
 HSP_SnowShelterKit_DA_HaveOne_Desc,"A snow shelter already stands here, and only one can be set up on a board. Carry the kit somewhere else to place it.",这里已经有一座雪屋，同一处只能搭一座。把套件带到别处再放置。
 HSP_Perk_SnowShelterKit_PerkName,Snow Shelter Kit,雪屋套件
-HSP_Perk_SnowShelterKit_PerkDescription,Start with a snow shelter kit. Use Place to build your shelter wherever you want it. Only one can stand on a board.,开局获得一套雪屋套件。使用“放置”在任意地点搭起你的雪屋。同一处只能有一座。
+HSP_Perk_SnowShelterKit_PerkDescription,Start with a snow shelter kit. Use Place to build your shelter wherever snow lies on the ground. Only one can stand on a board.,开局获得一套雪屋套件。使用“放置”在地上有积雪的地方搭起你的雪屋。同一处只能有一座。
 HSP_SnowShelterKit_CardName,Snow Shelter Kit,雪屋套件
-HSP_SnowShelterKit_CardDescription,"Poles and twigs for a snow shelter, with the snow already counted in. Use Place to raise it where you need to rest. Only one can stand on a board.",搭雪屋用的木杆和细枝，积雪已经算在里面。使用“放置”在你需要休息的地方搭起。同一处只能有一座。
+HSP_SnowShelterKit_CardDescription,"Poles and twigs for a snow shelter. Use Place to raise it where you need to rest, but only where snow lies on the ground. Only one can stand on a board.",搭雪屋用的木杆和细枝。使用“放置”在你需要休息的地方搭起，但只能在地上有积雪时放置。同一处只能有一座。
 HSP_SnowShelterKit_DA_Place,Place,放置
 HSP_SnowShelterKit_DA_Place_Desc,Raise your snow shelter on this spot.,在此处搭起你的雪屋。
 HSP_CompostBinKit_DA_NoEnclosure,Not in a Pen,不能在围栏内
@@ -284,3 +284,5 @@ HSP_MushroomBedKit_CardName,Mushroom Bed Kit,蘑菇床套件
 HSP_MushroomBedKit_CardDescription,"Planks and substrate for a mushroom bed, which vanilla gives no way to build. Use Place to lay it out where you want it; fresh mushrooms put in the bed take root and grow. Can only be placed once, and not inside an animal enclosure.",做蘑菇床用的木板和培养基，原版没有任何办法建造它。使用“放置”在你想要的地方铺设；放进床里的新鲜蘑菇会扎根生长。只能放置一次，且不能放在动物围栏里。
 HSP_MushroomBedKit_DA_Place,Place,放置
 HSP_MushroomBedKit_DA_Place_Desc,Lay out your mushroom bed on this spot.,在此处铺设你的蘑菇床。
+HSP_Perk_Smallholding_PerkName,Smallholding,小农庄
+HSP_Perk_Smallholding_PerkDescription,"Start with an enclosure kit and a nesting box, a home for vanilla's Starting Poultry or Starting Cattle animals. Use Place on each to set it up. Heavy: the enclosure kit weighs 800, so set it down before a long trip.",开局获得一套围栏套件和一个巢盒，让原版的“起始家禽”或“起始牲畜”特质带来的动物有处安置。对两者各使用“放置”即可搭好。很重：围栏套件重800，长途跋涉前请先放下。

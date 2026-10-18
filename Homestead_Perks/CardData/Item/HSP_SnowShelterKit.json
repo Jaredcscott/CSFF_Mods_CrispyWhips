@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "hspsnowshelterkit",
     "LocalizationKey": "HSP_SnowShelterKit_CardDescription",
-    "DefaultText": "Poles and twigs for a snow shelter, with the snow already counted in. Use Place to raise it where you need to rest. Only one can stand on a board."
+    "DefaultText": "Poles and twigs for a snow shelter. Use Place to raise it where you need to rest, but only where snow lies on the ground. Only one can stand on a board."
   },
   "CardType": 0,
   "ObjectWeight": 200.0,
@@ -135,6 +135,22 @@
           "NotInHand": false,
           "ExcludeInventories": false,
           "OnlyEquipped": false
+        }
+      ],
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ec625eaefee93cc4c8112d8c9046a81c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1000000000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
         }
       ]
     }

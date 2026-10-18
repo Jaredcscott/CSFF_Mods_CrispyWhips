@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.6 (2026-10-15)
+
+- **You can now build a Well.** Vanilla ships a Well blueprint that sits in no journal tab and can never be researched. It now shows in Farming > Agriculture, researches once a shovel is on the board (vanilla's own "Shovel Needed"), and builds over vanilla's eleven stages at vanilla's cost. The result is the vanilla Well. The Well Kit perk and its price are unchanged.
+- **New perk: Smallholding** (1 Moon). An Enclosure Kit and a Nesting Box, a pen and a nest for the animals vanilla's Starting Poultry or Starting Cattle bring, which otherwise start with nowhere to live. The Enclosure Kit perk (25 Suns) is unchanged. With Starting Poultry, which already hands you a Nesting Box, you get two.
+- **The Snow Shelter Kit now needs snow.** Its Place works only where snow lies on the ground, the same "Snow Needed" vanilla asks before you can research a snow shelter. With no snow, Place is greyed out with a notice. Already placed shelters are not affected.
+
 ## 1.3.5 (2026-10-15)
 
 A balance pass so the perks fit the vanilla game instead of skipping it.

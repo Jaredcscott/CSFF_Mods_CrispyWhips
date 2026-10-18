@@ -32,7 +32,7 @@
   "PerkDescription": {
     "ParentObjectID": "hsptraitsperksnowshelterkit",
     "LocalizationKey": "HSP_Perk_SnowShelterKit_PerkDescription",
-    "DefaultText": "Start with a snow shelter kit. Use Place to build your shelter wherever you want it. Only one can stand on a board."
+    "DefaultText": "Start with a snow shelter kit. Use Place to build your shelter wherever snow lies on the ground. Only one can stand on a board."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",
