@@ -14,7 +14,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_overshot_wheel",
     "LocalizationKey": "Water_Sawmill_OvershotWheel_CardHelpSection",
-    "DefaultText": "<b>Fit:</b> Drag it onto a Water-Driven Sawmill, Grinding Mill, Workshop or Ore Sluice (30 minutes). Saw All then takes 30 minutes instead of 1 hour, Grind All and Hammer All 15 minutes instead of 30, and Sluice All 15 minutes instead of 45, when you run them yourself (a Partner's duty work takes no time either way). One wheel per station; Pack Up (Overshot) gives it back.\n\n<b>Forge:</b> The Water-Driven Forge has no batch action to shorten, so it takes no wheel."
+    "DefaultText": "<b>Fit:</b> Drag it onto a Water-Driven Sawmill, Grinding Mill, Workshop or Ore Sluice (30 minutes). Saw All then takes 1.5 hours instead of 3, Grind All and Hammer All 15 minutes instead of 30, and Sluice All 15 minutes instead of 45, when you run them yourself (a Partner's duty work takes no time either way). One wheel per station; Pack Up (Overshot) gives it back.\n\n<b>Forge:</b> The Water-Driven Forge has no batch action to shorten, so it takes no wheel."
   },
   "CardImage": {
     "m_FileID": 0,

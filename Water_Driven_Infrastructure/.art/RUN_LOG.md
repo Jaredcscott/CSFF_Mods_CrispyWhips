@@ -14,3 +14,5 @@
 | 2026-10-12 | CastSheet_Iron (owner gallery rework: copy of Chiwei ACT_MetalSheet_Iron) | copy | - | 0 | - | OK |
 | 2026-10-12 | CopperNails (owner gallery rework: copy of Chiwei ACT_MetalNails_Copper) | copy | - | 0 | - | OK |
 | 2026-10-12 | WaterWheel.gif (owner gallery rework: whole wheel turns, frames re-rendered from frame 0) | local spin_wheel.py | - | 0 | - | OK |
+| 2026-10-15T23:20:24 | FullingMillFullyBuilt | nano-banana-2 | 1K | 20 | McUBh6bghi97dMbZSQwK | OK |
+| 2026-10-15T23:20:24 | FullingMillKit | nano-banana-2 | 1K | 20 | iUFyL534i2yPxPcFM0b5 | OK |

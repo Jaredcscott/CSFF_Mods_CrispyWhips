@@ -1,0 +1,168 @@
+{
+  "UniqueID": "water_sawmill_fulling_mill_placed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_fulling_mill_placed",
+    "LocalizationKey": "Water_Sawmill_FullingMillPlaced_CardName",
+    "DefaultText": "Water-Driven Fulling Mill"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_fulling_mill_placed",
+    "LocalizationKey": "Water_Sawmill_FullingMillPlaced_CardDescription",
+    "DefaultText": "A water-powered fulling mill whose trip hammers beat finished cloth to raise its quality."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_fulling_mill_placed",
+    "LocalizationKey": "Water_Sawmill_FullingMillPlaced_CardHelpSection",
+    "DefaultText": "<b>Requirements:</b> Requires a local mill race for water power.\n\n<b>Operation:</b> Load finished cloth (Small, Medium or Large Cloth), then press Full All to beat the whole batch and raise each piece's Quality by a step.\n\n<b>Time:</b> Full All takes 1.5 hours.\n\n<b>Limit:</b> Fulling brings cloth up to a fair finish only; the last of a piece's quality still comes from better fibre at the loom."
+  },
+  "CardType": 2,
+  "ObjectWeight": 1000.0,
+  "TradingValue": 420.0,
+  "AlwaysUpdate": false,
+  "UsesOwnershipSystem": false,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Stone"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "DurabilitySorting": {"SortingList": []},
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 3000.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0}
+  ],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [
+      "3e94716876eae304787efa2ae0b43711",
+      "35d6f2a46f2bbc84bbe33e917991c71d",
+      "aa73d89b9f0f04145adce258403d61d0"
+    ],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "ActionModifiers": [],
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fulling_mill_placed",
+        "LocalizationKey": "Water_Sawmill_FullingMillPlaced_FullAll_ActionName",
+        "DefaultText": "Full All"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fulling_mill_placed",
+        "LocalizationKey": "Water_Sawmill_FullingMillPlaced_FullAll_ActionDescription",
+        "DefaultText": "Engage the trip hammers and beat every loaded piece of cloth, raising its Quality by a step."
+      },
+      "DaytimeCost": 6,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fulling_mill_placed",
+        "LocalizationKey": "Water_Sawmill_FullingMillPlaced_PickUp_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fulling_mill_placed",
+        "LocalizationKey": "Water_Sawmill_FullingMillPlaced_PickUp_ActionDescription",
+        "DefaultText": "Pack up the fulling mill back into a transportable kit."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_fulling_mill_kit",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "PreventInteractionsInContainer": false,
+  "IsIndoors": false,
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "EquipSlots": [],
+  "EquipSlotType": 0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "FullingMillFullyBuilt",
+  "CardImageWarpType": 3
+}

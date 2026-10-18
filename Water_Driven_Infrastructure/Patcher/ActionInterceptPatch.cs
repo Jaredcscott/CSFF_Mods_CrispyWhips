@@ -36,6 +36,7 @@ namespace WaterDrivenInfrastructure.Patcher
         private const string SluiceID           = "water_sawmill_ore_sluice_placed";
         private const string ForgeID            = "water_sawmill_forge_placed";
         private const string WorkshopID         = "water_sawmill_workshop_placed";
+        private const string FullingMillID      = "water_sawmill_fulling_mill_placed";
         // Plan feature 18 (Expand): the in-place larger copies of the Sawmill and the Workshop. They are separate
         // cards, so EVERY station check below goes through IsSawmillStation / IsWorkshopStation, never a bare ==.
         private const string SawmillExpandedID  = "water_sawmill_placed_expanded";
@@ -50,6 +51,24 @@ namespace WaterDrivenInfrastructure.Patcher
         // brings poor metal up to fair and the rest is the player's own Smith strikes).
         private const float  WorkshopMetalQualityBoost = 2f;
         private const float  WorkshopQualityBoostCeiling = 60f;
+        // Fulling Mill (niche content, MASTER_PLAN section 2; research niche_premises_2026-10-15.md section 3
+        // GAP CONFIRMED: no vanilla station/CI/DA raises a finished cloth's Quality after craft). Full All beats
+        // every loaded cloth up by FullingQualityBoost on each press and stops at FullingQualityCeiling, so the
+        // mill brings poor/fair cloth to a fair finish but can never farm Quality to the stat's cap (the top of a
+        // cloth bolt's 0-60 Quality still comes from better fibre at the loom). WDI-B7 is the precedent: a batch
+        // station that writes a quality stat must carry a ceiling below the stat max. Tunable placeholders.
+        private const float  FullingQualityBoost = 5f;
+        private const float  FullingQualityCeiling = 50f;
+        // Finished cloth bolts, the only finished cloth that carries an active "Quality" stat (SpecialDurability2,
+        // max 60): ClothLarge, ClothMedium, ClothSmall. ClothVeryLarge/ClothSack carry no active Quality and are
+        // excluded. The placed card's InventoryFilter allowlists exactly these three by UID (cloth carries no
+        // gameplay CardTag), and the handler re-checks the UID so nothing else can be fulled for free.
+        private static readonly HashSet<string> FullingClothIds = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "3e94716876eae304787efa2ae0b43711", // ClothLarge
+            "35d6f2a46f2bbc84bbe33e917991c71d", // ClothMedium
+            "aa73d89b9f0f04145adce258403d61d0", // ClothSmall
+        };
         private const string FishpondKitID      = "water_sawmill_fishpond_kit";
         private const string CopperNuggetGUID = "4b0f4937a5ecb90499428c8c10288afc";
         private const string VanillaAshGUID   = "65f9b26c048cd474d9fb14d1c9e46754"; // vanilla Ash — Blast byproduct
@@ -287,6 +306,20 @@ namespace WaterDrivenInfrastructure.Patcher
                 ActionNamePrefix = "Grind All",
                 Timing = ActionTiming.AfterWrapped,
                 After = ctx => { HandleGrindAllInner(ctx.Card); ClearDragState(ctx.GivenCard); }
+            });
+
+            // Fulling Mill - "Full All" (niche content, MASTER_PLAN section 2). AfterWrapped for the Grind All
+            // reason: the DA (ReceivingCardChanges ModType 0, so it changes nothing itself) runs to completion
+            // first and charges its 6 daytime points (wave0-action-time.md section 3: a Cancel handler would
+            // charge none), then one press beats the whole loaded batch up by one Quality step. MillRaceGate,
+            // registered first, water-gates it and applies the Winter Station Lock. No wheel: no DurationModifier.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "FullAll",
+                CardUid = FullingMillID,
+                ActionNamePrefix = "Full All",
+                Timing = ActionTiming.AfterWrapped,
+                After = ctx => { HandleFullAllInner(ctx.Card); ClearDragState(ctx.GivenCard); }
             });
 
             // Water-Driven Stamp Mill - "Stamp All" (plan feature 25). AfterWrapped from the start, so the game
@@ -1016,6 +1049,98 @@ namespace WaterDrivenInfrastructure.Patcher
             // Every ground card leaves the game the way every other station's input does (plan Defect C).
             EjectCardsFromStructure(mill, toGrind.Select(t => t.card));
             return false;
+        }
+
+        // ============================================================
+        //  FULLING MILL - C# Full All handler (niche content, MASTER_PLAN section 2)
+        //  Raises the Quality (SpecialDurability2) of every loaded finished cloth by one step per press,
+        //  capped at FullingQualityCeiling. Cloth is improved IN PLACE and left in the hopper (no eject,
+        //  no produced card): one press = one batch step, so a save reload cannot double a press.
+        // ============================================================
+        private static void HandleFullAllInner(object mill)
+        {
+            var inventory = CardUtil.GetInventoryList(mill);
+            if (inventory == null || inventory.Count == 0)
+            {
+                Logger?.LogDebug("[ActionIntercept] FullAll: empty fulling mill inventory");
+                return;
+            }
+
+            int fulled = 0;
+            foreach (var slotItem in inventory)
+            {
+                if (slotItem == null) continue;
+                var innerCards = CardUtil.GetInventoryList(slotItem);
+                if (innerCards != null && innerCards.Count > 0)
+                {
+                    foreach (var inner in innerCards)
+                        if (inner != null && TryFullCloth(inner)) fulled++;
+                }
+                else if (TryFullCloth(slotItem))
+                {
+                    fulled++;
+                }
+            }
+
+            if (fulled == 0)
+            {
+                Logger?.LogDebug("[ActionIntercept] FullAll: no finished cloth below the quality ceiling found");
+                return;
+            }
+            Logger?.LogDebug($"[ActionIntercept] FullAll: fulled {fulled} cloth piece(s) by +{FullingQualityBoost} (ceiling {FullingQualityCeiling})");
+            RefreshOpenInventoryPopup();
+        }
+
+        // Raises one finished-cloth card's active "Quality"-named slots (SpecialDurability2, and SpecialDurability3
+        // too should a future cloth carry a second active Quality stat - the "Hammer All quality" lesson in WDI
+        // CLAUDE.md: boost every slot that represents quality, never just one) by FullingQualityBoost, clamped to
+        // FullingQualityCeiling. Returns true when it actually raised a slot. Only the three finished cloth bolts
+        // are eligible; anything else is left untouched so the mill cannot farm a quality stat it shouldn't.
+        private static bool TryFullCloth(object card)
+        {
+            string uid = CardUtil.GetCardUniqueId(card);
+            if (uid == null || !FullingClothIds.Contains(uid)) return false;
+
+            object cardData = GetCardData(card);
+            if (cardData == null)
+            {
+                Logger?.LogDebug($"[ActionIntercept] FullAll skip '{uid}': CardModel null (reflection miss)");
+                return false;
+            }
+
+            bool anyBoosted = false;
+            foreach (var stat in QualityDurabilitySlots)
+            {
+                if (!IsDurabilityDefinitionActive(cardData, stat) || !DurabilityStatNameContains(cardData, stat, "Quality"))
+                    continue;
+
+                float current = CardUtil.GetDurability(card, stat);
+                if (float.IsNaN(current))
+                {
+                    Logger?.LogDebug($"[ActionIntercept] FullAll skip '{uid}' {stat}: could not read current Quality (reflection miss)");
+                    continue;
+                }
+
+                float max = CardUtil.GetDurabilityMax(card, stat);
+                if (float.IsNaN(max) || max <= 0f) max = 60f;
+
+                // The press stops at FullingQualityCeiling; a piece at or above it gains nothing (WDI-B7 shape).
+                float ceiling = Math.Min(max, FullingQualityCeiling);
+                if (current >= ceiling) continue;
+                float next = Math.Min(ceiling, current + FullingQualityBoost);
+                if (next <= current) continue;
+
+                bool ok = CardUtil.SetDurability(card, stat, next);
+                if (!ok)
+                {
+                    Logger?.LogDebug($"[ActionIntercept] FullAll '{uid}' {stat}: SetDurability failed (reflection miss)");
+                    continue;
+                }
+                Logger?.LogDebug($"[ActionIntercept] FullAll '{uid}' {stat}: {current:F1} -> {next:F1} (ceiling {ceiling:F1})");
+                anyBoosted = true;
+            }
+            if (anyBoosted) RefreshCardDurabilityVisuals(card);
+            return anyBoosted;
         }
 
         // ============================================================

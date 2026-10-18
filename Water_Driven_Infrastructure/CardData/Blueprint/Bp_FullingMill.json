@@ -1,0 +1,179 @@
+{
+    "UniqueID": "water_sawmill_bp_fulling_mill",
+    "CardName": {
+        "ParentObjectID": "water_sawmill_bp_fulling_mill",
+        "LocalizationKey": "Water_Sawmill_Bp_FullingMill_CardName",
+        "DefaultText": "Water-Driven Fulling Mill"
+    },
+    "CardDescription": {
+        "ParentObjectID": "water_sawmill_bp_fulling_mill",
+        "LocalizationKey": "Water_Sawmill_Bp_FullingMill_CardDescription",
+        "DefaultText": "Assemble a water-driven fulling mill: trip hammers worked off a water mill that beat finished cloth to raise its quality. Requires a water mill as the core drive."
+    },
+    "CanBeRenamed": false,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "water_sawmill_bp_fulling_mill",
+        "LocalizationKey": "Water_Sawmill_Bp_FullingMill_UnlockConditionsDesc",
+        "DefaultText": "Water-Driven Mill"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasWaterMill",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "water_sawmill_water_mill",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "FullingMillKit",
+    "CardImageWarpType": 3,
+    "BuildingTagConditions": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_water_mill",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 20,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_parts",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 8,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 8,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction",
+        "LegAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "water_sawmill_fulling_mill_kit",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [
+      {
+        "Stat": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
+        "StatWarpType": 3,
+        "ValueModifier": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "RateModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "MinValueModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "MaxValueModifier": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "CannotModifyBeyond": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+      }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintUnlockTicksCost": 96.0,
+    "ResearchedNotification": 0
+}

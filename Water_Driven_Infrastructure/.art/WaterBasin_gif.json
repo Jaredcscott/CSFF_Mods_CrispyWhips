@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/WaterBasin.gif",
   "source": "Resource/Picture/WaterBasin.png",
+  "work_source": ".art/gif_work/WaterBasin.png",
+  "place": { "scale": 0.86088, "offset": [39.56, 355.33] },
   "sourceCard": "CardData/Gif (water_sawmill_water_basin_placed CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

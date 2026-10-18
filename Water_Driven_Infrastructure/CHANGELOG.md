@@ -2,6 +2,17 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.11] - 2026-10-17
+
+### Added
+
+- **Water-Driven Fulling Mill.** A new water-powered station, built from a Water-Driven Mill like the other mills and researched once you have one. Load finished cloth (Small, Medium or Large Cloth) and press **Full All** to beat the whole batch: each piece's Quality rises by 5 per press, up to 50 (the stat's cap is 60, so the top of a cloth's quality still comes from better fibre at the loom). One press takes 1.5 hours. Fills a gap the base game leaves: nothing else improves a finished cloth after it is woven. It honours the Winter Station Lock like the other river stations.
+
+### Fixed
+
+- **The Water Basin no longer swells to fill the card.** Its moving picture was still on the old cropped canvas, so the card stretched it over its whole face and under the name banner whenever they played (the same problem the still pictures had, reported by Chiwei). They now sit exactly where the still picture does.
+- **The Overshot Wheel card now gives the right Saw All time.** Its help text said Saw All takes 30 minutes instead of 1 hour with the wheel; it is 1.5 hours instead of 3 (text only, no gameplay change).
+
 ## [1.12.10] - 2026-10-15
 
 A balance pass: the water-driven stations now cost and pay out closer to the game around them.

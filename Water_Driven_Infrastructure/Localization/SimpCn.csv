@@ -793,7 +793,7 @@ Water_Sawmill_FishpondStocked_Spearfish_ActionName,Spearfish,叉鱼
 Water_Sawmill_FishpondStocked_Spearfish_ActionDescription,"Spear a fish in the pond. The catch is one of the pond's own fish, likelier the more of that species it holds.",用鱼叉在池塘里叉鱼。叉到的是池中自有的鱼，某种鱼越多越容易叉到。
 Water_Sawmill_OvershotWheel_CardName,Overshot Wheel,上射式水车
 Water_Sawmill_OvershotWheel_CardDescription,"A water wheel fed from above, geared for speed. Fit it to a Water-Driven Sawmill, Grinding Mill, Workshop or Ore Sluice to shorten its batch action.",由上方来水驱动、为速度而配齿的水车。装到水力锯木厂、研磨坊、工坊或矿石淘洗槽上，可缩短其批量操作的耗时。
-Water_Sawmill_OvershotWheel_CardHelpSection,"<b>Fit:</b> Drag it onto a Water-Driven Sawmill, Grinding Mill, Workshop or Ore Sluice (30 minutes). Saw All then takes 30 minutes instead of 1 hour, Grind All and Hammer All 15 minutes instead of 30, and Sluice All 15 minutes instead of 45, when you run them yourself (a Partner's duty work takes no time either way). One wheel per station; Pack Up (Overshot) gives it back.
+Water_Sawmill_OvershotWheel_CardHelpSection,"<b>Fit:</b> Drag it onto a Water-Driven Sawmill, Grinding Mill, Workshop or Ore Sluice (30 minutes). Saw All then takes 1.5 hours instead of 3, Grind All and Hammer All 15 minutes instead of 30, and Sluice All 15 minutes instead of 45, when you run them yourself (a Partner's duty work takes no time either way). One wheel per station; Pack Up (Overshot) gives it back.
 
 <b>Forge:</b> The Water-Driven Forge has no batch action to shorten, so it takes no wheel.","<b>安装：</b>将其拖到水力锯木厂、研磨坊、工坊或矿石淘洗槽上（30分钟）。之后全部锯切由3小时缩短为1.5小时，全部研磨和全部锤打由30分钟缩短为15分钟，全部淘洗由45分钟缩短为15分钟，适用于你亲自操作时（伙伴的值守工作本来就不耗时）。每个工作站只能装一个；“收起（上射式水车）”会将其退还。
 
@@ -945,3 +945,36 @@ Water_Sawmill_IronRivet_OnFull_ActionName,Becomes a Metal Nail,变为金属钉
 Water_Sawmill_IronRivet_OnFull_ActionDescription,"An old card becomes an Iron Nail (a Metal Nail of iron, Metal Type 200).",旧卡牌变为一枚铁钉（铁质金属钉，金属类型200）。
 Water_Sawmill_IronRivet_Reforge_ActionName,Reforge as Metal Nail,重铸为金属钉
 Water_Sawmill_IronRivet_Reforge_ActionDescription,"Turn this old Cast Iron Rivet into an Iron Nail (a Metal Nail of iron, Metal Type 200), the card every WDI recipe now takes.",把这张旧铸造铁铆钉变成一枚铁钉（铁质金属钉，金属类型200），现在所有水力基础设施配方都使用这张卡。
+Water_Sawmill_Bp_FullingMill_CardName,Water-Driven Fulling Mill,水力缩绒坊
+Water_Sawmill_Bp_FullingMill_CardDescription,Assemble a water-driven fulling mill: trip hammers worked off a water mill that beat finished cloth to raise its quality. Requires a water mill as the core drive.,组装水力缩绒坊：由水力磨坊驱动的落锤反复捸打成品布料以提升其品质。需要水力磨坊作为核心驱动。
+Water_Sawmill_Bp_FullingMill_UnlockConditionsDesc,Water-Driven Mill,水力磨坊
+Water_Sawmill_FullingMillKit_CardName,Water-Driven Fulling Mill Kit,水力缩绒坊套件
+Water_Sawmill_FullingMillKit_CardDescription,"A complete fulling mill kit: a water mill drive, trip-hammer stocks and a trough for beating finished cloth.",完整的缩绒坊套件：水力磨坊驱动、落锤架和用于捸打成品布料的水槽。
+Water_Sawmill_FullingMillKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the fulling mill.
+
+<b>Scale:</b> A water-powered construction: it needs water power and a water mill as its drive.","<b>用途：</b>放置在水源旁或引水渠出口附近以搭建缩绒坊。
+
+<b>规模：</b>水力建造：需要水力以及作为驱动的水力磨坊。"
+Water_Sawmill_FullingMillKit_Place_ActionName,Place,放置
+Water_Sawmill_FullingMillKit_Place_ActionDescription,Place the fulling mill kit into the environment.,将缩绒坊套件放置在环境中。
+Water_Sawmill_FullingMillKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_FullingMillKit_Disassemble_ActionDescription,"Break down the kit: the water mill and iron parts come back whole, bulk materials at half.",拆解套件：水力磨坊和铁零件全数返还，大宗材料返还一半。
+Water_Sawmill_FullingMillPlaced_CardName,Water-Driven Fulling Mill,水力缩绒坊
+Water_Sawmill_FullingMillPlaced_CardDescription,A water-powered fulling mill whose trip hammers beat finished cloth to raise its quality.,以落锤捸打成品布料提升品质的水力缩绒坊。
+Water_Sawmill_FullingMillPlaced_CardHelpSection,"<b>Requirements:</b> Requires a local mill race for water power.
+
+<b>Operation:</b> Load finished cloth (Small, Medium or Large Cloth), then press Full All to beat the whole batch and raise each piece's Quality by a step.
+
+<b>Time:</b> Full All takes 1.5 hours.
+
+<b>Limit:</b> Fulling brings cloth up to a fair finish only; the last of a piece's quality still comes from better fibre at the loom.","<b>要求：</b>需要本地引水渠提供水力。
+
+<b>操作：</b>装入成品布料（小、中或大块布），然后按下全部缩绒以捸打整批布料，使每块布料的品质提升一档。
+
+<b>耗时：</b>全部缩绒耗时1.5小时。
+
+<b>限制：</b>缩绒只能将布料提升至中等水准；布料最后的品质仍需在织机上使用更优质的纤维获得。"
+Water_Sawmill_FullingMillPlaced_FullAll_ActionName,Full All,全部缩绒
+Water_Sawmill_FullingMillPlaced_FullAll_ActionDescription,"Engage the trip hammers and beat every loaded piece of cloth, raising its Quality by a step.",启动落锤，捸打所有装载的布料，使其品质提升一档。
+Water_Sawmill_FullingMillPlaced_PickUp_ActionName,Pack Up,收起
+Water_Sawmill_FullingMillPlaced_PickUp_ActionDescription,Pack up the fulling mill back into a transportable kit.,将缩绒坊收回为可携带套件。

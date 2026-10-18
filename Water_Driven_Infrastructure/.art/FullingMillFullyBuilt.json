@@ -1,0 +1,16 @@
+{
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "imageCount": 1
+  },
+  "generated": "2026-10-15T23:20:24",
+  "target": "FullingMillFullyBuilt.png",
+  "sourceCard": "FullingMill_Placed",
+  "subject": "water-powered fulling mill frame with two trip hammers over a trough, side water wheel, pale cloth in trough",
+  "historyId": "McUBh6bghi97dMbZSQwK",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792127835150_603d93f7_1792127835273_89a65ae3.png",
+  "credits": 20
+}

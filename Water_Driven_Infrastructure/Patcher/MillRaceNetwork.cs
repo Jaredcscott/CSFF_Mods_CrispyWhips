@@ -61,6 +61,7 @@ namespace WaterDrivenInfrastructure.Patcher
             "water_sawmill_workshop_placed",
             "water_sawmill_workshop_placed_expanded",
             "water_sawmill_ore_sluice_placed",
+            "water_sawmill_fulling_mill_placed",
             "water_sawmill_fishpond_filled",
             "water_sawmill_fishpond_stocked"
         };
@@ -73,6 +74,7 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             "water_sawmill_frame",
             "water_sawmill_grinding_mill_kit",
+            "water_sawmill_fulling_mill_kit",
             "water_sawmill_stamp_mill_kit",
             "water_sawmill_forge_kit",
             "water_sawmill_workshop_kit",
@@ -80,6 +82,7 @@ namespace WaterDrivenInfrastructure.Patcher
             "water_sawmill_fishpond_kit",
             "water_sawmill_bp_water_driven_sawmill",
             "water_sawmill_bp_grinding_mill",
+            "water_sawmill_bp_fulling_mill",
             "water_sawmill_bp_stamp_mill",
             "water_sawmill_bp_water_driven_forge",
             "water_sawmill_bp_water_driven_workshop_kit",

@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.12.10
+**Version:** 1.12.11
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
@@ -9,7 +9,7 @@
 
 ## Overview
 
-Build a water wheel on a river, then run sawmills, forges, grinding and stamp mills, ore sluices and fishponds from it. A Mill Race Outlet brings unclean water to any outdoor location, so you stop walking to the river.
+Build a water wheel on a river, then run sawmills, forges, grinding, stamp and fulling mills, ore sluices and fishponds from it. A Mill Race Outlet brings unclean water to any outdoor location, so you stop walking to the river.
 
 The mod stands alone with the framework. Its nails, solder and sheets are the framework's shared Metal Nail, Tin Solder and Metal Sheet, so ones made with any mod fit WDI recipes.
 
@@ -17,7 +17,7 @@ Since 1.12.0 a running outlet also fills a Rain Cistern for winter, and you can 
 
 24 of the 26 blueprints are in the journal from the start. Cast Large and Small Bronze Gear appear only with Advanced Copper Tools.
 
-The mod ships 26 blueprints, 23 items, 18 placed structures (each form of a card counts), 4 Mill Race improvements, 7 perks, 12 Partner duties and 1 setting. It also keeps five retired parts and their six blueprints so old saves load (see **Retired parts**).
+The mod ships 27 blueprints, 24 items, 19 placed structures (each form of a card counts), 4 Mill Race improvements, 7 perks, 12 Partner duties and 1 setting. It also keeps five retired parts and their six blueprints so old saves load (see **Retired parts**).
 
 ---
 
@@ -34,6 +34,7 @@ Water Source (river / lake)
                                  ├── Water-Driven Forge ──→ Water-Driven Workshop (upgrade)
                                  ├── Water-Driven Grinding Mill
                                  ├── Water-Driven Stamp Mill
+                                 ├── Water-Driven Fulling Mill
                                  ├── Ore Sluice
                                  └── Fishpond
 ```
@@ -44,7 +45,7 @@ Water Source (river / lake)
 |-----|-----------|
 | **Advanced Tools** (7) | Mill Race, Mill Race Outlet, Water Wheel, Overshot Wheel, Water-Driven Mill, Ore Sluice Frame, Fish Funnel |
 | **Metal Crafts** (7, +2 with ACT) | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Bearing, Axle and Wrench. With Advanced Copper Tools, also Cast Large and Small Bronze Gear. |
-| **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Sawmill, Forge, Workshop Kit, Stamp Mill, Water Basin |
+| **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Fulling Mill, Sawmill, Forge, Workshop Kit, Stamp Mill, Water Basin |
 | **Farming Agriculture** | Fishpond, Reed Bed, Cattail Bed |
 
 The four Mill Race improvements appear in the **Environment Improvements** panel of each outdoor location, not in the journal. Locations that other mods add to the world map join the water network automatically.
@@ -191,6 +192,20 @@ The Grinding Mill also crushes these ores, with no bonus. A good quern still bea
 
 ---
 
+## Water-Driven Fulling Mill
+
+Water-driven trip hammers beat a whole batch of finished cloth at once to raise its quality. The base game sets a cloth's quality at the loom and never improves it afterward; the fulling mill is the one way to raise it.
+
+**Build** (research 24 hours, 2 hours, needs a Water-Driven Mill): Water-Driven Mill, 20 Wooden Planks, 4 Heavy Stone, 2 Iron Parts, 8 Metal Nails*. Researchable once a Water-Driven Mill is on the board.
+
+**Hopper** (12 slots, 3,000 weight): Small, Medium and Large Cloth only.
+
+**Full All** (1.5 hours) beats every loaded piece, raising each one's Quality by 5. It stops at 50 (a cloth's Quality caps at 60), so fulling brings poor and fair cloth up to a fair finish and the last of a piece's quality still comes from better fibre at the loom. One press is one step for the whole batch; repeat to keep improving.
+
+No Partner duty and no Overshot Wheel. The gain per press and the ceiling are placeholders and may be rebalanced.
+
+---
+
 ## Ore Sluice
 
 Flowing water washes minerals out of soil.
@@ -328,7 +343,7 @@ Building and working WDI trains vanilla skills, matching the vanilla equivalents
 | What | Skill gained |
 |------|--------------|
 | Casting and forging parts (gears, saw blade, iron parts) | Smithing +1.0 each |
-| Water Wheel, Mill, Overshot Wheel, Sawmill, Grinding Mill, Stamp Mill, Forge, Workshop Kit, Ore Sluice, Fishpond | Crafting +2.0 |
+| Water Wheel, Mill, Overshot Wheel, Sawmill, Grinding Mill, Stamp Mill, Fulling Mill, Forge, Workshop Kit, Ore Sluice, Fishpond | Crafting +2.0 |
 | Mill Race, Outlet, Sluice Frame, Fish Funnel, Water Basin | Crafting +1.0 |
 | Water Wheel, Mill, Overshot Wheel, Mill Race, Sawmill | Woodworking +0.5 as well |
 | Reed Bed, Cattail Bed | Herbalism +1.0 |
@@ -376,7 +391,7 @@ A Partner works only the stations you mark. The Grinding Mill, Ore Sluice, Stamp
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.12.10 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.12.11 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
@@ -413,7 +428,7 @@ Most features were checked by scripted tests in a running game. Not yet tried in
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.10 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.11 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.
@@ -468,6 +483,8 @@ Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they nev
 
 Full notes are in CHANGELOG.md.
 
+- **1.12.11:** the new Water-Driven Fulling Mill raises the Quality of finished cloth; the Water Basin's animation sits where its still picture does; the Overshot Wheel's help text gives the right Saw All time.
+- **1.12.10:** a balance pass closer to the base game: copper smelting gives a Metal Nugget and slag, Hammer All stops at 60, the sawmill is slower and its blade wears out, the fishpond breeds and pays out more slowly, frogs are limited, and every station stops in winter without heat by default.
 - **1.12.8:** the winter Fishpond stays still again.
 - **1.12.7:** calmer animated water: about half the speed and less strong.
 - **1.12.6:** animated card art for the Sawmill, Grinding Mill, Forge, Workshop and Overshot Wheel.
