@@ -1,6 +1,6 @@
 # Community Mod Chest
 
-**Version:** 1.69.17
+**Version:** 1.69.18
 
 **Language:** English, Simplified Chinese
 
@@ -222,13 +222,13 @@ Four BepInEx options in the `Debug` section of this mod's file in `BepInEx/confi
 
 Full history is in `CHANGELOG.md`.
 
+- **1.69.18:** the animated lit lamp, candle and incense burner pictures sit where their still pictures do instead of swelling over the card.
+- **1.69.17:** a balance pass in line with the base game: decor raises Sanctuary instead of Comfort, the village pays in Salt, armor lasts, commissions and crafted goods trade nearer their worth, Academy and trait tuning.
+- **1.69.16:** card pictures are back in the game's own framing instead of stretched over the card.
 - **1.69.15:** the village locations stay still; the villagers, guards and cats still breathe.
 - **1.69.14:** calmer river under the River Bridge.
 - **1.69.13:** the villagers, guards and cats breathe; the lit Scented Candle, Ceramic Lamp and Incense Burners and the River Bridge have animated card art.
-- **1.69.12:** Iris Vane keeps hunting after an arrest, the Apothecary walks to the village in the morning, one Shadow per game, six items weigh what they look like.
-- **1.69.11:** the jail tunnel can only be dug while the Watch is really away.
-- **1.69.10:** every village building's Enter button no longer opens the Inn.
 
 ## Install
 
-Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/`, with `Community_Mod_Chest.dll` inside it. A clean load logs `Community Mod Chest v1.69.17 loaded.`
+Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/`, with `Community_Mod_Chest.dll` inside it. A clean load logs `Community Mod Chest v1.69.18 loaded.`

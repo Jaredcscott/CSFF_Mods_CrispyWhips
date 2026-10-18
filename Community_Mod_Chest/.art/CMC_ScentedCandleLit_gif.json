@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/CMC_ScentedCandleLit.gif",
   "source": "Resource/Picture/CMC_ScentedCandleLit.png",
+  "work_source": ".art/gif_work/CMC_ScentedCandleLit.png",
+  "place": { "scale": 1.17399, "offset": [191.69, 52.46] },
   "sourceCard": "CardData/Gif (comfortscentedcandlelit CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

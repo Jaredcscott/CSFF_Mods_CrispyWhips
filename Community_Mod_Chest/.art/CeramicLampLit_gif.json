@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/CeramicLampLit.gif",
   "source": "Resource/Picture/CeramicLampLit.png",
+  "work_source": ".art/gif_work/CeramicLampLit.png",
+  "place": { "scale": 0.97091, "offset": [45.12, 361.01] },
   "sourceCard": "CardData/Gif (ceramiclamplit CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

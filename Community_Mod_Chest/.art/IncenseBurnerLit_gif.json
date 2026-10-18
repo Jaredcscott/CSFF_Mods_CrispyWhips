@@ -1,6 +1,8 @@
 {
   "target": "../Resource/GIF/IncenseBurnerLit.gif",
   "source": "Resource/Picture/IncenseBurnerLit.png",
+  "work_source": ".art/gif_work/IncenseBurnerLit.png",
+  "place": { "scale": 1.11038, "offset": [75.62, 117.74] },
   "sourceCard": "CardData/Gif (comfortincenseburnerlit, comfortincenseburnerheatherlit, comfortincenseburnerjuniperlit CardGif)",
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,

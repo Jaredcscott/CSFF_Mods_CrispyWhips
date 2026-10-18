@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.18] - 2026-10-17
+
+### Fixed
+
+- **Lit lamps, candles and incense burners no longer swell to fill the card.** The moving pictures of the Lit Ceramic Lamp, Lit Scented Candle and the three Lit Incense Burners were still on the old cropped canvas, so the card stretched them over its whole face and under the name banner whenever they played (the same problem the still pictures had, reported by Chiwei). They now sit exactly where the still picture does.
+
 ## [1.69.17] - 2026-10-15
 
 A balance pass that brings the mod back in line with the base game. Most of it applies the next time you load a save.
