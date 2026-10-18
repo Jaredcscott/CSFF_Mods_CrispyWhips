@@ -26,3 +26,5 @@ UtilityBelt_Store_Picked,Repeat Action products go into {0}
 UtilityBelt_Store_Cleared,Repeat Action products stay where they land
 UtilityBelt_Store_Full,{0} is full: products stay where they land
 UtilityBelt_Store_BadTarget,{0} cannot take stored products
+UtilityBelt_CarryWeight,Carrying {0} / {1}
+UtilityBelt_ContainerFilter_Placeholder,Filter by name...

@@ -3,10 +3,19 @@ using UnityEngine;
 
 namespace Utility_Belt;
 
+/// <summary>The three steps of a sort cycle, shared by B2 (an open container) and B7 (the hand and base rows).</summary>
+internal enum SortMode
+{
+    None = 0,
+    Freshness = 1,
+    Quality = 2,
+}
+
 /// <summary>
 /// [Hotkeys] Sort Container (plan B2). With a container's inventory popup open, each press cycles its order:
-/// freshest first, then quality high to low, then back to the order it had before the first press. The order
-/// to go back to is remembered for that container until its popup closes or another card is opened.
+/// freshest first, then quality high to low, then back to the order it had before the first press. Where a
+/// container is in that cycle is remembered per container for the rest of the session (plan B10), so closing
+/// a chest, opening another and coming back carries on from the step it was at.
 /// </summary>
 /// <remarks>
 /// Only the open container's own CardsInInventory list is reordered, and the cards inside each pile: no card
@@ -23,31 +32,26 @@ namespace Utility_Belt;
 /// "Freshest" is the spoilage bar's fraction (CurrentSpoilagePercent); "quality" is the first special stat
 /// whose name reads Quality (vanilla foods use Special 2, metal parts Special 3), as a fraction of its maximum.
 /// Cards without that stat go last, in their current order.
+/// The per-container memory (B10) is session state only: it is never saved, it is cleared when the
+/// GraphicsManager instance changes (a new run or a load), and a container that is destroyed is dropped.
 /// </remarks>
 internal static class SortContainer
 {
-    private enum Mode
+    /// <summary>Where one container is in its cycle, and the order to go back to.</summary>
+    private sealed class State
     {
-        None = 0,
-        Freshness = 1,
-        Quality = 2,
+        internal SortMode LastMode;
+        internal readonly Dictionary<InGameCardBase, int> Original = new();
     }
 
     private static readonly HashSet<string> _warned = new();
     private static readonly Dictionary<CardData, int> _qualityStat = new();
 
     private static GraphicsManager _gm;
-    private static InGameCardBase _container;
-    private static Mode _lastMode;
-    private static readonly Dictionary<InGameCardBase, int> _original = new();
+    private static readonly Dictionary<InGameCardBase, State> _states = new();
 
     internal static void Tick()
     {
-        if ((object)_container != null) // also a destroyed one, so it is forgotten
-        {
-            ForgetIfClosed();
-        }
-
         var key = Plugin.SortContainerKey.Value;
         if (key == KeyCode.None || !Input.GetKeyDown(key) || GraphicsManager.PlayerIsTyping)
         {
@@ -64,28 +68,19 @@ internal static class SortContainer
         }
     }
 
-    private static void ForgetIfClosed()
-    {
-        var popup = _gm != null ? _gm.InventoryInspectionPopup : null;
-        if (_container == null || popup == null || !popup.gameObject.activeInHierarchy || popup.CurrentCard != _container)
-        {
-            Forget();
-        }
-    }
-
-    private static void Forget()
-    {
-        _container = null;
-        _lastMode = Mode.None;
-        _original.Clear();
-    }
-
     private static void Press()
     {
         var gm = MBSingleton<GraphicsManager>.Instance;
         if (gm == null)
         {
             return; // main menu
+        }
+
+        if (gm != _gm)
+        {
+            // A new scene (a new run or a load): every remembered container belongs to the old one.
+            _gm = gm;
+            _states.Clear();
         }
 
         var popup = gm.InventoryInspectionPopup;
@@ -113,41 +108,67 @@ internal static class SortContainer
             return;
         }
 
-        _gm = gm;
-        if (card != _container)
+        PruneDestroyed();
+        if (!_states.TryGetValue(card, out var state))
         {
-            Forget();
-            _container = card;
+            state = new State();
+            _states[card] = state;
         }
 
         // Normalise first, exactly as every popup open does, so piles are merged before ranking.
         card.SortInventory();
 
-        Mode next;
-        switch (_lastMode)
+        var next = NextMode(state.LastMode);
+        if (state.LastMode == SortMode.None)
         {
-            case Mode.None:
-                RememberOriginal(card);
-                next = Mode.Freshness;
-                break;
-            case Mode.Freshness:
-                next = Mode.Quality;
-                break;
-            default:
-                next = Mode.None; // back to the remembered order
-                break;
+            RememberOriginal(card, state.Original);
         }
 
-        Apply(card, next);
-        _lastMode = next;
-        if (next == Mode.None)
+        Apply(card, next, state.Original);
+        state.LastMode = next;
+        if (next == SortMode.None)
         {
-            _original.Clear(); // the next press starts a new cycle from the order shown now
+            state.Original.Clear(); // the next press starts a new cycle from the order shown now
         }
 
         popup.SortInventory();
-        Plugin.Logger.LogDebug($"[UB] Sort Container: {card.CardModel.name} sorted by {(next == Mode.None ? "its original order" : next.ToString())}.");
+        Plugin.Logger.LogDebug($"[UB] Sort Container: {card.CardModel.name} sorted by {(next == SortMode.None ? "its original order" : next.ToString())}.");
     }
+
+    /// <summary>Drops containers that no longer exist, and cards inside a remembered order that no longer exist.</summary>
+    private static void PruneDestroyed()
+    {
+        List<InGameCardBase> dead = null;
+        foreach (var kv in _states)
+        {
+            if (IsGone(kv.Key))
+            {
+                (dead ??= new List<InGameCardBase>()).Add(kv.Key);
+            }
+        }
+
+        if (dead != null)
+        {
+            foreach (var k in dead)
+            {
+                _states.Remove(k);
+            }
+        }
+    }
+
+    /// <summary>True for a destroyed Unity object (C#-non-null but Unity-null) or a card the game marked Destroyed.</summary>
+    internal static bool IsGone(InGameCardBase card)
+    {
+        return card is UnityEngine.Object uo && uo == null || (object)card == null || card.Destroyed;
+    }
+
+    /// <summary>The step after <paramref name="last"/>: original, then freshest, then quality, then back.</summary>
+    internal static SortMode NextMode(SortMode last) => last switch
+    {
+        SortMode.None => SortMode.Freshness,
+        SortMode.Freshness => SortMode.Quality,
+        _ => SortMode.None,
+    };
 
     private static bool Sortable(InGameCardBase card, out string why)
     {
@@ -187,9 +208,9 @@ internal static class SortContainer
         return true;
     }
 
-    private static void RememberOriginal(InGameCardBase container)
+    private static void RememberOriginal(InGameCardBase container, Dictionary<InGameCardBase, int> original)
     {
-        _original.Clear();
+        original.Clear();
         var n = 0;
         foreach (var slot in container.CardsInInventory)
         {
@@ -200,16 +221,20 @@ internal static class SortContainer
 
             foreach (var c in slot.AllCards)
             {
-                if (c != null && !_original.ContainsKey(c))
+                if (c != null && !original.ContainsKey(c))
                 {
-                    _original[c] = n++;
+                    original[c] = n++;
                 }
             }
         }
     }
 
-    /// <summary>Larger sorts first. float.NegativeInfinity = no value (goes last).</summary>
-    private static float CardKey(InGameCardBase c, Mode mode)
+    /// <summary>
+    /// One card's sort key under <paramref name="mode"/>; larger sorts first, float.NegativeInfinity = no value
+    /// (goes last). In <see cref="SortMode.None"/> the key is the card's place in <paramref name="original"/>.
+    /// Shared by B2 and B7.
+    /// </summary>
+    internal static float CardKey(InGameCardBase c, SortMode mode, Dictionary<InGameCardBase, int> original)
     {
         if (c == null || c.CardModel == null)
         {
@@ -218,15 +243,24 @@ internal static class SortContainer
 
         switch (mode)
         {
-            case Mode.Freshness:
+            case SortMode.Freshness:
                 return c.CardModel.SpoilageTime && c.CardModel.SpoilageTime.Max > 0f
                     ? c.CurrentSpoilagePercent
                     : float.NegativeInfinity;
-            case Mode.Quality:
+            case SortMode.Quality:
                 return QualityFraction(c);
             default:
-                return _original.TryGetValue(c, out var i) ? -i : float.NegativeInfinity;
+                return original != null && original.TryGetValue(c, out var i) ? -i : float.NegativeInfinity;
         }
+    }
+
+    /// <summary>
+    /// The ranking B2 and B7 share: by group key (a kind ranked as one group), then by own key, both high to
+    /// low, then by the current index, so equal keys keep their current order.
+    /// </summary>
+    internal static List<T> Rank<T>(IEnumerable<T> items, Func<T, float> groupKey, Func<T, float> key, Func<T, int> index)
+    {
+        return items.OrderByDescending(groupKey).ThenByDescending(key).ThenBy(index).ToList();
     }
 
     private static float QualityFraction(InGameCardBase c)
@@ -292,7 +326,7 @@ internal static class SortContainer
         public float GroupKey;
     }
 
-    private static void Apply(InGameCardBase container, Mode mode)
+    private static void Apply(InGameCardBase container, SortMode mode, Dictionary<InGameCardBase, int> original)
     {
         var slots = container.CardsInInventory;
         var units = new List<Unit>(slots.Count);
@@ -314,7 +348,7 @@ internal static class SortContainer
                 {
                     // Inside the pile: by the same key, stable on the current order.
                     var ordered = slot.AllCards
-                        .Select((c, n) => (c, n, k: CardKey(c, mode)))
+                        .Select((c, n) => (c, n, k: CardKey(c, mode, original)))
                         .OrderByDescending(t => t.k)
                         .ThenBy(t => t.n)
                         .Select(t => t.c)
@@ -325,7 +359,7 @@ internal static class SortContainer
 
                 foreach (var c in slot.AllCards)
                 {
-                    u.Key = Mathf.Max(u.Key, CardKey(c, mode));
+                    u.Key = Mathf.Max(u.Key, CardKey(c, mode, original));
                 }
             }
 
@@ -358,11 +392,7 @@ internal static class SortContainer
             }
         }
 
-        var movable = units.Where(u => !u.Locked)
-            .OrderByDescending(u => u.GroupKey)
-            .ThenByDescending(u => u.Key)
-            .ThenBy(u => u.Index)
-            .ToList();
+        var movable = Rank(units.Where(u => !u.Locked), u => u.GroupKey, u => u.Key, u => u.Index);
 
         var result = new InventorySlot[slots.Count];
         foreach (var u in units)

@@ -50,6 +50,14 @@ internal static class OverlayText
     public const string StoreBadTargetKey = "UtilityBelt_Store_BadTarget";
     public const string StoreBadTargetDefault = "{0} cannot take stored products";
 
+    // Carry weight tooltip (plan B9): {0} is what you carry, {1} the most you can carry.
+    public const string CarryWeightKey = "UtilityBelt_CarryWeight";
+    public const string CarryWeightDefault = "Carrying {0} / {1}";
+
+    // Container filter (plan B12): the search box's placeholder.
+    public const string ContainerFilterKey = "UtilityBelt_ContainerFilter_Placeholder";
+    public const string ContainerFilterDefault = "Filter by name...";
+
     private static bool _lookupFailedOnce;
 
     /// <summary>The current-language text for <paramref name="key"/>, or <paramref name="englishDefault"/> when it is not loaded.</summary>

@@ -1,6 +1,6 @@
 # Utility Belt
 
-**Version:** 0.1.3
+**Version:** 0.1.4
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** BepInEx 5 (Quick Transfer and Skill Speed Boost also need CSFF Mod Framework)
@@ -18,7 +18,7 @@ Those three still ship as separate mods. Install Utility Belt if you would rathe
 | Repeat Action 2.2.2 (included) | Repeat last action, adjustable count, travel repeat, safety stops, spare tool, pinned action, pause and resume |
 | Quick Transfer 1.9.1 (included) | Modifier + right-click bulk transfer, adjustable amounts, tag filter, undo, transfer hotkey |
 | Skill Speed Boost 1.11.1 (included) | Area Familiarity (on), XP multipliers, staleness, optional bonuses, difficulty profiles |
-| Utility Belt itself | Hide rain and snow, 12-hour clock, worn-bag hotkeys, item lock, container sorting, capacity and warmth readouts, quickswap, sealed mark, character randomiser, card size and two-row card rows, extra hand slots, extra carry weight, and three Repeat Action helpers (fetch a card, store products, wear a spare tool) |
+| Utility Belt itself | Hide rain and snow, 12-hour clock, worn-bag hotkeys, item lock, container sorting, capacity and warmth readouts, quickswap, sealed mark, character randomiser, card size and two-row card rows, extra hand slots, extra carry weight, hand and base row sorting, trash hotkey, carry-weight readout, worn tool mark, container filter, blueprint pins, and three Repeat Action helpers (fetch a card, store products, wear a spare tool) |
 
 ## Included mods
 
@@ -83,7 +83,7 @@ Settings and familiarity records (`BepInEx/config/SkillSpeedBoost/`) are shared 
 - **Sort Container** (Hotkeys, `O` by default): with a container open, each press changes its order. First freshest food (by spoilage bar), then highest Quality, then back to the order before your first press. The next press starts over.
   - It reorders slots inside the open container and cards inside each pile. No card leaves. A locked card keeps its slot.
   - Cards of one kind always share one pile, because the game merges them whenever a container opens. A pile is ranked by its best card. Cards with no spoilage bar sort last under freshness, and cards with no Quality bar sort last under Quality.
-  - The order you leave a container in survives saving, loading and closing. The "back to before" order is remembered only until you close that container's window.
+  - The order you leave a container in survives saving, loading and closing. Each container also remembers where it is in the cycle, so you can close it, open another and come back to carry on. That memory lasts until you load a save or start a run.
   - It does nothing in small built-in inventories (a Cooking Pot, for example), cooking containers, fixed-slot stations or containers holding a saved recipe.
 
 - **Capacity and warmth readouts** (Display > Show Capacity And Warmth Readouts, off by default): adds one line under a card's description on its Info tab. The game shows a container's fill only as a bar, and shows no warmth figure for beds or covers.
@@ -142,6 +142,34 @@ Settings and familiarity records (`BepInEx/config/SkillSpeedBoost/`) are shared 
 
 - **Extra Carry Weight** (Capacity, 0 by default): raises the most weight you can carry by 3000, 6000 or 9000 (the base limit is 4000). Applies to the run in play as soon as you change it, and to every run you start or load. Nothing is written to your save, so turning it off or removing Utility Belt puts the limit back.
 
+The six options below are new in 0.1.4. Every one is off, or has no key, until you turn it on in the config file.
+
+- **Sort Hand Row and Sort Base Row** (Hotkeys, no key by default): each press re-orders your item bar, or the base row of cards on the ground, the same way Sort Container does. First freshest, then highest Quality, then back to the order before your first press.
+  - Locked and pinned cards keep their places, and empty item-bar slots stay at the end.
+  - The new order is kept when you save.
+  - The keys do nothing while you type, while an action runs or while you drag a card.
+
+- **Trash Card** (Hotkeys, no key by default): rest the pointer on a card and press the key to trash ONE card, exactly as the trash button in its window does.
+  - Only cards that button would offer: never a pinned card or a card the game will not let you trash.
+  - A card you locked is never trashed.
+  - The key does nothing while you type, while an action runs or while you drag a card.
+
+- **Carry weight readout** (Display > Show Carry Weight, off by default): hovering the weight bar beside your item bar shows how much you carry against your limit in numbers, for example "Carrying 500 / 4000". The limit includes Extra Carry Weight. The game itself shows only the bar.
+
+- **Worn tool mark** (Display > Show Worn Tool Mark, off by default): a small cracked amber mark in the bottom left corner of any tool whose Usage bar is below Worn Tool Threshold (25 percent by default), so a tool about to break stands out. Display only.
+
+- **Container filter** (Display > Container Filter, off by default; key Hotkeys > Focus Container Filter, none by default): an open container's window gets a search box in its tab bar.
+  - Type part of a card's name, in the language you play in, and only matching slots are shown.
+  - Clearing the box, closing the window or opening another container shows every slot again.
+  - While the box has the cursor, the game's keys and Utility Belt's keys stay quiet.
+  - It only hides slots: no card moves, and Take out all items still empties the whole container (locked cards stay).
+
+- **Blueprint pins** (Hotkeys > Pin Blueprint, no key by default): in the blueprint screen, rest the pointer on a blueprint and press the key to pin it.
+  - A pinned blueprint is shown first in its tab and in Search, with a small red pin.
+  - Press the key again to unpin it.
+  - Pins are kept in the config (General > Pinned Blueprints) for every save. Research and building are unchanged.
+  - The key does nothing while Search's own box has the cursor; pin from a normal tab.
+
 ## Installation
 
 Install [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest. Quick Transfer and Skill Speed Boost also need CSFF Mod Framework (`CSFF_Mod_Framework`); Repeat Action does not. No other mod is needed.
@@ -196,7 +224,7 @@ Quick Transfer, with a card under the pointer (full list on Quick Transfer's pag
 | Modifier + `X` | Same batch as the right-click, without clicking |
 | Modifier + `Z` | Undo the last batch |
 
-Utility Belt's own keys: `` ` `` (backquote) opens your next worn bag, `L` locks or unlocks the card under the pointer, `O` re-orders the open container, and `V` picks the container Store Products In fills.
+Utility Belt's own keys: `` ` `` (backquote) opens your next worn bag, `L` locks or unlocks the card under the pointer, `O` re-orders the open container, and `V` picks the container Store Products In fills. Sort Hand Row, Sort Base Row, Trash Card, Focus Container Filter and Pin Blueprint have no key until you set one. Avoid the game's own keys (A, B, C, D, E, H, J, Q, S, T, W), Quick Transfer's (X, Z), Repeat Action's (G, N, K, M, U, R, P, F) and the number keys.
 
 `Shift+Plus` and `Shift+Minus` belong to Repeat Action. The included Quick Transfer ignores those keys while a Repeat Action modifier is held, so one press changes only the repeat count. If you rebind Repeat Action's count keys, Quick Transfer follows them (Repeat Action 2.2.1 or later). This is a check of the two bundled DLLs, not a promise about other mods.
 
@@ -240,6 +268,10 @@ Utility Belt's own config file is `BepInEx/config/crispywhips.utility_belt.cfg`:
 | Show Capacity And Warmth Readouts | false | Adds one line to a card's Info tab: a container's weight (and liquid, for pourable ones) against capacity, or a bed or cover's warmth while sleeping. Applies the next time a card is inspected |
 | Show Sealed Mark | false | Draws a small red wax seal on a sealed container's card. Display only. Works while playing |
 | Sealed Cards | the three sealed card IDs | Comma-separated card IDs that get the sealed mark: the Sealed Storage Pot, the placed Sealed Storage Pot and the Sealed Fermentation Bin by default. Add a modded container's ID to mark it too |
+| Show Carry Weight | false | Hovering the weight bar shows what you carry against your limit in numbers. Works while playing |
+| Show Worn Tool Mark | false | Draws a small cracked mark on a tool whose Usage is below Worn Tool Threshold. Display only. Works while playing |
+| Worn Tool Threshold | 25 | The Usage percentage below which a tool gets the worn mark (1 to 99) |
+| Container Filter | false | Adds a search box to an open container's window; only slots whose card name holds the text are shown. Applies the next time a container opens |
 
 **Card Size**
 
@@ -285,8 +317,19 @@ Utility Belt's own config file is `BepInEx/config/crispywhips.utility_belt.cfg`:
 | Lock Toggle | L | Locks or unlocks the card under the pointer in an open container. `None` turns the key off; locks you already set still apply |
 | Sort Container | O | Freshest first, then highest Quality, then back to the earlier order. Locked cards keep their slots. `None` turns the key off |
 | Pick Store Container | V | With Store Products In on, hover a container and press to make it the destination; press again to clear. `None` turns the key off |
+| Sort Hand Row | None | Freshest first, then highest Quality, then back to the earlier order, for your item bar. Locked and pinned cards keep their places |
+| Sort Base Row | None | The same for the base row of cards on the ground |
+| Trash Card | None | Trashes one card under the pointer, as its trash button does. Never a pinned, untrashable or locked card |
+| Focus Container Filter | None | With Container Filter on and a container open, puts the cursor in its search box |
+| Pin Blueprint | None | In the blueprint screen, pins or unpins the blueprint under the pointer |
 
 Keys are ignored while you type in a text field, and changes apply within a frame.
+
+**General**
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| Pinned Blueprints | empty | Comma-separated blueprint IDs Pin Blueprint has pinned. Shared by every save |
 
 **Diagnostics**
 
@@ -308,6 +351,7 @@ With it on, `BepInEx/LogOutput.log` gains one line per mod: `<name> <version> fr
 
 Full notes are in `CHANGELOG.md`.
 
+- **0.1.4**: Sort Hand Row and Sort Base Row, Trash Card, carry-weight readout, worn tool mark, container filter and blueprint pins (all off until turned on), and Sort Container remembers each container's place in its cycle.
 - **0.1.3**: Card Size (smaller or two-row card rows), Extra Hand Slots and Extra Carry Weight, replacing Card Size Reduce.
 - **0.1.2**: version number only.
 - **0.1.1**: Quick Transfer and Skill Speed Boost included, plus every Utility Belt feature above.

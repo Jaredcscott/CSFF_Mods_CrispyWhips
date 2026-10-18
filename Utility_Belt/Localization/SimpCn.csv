@@ -26,3 +26,5 @@ UtilityBelt_Store_Picked,Repeat Action products go into {0},重复动作的产�
 UtilityBelt_Store_Cleared,Repeat Action products stay where they land,重复动作的产物将留在原处
 UtilityBelt_Store_Full,{0} is full: products stay where they land,{0}已满：产物将留在原处
 UtilityBelt_Store_BadTarget,{0} cannot take stored products,{0}无法存放产物
+UtilityBelt_CarryWeight,Carrying {0} / {1},负重 {0} / {1}
+UtilityBelt_ContainerFilter_Placeholder,Filter by name...,按名称筛选...

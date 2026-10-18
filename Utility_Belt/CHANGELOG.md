@@ -2,6 +2,21 @@
 
 All notable changes to this mod are documented here.
 
+## [0.1.4] - 2026-10-17
+
+### Added
+Every new option is off, or has no key, until you set it.
+
+- `Hotkeys > Sort Hand Row` and `Hotkeys > Sort Base Row` re-order your item bar or the base row the way Sort Container does: each press steps through freshest first, highest Quality first, then back to the order before your first press. Locked and pinned cards keep their places, empty item-bar slots stay at the end, and the new order is kept when you save.
+- `Hotkeys > Trash Card` trashes the one card under the pointer, exactly as its trash button does. It never trashes a pinned card, a card the game will not let you trash, or a card you locked.
+- `Display > Show Carry Weight`: hover the weight bar beside your item bar to read what you carry against your limit, in numbers. The limit includes Extra Carry Weight.
+- `Display > Show Worn Tool Mark` and `Worn Tool Threshold` (25 percent): a small cracked mark on a tool whose Usage is below the threshold.
+- `Display > Container Filter` and `Hotkeys > Focus Container Filter`: a search box in an open container's window shows only the slots whose card name holds what you type. While the box has the cursor, game and Utility Belt keys stay quiet.
+- `Hotkeys > Pin Blueprint` and `General > Pinned Blueprints`: pin a blueprint to show it first in its tab and in Search, with a small pin mark. Pins are kept for every save; research is unchanged.
+
+### Changed
+- Sort Container now remembers where each container is in its cycle until you load a save or start a run. Closing a container, opening another and coming back carries on from the same step instead of starting at freshest again. There is no option for this.
+
 ## [0.1.3] - 2026-10-14
 
 ### Added

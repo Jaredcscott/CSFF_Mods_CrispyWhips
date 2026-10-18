@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.utility_belt";
     private const string PluginName = "Utility Belt";
-    private const string PluginVersion = "0.1.3";
+    private const string PluginVersion = "0.1.4";
 
     internal new static ManualLogSource Logger;
 
@@ -36,6 +36,16 @@ internal class Plugin : BaseUnityPlugin
     internal static ConfigEntry<float> SmallerSize { get; private set; }
     internal static ConfigEntry<int> ExtraHandSlots { get; private set; }
     internal static ConfigEntry<int> ExtraCarryWeight { get; private set; }
+    internal static ConfigEntry<UnityEngine.KeyCode> SortHandRowKey { get; private set; }
+    internal static ConfigEntry<UnityEngine.KeyCode> SortBaseRowKey { get; private set; }
+    internal static ConfigEntry<UnityEngine.KeyCode> TrashCardKey { get; private set; }
+    internal static ConfigEntry<bool> ShowCarryWeight { get; private set; }
+    internal static ConfigEntry<bool> ShowWornToolMark { get; private set; }
+    internal static ConfigEntry<int> WornToolThreshold { get; private set; }
+    internal static ConfigEntry<bool> ContainerFilterOn { get; private set; }
+    internal static ConfigEntry<UnityEngine.KeyCode> FocusContainerFilterKey { get; private set; }
+    internal static ConfigEntry<UnityEngine.KeyCode> PinBlueprintKey { get; private set; }
+    internal static ConfigEntry<string> PinnedBlueprints { get; private set; }
 
     private Harmony _harmony;
 
@@ -187,6 +197,69 @@ internal class Plugin : BaseUnityPlugin
             new ConfigDescription("Raises the most weight you can carry by 3000, 6000 or 9000 (0 for none; the game's base limit is 4000). Applies to the run in play within a frame of changing it, and to every run you start or load. Nothing is written to your save. Stays off while Card Size Reduce is installed.", new AcceptableValueList<int>(0, 3000, 6000, 9000)));
         ExtraCarryWeight.SettingChanged += (_, _) => Capacity.ApplyCarryWeight();
 
+        // Utility Belt 0.1.4 (B7 to B13, Documentation/Design/UtilityBelt_0_1_4_As_Built.md). Every option below
+        // is off (false) or unbound (None) by default, the charter that UtilityBelt-ConfigDefaults.Tests.ps1
+        // gates; Worn Tool Threshold and Pinned Blueprints are the two pinned non-switch values.
+        SortHandRowKey = Config.Bind(
+            "Hotkeys",
+            "Sort Hand Row",
+            UnityEngine.KeyCode.None,
+            "Each press changes the order of your item bar (the row of cards in your hands): first freshest first, then highest quality first, then back to the order it had before the first press. Locked and pinned cards keep their places, and empty slots stay at the end. The new order is kept when you save. None (the default) turns it off. Ignored while typing, while an action runs and while you drag a card.");
+
+        SortBaseRowKey = Config.Bind(
+            "Hotkeys",
+            "Sort Base Row",
+            UnityEngine.KeyCode.None,
+            "The same as Sort Hand Row, for the base row (the cards on the ground and your structures). None (the default) turns it off.");
+
+        TrashCardKey = Config.Bind(
+            "Hotkeys",
+            "Trash Card",
+            UnityEngine.KeyCode.None,
+            "Hover a card and press this key to trash ONE card, exactly as the trash button in its window does (anything the game gives back for trashing it is given back). Only cards the trash button would offer: never a pinned card, a card the game will not let you trash, or a card you locked. None (the default) turns it off. Ignored while typing, while an action runs and while you drag a card.");
+
+        ShowCarryWeight = Config.Bind(
+            "Display",
+            "Show Carry Weight",
+            false,
+            "When true, hovering the weight bar beside your item bar shows how much you carry against the most you can carry, in numbers (the game shows only the bar). The limit includes Extra Carry Weight. Display only. Takes effect within a second of changing it.");
+
+        ShowWornToolMark = Config.Bind(
+            "Display",
+            "Show Worn Tool Mark",
+            false,
+            "When true, a small cracked amber mark is drawn in the bottom left corner of a tool (any item with a Usage bar) whose Usage is below Worn Tool Threshold, so a tool about to break reads apart at a glance. Display only. Takes effect within a frame of changing it.");
+
+        WornToolThreshold = Config.Bind(
+            "Display",
+            "Worn Tool Threshold",
+            25,
+            new ConfigDescription("Show Worn Tool Mark marks a tool whose Usage is below this percentage of its maximum.", new AcceptableValueRange<int>(1, 99)));
+
+        ContainerFilterOn = Config.Bind(
+            "Display",
+            "Container Filter",
+            false,
+            "When true, an open container's window gets a search box: type part of a card's name (in the language you play in) and only the slots holding a matching card are shown. Clearing the box, closing the window or opening another container shows every slot again. Display only: no card moves. Takes effect the next time a container is opened.");
+
+        FocusContainerFilterKey = Config.Bind(
+            "Hotkeys",
+            "Focus Container Filter",
+            UnityEngine.KeyCode.None,
+            "With Container Filter on and a container open, puts the cursor in its search box. None (the default) turns it off; you can always click the box instead.");
+
+        PinBlueprintKey = Config.Bind(
+            "Hotkeys",
+            "Pin Blueprint",
+            UnityEngine.KeyCode.None,
+            "In the blueprint screen, hover a blueprint and press this key to pin it: it is shown first in its tab and in Search, with a small pin mark. Press it again to unpin. Order only: research and building are unchanged. None (the default) turns it off. Ignored while typing.");
+
+        PinnedBlueprints = Config.Bind(
+            "General",
+            "Pinned Blueprints",
+            string.Empty,
+            "The blueprints Pin Blueprint has pinned, as a comma-separated list of blueprint IDs. Shared by every save. Empty (the default) pins nothing.");
+
         _harmony = new Harmony(PluginGuid);
         // One try per patch, so a throw in one never skips the ones after it.
         void Apply(string name, Action<Harmony> apply)
@@ -201,6 +274,8 @@ internal class Plugin : BaseUnityPlugin
         Apply("QuickswapEquipPatch", Patcher.QuickswapEquipPatch.ApplyPatch);
         Apply("CharacterRandomiserPatch", Patcher.CharacterRandomiserPatch.ApplyPatch);
         Apply("CardSizePatch", Patcher.CardSizePatch.ApplyPatch);
+        Apply("ContainerFilterPatch", Patcher.ContainerFilterPatch.ApplyPatch);
+        Apply("BlueprintPins", BlueprintPins.ApplyPatch);
 
         // Static events that fire once per run start; each subscribed once per process.
         GameManager.OnGMInitialized += Locks.ItemLocks.OnRunStarted;
@@ -223,7 +298,13 @@ internal class Plugin : BaseUnityPlugin
         ContainerHotkeys.Tick();
         Locks.ItemLocks.Tick();
         SortContainer.Tick();
+        RowSort.Tick();
+        TrashHotkey.Tick();
         SealedMark.Tick();
+        WornToolMark.Tick();
+        CarryWeight.Tick();
+        ContainerFilter.Tick();
+        BlueprintPins.Tick();
         CardSize.Tick();
         // Resolves Repeat Action's and Quick Transfer's seams on the first frame (never Awake: plan W0.1d), then keeps
         // the requirements-unmet subscription in step with the option.
