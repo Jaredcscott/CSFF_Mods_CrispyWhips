@@ -19,6 +19,76 @@
     "ObjectWeight": 1000.0,
     "UniqueOnBoard": true,
     "CannotBeTrashed": true,
+    "CardInteractions": [
+        {
+            "//FairyStoneOffering": "Prompt N2 (plan MASTER_PLAN N2, HW-B5 extended): vanilla NOT_USED_FairyStone offered back in the ring that yields it. The ring has no ordinary offering, so this is its only CardInteraction. The stone is consumed and vanilla Willpower (fb03747247e64ad4bbddcf328e0669ae, 0 to 250, base +1 a tick) rises by 30: half the King's price of 60 Willpower for two stones, so a stone returned never pays more than the King's bargain charged for it, and the King's bargain stays once a run. The 30 is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, not balanced.",
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_FairyRing_StoneOfferName",
+                "DefaultText": "Leave a Fairy Stone in the Ring"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_FairyRing_StoneOfferDescription",
+                "DefaultText": "Set a Fairy Stone in the middle of the ring. The fair folk take it and lend you back some of their will: Willpower rises by 30 at once."
+            },
+            "StackCompatible": false,
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fb03747247e64ad4bbddcf328e0669ae",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "563078cfd4356834f960cdd2e3085b3f"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {

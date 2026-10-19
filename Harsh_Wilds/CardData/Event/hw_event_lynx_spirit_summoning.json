@@ -1,5 +1,6 @@
 {
   "UniqueID": "hw_event_lynx_spirit_summoning",
+  "//FamiliarGranted": "Familiar Granted is vanilla's shape (CollectionWeight 0, two Add0Weight stat modifiers: no weight unless Beast Affinity or the spirit stat is in range). On a mod card CSFFModFramework ProducedCardService.ApplyCompatibilityDefaults lifts a weight of 0 or less to 1, so out of range it kept weight 1 and could bind the spirit at any affinity. The third modifier (UseMinMaxWeight, a constant -1) cancels that lift, so the final weight (GameManager: BaseWeight + bonus, skipped at 0 or less) is vanilla's again. CancelDrop would be wrong here: either modifier alone grants in vanilla, and CancelDrop on one would veto the other. Gate: Development_Tools/Tests/DropCollection-ZeroWeightLift.Tests.ps1.",
   "CardName": {
     "ParentObjectID": "hw_event_lynx_spirit_summoning",
     "LocalizationKey": "HarshWilds_LynxSpirit_SummoningRitual",
@@ -8107,6 +8108,23 @@
                 "y": 1000
               },
               "WhenOutOfRange": 0
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "e5950a4d4517da64497120fe949057c6",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 1000.0
+              },
+              "InterpWeightRange": {
+                "x": -1,
+                "y": -1
+              },
+              "WhenOutOfRange": 1
             }
           ],
           "NPCStatsDropChanceModifiers": [],

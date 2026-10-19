@@ -59,7 +59,7 @@ internal static class IncenseRiteGuard
             removed++;
         }
         if (removed > 0)
-            Plugin.Logger.LogDebug($"IncenseRiteGuard: removed {removed} incense rite action(s) whose incense card is not installed.");
+            Plugin.Logger.LogInfo($"IncenseRiteGuard: removed {removed} incense rite action(s) whose incense card is not installed.");
     }
 
     private static bool IsSmoke(DismantleCardAction action)

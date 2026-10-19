@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.11.8 (2026-10-17)
+
+### Added
+
+- **The Lynx Cloak.** A light leather cloak (Tailoring > Leather, Leatherworking 10) between the Reed Coat and the Lynx Coat: warmth +6, Torso armour 4, half the Lynx Coat's Climbing and Ambush Aid while your mind is open (4.2 each), and half the weight. Its numbers are first guesses, and its card art is the Lynx Coat's for now.
+- **A lindwurm trophy and a Dragon Charm.** Butchering a lindwurm now also gives one Lindwurm Fang, on top of its meat and other cuts. The fang is the key ingredient of the new Dragon Charm (Magic > Implements; the recipe appears once you have bound the Dragon Spirit; it also takes bones and twine). Worn at the neck, the charm gives a small, lowest-level Alertness Aid for about four weeks, the same scale as the Lynx, Goat and Blood Charms. The fang and the charm use stand-in pictures for now.
+- **The wolverine comes to a big kill.** In winter, a Musk Ox, Wisent or White Wisent carcass left on the ground may draw it, at most once a day. **Drive it off** (half an hour, tiring and stressful, and it may bite you) or **Let it feed** (the carcass keeps for less time, and one already going off may be spoiled outright). It uses the same `Wolverine` switch as the trapline raid, which is unchanged. The chances and costs are first guesses, not yet balanced against play.
+
+### Changed
+
+- **A third use for Fairy Stones.** The Fairy Ring gains **Leave a Fairy Stone in the Ring**: drag a Fairy Stone onto it (15 minutes) and it is used up and Willpower rises by 30 at once, half what the Fairy King charges for two stones. The Threshold Stone's offering is unchanged. The 30 is a placeholder number, not yet tuned against play.
+
+### Fixed
+
+- **Binding a spirit no longer succeeds by luck.** The Lynx, Goat, Blood and Dragon Spirits could be bound at any Beast Affinity, about one try in two thousand, because a loader default gave the "granted" outcome a small weight of its own. Now, as in the base game, binding can only succeed once your Beast Affinity or Insight is high enough.
+- Correction to the 0.11.6 notes: butchering a lindwurm gives about 75 meat, not 150. The game did not change; the number in those notes was wrong.
+
 ## 0.11.7 (2026-10-15)
 
 ### Changed

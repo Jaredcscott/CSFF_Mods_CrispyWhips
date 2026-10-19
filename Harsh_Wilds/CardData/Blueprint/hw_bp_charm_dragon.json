@@ -1,0 +1,150 @@
+{
+    "UniqueID": "hw_bp_charm_dragon",
+    "//RitualObject": "Niche N4 (MASTER_PLAN section 2, pack Prompt 3): option (a), a NEW charm, because option (b) would change hw_bp_spirit_dragon_calling, the rite that grants the Dragon Spirit, which players already rely on. The gate is the dragon spirit's bound latch, as the other charms' are; the added ingredient is the Lindwurm Fang, spent. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_charm_dragon",
+        "LocalizationKey": "HarshWilds_BpCharmDragon_CardName",
+        "DefaultText": "Dragon Charm"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_charm_dragon",
+        "LocalizationKey": "HarshWilds_BpCharmDragon_CardDescription",
+        "DefaultText": "Carve a charm for the Dragon Spirit from a lindwurm's fang and string it on twine."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Amulet",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "hw_bp_charm_dragon",
+        "LocalizationKey": "HarshWilds_BpCharmDragon_UnlockConditionsDesc",
+        "DefaultText": "Bind the Dragon Spirit once."
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 8,
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "StatWarpData": "hw_stat_dragon_spirit_bound",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "NotifyWhenNotMet": false,
+                "HideAllWhenNotMet": false
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "674b640f46671f1418af4559b259b442",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "hw_lindwurm_fang",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredTabGroupWarpData": "GpTag_SharpKnife",
+                    "RequiredTabGroupWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "hw_charm_dragon",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

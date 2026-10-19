@@ -1157,3 +1157,29 @@ HarshWilds_MistletoeBlessing_BlessTheGroveWithMistletoe,Bless the Grove with Mis
 HarshWilds_MistletoeBlessing_HangASprigOfWinterMistletoeInTheBoughsOf,"Hang a sprig of winter mistletoe in the boughs of an oak grove and bless it, the way the old rites did. The grove is made sacred, as with the base game's own blessing."
 HarshWilds_WitchfireSpent_DA_Scatter_ActionName,Scatter the Ash
 HarshWilds_WitchfireSpent_DA_Scatter_ActionDescription,Scatter the dead ash to the wind. Nothing is left to keep.
+HarshWilds_FairyRing_StoneOfferName,Leave a Fairy Stone in the Ring
+HarshWilds_FairyRing_StoneOfferDescription,Set a Fairy Stone in the middle of the ring. The fair folk take it and lend you back some of their will: Willpower rises by 30 at once.
+HarshWilds_CloakLynx_CardName,Lynx Cloak
+HarshWilds_CloakLynx_CardDescription,"A light cloak cut from a lynx's leather. It warms less and shields less than the Lynx Coat, but weighs half as much. While your mind is open to the spirits it lends you a little of the lynx's climbing and ambush.
+
+<b>MUST BE EQUIPPED TO WORK</b>"
+HarshWilds_CloakLynx_UsageStatName,Wear
+HarshWilds_BpCloakLynx_CardName,Lynx Cloak
+HarshWilds_BpCloakLynx_CardDescription,"Cut a light cloak from a lynx's tanned leather (its hide type, which no base-game animal gives) with a little twine and a needle."
+HarshWilds_BpCloakLynx_UnlockConditionsDesc,Requires Leatherworking 10.
+HarshWilds_LindwurmFang_CardName,Lindwurm Fang
+HarshWilds_LindwurmFang_CardDescription,"A curved fang as long as a hand, drawn from the jaw of a lindwurm. It is good for nothing but the old rites: a carver can make a charm of it for the Dragon Spirit."
+HarshWilds_CharmDragon_CardName,Dragon Charm
+HarshWilds_CharmDragon_CardDescription,"A charm carved from a lindwurm's fang for the Dragon Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the dragon's watchfulness stays with you (Alertness Aid), only at its lowest level. It wears out after about four weeks of wear."
+HarshWilds_CharmDragon_UsageStatName,Wear
+HarshWilds_BpCharmDragon_CardName,Dragon Charm
+HarshWilds_BpCharmDragon_CardDescription,Carve a charm for the Dragon Spirit from a lindwurm's fang and string it on twine.
+HarshWilds_BpCharmDragon_UnlockConditionsDesc,Bind the Dragon Spirit once.
+HarshWilds_WolverineKillClock_StatName,Harsh Wilds: Wolverine Kill Clock
+HarshWilds_WolverineKillClock_StatDescription,Hidden counter: how long until the Wolverine may next come to a big carcass left on the ground.
+HarshWilds_WolverineKillEvent_CardName,Wolverine at the Kill
+HarshWilds_WolverineKillEvent_CardDescription,"A wolverine has smelled the big carcass you left on the ground and is tearing at it, growling at you over the meat. Drive it off and it may turn on you. Let it feed and it fouls the carcass, and may leave you little but bones."
+HarshWilds_WolverineKillEvent_DriveOff,Drive it off
+HarshWilds_WolverineKillEvent_DriveOff_Desc,"Half an hour of shouting and swinging. It tires you and sets your nerves on edge, and one time in four it bites before it goes. The carcass stays whole."
+HarshWilds_WolverineKillEvent_LetFeed,Let it feed
+HarshWilds_WolverineKillEvent_LetFeed_Desc,"Keep your distance. It gorges and fouls the carcass, so it keeps for less time, and if it was already going off it may be spoiled outright."

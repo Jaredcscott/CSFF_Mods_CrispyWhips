@@ -1,0 +1,141 @@
+{
+    "UniqueID": "hw_bp_cloak_lynx",
+    "//LightCloak": "Plan N5 (pack Prompt 2): the light Lynx Cloak. Same lynx leather and skill gate family as the Lynx Coat, one twine instead of two, a shorter sew (BuildingDaytimeCost 4, at most 12). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "hw_bp_cloak_lynx",
+        "LocalizationKey": "HarshWilds_BpCloakLynx_CardName",
+        "DefaultText": "Lynx Cloak"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_bp_cloak_lynx",
+        "LocalizationKey": "HarshWilds_BpCloakLynx_CardDescription",
+        "DefaultText": "Cut a light cloak from a lynx's tanned leather (its hide type, which no base-game animal gives) with a little twine and a needle."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_cloak_lynx",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "hw_bp_cloak_lynx",
+        "LocalizationKey": "HarshWilds_BpCloakLynx_UnlockConditionsDesc",
+        "DefaultText": "Requires Leatherworking 10."
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 12,
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 1,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "StatWarpData": "6e10690af4575114681e3eb11163671e",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 10.0,
+                    "y": 150.0
+                },
+                "NotifyWhenNotMet": false,
+                "HideAllWhenNotMet": false
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroupWarpData": "GpTag_LeatherMedium",
+                    "RequiredTabGroupWarpType": 3,
+                    "Special4": {
+                        "Active": true,
+                        "FloatValue": 300.0,
+                        "MaxValue": 300.0
+                    }
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredTabGroupWarpData": "GpTag_Needle",
+                    "RequiredTabGroupWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HandAction",
+                "CraftAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "hw_cloak_lynx",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

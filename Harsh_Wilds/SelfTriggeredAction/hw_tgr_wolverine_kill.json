@@ -1,0 +1,220 @@
+{
+    "UniqueID": "hw_tgr_wolverine_kill",
+    "//Decision": "N1 (Documentation/Design/Harsh_Wilds_Vanilla_Balance_As_Built.md section 2): option (a), WIDEN the existing wolverine, not (b) a separate scavenger. Reason: it is the same animal (a wolverine is the forest's carcass robber), and the mod's rule is one [Threats] switch per threat (Patcher/Switchboard.cs header), so a player who turns the Wolverine off gets no wolverine anywhere, and the README Config table keeps its count. This is a SECOND roll and a SECOND event card under the same hw_switch_wolverine; it has its own clock (hw_wolverine_kill_clock) so it never shares or resets the trapline roll's wait. The trapline wolverine (hw_tgr_wolverine, hw_event_wolverine) is untouched: its 8 vanilla trap catches and this roll's 9 Harsh Wilds carcasses are disjoint by construction (raids.md distinct-from-vanilla test), and neither list shares a card with the eagle or the black bear. Gated by Development_Tools/Tests/HarshWilds-WolverineKill.Tests.ps1.",
+    "//Gates": "All gates are StatChangeTrigger entries, never RequiredStatValues (an unresolved stat there is skipped, so a gate would vanish): hw_stat_in_realm {0,0} (no roll while in a realm, as hw_tgr_wolverine), hw_switch_wolverine {1,1}, vanilla SeasonCounter_Winter {1,2880} (0 outside winter) and hw_wolverine_kill_clock {96,96} (reset by -96; RepeatOptions 2).",
+    "//Bait": "Nothing has weight WOLVERINE_KILL_NOTHING_WEIGHT 70; Kill has base weight 0 plus WOLVERINE_KILL_BAIT_WEIGHT 30 for each of the 9 Harsh Wilds big carcasses (musk ox, wisent, white wisent; whole, bled and skinned, by UniqueID) lying on the CURRENT board: NotInHand true reads .decomp/CardOrTagIndividualDropChanceModifier.cs ToValue's NotInHand branch, which calls GameManager.CardIsInBase and CardIsInLocation with the current environment (an STA has no card, so inEnv is CurrentEnvironment); CardIsInBase walks GraphicsManager.GetCurrentBaseCards, the ground row where a dropped CT0 carcass lies (raids.md section 1), and CardIsInList skips any card whose CardEnvironment does not match, so a carcass left in another place never counts. ExcludeInventory true: a carcass loaded on a sledge or travois does not count. With no carcass the Kill weight is 0 and its collection is never chosen (GameManager.GetCollectionDropsReport sets RangeUpTo -1 for FinalWeight <= 0); Nothing keeps a card-less drop {1,1} so its PotentialDrops is not 0 (an EMPTY DroppedCards list scores weight 0 and would never be chosen, and with every weight 0 SelectCardCollection picks a collection AT RANDOM). One carcass: 30 in 100 per roll, so about a 30 percent chance a day while it lies there; a carcass rots in 360 ticks (3.75 days). Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. Not covered by the [Tuning] RaidPressure dial (like the trapline wolverine).",
+    "Actions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_tgr_wolverine_kill",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "HW Wolverine At The Kill"
+            },
+            "RepeatOptions": 2,
+            "StatChangeTrigger": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_stat_in_realm",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_switch_wolverine",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 2880.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_wolverine_kill_clock",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 96.0,
+                        "y": 96.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "hw_wolverine_kill_clock",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -96.0,
+                        "y": -96.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Nothing",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 70,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Kill",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 0,
+                    "CardDropChanceModifiers": [
+                        {
+                            "CardOnBoardWarpData": "hw_muskox_carcass",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        },
+                        {
+                            "CardOnBoardWarpData": "hw_muskox_carcass_bled",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        },
+                        {
+                            "CardOnBoardWarpData": "hw_muskox_carcass_skinned",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        },
+                        {
+                            "CardOnBoardWarpData": "hw_wisent_carcass",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        },
+                        {
+                            "CardOnBoardWarpData": "hw_wisent_carcass_bled",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        },
+                        {
+                            "CardOnBoardWarpData": "hw_wisent_carcass_skinned",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        },
+                        {
+                            "CardOnBoardWarpData": "hw_whitewisent_carcass",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        },
+                        {
+                            "CardOnBoardWarpData": "hw_whitewisent_carcass_bled",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        },
+                        {
+                            "CardOnBoardWarpData": "hw_whitewisent_carcass_skinned",
+                            "CardOnBoardWarpType": 3,
+                            "NotInHand": true,
+                            "ExcludeInventory": true,
+                            "MaxWeightPerCard": 30
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "hw_event_wolverine_kill",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

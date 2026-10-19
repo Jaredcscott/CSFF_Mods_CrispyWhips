@@ -1,0 +1,43 @@
+{
+    "UniqueID": "hw_wolverine_kill_clock",
+    "GameName": {
+        "LocalizationKey": "HarshWilds_WolverineKillClock_StatName",
+        "DefaultText": "Harsh Wilds: Wolverine Kill Clock"
+    },
+    "Description": {
+        "LocalizationKey": "HarshWilds_WolverineKillClock_StatDescription",
+        "DefaultText": "Hidden counter: how long until the Wolverine may next come to a big carcass left on the ground."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 96.0
+    },
+    "BaseRatePerTick": 1.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false,
+    "//Tunables": "TUNABLE PLACEHOLDER, never balanced: WOLVERINE_KILL_CLOCK_TICKS 96 (one day at 96 ticks per day), the same 96 as in hw_tgr_wolverine_kill's clock trigger and reset. Its own clock, separate from hw_wolverine_clock, so the trapline roll and the carcass roll never share or reset each other's wait. Climbs at 1 per tick, waits at its max while another gate (the switch, the season or the realm flag) is closed. Only read by hw_tgr_wolverine_kill."
+}

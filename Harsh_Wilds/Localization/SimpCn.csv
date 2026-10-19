@@ -1180,3 +1180,31 @@ HarshWilds_MistletoeBlessing_BlessTheGroveWithMistletoe,Bless the Grove with Mis
 HarshWilds_MistletoeBlessing_HangASprigOfWinterMistletoeInTheBoughsOf,"Hang a sprig of winter mistletoe in the boughs of an oak grove and bless it, the way the old rites did. The grove is made sacred, as with the base game's own blessing.",把一枝冬日槲寄生挂在橡树林的枝头并为它祝福，如同古老的仪式一样。林地由此变得神圣，效果与基础游戏自带的赐福相同。
 HarshWilds_WitchfireSpent_DA_Scatter_ActionName,Scatter the Ash,撒掉灰烬
 HarshWilds_WitchfireSpent_DA_Scatter_ActionDescription,Scatter the dead ash to the wind. Nothing is left to keep.,把死灰撒向风中。没有什么值得留下了。
+HarshWilds_FairyRing_StoneOfferName,Leave a Fairy Stone in the Ring,把仙灵石留在环中
+HarshWilds_FairyRing_StoneOfferDescription,Set a Fairy Stone in the middle of the ring. The fair folk take it and lend you back some of their will: Willpower rises by 30 at once.,把一块仙灵石放在仙环中央。精灵收下它，并借给你一些意志力：意志力立刻上升30。
+HarshWilds_CloakLynx_CardName,Lynx Cloak,猞猁皮斗篷
+HarshWilds_CloakLynx_CardDescription,"A light cloak cut from a lynx's leather. It warms less and shields less than the Lynx Coat, but weighs half as much. While your mind is open to the spirits it lends you a little of the lynx's climbing and ambush.
+
+<b>MUST BE EQUIPPED TO WORK</b>","用猞猁皮革裁成的轻便斗篷。它比猞猁皮大衣保暖和防护都差一些，但重量只有一半。当你心灵向灵魄敞开时，它会赋予你一点猞猁的攀爬与伏击之能。
+
+<b>必须装备才能生效</b>"
+HarshWilds_CloakLynx_UsageStatName,Wear,磨损
+HarshWilds_BpCloakLynx_CardName,Lynx Cloak,猞猁皮斗篷
+HarshWilds_BpCloakLynx_CardDescription,"Cut a light cloak from a lynx's tanned leather (its hide type, which no base-game animal gives) with a little twine and a needle.",用猞猁鞣制的皮革（基础游戏中没有任何动物会给出这种皮）加一点细线和一根针，裁一件轻便斗篷。
+HarshWilds_BpCloakLynx_UnlockConditionsDesc,Requires Leatherworking 10.,需要皮革加工 10。
+HarshWilds_LindwurmFang_CardName,Lindwurm Fang,龙蛇牙
+HarshWilds_LindwurmFang_CardDescription,"A curved fang as long as a hand, drawn from the jaw of a lindwurm. It is good for nothing but the old rites: a carver can make a charm of it for the Dragon Spirit.",从龙蛇颅中拔出的一枚手掌般长的弯牙。它只用于古老的仪式：雕工可以用它为龙之精魄刻一枚护符。
+HarshWilds_CharmDragon_CardName,Dragon Charm,龙之护符
+HarshWilds_CharmDragon_CardDescription,"A charm carved from a lindwurm's fang for the Dragon Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the dragon's watchfulness stays with you (Alertness Aid), only at its lowest level. It wears out after about four weeks of wear.",用龙蛇牙为龙之精魄刻成的护符，戴在颈上。它无需缔结：佩戴时，龙的一点警觉会留在你身上（警觉辅助），仅为最低等级。佩戴约四周后会磨损。
+HarshWilds_CharmDragon_UsageStatName,Wear,磨损
+HarshWilds_BpCharmDragon_CardName,Dragon Charm,龙之护符
+HarshWilds_BpCharmDragon_CardDescription,Carve a charm for the Dragon Spirit from a lindwurm's fang and string it on twine.,用龙蛇牙为龙之精魄刻一枚护符，穿在细线上。
+HarshWilds_BpCharmDragon_UnlockConditionsDesc,Bind the Dragon Spirit once.,曾缔结过一次龙之精魄。
+HarshWilds_WolverineKillClock_StatName,Harsh Wilds: Wolverine Kill Clock,严酷荒野：狼獾觅尸计时器
+HarshWilds_WolverineKillClock_StatDescription,Hidden counter: how long until the Wolverine may next come to a big carcass left on the ground.,隐藏的计数器：狼獾下一次可以来到留在地上的大型尸体旁之前还需多久。
+HarshWilds_WolverineKillEvent_CardName,Wolverine at the Kill,猎物旁的狼獾
+HarshWilds_WolverineKillEvent_CardDescription,"A wolverine has smelled the big carcass you left on the ground and is tearing at it, growling at you over the meat. Drive it off and it may turn on you. Let it feed and it fouls the carcass, and may leave you little but bones.",一只狼獾闻到了你留在地上的大型尸体，正在撕扯它，护着肉朝你低吼。赶走它，它可能会反过来扑向你。任它进食，它会糟蹋这具尸体，可能只给你留下一堆骨头。
+HarshWilds_WolverineKillEvent_DriveOff,Drive it off,把它赶走
+HarshWilds_WolverineKillEvent_DriveOff_Desc,"Half an hour of shouting and swinging. It tires you and sets your nerves on edge, and one time in four it bites before it goes. The carcass stays whole.",半小时的叫喊和挥打。这会让你疲惫、神经紧绷，而且每四次就有一次它会在离开前咬你一口。尸体保持完整。
+HarshWilds_WolverineKillEvent_LetFeed,Let it feed,任它进食
+HarshWilds_WolverineKillEvent_LetFeed_Desc,"Keep your distance. It gorges and fouls the carcass, so it keeps for less time, and if it was already going off it may be spoiled outright.",保持距离。它会狼吞虎咽并糟蹋这具尸体，使其保存时间变短；如果尸体本已开始变质，可能会直接腐坏。

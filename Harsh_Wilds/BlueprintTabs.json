@@ -25,7 +25,8 @@
         "hw_bp_casting_bones",
         "hw_bp_charm_lynx",
         "hw_bp_charm_goat",
-        "hw_bp_charm_blood"
+        "hw_bp_charm_blood",
+        "hw_bp_charm_dragon"
     ],
     "Tab_7_Magic_Subtab_1_Shrines_TabName": [
         "hw_bp_totem_beast",
@@ -36,7 +37,8 @@
     "Tab_4_Tailoring_Subtab_3_Leather_TabName": [
         "hw_bp_coat_lynx",
         "hw_bp_coat_muskox",
-        "hw_bp_coat_wisent"
+        "hw_bp_coat_wisent",
+        "hw_bp_cloak_lynx"
     ],
     "Tab_7_Magic_Subtab_3_CallingRituals_TabName": [
         "hw_bp_spirit_lynx_calling",

@@ -1,0 +1,191 @@
+{
+    "UniqueID": "hw_event_wolverine_kill",
+    "//WolverineKill": "The event card hw_tgr_wolverine_kill spawns (plan N1): a wolverine contests a musk ox or wisent carcass the player left on the ground. Two buttons, a real choice, both destroying this card (ReceivingCardChanges ModType 3, which is also what lets each pass WillHaveAnEffect and render; the two ActionName texts differ, so InspectionPopup does not dedupe them). DRIVE IT OFF: half an hour (DaytimeCost 2), Stamina -10 and Stress +24, and a roll: Driven Off (weight 3; RevealInventory true so it scores: the framework strips its card-less drop at load, ProducedCardService.CleanProducedCardsOnAction, and GameManager.GetCollectionDropsReport gives a collection with no drops, no RevealInventory and no encounter BaseWeight 0, so before 0.11.8's fix Bitten won every roll; RevealInventory is inert here, this card's inventory is not hidden) or Bitten (weight 1, the vanilla W_BiteWound by GUID, as hw_event_adder hands it); the carcass is kept whole. Cost shape read from vanilla: Event_BirdNest's Climb costs Stamina -10, Event_SpiderNight's Push Spider away costs Stress +50, and Stress (0..240) decays at -0.25 a tick, so an action write is not permanent; Stamina is 0..32 and refills at +2 a tick. LET IT FEED: no time, no stat cost; one ExtraDurabilityModification ChangeDurabilities (CardChanges 0) on exactly ONE carcass of the 9 on the ground row (AppliesTo 5 AllCardsInBase, LookInInventories false, RandomlyAffectedCards 1 Absolute), SpoilageChange {90,400}: GameManager.ApplyExtraDurabilitiesChanges rolls UnityEngine.Random.Range over that range and ChangeCardDurabilities then runs PerformDurabilitiesActions, so a carcass pushed to its Spoilage max (360) runs its own OnFull: it is destroyed and leaves its Rotten Remains, Bones and Horn. So it takes a PART (the carcass keeps less: the cuts carry its spoilage over to the meat, TransferRules Spoilage 1) and the WHOLE only on a bad roll: on a fresh carcass (Spoilage near 0) about 40 in 310, 13 percent; one already 2 days old (180) about 71 percent. Every number here is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play, never balanced. No NoCardsAffectedMessage and no CustomDestroyMessage: nothing is destroyed by the change itself, and a carcass carried off between the roll and the click leaves the click silent (hw_event_blackbear.json explains the second-popup hazard).",
+    "//Image": "PLACEHOLDER art: this card reuses the trapline wolverine's picture (HarshWilds/Resource/Picture/hw_event_wolverine.png, provenance HarshWilds/.art/hw_event_wolverine.json). Its own picture (a wolverine on a musk ox carcass in snow) waits on /create-image, whose OpenArt MCP was not reachable from the session that built this card.",
+    "CardType": 3,
+    "CardName": {
+        "LocalizationKey": "HarshWilds_WolverineKillEvent_CardName",
+        "DefaultText": "Wolverine at the Kill"
+    },
+    "CardDescription": {
+        "LocalizationKey": "HarshWilds_WolverineKillEvent_CardDescription",
+        "DefaultText": "A wolverine has smelled the big carcass you left on the ground and is tearing at it, growling at you over the meat. Drive it off and it may turn on you. Let it feed and it fouls the carcass, and may leave you little but bones."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_event_wolverine",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_WolverineKillEvent_DriveOff",
+                "DefaultText": "Drive it off"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_WolverineKillEvent_DriveOff_Desc",
+                "DefaultText": "Half an hour of shouting and swinging. It tires you and sets your nerves on edge, and one time in four it bites before it goes. The carcass stays whole."
+            },
+            "DaytimeCost": 2,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 24.0,
+                        "y": 24.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "DrivenOff",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": true,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 3,
+                    "DroppedCards": [
+                        {
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Bitten",
+                    "CollectionMessages": [],
+                    "CountsAsSuccess": false,
+                    "RevealInventory": false,
+                    "CollectionUses": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "4f9c5ba7f4f6fee4ab6d1bfeb1a565ff",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "HarshWilds_WolverineKillEvent_LetFeed",
+                "DefaultText": "Let it feed"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "HarshWilds_WolverineKillEvent_LetFeed_Desc",
+                "DefaultText": "Keep your distance. It gorges and fouls the carcass, so it keeps for less time, and if it was already going off it may be spoiled outright."
+            },
+            "DaytimeCost": 0,
+            "ExtraDurabilityModifications": [
+                {
+                    "AffectedCardsWarpData": [
+                        "hw_muskox_carcass",
+                        "hw_muskox_carcass_bled",
+                        "hw_muskox_carcass_skinned",
+                        "hw_wisent_carcass",
+                        "hw_wisent_carcass_bled",
+                        "hw_wisent_carcass_skinned",
+                        "hw_whitewisent_carcass",
+                        "hw_whitewisent_carcass_bled",
+                        "hw_whitewisent_carcass_skinned"
+                    ],
+                    "AffectedCardsWarpType": 3,
+                    "AppliesTo": 5,
+                    "LookInInventories": false,
+                    "IncludeEquippedCards": false,
+                    "SpoilageChange": {
+                        "x": 90.0,
+                        "y": 400.0
+                    },
+                    "CardChanges": 0,
+                    "DropOnDestroyList": false,
+                    "RandomlyAffectedCards": 1.0,
+                    "RandomAmountType": 1
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

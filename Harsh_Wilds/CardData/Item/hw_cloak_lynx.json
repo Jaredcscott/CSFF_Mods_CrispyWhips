@@ -1,0 +1,423 @@
+{
+    "UniqueID": "hw_cloak_lynx",
+    "//LightCloak": "Plan N5 (light lynx cloak, pack Prompt 2): sits between vanilla's Reed Coat (warmth 6, torso armour 4, weight 1200) and the Lynx Coat (warmth 7.5, torso armour 10, aids 8.4, weight 1200). It trades warmth, armour and weight for a lighter pack; its aids are half the Lynx Coat's. No spirit essence, no Fox Urge. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "hw_cloak_lynx",
+        "LocalizationKey": "HarshWilds_CloakLynx_CardName",
+        "DefaultText": "Lynx Cloak"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_cloak_lynx",
+        "LocalizationKey": "HarshWilds_CloakLynx_CardDescription",
+        "DefaultText": "A light cloak cut from a lynx's leather. It warms less and shields less than the Lynx Coat, but weighs half as much. While your mind is open to the spirits it lends you a little of the lynx's climbing and ambush.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hw_cloak_lynx",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_OuterTorso",
+        "tag_LeatherClothing",
+        "tag_Clothing"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "ObjectWeight": 600.0,
+    "TradingValue": 0.0,
+    "CanBeRenamed": false,
+    "EquipmentTagsWarpData": [
+        "eTag_OuterTorso"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "WeightReductionWhenEquipped": -600.0,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 23040.0,
+        "MaxValue": 23040.0,
+        "CardStatName": {
+            "ParentObjectID": "hw_cloak_lynx",
+            "LocalizationKey": "HarshWilds_CloakLynx_UsageStatName",
+            "DefaultText": "Wear"
+        },
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": -1.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "hw_cloak_lynx",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "The cloak has fallen apart."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Temperature Perceived (+6)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6.0,
+                        "y": 6.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Comfort (+10)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 10.0,
+                        "y": 10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Armor (+4)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4.0,
+                        "y": 4.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Sun Protection (+1)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0b9d0c63229f413439aeb1a96c9bd29f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Rain Protection (+1)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "431f76fbfb93e8c4a850de1528ef863a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Climbing Aid (open mind)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "33f8297bdbbdf7a47b9944f633fdcad8",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 4.2,
+                        "y": 4.2
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "Stat": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 50.0,
+                            "y": 10000.0
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "EffectName": "Ambush Aid (open mind)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c50a93e7df79fa74ca9ececcb119e4b4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 4.2,
+                        "y": 4.2
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "Stat": {
+                            "m_FileID": 0,
+                            "m_PathID": 0
+                        },
+                        "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 50.0,
+                            "y": 10000.0
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "IsArmor": true,
+    "ArmorValues": {
+        "HeadArmor": 0.0,
+        "HeadArmorModifiers": [],
+        "HeadHitProbabilityModifier": 0.0,
+        "TorsoArmor": 4.0,
+        "TorsoArmorModifiers": [],
+        "TorsoHitProbabilityModifier": 0.0,
+        "LArmArmor": 0.0,
+        "LArmArmorModifiers": [],
+        "LArmHitProbabilityModifier": 0.0,
+        "RArmArmor": 0.0,
+        "RArmArmorModifiers": [],
+        "RArmHitProbabilityModifier": 0.0,
+        "LLegArmor": 0.0,
+        "LLegArmorModifiers": [],
+        "LLegHitProbabilityModifier": 0.0,
+        "RLegArmor": 0.0,
+        "RLegArmorModifiers": [],
+        "RLegHitProbabilityModifier": 0.0
+    },
+    "ArmorValueDurabilitiesMultiplier": [],
+    "ArmorHitProbabilityDurabilitiesMultiplier": [],
+    "MaxLiquidCapacity": 0.0,
+    "ExclusivelyAcceptedLiquids": []
+}

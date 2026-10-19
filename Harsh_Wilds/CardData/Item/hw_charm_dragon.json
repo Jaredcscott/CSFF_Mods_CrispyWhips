@@ -1,0 +1,127 @@
+{
+    "UniqueID": "hw_charm_dragon",
+    "//RitualObject": "Niche N4 (MASTER_PLAN section 2, pack Prompt 3): the Dragon Spirit's charm, the fourth beside the lynx, goat and blood charms. It differs from them in one way: its blueprint (CardData/Blueprint/hw_bp_charm_dragon.json) also needs a Lindwurm Fang, the lindwurm's Butcher trophy. Same shape and scale as the blood charm (neck slot, +1 a tick, about four weeks of wear); the effect is the Dragon Spirit's Alertness Aid at its lowest level. Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. The picture is the vanilla sprite Amulet (PARTIAL: no card art was generated, the OpenArt tool was not reachable).",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "hw_charm_dragon",
+        "LocalizationKey": "HarshWilds_CharmDragon_CardName",
+        "DefaultText": "Dragon Charm"
+    },
+    "CardDescription": {
+        "ParentObjectID": "hw_charm_dragon",
+        "LocalizationKey": "HarshWilds_CharmDragon_CardDescription",
+        "DefaultText": "A charm carved from a lindwurm's fang for the Dragon Spirit and worn at the neck. It asks for no binding: while you wear it, a little of the dragon's watchfulness stays with you (Alertness Aid), only at its lowest level. It wears out after about four weeks of wear."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Amulet",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Neck",
+        "tag_Clothing",
+        "tag_Pretty",
+        "tag_Charm"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "ObjectWeight": 100.0,
+    "TradingValue": 120.0,
+    "CanBeRenamed": false,
+    "EquipmentTagsWarpData": [
+        "eTag_Neck"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "WeightReductionWhenEquipped": -100.0,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 2688.0,
+        "MaxValue": 2688.0,
+        "CardStatName": {
+            "ParentObjectID": "hw_charm_dragon",
+            "LocalizationKey": "HarshWilds_CharmDragon_UsageStatName",
+            "DefaultText": "Wear"
+        },
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": -1.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "hw_charm_dragon",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "The charm has worn away."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Alertness Aid (+1 a tick)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "b58bd0faa3c03a84cad3256aeb91d808",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 # Harsh Wilds
 
-**Version:** 0.11.7
+**Version:** 0.11.8
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release. Rewards (meat, affinity, coats, rites) were tuned to their base-game equivalents in 0.11.6; the threats' chances, numbers and lengths are still first guesses not yet balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
@@ -70,7 +70,7 @@ Each comes only on rare days or nights, announces nothing, and is not replaced o
 - **White wisent** (`WhiteWisent`, also needs `Wisent`). About one day in forty, at noon, a rare albino wisent comes to the wisent's glades for about four days. It never attacks first. Its fight is the wisent's with a stouter hide. Its carcass is butchered like the wisent's, and **Release the Spirit** on it gives Beast Affinity +100, where other wild carcasses give +25. It uses the cow's picture for now.
 - **Lake beast** (`LakeBeast`). About one day in sixty, one comes into the lake and its banks (Northern and Southern Lake Bank, Lake Grove) for about three days. At night, 20:00 to 05:00, it can come for you on a bank, once a night, and fights about as hard as a bear. You can also approach it. Its carcass is bleed, skin, four cuts.
 - **Frost demon** (`FrostDemon`). On about one winter evening in fifteen, one comes down to the northern hills and meadows at 18:00 and stays until about 05:00. Out of doors there it can hunt you once a night. Its bites are Frostnip and Frostbite wounds. A roof is the way out. Its carcass is butchered in one go for meat, fat, bones and a white fur.
-- **Lindwurm** (`Lindwurm`). About one day in a hundred and twenty, a great serpent takes up its lair in the Great Cave for about a week and a half and never leaves it. If you are in the cave, it can come for you once a day at any hour, and you can approach it yourself. It fights harder than the lake beast. Its carcass is a heavy single butchering (about 150 meat, about what a bear gives, plus fat, bones and a Very Large Fresh Skin) and holds a spirit: see the Dragon Spirit below.
+- **Lindwurm** (`Lindwurm`). About one day in a hundred and twenty, a great serpent takes up its lair in the Great Cave for about a week and a half and never leaves it. If you are in the cave, it can come for you once a day at any hour, and you can approach it yourself. It fights harder than the lake beast. Its carcass is a heavy single butchering (about 75 meat, plus fat, bones and a Very Large Fresh Skin), always one Lindwurm Fang (a trophy for the Dragon Charm, not food) and holds a spirit: see the Dragon Spirit below.
 
 ## Raids
 
@@ -104,6 +104,13 @@ Robs your trapline in winter.
 - The odds rise with every sprung trap (Snare, Deadfall, Log Trap or Pit Trap that has gone off) in your place. One sprung trap is about one chance in twenty each time it looks.
 - It can take: a Fox, Badger, Boar, Doe, Stag or Wolf Carcass, or a tied Boar. Small game is the eagle's, so a Deadfall can raise the odds and leave it nothing, and the visit ends with no message.
 - It also reaches any placed store in the place, so a catch kept in a placed chest, shelf or basket can be taken too.
+
+It also comes to a big kill. In winter, a Musk Ox, Wisent or White Wisent carcass (whole, bled or skinned) left lying on the ground where you are draws it, on its own clock, separate from the trapline's.
+
+- At most once a day. One carcass on the ground is about three chances in ten each day; each more carcass adds as much. A carcass in your hands or loaded on a sledge does not draw it.
+- **Drive it off:** half an hour, Stamina -10 and Stress +24, and one time in four it bites you (a Bite Wound) before it goes. The carcass stays whole.
+- **Let it feed:** no time or cost to you, but one carcass on the ground spoils by a random 90 to 400 (it rots at 360, about four days). A fresh carcass usually survives with less keeping time, and its meat keeps less too; one already going off may be spoiled outright, leaving its bones and remains.
+- These chances and costs are first guesses, not yet balanced against play, and nothing here is confirmed in a running game yet.
 
 ### Heron (`Heron`)
 Eats a few small fish from a fishpond. Needs Water-Driven Infrastructure: it visits only that mod's filled or stocked Fishpond.
@@ -214,8 +221,10 @@ Made on purpose for the spirit path. No switch. Not yet confirmed in a running g
 
 - **Spirit Jar** (Magic > Implements; a fired Clay Jar, a spirit herb and charcoal). Takes a spirit's essence (up to 150), which the base game's clay jars refuse, and keeps it. Pour an essence in from a bound spirit while your mind is open. Later pour it into an Amulet or one of the coats below.
 - **Spirit Mask** (Magic > Implements). Worn on the face. While your mind is open (altered mind 50 or more), Beast Affinity rises by 0.6 a tick. It wears out after about four weeks of wear.
+- **Dragon Charm** (Magic > Implements). The fourth charm. Its recipe appears once you have bound the Dragon Spirit and takes a Lindwurm Fang (the lindwurm's trophy, dropped when you butcher its carcass), bones and twine. Worn at the neck, it holds a small share of the dragon's Alertness Aid at the lowest level, with no binding needed, and wears out after about four weeks like the others.
 - **Lynx, Goat and Blood Charms** (Magic > Implements). Each recipe appears once you have bound that spirit. Worn at the neck, each holds half of its spirit's gift (Climbing Aid, Resilience, Strength) at the lowest level, with no binding needed. They wear out after about four weeks.
 - **Lynx, Musk Ox and Wisent Coats** (Tailoring > Leather, Leatherworking 15). Sewn from each beast's own tanned leather (medium, large and very large), two twine and a kept needle. Each gives warmth (the musk ox coat +7.5, as the base game's Bear Coat), comfort, armour (Torso 10 in a fight, as the base game's coats) and weather protection, takes a spirit essence, and with an open mind lends its beast's help: the lynx coat Climbing Aid and Ambush Aid (8.4 each, the size of the base game's Wolf Coat's two aids) and the Fox Urge, the musk ox coat Resilience, the wisent coat Strength. Whether each hide tans to the leather its coat needs is read from game data, not yet seen in play.
+- **Lynx Cloak** (Tailoring > Leather, Leatherworking 10). A light cousin of the Lynx Coat: a lynx's medium leather, one twine and a kept needle. Warmth +6 (the Reed Coat's), comfort +10, Torso armour 4 (the Reed Coat's), weather protection, and half the Lynx Coat's help while your mind is open (Climbing Aid and Ambush Aid 4.2 each), at half the weight (600 against 1200). No spirit essence and no Fox Urge. Every number is a first guess not yet balanced against play, and its card art is the Lynx Coat's until its own is painted.
 - **Beast Totem** (Magic > Shrines). A carved post for camp. While you are there, Beast Affinity rises by 0.5 a tick.
 - **Stone Cairn** (Magic > Shrines; three heavy stones, then twelve stones). One to a place. Home of the Ancestor Spirit and a door to the Underworld.
 
@@ -228,6 +237,7 @@ Rare night threats, a stone that keeps them kinder, and the fairy king and queen
 - **Selkie** (`Selkie`, needs Far Territory). At night on Far Territory's Driftwood Shore, a selkie may sing from the surf, with the same choice and cost. At most once every three days. Without Far Territory she never comes.
 - **Wild Hunt** (`WildHunt`). On a winter night the Hunt may ride for about five hours. Outside, each quarter hour adds stress and may bruise you. Under a roof nothing happens. At most once every six days.
 - **Threshold Stone** (Magic > Shrines; a heavy stone and three small stones; one to a camp). Drag salt, a flatbread, a honeycomb or cheese curds onto it to leave an offering. For about three days the four threats above are less likely, never impossible. A Fairy Stone (**Offer a Fairy Stone**) keeps the offering for about six days; the threats come back gradually over its last three.
+- **Fairy Ring, Leave a Fairy Stone in the Ring** (15 minutes; drag a Fairy Stone onto the ring). The stone is used up and Willpower rises by 30 at once, half the King's price of 60 for two stones. Its number is a placeholder.
 - **Fairy King and Fairy Queen.** They hold court in the Faerie Realm on every visit and never follow you home. **Speak with the King** or **Speak with the Queen** offers one bargain each, once a run, and only while you can pay. The King gives two Fairy Stones for 60 Willpower. The Queen takes away 40 Stress and gives a sprig of Mistletoe for 16 Stamina. Turn one down and it is offered again next time. Gifts land on the realm's board, so pick them up before you leave. Checked in a test harness, not yet in real play.
 
 ## Fairy ring and realms
@@ -263,7 +273,9 @@ Once you have bound the Lynx, Goat or Blood Spirit, talk to him and he teaches o
 
 ## Config
 
-File: `BepInEx/config/crispywhips.harsh_wilds.cfg`. A change takes effect after a full restart of the game, not a save reload. Every switch below is in `[Threats]` and defaults to `true`; `false` turns that threat off.
+File: `BepInEx/config/crispywhips.harsh_wilds.cfg`. An edit to the file takes effect after a full restart of the game, not a save reload. Every switch below is in `[Threats]` and defaults to `true`; `false` turns that threat off.
+
+The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build) changes the switches in game: press F1 and find "Harsh Wilds". A switch changed there is applied the next time you load a save or start a new game.
 
 | Switch | What it turns off |
 |---|---|
@@ -323,6 +335,7 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
 
 Full notes in `CHANGELOG.md`. Latest:
 
+- **0.11.8:** niche content: a light Lynx Cloak, a Lindwurm Fang and the Dragon Charm it makes, a Fairy Stone offering at the Fairy Ring, and the wolverine contesting a big carcass in winter.
 - **0.11.7:** the Tooth Puller is metal tongs made from a Heated Metal Bar, and the selkie can now rise on Far Territory's shore.
 - **0.11.6:** balance pass: musk oxen give less and return monthly, slower brews and athame rites, base-game coat tiers with real armour, a fuller lindwurm, a use for Fairy Stones.
 - **0.11.5:** the golden hind is removed; the base game's White Deer covers it.
