@@ -1,0 +1,64 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_FirstVisit_River_Line",
+        "DefaultText": "My first time by the river with you. I could listen to that water all day."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            },
+            {
+                "TargetStatWarpData": "poStatRegionRiver",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Start_Answer_Day",
+                "DefaultText": "How has your day been?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Day",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Start_Answer_Topics",
+                "DefaultText": "Talk about..."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topics",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
+                "DefaultText": "Step back"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

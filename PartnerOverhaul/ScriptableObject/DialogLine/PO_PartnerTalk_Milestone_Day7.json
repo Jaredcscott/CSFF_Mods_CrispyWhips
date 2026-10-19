@@ -42,6 +42,17 @@
         },
         {
             "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Start_Answer_Topics",
+                "DefaultText": "Talk about..."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Topics",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
                 "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
                 "DefaultText": "Step back"
             },

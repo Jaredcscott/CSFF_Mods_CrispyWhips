@@ -1,0 +1,14 @@
+{
+  "target": "PartnerOverhaul_EmberPotLit.png",
+  "sourceCard": "EmberPotLit",
+  "subject": "the same terracotta clay pot with its lid set ajar, a warm orange-red glow of smouldering embers under the lid and one thin wisp of grey smoke; no open flame",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": { "aspectRatio": "2:3", "resolution": "1K", "imageCount": 1, "autoEnhancePrompt": false },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small squat round terracotta clay pot, warm orange-brown fired clay, with a plain flat clay lid set slightly ajar on top and one loop of pale tan twisted rope tied around its neck as a short carrying handle; a soft warm orange-red glow of smouldering embers shows through the narrow gap under the lid and one thin wisp of pale grey smoke rises from it; glowing embers only, no open flame, no decoration, no spout, no second handle (standard /create-image template and Avoid list, plus: open flames, tall fire, painted patterns, spout, wooden parts)",
+  "historyId": "RWmcAHE1dRtZ1qeXp0VJ",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792312490649_92a0425c_1792312490686_0dc2b93c.png",
+  "credits": 20,
+  "generated": "2026-10-18",
+  "finish_note": "process_card_art.py keyed finish, then the opaque white paper enclosed by the rope handle (321 px) keyed with the same 200..250 ramp and re-quantized to 256 colours"
+}

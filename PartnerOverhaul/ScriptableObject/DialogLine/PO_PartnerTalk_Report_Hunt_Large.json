@@ -1,0 +1,33 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Report_Hunt_Large_Line",
+        "DefaultText": "It was a big one. I would rather not say how long the trail ran before I caught up with it, only that it was worth the walk."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Report_Answer_Thanks",
+                "DefaultText": "Thanks for telling me"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

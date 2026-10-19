@@ -573,6 +573,136 @@
         {
             "Line": {
                 "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_FirstVisit_Lake",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 39,
+                "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "poStatRegionLake",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_FirstVisit_Wetlands",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 38,
+                "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "poStatRegionWetlands",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_FirstVisit_River",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 37,
+                "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "poStatRegionRiver",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_FirstVisit_Pine",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 36,
+                "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "poStatRegionPine",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_FirstVisit_Oak",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 35,
+                "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "poStatRegionOak",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
                 "NextLineWarpData": "PO_PartnerTalk_Mood_Unhappy",
                 "NextLineWarpType": 3
             },
@@ -586,6 +716,60 @@
                         "StatRange": {
                             "x": -350.0,
                             "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Gift",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 25,
+                "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "71112acd78ec9ec4d85fd49c57a6cfa0",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 2401.0,
+                            "y": 2880.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
+                        "StatWarpData": "poStatGiftSeason",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
+                        "StatWarpData": "030fdd078068534489563c2366ea32b4",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 12001.0,
+                            "y": 20000.0
                         },
                         "InterpWeightRange": {
                             "x": 0,
@@ -642,6 +826,20 @@
                 "BaseWeight": 81,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 50.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceReserved",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -668,6 +866,20 @@
                 "BaseWeight": 81,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 50.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "c5e73a0f4b2d4e7189a6f302dc8b154e",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -750,6 +962,20 @@
                 "BaseWeight": 81,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 50.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAnxious",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -789,6 +1015,20 @@
             "Weights": {
                 "BaseWeight": 81,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 50.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "84ef913a69f843de951dc5faec4f7fc8",
                         "StatWarpType": 3,
@@ -886,6 +1126,20 @@
                 "BaseWeight": 81,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 50.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceWarm",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -939,6 +1193,20 @@
             "Weights": {
                 "BaseWeight": 81,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 50.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "94387c510f7c11e41bf538bf7219ef13",
                         "StatWarpType": 3,
@@ -1050,6 +1318,20 @@
                 "BaseWeight": 81,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 50.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAssertive",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1117,6 +1399,20 @@
             "Weights": {
                 "BaseWeight": 81,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "e42deda70e789cd45bb88d02ef986bde",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 1.0,
+                            "y": 50.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "79cf41c62c7a44e429c12549185f14c0",
                         "StatWarpType": 3,
@@ -1242,6 +1538,20 @@
                 "BaseWeight": 71,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 70.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceReserved",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1268,6 +1578,20 @@
                 "BaseWeight": 71,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 70.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "c5e73a0f4b2d4e7189a6f302dc8b154e",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1350,6 +1674,20 @@
                 "BaseWeight": 71,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 70.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAnxious",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1389,6 +1727,20 @@
             "Weights": {
                 "BaseWeight": 71,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 70.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "84ef913a69f843de951dc5faec4f7fc8",
                         "StatWarpType": 3,
@@ -1486,6 +1838,20 @@
                 "BaseWeight": 71,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 70.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceWarm",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1539,6 +1905,20 @@
             "Weights": {
                 "BaseWeight": 71,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 70.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "94387c510f7c11e41bf538bf7219ef13",
                         "StatWarpType": 3,
@@ -1650,6 +2030,20 @@
                 "BaseWeight": 71,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 70.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAssertive",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1717,6 +2111,20 @@
             "Weights": {
                 "BaseWeight": 71,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "7bb10cdec1f1ef441891af4148fa78d9",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 70.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "79cf41c62c7a44e429c12549185f14c0",
                         "StatWarpType": 3,
@@ -1842,6 +2250,20 @@
                 "BaseWeight": 61,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 40.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceReserved",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1868,6 +2290,20 @@
                 "BaseWeight": 61,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 40.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "c5e73a0f4b2d4e7189a6f302dc8b154e",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1950,6 +2386,20 @@
                 "BaseWeight": 61,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 40.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAnxious",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -1989,6 +2439,20 @@
             "Weights": {
                 "BaseWeight": 61,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 40.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "84ef913a69f843de951dc5faec4f7fc8",
                         "StatWarpType": 3,
@@ -2086,6 +2550,20 @@
                 "BaseWeight": 61,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 40.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceWarm",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -2139,6 +2617,20 @@
             "Weights": {
                 "BaseWeight": 61,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 40.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "94387c510f7c11e41bf538bf7219ef13",
                         "StatWarpType": 3,
@@ -2250,6 +2742,20 @@
                 "BaseWeight": 61,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 40.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAssertive",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -2317,6 +2823,20 @@
             "Weights": {
                 "BaseWeight": 61,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "325d096ddda132b4d9c1aea62d37153a",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 40.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "79cf41c62c7a44e429c12549185f14c0",
                         "StatWarpType": 3,
@@ -2442,6 +2962,20 @@
                 "BaseWeight": 51,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 145.0,
+                            "y": 240.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceReserved",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -2468,6 +3002,20 @@
                 "BaseWeight": 51,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 145.0,
+                            "y": 240.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "c5e73a0f4b2d4e7189a6f302dc8b154e",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -2550,6 +3098,20 @@
                 "BaseWeight": 51,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 145.0,
+                            "y": 240.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAnxious",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -2589,6 +3151,20 @@
             "Weights": {
                 "BaseWeight": 51,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 145.0,
+                            "y": 240.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "84ef913a69f843de951dc5faec4f7fc8",
                         "StatWarpType": 3,
@@ -2686,6 +3262,20 @@
                 "BaseWeight": 51,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 145.0,
+                            "y": 240.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceWarm",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -2739,6 +3329,20 @@
             "Weights": {
                 "BaseWeight": 51,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 145.0,
+                            "y": 240.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "94387c510f7c11e41bf538bf7219ef13",
                         "StatWarpType": 3,
@@ -2850,6 +3454,20 @@
                 "BaseWeight": 51,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 145.0,
+                            "y": 240.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAssertive",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -2917,6 +3535,20 @@
             "Weights": {
                 "BaseWeight": 51,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "fb1f24dcb39c36b41a16cd48cde74595",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 145.0,
+                            "y": 240.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "79cf41c62c7a44e429c12549185f14c0",
                         "StatWarpType": 3,
@@ -3042,6 +3674,20 @@
                 "BaseWeight": 41,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 90.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceReserved",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -3068,6 +3714,20 @@
                 "BaseWeight": 41,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 90.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "c5e73a0f4b2d4e7189a6f302dc8b154e",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -3150,6 +3810,20 @@
                 "BaseWeight": 41,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 90.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAnxious",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -3189,6 +3863,20 @@
             "Weights": {
                 "BaseWeight": 41,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 90.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "84ef913a69f843de951dc5faec4f7fc8",
                         "StatWarpType": 3,
@@ -3286,6 +3974,20 @@
                 "BaseWeight": 41,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 90.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceWarm",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -3339,6 +4041,20 @@
             "Weights": {
                 "BaseWeight": 41,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 90.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "94387c510f7c11e41bf538bf7219ef13",
                         "StatWarpType": 3,
@@ -3450,6 +4166,20 @@
                 "BaseWeight": 41,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 90.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAssertive",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -3517,6 +4247,20 @@
             "Weights": {
                 "BaseWeight": 41,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "2018b833d101f7841a34aee6f7f74a44",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 0.0,
+                            "y": 90.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "79cf41c62c7a44e429c12549185f14c0",
                         "StatWarpType": 3,
@@ -3642,6 +4386,20 @@
                 "BaseWeight": 31,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": -350.0,
+                            "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceReserved",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -3667,6 +4425,20 @@
             "Weights": {
                 "BaseWeight": 31,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": -350.0,
+                            "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "c5e73a0f4b2d4e7189a6f302dc8b154e",
                         "StatWarpType": 3,
@@ -3750,6 +4522,20 @@
                 "BaseWeight": 31,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": -350.0,
+                            "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAnxious",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -3789,6 +4575,20 @@
             "Weights": {
                 "BaseWeight": 31,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": -350.0,
+                            "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "84ef913a69f843de951dc5faec4f7fc8",
                         "StatWarpType": 3,
@@ -3886,6 +4686,20 @@
                 "BaseWeight": 31,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": -350.0,
+                            "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceWarm",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -3939,6 +4753,20 @@
             "Weights": {
                 "BaseWeight": 31,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": -350.0,
+                            "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "94387c510f7c11e41bf538bf7219ef13",
                         "StatWarpType": 3,
@@ -4050,6 +4878,20 @@
                 "BaseWeight": 31,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": -350.0,
+                            "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAssertive",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -4117,6 +4959,20 @@
             "Weights": {
                 "BaseWeight": 31,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": -350.0,
+                            "y": -101.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "79cf41c62c7a44e429c12549185f14c0",
                         "StatWarpType": 3,
@@ -4242,6 +5098,20 @@
                 "BaseWeight": 21,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 101.0,
+                            "y": 350.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceReserved",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -4267,6 +5137,20 @@
             "Weights": {
                 "BaseWeight": 21,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 101.0,
+                            "y": 350.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "c5e73a0f4b2d4e7189a6f302dc8b154e",
                         "StatWarpType": 3,
@@ -4350,6 +5234,20 @@
                 "BaseWeight": 21,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 101.0,
+                            "y": 350.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAnxious",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -4389,6 +5287,20 @@
             "Weights": {
                 "BaseWeight": 21,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 101.0,
+                            "y": 350.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "84ef913a69f843de951dc5faec4f7fc8",
                         "StatWarpType": 3,
@@ -4486,6 +5398,20 @@
                 "BaseWeight": 21,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 101.0,
+                            "y": 350.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceWarm",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -4539,6 +5465,20 @@
             "Weights": {
                 "BaseWeight": 21,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 101.0,
+                            "y": 350.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "94387c510f7c11e41bf538bf7219ef13",
                         "StatWarpType": 3,
@@ -4650,6 +5590,20 @@
                 "BaseWeight": 21,
                 "AgentStatsWeightModifiers": [
                     {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 101.0,
+                            "y": 350.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
+                    {
                         "StatWarpData": "poStatVoiceAssertive",
                         "StatWarpType": 3,
                         "UseAssociatedAgent": true,
@@ -4717,6 +5671,20 @@
             "Weights": {
                 "BaseWeight": 21,
                 "AgentStatsWeightModifiers": [
+                    {
+                        "StatWarpData": "cb29f696f5b400f41bde56d8e849f9bc",
+                        "StatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "StatRange": {
+                            "x": 101.0,
+                            "y": 350.0
+                        },
+                        "InterpWeightRange": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "WhenOutOfRange": 2
+                    },
                     {
                         "StatWarpData": "79cf41c62c7a44e429c12549185f14c0",
                         "StatWarpType": 3,

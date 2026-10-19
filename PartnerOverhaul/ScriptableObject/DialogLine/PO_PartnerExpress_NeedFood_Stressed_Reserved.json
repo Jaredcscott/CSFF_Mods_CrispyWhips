@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Reserved_Line",
+        "DefaultText": "I'm worn thin. And hungry. I need food."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Express_Answer_Continue",
+                "DefaultText": "Continue"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

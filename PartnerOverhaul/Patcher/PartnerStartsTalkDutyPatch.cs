@@ -44,6 +44,14 @@ namespace PartnerOverhaul.Patcher
         internal const int BaseWeight = 110;
         internal const int MorningWeightBonus = 40;
         internal const int MaxPerDay = 1;
+        // PO-C6 point (3) / PO-C7 point (6): a fresh memory (1..96) raises the weight, so the Partner is
+        // more likely to start talk after a fight, escape, build or catch. PLACEHOLDER, TUNABLE: it only
+        // adds to the base weight; it cannot lift the duty over a need band, which cancels it outright.
+        internal const int MemoryWeightBonus = 30;
+        internal static readonly string[] MemoryStatUids =
+        {
+            "poStatMemoryFight", "poStatMemoryEscape", "poStatMemoryBuild", "poStatMemoryCatch",
+        };
         private const int CancelWeight = -1000000;
 
         // Vanilla NPCStat UIDs (Documentation/GameData/.../UniqueIDScriptableGUID/NPCStat.json).
@@ -80,6 +88,17 @@ namespace PartnerOverhaul.Patcher
                 return;
             }
             harmony.Patch(target, postfix: new HarmonyMethod(typeof(PartnerStartsTalkDutyPatch), nameof(LoadMainGameData_Postfix)));
+            var select = AccessTools.Method(typeof(InGameNPC), nameof(InGameNPC.SelectDuty));
+            if (select == null)
+                Logger.LogWarning("[PartnerStartsTalk] InGameNPC.SelectDuty not found; a started talk may not count toward its once-a-day limit (game update?).");
+            else
+                harmony.Patch(select, postfix: new HarmonyMethod(typeof(PartnerStartsTalkDutyPatch), nameof(SelectDuty_Postfix)));
+            var next = AccessTools.Method(typeof(SelectedNPCDuty), nameof(SelectedNPCDuty.NextAction));
+            _performedTodayListField = AccessTools.Field(typeof(InGameNPC), "DutiesPerformedTodayList");
+            if (next == null || _performedTodayListField == null)
+                Logger.LogWarning("[PartnerStartsTalk] SelectedNPCDuty.NextAction or InGameNPC.DutiesPerformedTodayList not found; a finished talk is not counted toward its once-a-day limit (game update?).");
+            else
+                harmony.Patch(next, prefix: new HarmonyMethod(typeof(PartnerStartsTalkDutyPatch), nameof(NextAction_Prefix)));
             Logger.LogDebug("PartnerStartsTalkDutyPatch applied.");
         }
 
@@ -151,6 +170,70 @@ namespace PartnerOverhaul.Patcher
             Logger.LogInfo($"[PartnerStartsTalk] added the '{DutySoName}' duty to Agent_Partner (base weight {BaseWeight}, +{MorningWeightBonus} in the morning; cancelled while a need band is in range).");
         }
 
+        // T2.515, half 1 of 2: every talk line adds Partner_DialogCooldown (+24 on PO_PartnerTalk_Start),
+        // which takes this duty out of its own DialogCooldown 0..1 gate while it runs. InGameNPC.UpdateTick
+        // runs CheckForDuties (SelectDuty, then SetCurrentDuty) BEFORE it updates the current duty, so on
+        // the first tick after the talk closes the game would pick Idle and cancel the talk duty before
+        // its update branch ran. A started talk duty that can still be performed stays selected, so
+        // that tick reaches the update branch and NextAction_Prefix below can count it. Only this duty;
+        // vanilla Express duties (MaxPerformPerDay 0) are left exactly as the game picks them.
+        private static void SelectDuty_Postfix(InGameNPC __instance, ref NPCDuty __result)
+        {
+            try
+            {
+                if (__result == null || __instance == null) return;
+                var current = __instance.CurrentDuty;
+                if (!current.IsValid || !current.ActionStarted || current.Duty == __result) return;
+                if (current.Duty.UniqueID != DutyUid) return;
+                if (current.CannotPerform(__instance)) return;
+                __result = current.Duty;
+            }
+            catch (Exception ex)
+            {
+                WarnOnce("select-duty-exception", ex.ToString());
+            }
+        }
+
+        private static FieldInfo _performedTodayListField;
+
+        // T2.515, half 2 of 2: the game counts a duty (DutiesPerformedToday) only in
+        // InGameNPC.StartOrUpdateCurrentDuty, after CurrentDuty.Finished, and only on a call that ran
+        // the step. StartDialogDutyAction.ActionComplete is !IsInDialog, so the talk's one step is not
+        // complete on the tick it opens the dialog; on the first tick after the dialog closes
+        // ReadyForNextAction is already true, UpdateTick skips the step update and calls NextAction,
+        // and MoveToAction steps past the end and Clears the duty: Finished is never asked and the talk
+        // is never counted, so MaxPerformPerDay 1 never applied. (Vanilla one-step Express duties are
+        // never counted either; they have no daily limit, so this leaves them alone.) This prefix runs
+        // at that NextAction and adds the count exactly as the game's own Finished branch does: same
+        // condition (Finished on a valid duty with a current step and no decision outcome), same key
+        // (UniqueIDScriptable.SaveID), same dictionary and the private list Save() writes from. It
+        // cannot double-count: when the game's own branch counts a duty it also Clears it, so no
+        // NextAction ever sees it valid afterwards. OnDayEnded clears both, as for every duty.
+        private static void NextAction_Prefix(ref SelectedNPCDuty __instance, InGameNPC _FromNPC)
+        {
+            try
+            {
+                if (_FromNPC == null || !__instance.IsValid || __instance.Duty.UniqueID != DutyUid) return;
+                if (__instance.CurrentAction == null || __instance.CurrentDecisionOutcome != null) return;
+                if (!__instance.Finished(_FromNPC)) return;
+                string key = UniqueIDScriptable.SaveID(__instance.Duty);
+                if (string.IsNullOrEmpty(key)) return;
+                if (!_FromNPC.DutiesPerformedToday.ContainsKey(key))
+                {
+                    _FromNPC.DutiesPerformedToday.Add(key, 1);
+                    (_performedTodayListField.GetValue(_FromNPC) as List<string>)?.Add(key);
+                }
+                else
+                {
+                    _FromNPC.DutiesPerformedToday[key]++;
+                }
+            }
+            catch (Exception ex)
+            {
+                WarnOnce("next-action-exception", ex.ToString());
+            }
+        }
+
         private static DialogScene FindTalkScene()
         {
             foreach (var scene in Resources.FindObjectsOfTypeAll<DialogScene>())
@@ -207,6 +290,19 @@ namespace PartnerOverhaul.Patcher
                 {
                     Stat = stat, UseAssociatedAgent = true,
                     StatRange = new Vector2(band.Lo, band.Hi), InterpWeightRange = new Vector2Int(CancelWeight, CancelWeight),
+                    WhenOutOfRange = StatDropChanceModOutOfRange.Add0Weight,
+                });
+            }
+
+            // PO's own memory stats (PO-C7). A stat that does not resolve only drops that bonus.
+            foreach (var memUid in MemoryStatUids)
+            {
+                var mem = UniqueIDScriptable.GetFromID<NPCStat>(memUid);
+                if (mem == null) { WarnOnce("memory-stat-missing-" + memUid, memUid + " not resolvable; no talk-after-memory weight bonus for it"); continue; }
+                mods.Add(new NPCStatBasedDropChanceModifier
+                {
+                    Stat = mem, UseAssociatedAgent = true,
+                    StatRange = new Vector2(1f, 96f), InterpWeightRange = new Vector2Int(MemoryWeightBonus, MemoryWeightBonus),
                     WhenOutOfRange = StatDropChanceModOutOfRange.Add0Weight,
                 });
             }

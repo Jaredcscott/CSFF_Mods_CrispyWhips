@@ -1,0 +1,99 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Report_Fish_Line",
+        "DefaultText": "(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)"
+    },
+    "UseWeightsForNextStep": true,
+    "NextStep": {
+        "NextStep": 0,
+        "NextLineWarpData": "PO_PartnerTalk_Report_Fish_Plain",
+        "NextLineWarpType": 3
+    },
+    "NextStepsWithWeights": [
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Fish_Catch",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 1,
+                "CardWeightModifiers": [
+                    {
+                        "CardOnBoardWarpData": "a966c94277465f741857b994202791f3",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "bb8a42f395c31894188ff3038d76128f",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "70df5b800c3fd56499fd412bb9ce7523",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "de00abf9d0d186b42bed6807ba49a4cb",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "f4972170adc8b3d4f9d4bc09c6e7f760",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Fish_Plain",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 5
+            }
+        }
+    ],
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
+                "DefaultText": "Step back"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

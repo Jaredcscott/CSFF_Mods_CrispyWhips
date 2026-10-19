@@ -1,0 +1,14 @@
+{
+  "target": "PartnerOverhaul_EmberPot.png",
+  "sourceCard": "EmberPot",
+  "subject": "a small squat round terracotta clay pot with a plain flat clay lid and one loop of pale tan twisted rope tied around its neck as a carrying handle; cold and empty, no glow, no smoke",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": { "aspectRatio": "2:3", "resolution": "1K", "imageCount": 1, "autoEnhancePrompt": false },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small squat round terracotta clay pot, warm orange-brown fired clay, with a plain flat clay lid sitting on top and one loop of pale tan twisted rope tied around its neck as a short carrying handle; the pot is cold and empty: no glow, no embers, no smoke, no flame, no decoration, no spout, no second handle, in the style of a cozy hand-illustrated survival-crafting game (standard /create-image template and Avoid list, plus: glowing embers, fire, smoke, painted patterns, spout, wooden parts)",
+  "historyId": "xurIJUf9dir2TNa71quD",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792312489629_a1449b6d_1792312489688_6e07d977.png",
+  "credits": 20,
+  "generated": "2026-10-18",
+  "finish_note": "process_card_art.py keyed finish, then the opaque white paper enclosed by the rope handle (12134 px, not border-connected so the keyer kept it) keyed with the same 200..250 ramp and re-quantized to 256 colours"
+}

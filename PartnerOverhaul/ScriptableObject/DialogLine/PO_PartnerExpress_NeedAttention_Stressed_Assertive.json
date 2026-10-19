@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Assertive_Line",
+        "DefaultText": "I'm under a lot of strain and you keep walking past me. I need your attention."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Express_Answer_Continue",
+                "DefaultText": "Continue"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

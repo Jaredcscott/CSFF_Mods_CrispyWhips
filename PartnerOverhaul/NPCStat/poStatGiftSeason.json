@@ -1,0 +1,17 @@
+{
+    "UniqueID": "poStatGiftSeason",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "PO gift latch: set to a season length when the Partner has handed over a keepsake, counts down to 0, hides the gift remark meanwhile (clamped marker, never a counter)"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 2880.0
+    },
+    "DefaultRate": -1.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

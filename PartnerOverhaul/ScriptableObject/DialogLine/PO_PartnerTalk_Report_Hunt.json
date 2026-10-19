@@ -1,0 +1,93 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Report_Hunt_Line",
+        "DefaultText": "(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)"
+    },
+    "UseWeightsForNextStep": true,
+    "NextStep": {
+        "NextStep": 0,
+        "NextLineWarpData": "PO_PartnerTalk_Report_Hunt_Plain",
+        "NextLineWarpType": 3
+    },
+    "NextStepsWithWeights": [
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Hunt_Large",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 2,
+                "CardWeightModifiers": [
+                    {
+                        "TagOnBoardWarpData": "tag_CarcassLarge",
+                        "TagOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 20
+                    },
+                    {
+                        "TagOnBoardWarpData": "tag_CarcassVeryLarge",
+                        "TagOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 20
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Hunt_Game",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 1,
+                "CardWeightModifiers": [
+                    {
+                        "TagOnBoardWarpData": "tag_Carcass",
+                        "TagOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Hunt_Plain",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 5
+            }
+        }
+    ],
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
+                "DefaultText": "Step back"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

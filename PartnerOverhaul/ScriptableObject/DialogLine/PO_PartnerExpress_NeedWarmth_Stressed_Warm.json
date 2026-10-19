@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Warm_Line",
+        "DefaultText": "It's been a rough stretch. If we could just sit by a fire, I think I'd feel like myself again."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Express_Answer_Continue",
+                "DefaultText": "Continue"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

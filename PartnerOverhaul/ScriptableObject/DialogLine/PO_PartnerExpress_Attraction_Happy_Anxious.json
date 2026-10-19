@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_PartnerExpress_Attraction_Happy_Anxious_Line",
+        "DefaultText": "I'm so happy today I can hardly stand still near you. Is that silly?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Express_Answer_Continue",
+                "DefaultText": "Continue"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

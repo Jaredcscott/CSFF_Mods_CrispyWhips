@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Anxious_Line",
+        "DefaultText": "I can't stop shivering. What if it gets colder tonight? I need to get warm."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Express_Answer_Continue",
+                "DefaultText": "Continue"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

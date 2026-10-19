@@ -1,0 +1,56 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Gift_Line",
+        "DefaultText": "I went out walking while you were busy and found these in the open ground. They made me think of you. Here, take them."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            },
+            {
+                "TargetStatWarpData": "poStatGiftSeason",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 2880.0,
+                    "y": 2880.0
+                }
+            }
+        ],
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "022d83d74a3b5df4e9f50e70d216d4c0",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 1,
+                    "y": 1
+                },
+                "TransferRules": {
+                    "Special2": 3,
+                    "Special2Value": 72.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Gift_Answer_Thanks",
+                "DefaultText": "Thank you"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

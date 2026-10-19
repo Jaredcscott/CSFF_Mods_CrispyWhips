@@ -116,12 +116,12 @@ namespace PartnerOverhaul.Patcher
         // at Debug and still be summarised in one Info line. Reset per pass: LoadMainGameData
         // runs again on every return to the main menu.
         private static int _dutyRefsAdded;
-        private static int _tagsAdded;
+        private static int _poolEntriesAdded;
 
         private static void LoadMainGameData_Postfix()
         {
             _dutyRefsAdded = 0;
-            _tagsAdded = 0;
+            _poolEntriesAdded = 0;
             try { FixStewBrothEating(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixStewBrothEating failed: {ex}"); }
             try { FixCleaningGap(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixCleaningGap failed: {ex}"); }
             try { FixGardenOverwatering(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixGardenOverwatering failed: {ex}"); }
@@ -142,8 +142,8 @@ namespace PartnerOverhaul.Patcher
             }
             try { FixPartnerStatVisibility(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixPartnerStatVisibility failed: {ex}"); }
 
-            if (_dutyRefsAdded > 0 || _tagsAdded > 0)
-                Logger.LogInfo($"[GameLoadPatch] attached {_dutyRefsAdded} duty ref(s) to vanilla actions and {_tagsAdded} tag(s) to vanilla cards (enable Debug logging for the per-target list).");
+            if (_dutyRefsAdded > 0 || _poolEntriesAdded > 0)
+                Logger.LogInfo($"[GameLoadPatch] attached {_dutyRefsAdded} duty ref(s) to vanilla actions and {_poolEntriesAdded} item-pool entr(ies) to Eat duties (enable Debug logging for the per-target list).");
         }
 
         // ── Fix 1: stew/broth "Drink" is invisible to the Eat duty engine ──────────────────
@@ -152,31 +152,21 @@ namespace PartnerOverhaul.Patcher
             var eatDuty = UniqueIDScriptable.GetFromID<NPCDuty>(PartnerDutyEatUid);
             var eatFreeDuty = UniqueIDScriptable.GetFromID<NPCDuty>(PartnerDutyEatFreeUid);
 
-            // The Eat duty's AffectItemsDutyAction selects from an item pool keyed on tag_HumanFood (plus
-            // LQ_Water). A duty ref on the Drink action alone is therefore not enough: the broth and
-            // stew carry only tag_Heatable, so the duty never picked them (T2.103 2026-10-13, 0 Drink
-            // action.done events). Giving just these two cards the tag is the narrowest widening: the
-            // duty asset and every other liquid stay untouched.
-            CardTag humanFood = null;
-            foreach (var t in Resources.FindObjectsOfTypeAll<CardTag>())
-                if (t != null && t.name == "tag_HumanFood") { humanFood = t; break; }
-            if (humanFood == null) Logger.LogWarning("[GameLoadPatch] tag_HumanFood not found - stew/broth stay outside the Eat duty's item pool.");
-
+            // The Eat and EatFree duties' AffectItemsDutyAction select from an item pool keyed on the
+            // global tag tag_HumanFood plus the LQ_Water card. A duty ref on the Drink action alone is
+            // therefore not enough: the broth and stew carry only tag_Heatable, so the duty never picked
+            // them (T2.103 2026-10-13, 0 Drink action.done events). The two cards are added to those
+            // two pools as card entries, exactly as LQ_Water already is. They are NOT given the tag:
+            // tag_HumanFood is also read by the Stress Eat pool, the Partner's food preference list,
+            // the framework's wildlife raids, QuickTransfer's tag filter and pantry slot filters, none
+            // of which should see a broth (Documentation/Research/PartnerOverhaul/humanfood_consumers_2026-10-18.md).
             foreach (var (uid, label) in new[] { (OldLqStewWaterUid, "OLD_LQ_StewWater"), (LqNightBrothUid, "LQ_NightBroth") })
             {
                 var card = UniqueIDScriptable.GetFromID<CardData>(uid);
                 if (card == null) { Logger.LogWarning($"[GameLoadPatch] {label} not resolvable — skipping stew/broth eat fix."); continue; }
 
-                if (humanFood != null)
-                {
-                    var tags = card.CardTags ?? Array.Empty<CardTag>();
-                    if (!tags.Contains(humanFood))
-                    {
-                        card.CardTags = tags.Concat(new[] { humanFood }).ToArray();
-                        _tagsAdded++;
-                        Logger.LogDebug($"[GameLoadPatch] {label}: added tag_HumanFood so the Eat duty's item pool selects it.");
-                    }
-                }
+                AddCardToEatItemPools(eatDuty, "PartnerDuty_Eat", card, label);
+                AddCardToEatItemPools(eatFreeDuty, "PartnerDuty_EatFree", card, label);
 
                 var drink = card.DismantleActions?.FirstOrDefault(a => a.ActionName != null && a.ActionName.DefaultText == "Drink");
                 if (drink == null) { Logger.LogWarning($"[GameLoadPatch] {label}: 'Drink' DismantleAction not found — skipping."); continue; }
@@ -186,6 +176,42 @@ namespace PartnerOverhaul.Patcher
                 AppendDutyRefIfMissing(drink, eatDuty, "PartnerDuty_Eat", $"{label}.Drink");
                 AppendDutyRefIfMissing(drink, eatFreeDuty, "PartnerDuty_EatFree", $"{label}.Drink");
             }
+        }
+
+        // Appends the card to the item pool of every AffectItemsDutyAction step of the duty whose pool
+        // is the human-food pool (it names the tag_HumanFood tag), unless a card entry for it is
+        // already there. Idempotent: LoadMainGameData runs again on every return to the main menu.
+        private static void AddCardToEatItemPools(NPCDuty duty, string dutyLabel, CardData card, string cardLabel)
+        {
+            if (duty == null) { Logger.LogWarning($"[GameLoadPatch] {cardLabel}: duty '{dutyLabel}' not resolvable - item pool unchanged."); return; }
+            var foodPoolsSeen = 0;
+            foreach (var step in duty.ActionSequence ?? Array.Empty<NPCDutyAction>())
+            {
+                var affect = step as AffectItemsDutyAction;
+                var pool = affect?.ItemSelection?.ItemPool;
+                if (pool == null) continue;
+                var isFoodPool = false;
+                foreach (var entry in pool)
+                {
+                    var tag = entry.Target.Tag;
+                    if (tag != null && tag.name == "tag_HumanFood") { isFoodPool = true; break; }
+                }
+                if (!isFoodPool) continue;
+                foodPoolsSeen++;
+                var present = false;
+                foreach (var entry in pool)
+                    if (entry.Target.Card == card) { present = true; break; }
+                if (present)
+                {
+                    Logger.LogDebug($"[GameLoadPatch] {cardLabel}: already in {dutyLabel}'s item pool - skipping (idempotent).");
+                    continue;
+                }
+                pool.Add(new CardOrTagQuantity(card));
+                _poolEntriesAdded++;
+                Logger.LogDebug($"[GameLoadPatch] {cardLabel}: added to {dutyLabel}'s item pool so the Eat step selects it.");
+            }
+            if (foodPoolsSeen == 0)
+                Logger.LogWarning($"[GameLoadPatch] {cardLabel}: no human-food item pool found on {dutyLabel} - the card stays outside it.");
         }
 
         // ── Fix 2: "Clean" on finished homes is invisible to the Clean duty engine ─────────

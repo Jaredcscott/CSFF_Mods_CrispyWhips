@@ -1,0 +1,219 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "PartnerOverhaul_Talk_Report_Forage_Line",
+        "DefaultText": "(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)"
+    },
+    "UseWeightsForNextStep": true,
+    "NextStep": {
+        "NextStep": 0,
+        "NextLineWarpData": "PO_PartnerTalk_Report_Forage_Plain",
+        "NextLineWarpType": 3
+    },
+    "NextStepsWithWeights": [
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Forage_Mushrooms",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 4,
+                "CardWeightModifiers": [
+                    {
+                        "CardOnBoardWarpData": "c324f662484d721469d7565b7bfb3e65",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "a07b58829bd83d441ab96b4d33197aa6",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "e41ab416339b3c9459a37b4942f8f57b",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "33a8fa532b48ca040a368f63c0cb68ff",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "2105d96d97f2a434f974cb76bbeecdf2",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Forage_Berries",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 3,
+                "CardWeightModifiers": [
+                    {
+                        "CardOnBoardWarpData": "d615853632d85db458d14016156b1a82",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "4b15494036b7cb74d8eebfde424f9889",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "2bfd683e2c81d9e4ea993221475673ee",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Forage_Nuts",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 2,
+                "CardWeightModifiers": [
+                    {
+                        "CardOnBoardWarpData": "2373beb4187dba040be0e93f0586321e",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "e22fe4f807c54b04c98d6e8af2a92acc",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "a934d56f01b147649bbe8e0e93a86048",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Forage_Herbs",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 1,
+                "CardWeightModifiers": [
+                    {
+                        "CardOnBoardWarpData": "283c5cf6e29e618479a4e768acc4a639",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "a1da115fe6aad774683492f7317850aa",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "5ad63f32ed767c64190a64d79841d023",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "ac0e762e7e085914c8b4751a8485cb65",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "ac174c399999d14489fb3788c8931e93",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "ecff0e5482448a54e9e54c4f788286ef",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "ffbc6fdc5dc0eec43b100d0feb63b70d",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "22bcbfab690575846ab4bb3b81da3635",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    },
+                    {
+                        "CardOnBoardWarpData": "322e42ea161bf2e4bb94747882d1285a",
+                        "CardOnBoardWarpType": 3,
+                        "OnlyInInventory": true,
+                        "MaxWeightPerCard": 10
+                    }
+                ]
+            }
+        },
+        {
+            "Line": {
+                "NextStep": 0,
+                "NextLineWarpData": "PO_PartnerTalk_Report_Forage_Plain",
+                "NextLineWarpType": 3
+            },
+            "Weights": {
+                "BaseWeight": 5
+            }
+        }
+    ],
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "7b4b2fcda5d5fe14bbe42fddc19afc57",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            }
+        ],
+        "SpendTicks": true,
+        "Ticks": 1
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "PartnerOverhaul_Talk_Answer_StepBack",
+                "DefaultText": "Step back"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

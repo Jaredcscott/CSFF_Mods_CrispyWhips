@@ -98,3 +98,121 @@ PartnerOverhaul_Talk_Topic_Village_Answer,The village
 PartnerOverhaul_Talk_Topic_Village_Line,"The village is quieter than I expected from out here. A little smoke from the chimneys, someone's washing on a line. It makes this place feel less alone."
 PartnerOverhaul_Talk_Topic_Inn_Answer,The Inn
 PartnerOverhaul_Talk_Topic_Inn_Line,"Busy at the Inn tonight. You can hear it through the walls, cups and laughter and somebody's old song. I had forgotten how good it is to hear people."
+PartnerOverhaul_Talk_Report_Forage_Mushrooms_Line,"Found mushrooms past the stream, a good clump tucked under a fallen log. I kept to the ones I know, but give them a look before they reach the pot."
+PartnerOverhaul_Talk_Report_Forage_Berries_Line,The berry bushes were heavy this time. I ate a few on the walk back and kept the best of them for you.
+PartnerOverhaul_Talk_Report_Forage_Nuts_Line,The ground under the big trees was littered with acorns and cones. I filled what I could carry before the squirrels noticed.
+PartnerOverhaul_Talk_Report_Forage_Herbs_Line,"Most of the walk went on picking leaves and roots along the path. Some I knew by sight, some I only hoped about."
+PartnerOverhaul_Talk_Report_Forage_Plain_Line,Good to be back. The woods out there get a little more familiar each time I go.
+PartnerOverhaul_Talk_Report_Forage_Line,"(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)"
+PartnerOverhaul_Talk_Report_Hunt_Large_Line,"It was a big one. I would rather not say how long the trail ran before I caught up with it, only that it was worth the walk."
+PartnerOverhaul_Talk_Report_Hunt_Game_Line,Brought something back for the pot. The trail went cold twice before it ended.
+PartnerOverhaul_Talk_Report_Hunt_Plain_Line,"I followed the trail as far as it went. The woods keep their secrets, but I am learning where to look."
+PartnerOverhaul_Talk_Report_Hunt_Line,"(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)"
+PartnerOverhaul_Talk_Report_Fish_Catch_Line,"The fish were biting by the shallows, and I stayed until the light changed. There should be a good meal in it."
+PartnerOverhaul_Talk_Report_Fish_Plain_Line,"I sat by the water most of the time, watching the line. There is nothing wrong with a quiet afternoon."
+PartnerOverhaul_Talk_Report_Fish_Line,"(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)"
+PartnerOverhaul_Talk_Report_Answer_Thanks,Thanks for telling me
+PartnerOverhaul_Talk_Gift_Line,"I went out walking while you were busy and found these in the open ground. They made me think of you. Here, take them."
+PartnerOverhaul_Talk_Gift_Answer_Thanks,Thank you
+PartnerOverhaul_Talk_Topic_GrindingMill_Answer,The grinding mill
+PartnerOverhaul_Talk_Topic_WaterMill_Answer,The water mill
+PartnerOverhaul_Talk_Topic_Mill_Line,"Listen to that wheel, slow and steady, the water doing the work for us. It is a sound that says someone planned ahead."
+PartnerOverhaul_Talk_FirstVisit_Lake_Line,"I had never seen the lake before we came out here together. All that still water, with the sky lying flat on it."
+PartnerOverhaul_Talk_FirstVisit_Wetlands_Line,"That mossy, sodden part of the woods was new to me. I don't think my feet will ever be dry again."
+PartnerOverhaul_Talk_FirstVisit_River_Line,My first time by the river with you. I could listen to that water all day.
+PartnerOverhaul_Talk_FirstVisit_Pine_Line,My first walk among the pines. Everything there smells of resin and needles.
+PartnerOverhaul_Talk_FirstVisit_Oak_Line,"My first walk under the big oaks. They make the whole forest feel older, somehow."
+PartnerOverhaul_EmberPot_CardName,Ember Pot
+PartnerOverhaul_EmberPot_CardDescription,"A lidded clay pot on a rope loop, cold and empty. Drag it onto a burning fire to scoop in embers (the fire loses fuel), then give it to your Partner to carry."
+PartnerOverhaul_EmberPot_Fill_ActionName,Fill with Embers
+PartnerOverhaul_EmberPot_Fill_ActionDescription,Scooped glowing embers from the fire into the pot and set the lid on. The fire burns lower for it.
+PartnerOverhaul_EmberPotLit_CardName,Ember Pot (Smouldering)
+PartnerOverhaul_EmberPotLit_CardDescription,"A clay pot of smouldering embers on a rope loop, worn at the belt. Whoever wears it feels a little warmer, less than beside a fire. Put it in your Partner's inventory and it wears it by itself. The embers burn down in about six hours; add Charcoal to keep them going."
+PartnerOverhaul_EmberPotLit_FuelCapacity_CardStatName,Embers
+PartnerOverhaul_EmberPotLit_EmbersOut_ActionName,Embers Die
+PartnerOverhaul_EmberPotLit_EmbersOut_ActionDescription,The embers have burned down to grey ash and the pot has gone cold.
+PartnerOverhaul_EmberPotLit_AddCharcoal_ActionName,Add Charcoal
+PartnerOverhaul_EmberPotLit_AddCharcoal_ActionDescription,Tucked a lump of charcoal into the embers. It will keep them going about four hours longer.
+PartnerOverhaul_EmberPotLit_Smother_ActionName,Smother
+PartnerOverhaul_EmberPotLit_Smother_ActionDescription,Pressed the lid down until the embers went out. They are lost.
+PartnerOverhaul_Bp_EmberPot_CardName,Ember Pot
+PartnerOverhaul_Bp_EmberPot_CardDescription,"Tie a rope loop round a clay bowl and cap it, so a Partner can carry a few embers on a cold night."
+PartnerOverhaul_Bp_EmberPot_UnlockConditionsDesc,Clay Bowl Needed
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Neutral_Line,"Everything is going wrong, and on top of it I'm starving. I need to eat."
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Reserved_Line,"I'm worn thin. And hungry. I need food."
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Anxious_Line,"I can't think straight. I'm hungry and scared, and I don't know what we'll eat tomorrow."
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Warm_Line,"It's been a hard few days. A meal together would help more than you know."
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Assertive_Line,"I'm hungry and I'm at the end of my rope. Find us something to eat."
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Neutral_Line,"I need to eat something. Is there any food we can spare?"
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Reserved_Line,"Food. I need some. Soon."
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Anxious_Line,"I'm so hungry it's making me shaky. Is there enough food? Please tell me there's enough."
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Warm_Line,"My stomach has been complaining all afternoon. Could we sit down and eat something together?"
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Assertive_Line,"I need food, now. I can't keep working on an empty stomach."
+PartnerOverhaul_PartnerExpress_Router_NeedFood_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)"
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Neutral_Line,"I'm cold, I'm tired of being cold, and I'm tired of all of it. Please, some warmth."
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Reserved_Line,"My teeth won't stop chattering. I need warmth. Please."
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Anxious_Line,"I'm so cold, and everything feels like it's falling apart. Please, help me get warm."
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Warm_Line,"It's been a rough stretch. If we could just sit by a fire, I think I'd feel like myself again."
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Assertive_Line,"I've had enough of this cold. Get a fire going. I mean it."
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Neutral_Line,"I'm freezing. I need to get warm."
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Reserved_Line,"Cold. Too cold. I need a fire."
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Anxious_Line,"I can't stop shivering. What if it gets colder tonight? I need to get warm."
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Warm_Line,"My hands are like ice. Could we sit close to a fire for a while, together?"
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Assertive_Line,"I'm frozen through. We need a fire, and we need it now."
+PartnerOverhaul_PartnerExpress_Router_NeedWarmth_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)"
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Neutral_Line,"Everything has been so heavy, and I feel alone with it. Can we spend some time together?"
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Reserved_Line,"It's a lot right now. I'd rather not carry it alone."
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Anxious_Line,"I feel like I'm coming apart and you don't even see it. Please, just stay with me a while."
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Warm_Line,"It's been hard lately. Having you near makes it easier. Stay a little?"
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Assertive_Line,"I'm under a lot of strain and you keep walking past me. I need your attention."
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Neutral_Line,"We haven't really talked in a while. I'd like some of your time."
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Reserved_Line,"You've been busy. I noticed. A little time, maybe."
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Anxious_Line,"Have I done something wrong? You've barely spoken to me. I just want a moment with you."
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Warm_Line,"I miss you, even when you're right here. Spend a little time with me?"
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Assertive_Line,"I need you to stop for a moment and actually be with me."
+PartnerOverhaul_PartnerExpress_Router_NeedAttention_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)"
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Neutral_Line,"With everything this hard, I need to know you're on my side."
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Reserved_Line,"Things are bad. I need to know you're with me."
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Anxious_Line,"I'm frightened, and I don't know if I can lean on you. Can I?"
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Warm_Line,"These are hard days. I'd feel steadier knowing we're in this together."
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Assertive_Line,"I'm stretched thin. I need proof you have my back, not promises."
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Neutral_Line,"I need to know I can count on you."
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Reserved_Line,"I'm not sure where we stand. I'd like to be."
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Anxious_Line,"Sometimes I wonder if you'd leave me behind. Tell me I'm wrong."
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Warm_Line,"I want to trust you completely. Help me get there?"
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Assertive_Line,"Be straight with me. Can I rely on you or not?"
+PartnerOverhaul_PartnerExpress_Router_NeedTrust_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)"
+PartnerOverhaul_PartnerExpress_Affection_Happy_Neutral_Line,"Today feels good, and you're a big part of why."
+PartnerOverhaul_PartnerExpress_Affection_Happy_Reserved_Line,"Good day. Better with you."
+PartnerOverhaul_PartnerExpress_Affection_Happy_Anxious_Line,"I'm happy, and it scares me a little how much of that is you."
+PartnerOverhaul_PartnerExpress_Affection_Happy_Warm_Line,"I feel so light today. Thank you for being here with me."
+PartnerOverhaul_PartnerExpress_Affection_Happy_Assertive_Line,"I'm in a fine mood, and I want you to know it's because of you."
+PartnerOverhaul_PartnerExpress_Affection_Plain_Neutral_Line,"I'm glad it's you I'm out here with."
+PartnerOverhaul_PartnerExpress_Affection_Plain_Reserved_Line,"I like having you around. That's all."
+PartnerOverhaul_PartnerExpress_Affection_Plain_Anxious_Line,"I worry I don't say it enough. I care about you, a lot."
+PartnerOverhaul_PartnerExpress_Affection_Plain_Warm_Line,"Come here. I just wanted to tell you how much you mean to me."
+PartnerOverhaul_PartnerExpress_Affection_Plain_Assertive_Line,"I'll say it plainly: I care about you, and I'm not going anywhere."
+PartnerOverhaul_PartnerExpress_Router_Affection_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)"
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Neutral_Line,"I'm in such a good mood, and you look wonderful today."
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Reserved_Line,"Feeling good. You look good. Both true."
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Anxious_Line,"I'm so happy today I can hardly stand still near you. Is that silly?"
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Warm_Line,"Everything feels bright today, and you most of all."
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Assertive_Line,"Good day, good company, and you look fine. I'm not hiding it."
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Neutral_Line,"I keep catching myself looking at you."
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Reserved_Line,"You look good today. I noticed."
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Anxious_Line,"Is it strange that you still make my heart jump? I hope that's all right."
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Warm_Line,"Have I told you lately how lovely you look in this light?"
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Assertive_Line,"I like what I see. Thought you should know."
+PartnerOverhaul_PartnerExpress_Router_Attraction_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)"
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Neutral_Line,"I'm in good spirits, and I owe a lot of that to you. Thank you."
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Reserved_Line,"Good day. Thanks to you."
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Anxious_Line,"Things are good right now, and I'm so grateful. Thank you for making it so."
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Warm_Line,"I'm so happy today. Thank you for all the little things you do."
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Assertive_Line,"Life is good right now, and you made that happen. Thank you."
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Neutral_Line,"Thank you for everything you do for us."
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Reserved_Line,"Thanks. For all of it."
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Anxious_Line,"I don't know what I'd do without you. Thank you, truly."
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Warm_Line,"I don't say it enough: thank you. You take such good care of me."
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Assertive_Line,"You've done right by me, and I won't forget it. Thank you."
+PartnerOverhaul_PartnerExpress_Router_Gratitude_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)"
+PartnerOverhaul_Express_Answer_Continue,Continue

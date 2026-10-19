@@ -5,6 +5,11 @@ namespace PartnerOverhaul.Patcher
     /// one for the Community Mod Chest village ("cmcEnvVillage") and one for its Inn ("cmcInnInterior"),
     /// each gated on RequiredEnvironment for the resolved room card plus a PO heard-topic marker.
     ///
+    /// PO-X2 adds two more answers of the same kind for WaterDrivenInfrastructure: the placed Grinding Mill
+    /// and the placed Water-Driven Sawmill, each gated on RequiredCardsOnBoard (the board check, not the room)
+    /// and sharing the line PO_PartnerTalk_Topic_Mill and the marker poStatTopicHeardMill. RequiredCardsOnBoard
+    /// needs ALL its cards, so "either mill" is two answers.
+    ///
     /// Soft dependency (CLAUDE.md, memory project_soft_dep_doctrine): PO declares no dependency on CMC
     /// and reads no CMC stat. The answers are built here, not in JSON, because a JSON answer naming a CMC
     /// UID would leave an unresolved WarpData reference when CMC is absent. An answer is added only when
@@ -24,6 +29,7 @@ namespace PartnerOverhaul.Patcher
         private sealed class Topic
         {
             public string EnvUid;
+            public bool CardGate; // PO-X2: EnvUid names a placed CARD gated by RequiredCardsOnBoard, not an environment
             public string LineName;
             public string StatUid;
             public string AnswerKey;
@@ -36,6 +42,12 @@ namespace PartnerOverhaul.Patcher
                         AnswerKey = "PartnerOverhaul_Talk_Topic_Village_Answer", AnswerDefault = "The village" },
             new Topic { EnvUid = "cmcInnInterior", LineName = "PO_PartnerTalk_Topic_Inn", StatUid = "poStatTopicHeardInn",
                         AnswerKey = "PartnerOverhaul_Talk_Topic_Inn_Answer", AnswerDefault = "The Inn" },
+            // PO-X2: WaterDrivenInfrastructure's placed Grinding Mill and Water-Driven Sawmill (the placed
+            // water mill), two answers into one line and one heard marker.
+            new Topic { EnvUid = "water_sawmill_grinding_mill_placed", CardGate = true, LineName = "PO_PartnerTalk_Topic_Mill", StatUid = "poStatTopicHeardMill",
+                        AnswerKey = "PartnerOverhaul_Talk_Topic_GrindingMill_Answer", AnswerDefault = "The grinding mill" },
+            new Topic { EnvUid = "water_sawmill_placed", CardGate = true, LineName = "PO_PartnerTalk_Topic_Mill", StatUid = "poStatTopicHeardMill",
+                        AnswerKey = "PartnerOverhaul_Talk_Topic_WaterMill_Answer", AnswerDefault = "The water mill" },
         };
 
         private static BepInEx.Logging.ManualLogSource Logger => Plugin.Logger;
@@ -95,6 +107,7 @@ namespace PartnerOverhaul.Patcher
         {
             try
             {
+                FoundLines.Clear();
                 foreach (var line in Resources.FindObjectsOfTypeAll<DialogLine>())
                 {
                     if (line == null || line.name != TopicsLineName) continue;
@@ -133,10 +146,27 @@ namespace PartnerOverhaul.Patcher
             return step.NextStep == DialogStep.MoveOnTo && step.NextLine != null ? step.NextLine.name : null;
         }
 
+        private static string AnswerKeyOf(DialogAnswer answer)
+        {
+            if (answer == null || _answerField == null) return null;
+            return ((LocalizedString)_answerField.GetValue(answer)).LocalizationKey;
+        }
+
+        // Found lines only, reset at run boot: a miss still rescans, so a line that loads late is still found.
+        private static readonly Dictionary<string, DialogLine> FoundLines = new Dictionary<string, DialogLine>();
+
         private static DialogLine FindLine(string name)
         {
+            DialogLine cached;
+            if (FoundLines.TryGetValue(name, out cached) && cached != null) return cached; // Unity null check
             foreach (var line in Resources.FindObjectsOfTypeAll<DialogLine>())
-                if (line != null && line.name == name) return line;
+            {
+                if (line != null && line.name == name)
+                {
+                    FoundLines[name] = line;
+                    return line;
+                }
+            }
             return null;
         }
 
@@ -148,14 +178,15 @@ namespace PartnerOverhaul.Patcher
 
             foreach (var topic in Topics)
             {
-                int ours = answers.FindIndex(a => NextLineName(a) == topic.LineName);
+                int ours = answers.FindIndex(a => NextLineName(a) == topic.LineName && AnswerKeyOf(a) == topic.AnswerKey);
                 var env = UniqueIDScriptable.GetFromID<CardData>(topic.EnvUid);
                 var stat = env != null ? UniqueIDScriptable.GetFromID<NPCStat>(topic.StatUid) : null;
                 var next = env != null ? FindLine(topic.LineName) : null;
 
                 if (env == null || stat == null || next == null)
                 {
-                    if (env == null) DebugOnce(topic.EnvUid + "-absent", $"'{topic.EnvUid}' does not resolve (Community Mod Chest not installed); no topic added");
+                    string providerName = topic.CardGate ? "WaterDrivenInfrastructure" : "Community Mod Chest";
+                    if (env == null) DebugOnce(topic.EnvUid + "-absent", $"'{topic.EnvUid}' does not resolve ({providerName} not installed); no topic added");
                     else if (stat == null) WarnOnce(topic.StatUid + "-missing", $"NPCStat '{topic.StatUid}' did not resolve; the '{topic.EnvUid}' topic is not added");
                     else WarnOnce(topic.LineName + "-missing", $"DialogLine '{topic.LineName}' not loaded; the '{topic.EnvUid}' topic is not added");
                     if (ours >= 0)
@@ -172,8 +203,17 @@ namespace PartnerOverhaul.Patcher
                 {
                     built = answers[ours];
                     var cond = (GeneralCondition)_conditionsField.GetValue(built);
-                    if (cond.RequiredEnvironment == env) continue; // already live
-                    cond.RequiredEnvironment = env;
+                    if (topic.CardGate)
+                    {
+                        if (cond.RequiredCardsOnBoard != null && cond.RequiredCardsOnBoard.Length == 1 && cond.RequiredCardsOnBoard[0] == env) continue; // already live
+                        cond.RequiredEnvironment = null;
+                        cond.RequiredCardsOnBoard = new[] { env };
+                    }
+                    else
+                    {
+                        if (cond.RequiredEnvironment == env) continue; // already live
+                        cond.RequiredEnvironment = env;
+                    }
                     _conditionsField.SetValue(built, cond);
                     continue;
                 }
@@ -186,8 +226,16 @@ namespace PartnerOverhaul.Patcher
                 }
                 built = (DialogAnswer)_memberwiseClone.Invoke(donor, null);
                 var conditions = (GeneralCondition)_conditionsField.GetValue(donor);
-                conditions.RequiredEnvironment = env;
-                conditions.RequiredCardsOnBoard = null; // the donor's Garden Plot gate does not apply
+                if (topic.CardGate)
+                {
+                    conditions.RequiredEnvironment = null;
+                    conditions.RequiredCardsOnBoard = new[] { env }; // the placed card must be on the player's board
+                }
+                else
+                {
+                    conditions.RequiredEnvironment = env;
+                    conditions.RequiredCardsOnBoard = null; // the donor's Garden Plot gate does not apply
+                }
                 conditions.RequiredNPCStatValues = new[]
                 {
                     new NPCStatCondition { UseAssociatedAgent = true, TargetStat = stat, ConditionRange = new Vector2(0f, 0f) }

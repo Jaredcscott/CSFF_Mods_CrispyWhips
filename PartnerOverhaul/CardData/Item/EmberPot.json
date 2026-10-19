@@ -1,0 +1,104 @@
+{
+  "UniqueID": "partner_overhaul_ember_pot",
+  "CardName": {
+    "ParentObjectID": "partner_overhaul_ember_pot",
+    "LocalizationKey": "PartnerOverhaul_EmberPot_CardName",
+    "DefaultText": "Ember Pot"
+  },
+  "CardDescription": {
+    "ParentObjectID": "partner_overhaul_ember_pot",
+    "LocalizationKey": "PartnerOverhaul_EmberPot_CardDescription",
+    "DefaultText": "A lidded clay pot on a rope loop, cold and empty. Drag it onto a burning fire to scoop in embers (the fire loses fuel), then give it to your Partner to carry."
+  },
+  "CardType": 0,
+  "ObjectWeight": 300.0,
+  "TradingValue": 15.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": [],
+  "CardTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "PartnerOverhaul_EmberPot",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["SmallContainer"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "partner_overhaul_ember_pot",
+        "LocalizationKey": "PartnerOverhaul_EmberPot_Fill_ActionName",
+        "DefaultText": "Fill with Embers"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "partner_overhaul_ember_pot",
+        "LocalizationKey": "PartnerOverhaul_EmberPot_Fill_ActionDescription",
+        "DefaultText": "Scooped glowing embers from the fire into the pot and set the lid on. The fire burns lower for it."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["FireIgnite"],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": ["tag_Fire"],
+        "TriggerTagsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksBothWays": true,
+      "RequiredGivenDurabilities": {
+        "RequiredFuelPercent": { "Active": true, "FloatValue": 0.125, "MaxValue": 1.0 }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "FuelChange": { "x": -12.0, "y": -12.0 }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "partner_overhaul_ember_pot_lit",
+        "TransformIntoWarpType": 3
+      }
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

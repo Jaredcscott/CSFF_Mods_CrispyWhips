@@ -19,8 +19,13 @@ namespace PartnerOverhaul.Patcher
             Logger.LogDebug("DialogInterruptPatch applied.");
         }
 
-        private static bool BlockIfPlayerBusy(ref bool __result)
+        private static bool BlockIfPlayerBusy(ref bool __result, bool _ActionStarted)
         {
+            // Guard only the dialog's START. Once it has started, the duty engine keeps asking
+            // CanBePerformed (SelectedNPCDuty.CannotPerform) while the player answers, and every answer is
+            // an action of the player's own, so blocking here cancelled the duty instead of finishing it:
+            // it was never counted in DutiesPerformedToday and MaxPerformPerDay never applied (T2.515).
+            if (_ActionStarted) return true;
             try
             {
                 var gm = GameManager.Instance;

@@ -1,0 +1,17 @@
+{
+    "UniqueID": "poStatRegionWetlands",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "PO first-visit marker (the mossy, muddy oak woods (tag_Env_Wetlands)): 0 never there with the player, 1 arrived (remark pending), 2 remark said (clamped marker, never a counter)"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 2.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

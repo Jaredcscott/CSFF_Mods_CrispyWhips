@@ -3,8 +3,8 @@ using HarmonyLib;
 
 namespace PartnerOverhaul
 {
-    // Ships zero new CardData — every fix here mutates an EXISTING vanilla CardData/NPCDuty
-    // object at boot (Patcher/GameLoadPatch.cs) or Harmony-patches vanilla behavior directly.
+    // Ships its own CardData only for the opt-in Ember Pot (1.1.5, CardData/); every fix here mutates an
+    // EXISTING vanilla CardData/NPCDuty object at boot (Patcher/GameLoadPatch.cs) or Harmony-patches vanilla behavior directly.
     // The framework SoftDependency below is deliberate even though no framework JSON services
     // are consumed: our GameLoad.LoadMainGameData postfix needs to run after the framework's
     // own repair passes (ForeignInstanceReconciler, etc.) on that same vanilla hook — the
@@ -17,7 +17,7 @@ namespace PartnerOverhaul
     {
         private const string PluginGuid = "crispywhips.partner_overhaul";
         public const string PluginName = "PartnerOverhaul";
-        public const string PluginVersion = "1.1.4";
+        public const string PluginVersion = "1.1.5";
 
         internal new static BepInEx.Logging.ManualLogSource Logger;
         internal static Plugin Instance { get; private set; }
@@ -52,11 +52,18 @@ namespace PartnerOverhaul
         // Hearth carries no duties; it is the strongest vanilla fire). Default OFF.
         public static ConfigEntry<bool> PartnersTendTheHearth { get; private set; }
         // 1.1.4 (PO-C6) - the Partner opens PO's talk scene by itself. Partner-started, so opt-in,
-        // default OFF (plan section 3.0, owner tile 4 A). Read at game load.
+        // default OFF (plan section 3.0, owner tile 4 A). Read at game load. PO-C8 (1.1.5) shares it:
+        // the spoken follow-ups after vanilla's Express remarks (Patcher/PartnerExpressVoicePatch.cs).
         public static ConfigEntry<bool> PartnerStartsConversations { get; private set; }
         // 1.1.4 (PO-C1) - the "Talk with <name>" answer in the Partner's Talk menu. Player-started and
         // costs time like vanilla's Casual Talk, so default ON (plan section 3.0 opt-in rule).
         public static ConfigEntry<bool> PartnerTalkAnswer { get; private set; }
+        // 1.1.5 (PO-C12) - spoken follow-ups after an expedition report. It changes a Partner-started
+        // vanilla dialog, so default OFF (plan section 3.0 opt-in rule, like PO-C6/PO-C8). Read at game load.
+        public static ConfigEntry<bool> ExpeditionStories { get; private set; }
+        // 1.1.5 (plan section 2) - the craftable Ember Pot a following Partner wears for warmth. A design
+        // change, so opt-in, default OFF (owner tile 7). Read at game load.
+        public static ConfigEntry<bool> PartnerEmberPot { get; private set; }
 
         private void Awake()
         {
@@ -130,13 +137,25 @@ namespace PartnerOverhaul
                 "QoL (opt-in feature, not a bug fix)",
                 "Partner Starts Conversations",
                 false,
-                "Lets your Partner start a short conversation with you by itself (the same talk as \"Talk with <name>\"), at most once a day, only while it is on your board and more likely in the morning. It never interrupts a ritual, and it stays quiet while it is hungry, cold, guarded, neglected, stressed or close to leaving, so the game's own requests always come first. Each line takes 15 minutes and gives no stats. Needs CSFFModFramework. Default OFF: vanilla's Partner never starts small talk. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
+                "Lets your Partner start a short conversation with you by itself (the same talk as \"Talk with <name>\"), at most once a day, only while it is on your board and more likely in the morning. It never interrupts a ritual, and it stays quiet while it is hungry, cold, guarded, neglected, stressed or close to leaving, so the game's own requests always come first. Each line takes 15 minutes and gives no stats. Also gives the game's own Partner requests a voice: after the narration (\"Your partner approaches you and expresses the urgent need for food.\") and Continue, the Partner says it in its own words, worded by its personality and whether it is stressed or happy; the game's effects of the request apply once, unchanged (Express Blame and Express Ultimatum stay exactly as the game wrote them). Needs CSFFModFramework. Default OFF: vanilla's Partner never starts small talk and its requests are narration only. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
 
             PartnerTalkAnswer = Config.Bind(
                 "Conversations",
                 "Talk With Your Partner",
                 true,
                 "Adds a \"Talk with <name>\" answer to your Partner's Talk menu that opens a short spoken conversation. Each line it says takes 15 minutes and, like Casual Talk, puts off the Partner's own next remark; it gives no stats. Needs CSFFModFramework, which loads the conversation: without it the Talk menu is exactly vanilla. Default ON because you choose to start it. Changing it needs a restart.");
+
+            ExpeditionStories = Config.Bind(
+                "QoL (opt-in feature, not a bug fix)",
+                "Expedition Stories",
+                false,
+                "After your Partner returns from a foraging, hunting or fishing expedition and you press Continue on its report, it says a short line about what it brought back (mushrooms, berries, a big catch) instead of the report simply ending. Words only: each line takes 15 minutes, puts off the Partner's own next remark, and gives no stats; the game's report and its effects are unchanged. Needs CSFFModFramework. Default OFF: vanilla's report ends at Continue. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
+
+            PartnerEmberPot = Config.Bind(
+                "QoL (opt-in feature, not a bug fix)",
+                "Ember Pot",
+                false,
+                "Adds an Ember Pot to the Survival > Fire blueprints (a Clay Bowl and a Rope). Drag it onto a burning fire to fill it with embers (the fire loses fuel), then put it in your Partner's inventory: it wears the pot at its belt and feels a little warmer, less than beside a fire, so a following Partner lasts longer on a cold night with no fire. The embers burn about six hours; add Charcoal to keep them going. It warms you too if you wear it yourself. Needs CSFFModFramework. Default OFF: vanilla gives a Partner no way to carry warmth. With it off the blueprint is hidden (unless you already researched it) and a pot already in your save gives no warmth. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
 
             try { Patcher.GameLoadPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"GameLoadPatch failed: {ex}"); }
@@ -183,12 +202,24 @@ namespace PartnerOverhaul
             try { Patcher.PartnerStartsTalkDutyPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"PartnerStartsTalkDutyPatch failed: {ex}"); }
 
+            try { Patcher.PartnerExpeditionStoryPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartnerExpeditionStoryPatch failed: {ex}"); }
+
+            try { Patcher.PartnerFirstVisitPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartnerFirstVisitPatch failed: {ex}"); }
+
+            try { Patcher.PartnerExpressVoicePatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartnerExpressVoicePatch failed: {ex}"); }
+            try { Patcher.EmberPotPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"EmberPotPatch failed: {ex}"); }
+
             Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
         }
 
         private void OnDestroy()
         {
             Patcher.PartnerMemoryPatch.Unsubscribe();
+            Patcher.EmberPotPatch.Unsubscribe();
             _harmony?.UnpatchSelf();
         }
     }

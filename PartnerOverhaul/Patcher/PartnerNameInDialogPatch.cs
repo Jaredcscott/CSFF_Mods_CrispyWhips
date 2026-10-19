@@ -69,6 +69,20 @@ namespace PartnerOverhaul.Patcher
                     return;
                 }
                 text.text = name;
+
+                // The title text carries the game's LocalizedStaticText (key CARD_INSPECTION_TITLE, no
+                // English row). The dialog window starts the run inactive, so on the run's FIRST Show its
+                // Awake runs inside Show's SetActive and captures the model name vanilla just wrote as its
+                // default text, and its Start, one frame later, writes that back over the name set here.
+                // Show always sets the title itself, so a disabled LocalizedStaticText loses nothing:
+                // a disabled behaviour never gets its Start.
+                var staticText = text.GetComponent<LocalizedStaticText>();
+                if (staticText != null && staticText.enabled)
+                {
+                    staticText.enabled = false;
+                    if (Plugin.EnableDiagnostics != null && Plugin.EnableDiagnostics.Value)
+                        Logger.LogDebug($"[PartnerNameInDialogPatch] title set to '{name}'; disabled its LocalizedStaticText so Start cannot restore '{_TalkingTo.NPCModel.AgentName}'.");
+                }
             }
             catch (Exception ex)
             {

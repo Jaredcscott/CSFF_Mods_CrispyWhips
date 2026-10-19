@@ -1,0 +1,192 @@
+{
+  "UniqueID": "partner_overhaul_ember_pot_lit",
+  "CardName": {
+    "ParentObjectID": "partner_overhaul_ember_pot_lit",
+    "LocalizationKey": "PartnerOverhaul_EmberPotLit_CardName",
+    "DefaultText": "Ember Pot (Smouldering)"
+  },
+  "CardDescription": {
+    "ParentObjectID": "partner_overhaul_ember_pot_lit",
+    "LocalizationKey": "PartnerOverhaul_EmberPotLit_CardDescription",
+    "DefaultText": "A clay pot of smouldering embers on a rope loop, worn at the belt. Whoever wears it feels a little warmer, less than beside a fire. Put it in your Partner's inventory and it wears it by itself. The embers burn down in about six hours; add Charcoal to keep them going."
+  },
+  "CardType": 0,
+  "ObjectWeight": 300.0,
+  "TradingValue": 15.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": [],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": ["eTag_Belt"],
+  "EquipmentTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "PartnerOverhaul_EmberPotLit",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["FireIgnite"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 24.0,
+    "CardStatName": {
+      "ParentObjectID": "partner_overhaul_ember_pot_lit",
+      "LocalizationKey": "PartnerOverhaul_EmberPotLit_FuelCapacity_CardStatName",
+      "DefaultText": "Embers"
+    },
+    "MaxValue": 32.0,
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "ShowPopupOnZero": false,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Flame",
+    "OverrideIconWarpType": 3,
+    "OnZero": {
+      "ActionName": {
+        "ParentObjectID": "partner_overhaul_ember_pot_lit",
+        "LocalizationKey": "PartnerOverhaul_EmberPotLit_EmbersOut_ActionName",
+        "DefaultText": "Embers Die"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "partner_overhaul_ember_pot_lit",
+        "LocalizationKey": "PartnerOverhaul_EmberPotLit_EmbersOut_ActionDescription",
+        "DefaultText": "The embers have burned down to grey ash and the pot has gone cold."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionSoundsWarpData": ["FireExtinguish"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "partner_overhaul_ember_pot",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "partner_overhaul_ember_pot_lit",
+        "LocalizationKey": "PartnerOverhaul_EmberPotLit_AddCharcoal_ActionName",
+        "DefaultText": "Add Charcoal"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "partner_overhaul_ember_pot_lit",
+        "LocalizationKey": "PartnerOverhaul_EmberPotLit_AddCharcoal_ActionDescription",
+        "DefaultText": "Tucked a lump of charcoal into the embers. It will keep them going about four hours longer."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": ["51c751469bd15ce46804e399479d1764"],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": []
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": true,
+      "WorksBothWays": true,
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "FuelChange": { "x": 16.0, "y": 16.0 }
+      }
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "partner_overhaul_ember_pot_lit",
+        "LocalizationKey": "PartnerOverhaul_EmberPotLit_Smother_ActionName",
+        "DefaultText": "Smother"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "partner_overhaul_ember_pot_lit",
+        "LocalizationKey": "PartnerOverhaul_EmberPotLit_Smother_ActionDescription",
+        "DefaultText": "Pressed the lid down until the embers went out. They are lost."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionSoundsWarpData": ["FireExtinguish"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "partner_overhaul_ember_pot",
+        "TransformIntoWarpType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Ember Pot warmth",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "OnlyWhenInHand": false,
+      "StatModifiers": [
+        {
+          "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 8.0, "y": 8.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

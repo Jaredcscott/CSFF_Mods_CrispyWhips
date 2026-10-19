@@ -58,6 +58,10 @@
             "ModelStatWarpType": 3
         },
         {
+            "ModelStatWarpData": "poStatTopicHeardMill",
+            "ModelStatWarpType": 3
+        },
+        {
             "ModelStatWarpData": "poStatMemoryFight",
             "ModelStatWarpType": 3
         },
@@ -91,6 +95,30 @@
         },
         {
             "ModelStatWarpData": "poStatMilestoneDay7",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatGiftSeason",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatRegionLake",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatRegionWetlands",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatRegionRiver",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatRegionPine",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "poStatRegionOak",
             "ModelStatWarpType": 3
         }
     ],

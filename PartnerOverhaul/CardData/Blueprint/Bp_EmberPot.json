@@ -1,0 +1,80 @@
+{
+  "UniqueID": "partner_overhaul_bp_ember_pot",
+  "CardName": {
+    "ParentObjectID": "partner_overhaul_bp_ember_pot",
+    "LocalizationKey": "PartnerOverhaul_Bp_EmberPot_CardName",
+    "DefaultText": "Ember Pot"
+  },
+  "CardDescription": {
+    "ParentObjectID": "partner_overhaul_bp_ember_pot",
+    "LocalizationKey": "PartnerOverhaul_Bp_EmberPot_CardDescription",
+    "DefaultText": "Tie a rope loop round a clay bowl and cap it, so a Partner can carry a few embers on a cold night."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "partner_overhaul_bp_ember_pot",
+    "LocalizationKey": "PartnerOverhaul_Bp_EmberPot_UnlockConditionsDesc",
+    "DefaultText": "Clay Bowl Needed"
+  },
+  "BuildingStatConditions": [],
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasClayBowl",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "CardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 2,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "partner_overhaul_ember_pot",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["SmallContainer"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "PartnerOverhaul_EmberPot",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

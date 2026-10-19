@@ -20,8 +20,11 @@
       <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Card Survival Fantasy Forest\BepInEx\plugins\Partner_Overhaul\</OutputPath>
     </PropertyGroup>
 
-    <!-- No CardData shipped - this mod only patches/mutates existing vanilla content -->
+    <!-- CardData only for the opt-in Ember Pot (1.1.5); everything else patches/mutates existing vanilla content -->
     <ItemGroup>
+        <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" Condition="Exists('CardData')" />
+        <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="Resource\%(RecursiveDir)%(Filename)%(Extension)" Condition="Exists('Resource')" />
+        <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ModInfo.json')" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
