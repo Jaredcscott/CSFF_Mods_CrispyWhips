@@ -201,7 +201,7 @@ FC_FoxCompanion_Progress_CardStatName,Morale,士气
 FC_Perk_FoxFriend_PerkName,Fox Friend,狐狸之友
 FC_Perk_FoxFriend_PerkDescription,Start with a curious fox companion.,开始时携带一只好奇的狐狸伙伴。
 FC_OwlCompanion_CardName,Owl Companion,猫头鹰伙伴
-FC_OwlCompanion_CardDescription,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night.,一只安静的猫头鹰栖息在附近，夜里为你的营地守望。保持喂养和给水，否则它会飞走。白天它会飞到附近的洞穴栖息，夜里再回到你身边。
+FC_OwlCompanion_CardDescription,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night. While it is beside you mice raid your food less often.,一只安静的猫头鹰栖息在附近，夜里为你的营地守望。保持喂养和给水，否则它会飞走。白天它会飞到附近的洞穴栖息，夜里再回到你身边。它在你身边时，老鼠来糟蹋你食物的次数会减少。
 FC_OwlCompanion_CI0_ActionName,Feed Owl,喂猫头鹰
 FC_OwlCompanion_CI0_ActionDescription,Offer the owl a scrap of meat. It bobs its head approvingly.,给猫头鹰一块肉。它满意地点了点头。
 FC_OwlCompanion_DA0_ActionName,Pet Owl,抚摸猫头鹰
@@ -241,7 +241,7 @@ FC_FoxCompanion_CI1_ActionDescription,Offer the fox some dried berries. Its eyes
 FC_OwlCompanion_CI1_ActionName,Give Treat,给予零食
 FC_OwlCompanion_CI1_ActionDescription,Hold out dried meat. The owl blinks once then snaps it down.,递出一些肉干。猫头鹰眨了一下眼，随即一口叼下。
 sh_lanolin_CardName,Lanolin,羊毛脂
-sh_lanolin_CardDescription,A waxy byproduct of shearing.,剪毛产生的蜡质副产品。
+sh_lanolin_CardDescription,A waxy byproduct of shearing. Rubbed into felt or wool clothing it sheds rain for about three days.,剪毛产生的蜡质副产品。揉进毛毡或羊毛衣物后，可防雨约三天。
 FC_WolfCompanion_CI4_ActionName,Slaughter,屠宰
 FC_WolfCompanion_CI4_ActionDescription,End the wolf's suffering with a quick knife. Its body remains.,用利刃迅速了结狼的痛苦。它的尸体留了下来。
 FC_WolfCompanion_DA6_ActionName,Bond with Wolf,与狼建立羁绊
@@ -452,6 +452,24 @@ sh_felt_boots_SpecialDurability4_CardStatName,Colour,颜色
 sh_felt_boots_AlternateNames[0].Name,Green Felt Boots,绿色毛毡靴
 sh_felt_boots_AlternateNames[1].Name,Red Felt Boots,红色毛毡靴
 sh_felt_boots_AlternateNames[2].Name,Brown Felt Boots,棕色毛毡靴
+sh_felt_hat_SpecialDurability1_CardStatName,Waterproofing,防水
+sh_felt_hat_CI_Waterproof_ActionName,Work in Lanolin,揉入羊毛脂
+sh_felt_hat_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.",将羊毛脂揉进羊毛里，使其能挡雨。穿戴时提供一定的防雨效果，防水效果约三天后消退。会消耗羊毛脂。
+sh_felt_mittens_SpecialDurability1_CardStatName,Waterproofing,防水
+sh_felt_mittens_CI_Waterproof_ActionName,Work in Lanolin,揉入羊毛脂
+sh_felt_mittens_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.",将羊毛脂揉进羊毛里，使其能挡雨。穿戴时提供一定的防雨效果，防水效果约三天后消退。会消耗羊毛脂。
+sh_felt_vest_SpecialDurability1_CardStatName,Waterproofing,防水
+sh_felt_vest_CI_Waterproof_ActionName,Work in Lanolin,揉入羊毛脂
+sh_felt_vest_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.",将羊毛脂揉进羊毛里，使其能挡雨。穿戴时提供一定的防雨效果，防水效果约三天后消退。会消耗羊毛脂。
+sh_felt_boots_SpecialDurability1_CardStatName,Waterproofing,防水
+sh_felt_boots_CI_Waterproof_ActionName,Work in Lanolin,揉入羊毛脂
+sh_felt_boots_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.",将羊毛脂揉进羊毛里，使其能挡雨。穿戴时提供一定的防雨效果，防水效果约三天后消退。会消耗羊毛脂。
+sh_wool_socks_SpecialDurability1_CardStatName,Waterproofing,防水
+sh_wool_socks_CI_Waterproof_ActionName,Work in Lanolin,揉入羊毛脂
+sh_wool_socks_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.",将羊毛脂揉进羊毛里，使其能挡雨。穿戴时提供一定的防雨效果，防水效果约三天后消退。会消耗羊毛脂。
+sh_wool_tunic_SpecialDurability1_CardStatName,Waterproofing,防水
+sh_wool_tunic_CI_Waterproof_ActionName,Work in Lanolin,揉入羊毛脂
+sh_wool_tunic_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.",将羊毛脂揉进羊毛里，使其能挡雨。穿戴时提供一定的防雨效果，防水效果约三天后消退。会消耗羊毛脂。
 sh_felt_rug_CardName,Felt Rug,毛毡地毯
 sh_felt_rug_CardDescription,"A thick rug of pressed felt with a darker border stitched on. Kept among your things, it makes camp feel a little more like home (Sanctuary +10). More rugs, or a Feather Pillow as well, add nothing.",一块厚实的压制毛毡地毯，四周缝有一圈颜色较深的毡边。放在行囊里，营地会多几分家的感觉（庇护度+10）。多带几块地毯或再加一个羽绒枕，效果也不会叠加。
 sh_bp_felt_rug_CardName,Felt Rug Blueprint,毛毡地毯图纸

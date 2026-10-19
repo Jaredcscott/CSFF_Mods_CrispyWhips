@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Sirus23ModCollection";
     public const string PluginName = "Sirus23 Mod Collection";
-    public const string PluginVersion = "1.22.7";
+    public const string PluginVersion = "1.22.8";
 
     internal new static ManualLogSource Logger { get; private set; }
 
@@ -26,6 +26,8 @@ internal class Plugin : ContentModPlugin
         // Wolf upkeep ticks on the framework's TickEvents (no local Update polling).
         TryApply("WolfTick", WolfTickPatch.Register);
         TryApply("OwlRoost", OwlRoostPatch.Register);
+        // N3: with the Owl Companion on the player's board, vanilla mouse raids roll about half as often.
+        TryApply("OwlPestControl", OwlPestControlPatch.Register);
         TryApply("CompanionHunt", CompanionHuntPatch.Register);
         // Recall Whistle: brings a companion left behind in another room onto the player's board (W0-24 route).
         TryApply("RecallWhistle", RecallWhistlePatch.Register);

@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.8] - 2026-10-19
+
+### Added
+
+- **The fox helps you forage.** While your Fox Companion follows you, your Foraging Aid rises by 4, the stat base-game coats raise by 8.4, so a forage turns up a little more. Tell the fox to Stay Here and the bonus stops; a fox you leave staying on another map gives nothing there. Retrieve Partridge and Scout Ahead are unchanged. **The 4 is a first guess and tunable, not a balanced result.**
+- **The owl keeps the mice down.** While your Owl Companion is on the board you are standing on (following you at night, or told to Stay Here at the camp you are in), base-game mouse raids on your food come about half as often: the hidden raid timer climbs at half speed, so a raid still comes, just rarer. An owl left on another map, or roosting in a cave by day, does nothing for you. Night Watch is unchanged. **The half is a first guess and tunable, not a balanced result.**
+- **Lanolin waterproofs felt and wool.** Drag Lanolin onto a Felt Hat, Felt Mittens, Felt Vest, Felt Boots, Wool Socks or Wool Tunic and choose **Work in Lanolin** (15 minutes; the Lanolin is used up). The piece shows a full Waterproofing bar that empties over about three days, and while you wear it you get +0.28 Rain Protection, at full strength until the bar is down to its last fifth, then fading to nothing. The game rounds Rain Protection to whole steps, so one treated piece alone does nothing; two or more worn together give Minor Protection, the same as a coat, and even a full treated set never does better than a coat (with a coat on top it reaches Medium). Treat it again to refill the bar. Base-game clothing and the Lanolin Salve are unchanged. **The 0.28, the three days and the fade point are first guesses and tunable, not a balanced result; not yet tried in the game.**
+
+---
+
 ## [1.22.7] - 2026-10-15
 
 ### Changed

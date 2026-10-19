@@ -42,6 +42,7 @@ internal static class CompanionStayPatch
     };
 
     private static FieldInfo _nextEnvironmentField;
+    private static bool _nextEnvironmentMissing;
     private static PropertyInfo _envCardProperty;
 
     public static void ApplyPatch(Harmony harmony)
@@ -133,9 +134,23 @@ internal static class CompanionStayPatch
             var gm = CardUtil.GetGameManagerInstance();
             if (gm == null) return false;
 
-            _nextEnvironmentField ??= gm.GetType().GetField("NextEnvironment",
-                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            object envId = _nextEnvironmentField?.GetValue(gm);
+            if (_nextEnvironmentMissing) return false;
+            if (_nextEnvironmentField == null)
+            {
+                _nextEnvironmentField = gm.GetType().GetField("NextEnvironment",
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                if (_nextEnvironmentField == null)
+                {
+                    // A field-miss (a game update renamed NextEnvironment) is distinct from the
+                    // benign common case where envId is simply null outside a transition: warn once
+                    // here so the feature's silent death is visible, matching every other reflection
+                    // miss in this mod. The latch keeps it to one warning and one reflection attempt.
+                    _nextEnvironmentMissing = true;
+                    Plugin.Logger?.LogWarning("[CompanionStay] GameManager.NextEnvironment field not found; the owl will no longer be left behind when entering a cave/building.");
+                    return false;
+                }
+            }
+            object envId = _nextEnvironmentField.GetValue(gm);
             if (envId == null) return false;
 
             _envCardProperty ??= envId.GetType().GetProperty("EnvCard",

@@ -633,6 +633,23 @@
             "MultiplyConsumableChargesRate": false
         },
         {
+            "EffectName": "Forager's Aid (fox follows)",
+            "OnlyWhenNOTInBG": true,
+            "Conditions": {
+                "NotInBackground": true,
+                "ReceivingRequiredDurabilityRanges": {
+                    "Special2Range": {"x": 0.0, "y": 0.5}
+                }
+            },
+            "StatModifiers": [
+                {
+                    "StatWarpData": "1cfae8f993bbbce448477637d44b3cb3",
+                    "StatWarpType": 3,
+                    "RateModifier": {"x": 4.0, "y": 4.0}
+                }
+            ]
+        },
+        {
             "EffectName": "Starving Health Drain",
             "Conditions": {
                 "ReceivingRequiredDurabilityRanges": {

@@ -1170,7 +1170,24 @@
         "TradingValueCustomRanges": []
     },
     "SpecialDurability1": {
-        "Active": false
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_felt_boots",
+            "LocalizationKey": "sh_felt_boots_SpecialDurability1_CardStatName",
+            "DefaultText": "Waterproofing"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 100.0,
+        "RestrictToSpecificValues": false,
+        "ValidValues": [],
+        "RatePerDaytimePoint": -0.35,
+        "ExtraRateWhenEquipped": 0.0,
+        "HidingOptions": 3,
+        "OverrideIconWarpData": "Rain",
+        "OverrideIconWarpType": 3,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false
     },
     "SpecialDurability2": {
         "Active": false
@@ -2086,7 +2103,43 @@
         "CountsForTradingValue": false,
         "TradingValueCustomRanges": []
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_felt_boots",
+                "LocalizationKey": "sh_felt_boots_CI_Waterproof_ActionName",
+                "DefaultText": "Work in Lanolin"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_felt_boots",
+                "LocalizationKey": "sh_felt_boots_CI_Waterproof_ActionDescription",
+                "DefaultText": "Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin."
+            },
+            "DaytimeCost": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "sh_lanolin"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": { "x": 100000.0, "y": 100000.0 }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DismantleActions": [],
     "AffectStatsOnlyWhenEquipped": true,
     "PassiveStatEffects": [
@@ -2131,6 +2184,33 @@
                 "Active": false,
                 "Inputs": [ { "Durability": 64, "Range": { "x": 0.0, "y": 100.0 } } ],
                 "EffectScalingOutput": { "x": 1.0, "y": 1.0 }
+            }
+        },
+        {
+            "EffectName": "Lanolin Waterproofing",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "431f76fbfb93e8c4a850de1528ef863a",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 0.28, "y": 0.28 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectScalesWithDurabilities": {
+                "Active": true,
+                "Inputs": [ { "Durability": 32, "Range": { "x": 0.0, "y": 20.0 } } ],
+                "EffectScalingOutput": { "x": 0.0, "y": 1.0 }
             }
         }
     ],

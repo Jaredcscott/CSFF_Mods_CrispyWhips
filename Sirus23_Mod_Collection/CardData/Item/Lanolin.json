@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_lanolin",
         "LocalizationKey": "sh_lanolin_CardDescription",
-        "DefaultText": "A waxy byproduct of shearing."
+        "DefaultText": "A waxy byproduct of shearing. Rubbed into felt or wool clothing it sheds rain for about three days."
     },
     "CardType": 0,
     "ObjectWeight": 100.0,

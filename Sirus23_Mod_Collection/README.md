@@ -1,6 +1,6 @@
 # Sirus23 Mod Collection
 
-**Version:** 1.22.7
+**Version:** 1.22.8
 **Author:** Sirus, Jared
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFF Mod Framework 2.28.0 or later. Older frameworks back to 2.14.1 still load the mod, but the Wild Owl, the Hawk and the features marked "needs 2.28.0" below do not work fully.
@@ -15,7 +15,7 @@ Animal companions, a working sheep farm and felt clothing, by Sirus and Jared.
 |---|---|
 | Animal Companions | Wolf, Fox and Owl companions (perk or wild tame), Wolf Pup, Owlet, Hawk and Eyas, Ferret, Truffle Hog (with Herbs and Fungi), Recall Whistle, Wild Owl, Pack Bond, Wolf Den, Owl Perch, companion treats |
 | Sheep Husbandry | Sheep, rams, lambs, milking, shearing, Tend Flock, feeding and seasons, Lanolin, dairy and dishes, Sheep Pen, Sheep Bell, Ox Plough, Ox Cart, trader stock |
-| Felt Working | Felted Wool, Felt Hat, Mittens, Vest, Boots, Bedroll, Rug, Wool Socks, dyeing, set bonus; Feather Pillow |
+| Felt Working | Felted Wool, Felt Hat, Mittens, Vest, Boots, Bedroll, Rug, Wool Socks, dyeing, set bonus, lanolin waterproofing; Feather Pillow |
 | Perks | 9 character perks: Wolf Friend, Fox Friend, Owl Friend, Pack Bond (hidden, earned in play) and five sheep perks |
 
 **Installation:** extract into `BepInEx/plugins/`, or install through Mod Update Manager. CSFF Mod Framework must also be installed. The mod has no config options.
@@ -93,6 +93,8 @@ The Fox Friend perk starts you with a fox. It eats meat, bird meat, fish and bon
 
 **The fox scouts the way.** While the fox follows you, every leg of a journey takes 15 minutes less, though an exit with a minimum time keeps it. A fox told to Stay Here gives no bonus.
 
+**The fox helps you forage.** While the fox follows you, your Foraging Aid rises by 4 (base-game coats give 8.4). Stay Here ends it, and a fox left staying on another map gives nothing there. The 4 is a first guess.
+
 ### Owl Companion
 
 The Owl Friend perk starts you with an owl. It eats meat and bird meat, takes dried-meat treats, and can be watered, treated and petted. Its Hunger and Thirst drain more slowly than the wolf's or fox's.
@@ -100,6 +102,8 @@ The Owl Friend perk starts you with an owl. It eats meat and bird meat, takes dr
 **Night Watch** is a one-hour watch, once a night, that eases Stress by 10. It does not put you to sleep. **Retrieve Mouse** may bring back a Dead Mouse (see Fetching).
 
 The owl keeps night hours, 20:00 to 06:00. At dawn it flies to the nearest natural cave to roost. At dusk, if you are outdoors, it returns with its stats as they were. By day it does not travel with you, and it never follows you into a cave or building. An owl told to Stay Here is left alone.
+
+**Pest control:** while the owl is on the board you are standing on (following you at night, or told to Stay Here at the camp you are in), base-game mouse raids on your food come about half as often. The hidden raid timer climbs at half speed, so raids still come, just rarer. An owl on another map or roosting in a cave by day does nothing for you. The half is a first guess. Not yet confirmed in the game.
 
 If its Health runs out, the owl flies away and leaves no body.
 
@@ -343,6 +347,8 @@ Felt is the alternative to spinning and weaving. Press 4 raw Wool into a sheet o
 | Wool Socks | inner shoes | +1 | knitted from 2 Wool Yarn |
 
 Warmth is the base game's Perceived Temperature, the same stat its cloth, leather and fur clothing raise. Before 1.22.6 these pieces raised Cold Resistance instead, which warmed nothing and could cost you the Frost Blessed status.
+
+**Lanolin waterproofing.** Drag **Lanolin** onto any of the six pieces above (Hat, Mittens, Vest, Boots, Socks, Tunic) and choose **Work in Lanolin** (15 minutes; the Lanolin is used up). The piece gets a Waterproofing bar that starts full and empties over about three days. While you wear it, it adds +0.28 Rain Protection at full strength until the bar is down to its last fifth, then fades to nothing as the bar empties. The game counts Rain Protection in whole steps: one treated piece alone does nothing, two or more worn together give Minor Protection (like a coat), and a full treated set never beats a coat (with a coat on top it reaches Medium). Treat a piece again to refill its bar. Base-game clothing cannot be treated, and the Lanolin Salve is not used for this. The 0.28, the three days and the fade point are first guesses and are tunable; they have not been played yet.
 
 The **Felt Bedroll** (3 Felted Wool) has the base-game Bedroll's Nap and Sleep actions. It warms you only while you nap or sleep on it (+3 warmth, like a base-game bed). Sleeping on it is not yet confirmed in the game. A **Wool Blanket** in your pack keeps your Body Temperature 10 points higher; more blankets do not add more. A blanket, pillow or rug left on another map does nothing for you there.
 

@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "fc_owl_companion",
         "LocalizationKey": "FC_OwlCompanion_CardDescription",
-        "DefaultText": "A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night."
+        "DefaultText": "A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night. While it is beside you mice raid your food less often."
     },
     "CardType": 0,
     "ObjectWeight": 100,

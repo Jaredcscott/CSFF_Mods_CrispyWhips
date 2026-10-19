@@ -201,7 +201,7 @@ FC_FoxCompanion_Progress_CardStatName,Morale,Morale
 FC_Perk_FoxFriend_PerkName,Fox Friend,Fox Friend
 FC_Perk_FoxFriend_PerkDescription,Start with a curious fox companion.,Start with a curious fox companion.
 FC_OwlCompanion_CardName,Owl Companion,Owl Companion
-FC_OwlCompanion_CardDescription,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night.,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night.
+FC_OwlCompanion_CardDescription,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night. While it is beside you mice raid your food less often.,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away. By day it roosts in a nearby cave and rejoins you at night. While it is beside you mice raid your food less often.
 FC_OwlCompanion_CI0_ActionName,Feed Owl,Feed Owl
 FC_OwlCompanion_CI0_ActionDescription,Offer the owl a scrap of meat. It bobs its head approvingly.,Offer the owl a scrap of meat. It bobs its head approvingly.
 FC_OwlCompanion_DA0_ActionName,Pet Owl,Pet Owl
@@ -241,7 +241,7 @@ FC_FoxCompanion_CI1_ActionDescription,Offer the fox some dried berries. Its eyes
 FC_OwlCompanion_CI1_ActionName,Give Treat,Give Treat
 FC_OwlCompanion_CI1_ActionDescription,Hold out dried meat. The owl blinks once then snaps it down.,Hold out dried meat. The owl blinks once then snaps it down.
 sh_lanolin_CardName,Lanolin,Lanolin
-sh_lanolin_CardDescription,A waxy byproduct of shearing.,A waxy byproduct of shearing.
+sh_lanolin_CardDescription,A waxy byproduct of shearing. Rubbed into felt or wool clothing it sheds rain for about three days.,A waxy byproduct of shearing. Rubbed into felt or wool clothing it sheds rain for about three days.
 FC_WolfCompanion_CI4_ActionName,Slaughter,Slaughter
 FC_WolfCompanion_CI4_ActionDescription,End the wolf's suffering with a quick knife. Its body remains.,End the wolf's suffering with a quick knife. Its body remains.
 FC_WolfCompanion_DA6_ActionName,Bond with Wolf,Bond with Wolf
@@ -452,6 +452,24 @@ sh_felt_boots_SpecialDurability4_CardStatName,Colour,Colour
 sh_felt_boots_AlternateNames[0].Name,Green Felt Boots,Green Felt Boots
 sh_felt_boots_AlternateNames[1].Name,Red Felt Boots,Red Felt Boots
 sh_felt_boots_AlternateNames[2].Name,Brown Felt Boots,Brown Felt Boots
+sh_felt_hat_SpecialDurability1_CardStatName,Waterproofing,Waterproofing
+sh_felt_hat_CI_Waterproof_ActionName,Work in Lanolin,Work in Lanolin
+sh_felt_hat_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.","Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin."
+sh_felt_mittens_SpecialDurability1_CardStatName,Waterproofing,Waterproofing
+sh_felt_mittens_CI_Waterproof_ActionName,Work in Lanolin,Work in Lanolin
+sh_felt_mittens_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.","Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin."
+sh_felt_vest_SpecialDurability1_CardStatName,Waterproofing,Waterproofing
+sh_felt_vest_CI_Waterproof_ActionName,Work in Lanolin,Work in Lanolin
+sh_felt_vest_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.","Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin."
+sh_felt_boots_SpecialDurability1_CardStatName,Waterproofing,Waterproofing
+sh_felt_boots_CI_Waterproof_ActionName,Work in Lanolin,Work in Lanolin
+sh_felt_boots_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.","Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin."
+sh_wool_socks_SpecialDurability1_CardStatName,Waterproofing,Waterproofing
+sh_wool_socks_CI_Waterproof_ActionName,Work in Lanolin,Work in Lanolin
+sh_wool_socks_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.","Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin."
+sh_wool_tunic_SpecialDurability1_CardStatName,Waterproofing,Waterproofing
+sh_wool_tunic_CI_Waterproof_ActionName,Work in Lanolin,Work in Lanolin
+sh_wool_tunic_CI_Waterproof_ActionDescription,"Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin.","Rub lanolin into the wool so it sheds rain. Worn, it adds some Rain Protection, and the waterproofing wears off over about three days. Uses up the lanolin."
 sh_felt_rug_CardName,Felt Rug,毛毡地毯
 sh_felt_rug_CardDescription,"A thick rug of pressed felt with a darker border stitched on. Kept among your things, it makes camp feel a little more like home (Sanctuary +10). More rugs, or a Feather Pillow as well, add nothing.",一块厚实的压制毛毡地毯，四周缝有一圈颜色较深的毡边。放在行囊里，营地会多几分家的感觉（庇护度+10）。多带几块地毯或再加一个羽绒枕，效果也不会叠加。
 sh_bp_felt_rug_CardName,Felt Rug Blueprint,毛毡地毯图纸
