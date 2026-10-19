@@ -1968,8 +1968,11 @@ Far_Territory_CastawayLanding_DA_GullStack_Desc,Start your run on Gull Stack ins
 Far_Territory_CastawayLanding_DA_Random,Let the Sea Decide,听凭大海安排
 Far_Territory_CastawayLanding_DA_Random_Desc,"For the adventurous: the current carries you to one of the six other island shores, picked at random. Gull Stack is among them. Takes no time.",给喜欢冒险的人：海流会把你随机带到岛上另外六处海岸之一，海鸥石柱也在其中。不花费时间。
 Far_Territory_CastawayLanding_DA_Stay,Stay on Landfall Strand,留在登陆海滩
-Far_Territory_CastawayLanding_DA_Stay_Desc,"Start here, where the outrigger to the mainland lies. Takes no time.",就从这里开始，返回大陆的边架独木舟就在这里。不花费时间。
+Far_Territory_CastawayLanding_DA_Stay_Desc,"Start here, on the beach where an outrigger home to the mainland can be built. Takes no time.",就从这里开始，在这片海滩上可以造一艘返回大陆的边架独木舟。不花费时间。
 Far_Territory_CastawayLanding_CardName,Choose Your Landing,选择登陆地点
 Far_Territory_CastawayLanding_CardDescription,"The current brought you ashore on Landfall Strand. Start here, land on another island shore, or let the sea decide. Choosing takes no time, and the card is gone once you choose.",海流把你冲上了登陆海滩。可以从这里开始，也可以在岛上另一处海岸登陆，或者听凭大海安排。选择不花费时间，选择后此卡消失。
 Far_Territory_Perk_IslandStart_PerkName,Island Start,海岛开局
 Far_Territory_Perk_IslandStart_PerkDescription,"Start as a castaway on Far Territory's island, with none of the usual starting stones and kindling. A card in hand lets you pick which shore to start on, or leave it to the sea.",以漂流者身份在远方领地的海岛上开局，没有通常的起始石头和引火物。手中的一张卡让你选择从哪处海岸开始，或者听凭大海安排。
+Far_Territory_BpOutrigger_CardName,Outrigger Canoe,边架独木舟
+Far_Territory_BpOutrigger_CardDescription,"A narrow canoe lashed to a slim float, strong enough to cross the open water back to the mainland. Build it on Homeward Sand at Landfall Strand from 6 Long Sticks and 2 Rope.",一艘绑着细长浮木的窄独木舟，足以横渡开阔的海面返回大陆。在登陆海滩的归乡沙滩上用6根长木棍和2根绳子建造。
+Far_Territory_BpOutrigger_UnlockConditionsDesc,Can be researched from the start,一开始就可以研究

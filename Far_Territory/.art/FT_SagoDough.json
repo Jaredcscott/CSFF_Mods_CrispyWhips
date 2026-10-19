@@ -1,0 +1,41 @@
+{
+  "target": "FT_SagoDough.png",
+  "sourceCard": [
+    "CardData/Item/FT_SagoDough.json"
+  ],
+  "subject": "one single raw lump of sago dough: a soft rounded mound about twice as wide as it is tall, smooth, pale cream with a faint greyish sheen, a few shallow finger-press dents on top and a slumped edge at the base; no crust, no browning",
+  "model": "nano-banana-2",
+  "mode": "image2image (reference images, keyed item)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template (content + style references, literal Subject, flat posterized Style, white paper, Avoid list incl. footprints); full text on the historyId)",
+  "refs": [
+    {
+      "label": "vanilla BreadLoaf_Rye (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BreadLoaf_Rye_1791744839322_265ec925.png"
+    },
+    {
+      "label": "Far Territory FT_SagoPith (colour)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698739661_6f2b5ee9_1791698739737_83eec536.png"
+    }
+  ],
+  "historyId": "5MFFS29p6Vg2taoU1lyu",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792304452598_bab54c0c_1792304452657_fd22ac1b.png",
+  "credits": 20,
+  "generated": "2026-10-18",
+  "finish": "keyed",
+  "note": "FT plan N2 cooked food, pack Prompt 8; previously borrowed FT_SagoPith. One sample, for the owner's gallery review. Self-check: every phrase rendered.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792304452598_bab54c0c_1792304452657_fd22ac1b.png",
+      "verdict": "every phrase rendered"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

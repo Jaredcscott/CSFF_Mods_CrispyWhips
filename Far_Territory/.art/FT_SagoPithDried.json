@@ -1,0 +1,41 @@
+{
+  "target": "FT_SagoPithDried.png",
+  "sourceCard": [
+    "CardData/Item/FT_SagoPithDried.json"
+  ],
+  "subject": "one small low heap of dried sago pith: hard dry angular chips and flakes of starch, chalky off-white to pale greyish-tan, matte and dusty, a little fine starch dust at the base; drier, paler and harder than fresh pith",
+  "model": "nano-banana-2",
+  "mode": "image2image (reference images, keyed item)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template (content + style references, literal Subject, flat posterized Style, white paper, Avoid list incl. footprints); full text on the historyId)",
+  "refs": [
+    {
+      "label": "Far Territory FT_SagoPith (content)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698739661_6f2b5ee9_1791698739737_83eec536.png"
+    },
+    {
+      "label": "vanilla Flour_Rye (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flour_Rye_1791744964195_f9cf0ba0.png"
+    }
+  ],
+  "historyId": "50PZuzd91cbU7bYCRRs3",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792304451251_5e3cf786_1792304451416_fba1a90d.png",
+  "credits": 20,
+  "generated": "2026-10-18",
+  "finish": "keyed",
+  "note": "FT plan N2 cooked food, pack Prompt 8; previously borrowed FT_SagoPith. One sample, for the owner's gallery review. Self-check: chips, dust and chalky colour rendered; the grey patches may read as stone.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792304451251_5e3cf786_1792304451416_fba1a90d.png",
+      "verdict": "chips, dust and chalky colour rendered; the grey patches may read as stone"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

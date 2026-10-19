@@ -9,7 +9,7 @@
     "LocalizationKey": "Far_Territory_SagoDough_CardDescription",
     "DefaultText": "A grey, sticky dough of soaked sago starch. Bake it by a fire into a flatbread."
   },
-  "CardImageWarpData": "FT_SagoPith",
+  "CardImageWarpData": "FT_SagoDough",
   "CardImageWarpType": 3,
   "ObjectWeight": 75.0,
   "MaxStack": 6,

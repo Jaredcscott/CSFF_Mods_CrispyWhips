@@ -21,7 +21,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.far_territory";
     public const string PluginName = "Far Territory";
-    public const string PluginVersion = "0.1.9";
+    public const string PluginVersion = "0.1.10";
 
     /// <summary>This mod's BepInEx logger, for the static patch classes.</summary>
     internal static ManualLogSource ModLog;

@@ -9,7 +9,7 @@
     "LocalizationKey": "Far_Territory_YamBaked_CardDescription",
     "DefaultText": "A yam baked whole by the fire until the skin splits and the flesh turns soft and sweet. Filling, but it will not keep long."
   },
-  "CardImageWarpData": "FT_Yam",
+  "CardImageWarpData": "FT_YamBaked",
   "CardImageWarpType": 3,
   "ObjectWeight": 100.0,
   "MaxStack": 8,

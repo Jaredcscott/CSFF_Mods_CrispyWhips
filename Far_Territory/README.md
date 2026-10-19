@@ -1,6 +1,6 @@
 # Far Territory
 
-**Version:** 0.1.9
+**Version:** 0.1.10
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.2 or later
 **Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned. Version 0.1.8 added swamp fever and its cure, fish gutting, cooked island food and sea salt, and 0.1.9 the Island Start perk; their numbers are first guesses.
@@ -22,7 +22,7 @@ Every card has its own picture except Brackwater Mouth's map picture, the set Fu
 | Travel | Dugout Canoe (downstream), Outrigger Canoe (sea crossing), compass hops, paths, swims, climbs that can end in a fall, a Rope and Pitons cliff |
 | Climate | The island, volcano, mountains and fjords each change how warm you feel, with no cards, plus Spring Warmth |
 | Cards | 99 items, 2 liquids and 167 location and structure cards |
-| Blueprints | 4: Dugout Canoe, Rope and Pitons, Fish Trap, Cinchona Decoction |
+| Blueprints | 5: Dugout Canoe, Outrigger Canoe, Rope and Pitons, Fish Trap, Cinchona Decoction |
 | Cooking | Baked Yam, Sago Flatbread, Coconut Meat in the stew, gutted fish, salt boiled from sea water |
 | Perks | Island Start |
 | Fishing | Line, net, spear and trap on each coast, 10 hidden fish and shellfish stocks, diving for shellfish |
@@ -44,16 +44,16 @@ Follow the river south to Duck Point, which now has a **South** exit. Each step 
 A **Dugout Canoe** takes you down the river in one paddle. Its blueprint is in Construction, Advanced Tools: 4 hours to research, unlocked once a Tree Log is with you. Build it from a Tree Log and 2 Oak Bark with a cutting tool such as a flint knife (2 hours). The tool wears a little.
 
 - **Paddle Downstream** appears on any place with a flowing river, other mods' river places included.
-- It takes about an hour to Brackwater Mouth, costs 2 stamina every 15 minutes and wets you a little.
+- It takes about an hour to Brackwater Mouth, costs 10 stamina every 15 minutes (2 to 4 more than you recover in that time) and wets you a little.
 - Walking from River Pass is 14 hops. The canoe is faster from Mossy Bank and above; from Muddy Bank, Willow Ways, Clay Banks and Duck Point, walking is as quick or quicker.
 - It only goes downstream, so you walk back. The button is missing on lakes, marshes, bogs, swamps, the coast and Brackwater Mouth, and in winter, when the river freezes.
 - The canoe is as heavy as a tree log. Keep it with you: one set down on a river place stays there.
 
 ## Crossing to the island
 
-An **Outrigger Canoe** lies on Seaward Sands. **Set Sail for the Island** takes you to **Landfall Strand** in 6 hours, with no tool or season needed. A second canoe on Landfall Strand sails back with **Set Sail for the Mainland**.
+An **Outrigger Canoe** lies on Seaward Sands. **Set Sail for the Island** takes you to **Landfall Strand** in 6 hours, with no tool or season needed. There is no canoe waiting on the island: to sail back you build one there. The **Outrigger Canoe** blueprint (Construction, Advanced Tools) can be researched from the start and takes 10 hours. Build it on Homeward Sand at Landfall Strand, the only place it can be built, from 6 Long Sticks and 2 Rope (2 hours). The island has both: island places give Long Sticks and Fibers, Snake Grass and green coconuts give more Fibers, and the base game makes Fibers into Twine and Twine into Rope. The canoe you build sails back with **Set Sail for the Mainland**, and from then on it waits on Landfall Strand for every later crossing. A save that already has a canoe on Landfall Strand keeps it. The research and build times are first guesses, not yet balanced.
 
-- The paddle costs 2 stamina every 15 minutes and you arrive wet (+30).
+- The paddle costs 10 stamina every 15 minutes, 2 to 4 more than you recover in that time, so a crossing leaves you exhausted, and you arrive wet (+30).
 - About 1 crossing in 20 is rough: 15 more stamina and another +30 wetness.
 - In winter about 1 crossing in 5 meets a storm instead: 25 more stamina and +60 wetness. You always arrive, in both directions.
 
@@ -70,7 +70,7 @@ To play an island run from day one, take the **Island Start** perk (1 Moon) at c
 
 | Choice | Where you start |
 |---|---|
-| Stay on Landfall Strand | Here, beside the outrigger back to the mainland |
+| Stay on Landfall Strand | Here, on the beach where you build the outrigger home (see Crossing to the island) |
 | Land at Coral Inlet / Boulder Shore / Rootwater Thicket / Bleak Strand / Cliffbound Cove / Gull Stack | That shore |
 | Let the Sea Decide | One of those six shores, picked at random (Gull Stack included, whose only way off is a swim) |
 
@@ -403,7 +403,7 @@ A cold, steep coast beyond the mountains. There is no boat.
 
 ## Notes on existing saves
 
-- **No new run needed:** the fjord, mountain and grassland places, the sixteen caves and the interior boards get their save entries when a run starts. The Trail West and Trail North are forage finds, so an older save finds them on its next forage there. Fishing, the Fish Trap, path cards, canoes, and the Reef Water are put back or added on arrival. Growing plants in the Garden Plot needs nothing new; a plant already in the plot from an older version loads at full Health and Care.
+- **No new run needed:** the fjord, mountain and grassland places, the sixteen caves and the interior boards get their save entries when a run starts. The Trail West and Trail North are forage finds, so an older save finds them on its next forage there. Fishing, the Fish Trap, path cards, the outrigger on Seaward Sands, and the Reef Water are put back or added on arrival. Growing plants in the Garden Plot needs nothing new; a plant already in the plot from an older version loads at full Health and Care.
 - **A new run is needed** to see the palms, the wild plants, the Seagull Nest, the Sea and Tide Pool at Seaward Sands: these are among a board's first cards, so a save that already visited the board does not gain them, and lost ones are not put back.
 - The animals are not board cards and are expected to appear in an existing save too, but that has not been confirmed in game. An older save's new path cards and caves should appear on its next visit, which has not been watched in a real older save yet.
 - Copper Veins and the Spring are not put back, and a mined-out vein does not return. A cave you had already visited before 0.1.7 keeps the veins it had.
@@ -454,6 +454,7 @@ BepInEx/
 
 See `CHANGELOG.md` for the full list.
 
+- **0.1.10:** the outrigger home from the island is now built, not given; art for the cooked island food; the crossings and the canoe paddle really cost stamina; boiling sea water no longer freezes the game; no winter storms outside winter; the Cinchona Decoction pot holds three doses, not nine.
 - **0.1.9:** the Island Start perk: begin as a castaway and choose your landing shore, or let the sea decide.
 - **0.1.8:** swamp fever from the mosquitoes on Rootwater Thicket and Reed Marsh, a boiled Cinchona Decoction that wears it down, gutting for the seven island fish, Baked Yam, Sago Flatbread and Coconut Meat in the stew, salt boiled from sea water, China Rose, Jasmine and Ginger on the base game's effects, and no more blank Stone Pile on the river-mouth shores.
 - **0.1.7:** vanilla-balance pass: garden plants need tending and die in winter, forage, washes, dives and fishing can come up empty, sea fishing is about half as rich, raw seafood carries parasites, the crossing costs stamina and can be rough, moose and walrus give real meat and a hide, the carcass searches run on a 3-day stock, three copper veins instead of seven, and the island's warmth follows the season.

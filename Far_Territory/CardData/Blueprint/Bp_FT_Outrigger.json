@@ -1,0 +1,142 @@
+{
+  "UniqueID": "ft_bp_outrigger",
+  "CardName": {
+    "LocalizationKey": "Far_Territory_BpOutrigger_CardName",
+    "DefaultText": "Outrigger Canoe"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_BpOutrigger_CardDescription",
+    "DefaultText": "A narrow canoe lashed to a slim float, strong enough to cross the open water back to the mainland. Build it on Homeward Sand at Landfall Strand from 6 Long Sticks and 2 Rope."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "LocalizationKey": "Far_Territory_BpOutrigger_UnlockConditionsDesc",
+    "DefaultText": "Can be researched from the start"
+  },
+  "BlueprintUnlockTicksCost": 40.0,
+  "BuildingStatConditions": [],
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "ResearchableFromStart",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "Stat": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+        "StatWarpType": 3,
+        "TriggerRange": {
+          "x": 0.0,
+          "y": 100000.0
+        }
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintCardConditions": [
+    {
+      "TriggerCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyInHand": false,
+      "NotInHand": false,
+      "ExcludeInventories": true,
+      "Inverted": false,
+      "OnlyEquipped": false,
+      "TriggerCardWarpData": "ft_moored_boat_island",
+      "TriggerCardWarpType": 3
+    }
+  ],
+  "BuildingCardConditions": [
+    {
+      "TriggerCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyInHand": false,
+      "NotInHand": false,
+      "ExcludeInventories": true,
+      "Inverted": false,
+      "OnlyEquipped": false,
+      "TriggerCardWarpData": "ft_moored_boat_island",
+      "TriggerCardWarpType": 3
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 6,
+          "DontSpend": false,
+          "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [
+        "CraftAction"
+      ],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 8,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "ft_outrigger",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "FT_Outrigger",
+  "CardImageWarpType": 3,
+  "ResearchedNotification": 0
+}

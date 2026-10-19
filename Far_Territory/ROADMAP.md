@@ -1,7 +1,127 @@
 # Roadmap: Far Territory
-Version at time of writing: 0.1.0 (published 2026-10-12 as a pre-release on GitHub and Nexus page 54; the plan is archived as built in `Documentation/Design/FarTerritory_As_Built.md`).
+Version at time of writing: 0.1.10
+Date: 2026-10-18
+Audit score: 10/10 (release-ready)
 
-The forward-looking roadmap has not been generated yet (`/roadmap FarTerritory`); this file currently holds only the plan reconciliation record below.
+## Current State
+
+**Theme**: Lands beyond the forest, reached by ordinary travel - a tropical island (coast, caves, volcano, shipwreck, ruin), plus grassland, snowy mountains and cold fjords. Early-to-mid-game exploration, fishing, tropical farming, medicine/spice plants, and island animals, with an optional castaway start.
+
+**Content**: 99 items / 5 blueprints / 167 locations / 50 environments / 1 perk / 181 custom images / 2 liquids
+
+**Stability**: 10/10 - 0 CRITICAL, 0 design gaps, 1 open in-game verification question (Fish Trap catch capacity), cosmetic residue only.
+
+**Open work**: none (no retrospective in `Documentation/Retrospectives/INDEX.md` names Far Territory / FT).
+
+**Framework compliance**: Tier 2 - `ContentModPlugin` base, `SpawnService` (LandmarkSeed), `TickEvents` (ClimateService 1s poll). Cross-mod guard (`OwlIslandGuard`) patches `MoveNPC` by reflection with per-cause warn-once and log-and-skip when the foreign mod is absent. No deprecated patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefix, no manual perk/blueprint injection, no `ModLoaderVerison`/`ModEditorVersion`.
+
+---
+
+## Phase 0: Stabilize  *(skipped - audit score 10/10, no open retrospectives)*
+
+Nothing to stabilize. The one historical CRITICAL (Fish Trap blueprint never researchable) is resolved; code-quality warnings all closed in the 2026-10-13 resolution log.
+
+---
+
+## Phase 1: Foundation
+
+> Table-stakes maintenance. All green today; these are the items that keep it that way.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| Add `ObjectWeight` to FT_FishTrapPlaced.json (only FT structure that omits it) | Consistency | P1 | Quick |
+| Add `ParentObjectID` to the 3 blueprint CardName/CardDescription/UnlockConditionsDesc blocks | Consistency | P1 | Quick |
+| Keep SimpEn/SimpCn parity on every text change (currently 1962/1962) | Localization | P1 | Quick |
+| Keep version sync (ModInfo/Plugin.cs/README at 0.1.10) on each bump | Version hygiene | P1 | Quick |
+
+---
+
+## Phase 2: Core Expansion
+
+> The most natural content additions that complete loops the mod already opens.
+
+### Cooked shellfish and seaweed
+**What**: cook chain (fire or pot) for Conch, Oyster, Sea Urchin and Seaweed, parallel to the existing Gut-a-fish -> cooked-meat path.
+**Why**: README §Fishing states plainly "Shellfish and Seaweed have no cooked form yet" - the dive/forage loop currently dead-ends at raw-only. Closing it matches the sea-fish loop already shipped.
+**Requires**: none.
+**Complexity**: Medium.
+
+### Spice-driven dishes
+**What**: simple FT dishes keyed to Ginger/Chilli/Lemongrass/Jasmine flavour tags, conditional on the open in-game check of whether base-game dishes pick the tags up.
+**Why**: the 4 spice plants carry flavour tags but no FT recipe consumes them; if base dishes ignore the tags, the spices are currently decorative.
+**Requires**: resolve the README §Spices in-game flavour-pickup question first.
+**Complexity**: Medium.
+
+---
+
+## Phase 3: Integration & Depth
+
+> Cross-mod hooks and depth for experienced players. All current crossovers are soft and already wired.
+
+### Confirm the three live crossovers through play
+**What**: verify Sirus23 wild sheep/Owl guarding, Forest Lore Standing Stones seeding, and Harsh Wilds coexistence on real multi-mod saves.
+**Why**: all three are reflection-based and log-and-skip; they are statically clean but not yet watched through a real night/visit (README §Other mods flags this).
+**Requires**: the respective mods installed.
+**Complexity**: Medium.
+
+### Further island perks
+**What**: additional island-survival perks beyond Island Start, if the mod wants a perk tier.
+**Why**: the mod has exactly one perk; the castaway theme supports a small perk group.
+**Requires**: none.
+**Complexity**: Medium.
+
+---
+
+## Phase 4: Polish
+
+> Art and text that finish the mod. Art is already near-complete (310/315 card refs are the mod's own PNGs).
+
+| Item | What | Complexity |
+|------|------|------------|
+| Clear README first-guess caveats | Confirm fishing stocks, Cinchona Decoction timing, Palm Frond fuel, net/trap fishing through play, then update caveats both directions in the same commit | Medium |
+| Remaining borrowed sprites | Fish trap `FunnelTrap` and the two sinkhole-path `Rope` refs still borrow base-game sprites; draw own art if desired | Quick |
+
+---
+
+## Long-term Vision
+
+> Where Far Territory should be at v1.0.
+
+A complete, balanced out-of-forest expansion whose every advertised number has been confirmed in play and whose README carries no "first guess" caveats. The tropical loop (fish -> gut -> cook, farm -> tend -> harvest, forage -> medicine) is fully closed including shellfish/seaweed; the uplands and fjords get the same depth of catchable/butcherable wildlife and gatherable plants the island already has. Cross-mod crossovers are confirmed through real multi-mod play rather than static reflection checks.
+
+**Potential major additions** (not yet justified - revisit after Phase 2):
+- Upland/fjord food and medicine depth to match the island - fits the "lands beyond the forest" frame.
+- A small island-survival perk group - fits the castaway start the mod already ships.
+
+Any of these worth building belongs in a plan under `Documentation/Plans/FarTerritory/` (the current plan is archived as built in `Documentation/Design/FarTerritory_As_Built.md`); never create a stub under `Documentation/Ideas/`.
+
+---
+
+## Maintenance Calendar
+
+| Trigger | Action |
+|---------|--------|
+| After any new content phase | Run `/audit-mod FarTerritory` and update this roadmap |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md EA notes, re-run `/diagnose-log` |
+| After fixing a critical issue | Run `/critical-analysis FarTerritory` to verify the fix |
+| After Phase 2 complete | Run `/export-to-repo FarTerritory` and bump minor version |
+
+---
+
+## Skill Cheatsheet for This Mod
+
+```
+/audit-mod FarTerritory         - full health check, updates .audit/
+/critical-analysis FarTerritory - adversarial review
+/repair-items FarTerritory      - auto-fix item JSON issues
+/repair-blueprints FarTerritory - auto-fix blueprint JSON issues
+/build-mod FarTerritory         - build Release DLL
+/deploy-mods FarTerritory       - build + deploy to game
+/update-mod-version FarTerritory <ver> - bump version in all 3 files
+/export-to-repo FarTerritory    - push to public repo
+```
+
+---
 
 ## Plan Reconciliation Log
 
@@ -38,3 +158,9 @@ The forward-looking roadmap has not been generated yet (`/roadmap FarTerritory`)
 - **Evidence:** `2096a381b` (CHANGELOG `[Unreleased]` folded into a dated `[0.1.0]`; `LICENSE` and `ASSET_CREDITS.md` added and shipped by the csproj); build 0 warnings; gates Csproj-ContentIncludes, Deploy-Mods, CardArt-ShippedForm, Sprite-NameResolves, PackSuite-UnreleasedGuard, Nexus-Publish all green. Release zip `Far_Territory_0-1-0.zip` md5 `a6924a6b6cdeed126e66d019f4fe466e`; GitHub export pushed (`Mod_Repos` `968a137`, 723 files); Nexus upload replaced the hand-uploaded 2026-10-06 build on file slot 8094105 (`fba6c4924`); `nexus_publish.py status` reads published 0.1.0.
 - **Left for the owner (website only):** paste the description (`nexus_publish.py describe FarTerritory --copy`), correct the summary (still "will add"), publish page 54 (it was `not_published` at the close). Per `Stable/README.md` a drained plan makes the mod a `Stable/` candidate (`Development_Tools/Move-ModFolder.ps1`), not moved here.
 - **Verification debt:** the 16 person rows above.
+
+### 2026-10-18 - second MASTER_PLAN closed (vanilla balance + niche content)
+- **Verdict:** section 1 (balance pass FT-B1 to FT-B25) built in 0.1.7; section 2 N1-N4 in 0.1.8, N6 (Island Start) in 0.1.9, N5 (the island outrigger as a researched build) and the cooked-food art in 0.1.10. 0 open prompts.
+- **Disposition:** CLEARED. Both plan files removed; the as-built record is `Documentation/Design/FarTerritory_As_Built.md` section 23 (with its Considered, not selected table), and the 23 tracker rows that cited the plan now cite that section.
+- **Evidence:** CSFF `8dd1c9324` (N5, 0.1.10) and this commit (art); FT gates 76/76, card-art gates 80/80, harness dry run 6/6, build 0 warnings.
+- **Verification debt:** T2.1774-T2.1797 and T2.1911, all awaiting a person at a running game (T2.1797 is the owner's art review).

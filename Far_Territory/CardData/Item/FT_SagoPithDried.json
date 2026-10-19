@@ -9,7 +9,7 @@
     "LocalizationKey": "Far_Territory_SagoPithDried_CardDescription",
     "DefaultText": "Sago pith dried hard and pale, so it keeps. Soak it in fresh water to work it into a dough."
   },
-  "CardImageWarpData": "FT_SagoPith",
+  "CardImageWarpData": "FT_SagoPithDried",
   "CardImageWarpType": 3,
   "ObjectWeight": 120.0,
   "MaxStack": 10,

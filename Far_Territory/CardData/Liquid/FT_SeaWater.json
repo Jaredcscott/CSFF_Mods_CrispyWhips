@@ -65,7 +65,7 @@
     "TextDisplay": 0,
     "HasActionOnZero": false,
     "HasActionOnFull": true,
-    "ShowPopupOnFull": true,
+    "ShowPopupOnFull": false,
     "OnFullNotification": 1,
     "OnFull": {
       "ActionName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},

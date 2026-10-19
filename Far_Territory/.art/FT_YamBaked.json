@@ -1,0 +1,41 @@
+{
+  "target": "FT_YamBaked.png",
+  "sourceCard": [
+    "CardData/Item/FT_YamBaked.json"
+  ],
+  "subject": "one whole wild yam root baked in the embers, lying diagonally, about three times as long as it is wide, tapering at one end: skin roasted dark brown to near-black and blistered, cracked open lengthwise in one long split showing soft steaming golden-yellow flesh, a few charred patches, no rootlets",
+  "model": "nano-banana-2",
+  "mode": "image2image (reference images, keyed item)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template (content + style references, literal Subject, flat posterized Style, white paper, Avoid list incl. footprints); full text on the historyId)",
+  "refs": [
+    {
+      "label": "Far Territory FT_Yam (content)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797793838_4638ed0f_1791797793867_e6690cf3.png"
+    },
+    {
+      "label": "vanilla Meat_Cooked (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Meat_Cooked_1791745031656_2dcd50cf.png"
+    }
+  ],
+  "historyId": "zLom9GlTB0EYtr9BFlTR",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792304447898_65f3bab6_1792304447954_fd239cc7.png",
+  "credits": 20,
+  "generated": "2026-10-18",
+  "finish": "keyed",
+  "note": "FT plan N2 cooked food, pack Prompt 8; previously borrowed FT_Yam. One sample, for the owner's gallery review. Self-check: every phrase rendered; the subject fills more of the card than most items.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792304447898_65f3bab6_1792304447954_fd239cc7.png",
+      "verdict": "every phrase rendered; the subject fills more of the card than most items"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

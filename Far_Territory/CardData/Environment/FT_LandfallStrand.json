@@ -97,14 +97,6 @@
       }
     },
     {
-      "DroppedCardWarpData": "ft_outrigger",
-      "DroppedCardWarpType": 3,
-      "Quantity": {
-        "x": 1,
-        "y": 1
-      }
-    },
-    {
       "DroppedCardWarpData": "ft_shell_sand",
       "DroppedCardWarpType": 3,
       "Quantity": {

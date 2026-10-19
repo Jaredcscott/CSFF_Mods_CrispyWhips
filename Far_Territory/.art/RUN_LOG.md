@@ -382,3 +382,7 @@
 | 2026-10-12 | (wasted job: a placeholder prompt "x" submitted by mistake during the rework; image not used) | nano-banana-2 image2image | 1K | 20 | 23K7d857rf7rrFWLRwG5 | WASTED |
 | 2026-10-12 | FT_AlmondTree (owner gallery rework pass 2: regenerate, irregular spreading crown) | nano-banana-2 image2image | 1K | 20 | 8zaYzSEMTfCGf8KDPq7z | OK |
 | 2026-10-12 | FT_FishTrapSet (owner gallery rework pass 2: regenerate, fully submerged, no fish) | nano-banana-2 image2image | 1K | 20 | vjPqiSfk5PgYZ0dudxAW | OK |
+| 2026-10-18 | FT_YamBaked (FT plan N2 cooked food, pack Prompt 8) | nano-banana-2 image2image | 1K | 20 | zLom9GlTB0EYtr9BFlTR | OK |
+| 2026-10-18 | FT_SagoPithDried (FT plan N2 cooked food, pack Prompt 8) | nano-banana-2 image2image | 1K | 20 | 50PZuzd91cbU7bYCRRs3 | OK |
+| 2026-10-18 | FT_SagoDough (FT plan N2 cooked food, pack Prompt 8) | nano-banana-2 image2image | 1K | 20 | 5MFFS29p6Vg2taoU1lyu | OK |
+| 2026-10-18 | FT_SagoFlatbread (FT plan N2 cooked food, pack Prompt 8) | nano-banana-2 image2image | 1K | 20 | pFUcSMOxH0amm29DPIbm | OK |

@@ -9,7 +9,7 @@
     "LocalizationKey": "Far_Territory_SagoFlatbread_CardDescription",
     "DefaultText": "A flat, chewy cake of sago starch baked on the fire. Plain, but it fills the belly."
   },
-  "CardImageWarpData": "Flatbread_Wheat",
+  "CardImageWarpData": "FT_SagoFlatbread",
   "CardImageWarpType": 3,
   "ObjectWeight": 100.0,
   "MaxStack": 8,

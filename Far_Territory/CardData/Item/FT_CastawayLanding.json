@@ -357,7 +357,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "Far_Territory_CastawayLanding_DA_Stay_Desc",
-        "DefaultText": "Start here, where the outrigger to the mainland lies. Takes no time."
+        "DefaultText": "Start here, on the beach where an outrigger home to the mainland can be built. Takes no time."
       },
       "DaytimeCost": 0,
       "NotBaseAction": true,

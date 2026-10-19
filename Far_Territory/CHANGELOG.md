@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.10] - 2026-10-19
+
+### Changed
+
+- **The way home from the island is now something you build.** Landfall Strand no longer has a free Outrigger Canoe waiting. Research the new **Outrigger Canoe** blueprint (Construction, Advanced Tools; researchable from the start, 10 hours) and build it on Homeward Sand at Landfall Strand from 6 Long Sticks and 2 Rope (2 hours). Everything it needs can be found on the island, so an Island Start castaway is never stranded. The canoe you build sails home exactly as before and stays on Landfall Strand for later trips. The canoe on Seaward Sands is unchanged, and a save that already has a canoe on Landfall Strand keeps it. The times are first guesses, not yet balanced.
+- **Pictures for the cooked island food.** Baked Yam, Dried Sago Pith, Sago Dough and Sago Flatbread now have their own art instead of borrowing the Yam, the Sago Pith and the base game's wheat flatbread.
+
+### Fixed
+
+- **The outrigger crossing really costs stamina.** Its 2 stamina every 15 minutes was less than the stamina you get back in that time, so a crossing cost nothing and you could land more rested than you left. It now costs 10 every 15 minutes, what the base game charges for fleshing a hide, which is 2 to 4 more than you recover: a six-hour crossing leaves you exhausted. The dugout canoe's Paddle Downstream had the same fault and now costs the same.
+- **Boiling sea water no longer freezes the game.** When a bowl of sea water boiled dry, the game stuck partway through and never gave the Salt, and nothing else could be done until you reloaded. The water now boils away into Salt as it should, with the usual message on the card.
+- **No winter storms in summer.** The outrigger crossing could still be caught by a winter squall outside winter, about once in a hundred crossings. The storm now only comes in winter.
+- **The Cinchona Decoction makes three doses, not nine.** A cooking pot of 300 boiled water came out holding 900 of decoction, because the recipe added 300 twice on top of the water it turns into decoction. The pot now holds the 300 its water made: three Drinks empty it.
+
 ## [0.1.9] - 2026-10-17
 
 ### Added

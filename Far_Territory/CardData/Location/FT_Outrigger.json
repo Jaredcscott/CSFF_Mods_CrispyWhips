@@ -198,7 +198,7 @@
                 "x": 24,
                 "y": 24
               },
-              "WhenOutOfRange": 0
+              "WhenOutOfRange": 2
             }
           ],
           "DroppedCards": [
@@ -302,8 +302,8 @@
           "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
           "StatWarpType": 3,
           "ValueModifier": {
-            "x": -2.0,
-            "y": -2.0
+            "x": -10.0,
+            "y": -10.0
           },
           "RateModifier": {
             "x": 0.0,
@@ -544,7 +544,7 @@
                 "x": 24,
                 "y": 24
               },
-              "WhenOutOfRange": 0
+              "WhenOutOfRange": 2
             }
           ],
           "DroppedCards": [
@@ -648,8 +648,8 @@
           "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
           "StatWarpType": 3,
           "ValueModifier": {
-            "x": -2.0,
-            "y": -2.0
+            "x": -10.0,
+            "y": -10.0
           },
           "RateModifier": {
             "x": 0.0,

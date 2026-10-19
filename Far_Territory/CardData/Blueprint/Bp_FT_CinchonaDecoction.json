@@ -1,6 +1,6 @@
 {
     "UniqueID": "ft_bp_cinchona_decoction",
-    "//Brew": "N1 (plan section 2): boiled Cinchona Decoction. Every number is a TUNABLE PLACEHOLDER from the plan, session-inferred and unmeasured against play: 2 bark, boiled water in a cooking pot, 4 ticks (an hour), 300 units = 3 doses of 100, each dose SwampFeverMerozoites -1 and Nausea +6, spoils in 2 days (192 ticks). Merozoites is a 0-8 disease counter with BaseRatePerTick 0 that vanilla's Tgr_SwampFeverCycle writes, so a -1 is permanent by design and floors at 0; Nausea is 0-24 with BaseRatePerTick -1, so +6 decays and sits far below the cap. The dose is on the Drink only. The existing Cinchona Bark chew effect (ft_stat_cinchona) is unchanged. Made on the chassis of HarshWilds hw_bp_brew_beast: the pot is kept (DontSpend) and its boiled water becomes the decoction.",
+    "//Brew": "N1 (plan section 2): boiled Cinchona Decoction. Every number is a TUNABLE PLACEHOLDER from the plan, session-inferred and unmeasured against play: 2 bark, boiled water in a cooking pot, 4 ticks (an hour), 300 units = 3 doses of 100, each dose SwampFeverMerozoites -1 and Nausea +6, spoils in 2 days (192 ticks). Merozoites is a 0-8 disease counter with BaseRatePerTick 0 that vanilla's Tgr_SwampFeverCycle writes, so a -1 is permanent by design and floors at 0; Nausea is 0-24 with BaseRatePerTick -1, so +6 decays and sits far below the cap. The dose is on the Drink only. The existing Cinchona Bark chew effect (ft_stat_cinchona) is unchanged. Made on the chassis of HarshWilds hw_bp_brew_beast: the pot is kept (DontSpend) and its boiled water becomes the decoction. The 300 units ARE the pot's own boiled water, transformed in place, so BlueprintResult Quantity and EffectOnIngredient.LiquidQuantityChange are both 0: for a LiquidBecomesResult element that keeps its liquid, each is ADDED on top of it (.decomp InGameCardBase.GenerateBlueprintBuildAction and the BPSTEP action, GameManager.ApplyCardStateChange) and only the container capacity clamps the sum. The HW brews and vanilla Bp_NightBroth carry +300/+300 safely because a Clay Bowl holds 300; this Cooking Pot holds 1200, so it came out 300+300+300 = 900 (harness T2.1790, fixed 0.1.10).",
     "CardType": 7,
     "CardName": {
         "ParentObjectID": "ft_bp_cinchona_decoction",
@@ -177,7 +177,7 @@
                             "FloatValue": 0.0
                         },
                         "ModifyDurability": false,
-                        "ModifyLiquid": true,
+                        "ModifyLiquid": false,
                         "DropOnDestroyList": false,
                         "LiquidEffectScaling": 0,
                         "AddFlavoursFromTargetCard": false,
@@ -207,8 +207,8 @@
                         },
                         "GetProgressFromOtherCard": false,
                         "LiquidQuantityChange": {
-                            "x": 300.0,
-                            "y": 300.0
+                            "x": 0.0,
+                            "y": 0.0
                         },
                         "Special1Change": {
                             "x": 0.0,
@@ -272,8 +272,8 @@
             "DroppedCardWarpData": "ft_lq_cinchona_decoction",
             "DroppedCardWarpType": 3,
             "Quantity": {
-                "x": 300,
-                "y": 300
+                "x": 0,
+                "y": 0
             },
             "FinishUnlocking": false,
             "TransferRules": {
