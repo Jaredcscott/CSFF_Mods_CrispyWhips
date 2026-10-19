@@ -1,110 +1,89 @@
 # Roadmap: Sirus23 Mod Collection
-Version at time of writing: 1.22.0
-Date: 2026-10-11
+Version at time of writing: 1.22.8
+Date: 2026-10-19
 Audit score: 9/10 - PASS (0 CRITICAL)
 
 ## Current State
 
-**Theme**: Animal companions (Wolf, Fox, Owl) and full sheep husbandry - milking, wool, dairy, felt-working, pen-or-perish predation, and a draft-animal farmstead - a mid-game survival/husbandry loop that layers onto vanilla livestock.
+**Theme**: Animal companions (Wolf, Fox, Owl, Hawk, Ferret, Truffle Hog) and full sheep husbandry - milking, wool, dairy, felt-working, pen-or-perish predation, and a draft-animal farmstead. A mid-game survival/husbandry loop that layers onto vanilla livestock.
 
-**Content**: 65 items / 28 blueprints / 7 structures / 9 perks / 72 custom images / 2 triggers / 1 Animals manifest (Owl) / 4 GameSourceModify patches / 3 EncounterGuards.
+**Content**: 71 items / 29 blueprints / 7 structures / 9 perks / 78 custom images / 2 triggers / 2 Animals manifests (Owl, Hawk) / 4 GameSourceModify patches / 3 EncounterGuards / 1 liquid.
 
-**Stability**: 9/10 - 0 CRITICAL, 0 design gaps, 6 warnings (one code-quality reliability gap + harness/tracker verification debt). critical-analysis (2026-10-11) is SOLID; code-quality (2026-10-11) is 10/10.
+**Stability**: 9/10 - 0 CRITICAL, 0 design gaps, 3 warnings (two terminal-carcass detector blind-spots + one low-severity code-quality reliability gap, G5). critical-analysis (2026-10-19) is SOLID; code-quality (2026-10-19) is 10/10.
 
-**Open work**: No open or pending retrospectives for this mod - both Sirus23 retros are archived. No plan is open (2026-10-18): the vanilla balance and niche content plan is built and archived as `Documentation/Design/Sirus23_Vanilla_Balance_And_Niche_As_Built.md` (1.22.6 to 1.22.8); what remains is in-game verification on its tracker rows and the suite-batch release of 1.22.8.
+**Open work**: No open or pending retrospectives name this mod. No open plan: the vanilla-balance-and-niche plan was built and archived as `Documentation/Design/Sirus23_Vanilla_Balance_And_Niche_As_Built.md` (1.22.6-1.22.8). What remains is in-game verification on tracker rows and the suite-batch release of 1.22.8.
 
-**Framework compliance**: Tier 2, fully adopted. `Plugin.cs` extends `ContentModPlugin`; patchers use `ActionRouter`, `SpawnService`, `TickEvents`, `CompanionService` and declarative `EncounterGuards`. Declarative content (BlueprintTabs, GameSourceModify, Animals manifest, EncounterGuards) is used throughout. No deprecated patterns (`DropCollectionGuardPatch`, unfiltered hot-path prefixes, `ModLoaderVerison`) present.
+**Framework compliance**: Tier 2, fully adopted. `Plugin.cs` extends `ContentModPlugin`; patchers use `ActionRouter`, `SpawnService`, `TickEvents`, `CompanionService` and declarative `EncounterGuards`. Declarative content (BlueprintTabs, GameSourceModify, Animals manifests, EncounterGuards) used throughout. No deprecated patterns (`DropCollectionGuardPatch`, unfiltered hot-path prefixes, `ModLoaderVerison`) present.
 
 ---
 
-## Phase 0: Close out 1.22.0
+## Phase 0: Stabilize
 
-> The code for 1.22.0 is effectively done; what remains is recording verified results and one reliability fix. (Full audit score ≥ 8 with no open retros, so this is a close-out, not a stabilization.)
+> Audit score is 9/10 with 0 CRITICAL and no open retrospectives. One low-severity reliability fix is worth landing before the next release; otherwise skip.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Record the rig-verified companion-tame passes (T2.99, T2.551, T2.552) - Prompt 49 passed them on rig 4 (2026-10-10) but the tracker still reads `fail`/`pending` | Verification debt | P0 | Quick |
-| Record the rig-verified sheep Nourishment-rate passes (T2.553, T2.554) - fixed by `SheepGrazingGuardPatch` (2026-10-10), tracker still `pending` | Verification debt | P0 | Quick |
-| Commit the G5 breadcrumb fix: `FindPassiveEffectByPrefix` / `PatchSheepReproduction` must warn on a null breeding-passive read instead of logging "cattle-style delayed pregnancy" success unconditionally (`GameLoadPatch.cs:770,708,959`) | Reliability (code-quality W1) | P1 | Quick |
-| Skeptic-read the passing harness rows and update README caveats (T2.543 Wolf Den/Owl Perch, T2.558 Enclosure-as-pen, T2.559 distant-flock roll) | Verification debt | P1 | Quick |
-| Confirm the resolved `Bp_SHYarn` unlock in-game (its tracker row), then ship 1.22.0 (framework → Sirus23 → repackage suite → MUM last) after Sirus reviews the CHANGELOG 1.22.0 section | Release | P1 | Medium |
+| G5 - add a warn-once when `GameManager.NextEnvironment` field lookup fails in `CompanionStayPatch.cs:136-139`, distinct from the benign-null path, so a future field rename does not silently stop the owl's "leave me behind in a cave" rule | Reliability fix | P0 | Quick |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes health. All currently satisfied - listed so a future drift is visible.
+> Table-stakes; all currently met - this phase is a standing checklist, not open work.
 
-| Item | Type | Status |
-|------|------|--------|
-| Versions synced across ModInfo/Plugin.cs/README (1.22.0 ×3) | Version hygiene | ✓ done |
-| Framework Tier 2 (ActionRouter/SpawnService/TickEvents/CompanionService/EncounterGuards) | Framework | ✓ done |
-| Chinese localization `SimpCn.csv` with full parity | Localization | ✓ done |
-| Refresh the five stale category sub-reports (items/blueprints/structures/perks/images, all 2026-07-27) on the next `/full-mod-audit-chain` | Audit hygiene | open (Quick) |
+| Item | Type | State |
+|------|------|-------|
+| Versions synced across ModInfo/Plugin.cs/README (1.22.8 x3) | Version hygiene | DONE |
+| Tier 2 framework adoption (ActionRouter/SpawnService/TickEvents/CompanionService) | Framework | DONE |
+| SimpCn.csv Chinese parity (662/662 CLEAN) | Localization | DONE |
+| bin/Release sync clean | Build hygiene | DONE |
+| Publish 1.22.8 to Nexus (last known live: 1.21.6, 2026-10-13) - re-verify with `/nexus-publish status`; ships in a framework batch (build needs framework newer than Nexus 2.26.12) | Release | TODO |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> No Sirus23 plan is open (2026-10-18); new scope for this mod starts a new `Documentation/Plans/Sirus23_Mod_Collection/MASTER_PLAN.md`. The features below were planned in the round-2 plan, archived 2026-10-12 as `Documentation/Design/Sirus23_Mod_Collection_As_Built.md`. These are the genuinely unbuilt features - build only after Sirus's sign-off or the owner's go-ahead. Do not restate the plan here.
+> The mod's core loops are complete and recently extended (1.22.8 niche content). No new core content is justified until the pending in-game verification confirms what is already built. The next "expansion" work is closing verification debt, not writing features.
 
-### Feature 28 - A hunting hawk (falconry)
-**What**: A new wild companion via an `Animals/` manifest plus C#.
-**Why**: Extends the companion roster (community-requested); the only Phase F raptor not yet built.
-**Requires**: Sirus sign-off; Wave-0 W0-19.
-**Complexity**: Medium.
-
-### Feature 29 - A ferret for hare burrows
-**What**: A small companion via JSON + a `GameSourceModify` hook onto vanilla hares.
-**Why**: A light, thematic companion with a distinct scouting role.
-**Requires**: Sirus sign-off; W0-20.
-**Complexity**: Quick–Medium.
-
-### Features 34 & 37 - Recall Whistle; Truffle hog
-**What**: A companion-recall item (feature 34), and a truffle-foraging hog that is a no-op without Herbs & Fungi (feature 37).
-**Why**: Companion QoL and a cross-mod foraging payoff.
-**Requires**: Sirus sign-off; W0-24 (whistle), W0-27 + W0-20 (hog).
-**Complexity**: Medium each.
+### Close 1.22.8 verification debt
+**What**: Run the pending tracker rows in-game and record results: T2.582 (felt wet-weather), T2.583 (fox forager's-aid), T2.585 (owl pest-control cadence), T2.586 (lanolin waterproofing), plus the older pending companion/sheep rows (T2.561-T2.574, tame rows T2.551/T2.552 await `record`).
+**Why**: The code is built; these are open questions on `.claude/playthrough-test-status.json`, not findings. A failed row returns as a fix. Code work is not blocked on them (CLAUDE.md: code never waits on a playthrough).
+**Requires**: a running build; the Transfer-TestingState sync if verified on the testbox.
+**Complexity**: Medium (human playthrough, not code).
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Cross-mod hooks. Most are already built (features 30/31/39/40/41) and awaiting in-game checks; the open frontier is partner-side.
+> Cross-mod producer/consumer halves are all shipped or live in the partner mod's own scope.
 
-### Built, awaiting verification (rows T2.561–T2.569)
-**What**: Wool-washing (30), fox travel bonus (31), Dry Fodder (32), owlet (33), companion synergy (35), owl pellets (38), Treat-Wounds animal remedies (39), Lanolin Salve H&F herb (40), Partner-NPC food (41).
-**Why**: These complete the cross-mod and companion-depth layer.
-**Requires**: In-game verification; then Sirus's review before publish.
-**Complexity**: verification only.
-
-### Feature 42 - Wool joins a vanilla fibre tag
-**What**: Tag `sh_wool` with a vanilla fibre tag.
-**Status**: RULED OUT (MASTER_PLAN 0.3, W0-31 measured): the vanilla fibre tags are livestock-diet tags with no textile reader. Re-open only when a mod textile consumer (WDI fibre mill, CMC apparel) reads the tag.
+### Cross-mod state (all resolved)
+**What**: Wool washing (shipped in-mod), H&F herb remedies in Treat Wounds + herb-infused dairy (shipped), Lanolin-stands-in-for-Fat (shipped, needs framework 2.28.0+), ACT copper/iron Shears tier (Sirus `tag_Shears` CI already accepts it, no Sirus change), RepeatAction repeat milking/shearing (shipped, T2.22 confirmed), PartnerOverhaul NPCs eat Sirus food (shipped).
+**Why**: Documented in `.audit/ideas.md` Cross-Mod table; no open Sirus-side work remains.
+**Requires**: none.
+**Complexity**: N/A (done).
 
 ---
 
 ## Phase 4: Polish
 
-> Art and text that make the mod feel finished.
+> Art and text are in good shape (78 custom images, WildHawk sprite wired via Animals manifest). No open art gaps.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Borrowed-sprite replacements | Sheep Bell, Predator Tracks, Ox Cart and Wolf Pup still borrow existing sprites (CopperNecklace, OwlTracks, sh_ox_plough, WolfCompanion) - pack Prompt 47 generates distinct art | Medium |
-| OwlTied art | DECLINED by the owner 2026-09-28 (`.art/RUN_LOG.md`). Do not re-promote. | n/a |
-| Description accuracy pass | Keep README/CHANGELOG/Description in sync with each shipped Phase G feature (docs-honesty both directions) | Quick |
+| Art review pass | Run `/review-art Sirus23_Mod_Collection` if any 1.22.8 image was regenerated/altered and needs a fresh verdict | Quick |
+| Description accuracy | README is heavily caveated and matches the tracker; re-check "not yet confirmed in the game" lines after each verification pass so passing rows do not leave stale under-claims | Quick |
 
 ---
 
 ## Long-term Vision
 
-> Where this mod should be at v1.3.
+> Where this mod should be at v1.23+.
 
-By v1.3 the companion roster rounds out beyond the original three (hawk, ferret, hog) with recall and multi-companion synergy, and the sheep loop closes its last cross-mod seams (wool washing, herb-infused dairy, partner feeding). The mod's natural endpoint is a self-contained husbandry-and-companions package that reads vanilla and sibling-mod content opt-in and never hard-depends on it. Once Phase F/G drains and its tracker rows clear, the mod is feature-complete and moves to `Stable/` (`Stable/README.md`).
+Sirus23 is feature-complete for its theme: a companion-and-husbandry layer that closes vanilla's livestock and fibre gaps end to end (acquire -> tend -> produce -> preserve -> wear). Its natural endpoint is a fully-verified, Nexus-published 1.22.x with every companion, sheep, dairy and felt loop confirmed in-game, then a move toward `Stable/` once the verification debt is cleared and the mod only updates to track game/framework versions. The biggest addition that would become natural at a larger scale is a dedicated shepherd/trainer NPC economy, but that was ruled out in the as-built plan (it belongs to CMC's village scope) - do not re-propose it here.
 
-**Potential major additions** (not yet justified - revisit after Phase 3; any worth building go into the MASTER_PLAN, never a new Ideas stub):
-- Wool-quality stat - would unlock the ruled-out lanolin wool-conditioning and a cloth-quality display, but needs a new stat the mod deliberately avoids today.
-- Sheep/Wolf/Fox as framework Animals agents (G8) - an architecture migration held until the Owl `CompanionService` conversion has real soak time.
+**Potential major additions** (not yet justified - revisit only after verification debt clears):
+- None currently selected. The as-built plan's "Considered, not selected" rulings (husbandry mastery perk, shepherd-trainer NPC) carry their rejection reasons; do not re-promote.
 
 ---
 
@@ -115,7 +94,8 @@ By v1.3 the companion roster rounds out beyond the original three (hawk, ferret,
 | After any new content phase | Run `/audit-mod Sirus23_Mod_Collection` and update this roadmap |
 | Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis Sirus23_Mod_Collection` to verify the fix |
-| After a content phase completes | Run `/export-to-repo Sirus23_Mod_Collection` and bump the version |
+| After a verification pass | Re-check README "not yet confirmed" lines against `.claude/playthrough-test-status.json` |
+| Before release | Run `/nexus-publish status`; ship in a framework batch (build needs framework > Nexus 2.26.12) |
 
 ---
 
@@ -124,11 +104,11 @@ By v1.3 the companion roster rounds out beyond the original three (hawk, ferret,
 ```
 /audit-mod Sirus23_Mod_Collection         - full health check, updates .audit/
 /critical-analysis Sirus23_Mod_Collection - adversarial review
+/code-quality Sirus23_Mod_Collection      - C# reliability review
 /repair-items Sirus23_Mod_Collection      - auto-fix item JSON issues
-/repair-blueprints Sirus23_Mod_Collection - auto-fix blueprint JSON issues
 /build-mod Sirus23_Mod_Collection         - build Release DLL
 /deploy-mods Sirus23_Mod_Collection       - build + deploy to game
-/update-mod-version Sirus23_Mod_Collection <ver> - bump version in all 3 files
+/nexus-publish status                     - live-vs-local version per mod
 /export-to-repo Sirus23_Mod_Collection    - push to public repo
 ```
 
