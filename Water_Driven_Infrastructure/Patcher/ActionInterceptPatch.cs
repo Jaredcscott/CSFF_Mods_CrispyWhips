@@ -3416,7 +3416,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                WarnOnce("StatTriggerListeners-threw", $"moving a transformed card's stat-trigger listeners threw: {ex.Message}");
+                WarnOnce("StatTriggerListeners-threw", $"moving a transformed card's stat-trigger listeners threw: {ex.InnerException?.Message ?? ex.Message}");
             }
         }
 

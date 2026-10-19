@@ -914,7 +914,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (accepted < grindables.Count)
                     logger?.LogWarning($"[MillFilter] the mill's filter holds {accepted} accepted card(s) after the write-back, fewer than the {grindables.Count} grindables found; the filter write did not take");
                 else
-                    logger?.LogInfo($"[MillFilter] accepted {added} grindable card(s) into the Grinding Mill inventory filter ({accepted} in all)");
+                    logger?.LogDebug($"[MillFilter] accepted {added} grindable card(s) into the Grinding Mill inventory filter ({accepted} in all)");
             }
             catch (Exception ex)
             {

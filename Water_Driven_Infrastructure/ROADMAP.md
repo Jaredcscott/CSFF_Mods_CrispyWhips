@@ -1,6 +1,6 @@
 # Roadmap: WaterDrivenInfrastructure
 Version at time of writing: 1.12.12
-Date: 2026-10-18
+Date: 2026-10-19
 Audit score: 10/10 (PASS, release-ready) - see `.audit/summary.md`
 
 ## Current State
@@ -9,7 +9,7 @@ Audit score: 10/10 (PASS, release-ready) - see `.audit/summary.md`
 
 **Content**: 31 items / 35 blueprints / 21 structures (CT2) / 7 perks / 39 custom images
 
-**Stability**: 10/10 (release-ready) - 0 CRITICAL, 0 confirmed design gaps, 0 broken promises, 0 open retrospectives. Build clean (0 errors / 0 warnings), bin/Release in sync, versions agree at 1.12.12, Chinese parity 673/673, cross-mod collisions 0 (17 mods / 2623 UIDs). The two newest structures (Retting Pit, Irrigation Channel) are wired and mechanically verified against JSON + the `MillRaceNetwork`/`ActionInterceptPatch` C# gate, pending only human in-game confirmation (T2.1798, T2.1799).
+**Stability**: 10/10 (release-ready) - 0 CRITICAL, 0 confirmed design gaps, 0 broken promises, 0 open retrospectives. Build clean (0 errors / 0 warnings), bin/Release in sync, versions agree at 1.12.12, Chinese parity 673/673, cross-mod collisions 0 (17 mods / 2623 UIDs). `critical-analysis.md` is current with the latest source commit (2026-10-19) and returns SOLID. The two newest structures (Retting Pit, Irrigation Channel) are wired and mechanically verified against JSON + the `MillRaceNetwork`/`ActionInterceptPatch` C# gate, pending only human in-game confirmation (T2.1798, T2.1799). Perk tracking is complete: all 7 perk UIDs are present in `Features.json` (the prior "3 of 7" perks-report gap is stale/resolved).
 
 **Open work**: none (all 4 WDI-tagged retrospectives are graduated/archived). One open tracker warning: **T2.601** reads `fail` on a stale premise (its run PASSED but was not recorded because the row still describes vanilla's `PartnerDuty_HarvestReeds` instead of WDI's own `wdiHarvestReedBed_Duty`/`wdiHarvestCattailBed_Duty`); non-code, needs a row rewrite + `/playthrough-test-plan record`.
 
@@ -30,7 +30,7 @@ Audit score: 10/10 (PASS, release-ready) - see `.audit/summary.md`
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
 | Rewrite tracker row T2.601 to describe WDI's own reed/cattail harvest duties, then `/playthrough-test-plan record` the already-passed run | Tracker hygiene | P1 | Quick |
-| Re-run the 6 domain sub-audits (`/full-mod-audit-chain WaterDrivenInfrastructure`) so the 2026-10-13 reports stop being carried as stale/UNTRUSTED input, and settle the contested perks `Features.json` coverage item (G1? in summary.md) | Audit hygiene | P2 | Medium |
+| Re-run the 6 domain sub-audits (`/full-mod-audit-chain WaterDrivenInfrastructure`) so the 2026-10-13 reports stop being carried as stale/UNTRUSTED input | Audit hygiene | P2 | Medium |
 | Re-verify `GetCardCharges` is still uncached reflection; cache the `AccessTools.Field` lookup if so | Perf hygiene | P3 | Quick |
 
 ---

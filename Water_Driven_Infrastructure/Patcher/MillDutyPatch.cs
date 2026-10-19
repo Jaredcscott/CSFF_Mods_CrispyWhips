@@ -229,7 +229,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                WarnFrogPoolOnce($"StatsConversionsInit_Postfix failed: {ex.Message}");
+                WarnFrogPoolOnce($"StatsConversionsInit_Postfix failed: {ex.InnerException?.Message ?? ex.Message}");
             }
         }
 
@@ -432,7 +432,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     AffectShape.DismantleAction);
 
             if (_graftedThisPass > 0)
-                Plugin.Logger?.LogInfo($"[MillDutyPatch] attached {_graftedThisPass} Partner duty/duties (enable Debug logging for the per-duty list).");
+                Plugin.Logger?.LogDebug($"[MillDutyPatch] attached {_graftedThisPass} Partner duty/duties.");
         }
 
         // Counts grafts in the current pass so the per-duty detail can stay at Debug. The

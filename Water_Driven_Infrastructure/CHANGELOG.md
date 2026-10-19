@@ -2,12 +2,17 @@
 
 All notable changes to this mod are documented here.
 
-## [1.12.12] - 2026-10-18
+## [1.12.12] - 2026-10-19
 
 ### Added
 
 - **Retting Pit.** A small stone pit you can build at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet (the same rule as the Sawmill), so you can ret at your base instead of carrying stems to a river. Drag Flax Stems, Nettle Stems or Fresh Reeds onto it and they soak exactly as they do in a river: the same Soaking cards, no faster, and to the same quality limits (flax 40, reeds 50, nettle 30). Nothing else can be soaked in it, and it takes no stems while its outlet is closed, gone, or frozen with no fire beside it. Build it from 6 Stone, 4 Wooden Planks and 2 Rope (1 hour, research 2 hours once you have a Mill Race); the kit packs up and places again. The build cost is a first guess and may change.
 - **Irrigation Channel.** A plank-lined field channel that protects crops from a dry spell and does nothing else. While a flowing Mill Race Outlet stands at the same location, every Flax, Wheat, Pea and Turnroot field there (growing or mature) gains 20 Hydration a tick. That lifts a field out of drought, where it loses Health below 1920 Hydration, but it cannot wet a field that is already well watered: above 1920 the field's own evaporation (24 a tick, 36 when very wet) outpaces it, so a field fed only by the channel settles just above 1920. It never touches growth, yield or Health directly, so a channelled field grows at the same pace as a well-watered one. A closed or frozen outlet feeds nothing, even beside a fire, and fields on a river shore or in wetlands, which already draw 20 from the ground, are left alone. Other crops (garden plots, other mods' plants) are not watered. Build it from 4 Stone and 4 Wooden Planks (1 hour, research 2 hours once you have a Mill Race, under Farming > Agriculture) where the Sawmill can stand; one channel per location. The 20 a tick and the build cost are first guesses and may change.
+
+### Changed
+
+- **Quieter log at startup.** The Grinding Mill filter count and the Partner duty count are now Debug lines, so a normal start writes only the one "loaded" line.
+- **Clearer error lines.** If moving a transformed card's stat triggers or setting up the Catch Frog pool ever fails, the log now names the real cause instead of a generic "exception has been thrown by the target of an invocation".
 
 ### Fixed
 
