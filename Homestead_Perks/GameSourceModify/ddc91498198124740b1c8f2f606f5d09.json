@@ -1,5 +1,5 @@
 {
-    "//Bp_Well": "Vanilla Well blueprint (Bp_Well). Vanilla leaves all five unlock lists empty, so it can never be researched; this adds vanilla's own 'Shovel Needed' condition so it can.",
+    "//Bp_Well": "Vanilla Well blueprint (Bp_Well). Vanilla leaves all five unlock lists empty, so it can never be researched; this adds vanilla's own 'Shovel Needed' condition so it can. BlueprintCardConditions REPLACES vanilla's five Build conditions with its one resolvable entry (not inside an Env_Enclosure): vanilla's second entry is a non-inverted condition on a null card, which can never be met, so Build was never available (harness T1.148, 2026-10-18).",
     "TagsOnBoardWarpData": [
         {
             "ObjectiveName": "Shovel",
@@ -11,5 +11,16 @@
             "OnlyIfEquipped": false
         }
     ],
-    "TagsOnBoardWarpType": 4
+    "TagsOnBoardWarpType": 4,
+    "BlueprintCardConditions": [
+        {
+            "TriggerCardWarpData": "193f3be30d3891547a95d0d7e8539ccb",
+            "TriggerCardWarpType": 3,
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": true,
+            "OnlyEquipped": false
+        }
+    ]
 }

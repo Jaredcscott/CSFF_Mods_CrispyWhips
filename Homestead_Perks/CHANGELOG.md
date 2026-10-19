@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.7 (2026-10-18)
+
+- **The Well can now actually be built.** In 1.3.6 the Well blueprint researched, but its Build never lit up, even with every ingredient on the board. Vanilla's blueprint carries a build condition that names no card, so no board could ever meet it. The mod now drops that broken condition and keeps vanilla's real one: you cannot build a Well inside an animal enclosure. Stages, cost and vanilla's other rule (it must stand in the open, not under shelter) are unchanged.
+
 ## 1.3.6 (2026-10-15)
 
 - **You can now build a Well.** Vanilla ships a Well blueprint that sits in no journal tab and can never be researched. It now shows in Farming > Agriculture, researches once a shovel is on the board (vanilla's own "Shovel Needed"), and builds over vanilla's eleven stages at vanilla's cost. The result is the vanilla Well. The Well Kit perk and its price are unchanged.

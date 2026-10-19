@@ -1,6 +1,6 @@
 # Homestead Perks
 
-**Version:** 1.3.6
+**Version:** 1.3.7
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency)
 **Language:** English, Simplified Chinese
@@ -81,7 +81,7 @@ Every structure kit is carried anywhere and raised once with a single "Place" ac
 - "Not Indoors": the Cabin, Mud Hut and Cellar kits indoors or in a cave.
 - "Not by the River", "Not in Wetlands" or "Not on Wet Ground": the Cellar Kit, as vanilla's own blueprint refuses.
 
-A few environments mark a river or wetland only on the environment itself. There the Cellar Kit is refused with no explanatory action. Vanilla's own build rules for the Well and the Pit Trap are empty in game, so those are not checked.
+A few environments mark a river or wetland only on the environment itself. There the Cellar Kit is refused with no explanatory action. The Well Kit checks only vanilla's enclosure rule, and the Pit Trap Kit nothing, since vanilla's Pit Trap blueprint names no card; neither kit checks vanilla's shelter rule.
 
 ## Notes
 
@@ -99,6 +99,7 @@ Carried items count toward the 4000 Encumbrance cap. At the cap, vanilla blocks 
 
 Full list in CHANGELOG.md.
 
+- 1.3.7: the Well blueprint's Build works (vanilla's blueprint carried a condition no board could meet).
 - 1.3.6: vanilla's Well blueprint can be researched and built; new Smallholding perk; the Snow Shelter Kit places only where snow lies.
 - 1.3.5: vanilla balance pass: structure starts cost Moons and Stars, a smaller Homestead stockpile, 3 Path Kits, several higher Sun prices; the Mushroom Bed's growing is documented.
 - 1.3.4: card pictures framed like vanilla's again (1.3.2's crop stretched them over the whole card).
