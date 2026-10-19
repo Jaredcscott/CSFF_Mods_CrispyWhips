@@ -1,0 +1,10 @@
+{
+  "target": "FL_AxeRusty.png",
+  "sourceCard": "vanilla AxeRusty 5a5b31be26b363c4da6e9cd65750500f (GameSourceModify patch)",
+  "subject": "the same rust-pitted old felling axe as FL_AxeRustyBlunt, with a freshly honed bright steel bevel along the cutting edge",
+  "model": "none (derived)",
+  "mode": "derived from FL_AxeRustyBlunt.png: a bright steel bevel painted inside the outline along the bit (Pillow, per-row band inside the leftmost opaque pixel, rows 196-414, pits and ink kept); shape unchanged",
+  "finish": "keyed (inherited from the source image's alpha)",
+  "generated": "2026-10-17",
+  "note": "placeholder made without OpenArt (not connected in that session); awaits owner gallery review, regenerate through /create-image if rejected"
+}

@@ -1,0 +1,5 @@
+{
+    "//AxeRusty": "Vanilla Rusty Axe (AxeRusty), the sharp form the Blunt Rusty Axe is sharpened back into, and the Ossuary's Sift the Mounds find. The game ships it with no card art (EA 0.69c: no Sprite reference, extract_vanilla_sprites.py card), so it gets this mod's picture.",
+    "CardImageWarpData": "FL_AxeRusty",
+    "CardImageWarpType": 3
+}

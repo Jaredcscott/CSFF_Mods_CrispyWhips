@@ -1,0 +1,281 @@
+{
+    "UniqueID": "fl_deer_lick",
+    "CardName": {
+        "ParentObjectID": "fl_deer_lick",
+        "LocalizationKey": "Forest_Lore_DeerLick_CardName",
+        "DefaultText": "Deer Lick"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fl_deer_lick",
+        "LocalizationKey": "Forest_Lore_DeerLick_CardDescription",
+        "DefaultText": "A trampled hollow of grey, salty mud where the springs leave their minerals. Deer come here to lick it, and their tracks cross and recross the edges. Wait downwind and one may come while there is salt to draw them."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardImageWarpData": "Tracks",
+    "CardImageWarpType": 3,
+    "CardType": 2,
+    "UniqueOnBoard": false,
+    "CannotBeTransferred": true,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": true,
+    "CanBeTrashed": false,
+    "DoesNotPile": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 576.0,
+        "CardStatName": {
+            "ParentObjectID": "fl_deer_lick",
+            "LocalizationKey": "Forest_Lore_DeerLick_SpoilageTime_CardStatName",
+            "DefaultText": "Salt Left"
+        },
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "RepeatActionOnZero": false,
+        "ResetWhenLoadedAtZero": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fl_deer_lick",
+                "LocalizationKey": "Forest_Lore_DeerLick_Wait_ActionName",
+                "DefaultText": "Wait at the Lick"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fl_deer_lick",
+                "LocalizationKey": "Forest_Lore_DeerLick_Wait_ActionDescription",
+                "DefaultText": "Settle downwind of the lick and keep still. A doe or a stag may come down for the salt; if one does, you can hunt it or let it be."
+            },
+            "DaytimeCost": 8,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": true,
+                    "FloatValue": 0.33,
+                    "MaxValue": 1.0
+                },
+                "FailMessage": {
+                    "ParentObjectID": "fl_deer_lick",
+                    "LocalizationKey": "Forest_Lore_DeerLick_Wait_FailMessage",
+                    "DefaultText": "The deer have licked the mud bare; there is not enough salt here to draw them for now."
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": -192.0,
+                    "y": -192.0
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Doe",
+                    "CollectionWeight": 30,
+                    "NPCStatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "16eb4865d583a1d4d82def0680f3065d",
+                            "StatWarpType": 3,
+                            "UseAssociatedAgent": false,
+                            "TargetAgent": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "TargetAgentWarpData": "6604ce2a04bc31a41b8dbe3ac8369549",
+                            "TargetAgentWarpType": 3,
+                            "StatRange": {
+                                "x": 1.0,
+                                "y": 1.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 2
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "f2c3d787896b6874c9974806acbe757a",
+                            "StatWarpType": 3,
+                            "UseAssociatedAgent": false,
+                            "TargetAgent": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "TargetAgentWarpData": "6604ce2a04bc31a41b8dbe3ac8369549",
+                            "TargetAgentWarpType": 3,
+                            "StatRange": {
+                                "x": 5.0,
+                                "y": 100.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 2
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "ecbc900a938255c469cb8424c2a0b06c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 100.0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Stag",
+                    "CollectionWeight": 15,
+                    "NPCStatsDropChanceModifiers": [
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "16eb4865d583a1d4d82def0680f3065d",
+                            "StatWarpType": 3,
+                            "UseAssociatedAgent": false,
+                            "TargetAgent": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "TargetAgentWarpData": "645e87517f75bdb40a526840708c05f5",
+                            "TargetAgentWarpType": 3,
+                            "StatRange": {
+                                "x": 1.0,
+                                "y": 1.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 2
+                        },
+                        {
+                            "Stat": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "StatWarpData": "f2c3d787896b6874c9974806acbe757a",
+                            "StatWarpType": 3,
+                            "UseAssociatedAgent": false,
+                            "TargetAgent": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "TargetAgentWarpData": "645e87517f75bdb40a526840708c05f5",
+                            "TargetAgentWarpType": 3,
+                            "StatRange": {
+                                "x": 5.0,
+                                "y": 100.0
+                            },
+                            "InterpWeightRange": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "WhenOutOfRange": 2
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "c7259ae779831874ca0de3fd4e43ed09",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 100.0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Nothing",
+                    "RevealInventory": true,
+                    "CollectionWeight": 55,
+                    "CollectionMessages": [
+                        {
+                            "ParentObjectID": "fl_deer_lick",
+                            "LocalizationKey": "Forest_Lore_DeerLick_Wait_NoDeer",
+                            "DefaultText": "Nothing came down to the lick."
+                        }
+                    ],
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "CookingRecipes": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

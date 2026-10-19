@@ -1,0 +1,39 @@
+{
+    "//FL-B13": "Abandoned Homestead location card (a framework clone of the vanilla Clay Banks location 9b72ab8ae43c10345a6d9168d3096b50). Its two Clear actions (DismantleActions 1 and 2) each drop 0 to 1 Clay (DroppedCards[0], vanilla Clay 68c14d265ea6c874ba79444d2e1ef7b3), a second clay site one step from the first. The clone is an Object.Instantiate deep copy, so this patch never reaches the vanilla Clay Banks. DropChance Active with 0 percent turns the Clay drop off and leaves the other Clear drops alone. Travel DAs (vanilla indices 3 and 4) are stripped and re-injected after index 2, so indices 1 and 2 are stable.",
+    "DismantleActionsWarpData": [
+        {},
+        {
+            "ProducedCardsWarpData": [
+                {
+                    "DroppedCardsWarpData": [
+                        {
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 0.0
+                            }
+                        }
+                    ],
+                    "DroppedCardsWarpType": 5
+                }
+            ],
+            "ProducedCardsWarpType": 5
+        },
+        {
+            "ProducedCardsWarpData": [
+                {
+                    "DroppedCardsWarpData": [
+                        {
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 0.0
+                            }
+                        }
+                    ],
+                    "DroppedCardsWarpType": 5
+                }
+            ],
+            "ProducedCardsWarpType": 5
+        }
+    ],
+    "DismantleActionsWarpType": 5
+}

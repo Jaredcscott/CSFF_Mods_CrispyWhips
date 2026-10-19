@@ -69,7 +69,7 @@
     "Coords": { "x": -20.0, "y": 0.0, "z": -70.0, "w": 0.0 },
     "HideFromMap": false,
     "StripAllInheritedDrops": false,
-    "ExtraDropUIDs": ["fl_mud_volcano", "fl_salt_crust", "fl_tar_seep"],
+    "ExtraDropUIDs": ["fl_mud_volcano", "fl_salt_crust", "fl_tar_seep", "fl_deer_lick"],
     "Connections": [
       {
         "EnvironmentUID": "503644b3ad275fe43825de47dc5b244f",

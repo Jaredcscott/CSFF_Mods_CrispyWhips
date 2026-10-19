@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.1.7] - 2026-10-18
+
+### Added
+
+- **A Deer Lick at the Mud Springs.** A trampled hollow of salty mud the deer come to. **Wait at the Lick** (2 hours) and a doe or a stag may come down for the salt; the base game's deer sighting then appears, and you can hunt it or let it be. It is the world's own doe or stag, so a deer you have killed does not come back to the lick until the base game brings it back. Each wait uses up some of the lick's salt: three waits from a full lick, then about one every two days. The odds (about 3 in 10 for a doe, 3 in 20 for a stag, otherwise nothing) are placeholders, not balanced. A save that has already visited the Mud Springs will not gain the lick; a new game does.
+
+### Changed
+
+- **No second clay pit at the Abandoned Homestead.** The Homestead is a copy of the vanilla Clay Banks, and its two **Clear** actions used to turn up Clay as well. They no longer do; the rest of what clearing gives (wood, twigs, leaves, moss, stones, bugs and now and then flint) is unchanged, and the vanilla Clay Banks next door is still the place for clay.
+- **Dig Peat at the Mud Springs gives 2 Wet Peat Turf** (was 6). The Mud Springs are a copy of the vanilla Fetid Bog; the full six per dig stays at the vanilla Fetid Bog and Peat Bog. Both changes apply to existing saves as well.
+
+### Fixed
+
+- The Rusty Axe that the Ossuary's **Sift the Mounds** can turn up now shows a picture (the game ships it with none, so the card was blank). It is the same old axe as the Blunt Rusty Axe, with a freshly honed edge.
+
 ## [0.1.6] - 2026-10-16
 
 ### Added

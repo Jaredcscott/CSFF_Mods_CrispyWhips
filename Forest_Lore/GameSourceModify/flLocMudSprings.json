@@ -1,0 +1,24 @@
+{
+    "//FL-B13": "Mud Springs location card (a framework clone of the vanilla Fetid Bog location 4b5884ebbb8244a45a119a1701365b1c). Its inherited Dig Peat (CardInteractions 2) gives 6 Wet Peat Turf (DroppedCards[0], vanilla PeatTurfWet d14789c0fe05c8649bd5c6e14054dce1), a full second Fetid Bog one step from the Peat Bog. Owner 2026-10-17: cut to 2 per dig. The clone is an Object.Instantiate deep copy, so the vanilla Fetid Bog keeps 6.",
+    "CardInteractionsWarpData": [
+        {},
+        {},
+        {
+            "ProducedCardsWarpData": [
+                {
+                    "DroppedCardsWarpData": [
+                        {
+                            "Quantity": {
+                                "x": 2,
+                                "y": 2
+                            }
+                        }
+                    ],
+                    "DroppedCardsWarpType": 5
+                }
+            ],
+            "ProducedCardsWarpType": 5
+        }
+    ],
+    "CardInteractionsWarpType": 5
+}

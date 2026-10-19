@@ -1,6 +1,6 @@
 # Forest Lore
 
-**Version:** 0.1.6
+**Version:** 0.1.7
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release, early development.
@@ -12,7 +12,7 @@ Forest Lore adds the forest's own landmarks, ruins and hidden places. Each is a 
 | Barrow Wood (south of the Old Glade) | Ancient Cairn, Standing Stones, Circle Stone, Line of Petrospheres, Tree Hollow shelter, Weeping Pine |
 | Old Battlefield (north of the Moon Hills) | A field to search six times, a Fallen Watchtower to clear |
 | Abandoned Homestead (east of the Clay Banks) | A ruin to salvage and repair into a shelter with storage, plus a Grinding Slab |
-| Mud Springs (south of the Peat Bog) | Mud Volcano, Salt Crust, Tar Seep |
+| Mud Springs (south of the Peat Bog) | Mud Volcano, Salt Crust, Tar Seep, Deer Lick |
 | Guano Rock (east of the Lake Island, a swim away) | Guano Ledge for Manure |
 | Rock Shelter and the Sunken Caves (west of the Old Hollow) | A shelter, three cave chambers, a lake to drink from and fish |
 | Bog Body | A rare find while digging peat at the vanilla Peat Bog |
@@ -58,7 +58,7 @@ Both stay spent once used.
 
 ## Abandoned Homestead
 
-A homestead east of the Clay Banks across the river meadow, reached by a new East exit. It is a copy of the vanilla Clay Banks, with its river, trees, reeds and water.
+A homestead east of the Clay Banks across the river meadow, reached by a new East exit. It is a copy of the vanilla Clay Banks, with its river, trees, reeds and water, but clearing it turns up no Clay: the vanilla Clay Banks next door stays the clay site.
 
 **Ruined Homestead.** Salvage it, then repair it.
 - **Salvage the Ruin** (1 hour) works four times and gives Long Sticks and Twine, and sometimes Stone and Wood.
@@ -72,11 +72,12 @@ A homestead east of the Clay Banks across the river meadow, reached by a new Eas
 
 ## Mud Springs
 
-Warm mud south of the Peat Bog, reached by a new South exit. It is a copy of the vanilla Fetid Bog, so Dig Peat works here too. Each patch refills slowly while you are on the board.
+Warm mud south of the Peat Bog, reached by a new South exit. It is a copy of the vanilla Fetid Bog, so Dig Peat works here too, but gives 2 Wet Peat Turf a dig rather than the bog's 6. Each patch refills slowly while you are on the board.
 
 - **Mud Volcano.** **Scoop Mud** (15 minutes) gives three Mud Piles, eight scoops from a full crater. While you stand here it also warms you a little (+3 Perceived Temperature, like a mud hut room).
 - **Salt Crust.** **Scrape Salt** (15 minutes) gives Salt, two scrapes from a full crust. It regrows about ten days per scrape, so salt stays scarce.
 - **Tar Seep.** **Collect Tar** (15 minutes) gives Heated Tar, four collections from a full pool at about five days each. The tar cools into vanilla Cold Tar by itself.
+- **Deer Lick.** **Wait at the Lick** (2 hours) for a doe (about 3 in 10) or a stag (about 3 in 20) to come down for the salt; the base game's deer sighting appears and you can hunt it or let it be. It is the world's own doe or stag, so one you have killed does not come back until the base game brings it back. Three waits from a full lick, then about one every two days. The odds are placeholders, not balanced. The card shows the base game's tracks picture until it has its own.
 
 A spent patch keeps its button and says there is nothing to take yet.
 
@@ -105,7 +106,7 @@ Three things to build where the game has a climb, from the board's Improvements 
 
 Each one appears in the Improvements tab the first time you stand on one of its boards. A scripted run built each and saw the raised stat, and the stairs stayed built across a save and reload. A human check in a normal game is still pending.
 
-The vanilla Shaft's Climb Up used to ignore Climbing Aid. The mod now adds it to that action's success odds, so a skill-0 climb goes from about 53 to about 77 percent with the ladder built. That is the mod's second edit to a vanilla card.
+The vanilla Shaft's Climb Up used to ignore Climbing Aid. The mod now adds it to that action's success odds, so a skill-0 climb goes from about 53 to about 77 percent with the ladder built. That is one of the mod's few edits to vanilla cards (the others add the Bog Body find to the Peat Bog and give the two rusty axes their pictures).
 
 ## Rock Shelter and the Sunken Caves
 
@@ -117,7 +118,7 @@ A rock overhang with a cave under it, west of the Old Hollow, reached by a new W
 
 Three chambers lie in a line, reachable only through the Cave Mouth and not drawn on the paper map. Each is a copy of the vanilla Waterfall Caves without its exit, shrine and flint vein.
 - **Painted Chamber.** **Leave the Caves** climbs back to the shelter, and West leads to the Ossuary. **Study the Paintings** calms the mind (Stress -10), once a day; there is nothing to take.
-- **Ossuary.** West to the Sunken Lake, East back. **Sift the Mounds** once for Bones and Bone Pieces, then they are spent. Each sift also has about a 1 in 17 chance (placeholder, not balanced) to turn up a vanilla Rusty Axe.
+- **Ossuary.** West to the Sunken Lake, East back. **Sift the Mounds** once for Bones and Bone Pieces, then they are spent. Each sift also has about a 1 in 17 chance (placeholder, not balanced) to turn up a vanilla Rusty Axe (the game ships it without a picture; the mod gives it one).
 - **Sunken Lake.** The end of the caves.
 
 **The Squeeze.** The crawl between the Ossuary and the Sunken Lake only fits a light load. While your Encumbrance is above 1000 (eight Stones read 100), its buttons are hidden both ways and return when you carry less. A **Size Up the Squeeze** card on each side explains this. No other button in the caves is gated.
@@ -138,6 +139,7 @@ Three chambers lie in a line, reachable only through the Cave Mouth and not draw
 ## Version history
 
 Full notes are in CHANGELOG.md.
+- **0.1.7:** a Deer Lick at the Mud Springs, no clay from clearing the Homestead, two peat a dig at the Mud Springs, a picture for the Rusty Axe.
 - **0.1.6:** the four reading actions calm you once a day, a Weeping Pine at Barrow Wood, rare relic finds at the Ossuary and the Bog Body, the Cave Lake's winter text, a picture for the Blunt Rusty Axe.
 - **0.1.5:** balance pass: fewer bronze nuggets, a stocked eel lake, a gentler Mud Volcano, a Homestead that decays and stores less, three Mud Piles a scoop.
 - **0.1.4:** the lore sites stay still; the Tree Hollow's branches still sway.
