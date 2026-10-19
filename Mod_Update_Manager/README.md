@@ -1,6 +1,6 @@
 # Mod Update Manager
 
-**Version:** 2.1.70  
+**Version:** 2.1.71  
 **Author:** Jared (crispywhips)  
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -51,7 +51,7 @@ If the framework fails, nothing after it is touched. If another mod fails, the m
 
 ### Safe installs
 
-Apply never leaves a mod half-replaced. Each mod is unpacked into `BepInEx/mum_work/staging/` and every file is size-checked. Only then is your old copy moved to `BepInEx/mum_work/old/`, the new one moved into `BepInEx/plugins/`, and the old one deleted. A failed or interrupted apply leaves your installed copy as it was. A game closed partway leaves either the old copy or the new one, whole.
+Apply never leaves a mod half-replaced. Each mod is unpacked into `BepInEx/mum_work/staging/` and every file is size-checked. Only then is your old copy moved to `BepInEx/mum_work/old/`, the new one moved into `BepInEx/plugins/`, and the old one deleted. Windows will not delete a mod file the running game has loaded, so that old copy stays in `old/` until the next time the game starts, when Mod Update Manager deletes it. A failed or interrupted apply leaves your installed copy as it was. A game closed partway leaves either the old copy or the new one, whole.
 
 `BepInEx/mum_work/` sits beside `plugins/`, so BepInEx, the framework and My Mods never see it. If a folder cannot move between the two (for example when `plugins` is a link to another drive), the log says so once, and that session unpacks inside `plugins/` instead.
 
@@ -190,6 +190,8 @@ The Nexus ID is the number at the end of the mod page URL.
 
 File: `BepInEx/config/crispywhips.mod_update_manager.cfg`
 
+The **Settings** tab covers most of these in game. The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build) shows all of them: press F1 and find "Mod_Update_Manager". A change made there applies at once, except `WindowWidth`, `WindowHeight`, `DiscoveryMaxScanId`, `DiscoveryMaxConsecutiveMisses` and `CheckOnStartup`, which need a restart. `CheckIntervalMinutes` applies at the next launch or when background checking is switched back on.
+
 | Setting | Default | Description |
 |---------|---------|-------------|
 | NexusApiKey | empty | Your Nexus API key |
@@ -249,7 +251,7 @@ For anyone reading the source: every request above is made by `NexusApiClient` (
 - Upgrade note for the next Mod Update Manager: `BepInEx/config/ModUpdateManager_Handoff.txt`, written only after a check found a newer one on Nexus, deleted when the newer one has read it. Deleting it by hand only loses the "still behind Nexus" line; the new release still ticks the mods it updates.
 - The **New and updated** list has no file. It lives in memory for the running game only.
 - Install & Update work folder: `BepInEx/mum_work/`, beside `plugins/`, so nothing in it is loaded. Its `staging/` and `old/` folders are empty except during Apply Updates or after one was cut short.
-- An Apply is cut short when the game closes mid-update, a row shows `[Install Incomplete]`, or a replaced copy cannot be deleted. The next Apply of that mod clears it, putting a moved-aside copy back first.
+- An Apply is cut short when the game closes mid-update, a row shows `[Install Incomplete]`, or a replaced copy cannot be deleted. The next start of the game clears it, as does the next Apply of that mod, putting a moved-aside copy back first.
 - Its `kept/<Folder>/<version>/` folders exist only if you turned on **Keep the previous version when updating a suite mod**. Each is a whole earlier copy of that mod. Only you, or the pruning that holds `KeptVersions` copies (never while the option is off), deletes one.
 
 ## Release notes and game builds
@@ -261,7 +263,7 @@ The newest such line shows under the changelog as **Tested: EA x.y**. It is gree
 ## Troubleshooting
 
 **The window does not open with F3**
-- Check `BepInEx/LogOutput.log` for errors and look for `Mod_Update_Manager v2.1.70 loaded.`
+- Check `BepInEx/LogOutput.log` for errors and look for `Mod_Update_Manager v2.1.71 loaded.`
 - Make sure BepInEx is installed correctly.
 
 **Install & Update shows "[Unknown]" for every mod**

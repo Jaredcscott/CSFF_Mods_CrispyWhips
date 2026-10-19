@@ -91,10 +91,13 @@ namespace mod_update_manager
     ///
     /// Renames rather than overwrites, because Apply runs inside the game with every suite DLL
     /// loaded: Mono maps each assembly and closes its file handle, and a mapped file cannot be
-    /// overwritten, while its folder can still be renamed, across parents on one volume too, and its
-    /// old copy deleted (measured under the game's own Mono with Assembly.LoadFile, 2026-10-02,
+    /// overwritten, while its folder can still be renamed, across parents on one volume too
+    /// (measured under the game's own Mono with Assembly.LoadFile, 2026-10-02,
     /// W0-3_Apply_Timing_And_Rename.md section 5). An open handle does block the folder rename,
-    /// which then fails cleanly and leaves the mod as installed.
+    /// which then fails cleanly and leaves the mod as installed. The mapped DLL itself cannot be
+    /// deleted while that game runs (in the game, rig 7, 2026-10-18: "Access to the path ... is
+    /// denied"), so the replaced copy of a mod whose DLL was loaded stays in old/ until
+    /// ClearWorkRootLeftovers deletes it at MUM's next start.
     ///
     /// A swap renames across the two parents both ways, so ChooseWorkRoot probes that once per
     /// session; when the probe fails (the two on different volumes, say through a junction) the
@@ -243,6 +246,56 @@ namespace mod_update_manager
         }
 
         /// <summary>
+        /// Clears what earlier sessions left in the work root's old/ and staging/ folders, once, when
+        /// MUM starts. A replaced copy whose DLL the running game had loaded cannot be deleted in that
+        /// session: the folder renames out of plugins/, but Windows refuses to delete a file a loaded
+        /// assembly still maps ("Access to the path ... is denied", rig 7, 2026-10-18), so
+        /// RemoveReplacedCopySteps leaves that copy in old/. At the next start nothing in the work root
+        /// is loaded and it deletes. Each folder name goes through ClearLeftoversIn, so a lone old copy
+        /// whose plugin folder is missing (a game closed between the two renames of a swap) is moved
+        /// back rather than deleted. kept/ is the player's and is left alone, and so are the in-plugins
+        /// folders of the fallback layout, whose DLLs BepInEx may have loaded this session. A file (not
+        /// a folder) in old/ or staging/ is not one of MUM's and is left too. Returns how many folder
+        /// names were cleared.
+        /// </summary>
+        public static int ClearWorkRootLeftovers(string pluginsRoot, string workRoot)
+        {
+            if (string.IsNullOrEmpty(pluginsRoot) || string.IsNullOrEmpty(workRoot)) return 0;
+            var root = Path.GetFullPath(pluginsRoot);
+            var work = Path.GetFullPath(workRoot);
+            if (!Directory.Exists(work) || !LayoutIsSafe(root, work)) return 0;
+
+            var names = new List<string>();
+            var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var sub in new[] { OldDirName, StagingDirName })
+            {
+                var dir = Path.Combine(work, sub);
+                if (!Directory.Exists(dir)) continue;
+                try
+                {
+                    foreach (var folder in Directory.GetDirectories(dir))
+                    {
+                        var name = Path.GetFileName(folder);
+                        if (IsPlainFolderName(name) && seen.Add(name))
+                            names.Add(name);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MumLog.Debug($"Suite: could not list {dir} at start: {ex.Message}");
+                }
+            }
+
+            int cleared = 0;
+            foreach (var name in names)
+            {
+                if (ClearLeftoversIn(root, work, name, name, null, OwnedFolder.Backup, OwnedFolder.Staging))
+                    cleared++;
+            }
+            return cleared;
+        }
+
+        /// <summary>
         /// Installs one mod in one call: a synchronous drain of InstallSteps, for a caller that does
         /// not need to draw between steps (the Pester gates drive this). workRoot is ChooseWorkRoot's
         /// answer: a folder outside plugins/, or null for the in-plugins layout.
@@ -275,7 +328,7 @@ namespace mod_update_manager
         /// The two renames of the swap, and the rollback when the second fails, run inside one step and
         /// never with a yield between them. So a run that is never finished (the game closed between
         /// two steps) leaves either the installed copy or the new one in plugins/, whole, and anything
-        /// else only in the work root, where the next Apply of that mod clears it. workRoot is
+        /// else only in the work root, where the next start or the next Apply of that mod clears it. workRoot is
         /// ChooseWorkRoot's answer: a folder outside plugins/, or null for the in-plugins layout.
         /// </summary>
         public static IEnumerator InstallSteps(Stream zip, string pluginsRoot, string workRoot, string folderName, string displayName, Action<string> status, SuiteInstallProgress progress)
@@ -610,8 +663,10 @@ namespace mod_update_manager
         /// that followed one would delete what it points at.
         ///
         /// A failure here is only a disk-space leak: the install is already complete, and the old copy
-        /// is outside plugins/ (or, in the in-plugins layout, cleared by the next Apply). A file the
-        /// running game still maps may refuse deletion; ClearLeftovers retries at the next Apply.
+        /// is outside plugins/ (or, in the in-plugins layout, cleared by the next Apply). The DLL the
+        /// running game loaded at start refuses deletion for the whole session, so the first Apply of a
+        /// session normally leaves each replaced copy here; ClearWorkRootLeftovers deletes it at the
+        /// next start, and ClearLeftovers at that mod's next Apply.
         /// </summary>
         private static IEnumerable<int> RemoveReplacedCopySteps(string root, string work, string folderName, SuiteInstallProgress progress)
         {

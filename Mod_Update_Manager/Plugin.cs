@@ -7,7 +7,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.1.70";
+    public const string PluginVersion = "2.1.71";
 
     // PluginMetadataReader is host-free, so it carries BepInEx's DependencyFlags.SoftDependency value as
     // a constant of its own. A division by a constant zero is a compile error, so this line fails the
@@ -73,6 +73,10 @@ internal class Plugin : BaseUnityPlugin
         // Create UI component
         _ui = gameObject.AddComponent<UpdateManagerUI>();
         _ui.Initialize(_config, _updateChecker, _mappingManager, _conflictDetector, _updateScheduler, _nexusClient, _modDiscovery, _preferences, _versionLedger);
+
+        // Before the installed versions are read: a lone replaced copy an interrupted Apply left may be
+        // moved back into plugins/ here.
+        ModSuiteExtractor.ClearLeftoversAtStart();
 
         // Read embedded suite versions and installed versions for the Suite tab
         try

@@ -21,6 +21,25 @@ namespace mod_update_manager
         private static readonly string WorkRootPath = Path.Combine(Paths.BepInExRootPath, SuiteInstaller.WorkRootDirName);
 
         /// <summary>
+        /// Run once from Plugin.Awake: deletes the replaced copies and staging folders earlier sessions
+        /// left in BepInEx/mum_work/ (a replaced copy whose DLL the game had loaded cannot be deleted
+        /// until the game restarts). See SuiteInstaller.ClearWorkRootLeftovers.
+        /// </summary>
+        public static void ClearLeftoversAtStart()
+        {
+            try
+            {
+                int cleared = SuiteInstaller.ClearWorkRootLeftovers(PluginsPath, WorkRootPath);
+                if (cleared > 0)
+                    Plugin.Logger.LogInfo($"Suite: cleared {cleared} folder(s) an earlier session's Apply left in {WorkRootPath}.");
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogWarning($"Suite: could not clear {WorkRootPath} at start: {ex.Message}");
+            }
+        }
+
+        /// <summary>
         /// Installs one embedded suite mod a step at a time: each MoveNext runs one step of
         /// SuiteInstaller.InstallSteps and returns true while there is more to do, so the caller can let
         /// the game draw a frame between steps (UpdateManagerUI.ApplySuiteCoroutine waits one frame

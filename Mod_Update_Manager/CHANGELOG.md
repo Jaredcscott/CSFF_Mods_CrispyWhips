@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.71] - 2026-10-19
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.7, Herbs and Fungi 1.14.12, Advanced Copper Tools 1.18.10, Water Driven Infrastructure 1.12.12, Community Mod Chest 1.69.19, Homestead Perks 1.3.7, Repeat Action 2.2.2, Quick Transfer 1.9.1, Skill Speed Boost 1.11.1, and the pre-release Partner Overhaul 1.1.5, Harsh Wilds 0.11.8, Far Territory 0.1.10, Forest Lore 0.1.7, Utility Belt 0.1.5 and Sirus23 Mod Collection 1.22.8. Homestead Perks' Well can finally be built, Herbs and Fungi adds herb grow bags for winter, Water Driven Infrastructure adds a Retting Pit and an Irrigation Channel, Community Mod Chest adds the Skylit Cave escape, a guarded crossing and Academy courses that teach a skill, Harsh Wilds adds the Lynx Cloak and a Dragon Charm, Far Territory has you build the way home from the island and no longer freezes when you boil sea water, Forest Lore adds a Deer Lick at the Mud Springs, Sirus23's fox helps you forage and its owl keeps the mice down, Utility Belt's worn tool mark no longer marks food and firewood, and Partner Overhaul adds an opt-in Ember Pot and expedition stories and makes "Talk about..." reachable from "Talk with".
+
+### Fixed
+
+- **The old copy of a mod you updated no longer stays in `BepInEx/mum_work/old` after you restart.** Windows does not let a running game delete a mod file it has loaded, so the copy an Apply replaced could not be removed until the game closed. Before, it stayed until you next updated that same mod. Now Mod Update Manager deletes it the next time the game starts. If the game closed partway through an update and the mod's own folder is missing, the old copy is moved back into `plugins` instead, so the mod is not lost.
+
 ## [2.1.70] - 2026-10-17
 
 ### Added
