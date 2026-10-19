@@ -2,6 +2,13 @@
 
 All notable changes to this mod are documented here.
 
+## [0.1.5] - 2026-10-19
+
+### Fixed
+- `Display > Show Worn Tool Mark` no longer marks food and firewood. Raw meat, fish, berries and other foods that can be dried, and wood, showed the cracked mark from the moment you picked them up, because the game uses the same bar for their drying or fragrance. Leather (flexibility) and tied animals (thirst) were caught the same way. The mark now goes only on tools, clothing and other gear that wears out with use.
+
+- If the container filter ever fails while a container opens, the log now says so once, as a warning. It used to write the error at a level the game hides by default, so a broken filter left no trace in a bug report.
+
 ## [0.1.4] - 2026-10-17
 
 ### Added

@@ -1,6 +1,6 @@
 # Utility Belt
 
-**Version:** 0.1.4
+**Version:** 0.1.5
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** BepInEx 5 (Quick Transfer and Skill Speed Boost also need CSFF Mod Framework)
@@ -156,7 +156,7 @@ The six options below are new in 0.1.4. Every one is off, or has no key, until y
 
 - **Carry weight readout** (Display > Show Carry Weight, off by default): hovering the weight bar beside your item bar shows how much you carry against your limit in numbers, for example "Carrying 500 / 4000". The limit includes Extra Carry Weight. The game itself shows only the bar.
 
-- **Worn tool mark** (Display > Show Worn Tool Mark, off by default): a small cracked amber mark in the bottom left corner of any tool whose Usage bar is below Worn Tool Threshold (25 percent by default), so a tool about to break stands out. Display only.
+- **Worn tool mark** (Display > Show Worn Tool Mark, off by default): a small cracked amber mark in the bottom left corner of any tool, piece of clothing or other gear whose Usage bar is below Worn Tool Threshold (25 percent by default), so a tool about to break stands out. Food, wood, leather and animals, whose bar counts drying, fragrance, flexibility or thirst, are never marked. Display only.
 
 - **Container filter** (Display > Container Filter, off by default; key Hotkeys > Focus Container Filter, none by default): an open container's window gets a search box in its tab bar.
   - Type part of a card's name, in the language you play in, and only matching slots are shown.
@@ -229,6 +229,8 @@ Utility Belt's own keys: `` ` `` (backquote) opens your next worn bag, `L` locks
 `Shift+Plus` and `Shift+Minus` belong to Repeat Action. The included Quick Transfer ignores those keys while a Repeat Action modifier is held, so one press changes only the repeat count. If you rebind Repeat Action's count keys, Quick Transfer follows them (Repeat Action 2.2.1 or later). This is a check of the two bundled DLLs, not a promise about other mods.
 
 ## Configuration
+
+Every setting on this page can be changed in game with the optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build): press F1 and look under "Repeat_Action", "Quick_Transfer", "Skill Speed Boost" and "Utility Belt". A change made there applies at once, except `Extra Hand Slots` (next save load or new run), `Log Module Sources` (next launch) and Repeat Action's `Default Repeat Count` (sets the count the game starts with).
 
 Repeat Action's settings live in `BepInEx/config/crispywhips.repeat_action.cfg`, created on first launch. The ones most players change:
 
@@ -351,6 +353,7 @@ With it on, `BepInEx/LogOutput.log` gains one line per mod: `<name> <version> fr
 
 Full notes are in `CHANGELOG.md`.
 
+- **0.1.5**: the worn tool mark no longer marks food, wood, leather or animals.
 - **0.1.4**: Sort Hand Row and Sort Base Row, Trash Card, carry-weight readout, worn tool mark, container filter and blueprint pins (all off until turned on), and Sort Container remembers each container's place in its cycle.
 - **0.1.3**: Card Size (smaller or two-row card rows), Extra Hand Slots and Extra Carry Weight, replacing Card Size Reduce.
 - **0.1.2**: version number only.

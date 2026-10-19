@@ -8,9 +8,10 @@ namespace Utility_Belt;
 /// at a glance. Vanilla shows the Usage number but never colours or flags it.
 /// </summary>
 /// <remarks>
-/// <para>Which cards (plan Q4): an Item card (CardTypes.Item) whose CardData.UsageDurability is active with a
-/// maximum above 0, anywhere on screen. No tool tag exists in vanilla, so "has an active Usage stat" is the
-/// tool test. The percentage is the game's own <c>InGameCardBase.CurrentUsagePercent</c>.</para>
+/// <para>Which cards (plan Q4): an Item card (CardTypes.Item) whose CardData.UsageDurability is wear
+/// (<see cref="IsWearStat"/>), anywhere on screen. No tool tag exists in vanilla, and "has an active Usage stat"
+/// alone also caught the foods' Drying counter (0.1.4). The percentage is the game's own
+/// <c>InGameCardBase.CurrentUsagePercent</c>.</para>
 /// <para>Drawn exactly as the sealed mark (B6): a pass four times a second from Plugin.Update over
 /// GameManager.AllCards, through <see cref="CardMark"/> in the free bottom left corner (lock top left, sealed
 /// top right). With the option off and nothing drawn, no pass runs. Silent: nothing is logged per card,
@@ -44,12 +45,30 @@ internal static class WornToolMark
         }
 
         var model = card.CardModel;
-        if (model == null || model.CardType != CardTypes.Item || !model.UsageDurability || model.UsageDurability.Max <= 0f)
+        if (model == null || model.CardType != CardTypes.Item || !IsWearStat(model.UsageDurability))
         {
             return false;
         }
 
         return card.CurrentUsagePercent * 100f < thresholdPercent;
+    }
+
+    /// <summary>
+    /// True when a card's Usage stat is wear: active, with a maximum, acting when it runs out and not when it
+    /// fills, and keeping the default Usage name. Vanilla reuses the Usage slot as a renamed counter on many items
+    /// (EA 0.69c export, 2026-10-18): 62 foods count Drying UP to an OnFull action (Raw Meat starts at 0 of 24, so
+    /// it read 0 percent and was marked), and wood, livestock and others rename it Fragrance, Thirst, Meat,
+    /// Amount or Essence. Wear keeps the name: empty on tools, "Usage Durability" on clothing.
+    /// </summary>
+    internal static bool IsWearStat(DurabilityStat usage)
+    {
+        if (!usage || usage.Max <= 0f || !usage.HasActionOnZero || usage.HasActionOnFull)
+        {
+            return false;
+        }
+
+        var label = usage.CardStatName.DefaultText;
+        return string.IsNullOrEmpty(label) || label == "Usage Durability";
     }
 
     private static void Refresh()

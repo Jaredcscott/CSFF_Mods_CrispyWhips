@@ -32,7 +32,7 @@ internal static class ContainerFilterPatch
         }
         catch (Exception ex)
         {
-            Plugin.Logger.LogDebug($"[UB] Container filter: SetupInventory postfix failed ({ex.GetType().Name}: {ex.Message}).");
+            ContainerFilter.WarnOnce("setup:" + ex.GetType().Name, $"[UB] Container filter: SetupInventory postfix failed ({ex.GetType().Name}: {ex.Message}); the container popup is left as the game drew it.");
         }
     }
 }

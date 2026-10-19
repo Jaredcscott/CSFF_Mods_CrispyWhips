@@ -344,7 +344,7 @@ internal static class ContainerFilter
         return result;
     }
 
-    private static void WarnOnce(string cause, string message)
+    internal static void WarnOnce(string cause, string message)
     {
         if (_warned.Add(cause))
         {
