@@ -25,12 +25,14 @@
         "water_sawmill_bp_water_driven_sawmill",
         "water_sawmill_bp_water_driven_forge",
         "water_sawmill_bp_water_driven_workshop_kit",
-        "water_sawmill_bp_water_basin"
+        "water_sawmill_bp_water_basin",
+        "water_sawmill_bp_retting_station"
     ],
     "Tab_6_Farming_Subtab_1_Agriculture_TabName": [
         "water_sawmill_bp_fishpond",
         "water_sawmill_bp_reed_bed",
-        "water_sawmill_bp_cattail_bed"
+        "water_sawmill_bp_cattail_bed",
+        "water_sawmill_bp_irrigation_channel"
     ]
             
 }

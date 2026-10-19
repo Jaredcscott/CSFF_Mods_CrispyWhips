@@ -978,3 +978,63 @@ Water_Sawmill_FullingMillPlaced_FullAll_ActionName,Full All,全部缩绒
 Water_Sawmill_FullingMillPlaced_FullAll_ActionDescription,"Engage the trip hammers and beat every loaded piece of cloth, raising its Quality by a step.",启动落锤，捸打所有装载的布料，使其品质提升一档。
 Water_Sawmill_FullingMillPlaced_PickUp_ActionName,Pack Up,收起
 Water_Sawmill_FullingMillPlaced_PickUp_ActionDescription,Pack up the fulling mill back into a transportable kit.,将缩绒坊收回为可携带套件。
+Water_Sawmill_Bp_RettingStation_CardName,Retting Pit,沤麻池
+Water_Sawmill_Bp_RettingStation_CardDescription,"Make a retting pit kit from 6 Stone, 4 Planks and 2 Rope (1 hour) at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet, and place it there. Flax stems, nettle stems and reeds soak in it exactly as they do in a river, so you can ret them at your base.",用6块石头、4块木板和2根绳子制作沤麻池套件（1小时），可在河边、湖边或任何有已连通引水渠出口供水的户外地点制作并放置。亚麻茎、荨麻茎和芦苇在池中浸泡的效果与在河中完全相同，让你在营地就能沤麻。
+Water_Sawmill_Bp_RettingStation_UnlockConditionsDesc,Mill Race Needed,需要引水渠
+Water_Sawmill_RettingStationKit_CardName,Retting Pit Kit,沤麻池套件
+Water_Sawmill_RettingStationKit_CardDescription,"Lining stones, plank edging and rope ties for a small retting pit, ready to set where running water can fill it.",用于搭建小型沤麻池的衬底石块、木板围边和绳结，可放在流水能灌满它的地方。
+Water_Sawmill_RettingStationKit_CardHelpSection,"<b>Use:</b> Place at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet, to set up the retting pit. Anywhere else the placement is refused.
+
+<b>Disassemble:</b> Recover half of the stone and planks and one rope.","<b>用途：</b>放置在河边、湖边，或任何有已连通引水渠出口供水的户外地点，即可搭建沤麻池。在其他地方放置会被拒绝。
+
+<b>拆卸：</b>回收一半的石头和木板以及一根绳子。"
+Water_Sawmill_RettingStationKit_Place_ActionName,Place,放置
+Water_Sawmill_RettingStationKit_Place_ActionDescription,Set the retting pit into the ground where running water can fill it.,把沤麻池安置在流水能灌满它的地面上。
+Water_Sawmill_RettingStationKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_RettingStationKit_Disassemble_ActionDescription,Break down the kit and recover half of the stone and planks and one rope.,拆解套件，回收一半的石头和木板以及一根绳子。
+Water_Sawmill_RettingStationPlaced_CardName,Retting Pit,沤麻池
+Water_Sawmill_RettingStationPlaced_CardDescription,"A stone-lined pit kept full by running water. Flax, nettle and reeds soak in it just as they would in a river.",一个由流水保持满水的石砌浅池。亚麻、荨麻和芦苇在其中浸泡，就和在河里一样。
+Water_Sawmill_RettingStationPlaced_CardHelpSection,"<b>Placement:</b> Build it at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. Anywhere else the build is refused. The pit takes no stems while that water is cut off (a closed or missing outlet, or a frozen one with no fire beside it).
+
+<b>Soaking:</b> Drag Flax Stems, Nettle Stems or Fresh Reeds onto the pit. They become the same Soaking cards a river makes and gain quality exactly as they would in a river: no faster, and to the same limits (flax 40, reeds 50, nettle 30). Pick them up when they are ready. Nothing else can be soaked here.
+
+<b>Pack Up:</b> Packs the pit back into its kit.","<b>放置：</b>建在河边、湖边，或任何有已连通引水渠出口供水的户外地点。在其他地方建造会被拒绝。水源被切断时（出口关闭或不存在，或出口结冰且旁边没有火），池子不接受任何茎秆。
+
+<b>浸泡：</b>把亚麻茎、荨麻茎或青芦苇拖到池上。它们会变成与河中相同的泡水卡牌，并以与河中完全相同的方式提升品质：不会更快，上限也相同（亚麻40、芦苇50、荨麻30）。泡好后将其拾起。这里不能浸泡其他东西。
+
+<b>收起：</b>把沤麻池收回为套件。"
+Water_Sawmill_RettingStationPlaced_SoakNettle_ActionName,Soak Nettle Stems,泡荨麻茎
+Water_Sawmill_RettingStationPlaced_SoakNettle_ActionDescription,"Lay the nettle stems in the pit to soak, as you would in a river.",把荨麻茎放进池中浸泡，就像在河里一样。
+Water_Sawmill_RettingStationPlaced_SoakFlax_ActionName,Soak Flax Stems,泡亚麻茎
+Water_Sawmill_RettingStationPlaced_SoakFlax_ActionDescription,"Lay the flax stems in the pit to soak, as you would in a river.",把亚麻茎放进池中浸泡，就像在河里一样。
+Water_Sawmill_RettingStationPlaced_SoakReeds_ActionName,Soak Reeds,泡芦苇
+Water_Sawmill_RettingStationPlaced_SoakReeds_ActionDescription,"Lay the reeds in the pit to soak, as you would in a river.",把芦苇放进池中浸泡，就像在河里一样。
+Water_Sawmill_RettingStationPlaced_PickUp_ActionName,Pack Up,收起
+Water_Sawmill_RettingStationPlaced_PickUp_ActionDescription,Pack the retting pit back into a transportable kit.,把沤麻池收回为可携带的套件。
+Water_Sawmill_Bp_IrrigationChannel_CardName,Irrigation Channel,灌溉沟渠
+Water_Sawmill_Bp_IrrigationChannel_CardDescription,"Make an irrigation channel kit from 4 Stone and 4 Planks (1 hour) at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet, and place it there. While a flowing outlet stands at the same location it keeps Flax, Wheat, Pea and Turnroot fields there out of drought. It never makes a crop grow faster.",用4块石头和4块木板制作灌溉沟渠套件（1小时），可在河边、湖边或任何有已连通引水渠出口供水的户外地点制作并放置。只要同一地点立着一个流动的引水渠出口，它就能让那里的亚麻、小麦、豌豆和翻根田免受干旱。它绝不会让作物长得更快。
+Water_Sawmill_Bp_IrrigationChannel_UnlockConditionsDesc,Mill Race Needed,需要引水渠
+Water_Sawmill_IrrigationChannelKit_CardName,Irrigation Channel Kit,灌溉沟渠套件
+Water_Sawmill_IrrigationChannelKit_CardDescription,"Stone-lined plank troughs and sluice boards for a small field channel, ready to lay from a mill race outlet to the fields.",用石块衬底的木板水槽和闸板，可搭成一条小田沟，从引水渠出口一直铺到田边。
+Water_Sawmill_IrrigationChannelKit_CardHelpSection,"<b>Use:</b> Place at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet, to lay the channel. Anywhere else the placement is refused. One channel per location: Place is hidden while one already stands there.
+
+<b>Disassemble:</b> Recover half of the stone and planks.","<b>用途：</b>在河边、湖边或任何有已连通引水渠出口供水的户外地点放置，即可铺设沟渠。在其他地方放置会被拒绝。每个地点只能有一条沟渠：已有一条时“放置”会被隐藏。
+
+<b>拆卸：</b>回收一半的石头和木板。"
+Water_Sawmill_IrrigationChannelKit_Place_ActionName,Place,放置
+Water_Sawmill_IrrigationChannelKit_Place_ActionDescription,Lay the channel from the mill race outlet to the fields here.,在这里把沟渠从引水渠出口铺到田边。
+Water_Sawmill_IrrigationChannelKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_IrrigationChannelKit_Disassemble_ActionDescription,Break down the kit and recover half of the stone and planks.,拆解套件，回收一半的石头和木板。
+Water_Sawmill_IrrigationChannelPlaced_CardName,Irrigation Channel,灌溉沟渠
+Water_Sawmill_IrrigationChannelPlaced_CardDescription,"A plank-lined channel that leads water from the mill race outlet along the field edges, so a dry spell cannot parch the crops here.",一条木板衬边的沟渠，把引水渠出口的水沿着田边引过来，干旱的日子也晒不干这里的庄稼。
+Water_Sawmill_IrrigationChannelPlaced_CardHelpSection,"<b>Drought only:</b> While a flowing Mill Race Outlet stands at this location, every Flax, Wheat, Pea and Turnroot field here gains 20 Hydration a tick. That is enough to lift a field out of drought (below 1920 Hydration, where it loses Health) but never enough to raise one that is already well watered: above 1920 the field dries faster than the channel adds. It changes nothing else: no faster growth, no bigger harvest.
+
+<b>When it stops:</b> A closed or frozen outlet, or no outlet at this location, feeds nothing, even beside a fire. A field on a river shore or in wetlands already draws that water from the ground, so the channel leaves it alone. Other crops (garden plots, other mods' plants) are not watered.
+
+<b>Pack Up:</b> Packs the channel back into its kit.","<b>只防干旱：</b>只要这个地点立着一个流动的引水渠出口，这里的每块亚麻、小麦、豌豆和翻根田每刻获得20点湿度。这足以让田地脱离干旱（湿度低于1920时田地会损失健康度），但绝不会让已经浇足水的田地更湿：湿度高于1920时，田地蒸发得比沟渠补水更快。除此之外它什么都不改变：不会长得更快，也不会多收。
+
+<b>何时停止：</b>引水渠出口关闭或结冰，或这个地点没有出口时，沟渠不供水，旁边生着火也一样。河岸或湿地上的田已经从地下得到这些水，所以沟渠不会管它们。其他作物（菜园地块、其他模组的植物）不会被浇灌。
+
+<b>收起：</b>把沟渠收回为套件。"
+Water_Sawmill_IrrigationChannelPlaced_PickUp_ActionName,Pack Up,收起
+Water_Sawmill_IrrigationChannelPlaced_PickUp_ActionDescription,Pack the irrigation channel back into a transportable kit.,把灌溉沟渠收回为可携带的套件。

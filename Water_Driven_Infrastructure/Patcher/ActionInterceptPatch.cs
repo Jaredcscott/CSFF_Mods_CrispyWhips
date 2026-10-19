@@ -2190,11 +2190,11 @@ namespace WaterDrivenInfrastructure.Patcher
                     {
                         foreach (var inner in innerCards)
                         {
-                            if (inner != null && !alreadyProcessed.Contains(inner) && IsMetalQualityTool(inner) && !IsSmithHammerable(inner))
+                            if (inner != null && !alreadyProcessed.Contains(inner) && IsQualityOnlyCandidate(inner))
                                 qualityOnlyItems.Add(inner);
                         }
                     }
-                    else if (!alreadyProcessed.Contains(slotItem) && IsMetalQualityTool(slotItem) && !IsSmithHammerable(slotItem))
+                    else if (!alreadyProcessed.Contains(slotItem) && IsQualityOnlyCandidate(slotItem))
                     {
                         qualityOnlyItems.Add(slotItem);
                     }
@@ -2221,8 +2221,10 @@ namespace WaterDrivenInfrastructure.Patcher
                 {
                     if (ApplyWorkshopQualityBoost(card)) boosted++;
                     // Accumulating-counter items (e.g. ACT shaped metal): no on-zero transform,
-                    // so SD1 counts strikes UP. Increment by 1 per Hammer All press.
-                    IncrementAccumulatingStrikeCount(card);
+                    // so SD1 counts strikes UP. Increment by 1 per Hammer All press. A Smith-hammerable
+                    // item here (a copper Metal Nugget at Strikes 0) counts DOWN, so its Strikes stay put.
+                    if (!IsSmithHammerable(card))
+                        IncrementAccumulatingStrikeCount(card);
                     RefreshCardDurabilityVisuals(card);
                 }
                 Logger?.LogDebug($"[HammerDiag] HammerAll: workshop quality boosted {boosted} item(s) by +{WorkshopMetalQualityBoost}");
@@ -2596,6 +2598,22 @@ namespace WaterDrivenInfrastructure.Patcher
         // cap) must NOT get a free, unlimited quality boost via that bucket. Quality-only
         // boosting is reserved for genuine no-Strikes materials (raw heated nuggets).
         private static bool IsSmithHammerable(object card) => GetHammerHitInfo(card).canHammer;
+
+        // WDI-B7 follow-up (T2.1705): the quality-only bucket also takes a Smith-hammerable item at
+        // Strikes 0 with NO on-zero transform. Vanilla's copper Metal Nugget is exactly that (its Smith
+        // interaction is Special1Change -1 and its Strikes start and stay at 0), so without this Hammer
+        // All never reached a copper nugget at all. The boost is bounded by WorkshopQualityBoostCeiling
+        // (60), so it is no longer the free, unlimited quality the IsSmithHammerable exclusion guarded
+        // against. An item WITH an on-zero transform at Strikes 0 (never progressed) stays excluded.
+        private static bool IsQualityOnlyCandidate(object card)
+        {
+            if (!IsMetalQualityTool(card)) return false;
+            var hit = GetHammerHitInfo(card);
+            if (!hit.canHammer) return true;
+            if (!string.IsNullOrEmpty(hit.onZeroResultId)) return false;
+            float strikes = CardUtil.GetDurability(card, "SpecialDurability1");
+            return !float.IsNaN(strikes) && strikes <= 0f;
+        }
 
         private static HammerHitInfo GetHammerHitInfo(object card)
         {

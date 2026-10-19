@@ -162,14 +162,83 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (doable == null)
                 {
                     Plugin.Logger?.LogWarning("[MillDutyPatch] NPCDuty.RequiredActionsAreDoable not found (game update?): a marked but empty Grinding Mill, Stamp Mill or Ore Sluice will keep its Partner pressing in a loop.");
-                    return;
                 }
-                harmony.Patch(doable, postfix: new HarmonyMethod(AccessTools.Method(typeof(MillDutyPatch), nameof(RequiredActionsAreDoable_Postfix))));
+                else
+                    harmony.Patch(doable, postfix: new HarmonyMethod(AccessTools.Method(typeof(MillDutyPatch), nameof(RequiredActionsAreDoable_Postfix))));
             }
             catch (Exception ex)
             {
                 Plugin.Logger?.LogError($"[MillDutyPatch] Failed to apply the empty-station gate: {ex}");
             }
+
+            // The Partner frog pool (T2.1701): see StatsConversionsInit_Postfix.
+            try
+            {
+                var conversionsType = CardUtil.FindGameType("GameStatsToNPCStats");
+                var init = conversionsType == null ? null : AccessTools.Method(conversionsType, "Init");
+                if (init == null)
+                {
+                    Plugin.Logger?.LogWarning("[MillDutyPatch] GameStatsToNPCStats.Init not found (game update?): a Partner's Catch Frog will not spend the shared frog pool.");
+                    return;
+                }
+                harmony.Patch(init, postfix: new HarmonyMethod(AccessTools.Method(typeof(MillDutyPatch), nameof(StatsConversionsInit_Postfix))));
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger?.LogError($"[MillDutyPatch] Failed to apply the Partner frog-pool patch: {ex}");
+            }
+        }
+
+        // WDI game stats a Partner duty's action must still change. For an agent the vanilla
+        // _PartnerStatEquivalencies asset lists in AppliesToAgents (the Partner, PartnerAgentGuid),
+        // CardAction drops every GameStat modification that has no NPC equivalent unless the stat is in
+        // StatsStillAffectedByNPCS (.decomp/CardAction.cs, the _DoneByNPC block, and
+        // GameStatsToNPCStats.NPCShouldStillAffectStat). So a Partner's Catch Frog took a frog and never
+        // spent the pool (T2.1701: 8 catches against a pool of 3). InstantModifier does not matter here:
+        // the modification is removed before SpendDaytimePoints ever sees it.
+        internal static readonly string[] StatsPartnerActionsStillChange = { "water_sawmill_stat_pond_frogs" };
+
+        private static void StatsConversionsInit_Postfix(object __instance)
+        {
+            try
+            {
+                if (__instance == null || !ResolveTypes()) return;
+                var field = AccessTools.Field(__instance.GetType(), "StatsStillAffectedByNPCS");
+                if (field == null)
+                {
+                    WarnFrogPoolOnce("GameStatsToNPCStats.StatsStillAffectedByNPCS not found (game update?): a Partner's Catch Frog will not spend the shared frog pool.");
+                    return;
+                }
+                var list = field.GetValue(__instance) as System.Collections.IList;
+                if (list == null)
+                {
+                    list = Activator.CreateInstance(field.FieldType) as System.Collections.IList;
+                    if (list == null) return;
+                    field.SetValue(__instance, list);
+                }
+                foreach (var statUid in StatsPartnerActionsStillChange)
+                {
+                    var stat = _getFromIdMethod.Invoke(null, new object[] { statUid });
+                    if (stat == null)
+                    {
+                        WarnFrogPoolOnce($"GameStat '{statUid}' not found: a Partner's Catch Frog will not spend the shared frog pool.");
+                        continue;
+                    }
+                    if (!list.Contains(stat)) list.Add(stat);
+                }
+            }
+            catch (Exception ex)
+            {
+                WarnFrogPoolOnce($"StatsConversionsInit_Postfix failed: {ex.Message}");
+            }
+        }
+
+        private static bool _frogPoolWarned;
+        private static void WarnFrogPoolOnce(string message)
+        {
+            if (_frogPoolWarned) return;
+            _frogPoolWarned = true;
+            Plugin.Logger?.LogWarning("[MillDutyPatch] " + message);
         }
 
         private static void LoadMainGameData_Postfix()

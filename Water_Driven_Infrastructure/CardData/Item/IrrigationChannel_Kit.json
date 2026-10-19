@@ -1,0 +1,205 @@
+{
+  "UniqueID": "water_sawmill_irrigation_channel_kit",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_irrigation_channel_kit",
+    "LocalizationKey": "Water_Sawmill_IrrigationChannelKit_CardName",
+    "DefaultText": "Irrigation Channel Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_irrigation_channel_kit",
+    "LocalizationKey": "Water_Sawmill_IrrigationChannelKit_CardDescription",
+    "DefaultText": "Stone-lined plank troughs and sluice boards for a small field channel, ready to lay from a mill race outlet to the fields."
+  },
+  "CanBeRenamed": false,
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_irrigation_channel_kit",
+    "LocalizationKey": "Water_Sawmill_IrrigationChannelKit_CardHelpSection",
+    "DefaultText": "<b>Use:</b> Place at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet, to lay the channel. Anywhere else the placement is refused. One channel per location: Place is hidden while one already stands there.\n\n<b>Disassemble:</b> Recover half of the stone and planks."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "MillRace",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 200.0,
+  "TradingValue": 40.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Stone"
+  ],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Stone"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_irrigation_channel_kit",
+        "LocalizationKey": "Water_Sawmill_IrrigationChannelKit_Place_ActionName",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_irrigation_channel_kit",
+        "LocalizationKey": "Water_Sawmill_IrrigationChannelKit_Place_ActionDescription",
+        "DefaultText": "Lay the channel from the mill race outlet to the fields here."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "Inverted": true,
+          "OnlyEquipped": false,
+          "TriggerCardWarpData": "water_sawmill_irrigation_channel_placed",
+          "TriggerCardWarpType": 3
+        }
+      ],
+      "RequiredTagsOnBoard": [],
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "water_sawmill_irrigation_channel_placed",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_irrigation_channel_kit",
+        "LocalizationKey": "Water_Sawmill_IrrigationChannelKit_Disassemble_ActionName",
+        "DefaultText": "Disassemble"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_irrigation_channel_kit",
+        "LocalizationKey": "Water_Sawmill_IrrigationChannelKit_Disassemble_ActionDescription",
+        "DefaultText": "Break down the kit and recover half of the stone and planks."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Stone"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 1.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

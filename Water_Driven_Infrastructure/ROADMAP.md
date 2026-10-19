@@ -1,63 +1,70 @@
 # Roadmap: WaterDrivenInfrastructure
-Version at time of writing: 1.12.5
-Date: 2026-10-13
-Audit score: 9/10 (SHIPS WITH CAVEATS) - see `.audit/summary.md`
+Version at time of writing: 1.12.12
+Date: 2026-10-18
+Audit score: 10/10 (PASS, release-ready) - see `.audit/summary.md`
 
 ## Current State
 
-**Theme**: Late-game water-powered industry - sawmills, forges, grinding/stamp mills, ore sluices, fishponds, fish funnels and mill race outlets built near rivers using water wheels and mill races. For a player past the early survival tier who wants large-scale manufacturing and a steady water supply at any outdoor location.
+**Theme**: Late-game water-powered industry - sawmills, forges, grinding/stamp mills, ore sluices, fishponds, fish funnels, mill race outlets, plus retting pits and irrigation channels - built near rivers using water wheels and mill races. For a player past the early survival tier who wants large-scale manufacturing and a steady water supply at any outdoor location.
 
-**Content**: 28 items / 32 blueprints / 18 structures / 7 perks / 37 custom images
+**Content**: 31 items / 35 blueprints / 21 structures (CT2) / 7 perks / 39 custom images
 
-**Stability**: 9/10 - 0 mod-breaking CRITICAL, 0 design gaps, 0 broken promises, 0 open retrospectives. Build clean (0/0), bin/Release in sync, versions agree at 1.12.5, Chinese parity 611/611. code-quality is 10/10 (reference-grade). Three open warnings are hygiene/process only (see below).
+**Stability**: 10/10 (release-ready) - 0 CRITICAL, 0 confirmed design gaps, 0 broken promises, 0 open retrospectives. Build clean (0 errors / 0 warnings), bin/Release in sync, versions agree at 1.12.12, Chinese parity 673/673, cross-mod collisions 0 (17 mods / 2623 UIDs). The two newest structures (Retting Pit, Irrigation Channel) are wired and mechanically verified against JSON + the `MillRaceNetwork`/`ActionInterceptPatch` C# gate, pending only human in-game confirmation (T2.1798, T2.1799).
 
-**Open work**: No open retrospectives - all 4 WDI-tagged retros are Graduated/archived (`wdi-mill-race-improvement-tab`, `wdi-mill-race-edges`, `wdi-fish-quality`, `wdi-iron-smelt-output`). Open warnings: T2.601 tracker record pending. (Resolved 2026-10-13: WDI now compiles against the plain game `lib/Assembly-CSharp.dll`, so the stale nstrip lib is gone; `GetCardCharges` caches its members.)
+**Open work**: none (all 4 WDI-tagged retrospectives are graduated/archived). One open tracker warning: **T2.601** reads `fail` on a stale premise (its run PASSED but was not recorded because the row still describes vanilla's `PartnerDuty_HarvestReeds` instead of WDI's own `wdiHarvestReedBed_Duty`/`wdiHarvestCattailBed_Duty`); non-code, needs a row rewrite + `/playthrough-test-plan record`.
 
-**Framework compliance**: Tier 2, fully adopted. ActionRouter (27 call sites) for all action interception in place of direct coroutine patches, SpawnService (18) for all card spawning, TickEvents (5) for the Fishpond population refresh and day-rollover handlers. No deprecated patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`/`ModEditorVersion`.
+**Framework compliance**: Tier 2, fully adopted. `ActionRouter` (31 call sites, all action interception), `SpawnService` (18), `TickEvents` (5). No direct `ActionRoutine` patches, no `DropCollectionGuardPatch`, no `ModLoaderVerison`/`ModEditorVersion`, no unfiltered hot-path prefixes. Needs CSFFModFramework 2.28.0+.
 
 ---
 
 ## Phase 0: Stabilize
 
-> Skipped - audit score is 9/10 and there are no open retrospectives or CRITICAL issues. The two findings still printed in the 2026-10-13 sub-reports (code-quality F1, critical-analysis M4 README version history) were both fixed on disk the same day.
+> Skipped - audit score is 10/10 and there are no open retrospectives.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes hygiene. All table-stakes are already met; what remains is three low-urgency items.
+> Table-stakes maintenance. All structural hygiene is already green; these are the only open items.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Record T2.601 (`wdi_partner_harvest_reeds_beds`) PASS via `/playthrough-test-plan record` - a 2026-10-09 harness PASS is logged but the row still reads `fail` | Tracker hygiene | P1 | Quick |
+| Rewrite tracker row T2.601 to describe WDI's own reed/cattail harvest duties, then `/playthrough-test-plan record` the already-passed run | Tracker hygiene | P1 | Quick |
+| Re-run the 6 domain sub-audits (`/full-mod-audit-chain WaterDrivenInfrastructure`) so the 2026-10-13 reports stop being carried as stale/UNTRUSTED input, and settle the contested perks `Features.json` coverage item (G1? in summary.md) | Audit hygiene | P2 | Medium |
+| Re-verify `GetCardCharges` is still uncached reflection; cache the `AccessTools.Field` lookup if so | Perf hygiene | P3 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> WDI's core loop is complete. The 1.12.x release already shipped the natural next additions (Fishpond feeding, Water Reservoir via the Mill-Race Cistern Feed, reed/cattail cultivation, station skill XP); they are pending human verification (T2.640-T2.647), not unbuilt. No new core content is justified by current scope.
+> One benched structure is the only queued content. No feature gap is open; do NOT invent new content.
 
-*No open Phase 2 content.* The only shelved content item is the owner-benched Cold-Water Cache (see Long-term Vision); re-promoting it is an owner decision, not roadmap-driven work.
+### Cold-Water Cache (benched, owner decision pending)
+**What**: A spoilage-halving (x0.5) river-side cache that sits strictly above vanilla's Ice Pit, with a flood-loss tick and a Pull Up Cache DA. Built in 1.12.0, removed by the owner in 1.12.1 ("Remove this as well bnch for later in ideas.").
+**Why**: Completes the river-industry theme with a cold-storage tier; benched, NOT ruled out.
+**Requires**: An owner decision on whether it is wanted next to the Ice Pit and whether its placeholder numbers (x0.5 spoilage, 2% daily flood loss, 4% in heavy rain) stay. Its blood-soaking quality penalty was never built (vanilla has no unbled-meat quality rule to anchor it).
+**Spec / restore**: `Documentation/Design/WaterDrivenInfrastructure_Round2_As_Built.md` Feature 13; last commit holding the feature is `fb10224c1` (`git show 09be321aa:Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md` for the full as-built text).
+**Complexity**: Medium (restore + re-balance + art already exists in the git history).
 
 ---
 
 ## Phase 3: Integration & Depth
 
-### AdvancedCopperTools interop (already wired - verification only)
-**What**: Confirm the Cast Iron Sheet (SD4 `Active:false`) is correctly rejected from an ACT copper-tier sheet slot, so the README "stays tier-locked (same-tier only)" claim holds for the iron sheet. No WDI blueprint is affected (the iron sheet is consumed by UID internally).
-**Why**: Honesty of a cross-mod claim; the bronze-gear tab and shared fasteners (Metal Nail / Tin Solder / Metal Sheet) are already framework-hosted and ACT is correctly declared optional.
-**Requires**: ACT installed; a new tracker row (none exists yet).
-**Complexity**: Quick (in-game check, not code)
+### ACT Cast Iron Sheet tier-lock verification
+**What**: Confirm the Cast Iron Sheet (SD4 `Active:false`) is correctly rejected from an Advanced Copper Tools copper-tier recipe slot, as the README tier-lock claim states.
+**Why**: WDI consumes ACT-prefixed shared fasteners by UID and declares ACT optional (no hard dependency, G7 clean); the only open cross-mod question is this slot-rejection behavior.
+**Requires**: ACT installed; a filed tracker row for the in-game check.
+**Complexity**: Quick (verification, not new code).
 
 ---
 
 ## Phase 4: Polish
 
-> Art and localization are already complete (37 custom images, all CardImageWarpData resolve, Chinese parity 611/611, 0 em-dashes). No open polish items.
+> Art and text are already mature (39 custom images, descriptions spot-checked clean). No open polish items.
 
 | Item | What | Complexity |
 |------|------|------------|
-| (none open) | Images PASS, localization clean, descriptions accurate per critical-analysis | - |
+| (none open) | Art coverage, descriptions, and localization are all clean as of 1.12.12 | - |
 
 ---
 
@@ -65,12 +72,13 @@ Audit score: 9/10 (SHIPS WITH CAVEATS) - see `.audit/summary.md`
 
 > Where this mod should be at v2.0.
 
-WDI is already at its natural endpoint as a standalone late-game water-industry mod: a complete chain from raw river water and ore through mills, sluices, forges and fishponds, with Partner duties automating the stations and perks seeding kits at character creation. A v2.0 is a maturity milestone (full human verification of the 1.12.x features, the next NStrip regeneration, and a Stable/ move once owner-confirmed as human-tested), not a content expansion. The biggest addition that becomes natural only at larger scale is the benched Cold-Water Cache.
+WDI is already a complete late-game water-industry package: it covers manufacturing (sawmill, forge, workshop, grinding/stamp/fulling mills), resource extraction (ore sluice, fishpond, fish funnel), water supply (mill race outlet, cistern feed, irrigation channel) and crafting-chain depth (retting pit, cloth fulling). Its natural endpoint is a self-sufficient riverside industrial base that trains five skills and supplies water anywhere outdoors. The biggest addition not yet justified at current scope is a cold-storage tier (the benched Cold-Water Cache); beyond that the mod is feature-complete and should move to maintenance-plus-polish, updating only to track game versions and respond to requests.
 
-**Potential major additions** (not yet justified - revisit only on owner request):
-- Cold-Water Cache - owner-benched 2026-10-09 (built in 1.12.0, removed in 1.12.1). A spoilage-halving river cache kept strictly above vanilla's Ice Pit, needing no snow or ice. Recorded with its reason in "Considered, not selected" below; the full as-built spec and git-restore procedure are in `git show 09be321aa:Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`. Re-plan into a new `Documentation/Plans/WaterDrivenInfrastructure/MASTER_PLAN.md` when picked up.
+**Potential major additions** (not yet justified - revisit after Phase 2/3):
+- Cold-Water Cache (benched above) - the one queued content item; a riverside cold-storage tier above the Ice Pit.
+- Water-powered textile depth beyond the fulling mill (e.g. a powered loom or dye vat) - only if a weaving/dyeing gap emerges that vanilla and H&F do not already cover.
 
-Any of these worth building belongs in the mod's plan under `Documentation/Plans/WaterDrivenInfrastructure/` when one is created; never a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
+Anything worth building belongs in the mod's plan under `Documentation/Plans/WaterDrivenInfrastructure/` (or its Considered table, with the reason, if not); never create a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
 ---
 
@@ -79,10 +87,9 @@ Any of these worth building belongs in the mod's plan under `Documentation/Plans
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod WaterDrivenInfrastructure` and update this roadmap |
-| Game version update | Run `/update-mod-version`, refresh `lib/` DLLs (copy the game's `Assembly-CSharp.dll` into `lib/`, checked by `LibReference-Freshness.Tests.ps1`), re-run `/diagnose-log` |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; refresh `lib/Assembly-CSharp.dll` |
 | After fixing a critical issue | Run `/critical-analysis WaterDrivenInfrastructure` to verify the fix |
 | After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump minor version |
-| After human-testing the 1.12.x features | Record T2.640-T2.647 + T2.601; consider the Stable/ move |
 
 ---
 
@@ -98,14 +105,6 @@ Any of these worth building belongs in the mod's plan under `Documentation/Plans
 /update-mod-version WaterDrivenInfrastructure <ver> - bump version in all 3 files
 /export-to-repo WaterDrivenInfrastructure    - push to public repo
 ```
-
----
-
-## Considered, not selected
-
-| Option | Reason |
-|---|---|
-| Cold-Water Cache (was Round 2 plan feature 13; built in 1.12.0, removed in 1.12.1) | Benched by the owner 2026-10-09, not ruled out. Owner, verbatim: "Remove this as well bnch for later in ideas." Open when it comes back: whether it is wanted at all next to vanilla's Ice Pit, and whether its placeholder numbers (x0.5 spoilage, 2% daily flood loss, 4% in heavy rain) stay. Its blood-soaking quality penalty was never built: vanilla has no unbled-meat quality rule to anchor it. Full as-built spec, card-art brief and git-restore steps: `git show 09be321aa:Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md` (the last commit holding the feature is `fb10224c1`). |
 
 ---
 
@@ -352,3 +351,10 @@ conservation-checked line-by-line with a multiset compare against the HEAD blob.
 - **Pruned:** `Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md` (full spec, card-art brief and restore steps stay readable with `git show 09be321aa:Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`; the last commit holding the feature's code is `fb10224c1`).
 - **Evidence:** `ls Documentation/Ideas/WaterDrivenInfrastructure/` listed only IDEAS.md; its one entry read in full (quote above copied from it). `git grep -n "Ideas/WaterDrivenInfrastructure"` found live pointers in this ROADMAP's Long-term Vision (repointed here), `Documentation/Ideas/IDEAS_OVERVIEW.md` lines 37-39 and `.claude/playthrough-test-status.json` lines 3204-3205 (both outside this pass's write scope, left for their owners), and dated records (As_Built docs, earlier entries of this log, CHANGELOG 1.12.1) left as written.
 - **Verification debt:** none (no code changed; the feature is not in the mod).
+
+### 2026-10-18 - MASTER_PLAN (vanilla balance and niche content) built and archived
+- **Verdict:** DRAINED. Section 1 (vanilla balance, 29 rows) built in WDI 1.12.10. Section 2: the five niche ideas were settled against vanilla data (`Documentation/Research/WaterDrivenInfrastructure/niche_premises_2026-10-15.md`); the fulling mill (GAP CONFIRMED) shipped in 1.12.11; the owner answered the other four in chat on 2026-10-17 (`Documentation/Reports/Vanilla_Balance/wdi-niche-decisions.html`): Retting Pit and Irrigation Channel built in 1.12.12 (`28efa6498`, `9b1dc683e`, release `bf381dfff`), eel weir and ice house dropped to the plan's section 2.1 Considered table. Pack Prompts 1 (Overshot text, `36ec12c6e`), 2 (premises, `a8f6bdbc4`), 6, 8 and the reshaped 4 and 7 done; 3 and 5 not built by owner decision. The fulling mill kit's Disassemble returned wood-less Planks (fixed `32f01291b`).
+- **Disposition:** ARCHIVE to `Documentation/Design/WaterDrivenInfrastructure_Vanilla_Balance_As_Built.md` (the Keep and Considered tables, the niche verdicts and the irrigation band arithmetic are design detail worth keeping); the pack is deleted, its final Awaiting verification list folded into the archive as an appendix.
+- **Pruned:** the plan and pack left `Documentation/Plans/WaterDrivenInfrastructure/`; live citations repointed (the three section 2 tracker rows' `source`, the WDI Pester balance comment); dated records (earlier entries of this log, `Documentation/Design/AdvancedCopperTools_Vanilla_Balance_As_Built.md`, `Documentation/Reports/Plan_Review/plan-review.html`) left as written.
+- **Evidence:** WDI Release build 0 warnings; `WaterDrivenInfrastructure.Tests.ps1`, `Version-Synchronization` and `GameData-VersionLabel` Pester 124 passed, 0 failed on the 1.12.12 tree; the builders' runs of Sprite-NameResolves, CardArt-ShippedForm, Blueprint-TabGroupNames, Perk-StartingItemStats, InventoryCapacity-Model, Passive-Ct13-BackgroundScoped and Localization-EnglishColumnCjk green; `Check-LocalizationParity` CLEAN 673/673; new contracts (retting pit pairs to River.json, irrigation changes only Hydration within the bands) each watched red on a scratchpad copy. Deployed 1.12.12 (DLL 2026-10-18 05:43, release zip `Water_Driven_Infrastructure_1-12-12.zip`); not uploaded to Nexus (live 1.12.11).
+- **Verification debt:** T2.1700 to T2.1712 (section 1); `wdi_niche_fulling_mill_quality`; T2.1798 (Retting Pit); T2.1799 (Irrigation Channel, including whether `tag_RiverShore_LowAcidity` / `tag_Wetlands_HighAcidity` are the tags vanilla's shore soils carry).

@@ -63,7 +63,8 @@ namespace WaterDrivenInfrastructure.Patcher
             "water_sawmill_ore_sluice_placed",
             "water_sawmill_fulling_mill_placed",
             "water_sawmill_fishpond_filled",
-            "water_sawmill_fishpond_stocked"
+            "water_sawmill_fishpond_stocked",
+            "water_sawmill_retting_station_placed"
         };
         private static readonly HashSet<string> WdiOutletBuildSourceIds = new HashSet<string>(StringComparer.Ordinal)
         {
@@ -80,6 +81,8 @@ namespace WaterDrivenInfrastructure.Patcher
             "water_sawmill_workshop_kit",
             "water_sawmill_ore_sluice_kit",
             "water_sawmill_fishpond_kit",
+            "water_sawmill_retting_station_kit",
+            "water_sawmill_irrigation_channel_kit",
             "water_sawmill_bp_water_driven_sawmill",
             "water_sawmill_bp_grinding_mill",
             "water_sawmill_bp_fulling_mill",
@@ -91,7 +94,9 @@ namespace WaterDrivenInfrastructure.Patcher
             "water_sawmill_bp_fishpond",
             "water_sawmill_bp_reed_bed",
             "water_sawmill_bp_cattail_bed",
-            "water_sawmill_bp_water_basin"
+            "water_sawmill_bp_water_basin",
+            "water_sawmill_bp_retting_station",
+            "water_sawmill_bp_irrigation_channel"
         };
 
         private enum MillRaceGateResult

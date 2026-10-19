@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.12.11
+**Version:** 1.12.12
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
@@ -15,9 +15,9 @@ The mod stands alone with the framework. Its nails, solder and sheets are the fr
 
 Since 1.12.0 a running outlet also fills a Rain Cistern for winter, and you can feed your fishpond, plant reed and cattail beds, and build a Water Basin that raises Sanctuary. Working the stations trains your skills.
 
-24 of the 26 blueprints are in the journal from the start. Cast Large and Small Bronze Gear appear only with Advanced Copper Tools.
+26 of the 28 blueprints are in the journal from the start. Cast Large and Small Bronze Gear appear only with Advanced Copper Tools.
 
-The mod ships 27 blueprints, 24 items, 19 placed structures (each form of a card counts), 4 Mill Race improvements, 7 perks, 12 Partner duties and 1 setting. It also keeps five retired parts and their six blueprints so old saves load (see **Retired parts**).
+The mod ships 29 blueprints, 26 items, 21 placed structures (each form of a card counts), 4 Mill Race improvements, 7 perks, 12 Partner duties and 1 setting. It also keeps five retired parts and their six blueprints so old saves load (see **Retired parts**).
 
 ---
 
@@ -28,6 +28,8 @@ Water Source (river / lake)
  └── Mill Race ──────────────────────→ Mill Race Outlet  (draw water anywhere outdoors; fills a Rain Cistern)
                    ├── Reed Bed / Cattail Bed
                    ├── Water Basin
+                   ├── Retting Pit
+                   ├── Irrigation Channel
                    └── Water Wheel
                           └── Water-Driven Mill
                                  ├── Water-Driven Sawmill
@@ -45,8 +47,8 @@ Water Source (river / lake)
 |-----|-----------|
 | **Advanced Tools** (7) | Mill Race, Mill Race Outlet, Water Wheel, Overshot Wheel, Water-Driven Mill, Ore Sluice Frame, Fish Funnel |
 | **Metal Crafts** (7, +2 with ACT) | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Bearing, Axle and Wrench. With Advanced Copper Tools, also Cast Large and Small Bronze Gear. |
-| **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Fulling Mill, Sawmill, Forge, Workshop Kit, Stamp Mill, Water Basin |
-| **Farming Agriculture** | Fishpond, Reed Bed, Cattail Bed |
+| **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Fulling Mill, Sawmill, Forge, Workshop Kit, Stamp Mill, Water Basin, Retting Pit |
+| **Farming Agriculture** | Fishpond, Reed Bed, Cattail Bed, Irrigation Channel |
 
 The four Mill Race improvements appear in the **Environment Improvements** panel of each outdoor location, not in the journal. Locations that other mods add to the world map join the water network automatically.
 
@@ -304,6 +306,31 @@ A low stone basin fed by a thin stream. While it stands at your location it adds
 
 ---
 
+## Retting Pit
+
+A stone-lined pit kept full by running water, so you can ret flax, nettle and reeds at your base instead of carrying them to a river. It is in **Construction > Furniture**.
+
+- **Research:** 2 hours, needs a Mill Race. **Build** (1 hour): 6 Stone, 4 Wooden Planks and 2 Rope. It gives a **Retting Pit Kit**; place it, and **Pack Up** (30 minutes) returns the kit. Disassembling the kit gives back 3 Stone, 2 Wooden Planks and 1 Rope.
+- Build and place it at a river or lake, or at an outlet-watered outdoor location, never indoors, the same rule as the Sawmill. Anywhere else the build is refused.
+- Drag **Flax Stems**, **Nettle Stems** or **Fresh Reeds** onto it to soak them. They turn into the same Soaking cards a river makes and gain quality exactly as they do there: no faster and to the same limits (flax 40, reeds 50, nettle 30). Nothing else can be soaked in it.
+- The pit takes no stems while its water is cut off: a closed or missing outlet, or a frozen one with no fire beside it. Stems already soaking carry on.
+- The build cost may be rebalanced.
+
+---
+
+## Irrigation Channel
+
+A plank-lined channel that carries water from a Mill Race Outlet along the field edges. It only defends crops against a dry spell: it never makes them grow faster. It is in **Farming > Agriculture**.
+
+- **Research:** 2 hours, needs a Mill Race. **Build** (1 hour): 4 Stone and 4 Wooden Planks. It gives an **Irrigation Channel Kit**; place it, and **Pack Up** (30 minutes) returns the kit. Disassembling the kit gives back 2 Stone and 2 Wooden Planks.
+- Build and place it where the Sawmill can stand (a river or lake, or an outlet-watered outdoor location, never indoors). One channel per location.
+- While a flowing Mill Race Outlet stands at the same location, each Flax, Wheat, Pea and Turnroot field there, growing or mature, gains 20 Hydration a tick. A field loses Health below 1920 Hydration; the channel lifts it back over that line, but above 1920 the field dries faster (24 a tick, 36 when very wet) than the channel adds, so on its own the channel never wets a field past about 1920. Growth, yield and Health are not touched.
+- It feeds nothing while the outlet is closed or frozen (a fire does not help here), or when no outlet stands at the location. Fields on a river shore or in wetlands already gain 20 Hydration from the ground, so the channel leaves them alone.
+- Only the four vanilla field crops are watered. Garden plots, planted crops and other mods' plants (Herbs and Fungi, Far Territory, Harsh Wilds) are not.
+- The 20 a tick and the build cost may be rebalanced.
+
+---
+
 ## Gears, iron parts and fasteners
 
 Advanced machines need copper gears, a copper saw blade and iron parts. Cast the copper pieces from a molten crucible and forge the iron pieces from heated iron bars.
@@ -344,7 +371,7 @@ Building and working WDI trains vanilla skills, matching the vanilla equivalents
 |------|--------------|
 | Casting and forging parts (gears, saw blade, iron parts) | Smithing +1.0 each |
 | Water Wheel, Mill, Overshot Wheel, Sawmill, Grinding Mill, Stamp Mill, Fulling Mill, Forge, Workshop Kit, Ore Sluice, Fishpond | Crafting +2.0 |
-| Mill Race, Outlet, Sluice Frame, Fish Funnel, Water Basin | Crafting +1.0 |
+| Mill Race, Outlet, Sluice Frame, Fish Funnel, Water Basin, Retting Pit, Irrigation Channel | Crafting +1.0 |
 | Water Wheel, Mill, Overshot Wheel, Mill Race, Sawmill | Woodworking +0.5 as well |
 | Reed Bed, Cattail Bed | Herbalism +1.0 |
 | Sawmill Cut (per log) | Woodworking +0.5 |
@@ -391,13 +418,13 @@ A Partner works only the stations you mark. The Grinding Mill, Ore Sluice, Stamp
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.12.11 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.12.12 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
 ## Settings
 
-BepInEx writes `BepInEx/config/crispywhips.waterdriveninfrastructure.cfg` on first launch. A changed value needs a full game restart, not a save reload.
+BepInEx writes `BepInEx/config/crispywhips.waterdriveninfrastructure.cfg` on first launch. An edit to the file needs a full game restart, not a save reload. The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build) changes it in game instead, and that applies at once: press F1 and find "WaterDrivenInfrastructure".
 
 - **Seasons > Winter Station Lock** (default `true` since 1.12.10; BepInEx keeps a value already in your file, so an existing install stays as it was): when on, the water-powered stations stop in winter everywhere, even beside a river, unless a heat source from the winter heat list stands there. It never blocks packing up, fuel, lighting, smelting or a pond's own freeze.
 - When off, only a frozen outlet stops a station in winter, and stations at a river or lake work all year.
@@ -422,17 +449,18 @@ Most features were checked by scripted tests in a running game. Not yet tried in
 - The animated Sawmill, Grinding Mill, Forge, Workshop and Overshot Wheel art (1.12.6): built and checked frame by frame, not yet seen in a running game.
 - The pile toggle on Bronze Gears (1.12.5).
 - Partner duties for the Stamp Mill, Fishpond and expanded stations: scripted checks only.
-- The 1.12.10 balance pass (Smelt Ore, the saw blade, the slower pond, the frog pool, once-a-day feeding, the empty drained pond, kit refunds, outlet and duty limits, the new perk contents): checked against the data by scripted tests, not yet seen in a running game.
+- Part of the 1.12.10 balance pass (the slower pond, once-a-day feeding, the empty drained pond, the Partner duty limit, Winter Station Lock on by default): its scripted checks in a running game are being repeated.
+- The Irrigation Channel: checked against the data by scripted tests, not yet seen in a running game.
 
 ---
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.11 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.12 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.
-- **Hammer All does nothing?** Load tool blanks or copper pieces into the Workshop first. The game never shows Metal Quality as a number, but the boost is real. It also raises the visible Quality once an item has taken a Strike.
+- **Hammer All does nothing?** Load tool blanks or copper pieces into the Workshop first. The game never shows Metal Quality as a number, but the boost is real. It also raises the visible Quality of a copper nugget, and of other items once they have taken a Strike.
 - **Sawmill Cut missing?** The sawmill must be placed, not held as a kit. Drag a log onto it.
 - **Saw All does nothing?** Put Tree Logs into the sawmill's inventory first. Dragging a log onto the sawmill runs Cut instead.
 
@@ -470,7 +498,8 @@ BepInEx/plugins/Water_Driven_Infrastructure/
 | **FishpondPopulationPatch** | Gates breeding per species (needs 2) and swaps the pond between its Filled and Stocked cards at 10. |
 | **BathtubPlumbingPatch** | With ACT, polls every 5 seconds and fills an empty Copper Bathtub at a running outlet. |
 | **BronzeGearTabPatch** | With ACT, adds the two Cast Bronze Gear blueprints to Metal Crafts at runtime. |
-| **MillDutyPatch** | Grafts the 12 `NPCDuty` files onto the vanilla Partner template. A postfix on `NPCDuty.RequiredActionsAreDoable` stops the mill, sluice and stamp mill duties while no marked station holds work. Every duty sets `RequiresMarkedCard`. Base weight 850. |
+| **MillDutyPatch** | Grafts the 12 `NPCDuty` files onto the vanilla Partner template. A postfix on `NPCDuty.RequiredActionsAreDoable` stops the mill, sluice and stamp mill duties while no marked station holds work. Every duty sets `RequiresMarkedCard`. Base weight 850. A postfix on `GameStatsToNPCStats.Init` adds the pond frog stat to `StatsStillAffectedByNPCS`, so a Partner's Catch Frog spends the pool. |
+| **FishFunnelPatch** | Prefix on `InGameCardBase.AddExternalPassiveEffect`: a Funnel Trap that already carries one live Fish Funnel's boost refuses a second. |
 | **BaseTemperatureHeal** | On `GameManager.OnGMInitialized`, resets a positive vanilla BaseTemperature base to 0, repairing saves warmed by Blast before 1.12.3. |
 
 Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they never modify vanilla cards, drops or stats.
@@ -483,6 +512,7 @@ Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they nev
 
 Full notes are in CHANGELOG.md.
 
+- **1.12.12:** the new Retting Pit and Irrigation Channel; Hammer All raises copper nuggets; a Partner's Catch Frog spends the frog pool; a second Fish Funnel no longer speeds a Funnel Trap; Fulling Mill kit planks come back as oak.
 - **1.12.11:** the new Water-Driven Fulling Mill raises the Quality of finished cloth; the Water Basin's animation sits where its still picture does; the Overshot Wheel's help text gives the right Saw All time.
 - **1.12.10:** a balance pass closer to the base game: copper smelting gives a Metal Nugget and slag, Hammer All stops at 60, the sawmill is slower and its blade wears out, the fishpond breeds and pays out more slowly, frogs are limited, and every station stops in winter without heat by default.
 - **1.12.8:** the winter Fishpond stays still again.

@@ -1,0 +1,423 @@
+{
+  "UniqueID": "water_sawmill_retting_station_placed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_retting_station_placed",
+    "LocalizationKey": "Water_Sawmill_RettingStationPlaced_CardName",
+    "DefaultText": "Retting Pit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_retting_station_placed",
+    "LocalizationKey": "Water_Sawmill_RettingStationPlaced_CardDescription",
+    "DefaultText": "A stone-lined pit kept full by running water. Flax, nettle and reeds soak in it just as they would in a river."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_retting_station_placed",
+    "LocalizationKey": "Water_Sawmill_RettingStationPlaced_CardHelpSection",
+    "DefaultText": "<b>Placement:</b> Build it at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. Anywhere else the build is refused. The pit takes no stems while that water is cut off (a closed or missing outlet, or a frozen one with no fire beside it).\n\n<b>Soaking:</b> Drag Flax Stems, Nettle Stems or Fresh Reeds onto the pit. They become the same Soaking cards a river makes and gain quality exactly as they would in a river: no faster, and to the same limits (flax 40, reeds 50, nettle 30). Pick them up when they are ready. Nothing else can be soaked here.\n\n<b>Pack Up:</b> Packs the pit back into its kit."
+  },
+  "CardType": 2,
+  "ObjectWeight": 0.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Stone"
+  ],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Water"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "CompatibleDuties": [],
+  "CompatibleDutiesWarpData": [],
+  "CompatibleDutiesWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": true,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": true,
+  "CannotTakeItemsOut": true,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "MaxWeightCapacity": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "SpillsInventoryOnDestroy": false,
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_retting_station_placed",
+        "LocalizationKey": "Water_Sawmill_RettingStationPlaced_SoakNettle_ActionName",
+        "DefaultText": "Soak Nettle Stems"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_retting_station_placed",
+        "LocalizationKey": "Water_Sawmill_RettingStationPlaced_SoakNettle_ActionDescription",
+        "DefaultText": "Lay the nettle stems in the pit to soak, as you would in a river."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": false,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [
+          "5ea3b46b6a0c5c9468ce52e619730cbb"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -0.75,
+            "y": -0.75
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "bf4c10a86871d0e41a6f4657e01d61a8",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferFuel": true,
+        "TransferSpecial2": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_retting_station_placed",
+        "LocalizationKey": "Water_Sawmill_RettingStationPlaced_SoakFlax_ActionName",
+        "DefaultText": "Soak Flax Stems"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_retting_station_placed",
+        "LocalizationKey": "Water_Sawmill_RettingStationPlaced_SoakFlax_ActionDescription",
+        "DefaultText": "Lay the flax stems in the pit to soak, as you would in a river."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": false,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [
+          "c2d389ba8dd77a94f88488ac4e656a02"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -0.75,
+            "y": -0.75
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "bc2ae6c164500f040ae9712a426003ed",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferFuel": true,
+        "TransferSpecial2": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_retting_station_placed",
+        "LocalizationKey": "Water_Sawmill_RettingStationPlaced_SoakReeds_ActionName",
+        "DefaultText": "Soak Reeds"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_retting_station_placed",
+        "LocalizationKey": "Water_Sawmill_RettingStationPlaced_SoakReeds_ActionDescription",
+        "DefaultText": "Lay the reeds in the pit to soak, as you would in a river."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": false,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [
+          "141f6c50aeef4ed4cbbe7e52c39f8fd6"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -0.75,
+            "y": -0.75
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "fb534b44fe718854b99a2cb68a80cab8",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "TransferSpecial2": true
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_retting_station_placed",
+        "LocalizationKey": "Water_Sawmill_RettingStationPlaced_PickUp_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_retting_station_placed",
+        "LocalizationKey": "Water_Sawmill_RettingStationPlaced_PickUp_ActionDescription",
+        "DefaultText": "Pack the retting pit back into a transportable kit."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Stone"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "water_sawmill_retting_station_kit",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "TanningPit_Full",
+  "CardImageWarpType": 3
+}

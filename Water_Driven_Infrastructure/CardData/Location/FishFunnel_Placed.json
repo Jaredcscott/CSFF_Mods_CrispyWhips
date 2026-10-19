@@ -359,7 +359,7 @@
         "StatModifiers": [],
         "NPCStatModifiers": [],
         "EffectStacksWithRequiredCards": false,
-        "OnBoardEffectCap": 1,
+        "OnBoardEffectCap": 0,
         "EffectScalesWithDurabilities": {
           "Active": false,
           "Inputs": [],
