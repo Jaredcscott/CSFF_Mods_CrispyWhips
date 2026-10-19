@@ -799,7 +799,7 @@ Herbs_And_Fungi_PickleVatSealedFrogs_Progress_CardStatName,Fermenting
 Herbs_And_Fungi_PickleVatSealedFrogs_Progress_OnZero_ActionDescription,Pickled Frogs are ready!
 Herbs_And_Fungi_PickleVatSealedFrogs_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_PickleVatReadyFrogs_CardName,Pickled Frogs
-Herbs_And_Fungi_PickleVatReadyFrogs_CardDescription,"Frogs cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+Herbs_And_Fungi_PickleVatReadyFrogs_CardDescription,"Frogs cured in salt brine. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
 Herbs_And_Fungi_PickleVatClosedVegetables_CardName,Pickled Vegetables (Closed)
 Herbs_And_Fungi_PickleVatClosedVegetables_CardDescription,"A pickle vat capped with a clay bowl, packed with vegetables for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
 Herbs_And_Fungi_PickleVatClosedVegetables_SpecialDurability2_CardStatName,Quality
@@ -814,7 +814,7 @@ Herbs_And_Fungi_PickleVatSealedVegetables_Progress_CardStatName,Fermenting
 Herbs_And_Fungi_PickleVatSealedVegetables_Progress_OnZero_ActionDescription,Pickled Vegetables are ready!
 Herbs_And_Fungi_PickleVatSealedVegetables_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_PickleVatReadyVegetables_CardName,Pickled Vegetables
-Herbs_And_Fungi_PickleVatReadyVegetables_CardDescription,"Vegetables cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+Herbs_And_Fungi_PickleVatReadyVegetables_CardDescription,"Vegetables cured in salt brine. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
 Herbs_And_Fungi_PickleVatClosedMushrooms_CardName,Pickled Mushrooms (Closed)
 Herbs_And_Fungi_PickleVatClosedMushrooms_CardDescription,"A pickle vat capped with a clay bowl, packed with mushrooms for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
 Herbs_And_Fungi_PickleVatClosedMushrooms_SpecialDurability2_CardStatName,Quality
@@ -829,7 +829,7 @@ Herbs_And_Fungi_PickleVatSealedMushrooms_Progress_CardStatName,Fermenting
 Herbs_And_Fungi_PickleVatSealedMushrooms_Progress_OnZero_ActionDescription,Pickled Mushrooms are ready!
 Herbs_And_Fungi_PickleVatSealedMushrooms_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_PickleVatReadyMushrooms_CardName,Pickled Mushrooms
-Herbs_And_Fungi_PickleVatReadyMushrooms_CardDescription,"Mushrooms cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+Herbs_And_Fungi_PickleVatReadyMushrooms_CardDescription,"Mushrooms cured in salt brine. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
 Herbs_And_Fungi_PickleVatClosedMeat_CardName,Pickled Meat (Closed)
 Herbs_And_Fungi_PickleVatClosedMeat_CardDescription,"A pickle vat capped with a clay bowl, packed with meat for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
 Herbs_And_Fungi_PickleVatClosedMeat_SpecialDurability2_CardStatName,Quality
@@ -1432,7 +1432,7 @@ Herbs_And_Fungi_PeanutPod_CardName,Peanut Pod
 Herbs_And_Fungi_PeanutPod_CardDescription,Clumps of peanut pods just dug from the soil. Still caked in dirt — rinse them in water before shelling.
 Herbs_And_Fungi_PeanutPod_CardHelpSection,"<b>Found:</b> Foraging in oak groves, pine forests, and clearings (spring–fall).
 
-<b>Processing:</b> Drag a water container onto the pods to rinse them, then use Shell to get raw peanuts."
+<b>Processing:</b> Drag a container of water onto the pods, or the pods onto the water, to rinse them (uses 100 water). Then use Shell to get raw peanuts."
 Herbs_And_Fungi_PeanutPod_CardInteractions_Rinse_ActionName,Rinse
 Herbs_And_Fungi_PeanutPod_CardInteractions_Rinse_ActionDescription,Rinse the soil from the pods with water.
 Herbs_And_Fungi_PeanutPod_SpoilageTime_CardStatName,Spoilage
@@ -2234,7 +2234,7 @@ Herbs_And_Fungi_SpicedPickleVatSealedFrogs_Progress_CardStatName,Fermenting
 Herbs_And_Fungi_SpicedPickleVatSealedFrogs_Progress_OnZero_ActionDescription,Spiced Pickled Frogs are ready!
 Herbs_And_Fungi_SpicedPickleVatSealedFrogs_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_SpicedPickleVatReadyFrogs_CardName,Spiced Pickled Frogs
-Herbs_And_Fungi_SpicedPickleVatReadyFrogs_CardDescription,"Frogs cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+Herbs_And_Fungi_SpicedPickleVatReadyFrogs_CardDescription,"Frogs cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
 Herbs_And_Fungi_SpicedPickleVatReadyFrogs_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_SpicedPickleVatReadyFrogs_SpoilageTime_OnFull_ActionDescription,Spiced Pickled Frogs Spoiled!
 Herbs_And_Fungi_SpicedPickleVatReadyFrogs_UsageDurability_CardStatName,Servings
@@ -2282,7 +2282,7 @@ Herbs_And_Fungi_SpicedPickleVatSealedMushrooms_Progress_CardStatName,Fermenting
 Herbs_And_Fungi_SpicedPickleVatSealedMushrooms_Progress_OnZero_ActionDescription,Spiced Pickled Mushrooms are ready!
 Herbs_And_Fungi_SpicedPickleVatSealedMushrooms_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_CardName,Spiced Pickled Mushrooms
-Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_CardDescription,"Mushrooms cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_CardDescription,"Mushrooms cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
 Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_SpoilageTime_OnFull_ActionDescription,Spiced Pickled Mushrooms Spoiled!
 Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_UsageDurability_CardStatName,Servings
@@ -2306,7 +2306,7 @@ Herbs_And_Fungi_SpicedPickleVatSealedVegetables_Progress_CardStatName,Fermenting
 Herbs_And_Fungi_SpicedPickleVatSealedVegetables_Progress_OnZero_ActionDescription,Spiced Pickled Vegetables are ready!
 Herbs_And_Fungi_SpicedPickleVatSealedVegetables_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_SpicedPickleVatReadyVegetables_CardName,Spiced Pickled Vegetables
-Herbs_And_Fungi_SpicedPickleVatReadyVegetables_CardDescription,"Vegetables cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+Herbs_And_Fungi_SpicedPickleVatReadyVegetables_CardDescription,"Vegetables cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
 Herbs_And_Fungi_SpicedPickleVatReadyVegetables_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_SpicedPickleVatReadyVegetables_SpoilageTime_OnFull_ActionDescription,Spiced Pickled Vegetables Spoiled!
 Herbs_And_Fungi_SpicedPickleVatReadyVegetables_UsageDurability_CardStatName,Servings
@@ -3851,5 +3851,95 @@ Herbs_And_Fungi_WinterGrowBagKaleGrowing_Progress_CardStatName,Growth
 Herbs_And_Fungi_WinterGrowBagKaleGrowing_Progress_OnFull_ActionDescription,Kale Grow Bag is ready!
 Herbs_And_Fungi_WinterGrowBagKaleGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_Bp_WinterGrowBagKale_CardName,Pack Kale Grow Bag
-Herbs_And_Fungi_Bp_WinterGrowBagKale_CardDescription,"Pack soil and 2 kale into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow kale through winter."
+Herbs_And_Fungi_Bp_WinterGrowBagKale_CardDescription,"Pack wood shavings and 2 kale into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow kale through winter."
 Herbs_And_Fungi_Bp_WinterGrowBagKale_UnlockConditionsDesc,Unlocked after obtaining Kale
+Herbs_And_Fungi_WinterGrowBagChamomileGrowing_CardName,Chamomile Grow Bag
+Herbs_And_Fungi_WinterGrowBagChamomileGrowing_CardDescription,Chamomile sprouting from a cloth grow bag. Set it down indoors by a lit fire and it keeps growing through the frost.
+Herbs_And_Fungi_WinterGrowBagChamomileGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
+
+<b>Produces:</b> 2 to 3 Chamomile when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days.
+
+<b>Winter:</b> Keep a lit fire on the same board. With a fire it keeps growing and stays healthy through winter. Let the fire go out in winter and it stops growing and dies in about two days."
+Herbs_And_Fungi_WinterGrowBagChamomileGrowing_Progress_CardStatName,Growth
+Herbs_And_Fungi_WinterGrowBagChamomileGrowing_Progress_OnFull_ActionDescription,Chamomile Grow Bag is ready!
+Herbs_And_Fungi_WinterGrowBagChamomileGrowing_DismantleActions_ActionName,Uproot
+Herbs_And_Fungi_Bp_WinterGrowBagChamomile_CardName,Pack Chamomile Grow Bag
+Herbs_And_Fungi_Bp_WinterGrowBagChamomile_CardDescription,"Pack wood shavings and 2 Chamomile into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow Chamomile through winter."
+Herbs_And_Fungi_Bp_WinterGrowBagChamomile_UnlockConditionsDesc,Unlocked after obtaining Chamomile
+Herbs_And_Fungi_WinterGrowBagDandelionGrowing_CardName,Dandelion Grow Bag
+Herbs_And_Fungi_WinterGrowBagDandelionGrowing_CardDescription,Dandelion sprouting from a cloth grow bag. Set it down indoors by a lit fire and it keeps growing through the frost.
+Herbs_And_Fungi_WinterGrowBagDandelionGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
+
+<b>Produces:</b> 2 to 3 Dandelion when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days.
+
+<b>Winter:</b> Keep a lit fire on the same board. With a fire it keeps growing and stays healthy through winter. Let the fire go out in winter and it stops growing and dies in about two days."
+Herbs_And_Fungi_WinterGrowBagDandelionGrowing_Progress_CardStatName,Growth
+Herbs_And_Fungi_WinterGrowBagDandelionGrowing_Progress_OnFull_ActionDescription,Dandelion Grow Bag is ready!
+Herbs_And_Fungi_WinterGrowBagDandelionGrowing_DismantleActions_ActionName,Uproot
+Herbs_And_Fungi_Bp_WinterGrowBagDandelion_CardName,Pack Dandelion Grow Bag
+Herbs_And_Fungi_Bp_WinterGrowBagDandelion_CardDescription,"Pack wood shavings and 2 Dandelion into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow Dandelion through winter."
+Herbs_And_Fungi_Bp_WinterGrowBagDandelion_UnlockConditionsDesc,Unlocked after obtaining Dandelion
+Herbs_And_Fungi_WinterGrowBagPlantainGrowing_CardName,Plantain Grow Bag
+Herbs_And_Fungi_WinterGrowBagPlantainGrowing_CardDescription,Common Plantain sprouting from a cloth grow bag. Set it down indoors by a lit fire and it keeps growing through the frost.
+Herbs_And_Fungi_WinterGrowBagPlantainGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
+
+<b>Produces:</b> 2 to 3 Common Plantain when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days.
+
+<b>Winter:</b> Keep a lit fire on the same board. With a fire it keeps growing and stays healthy through winter. Let the fire go out in winter and it stops growing and dies in about two days."
+Herbs_And_Fungi_WinterGrowBagPlantainGrowing_Progress_CardStatName,Growth
+Herbs_And_Fungi_WinterGrowBagPlantainGrowing_Progress_OnFull_ActionDescription,Plantain Grow Bag is ready!
+Herbs_And_Fungi_WinterGrowBagPlantainGrowing_DismantleActions_ActionName,Uproot
+Herbs_And_Fungi_Bp_WinterGrowBagPlantain_CardName,Pack Plantain Grow Bag
+Herbs_And_Fungi_Bp_WinterGrowBagPlantain_CardDescription,"Pack wood shavings and 2 Common Plantain into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow Common Plantain through winter."
+Herbs_And_Fungi_Bp_WinterGrowBagPlantain_UnlockConditionsDesc,Unlocked after obtaining Common Plantain
+Herbs_And_Fungi_WinterGrowBagYarrowGrowing_CardName,Yarrow Grow Bag
+Herbs_And_Fungi_WinterGrowBagYarrowGrowing_CardDescription,Yarrow sprouting from a cloth grow bag. Set it down indoors by a lit fire and it keeps growing through the frost.
+Herbs_And_Fungi_WinterGrowBagYarrowGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
+
+<b>Produces:</b> 2 to 3 Yarrow when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days.
+
+<b>Winter:</b> Keep a lit fire on the same board. With a fire it keeps growing and stays healthy through winter. Let the fire go out in winter and it stops growing and dies in about two days."
+Herbs_And_Fungi_WinterGrowBagYarrowGrowing_Progress_CardStatName,Growth
+Herbs_And_Fungi_WinterGrowBagYarrowGrowing_Progress_OnFull_ActionDescription,Yarrow Grow Bag is ready!
+Herbs_And_Fungi_WinterGrowBagYarrowGrowing_DismantleActions_ActionName,Uproot
+Herbs_And_Fungi_Bp_WinterGrowBagYarrow_CardName,Pack Yarrow Grow Bag
+Herbs_And_Fungi_Bp_WinterGrowBagYarrow_CardDescription,"Pack wood shavings and 2 Yarrow into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow Yarrow through winter."
+Herbs_And_Fungi_Bp_WinterGrowBagYarrow_UnlockConditionsDesc,Unlocked after obtaining Yarrow
+Herbs_And_Fungi_WinterGrowBagRhubarbGrowing_CardName,Rhubarb Grow Bag
+Herbs_And_Fungi_WinterGrowBagRhubarbGrowing_CardDescription,Rhubarb sprouting from a cloth grow bag. Set it down indoors by a lit fire and it keeps growing through the frost.
+Herbs_And_Fungi_WinterGrowBagRhubarbGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
+
+<b>Produces:</b> 2 to 3 Rhubarb when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days.
+
+<b>Winter:</b> Keep a lit fire on the same board. With a fire it keeps growing and stays healthy through winter. Let the fire go out in winter and it stops growing and dies in about two days."
+Herbs_And_Fungi_WinterGrowBagRhubarbGrowing_Progress_CardStatName,Growth
+Herbs_And_Fungi_WinterGrowBagRhubarbGrowing_Progress_OnFull_ActionDescription,Rhubarb Grow Bag is ready!
+Herbs_And_Fungi_WinterGrowBagRhubarbGrowing_DismantleActions_ActionName,Uproot
+Herbs_And_Fungi_Bp_WinterGrowBagRhubarb_CardName,Pack Rhubarb Grow Bag
+Herbs_And_Fungi_Bp_WinterGrowBagRhubarb_CardDescription,"Pack wood shavings and 2 Rhubarb into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow Rhubarb through winter."
+Herbs_And_Fungi_Bp_WinterGrowBagRhubarb_UnlockConditionsDesc,Unlocked after obtaining Rhubarb
+Herbs_And_Fungi_WinterGrowBagMossbedGrowing_CardName,Healer's Moss Grow Bag
+Herbs_And_Fungi_WinterGrowBagMossbedGrowing_CardDescription,Healer's Moss spreading over a cloth grow bag. Set it down indoors by a lit fire and it keeps growing through the frost.
+Herbs_And_Fungi_WinterGrowBagMossbedGrowing_CardHelpSection,"<b>Growth Time:</b> 15 days.
+
+<b>Produces:</b> 2 to 3 Healer's Moss when ready.
+
+<b>Care:</b> Tend it once a day. Left untended it weakens and dies in about ten days.
+
+<b>Winter:</b> Keep a lit fire on the same board. With a fire it keeps growing and stays healthy through winter. Let the fire go out in winter and it stops growing and dies in about two days."
+Herbs_And_Fungi_WinterGrowBagMossbedGrowing_Progress_CardStatName,Growth
+Herbs_And_Fungi_WinterGrowBagMossbedGrowing_Progress_OnFull_ActionDescription,Healer's Moss Grow Bag is ready!
+Herbs_And_Fungi_WinterGrowBagMossbedGrowing_DismantleActions_ActionName,Uproot
+Herbs_And_Fungi_Bp_WinterGrowBagMossbed_CardName,Pack Healer's Moss Grow Bag
+Herbs_And_Fungi_Bp_WinterGrowBagMossbed_CardDescription,"Pack wood shavings and 2 Healer's Moss into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow Healer's Moss through winter."
+Herbs_And_Fungi_Bp_WinterGrowBagMossbed_UnlockConditionsDesc,Unlocked after obtaining Healer's Moss

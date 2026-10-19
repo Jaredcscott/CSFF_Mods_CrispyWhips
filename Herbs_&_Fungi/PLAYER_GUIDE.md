@@ -331,7 +331,7 @@ Every pressed oil carries the `tag_Oil` lamp-oil tag, so with Advanced Copper To
 
 ## Pickle Vat (Long Fermentation)
 
-Preserves fermentable foods for months using salt brine.
+Preserves fermentable foods for about a month using salt brine.
 
 ### Building the Vat
 

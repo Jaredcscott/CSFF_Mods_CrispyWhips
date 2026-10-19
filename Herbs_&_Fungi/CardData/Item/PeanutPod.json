@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_peanut_pod",
         "LocalizationKey": "Herbs_And_Fungi_PeanutPod_CardHelpSection",
-        "DefaultText": "<b>Found:</b> Foraging in oak groves, pine forests, and clearings (spring–fall).\n\n<b>Processing:</b> Drag a water container onto the pods to rinse them, then use Shell to get raw peanuts."
+        "DefaultText": "<b>Found:</b> Foraging in oak groves, pine forests, and clearings (spring–fall).\n\n<b>Processing:</b> Drag a container of water onto the pods, or the pods onto the water, to rinse them (uses 100 water). Then use Shell to get raw peanuts."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -124,15 +124,15 @@
                 "LocalizationKey": "Herbs_And_Fungi_PeanutPod_CardInteractions_Rinse_ActionDescription",
                 "DefaultText": "Rinse the soil from the pods with water."
             },
-            "WorksInverted": true,
-            "WorksBothWays": false,
+            "WorksInverted": false,
+            "WorksBothWays": true,
             "CompatibleCards": {
                 "TriggerCards": [],
                 "TriggerCardsWarpData": [],
                 "TriggerCardsWarpType": 3,
                 "TriggerTags": [],
                 "TriggerTagsWarpData": [
-                    "tag_WaterContainer"
+                    "tag_WaterFresh"
                 ],
                 "TriggerTagsWarpType": 3
             },
@@ -186,7 +186,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 1.0,
+                "RequiredLiquidQuantity": 100.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,
@@ -232,7 +232,12 @@
                 "SpecificFailMessages": []
             },
             "GivenCardChanges": {
-                "ModType": 0
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -100.0,
+                    "y": -100.0
+                }
             },
             "ReceivingCardChanges": {
                 "ModType": 2,

@@ -5,6 +5,25 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.12] - 2026-10-19
+
+Needs CSFF Mod Framework 2.28.6 or later.
+
+### Added
+
+- **Herb Grow Bags: grow herbs through winter beside a fire.** Chamomile, Dandelion, Plantain, Yarrow, Rhubarb and Healer's Moss each get a **Pack ... Grow Bag** blueprint (Farming > Agriculture, unlocked once you have that herb) that works like the Kale Grow Bag: 1 Wood Shavings and 2 of the herb, no fertile ground needed, a daily **Tend**, and in winter it only keeps growing and stays alive while a lit fire is on the same board. Without a fire it dies into a Dead Crop in about two winter days. After 15 days it turns into the herb's ordinary patch, so you harvest it the usual way for 2 to 3 of the herb. The field crops (Oats, Hemp, Grapes, Broad Beans, Hops, Peanuts, Leeks, Carrots, Ginseng) still grow outdoors only.
+
+### Changed
+
+- **Rinsing Peanut Pods works both ways and with water in any container.** Drag a bowl, pot or waterskin of water onto the pods, or drag the pods onto the water. Each rinse now uses 100 water (it used none before), so the container needs at least that much. Water, River Water and Unsafe Water all work; milk does not.
+
+- **Pickled vegetables, mushrooms and frogs now keep for about a month, not three.** The ready vats, plain and spiced, now spoil as fast as pickled meat has since 1.14.9. A ready vat already on your board keeps the time it has stood, so one that has stood longer than about a month spoils soon after you update.
+
+### Fixed
+
+- **The Pack Kale Grow Bag blueprint said it takes soil.** It takes 1 Wood Shavings and 2 Kale, and now says so. The Chinese help text on the Kale Grow Bag also read wrongly where it says to let the fire go out.
+
+
 ## [1.14.11] - 2026-10-17
 
 Needs CSFF Mod Framework 2.28.6 or later.

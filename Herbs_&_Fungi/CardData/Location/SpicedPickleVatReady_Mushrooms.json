@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_spiced_pickle_vat_ready_mushrooms",
         "LocalizationKey": "Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_CardDescription",
-        "DefaultText": "Mushrooms cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+        "DefaultText": "Mushrooms cured in salt brine spiced with wild garlic and ginger, with a stronger taste. Eat 5 servings straight from the vat. Keeps for about a month. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
     },
     "CardType": 2,
     "CardTags": [],
@@ -66,7 +66,7 @@
             "LocalizationKey": "Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 8640.0,
+        "MaxValue": 2880.0,
         "RatePerDaytimePoint": 1.0,
         "HidingOptions": 1,
         "TextDisplay": 0,
