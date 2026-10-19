@@ -1,0 +1,69 @@
+{
+  "UniqueID": "cmcEnvJailCave",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardTagsWarpData": [
+    "tag_EnvIndoors"
+  ],
+  "CardTagsWarpType": 3,
+  "CardName": {
+    "LocalizationKey": "CMC_JailCave_CardName",
+    "DefaultText": "Skylit Cave"
+  },
+  "CardImageWarpData": "Waterfall_Cave",
+  "CardImageWarpType": 3,
+  "CardBackgroundWarpData": "Waterfall_Cave",
+  "CardBackgroundWarpType": 3,
+  "MaxWeightCapacity": 12000,
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCardWarpData": "cmcJailCaveLocation",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "cmcJailCaveTree",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "cmcJailCaveBranches",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "cmcJailCaveDripPool",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "cmcJailCaveRubble",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "cmcJailCaveRockWall",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

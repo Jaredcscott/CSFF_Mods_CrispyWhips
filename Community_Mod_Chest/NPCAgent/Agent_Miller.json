@@ -6,7 +6,7 @@
     },
     "AgentDescription": {
         "LocalizationKey": "CMC_Miller_AgentDescription",
-        "DefaultText": "Moved into the Miller's Cottage a week after it was finished. Grinds the village's grain and keeps a pinch of every sack."
+        "DefaultText": "Moved into the Miller's Cottage a week after it was finished. Grinds the village's grain and keeps a pinch of every sack. He takes no commissions from first snow to thaw."
     },
     "AgentImageWarpData": "CMC_Miller",
     "AgentImageWarpType": 3,
@@ -181,19 +181,49 @@
         },
         {
             "ActionName": {
-                "LocalizationKey": "CMC_Miller_Commission_ActionName",
-                "DefaultText": "Commission Flour"
+                "LocalizationKey": "CMC_Miller_Chore_PaySalt_ActionName",
+                "DefaultText": "Hire Log Splitting: Pay a Salt"
             },
             "ActionDescription": {
-                "LocalizationKey": "CMC_Miller_Commission_ActionDescription",
-                "DefaultText": "Pay the Miller 150 worth (a metal Nugget or a coin) to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time, and he takes a new one 3 days after you collect the last."
+                "LocalizationKey": "CMC_Miller_Chore_PaySalt_ActionDescription",
+                "DefaultText": "Pay the Miller a Salt toward splitting your four logs. Two Salt starts the chore, and he has the Firewood ready in his cottage the next day. Open in winter too: he mints nothing, he only does the splitting."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 0,
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatMillerOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+                {"StatWarpData": "cmcStatMillerChore", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}},
+                {"StatWarpData": "cmcStatMillerChoreLogs", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}},
+                {"StatWarpData": "cmcStatMillerChoreFee", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 1.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatMillerChoreFee", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_Commission_ActionName",
+                "DefaultText": "Commission Flour"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_Commission_ActionDescription",
+                "DefaultText": "Pay the Miller 150 worth (a metal Nugget or a coin) to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time, and he takes a new one 3 days after you collect the last. Closed from first snow to thaw; an order placed before the snow is still delivered."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatMillerOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}},
+                {"StatWarpData": "cmcStatSeasonWinter", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
@@ -204,6 +234,91 @@
             ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa", "4b0f4937a5ecb90499428c8c10288afc", "e5f5d2a633f3437780d6198c3d1e9fdd"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_Chore_GiveLogs_ActionName",
+                "DefaultText": "Hire Log Splitting: Hand Over a Log"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_Chore_GiveLogs_ActionDescription",
+                "DefaultText": "Hand the Miller a Log Piece to split. Give him four, then pay 2 Salt: he splits them into twelve Firewood (three each, the same as you would) and has them waiting in his cottage the next day. One chore at a time. The Firewood comes back at the lowest Quality of the logs you handed over."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatMillerChore", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}},
+                {"StatWarpData": "cmcStatMillerChoreLogs", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 3.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatMillerChoreLogs", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["53e411d8fd0939648a3b42b177392b91"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_Amends_ActionName",
+                "DefaultText": "Make Amends: Firewood"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_Amends_ActionDescription",
+                "DefaultText": "Hand over firewood for the Miller's mill-house fire, as he asked when you spoke about the chest. Carrying and stacking it takes about two hours. Talk to him again for his thanks; the Trust comes back after that."
+            },
+            "DaytimeCost": 8,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatMillerAmendsArmed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 59.0
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatMillerAmendsArmed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "758be01db25eb4649a288d64b7600b9b"
+                ],
                 "TriggerCardsWarpType": 3
             }
         }

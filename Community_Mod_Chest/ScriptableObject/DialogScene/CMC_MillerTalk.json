@@ -4,13 +4,16 @@
         "DefaultText": "The Miller"
     },
     "SceneLinesWarpData": [
+        "CMC_MillerTalk_AmendsOpener",
         "CMC_MillerTalk_Keepsake",
         "CMC_MillerTalk_QuestThanks",
         "CMC_MillerTalk_QuestThanks2",
         "CMC_MillerTalk_QuestThanks3",
+        "CMC_MillerTalk_AmendsThanks",
         "CMC_MillerTalk_CrimeWanted",
         "CMC_MillerTalk_CrimeBanished",
         "CMC_MillerTalk_Start",
+        "CMC_MillerTalk_AmendsOffer",
         "CMC_MillerTalk_Work",
         "CMC_MillerTalk_Village",
         "CMC_MillerTalk_QuestOffer",

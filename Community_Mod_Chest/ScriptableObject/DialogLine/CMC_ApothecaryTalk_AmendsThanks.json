@@ -1,0 +1,72 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatApothecaryAmendsArmed",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.25,
+                    "y": 0.75
+                }
+            },
+            {
+                "StatWarpData": "cmcStatVillageCrime",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 59.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_AmendsThanks_Line",
+        "DefaultText": "Good wax, and enough of it. The salves will set properly now. Consider the matter a little lighter between us."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_AmendsThanks_Answer_Thanks",
+                "DefaultText": "Glad it helps."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 0.5,
+                            "y": 0.5
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsPaid",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsCooldown",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 288.0,
+                            "y": 288.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

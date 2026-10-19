@@ -20,6 +20,88 @@
             }
         },
         {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 1.5
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsDebt",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 40.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsCooldown",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsPaid",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_CrimeWanted_Answer_Amends",
+                "DefaultText": "About your chest..."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_AmendsOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": -0.5,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_CrimeWanted_Answer_AmendsGiveUp",
+                "DefaultText": "I can't find the firewood after all."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
             "Answer": {
                 "LocalizationKey": "CMC_MillerTalk_CrimeWanted_Answer_Fair",
                 "DefaultText": "Fair enough."

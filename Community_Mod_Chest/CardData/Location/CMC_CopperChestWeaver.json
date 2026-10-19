@@ -92,7 +92,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_CopperChestWeaver_DA_Search_Desc",
-        "DefaultText": "Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Weaver is."
+        "DefaultText": "Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Weaver is. If you are caught it costs Village Crime and the Weaver's Trust; an amends errand can win it back."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,

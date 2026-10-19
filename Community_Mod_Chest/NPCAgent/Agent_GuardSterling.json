@@ -67,12 +67,66 @@
     "DragAndDropActions": [
         {
             "ActionName": {
-                "LocalizationKey": "CMC_GuardBribe_ActionName",
+                "LocalizationKey": "CMC_Sterling_Escort_Hire_ActionName",
+                "DefaultText": "Hire an Escort: Pay a Salt"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Sterling_Escort_Hire_ActionDescription",
+                "DefaultText": "Pay the Watch a Salt and a guard sees you across the hunting grounds for about six hours: Hunter's Crossing, Pine Trail, Highland Pines and Stillwater Meadow turn predators back while it lasts. It ends when you walk back into the village. One escort at a time. Offered only while the Captain has no suspicion of you beyond his usual; while he suspects you, a Salt is a bribe instead."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatOutskirtsEscort", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+            ],
+            "RequiredNPCStatValues": [
+                {"UseAssociatedAgent": true, "TargetStatWarpData": "cmcNpcStatSuspicion", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 40.0}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatOutskirtsEscort", "StatWarpType": 3, "ValueModifier": {"x": 24.0, "y": 24.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_GuardBribe_SterlingSalt_ActionName",
+                "DefaultText": "Slip a Bribe: a Salt"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_GuardBribe_SterlingSalt_ActionDescription",
+                "DefaultText": "Press a Salt into the Captain's hand. Offered only while he suspects you more than usual: his suspicion eases, though never below what he carries on a quiet day, and it does nothing about your crime. While he does not suspect you, a Salt hires an escort instead."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredNPCStatValues": [
+                {"UseAssociatedAgent": true, "TargetStatWarpData": "cmcNpcStatSuspicion", "TargetStatWarpType": 3, "ConditionRange": {"x": 41.0, "y": 100.0}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_GuardBribe_SterlingNugget_ActionName",
                 "DefaultText": "Slip a Bribe"
             },
             "ActionDescription": {
-                "LocalizationKey": "CMC_GuardBribe_ActionDescription",
-                "DefaultText": "Press Salt or a metal nugget into the guard's hand. Her suspicion of you eases, though never below what she carries on a quiet day, and it does nothing about your crime."
+                "LocalizationKey": "CMC_GuardBribe_SterlingNugget_ActionDescription",
+                "DefaultText": "Press a metal nugget into the Captain's hand. His suspicion of you eases, though never below what he carries on a quiet day, and it does nothing about your crime."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 0,
@@ -81,7 +135,7 @@
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
             "CompatibleCards": {
-                "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa", "4b0f4937a5ecb90499428c8c10288afc"],
+                "TriggerCardsWarpData": ["4b0f4937a5ecb90499428c8c10288afc"],
                 "TriggerCardsWarpType": 3
             }
         }

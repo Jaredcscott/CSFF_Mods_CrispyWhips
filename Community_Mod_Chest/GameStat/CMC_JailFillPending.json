@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailFillPending",
+    "GameName": {
+        "LocalizationKey": "CMC_JailFillPending_StatName",
+        "DefaultText": "Cell Tunnel Bricked Up"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailFillPending_StatDescription",
+        "DefaultText": "Hidden 0/1 marker: a Watch headcount found the cell empty and the cell end of the tunnel is to be filled. While 1 the Skylit Cave's Crawl back to the cell is closed. Cleared by JailEscapePatch only once the tunnel under the bed has been swapped back to the bed."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

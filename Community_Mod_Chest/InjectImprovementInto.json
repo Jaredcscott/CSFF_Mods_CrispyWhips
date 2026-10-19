@@ -69,5 +69,6 @@
   { "TargetEnvUID": "f960175d5ab558b48a674a820716909c", "ImprovementUID": "cmcimpwallpaintingbillberry" },
   { "TargetEnvUID": "b956acdc408dbbe498aa17ab8830d5e1", "ImprovementUID": "cmcimpwallpaintingcharcoal" },
   { "TargetEnvUID": "b956acdc408dbbe498aa17ab8830d5e1", "ImprovementUID": "cmcimpwallpaintingochre" },
-  { "TargetEnvUID": "b956acdc408dbbe498aa17ab8830d5e1", "ImprovementUID": "cmcimpwallpaintingbillberry" }
+  { "TargetEnvUID": "b956acdc408dbbe498aa17ab8830d5e1", "ImprovementUID": "cmcimpwallpaintingbillberry" },
+  { "TargetEnvUID": "cmcJailCaveLocation", "ImprovementUID": "cmcimpjailbranchladder" }
 ]

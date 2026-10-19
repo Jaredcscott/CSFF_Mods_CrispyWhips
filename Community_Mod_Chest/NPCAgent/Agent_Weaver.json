@@ -6,7 +6,7 @@
     },
     "AgentDescription": {
         "LocalizationKey": "CMC_Weaver_AgentDescription",
-        "DefaultText": "Moved into the Weaver's Cottage a week after it was finished. Keeps a loom by the window and the village in cloth."
+        "DefaultText": "Moved into the Weaver's Cottage a week after it was finished. Keeps a loom by the window and the village in cloth. She takes no commissions from first snow to thaw."
     },
     "AgentImageWarpData": "CMC_Weaver",
     "AgentImageWarpType": 3,
@@ -417,14 +417,15 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "CMC_Weaver_Commission_ActionDescription",
-                "DefaultText": "Pay the Weaver 360 worth to weave you a Large Cloth: each card you drag onto her goes toward the fee, and the order starts once the fee is paid. It is waiting in her cottage two days later. One order at a time, and she takes a new one 4 days after you collect the last."
+                "DefaultText": "Pay the Weaver 360 worth to weave you a Large Cloth: each card you drag onto her goes toward the fee, and the order starts once the fee is paid. It is waiting in her cottage two days later. One order at a time, and she takes a new one 4 days after you collect the last. Closed from first snow to thaw; an order placed before the snow is still delivered."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 0,
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatWeaverOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+                {"StatWarpData": "cmcStatWeaverOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}},
+                {"StatWarpData": "cmcStatSeasonWinter", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
@@ -435,6 +436,63 @@
             ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa", "4b0f4937a5ecb90499428c8c10288afc", "e5f5d2a633f3437780d6198c3d1e9fdd"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_Amends_ActionName",
+                "DefaultText": "Make Amends: Twine"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_Amends_ActionDescription",
+                "DefaultText": "Hand over twine for the Weaver's loom, as asked when you spoke about the chest. Fetching and sorting it takes about two hours. Talk to the Weaver again for the thanks; the Trust comes back after that."
+            },
+            "DaytimeCost": 8,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatWeaverAmendsArmed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 59.0
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatWeaverAmendsArmed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "f6e8281ffa0e6eb4b8bf1dc5e5ae1338"
+                ],
                 "TriggerCardsWarpType": 3
             }
         }

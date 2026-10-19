@@ -2,11 +2,11 @@
     "UniqueID": "cmcStatSeasonWinter",
     "GameName": {
         "LocalizationKey": "CMC_SeasonWinter_StatName",
-        "DefaultText": "Village Snowed-In Supper Called This Winter"
+        "DefaultText": "Village Winter"
     },
     "Description": {
         "LocalizationKey": "CMC_SeasonWinter_StatDescription",
-        "DefaultText": "Hidden latch: set to 1 by VillageSeasonsPatch after it has called this winter's snowed-in supper, cleared when the season changes. Clamped 0..1."
+        "DefaultText": "Hidden flag: 1 for the whole of winter, set by VillageSeasonsPatch when winter arrives and cleared when the season changes (it also marks that this winter's snowed-in supper was called). The Inn pantry, the Inn Counter's Purchase Meal and the three commissions are closed while it is 1. Clamped 0..1."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,

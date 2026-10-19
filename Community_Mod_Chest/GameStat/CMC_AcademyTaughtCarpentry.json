@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAcademyTaughtCarpentry",
+    "GameName": {
+        "LocalizationKey": "CMC_AcademyTaughtCarpentry_StatName",
+        "DefaultText": "Carpentry course skill taught"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AcademyTaughtCarpentry_StatDescription",
+        "DefaultText": "Hidden counter: the Woodworking points the Carpentry course has taught so far, +3 a session. Never drains. Clamped to 0..15, so the course stops teaching at 15."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 15.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

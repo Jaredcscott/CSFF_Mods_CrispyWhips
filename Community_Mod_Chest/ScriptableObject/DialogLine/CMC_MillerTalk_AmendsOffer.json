@@ -1,0 +1,41 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_AmendsOffer_Line",
+        "DefaultText": "The chest. Aye. I would as soon not count what is gone, and you needn't tell me. But the mill-house fire runs low and the nights are long. Bring me some firewood and we'll call it a start at settling up."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_AmendsOffer_Answer_Accept",
+                "DefaultText": "I'll bring the firewood."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": -1.0,
+                            "y": -1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_AmendsOffer_Answer_Decline",
+                "DefaultText": "Not today."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

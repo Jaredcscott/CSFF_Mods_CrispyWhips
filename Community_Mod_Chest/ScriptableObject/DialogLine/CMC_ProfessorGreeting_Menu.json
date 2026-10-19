@@ -471,6 +471,88 @@
             "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_InterlockS4Offer", "NextLineWarpType": 3}
         },
         {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatProfAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 1.5
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatProfAmendsDebt",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 40.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatProfAmendsCooldown",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatProfAmendsPaid",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_Amends",
+                "DefaultText": "About your chest..."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_AmendsOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatProfAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": -0.5,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_AmendsGiveUp",
+                "DefaultText": "I can't find a candle after all."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatProfAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
             "Answer": {
                 "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_Farewell",
                 "DefaultText": "Farewell."

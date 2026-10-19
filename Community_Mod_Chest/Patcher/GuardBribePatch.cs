@@ -14,7 +14,11 @@ namespace CommunityModChest.Patcher
     /// given card) lowers THAT guard's own Suspicion by <see cref="BribeReduction"/>, scaled by her personality:
     /// the lower her starting Suspicion, the cheaper she is. The Suspicion stat's floor is her starting value
     /// (each Perk_Guard*.json), so a bribe can only take a raised Suspicion back down to her baseline, never
-    /// below it. Iris Vane's agent has no such action: she does not take it.</para>
+    /// below it. Iris Vane's agent has no such action: she does not take it. Captain Sterling carries two bribe
+    /// actions instead of one (owner decision 2026-10-18, "Bribe if suspected"): his Salt bribe is gated in JSON
+    /// on his own Suspicion above his start (RequiredNPCStatValues, UseAssociatedAgent), and his escort fee on it
+    /// at his start, so a Salt is a bribe while he suspects you and an escort fee when he does not; his nugget
+    /// bribe is ungated as before. Both bribe keys share <see cref="GuardBribeKeyPrefix"/>.</para>
     ///
     /// <para><b>Pay the Warden.</b> The Jail Cell's "Pay the Warden" DismantleAction (JSON) is shown only while a
     /// warden is on the step (<c>cmcStatJailUnguarded</c> 0), the latch <see cref="BribeUsedStatUid"/> is 0 and

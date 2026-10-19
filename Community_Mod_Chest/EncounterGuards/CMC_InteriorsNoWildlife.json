@@ -7,7 +7,9 @@
     "cmcMillerCottageInterior",
     "cmcWeaverCottageInterior",
     "cmcVillageHallInterior",
-    "cmcEnvJailCell"
+    "cmcEnvJailCell",
+    "cmcEnvJailCave",
+    "cmcEnvJailLedge"
   ],
   "EncounterUids": [],
   "SuppressChance": 100

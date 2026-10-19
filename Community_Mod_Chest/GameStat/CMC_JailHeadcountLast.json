@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailHeadcountLast",
+    "GameName": {
+        "LocalizationKey": "CMC_JailHeadcountLast_StatName",
+        "DefaultText": "Jail Headcount Record"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailHeadcountLast_StatDescription",
+        "DefaultText": "Hidden record of the last Watch headcount (06:00 and 21:00) that JailEscapePatch processed, as day x 2 + slot, +1-offset so 0 means never. A headcount is processed once: a reload, a sleep over the hour or a long action cannot replay it."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 999999.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

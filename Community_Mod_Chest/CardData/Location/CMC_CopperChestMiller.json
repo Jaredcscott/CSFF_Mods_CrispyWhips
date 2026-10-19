@@ -127,7 +127,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_CopperChestMiller_DA_Search_Desc",
-        "DefaultText": "Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Miller is."
+        "DefaultText": "Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Miller is. If you are caught it costs Village Crime and the Miller's Trust; an amends errand can win it back."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,

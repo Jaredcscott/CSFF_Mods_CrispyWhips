@@ -1,0 +1,72 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatWeaverAmendsArmed",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.25,
+                    "y": 0.75
+                }
+            },
+            {
+                "StatWarpData": "cmcStatVillageCrime",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 59.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_AmendsThanks_Line",
+        "DefaultText": "There. That will hold the warp ends till spring. I do feel easier with you in the house again."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_AmendsThanks_Answer_Thanks",
+                "DefaultText": "Glad to make it right."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 0.5,
+                            "y": 0.5
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsPaid",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsCooldown",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 288.0,
+                            "y": 288.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+  "UniqueID": "cmcJailCaveRockWall",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CannotBeTransferred": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailCaveRockWall_CardName",
+    "DefaultText": "Rock Wall"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailCaveRockWall_CardDescription",
+    "DefaultText": "A sheer, wet wall of rock rises to a ledge far above. There is no way up without a ladder."
+  },
+  "CardImageWarpData": "Cave",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Structure"
+  ],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCaveRockWall_DA_Climb",
+        "DefaultText": "Climb to the ledge"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCaveRockWall_DA_Climb_Desc",
+        "DefaultText": "Climb the branch ladder to the ledge above."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_JailCaveRockWall_DA_Climb_Fade",
+        "DefaultText": "You climb the branch ladder..."
+      },
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "Inverted": false,
+          "OnlyEquipped": false,
+          "TriggerCardWarpData": "cmcimpjailbranchladder",
+          "TriggerCardWarpType": 3
+        }
+      ],
+      "MovePlayer": {
+        "MoveOption": 1,
+        "ToEnvWarpData": "cmcEnvJailLedge",
+        "ToEnvWarpType": 3
+      },
+      "StatModifications": [],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

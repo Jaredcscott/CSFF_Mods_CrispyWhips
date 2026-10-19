@@ -1,0 +1,135 @@
+{
+  "UniqueID": "cmcJailCaveRubble",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CannotBeTransferred": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailCaveRubble_CardName",
+    "DefaultText": "Loose Rubble"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailCaveRubble_CardDescription",
+    "DefaultText": "A slope of broken rock, fallen from the roof long ago. Some of it is loose enough to pick out by hand."
+  },
+  "CardImageWarpData": "Stone_Heavy",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Structure"
+  ],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 8.0,
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "CMC_JailCaveRubble_UD_Name",
+      "DefaultText": "Rubble left"
+    },
+    "HasActionOnZero": false
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCaveRubble_DA_Pick",
+        "DefaultText": "Pick through the rubble"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCaveRubble_DA_Pick_Desc",
+        "DefaultText": "Dig stones loose from the rubble. There is only so much."
+      },
+      "DaytimeCost": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.049,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "CMC_JailCaveRubble_DA_Pick_Empty",
+          "DefaultText": "Nothing useful is left in the rubble."
+        }
+      },
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Stone",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 100.0
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCaveRubble_DA_Sharp",
+        "DefaultText": "Pick out a sharp stone"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCaveRubble_DA_Sharp_Desc",
+        "DefaultText": "Search the broken rock for a stone with a keen edge. It is sharp enough to work twigs into a hand drill."
+      },
+      "DaytimeCost": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "SharpStone",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "4722087bd24e3b840adcc8886119fa3e",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 100.0
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

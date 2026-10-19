@@ -16,12 +16,12 @@ namespace CommunityModChest.Patcher
     /// safety, CharacterPerkPerkGroup "None"), and these advanced blueprints are
     /// taken out of normal research and handed out only by Academy courses, for
     /// every character:
-    ///   - Architecture course            → WDI Water-Driven Sawmill + Grinding Mill
     ///   - Architecture + Metallurgy      → WDI Water-Driven Forge + Workshop Kit
     ///   - Fishing course                 → CMC Iron Fishing Rod
-    ///   - Armorer course                 → every ACT armor blueprint: Copper, Tin, Ghost Bronze, Tin Bronze,
-    ///                                      White Bronze and Iron Breastplate/Helmet/Greaves/Gauntlets, Copper, Iron and Ghost Bronze Shields
+    ///   - Carpentry course               → CMC furnishings and decor (CourseUnlocks "Carpentry")
     ///   - Herbalism course               → CMC Apothecary Cabin + Healing Mixture
+    ///   - Medicine course                → CMC Herb Poultice, Tincture and Spring Tonic
+    /// (The Sawmill, Grinding Mill and ACT armor moved to CourseGrants on 2026-10-18: see below.)
     /// The Armorer course itself is pruned from the lectern entirely if ACT isn't
     /// installed (see AcademyPatch.PruneUnavailableCourses) — this table's "owning
     /// mod not installed" skip below is a secondary safety net.
@@ -30,8 +30,11 @@ namespace CommunityModChest.Patcher
     /// another mod's BASE MATERIAL is granted, never locked: it stays normally
     /// researchable, and passing the course simply hands it over early via
     /// MakeBlueprintAvailable. Only end-tier rewards (WDI water-driven buildings, ACT
-    /// armor sets) use the hide-until-earned lock above.
+    /// armor sets) used the hide-until-earned lock above; since owner 2026-10-18 (reversing
+    /// "Gate all armor" of 2026-09-29) only the Forge and Workshop Kit still do.
     ///   - Metallurgy course              → ACT Copper Sheet + Bronze Sheet (GRANT, never hidden)
+    ///   - Architecture course            → WDI Water-Driven Sawmill + Grinding Mill (GRANT, owner 2026-10-18)
+    ///   - Armorer course                 → every ACT armor blueprint in CourseGrants (GRANT, owner 2026-10-18)
     /// Why: gating ACT's Copper Sheet was a lock from 2026-07-05 (opt-in behind the
     /// Higher Education trait) and unconditional for every character from 2026-07-20
     /// (Village overhaul PR-1). Copper Sheet is ACT's tier-1 material - 21 downstream
@@ -67,6 +70,84 @@ namespace CommunityModChest.Patcher
         internal const string GradMedicine       = "cmcperkgradmedicine";
         internal const string GradCarpentry      = "cmcperkgradcarpentry";
 
+        // ── Skill teaching (Part II row N5, session-inferred design, +3 and the cap are tunable) ───────────
+        // Every study session (the final exam included) also raises the course's ONE vanilla skill by
+        // TaughtPerSession, until the course has taught TaughtCap in all. The Sit In shape: Sit In adds +3 to a
+        // skill through a JSON StatModification (instant, on a skill whose BaseRatePerTick is 0, so it is
+        // permanent); the C# equivalent is HiddenStat.SetBase, which goes through the framework's StatAccess.Modify
+        // (the same permanent ChangeStatValue). Each cap is tracked by that course's own clamped hidden stat
+        // (GameStat/CMC_AcademyTaught<Course>.json, 0..TaughtCap, BaseRatePerTick 0), never inferred from the
+        // skill's current value, which the player also raises by doing. The Graduate trait only moves the
+        // lectern's hours (AcademyPatch.GraduateBonus), never this call, so a doubled session teaches once.
+        // Every skill below has BaseRatePerTick 0 and MinMaxValue 0..150 (Insight, unused here, is 0..1000).
+        internal const float TaughtPerSession = 3f;
+        internal const float TaughtCap = 15f;
+
+        internal sealed class CourseSkill
+        {
+            public string GradPerk;      // the course's graduate perk, the key AcademyPatch.Courses also uses
+            public string SkillUid;      // vanilla Skill_* GameStat GUID
+            public string SkillLabel;    // for the log
+            public string TaughtStatUid; // CMC hidden counter of points taught so far
+        }
+
+        internal static readonly CourseSkill[] CourseSkills =
+        {
+            new CourseSkill { GradPerk = GradArchitecture, SkillUid = "d4b67ed3a92b283488db1554bb23270a", SkillLabel = "Crafting",      TaughtStatUid = "cmcStatAcademyTaughtArchitecture" },
+            new CourseSkill { GradPerk = GradMetallurgy,   SkillUid = "5e59f7e4d27b87e45b9c0b6b7bfcbf64", SkillLabel = "Smithing",      TaughtStatUid = "cmcStatAcademyTaughtMetallurgy" },
+            new CourseSkill { GradPerk = GradHerbalism,    SkillUid = "85559650c938ef843af92c18f5b0c6c7", SkillLabel = "Herbalism",     TaughtStatUid = "cmcStatAcademyTaughtHerbalism" },
+            new CourseSkill { GradPerk = GradFishing,      SkillUid = "61a14db03419ad34ea39f82968082c06", SkillLabel = "Fishing",       TaughtStatUid = "cmcStatAcademyTaughtFishing" },
+            new CourseSkill { GradPerk = GradArmorer,      SkillUid = "e347b21369b355e4d89011407ec7726b", SkillLabel = "Metalworking",  TaughtStatUid = "cmcStatAcademyTaughtArmorer" },
+            // Medicine shares Herbalism with the Herbalism course (no vanilla medicine skill); each keeps its own cap.
+            new CourseSkill { GradPerk = GradMedicine,     SkillUid = "85559650c938ef843af92c18f5b0c6c7", SkillLabel = "Herbalism",     TaughtStatUid = "cmcStatAcademyTaughtMedicine" },
+            new CourseSkill { GradPerk = GradCarpentry,    SkillUid = "66d3ce9da7ddfca49a89e31143fe9e43", SkillLabel = "Woodworking",   TaughtStatUid = "cmcStatAcademyTaughtCarpentry" },
+        };
+
+        /// <summary>The points one session teaches: TaughtPerSession, cut to what the course may still teach and to
+        /// what the skill has room for (skillMax - skillBase), never negative. Pure, so tests can pin it.</summary>
+        internal static float TaughtAmount(float taughtSoFar, float skillBase, float skillMax)
+        {
+            float grant = Math.Min(TaughtPerSession, TaughtCap - taughtSoFar);
+            grant = Math.Min(grant, skillMax - skillBase);
+            return grant > 0f ? grant : 0f;
+        }
+
+        /// <summary>Teaches the course's skill once for one completed study action. Writes the skill first and the
+        /// counter only after the skill reads the new value, so a failed skill write never spends the cap.</summary>
+        internal static void TeachSkill(string gradPerk)
+        {
+            try
+            {
+                CourseSkill row = null;
+                foreach (var cs in CourseSkills) if (cs.GradPerk == gradPerk) { row = cs; break; }
+                if (row == null) return;
+
+                float taught = HiddenStat.Get(row.TaughtStatUid);
+                float skillBase = HiddenStat.GetBase(row.SkillUid);
+                float skillMax = HiddenStat.GetMax(row.SkillUid);
+                if (taught < 0f || float.IsNaN(skillBase) || skillMax < 0f)
+                {
+                    Plugin.Logger.LogDebug($"[AcademyCourseService] TeachSkill({row.SkillLabel}): counter or skill not readable yet (taught {taught}, skill {skillBase}/{skillMax}); nothing taught.");
+                    return;
+                }
+
+                float grant = TaughtAmount(taught, skillBase, skillMax);
+                if (grant <= 0f) return;
+
+                if (!HiddenStat.SetBase(row.SkillUid, skillBase + grant))
+                {
+                    Plugin.Logger.LogWarning($"[AcademyCourseService] Could not raise {row.SkillLabel} by {grant:0.##}; the course taught nothing this session.");
+                    return;
+                }
+                HiddenStat.Set(row.TaughtStatUid, taught + grant);
+                Plugin.Logger.LogDebug($"[AcademyCourseService] Course taught {row.SkillLabel} +{grant:0.##} ({taught + grant:0.##}/{TaughtCap:0.##} from this course).");
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogWarning($"[AcademyCourseService] TeachSkill failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
         // BlueprintModelState enum: 0=Available, 1=Purchasable, 2=Locked, 3=Hidden
         private const int StateAvailable = 0;
         private const int StateHidden    = 3;
@@ -82,12 +163,6 @@ namespace CommunityModChest.Patcher
         {
             new CourseUnlock
             {
-                Label         = "Architecture",
-                RequiredPerks = new[] { GradArchitecture },
-                Blueprints    = new[] { "water_sawmill_bp_water_driven_sawmill", "water_sawmill_bp_grinding_mill" }
-            },
-            new CourseUnlock
-            {
                 Label         = "Architecture+Metallurgy",
                 RequiredPerks = new[] { GradArchitecture, GradMetallurgy },
                 Blueprints    = new[] { "water_sawmill_bp_water_driven_forge", "water_sawmill_bp_water_driven_workshop_kit" }
@@ -97,49 +172,6 @@ namespace CommunityModChest.Patcher
                 Label         = "Fishing",
                 RequiredPerks = new[] { GradFishing },
                 Blueprints    = new[] { "BpCMCIronFishingRod" }
-            },
-            new CourseUnlock
-            {
-                Label         = "Armorer",
-                RequiredPerks = new[] { GradArmorer },
-                Blueprints    = new[]
-                {
-                    "advanced_copper_tools_bp_copper_breastplate",
-                    "advanced_copper_tools_bp_copper_helmet",
-                    "advanced_copper_tools_bp_copper_greaves",
-                    "advanced_copper_tools_bp_copper_gauntlets",
-                    // ACT ships the iron breastplate as two blueprints (female and male fit). The single
-                    // "act_bp_iron_breastplate" listed here until 1.69.0 matched no blueprint, so both
-                    // breastplates were researchable without the degree.
-                    "act_bp_iron_breastplate_f",
-                    "act_bp_iron_breastplate_m",
-                    "act_bp_iron_helmet",
-                    "act_bp_iron_greaves",
-                    "act_bp_iron_gauntlets",
-                    // ACT 1.18.0 alloy armor and the Copper Shield (owner 2026-09-29: "Gate all armor"). An older
-                    // ACT without these blueprints is harmless: GateTable skips a UID that resolves to nothing.
-                    "act_bp_copper_shield",
-                    // The Iron Shield and Ghost Bronze Shield (UIDs read from ACT's Bp_IronShield.json and
-                    // Bp_GhostBronzeShield.json, Phase F4).
-                    "act_bp_iron_shield",
-                    "act_bp_ghostbronze_shield",
-                    "act_bp_bronze_helmet",
-                    "act_bp_bronze_breastplate",
-                    "act_bp_bronze_gauntlets",
-                    "act_bp_bronze_greaves",
-                    "act_bp_tin_helmet",
-                    "act_bp_tin_breastplate",
-                    "act_bp_tin_gauntlets",
-                    "act_bp_tin_greaves",
-                    "act_bp_ghostbronze_helmet",
-                    "act_bp_ghostbronze_breastplate",
-                    "act_bp_ghostbronze_gauntlets",
-                    "act_bp_ghostbronze_greaves",
-                    "act_bp_whitebronze_helmet",
-                    "act_bp_whitebronze_breastplate",
-                    "act_bp_whitebronze_gauntlets",
-                    "act_bp_whitebronze_greaves"
-                }
             },
             new CourseUnlock
             {
@@ -209,6 +241,55 @@ namespace CommunityModChest.Patcher
                 Label         = "Metallurgy",
                 RequiredPerks = new[] { GradMetallurgy },
                 Blueprints    = new[] { "advanced_copper_tools_bp_metal_sheet", "act_bp_bronze_sheet" }
+            },
+            new CourseUnlock
+            {
+                Label         = "Architecture",
+                RequiredPerks = new[] { GradArchitecture },
+                Blueprints    = new[] { "water_sawmill_bp_water_driven_sawmill", "water_sawmill_bp_grinding_mill" }
+            },
+            new CourseUnlock
+            {
+                Label         = "Armorer",
+                RequiredPerks = new[] { GradArmorer },
+                Blueprints    = new[]
+                {
+                    "advanced_copper_tools_bp_copper_breastplate",
+                    "advanced_copper_tools_bp_copper_helmet",
+                    "advanced_copper_tools_bp_copper_greaves",
+                    "advanced_copper_tools_bp_copper_gauntlets",
+                    // ACT ships the iron breastplate as two blueprints (female and male fit). The single
+                    // "act_bp_iron_breastplate" listed here until 1.69.0 matched no blueprint, so both
+                    // breastplates were researchable without the degree.
+                    "act_bp_iron_breastplate_f",
+                    "act_bp_iron_breastplate_m",
+                    "act_bp_iron_helmet",
+                    "act_bp_iron_greaves",
+                    "act_bp_iron_gauntlets",
+                    // ACT 1.18.0 alloy armor and the Copper Shield (owner 2026-09-29 gated these; owner 2026-10-18 moved them to grants). An older
+                    // ACT without these blueprints is harmless: GateTable skips a UID that resolves to nothing.
+                    "act_bp_copper_shield",
+                    // The Iron Shield and Ghost Bronze Shield (UIDs read from ACT's Bp_IronShield.json and
+                    // Bp_GhostBronzeShield.json, Phase F4).
+                    "act_bp_iron_shield",
+                    "act_bp_ghostbronze_shield",
+                    "act_bp_bronze_helmet",
+                    "act_bp_bronze_breastplate",
+                    "act_bp_bronze_gauntlets",
+                    "act_bp_bronze_greaves",
+                    "act_bp_tin_helmet",
+                    "act_bp_tin_breastplate",
+                    "act_bp_tin_gauntlets",
+                    "act_bp_tin_greaves",
+                    "act_bp_ghostbronze_helmet",
+                    "act_bp_ghostbronze_breastplate",
+                    "act_bp_ghostbronze_gauntlets",
+                    "act_bp_ghostbronze_greaves",
+                    "act_bp_whitebronze_helmet",
+                    "act_bp_whitebronze_breastplate",
+                    "act_bp_whitebronze_gauntlets",
+                    "act_bp_whitebronze_greaves"
+                }
             }
         };
 

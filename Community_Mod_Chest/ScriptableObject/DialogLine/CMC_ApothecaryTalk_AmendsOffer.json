@@ -1,0 +1,41 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_AmendsOffer_Line",
+        "DefaultText": "The chest. Hm. I keep a long memory for what leaves my racks, but a short one for grudges that are paid down honestly. My salves want wax, and the hives have been stingy. Bring me some and we shall see."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_AmendsOffer_Answer_Accept",
+                "DefaultText": "I'll bring some wax."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": -1.0,
+                            "y": -1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_AmendsOffer_Answer_Decline",
+                "DefaultText": "Not today."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

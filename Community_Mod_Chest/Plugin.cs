@@ -24,7 +24,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.69.18";
+    public const string PluginVersion = "1.69.19";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -141,6 +141,10 @@ internal class Plugin : ContentModPlugin
         TryApply("RoadMeetingPatch", () => RoadMeetingPatch.Initialize());
         // Commissions: pay the Miller, Weaver or Inn Keeper and collect the goods a day or two later (C7, 1.69.3).
         TryApply("CommissionPatch", () => CommissionPatch.Initialize());
+        // Hireling chores: pay the Miller Salt to split four of your logs into Firewood (N1, one chore built).
+        TryApply("HirelingChorePatch", () => HirelingChorePatch.Initialize());
+        // A guarded crossing: pay the Town Watch Salt and predators are turned back on the outskirts for a while (N4).
+        TryApply("OutskirtsEscortPatch", () => OutskirtsEscortPatch.Initialize());
         // The village's communal fuel stack. MUST initialize before VillageFireplacePatch, which
         // debits its pool on every hearth top-off (Village_Master_Plan.md §10.11 Chunk G).
         TryApply("TownWoodPilePatch", () => TownWoodPilePatch.Initialize());
@@ -274,6 +278,9 @@ internal class Plugin : ContentModPlugin
         // D5 community service: Captain Sterling's jobs. Watches the drift digs; the firewood job is signalled by
         // TownWoodPilePatch. Writes only its own marker, so it needs no ordering against the crime or jail classes.
         TryApply("CommunityServicePatch", () => CommunityServicePatch.Initialize());
+        // N6 amends: a caught Copper Chest theft costs the owner's Trust; the per-resident amends errand (dialog JSON)
+        // wins it back. Reads the sale bump's Trust path through CopperChestPatch, so it needs no ordering against it.
+        TryApply("AmendsPatch", () => AmendsPatch.Initialize());
         // The Hidden Tunnel (§10.8.8) — bed/tunnel toggle, dig progress, getting caught. Only
         // needs JailPatch's UnguardedStatUid/SentenceOriginalStatUid to already be readable, not
         // strict init ordering, but registering right after keeps the two jail chunks together.

@@ -1,0 +1,87 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatMillerAmendsArmed",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.75,
+                    "y": 1.5
+                }
+            },
+            {
+                "StatWarpData": "cmcStatMillerAmendsDebt",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.5,
+                    "y": 40.0
+                }
+            },
+            {
+                "StatWarpData": "cmcStatMillerAmendsCooldown",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            {
+                "StatWarpData": "cmcStatMillerAmendsPaid",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 0.25
+                }
+            },
+            {
+                "StatWarpData": "cmcStatVillageCrime",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 59.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_AmendsOpener_Line",
+        "DefaultText": "Before you ask after the flour: that business with my chest. I would sooner have it out between us than let it sit."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_AmendsOpener_Answer_GoOn",
+                "DefaultText": "I'm listening."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_AmendsOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_AmendsOpener_Answer_NotNow",
+                "DefaultText": "Another day."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsCooldown",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 96.0,
+                            "y": 96.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

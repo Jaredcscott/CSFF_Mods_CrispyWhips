@@ -181,6 +181,88 @@
             }
         },
         {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatInnAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 1.5
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatInnAmendsDebt",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 12.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatInnAmendsCooldown",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatInnAmendsPaid",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_Amends",
+                "DefaultText": "About your chest..."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_AmendsOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatInnAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": -0.5,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_AmendsGiveUp",
+                "DefaultText": "I can't find any dried meat after all."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatInnAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
             "Answer": {
                 "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_Leave",
                 "DefaultText": "Just warming my hands."

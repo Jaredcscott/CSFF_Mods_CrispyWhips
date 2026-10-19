@@ -1,0 +1,41 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_AmendsOffer_Line",
+        "DefaultText": "Oh, the chest. I would rather not dwell on it, truly. But the loom is short of twine for the warp ends, and a hank or two would mend more between us than any speech. Would you?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_AmendsOffer_Answer_Accept",
+                "DefaultText": "I'll bring some twine."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": -1.0,
+                            "y": -1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_AmendsOffer_Answer_Decline",
+                "DefaultText": "Not today."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

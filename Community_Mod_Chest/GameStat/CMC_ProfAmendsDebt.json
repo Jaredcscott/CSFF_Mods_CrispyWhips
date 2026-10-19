@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatProfAmendsDebt",
+    "GameName": {
+        "LocalizationKey": "CMC_ProfAmendsDebt_StatName",
+        "DefaultText": "Professor Amends Debt"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProfAmendsDebt_StatDescription",
+        "DefaultText": "Hidden: how much of the Professor's Trust a caught theft from the chest still holds against you (0 to 40). Written by code only; amends errands pay it down."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 40.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -4,8 +4,10 @@
         "DefaultText": "The Inn Keeper"
     },
     "SceneLinesWarpData": [
+        "CMC_InnKeeperTalk_AmendsOpener",
         "CMC_InnKeeperTalk_Intro",
         "CMC_InnKeeperTalk_GuardsConfession",
+        "CMC_InnKeeperTalk_AmendsThanks",
         "CMC_InnKeeperTalk_CrimeWanted",
         "CMC_InnKeeperTalk_CrimeBanished",
         "CMC_InnKeeperTalk_QuestThanks2",
@@ -66,6 +68,7 @@
         "CMC_InnKeeperTalk_Overheard_Roads",
         "CMC_InnKeeperTalk_Friendship_Warm",
         "CMC_InnKeeperTalk_Start",
+        "CMC_InnKeeperTalk_AmendsOffer",
         "CMC_InnKeeperTalk_Start_Forage",
         "CMC_InnKeeperTalk_Start_StayOrWork",
         "CMC_InnKeeperTalk_Week3_Backstory2",

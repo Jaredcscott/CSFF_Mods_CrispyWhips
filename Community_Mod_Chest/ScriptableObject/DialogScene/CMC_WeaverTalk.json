@@ -4,6 +4,7 @@
         "DefaultText": "The Weaver"
     },
     "SceneLinesWarpData": [
+        "CMC_WeaverTalk_AmendsOpener",
         "CMC_WeaverTalk_QuestThanks",
         "CMC_WeaverTalk_QuestThanks2",
         "CMC_WeaverTalk_QuestThanks3",
@@ -15,10 +16,12 @@
         "CMC_WeaverTalk_DyeThanks",
         "CMC_WeaverTalk_InterlockS1Thanks",
         "CMC_WeaverTalk_RopeQuest",
+        "CMC_WeaverTalk_AmendsThanks",
         "CMC_WeaverTalk_CrimeWanted",
         "CMC_WeaverTalk_CrimeBanished",
         "CMC_WeaverTalk_Keepsake",
         "CMC_WeaverTalk_Start",
+        "CMC_WeaverTalk_AmendsOffer",
         "CMC_WeaverTalk_Work",
         "CMC_WeaverTalk_Village",
         "CMC_WeaverTalk_QuestOffer",

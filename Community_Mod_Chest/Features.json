@@ -576,6 +576,13 @@
         "cmcAcademyExit",
         "cmcAcademyLectern",
         "cmcAcademyInteriorLocation",
+        "cmcStatAcademyTaughtArchitecture",
+        "cmcStatAcademyTaughtMetallurgy",
+        "cmcStatAcademyTaughtHerbalism",
+        "cmcStatAcademyTaughtFishing",
+        "cmcStatAcademyTaughtArmorer",
+        "cmcStatAcademyTaughtMedicine",
+        "cmcStatAcademyTaughtCarpentry",
         "cmcperkgraduate"
       ],
       "confidence": "MEDIUM",
@@ -1310,7 +1317,7 @@
         "ceramiclamp",
         "ceramiclamplit"
       ],
-      "notes": "1.69.3 plan A4. The lamp gained the card interaction 'Refuel with Oil' (CeramicLamp_RefuelOil): any card tagged tag_Oil adds 24 fuel like the Fat interaction, is consumed, and one Clay Bowl (a968f3eaffc6b9743b82982b5af2ab8c) comes back. The carriers are ACT's Oil and the eleven Herbs & Fungi oils (cooking and medicinal alike); ACT 1.17.2's sweep found the only other carriers are two NOT_USED_ vanilla liquids nothing produces. The fuel bar label is Fuel, not Fat. With no H&F installed only ACT's Oil refuels it, and ACT is a hard dependency."
+      "notes": "1.69.3 plan A4. The lamp gained the card interaction 'Refuel with Oil' (CeramicLamp_RefuelOil): any card tagged tag_Oil adds the same fuel as the Fat interaction (24 at 1.69.3, 48 from 1.69.6, 24 again by the owner's call of 2026-10-18), is consumed, and one Clay Bowl (a968f3eaffc6b9743b82982b5af2ab8c) comes back. The carriers are ACT's Oil and the eleven Herbs & Fungi oils (cooking and medicinal alike); ACT 1.17.2's sweep found the only other carriers are two NOT_USED_ vanilla liquids nothing produces. The fuel bar label is Fuel, not Fat. With no H&F installed only ACT's Oil refuels it, and ACT is a hard dependency."
     },
     {
       "name": "Carpentry Graduate Perk Icon",
@@ -1710,7 +1717,7 @@
         "act_bp_ghostbronze_shield",
         "act_bp_copper_shield"
       ],
-      "notes": "Round 2 F4 (ea38a21b5). ACT 1.18.0's Iron Shield and Ghost Bronze Shield join the Armorer course's unlock array beside the Copper Shield (UIDs read from ACT's own blueprint files). They are end products, so the lock hides no ingredient; an ACT without them skips the entries. A recipe already researched stays yours."
+      "notes": "Round 2 F4 (ea38a21b5). ACT 1.18.0's Iron Shield and Ghost Bronze Shield join the Armorer course's unlock array beside the Copper Shield (UIDs read from ACT's own blueprint files). They are end products, so the lock hides no ingredient; an ACT without them skips the entries. A recipe already researched stays yours. OWNER 2026-10-18 REVERSED THE LOCK: the whole Armorer armor set (these shields included) moved from the lock table to CourseGrants, so these recipes are no longer Hidden without the degree; the degree only hands them over early. Harness T2.947's Hidden-without-degree reading no longer applies."
     },
     {
       "name": "Founder's Monument",
@@ -1976,6 +1983,96 @@
         "CMC_VillageWell"
       ],
       "notes": "Round 2 J20. The built well carries the shared cross-mod tag tag_x_WaterSource by name, with no CardTag file shipped."
+    },
+    {
+      "name": "Skylit Cave Escape - Cave, Ladder and Ledge",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: Development_Tools/Tests/CMC-Round2.Tests.ps1 (env registration, exits, localization). Not driven in game; the effort estimate (about three days) is unmeasured until the Prompt 15 measurement.",
+      "cards": [
+        "cmcEnvJailCave",
+        "cmcEnvJailLedge",
+        "cmcJailCaveLocation",
+        "cmcJailCaveTree",
+        "cmcJailCaveBranches",
+        "cmcJailCaveDripPool",
+        "cmcJailCaveRubble",
+        "cmcJailCaveRockWall",
+        "cmcimpjailbranchladder",
+        "cmcJailLedgeLocation",
+        "cmcJailLedgeDarkness",
+        "cmcJailLedgeCollapsedTunnel",
+        "cmcJailLedgeClearedPassage"
+      ],
+      "notes": "Skylit Cave plan. The cell tunnel's Crawl leads to the cave; the Branch Ladder opens the Rock Wall climb; the Cleared Passage pays the sentence cut (-8) and crime (+15). Wood, stone, hauls and build costs are placeholders."
+    },
+    {
+      "name": "Jail Headcount",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static only. Patcher/JailEscapePatch.cs; no harness run recorded.",
+      "cards": [
+        "cmcStatJailHeadcountLast",
+        "cmcStatJailFillPending",
+        "cmcJailCaveLocation"
+      ],
+      "notes": "Skylit Cave plan 1.3. Counts at 06:00 and 21:00; a prisoner in the cave or on the ledge with a day or more left is caught once, the hole is filled on the next cell visit, and the crawl back is closed while the fill is pending. Hours are placeholders."
+    },
+    {
+      "name": "Hireling Chore - Miller Splits Logs",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static only. Patcher/HirelingChorePatch.cs; no harness run recorded.",
+      "cards": [
+        "cmcStatMillerChore",
+        "cmcStatMillerChoreDue",
+        "cmcStatMillerChoreLogs",
+        "cmcStatMillerChoreFee",
+        "cmcStatMillerChoreQuality",
+        "cmcStatMillerChoreWoodId"
+      ],
+      "notes": "N1. Four logs and two Salt; twelve Firewood next day in his cottage. Only this chore is built (no meat drying, no flax). Price and wait are placeholders."
+    },
+    {
+      "name": "Outskirts Escort - Sterling",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static: the escort's C# lists are pinned to their JSON guards in the Pester suite. No harness run recorded.",
+      "cards": [
+        "cmcStatOutskirtsEscort",
+        "cmcGuardSterlingAgent"
+      ],
+      "notes": "N4. One Salt buys about six hours (24 ticks) without predator fights and arrivals on the four hunting grounds. Patcher/OutskirtsEscortPatch.cs. Fee and length are placeholders."
+    },
+    {
+      "name": "Make Amends - Trust After a Caught Theft",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static only. Patcher/AmendsPatch.cs; harness scenarios TestHarness/client/scenarios/CMC/amends_*.json written, not run.",
+      "cards": [
+        "cmcStatMillerAmendsDebt",
+        "cmcStatWeaverAmendsDebt",
+        "cmcStatApothecaryAmendsDebt",
+        "cmcStatInnAmendsDebt",
+        "cmcStatProfAmendsDebt"
+      ],
+      "notes": "N6. A caught chest theft costs the owner 20 Trust (6 Friendship for the Inn Keeper); an errand per resident wins back 10 (3), capped at what is owed. Amounts are placeholders."
+    },
+    {
+      "name": "Academy Courses Teach a Skill",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Static only. No harness run recorded.",
+      "cards": [
+        "cmcStatAcademyTaughtArchitecture",
+        "cmcStatAcademyTaughtMetallurgy",
+        "cmcStatAcademyTaughtHerbalism",
+        "cmcStatAcademyTaughtMedicine",
+        "cmcStatAcademyTaughtFishing",
+        "cmcStatAcademyTaughtArmorer",
+        "cmcStatAcademyTaughtCarpentry"
+      ],
+      "notes": "N5. Each session raises the course skill by 3, up to 15 per course; per-course counters keep your own practice out of the cap."
     }
   ]
 }

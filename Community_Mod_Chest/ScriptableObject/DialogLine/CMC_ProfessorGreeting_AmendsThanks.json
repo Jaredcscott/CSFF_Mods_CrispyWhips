@@ -1,0 +1,72 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatProfAmendsArmed",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.25,
+                    "y": 0.75
+                }
+            },
+            {
+                "StatWarpData": "cmcStatVillageCrime",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 59.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_AmendsThanks_Line",
+        "DefaultText": "A sound candle. Duly entered in the other column. My estimate of you has been revised, modestly, upward."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_AmendsThanks_Answer_Thanks",
+                "DefaultText": "Noted."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatProfAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 0.5,
+                            "y": 0.5
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatProfAmendsPaid",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatProfAmendsCooldown",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 288.0,
+                            "y": 288.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

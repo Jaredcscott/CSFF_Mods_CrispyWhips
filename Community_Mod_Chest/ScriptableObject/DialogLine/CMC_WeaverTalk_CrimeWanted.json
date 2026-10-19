@@ -20,6 +20,88 @@
             }
         },
         {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 1.5
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsDebt",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 40.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsCooldown",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsPaid",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_CrimeWanted_Answer_Amends",
+                "DefaultText": "About your chest..."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_AmendsOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": -0.5,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_CrimeWanted_Answer_AmendsGiveUp",
+                "DefaultText": "I can't find any twine after all."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
             "Answer": {
                 "LocalizationKey": "CMC_WeaverTalk_CrimeWanted_Answer_Leave",
                 "DefaultText": "I'll leave you to it."

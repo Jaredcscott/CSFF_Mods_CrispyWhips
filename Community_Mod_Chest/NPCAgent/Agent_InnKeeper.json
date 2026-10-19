@@ -6,7 +6,7 @@
     },
     "AgentDescription": {
         "LocalizationKey": "CMC_InnKeeper_AgentDescription",
-        "DefaultText": "Keeps the Village Inn running: meals, a bed, and a friendly ear."
+        "DefaultText": "Keeps the Village Inn running: meals, a bed, and a friendly ear. From first snow to thaw his pantry is shut and he takes no commissions; the Snowed-In Supper is a social evening, not a meal."
     },
     "AgentImageWarpData": "InnKeeper",
     "AgentImageWarpType": 3,
@@ -366,14 +366,15 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "CMC_InnKeeper_Commission_ActionDescription",
-                "DefaultText": "Pay the Inn Keeper 150 worth (a metal Nugget or a coin) and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time, and he takes a new one 7 days after you collect the last."
+                "DefaultText": "Pay the Inn Keeper 150 worth (a metal Nugget or a coin) and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time, and he takes a new one 7 days after you collect the last. Closed from first snow to thaw; an order placed before the snow is still delivered."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 0,
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatInnHunterOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+                {"StatWarpData": "cmcStatInnHunterOrder", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}},
+                {"StatWarpData": "cmcStatSeasonWinter", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
@@ -384,6 +385,63 @@
             ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["f91b5676fc26c0e48a4ee6fd9dfc2ffa", "4b0f4937a5ecb90499428c8c10288afc", "e5f5d2a633f3437780d6198c3d1e9fdd"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_Amends_ActionName",
+                "DefaultText": "Make Amends: Dried Meat"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_Amends_ActionDescription",
+                "DefaultText": "Hand over dried meat for the Inn Keeper's pantry, as asked when you spoke about the chest. Fetching and hanging it takes about two hours. Talk to the Inn Keeper again for the thanks; the Friendship comes back after that."
+            },
+            "DaytimeCost": 8,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatInnAmendsArmed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 59.0
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatInnAmendsArmed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "f4be79e87ba98db41a9c9e31bb76c33d"
+                ],
                 "TriggerCardsWarpType": 3
             }
         }
@@ -604,7 +662,8 @@
     "CannotTrade": false,
     "TradingConditions": {
         "RequiredStatValues": [
-            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatSeasonWinter", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
         ]
     },
     "StartingInventory": [

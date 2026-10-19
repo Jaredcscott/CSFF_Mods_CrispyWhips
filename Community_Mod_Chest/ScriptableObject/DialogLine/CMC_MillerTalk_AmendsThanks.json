@@ -1,0 +1,72 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatMillerAmendsArmed",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.25,
+                    "y": 0.75
+                }
+            },
+            {
+                "StatWarpData": "cmcStatVillageCrime",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 59.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_AmendsThanks_Line",
+        "DefaultText": "That will keep the mill-house fire in till morning. It doesn't undo the chest, but it counts. I'll think a little better of you for it."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_AmendsThanks_Answer_Thanks",
+                "DefaultText": "It's the least I can do."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 0.5,
+                            "y": 0.5
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsPaid",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatMillerAmendsCooldown",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 288.0,
+                            "y": 288.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -202,7 +202,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Architecture_Desc",
-        "DefaultText": "A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Crafting +3, up to +15 from this course."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -254,7 +254,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_ArchitectureFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Architecture degree and its steady Beaver Blessing; with Water-Driven Infrastructure installed, it also unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop."
+        "DefaultText": "The final two-hour examination. Pass it to earn the Architecture degree and its steady Beaver Blessing; with Water-Driven Infrastructure installed, it also hands you the Water-Driven Sawmill and Grinding Mill blueprints outright, no research needed (without the degree they stay in normal research), and, together with a Metallurgy degree, unlocks the Water-Driven Forge and Workshop."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -308,7 +308,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Metallurgy_Desc",
-        "DefaultText": "A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Smithing +3, up to +15 from this course."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -414,7 +414,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Herbalism_Desc",
-        "DefaultText": "A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Herbalism +3, up to +15 from this course."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -520,7 +520,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Fishing_Desc",
-        "DefaultText": "A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Fishing +3, up to +15 from this course."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -626,7 +626,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Armorer_Desc",
-        "DefaultText": "A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Metalworking +3, up to +15 from this course."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -678,7 +678,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_ArmorerFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Armorer degree: unlocks every metal armor recipe (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields)."
+        "DefaultText": "The final two-hour examination. Pass it to earn the Armorer degree: every metal armor recipe (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields) is handed to you outright, no research needed. Without the degree they stay in normal research."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -732,7 +732,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_Medicine_Desc",
-        "DefaultText": "A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Herbalism +3, up to +15 from this course."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -838,7 +838,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_CarpentryBench_DA_Carpentry_Desc",
-        "DefaultText": "A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available."
+        "DefaultText": "A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Woodworking +3, up to +15 from this course."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatProfAmendsArmed",
+    "GameName": {
+        "LocalizationKey": "CMC_ProfAmendsArmed_StatName",
+        "DefaultText": "Professor Amends Errand State"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProfAmendsArmed_StatDescription",
+        "DefaultText": "Hidden clamped marker for the Professor's amends errand: 1 = ready for an offer, 0 = accepted and under way, 0.5 = the item is handed over and waiting for the thanks. Never a counter: the thanks line (or giving the errand up) puts it back to 1, and nothing else writes it."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 1.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

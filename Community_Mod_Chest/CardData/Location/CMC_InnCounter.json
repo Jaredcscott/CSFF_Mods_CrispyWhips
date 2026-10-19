@@ -9,7 +9,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "CMC_InnCounter_CardDescription",
-    "DefaultText": "The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt."
+    "DefaultText": "The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt. From first snow to thaw the Inn sells no meals and the Inn Keeper takes no commissions; the Snowed-In Supper is a social evening, not a meal."
   },
   "CardImageWarpData": "VillageInnDesk",
   "CardImageWarpType": 3,
@@ -456,12 +456,15 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_InnCounter_DA_Meal_Desc",
-        "DefaultText": "Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you."
+        "DefaultText": "Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you. Closed from first snow to thaw: the roads are shut and the Inn sells no food (the Snowed-In Supper is a social evening, not a meal)."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
       "ActionTagsWarpData": ["EatingAction"],
       "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        { "StatWarpData": "cmcStatSeasonWinter", "StatWarpType": 3, "TriggerRange": { "x": -0.5, "y": 0.5 } }
+      ],
       "StatModifications": [
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },

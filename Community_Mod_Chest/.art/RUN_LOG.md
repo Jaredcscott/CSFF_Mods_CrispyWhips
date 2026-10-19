@@ -133,3 +133,4 @@ prompt and the explicit note on this convention choice.
 | 2026-10-12 | VillageAcademyFishing (owner gallery round 3: regenerate, new content; score 51) | nano-banana-2 image2image | 1K | 20 | fk8icAxWBEMQjUSAMUXs | OK |
 | 2026-10-12 | CMC_Club (owner gallery round 4: slender stick club, text-only redraw (old image as reference kept the fat head); score 66) | nano-banana-2 image2image | 1K | 20 | CeeRVXLBIKOQZEUz0sDI | OK |
 | 2026-10-12 | PaintedClayBowl (owner gallery round 4: vanilla Bowl_Clay as content reference, painted rust-red and black zigzag band; score 81) | nano-banana-2 image2image | 1K | 20 | UtC0WIVX4Y0WwygxfjFF | OK |
+| 2026-10-18 | CMC_SkylitCave (Skylit Cave location, replaces borrowed vanilla Cave sketch; full-bleed, Woods1 style ref) | nano-banana-2 image2image | 2K | 30 | m7VEJ9W9BSH22z0r7j97 | OK |

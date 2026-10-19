@@ -36,6 +36,8 @@ internal static class InteriorEnvSaveDataPatch
         "cmcWeaverCottageInterior",
         "cmcVillageHallInterior",
         "cmcEnvJailCell",
+        "cmcEnvJailCave",
+        "cmcEnvJailLedge",
     };
 
     private const BindingFlags InstanceAll =

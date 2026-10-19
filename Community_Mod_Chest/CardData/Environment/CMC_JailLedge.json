@@ -1,0 +1,45 @@
+{
+  "UniqueID": "cmcEnvJailLedge",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardTagsWarpData": [
+    "tag_EnvIndoors"
+  ],
+  "CardTagsWarpType": 3,
+  "CardName": {
+    "LocalizationKey": "CMC_JailLedge_CardName",
+    "DefaultText": "The Ledge"
+  },
+  "CardImageWarpData": "Tunnel_Shaft",
+  "CardImageWarpType": 3,
+  "CardBackgroundWarpData": "Tunnel_Shaft",
+  "CardBackgroundWarpType": 3,
+  "MaxWeightCapacity": 12000,
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCardWarpData": "cmcJailLedgeLocation",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "cmcJailLedgeDarkness",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "cmcJailLedgeCollapsedTunnel",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatVillagePhase",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.5,
+                    "y": 9999.0
+                }
+            },
+            {
+                "StatWarpData": "cmcStatInnAmendsArmed",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.75,
+                    "y": 1.5
+                }
+            },
+            {
+                "StatWarpData": "cmcStatInnAmendsDebt",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.5,
+                    "y": 12.0
+                }
+            },
+            {
+                "StatWarpData": "cmcStatInnAmendsCooldown",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            {
+                "StatWarpData": "cmcStatInnAmendsPaid",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 0.25
+                }
+            },
+            {
+                "StatWarpData": "cmcStatVillageCrime",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 59.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_AmendsOpener_Line",
+        "DefaultText": "Before the stories and the stew: a word about my chest, if you'll have one."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AmendsOpener_Answer_GoOn",
+                "DefaultText": "I'm listening."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_AmendsOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AmendsOpener_Answer_NotNow",
+                "DefaultText": "Another day."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatInnAmendsCooldown",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 96.0,
+                            "y": 96.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

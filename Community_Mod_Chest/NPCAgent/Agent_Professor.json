@@ -382,6 +382,63 @@
                 ],
                 "TriggerCardsWarpType": 3
             }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Professor_Amends_ActionName",
+                "DefaultText": "Make Amends: Candle"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Professor_Amends_ActionDescription",
+                "DefaultText": "Hand over an unlit Candle for the Professor's late reading, as asked when you spoke about the chest. Fetching it takes about two hours. Talk to the Professor again for the thanks; the Trust comes back after that."
+            },
+            "DaytimeCost": 8,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatProfAmendsArmed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 59.0
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatProfAmendsArmed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "aad0486950c77894f8f411e48c57beec"
+                ],
+                "TriggerCardsWarpType": 3
+            }
         }
     ],
     "AgentDuties": [],

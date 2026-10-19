@@ -1,0 +1,103 @@
+{
+  "UniqueID": "cmcJailCaveLocation",
+  "CardType": 8,
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailCaveLocation_CardDescription",
+    "DefaultText": "Pale daylight falls through a gap in the roof far above and lands on a tree growing out of the rubble. The air is cool, damp and still. Behind you a crawl leads back to the cell, for as long as the Watch does not find your bed empty at a headcount (06:00 and 21:00) and fill it in from above."
+  },
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailCaveLocation_CardName",
+    "DefaultText": "Skylit Cave"
+  },
+  "CardImageWarpData": "CMC_SkylitCave",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCaveLocation_DA_CrawlBack",
+        "DefaultText": "Crawl back to the cell"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCaveLocation_DA_CrawlBack_Desc",
+        "DefaultText": "Squeeze back down the dug tunnel to your cell."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_JailCaveLocation_DA_CrawlBack_Fade",
+        "DefaultText": "You crawl back through the tunnel..."
+      },
+      "AlwaysShow": true,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailFillPending",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 0.4
+          }
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "MovePlayer": {
+        "MoveOption": 1,
+        "ToEnvWarpData": "cmcEnvJailCell",
+        "ToEnvWarpType": 3
+      },
+      "StatModifications": [],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCaveLocation_DA_CrawlBackBlocked",
+        "DefaultText": "The crawl back is bricked up"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCaveLocation_DA_CrawlBackBlocked_Desc",
+        "DefaultText": "The Watch found your bed empty at a headcount and filled the hole from above. There is no way back to the cell now: the only way out is forward, up the ladder and through the collapsed tunnel on the ledge."
+      },
+      "DaytimeCost": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "AlwaysShow": true,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailFillPending",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

@@ -1,0 +1,54 @@
+{
+  "UniqueID": "cmcJailLedgeLocation",
+  "CardType": 8,
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailLedgeLocation_CardDescription",
+    "DefaultText": "A narrow shelf of rock beside a fallen tunnel. No daylight reaches this deep, and the dark presses close."
+  },
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailLedgeLocation_CardName",
+    "DefaultText": "The Ledge"
+  },
+  "CardImageWarpData": "Tunnel_Shaft",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailLedgeLocation_DA_ClimbDown",
+        "DefaultText": "Climb down"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailLedgeLocation_DA_ClimbDown_Desc",
+        "DefaultText": "Climb the branch ladder back down to the cave."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_JailLedgeLocation_DA_ClimbDown_Fade",
+        "DefaultText": "You climb back down to the cave..."
+      },
+      "AlwaysShow": true,
+      "MovePlayer": {
+        "MoveOption": 1,
+        "ToEnvWarpData": "cmcEnvJailCave",
+        "ToEnvWarpType": 3
+      },
+      "StatModifications": [],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

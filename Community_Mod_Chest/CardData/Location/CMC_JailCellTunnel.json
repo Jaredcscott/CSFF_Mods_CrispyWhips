@@ -71,7 +71,7 @@
       "FadeToBlack": 1,
       "FadeMessage": {
         "LocalizationKey": "CMC_JailCellTunnel_DA_Crawl_Fade",
-        "DefaultText": "You squeeze through the dark, dirt in your teeth, and come up outside the walls..."
+        "DefaultText": "You squeeze through the dark, dirt in your teeth, and come out into a cave full of daylight..."
       },
       "RequiredStatValues": [
         {
@@ -84,27 +84,10 @@
       "HideIfConditionsNotMet": true,
       "MovePlayer": {
         "MoveOption": 1,
-        "ToEnvWarpData": "cmcEnvVillagePath",
+        "ToEnvWarpData": "cmcEnvJailCave",
         "ToEnvWarpType": 3
       },
-      "StatModifications": [
-        {
-          "StatWarpData": "cmcStatJailSentenceRemaining",
-          "StatWarpType": 3,
-          "ValueModifier": { "x": -8.0, "y": -8.0 },
-          "RateModifier": { "x": 0.0, "y": 0.0 },
-          "ApplyEachTick": false,
-          "InstantModifier": true
-        },
-        {
-          "StatWarpData": "cmcStatVillageCrime",
-          "StatWarpType": 3,
-          "ValueModifier": { "x": 15.0, "y": 15.0 },
-          "RateModifier": { "x": 0.0, "y": 0.0 },
-          "ApplyEachTick": false,
-          "InstantModifier": true
-        }
-      ],
+      "StatModifications": [],
       "ProducedCards": [],
       "ReceivingCardChanges": { "ModType": 0 }
     }

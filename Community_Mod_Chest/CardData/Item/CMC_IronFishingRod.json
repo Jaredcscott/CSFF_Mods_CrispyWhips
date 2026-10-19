@@ -113,7 +113,7 @@
   "PassiveEffects": [
     {
       "EffectName": "Fishing Aid",
-      "OnlyWhenEquipped": true,
+      "OnlyWhenEquipped": false,
       "EquippedOnBodyOnly": false,
       "OnlyWhenInHand": true,
       "Conditions": {},

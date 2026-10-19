@@ -1,0 +1,87 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatWeaverAmendsArmed",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.75,
+                    "y": 1.5
+                }
+            },
+            {
+                "StatWarpData": "cmcStatWeaverAmendsDebt",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.5,
+                    "y": 40.0
+                }
+            },
+            {
+                "StatWarpData": "cmcStatWeaverAmendsCooldown",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            {
+                "StatWarpData": "cmcStatWeaverAmendsPaid",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 0.25
+                }
+            },
+            {
+                "StatWarpData": "cmcStatVillageCrime",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.0,
+                    "y": 59.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_AmendsOpener_Line",
+        "DefaultText": "A moment, before anything else. My chest. I would rather we talked about it than pretended it never happened."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_AmendsOpener_Answer_GoOn",
+                "DefaultText": "I'm listening."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_AmendsOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_AmendsOpener_Answer_NotNow",
+                "DefaultText": "Another day."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverAmendsCooldown",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 96.0,
+                            "y": 96.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

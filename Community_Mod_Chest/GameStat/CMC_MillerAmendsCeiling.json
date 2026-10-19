@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMillerAmendsCeiling",
+    "GameName": {
+        "LocalizationKey": "CMC_MillerAmendsCeiling_StatName",
+        "DefaultText": "Miller Amends Ceiling"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MillerAmendsCeiling_StatDescription",
+        "DefaultText": "Hidden: the Miller's Trust just before the first unrepaid caught theft. Amends never lift Trust above it. Written by code only."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 100.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

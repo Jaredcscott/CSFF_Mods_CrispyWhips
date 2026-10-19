@@ -4,13 +4,16 @@
         "DefaultText": "The Apothecary"
     },
     "SceneLinesWarpData": [
+        "CMC_ApothecaryTalk_AmendsOpener",
         "CMC_ApothecaryTalk_HerbQuestThanks",
         "CMC_ApothecaryTalk_PowderQuestThanks",
         "CMC_ApothecaryTalk_InterlockS2Thanks",
+        "CMC_ApothecaryTalk_AmendsThanks",
         "CMC_ApothecaryTalk_CrimeWanted",
         "CMC_ApothecaryTalk_CrimeBanished",
         "CMC_ApothecaryTalk_Keepsake",
         "CMC_ApothecaryTalk_Start",
+        "CMC_ApothecaryTalk_AmendsOffer",
         "CMC_ApothecaryTalk_Work",
         "CMC_ApothecaryTalk_Home",
         "CMC_ApothecaryTalk_StallAsk",

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatProfAmendsCooldown",
+    "GameName": {
+        "LocalizationKey": "CMC_ProfAmendsCooldown_StatName",
+        "DefaultText": "Professor Amends Cooldown"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProfAmendsCooldown_StatDescription",
+        "DefaultText": "Hidden cooldown: raised to 96 when a theft is caught and to 288 when an amends errand is thanked, drains 1 per tick (96 ticks is a day). The amends offer is shown only at 0."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 288.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -323,10 +323,16 @@ namespace CommunityModChest.Patcher
             }
             catch (Exception ex)
             {
-                // Put the order back as due today so the next poll in this room tries again.
-                HiddenStat.Set(spec.OrderStatUid, 1f);
-                HiddenStat.Set(spec.DueStatUid, Math.Max(1f, GameQuery.CurrentDay));
-                WarnOnce("spawn-" + spec.OrderStatUid, $"[CommissionPatch] Delivering the order from {spec.Name} failed after {spawned} cards, so the order is back open: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                if (spawned == 0)
+                {
+                    // Nothing delivered yet: put the order back as due today so the next poll in this room tries again.
+                    HiddenStat.Set(spec.OrderStatUid, 1f);
+                    HiddenStat.Set(spec.DueStatUid, Math.Max(1f, GameQuery.CurrentDay));
+                    WarnOnce("spawn-" + spec.OrderStatUid, $"[CommissionPatch] Delivering the order from {spec.Name} failed before any card, so the order is back open: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                    return;
+                }
+                // Some goods already landed: re-opening would deliver the whole order again (minting), so it stays closed.
+                Plugin.Logger.LogError($"[CommissionPatch] Delivering the order from {spec.Name} failed after {spawned} cards; the order is closed so it cannot deliver twice: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return;
             }
 

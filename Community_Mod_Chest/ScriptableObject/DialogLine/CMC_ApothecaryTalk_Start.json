@@ -119,6 +119,88 @@
             }
         },
         {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 1.5
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsDebt",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.5,
+                            "y": 40.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsCooldown",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    },
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsPaid",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 0.0,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_Amends",
+                "DefaultText": "About your chest..."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ApothecaryTalk_AmendsOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsArmed",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": -0.5,
+                            "y": 0.25
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_AmendsGiveUp",
+                "DefaultText": "I can't find any wax after all."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatApothecaryAmendsArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
             "Answer": {
                 "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_Bye",
                 "DefaultText": "Just looking in on you."

@@ -546,6 +546,10 @@ namespace CommunityModChest.Patcher
                 Plugin.Logger.LogDebug($"[AcademyPatch] Tuition drawn for {course.NameFragment}: hoursAfter={hours} -{price:0} (base {TuitionPrice:0}; balance {balance:0} -> {newBalance:0}/{AccountMax:0}).");
             }
 
+            // N5: the session also teaches the course's skill, once per completed action. GraduateBonus below only
+            // moves the lectern's hours, so the Graduate trait's doubled session still teaches once.
+            if (course != null) AcademyCourseService.TeachSkill(course.GradPerk);
+
             if (IsFinalExamAction(ctx.ActionName))
             {
                 AcademyCourseService.ResyncAfterCourse();

@@ -639,40 +639,11 @@ namespace CommunityModChest.Patcher
             if (cfg == null || string.IsNullOrEmpty(cfg.TrustStatUid) || cfg.TrustGainPerSale <= 0f) return;
             try
             {
-                var gm = CardUtil.GetGameManagerInstance();
-                if (gm == null) return;
-
-                if (!cfg.TrustIsNpcStat)
-                {
-                    AddGameStatTrust(gm, cfg);
-                    return;
-                }
-
-                var npc = FindLiveNpc(gm, cfg.AgentUid);
-                if (npc == null) return; // resident hasn't spawned/moved in yet — nothing to bump
-
-                var stat = TrustStatRef(cfg.TrustStatUid);
-                if (stat == null) return;
-
-                if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary statsDict || !statsDict.Contains(stat))
-                    return;
-                var inGameStat = statsDict[stat];
-                if (inGameStat == null) return;
-
-                var getStatValue = npc.GetType().GetMethod("GetStatValue",
-                    BindingFlags.Instance | BindingFlags.Public, null, new[] { stat.GetType() }, null);
-                float current = getStatValue?.Invoke(npc, new[] { stat }) is float f ? f : 0f;
-
-                var setter = inGameStat.GetType().GetMethod("SetStatValueFromEditor",
-                    BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(float) }, null);
-                if (setter == null)
-                {
-                    Plugin.Logger.LogDebug("[CopperChestPatch] InGameNPCStat.SetStatValueFromEditor not found — sale trust bump inactive.");
-                    return;
-                }
+                // Resident hasn't spawned/moved in yet: nothing to bump.
+                if (!TryReadResidentTrust(cfg, out float current)) return;
 
                 float next = Math.Min(cfg.TrustMaxValue, current + cfg.TrustGainPerSale);
-                setter.Invoke(inGameStat, new object[] { next });
+                if (!TryWriteResidentTrust(cfg, next)) return;
                 Plugin.Logger.LogDebug($"[CopperChestPatch] {cfg.Name}'s trust +{next - current:0.0} from a sale ({current:0.0} -> {next:0.0}).");
             }
             catch (Exception ex)
@@ -681,21 +652,91 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        /// <summary>Inn Keeper only — cmcStatInnFriendship is a plain player GameStat, not an
-        /// NPCStat, so this writes it via the direct StatsDict idiom (memory:
-        /// reference_gamestat_direct_csharp_write) — no live-NPC resolution needed at all.</summary>
-        private static void AddGameStatTrust(object gm, ChestConfig cfg)
+        /// <summary>The resident's current Trust, read the way the sale bump has always read it (N6 shares this reader
+        /// and <see cref="TryWriteResidentTrust"/> with <see cref="AmendsPatch"/>, so there is one proven path). An NPCStat
+        /// is resolved on the resident's LIVE NPC; the Inn Keeper's cmcStatInnFriendship is a plain player GameStat read
+        /// from the direct StatsDict (memory: reference_gamestat_direct_csharp_write). False when the resident has not
+        /// moved in or the stat cannot be read.</summary>
+        internal static bool TryReadResidentTrust(ChestConfig cfg, out float value)
         {
-            var stat = TrustStatRef(cfg.TrustStatUid);
-            if (stat == null) return;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict || !statsDict.Contains(stat)) return;
-            var inGameStat = statsDict[stat];
-            if (inGameStat == null) return;
+            value = 0f;
+            if (cfg == null || string.IsNullOrEmpty(cfg.TrustStatUid)) return false;
+            try
+            {
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null) return false;
+                var stat = TrustStatRef(cfg.TrustStatUid);
+                if (stat == null) return false;
 
-            float current = Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : 0f;
-            float next = Math.Min(cfg.TrustMaxValue, current + cfg.TrustGainPerSale);
-            Reflect.SetMember(inGameStat, "CurrentBaseValue", next);
-            Plugin.Logger.LogDebug($"[CopperChestPatch] {cfg.Name}'s trust +{next - current:0.0} from a sale ({current:0.0} -> {next:0.0}).");
+                if (!cfg.TrustIsNpcStat)
+                {
+                    if (Reflect.GetMember(gm, "StatsDict") is not IDictionary gameStats || !gameStats.Contains(stat)) return false;
+                    var gameStat = gameStats[stat];
+                    if (gameStat == null) return false;
+                    if (Reflect.GetMember(gameStat, "SimpleCurrentValue") is not float gameValue) return false;
+                    value = gameValue;
+                    return true;
+                }
+
+                var npc = FindLiveNpc(gm, cfg.AgentUid);
+                if (npc == null) return false;
+                if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary statsDict || !statsDict.Contains(stat)) return false;
+                var getStatValue = npc.GetType().GetMethod("GetStatValue",
+                    BindingFlags.Instance | BindingFlags.Public, null, new[] { stat.GetType() }, null);
+                if (getStatValue?.Invoke(npc, new[] { stat }) is not float npcValue) return false;
+                value = npcValue;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"[CopperChestPatch] TryReadResidentTrust failed for {cfg.Name}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                return false;
+            }
+        }
+
+        /// <summary>Sets the resident's Trust to <paramref name="value"/>, clamped to 0..TrustMaxValue. An NPCStat goes
+        /// through the live InGameNPCStat's public SetStatValueFromEditor (never ProfessorSchedulePatch's lookup, see
+        /// <see cref="AddResidentTrust"/>); the Inn Keeper's GameStat goes through CurrentBaseValue. False when nothing was
+        /// written.</summary>
+        internal static bool TryWriteResidentTrust(ChestConfig cfg, float value)
+        {
+            if (cfg == null || string.IsNullOrEmpty(cfg.TrustStatUid)) return false;
+            try
+            {
+                float clamped = Math.Max(0f, Math.Min(cfg.TrustMaxValue, value));
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null) return false;
+                var stat = TrustStatRef(cfg.TrustStatUid);
+                if (stat == null) return false;
+
+                if (!cfg.TrustIsNpcStat)
+                {
+                    if (Reflect.GetMember(gm, "StatsDict") is not IDictionary gameStats || !gameStats.Contains(stat)) return false;
+                    var gameStat = gameStats[stat];
+                    if (gameStat == null) return false;
+                    return Reflect.SetMember(gameStat, "CurrentBaseValue", clamped);
+                }
+
+                var npc = FindLiveNpc(gm, cfg.AgentUid);
+                if (npc == null) return false;
+                if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary statsDict || !statsDict.Contains(stat)) return false;
+                var inGameStat = statsDict[stat];
+                if (inGameStat == null) return false;
+                var setter = inGameStat.GetType().GetMethod("SetStatValueFromEditor",
+                    BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(float) }, null);
+                if (setter == null)
+                {
+                    Plugin.Logger.LogDebug("[CopperChestPatch] InGameNPCStat.SetStatValueFromEditor not found - resident trust writes inactive.");
+                    return false;
+                }
+                setter.Invoke(inGameStat, new object[] { clamped });
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"[CopperChestPatch] TryWriteResidentTrust failed for {cfg.Name}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                return false;
+            }
         }
 
         private static bool ResolveTrustGetFromId()
@@ -785,6 +826,8 @@ namespace CommunityModChest.Patcher
             {
                 SetHeat(cfg, 0f); // the heat has been spent — a caught burglar starts the ladder over
                 VillageCrimePatch.AddCrime(DetectedCrimePoints);
+                // N6: a caught theft also costs the robbed resident's Trust (undetected costs nothing).
+                AmendsPatch.OnTheftDetected(cfg);
                 Plugin.Logger.LogInfo($"[CopperChestPatch] The {cfg.Name}'s chest was {sourceLabel} and the theft was DETECTED ({reason}).");
             }
             else

@@ -674,9 +674,9 @@ CMC_InnExit_CardName,Inn Door,旅店大门
 CMC_InnExit_DA_Exit,Exit,离开
 CMC_InnExit_DA_Exit_Fade,Leaving the inn...,正在离开旅店……
 CMC_InnCounter_CardName,Inn Counter,旅店柜台
-CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt.",旅店老板在这个柜台后供应热食、出租床铺。将盐、金属块或杜洛斯硬币拖到柜台上即可为你的旅店账户充值（上限500）；一顿饭或一晚住宿会从余额中扣除50（被通缉或被放逐期间会更多）。将木柴拖到柜台上出售：每四捆换一份盐。这里通常也有些零工可做，报酬以盐支付。
+CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt. From first snow to thaw the Inn sells no meals and the Inn Keeper takes no commissions; the Snowed-In Supper is a social evening, not a meal.",旅店老板在这个柜台后供应热食、出租床铺。将盐、金属块或杜洛斯硬币拖到柜台上即可为你的旅店账户充值（上限500）；一顿饭或一晚住宿会从余额中扣除50（被通缉或被放逐期间会更多）。将木柴拖到柜台上出售：每四捆换一份盐。这里通常也有些零工可做，报酬以盐支付。从初雪到解冻期间，旅店不售饭菜，旅店老板也不接委托；雪困晚宴是一场社交聚会，不提供饭食。
 CMC_InnCounter_DA_Meal,Purchase Meal,购买餐食
-CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you.",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。一大碗炖菜、面包和一杯水：大约相当于你自己做的一顿好饭。
+CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you. Closed from first snow to thaw: the roads are shut and the Inn sells no food (the Snowed-In Supper is a social evening, not a meal).",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。一大碗炖菜、面包和一杯水：大约相当于你自己做的一顿好饭。从初雪到解冻期间不供应：道路封闭，旅店不售食物（雪困晚宴是一场社交聚会，不提供饭食）。
 CMC_InnCounter_DA_Sleep,Stay the Night,留宿一晚
 CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call).",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。最多休息6小时，恢复清醒度和精力。若生命体征达到危急警报（口渴、体温、出血、疾病或如厕需求），你会提前醒来。
 CMC_InnCounter_DA_Sleep_Interrupt_Thirsty,I'm too thirsty to sleep...,太渴了，睡不着……
@@ -695,7 +695,7 @@ CMC_InnCounter_CI_Deposit_Desc,"Adds the value of the dragged Salt, Nugget, or D
 CMC_InnCounter_CI_SellFirewood,Sell Firewood,出售柴火
 CMC_InnCounter_CI_SellFirewood_Desc,Hand over a bundle of firewood for the hearth. Every fourth bundle earns a Salt.,交出一捆柴火供炉灶使用。每四捆换一份盐。
 CMC_InnKeeper_AgentName,Inn Keeper,旅店老板
-CMC_InnKeeper_AgentDescription,"Keeps the Village Inn running: meals, a bed, and a friendly ear.",打理着村庄旅店的一切事务：饭菜、床铺，还有一双愿意倾听的耳朵。
+CMC_InnKeeper_AgentDescription,"Keeps the Village Inn running: meals, a bed, and a friendly ear. From first snow to thaw his pantry is shut and he takes no commissions; the Snowed-In Supper is a social evening, not a meal.",打理着村庄旅店的一切事务：饭菜、床铺，还有一双愿意倾听的耳朵。从初雪到解冻期间，他的储藏室关闭，也不接受委托；雪困晚宴是一场社交聚会，不提供饭食。
 CMC_InnKeeper_Chat_ActionName,Chat,交谈
 CMC_InnKeeper_Chat_ActionDescription,Share a few words with the Inn Keeper over a mug of something warm.,端着一杯热乎的东西，和旅店老板聊上几句。
 CMC_InnKeeper_Talk,Talk,交谈
@@ -785,13 +785,13 @@ CMC_AcademyExit_DA_Exit_Fade,Leaving the academy...,正在离开学院……
 CMC_AcademyLectern_CardName,Lecture Hall,讲堂
 CMC_AcademyLectern_CardDescription,"The academy masters lecture here. Drag Salt, metal Nuggets, or Duros Coins onto the lectern to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance (more while you are Wanted or Banished), including the final exam. Choose a subject below to advance its coursework; when only one session remains, sit the final exam to earn your degree. On the afternoons the Miller, Weaver, Apothecary or Professor is lecturing here, a Sit In button lets you listen in for a small boost to their craft, once a week for each.",学院的师傅们在此授课。将盐、金属块或杜洛斯硬币拖到讲台上即可为你的学费账户充值（上限1000）；每两小时的学习课时会从余额中扣除100（被通缉或被放逐期间会更多），期末考试同样如此。在下方选择一门科目以推进课程进度；当只剩最后一节课时，参加期末考试即可获得学位。磨坊主、织工、药剂师或教授在此讲课的下午，你可以点“旁听”听上一场，略微提升他们擅长的技艺，每位居民每周一次。
 CMC_AcademyLectern_DA_Architecture,Study Architecture,学习建筑学
-CMC_AcademyLectern_DA_Architecture_Desc,"A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，讲授承重框架与水利工程。整门课程需要72小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Architecture_Desc,"A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Crafting +3, up to +15 from this course.",一堂两小时的课程，讲授承重框架与水利工程。整门课程需要72小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。每节课（含期末考试）还会教你制作 +3，该课程累计最多+15。
 CMC_AcademyLectern_DA_Metallurgy,Study Metallurgy,学习冶金学
-CMC_AcademyLectern_DA_Metallurgy_Desc,"A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，在化验台前进行。整门课程需要60小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Metallurgy_Desc,"A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Smithing +3, up to +15 from this course.",一堂两小时的课程，在化验台前进行。整门课程需要60小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。每节课（含期末考试）还会教你金工 +3，该课程累计最多+15。
 CMC_AcademyLectern_DA_Herbalism,Study Herbalism,学习药草学
-CMC_AcademyLectern_DA_Herbalism_Desc,"A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，在药草园中进行。整门课程需要30小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Herbalism_Desc,"A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Herbalism +3, up to +15 from this course.",一堂两小时的课程，在药草园中进行。整门课程需要30小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。每节课（含期末考试）还会教你药草学 +3，该课程累计最多+15。
 CMC_AcademyLectern_DA_ArchitectureFinal,Final Exam: Architecture,期末考试：建筑学
-CMC_AcademyLectern_DA_ArchitectureFinal_Desc,"The final two-hour examination. Pass it to earn the Architecture degree and its steady Beaver Blessing; with Water-Driven Infrastructure installed, it also unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得建筑学学位及其持续的河狸赐福；若已安装水力基础设施（Water-Driven Infrastructure），还会解锁水力锯木厂和水力磨坊的蓝图，若再搭配冶金学学位，还可解锁水力锻炉和水力工坊。
+CMC_AcademyLectern_DA_ArchitectureFinal_Desc,"The final two-hour examination. Pass it to earn the Architecture degree and its steady Beaver Blessing; with Water-Driven Infrastructure installed, it also hands you the Water-Driven Sawmill and Grinding Mill blueprints outright, no research needed (without the degree they stay in normal research), and, together with a Metallurgy degree, unlocks the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得建筑学学位及其持续的河狸赐福；若已安装水力基础设施（Water-Driven Infrastructure），还会直接赠予水力锯木厂和水力磨坊的蓝图，无需研究（没有学位也可以正常研究），若再搭配冶金学学位，还可解锁水力锻炉和水力工坊。
 CMC_AcademyLectern_DA_MetallurgyFinal,Final Exam: Metallurgy,期末考试：冶金学
 CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet and Bronze Sheet recipes are handed to you outright, no research required, and, with Water-Driven Infrastructure installed and an Architecture degree, it also unlocks the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得冶金学学位：铜板和青铜片配方将直接授予你，无需研究；若已安装水力基础设施（Water-Driven Infrastructure）并持有建筑学学位，还可解锁水力锻炉和水力工坊。
 CMC_AcademyLectern_DA_HerbalismFinal,Final Exam: Herbalism,期末考试：药草学
@@ -807,7 +807,7 @@ CMC_AcademyLectern_FinalNotReady,You are not ready for the final examination.,�
 CharacterTraits_Perk_HigherEducation_PerkName,Higher Education,高等教育
 CharacterTraits_Perk_HigherEducation_PerkDescription,"Retired trait. The village Academy now stands for every character, and its courses gate their blueprint rewards for everyone; this trait no longer appears at character creation and has no effect. It is kept only so older saves that selected it remain valid.",已停用特质。村庄学院如今对所有角色开放，其课程也统一决定所有人的蓝图奖励；此特质不再出现于角色创建界面，也不再产生任何效果，仅为保留旧存档中已选择此特质角色的有效性而存在。
 CharacterTraits_Perk_GradArchitecture_PerkName,Architecture Graduate,建筑学毕业生
-CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. With Water-Driven Infrastructure installed, the Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop. You also keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的建筑课程。若已安装水力基础设施（Water-Driven Infrastructure），水力锯木厂和水力磨坊的蓝图归你所有，若再持有冶金学位，还可获得水力锻炉和水力工坊。你还会持续获得相当于一次精灵赐福的河狸赐福。
+CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. With Water-Driven Infrastructure installed, the Water-Driven Sawmill and Grinding Mill blueprints are yours outright, no research needed, and together with a Metallurgy degree, the Water-Driven Forge and Workshop. You also keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的建筑课程。若已安装水力基础设施（Water-Driven Infrastructure），水力锯木厂和水力磨坊的蓝图直接归你所有，无需研究，若再持有冶金学位，还可获得水力锻炉和水力工坊。你还会持续获得相当于一次精灵赐福的河狸赐福。
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate,冶金学毕业生
 CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet and Bronze Sheet recipes are yours outright, with no research needed, and, with Water-Driven Infrastructure installed and an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的冶金课程。铜板和青铜片配方直接归你所有，无需研究；若已安装水力基础设施（Water-Driven Infrastructure）并持有建筑学位，还可获得水力锻炉和水力工坊。你的金工技能视为高出25点，打造的金属制品品质更好。
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate,药草学毕业生
@@ -815,19 +815,19 @@ CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's 
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate,钓鱼毕业生
 CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fishing course. The Iron Fishing Rod recipe is yours, and you've learned to read the water: you keep a steady Fishing Aid as strong as one spirit blessing.",你完成了学院的捕鱼课程。铁钓竿的配方归你所有，你也学会了观察水面：持续获得相当于一次精灵赐福的捕鱼援助。
 CharacterTraits_Perk_GradArmorer_PerkName,Armorer Graduate,制甲毕业生
-CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. Every metal armor recipe is yours (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields), and your Smithing counts 10 higher, so your metalwork comes out better.",你完成了学院的铠甲课程。所有金属铠甲配方（铜、锡、幽灵青铜、锡青铜、白青铜和铁的胸甲、头盔、护胫、护手，以及铜盾、铁盾和幽灵青铜盾）归你所有，你的金工技能也视为高出10点，打造的金属制品品质更好。
+CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. Every metal armor recipe (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields) is handed to you outright, no research needed, and your Smithing counts 10 higher, so your metalwork comes out better.",你完成了学院的铠甲课程。所有金属铠甲配方（铜、锡、幽灵青铜、锡青铜、白青铜和铁的胸甲、头盔、护胫、护手，以及铜盾、铁盾和幽灵青铜盾）直接归你所有，无需研究，你的金工技能也视为高出10点，打造的金属制品品质更好。
 CharacterTraits_Perk_GradMedicine_PerkName,Medicine Graduate,医学毕业生
 CharacterTraits_Perk_GradMedicine_PerkDescription,"You completed the Academy's medicine course. You know how to dress a wound and manage pain, so your wounds bleed a little less and aches sit a little lighter.",你完成了学院的医学课程。你懂得如何包扎伤口、控制疼痛，因此你的伤口出血略少，疼痛也略轻一些。
 CMC_AcademyLectern_DA_Fishing,Study Fishing,学习钓鱼
-CMC_AcademyLectern_DA_Fishing_Desc,"A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，修补渔网并研读水情。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Fishing_Desc,"A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Fishing +3, up to +15 from this course.",一堂两小时的课程，修补渔网并研读水情。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。每节课（含期末考试）还会教你钓鱼 +3，该课程累计最多+15。
 CMC_AcademyLectern_DA_FishingFinal,Final Exam: Fishing,期末考试：钓鱼
 CMC_AcademyLectern_DA_FishingFinal_Desc,The final two-hour examination. Pass it to earn the Fishing degree: unlocks the Iron Fishing Rod recipe and teaches you to read the water for a better catch.,最后一场两小时的考试。通过后即可获得钓鱼学位：解锁铁制鱼竿配方，并教会你研判水情以获得更好的渔获。
 CMC_AcademyLectern_DA_Armorer,Study Armorer,学习制甲
-CMC_AcademyLectern_DA_Armorer_Desc,"A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，在制甲台前锤打配件、调整皮带。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Armorer_Desc,"A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Metalworking +3, up to +15 from this course.",一堂两小时的课程，在制甲台前锤打配件、调整皮带。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。每节课（含期末考试）还会教你金工 +3，该课程累计最多+15。
 CMC_AcademyLectern_DA_ArmorerFinal,Final Exam: Armorer,期末考试：制甲
-CMC_AcademyLectern_DA_ArmorerFinal_Desc,"The final two-hour examination. Pass it to earn the Armorer degree: unlocks every metal armor recipe (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields).",最后一场两小时的考试。通过后即可获得制甲学位：解锁所有金属护甲配方（铜、锡、幽灵青铜、锡青铜、白青铜和铁的胸甲、头盔、护胫、护手，以及铜盾、铁盾和幽灵青铜盾）。
+CMC_AcademyLectern_DA_ArmorerFinal_Desc,"The final two-hour examination. Pass it to earn the Armorer degree: every metal armor recipe (copper, tin, ghost bronze, tin bronze, white bronze and iron Breastplate, Helmet, Greaves and Gauntlets, plus the Copper, Iron and Ghost Bronze Shields) is handed to you outright, no research needed. Without the degree they stay in normal research.",最后一场两小时的考试。通过后即可获得制甲学位：所有金属护甲配方（铜、锡、幽灵青铜、锡青铜、白青铜和铁的胸甲、头盔、护胫、护手，以及铜盾、铁盾和幽灵青铜盾）直接归你所有，无需研究；没有学位也可以正常研究它们。
 CMC_AcademyLectern_DA_Medicine,Study Medicine,学习医学
-CMC_AcademyLectern_DA_Medicine_Desc,"A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",一堂两小时的课程，学习伤口护理和疼痛管理。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。
+CMC_AcademyLectern_DA_Medicine_Desc,"A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Herbalism +3, up to +15 from this course.",一堂两小时的课程，学习伤口护理和疼痛管理。整门课程需要24小时的学习时间；每次上课都会从你的学费账户中扣除100（被通缉或被放逐期间会更多）。剩下最后一节课时，期末考试便会开放。每节课（含期末考试）还会教你药草学 +3，该课程累计最多+15。
 CMC_AcademyLectern_DA_MedicineFinal,Final Exam: Medicine,期末考试：医学
 CMC_AcademyLectern_DA_MedicineFinal_Desc,"The final two-hour examination. Pass it to earn the Medicine degree: from then on, wounds clot and aches fade noticeably faster.",最后一场两小时的考试。通过后即可获得医学学位：从此以后，伤口凝血和疼痛消退的速度都会明显加快。
 CMC_AcademyLectern_Prog_Fishing,Fishing,钓鱼
@@ -1160,7 +1160,7 @@ CMC_ProfSpecimen_CardName,Specimen Request: 3 Nettle Leaves,标本请求：3片�
 CMC_ProfSpecimen_CardDescription,"The Professor could use three nettle leaves for his herbarium presses. A scholar's errand, paid in metal.",教授需要三片荨麻叶用于他的植物标本压制。这是一件学者的差事，报酬以金属支付。
 CMC_ProfSpecimenThanks_Line,"Ah, perfect specimens, barely bruised! These go straight to the presses. Your pay, as promised. Keep an ear out; I'll have another errand within the week.",啊，完美的标本，几乎没有损伤！这些可以直接送去压制了。你的报酬，如约奉上。留意消息，一周之内我还会有新的差事。
 CMC_Miller_AgentName,The Miller,磨坊主
-CMC_Miller_AgentDescription,Moved into the Miller's Cottage a week after it was finished. Grinds the village's grain and keeps a pinch of every sack.,小屋建成一周后，磨坊主便搬了进来。他为全村磨制粮食，每袋都要抽取一小份作为报酬。
+CMC_Miller_AgentDescription,Moved into the Miller's Cottage a week after it was finished. Grinds the village's grain and keeps a pinch of every sack. He takes no commissions from first snow to thaw.,小屋建成一周后，磨坊主便搬了进来。他为全村磨制粮食，每袋都要抽取一小份作为报酬。从初雪到解冻期间他不接受委托。
 CMC_Miller_Talk,Talk,交谈
 CMC_Miller_Chat_ActionName,Chat,交谈
 CMC_Miller_Chat_ActionDescription,Trade a little village gossip while the grindstones turn.,趁磨石转动的空当，和他聊几句村里的闲话。
@@ -1176,7 +1176,7 @@ CMC_MillerTalk_Village_Answer_Bye,Glad to have you here.,很高兴你在这儿�
 CMC_MillerMoveIn_StatName,Miller Move-In Day,磨坊主入住日
 CMC_MillerMoveIn_StatDescription,Hidden tracker for the day the Miller moves into the finished cottage.,隐藏追踪器：记录磨坊主搬入建成小屋的那一天。
 CMC_Weaver_AgentName,The Weaver,织工
-CMC_Weaver_AgentDescription,Moved into the Weaver's Cottage a week after it was finished. Keeps a loom by the window and the village in cloth.,小屋建成一周后，织工便搬了进来。她在窗边支起一台织机，为全村提供布料。
+CMC_Weaver_AgentDescription,Moved into the Weaver's Cottage a week after it was finished. Keeps a loom by the window and the village in cloth. She takes no commissions from first snow to thaw.,小屋建成一周后，织工便搬了进来。她在窗边支起一台织机，为全村提供布料。从初雪到解冻期间她不接受委托。
 CMC_Weaver_Talk,Talk,交谈
 CMC_Weaver_Chat_ActionName,Chat,交谈
 CMC_Weaver_Chat_ActionDescription,Pass the time to the clack of the loom and a bit of easy talk.,伴着织机咔嗒作响的节奏，和她轻松地聊聊天，消磨时光。
@@ -2015,7 +2015,7 @@ CMC_CopperChestMiller_CardHelpSection,Copper Chest,铜制箱子
 CMC_CopperChestMiller_CI_Sell,Sell to the Miller,卖给磨坊主
 CMC_CopperChestMiller_CI_Sell_Desc,"Sell the dragged item to the Miller. He pays out of the chest's own coin, so he can only buy what he can currently afford - a freshly settled Miller cannot yet meet the price of anything expensive.",把拖动的物品卖给磨坊主。他用箱子里现有的钱付款，所以只能买他目前买得起的东西——刚安顿下来的磨坊主，暂时还付不起什么贵重的价钱。
 CMC_CopperChestMiller_DA_Search,Search for valuables,搜寻贵重物品
-CMC_CopperChestMiller_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Miller is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——磨坊主在家时可就没那么容易了。
+CMC_CopperChestMiller_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Miller is. If you are caught it costs Village Crime and the Miller's Trust; an amends errand can win it back.,翻找箱子，拿走里面的东西。没人在家时干这事很快——磨坊主在家时可就没那么容易了。被抓到会增加村庄犯罪度，并扣减磨坊主的信任；赔礼差事可以把信任挣回来。
 CMC_MillerChestRestockDay_StatName,Miller's Chest Last Restock Day,磨坊主箱子上次补货日
 CMC_MillerChestRestockDay_StatDescription,Hidden tracker: the absolute day the Miller last added to his Copper Chest.,隐藏追踪器：记录磨坊主上次往他的铜制箱子里补充物品的绝对天数。
 CMC_MillerChestThefts_StatName,Miller's Chest Undetected Thefts,磨坊主箱子未被发现的盗窃次数
@@ -2088,7 +2088,7 @@ CMC_JailCellTunnel_CardDescription,"The bed is shoved aside, and a rough dig int
 CMC_JailCellTunnel_DA_MoveBedBack,Move the bed back,把床铺移回去
 CMC_JailCellTunnel_DA_Dig,Dig,挖掘
 CMC_JailCellTunnel_DA_Crawl,Crawl through the tunnel,爬过隧道
-CMC_JailCellTunnel_DA_Crawl_Fade,"You squeeze through the dark, dirt in your teeth, and come up outside the walls...",你在黑暗中艰难地挤过去，满嘴泥土，最终从围墙外钻了出来……
+CMC_JailCellTunnel_DA_Crawl_Fade,"You squeeze through the dark, dirt in your teeth, and come out into a cave full of daylight...",你在黑暗中艰难地挤过去，满嘴泥土，最终来到一个洒满日光的洞穴……
 CMC_JailTunnelProgress_StatName,Jail Tunnel Progress,越狱隧道进度
 CMC_JailTunnelProgress_StatDescription,Hidden counter: how far the hidden tunnel has been dug.,隐藏计数器：记录隐藏隧道已挖掘的进度。
 CMC_JailWaterJug_CardName,Water Jug,水罐
@@ -2149,7 +2149,7 @@ CMC_CopperChestWeaver_CardHelpSection,Copper Chest,铜制箱子
 CMC_CopperChestWeaver_CI_Sell,Sell to the Weaver,卖给织工
 CMC_CopperChestWeaver_CI_Sell_Desc,"Sell the dragged item to the Weaver. She pays out of the chest's own coin, so she can only buy what she can currently afford - a freshly settled Weaver cannot yet meet the price of anything expensive.",把拖动的物品卖给织工。她用箱子里现有的钱付款，所以只能买她目前买得起的东西——刚安顿下来的织工，暂时还付不起什么贵重的价钱。
 CMC_CopperChestWeaver_DA_Search,Search for valuables,搜寻贵重物品
-CMC_CopperChestWeaver_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Weaver is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——织工在家时可就没那么容易了。
+CMC_CopperChestWeaver_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Weaver is. If you are caught it costs Village Crime and the Weaver's Trust; an amends errand can win it back.,翻找箱子，拿走里面的东西。没人在家时干这事很快——织工在家时可就没那么容易了。被抓到会增加村庄犯罪度，并扣减织工的信任；赔礼差事可以把信任挣回来。
 CMC_WeaverChestRestockDay_StatName,Weaver's Chest Last Restock Day,织工箱子上次补货日
 CMC_WeaverChestRestockDay_StatDescription,Hidden tracker: the absolute day the Weaver last added to the Copper Chest.,隐藏追踪器：记录织工上次往铜制箱子里补充物品的绝对天数。
 CMC_WeaverChestThefts_StatName,Weaver's Chest Undetected Thefts,织工箱子未被发现的盗窃次数
@@ -2162,7 +2162,7 @@ CMC_CopperChestApothecary_CardHelpSection,Copper Chest,铜制箱子
 CMC_CopperChestApothecary_CI_Sell,Sell to the Apothecary,卖给药剂师
 CMC_CopperChestApothecary_CI_Sell_Desc,"Sell the dragged item to the Apothecary. She pays out of the chest's own coin, so she can only buy what she can currently afford - herb money adds up slowly, and hers is the thinner purse.",把拖动的物品卖给药剂师。她用箱子里现有的钱付款，所以只能买她目前买得起的东西——草药生意积攒得慢，她的钱包也是几位卖家里最薄的。
 CMC_CopperChestApothecary_DA_Search,Search for valuables,搜寻贵重物品
-CMC_CopperChestApothecary_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Apothecary is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——药剂师在家时可就没那么容易了。
+CMC_CopperChestApothecary_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Apothecary is. If you are caught it costs Village Crime and the Apothecary's Trust; an amends errand can win it back.,翻找箱子，拿走里面的东西。没人在家时干这事很快——药剂师在家时可就没那么容易了。被抓到会增加村庄犯罪度，并扣减药剂师的信任；赔礼差事可以把信任挣回来。
 CMC_ApothecaryChestRestockDay_StatName,Apothecary's Chest Last Restock Day,药剂师箱子上次补货日
 CMC_ApothecaryChestRestockDay_StatDescription,Hidden tracker: the absolute day the Apothecary last added to the Copper Chest.,隐藏追踪器：记录药剂师上次往铜制箱子里补充物品的绝对天数。
 CMC_ApothecaryChestThefts_StatName,Apothecary's Chest Undetected Thefts,药剂师箱子未被发现的盗窃次数
@@ -2175,7 +2175,7 @@ CMC_CopperChestInnKeeper_CardHelpSection,Copper Chest,铜制箱子
 CMC_CopperChestInnKeeper_CI_Sell,Sell to the Inn Keeper,卖给旅店老板
 CMC_CopperChestInnKeeper_CI_Sell_Desc,"Sell the dragged item to the Inn Keeper. He pays out of the chest's own coin - his personal savings, not the Inn's till - so he can only buy what he can currently afford. He is the richest buyer in the village.",把拖动的物品卖给旅店老板。他用箱子里现有的钱付款——那是他的私人积蓄，不是旅店的钱柜——所以只能买他目前买得起的东西。他是村里最富有的买家。
 CMC_CopperChestInnKeeper_DA_Search,Search for valuables,搜寻贵重物品
-CMC_CopperChestInnKeeper_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Inn Keeper is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——旅店老板在家时可就没那么容易了。
+CMC_CopperChestInnKeeper_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Inn Keeper is. If you are caught it costs Village Crime and the Inn Keeper's Trust; an amends errand can win it back.,翻找箱子，拿走里面的东西。没人在家时干这事很快——旅店老板在家时可就没那么容易了。被抓到会增加村庄犯罪度，并扣减旅店老板的信任；赔礼差事可以把信任挣回来。
 CMC_InnKeeperChestRestockDay_StatName,Inn Keeper's Chest Last Restock Day,旅店老板箱子上次补货日
 CMC_InnKeeperChestRestockDay_StatDescription,Hidden tracker: the absolute day the Inn Keeper last added to the Copper Chest.,隐藏追踪器：记录旅店老板上次往铜制箱子里补充物品的绝对天数。
 CMC_InnKeeperChestThefts_StatName,Inn Keeper's Chest Undetected Thefts,旅店老板箱子未被发现的盗窃次数
@@ -2188,7 +2188,7 @@ CMC_CopperChestProfessor_CardHelpSection,Copper Chest,铜制箱子
 CMC_CopperChestProfessor_CI_Sell,Sell to the Professor,卖给教授
 CMC_CopperChestProfessor_CI_Sell_Desc,"Sell the dragged item to the Professor. He pays out of the chest's own coin - his own savings, not the Academy's tuition account - so he can only buy what he can currently afford.",把拖动的物品卖给教授。他用箱子里现有的钱付款——那是他自己的积蓄，不是学院的学费账户——所以只能买他目前买得起的东西。
 CMC_CopperChestProfessor_DA_Search,Search for valuables,搜寻贵重物品
-CMC_CopperChestProfessor_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Professor is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——教授在家时可就没那么容易了。
+CMC_CopperChestProfessor_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Professor is. If you are caught it costs Village Crime and the Professor's Trust; an amends errand can win it back.,翻找箱子，拿走里面的东西。没人在家时干这事很快——教授在家时可就没那么容易了。被抓到会增加村庄犯罪度，并扣减教授的信任；赔礼差事可以把信任挣回来。
 CMC_ProfessorChestRestockDay_StatName,Professor's Chest Last Restock Day,教授箱子上次补货日
 CMC_ProfessorChestRestockDay_StatDescription,Hidden tracker: the absolute day the Professor last added to the Copper Chest.,隐藏追踪器：记录教授上次往铜制箱子里补充物品的绝对天数。
 CMC_ProfessorChestThefts_StatName,Professor's Chest Undetected Thefts,教授箱子未被发现的盗窃次数
@@ -2246,7 +2246,7 @@ CMC_GuardKillsPending_StatName,Guards Killed (Unanswered For),未偿还的杀死
 CMC_GuardKillsPending_StatDescription,Hidden count of guards killed since the player last served a full jail sentence; sets a heavier sentence (7 days per guard killed; capped at 8) and resets once served.,隐藏计数：自玩家上次服满刑期以来杀死的守卫人数。用于设定更重的刑期（每杀死一名守卫加7天，上限8天），服刑完毕后重置。
 CMC_CarpentryBench_Prog_Carpentry,Carpentry,木工
 CMC_CarpentryBench_DA_Carpentry,Study Carpentry,学习木工
-CMC_CarpentryBench_DA_Carpentry_Desc,"A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available.",两小时的刨木板、装接榫的课程。整个课程需要24小时的学习；每节课都会从学费账户中扣除100（被通缉或被放逐期间会更多）。当只剩一节课时，期末考试即可开始。
+CMC_CarpentryBench_DA_Carpentry_Desc,"A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account (more while you are Wanted or Banished). When one session remains, the final exam becomes available. Each session, the final exam included, also teaches Woodworking +3, up to +15 from this course.",两小时的刨木板、装接榫的课程。整个课程需要24小时的学习；每节课都会从学费账户中扣除100（被通缉或被放逐期间会更多）。当只剩一节课时，期末考试即可开始。每节课（含期末考试）还会教你木工 +3，该课程累计最多+15。
 CMC_CarpentryBench_StudyBlocked,The coursework is complete; sit the final exam.,课程已完成，请参加期末考试。
 CMC_CarpentryBench_DA_CarpentryFinal,Final Exam: Carpentry,期末考试：木工
 CMC_CarpentryBench_DA_CarpentryFinal_Desc,"The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe, Wicker Chair and Training Post blueprints, plus the hunt trophies and camp furnishings.",最后两小时的考试。通过考试即可获得木工学位：解锁套装衣柜、藤椅和训练木桩的蓝图，以及猎物奖杯和营地家具的蓝图。
@@ -2950,11 +2950,11 @@ CMC_RoadMeeting_Title,A Chance Meeting,偶遇
 CMC_RoadMeeting_Apothecary,"You cross paths with the Apothecary on the road. She stops for a word about the weather and the herbs, and you part in better spirits.","你在路上遇到了药剂师。她停下来和你聊了聊天气和草药，分别时你的心情好了许多。"
 CMC_RoadMeeting_Professor,"You meet the Professor on the road. He pauses to share something he noticed on his rounds, and you walk on in better spirits.","你在路上遇到了教授。他停下脚步，和你分享了沿途的一点见闻，你继续赶路时心情也好起来了。"
 CMC_Miller_Commission_ActionName,Commission Flour,委托磨粉
-CMC_Miller_Commission_ActionDescription,"Pay the Miller 150 worth (a metal Nugget or a coin) to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time, and he takes a new one 3 days after you collect the last.",向磨坊主支付价值150的报酬（一块金属矿块或一枚硬币），请他为你磨十份小麦粉。次日就在他的小屋里等你来取。每次只能有一份订单，取货3天后他才接新订单。
+CMC_Miller_Commission_ActionDescription,"Pay the Miller 150 worth (a metal Nugget or a coin) to grind you ten Wheat Flour. It is waiting in his cottage the next day. One order at a time, and he takes a new one 3 days after you collect the last. Closed from first snow to thaw; an order placed before the snow is still delivered.",向磨坊主支付价值150的报酬（一块金属矿块或一枚硬币），请他为你磨十份小麦粉。次日就在他的小屋里等你来取。每次只能有一份订单，取货3天后他才接新订单。从初雪到解冻期间停止接单；下雪前已下的订单仍会送达。
 CMC_Weaver_Commission_ActionName,Commission Cloth,委托织布
-CMC_Weaver_Commission_ActionDescription,"Pay the Weaver 360 worth to weave you a Large Cloth: each card you drag onto her goes toward the fee, and the order starts once the fee is paid. It is waiting in her cottage two days later. One order at a time, and she takes a new one 4 days after you collect the last.",向织布工支付价值360的报酬，请她为你织一块大布：你拖给她的每张卡牌都计入费用，费用付清后订单开始。两天后就在她的小屋里等你来取。每次只能有一份订单，取货4天后她才接新订单。
+CMC_Weaver_Commission_ActionDescription,"Pay the Weaver 360 worth to weave you a Large Cloth: each card you drag onto her goes toward the fee, and the order starts once the fee is paid. It is waiting in her cottage two days later. One order at a time, and she takes a new one 4 days after you collect the last. Closed from first snow to thaw; an order placed before the snow is still delivered.",向织布工支付价值360的报酬，请她为你织一块大布：你拖给她的每张卡牌都计入费用，费用付清后订单开始。两天后就在她的小屋里等你来取。每次只能有一份订单，取货4天后她才接新订单。从初雪到解冻期间停止接单；下雪前已下的订单仍会送达。
 CMC_InnKeeper_Commission_ActionName,Hire a Hunter,雇用猎人
-CMC_InnKeeper_Commission_ActionDescription,"Pay the Inn Keeper 150 worth (a metal Nugget or a coin) and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time, and he takes a new one 7 days after you collect the last.",向旅店老板支付价值150的报酬（一块金属矿块或一枚硬币），他认识的一位猎人会在两天后把一具母鹿尸体送到旅店。每次只能有一份订单，取货7天后他才接新订单。
+CMC_InnKeeper_Commission_ActionDescription,"Pay the Inn Keeper 150 worth (a metal Nugget or a coin) and a hunter he knows brings a Doe Carcass to the Inn two days later. One order at a time, and he takes a new one 7 days after you collect the last. Closed from first snow to thaw; an order placed before the snow is still delivered.",向旅店老板支付价值150的报酬（一块金属矿块或一枚硬币），他认识的一位猎人会在两天后把一具母鹿尸体送到旅店。每次只能有一份订单，取货7天后他才接新订单。从初雪到解冻期间停止接单；下雪前已下的订单仍会送达。
 CMC_Commission_Title,An Order Is Ready,订单已备好
 CMC_Commission_TooLittle,That is not enough for a commission. The fee is 150 worth: a metal Nugget or a coin.,这点钱不够委托。费用为价值150：一块金属矿块或一枚硬币。
 CMC_Commission_Ready_Miller,Your order is ready: ten Wheat Flour are waiting in the Miller's cottage.,你的订单已备好：十份小麦粉正放在磨坊主的小屋里等你。
@@ -3125,8 +3125,8 @@ CMC_SeasonSummer_StatName,Village Market Day Held This Summer,本夏已举行村
 CMC_SeasonSummer_StatDescription,"Hidden latch: set to 1 by VillageSeasonsPatch after it has started this summer's market day, cleared when the season changes. Clamped 0..1.",隐藏标记：脚本开始本夏的集市日之后设为1，季节更替时清零。范围0到1。
 CMC_SeasonAutumn_StatName,Village Provisioning Open This Autumn,本秋村庄备粮已开启
 CMC_SeasonAutumn_StatDescription,"Hidden latch: set to 1 by VillageSeasonsPatch after it has made this autumn's provisioning offer, cleared when the season changes. The Inn Counter accepts the dried food only while it reads 1. Clamped 0..1.",隐藏标记：脚本发出本秋的备粮请求之后设为1，季节更替时清零。只有它为1时，旅店柜台才接收干粮。范围0到1。
-CMC_SeasonWinter_StatName,Village Snowed-In Supper Called This Winter,本冬已召集大雪封路晚餐
-CMC_SeasonWinter_StatDescription,"Hidden latch: set to 1 by VillageSeasonsPatch after it has called this winter's snowed-in supper, cleared when the season changes. Clamped 0..1.",隐藏标记：脚本召集本冬的大雪封路晚餐之后设为1，季节更替时清零。范围0到1。
+CMC_SeasonWinter_StatName,Village Winter,村庄冬季
+CMC_SeasonWinter_StatDescription,"Hidden flag: 1 for the whole of winter, set by VillageSeasonsPatch when winter arrives and cleared when the season changes (it also marks that this winter's snowed-in supper was called). The Inn pantry, the Inn Counter's Purchase Meal and the three commissions are closed while it is 1. Clamped 0..1.",隐藏标记：冬季到来时由脚本设为1，整个冬天保持为1，季节更替时清零（同时记录本冬已召集大雪封路晚餐）。为1期间，旅店储藏室、旅店柜台的购买餐食和三项委托均关闭。范围0到1。
 CMC_MarketDay_StatName,Village Market Day,村庄集市日
 CMC_MarketDay_StatDescription,"Hidden day-long trade modifier: set to 96 by VillageSeasonsPatch on the first day of summer and drained by 1 a tick, about a day. While it reads 1 or more the five residents take a small discount off the price you pay (a tunable placeholder, kept smaller than the Wanted markup). Clamped 0..96.",隐藏的全天交易修正：夏季第一天由脚本设为96，每刻减1，约一天耗尽。读数不小于1时，五位村民会在你购买时小幅降价（数值为待调整的占位值，始终小于通缉加价）。范围0到96。
 CMC_ProvisionState_StatName,Autumn Provisioning Marker,秋季备粮标记
@@ -3449,6 +3449,11 @@ CMC_Bp_LimewaterTrough_UnlockConditionsDesc,No requirement,无要求
 CMC_ShadowCatPresent_StatName,Shadow Is Here,影子在此
 CMC_ShadowCatPresent_StatDescription,"Hidden tracker: 1 = a Shadow (wild, tamed or out hunting) exists somewhere in this run, so no second one turns up; 0 = none, or he slipped into the dark. Clamped to 0..1.",隐藏追踪：1 = 本局中某处已有一只影子（野生、已驯服或外出打猎），所以不会再出现第二只；0 = 没有，或他已溜进黑暗。范围限制在0到1。
 CMC_FishingNet_NoLuck,No luck...,一无所获……
+CMC_FishingNet_IceNoLuck,Nothing under the ice...,冰下什么也没有……
+CMC_FishingNet_DA_CastIce,Cast Net Through the Ice,从冰窟擒网
+CMC_FishingNet_DA_CastIce_Description,"Lower the net through the ice hole. In a hard frost the twine stiffens and the net wears twice as fast.",把网从冰窟放下去。严寒中麻绳变硬，渔网的磨损加倍。
+CMC_FishingNet_DA_CastIceThaw,Cast Net Through the Ice,从冰窟擒网
+CMC_FishingNet_DA_CastIceThaw_Description,Lower the net through the ice hole and haul it back.,把网从冰窟放下去，再拉回来。
 CMC_InnCounter_DA_Work_Desc,"Four hours of chores around the Inn (Energy -20, Stamina -15) for 2 Salt. One paid shift a day.",在旅店里干四小时杂活（精力 -20，体力 -15），报酬为2份盐。每天只有一班有报酬。
 CMC_InnCounter_DA_Service,Community Service,社区服务
 CMC_InnCounter_DA_Service_Desc,"Four hours of unpaid work for the village (Energy -20, Stamina -15). Pays nothing, but takes 6 off your Village Crime. Only while you have a record; no daily limit.",为村庄做四小时无偿劳动（精力 -20，体力 -15）。没有报酬，但会让你的村庄犯罪值降低6。仅在你有案底时可用；没有每日次数限制。
@@ -3459,3 +3464,233 @@ CMC_InnGlow_Status_Description,Good company still warms you: you are more comfor
 CMC_Commission_NotYet,Not yet. Come back a few days after you collect your last order.,还不行。取走上一份订单几天之后再来吧。
 CMC_Commission_FirstWeek,Not this week. Settle in first: commissions open once you have spent a week in the village.,这周不行。先安顿下来吧：在村里待满一周后才接受委托。
 CMC_Commission_Deposit,Put toward your cloth: {0} of {1} paid.,已计入你的布料费用：已付 {0} / {1}。
+CMC_JailCave_CardName,Skylit Cave,天窗洞穴
+CMC_JailLedge_CardName,The Ledge,岩架
+CMC_JailCaveLocation_CardName,Skylit Cave,天窗洞穴
+CMC_JailCaveLocation_CardDescription,"Pale daylight falls through a gap in the roof far above and lands on a tree growing out of the rubble. The air is cool, damp and still. Behind you a crawl leads back to the cell, for as long as the Watch does not find your bed empty at a headcount (06:00 and 21:00) and fill it in from above.",一缕微光从高处的洞顶缝隙洒落，照在从碎石中长出的一棵树上。空气凉爽、潮湿而静止。身后有一条爬行通道，通回牢房；但若巡逻队点名（06:00 和 21:00）时发现你的床铺空着，就会从上方把它填上。
+CMC_JailCaveLocation_DA_CrawlBack,Crawl back to the cell,爬回牢房
+CMC_JailCaveLocation_DA_CrawlBack_Desc,Squeeze back down the dug tunnel to your cell.,沿着挖出的隧道挤回你的牢房。
+CMC_JailCaveLocation_DA_CrawlBack_Fade,You crawl back through the tunnel...,你沿隧道爬了回去……
+CMC_JailHeadcountLast_StatName,Jail Headcount Record,监狱点名记录
+CMC_JailHeadcountLast_StatDescription,Hidden record: the last Watch headcount that was counted.,隐藏记录：巡逻队上一次已清点的点名。
+CMC_JailFillPending_StatName,Cell Tunnel Bricked Up,牢房隧道已封堵
+CMC_JailFillPending_StatDescription,Hidden marker: the Watch found the cell empty and is filling the tunnel from above.,隐藏标记：巡逻队发现牢房无人，正从上方填堵隧道。
+CMC_JailCaveLocation_DA_CrawlBackBlocked,The crawl back is bricked up,回去的通道已被封堵
+CMC_JailCaveLocation_DA_CrawlBackBlocked_Desc,"The Watch found your bed empty at a headcount and filled the hole from above. There is no way back to the cell now: the only way out is forward, up the ladder and through the collapsed tunnel on the ledge.",巡逻队点名时发现你的床铺空着，从上方把洞填上了。现在已无法回到牢房：唯一的出路是向前，爬上梯子，穿过岩架上的塌陷隧道。
+CMC_JailLedgeLocation_CardName,The Ledge,岩架
+CMC_JailLedgeLocation_CardDescription,"A narrow shelf of rock beside a fallen tunnel. No daylight reaches this deep, and the dark presses close.",一道紧贴塌陷隧道的狭窄岩架。这么深的地方照不进日光，黑暗紧紧压在身边。
+CMC_JailLedgeLocation_DA_ClimbDown,Climb down,爬下去
+CMC_JailLedgeLocation_DA_ClimbDown_Desc,Climb the branch ladder back down to the cave.,顺着树枝梯子爬回洞穴。
+CMC_JailLedgeLocation_DA_ClimbDown_Fade,You climb back down to the cave...,你爬回了洞穴……
+CMC_JailLedgeDarkness_CardName,Ledge Darkness,岩架黑暗
+CMC_JailLedgeDarkness_CardDescription,No daylight reaches this deep. Bring a lit torch or candle to work here.,这么深的地方照不进日光。带上点燃的火把或蜡烛才能干活。
+CMC_JailCaveTree_DA_StripBark,Strip bark,剥树皮
+CMC_JailCaveTree_DA_StripBark_Desc,Peel long strips of alder bark from the trunk. They make a tough lashing.,从树干上剥下长条桤木树皮，可用作结实的捆扎绳。
+CMC_JailCaveTree_CI_PitchTorch,Make a pitch torch,制作松脂火把
+CMC_JailCaveTree_CI_PitchTorch_Desc,Wrap a branch end in the pitch that seeps from the trunk. Needs daylight or other strong light to find the pitch by. Light the torch at a fire.,把树枝一端裹上树干渗出的松脂。需要日光或其他强光才能找到松脂。在火边点燃火把。
+CMC_JailCaveTree_CardName,Skylight Tree,天窗之树
+CMC_JailCaveTree_CardDescription,"A stunted tree has taken root in the rubble beneath the gap in the roof. Thin bark hangs from its trunk in long strips, and beads of pitch seep from the cuts.",一棵矮小的树在洞顶缝隙下的碎石中扎了根，细长的树皮一条条从树干上垂下，切口处渗出松脂珠。
+CMC_JailCaveBranches_UD_Name,Branches left,剩余枝条
+CMC_JailCaveBranches_DA_Gather,Gather branches,拾取枝条
+CMC_JailCaveBranches_DA_Gather_Desc,"Sort through the fallen branches for wood, long sticks and twigs. The pile grows back a little each day.",在落枝中翻找木材、长树枝和细枝。枝堆每天都会长回一些。
+CMC_JailCaveBranches_DA_Gather_Empty,The heap is picked clean. More will fall in time.,枝堆已被捡光。过些时候还会掉落新的。
+CMC_JailCaveBranches_CardName,Fallen Branches,落枝
+CMC_JailCaveBranches_CardDescription,Branches that have fallen from the tree lie in a heap against the rock. The tree sheds more every day.,从树上掉落的枝条堆在岩壁边。那棵树每天都会再落下一些。
+CMC_JailCaveDripPool_CI_Fill,Fill container,装水
+CMC_JailCaveDripPool_CI_Fill_Desc,Fill an empty container from the pool.,用空容器从水潭里装水。
+CMC_JailCaveDripPool_DA_Drink,Drink,饮水
+CMC_JailCaveDripPool_DA_Drink_Desc,Cup your hands and drink from the pool.,用双手捧水喝。
+CMC_JailCaveDripPool_CardName,Drip Pool,滴水潭
+CMC_JailCaveDripPool_CardDescription,"Water seeps down the rock and gathers in a shallow basin, one slow drop at a time. It is cold and clean.",水沿着岩石渗下，一滴一滴汇进浅浅的石盆。水冰凉而清澈。
+CMC_JailCaveRubble_UD_Name,Rubble left,剩余碎石
+CMC_JailCaveRubble_DA_Pick,Pick through the rubble,翻找碎石
+CMC_JailCaveRubble_DA_Pick_Desc,Dig stones loose from the rubble. There is only so much.,把石头从碎石堆里抠出来。数量有限。
+CMC_JailCaveRubble_DA_Pick_Empty,Nothing useful is left in the rubble.,碎石堆里已经没有可用的东西了。
+CMC_JailCaveRubble_DA_Sharp,Pick out a sharp stone,挑出石刀
+CMC_JailCaveRubble_DA_Sharp_Desc,Search the broken rock for a stone with a keen edge. It is sharp enough to work twigs into a hand drill.,在碎石中找出一块边缘锋利的石头。它足够锋利，能把树枝做成手钻。
+CMC_JailCaveRubble_CardName,Loose Rubble,松散碎石
+CMC_JailCaveRubble_CardDescription,"A slope of broken rock, fallen from the roof long ago. Some of it is loose enough to pick out by hand.",一堆很久以前从洞顶塌落的碎石。有些松动得足以徒手拣出。
+CMC_JailCaveRockWall_CardName,Rock Wall,岩壁
+CMC_JailCaveRockWall_CardDescription,"A sheer, wet wall of rock rises to a ledge far above. There is no way up without a ladder.",一面湿滑陡峭的岩壁直通高处的岩架。没有梯子就上不去。
+CMC_Imp_JailBranchLadder_CardName,Branch Ladder,树枝梯
+CMC_Imp_JailBranchLadder_CardDescription,"A ladder of long sticks and branch rungs, lashed with bark strips, leaning against the rock wall. Built here, it lets you climb to the ledge above.",由长木棍和树枝横档制成的梯子，用树皮条捆扎，倚在岩壁上。在此建成后，便能攀上上方的岩台。
+CMC_JailCaveRockWall_DA_Climb,Climb to the ledge,爬上岩台
+CMC_JailCaveRockWall_DA_Climb_Desc,Climb the branch ladder to the ledge above.,沿树枝梯爬上上方的岩台。
+CMC_JailCaveRockWall_DA_Climb_Fade,You climb the branch ladder...,你沿着树枝梯往上爬……
+CMC_JailLedgeCollapsedTunnel_DA_Clear,Clear rubble,清理碎石
+CMC_JailLedgeCollapsedTunnel_DA_Clear_Desc,"Haul rubble clear of the fall. Needs light to see by, strength to lift, and a prop in place so the roof holds. Each haul uses up one prop.",把塌落的碎石搬开。需要光亮才能看清，需要力气才能搬动，还要先撑好支柱，免得顶板再塌。每搬一次会用掉一根支柱。
+CMC_JailLedgeCollapsedTunnel_DA_Clear_NoShoring,The roof groans. Shore it up with wood or a long stick before you move any more rubble.,顶板吱嘎作响。再搬碎石之前，先用木材或长棍把它撑住。
+CMC_JailLedgeCollapsedTunnel_CardName,Collapsed Tunnel,塌陷的隧道
+CMC_JailLedgeCollapsedTunnel_CardDescription,"A fall of rock has choked the old tunnel. Somewhere beyond it the air smells of open ground. Prop the roof, then clear the rubble, load by load, in the light of a fire or a torch.",一场塌方堵死了旧隧道。碎石的另一头隐约有野外空气的气味。先把顶板撑住，再借着火光或火把，一筐一筐地清理碎石。
+CMC_JailLedgeCollapsedTunnel_Progress_Name,Rubble cleared,已清理碎石
+CMC_JailLedgeCollapsedTunnel_Shoring_Name,Shoring,支撑
+CMC_JailLedgeCollapsedTunnel_CI_ShoreUp,Shore up,加固
+CMC_JailLedgeCollapsedTunnel_CI_ShoreUp_Desc,Wedge wood against the roof to hold it. Adds 2 shoring.,把木材楔在顶板下撑住。增加2点支撑。
+CMC_JailLedgeCollapsedTunnel_CI_ShoreUp_Full,The roof is already propped as well as it can be.,顶板已经撑得足够牢了。
+CMC_JailLedgeCollapsedTunnel_CI_SetProp,Set a prop,立起支柱
+CMC_JailLedgeCollapsedTunnel_CI_SetProp_Desc,Brace the roof with a long stick as a prop. Adds 4 shoring.,用长棍当支柱顶住顶板。增加4点支撑。
+CMC_JailLedgeCollapsedTunnel_CI_SetProp_Full,There is not room for another prop yet. Use some of the shoring first.,现在放不下更多支柱了。先用掉一些支撑再说。
+CMC_JailLedgeClearedPassage_DA_Crawl,Crawl out,爬出去
+CMC_JailLedgeClearedPassage_DA_Crawl_Desc,"Squeeze through the cleared passage and come up outside the walls. Your sentence is cut short, and the village will remember the escape.",挤过清理出来的通道，从围墙外钻出来。刑期会缩短，但村子会记住这次越狱。
+CMC_JailLedgeClearedPassage_DA_Crawl_Fade,"You squeeze through the dark, dirt in your teeth, and come up outside the walls...",你在黑暗中挤过狭窄的通道，满嘴泥土，从围墙外钻了出来……
+CMC_JailLedgeClearedPassage_CardName,Cleared Passage,畅通的通道
+CMC_JailLedgeClearedPassage_CardDescription,The rubble is cleared and a narrow way runs on into the dark. Cool air moves through it from outside.,碎石已经清开，一条狭窄的通道通向黑暗深处。外面的凉风从里面吹来。
+CMC_JailCaveBranches_DA_Moss,Pick out dry moss,拾取干苔藓
+CMC_JailCaveBranches_DA_Moss_Desc,Pull the dry moss that clings to the sheltered side of the heap. It takes a spark from a hand drill.,揪下附在枝堆背风面的干苔藓。它能被手钻的火星点燃。
+CMC_Miller_Chore_GiveLogs_ActionName,Hire Log Splitting: Hand Over a Log,雇人劈柴：交出一块原木
+CMC_Miller_Chore_GiveLogs_ActionDescription,"Hand the Miller a Log Piece to split. Give him four, then pay 2 Salt: he splits them into twelve Firewood (three each, the same as you would) and has them waiting in his cottage the next day. One chore at a time. The Firewood comes back at the lowest Quality of the logs you handed over.",把一块原木块交给磨坊主去劈。给他四块，再付2份盐：他会像你自己劈一样，把它们劈成十二块柴火（每块三块），第二天放在他的小屋里等你。每次只做一件活。柴火的品质取你交出的原木中最低的一块。
+CMC_Miller_Chore_PaySalt_ActionName,Hire Log Splitting: Pay a Salt,雇人劈柴：付一份盐
+CMC_Miller_Chore_PaySalt_ActionDescription,"Pay the Miller a Salt toward splitting your four logs. Two Salt starts the chore, and he has the Firewood ready in his cottage the next day. Open in winter too: he mints nothing, he only does the splitting.",向磨坊主支付一份盐，作为劈你那四块原木的报酬。付满2份盐活就开工，第二天柴火就在他的小屋里。冬天也照常接活：他不凭空造物，只是替你劈柴。
+CMC_Chore_Ready_Firewood,Your logs are split: twelve Firewood are waiting in the Miller's cottage.,你的原木已经劈好：十二块柴火正放在磨坊主的小屋里等你。
+CMC_MillerChore_StatName,Miller's Chore,磨坊主的杂活
+CMC_MillerChore_StatDescription,"Hidden marker: 1 while the Miller has your logs and is splitting them, 0 once the Firewood is handed back. Clamped 0 to 1, so it can never count up past the range that hides the chore buttons.",隐藏标记：磨坊主替你劈柴期间为1，柴火交还后为0。范围限定在0到1。
+CMC_MillerChoreDue_StatName,Miller's Chore Due Day,磨坊主杂活到期日
+CMC_MillerChoreDue_StatDescription,Hidden tracker: 0 = no chore. 1 or more = the absolute day the Firewood is ready; it is handed back when you next stand in the Miller's cottage on or after that day.,隐藏记录：0表示没有活。1或更大表示柴火备好的具体日期；你在当日或之后站在磨坊主的小屋里时交还。
+CMC_MillerChoreLogs_StatName,Miller's Chore Logs,磨坊主杂活的原木数
+CMC_MillerChoreLogs_StatDescription,Hidden clamped count (0 to 4) of Log Pieces handed to the Miller for the next chore. The log button hides at 4.,隐藏计数（0到4）：已交给磨坊主的原木块数量。
+CMC_MillerChoreFee_StatName,Miller's Chore Fee,磨坊主杂活的报酬
+CMC_MillerChoreFee_StatDescription,Hidden clamped count (0 to 2) of Salt paid toward the next chore. The chore starts when it reaches 2.,隐藏计数（0到2）：已为下一件杂活付的盐。达到2时开工。
+CMC_MillerChoreQuality_StatName,Miller's Chore Quality,磨坊主杂活的品质
+CMC_MillerChoreQuality_StatDescription,"Hidden clamped value (0 to 96): the lowest Quality among the logs handed over, which the Firewood is handed back at.",隐藏数值（0到96）：交出的原木中最低的品质，柴火按此品质交还。
+CMC_MillerChoreWoodId_StatName,Miller's Chore Wood ID,磨坊主杂活的木材编号
+CMC_MillerChoreWoodId_StatDescription,"Hidden clamped value (0 to 10000): the wood ID of the first log handed over, copied onto the Firewood.",隐藏数值（0到10000）：第一块原木的木材编号，复制到柴火上。
+CMC_AcademyTaughtArchitecture_StatName,Architecture course skill taught,建筑学课程已教授技能
+CMC_AcademyTaughtArchitecture_StatDescription,"Hidden counter: the Crafting points the Architecture course has taught so far, +3 a session. Never drains. Clamped to 0..15, so the course stops teaching at 15.",隐藏计数：建筑学课程至今教给你的制作点数，每节课+3，永不消退。范围限制在0到15，因此该课程教到15为止。
+CMC_AcademyTaughtMetallurgy_StatName,Metallurgy course skill taught,冶金学课程已教授技能
+CMC_AcademyTaughtMetallurgy_StatDescription,"Hidden counter: the Smithing points the Metallurgy course has taught so far, +3 a session. Never drains. Clamped to 0..15, so the course stops teaching at 15.",隐藏计数：冶金学课程至今教给你的金工点数，每节课+3，永不消退。范围限制在0到15，因此该课程教到15为止。
+CMC_AcademyTaughtHerbalism_StatName,Herbalism course skill taught,药草学课程已教授技能
+CMC_AcademyTaughtHerbalism_StatDescription,"Hidden counter: the Herbalism points the Herbalism course has taught so far, +3 a session. Never drains. Clamped to 0..15, so the course stops teaching at 15.",隐藏计数：药草学课程至今教给你的药草学点数，每节课+3，永不消退。范围限制在0到15，因此该课程教到15为止。
+CMC_AcademyTaughtFishing_StatName,Fishing course skill taught,钓鱼课程已教授技能
+CMC_AcademyTaughtFishing_StatDescription,"Hidden counter: the Fishing points the Fishing course has taught so far, +3 a session. Never drains. Clamped to 0..15, so the course stops teaching at 15.",隐藏计数：钓鱼课程至今教给你的钓鱼点数，每节课+3，永不消退。范围限制在0到15，因此该课程教到15为止。
+CMC_AcademyTaughtArmorer_StatName,Armorer course skill taught,铸甲课程已教授技能
+CMC_AcademyTaughtArmorer_StatDescription,"Hidden counter: the Metalworking points the Armorer course has taught so far, +3 a session. Never drains. Clamped to 0..15, so the course stops teaching at 15.",隐藏计数：铸甲课程至今教给你的金工点数，每节课+3，永不消退。范围限制在0到15，因此该课程教到15为止。
+CMC_AcademyTaughtMedicine_StatName,Medicine course skill taught,医学课程已教授技能
+CMC_AcademyTaughtMedicine_StatDescription,"Hidden counter: the Herbalism points the Medicine course has taught so far, +3 a session. Never drains. Clamped to 0..15, so the course stops teaching at 15.",隐藏计数：医学课程至今教给你的药草学点数，每节课+3，永不消退。范围限制在0到15，因此该课程教到15为止。
+CMC_AcademyTaughtCarpentry_StatName,Carpentry course skill taught,木工课程已教授技能
+CMC_AcademyTaughtCarpentry_StatDescription,"Hidden counter: the Woodworking points the Carpentry course has taught so far, +3 a session. Never drains. Clamped to 0..15, so the course stops teaching at 15.",隐藏计数：木工课程至今教给你的木工点数，每节课+3，永不消退。范围限制在0到15，因此该课程教到15为止。
+CMC_Sterling_Escort_Hire_ActionName,Hire an Escort: Pay a Salt,雇护送：付一份盐
+CMC_Sterling_Escort_Hire_ActionDescription,"Pay the Watch a Salt and a guard sees you across the hunting grounds for about six hours: Hunter's Crossing, Pine Trail, Highland Pines and Stillwater Meadow turn predators back while it lasts. It ends when you walk back into the village. One escort at a time. Offered only while the Captain has no suspicion of you beyond his usual; while he suspects you, a Salt is a bribe instead.",向巡逻队付一份盐，就有一名卫兵护送你穿过狩猎地约六个小时：期间猎人岔口、松林小径、高地松林和静水草甸都会挡回猛兽。你走回村子时护送即告结束。同一时间只能有一次护送。只有当队长对你的疑心不超过平日时才会提供；他怀疑你时，一份盐就成了贿赂。
+CMC_GuardBribe_SterlingSalt_ActionName,Slip a Bribe: a Salt,暗中行贿：一份盐
+CMC_GuardBribe_SterlingSalt_ActionDescription,"Press a Salt into the Captain's hand. Offered only while he suspects you more than usual: his suspicion eases, though never below what he carries on a quiet day, and it does nothing about your crime. While he does not suspect you, a Salt hires an escort instead.",往队长手里塞一份盐。只有当他对你的疑心高于平日时才会提供：他的疑心会减轻，但不会低于他平日的警惕程度，也无法消除你的罪行。他不怀疑你时，一份盐就用来雇护送。
+CMC_GuardBribe_SterlingNugget_ActionName,Slip a Bribe,暗中行贿
+CMC_GuardBribe_SterlingNugget_ActionDescription,"Press a metal nugget into the Captain's hand. His suspicion of you eases, though never below what he carries on a quiet day, and it does nothing about your crime.",往队长手里塞一块金属块。他对你的疑心会减轻，但不会低于他平日的警惕程度，也无法消除你的罪行。
+CMC_OutskirtsEscort_StatName,Town Watch Escort,巡逻队护送
+CMC_OutskirtsEscort_StatDescription,"Hidden countdown (0 to 24 ticks, about six hours) after paying the Town Watch for an escort. While it is above 0 and you stand on Hunter's Crossing, Pine Trail, Highland Pines or Stillwater Meadow, predators are turned back. It wears off by itself, and clears when you walk back into the village.",隐藏倒计时（0到24刻，约六小时）：向巡逻队付费雇护送后开始。高于0且你身处猎人岔口、松林小径、高地松林或静水草甸时，猛兽会被挡回。它会自行消退，走回村子时清零。
+CMC_MillerAmendsArmed_StatName,Miller Amends Errand State,磨坊主赔礼差事状态
+CMC_MillerAmendsArmed_StatDescription,"Hidden clamped marker for the Miller's amends errand: 1 = ready for an offer, 0 = accepted and under way, 0.5 = the item is handed over and waiting for the thanks. Never a counter: the thanks line (or giving the errand up) puts it back to 1, and nothing else writes it.",隐藏的钳制标记，用于磨坊主的赔礼差事：1 = 可以提出，0 = 已接下并在进行，0.5 = 物品已交出、等待对方道谢。不是计数器：道谢台词（或放弃差事）会把它拨回 1，没有其他东西会写入它。
+CMC_MillerAmendsDebt_StatName,Miller Amends Debt,磨坊主赔礼亏欠
+CMC_MillerAmendsDebt_StatDescription,Hidden: how much of the Miller's Trust a caught theft from the chest still holds against you (0 to 40). Written by code only; amends errands pay it down.,隐藏：因被抓到的偷窃，磨坊主仍对你扣着多少信任（0 到 40）。只由代码写入；赔礼差事会逐步还清。
+CMC_MillerAmendsCeiling_StatName,Miller Amends Ceiling,磨坊主赔礼上限
+CMC_MillerAmendsCeiling_StatDescription,Hidden: the Miller's Trust just before the first unrepaid caught theft. Amends never lift Trust above it. Written by code only.,隐藏：第一次未补偿的被抓偷窃之前，磨坊主对你的信任值。赔礼永远不会把信任抬到它之上。只由代码写入。
+CMC_MillerAmendsPaid_StatName,Miller Amends Paid,磨坊主赔礼已完成
+CMC_MillerAmendsPaid_StatDescription,Hidden clamped flag: 1 = an amends errand was thanked and a Trust restore is owed. The thanks line raises it; code restores the Trust and clears it.,隐藏的钳制标记：1 = 一次赔礼差事已被道谢，应当恢复信任。道谢台词把它升到 1；代码恢复信任后将其清零。
+CMC_MillerAmendsCooldown_StatName,Miller Amends Cooldown,磨坊主赔礼冷却
+CMC_MillerAmendsCooldown_StatDescription,"Hidden cooldown: raised to 96 when a theft is caught and to 288 when an amends errand is thanked, drains 1 per tick (96 ticks is a day). The amends offer is shown only at 0.",隐藏的冷却：被抓到偷窃时升到 96，赔礼差事被道谢时升到 288，每刻减 1（96 刻为一天）。只有为 0 时才会提出赔礼。
+CMC_MillerTalk_AmendsOffer_Line,"The chest. Aye. I would as soon not count what is gone, and you needn't tell me. But the mill-house fire runs low and the nights are long. Bring me some firewood and we'll call it a start at settling up.",那只箱子啊。唉，我不想去数丢了什么，你也不必告诉我。不过磨坊的炉火快没柴了，夜又长。给我带些柴火来，就算开个头，把账慢慢还上。
+CMC_MillerTalk_AmendsOffer_Answer_Accept,I'll bring the firewood.,我会把柴火送来。
+CMC_MillerTalk_AmendsOffer_Answer_Decline,Not today.,今天不行。
+CMC_MillerTalk_AmendsOpener_Line,Before you ask after the flour: that business with my chest. I would sooner have it out between us than let it sit.,先别问面粉的事：我那只箱子的事。我宁愿和你把话说开，也不想让它一直搁着。
+CMC_MillerTalk_AmendsOpener_Answer_GoOn,I'm listening.,我在听。
+CMC_MillerTalk_AmendsOpener_Answer_NotNow,Another day.,改天吧。
+CMC_MillerTalk_AmendsThanks_Line,"That will keep the mill-house fire in till morning. It doesn't undo the chest, but it counts. I'll think a little better of you for it.",这些够磨坊的炉火烧到天亮了。箱子的事抹不掉，但这份心意我记下了。我对你的看法会好一点。
+CMC_MillerTalk_AmendsThanks_Answer_Thanks,It's the least I can do.,这是我该做的。
+CMC_MillerTalk_Start_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_MillerTalk_Start_Answer_AmendsGiveUp,I can't find the firewood after all.,我还是没找到柴火。
+CMC_MillerTalk_CrimeWanted_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_MillerTalk_CrimeWanted_Answer_AmendsGiveUp,I can't find the firewood after all.,我还是没找到柴火。
+CMC_Miller_Amends_ActionName,Make Amends: Firewood,赔礼：柴火
+CMC_Miller_Amends_ActionDescription,"Hand over firewood for the Miller's mill-house fire, as he asked when you spoke about the chest. Carrying and stacking it takes about two hours. Talk to him again for his thanks; the Trust comes back after that.",把柴火交给磨坊主，烧磨坊的炉火，这是你们谈起箱子时他提的。搬运和码放要花大约两小时。再和他交谈，他会道谢，信任随后回升。
+CMC_WeaverAmendsArmed_StatName,Weaver Amends Errand State,织工赔礼差事状态
+CMC_WeaverAmendsArmed_StatDescription,"Hidden clamped marker for the Weaver's amends errand: 1 = ready for an offer, 0 = accepted and under way, 0.5 = the item is handed over and waiting for the thanks. Never a counter: the thanks line (or giving the errand up) puts it back to 1, and nothing else writes it.",隐藏的钳制标记，用于织工的赔礼差事：1 = 可以提出，0 = 已接下并在进行，0.5 = 物品已交出、等待对方道谢。不是计数器：道谢台词（或放弃差事）会把它拨回 1，没有其他东西会写入它。
+CMC_WeaverAmendsDebt_StatName,Weaver Amends Debt,织工赔礼亏欠
+CMC_WeaverAmendsDebt_StatDescription,Hidden: how much of the Weaver's Trust a caught theft from the chest still holds against you (0 to 40). Written by code only; amends errands pay it down.,隐藏：因被抓到的偷窃，织工仍对你扣着多少信任（0 到 40）。只由代码写入；赔礼差事会逐步还清。
+CMC_WeaverAmendsCeiling_StatName,Weaver Amends Ceiling,织工赔礼上限
+CMC_WeaverAmendsCeiling_StatDescription,Hidden: the Weaver's Trust just before the first unrepaid caught theft. Amends never lift Trust above it. Written by code only.,隐藏：第一次未补偿的被抓偷窃之前，织工对你的信任值。赔礼永远不会把信任抬到它之上。只由代码写入。
+CMC_WeaverAmendsPaid_StatName,Weaver Amends Paid,织工赔礼已完成
+CMC_WeaverAmendsPaid_StatDescription,Hidden clamped flag: 1 = an amends errand was thanked and a Trust restore is owed. The thanks line raises it; code restores the Trust and clears it.,隐藏的钳制标记：1 = 一次赔礼差事已被道谢，应当恢复信任。道谢台词把它升到 1；代码恢复信任后将其清零。
+CMC_WeaverAmendsCooldown_StatName,Weaver Amends Cooldown,织工赔礼冷却
+CMC_WeaverAmendsCooldown_StatDescription,"Hidden cooldown: raised to 96 when a theft is caught and to 288 when an amends errand is thanked, drains 1 per tick (96 ticks is a day). The amends offer is shown only at 0.",隐藏的冷却：被抓到偷窃时升到 96，赔礼差事被道谢时升到 288，每刻减 1（96 刻为一天）。只有为 0 时才会提出赔礼。
+CMC_WeaverTalk_AmendsOffer_Line,"Oh, the chest. I would rather not dwell on it, truly. But the loom is short of twine for the warp ends, and a hank or two would mend more between us than any speech. Would you?",哦，那只箱子。我真不想再提它了。不过织机上缺系经线头的麻线，拿来一两束，比说什么话都管用。你愿意吗？
+CMC_WeaverTalk_AmendsOffer_Answer_Accept,I'll bring some twine.,我会带些麻线来。
+CMC_WeaverTalk_AmendsOffer_Answer_Decline,Not today.,今天不行。
+CMC_WeaverTalk_AmendsOpener_Line,"A moment, before anything else. My chest. I would rather we talked about it than pretended it never happened.",先等一下，别的事稍后再说。我那只箱子。我宁愿我们谈一谈，也不想装作什么都没发生。
+CMC_WeaverTalk_AmendsOpener_Answer_GoOn,I'm listening.,我在听。
+CMC_WeaverTalk_AmendsOpener_Answer_NotNow,Another day.,改天吧。
+CMC_WeaverTalk_AmendsThanks_Line,There. That will hold the warp ends till spring. I do feel easier with you in the house again.,好了，这够系住经线头到开春了。你又能进我家的门，我心里踏实多了。
+CMC_WeaverTalk_AmendsThanks_Answer_Thanks,Glad to make it right.,很高兴能弥补。
+CMC_WeaverTalk_Start_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_WeaverTalk_Start_Answer_AmendsGiveUp,I can't find any twine after all.,我还是没找到麻线。
+CMC_WeaverTalk_CrimeWanted_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_WeaverTalk_CrimeWanted_Answer_AmendsGiveUp,I can't find any twine after all.,我还是没找到麻线。
+CMC_Weaver_Amends_ActionName,Make Amends: Twine,赔礼：麻线
+CMC_Weaver_Amends_ActionDescription,"Hand over twine for the Weaver's loom, as asked when you spoke about the chest. Fetching and sorting it takes about two hours. Talk to the Weaver again for the thanks; the Trust comes back after that.",把麻线交给织工，用在她的织机上，这是你们谈起箱子时提的。取线和整理要花大约两小时。再和织工交谈，对方会道谢，信任随后回升。
+CMC_ApothecaryAmendsArmed_StatName,Apothecary Amends Errand State,药剂师赔礼差事状态
+CMC_ApothecaryAmendsArmed_StatDescription,"Hidden clamped marker for the Apothecary's amends errand: 1 = ready for an offer, 0 = accepted and under way, 0.5 = the item is handed over and waiting for the thanks. Never a counter: the thanks line (or giving the errand up) puts it back to 1, and nothing else writes it.",隐藏的钳制标记，用于药剂师的赔礼差事：1 = 可以提出，0 = 已接下并在进行，0.5 = 物品已交出、等待对方道谢。不是计数器：道谢台词（或放弃差事）会把它拨回 1，没有其他东西会写入它。
+CMC_ApothecaryAmendsDebt_StatName,Apothecary Amends Debt,药剂师赔礼亏欠
+CMC_ApothecaryAmendsDebt_StatDescription,Hidden: how much of the Apothecary's Trust a caught theft from the chest still holds against you (0 to 40). Written by code only; amends errands pay it down.,隐藏：因被抓到的偷窃，药剂师仍对你扣着多少信任（0 到 40）。只由代码写入；赔礼差事会逐步还清。
+CMC_ApothecaryAmendsCeiling_StatName,Apothecary Amends Ceiling,药剂师赔礼上限
+CMC_ApothecaryAmendsCeiling_StatDescription,Hidden: the Apothecary's Trust just before the first unrepaid caught theft. Amends never lift Trust above it. Written by code only.,隐藏：第一次未补偿的被抓偷窃之前，药剂师对你的信任值。赔礼永远不会把信任抬到它之上。只由代码写入。
+CMC_ApothecaryAmendsPaid_StatName,Apothecary Amends Paid,药剂师赔礼已完成
+CMC_ApothecaryAmendsPaid_StatDescription,Hidden clamped flag: 1 = an amends errand was thanked and a Trust restore is owed. The thanks line raises it; code restores the Trust and clears it.,隐藏的钳制标记：1 = 一次赔礼差事已被道谢，应当恢复信任。道谢台词把它升到 1；代码恢复信任后将其清零。
+CMC_ApothecaryAmendsCooldown_StatName,Apothecary Amends Cooldown,药剂师赔礼冷却
+CMC_ApothecaryAmendsCooldown_StatDescription,"Hidden cooldown: raised to 96 when a theft is caught and to 288 when an amends errand is thanked, drains 1 per tick (96 ticks is a day). The amends offer is shown only at 0.",隐藏的冷却：被抓到偷窃时升到 96，赔礼差事被道谢时升到 288，每刻减 1（96 刻为一天）。只有为 0 时才会提出赔礼。
+CMC_ApothecaryTalk_AmendsOffer_Line,"The chest. Hm. I keep a long memory for what leaves my racks, but a short one for grudges that are paid down honestly. My salves want wax, and the hives have been stingy. Bring me some and we shall see.",那只箱子。嗯。从我架子上少了什么我记得很牢，但只要诚心补偿，我并不记仇。我的药膏正缺蜡，蜂巢又吝啬。给我带些来，我们再看。
+CMC_ApothecaryTalk_AmendsOffer_Answer_Accept,I'll bring some wax.,我会带些蜡来。
+CMC_ApothecaryTalk_AmendsOffer_Answer_Decline,Not today.,今天不行。
+CMC_ApothecaryTalk_AmendsOpener_Line,"Before we talk shop: my chest. I would like that settled between us, if you are willing.",谈生意之前，先说说我那只箱子。如果你愿意，我想把这件事在我们之间了结。
+CMC_ApothecaryTalk_AmendsOpener_Answer_GoOn,I'm listening.,我在听。
+CMC_ApothecaryTalk_AmendsOpener_Answer_NotNow,Another day.,改天吧。
+CMC_ApothecaryTalk_AmendsThanks_Line,"Good wax, and enough of it. The salves will set properly now. Consider the matter a little lighter between us.",蜡不错，量也够。药膏这下能凝好了。我们之间的事，就算轻了一些。
+CMC_ApothecaryTalk_AmendsThanks_Answer_Thanks,Glad it helps.,能帮上忙就好。
+CMC_ApothecaryTalk_Start_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_ApothecaryTalk_Start_Answer_AmendsGiveUp,I can't find any wax after all.,我还是没找到蜡。
+CMC_ApothecaryTalk_CrimeWanted_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_ApothecaryTalk_CrimeWanted_Answer_AmendsGiveUp,I can't find any wax after all.,我还是没找到蜡。
+CMC_Apothecary_Amends_ActionName,Make Amends: Wax,赔礼：蜡
+CMC_Apothecary_Amends_ActionDescription,"Hand over Wax for the Apothecary's salves, as asked when you spoke about the chest. Fetching and sorting it takes about two hours. Talk to the Apothecary again for the thanks; the Trust comes back after that.",把蜡交给药剂师，用来做药膏，这是你们谈起箱子时提的。取蜡和整理要花大约两小时。再和药剂师交谈，对方会道谢，信任随后回升。
+CMC_InnAmendsArmed_StatName,Inn Keeper Amends Errand State,旅店老板赔礼差事状态
+CMC_InnAmendsArmed_StatDescription,"Hidden clamped marker for the Inn Keeper's amends errand: 1 = ready for an offer, 0 = accepted and under way, 0.5 = the item is handed over and waiting for the thanks. Never a counter: the thanks line (or giving the errand up) puts it back to 1, and nothing else writes it.",隐藏的钳制标记，用于旅店老板的赔礼差事：1 = 可以提出，0 = 已接下并在进行，0.5 = 物品已交出、等待对方道谢。不是计数器：道谢台词（或放弃差事）会把它拨回 1，没有其他东西会写入它。
+CMC_InnAmendsDebt_StatName,Inn Keeper Amends Debt,旅店老板赔礼亏欠
+CMC_InnAmendsDebt_StatDescription,Hidden: how much of the Inn Keeper's Trust a caught theft from the chest still holds against you (0 to 12). Written by code only; amends errands pay it down.,隐藏：因被抓到的偷窃，旅店老板仍对你扣着多少信任（0 到 12）。只由代码写入；赔礼差事会逐步还清。
+CMC_InnAmendsCeiling_StatName,Inn Keeper Amends Ceiling,旅店老板赔礼上限
+CMC_InnAmendsCeiling_StatDescription,Hidden: the Inn Keeper's Trust just before the first unrepaid caught theft. Amends never lift Trust above it. Written by code only.,隐藏：第一次未补偿的被抓偷窃之前，旅店老板对你的信任值。赔礼永远不会把信任抬到它之上。只由代码写入。
+CMC_InnAmendsPaid_StatName,Inn Keeper Amends Paid,旅店老板赔礼已完成
+CMC_InnAmendsPaid_StatDescription,Hidden clamped flag: 1 = an amends errand was thanked and a Trust restore is owed. The thanks line raises it; code restores the Trust and clears it.,隐藏的钳制标记：1 = 一次赔礼差事已被道谢，应当恢复信任。道谢台词把它升到 1；代码恢复信任后将其清零。
+CMC_InnAmendsCooldown_StatName,Inn Keeper Amends Cooldown,旅店老板赔礼冷却
+CMC_InnAmendsCooldown_StatDescription,"Hidden cooldown: raised to 96 when a theft is caught and to 288 when an amends errand is thanked, drains 1 per tick (96 ticks is a day). The amends offer is shown only at 0.",隐藏的冷却：被抓到偷窃时升到 96，赔礼差事被道谢时升到 288，每刻减 1（96 刻为一天）。只有为 0 时才会提出赔礼。
+CMC_InnKeeperTalk_AmendsOffer_Line,"Ah. The chest. I'll not pretend it didn't sting. But a full pantry is a good salve, and mine is looking sparse before the cold. Bring me some dried meat and the good chair might warm up again.",啊，那只箱子。我不会假装没被刺痛。不过储藏室满了，心里就舒坦，而我的储藏室在入冬前显得空落落的。带些肉干来，也许那把好椅子就又暖起来了。
+CMC_InnKeeperTalk_AmendsOffer_Answer_Accept,I'll bring some dried meat.,我会带些肉干来。
+CMC_InnKeeperTalk_AmendsOffer_Answer_Decline,Not today.,今天不行。
+CMC_InnKeeperTalk_AmendsOpener_Line,"Before the stories and the stew: a word about my chest, if you'll have one.",先别忙着讲故事、喝炖菜：关于我那只箱子，我想跟你说句话，你愿意听吗？
+CMC_InnKeeperTalk_AmendsOpener_Answer_GoOn,I'm listening.,我在听。
+CMC_InnKeeperTalk_AmendsOpener_Answer_NotNow,Another day.,改天吧。
+CMC_InnKeeperTalk_AmendsThanks_Line,"That will hang nicely in the pantry. Well now, that's a start. Come sit by the fire, there's room again.",挂在储藏室里正合适。好啦，这算是个开头。过来坐在火边吧，又有你的位子了。
+CMC_InnKeeperTalk_AmendsThanks_Answer_Thanks,Happy to.,乐意之至。
+CMC_InnKeeperTalk_Start_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_InnKeeperTalk_Start_Answer_AmendsGiveUp,I can't find any dried meat after all.,我还是没找到肉干。
+CMC_InnKeeperTalk_CrimeWanted_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_InnKeeperTalk_CrimeWanted_Answer_AmendsGiveUp,I can't find any dried meat after all.,我还是没找到肉干。
+CMC_InnKeeper_Amends_ActionName,Make Amends: Dried Meat,赔礼：肉干
+CMC_InnKeeper_Amends_ActionDescription,"Hand over dried meat for the Inn Keeper's pantry, as asked when you spoke about the chest. Fetching and hanging it takes about two hours. Talk to the Inn Keeper again for the thanks; the Friendship comes back after that.",把肉干交给旅店老板，放进储藏室，这是你们谈起箱子时提的。取肉和悬挂要花大约两小时。再和旅店老板交谈，对方会道谢，友谊值随后回升。
+CMC_ProfAmendsArmed_StatName,Professor Amends Errand State,教授赔礼差事状态
+CMC_ProfAmendsArmed_StatDescription,"Hidden clamped marker for the Professor's amends errand: 1 = ready for an offer, 0 = accepted and under way, 0.5 = the item is handed over and waiting for the thanks. Never a counter: the thanks line (or giving the errand up) puts it back to 1, and nothing else writes it.",隐藏的钳制标记，用于教授的赔礼差事：1 = 可以提出，0 = 已接下并在进行，0.5 = 物品已交出、等待对方道谢。不是计数器：道谢台词（或放弃差事）会把它拨回 1，没有其他东西会写入它。
+CMC_ProfAmendsDebt_StatName,Professor Amends Debt,教授赔礼亏欠
+CMC_ProfAmendsDebt_StatDescription,Hidden: how much of the Professor's Trust a caught theft from the chest still holds against you (0 to 40). Written by code only; amends errands pay it down.,隐藏：因被抓到的偷窃，教授仍对你扣着多少信任（0 到 40）。只由代码写入；赔礼差事会逐步还清。
+CMC_ProfAmendsCeiling_StatName,Professor Amends Ceiling,教授赔礼上限
+CMC_ProfAmendsCeiling_StatDescription,Hidden: the Professor's Trust just before the first unrepaid caught theft. Amends never lift Trust above it. Written by code only.,隐藏：第一次未补偿的被抓偷窃之前，教授对你的信任值。赔礼永远不会把信任抬到它之上。只由代码写入。
+CMC_ProfAmendsPaid_StatName,Professor Amends Paid,教授赔礼已完成
+CMC_ProfAmendsPaid_StatDescription,Hidden clamped flag: 1 = an amends errand was thanked and a Trust restore is owed. The thanks line raises it; code restores the Trust and clears it.,隐藏的钳制标记：1 = 一次赔礼差事已被道谢，应当恢复信任。道谢台词把它升到 1；代码恢复信任后将其清零。
+CMC_ProfAmendsCooldown_StatName,Professor Amends Cooldown,教授赔礼冷却
+CMC_ProfAmendsCooldown_StatDescription,"Hidden cooldown: raised to 96 when a theft is caught and to 288 when an amends errand is thanked, drains 1 per tick (96 ticks is a day). The amends offer is shown only at 0.",隐藏的冷却：被抓到偷窃时升到 96，赔礼差事被道谢时升到 288，每刻减 1（96 刻为一天）。只有为 0 时才会提出赔礼。
+CMC_ProfessorGreeting_AmendsOffer_Line,"Ah. The matter of the chest. A scholar weighs such a thing on the evidence, and the evidence is that you were not entirely honest. However, I read late, and my candles burn down faster than my patience. An unlit candle, brought freely, would be a fair first entry in the other column.",啊，箱子那件事。学者凭证据权衡此类事，而证据表明你并不完全诚实。不过我读书到深夜，蜡烛烧得比我的耐心还快。若你主动送来一支未点燃的蜡烛，便是另一栏里一条像样的开头。
+CMC_ProfessorGreeting_AmendsOffer_Answer_Accept,I'll bring a candle.,我会带一支蜡烛来。
+CMC_ProfessorGreeting_AmendsOffer_Answer_Decline,Not today.,今天不行。
+CMC_ProfessorGreeting_AmendsOpener_Line,"Ah. Before the lesson, a private matter: my chest. Shall we discuss it?",啊。上课之前，先谈一件私事：我的箱子。我们谈谈好吗？
+CMC_ProfessorGreeting_AmendsOpener_Answer_GoOn,I'm listening.,我在听。
+CMC_ProfessorGreeting_AmendsOpener_Answer_NotNow,Another day.,改天吧。
+CMC_ProfessorGreeting_AmendsThanks_Line,"A sound candle. Duly entered in the other column. My estimate of you has been revised, modestly, upward.",一支上好的蜡烛。已记入另一栏。我对你的评价已作修订，小幅上调。
+CMC_ProfessorGreeting_AmendsThanks_Answer_Thanks,Noted.,记下了。
+CMC_ProfessorGreeting_Start_Answer_Amends,About your chest...,关于你那只箱子……
+CMC_ProfessorGreeting_Start_Answer_AmendsGiveUp,I can't find a candle after all.,我还是没找到蜡烛。
+CMC_Professor_Amends_ActionName,Make Amends: Candle,赔礼：蜡烛
+CMC_Professor_Amends_ActionDescription,"Hand over an unlit Candle for the Professor's late reading, as asked when you spoke about the chest. Fetching it takes about two hours. Talk to the Professor again for the thanks; the Trust comes back after that.",把一支未点燃的蜡烛交给教授，供夜读，这是你们谈起箱子时提的。取烛要花大约两小时。再和教授交谈，对方会道谢，信任随后回升。

@@ -1,0 +1,258 @@
+{
+  "UniqueID": "cmcJailLedgeCollapsedTunnel",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CannotBeTransferred": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_CardName",
+    "DefaultText": "Collapsed Tunnel"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_CardDescription",
+    "DefaultText": "A fall of rock has choked the old tunnel. Somewhere beyond it the air smells of open ground. Prop the roof, then clear the rubble, load by load, in the light of a fire or a torch."
+  },
+  "CardImageWarpData": "Tunnel_1",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 16.0,
+    "CardStatName": {
+      "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_Progress_Name",
+      "DefaultText": "Rubble cleared"
+    },
+    "RatePerDaytimePoint": 0.0,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "cmcJailLedgeClearedPassage",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": false
+      }
+    }
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 6.0,
+    "CardStatName": {
+      "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_Shoring_Name",
+      "DefaultText": "Shoring"
+    },
+    "RatePerDaytimePoint": 0.0
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_CI_ShoreUp",
+        "DefaultText": "Shore up"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_CI_ShoreUp_Desc",
+        "DefaultText": "Wedge wood against the roof to hold it. Adds 2 shoring."
+      },
+      "DaytimeCost": 1,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.67
+        },
+        "FailMessage": {
+          "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_CI_ShoreUp_Full",
+          "DefaultText": "The roof is already propped as well as it can be."
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 2.0,
+          "y": 2.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "692afc638c39e32428629da58f56136a"
+        ],
+        "TriggerCardsWarpType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_CI_SetProp",
+        "DefaultText": "Set a prop"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_CI_SetProp_Desc",
+        "DefaultText": "Brace the roof with a long stick as a prop. Adds 4 shoring."
+      },
+      "DaytimeCost": 1,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.34
+        },
+        "FailMessage": {
+          "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_CI_SetProp_Full",
+          "DefaultText": "There is not room for another prop yet. Use some of the shoring first."
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 4.0,
+          "y": 4.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "3db4c94184af274409f0d3eb16870f64"
+        ],
+        "TriggerCardsWarpType": 3
+      }
+    }
+  ],
+  "CardInteractionsWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_DA_Clear",
+        "DefaultText": "Clear rubble"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_DA_Clear_Desc",
+        "DefaultText": "Haul rubble clear of the fall. Needs light to see by, strength to lift, and a prop in place so the roof holds. Each haul uses up one prop."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 5.0,
+            "y": 100000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 100.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.16,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "LocalizationKey": "CMC_JailLedgeCollapsedTunnel_DA_Clear_NoShoring",
+          "DefaultText": "The roof groans. Shore it up with wood or a long stick before you move any more rubble."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -5.0,
+            "y": -5.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Stone",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "DropChance": {
+                "Active": true,
+                "BaseDropChance": 15.0
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "ChargesChange": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

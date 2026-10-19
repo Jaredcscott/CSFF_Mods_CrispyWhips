@@ -315,6 +315,63 @@
                 "TriggerCardsWarpData": ["cmcSilverwortBlossom", "cmcHollowSage", "herbs_fungi_dried_ginseng", "herbs_fungi_dried_reishi", "herbs_fungi_hemp_flower_dried"],
                 "TriggerCardsWarpType": 3
             }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_Amends_ActionName",
+                "DefaultText": "Make Amends: Wax"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_Amends_ActionDescription",
+                "DefaultText": "Hand over Wax for the Apothecary's salves, as asked when you spoke about the chest. Fetching and sorting it takes about two hours. Talk to the Apothecary again for the thanks; the Trust comes back after that."
+            },
+            "DaytimeCost": 8,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatApothecaryAmendsArmed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatVillageCrime",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 59.0
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatApothecaryAmendsArmed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "a4a6ae891a9665a479350796d1e6cfcf"
+                ],
+                "TriggerCardsWarpType": 3
+            }
         }
     ],
     "AgentDuties": [],

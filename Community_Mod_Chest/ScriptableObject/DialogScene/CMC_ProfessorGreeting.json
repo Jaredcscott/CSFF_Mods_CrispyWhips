@@ -4,6 +4,7 @@
         "DefaultText": "The Professor"
     },
     "SceneLinesWarpData": [
+        "CMC_ProfessorGreeting_AmendsOpener",
         "CMC_ProfessorGreeting_Redirect",
         "CMC_ProfessorGreeting_CourseAckMetallurgy",
         "CMC_ProfessorGreeting_CourseAckHerbalism",
@@ -16,6 +17,7 @@
         "CMC_ProfessorGreeting_GiftValedictorian",
         "CMC_ProfessorGreeting_GiftFirstPass",
         "CMC_ProfessorGreeting_GiftTrust",
+        "CMC_ProfessorGreeting_AmendsThanks",
         "CMC_ProfessorGreeting_CrimeWanted",
         "CMC_ProfessorGreeting_CrimeBanished",
         "CMC_ProfessorGreeting_QuestThanks2",
@@ -60,6 +62,7 @@
         "CMC_ProfessorGreeting_QuestAccept2",
         "CMC_ProfessorGreeting_QuestAccept3",
         "CMC_ProfessorGreeting_QuestAccept4",
+        "CMC_ProfessorGreeting_AmendsOffer",
         "CMC_ProfessorGreeting_Menu"
     ],
     "SceneLinesWarpType": 3

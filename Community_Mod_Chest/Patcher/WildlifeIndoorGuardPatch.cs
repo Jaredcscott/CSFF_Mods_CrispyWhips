@@ -106,7 +106,9 @@ namespace CommunityModChest.Patcher
                 "cmcMillerCottageInterior",
                 "cmcWeaverCottageInterior",
                 "cmcVillageHallInterior",
-                "cmcEnvJailCell"),
+                "cmcEnvJailCell",
+                "cmcEnvJailCave",
+                "cmcEnvJailLedge"),
             new ProtectedSet("village", "EncounterGuards/CMC_VillageNoWildlife.json", 1f,
                 "cmcEnvVillage",
                 "cmcEnvVillagePath",
@@ -141,6 +143,7 @@ namespace CommunityModChest.Patcher
         private static readonly Dictionary<string, bool> _verdicts = new(StringComparer.Ordinal);
         private static int _verdictDay = int.MinValue;
 
+        private static bool _escortLogged;
         private static bool _initialized;
 
         public static void Initialize(Harmony harmony)
@@ -235,6 +238,18 @@ namespace CommunityModChest.Patcher
                 foreach (var set in ProtectedSets)
                 {
                     if (!set.EnvUids.Contains(destUid)) continue;
+                    // A paid Town Watch escort (plan N4) makes the outskirts' half chance a certainty while it
+                    // lasts. Not routed through Refuse: its per-day verdict cache would keep refusing after the
+                    // escort ends. The roll below still runs once the escort has worn off.
+                    if (set.Cause == "outskirts" && OutskirtsEscortPatch.IsEscorted())
+                    {
+                        if (!_escortLogged)
+                        {
+                            _escortLogged = true;
+                            Plugin.Logger.LogInfo($"[WildlifeIndoorGuardPatch] A paid escort turned '{npcUid}' back from '{destUid}' (logged once per session).");
+                        }
+                        return false;
+                    }
                     if (Refuse(set.Cause, set.RefuseChance, npcUid, destUid, destKey)) return false;
                 }
 

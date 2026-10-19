@@ -388,7 +388,7 @@
                 "DefaultText": "Feed"
             },
             "RequiredReceivingDurabilities": {
-                "RequiredSpoilagePercent": {"Active": true, "MinValue": 0.0, "MaxValue": 0.9},
+                "RequiredSpoilagePercent": {"Active": true, "FloatValue": 0.0, "MaxValue": 0.9},
                 "FailMessage": {
                     "LocalizationKey": "CMC_InnCat_CI_Feed_Fail",
                     "DefaultText": "He sniffs it and walks away. Not hungry yet."
@@ -434,7 +434,7 @@
                 "DefaultText": "Give Water"
             },
             "RequiredReceivingDurabilities": {
-                "RequiredUsagePercent": {"Active": true, "MinValue": 0.0, "MaxValue": 0.9},
+                "RequiredUsagePercent": {"Active": true, "FloatValue": 0.0, "MaxValue": 0.9},
                 "FailMessage": {
                     "LocalizationKey": "CMC_InnCat_CI_GiveWater_Fail",
                     "DefaultText": "Not thirsty yet."
@@ -477,7 +477,7 @@
                 "DefaultText": "A little something extra, just because."
             },
             "RequiredReceivingDurabilities": {
-                "RequiredSpecial3Percent": {"Active": true, "MinValue": 0.0, "MaxValue": 0.9},
+                "RequiredSpecial3Percent": {"Active": true, "FloatValue": 0.0, "MaxValue": 0.9},
                 "FailMessage": {
                     "LocalizationKey": "CMC_InnCat_CI_Treat_Fail",
                     "DefaultText": "He's thoroughly spoiled already."

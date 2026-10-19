@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMillerChoreQuality",
+    "GameName": {
+        "LocalizationKey": "CMC_MillerChoreQuality_StatName",
+        "DefaultText": "Miller's Chore Quality"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MillerChoreQuality_StatDescription",
+        "DefaultText": "Hidden clamped value (0 to 96): the lowest Quality among the logs handed over, which the Firewood is handed back at."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 96.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}
