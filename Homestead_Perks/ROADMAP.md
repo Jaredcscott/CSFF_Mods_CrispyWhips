@@ -1,8 +1,113 @@
-# HomesteadPerks Roadmap
+# Roadmap: Homestead Perks
+Version at time of writing: 1.3.7
+Date: 2026-10-20
+Audit score: 10/10
 
-No phased roadmap has been generated for this mod yet (`/roadmap HomesteadPerks` writes one). This
-file exists so the plan-reconciliation record below has its durable home; a future `/roadmap` run
-keeps that section verbatim as its last H2.
+## Current State
+
+**Theme**: Forty-five character-creation perks, most of them kits you carry and Place once to raise a vanilla structure or station with no research or building. Fills vanilla's gap of many structures (stool, bookshelf, chest, mines, stations) that have no buildable blueprint, and of the day-one base-building start.
+
+**Content**: 34 items / 0 blueprints / 0 structures / 45 perks / 4 custom images / 5 GameSourceModify files
+
+**Stability**: 10/10 - SOLID. 0 critical, 0 design gaps, 0 open warnings; 2 cosmetic MINOR items (stale JSON `DefaultText` fallbacks on Bookshelf/Rustic Table kits, players read the accurate CSV).
+
+**Open work**: no open (red) retrospectives. `CMC-HSP-compat` is Graduated (closed 2026-10-19). Remaining work is release + pending in-game verification, not code.
+
+**Framework compliance**: Tier 2, fully adopted. All runtime work goes through `ActionRouter` (AfterWrapped/Cancel), `SpawnService.Spawn`, `CardUtil`/`GameQuery` and `ContentModPlugin` - zero raw Harmony patches, so the A/B/E hazard surface is avoided by construction. No deprecated patterns (`DropCollectionGuardPatch` absent, no `ModLoaderVerison`/`ModEditorVersion`, perks/blueprints injected declaratively).
+
+---
+
+## Phase 0: Stabilize
+
+> Skipped - audit score is 10/10 and there are no open retrospectives. Nothing to stabilize.
+
+---
+
+## Phase 1: Foundation
+
+> Table-stakes health. Almost all already satisfied; the one real item is shipping the built work to players.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| Release 1.3.7 to Nexus (Nexus holds 1.2.4) in the framework 2.28.0 batch | Release | P1 | Medium |
+| Realign stale `DefaultText` on `Pk_BookshelfKit.json` / `Pk_RusticTableKit.json` to their CSV rows (m1, m2) | Docs/localization | P2 | Quick |
+| Em-dash style pass on the ~13 CSV rows using U+2014 (fleet no-em-dash rule) | Localization polish | P3 | Quick |
+
+Versions match (ModInfo = Plugin.cs = README = 1.3.7), build is clean (0/0), bin/Release in sync, SimpCn.csv present and 288/288 parity - all already done.
+
+Note: this mod's `lib/CSFFModFramework.dll` requires a framework newer than the Nexus-served 2.26.12, so HSP must be released in the same batch as framework 2.28.0 (CLAUDE.md §CSFFModFramework Scope; fleet measurement 2026-10-13).
+
+---
+
+## Phase 2: Core Expansion
+
+> This mod is feature-complete against its own scope (its MASTER_PLAN drained and archived 2026-10-16). No new content is justified by current scope. Any future expansion would start a new plan under `Documentation/Plans/HomesteadPerks/`.
+
+None scheduled. The natural adjacencies have all been considered and either built or recorded in an archive's Considered table (see the Plan Reconciliation Log and `Documentation/Design/HomesteadPerks_*_As_Built.md`).
+
+---
+
+## Phase 3: Integration & Depth
+
+> Cross-mod hooks. The existing couplings are deliberate and fail-open; no new integration is needed.
+
+### Existing couplings (keep healthy, do not extend without cause)
+**What**: Homestead Kit grants `advanced_copper_tools_copper_nails` gated on the card existing (fails open if ACT absent); ACT and Forest Lore caves count as flint deposits for the Flint Mine Kit; CMC overlap (Founders Kit / Extra Rain Cistern Kit) documented and safe.
+**Why**: these are already shipped and resolved (CMC renamed its colliding perk 1.68.20).
+**Requires**: nothing - monitor only when a partner mod's version changes.
+**Complexity**: n/a (maintenance)
+
+---
+
+## Phase 4: Polish
+
+> Art and text that make the mod feel finished.
+
+| Item | What | Complexity |
+|------|------|------------|
+| Chest Kit / Wall Shelf Kit icons | Both currently ship vanilla `Shelf` as a placeholder; a generated distinct icon once OpenArt has credits (carried over as the one open non-code decision from the 2026-10-16 archive) | Medium |
+| `DefaultText` realignment (m1, m2) | Carried from Phase 1 - see perks-report W1/W2 | Quick |
+
+---
+
+## Long-term Vision
+
+> Where this mod should be at v1.4+.
+
+Homestead Perks is at its natural endpoint as a day-one base-building perk pack: it hands the player, at character creation, every structure and station vanilla otherwise gates behind research and multi-stage builds, plus several vanilla pieces (stool, bookshelf, chest) that vanilla gives no way to build at all. The scope is complete. The biggest addition that would become natural only at larger scale is a "pack up / reclaim" action that turns a placed structure back into its kit - new content rather than a gap to close, and likely out of character for a character-creation perk mod, so it stays unbuilt until a player signal justifies it.
+
+**Potential major additions** (not yet justified - revisit only on player demand):
+- Pack Up / reclaim DA to turn a placed structure back into a carriable kit - fits the kit theme but changes the one-way Place contract.
+- Distinct custom art across all 34 kit cards (most reuse vanilla sprites by design) - polish, not function.
+
+Any of these worth building belongs in a new plan under `Documentation/Plans/HomesteadPerks/` (or its Considered table with the reason), never a stub under `Documentation/Ideas/`.
+
+---
+
+## Maintenance Calendar
+
+| Trigger | Action |
+|---------|--------|
+| After any new content phase | Run `/audit-mod HomesteadPerks` and update this roadmap |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
+| After fixing a critical issue | Run `/critical-analysis HomesteadPerks` to verify the fix |
+| Framework 2.28.0 released to Nexus | Release HSP 1.3.7 in the same batch (`/nexus-publish upload HomesteadPerks`) |
+
+---
+
+## Skill Cheatsheet for This Mod
+
+```
+/audit-mod HomesteadPerks         - full health check, updates .audit/
+/critical-analysis HomesteadPerks - adversarial review
+/repair-items HomesteadPerks      - auto-fix item JSON issues
+/build-mod HomesteadPerks         - build Release DLL
+/deploy-mods HomesteadPerks       - build + deploy to game
+/update-mod-version HomesteadPerks <ver> - bump version in all 3 files
+/nexus-publish upload HomesteadPerks     - publish to Nexus
+```
+
+---
 
 ## Plan Reconciliation Log
 

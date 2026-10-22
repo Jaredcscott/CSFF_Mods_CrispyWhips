@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.homestead_perks";
     public const string PluginName = "Homestead Perks";
-    public const string PluginVersion = "1.3.7";
+    public const string PluginVersion = "1.3.8";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }

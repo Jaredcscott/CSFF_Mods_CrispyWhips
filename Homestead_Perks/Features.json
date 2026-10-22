@@ -1,7 +1,8 @@
 {
+  "_comment": "Edit 'status' to 'Tested' when verified in-game. Edit 'name' to rename a group. Add cards to 'cards' array to reassign them.",
   "mod": "HomesteadPerks",
-  "version": "1.2.3",
-  "generated": "2026-09-01",
+  "version": "1.3.7",
+  "generated": "2026-10-19",
   "groups": [
     {
       "name": "Homestead",
@@ -12,8 +13,8 @@
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": "Patcher/HomesteadKitPatch.cs (HomesteadKitPatch.Initialize/SpawnHomesteadContents)",
-      "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); retro CMC-HSP-compat Playthrough confirmation 2026-08-15 (T1.53 re-exercises HomesteadKitPatch.cs); no CardData/Patcher/Plugin change after 2026-08-14 (1.2.2)"
+      "confidence": "HIGH",
+      "evidence": "Retuned contents (1.3.5) harness PASS T2.1739 2026-10-18; nail branch with and without the Metal Nail card T1.133 (pass 2026-10-04) and T1.134 (confirmed 2026-10-05). The 1 Moon + 1 Star price (1.3.5) awaits T2.1738 (pending)"
     },
     {
       "name": "Cabin Kit",
@@ -24,8 +25,8 @@
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
-      "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+      "confidence": "HIGH",
+      "evidence": "Place T1.53 PASS 2026-08-15; Not Indoors guard T1.142 and carry weight T1.139 confirmed 2026-10-12. The 1 Star price (1.3.5) awaits T2.1738 (pending)"
     },
     {
       "name": "Mud Hut Kit",
@@ -36,44 +37,68 @@
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
-      "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+      "confidence": "HIGH",
+      "evidence": "Place T1.53 PASS 2026-08-15; Not Indoors guard T1.142 confirmed 2026-10-12. The 1 Moon price (1.3.5) awaits T2.1738 (pending)"
     },
     {
-      "name": "Rain Cistern Kit",
+      "name": "Cellar Kit",
       "status": "Implemented",
-      "cards": ["hspraincisternkit"],
-      "perk": "hsptraitsperkraincisternkit",
+      "cards": ["hspcellarkit"],
+      "perk": "hsptraitsperkcellarkit",
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
-      "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+      "confidence": "HIGH",
+      "evidence": "Place T1.54 PASS 2026-08-15; pen guard T1.140 confirmed 2026-10-10; river, indoor, bog and wetland guards T1.142 confirmed 2026-10-12. The 1 Moon price (1.3.5) awaits T2.1738 (pending)"
     },
     {
-      "name": "Log Bed Kit",
+      "name": "Well Kit",
       "status": "Implemented",
-      "cards": ["hsplogbedkit"],
-      "perk": "hsptraitsperklogbedkit",
+      "cards": ["hspwellkit"],
+      "perk": "hsptraitsperkwellkit",
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
-      "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+      "confidence": "HIGH",
+      "evidence": "Place T1.54 PASS 2026-08-15; pen guard T1.140 confirmed 2026-10-10. The 1 Moon price (1.3.5) awaits T2.1738 (pending)"
     },
     {
-      "name": "Furnace Kit",
+      "name": "Copper Mine Kit",
       "status": "Implemented",
-      "cards": ["hspfurnacekit"],
-      "perk": "hsptraitsperkfurnacekit",
+      "cards": ["hspcopperminekit"],
+      "perk": "hsptraitsperkcopperminekit",
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
-      "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+      "confidence": "HIGH",
+      "evidence": "Deposit and second-mine guards and Place T1.145 confirmed 2026-10-10. The 1 Moon price (1.3.5) awaits T2.1738 (pending)"
+    },
+    {
+      "name": "Flint Mine Kit",
+      "status": "Implemented",
+      "cards": ["hspflintminekit"],
+      "perk": "hsptraitsperkflintminekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "HIGH",
+      "evidence": "Deposit and second-mine guards and Place T1.145 confirmed 2026-10-10. The 1 Moon price (1.3.5) awaits T2.1738 (pending)"
+    },
+    {
+      "name": "Witchstone Mine Kit",
+      "status": "Implemented",
+      "cards": ["hspwitchstoneminekit"],
+      "perk": "hsptraitsperkwitchstoneminekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "HIGH",
+      "evidence": "Deposit and second-mine guards and Place T1.145 confirmed 2026-10-10. The 1 Moon price (1.3.5) awaits T2.1738 (pending)"
     },
     {
       "name": "Forge Kit",
@@ -85,7 +110,19 @@
       "placeable": true,
       "csharpHandler": null,
       "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+      "evidence": "Place T1.53 PASS 2026-08-15 (item file unchanged since 1.0.0); 35 Suns price T2.1741 PASS 2026-10-18"
+    },
+    {
+      "name": "Furnace Kit",
+      "status": "Implemented",
+      "cards": ["hspfurnacekit"],
+      "perk": "hsptraitsperkfurnacekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Place T1.53 PASS 2026-08-15; item and perk files unchanged since 1.0.0"
     },
     {
       "name": "Oven Kit",
@@ -97,43 +134,31 @@
       "placeable": true,
       "csharpHandler": null,
       "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+      "evidence": "Place T1.53 PASS 2026-08-15; item and perk files unchanged since 1.0.0"
     },
     {
-      "name": "Tanning Pit Kit",
+      "name": "Kiln Kit",
       "status": "Implemented",
-      "cards": ["hsptanningpitkit"],
-      "perk": "hsptraitsperktanningpitkit",
+      "cards": ["hspkilnkit"],
+      "perk": "hsptraitsperkkilnkit",
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
       "confidence": "VERIFIED",
-      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+      "evidence": "Grant and Place T1.131 PASS 2026-10-04; files unchanged since"
     },
     {
-      "name": "Well Kit",
+      "name": "Bloomery Kit",
       "status": "Implemented",
-      "cards": ["hspwellkit"],
-      "perk": "hsptraitsperkwellkit",
+      "cards": ["hspbloomerykit"],
+      "perk": "hsptraitsperkbloomerykit",
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
       "confidence": "VERIFIED",
-      "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); files unchanged since 2026-08-14 (1.2.0)"
-    },
-    {
-      "name": "Cellar Kit",
-      "status": "Implemented",
-      "cards": ["hspcellarkit"],
-      "perk": "hsptraitsperkcellarkit",
-      "hasBlueprint": false,
-      "registeredInBlueprintTabs": "N/A",
-      "placeable": true,
-      "csharpHandler": null,
-      "confidence": "VERIFIED",
-      "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); files unchanged since 2026-08-14 (1.2.0)"
+      "evidence": "Grant and Place T1.136 confirmed 2026-10-07; 40 Suns price T2.1741 PASS 2026-10-18"
     },
     {
       "name": "Pit Trap Kit",
@@ -145,7 +170,79 @@
       "placeable": true,
       "csharpHandler": null,
       "confidence": "VERIFIED",
-      "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); files unchanged since 2026-08-14 (1.2.0)"
+      "evidence": "Place T1.54 PASS 2026-08-15; item and perk files unchanged since"
+    },
+    {
+      "name": "Log Bed Kit",
+      "status": "Implemented",
+      "cards": ["hsplogbedkit"],
+      "perk": "hsptraitsperklogbedkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Place T1.53 PASS 2026-08-15; Already Have One guard T1.140 confirmed 2026-10-10"
+    },
+    {
+      "name": "Tanning Pit Kit",
+      "status": "Implemented",
+      "cards": ["hsptanningpitkit"],
+      "perk": "hsptraitsperktanningpitkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Place T1.53 PASS 2026-08-15; pen guard T1.140 confirmed 2026-10-10"
+    },
+    {
+      "name": "Rain Cistern Kit",
+      "status": "Implemented",
+      "cards": ["hspraincisternkit"],
+      "perk": "hsptraitsperkraincisternkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Place T1.53 PASS 2026-08-15 (item file unchanged since 1.0.0); 20 Suns price T2.1741 PASS 2026-10-18; CMC perk alias fixed, T3.41 confirmed 2026-10-05"
+    },
+    {
+      "name": "Drying Rack Kit",
+      "status": "Implemented",
+      "cards": ["hspdryingrackkit"],
+      "perk": "hsptraitsperkdryingrackkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant and Place T1.132 PASS 2026-10-04; 15 Suns price T2.1741 PASS 2026-10-18"
+    },
+    {
+      "name": "Enclosure Kit",
+      "status": "Implemented",
+      "cards": ["hspenclosurekit"],
+      "perk": "hsptraitsperkenclosurekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, pen guard and Place T1.143 confirmed 2026-10-10; files unchanged since"
+    },
+    {
+      "name": "Smallholding",
+      "status": "Implemented",
+      "cards": ["hspenclosurekit", "3499f3d441a9b3c4b80a4e89508b6a18"],
+      "perk": "hsptraitsperksmallholding",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "HIGH",
+      "evidence": "Added 1.3.6. Grants the Enclosure Kit (shared with the Enclosure Kit group, T1.143) and vanilla NestingBoxItem; declarative AddedCards only. Not yet observed: T1.149 pending"
     },
     {
       "name": "Path Kit",
@@ -155,33 +252,201 @@
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": false,
+      "csharpHandler": "Patcher/PathKitPatch.cs (PathKitPatch.Initialize/ShouldCancel)",
+      "confidence": "VERIFIED",
+      "evidence": "Indoor gate and spend guard T1.141 confirmed 2026-10-10; 3-kit grant (1.3.5) T2.1740 PASS 2026-10-18"
+    },
+    {
+      "name": "Stretching Frame Kit",
+      "status": "Implemented",
+      "cards": ["hspstretchingframekit"],
+      "perk": "hsptraitsperkstretchingframekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
       "csharpHandler": null,
       "confidence": "VERIFIED",
-      "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); grant count (6) and cardinal-only directions confirmed current as of 1.2.2 (2026-08-14), predating the pass; digest note text '3 charges' is a stale annotation, not evidence of an older build being tested"
+      "evidence": "Grant and Place T1.146 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Charcoal Mound Kit",
+      "status": "Implemented",
+      "cards": ["hspcharcoalmoundkit"],
+      "perk": "hsptraitsperkcharcoalmoundkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant and Place T1.146 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Wall Shelf Kit",
+      "status": "Implemented",
+      "cards": ["hspwallshelfkit"],
+      "perk": "hsptraitsperkwallshelfkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant and Place T1.146 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Snow Shelter Kit",
+      "status": "Implemented",
+      "cards": ["hspsnowshelterkit"],
+      "perk": "hsptraitsperksnowshelterkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, Place and Already Have One T1.146 confirmed 2026-10-12; SnowVisible gate (1.3.6) T2.1820 PASS 2026-10-18; 20 Suns price T2.1741 PASS 2026-10-18"
+    },
+    {
+      "name": "Compost Bin Kit",
+      "status": "Implemented",
+      "cards": ["hspcompostbinkit"],
+      "perk": "hsptraitsperkcompostbinkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, pen guard and Place T1.146 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Weighted Loom Kit",
+      "status": "Implemented",
+      "cards": ["hspweightedloomkit"],
+      "perk": "hsptraitsperkweightedloomkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant and Place T1.146 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Ritual Pyre Kit",
+      "status": "Implemented",
+      "cards": ["hspritualpyrekit"],
+      "perk": "hsptraitsperkritualpyrekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, Place and Already Have One T1.146 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Frost Shrine Kit",
+      "status": "Implemented",
+      "cards": ["hspfrostshrinekit"],
+      "perk": "hsptraitsperkfrostshrinekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, Place, Already Have One and the temperature gate (0 refused, -50 allowed) T1.146 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Garden Plot Kit",
+      "status": "Implemented",
+      "cards": ["hspgardenplotkit"],
+      "perk": "hsptraitsperkgardenplotkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, pen guard and Place T1.147 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Deadfall Trap Kit",
+      "status": "Implemented",
+      "cards": ["hspdeadfalltrapkit"],
+      "perk": "hsptraitsperkdeadfalltrapkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, indoor and cave guard and Place T1.147 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Log Boom Kit",
+      "status": "Implemented",
+      "cards": ["hsplogboomkit"],
+      "perk": "hsptraitsperklogboomkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, river guard and Place T1.147 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Tilled Field Kit",
+      "status": "Implemented",
+      "cards": ["hsptilledfieldkit"],
+      "perk": "hsptraitsperktilledfieldkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, pen guard and Place T1.147 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Levee Kit",
+      "status": "Implemented",
+      "cards": ["hspleveekit"],
+      "perk": "hsptraitsperkleveekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, river guard and Place T1.147 confirmed 2026-10-12; files unchanged since"
+    },
+    {
+      "name": "Mushroom Bed Kit",
+      "status": "Implemented",
+      "cards": ["hspmushroombedkit"],
+      "perk": "hsptraitsperkmushroombedkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant, pen guard and Place T1.147 confirmed 2026-10-12; mushrooms grow in the bed (1.3.5 text) T2.1742 PASS 2026-10-18"
     },
     {
       "name": "Rustic Table Kit",
       "status": "Implemented",
-      "cards": ["ea2d9e20a65947d4faa6b54eb924fa68", "1506c64cde08f3f44b47c15f1ac24684"],
+      "cards": ["ea2d9e20a65947d4faa6b54eb924fa68", "1506c64cde08f3f44b47c15f1ac24684", "3a9ca5994f8fbd943a522670218663e3"],
       "perk": "hsptraitsperkrustictablekit",
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
-      "confidence": "HIGH",
-      "evidence": "Added by hand 2026-09-28 for 1.3.0 (not a /feature-map run). Grants vanilla RusticTableDismantled (its own Build action makes RusticTable) and Stool (its own Place action makes StoolPlaced); GUIDs resolved in UniqueIDScriptableGUID/CardData.json. Not yet played: T1.127 pending, AUTO harness scenario HSP/T1.127"
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.127 confirmed 2026-10-03. Stool and StoolPlaced get the HSP_RusticStool picture by GameSourceModify (1.3.3, art only)"
     },
     {
       "name": "Bookshelf Kit",
       "status": "Implemented",
-      "cards": ["e3af25c394ce2464782a287c05a16be2"],
+      "cards": ["e3af25c394ce2464782a287c05a16be2", "b20f8d758e211da47ad594a05765085a"],
       "perk": "hsptraitsperkbookshelfkit",
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
       "csharpHandler": null,
-      "confidence": "HIGH",
-      "evidence": "Added by hand 2026-09-28 for 1.3.0 (not a /feature-map run). Grants vanilla BookShelfDismantled (its own Place action makes Bookshelf); GUID resolved in UniqueIDScriptableGUID/CardData.json. Not yet played: T1.127 pending, AUTO harness scenario HSP/T1.127"
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.127 confirmed 2026-10-03. BookShelfDismantled and Bookshelf get the HSP_Bookshelf picture by GameSourceModify (1.3.3, art only)"
     },
     {
       "name": "Sledge",
@@ -192,8 +457,104 @@
       "registeredInBlueprintTabs": "N/A",
       "placeable": false,
       "csharpHandler": null,
-      "confidence": "HIGH",
-      "evidence": "Added by hand 2026-09-28 for 1.3.0 (not a /feature-map run). Grants the finished vanilla Sledge; spawn durability comes from GenerateStartingValue (2688 of 2688, RandomStartingOffset 0). Not yet played: T1.127 pending, AUTO harness scenario HSP/T1.127"
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.127 confirmed 2026-10-03; perk file unchanged since 1.3.0"
+    },
+    {
+      "name": "Travois",
+      "status": "Implemented",
+      "cards": ["4e586866d3be88545a651caef30ecec1"],
+      "perk": "hsptraitsperktravois",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": false,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.130 confirmed 2026-10-07; person check T1.137 confirmed 2026-10-10"
+    },
+    {
+      "name": "Weaver's Workshop Kit",
+      "status": "Implemented",
+      "cards": ["7b7346257e625884491a9e4489aad01f", "8c911203cb645d945be605c2cf5409b6", "561a6fef7270479418c1cd96d9a2411b"],
+      "perk": "hsptraitsperkweaverworkshopkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.135 confirmed 2026-10-07; person check T1.138 confirmed 2026-10-12; 50 Suns price T2.1741 PASS 2026-10-18"
+    },
+    {
+      "name": "Sawhorses Kit",
+      "status": "Implemented",
+      "cards": ["25b5cee1003b45344af9d4fc9d4c2088"],
+      "perk": "hsptraitsperksawhorseskit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.135 confirmed 2026-10-07; person check T1.138 confirmed 2026-10-12"
+    },
+    {
+      "name": "Pottery Wheel Kit",
+      "status": "Implemented",
+      "cards": ["8ce1afbfdf142184dba122c065512b18"],
+      "perk": "hsptraitsperkpotterywheelkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.135 confirmed 2026-10-07; person check T1.138 confirmed 2026-10-12; 25 Suns price T2.1741 PASS 2026-10-18"
+    },
+    {
+      "name": "Fleshing Beam Kit",
+      "status": "Implemented",
+      "cards": ["03ac8289726db8b43a56a75960efa886"],
+      "perk": "hsptraitsperkfleshingbeamkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.135 confirmed 2026-10-07; person check T1.138 confirmed 2026-10-12"
+    },
+    {
+      "name": "Workbench Kit",
+      "status": "Implemented",
+      "cards": ["0ac180e498d3143408768d4fe59e6d0a"],
+      "perk": "hsptraitsperkworkbenchkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.135 confirmed 2026-10-07; person check T1.138 confirmed 2026-10-12 (owner ruling: vanilla's Sheltered + Light Build gate stays; text reworded after)"
+    },
+    {
+      "name": "Chest Kit",
+      "status": "Implemented",
+      "cards": ["2daa7f9ceb2e7534a943e22c3cc6b027"],
+      "perk": "hsptraitsperkchestkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Grant T1.144 confirmed 2026-10-10; perk file unchanged since"
+    },
+    {
+      "name": "Well Blueprint",
+      "status": "Implemented",
+      "cards": ["ddc91498198124740b1c8f2f606f5d09"],
+      "perk": null,
+      "hasBlueprint": true,
+      "registeredInBlueprintTabs": true,
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Vanilla Bp_Well made researchable (Shovel Needed) and buildable by GameSourceModify, registered in Farming > Agriculture. Harness PASS T1.148 2026-10-18 on the 1.3.7 Build fix"
     }
   ]
 }

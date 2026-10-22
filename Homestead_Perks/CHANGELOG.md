@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.8 (2026-10-22)
+
+- **The Path Kit can no longer be locked by a game update.** The kit refuses a Build Path press when the location offers no road in that direction. If a game update changed how the mod reads a location's road list, every press was refused. Now an unreadable list lets the press through and the log says why once, as the mod's other safety checks already do.
+
 ## 1.3.7 (2026-10-18)
 
 - **The Well can now actually be built.** In 1.3.6 the Well blueprint researched, but its Build never lit up, even with every ingredient on the board. Vanilla's blueprint carries a build condition that names no card, so no board could ever meet it. The mod now drops that broken condition and keeps vanilla's real one: you cannot build a Well inside an animal enclosure. Stages, cost and vanilla's other rule (it must stand in the open, not under shelter) are unchanged.

@@ -54,6 +54,23 @@ namespace HomesteadPerks.Patcher
                 Plugin.Logger.LogWarning($"[PathKitPatch] {cause}: {detail} (press allowed; logged once).");
         }
 
+        /// <summary>
+        /// Does one location's EnvironmentImprovements list offer the improvement? <paramref name="entryUids"/>
+        /// holds each non-empty entry's Card.UniqueID, null where it could not be read. True when one names
+        /// <paramref name="impUid"/>; null when none does but at least one was unreadable (the caller fails
+        /// open); false when every entry read and none names it. Pure, so the gate can call it on the built DLL.
+        /// </summary>
+        internal static bool? RouteOffered(IEnumerable<string> entryUids, string impUid)
+        {
+            bool unreadable = false;
+            foreach (var uid in entryUids)
+            {
+                if (uid == null) { unreadable = true; continue; }
+                if (string.Equals(uid, impUid, StringComparison.OrdinalIgnoreCase)) return true;
+            }
+            return unreadable ? (bool?)null : false;
+        }
+
         // True = cancel the press.
         private static bool ShouldCancel(ActionContext ctx)
         {
@@ -80,6 +97,7 @@ namespace HomesteadPerks.Patcher
 
                 // No route: the location card's buildable list must name the improvement.
                 bool sawLocation = false;
+                bool sawUnreadable = false;
                 foreach (var c in cards)
                 {
                     var data = CardUtil.GetCardData(c);
@@ -88,18 +106,29 @@ namespace HomesteadPerks.Patcher
                     if (ct == null || Convert.ToInt32(ct) != 8) continue;
                     if (!(CardUtil.GetMemberValue(data, "EnvironmentImprovements") is Array arr)) continue;
                     sawLocation = true;
+                    var uids = new List<string>();
                     foreach (var entry in arr)
                     {
-                        var imp = entry == null ? null : CardUtil.GetMemberValue(entry, "Card");
-                        var uid = imp == null ? null : CardUtil.GetMemberValue(imp, "UniqueID") as string;
-                        if (string.Equals(uid, impUid, StringComparison.OrdinalIgnoreCase))
-                            return false; // a route exists
+                        if (entry == null) continue; // an empty slot names no route
+                        var imp = CardUtil.GetMemberValue(entry, "Card");
+                        uids.Add(imp == null ? null : CardUtil.GetMemberValue(imp, "UniqueID") as string);
                     }
+                    var offered = RouteOffered(uids, impUid);
+                    if (offered == true) return false; // a route exists
+                    if (offered == null) sawUnreadable = true;
                 }
 
                 if (!sawLocation)
                 {
                     WarnOnce("no-location-card", "no CT8 card with EnvironmentImprovements found in the player's environment");
+                    return false;
+                }
+
+                // An entry whose Card or UniqueID did not read could be the very route pressed, so refusing
+                // would lock the kit on a game-version drift: fail open, as every other null exit here does.
+                if (sawUnreadable)
+                {
+                    WarnOnce("unreadable-improvement", "an EnvironmentImprovements entry's Card or UniqueID did not resolve, so the route check cannot tell");
                     return false;
                 }
 

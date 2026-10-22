@@ -1,6 +1,6 @@
 # Homestead Perks
 
-**Version:** 1.3.7
+**Version:** 1.3.8
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency)
 **Language:** English, Simplified Chinese
@@ -99,6 +99,7 @@ Carried items count toward the 4000 Encumbrance cap. At the cap, vanilla blocks 
 
 Full list in CHANGELOG.md.
 
+- 1.3.8: a game update can no longer lock the Path Kit: when the mod cannot read a location's road list, Build Path goes ahead and the log says why.
 - 1.3.7: the Well blueprint's Build works (vanilla's blueprint carried a condition no board could meet).
 - 1.3.6: vanilla's Well blueprint can be researched and built; new Smallholding perk; the Snow Shelter Kit places only where snow lies.
 - 1.3.5: vanilla balance pass: structure starts cost Moons and Stars, a smaller Homestead stockpile, 3 Path Kits, several higher Sun prices; the Mushroom Bed's growing is documented.

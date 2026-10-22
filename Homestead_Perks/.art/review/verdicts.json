@@ -4,14 +4,30 @@
     "Picture/HSP_Bookshelf.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "e09697a0299a2a0f1fcfcda7965950f7a7602046",
-      "at": "2026-10-14T09:05:01+00:00"
+      "sha1": "69189f1189548c1bf20733147d953919724d0523",
+      "at": "2026-10-21T18:36:25+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e09697a0299a2a0f1fcfcda7965950f7a7602046",
+          "at": "2026-10-14T09:05:01+00:00"
+        }
+      ]
     },
     "Picture/HSP_RusticStool.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "9949563084df600e55f28604fc794cfba7bdb0ab",
-      "at": "2026-10-14T09:05:02+00:00"
+      "sha1": "0d70abf4429d948a0673912df2a36f6193bf2968",
+      "at": "2026-10-21T18:39:39+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9949563084df600e55f28604fc794cfba7bdb0ab",
+          "at": "2026-10-14T09:05:02+00:00"
+        }
+      ]
     },
     "Picture/HSP_WellKit.png": {
       "status": "approved",
@@ -21,9 +37,9 @@
     },
     "Picture/Kit_Homestead.png": {
       "status": "approved",
-      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
-      "sha1": "0c52cd3173394dce6e991ccd5394db6cd7799aed",
-      "at": "2026-10-12T17:28:29+00:00",
+      "notes": "",
+      "sha1": "d3c68f31c107402158f98462af6d6ae2e3e5eb07",
+      "at": "2026-10-21T18:38:23+00:00",
       "history": [
         {
           "status": "approved",
@@ -36,6 +52,12 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "0c52cd3173394dce6e991ccd5394db6cd7799aed",
           "at": "2026-10-12T17:01:10+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "0c52cd3173394dce6e991ccd5394db6cd7799aed",
+          "at": "2026-10-12T17:28:29+00:00"
         }
       ]
     }
