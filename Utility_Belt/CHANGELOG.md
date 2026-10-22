@@ -2,6 +2,11 @@
 
 All notable changes to this mod are documented here.
 
+## [0.1.6] - 2026-10-20
+
+### Added
+- `Display > Never Follow Cards` (off by default): a card row no longer scrolls by itself to a card that was just made, picked up, dropped, taken out of a container or moved by Quick Transfer, so you keep your place in a long row. Bookmarks and the game's own find-a-card links still scroll to the card. Display only. The idea comes from Never Follow Card for Card Survival: Tropical Island.
+
 ## [0.1.5] - 2026-10-19
 
 ### Fixed

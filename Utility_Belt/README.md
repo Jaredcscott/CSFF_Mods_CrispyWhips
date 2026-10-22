@@ -1,6 +1,6 @@
 # Utility Belt
 
-**Version:** 0.1.5
+**Version:** 0.1.6
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** BepInEx 5 (Quick Transfer and Skill Speed Boost also need CSFF Mod Framework)
@@ -18,7 +18,7 @@ Those three still ship as separate mods. Install Utility Belt if you would rathe
 | Repeat Action 2.2.2 (included) | Repeat last action, adjustable count, travel repeat, safety stops, spare tool, pinned action, pause and resume |
 | Quick Transfer 1.9.1 (included) | Modifier + right-click bulk transfer, adjustable amounts, tag filter, undo, transfer hotkey |
 | Skill Speed Boost 1.11.1 (included) | Area Familiarity (on), XP multipliers, staleness, optional bonuses, difficulty profiles |
-| Utility Belt itself | Hide rain and snow, 12-hour clock, worn-bag hotkeys, item lock, container sorting, capacity and warmth readouts, quickswap, sealed mark, character randomiser, card size and two-row card rows, extra hand slots, extra carry weight, hand and base row sorting, trash hotkey, carry-weight readout, worn tool mark, container filter, blueprint pins, and three Repeat Action helpers (fetch a card, store products, wear a spare tool) |
+| Utility Belt itself | Hide rain and snow, 12-hour clock, worn-bag hotkeys, item lock, container sorting, capacity and warmth readouts, quickswap, sealed mark, character randomiser, card size and two-row card rows, extra hand slots, extra carry weight, hand and base row sorting, trash hotkey, carry-weight readout, worn tool mark, container filter, blueprint pins, never follow cards, and three Repeat Action helpers (fetch a card, store products, wear a spare tool) |
 
 ## Included mods
 
@@ -170,6 +170,11 @@ The six options below are new in 0.1.4. Every one is off, or has no key, until y
   - Pins are kept in the config (General > Pinned Blueprints) for every save. Research and building are unchanged.
   - The key does nothing while Search's own box has the cursor; pin from a normal tab.
 
+- **Never Follow Cards** (Display > Never Follow Cards, off by default): stops a card row from scrolling by itself. Normally, when a card is made, picked up, dropped, taken out of a container or moved by Quick Transfer, the row jumps to show it, which loses your place in a long row. With this on, the row stays where you left it.
+  - Bookmarks and the game's own links that find a card still scroll to it.
+  - Display only: where each card goes is unchanged.
+  - The idea comes from the Never Follow Card mod for Card Survival: Tropical Island.
+
 ## Installation
 
 Install [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest. Quick Transfer and Skill Speed Boost also need CSFF Mod Framework (`CSFF_Mod_Framework`); Repeat Action does not. No other mod is needed.
@@ -274,6 +279,7 @@ Utility Belt's own config file is `BepInEx/config/crispywhips.utility_belt.cfg`:
 | Show Worn Tool Mark | false | Draws a small cracked mark on a tool whose Usage is below Worn Tool Threshold. Display only. Works while playing |
 | Worn Tool Threshold | 25 | The Usage percentage below which a tool gets the worn mark (1 to 99) |
 | Container Filter | false | Adds a search box to an open container's window; only slots whose card name holds the text are shown. Applies the next time a container opens |
+| Never Follow Cards | false | A card row no longer scrolls by itself to a card that was just made, moved or dropped. Bookmarks still scroll. Works while playing |
 
 **Card Size**
 
@@ -353,6 +359,7 @@ With it on, `BepInEx/LogOutput.log` gains one line per mod: `<name> <version> fr
 
 Full notes are in `CHANGELOG.md`.
 
+- **0.1.6**: Never Follow Cards (off until turned on) keeps a card row from scrolling to each new or moved card.
 - **0.1.5**: the worn tool mark no longer marks food, wood, leather or animals.
 - **0.1.4**: Sort Hand Row and Sort Base Row, Trash Card, carry-weight readout, worn tool mark, container filter and blueprint pins (all off until turned on), and Sort Container remembers each container's place in its cycle.
 - **0.1.3**: Card Size (smaller or two-row card rows), Extra Hand Slots and Extra Carry Weight, replacing Card Size Reduce.
@@ -363,4 +370,5 @@ Full notes are in `CHANGELOG.md`.
 ## Credits
 
 Created by Jared (crispywhips)
+Never Follow Cards is modelled on Never Follow Card for Card Survival: Tropical Island ([Nexus](https://www.nexusmods.com/cardsurvivaltropicalisland/mods/11)); Utility Belt's version is its own code.
 Built with [BepInEx](https://github.com/BepInEx/BepInEx)

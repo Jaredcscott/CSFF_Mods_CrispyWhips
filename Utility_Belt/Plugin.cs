@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.utility_belt";
     private const string PluginName = "Utility Belt";
-    private const string PluginVersion = "0.1.5";
+    private const string PluginVersion = "0.1.6";
 
     internal new static ManualLogSource Logger;
 
@@ -46,6 +46,7 @@ internal class Plugin : BaseUnityPlugin
     internal static ConfigEntry<UnityEngine.KeyCode> FocusContainerFilterKey { get; private set; }
     internal static ConfigEntry<UnityEngine.KeyCode> PinBlueprintKey { get; private set; }
     internal static ConfigEntry<string> PinnedBlueprints { get; private set; }
+    internal static ConfigEntry<bool> NeverFollowCards { get; private set; }
 
     private Harmony _harmony;
 
@@ -260,6 +261,13 @@ internal class Plugin : BaseUnityPlugin
             string.Empty,
             "The blueprints Pin Blueprint has pinned, as a comma-separated list of blueprint IDs. Shared by every save. Empty (the default) pins nothing.");
 
+        // Utility Belt 0.1.6. Off by default, like every option since 0.1.4 (UtilityBelt-ConfigDefaults.Tests.ps1).
+        NeverFollowCards = Config.Bind(
+            "Display",
+            "Never Follow Cards",
+            false,
+            "When true, a card row no longer scrolls by itself to a card that was just made, picked up, dropped, taken out of a container or moved by Quick Transfer: the row stays where you left it. Bookmarks and the game's own find-a-card links still scroll to the card. Display only: where cards go is unchanged. Takes effect at once.");
+
         _harmony = new Harmony(PluginGuid);
         // One try per patch, so a throw in one never skips the ones after it.
         void Apply(string name, Action<Harmony> apply)
@@ -276,6 +284,7 @@ internal class Plugin : BaseUnityPlugin
         Apply("CardSizePatch", Patcher.CardSizePatch.ApplyPatch);
         Apply("ContainerFilterPatch", Patcher.ContainerFilterPatch.ApplyPatch);
         Apply("BlueprintPins", BlueprintPins.ApplyPatch);
+        Apply("NeverFollowCardPatch", Patcher.NeverFollowCardPatch.ApplyPatch);
 
         // Static events that fire once per run start; each subscribed once per process.
         GameManager.OnGMInitialized += Locks.ItemLocks.OnRunStarted;

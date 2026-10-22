@@ -1,58 +1,57 @@
 # Roadmap: Utility Belt
-Version at time of writing: 0.1.5
-Date: 2026-10-18
-Audit score: 9/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 open WARNING)
+Version at time of writing: 0.1.6
+Date: 2026-10-20
+Audit score: 10/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 release-blocking WARNING)
 
 ## Current State
 
-**Theme**: A quality-of-life mod that gathers small utilities into one download for players who would rather install one thing. It bundles Repeat Action 2.2.2, Quick Transfer 1.9.1 and Skill Speed Boost 1.11.1, and adds its own accessibility, display, inventory and equipment options. It ships no cards, items, blueprints, structures or perks by design.
+**Theme**: A quality-of-life mod that gathers small utilities into one download for players who would rather install one thing. It bundles Repeat Action 2.2.2, Quick Transfer 1.9.1 and Skill Speed Boost 1.11.1, and adds its own accessibility, display, inventory, capacity and equipment options. It ships no cards, items, blueprints, structures or perks by design.
 
-**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images (adds no card content by design) - ~21 C# source files; ~16+ config options/hotkeys across Diagnostics, Accessibility, Display, Character, Equipment, RepeatAction and Hotkeys sections.
+**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images (adds no card content by design). 32 C# source files; 32 `Config.Bind` entries in `Plugin.cs` across its config sections (Accessibility, Capacity, Card Size, Character, Diagnostics, Display, Equipment, General, Hotkeys, RepeatAction).
 
-**Stability**: 9/10 - 0 CRITICAL, 0 DESIGN GAP, 0 open WARNING. The 2026-10-18 code-quality pass scored 10/10 (20 .cs files read in full); its one flagged warning (G2, a patch-handler exception logged at `LogDebug` in `ContainerFilterPatch.cs`) was fixed the same day in commit `00c1ed5a0` (now routed through `WarnOnce`). Release build 0 errors / 0 warnings; SimpEn/SimpCn parity clean 30/30; feature honesty exact (every config option wired to a `Tick()` or patch site). The single point docked is unverified in-game behaviour coverage (per-feature playthrough), not a known defect.
+**Stability**: 10/10 by the `/audit-mod` rubric: 0 CRITICAL, 0 open retrospectives, 0 DESIGN GAP, 0 release-blocking WARNING (`.audit/summary.md`, Score Derivation). The one open warning is cosmetic doc drift (this file's own version text, fixed by this refresh). Code-quality is 10/10 (0 criticals / 0 warnings); its G2 (LogDebug split) is closed by design; preflight's two V5 warnings are UI-object destroys, not cards. Critical-analysis was re-run 2026-10-20 against the current tree (verdict SOLID, 0/0/0/0) and covers the new `NeverFollowCardPatch.cs`.
 
-**Open work**: none open in `Documentation/Retrospectives/INDEX.md` (no entry matches UtilityBelt by folder, shorthand or GUID `crispywhips.utility_belt`). The 0.1.0, 0.1.4 and in-flight 0.1.5 plans were all built and archived (see Plan Reconciliation Log); no `Documentation/Plans/UtilityBelt/` folder exists, which is correct for a drained plan. As-built scope lives in `Documentation/Design/UtilityBelt_As_Built.md` and `Documentation/Design/UtilityBelt_0_1_4_As_Built.md`.
+**Open work**: none in `Documentation/Retrospectives/INDEX.md` (no row names UtilityBelt, UB, `ub-*` or `crispywhips.utility_belt`). Both plans drained and are archived as `Documentation/Design/UtilityBelt_As_Built.md` and `Documentation/Design/UtilityBelt_0_1_4_As_Built.md`; no `Documentation/Plans/UtilityBelt/` folder exists. The mod stays at the repo root until it is fully human tested (owner, 2026-10-12; see the Plan Reconciliation Log), then moves to `Stable/`.
 
-**Framework compliance**: N/A by design. UtilityBelt declares no `[BepInDependency]` and is a Harmony-only client-side QoL mod - it does not consume framework Tier 2 services (ActionRouter/SpawnService/TickEvents/ContentModPlugin) because it ships no content and patches the game directly. The bundled Quick Transfer and Skill Speed Boost modules carry their own framework soft-dependency. All Harmony patches target large callers via compile-time `typeof(...)`, cache reflection lookups, null-guard every `AccessTools` result, and `OnDestroy` unpatches and unsubscribes.
+**Framework compliance**: N/A by design. Utility Belt declares no `[BepInDependency]`; it is a Harmony-only client-side QoL mod that ships no content, so it does not consume framework Tier 2 services (ActionRouter, SpawnService, TickEvents, ContentModPlugin). The bundled Quick Transfer and Skill Speed Boost modules carry their own framework soft-dependency. Patches use compile-time `typeof(...)` targets, cached and null-guarded reflection, and `OnDestroy` unpatches and unsubscribes.
 
 ---
 
 ## Phase 0: Stabilize
 
-> Skipped - audit score is 9/10 and no open retrospectives exist. Nothing to stabilize.
-
-The only genuinely unverified item is per-feature in-game behaviour (sort order, swap outcome, filter hiding, randomiser band-matching), which is human-playthrough / TestHarness work tracked in `.claude/playthrough-test-status.json` (rows T2.1400-T2.1428), not a code defect.
+> Skipped: audit score 10/10 and no open retrospectives. Nothing to stabilize.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes maintenance. All currently satisfied; listed as recurring health checks.
+> Table-stakes maintenance. Most items are satisfied and listed as recurring health checks.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Versions synced across ModInfo (0.1.5) / Plugin.cs (0.1.5) / README (0.1.5) | Version hygiene | - done | Quick |
-| SimpCn.csv parity (30/30 clean) | Localization | - done | Quick |
-| Re-date `mod-report.md` / `preflight.json` (currently 2026-10-13, v0.1.2 state) via `/audit-mod UtilityBelt` | Audit freshness | P1 | Quick |
-| Record the passing 0.1.4/0.1.5 harness rows (T2.1418-T2.1428) that ran PASS but are not yet autoplay-recorded | Verification debt | P2 | Medium |
+| Versions synced across ModInfo (0.1.6) / Plugin.cs (0.1.6) / README (0.1.6) | Version hygiene | done | Quick |
+| SimpCn.csv parity (30/30 clean) | Localization | done | Quick |
+| Audit freshness: `.audit/` trio re-run and consolidated 2026-10-20 (critical-analysis SOLID covers `NeverFollowCardPatch.cs`; code-quality 10/10) | Audit freshness | done | Quick |
+| Harness rows for B7 to B13 recorded in `confirmedItems` (read 2026-10-20); 0.1.6 Never Follow Cards row `ub_*` / T2.1429 filed | Verification debt | done | - |
+| Pending `ub_*` tracker rows (person-looks plus `ub_u2_clock`, and the 0.1.6 T2.1429 Never Follow Cards check) | Verification debt | P2 | human, not code |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> UtilityBelt is feature-complete for its stated scope; the README states nothing more is planned. No content expansion is scoped - it is a QoL bundle, not a content mod. Any new QoL option is a candidate, not a committed addition (see Long-term Vision).
+> Utility Belt is feature-complete for its stated scope: both plans drained, and no plan folder exists. It is a QoL bundle, not a content mod; a new option needs a new plan under `Documentation/Plans/UtilityBelt/` first.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> The mod's integration surface is already its reason for existing: it bundles and hooks three standalone mods.
+> The mod's integration surface is its reason for existing: it bundles and hooks three standalone mods.
 
 ### Keep bundled module versions in lockstep with their standalones
-**What**: Repeat Action 2.2.2, Quick Transfer 1.9.1, Skill Speed Boost 1.11.1 are embedded. When any standalone ships a new version, re-embed it and bump UB.
+**What**: Repeat Action 2.2.2, Quick Transfer 1.9.1 and Skill Speed Boost 1.11.1 are embedded from `..\RepeatAction`, `..\QuickTransfer` and `..\SkillSpeedBoost` (`Utility_Belt.csproj`). When a standalone ships a new version, rebuild UB to re-embed it and bump UB.
 **Why**: a bundled module drifting behind its standalone is the one honesty risk unique to this mod's design.
-**Requires**: coordination with each module's own release.
-**Complexity**: Quick (per bump), covered by `Development_Tools/Tests/UtilityBelt-Bundle.Tests.ps1`.
+**Requires**: each module's own release commit and version bump.
+**Complexity**: Quick per bump, checked by `Development_Tools/Tests/UtilityBelt-Bundle.Tests.ps1`.
 
 ---
 
@@ -62,8 +61,8 @@ The only genuinely unverified item is per-feature in-game behaviour (sort order,
 
 | Item | What | Complexity |
 |------|------|------------|
-| Description accuracy pass | Re-read ModInfo Description / README against config defaults after each option added (last pass clean) | Quick |
-| Log-level consistency | G2 closed; keep genuine failures at LogWarning/LogError and verbose tracing at LogDebug | Quick |
+| Description accuracy pass | Re-read ModInfo Description and README against config defaults after each option added (last checked 2026-10-20: Never Follow Cards, worn-mark and ConfigurationManager claims match the code) | Quick |
+| Log-level consistency | Keep genuine failures at LogWarning/LogError through `WarnOnce`, verbose tracing at LogDebug (G2 closed) | Quick |
 
 ---
 
@@ -71,13 +70,14 @@ The only genuinely unverified item is per-feature in-game behaviour (sort order,
 
 > Where Utility Belt should be at v1.0.
 
-A single, trusted QoL download that a player installs once and forgets, covering the accessibility, display, inventory and equipment conveniences the base game lacks, while staying honest that its three headline features are themselves standalone mods bundled for convenience. Its natural endpoint is a stable 1.0 once every current option has a recorded in-game verification pass and the three bundled modules have each reached their own 1.0-equivalent maturity. The biggest not-yet-justified addition is a small in-game options panel (rather than BepInEx config-file editing) for its ~16 toggles - natural only if the option count keeps growing.
+A single, trusted QoL download that a player installs once and forgets, covering the accessibility, display, inventory and equipment conveniences the base game lacks, while staying honest that its three headline features are standalone mods bundled for convenience. Its natural endpoint is a stable 1.0 once every option has a recorded in-game verification and the three bundled modules have each reached their own 1.0-equivalent maturity, at which point it moves to `Stable/`.
 
-**Potential major additions** (not yet justified - revisit after the current options are all playthrough-verified):
-- In-game config UI for UB's own toggles - fits the accessibility theme; justified only as the option list grows past comfortable config-file editing.
-- A per-feature on/off summary readout - fits the "install once and forget" goal by showing at a glance what is active.
+**Potential major additions** (not yet justified; revisit after the pending tracker rows are closed):
+- A per-feature on/off summary readout, extending the Diagnostics > Log Module Sources line, so a player sees at a glance what is active.
 
-Any of these worth building belongs in a fresh `Documentation/Plans/UtilityBelt/` plan (or its Considered table, with the reason); never a stub under `Documentation/Ideas/`.
+Not a candidate: an in-game config menu is ruled out by Considered row 34 of `Documentation/Design/UtilityBelt_As_Built.md` (BepInEx ConfigurationManager already edits every UB option, as the README says).
+
+Any addition worth building belongs in a new `Documentation/Plans/UtilityBelt/MASTER_PLAN.md` (or its Considered table, with the reason); never a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -87,7 +87,7 @@ Any of these worth building belongs in a fresh `Documentation/Plans/UtilityBelt/
 |---------|--------|
 | After any new option/feature | Run `/audit-mod UtilityBelt` and update this roadmap |
 | Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
-| A bundled module ships a new standalone version | Re-embed it, bump UB, run `UtilityBelt-Bundle.Tests.ps1` |
+| A bundled module ships a new standalone version | Rebuild UB to re-embed it, bump UB, run `UtilityBelt-Bundle.Tests.ps1` |
 | After fixing any issue | Run `/critical-analysis UtilityBelt` to verify |
 
 ---
