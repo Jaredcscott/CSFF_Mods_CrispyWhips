@@ -1,7 +1,7 @@
 {
   "target": "FL_AxeRustyBlunt.png",
   "sourceCard": "vanilla AxeRustyBlunt 95da1742320318348b0fa4f03e81c2f3 (GameSourceModify patch)",
-  "subject": "a blunt, rust-pitted old felling axe head on a short worn wooden haft, bare",
+  "subject": "the vanilla metal axe (same silhouette, haft about five times the head's height), its head heavily rusted dull orange-brown and dark red-brown with small pits, no bright metal, the cutting edge blunt, rounded off and nicked with two or three small chips",
   "model": "nano-banana-2",
   "mode": "image2image",
   "params": {
@@ -10,30 +10,41 @@
     "resolution": "1K",
     "autoEnhancePrompt": false
   },
-  "historyId": "fcAyvsilCqs1JYd4vx3k",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792126155836_a1fa6ee6_1792126155871_fa27f174.png",
+  "prompt": "see historyId (the full prompt is stored on the OpenArt job); built from the subject above plus the plain-vanilla style sentence: Plain vanilla Card Survival game item art: a single object drawn with a thin, loose black ink outline and flat posterized fills in a few muted tonal steps per material, muted natural colours, simple and matter-of-fact, no cartoon, no comic shading, no decorative patterns, no glossy highlights. Single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.",
+  "historyId": "u07gaCt3brrtaY2qdX2p",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608502026_681836db_1792608502281_cbfa2e79.png",
   "credits": 20,
+  "generated": "2026-10-21",
   "references": [
     {
-      "role": "style",
-      "label": "vanilla Knife_Flint (style)",
-      "id": "srLsfbRhzXdoz1JBwH7G"
+      "role": "subject",
+      "fragment": "vanilla Axe_Iron (the ToolOrWeapon_Axe_Metal sprite family; Axe_Copper is the card's own sprite, Axe_Iron the same drawing in iron)",
+      "image": "vanilla sprite Axe_Iron (extract_vanilla_sprites.py export)",
+      "sha256": "a76fad3619bcf809a93c30e533c859c0baed812a035646f355cad49e28ed9cce",
+      "id": "L45W2pqfcEw4MniDO5f5",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Axe_Iron_1792608368265_5b9272c2.png"
     },
     {
       "role": "style",
-      "label": "vanilla Axe_Stone (style)",
-      "id": "ebT0Y8iL0opmjcDS78lT"
+      "fragment": "vanilla Axe_Stone (reference library, tool)",
+      "image": "vanilla sprite Axe_Stone",
+      "id": "ebT0Y8iL0opmjcDS78lT",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Axe_Stone_1791744833851_a9858d24.png"
     }
   ],
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792126155836_a1fa6ee6_1792126155871_fa27f174.png"
-    }
-  ],
-  "picked": "A",
-  "predicted": "A",
   "finish": "keyed",
-  "generated": "2026-10-15",
-  "note": "first sample; awaits owner gallery review"
+  "note": "Owner gallery rework 2026-10-21 (regenerate | use the vanilla metal axe image then rust it). One sample at 1K; the rejected picture was not used as a reference.",
+  "previous": {
+    "historyId": "fcAyvsilCqs1JYd4vx3k",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792126155836_a1fa6ee6_1792126155871_fa27f174.png",
+    "generated": "2026-10-15",
+    "subject": "a blunt, rust-pitted old felling axe head on a short worn wooden haft, bare",
+    "candidates": [
+      {
+        "n": "A",
+        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792126155836_a1fa6ee6_1792126155871_fa27f174.png"
+      }
+    ],
+    "picked": "A"
+  }
 }

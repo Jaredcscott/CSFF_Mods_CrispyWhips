@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.8] - 2026-10-20
+
+### Changed
+
+- **New pictures for the Rusty Axe and the Blunt Rusty Axe.** Both are now the base game's metal axe gone to rust: the Blunt Rusty Axe has a dulled, chipped edge, and the Rusty Axe a freshly sharpened bright edge.
+
+### Fixed
+
+- **Hunting a deer at the Deer Lick now starts the fight.** When a doe or a stag came down to the lick, choosing **Hunt it** closed the sighting and nothing happened: no fight opened. The lick now brings on the base game's deer encounter directly, so the sighting you see is the encounter's own "You see a Doe!" (or Stag) with **Hunt it!** and **Leave it alone**, and hunting opens the normal fight with the world's own doe or stag. Leaving it alone works as before. The odds, the salt stock and the "Nothing came down to the lick." result are unchanged.
+
 ## [0.1.7] - 2026-10-18
 
 ### Added

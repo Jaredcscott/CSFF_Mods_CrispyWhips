@@ -53,3 +53,5 @@
 | 2026-10-12 | FL_RuinedHomestead (owner gallery rework) | nano-banana-2 image2image | 1K | 20 | 5oUy7oxRLI5lf8BFWgTV | OK |
 | 2026-10-12 | FL_Petrospheres (owner gallery rework) | nano-banana-2 image2image | 1K | 20 | jmTSsmB7eXoYjhvQOwsj | OK |
 | 2026-10-15 | FL_AxeRustyBlunt | nano-banana-2 image2image | 1K | 20 | fcAyvsilCqs1JYd4vx3k | OK |
+| 2026-10-21 | FL_AxeRustyBlunt (owner gallery rework: vanilla Axe_Iron as subject reference, rusted and blunted; Axe_Stone style) | nano-banana-2 image2image | 1K | 20 | u07gaCt3brrtaY2qdX2p | OK |
+| 2026-10-21 | FL_AxeRusty (owner gallery rework: vanilla Axe_Iron as subject reference, rusted with a honed edge; pair of FL_AxeRustyBlunt) | nano-banana-2 image2image | 1K | 20 | 0TgkTOkj12BWt8QKdzEN | OK |

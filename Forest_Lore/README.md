@@ -1,6 +1,6 @@
 # Forest Lore
 
-**Version:** 0.1.7
+**Version:** 0.1.8
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release, early development.
@@ -139,6 +139,7 @@ Three chambers lie in a line, reachable only through the Cave Mouth and not draw
 ## Version history
 
 Full notes are in CHANGELOG.md.
+- **0.1.8:** hunting a deer at the Deer Lick now starts the fight.
 - **0.1.7:** a Deer Lick at the Mud Springs, no clay from clearing the Homestead, two peat a dig at the Mud Springs, a picture for the Rusty Axe.
 - **0.1.6:** the four reading actions calm you once a day, a Weeping Pine at Barrow Wood, rare relic finds at the Ossuary and the Bog Body, the Cave Lake's winter text, a picture for the Blunt Rusty Axe.
 - **0.1.5:** balance pass: fewer bronze nuggets, a stocked eel lake, a gentler Mud Volcano, a Homestead that decays and stores less, three Mud Piles a scoop.

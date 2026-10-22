@@ -151,24 +151,20 @@
                             "WhenOutOfRange": 2
                         }
                     ],
-                    "DroppedCards": [
-                        {
-                            "DroppedCard": {
-                                "m_FileID": 0,
-                                "m_PathID": 0
-                            },
-                            "DroppedCardWarpData": "ecbc900a938255c469cb8424c2a0b06c",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": {
-                                "x": 1,
-                                "y": 1
-                            },
-                            "DropChance": {
-                                "Active": true,
-                                "BaseDropChance": 100.0
-                            }
-                        }
-                    ]
+                    "DroppedCards": [],
+                    "DroppedEncounter": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "DroppedEncounterWarpData": "a1f4d4b19a6a6e24aa4452aa7c81213b",
+                    "DroppedEncounterWarpType": 3,
+                    "EncounterNPC": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "EncounterNPCWarpData": "6604ce2a04bc31a41b8dbe3ac8369549",
+                    "EncounterNPCWarpType": 3,
+                    "SkipEncounterEvent": false
                 },
                 {
                     "CollectionName": "Stag",
@@ -223,24 +219,20 @@
                             "WhenOutOfRange": 2
                         }
                     ],
-                    "DroppedCards": [
-                        {
-                            "DroppedCard": {
-                                "m_FileID": 0,
-                                "m_PathID": 0
-                            },
-                            "DroppedCardWarpData": "c7259ae779831874ca0de3fd4e43ed09",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": {
-                                "x": 1,
-                                "y": 1
-                            },
-                            "DropChance": {
-                                "Active": true,
-                                "BaseDropChance": 100.0
-                            }
-                        }
-                    ]
+                    "DroppedCards": [],
+                    "DroppedEncounter": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "DroppedEncounterWarpData": "00c3c3af808818b41bfb20a4aefa9681",
+                    "DroppedEncounterWarpType": 3,
+                    "EncounterNPC": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "EncounterNPCWarpData": "645e87517f75bdb40a526840708c05f5",
+                    "EncounterNPCWarpType": 3,
+                    "SkipEncounterEvent": false
                 },
                 {
                     "CollectionName": "Nothing",

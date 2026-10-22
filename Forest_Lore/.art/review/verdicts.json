@@ -21,6 +21,34 @@
         }
       ]
     },
+    "Picture/FL_AxeRusty.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "12bb1f3d59f9178b26b864c6e4a559a0e8cdf32e",
+      "at": "2026-10-21T19:15:52+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "use vanilla axe ",
+          "sha1": "9aaed56851d158aef229343ab7684d9076bd05a8",
+          "at": "2026-10-21T18:35:42+00:00"
+        }
+      ]
+    },
+    "Picture/FL_AxeRustyBlunt.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "53528b4c5a12471314b6878488e580ba9a51aa1c",
+      "at": "2026-10-21T19:15:50+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "use the vanilla metal axe image then rust it ",
+          "sha1": "42a3c6140cb1ed4429aa9878408548a5711fbb14",
+          "at": "2026-10-21T18:34:02+00:00"
+        }
+      ]
+    },
     "Picture/FL_Battlefield.png": {
       "status": "approved",
       "notes": "",
