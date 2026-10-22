@@ -4,6 +4,19 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.28.8] - 2026-10-22
+
+### Fixed
+
+- **A starting-location perk from a mod now starts you where it says.** Far Territory's Island Start put you at River Clearing instead of Landfall Strand, because the framework removed the start board from every mod perk at load. That removal exists for perks that carry a base-game board by accident, and those are still cleared; a perk that names a board its own mod ships now keeps it. Harness row T2.1911.
+- **Animals from mods no longer show an English description in Chinese.** The popup for a mod animal or person (Harsh Wilds' wisent and bandit, Far Territory's and Sirus23's animals) showed its English name as its description in every language, so a Chinese player read "Wisent" or "Bandit" under the Chinese name. The description now uses the translated name. Harness rows T2.1341 and T2.1334.
+
+### For mod authors
+
+- Animal manifests take an optional top-level `DescriptionLocalizationKey`: the CSV row a generated agent's `AgentDescription` reads. Omitted, it falls back to the manifest's `LocalizationKey` (before, `AgentDescription` had no key and always showed `DisplayName`). The decision is `AnimalManifest.ResolveAgentDescriptionKey`, gated by `Development_Tools/Tests/Framework-AnimalAgentDescription.Tests.ps1` (red on the 2.28.7 build, green on this one). A key with no `SimpEn.csv` row warns once, and the key is ignored with a warning beside `Agent.Ref`.
+
+- `Loading/PerkRelocationService.ClearOverrideEnvironments` keeps a mod perk's `OverrideEnvironment` when it resolves to a `CardTypes.Environment` card in `JsonDataLoader.AllModUniqueIds`; every other override is still set to null, as the Advanced Copper Tools and Herbs and Fungi copies it replaced did. The decision is `PerkRelocationService.ShouldClearOverride`, gated by `Development_Tools/Tests/Framework-PerkOverrideEnvironment.Tests.ps1` (red on the 2.28.7 build, green on this one), which also pins the mod perks that set `OverrideEnvironmentWarpData` (today only `ft_perk_island_start`).
+
 ## [2.28.7] - 2026-10-17
 
 ### Fixed

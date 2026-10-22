@@ -87,6 +87,14 @@ internal static class AnimalValidator
     /// EnemyName) is a separate warning: nothing would ever read it.</summary>
     private static void WarnAboutLocalizationKeys(AnimalManifest m)
     {
+        if (!string.IsNullOrEmpty(m.DescriptionLocalizationKey))
+        {
+            if (m.AgentRef != null)
+                Log.Warn($"Animals: {m.SourceFile}: DescriptionLocalizationKey '{m.DescriptionLocalizationKey}' is ignored because Agent.Ref is set (a referenced agent keeps its own description)");
+            else
+                WarnIfNoEnglishRow(m, "DescriptionLocalizationKey", m.DescriptionLocalizationKey);
+        }
+
         if (!string.IsNullOrEmpty(m.ApproachLabelLocalizationKey))
         {
             if (!m.ApproachButton)

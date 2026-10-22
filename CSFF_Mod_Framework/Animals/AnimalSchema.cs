@@ -28,6 +28,11 @@ internal sealed class AnimalManifest
     public string SpeciesId;
     public string DisplayName;
     public string LocalizationKey;
+    /// <summary>Optional CSV key for the generated agent's description (the text the NPC popup shows under the
+    /// name). Null = the name's own <see cref="LocalizationKey"/>, so a species with no description row still
+    /// reads its translated name, never the English <see cref="DisplayName"/>. Generated path only: an
+    /// Agent.Ref agent keeps its own description.</summary>
+    public string DescriptionLocalizationKey;
     public string Sprite;
     public string WeightCategory;
 
@@ -327,10 +332,21 @@ internal sealed class AnimalManifest
 
     private static readonly HashSet<string> TopLevelKeys = new(StringComparer.Ordinal)
     {
-        "SchemaVersion", "SpeciesId", "DisplayName", "LocalizationKey", "Sprite", "WeightCategory",
+        "SchemaVersion", "SpeciesId", "DisplayName", "LocalizationKey", "DescriptionLocalizationKey", "Sprite", "WeightCategory",
         "Agent", "Spawn", "ActivityWindow", "Movement", "Tracks", "Traps", "Encounter", "Carcass",
         "Interactions", "Companion", "CustomDuties",
     };
+
+    /// <summary>The CSV key a generated agent's description reads: <paramref name="descriptionKey"/> when the
+    /// manifest names one, else the name's <paramref name="nameKey"/>, else "" (plain DefaultText). Before this
+    /// the description was always keyless, so the NPC popup showed the English DisplayName in every language
+    /// (harness T2.1341, T2.1334). Plain strings so Development_Tools/Tests/Framework-AnimalAgentDescription.Tests.ps1
+    /// can call it from the built DLL.</summary>
+    public static string ResolveAgentDescriptionKey(string descriptionKey, string nameKey)
+    {
+        if (!string.IsNullOrEmpty(descriptionKey)) return descriptionKey;
+        return nameKey ?? "";
+    }
 
     public static AnimalManifest FromDict(Dictionary<string, object> root, string sourceMod, string sourceFile)
     {
@@ -346,6 +362,7 @@ internal sealed class AnimalManifest
         m.SpeciesId       = GetString(root, "SpeciesId");
         m.DisplayName     = GetString(root, "DisplayName");
         m.LocalizationKey = GetString(root, "LocalizationKey");
+        m.DescriptionLocalizationKey = GetString(root, "DescriptionLocalizationKey");
         m.Sprite          = GetString(root, "Sprite");
         m.WeightCategory  = GetString(root, "WeightCategory");
 

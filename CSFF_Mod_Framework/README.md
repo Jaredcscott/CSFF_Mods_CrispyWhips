@@ -4,7 +4,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
-- **Version:** 2.28.7
+- **Version:** 2.28.8
 - **Game version:** EA 0.69c
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese
@@ -99,7 +99,7 @@ It also throttles off-screen cards, caches decoded pictures so later launches lo
 
 ### Configuration
 
-Settings live in `BepInEx/config/crispywhips.CSFFModFramework.cfg`, created on first run. BepInEx reads it once at startup, so quit to desktop and relaunch after a change. ConfigurationManager gives an in-game editor.
+Settings live in `BepInEx/config/crispywhips.CSFFModFramework.cfg`, created on first run. BepInEx reads it once at startup, so quit to desktop and relaunch after a change. The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build) shows them in game (press F1 and find "CSFF Mod Framework"), but the framework reads nearly all of them at startup, so a change made there also needs a relaunch.
 
 | Section | Key | Default | What it does |
 |---|---|---|---|
@@ -539,6 +539,8 @@ Localization, audio, perks and blueprint tabs come last. Read that file for the 
 | `Stubs/LitJson/` | Source of the bundled `LitJSON.dll` (v0.19.0.0) |
 
 ## Recent releases
+
+**2.28.8.** A starting-location perk from a mod starts you where it says: Far Territory's Island Start puts you on Landfall Strand again. In Chinese, the popup of a mod animal or person shows its translated name as its description instead of the English one.
 
 **2.28.7.** No more freeze every two in-game hours on a long run: animal tracks that have already run out are dropped before each save, which shrank one old save from 29.7 MB to 9.3 MB. The animated Portal sits where its still picture does.
 

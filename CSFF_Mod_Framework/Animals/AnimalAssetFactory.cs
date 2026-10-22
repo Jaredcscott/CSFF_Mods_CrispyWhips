@@ -107,7 +107,13 @@ internal static class AnimalAssetFactory
             LocalizationKey = m.LocalizationKey ?? "",
             DefaultText = m.DisplayName,
         };
-        agent.AgentDescription = new LocalizedString { ParentObjectID = "", LocalizationKey = "", DefaultText = m.DisplayName };
+        // Keyed like the name (T2.1341/T2.1334: a keyless description showed the English DisplayName in zh).
+        agent.AgentDescription = new LocalizedString
+        {
+            ParentObjectID = "",
+            LocalizationKey = AnimalManifest.ResolveAgentDescriptionKey(m.DescriptionLocalizationKey, m.LocalizationKey),
+            DefaultText = m.DisplayName,
+        };
 
         if (!string.IsNullOrEmpty(m.Sprite))
         {

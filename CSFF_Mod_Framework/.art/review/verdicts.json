@@ -4,196 +4,282 @@
     "GIF/Portal_Placed.gif": {
       "status": "approved",
       "notes": "",
-      "sha1": "6be9f10a48784d6f69e9a236cb5ca58da9cdd79e",
-      "at": "2026-10-14T09:05:13+00:00"
+      "sha1": "aa06e16c65e97e8d1eb9c9c6d66820e73b7b71fa",
+      "at": "2026-10-21T18:39:20+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6be9f10a48784d6f69e9a236cb5ca58da9cdd79e",
+          "at": "2026-10-14T09:05:13+00:00"
+        }
+      ]
     },
     "Picture/ACT_MetalNails_Bronze.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "3630145e082902c45438dc976fc7e37db0e096f6",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "a87fc367d4e14a78e89a153c1c666aa573f67b6a",
+      "at": "2026-10-21T18:22:16+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "3630145e082902c45438dc976fc7e37db0e096f6",
           "at": "2026-10-12T08:28:09+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3630145e082902c45438dc976fc7e37db0e096f6",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalNails_Copper.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "139945d49ca2cded94afeed2ede0f68aec45601b",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "bf1229ad0a815c7a3a693813e039a84bcda8e9ba",
+      "at": "2026-10-21T18:22:16+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "139945d49ca2cded94afeed2ede0f68aec45601b",
           "at": "2026-10-12T08:28:10+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "139945d49ca2cded94afeed2ede0f68aec45601b",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalNails_GhostBronze.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "61da8ab3584f58782bcbeeb6583537e5ffe1b965",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "81267f6c82ba2440992ab1470bb44e9d14ec975f",
+      "at": "2026-10-21T18:22:16+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "61da8ab3584f58782bcbeeb6583537e5ffe1b965",
           "at": "2026-10-12T08:28:11+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "61da8ab3584f58782bcbeeb6583537e5ffe1b965",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalNails_Iron.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "4b38ca5e356bf7ccb8f33ac6f8832116f2c4a4c0",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "76d6ea83b78ed491e95ed86a10e3ee7fc22d1ac4",
+      "at": "2026-10-21T18:22:20+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "4b38ca5e356bf7ccb8f33ac6f8832116f2c4a4c0",
           "at": "2026-10-12T08:28:11+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4b38ca5e356bf7ccb8f33ac6f8832116f2c4a4c0",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalNails_Tin.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "e5c082a4083679c1b85862035a3cfcddcf110199",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "d2f2fcc48a2a08908d0183e9f370200478284704",
+      "at": "2026-10-21T18:22:20+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "e5c082a4083679c1b85862035a3cfcddcf110199",
           "at": "2026-10-12T08:28:12+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5c082a4083679c1b85862035a3cfcddcf110199",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalNails_WhiteBronze.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "722ad012e3e5c5f4d2a1f1d2d4f12ad0175192aa",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "1d45cdd39ff61be99e868032a662719dc133e6d8",
+      "at": "2026-10-21T18:22:22+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "722ad012e3e5c5f4d2a1f1d2d4f12ad0175192aa",
           "at": "2026-10-12T08:28:12+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "722ad012e3e5c5f4d2a1f1d2d4f12ad0175192aa",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalSheet_Bronze.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "0076a49a0a2f7103637b851d70e3151366393769",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "9563f610fc4c64df595109a94977894e867df43c",
+      "at": "2026-10-21T18:22:11+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "0076a49a0a2f7103637b851d70e3151366393769",
           "at": "2026-10-12T08:28:13+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0076a49a0a2f7103637b851d70e3151366393769",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalSheet_Copper.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "6669b7786ed433cfd9de108a1e466da6fcde570a",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "95e3cda1a5f1e9ca7f0c5e72b2d531fdd0e52a87",
+      "at": "2026-10-21T18:21:18+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "6669b7786ed433cfd9de108a1e466da6fcde570a",
           "at": "2026-10-12T08:28:14+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6669b7786ed433cfd9de108a1e466da6fcde570a",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalSheet_GhostBronze.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "16dfdcd280edeb114535b9390f28ca93f7ebd13a",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "c8e3d48b25ad899fd0b541a1aa652b8d594670b9",
+      "at": "2026-10-21T18:21:18+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "16dfdcd280edeb114535b9390f28ca93f7ebd13a",
           "at": "2026-10-12T08:28:15+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "16dfdcd280edeb114535b9390f28ca93f7ebd13a",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalSheet_Iron.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "f57a1e295e2f676de8bba35215689aca894c3967",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "f184835a9def151f7a08889b9c66d366bc20434d",
+      "at": "2026-10-21T18:21:19+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "f57a1e295e2f676de8bba35215689aca894c3967",
           "at": "2026-10-12T08:28:16+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f57a1e295e2f676de8bba35215689aca894c3967",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalSheet_Tin.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "051b7fecffb0e3fecf56489d245e3b7a0bed36ec",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "0c990b3eb5eb982528cd316bad70155b948ac742",
+      "at": "2026-10-21T18:22:22+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "051b7fecffb0e3fecf56489d245e3b7a0bed36ec",
           "at": "2026-10-12T08:28:16+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "051b7fecffb0e3fecf56489d245e3b7a0bed36ec",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/ACT_MetalSheet_WhiteBronze.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "ee59226aa44291dc0acb01f40750ab34aa4dae06",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "c05fc528955b0d0471608efe35e8ca4f3ce43a36",
+      "at": "2026-10-21T18:22:17+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "ee59226aa44291dc0acb01f40750ab34aa4dae06",
           "at": "2026-10-12T08:28:17+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ee59226aa44291dc0acb01f40750ab34aa4dae06",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/act_tin_solder.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "49cac0dc9574cb30335340acaf86e3208f0f3d46",
-      "at": "2026-10-12T17:21:01+00:00",
+      "sha1": "95cb26b90b6853a060a46213f49fd94c6b40aff0",
+      "at": "2026-10-21T18:37:25+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "49cac0dc9574cb30335340acaf86e3208f0f3d46",
           "at": "2026-10-12T08:28:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "49cac0dc9574cb30335340acaf86e3208f0f3d46",
+          "at": "2026-10-12T17:21:01+00:00"
         }
       ]
     },
     "Picture/CopperNails.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "139945d49ca2cded94afeed2ede0f68aec45601b",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "c51b16dbbf511c866bb5df04c506d3b286279836",
+      "at": "2026-10-21T18:22:18+00:00",
       "history": [
         {
           "status": "approved",
@@ -212,14 +298,20 @@
           "notes": "",
           "sha1": "139945d49ca2cded94afeed2ede0f68aec45601b",
           "at": "2026-10-12T10:39:05+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "139945d49ca2cded94afeed2ede0f68aec45601b",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/IronNails.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "4b38ca5e356bf7ccb8f33ac6f8832116f2c4a4c0",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "1dea2ae2527bb83bffbebe9c8237d20854f8854a",
+      "at": "2026-10-21T18:22:21+00:00",
       "history": [
         {
           "status": "approved",
@@ -238,56 +330,80 @@
           "notes": "",
           "sha1": "4b38ca5e356bf7ccb8f33ac6f8832116f2c4a4c0",
           "at": "2026-10-12T10:39:06+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4b38ca5e356bf7ccb8f33ac6f8832116f2c4a4c0",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/MetalSheet_Copper.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "08b45ec03e00818f69ee9969ae15d29eb697e9e5",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "e90cab2eaf06d08767cfa32d9a92b12e39e6a643",
+      "at": "2026-10-21T18:34:09+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "08b45ec03e00818f69ee9969ae15d29eb697e9e5",
           "at": "2026-10-12T08:28:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "08b45ec03e00818f69ee9969ae15d29eb697e9e5",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/MetalSheet_Iron.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "965da446884200e4d8cb9e5f117047be652189ac",
-      "at": "2026-10-12T17:22:21+00:00",
+      "sha1": "5d18b25d7ac77b48766961d9420ae9f1667122f4",
+      "at": "2026-10-21T18:33:23+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "965da446884200e4d8cb9e5f117047be652189ac",
           "at": "2026-10-12T08:28:24+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "965da446884200e4d8cb9e5f117047be652189ac",
+          "at": "2026-10-12T17:22:21+00:00"
         }
       ]
     },
     "Picture/Portal_Kit.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "0057d1e966df8133e9fe130fadaa9348274d7867",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "cda87bfbccf3d33b7b58c34b2acf182be004d4bf",
+      "at": "2026-10-21T18:21:41+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "0057d1e966df8133e9fe130fadaa9348274d7867",
           "at": "2026-10-12T08:28:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "0057d1e966df8133e9fe130fadaa9348274d7867",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
     "Picture/Portal_Placed.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "2e124c3c8789e0e64d132da6209b1cdbc4797ac0",
-      "at": "2026-10-12T17:28:09+00:00",
+      "sha1": "a3bc7960c653bba6f4a32582ca717ce37e97d581",
+      "at": "2026-10-21T18:39:44+00:00",
       "history": [
         {
           "status": "approved",
@@ -300,6 +416,12 @@
           "notes": "",
           "sha1": "2e124c3c8789e0e64d132da6209b1cdbc4797ac0",
           "at": "2026-10-12T17:01:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2e124c3c8789e0e64d132da6209b1cdbc4797ac0",
+          "at": "2026-10-12T17:28:09+00:00"
         }
       ]
     }
