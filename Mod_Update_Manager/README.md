@@ -1,6 +1,6 @@
 # Mod Update Manager
 
-**Version:** 2.1.72  
+**Version:** 2.1.73  
 **Author:** Jared (crispywhips)  
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -263,7 +263,7 @@ The newest such line shows under the changelog as **Tested: EA x.y**. It is gree
 ## Troubleshooting
 
 **The window does not open with F3**
-- Check `BepInEx/LogOutput.log` for errors and look for `Mod_Update_Manager v2.1.72 loaded.`
+- Check `BepInEx/LogOutput.log` for errors and look for `Mod_Update_Manager v2.1.73 loaded.`
 - Make sure BepInEx is installed correctly.
 
 **Install & Update shows "[Unknown]" for every mod**

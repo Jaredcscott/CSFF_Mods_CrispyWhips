@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.73] - 2026-10-22
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.8, Herbs and Fungi 1.14.14, Advanced Copper Tools 1.18.12, Water Driven Infrastructure 1.12.13, Community Mod Chest 1.69.21, Homestead Perks 1.3.9, Repeat Action 2.2.3, Quick Transfer 1.9.2, Skill Speed Boost 1.11.2, and the pre-release Partner Overhaul 1.1.6, Harsh Wilds 0.11.9, Far Territory 0.1.11, Forest Lore 0.1.8, Utility Belt 0.1.7 and Sirus23 Mod Collection 1.22.10. Text fixes only: Community Mod Chest's stockpiles and jail ration are described as their pictures show them, Advanced Copper Tools' Tea Station names its Heavy Stones, Sirus23's Ferret says it eats cooked, boiled and dried meat as well as raw, and three mod list descriptions (Advanced Copper Tools, Herbs and Fungi, Homestead Perks) are brought up to date.
+
 ## [2.1.72] - 2026-10-22
 
 ### Changed

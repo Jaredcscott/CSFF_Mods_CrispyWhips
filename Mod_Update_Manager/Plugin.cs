@@ -7,7 +7,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.1.72";
+    public const string PluginVersion = "2.1.73";
 
     // PluginMetadataReader is host-free, so it carries BepInEx's DependencyFlags.SoftDependency value as
     // a constant of its own. A division by a constant zero is a compile error, so this line fails the
