@@ -223,7 +223,7 @@ Set Knife Fighting_Multiplier = 3  (fast melee)
 ---
 
 ### 12. Low-Condition XP Penalty
-**What:** A sub-1.0 XP multiplier that applies while your character is exhausted, starving or parched. The inverse of the well-rested bonus, and the only setting in this mod that makes XP move slower.
+**What:** A sub-1.0 XP multiplier that applies while your character is exhausted, starving or parched. The inverse of the well-rested bonus. It is not the only way to slow XP: any season, environment, station, tool, action or perk map entry below 1 slows it too, and a per-skill multiplier of 0 stops it.
 
 **Settings:**
 - `LowConditionPenaltyEnabled` (default: `false`) - Enable the penalty

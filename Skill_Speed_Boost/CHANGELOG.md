@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.11.2] - 2026-10-22
+
+### Fixed
+
+- **Modders:** when clearing the EA 0.69 skill cache fails, the log now names the real error instead of the reflection wrapper's "Exception has been thrown by the target of an invocation".
+
 ## [1.11.1] - 2026-10-12
 
 1.11.0 was never released on Nexus, so its notes below ship in this release too.
@@ -14,7 +20,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Skill gates see the boosted level straight away on EA 0.69.** EA 0.69 caches each skill's value for the checks that unlock actions, dialog and blueprints. A check made mid-gain could keep the old level until the skill next changed. The mod now refreshes that cache whenever it adjusts a skill.
 - **A gain the low-condition penalty stops completely no longer uses up your daily bonuses.** With `LowConditionMultiplier` at 0, a blocked gain still spent the skill's first use of the day, day-streak day and rested-bank XP. Those are now kept for a gain that counts.
 - **The XP log options keep the mod running.** With every XP bonus off but `LogSkillXpGains` or `LogDailyXpSummary` on, the mod stopped early and logged nothing.
-- **One failed patch no longer stops the rest.** The startup line says how many applied, and the framework is now marked as required.
+- **One failed patch no longer stops the rest.** The startup line says how many applied. The framework stays optional: the mod uses it when it is installed.
 - **A bonus can no longer push a skill past its maximum when the maximum cannot be read.** If a game update hides a skill's maximum, that skill keeps the game's own gain and the log says why once.
 - **Skills from other mods keep their per-skill settings when their name has an apostrophe, quote, bracket or equals sign.** BepInEx refuses those characters in a setting name, so such skills silently lost their staleness and multiplier settings. The setting name now leaves them out.
 - **A structure bonus can no longer carry into a new run.** Quitting mid-action at a structure could apply that structure's familiarity and station bonus to a later gain somewhere else.

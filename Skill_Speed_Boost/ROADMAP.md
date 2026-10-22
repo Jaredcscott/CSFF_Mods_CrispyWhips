@@ -1,7 +1,7 @@
 # Roadmap: Skill Speed Boost
-Version at time of writing: 1.11.0 (built, unpublished; Nexus carries 1.10.6)
-Date: 2026-10-11
-Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 0 open MINOR, 1 WARNING = the E16 false positive)
+Version at time of writing: 1.11.1 (Nexus carries 1.11.1, published 2026-10-14; a `[Unreleased]` inner-exception logging fix is in source only)
+Date: 2026-10-20
+Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 0 open counted WARNING; SSB-W7 is citation hygiene, E16 the SimpEn.csv false positive)
 
 ## Current State
 
@@ -17,11 +17,14 @@ Pure-C# / Harmony. Player-facing text is entirely BepInEx `Config.Bind` descript
 preflight "missing SimpEn.csv" (E16) is a standing, documented false positive - do not create a dummy
 CSV to silence it.
 
-**Stability**: 10/10 - PASS. critical-analysis (2026-10-11, v1.11.0) verdict SOLID: 0 critical /
-0 mechanical / 0 design / 0 broken promises. code-quality (2026-10-11) 10/10, 0 crit / 0 warn across
-26 files. Every one of the 27 README / 30 FEATURES.md features is wired at the single `ChangeStatValue`
-composition point or a load/run-start postfix; all 20 bonus flags appear in BOTH the composition body
-and the early-out guard (`SkillSpeedBoost-BonusComposition.Tests.ps1`: 113 passed).
+**Stability**: 10/10 - PASS. critical-analysis (2026-10-20, v1.11.1) verdict SOLID: 0 critical /
+0 mechanical / 0 design / 0 broken promises. code-quality (2026-10-20) 10/10, 0 crit / 0 warn. The
+2026-10-20 mod-report resolved SSB-W1 through W6 (CHANGELOG/README/FEATURES wording, InnerException
+logging, the EA 0.69 condition-cache-clear test block + tracker rows T1.316-T1.320, lib/bin untracked);
+only SSB-W7 (a stale header SHA in code-quality.md, citation hygiene) remains, uncounted. Every one of
+the README / FEATURES.md features is wired at the single `ChangeStatValue` composition point or a
+load/run-start postfix; all bonus flags appear in BOTH the composition body and the early-out guard
+(`SkillSpeedBoost-BonusComposition.Tests.ps1`: 113 passed; BonusLogic 699 passed; 819 combined).
 
 **Open work**: **Zero open retrospectives** - `Documentation/Retrospectives/INDEX.md` has no entry for
 SkillSpeedBoost, SSB, or `crispywhips.skill_speed_boost`. **Feature complete**: the round-2 content
@@ -55,10 +58,11 @@ services. The card-facing Tier 2 services (`ActionRouter`, `SpawnService`, `Tick
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Publish 1.11.0 to Nexus (Nexus holds 1.10.6) once ready | Release | P1 | Quick (`/nexus-publish upload SkillSpeedBoost`) |
-| Repackage the suite + bump MUM so the embed carries 1.11.0 (the `EmbeddedZipCurrency.Tests.ps1` pin still reads 1.10.6, self-expiring on the next `/package-mod-suite`) | Release | P1 | Quick |
-| T1.316 - human playthrough that the Partner's skills follow your settings (harness T1.316 already `pass`; a human run is the only unmeasured confirmation) | Runtime verification | P1 | Medium (human, in-game) |
-| Move SkillSpeedBoost into `Stable/` once published (feature complete, drained plan) | Workspace hygiene | P2 | Quick (`Development_Tools/Move-ModFolder.ps1`) |
+| Publish the `[Unreleased]` inner-exception logging fix as 1.11.2 to Nexus (Nexus holds 1.11.1, published 2026-10-14; the fix ships only in source) | Release | P1 | Quick (`/nexus-publish upload SkillSpeedBoost`) |
+| Repackage the suite + bump MUM so the embed carries the current SSB (the `EmbeddedZipCurrency.Tests.ps1` pin self-expires on the next `/package-mod-suite`) | Release | P2 | Quick |
+| T1.316-T1.320 - human playthrough confirmation of the 1.11.x fixes (harness T1.316 already `pass`; the human runs are the only unmeasured confirmation) | Runtime verification | P2 | Medium (human, in-game) |
+| SSB-W7 - refresh code-quality.md's stale header SHA on the next standalone `/code-quality` run (citation hygiene only, uncounted) | Doc hygiene | P3 | Quick |
+| Move SkillSpeedBoost into `Stable/` (feature complete, drained plan, published) | Workspace hygiene | P2 | Quick (`Development_Tools/Move-ModFolder.ps1`) |
 
 ---
 

@@ -728,7 +728,8 @@ internal static class MorningBonusPatch
         try { _invalidateConditionValues.Invoke(stat, null); }
         catch (Exception ex)
         {
-            WarnOnce("InvalidateConditionValues-call", $"Clearing the stat condition cache failed - skill gates may read a stale skill level: {ex.Message}");
+            // InnerException first: Invoke wraps the real cause in a TargetInvocationException.
+            WarnOnce("InvalidateConditionValues-call", $"Clearing the stat condition cache failed - skill gates may read a stale skill level: {ex.InnerException?.Message ?? ex.Message}");
         }
     }
 

@@ -1,6 +1,6 @@
 # Skill Speed Boost
 
-**Version:** 1.11.1
+**Version:** 1.11.2
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -42,7 +42,7 @@ Everything except staleness decay, area familiarity and the per-skill multiplier
 | Feature | What it does | Default |
 |---|---|---|
 | Well-rested bonus (`WellRestedBonusEnabled`) | 1.25x while Energy, Satiation and Hydration are all at or above 60% of their maximum. | Off |
-| Low-condition penalty (`LowConditionPenaltyEnabled`) | 0.5x while Energy, Satiation or Hydration is below 60%. It is the only setting that slows XP. | Off |
+| Low-condition penalty (`LowConditionPenaltyEnabled`) | 0.5x while Energy, Satiation or Hydration is below 60%. A map entry below 1 (season, environment, station, tool, action or perk) also slows XP, and a per-skill multiplier of 0 stops it. | Off |
 | In the Flow bonus (`FocusBonusEnabled`) | 1.2x while your Focus is In the Flow, its top band. Anything that raises Focus, such as a focus tea from another mod, also speeds learning. | Off |
 | Daily first use (`DailyFirstUseBonusEnabled`) | 1.5x on each skill's first XP gain of the in-game day, so a varied day pays better than one long grind. | Off |
 | Day streak (`StreakBonusEnabled`) | +2% for each consecutive in-game day you gain skill XP, up to 10 days. A day off restarts it. | Off |
@@ -111,7 +111,7 @@ BepInEx/
 
 Install it and play. The defaults need no config: 1x XP, staleness wearing off every 3 in-game hours, per-skill settings on, and area familiarity on (up to +30% XP at a location you have worked 80 times).
 
-To change a setting, edit `BepInEx/config/crispywhips.skill_speed_boost.cfg`, then restart the game. Examples:
+To change a setting, edit `BepInEx/config/crispywhips.skill_speed_boost.cfg`, then restart the game. Or change it in game with the optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build): press F1 and find "Skill Speed Boost". A change made there applies from the next XP gain, no restart. Examples:
 
 **No staleness (relaxed)**
 ```ini
@@ -448,6 +448,7 @@ This section is for modders.
 
 Full notes are in **CHANGELOG.md**.
 
+- **1.11.2:** when clearing the EA 0.69 skill cache fails, the log names the real error.
 - **1.11.1:** fixes for skill gates on EA 0.69, the low-condition penalty at 0 and a structure bonus carrying into a new run, plus the 1.11.0 notes below.
 - **1.11.0:** a dozen optional bonuses (night, station, season, environment, tool, action, perk, streak, rested bank, milestone, overflow, readout), synergy tuning, partner skills, per-save progression and a daily XP summary. 1.11.0 was never released on Nexus.
 - **1.10.6:** a perk's starting skill bonus is no longer multiplied by your XP settings.
