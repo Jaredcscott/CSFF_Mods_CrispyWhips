@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.12.12
+**Version:** 1.12.13
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
@@ -324,7 +324,7 @@ A plank-lined channel that carries water from a Mill Race Outlet along the field
 
 - **Research:** 2 hours, needs a Mill Race. **Build** (1 hour): 4 Stone and 4 Wooden Planks. It gives an **Irrigation Channel Kit**; place it, and **Pack Up** (30 minutes) returns the kit. Disassembling the kit gives back 2 Stone and 2 Wooden Planks.
 - Build and place it where the Sawmill can stand (a river or lake, or an outlet-watered outdoor location, never indoors). One channel per location.
-- While a flowing Mill Race Outlet stands at the same location, each Flax, Wheat, Pea and Turnroot field there, growing or mature, gains 20 Hydration a tick. A field loses Health below 1920 Hydration; the channel lifts it back over that line, but above 1920 the field dries faster (24 a tick, 36 when very wet) than the channel adds, so on its own the channel never wets a field past about 1920. Growth, yield and Health are not touched.
+- While a flowing Mill Race Outlet stands at the same location, each Flax, Wheat, Pea and Turnroot field there, growing or mature, gains 20 Hydration a tick. A field loses Health below 1920 Hydration; the channel lifts it back over that line, but above 1920 the field dries faster (24 a tick, 36 when very wet) than the channel adds, so on its own the channel never wets a field past about 1920. It holds there: a fed field that would dip to 1920 or just under it is topped up to 1921, so it stays out of drought instead of cycling under the line. Growth, yield and Health are not touched.
 - It feeds nothing while the outlet is closed or frozen (a fire does not help here), or when no outlet stands at the location. Fields on a river shore or in wetlands already gain 20 Hydration from the ground, so the channel leaves them alone.
 - Only the four vanilla field crops are watered. Garden plots, planted crops and other mods' plants (Herbs and Fungi, Far Territory, Harsh Wilds) are not.
 - The 20 a tick and the build cost may be rebalanced.
@@ -418,7 +418,7 @@ A Partner works only the stations you mark. The Grinding Mill, Ore Sluice, Stamp
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.12.12 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.12.13 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
@@ -456,7 +456,7 @@ Most features were checked by scripted tests in a running game. Not yet tried in
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.12 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.13 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.
@@ -500,6 +500,7 @@ BepInEx/plugins/Water_Driven_Infrastructure/
 | **BronzeGearTabPatch** | With ACT, adds the two Cast Bronze Gear blueprints to Metal Crafts at runtime. |
 | **MillDutyPatch** | Grafts the 12 `NPCDuty` files onto the vanilla Partner template. A postfix on `NPCDuty.RequiredActionsAreDoable` stops the mill, sluice and stamp mill duties while no marked station holds work. Every duty sets `RequiresMarkedCard`. Base weight 850. A postfix on `GameStatsToNPCStats.Init` adds the pond frog stat to `StatsStillAffectedByNPCS`, so a Partner's Catch Frog spends the pool. |
 | **FishFunnelPatch** | Prefix on `InGameCardBase.AddExternalPassiveEffect`: a Funnel Trap that already carries one live Fish Funnel's boost refuses a second. |
+| **IrrigationChannelPatch** | `Priority.Last` prefix on `GameManager.ChangeCardDurabilities`: holds a channel-fed field at 1921 Hydration instead of letting the +20 a tick cycle it under the 1920 drought line. |
 | **BaseTemperatureHeal** | On `GameManager.OnGMInitialized`, resets a positive vanilla BaseTemperature base to 0, repairing saves warmed by Blast before 1.12.3. |
 
 Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they never modify vanilla cards, drops or stats.

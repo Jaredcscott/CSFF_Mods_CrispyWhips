@@ -1,84 +1,84 @@
-# Roadmap: WaterDrivenInfrastructure
+# Roadmap: Water Driven Infrastructure
 Version at time of writing: 1.12.12
-Date: 2026-10-19
-Audit score: 10/10 (PASS, release-ready) - see `.audit/summary.md`
+Date: 2026-10-20
+Audit score: 10/10 (PASS - 0 CRITICAL, 0 DESIGN GAP, 0 open WARNING)
 
 ## Current State
 
-**Theme**: Late-game water-powered industry - sawmills, forges, grinding/stamp mills, ore sluices, fishponds, fish funnels, mill race outlets, plus retting pits and irrigation channels - built near rivers using water wheels and mill races. For a player past the early survival tier who wants large-scale manufacturing and a steady water supply at any outdoor location.
+**Theme**: Mid-to-late-game water-powered industry - build a water wheel on a river, then run sawmills, forges, grinding/stamp/fulling mills, ore sluices, fishponds and a Mill Race Outlet that carries river water to any outdoor base for drinking, irrigation, retting, reed/cattail beds and a winter cistern.
 
-**Content**: 31 items / 35 blueprints / 21 structures (CT2) / 7 perks / 39 custom images
+**Content**: 31 items (26 live + 5 retired-for-save-compat) / 35 blueprints (29 live + 6 retired) / 21 structures / 7 perks / 39 custom images. 12 NPCDuty files power Partner station work.
 
-**Stability**: 10/10 (release-ready) - 0 CRITICAL, 0 confirmed design gaps, 0 broken promises, 0 open retrospectives. Build clean (0 errors / 0 warnings), bin/Release in sync, versions agree at 1.12.12, Chinese parity 673/673, cross-mod collisions 0 (17 mods / 2623 UIDs). `critical-analysis.md` is current with the latest source commit (2026-10-19) and returns SOLID. The two newest structures (Retting Pit, Irrigation Channel) are wired and mechanically verified against JSON + the `MillRaceNetwork`/`ActionInterceptPatch` C# gate, pending only human in-game confirmation (T2.1798, T2.1799). Perk tracking is complete: all 7 perk UIDs are present in `Features.json` (the prior "3 of 7" perks-report gap is stale/resolved).
+**Stability**: 10/10 - release ready. Build clean (0 errors / 0 warnings), versions synced at 1.12.12, localization + Chinese parity CLEAN (673/673), acquisition loops complete (0 unreachable / 0 dead-end), 0 cross-mod collisions.
 
-**Open work**: none (all 4 WDI-tagged retrospectives are graduated/archived). One open tracker warning: **T2.601** reads `fail` on a stale premise (its run PASSED but was not recorded because the row still describes vanilla's `PartnerDuty_HarvestReeds` instead of WDI's own `wdiHarvestReedBed_Duty`/`wdiHarvestCattailBed_Duty`); non-code, needs a row rewrite + `/playthrough-test-plan record`.
+**Open work**: None. All 4 WDI-tagged retrospectives (`wdi-mill-race-improvement-tab`, `wdi-mill-race-edges`, `wdi-fish-quality`, `wdi-iron-smelt-output`) are 🔵 Graduated/archived.
 
-**Framework compliance**: Tier 2, fully adopted. `ActionRouter` (31 call sites, all action interception), `SpawnService` (18), `TickEvents` (5). No direct `ActionRoutine` patches, no `DropCollectionGuardPatch`, no `ModLoaderVerison`/`ModEditorVersion`, no unfiltered hot-path prefixes. Needs CSFFModFramework 2.28.0+.
+**Framework compliance**: Tier 2, fully adopted. 31 `ActionRouter` registrations, 18 `SpawnService` spawns, 5 `TickEvents` subscriptions. No direct `ActionRoutine` patches, no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. Requires CSFFModFramework 2.28.0+.
 
 ---
 
-## Phase 0: Stabilize
+## Phase 0: Stabilize  *(skipped - audit score 10/10, no open retrospectives)*
 
-> Skipped - audit score is 10/10 and there are no open retrospectives.
+Nothing to stabilize. The mod is release-ready.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes maintenance. All structural hygiene is already green; these are the only open items.
+> Table-stakes hygiene. All currently satisfied; listed as the recurring maintenance baseline.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Rewrite tracker row T2.601 to describe WDI's own reed/cattail harvest duties, then `/playthrough-test-plan record` the already-passed run | Tracker hygiene | P1 | Quick |
-| Re-run the 6 domain sub-audits (`/full-mod-audit-chain WaterDrivenInfrastructure`) so the 2026-10-13 reports stop being carried as stale/UNTRUSTED input | Audit hygiene | P2 | Medium |
-| Re-verify `GetCardCharges` is still uncached reflection; cache the `AccessTools.Field` lookup if so | Perf hygiene | P3 | Quick |
+| Versions synced across ModInfo/Plugin.cs/README (1.12.12) | Version hygiene | ✓ done | Quick |
+| ActionRouter / SpawnService / TickEvents in use | Framework Tier 2 | ✓ done | - |
+| SimpCn.csv present, 673/673 parity | Localization | ✓ done | Quick |
+| Re-run the stale domain sub-audits (items 2026-07-27 is most stale) at next content change | Audit hygiene | P2 (advisory) | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> One benched structure is the only queued content. No feature gap is open; do NOT invent new content.
+> No open feature gaps. The one benched (not ruled-out) item is the sole near-term content candidate.
 
 ### Cold-Water Cache (benched, owner decision pending)
-**What**: A spoilage-halving (x0.5) river-side cache that sits strictly above vanilla's Ice Pit, with a flood-loss tick and a Pull Up Cache DA. Built in 1.12.0, removed by the owner in 1.12.1 ("Remove this as well bnch for later in ideas.").
-**Why**: Completes the river-industry theme with a cold-storage tier; benched, NOT ruled out.
-**Requires**: An owner decision on whether it is wanted next to the Ice Pit and whether its placeholder numbers (x0.5 spoilage, 2% daily flood loss, 4% in heavy rain) stay. Its blood-soaking quality penalty was never built (vanilla has no unbled-meat quality rule to anchor it).
-**Spec / restore**: `Documentation/Design/WaterDrivenInfrastructure_Round2_As_Built.md` Feature 13; last commit holding the feature is `fb10224c1` (`git show 09be321aa:Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md` for the full as-built text).
-**Complexity**: Medium (restore + re-balance + art already exists in the git history).
+**What**: A spoilage-halving (x0.5) river cache kept strictly weaker than vanilla's Ice Pit, with a flood-loss tick and a "Pull Up Cache" DA. UIDs `wdi_bp_coldwater_cache` / `wdi_coldwater_cache_placed`.
+**Why**: Completes the "river gives you cold storage" fantasy for players without an Ice Pit; fills the gap between no preservation and the Ice Pit.
+**Requires**: Owner decision - benched 2026-10-09 ("bnch for later in ideas"), NOT ruled out. Full as-built text + restore point at git `fb10224c1`; design record Feature 13 in `Documentation/Design/WaterDrivenInfrastructure_Round2_As_Built.md`. Open questions when picked up: is it wanted next to the Ice Pit, and do its all-placeholder numbers stay.
+**Complexity**: Medium (code existed in 1.12.0; mostly a restore + balance pass).
 
 ---
 
 ## Phase 3: Integration & Depth
 
-### ACT Cast Iron Sheet tier-lock verification
-**What**: Confirm the Cast Iron Sheet (SD4 `Active:false`) is correctly rejected from an Advanced Copper Tools copper-tier recipe slot, as the README tier-lock claim states.
-**Why**: WDI consumes ACT-prefixed shared fasteners by UID and declares ACT optional (no hard dependency, G7 clean); the only open cross-mod question is this slot-rejection behavior.
-**Requires**: ACT installed; a filed tracker row for the in-game check.
-**Complexity**: Quick (verification, not new code).
+### AdvancedCopperTools (optional) - already wired
+**What**: Bronze gears are tabbed at runtime by `BronzeGearTabPatch` only when ACT is installed; shared Metal Nail / Tin Solder / Metal Sheet are framework-hosted; ACT is declared optional (no hard dependency, G7 clean).
+**Why**: Lets WDI's forge/workshop recipes use the shared fastener economy without forcing ACT.
+**Requires**: Nothing - shipped. Only open item is an in-game verification question: confirm the Cast Iron Sheet (SD4 `Active:false`) is correctly rejected from an ACT copper-tier slot, if the README's tier-lock claim is to be tracker-verified.
+**Complexity**: Quick (a tracker row, not code).
 
 ---
 
 ## Phase 4: Polish
 
-> Art and text are already mature (39 custom images, descriptions spot-checked clean). No open polish items.
+> Art and text are already at shipping quality (39 custom images, feature-honest README). Remaining items are minor.
 
 | Item | What | Complexity |
 |------|------|------------|
-| (none open) | Art coverage, descriptions, and localization are all clean as of 1.12.12 | - |
+| M1 - `GetCardCharges` uncached reflection | Cache the reflection lookup if a perf pass is run; below scoring floor, not re-flagged on 2026-10-20 code-quality | Quick |
 
 ---
 
 ## Long-term Vision
 
-> Where this mod should be at v2.0.
+> Where WDI should be at v1.13+.
 
-WDI is already a complete late-game water-industry package: it covers manufacturing (sawmill, forge, workshop, grinding/stamp/fulling mills), resource extraction (ore sluice, fishpond, fish funnel), water supply (mill race outlet, cistern feed, irrigation channel) and crafting-chain depth (retting pit, cloth fulling). Its natural endpoint is a self-sufficient riverside industrial base that trains five skills and supplies water anywhere outdoors. The biggest addition not yet justified at current scope is a cold-storage tier (the benched Cold-Water Cache); beyond that the mod is feature-complete and should move to maintenance-plus-polish, updating only to track game versions and respond to requests.
+WDI is at its natural feature-complete endpoint for a water-industry mod: the full chain from wheel → power → every station → river-fed base infrastructure (drinking, irrigation, retting, reed beds, winter cistern) ships and is in-game confirmed. The mod's role is the definitive "harness the river" overhaul, and the biggest justified remaining move is breadth (the benched Cold-Water Cache) rather than a new subsystem. A new mechanical pillar (e.g. water-powered milling of a new material class, or a tidal/seasonal flow mechanic) is not yet justified by scope; revisit only if vanilla adds a material or seasonal water system to anchor it.
 
-**Potential major additions** (not yet justified - revisit after Phase 2/3):
-- Cold-Water Cache (benched above) - the one queued content item; a riverside cold-storage tier above the Ice Pit.
-- Water-powered textile depth beyond the fulling mill (e.g. a powered loom or dye vat) - only if a weaving/dyeing gap emerges that vanilla and H&F do not already cover.
+**Potential major additions** (not yet justified - revisit after an owner decision on the Cache):
+- Cold-Water Cache restore - benched, fits the river-preservation theme; the clearest next step.
+- Second-tier wheel/gearing progression - only if a new high-volume station class is added that needs it.
 
-Anything worth building belongs in the mod's plan under `Documentation/Plans/WaterDrivenInfrastructure/` (or its Considered table, with the reason, if not); never create a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
+Any of these worth building belongs in a plan under `Documentation/Plans/WaterDrivenInfrastructure/` (or its Considered table with the reason); never a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -87,9 +87,9 @@ Anything worth building belongs in the mod's plan under `Documentation/Plans/Wat
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod WaterDrivenInfrastructure` and update this roadmap |
-| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; refresh `lib/Assembly-CSharp.dll` |
+| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis WaterDrivenInfrastructure` to verify the fix |
-| After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump minor version |
+| After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump minor version; `/nexus-publish upload` (live is 1.12.11, deployed is 1.12.12) |
 
 ---
 
@@ -104,6 +104,7 @@ Anything worth building belongs in the mod's plan under `Documentation/Plans/Wat
 /deploy-mods WaterDrivenInfrastructure       - build + deploy to game
 /update-mod-version WaterDrivenInfrastructure <ver> - bump version in all 3 files
 /export-to-repo WaterDrivenInfrastructure    - push to public repo
+/nexus-publish upload WaterDrivenInfrastructure - upload release zip to Nexus
 ```
 
 ---

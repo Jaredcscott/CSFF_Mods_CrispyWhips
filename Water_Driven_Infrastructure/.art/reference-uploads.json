@@ -41,6 +41,13 @@
     "uploaded": "2026-10-10",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WDI_ReedBed_1791653137144_4d7c6f54.png"
   },
+  "b4183eda61ca0663637873f431f480481a28a87ea952c9518b2e95261e50f5e1": {
+    "id": "2tQyY1W9AoU8tgBpuKeS",
+    "label": "StampMillKit (subject)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/StampMillKit.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/StampMillKit_1792608371192_4971e9aa.png"
+  },
   "c0f8f41e95ded4ce802f1296992cc6a7068248a302a6bf8339973a2700e48b29": {
     "id": "eJYxKE1qkMKBZ9KIBWkj",
     "label": "vanilla Cattails (style)",
@@ -68,5 +75,12 @@
     "source": "WaterDrivenInfrastructure/Resource/Picture/WaterWheel.png",
     "uploaded": "2026-10-09",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WaterWheel_1791539239281_26eeca44.png"
+  },
+  "fdf135bee933c6a84eba15ee0b68c778f38119f4736b5adafd47e6e6eaa2d380": {
+    "id": "TH1cgspzqJtkHUusrlnA",
+    "label": "FullingMillFullyBuilt (prop)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/FullingMillFullyBuilt.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FullingMillFullyBuilt_1792608373081_b65f96ad.png"
   }
 }

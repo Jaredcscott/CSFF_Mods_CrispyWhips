@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.waterdriveninfrastructure";
     public const string PluginName = "WaterDrivenInfrastructure";
-    public const string PluginVersion = "1.12.12";
+    public const string PluginVersion = "1.12.13";
 
     internal new static ManualLogSource Logger;
     internal static Plugin Instance { get; private set; }
@@ -44,6 +44,7 @@ internal class Plugin : BaseUnityPlugin
             Patcher.FishpondPopulationPatch.ApplyPatch(_harmony);
             Patcher.MillDutyPatch.ApplyPatch(_harmony);
             Patcher.FishFunnelPatch.ApplyPatch(_harmony);
+            Patcher.IrrigationChannelPatch.ApplyPatch(_harmony);
             Patcher.BathtubPlumbingPatch.ApplyPatch(_harmony);
             Patcher.BronzeGearTabPatch.ApplyPatch(_harmony);
             Patcher.BaseTemperatureHeal.Initialize();

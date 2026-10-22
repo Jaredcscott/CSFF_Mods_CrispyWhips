@@ -1,16 +1,44 @@
 {
+  "target": "FullingMillKit.png",
+  "sourceCard": "FullingMill_Kit",
+  "subject": "the approved StampMillKit box (same shape, angle, olive-brown colour, moss-roofed mill and water wheel cover, cream lettering), its cover showing a fulling mill (two wooden trip-hammers over a trough of pale wool cloth); lettering FULLING MILL KIT, top and spine WATER-POWERED FULLING MILL KIT",
   "model": "nano-banana-2",
   "mode": "image2image",
   "params": {
+    "imageCount": 1,
     "aspectRatio": "2:3",
     "resolution": "1K",
-    "imageCount": 1
+    "autoEnhancePrompt": false
   },
-  "generated": "2026-10-15T23:20:24",
-  "target": "FullingMillKit.png",
-  "sourceCard": "FullingMill_Kit",
-  "subject": "bundled fulling mill kit: wheel, trip-hammer heads, iron fittings, planks tied with rope",
-  "historyId": "iUFyL534i2yPxPcFM0b5",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792127845947_d02b244a_1792127846054_3dbb31be.png",
-  "credits": 20
+  "prompt": "see historyId (the full prompt is stored on the OpenArt job); built from the subject above plus the plain-vanilla style sentence: Plain vanilla Card Survival game item art: a single object drawn with a thin, loose black ink outline and flat posterized fills in a few muted tonal steps per material, muted natural colours, simple and matter-of-fact, no cartoon, no comic shading, no decorative patterns, no glossy highlights. Single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.",
+  "historyId": "bwhY69iQwSOAkL1jLrEz",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608500441_3bcbb3f3_1792608500555_e275f7ae.png",
+  "credits": 20,
+  "generated": "2026-10-21",
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "StampMillKit (owner-approved sibling kit)",
+      "image": "WaterDrivenInfrastructure/Resource/Picture/StampMillKit.png",
+      "sha256": "b4183eda61ca0663637873f431f480481a28a87ea952c9518b2e95261e50f5e1",
+      "id": "2tQyY1W9AoU8tgBpuKeS",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/StampMillKit_1792608371192_4971e9aa.png"
+    },
+    {
+      "role": "prop",
+      "fragment": "FullingMillFullyBuilt (owner-approved placed mill)",
+      "image": "WaterDrivenInfrastructure/Resource/Picture/FullingMillFullyBuilt.png",
+      "sha256": "fdf135bee933c6a84eba15ee0b68c778f38119f4736b5adafd47e6e6eaa2d380",
+      "id": "TH1cgspzqJtkHUusrlnA",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FullingMillFullyBuilt_1792608373081_b65f96ad.png"
+    }
+  ],
+  "finish": "keyed; reframed into StampMillKit's subject box so it sits like the other kits",
+  "note": "Owner gallery rework 2026-10-21 (regenerate | need to match all of our other kits). One sample at 1K; the rejected picture was not used as a reference.",
+  "previous": {
+    "historyId": "iUFyL534i2yPxPcFM0b5",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792127845947_d02b244a_1792127846054_3dbb31be.png",
+    "generated": "2026-10-15T23:20:24",
+    "subject": "bundled fulling mill kit: wheel, trip-hammer heads, iron fittings, planks tied with rope"
+  }
 }
