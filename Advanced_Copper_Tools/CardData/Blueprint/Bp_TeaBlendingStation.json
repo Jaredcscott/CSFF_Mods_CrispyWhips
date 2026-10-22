@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_tea_blending_station",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_TeaBlendingStation_CardDescription",
-        "DefaultText": "Build a tea station with an integrated copper tea kettle, copper stove, and rotary quern for grinding tea leaves. Requires 2 planks, 4 twine, 1 copper tea kettle, 1 copper stove, 1 rotary quern, and 15 large stones."
+        "DefaultText": "Build a tea station with an integrated copper tea kettle, copper stove, and rotary quern for grinding tea leaves. Requires 2 planks, 4 twine, 1 copper tea kettle, 1 copper stove, 1 rotary quern, and 15 Heavy Stones."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {

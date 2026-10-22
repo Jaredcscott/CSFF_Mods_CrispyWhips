@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.18.11
+**Version:** 1.18.12
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -114,7 +114,7 @@ A pan you can wear, cook in, and use to purify water on a stove or campfire.
 
 - Put it on a stove or fire to cook in it. A filled pan on a lit fire boils river or dirty water safe, as in vanilla.
 - Holds 1200 ml of liquid and 1600 weight. What it holds adds nothing to your load, as with the vanilla Cooking Pot.
-- **Melt Fat:** drag animal fat onto the hot pan while an empty clay bowl is on the board. It makes one Oil and uses up the bowl, which the Oil gives back when you use it.
+- **Melt Fat:** drag animal fat onto the pan once it is at least half hot, while an empty clay bowl is on the board. It makes one Oil and uses up the bowl, which the Oil gives back when you use it.
 - Weighs 300 in a bag and nothing when worn, like the vanilla waterskin. Wear it in a quiver slot to carry it hands-free.
 - Comes in copper, Ghost Bronze, Tin, Tin Bronze and White Bronze, from whichever sheet you use.
 - Dismantles into the shaped pan blank, 3 twine and 1 wood.
@@ -278,7 +278,7 @@ A portable light, carried or placed, lit or unlit. Each change between the four 
 - It holds 96 and burns 0.5 every 15 minutes, so a full lantern lasts about 48 hours and two bowls fill it.
 - The Lantern Oilwell lights on its own. It holds 96 and burns 1 every 15 minutes (24 hours full) for a smaller light (+10 Light against the lantern's +20).
 - Light it by dragging a fire source onto it; it needs at least 10% fuel. When the fuel runs out, a lit lantern goes back to unlit where it stands.
-- A recruited Partner can be given the vanilla Fire keeping duty on a placed lantern. A Partner actually refuelling it is not confirmed yet.
+- A recruited Partner can be given the vanilla Fire keeping duty on a placed lantern, but may not refuel it, because only the unlit lantern has the refuel actions.
 
 The fuel, burn and light figures are placeholders for tuning.
 
@@ -325,7 +325,7 @@ A copper rod with a flat oval head in a wooden handle. It closes a cut with heat
 - **Cost:** a Cautery Burn that fades in about 15 hours, and 30 Stress. While the burn lasts, Pain is +15 (Sore) or +30 (Raw). Stress fades by itself.
 - A needle and thread stay the painless route. Cauterize does not need the Light or Courage that vanilla stitching does.
 
-The pain, stress and heat time are placeholders for tuning. Not yet tried in a running game.
+The pain, stress and heat time are placeholders for tuning. Confirmed in a scripted run.
 
 ---
 
@@ -354,7 +354,7 @@ A small copper bucket with a wire bail that hangs in a tapped tree. It is how a 
 - **Resin:** put it in a Resin Tap (Spigot). While the resin flows, a lump gathers in it every 18 hours, up to four. **Scrape Out Resin** on the bucket takes one lump out. A plain vanilla Resin Tap does not fill it.
 - Nothing a tap already holds is touched. The Sap Tap still takes any liquid container, and the Resin Tap (Spigot) still makes one loose lump when no bucket hangs there.
 
-Not yet tried in a running game.
+Confirmed in a scripted run.
 
 ---
 
@@ -364,7 +364,7 @@ Three curved copper prongs forged onto a shank and tied to a coil of rope.
 
 **Recipe** (build 45 minutes, research 4 hours): 3 copper nuggets + 1 rope, with a hammer (not used up); researchable once you hold a metal nugget.
 
-- While the hook is in your item row, or in a bag or basket you carry there, it raises Climbing Aid by 72. Every vanilla climb reads Climbing Aid, so trees, cliffs and rock faces all get easier.
+- While the hook sits in your item row itself, it raises Climbing Aid by 72. On the ground, or packed inside a bag or basket, it does nothing. Every vanilla climb reads Climbing Aid, so trees, cliffs and rock faces all get easier.
 - On a large oak with no climbing skill, a fall drops from about 1 in 21 climbs to about 1 in 35.
 - The hook never wears out. Climbing Aid tops out at 288, and the squirrel spirit's blessing shares that cap.
 
@@ -381,7 +381,7 @@ Two copper blades on a springy copper bow. **Requires Sirus23 Mod Collection**, 
 - Drag the shears onto a tame sheep whose wool is at least half grown and choose Sirus23's Shear. Each shearing costs 1 durability, and the shears break after 30. Sirus23's iron Shears stay the durable tool.
 - Without Sirus23 the recipe never appears. A save that already learned it keeps it.
 
-The 30 uses and the recipe are placeholders for tuning. Not yet tried in a running game.
+The 30 uses and the recipe are placeholders for tuning. Confirmed in a scripted run.
 
 ---
 
@@ -416,7 +416,7 @@ A copper kettle that boils water on a lit fire or stove (build 45 minutes, resea
 
 ## Copper Cauldron
 
-A large portable cooking vessel for batch cooking and brewing. Put it into a lit Fireplace or Fire Pit to heat it like the vanilla clay cauldron. The Oven refuses it, as it refuses the clay cauldron. Whether it fits a Campfire is not confirmed yet.
+A large portable cooking vessel for batch cooking and brewing. Put it into a lit Fireplace or Fire Pit to heat it like the vanilla clay cauldron. The Oven refuses it, as it refuses the clay cauldron. It also fits a Campfire, but fills all 600 of its room, so nothing else fits beside it.
 
 **Recipe** (build 1 hour 30 minutes, research 12 hours): 5 metal sheets + 4 copper nails + 1 Tin Solder + hammer (not used up).
 
@@ -433,7 +433,7 @@ The sizes and weight are placeholders for tuning.
 
 A workbench with six herb and grinding slots, an 8-bowl water reservoir, a built-in copper stove and a Grind All button.
 
-**Recipe** (build 1 hour, research 24 hours): 2 planks + 4 twine + 1 Copper Tea Kettle + 1 Small Copper Stove + 1 rotary quern + 15 stone. Place the kit to set up the workbench.
+**Recipe** (build 1 hour, research 24 hours): 2 planks + 4 twine + 1 Copper Tea Kettle + 1 Small Copper Stove + 1 rotary quern + 15 heavy stones. Place the kit to set up the workbench.
 
 | Form | Pick up? | Burns fuel? |
 |---------|:--------:|:------------:|
@@ -460,7 +460,7 @@ A copper fire bowl on a stick tripod (build 1 hour, research 12 hours; 3 metal s
 - **Light:** it burns 1.5 every 15 minutes, so a full fill lasts 16 hours.
 - **Fire effects:** while lit it dries you out, keeps bugs and mosquitoes down, and makes you easier to spot (Stealth -150). **Warm Up** and **Wait by Fire** warm you beside it.
 - **Pack Up:** put it out first, or pack up the unlit brazier. The oil left in it goes back into the kit.
-- **Partner duty:** a recruited Partner can be given the vanilla Fire keeping duty on it. A Partner actually refuelling it is not confirmed yet.
+- **Partner duty:** a recruited Partner can be given the vanilla Fire keeping duty on it, but does not refuel it while it is lit, because only the unlit brazier has the refuel actions. Confirmed in a scripted run.
 
 ---
 
@@ -621,7 +621,7 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Put this mod's folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.11 loaded.`
+4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.12 loaded.`
 
 ### Configuration
 
@@ -654,7 +654,7 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.11 loaded.`
+**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.12 loaded.`
 
 **Pan or kettle won't boil?** It must sit on a lit fire with fuel left, and hold a liquid the game can heat.
 
@@ -670,6 +670,8 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 
 Full detail for every version is in `CHANGELOG.md`.
 
+- **1.18.12:** the Tea Station recipe names its 15 Heavy Stones; the mod list description is up to date (Partner refuelling, Tinned Storage Pot, Iron Lantern and Oilwell, rust and the Oil Coat).
+- **1.18.11:** Melt Fat on the Wearable Metal Pan shows once the pan is half hot (it never showed before); a lit lantern, oilwell or stove of any metal shows that metal's picture instead of copper's; the women's Iron Armor has a new, plain picture; building a Tinned Storage Pot makes a sound.
 - **1.18.10:** the Metal Lantern and Lantern Oilwell come in iron and melt back to their own metal; iron gear rusts while you are wet unless you give it an Oil Coat of Fat or Oil; the new Tinned Storage Pot slows spoilage to 50%; Salt-Cured Meat and Fish give Proteins. The animated copper pictures sit where their still pictures do, and a wandering hare on your board no longer logs a false error.
 - **1.18.9:** the cave system is removed; Tin Ore comes from panning with the Wearable Metal Pan, and a save made inside a cave loads at the Waterfall Caves. Balance pass: metal armor lasts as long as leather instead of breaking on the first hit, and many items move closer to the base game: see `CHANGELOG.md`.
 - **1.18.7:** Salt-Cured Fish and Salt-Cured Meat show the bacteria spoilage icon and taste of something when eaten.

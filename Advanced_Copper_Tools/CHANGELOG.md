@@ -2,6 +2,14 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.12] - 2026-10-22
+
+### Fixed
+
+- **The Tea Station recipe names its stones correctly.** It asked for "15 large stones"; it takes 15 Heavy Stones and now says so, in English and Chinese.
+- **The mod list description is up to date.** It no longer calls Partner refuelling unconfirmed (a Partner does not refuel a lit brazier or lantern), and it now mentions the Tinned Storage Pot, the Iron Lantern and Oilwell, and iron rust with the Oil Coat.
+- **The README's Grappling Hook section says the hook works only in your item row**, as it has since 1.18.0; on the ground or packed in a bag or basket it does nothing.
+
 ## [1.18.11] - 2026-10-21
 
 ### Changed
