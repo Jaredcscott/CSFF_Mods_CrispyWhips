@@ -1,27 +1,29 @@
 # Roadmap: RepeatAction
-Version at time of writing: 2.2.1
-Date: 2026-10-11
-Audit score: 10/10 - release-ready (consolidated 2026-10-11; critical-analysis SOLID 2026-10-11, code-quality 10/10 2026-10-11)
+Version at time of writing: 2.2.2
+Date: 2026-10-20
+Audit score: 10/10 - release-ready (consolidated 2026-10-20; critical-analysis SOLID 2026-10-20, code-quality 10/10 2026-10-20)
 
-> **2026-10-11 - consolidated audit refresh.** 10/10 PASS. 0 CRITICAL, 0 DESIGN GAP, 1 WARNING (stale
-> "popup's Build button" text in the `Saved Sequences` config description and two code comments - fix at
-> the Prompt 15 release edit), 2 MINOR (ModInfo Description under-claims Repeat Presets / Pause-Resume;
-> UtilityBelt README over-claims "Every kind of action" - out of scope, raise with the UB audit). The
-> MASTER_PLAN is active: Features 1–17, 19, 20, 21 and 24 are built; what remains is the release tail
-> (Prompt 15 Ship, Prompt 16 Closeout) plus three person-lane in-game verifications (T2.701, T2.718,
-> T2.1381). Prompt 15 waits on the owner's ask (owner, 2026-10-10: stop before shipping).
+> **2026-10-20 - consolidated audit refresh.** 10/10 PASS. 0 CRITICAL, 0 DESIGN GAP, 2 WARNING (both
+> housekeeping: D17 silent-catch false positives re-confirmed benign; the MUM embed trails source at
+> 2.2.1 / 0.1.1, resolved by the next suite repack). The MASTER_PLAN has **drained and been archived** -
+> round 2 closeout (`122290fb9`) moved it to `Documentation/Design/RepeatAction_Content_Update_Round_2_As_Built.md`
+> and removed the pack, so `Documentation/Plans/RepeatAction/` no longer exists. All advertised features
+> are built. What remains is release plumbing (CHANGELOG fold of the `[Unreleased]` liquid-lock fix,
+> deploy, MUM repack) plus person-lane in-game verifications (T2.734 liquid-lock, and the earlier
+> text-field-Enter hotkey-stall row). Shipping waits on the owner's ask (owner, 2026-10-10: stop before
+> shipping).
 
 ## Current State
 
 **Theme**: A standalone quality-of-life utility that repeats your last player-initiated action (Forage, Chop, Travel, Eat, drag-drop crafting, stack actions, group harvests) N times (or Unlimited) with a single keypress, with pinned actions, recorded sequences, presets, pause/resume, and a wide range of safety stops - halting cleanly the moment the game's own requirement checks stop passing and reporting the game's own reason.
 
-**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images - a pure C# utility (5 source files: `Plugin.cs`, `Patcher/ActionPatch.cs`, `Patcher/Sequences.cs`, `Presets.cs`, `Messages.cs`).
+**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images - a pure C# utility (`Plugin.cs`, `Patcher/ActionPatch.cs`, `Patcher/Sequences.cs`, `Patcher/RunHooks.cs`, `Presets.cs`, `Messages.cs`, `UtilityBeltLockBridge.cs`).
 
-**Stability**: 10/10 - 0 CRITICAL, 0 DESIGN GAP, 1 WARNING (docs text), 2 MINOR (docs under/over-claim). Clean Release build 0/0. Version parity 2.2.1 across ModInfo.json / Plugin.cs / README.md; BinSync clean. The 2.0.0 native-dispatch architecture is soundly engineered: capture via non-mutating, try/catch-wrapped prefixes on the game's public dispatch funnels; timeScale-safe coroutines; re-entrancy-guarded with `isRepeating` reset in `finally`; Harmony targets resolved at compile time via `typeof(GameManager)`. The one reflection path (`CurrentActionBlockers`, `GraphicsManager` typing state) is cached, null-guarded and breadcrumbed, degrading gracefully if a game field is renamed. `lib/Assembly-CSharp.dll` byte-matches the framework canonical.
+**Stability**: 10/10 - 0 CRITICAL, 0 DESIGN GAP, 2 WARNING (both housekeeping, no code defect). Clean Release build 0/0. Version parity 2.2.2 across ModInfo.json / Plugin.cs / README.md; BinSync clean. The 2.0.0 native-dispatch architecture is soundly engineered: capture via non-mutating, try/catch-wrapped prefixes on the game's public dispatch funnels; timeScale-safe coroutines; re-entrancy-guarded with `isRepeating` reset in `finally`; Harmony targets resolved at compile time via `typeof(GameManager)`. The one reflection path (`CurrentActionBlockers`, `GraphicsManager` typing state) is cached, null-guarded and breadcrumbed, degrading gracefully if a game field is renamed. `lib/Assembly-CSharp.dll` byte-matches the framework canonical. Reflection read-paths (`CurrentSeasonId`, `IsNightNow`, `CurrentGlobalTick`, `TicksPerHour`, ...) fail open with a caller breadcrumb. Per-run handler registration is subscribe-once / tear-down-in-OnDestroy with an unsubscribe-before-subscribe guard (`OnGMInitialized` re-fire reasoned about at `ActionPatch.cs:320-331`).
 
-**Open work**: No code defects. The WARNING and both MINOR items are one-line docs edits scheduled into the Prompt 15 release commit. Remaining plan work is the release tail (Ship + Closeout) and three person-lane in-game verifications (T2.701 real-keyboard half, T2.718 Chinese-toast screenshots, T2.1381 art read). No open or pending retrospectives for RepeatAction (only a graduated `foraging-RA`).
+**Open work**: No code defects. The `[Unreleased]` CHANGELOG entry (a repeated pour no longer draws from a Utility-Belt-locked container) is real and present in source, folded into a version header at the next ship. Two person-lane in-game verifications remain (T2.734 liquid-lock; the text-field-Enter hotkey-stall question from 2.2.0), both already code-fixed per "Code work never waits on a human playthrough". No open or pending retrospectives for RepeatAction (only a graduated `foraging-RA`).
 
-**Framework compliance**: N/A by design - RepeatAction 2.0.0+ is intentionally **standalone** (no `[BepInDependency]`, no CSFFModFramework reference). It drives the game's own public `GameManager` funnels directly rather than through framework Tier 2 services. This is correct for its architecture, not a compliance gap. Reusing `Api.ActionRouter` is a future option explicitly weighed against the standalone stance, not a requirement.
+**Framework compliance**: N/A by design - RepeatAction 2.0.0+ is intentionally **standalone** (no `[BepInDependency]`, no CSFFModFramework reference). It drives the game's own public `GameManager` funnels directly rather than through framework Tier 2 services, and resolves Utility Belt lazily through `Chainloader.PluginInfos` + reflection (no dependency cycle). This is correct for its architecture, not a compliance gap. Reusing `Api.ActionRouter` is a future option explicitly weighed against the standalone stance, not a requirement.
 
 ---
 
@@ -33,22 +35,27 @@ Nothing to stabilize.
 
 ## Phase 1: Foundation  *(COMPLETE)*
 
-Version hygiene synced at 2.2.1; BinSync clean; localization N/A (0 CSV by design); framework Tier 2 N/A by design (standalone). All 2026-08-24 warnings and hygiene items closed in v2.1.0.
+Version hygiene synced at 2.2.2; BinSync clean; localization N/A (0 CSV by design - toasts are code-drawn in `Messages.cs`, EN + zh-CN); framework Tier 2 N/A by design (standalone). All 2026-08-24 warnings and hygiene items closed in v2.1.0.
 
 ---
 
-## Phase 2–E: Core & Run-Control Features  *(BUILT - in the release tail)*
+## Phase 2-E: Core & Run-Control Features  *(BUILT - plan drained, release tail only)*
 
-> The mod's feature scope is tracked in `Documentation/Plans/RepeatAction/MASTER_PLAN.md`. Features 1–17, 19, 20, 21 and 24 are built (count +/-/wheel, Unlimited + backstop, dual keybinds, stat floors/ceilings, nightfall/season/encounter/in-game-hours/quantity stops, pin/fire, refuel-from-pin, spare-tool-on-break, durability floor, pause/resume, presets, recorded sequences, per-card group mode, progress bar, count indicator, verbose diagnostics, completion sound, lock-to-target, iteration delay). What is left is not new features - it is the release.
+> The mod's feature scope has drained: the MASTER_PLAN is archived to
+> `Documentation/Design/RepeatAction_Content_Update_Round_2_As_Built.md` and
+> `Documentation/Plans/RepeatAction/` no longer exists. Every advertised feature is built (count +/-/wheel,
+> Unlimited + backstop, dual keybinds, bindable count keys, stat floors/ceilings, nightfall/season/encounter/
+> in-game-hours/quantity stops, pin/fire, refuel-from-pin, spare-tool-on-break, durability floor, pause/resume,
+> presets, recorded sequences, per-card group mode, progress bar, count indicator, verbose diagnostics,
+> completion sound, lock-to-target, iteration delay, Utility Belt lock bridge, modder API events). What is
+> left is not new features - it is the release.
 
 | Item | Type | Status |
 |------|------|--------|
-| Prompt 15 - Ship: CHANGELOG fold, deploy, MUM repack | Release | Open - waits on the owner's ask |
-| Prompt 16 - Closeout: audit, roadmap, as-built record, Stable move | Release | Open - deps Prompt 15 |
-| W1 - replace stale "popup's Build button" config text (`Plugin.cs:260`, `Sequences.cs:23`, `ActionPatch.cs:1519`) | Docs honesty | Fold into Prompt 15 |
-| M1 - add Repeat Presets / Pause-Resume to ModInfo Description | Docs honesty | Fold into Prompt 15 |
+| Ship: fold `[Unreleased]` liquid-lock fix into a version header, deploy, MUM repack (2.2.1->2.2.2, 0.1.1->0.1.2) | Release | Open - waits on the owner's ask |
+| Closeout: audit refresh, roadmap, as-built record already filed; move to `Stable/` once nothing is left | Release | Open - deps Ship |
 
-Person-lane in-game verification (no code work): **T2.701** (real-keyboard half), **T2.718** (Chinese-toast screenshots), **T2.1381** (art read). These are hard gates for Prompt 16's plan clear.
+Person-lane in-game verification (no code work): **T2.734** (a repeated pour leaves a locked container's liquid alone) and the 2.2.0 text-field-Enter hotkey-stall question. Both are already code-fixed; the rows only confirm behaviour a person must see.
 
 ---
 
@@ -62,7 +69,7 @@ Person-lane in-game verification (no code work): **T2.701** (real-keyboard half)
 
 ## Phase 4: Polish  *(COMPLETE)*
 
-Progress bar, count indicator, verbose diagnostics and completion sound all shipped (v2.1.2–v2.2.0). No open polish items.
+Progress bar, count indicator, verbose diagnostics and completion sound all shipped (v2.1.2-v2.2.0). No open polish items.
 
 ---
 
@@ -70,7 +77,11 @@ Progress bar, count indicator, verbose diagnostics and completion sound all ship
 
 > Where RepeatAction should be at v3.0.
 
-A small, reliable **action-automation layer** that never surprises the player: it repeats any single action honestly (with the game's own stop reason), scales from a fixed count to Unlimited-with-a-backstop, pins and fires deferred actions, records and replays short sequences, carries named presets, and is proven to stop cleanly against every repetitive loop the sibling mods add. The remaining frontier is a **rest-and-retry-once on a recoverable stat block** (design pending - weighed against refuel-from-pin, which already covers the common Eat/Drink case) and continued breadth of recorded-sequence ergonomics. These live in `Documentation/Plans/RepeatAction/MASTER_PLAN.md`; the macro/sequence recorder is already built (Features 20 et al.), and rest-and-retry sits in the plan's Considered table with its reason. RA ships zero content by design.
+A small, reliable **action-automation layer** that never surprises the player: it repeats any single action honestly (with the game's own stop reason), scales from a fixed count to Unlimited-with-a-backstop, pins and fires deferred actions, records and replays short sequences, carries named presets, and is proven to stop cleanly against every repetitive loop the sibling mods add. The remaining design frontier is a **rest-and-retry-once on a recoverable stat block** (design pending - weighed against refuel-from-pin, which already covers the common Eat/Drink case) and continued breadth of recorded-sequence ergonomics. The plan has drained; its full feature history lives in `Documentation/Design/RepeatAction_Content_Update_Round_2_As_Built.md` (and the earlier as-built records). Any revival of rest-and-retry must re-read the archived Considered-table reason before re-opening it; it is ruled against the refuel-from-pin overlap, not a standing backlog item. RA ships zero content by design.
+
+**Potential major additions** (not yet justified - revisit only on owner request):
+- Rest-and-retry-once on a recoverable non-food stat floor - fits the "stop cleanly, recover honestly" theme, but overlaps refuel-from-pin; held in the archived Considered table with its reason.
+- Deeper recorded-sequence ergonomics (naming, reordering, per-step counts) - fits the macro recorder already built, but open-ended; file a specific ask first.
 
 ---
 
@@ -78,8 +89,8 @@ A small, reliable **action-automation layer** that never surprises the player: i
 
 | Trigger | Action |
 |---------|--------|
-| Owner asks to ship | Run Prompt 15 (CHANGELOG fold, deploy, MUM repack - framework → content → repack → MUM), folding W1/M1 docs fixes into the commit |
-| After Prompt 15 | Run Prompt 16 Closeout once T2.701/T2.718/T2.1381 are filed; move to `Stable/` when the plan drains |
+| Owner asks to ship | Fold the `[Unreleased]` liquid-lock fix into a version header, deploy (framework -> content -> repack -> MUM), repack the suite so the MUM embed matches source |
+| After Ship | Run the closeout once T2.734 and the hotkey-stall row are filed; move to `Stable/` |
 | Game version update | Refresh `lib/Assembly-CSharp.dll` (byte-copy from framework canonical - non-nstrip, plain copy), rebuild, watch the boot-time funnel signature log for drift, run `/diagnose-log` |
 | After any feature or fix | Run `/audit-mod RepeatAction` and update this roadmap |
 | After a public release | Run `/export-to-repo RepeatAction`; record the build it compiled against in `CHANGELOG.md` |

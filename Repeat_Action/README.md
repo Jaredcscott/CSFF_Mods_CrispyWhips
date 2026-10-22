@@ -1,6 +1,6 @@
 # Repeat Action
 
-**Version:** 2.2.2
+**Version:** 2.2.3
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (Early Access)
 
@@ -161,6 +161,8 @@ To find a card's UniqueID, open its `CardData/**/*.json` (for a modded card, in 
 
 Edit `BepInEx/config/crispywhips.repeat_action.cfg`. Every number is limited to the range in its comment, and a value outside it is moved to the nearest end when the game starts. A `Default Repeat Count` above `Maximum Repeat Count` stays in the file, but the count starts at the maximum.
 
+Or change them in game with the optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build): press F1 and find "Repeat_Action". A change made there applies at once, except `Default Repeat Count` and `Remember Last Count`, which set the count the game starts with.
+
 | Setting | Default |
 |---------|---------|
 | `Default Repeat Count` (0 to 10000; 0 = Unlimited) | 5 |
@@ -200,6 +202,7 @@ Repeat Action raises public events other mods can subscribe to. With no subscrib
 
 Full history in `CHANGELOG.md`.
 
+- **2.2.3:** a repeated pour no longer takes water from a container you locked with Utility Belt.
 - **2.2.2:** version number only.
 - **2.2.1:** repeat presets, recorded sequences, bindable count keys, Chinese notifications, Refuel From Pinned Action, spare-tool and pour fixes.
 - **2.2.0:** pinned action, pause, and the Nightfall, Season Change, Encounter, In-Game Hours, Quantity and Tool Durability stops.

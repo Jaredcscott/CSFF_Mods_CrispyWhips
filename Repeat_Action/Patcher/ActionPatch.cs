@@ -1924,7 +1924,12 @@ namespace Repeat_Action.Patcher
                 if (!InPlayerEnv(c)) continue;
                 var hit = MatchCard(c, original, uid, exclude, excludeList);
                 if (hit == null)
+                {
                     hit = MatchCard(c.ContainedLiquid, original, uid, exclude, excludeList);
+                    // A liquid takes its container's lock: Utility Belt locks the waterskin, not the water inside it,
+                    // so MatchCard's own lock test never sees it. The exact instance the player used stays eligible.
+                    if (hit != null && !ReferenceEquals(hit, original) && UtilityBeltLockBridge.IsLocked(c)) hit = null;
+                }
                 if (hit == null) continue;
                 if (ReferenceEquals(hit, original)) return hit; // exact instance the player used
                 if (fallback == null && allowSibling) fallback = hit;

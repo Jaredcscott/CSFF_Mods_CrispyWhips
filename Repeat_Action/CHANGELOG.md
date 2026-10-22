@@ -1,5 +1,11 @@
 # Repeat Action: Changelog
 
+## [2.2.3] - 2026-10-22
+
+### Fixed
+
+- **A repeat no longer pours from a container you locked with Utility Belt.** When a repeated pour's source ran dry, the next pick could be the water inside a waterskin you had locked, because the lock is on the waterskin, not the water. The water in a locked container is now left alone.
+
 ## [2.2.2] - 2026-10-12
 
 Version number only. Everything new since the last Nexus release (2.1.6) is listed under 2.2.1 and 2.2.0 below.
