@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.21] - 2026-10-22
+
+### Fixed
+
+- **The stockpiles' text matches their pictures.** The Stone, Twig and Bone Stockpiles were described as a stone-walled bay, a woven-stake rack and a wooden crate; they are now heaps on a patch of bare earth, in their card, recipe and button text, in English and Chinese.
+- **The jail ration's text matches its picture.** The Meager Prison Ration is a small loaf of bread, not a bowl of gruel, and the Water Jug no longer mentions a ration bowl.
+
 ## [1.69.20] - 2026-10-21
 
 ### Changed

@@ -2092,7 +2092,7 @@ CMC_JailCellTunnel_DA_Crawl_Fade,"You squeeze through the dark, dirt in your tee
 CMC_JailTunnelProgress_StatName,Jail Tunnel Progress,越狱隧道进度
 CMC_JailTunnelProgress_StatDescription,Hidden counter: how far the hidden tunnel has been dug.,隐藏计数器：记录隐藏隧道已挖掘的进度。
 CMC_JailWaterJug_CardName,Water Jug,水罐
-CMC_JailWaterJug_CardDescription,"A chipped clay jug, filled once a day along with the ration bowl. Not much, but enough to keep you going.",一只有缺口的陶罐，每天与配给碗一同装满一次。虽然不多，但足以维持你的生存。
+CMC_JailWaterJug_CardDescription,"A chipped clay jug, filled once a day along with the bread ration. Not much, but enough to keep you going.",一只有缺口的陶罐，每天与面包配给一同装满一次。虽然不多，但足以维持你的生存。
 CMC_JailWaterJug_DA_Drink,Drink,饮用
 CMC_JailCellLocation_DA_Meditate,Meditate,冥想
 CMC_JailCellLocation_DA_Meditate_Desc,Sit still and let the hours pass.,静坐不动，任凭时间流逝。
@@ -2109,7 +2109,7 @@ CMC_JailSuppliesGranted_StatDescription,"Hidden flag: whether this sentence's on
 CMC_JailTinderDay_StatName,Jail Tinder Day,监狱火种日
 CMC_JailTinderDay_StatDescription,Hidden record: the day a Lit Tinder was last placed in the cell.,隐藏记录：上次将燃着的火种放入牢房的日期。
 CMC_JailRationFood_CardName,Meager Prison Ration,微薄的监狱配给
-CMC_JailRationFood_CardDescription,"A thin bowl of cold gruel, slid through the door's grille once a day. It won't fill you up, but the warden makes sure you get just enough to keep your strength.",一碗稀薄的冷粥，每天透过门上的铁栅递进来一次。虽然吃不饱，但狱卒会确保你能维持基本的体力。
+CMC_JailRationFood_CardDescription,"A small, coarse loaf of bread, slid through the door's grille once a day. It won't fill you up, but the warden makes sure you get just enough to keep your strength.",一小块粗面包，每天透过门上的铁栅递进来一次。虽然吃不饱，但狱卒会确保你能维持基本的体力。
 CMC_JailRationFood_DA_Eat,Eat,食用
 BedRoll_DismantleActions[0].ActionName,Nap,小憂
 BedRoll_DismantleActions[0].FadeMessage,Taking a nap...,小憂中……
@@ -3287,52 +3287,52 @@ CMC_BoardPotter_DA_Delivered_Desc,The Potter has your fired pottery. Talk to him
 CMC_BoardLeg_Potter_Inn,The Potter is at the Inn.,陶匠此刻在旅店里。
 CMC_BoardLeg_Potter_Stall,The Potter is selling at the market corner.,陶匠此刻在集市一角摆摊。
 CMC_StockpileStone_CardName,Stone Stockpile,石头堆
-CMC_StockpileStone_CardDescription,"A low stone-walled bay that keeps loose Stones as one tidy count. Drag Stones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back.",一个石围仓，把零散的石头收成一个整齐的数目。把石头拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。
-CMC_StockpileStone_CardHelpSection,"<b>Fullness:</b> how many Stones are stored, out of 50. <b>Stack the Stones:</b> Drag a Stone onto the bay to store it; a full bay refuses and keeps the Stone in your hand. <b>Take One, Take Five:</b> Hands back that many Stones, or whatever is left. <b>Take Apart:</b> Hands back every stored Stone and two Planks.",<b>满度：</b>已存放的石头数量，满值为50。<b>堆放石头：</b>把一个石头拖到石围仓上存放；已满的石围仓会拒收，石头仍留在你手里。<b>取出一个、取出五个：</b>取回相应数量的石头，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的石头和两块木板。
+CMC_StockpileStone_CardDescription,"A heap of Stones on a patch of bare earth, kept as one tidy count. Drag Stones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back.",一块空地上的石头堆，把零散的石头收成一个整齐的数目。把石头拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。
+CMC_StockpileStone_CardHelpSection,"<b>Fullness:</b> how many Stones are stored, out of 50. <b>Stack the Stones:</b> Drag a Stone onto the heap to store it; a full heap refuses and keeps the Stone in your hand. <b>Take One, Take Five:</b> Hands back that many Stones, or whatever is left. <b>Take Apart:</b> Hands back every stored Stone and two Planks.",<b>满度：</b>已存放的石头数量，满值为50。<b>堆放石头：</b>把一个石头拖到石头堆上存放；已满的石头堆会拒收，石头仍留在你手里。<b>取出一个、取出五个：</b>取回相应数量的石头，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的石头和两块木板。
 CMC_StockpileStone_SD1_Name,Fullness,满度
 CMC_StockpileStone_CI_Stack,Stack the Stones,堆放石头
-CMC_StockpileStone_CI_Stack_Desc,Store the dragged Stone in the bay: it becomes one more on the count.,把拖来的一个石头存进石围仓：计数加一。
+CMC_StockpileStone_CI_Stack_Desc,Store the dragged Stone on the heap: it becomes one more on the count.,把拖来的一个石头放到石头堆上：计数加一。
 CMC_StockpileStone_CI_Stack_Full,The stockpile is full.,仓已满。
 CMC_StockpileStone_DA_TakeOne,Take One Stone,取出一个石头
 CMC_StockpileStone_DA_TakeOne_Desc,Take one Stone back out of the stockpile.,从堆里取回一个石头。
 CMC_StockpileStone_DA_TakeFive,Take Five Stones,取出五个石头
 CMC_StockpileStone_DA_TakeFive_Desc,"Take five Stones back out of the stockpile, or whatever is left if fewer.",从堆里取回五个石头，不足五个则取回剩下的全部。
 CMC_StockpileStone_DA_TakeApart,Take Apart,拆解
-CMC_StockpileStone_DA_TakeApart_Desc,Dismantle the bay: every stored Stone and two Planks come back.,拆掉石围仓：所有已存放的石头和两块木板都会取回。
+CMC_StockpileStone_DA_TakeApart_Desc,Break up the heap: every stored Stone and two Planks come back.,拆散石头堆：所有已存放的石头和两块木板都会取回。
 Bp_CMC_StockpileStone_CardName,Stone Stockpile,石头堆
-Bp_CMC_StockpileStone_CardDescription,Frame a bay that keeps up to 50 loose Stones as one tidy count.,搭起一个石围仓，把最多50个零散的石头收成一个整齐的数目。
+Bp_CMC_StockpileStone_CardDescription,Clear a patch of ground for a heap that keeps up to 50 loose Stones as one tidy count.,清出一块空地堆放石头，把最多50个零散的石头收成一个整齐的数目。
 CMC_StockpileTwigs_CardName,Twig Stockpile,细枝堆
-CMC_StockpileTwigs_CardDescription,"A woven-stake rack that keeps loose Twigs as one tidy count. Drag Twigs onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back.",一个编桩架，把零散的细枝收成一个整齐的数目。把细枝拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。
-CMC_StockpileTwigs_CardHelpSection,"<b>Fullness:</b> how many Twigs are stored, out of 50. <b>Stack the Twigs:</b> Drag a Twig onto the rack to store it; a full rack refuses and keeps the Twig in your hand. <b>Take One, Take Five:</b> Hands back that many Twigs, or whatever is left. <b>Take Apart:</b> Hands back every stored Twig and two Planks.",<b>满度：</b>已存放的细枝数量，满值为50。<b>堆放细枝：</b>把一个细枝拖到编桩架上存放；已满的编桩架会拒收，细枝仍留在你手里。<b>取出一个、取出五个：</b>取回相应数量的细枝，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的细枝和两块木板。
+CMC_StockpileTwigs_CardDescription,"A heap of Twigs on a patch of bare earth, kept as one tidy count. Drag Twigs onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back.",一块空地上的细枝堆，把零散的细枝收成一个整齐的数目。把细枝拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。
+CMC_StockpileTwigs_CardHelpSection,"<b>Fullness:</b> how many Twigs are stored, out of 50. <b>Stack the Twigs:</b> Drag a Twig onto the heap to store it; a full heap refuses and keeps the Twig in your hand. <b>Take One, Take Five:</b> Hands back that many Twigs, or whatever is left. <b>Take Apart:</b> Hands back every stored Twig and two Planks.",<b>满度：</b>已存放的细枝数量，满值为50。<b>堆放细枝：</b>把一个细枝拖到细枝堆上存放；已满的细枝堆会拒收，细枝仍留在你手里。<b>取出一个、取出五个：</b>取回相应数量的细枝，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的细枝和两块木板。
 CMC_StockpileTwigs_SD1_Name,Fullness,满度
 CMC_StockpileTwigs_CI_Stack,Stack the Twigs,堆放细枝
-CMC_StockpileTwigs_CI_Stack_Desc,Store the dragged Twig in the rack: it becomes one more on the count.,把拖来的一个细枝存进编桩架：计数加一。
+CMC_StockpileTwigs_CI_Stack_Desc,Store the dragged Twig on the heap: it becomes one more on the count.,把拖来的一个细枝放到细枝堆上：计数加一。
 CMC_StockpileTwigs_CI_Stack_Full,The stockpile is full.,仓已满。
 CMC_StockpileTwigs_DA_TakeOne,Take One Twig,取出一个细枝
 CMC_StockpileTwigs_DA_TakeOne_Desc,Take one Twig back out of the stockpile.,从堆里取回一个细枝。
 CMC_StockpileTwigs_DA_TakeFive,Take Five Twigs,取出五个细枝
 CMC_StockpileTwigs_DA_TakeFive_Desc,"Take five Twigs back out of the stockpile, or whatever is left if fewer.",从堆里取回五个细枝，不足五个则取回剩下的全部。
 CMC_StockpileTwigs_DA_TakeApart,Take Apart,拆解
-CMC_StockpileTwigs_DA_TakeApart_Desc,Dismantle the rack: every stored Twig and two Planks come back.,拆掉编桩架：所有已存放的细枝和两块木板都会取回。
+CMC_StockpileTwigs_DA_TakeApart_Desc,Break up the heap: every stored Twig and two Planks come back.,拆散细枝堆：所有已存放的细枝和两块木板都会取回。
 Bp_CMC_StockpileTwigs_CardName,Twig Stockpile,细枝堆
-Bp_CMC_StockpileTwigs_CardDescription,Stake together a rack that keeps up to 50 loose Twigs as one tidy count.,把细枝桩钉成一个架子，把最多50个零散的细枝收成一个整齐的数目。
+Bp_CMC_StockpileTwigs_CardDescription,Clear a patch of ground for a heap that keeps up to 50 loose Twigs as one tidy count.,清出一块空地堆放细枝，把最多50个零散的细枝收成一个整齐的数目。
 CMC_StockpileBones_CardName,Bone Stockpile,骨头堆
-CMC_StockpileBones_CardDescription,"A bleached wooden crate that keeps loose Bones as one tidy count. Drag Bones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back. A bone that has begun to boil in water is refused, because it would come back raw.",一个漂白木箱，把零散的骨头收成一个整齐的数目。把骨头拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。遇到已经开始煮沸的骨头会拒收，因为取回时它会变回生骨。
-CMC_StockpileBones_CardHelpSection,"<b>Fullness:</b> how many Bones are stored, out of 50. <b>Stack the Bones:</b> Drag a Bone onto the crate to store it; a full crate refuses and keeps the Bone in your hand, and so does a part-boiled Bone. <b>Take One, Take Five:</b> Hands back that many Bones, or whatever is left. <b>Take Apart:</b> Hands back every stored Bone and two Planks.",<b>满度：</b>已存放的骨头数量，满值为50。<b>堆放骨头：</b>把一个骨头拖到漂白木箱上存放；已满的漂白木箱会拒收，骨头仍留在你手里，煮到一半的骨头也一样。<b>取出一个、取出五个：</b>取回相应数量的骨头，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的骨头和两块木板。
+CMC_StockpileBones_CardDescription,"A heap of Bones on a patch of bare earth, kept as one tidy count. Drag Bones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back. A bone that has begun to boil in water is refused, because it would come back raw.",一块空地上的骨头堆，把零散的骨头收成一个整齐的数目。把骨头拖到上面即可存放，最多50个（按住可拖一整叠）；用“取出一个”或“取出五个”拿回来。遇到已经开始煮沸的骨头会拒收，因为取回时它会变回生骨。
+CMC_StockpileBones_CardHelpSection,"<b>Fullness:</b> how many Bones are stored, out of 50. <b>Stack the Bones:</b> Drag a Bone onto the heap to store it; a full heap refuses and keeps the Bone in your hand, and so does a part-boiled Bone. <b>Take One, Take Five:</b> Hands back that many Bones, or whatever is left. <b>Take Apart:</b> Hands back every stored Bone and two Planks.",<b>满度：</b>已存放的骨头数量，满值为50。<b>堆放骨头：</b>把一个骨头拖到骨头堆上存放；已满的骨头堆会拒收，骨头仍留在你手里，煮到一半的骨头也一样。<b>取出一个、取出五个：</b>取回相应数量的骨头，不足则取回剩下的全部。<b>拆解：</b>取回所有已存放的骨头和两块木板。
 CMC_StockpileBones_SD1_Name,Fullness,满度
 CMC_StockpileBones_CI_Stack,Stack the Bones,堆放骨头
-CMC_StockpileBones_CI_Stack_Desc,Store the dragged Bone in the crate: it becomes one more on the count.,把拖来的一个骨头存进漂白木箱：计数加一。
+CMC_StockpileBones_CI_Stack_Desc,Store the dragged Bone on the heap: it becomes one more on the count.,把拖来的一个骨头放到骨头堆上：计数加一。
 CMC_StockpileBones_CI_Stack_Full,The stockpile is full.,仓已满。
 CMC_StockpileBones_DA_TakeOne,Take One Bone,取出一个骨头
 CMC_StockpileBones_DA_TakeOne_Desc,Take one Bone back out of the stockpile.,从堆里取回一个骨头。
 CMC_StockpileBones_DA_TakeFive,Take Five Bones,取出五个骨头
 CMC_StockpileBones_DA_TakeFive_Desc,"Take five Bones back out of the stockpile, or whatever is left if fewer.",从堆里取回五个骨头，不足五个则取回剩下的全部。
 CMC_StockpileBones_DA_TakeApart,Take Apart,拆解
-CMC_StockpileBones_DA_TakeApart_Desc,Dismantle the crate: every stored Bone and two Planks come back.,拆掉漂白木箱：所有已存放的骨头和两块木板都会取回。
+CMC_StockpileBones_DA_TakeApart_Desc,Break up the heap: every stored Bone and two Planks come back.,拆散骨头堆：所有已存放的骨头和两块木板都会取回。
 Bp_CMC_StockpileBones_CardName,Bone Stockpile,骨头堆
-Bp_CMC_StockpileBones_CardDescription,Nail together a crate that keeps up to 50 loose Bones as one tidy count.,钉出一个木箱，把最多50个零散的骨头收成一个整齐的数目。
+Bp_CMC_StockpileBones_CardDescription,Clear a patch of ground for a heap that keeps up to 50 loose Bones as one tidy count.,清出一块空地堆放骨头，把最多50个零散的骨头收成一个整齐的数目。
 CMC_Stockpile_Empty,The stockpile is empty.,这堆已经空了。
-CMC_Stockpile_BoiledBone,"That bone has begun to boil and would come back raw, so the crate will not take it.",这块骨头已经开始煮沸，取回时会变回生骨，所以木箱不肯收。
+CMC_Stockpile_BoiledBone,"That bone has begun to boil and would come back raw, so the stockpile will not take it.",这块骨头已经开始煮沸，取回时会变回生骨，所以骨头堆不肯收。
 CMC_Imp_WallPaintingCharcoal_CardName,Wall Painting (Charcoal),壁画（炭）
 CMC_Imp_WallPaintingCharcoal_CardDescription,"Hunts, hands and herds drawn on the walls in charcoal. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room.",用炭在墙上画出猎人、手印和兽群。能提升房间的庇护感，可画在洞穴、泥屋和小屋里，每个房间只能有一幅壁画。
 CMC_Imp_WallPaintingOchre_CardName,Wall Painting (Ochre),壁画（赭石）

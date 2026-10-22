@@ -2000,7 +2000,7 @@ CMC_JailCellTunnel_DA_Crawl_Fade,"You squeeze through the dark, dirt in your tee
 CMC_JailTunnelProgress_StatName,Jail Tunnel Progress
 CMC_JailTunnelProgress_StatDescription,Hidden counter: how far the hidden tunnel has been dug.
 CMC_JailWaterJug_CardName,Water Jug
-CMC_JailWaterJug_CardDescription,"A chipped clay jug, filled once a day along with the ration bowl. Not much, but enough to keep you going."
+CMC_JailWaterJug_CardDescription,"A chipped clay jug, filled once a day along with the bread ration. Not much, but enough to keep you going."
 CMC_JailWaterJug_DA_Drink,Drink
 CMC_JailCellLocation_DA_Meditate,Meditate
 CMC_JailCellLocation_DA_Meditate_Desc,Sit still and let the hours pass.
@@ -2017,7 +2017,7 @@ CMC_JailSuppliesGranted_StatDescription,"Hidden flag: whether this sentence's on
 CMC_JailTinderDay_StatName,Jail Tinder Day
 CMC_JailTinderDay_StatDescription,Hidden record: the day a Lit Tinder was last placed in the cell.
 CMC_JailRationFood_CardName,Meager Prison Ration
-CMC_JailRationFood_CardDescription,"A thin bowl of cold gruel, slid through the door's grille once a day. It won't fill you up, but the warden makes sure you get just enough to keep your strength."
+CMC_JailRationFood_CardDescription,"A small, coarse loaf of bread, slid through the door's grille once a day. It won't fill you up, but the warden makes sure you get just enough to keep your strength."
 CMC_JailRationFood_DA_Eat,Eat
 BedRoll_DismantleActions[0].ActionName,Nap
 BedRoll_DismantleActions[0].FadeMessage,Taking a nap...
@@ -3160,52 +3160,52 @@ CMC_BoardPotter_DA_Delivered_Desc,The Potter has your fired pottery. Talk to him
 CMC_BoardLeg_Potter_Inn,The Potter is at the Inn.
 CMC_BoardLeg_Potter_Stall,The Potter is selling at the market corner.
 CMC_StockpileStone_CardName,Stone Stockpile
-CMC_StockpileStone_CardDescription,"A low stone-walled bay that keeps loose Stones as one tidy count. Drag Stones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back."
-CMC_StockpileStone_CardHelpSection,"<b>Fullness:</b> how many Stones are stored, out of 50. <b>Stack the Stones:</b> Drag a Stone onto the bay to store it; a full bay refuses and keeps the Stone in your hand. <b>Take One, Take Five:</b> Hands back that many Stones, or whatever is left. <b>Take Apart:</b> Hands back every stored Stone and two Planks."
+CMC_StockpileStone_CardDescription,"A heap of Stones on a patch of bare earth, kept as one tidy count. Drag Stones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back."
+CMC_StockpileStone_CardHelpSection,"<b>Fullness:</b> how many Stones are stored, out of 50. <b>Stack the Stones:</b> Drag a Stone onto the heap to store it; a full heap refuses and keeps the Stone in your hand. <b>Take One, Take Five:</b> Hands back that many Stones, or whatever is left. <b>Take Apart:</b> Hands back every stored Stone and two Planks."
 CMC_StockpileStone_SD1_Name,Fullness
 CMC_StockpileStone_CI_Stack,Stack the Stones
-CMC_StockpileStone_CI_Stack_Desc,Store the dragged Stone in the bay: it becomes one more on the count.
+CMC_StockpileStone_CI_Stack_Desc,Store the dragged Stone on the heap: it becomes one more on the count.
 CMC_StockpileStone_CI_Stack_Full,The stockpile is full.
 CMC_StockpileStone_DA_TakeOne,Take One Stone
 CMC_StockpileStone_DA_TakeOne_Desc,Take one Stone back out of the stockpile.
 CMC_StockpileStone_DA_TakeFive,Take Five Stones
 CMC_StockpileStone_DA_TakeFive_Desc,"Take five Stones back out of the stockpile, or whatever is left if fewer."
 CMC_StockpileStone_DA_TakeApart,Take Apart
-CMC_StockpileStone_DA_TakeApart_Desc,Dismantle the bay: every stored Stone and two Planks come back.
+CMC_StockpileStone_DA_TakeApart_Desc,Break up the heap: every stored Stone and two Planks come back.
 Bp_CMC_StockpileStone_CardName,Stone Stockpile
-Bp_CMC_StockpileStone_CardDescription,Frame a bay that keeps up to 50 loose Stones as one tidy count.
+Bp_CMC_StockpileStone_CardDescription,Clear a patch of ground for a heap that keeps up to 50 loose Stones as one tidy count.
 CMC_StockpileTwigs_CardName,Twig Stockpile
-CMC_StockpileTwigs_CardDescription,"A woven-stake rack that keeps loose Twigs as one tidy count. Drag Twigs onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back."
-CMC_StockpileTwigs_CardHelpSection,"<b>Fullness:</b> how many Twigs are stored, out of 50. <b>Stack the Twigs:</b> Drag a Twig onto the rack to store it; a full rack refuses and keeps the Twig in your hand. <b>Take One, Take Five:</b> Hands back that many Twigs, or whatever is left. <b>Take Apart:</b> Hands back every stored Twig and two Planks."
+CMC_StockpileTwigs_CardDescription,"A heap of Twigs on a patch of bare earth, kept as one tidy count. Drag Twigs onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back."
+CMC_StockpileTwigs_CardHelpSection,"<b>Fullness:</b> how many Twigs are stored, out of 50. <b>Stack the Twigs:</b> Drag a Twig onto the heap to store it; a full heap refuses and keeps the Twig in your hand. <b>Take One, Take Five:</b> Hands back that many Twigs, or whatever is left. <b>Take Apart:</b> Hands back every stored Twig and two Planks."
 CMC_StockpileTwigs_SD1_Name,Fullness
 CMC_StockpileTwigs_CI_Stack,Stack the Twigs
-CMC_StockpileTwigs_CI_Stack_Desc,Store the dragged Twig in the rack: it becomes one more on the count.
+CMC_StockpileTwigs_CI_Stack_Desc,Store the dragged Twig on the heap: it becomes one more on the count.
 CMC_StockpileTwigs_CI_Stack_Full,The stockpile is full.
 CMC_StockpileTwigs_DA_TakeOne,Take One Twig
 CMC_StockpileTwigs_DA_TakeOne_Desc,Take one Twig back out of the stockpile.
 CMC_StockpileTwigs_DA_TakeFive,Take Five Twigs
 CMC_StockpileTwigs_DA_TakeFive_Desc,"Take five Twigs back out of the stockpile, or whatever is left if fewer."
 CMC_StockpileTwigs_DA_TakeApart,Take Apart
-CMC_StockpileTwigs_DA_TakeApart_Desc,Dismantle the rack: every stored Twig and two Planks come back.
+CMC_StockpileTwigs_DA_TakeApart_Desc,Break up the heap: every stored Twig and two Planks come back.
 Bp_CMC_StockpileTwigs_CardName,Twig Stockpile
-Bp_CMC_StockpileTwigs_CardDescription,Stake together a rack that keeps up to 50 loose Twigs as one tidy count.
+Bp_CMC_StockpileTwigs_CardDescription,Clear a patch of ground for a heap that keeps up to 50 loose Twigs as one tidy count.
 CMC_StockpileBones_CardName,Bone Stockpile
-CMC_StockpileBones_CardDescription,"A bleached wooden crate that keeps loose Bones as one tidy count. Drag Bones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back. A bone that has begun to boil in water is refused, because it would come back raw."
-CMC_StockpileBones_CardHelpSection,"<b>Fullness:</b> how many Bones are stored, out of 50. <b>Stack the Bones:</b> Drag a Bone onto the crate to store it; a full crate refuses and keeps the Bone in your hand, and so does a part-boiled Bone. <b>Take One, Take Five:</b> Hands back that many Bones, or whatever is left. <b>Take Apart:</b> Hands back every stored Bone and two Planks."
+CMC_StockpileBones_CardDescription,"A heap of Bones on a patch of bare earth, kept as one tidy count. Drag Bones onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back. A bone that has begun to boil in water is refused, because it would come back raw."
+CMC_StockpileBones_CardHelpSection,"<b>Fullness:</b> how many Bones are stored, out of 50. <b>Stack the Bones:</b> Drag a Bone onto the heap to store it; a full heap refuses and keeps the Bone in your hand, and so does a part-boiled Bone. <b>Take One, Take Five:</b> Hands back that many Bones, or whatever is left. <b>Take Apart:</b> Hands back every stored Bone and two Planks."
 CMC_StockpileBones_SD1_Name,Fullness
 CMC_StockpileBones_CI_Stack,Stack the Bones
-CMC_StockpileBones_CI_Stack_Desc,Store the dragged Bone in the crate: it becomes one more on the count.
+CMC_StockpileBones_CI_Stack_Desc,Store the dragged Bone on the heap: it becomes one more on the count.
 CMC_StockpileBones_CI_Stack_Full,The stockpile is full.
 CMC_StockpileBones_DA_TakeOne,Take One Bone
 CMC_StockpileBones_DA_TakeOne_Desc,Take one Bone back out of the stockpile.
 CMC_StockpileBones_DA_TakeFive,Take Five Bones
 CMC_StockpileBones_DA_TakeFive_Desc,"Take five Bones back out of the stockpile, or whatever is left if fewer."
 CMC_StockpileBones_DA_TakeApart,Take Apart
-CMC_StockpileBones_DA_TakeApart_Desc,Dismantle the crate: every stored Bone and two Planks come back.
+CMC_StockpileBones_DA_TakeApart_Desc,Break up the heap: every stored Bone and two Planks come back.
 Bp_CMC_StockpileBones_CardName,Bone Stockpile
-Bp_CMC_StockpileBones_CardDescription,Nail together a crate that keeps up to 50 loose Bones as one tidy count.
+Bp_CMC_StockpileBones_CardDescription,Clear a patch of ground for a heap that keeps up to 50 loose Bones as one tidy count.
 CMC_Stockpile_Empty,The stockpile is empty.
-CMC_Stockpile_BoiledBone,"That bone has begun to boil and would come back raw, so the crate will not take it."
+CMC_Stockpile_BoiledBone,"That bone has begun to boil and would come back raw, so the stockpile will not take it."
 CMC_Imp_WallPaintingCharcoal_CardName,Wall Painting (Charcoal)
 CMC_Imp_WallPaintingCharcoal_CardDescription,"Hunts, hands and herds drawn on the walls in charcoal. Raises the room's Sanctuary. Can be painted in caves, mud huts and cabins, one painting to a room."
 CMC_Imp_WallPaintingOchre_CardName,Wall Painting (Ochre)

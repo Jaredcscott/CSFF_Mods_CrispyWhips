@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "bpcmcstockpilebones",
         "LocalizationKey": "Bp_CMC_StockpileBones_CardDescription",
-        "DefaultText": "Nail together a crate that keeps up to 50 loose Bones as one tidy count."
+        "DefaultText": "Clear a patch of ground for a heap that keeps up to 50 loose Bones as one tidy count."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {

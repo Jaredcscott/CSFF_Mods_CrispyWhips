@@ -8,12 +8,12 @@
     "CardDescription": {
         "ParentObjectID": "cmcStockpileTwigs",
         "LocalizationKey": "CMC_StockpileTwigs_CardDescription",
-        "DefaultText": "A woven-stake rack that keeps loose Twigs as one tidy count. Drag Twigs onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back."
+        "DefaultText": "A heap of Twigs on a patch of bare earth, kept as one tidy count. Drag Twigs onto it to store them, up to 50 (hold to drag a whole stack); Take One or Take Five hands them back."
     },
     "CardHelpSection": {
         "ParentObjectID": "cmcStockpileTwigs",
         "LocalizationKey": "CMC_StockpileTwigs_CardHelpSection",
-        "DefaultText": "<b>Fullness:</b> how many Twigs are stored, out of 50. <b>Stack the Twigs:</b> Drag a Twig onto the rack to store it; a full rack refuses and keeps the Twig in your hand. <b>Take One, Take Five:</b> Hands back that many Twigs, or whatever is left. <b>Take Apart:</b> Hands back every stored Twig and two Planks."
+        "DefaultText": "<b>Fullness:</b> how many Twigs are stored, out of 50. <b>Stack the Twigs:</b> Drag a Twig onto the heap to store it; a full heap refuses and keeps the Twig in your hand. <b>Take One, Take Five:</b> Hands back that many Twigs, or whatever is left. <b>Take Apart:</b> Hands back every stored Twig and two Planks."
     },
     "CardType": 2,
     "MapStructureType": 0,
@@ -56,7 +56,7 @@
             "ActionDescription": {
                 "ParentObjectID": "cmcStockpileTwigs",
                 "LocalizationKey": "CMC_StockpileTwigs_CI_Stack_Desc",
-                "DefaultText": "Store the dragged Twig in the rack: it becomes one more on the count."
+                "DefaultText": "Store the dragged Twig on the heap: it becomes one more on the count."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
@@ -138,7 +138,7 @@
             "ActionDescription": {
                 "ParentObjectID": "cmcStockpileTwigs",
                 "LocalizationKey": "CMC_StockpileTwigs_DA_TakeApart_Desc",
-                "DefaultText": "Dismantle the rack: every stored Twig and two Planks come back."
+                "DefaultText": "Break up the heap: every stored Twig and two Planks come back."
             },
             "DaytimeCost": 2,
             "UseMiniTicks": 0,

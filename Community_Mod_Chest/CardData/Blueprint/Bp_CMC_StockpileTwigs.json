@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "bpcmcstockpiletwigs",
         "LocalizationKey": "Bp_CMC_StockpileTwigs_CardDescription",
-        "DefaultText": "Stake together a rack that keeps up to 50 loose Twigs as one tidy count."
+        "DefaultText": "Clear a patch of ground for a heap that keeps up to 50 loose Twigs as one tidy count."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {

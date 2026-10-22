@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "CMC_JailWaterJug_CardDescription",
-    "DefaultText": "A chipped clay jug, filled once a day along with the ration bowl. Not much, but enough to keep you going."
+    "DefaultText": "A chipped clay jug, filled once a day along with the bread ration. Not much, but enough to keep you going."
   },
   "CardImageWarpData": "CMC_JailWaterJug",
   "CardImageWarpType": 3,

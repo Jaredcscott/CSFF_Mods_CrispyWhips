@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "bpcmcstockpilestone",
         "LocalizationKey": "Bp_CMC_StockpileStone_CardDescription",
-        "DefaultText": "Frame a bay that keeps up to 50 loose Stones as one tidy count."
+        "DefaultText": "Clear a patch of ground for a heap that keeps up to 50 loose Stones as one tidy count."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
