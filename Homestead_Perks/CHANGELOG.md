@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.9 (2026-10-22)
+
+- **The mod list description gets the Homestead's nails right.** It called them copper nails and gave no condition; they are 20 metal nails and need CSFF Mod Framework 2.28.0 or later, as the README says.
+
 ## 1.3.8 (2026-10-22)
 
 - **The Path Kit can no longer be locked by a game update.** The kit refuses a Build Path press when the location offers no road in that direction. If a game update changed how the mod reads a location's road list, every press was refused. Now an unreadable list lets the press through and the log says why once, as the mod's other safety checks already do.

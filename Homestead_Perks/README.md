@@ -1,6 +1,6 @@
 # Homestead Perks
 
-**Version:** 1.3.8
+**Version:** 1.3.9
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency)
 **Language:** English, Simplified Chinese
@@ -78,7 +78,9 @@ Vanilla's stool and bookshelf have no card art of their own. This mod gives both
 Every structure kit is carried anywhere and raised once with a single "Place" action. Where a kit cannot be placed, an action names the reason instead:
 - "Not in a Pen": inside an animal enclosure.
 - "Already Have One": a Log Bed, Snow Shelter, Ritual Pyre or Frost Shrine already stands.
-- "Not Indoors": the Cabin, Mud Hut and Cellar kits indoors or in a cave.
+- "Not Indoors": the Cabin, Mud Hut, Cellar and Deadfall Trap kits indoors or in a cave.
+- "Needs a River": the Log Boom and Levee kits away from a river.
+- "Needs a Deposit" or "Already Have a Mine Here": a mine kit away from its ore, or where its mine already stands.
 - "Not by the River", "Not in Wetlands" or "Not on Wet Ground": the Cellar Kit, as vanilla's own blueprint refuses.
 
 A few environments mark a river or wetland only on the environment itself. There the Cellar Kit is refused with no explanatory action. The Well Kit checks only vanilla's enclosure rule, and the Pit Trap Kit nothing, since vanilla's Pit Trap blueprint names no card; neither kit checks vanilla's shelter rule.
@@ -99,6 +101,7 @@ Carried items count toward the 4000 Encumbrance cap. At the cap, vanilla blocks 
 
 Full list in CHANGELOG.md.
 
+- 1.3.9: the mod list description says the Homestead's 20 metal nails need CSFF Mod Framework 2.28.0 or later.
 - 1.3.8: a game update can no longer lock the Path Kit: when the mod cannot read a location's road list, Build Path goes ahead and the log says why.
 - 1.3.7: the Well blueprint's Build works (vanilla's blueprint carried a condition no board could meet).
 - 1.3.6: vanilla's Well blueprint can be researched and built; new Smallholding perk; the Snow Shelter Kit places only where snow lies.
