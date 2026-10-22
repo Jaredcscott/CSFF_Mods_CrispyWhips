@@ -1,6 +1,6 @@
 # Quick Transfer
 
-**Version:** 1.9.1
+**Version:** 1.9.2
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Language:** English and Chinese (on-screen text)
@@ -79,7 +79,7 @@ BepInEx/
         SimpCn.csv
 ```
 
-Optional: [BepInEx.ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) lets you change settings in game with F1. Look for "Quick_Transfer".
+Optional: [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build) lets you change settings in game with F1. Look for "Quick_Transfer". Every setting applies at once, no restart.
 
 ## Configuration
 
@@ -159,6 +159,7 @@ The config file is `BepInEx/config/crispywhips.quick_transfer.cfg`, created on f
 
 Full notes are in [CHANGELOG.md](CHANGELOG.md).
 
+- **1.9.2:** a card you locked with Utility Belt stays put when it is the card you modifier+click.
 - **1.9.1:** version number only.
 - **1.9.0:** Tag Filter, Spoiled Only, Undo, Transfer Hotkey, per-container settings, All But One, Repeat Action key sharing, and batch safety fixes.
 - **1.8.1:** extra warnings in the log, no gameplay change.

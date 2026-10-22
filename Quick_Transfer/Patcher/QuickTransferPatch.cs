@@ -287,10 +287,16 @@ namespace Quick_Transfer.Patcher
                 savedWiden = savedSpoiledMin >= 0f || WidensToSiblings(savedFilterTag) || (Plugin.WidenForNonPilingCards.Value && CannotPile(slot, cardModel));
                 savedTransferCount = transferCount;
 
-                // The clicked card is judged here, before the game's own click moves it. One that is not spoiled
-                // enough must stay, so the game's click is skipped and the batch starts now, with nothing moved
-                // yet, and moves only the cards that qualify.
-                if (savedSpoiledMin >= 0f && !IsSpoiledEnough(card, savedSpoiledMin))
+                // The clicked card is judged here, before the game's own click moves it. One that must stay (locked
+                // in Utility Belt, or not spoiled enough for Spoiled Only) is left where it is: the game's click is
+                // skipped and the batch starts now, with nothing moved yet, and moves only the cards that qualify.
+                // The lock is tested here as well as in IsValidCandidate because the clicked card is the one the
+                // game moves itself, before any candidate test runs, and the visible card is the one a lock most
+                // often sits on.
+                string clickedStays = null;
+                if (UtilityBeltLockBridge.IsLocked(card)) clickedStays = "the clicked card is locked in Utility Belt";
+                else if (savedSpoiledMin >= 0f && !IsSpoiledEnough(card, savedSpoiledMin)) clickedStays = "Spoiled Only: the clicked card is not spoiled enough to move";
+                if (clickedStays != null)
                 {
                     var context = BatchContext.Read(card);
                     int generation = ++batchGeneration;
@@ -301,9 +307,9 @@ namespace Quick_Transfer.Patcher
                     bool widen = savedWiden;
                     float spoiledMin = savedSpoiledMin;
                     Plugin.ShowNotification(StartNotice(transferCount, tag, tagObject));
-                    Logger.LogDebug($"[QT] Spoiled Only: starting coroutine without the clicked card for uid={uid}, tag={tag ?? "none"}, total={transferCount}, min={spoiledMin}");
+                    Logger.LogDebug($"[QT] Starting coroutine without the clicked card ({clickedStays}) for uid={uid}, tag={tag ?? "none"}, total={transferCount}, min={spoiledMin}");
                     Plugin.Instance.StartCoroutine(TransferCardsCoroutine(slot, uid, tag, transferCount, transferCount, false, context, generation, widen, spoiledMin));
-                    return SkipClick("Spoiled Only: the clicked card is not spoiled enough to move");
+                    return SkipClick(clickedStays);
                 }
 
                 // Vanilla's InGameCardBase.OnPointerClick only reaches SwapCard on a right-click, so

@@ -1,25 +1,25 @@
 # Roadmap: QuickTransfer
-Version at time of writing: 1.9.0
-Date: 2026-10-11
-Audit score: 10/10 (consolidated 2026-10-11)
+Version at time of writing: 1.9.1
+Date: 2026-10-20
+Audit score: 10/10 (consolidated 2026-10-20)
 
 ## Current State
 
-**Theme**: A pure input/QoL utility for Card Survival: Fantasy Forest - bulk-transfer card stacks into or out of any container with modifier+right-click, with configurable presets, Half / AllButOne / Full Stack modes, a live on-screen indicator, drain-matching-stacks and non-piling widening, a tag filter, a spoiled-only filter, a hover-and-press key, one-level undo, per-container exclude/remember settings, and a localized overlay. It never adds card data or mutates game state; it replays the game's own `CardGraphics.OnPointerClick`, which keeps it container-agnostic.
+**Theme**: A pure input/QoL utility for Card Survival: Fantasy Forest - bulk-transfer card stacks into or out of any container with modifier+right-click, with configurable presets, Half / AllButOne / Full Stack modes, a live localized on-screen indicator, drain-matching-stacks and non-piling widening, a tag filter, a spoiled-only filter, a hover-and-press hotkey, one-level undo, and per-container exclude/remember settings. It never adds card data or mutates game state; it replays the game's own `CardGraphics.OnPointerClick`, which keeps it container-agnostic.
 
-**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images. 5 C# source files (`Plugin.cs`, `Patcher/QuickTransferPatch.cs`, `Patcher/ContainerSettings.cs`, `RepeatActionBridge.cs`, `OverlayText.cs` + `GlobalUsing.cs`) + a `Localization/` folder (18 keys each, EN/CN).
+**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images. Pure C# (Plugin.cs, Patcher/QuickTransferPatch.cs, Patcher/ContainerSettings.cs, RepeatActionBridge.cs, UtilityBeltLockBridge, OverlayText.cs) + a `Localization/` folder (18 keys each, EN/CN).
 
-**Stability**: 10/10 - 0 CRITICAL, 0 design gaps. One open low-severity warning (G5: the pointer `button` reflection exit at `QuickTransferPatch.cs:230` has no breadcrumb; stable Unity API, completeness gap). The earlier D17 preflight warning is a confirmed false positive (logs through `WarnFeatureOnce`). The candidate-scan perf note carried for two cycles shipped as Feature 17 (`d1cb4592a`).
+**Stability**: 10/10 - 0 CRITICAL, 0 design gaps, 0 open code warnings. The prior pass's one mechanical contradiction (a Utility-Belt-locked *clicked* card could leave its container in a batch) was fixed in commit `643011de7` (2026-10-20 09:23), matching critical-analysis's recommended fix and the CHANGELOG `[Unreleased]` entry. Reflection-path discipline is exemplary (every non-throwing exit warns once per cause, latched per cause).
 
-**Open work**: None on QuickTransfer's own code beyond the optional G5 breadcrumb. The MASTER_PLAN's remaining work is verification debt (human in-game rows) plus the A-to-C ship repack (blocked on peer work 2026-10-10; MUM embed still holds 1.8.1). `Documentation/Retrospectives/INDEX.md` carries no QuickTransfer defect (`wikimod-old-save-load-crash` names Quick Transfer only as a diagnostic symptom of a WikiMod/framework bug).
+**Open work**: None on QuickTransfer's own code. Standing items are all operational/tracker, not defects: T2.668 (locked-clicked-card fix) pending human in-game confirmation; T2.333 (Workshop batch scan cost) and T2.1267 (Transfer Hotkey text-box guard, harness-unstable) carried open. `Documentation/Retrospectives/INDEX.md` carries no QuickTransfer defect (`wikimod-old-save-load-crash` names Quick Transfer only as a diagnostic symptom of a WikiMod/framework bug).
 
-**Framework compliance**: On the current framework API for what a utility needs. Uses the framework `Reflect` helper to locate `CardGraphics.OnPointerClick` at load (`SoftDependency` on `crispywhips.CSFFModFramework`); explicit `harmony.Patch` (not `PatchAll()`) wrapped per-class in try/catch; `OnDestroy` unpatches. Content-mod Tier 2 services (`ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin`) are correctly N/A - this mod has no cards, drops, spawns, or ticks. No deprecated/dangerous patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path mutation (the `OnPointerClick` prefix early-returns on non-modifier/non-configured-button clicks; the all-actions sound prefix is a single-bool passthrough), no `ModLoaderVerison`/`ModEditorVersion`, no manual injection.
+**Framework compliance**: On the current framework API for what a utility needs. `SoftDependency` on `crispywhips.CSFFModFramework`; explicit `harmony.Patch` (not `PatchAll()`) wrapped per-class in try/catch; `OnDestroy` unpatches. Content-mod Tier 2 services (`ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin`) are correctly N/A - this mod has no cards, drops, spawns, or ticks. No deprecated/dangerous patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path mutation, no `ModLoaderVerison`/`ModEditorVersion`, no manual injection.
 
 ---
 
 ## Phase 0: Stabilize  *(skipped - audit score 10/10 and no open QuickTransfer retrospectives)*
 
-Nothing to stabilize. The mod is release-ready at 1.9.0.
+Nothing to stabilize. The mod is release-ready at 1.9.1.
 
 ---
 
@@ -29,46 +29,41 @@ Nothing to stabilize. The mod is release-ready at 1.9.0.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Version sync (ModInfo / Plugin.cs `PluginVersion` / README all read 1.9.0) | Version hygiene | P1 | DONE |
+| Version sync (ModInfo / Plugin.cs `PluginVersion` / README all read 1.9.1) | Version hygiene | P1 | DONE |
 | Chinese localization (`SimpEn.csv` + `SimpCn.csv`, 18/18 keys, parity CLEAN) | Localization | P1 | DONE |
-| (Optional) G5 breadcrumb on the pointer-button reflection exit (`QuickTransferPatch.cs:230`) | Diagnosability | P2 | Quick |
-| Publish 1.9.0 (Nexus holds 1.8.1; A-to-C ship repack pending, MUM embed still 1.8.1) | Release hygiene | P1 | Blocked on peer work (2026-10-10) |
+| Publish 1.9.x (Nexus holds 1.8.1; A-to-C ship repack pending, MUM embed behind) | Release hygiene | P1 | Blocked on peer work |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> QuickTransfer ships no content and, by design, never will (it is a pure input utility). "Expansion" means new transfer behaviors. **The transfer grammar is now complete at 1.9.0** - push/pull, by-stack/by-tag, half/all-but-one, spoiled-only, drain/widen, hover key, undo, per-container settings all shipped. No new transfer behavior is currently justified; the remaining capacity-aware idea is ruled out (below).
+> QuickTransfer ships no content and, by design, never will (it is a pure input utility). "Expansion" means new transfer behaviors. **The transfer grammar is complete** - push/pull, by-stack/by-tag, half/all-but-one, spoiled-only, drain/widen, hover hotkey, undo, per-container settings, Full Stack, middle-click trigger, and the Repeat Action / Utility Belt bridges all shipped. No new transfer behavior is currently justified.
 
 ### Cap the batch at the destination's free capacity - CONSIDERED, NOT SELECTED
-**Status**: Ruled out (MASTER_PLAN Considered table). QuickTransfer re-fires the vanilla click and never chooses the destination, so capacity is observable only after the first move; the 3-strike stop (`TransferCardsCoroutine`, fixed for real in Feature 3) already ends a refused batch, and Feature 4 reports how many moved. Revisit only if a player reports the refused-move feedback firing three times.
+**Status**: Ruled out (MASTER_PLAN Considered table). QuickTransfer re-fires the vanilla click and never chooses the destination, so capacity is observable only after the first move; the 3-strike stop already ends a refused batch and the overlay reports how many moved. Revisit only if a player reports the refused-move feedback firing three times.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Cross-mod hooks. All soft-detect only - QuickTransfer never takes a hard `[BepInDependency]` on another content mod. The live cross-mod work has shipped or moved to other plans.
+> Cross-mod hooks. All soft-detect only - QuickTransfer never takes a hard `[BepInDependency]` on another content mod.
 
-### Shift-chord collision with RepeatAction - SHIPPED (1.9.0)
-Resolved in place: QuickTransfer yields its count keys to Repeat Action (Feature 1, `RepeatActionBridge.cs`) and reads Repeat Action's count keys live (Feature 19). A shared `Api.Input` helper was ruled out (RepeatAction stays standalone). Row T2.652 (human) pending; T2.721 (Feature 19) pending.
+### Repeat Action key sharing - SHIPPED
+QuickTransfer yields its count keys to Repeat Action and reads Repeat Action's count keys live (`RepeatActionBridge`, GUID `crispywhips.repeat_action`).
 
-### Community Mod Chest / HerbsAndFungi / WDI - VERIFIED & DOCUMENTED (1.9.0)
-Bulk trade offers with the Inn Keeper (Feature 13, W0.4 SUPPORTED), stocking the Apothecary Shelf by `tag_Herb` (Feature 14, W0.5 MATCH), and WDI Workshop one-per-slot storage via `Widen For Non-Piling Cards` (no requirement-slot guard needed). All harness-PASS, pending human record.
-
-### Smart_Inventory item-lock respect - HANDED OFF
-Skipping locked cards in `IsValidCandidate` (copying the `IsPinned` guard shape) is owned by `Documentation/Plans/UtilityBelt/MASTER_PLAN.md`'s Smart Inventory lane, not this mod.
+### Utility Belt lock skip - SHIPPED
+A batch never moves a card locked in Utility Belt (`UtilityBeltLockBridge`, `Utility_Belt.LockApi.IsLocked`); the clicked-card gate was closed in `643011de7`. Utility Belt in turn consumes QuickTransfer's public `TryClickMoveOne`/`LastRefusal` API for Auto-Pull and Store Products.
 
 ---
 
 ## Phase 4: Polish
 
-> Art, animation, and text. Mostly N/A for a card-less utility.
+> No art, animation, or description surface - the mod ships zero cards. The only polish axis is diagnosability/text.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Custom art | N/A - 0 CardData, 0 images. The mod's only UI is the `OnGUI` overlay text | - |
-| GIF animation | N/A - no structures/cards to animate | - |
-| Description accuracy | DONE - README/ModInfo spot-checked against `Config.Bind` defaults; per-container wording corrected 2026-10-10 (every container of that kind, not one chest); every numeric claim matches | - |
+| Carry T2.668 to human in-game confirmation | Confirm the locked-clicked-card fix behaves in a real game (code already shipped + diff-verified) | Quick (human step) |
+| Revisit T2.333 / T2.1267 if a player surfaces them | Workshop batch scan cost; Transfer Hotkey text-box guard | Medium |
 
 ---
 
@@ -76,12 +71,12 @@ Skipping locked cards in `IsValidCandidate` (copying the `IsPinned` guard shape)
 
 > Where this mod should be at v2.0.
 
-QuickTransfer has reached its natural endpoint as a complete, container-agnostic bulk-movement grammar: push and pull, by-stack and by-tag, keep-one and spoiled-only, with per-container memory and a hover key - all still riding the vanilla `OnPointerClick` path so it never has to know about any specific container or mod. The transfer grammar is done; what remains is release hygiene (publish 1.9.0) and verification. The mod's one remaining strategic move is a consolidation, not a feature: the `Documentation/Plans/UtilityBelt/MASTER_PLAN.md` merge, which bundles this mod's own `Quick_Transfer.dll` (so nothing is built twice) and removes the standing RepeatAction modifier-collision risk by construction. When the MASTER_PLAN drains, QuickTransfer is feature-complete and moves to `Stable/`.
+QuickTransfer is at its natural endpoint: a complete, container-agnostic bulk-transfer grammar with two optional-mod bridges, localized, 10/10. v2.0 is not a content milestone but a stability line - the point at which the open verification-debt rows (T2.668, T2.333, T2.1267) are all human-confirmed and 1.9.x is published on Nexus. No new transfer behavior is justified by current scope.
 
-**Potential major additions** (none currently justified):
-- None. The transfer grammar is complete; every candidate beyond it is in the MASTER_PLAN's Considered table with its rejection reason (container hotkeys, whitelist, gamepad, hold-to-repeat, in-game config menu, quick-stack, bulk-give, non-Spoilage threshold filters, the QoL_Utilities merge - all ruled out or handed to the Utility Belt plan).
+**Potential major additions** (not yet justified - revisit only on player demand):
+- Capacity-aware batch cap - ruled out in the Considered table (architecture re-fires the vanilla click; capacity is only observable post-move).
 
-Anything worth building belongs in `Documentation/Plans/QuickTransfer/MASTER_PLAN.md` (or its Considered table, with the reason); never a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
+Any of these worth building belongs in the mod's plan under `Documentation/Plans/QuickTransfer/`; never create a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -89,24 +84,26 @@ Anything worth building belongs in `Documentation/Plans/QuickTransfer/MASTER_PLA
 
 | Trigger | Action |
 |---------|--------|
-| After any new transfer-behavior phase | Run `/audit-mod QuickTransfer` and update this roadmap |
-| Game version update | Run `/update-mod-version QuickTransfer`, refresh `lib/Assembly-CSharp.dll` (or regenerate the nstrip variant it binds), check CLAUDE.md EA version notes, re-run `/diagnose-log` |
+| After any behavior change | Run `/audit-mod QuickTransfer` and update this roadmap |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
 | After fixing an issue | Run `/critical-analysis QuickTransfer` to verify the fix |
-| After a feature phase | Run `/export-to-repo QuickTransfer` and bump the version - 1.9.0 is built and deployed but NOT published (Nexus holds 1.8.1) |
+| When peer A-to-C repack unblocks | `/export-to-repo QuickTransfer` + `/nexus-publish upload QuickTransfer`, bump minor version |
 
 ---
 
 ## Skill Cheatsheet for This Mod
 
 ```
-/audit-mod QuickTransfer          - full health check, updates .audit/
-/critical-analysis QuickTransfer  - adversarial review
-/code-quality QuickTransfer       - C# reliability/maintainability scan
-/build-mod QuickTransfer          - build Release DLL
-/deploy-mods QuickTransfer        - build + deploy to game
+/audit-mod QuickTransfer         - full health check, updates .audit/
+/critical-analysis QuickTransfer - adversarial review
+/build-mod QuickTransfer         - build Release DLL
+/deploy-mods QuickTransfer       - build + deploy to game
 /update-mod-version QuickTransfer <ver> - bump version in all 3 files
-/export-to-repo QuickTransfer     - push to public repo
+/export-to-repo QuickTransfer    - push to public repo
+/nexus-publish upload QuickTransfer - publish to Nexus
 ```
+
+---
 
 ## Plan Reconciliation Log
 

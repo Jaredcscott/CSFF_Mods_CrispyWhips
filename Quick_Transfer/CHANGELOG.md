@@ -2,6 +2,11 @@
 
 All notable changes to this mod are documented here.
 
+## [1.9.2] - 2026-10-22
+
+### Fixed
+- **A card you locked with Utility Belt stays put when it is the card you click.** A modifier+click (or the Transfer Hotkey) on a locked card used to move that card along with the batch, because the game's own click moved it before Quick Transfer checked the lock. Now the locked card stays and the rest of the batch moves as usual.
+
 ## [1.9.1] - 2026-10-12
 
 Version number only. Nothing changed since 1.9.0, which was never released on Nexus, so the 1.9.0 notes below are everything new since 1.8.1.
