@@ -5,7 +5,7 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
-## [Unreleased]
+## [1.14.13] - 2026-10-22
 
 ### Fixed
 
