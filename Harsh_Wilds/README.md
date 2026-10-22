@@ -1,6 +1,6 @@
 # Harsh Wilds
 
-**Version:** 0.11.8
+**Version:** 0.11.9
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release. Rewards (meat, affinity, coats, rites) were tuned to their base-game equivalents in 0.11.6; the threats' chances, numbers and lengths are still first guesses not yet balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
@@ -67,10 +67,10 @@ A ragged spearman who waylays travellers on the river (Southern Rapids, Rocky Ba
 
 Each comes only on rare days or nights, announces nothing, and is not replaced on a timer: the next one comes when a later day brings one. Each has its own switch.
 
-- **White wisent** (`WhiteWisent`, also needs `Wisent`). About one day in forty, at noon, a rare albino wisent comes to the wisent's glades for about four days. It never attacks first. Its fight is the wisent's with a stouter hide. Its carcass is butchered like the wisent's, and **Release the Spirit** on it gives Beast Affinity +100, where other wild carcasses give +25. It uses the cow's picture for now.
+- **White wisent** (`WhiteWisent`, also needs `Wisent`). About one day in forty, at noon, a rare albino wisent comes to the wisent's glades for about four days. It never attacks first. Its fight is the wisent's with a stouter hide. Its carcass is butchered like the wisent's, and **Release the Spirit** on it gives Beast Affinity +100, where other wild carcasses give +25.
 - **Lake beast** (`LakeBeast`). About one day in sixty, one comes into the lake and its banks (Northern and Southern Lake Bank, Lake Grove) for about three days. At night, 20:00 to 05:00, it can come for you on a bank, once a night, and fights about as hard as a bear. You can also approach it. Its carcass is bleed, skin, four cuts.
 - **Frost demon** (`FrostDemon`). On about one winter evening in fifteen, one comes down to the northern hills and meadows at 18:00 and stays until about 05:00. Out of doors there it can hunt you once a night. Its bites are Frostnip and Frostbite wounds. A roof is the way out. Its carcass is butchered in one go for meat, fat, bones and a white fur.
-- **Lindwurm** (`Lindwurm`). About one day in a hundred and twenty, a great serpent takes up its lair in the Great Cave for about a week and a half and never leaves it. If you are in the cave, it can come for you once a day at any hour, and you can approach it yourself. It fights harder than the lake beast. Its carcass is a heavy single butchering (about 75 meat, plus fat, bones and a Very Large Fresh Skin), always one Lindwurm Fang (a trophy for the Dragon Charm, not food) and holds a spirit: see the Dragon Spirit below.
+- **Lindwurm** (`Lindwurm`). About one day in a hundred and twenty, a great serpent takes up its lair in the Great Cave for about a week and a half and never leaves it. If you are in the cave, it can come for you once a day at any hour, and you can approach it yourself. It fights harder than the lake beast. Its carcass is a heavy single butchering (about 150 meat, plus fat, bones and a Very Large Fresh Skin), always one Lindwurm Fang (a trophy for the Dragon Charm, not food) and holds a spirit: see the Dragon Spirit below.
 
 ## Raids
 
@@ -135,7 +135,7 @@ In summer, 09:00 to 18:00, outdoors in one of 24 open or rocky places, an **Adde
 Finishing one of the 30 smithing recipes (blanks for axe, pick, hammer, knife and spear heads, metal bar, hook, needle, wire, torc, ring, and the iron remaking steps) with Smithing under 40 and bare hands gives about a one in seven chance of a Fire Burn wound. Leather gloves, fur mittens or Smithing 40 prevent it. It rolls only for your own builds. Casting moulds and handle-fitting steps never roll. Not yet confirmed in a running game.
 
 ### Foraging bites (`ForageBites`)
-Outside winter, foraging one of the 25 thicket places (alder, oak and pine thickets, tangles, hag and muddy ways, cliff and needle slopes, riverbank thickets) may leave you bitten by insects: about one forage in four with nothing against it. One bite means Pain and lost comfort for about six hours. Shoes (Leather Shoes, Bark Sandals), gloves and bug-proof cloth (a Large Cloth, a Hoodie) together cut the odds to about a tenth. Not yet confirmed in a running game.
+Outside winter, foraging one of the 25 thicket places (alder, oak and pine thickets, tangles, hag and muddy ways, cliff and needle slopes, riverbank thickets) may leave you bitten by insects: about one forage in four with nothing against it. One bite means Pain and lost comfort for about six hours. Shoes (Leather Shoes, Bark Sandals), gloves and bug-proof cloth (a Large Cloth, a Hoodie) together cut the odds to about a tenth. Only your own foraging rolls: a companion foraging a thicket for you does not get you bitten. Not yet confirmed in a running game.
 
 ### Mud volcano (`MudVolcano`)
 With Forest Lore installed, its Mud Volcano may erupt while you stand outdoors in that place. A **The Mud Volcano Erupts** card appears; **Shield yourself** ends it. Rolled at most once every twelve hours, with about one roll in five bringing an eruption. An eruption always adds 30 Filth, and about two in five also burn you. Nothing else is touched.
@@ -189,7 +189,7 @@ Infested fleas (+1.0 stress) and a Rotten Tooth (+0.75) together add more stress
 
 These use the base game's own spirit system. You meet a spirit, bind it once with a Summoning Ritual, and call it again from Magic > Calling Rituals. Each is a copy of a base-game spirit's gates, costs and roll. You call spirits on purpose, so they have no switch. Held spirits last about a day and then leave. Spirits are not yet confirmed in a running game.
 
-- **Lynx Spirit.** A lynx carcass (killed or caught) holds one. **Release the Spirit** gives Beast Affinity; the Summoning Ritual on the same carcass tries to bind it instead, with the Fox spirit's gates. Held, it raises Climbing Aid and Ambush Aid and feeds the Fox Urge. Its first binding and first meeting each give one Insight. It uses the Earth spirit's picture for now.
+- **Lynx Spirit.** A lynx carcass (killed or caught) holds one. **Release the Spirit** gives Beast Affinity; the Summoning Ritual on the same carcass tries to bind it instead, with the Fox spirit's gates. Held, it raises Climbing Aid and Ambush Aid and feeds the Fox Urge. Its first binding and first meeting each give one Insight.
 - **Goat Spirit.** No carcass holds it. Its Summoning is listed in Magic > Calling Rituals once you have any Insight, and builds only while a goat you keep (the penned female) is on the board, with twelve fresh clover, meadow grass or heather stems and one spirit herb. It follows the Deer spirit's gates. Held, it raises Climbing Aid and Resilience and feeds the Deer Urge.
 - **Blood Spirit.** Also no carcass. Its Summoning and Calling both need the base game's Blood Spilled to be high, which lasts about a week and a half after a fight. They follow the Wolf spirit's gates, with a large-prey carcass offered (not spent) and a spirit herb for the summoning. Held, it raises Strength and Dodge Bonus and feeds the Wolf Urge. It has no tracking and its essence is no weapon.
 - **Dragon Spirit.** A lindwurm carcass holds it. It binds like the Lynx Spirit. Held, it raises Strength and Alertness Aid and feeds the Fox Urge. It is as rare as the lindwurm.
@@ -199,7 +199,7 @@ These use the base game's own spirit system. You meet a spirit, bind it once wit
 
 Done on purpose, with the base game's own magic. No switch.
 
-- **Mistletoe.** In winter only, foraging one of the fifteen oak places (twelve oak groves, three oak clearings) may turn up Mistletoe, about one forage in twelve. It works in saves you already have. Research **Bless the Grove with Mistletoe** (Magic > Rituals): it spends one Mistletoe in place of a Spirit Acorn and makes the base game's blessed grove, with the same requirements. The acorn rite still works. Both use the Frostleaf picture for now. Not yet confirmed in a running game.
+- **Mistletoe.** In winter only, foraging one of the fifteen oak places (twelve oak groves, three oak clearings) may turn up Mistletoe, about one forage in twelve. It works in saves you already have. Research **Bless the Grove with Mistletoe** (Magic > Rituals): it spends one Mistletoe in place of a Spirit Acorn and makes the base game's blessed grove, with the same requirements. The acorn rite still works. Not yet confirmed in a running game.
 - **Athame.** A bone-bladed ritual knife (Magic > Implements; a Bone Knife, charcoal and twine). It also butchers like a knife. Each rite costs one of its 40 uses. Not yet confirmed in a running game.
   - **Let Blood** (an hour) gives you the Arm Laceration wound and Beast Affinity +100, fading over about two weeks. It is refused while an arm wound is open.
   - **Call Rain** (two hours, once every two days) thickens the clouds so the weather refreshes straight away. Rain is likely, never certain, and snow comes instead in the cold.
@@ -224,8 +224,8 @@ Made on purpose for the spirit path. No switch. Not yet confirmed in a running g
 - **Dragon Charm** (Magic > Implements). The fourth charm. Its recipe appears once you have bound the Dragon Spirit and takes a Lindwurm Fang (the lindwurm's trophy, dropped when you butcher its carcass), bones and twine. Worn at the neck, it holds a small share of the dragon's Alertness Aid at the lowest level, with no binding needed, and wears out after about four weeks like the others.
 - **Lynx, Goat and Blood Charms** (Magic > Implements). Each recipe appears once you have bound that spirit. Worn at the neck, each holds half of its spirit's gift (Climbing Aid, Resilience, Strength) at the lowest level, with no binding needed. They wear out after about four weeks.
 - **Lynx, Musk Ox and Wisent Coats** (Tailoring > Leather, Leatherworking 15). Sewn from each beast's own tanned leather (medium, large and very large), two twine and a kept needle. Each gives warmth (the musk ox coat +7.5, as the base game's Bear Coat), comfort, armour (Torso 10 in a fight, as the base game's coats) and weather protection, takes a spirit essence, and with an open mind lends its beast's help: the lynx coat Climbing Aid and Ambush Aid (8.4 each, the size of the base game's Wolf Coat's two aids) and the Fox Urge, the musk ox coat Resilience, the wisent coat Strength. Whether each hide tans to the leather its coat needs is read from game data, not yet seen in play.
-- **Lynx Cloak** (Tailoring > Leather, Leatherworking 10). A light cousin of the Lynx Coat: a lynx's medium leather, one twine and a kept needle. Warmth +6 (the Reed Coat's), comfort +10, Torso armour 4 (the Reed Coat's), weather protection, and half the Lynx Coat's help while your mind is open (Climbing Aid and Ambush Aid 4.2 each), at half the weight (600 against 1200). No spirit essence and no Fox Urge. Every number is a first guess not yet balanced against play, and its card art is the Lynx Coat's until its own is painted.
-- **Beast Totem** (Magic > Shrines). A carved post for camp. While you are there, Beast Affinity rises by 0.5 a tick.
+- **Lynx Cloak** (Tailoring > Leather, Leatherworking 10). A light cousin of the Lynx Coat: a lynx's medium leather, one twine and a kept needle. Warmth +6 (the Reed Coat's), comfort +10, Torso armour 4 (the Reed Coat's), weather protection, and half the Lynx Coat's help while your mind is open (Climbing Aid and Ambush Aid 4.2 each), at half the weight (600 against 1200). No spirit essence and no Fox Urge. Every number is a first guess not yet balanced against play.
+- **Beast Totem** (Magic > Shrines). A carved post for camp. While you are there, Beast Affinity rises by 0.5 a tick. **Take Down** (15 minutes) removes it and gives back one Wood and two Bones.
 - **Stone Cairn** (Magic > Shrines; three heavy stones, then twelve stones). One to a place. Home of the Ancestor Spirit and a door to the Underworld.
 
 ## Fair folk
@@ -335,6 +335,7 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
 
 Full notes in `CHANGELOG.md`. Latest:
 
+- **0.11.9:** a lindwurm gives its full 150 meat, the Bug Trap works only in the camp where you are, the Beast Totem can be taken down, only your own foraging bites you, and ten cards that borrowed a picture have their own.
 - **0.11.8:** niche content: a light Lynx Cloak, a Lindwurm Fang and the Dragon Charm it makes, a Fairy Stone offering at the Fairy Ring, and the wolverine contesting a big carcass in winter.
 - **0.11.7:** the Tooth Puller is metal tongs made from a Heated Metal Bar, and the selkie can now rise on Far Territory's shore.
 - **0.11.6:** balance pass: musk oxen give less and return monthly, slower brews and athame rites, base-game coat tiers with real armour, a fuller lindwurm, a use for Fairy Stones.

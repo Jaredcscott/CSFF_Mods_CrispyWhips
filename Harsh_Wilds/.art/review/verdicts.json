@@ -36,8 +36,16 @@
     "Picture/hw_athame.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "c548d45f785f7ba5cb88c1ae2ad8134fbad39ff3",
-      "at": "2026-10-12T16:44:59+00:00"
+      "sha1": "9e5aab8c9991942532202b928c820f95cb70a03c",
+      "at": "2026-10-21T18:30:51+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c548d45f785f7ba5cb88c1ae2ad8134fbad39ff3",
+          "at": "2026-10-12T16:44:59+00:00"
+        }
+      ]
     },
     "Picture/hw_bandit.png": {
       "status": "approved",
@@ -68,22 +76,48 @@
     "Picture/hw_bandit_body.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "bf886defc26edef8eba11e4d3213f2efcc5be77f",
-      "at": "2026-10-12T17:22:04+00:00",
+      "sha1": "bcc182327a07d89ddd63717a4e73c28c29274779",
+      "at": "2026-10-21T18:30:33+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "bf886defc26edef8eba11e4d3213f2efcc5be77f",
           "at": "2026-10-12T08:38:40+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bf886defc26edef8eba11e4d3213f2efcc5be77f",
+          "at": "2026-10-12T17:22:04+00:00"
+        }
+      ]
+    },
+    "Picture/hw_bugtrap.png": {
+      "status": "approved",
+      "notes": "this should be hangable ",
+      "sha1": "19f457251928747fe9780169ae95b32ebc7edb04",
+      "at": "2026-10-21T18:31:51+00:00"
+    },
+    "Picture/hw_bugtrap_spent.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5d1850eba01bc065e6a7fd56e05bf98da5932213",
+      "at": "2026-10-21T19:14:37+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "cheesy stick to vanilla style \nLess bugs",
+          "sha1": "7dbe2daa4a21fa0ddba9233c97ebd35da9249042",
+          "at": "2026-10-21T18:31:28+00:00"
         }
       ]
     },
     "Picture/hw_cairn.png": {
       "status": "approved",
-      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
-      "sha1": "e3cf85a2f9e8651c2f94255c7fd03dfa812bf41a",
-      "at": "2026-10-12T17:19:21+00:00",
+      "notes": "",
+      "sha1": "7e3fa1e3f9bf2c3691e6706fbef4c08febbdd420",
+      "at": "2026-10-21T18:31:09+00:00",
       "history": [
         {
           "status": "approved",
@@ -96,14 +130,20 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "e3cf85a2f9e8651c2f94255c7fd03dfa812bf41a",
           "at": "2026-10-12T17:00:43+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e3cf85a2f9e8651c2f94255c7fd03dfa812bf41a",
+          "at": "2026-10-12T17:19:21+00:00"
         }
       ]
     },
     "Picture/hw_casting_bones.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "89233d3875f7d08d9e340edcfe4c76ffcfd1c00a",
-      "at": "2026-10-12T21:26:06+00:00",
+      "sha1": "359b945447ea64e1a6683e2fb378ae5292f3dd36",
+      "at": "2026-10-21T18:30:00+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -116,14 +156,20 @@
           "notes": "no eagle or bear just tally markers for numbers. ",
           "sha1": "99fa19ab5e72259cdbb7a16dc7132c881bccf438",
           "at": "2026-10-12T20:37:06+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "89233d3875f7d08d9e340edcfe4c76ffcfd1c00a",
+          "at": "2026-10-12T21:26:06+00:00"
         }
       ]
     },
     "Picture/hw_charm_blood.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "363f3d49f0ed74ba44eb22f2ceb68ecf910e5fc9",
-      "at": "2026-10-12T19:05:12+00:00",
+      "sha1": "0dde8ba10fcd34782d572f325b7bf9f2134b9542",
+      "at": "2026-10-21T18:30:16+00:00",
       "history": [
         {
           "status": "approved",
@@ -136,14 +182,34 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "5aa1b302dffc6d353969f886362cd4e60cb28624",
           "at": "2026-10-12T17:00:44+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "363f3d49f0ed74ba44eb22f2ceb68ecf910e5fc9",
+          "at": "2026-10-12T19:05:12+00:00"
+        }
+      ]
+    },
+    "Picture/hw_charm_dragon.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bb89f6d79547c2acf34c4fb9cdb09ab285acfec8",
+      "at": "2026-10-21T19:14:40+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "cheesy stick to vanilla style ",
+          "sha1": "0aecd2148b82c379e64538ff0a6cd8cb827f057b",
+          "at": "2026-10-21T18:31:22+00:00"
         }
       ]
     },
     "Picture/hw_charm_goat.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "4f98cb3e6c724f7d51ba713b97c2696f07cdf4aa",
-      "at": "2026-10-12T17:21:37+00:00",
+      "sha1": "5bf2bf4bdae6c1770197788734dc13ac48ec7297",
+      "at": "2026-10-21T19:14:39+00:00",
       "history": [
         {
           "status": "approved",
@@ -162,14 +228,26 @@
           "notes": "",
           "sha1": "4f98cb3e6c724f7d51ba713b97c2696f07cdf4aa",
           "at": "2026-10-12T10:39:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4f98cb3e6c724f7d51ba713b97c2696f07cdf4aa",
+          "at": "2026-10-12T17:21:37+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "cheesy stick to vanilla style ",
+          "sha1": "8a2a9ba080a7259ae0222e7a6b34152e66e18874",
+          "at": "2026-10-21T18:30:55+00:00"
         }
       ]
     },
     "Picture/hw_charm_lynx.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "32b9728e0b09c552891858aa4c9b3a795cc1074e",
-      "at": "2026-10-12T17:21:51+00:00",
+      "sha1": "4fea14cad5bc7d646b8b7beb6186503a91c4c2a3",
+      "at": "2026-10-21T19:14:39+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -182,14 +260,26 @@
           "notes": "",
           "sha1": "32b9728e0b09c552891858aa4c9b3a795cc1074e",
           "at": "2026-10-12T10:39:34+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "32b9728e0b09c552891858aa4c9b3a795cc1074e",
+          "at": "2026-10-12T17:21:51+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "cheesy stick to vanilla style ",
+          "sha1": "cc9631b95b313eae5bd1e3d7e16dc82be04656b9",
+          "at": "2026-10-21T18:30:01+00:00"
         }
       ]
     },
     "Picture/hw_chewing_stick.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "5c6a67e698aeaf986e6346d79b3a297e95c42157",
-      "at": "2026-10-12T20:36:46+00:00",
+      "sha1": "bd7a64cf90e8e87d408648961625afb3a95b14c0",
+      "at": "2026-10-21T19:14:53+00:00",
       "history": [
         {
           "status": "approved",
@@ -214,56 +304,92 @@
           "notes": "too low resolution",
           "sha1": "b455fb27ab1dfb51df996449a3b380059ed49ef6",
           "at": "2026-10-12T19:10:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5c6a67e698aeaf986e6346d79b3a297e95c42157",
+          "at": "2026-10-12T20:36:46+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "simple stick please : \ncheesy stick to vanilla style ",
+          "sha1": "580332ea99b0c0c48d37e5c4ce1dd59f644da9d7",
+          "at": "2026-10-21T18:30:13+00:00"
         }
       ]
+    },
+    "Picture/hw_cloak_lynx.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c12df18272e599484c703c20683a675502c8c319",
+      "at": "2026-10-21T18:30:57+00:00"
     },
     "Picture/hw_coat_lynx.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "7c5c9ed238be0377302cc2e554e8b016f3bd5b6b",
-      "at": "2026-10-12T17:21:54+00:00",
+      "sha1": "61fd3104f25252906f7c90c59dc03ad316b7763a",
+      "at": "2026-10-21T18:31:00+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "7c5c9ed238be0377302cc2e554e8b016f3bd5b6b",
           "at": "2026-10-12T08:38:51+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7c5c9ed238be0377302cc2e554e8b016f3bd5b6b",
+          "at": "2026-10-12T17:21:54+00:00"
         }
       ]
     },
     "Picture/hw_coat_muskox.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "3914f25aa0ad9da019ba81f2ac3b4c5f9787f798",
-      "at": "2026-10-12T17:22:24+00:00",
+      "sha1": "e822551b64a0b69f38654e70690c9e2fee6cba60",
+      "at": "2026-10-21T18:30:36+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "3914f25aa0ad9da019ba81f2ac3b4c5f9787f798",
           "at": "2026-10-12T08:38:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3914f25aa0ad9da019ba81f2ac3b4c5f9787f798",
+          "at": "2026-10-12T17:22:24+00:00"
         }
       ]
     },
     "Picture/hw_coat_wisent.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "098eecc0acadac8f17b36f43dabff044d2deb4c6",
-      "at": "2026-10-12T17:21:26+00:00",
+      "sha1": "5005dde1c18b38e7c413880ba16ca7f432aa9077",
+      "at": "2026-10-21T18:30:35+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "098eecc0acadac8f17b36f43dabff044d2deb4c6",
           "at": "2026-10-12T08:38:55+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "098eecc0acadac8f17b36f43dabff044d2deb4c6",
+          "at": "2026-10-12T17:21:26+00:00"
         }
       ]
     },
     "Picture/hw_event_adder.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "39a7f41215d2d6221c88cc51697dba985a974be9",
-      "at": "2026-10-12T17:21:20+00:00",
+      "sha1": "04498149d035eb7a0a6f806ca4e022d106fe8391",
+      "at": "2026-10-21T18:30:53+00:00",
       "history": [
         {
           "status": "approved",
@@ -282,6 +408,12 @@
           "notes": "",
           "sha1": "39a7f41215d2d6221c88cc51697dba985a974be9",
           "at": "2026-10-12T10:39:35+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "39a7f41215d2d6221c88cc51697dba985a974be9",
+          "at": "2026-10-12T17:21:20+00:00"
         }
       ]
     },
@@ -314,36 +446,48 @@
     "Picture/hw_event_blackbear.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "1c523af1a3bb2cfc3f2956e98c0a88201d235f6d",
-      "at": "2026-10-12T17:24:43+00:00",
+      "sha1": "30457025a36eed42fcf8a581528d9cbc92131145",
+      "at": "2026-10-21T18:29:36+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "1c523af1a3bb2cfc3f2956e98c0a88201d235f6d",
           "at": "2026-10-12T08:39:05+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1c523af1a3bb2cfc3f2956e98c0a88201d235f6d",
+          "at": "2026-10-12T17:24:43+00:00"
         }
       ]
     },
     "Picture/hw_event_eagle.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "4dd5a7afb1586555f3a410a466fd5a08aab8b470",
-      "at": "2026-10-12T17:22:37+00:00",
+      "sha1": "b96e7744897a309503e5c0e04ec926dfb2cb4b4e",
+      "at": "2026-10-21T18:30:41+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "4dd5a7afb1586555f3a410a466fd5a08aab8b470",
           "at": "2026-10-12T08:39:06+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4dd5a7afb1586555f3a410a466fd5a08aab8b470",
+          "at": "2026-10-12T17:22:37+00:00"
         }
       ]
     },
     "Picture/hw_event_heron.png": {
       "status": "approved",
-      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
-      "sha1": "61cbc46b79d4520573ee55eb850c0cefcd8e2803",
-      "at": "2026-10-12T17:34:29+00:00",
+      "notes": "",
+      "sha1": "c3ed7b37537f68754b787c337db095704547fdb7",
+      "at": "2026-10-21T18:31:29+00:00",
       "history": [
         {
           "status": "approved",
@@ -356,14 +500,20 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "61cbc46b79d4520573ee55eb850c0cefcd8e2803",
           "at": "2026-10-12T16:57:34+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "61cbc46b79d4520573ee55eb850c0cefcd8e2803",
+          "at": "2026-10-12T17:34:29+00:00"
         }
       ]
     },
     "Picture/hw_event_nixie.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "7a4bd9e412a59dfae811f472c69708a507708888",
-      "at": "2026-10-12T17:28:09+00:00",
+      "sha1": "1c45453b8f4838c3b674b02987da095107115351",
+      "at": "2026-10-21T18:31:07+00:00",
       "history": [
         {
           "status": "approved",
@@ -394,6 +544,12 @@
           "notes": "",
           "sha1": "7a4bd9e412a59dfae811f472c69708a507708888",
           "at": "2026-10-12T17:28:04+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7a4bd9e412a59dfae811f472c69708a507708888",
+          "at": "2026-10-12T17:28:09+00:00"
         }
       ]
     },
@@ -428,8 +584,8 @@
     "Picture/hw_event_selkie.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "346a5c73676ae55bd1687cab3805a6e70e079b7e",
-      "at": "2026-10-12T20:35:56+00:00",
+      "sha1": "c10aef512735a6096d430b977bd0b177e83488cd",
+      "at": "2026-10-21T18:30:38+00:00",
       "history": [
         {
           "status": "approved",
@@ -460,14 +616,20 @@
           "notes": "too low resolution",
           "sha1": "4de350bee438cbd61613ed6961af7f03d722083b",
           "at": "2026-10-12T19:08:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "346a5c73676ae55bd1687cab3805a6e70e079b7e",
+          "at": "2026-10-12T20:35:56+00:00"
         }
       ]
     },
     "Picture/hw_event_wolverine.png": {
       "status": "approved",
-      "notes": "has white. in the rope and by fox tail. remove the fox all together just the wolverine please. ",
-      "sha1": "82a89ea2bcc0792ca304a425c098f91b3d472ec2",
-      "at": "2026-10-12T17:22:04+00:00",
+      "notes": "",
+      "sha1": "d78230e593894bb369c89678850c59094963a9ce",
+      "at": "2026-10-21T18:22:33+00:00",
       "history": [
         {
           "status": "alter",
@@ -480,6 +642,26 @@
           "notes": "has white. in the rope and by fox tail. remove the fox all together just the wolverine please. ",
           "sha1": "82a89ea2bcc0792ca304a425c098f91b3d472ec2",
           "at": "2026-10-12T14:17:26+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "has white. in the rope and by fox tail. remove the fox all together just the wolverine please. ",
+          "sha1": "82a89ea2bcc0792ca304a425c098f91b3d472ec2",
+          "at": "2026-10-12T17:22:04+00:00"
+        }
+      ]
+    },
+    "Picture/hw_event_wolverine_kill.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "300b94bc9f369b735f3c1d33f3a1da393177c4f2",
+      "at": "2026-10-21T19:14:32+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "removve the carcass just the wolverine ",
+          "sha1": "ba941ec79993b6cc6e7451a11339f700599469d8",
+          "at": "2026-10-21T18:30:29+00:00"
         }
       ]
     },
@@ -500,8 +682,8 @@
     "Picture/hw_fairy_ring.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "6d56cc4e40026e9cee3d87ab104ac3f35cb95b30",
-      "at": "2026-10-12T19:06:22+00:00",
+      "sha1": "23f719e7c17ce4dba7a99fa39f55925ac2513eb0",
+      "at": "2026-10-21T18:22:51+00:00",
       "history": [
         {
           "status": "alter",
@@ -520,6 +702,12 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "3ade58d1857137382b16c92bc04c05bb4c6145a0",
           "at": "2026-10-12T16:54:34+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6d56cc4e40026e9cee3d87ab104ac3f35cb95b30",
+          "at": "2026-10-12T19:06:22+00:00"
         }
       ]
     },
@@ -558,22 +746,28 @@
     "Picture/hw_frostdemon_carcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "ac5e10f9a73e3d63f8cee715aa18e854aa83b3eb",
-      "at": "2026-10-12T17:21:37+00:00",
+      "sha1": "c69c382706cbc1180be34ae85bdbaf2727174f25",
+      "at": "2026-10-21T18:30:37+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "ac5e10f9a73e3d63f8cee715aa18e854aa83b3eb",
           "at": "2026-10-12T08:40:01+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ac5e10f9a73e3d63f8cee715aa18e854aa83b3eb",
+          "at": "2026-10-12T17:21:37+00:00"
         }
       ]
     },
     "Picture/hw_herbal_wash.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "8221f1c6acbd3229bd86272a9b5150ee9a4f882d",
-      "at": "2026-10-12T17:24:43+00:00",
+      "sha1": "8231c2ce4bb9c4cdeb10928d9419605c28bd06b5",
+      "at": "2026-10-21T18:29:38+00:00",
       "history": [
         {
           "status": "approved",
@@ -592,6 +786,12 @@
           "notes": "",
           "sha1": "8221f1c6acbd3229bd86272a9b5150ee9a4f882d",
           "at": "2026-10-12T10:40:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8221f1c6acbd3229bd86272a9b5150ee9a4f882d",
+          "at": "2026-10-12T17:24:43+00:00"
         }
       ]
     },
@@ -624,8 +824,8 @@
     "Picture/hw_lakebeast_carcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "3be01f7cf2ed2d81ce2b668b6cc81ee84f6f5052",
-      "at": "2026-10-12T17:24:43+00:00",
+      "sha1": "e1246b3c78688db55536440158d9b1e987770c16",
+      "at": "2026-10-21T18:29:33+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -638,14 +838,20 @@
           "notes": "",
           "sha1": "3be01f7cf2ed2d81ce2b668b6cc81ee84f6f5052",
           "at": "2026-10-12T10:40:25+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3be01f7cf2ed2d81ce2b668b6cc81ee84f6f5052",
+          "at": "2026-10-12T17:24:43+00:00"
         }
       ]
     },
     "Picture/hw_lakebeast_carcass_skinned.png": {
       "status": "approved",
-      "notes": " still lame, needs to match game art. the corpse looks like its  smilingsmiling! ",
-      "sha1": "1b556bbd3e212bd1ba3bc0bfd109c88340257285",
-      "at": "2026-10-12T17:27:43+00:00",
+      "notes": "",
+      "sha1": "eec6229e8d16b6e4a841fd9e7f39aca4a7d1ef07",
+      "at": "2026-10-21T18:22:27+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -664,6 +870,12 @@
           "notes": " still lame, needs to match game art. the corpse looks like its  smilingsmiling! ",
           "sha1": "1b556bbd3e212bd1ba3bc0bfd109c88340257285",
           "at": "2026-10-12T14:21:04+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": " still lame, needs to match game art. the corpse looks like its  smilingsmiling! ",
+          "sha1": "1b556bbd3e212bd1ba3bc0bfd109c88340257285",
+          "at": "2026-10-12T17:27:43+00:00"
         }
       ]
     },
@@ -696,8 +908,8 @@
     "Picture/hw_lindwurm_carcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "c1c5e8792f791678d557be663aa5c49651341ebb",
-      "at": "2026-10-12T17:24:43+00:00",
+      "sha1": "6dc0b87dda3370170db550d486885cdd7d3d50f8",
+      "at": "2026-10-21T18:30:15+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -710,48 +922,78 @@
           "notes": "",
           "sha1": "c1c5e8792f791678d557be663aa5c49651341ebb",
           "at": "2026-10-12T10:40:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c1c5e8792f791678d557be663aa5c49651341ebb",
+          "at": "2026-10-12T17:24:43+00:00"
         }
       ]
+    },
+    "Picture/hw_lindwurm_fang.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d4819ce3f25c32b71518a26fad9b93585bab3635",
+      "at": "2026-10-21T18:31:34+00:00"
     },
     "Picture/hw_lq_brew_beast.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "e170b944a8438af20f2f806ce8308914f62d2c3f",
-      "at": "2026-10-12T17:24:43+00:00",
+      "sha1": "0d911228885371718fc71abc3ddc69fffe1e1b30",
+      "at": "2026-10-21T18:22:19+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "e170b944a8438af20f2f806ce8308914f62d2c3f",
           "at": "2026-10-12T08:40:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e170b944a8438af20f2f806ce8308914f62d2c3f",
+          "at": "2026-10-12T17:24:43+00:00"
         }
       ]
     },
     "Picture/hw_lq_brew_earth.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "b64ce4663b73a0d00c5bbb3cf4d19c3965936d68",
-      "at": "2026-10-12T17:24:43+00:00",
+      "sha1": "5aec73e33b2de7584fd77d8cb7c84e4635dc2ab2",
+      "at": "2026-10-21T18:22:28+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "b64ce4663b73a0d00c5bbb3cf4d19c3965936d68",
           "at": "2026-10-12T08:40:29+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b64ce4663b73a0d00c5bbb3cf4d19c3965936d68",
+          "at": "2026-10-12T17:24:43+00:00"
         }
       ]
     },
     "Picture/hw_lq_brew_muscle.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "8b36701208045b8e31ecaf97bae4950af19dbbbf",
-      "at": "2026-10-12T17:24:43+00:00",
+      "sha1": "903815a596ef1a9d5484f06d615de8fc6ee00fd9",
+      "at": "2026-10-21T18:22:07+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "8b36701208045b8e31ecaf97bae4950af19dbbbf",
           "at": "2026-10-12T08:40:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8b36701208045b8e31ecaf97bae4950af19dbbbf",
+          "at": "2026-10-12T17:24:43+00:00"
         }
       ]
     },
@@ -790,8 +1032,8 @@
     "Picture/hw_lynx_carcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "8258e6e6ff33bc9b378c3d3f15095a5d9741ae56",
-      "at": "2026-10-12T17:24:44+00:00",
+      "sha1": "98c7f2081de910bb92e2d0de804532c64242162c",
+      "at": "2026-10-21T18:29:39+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -804,6 +1046,26 @@
           "notes": "",
           "sha1": "8258e6e6ff33bc9b378c3d3f15095a5d9741ae56",
           "at": "2026-10-12T10:40:30+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8258e6e6ff33bc9b378c3d3f15095a5d9741ae56",
+          "at": "2026-10-12T17:24:44+00:00"
+        }
+      ]
+    },
+    "Picture/hw_mistletoe.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "bb46cb756d16a840bac7bb695314b6c0a035a8a7",
+      "at": "2026-10-21T19:14:57+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "does not look like mistletoe",
+          "sha1": "e47c8fce8fe8cd4401e050c4bc0e2ce7080f2729",
+          "at": "2026-10-21T18:32:00+00:00"
         }
       ]
     },
@@ -835,23 +1097,29 @@
     },
     "Picture/hw_muskox_carcass.png": {
       "status": "approved",
-      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
-      "sha1": "ce1f23a1cd4ab775edd48f1894485878222a2390",
-      "at": "2026-10-12T17:20:43+00:00",
+      "notes": "",
+      "sha1": "e663396131a2176a9f045b5f85f0a9bafce461ce",
+      "at": "2026-10-21T18:30:58+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "ce1f23a1cd4ab775edd48f1894485878222a2390",
           "at": "2026-10-12T17:03:21+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "ce1f23a1cd4ab775edd48f1894485878222a2390",
+          "at": "2026-10-12T17:20:43+00:00"
         }
       ]
     },
     "Picture/hw_muskox_carcass_skinned.png": {
       "status": "approved",
-      "notes": "Kept as is for consistency with approved variant hw_muskox_carcass (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
-      "sha1": "433051055f8cc9f33601f96f6fae4ac01ae1a483",
-      "at": "2026-10-12T17:35:54+00:00",
+      "notes": "",
+      "sha1": "449f685a6bf7ca6ab0a120a0faddcfcf88ddf9d5",
+      "at": "2026-10-21T18:31:31+00:00",
       "history": [
         {
           "status": "approved",
@@ -864,14 +1132,20 @@
           "notes": "",
           "sha1": "433051055f8cc9f33601f96f6fae4ac01ae1a483",
           "at": "2026-10-12T16:53:54+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Kept as is for consistency with approved variant hw_muskox_carcass (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+          "sha1": "433051055f8cc9f33601f96f6fae4ac01ae1a483",
+          "at": "2026-10-12T17:35:54+00:00"
         }
       ]
     },
     "Picture/hw_spirit_blood.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "7861b22bd9ebb5d355ae26957a903aadb3293ba4",
-      "at": "2026-10-12T17:20:17+00:00",
+      "sha1": "3bc0d50c27d43df115c400528b7e0c33c0a585fb",
+      "at": "2026-10-21T18:32:02+00:00",
       "history": [
         {
           "status": "alter",
@@ -884,14 +1158,20 @@
           "notes": "",
           "sha1": "7861b22bd9ebb5d355ae26957a903aadb3293ba4",
           "at": "2026-10-12T10:40:34+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "7861b22bd9ebb5d355ae26957a903aadb3293ba4",
+          "at": "2026-10-12T17:20:17+00:00"
         }
       ]
     },
     "Picture/hw_spirit_dragon.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "b3839ccbc00936dd70e1e5a905d458cb4b5a166b",
-      "at": "2026-10-12T19:03:54+00:00",
+      "sha1": "df9d2091720c12e70e49b7814c0a212b5db71e8e",
+      "at": "2026-10-21T18:31:04+00:00",
       "history": [
         {
           "status": "alter",
@@ -916,14 +1196,20 @@
           "notes": "white in tail still missingRegenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "a4811407facc013aaadc3487fe20658d711a6f84",
           "at": "2026-10-12T16:52:21+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b3839ccbc00936dd70e1e5a905d458cb4b5a166b",
+          "at": "2026-10-12T19:03:54+00:00"
         }
       ]
     },
     "Picture/hw_spirit_goat.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "cc8f6311d046b3cf5a79276f90c5ce648c1fbbf7",
-      "at": "2026-10-12T17:21:27+00:00",
+      "sha1": "146b21b829074f82c75447df3881930a749f6de1",
+      "at": "2026-10-21T19:14:33+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -936,14 +1222,26 @@
           "notes": "",
           "sha1": "cc8f6311d046b3cf5a79276f90c5ce648c1fbbf7",
           "at": "2026-10-12T10:40:45+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "cc8f6311d046b3cf5a79276f90c5ce648c1fbbf7",
+          "at": "2026-10-12T17:21:27+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "cheesy stick to vanilla style ",
+          "sha1": "a3945b80079a15b62b45ff59bda6133e9fdabebc",
+          "at": "2026-10-21T18:30:44+00:00"
         }
       ]
     },
     "Picture/hw_spirit_jar.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "44327bc846e16a5dfcdc8d79e1812ac72132d387",
-      "at": "2026-10-12T17:24:44+00:00",
+      "sha1": "5a12a64980d30e5a1d2caeb00fa5f6e057ef422c",
+      "at": "2026-10-21T18:24:10+00:00",
       "history": [
         {
           "status": "approved",
@@ -962,14 +1260,34 @@
           "notes": "",
           "sha1": "44327bc846e16a5dfcdc8d79e1812ac72132d387",
           "at": "2026-10-12T10:40:48+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "44327bc846e16a5dfcdc8d79e1812ac72132d387",
+          "at": "2026-10-12T17:24:44+00:00"
+        }
+      ]
+    },
+    "Picture/hw_spirit_lynx.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "67573a9c3b01f694eca24b2b8f15f4f22ea9e91d",
+      "at": "2026-10-21T19:14:35+00:00",
+      "history": [
+        {
+          "status": "regenerate",
+          "notes": "cheesy stick to vanilla style ",
+          "sha1": "d85a6bfcb8b76e5bbda4f9206438b04d21d3f48a",
+          "at": "2026-10-21T18:30:46+00:00"
         }
       ]
     },
     "Picture/hw_spirit_mask.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "df1335aab6d8526ca1bb06aa3a19fb399299ae8c",
-      "at": "2026-10-12T17:24:44+00:00",
+      "sha1": "f082b0df4e00a06b653be7b5fb909ba1ee2e6b3f",
+      "at": "2026-10-21T18:29:31+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -982,14 +1300,20 @@
           "notes": "",
           "sha1": "df1335aab6d8526ca1bb06aa3a19fb399299ae8c",
           "at": "2026-10-12T10:40:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "df1335aab6d8526ca1bb06aa3a19fb399299ae8c",
+          "at": "2026-10-12T17:24:44+00:00"
         }
       ]
     },
     "Picture/hw_threshold.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "6f5d62b6abd47ff1f5a83188d0f60a4241089a67",
-      "at": "2026-10-12T17:24:44+00:00",
+      "sha1": "daa302b5725d62ae2732e3fa100c30d8b1cf9e72",
+      "at": "2026-10-21T18:29:40+00:00",
       "history": [
         {
           "status": "approved",
@@ -1008,14 +1332,20 @@
           "notes": "",
           "sha1": "6f5d62b6abd47ff1f5a83188d0f60a4241089a67",
           "at": "2026-10-12T10:40:51+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "6f5d62b6abd47ff1f5a83188d0f60a4241089a67",
+          "at": "2026-10-12T17:24:44+00:00"
         }
       ]
     },
     "Picture/hw_tooth_puller.png": {
       "status": "approved",
-      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
-      "sha1": "eb4bb1115c09154bf47a078209fb4ea9e041fb49",
-      "at": "2026-10-12T17:20:35+00:00",
+      "notes": "",
+      "sha1": "7f9de965dab9f4032ab2669d60ba196577229e12",
+      "at": "2026-10-21T18:30:59+00:00",
       "history": [
         {
           "status": "alter",
@@ -1028,14 +1358,20 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "eb4bb1115c09154bf47a078209fb4ea9e041fb49",
           "at": "2026-10-12T17:03:08+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "eb4bb1115c09154bf47a078209fb4ea9e041fb49",
+          "at": "2026-10-12T17:20:35+00:00"
         }
       ]
     },
     "Picture/hw_totem_beast.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "1a28c3022695af713170926a0ab92e6d3662a9ff",
-      "at": "2026-10-12T17:24:44+00:00",
+      "sha1": "18e61c1ba87a2b4aebc1edb5e84166a7acbf8733",
+      "at": "2026-10-21T19:14:36+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -1048,6 +1384,44 @@
           "notes": "",
           "sha1": "1a28c3022695af713170926a0ab92e6d3662a9ff",
           "at": "2026-10-12T10:40:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1a28c3022695af713170926a0ab92e6d3662a9ff",
+          "at": "2026-10-12T17:24:44+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "cheesy stick to vanilla style ",
+          "sha1": "f111ffbf4cf0f48ed683a4947c77167291de3ffe",
+          "at": "2026-10-21T18:29:58+00:00"
+        }
+      ]
+    },
+    "Picture/hw_whitewisent_carcass.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "808c12f97dca5b275aafb0e4247d4b94f62cced7",
+      "at": "2026-10-21T18:31:06+00:00"
+    },
+    "Picture/hw_whitewisent_carcass_skinned.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "ab8ad7d8b9b725f9dc857605d398be234b40e3e7",
+      "at": "2026-10-21T21:44:51+00:00",
+      "history": [
+        {
+          "status": "alter",
+          "notes": "rejected\nd",
+          "sha1": "3485ce54c22d74908afd0b60c602405e4aaee6f7",
+          "at": "2026-10-21T18:31:19+00:00"
+        },
+        {
+          "status": "regenerate",
+          "notes": "follow the other skinned image",
+          "sha1": "d38734cec07ca1a2f9b76e523709dabb9d1d58b3",
+          "at": "2026-10-21T19:14:50+00:00"
         }
       ]
     },
@@ -1074,22 +1448,28 @@
     "Picture/hw_wisent_carcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "1c88b5bb9bc8a4f303a2d68a4b579b443cd1643a",
-      "at": "2026-10-12T17:21:58+00:00",
+      "sha1": "64f74097966bbb59c0a31a1d9bb74af1a986db6c",
+      "at": "2026-10-21T18:30:31+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "1c88b5bb9bc8a4f303a2d68a4b579b443cd1643a",
           "at": "2026-10-12T08:41:39+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1c88b5bb9bc8a4f303a2d68a4b579b443cd1643a",
+          "at": "2026-10-12T17:21:58+00:00"
         }
       ]
     },
     "Picture/hw_wisent_carcass_skinned.png": {
       "status": "approved",
-      "notes": "Kept as is for consistency with approved variant hw_wisent_carcass (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
-      "sha1": "6349e6e5a5fc20220442f6037b819bf6de073987",
-      "at": "2026-10-12T17:35:54+00:00",
+      "notes": "",
+      "sha1": "14f105c59efdfe0e06f790386aab6ebbef12c5d5",
+      "at": "2026-10-21T18:31:14+00:00",
       "history": [
         {
           "status": "approved",
@@ -1102,6 +1482,12 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "6349e6e5a5fc20220442f6037b819bf6de073987",
           "at": "2026-10-12T17:00:56+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Kept as is for consistency with approved variant hw_wisent_carcass (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+          "sha1": "6349e6e5a5fc20220442f6037b819bf6de073987",
+          "at": "2026-10-12T17:35:54+00:00"
         }
       ]
     }

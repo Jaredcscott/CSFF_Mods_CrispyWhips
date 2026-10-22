@@ -1,40 +1,66 @@
 {
   "target": "hw_spirit_goat.png",
   "sourceCard": "CardData/Item/hw_spirit_goat.json (+ goat spirit events, blueprints, liquid)",
-  "subject": "Draw: a translucent pale green-gold spirit of a mountain goat standing four-legged in profile, long curved ridged horns sweeping back over its neck, a small pointed beard, its body made of pale green-gold glowing mist with darker green swirls inside it, the hooves and the short tail thinning into wisps at the tips.",
+  "subject": "the Goat Spirit drawn the way vanilla draws an animal spirit (Moontouched; vanilla animal spirit calling cards draw the plain wild animal): a natural wild goat standing calmly on a mossy rock in a green pine forest, its whole body painted in pale green-gold; no mist, glow or swirls; pair with hw_spirit_lynx",
   "model": "nano-banana-2",
   "mode": "image2image",
   "params": {
     "imageCount": 1,
     "aspectRatio": "2:3",
     "resolution": "1K",
-    "autoEnhancePrompt": false
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Moontouched (vanilla animal-spirit treatment) (style) wHLm6nCL1KKTs3bsda37",
+      "vanilla Wolf_Wild (style) XHeakCyu6coG0B655QKV"
+    ]
   },
-  "prompt": "Use the attached reference images, each for one purpose. Reference image 1 is a sibling card from the same set: match its framing (one whole translucent spirit animal standing, the same size in the frame), its translucent body with darker inner swirls and its thin dark ink outline; do not copy its animal or its red colour. Reference image 2 is a style reference only: match its flat posterized colour fills and bold dark outline; do not copy its subject.\nDraw: a translucent pale green-gold spirit of a mountain goat standing four-legged in profile, long curved ridged horns sweeping back over its neck, a small pointed beard, its body made of pale green-gold glowing mist with darker green swirls inside it, the hooves and the short tail thinning into wisps at the tips.\nSurvival card game creature art in that style: flat colour bands, a thin continuous dark outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, white halo, white glow around the outline, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, rocks, second animal, red colour.",
-  "historyId": "b720ctf5zLA8PkNvtUBT",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798549690_46003e44_1791798549751_a67acf13.png",
-  "credits": 20,
   "references": [
     {
-      "role": "framing (sibling)",
-      "label": "hw_spirit_blood",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_spirit_blood_1791798408659_45a33da0.png"
+      "role": "style",
+      "label": "vanilla Moontouched (vanilla animal-spirit treatment)",
+      "id": "wHLm6nCL1KKTs3bsda37",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Moontouched_1792608275147_db63b8bb.png"
     },
     {
       "role": "style",
-      "label": "Frog",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Frog_1791798309654_d97ad93e.png"
+      "label": "vanilla Wolf_Wild",
+      "id": "XHeakCyu6coG0B655QKV",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791798310150_1e61344f.png"
     }
   ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is how vanilla Card Survival draws an animal SPIRIT: an ordinary, natural-looking animal standing calmly in a green forest, with its whole body painted in one pale unnatural spirit colour (there pale ice blue) using flat colour fills and thin dark ink outlines. Match that treatment and composition exactly, but draw a different animal in a different spirit colour. Reference image 2 is a second style reference: match its flat posterized fills, thin ink outlines and muted forest greens; do not copy its wolf.\nDraw: the Goat Spirit. A wild mountain goat standing on all four legs on a mossy rock in a green pine forest, facing the viewer at a slight three-quarter angle, head level, calm. Long ridged horns curving back over its neck, a short pointed beard, a sturdy body, cloven hooves. Its whole body, horns and beard are painted in pale green-gold tones (pale sage green with soft gold, three or four flat tonal steps), the way reference image 1 paints its wolf pale blue. A natural solid animal, not made of mist. The goat fills about the middle half of the frame, its body in the lower middle; dark trunks and green undergrowth behind it as in the references.\nStyle: plain vanilla Card Survival game art: a full-bleed painted forest scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted natural colours. No text, no watermark, no signature, no border, no frame.\nAvoid: mist, smoke, wisps, glow, sparkles, swirls, aura, magic particles, transparent ghost, glowing eyes, rearing, dramatic pose, dramatic lighting, rim light, ornate patterns, photo, photorealistic, 3D render, cartoon, comic book, anime, cute, glossy highlights, neon colours, lens flare, multiple animals, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground.",
+  "historyId": "NtD1AU1BhOHEmxemAgiV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608509964_acef04ef_1792608510257_df9639fb.png",
+  "credits": 20,
   "candidates": [
     {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798549690_46003e44_1791798549751_a67acf13.png"
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608509964_acef04ef_1792608510257_df9639fb.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
     }
   ],
-  "picked": "A",
-  "predicted": "A",
-  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
-  "generated": "2026-10-12",
-  "note": "owner gallery rework 2026-10-12: looks AI generated must match game art; framed like the blood and dragon spirits"
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "5eed49b70138d85757a1019aaf4e8b81203a4b628da5b0f29b729288c551dcc2"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "cheesy stick to vanilla style",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "previous": [
+    {
+      "historyId": "b720ctf5zLA8PkNvtUBT",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798549690_46003e44_1791798549751_a67acf13.png",
+      "generated": "2026-10-12",
+      "owner_verdict": "regenerate 2026-10-21: cheesy stick to vanilla style"
+    }
+  ]
 }

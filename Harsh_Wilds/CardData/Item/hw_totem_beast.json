@@ -49,7 +49,61 @@
         "Active": false
     },
     "CardInteractions": [],
-    "DismantleActions": [],
+    "//TakeDown": "Take Down returns part of hw_bp_totem_beast's inputs (2 vanilla Wood 692afc63..., 3 Bones 674b640f..., 1 Twine f6e8281f...; the knife is not spent): 1 Wood and 2 Bones, the twine counted as used up in the tying. Shape of H&F's DryingStack Dismantle (ProducedCards, ModType 3 destroys the totem). Wood's defaults (ID 1, Quality 96) and Bones' (Boil 0) are vanilla's own values, so no TransferRules are needed. The share is a TUNABLE PLACEHOLDER.",
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "hw_totem_beast",
+                "LocalizationKey": "HarshWilds_TotemBeast_DA_TakeDown_ActionName",
+                "DefaultText": "Take Down"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "hw_totem_beast",
+                "LocalizationKey": "HarshWilds_TotemBeast_DA_TakeDown_ActionDescription",
+                "DefaultText": "Pull the totem down. You keep a piece of its wood and two of its bones; the twine is spent."
+            },
+            "DaytimeCost": 1,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "674b640f46671f1418af4559b259b442",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 2
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "PassiveEffects": [],
     "AlwaysUpdate": true,
     "AffectStatsOnlyWhenNotInBackground": true,

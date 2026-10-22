@@ -1,35 +1,67 @@
 {
   "target": "hw_charm_lynx.png",
   "sourceCard": "CardData/Item/hw_charm_lynx.json",
-  "subject": "Draw: a small carved off-white bone charm shaped like a lynx's head seen from the front: pointed ears each topped with a long tuft, a ruff of fur carved along both cheeks, almond eyes and a short muzzle; it hangs from one simple loop of plain brown twine cord tied through a hole between the ears.",
+  "subject": "one flat off-white bone pendant shaped like an elongated rounded shield, hanging from two plain brown leather cords in a narrow V like vanilla Amulet, a crude flat lynx face incised on its face (tufted ears, almond eyes, cheek ruff lines); same family as the goat and dragon charms",
   "model": "nano-banana-2",
   "mode": "image2image",
   "params": {
     "imageCount": 1,
     "aspectRatio": "2:3",
     "resolution": "1K",
-    "autoEnhancePrompt": false
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Amulet (style) HqyonBY97MGge0OPQF9d",
+      "vanilla Amulet_Maiden (style) kEtKLEhlZoKdYZ6Lfl97"
+    ]
   },
-  "prompt": "The attached reference image is a STYLE reference only: match its flat posterized colour fills in a few tonal steps, bold dark ink outline around the whole subject, small ink hatch marks, muted naturalistic palette and fairly dark values, and hang the charm from its cord the same simple way; do not copy its carving.\nDraw: a small carved off-white bone charm shaped like a lynx's head seen from the front: pointed ears each topped with a long tuft, a ruff of fur carved along both cheeks, almond eyes and a short muzzle; it hangs from one simple loop of plain brown twine cord tied through a hole between the ears.\nSurvival card game item art in exactly that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, beads, metal, chain, second charm, whole cat body, wood.",
-  "historyId": "KiBnCdkz9ChF4SZKAtqq",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798615967_19b34464_1791798616033_cfbf2462.png",
-  "credits": 20,
   "references": [
     {
       "role": "style",
-      "label": "Amulet",
+      "label": "vanilla Amulet",
+      "id": "HqyonBY97MGge0OPQF9d",
       "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_1791744833077_263b1f4a.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Amulet_Maiden",
+      "id": "kEtKLEhlZoKdYZ6Lfl97",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_Maiden_1792608277635_28849a63.png"
     }
   ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are vanilla Card Survival neck charms, used as STYLE and LAYOUT references: a plain carved pendant hanging point down from two plain brown leather cords that rise in a narrow V toward the top of the frame. Match their layout, their flat posterized colour fills, thin dark ink outline and muted colours; do not copy their carvings.\nDraw: a Lynx Charm. One small flat bone pendant shaped like an elongated rounded shield, about two and a half times as tall as it is wide, off-white bone with warm grey-beige shading, a small tied knot of cord at its top. Cut shallowly into its flat front, in a few simple dark incised lines, is a plain lynx's face seen from the front: two pointed ears each with a short tuft line, two almond eyes, a small nose, and a few short lines for the cheek ruff. The carving is crude, flat and folk-like, like the eyes and nose cut into reference image 1, not a sculpted three-dimensional head.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, the pendant in the lower half of the frame, the cords rising toward the top, comfortably inset from the side and bottom edges, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: a three-dimensional sculpted cat head, ears sticking out beyond the pendant, realistic animal, cute face, fur texture, beads, feathers, metal, gold, gems, ornate border, swirls, filigree, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "N1u8DYGfFqt7P4QX1Q03",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608418895_bfff3019_1792608419047_edb48d36.png",
+  "credits": 20,
   "candidates": [
     {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798615967_19b34464_1791798616033_cfbf2462.png"
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608418895_bfff3019_1792608419047_edb48d36.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
     }
   ],
-  "picked": "A",
-  "predicted": "A",
-  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
-  "generated": "2026-10-12",
-  "note": "owner gallery rework 2026-10-12: look AI generated match game art style please; cord runs off the top like vanilla Amulet"
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "a2da96147d0668a7ff703e7715248faf1a35b389bc3c9bced6cf20d5e165dae8",
+    "post": "the paper showing through the drilled cord hole stayed opaque: 123 px inside the measured hole box keyed fully transparent (scratchpad key_hole.py)"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "cheesy stick to vanilla style",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "previous": [
+    {
+      "historyId": "KiBnCdkz9ChF4SZKAtqq",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798615967_19b34464_1791798616033_cfbf2462.png",
+      "generated": "2026-10-12",
+      "owner_verdict": "regenerate 2026-10-21: cheesy stick to vanilla style"
+    }
+  ]
 }

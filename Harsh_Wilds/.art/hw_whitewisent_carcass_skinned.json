@@ -1,0 +1,84 @@
+{
+  "target": "hw_whitewisent_carcass_skinned.png",
+  "sourceCard": "CardData/Item/hw_whitewisent_carcass_skinned.json",
+  "subject": "the shipped hw_wisent_carcass_skinned picture redrawn as is (same pose, framing, ink line, painting and muscle rendering: dark red muscle groups between creamy fat bands, black horns, eyes closed, dark hooves), changed only where hair is left on: pale cream hair (the approved hw_whitewisent_carcass's colour) on the face and head, on each lower leg down to the hoof, and on the tail tuft; no hair on the body, hump, neck or upper legs; no blood, no bones",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "hw_wisent_carcass_skinned (shipped sibling) (subject) EWQQiWCt5XDiiNhT3D7x",
+      "hw_whitewisent_carcass (owner-approved 2026-10-21, hair colour only) (colour) IPJWfPMPdtpu3SLrdgoG"
+    ]
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "hw_wisent_carcass_skinned (shipped sibling; owner: follow the other skinned image)",
+      "image": "HarshWilds/Resource/Picture/hw_wisent_carcass_skinned.png",
+      "sha256": "d4af2b330bd34b0cd5b72875e850f545a57b9a313be2f5588a90b4a27f943c68",
+      "id": "EWQQiWCt5XDiiNhT3D7x",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_wisent_carcass_skinned_1792601108357_ba358fad.png"
+    },
+    {
+      "role": "colour (pale cream hair only)",
+      "fragment": "hw_whitewisent_carcass (owner-approved 2026-10-21)",
+      "image": "HarshWilds/Resource/Picture/hw_whitewisent_carcass.png",
+      "sha256": "55bf92da56485d337ebbbbfc1e660fa473e06232e9c3a352e523e4331809acc6",
+      "id": "IPJWfPMPdtpu3SLrdgoG",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_whitewisent_carcass_1792608280249_e0f564a4.png"
+    }
+  ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the SUBJECT: a skinned wisent carcass. Redraw this exact picture: the same pose, facing, framing, size in the frame, ink linework, painting treatment and muscle rendering (dark red muscle groups separated by creamy white fat bands, fine muscle-fibre strokes), the same short upward-curving black horns, eyes closed, dark hooves. Change only the parts where hair is left on, so it is the WHITE wisent:\n1. The face and head keep short pale cream hair, the same pale cream colour as reference image 2, with a pale pink nose and closed eyes, instead of skinned muscle.\n2. Each lower leg, from just above the knee or hock down to the hoof, keeps short pale cream hair, ending at the dark hooves.\n3. The tail tuft is pale cream hair.\nReference image 2 is a COLOUR reference only for that pale cream hair; do not copy its shaggy body coat or redraw the body with hair.\nThe body, hump, neck and upper legs stay skinned exactly as in reference image 1: no hair on them.\nStyle: plain vanilla Card Survival watercolour-and-ink game art, muted natural colours, thin loose ink line, no cartoon, no comic shading, no glossy highlights. One whole carcass and nothing else, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: brown hair, a dark brown head, hair or fur on the body or hump, a shaggy mane, a different pose, a standing animal, blood, dripping, wounds, exposed bones, organs, a pool of blood, flat cel shading, cartoon, comic book, glossy highlights, photo, photorealistic, 3D render, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "WVpWrF3zVzQjogeioKth",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792610267692_ee576554_1792610267785_762ed1e0.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792610267692_ee576554_1792610267785_762ed1e0.png",
+      "verdict": "one sample (owner rule 2026-10-11); round 2 of the owner's 2026-10-21 gallery mark; matches hw_wisent_carcass_skinned's pose and rendering with cream face, lower legs and tail tuft; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed; subject box (41,311,471,630) matches hw_wisent_carcass_skinned (41,312,471,630); the keyer half-keyed the pale cream face (653 px of partial alpha), refilled opaque with fill_holes.py --box 320,460,470,640 --skip-paper 250 from the raw, then re-quantized to a 256-colour palette",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py + fill_holes.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 79.6,
+    "sha256": "7fca4736bc906a4ffe6bc6013ea6d76aaad20e687b206e93fc992f649281327b"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "follow the other skinned image",
+    "date": "2026-10-21",
+    "rule": "redraw with the shipped sibling hw_wisent_carcass_skinned as the subject reference and the approved hw_whitewisent_carcass for hair colour only; neither rejected white-wisent skinned picture was passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "cards": [
+    "CardData/Item/hw_whitewisent_carcass_skinned.json"
+  ],
+  "replaces": {
+    "stand_in": "Cow_Skinned",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "previous": [
+    {
+      "historyId": "zblGbXroDDKKuMGinrny",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792601153817_7701d747_1792601153906_bbdcf40b.png",
+      "generated": "2026-10-21",
+      "owner_verdict": "alter 2026-10-21: rejected d (truncated); brief: keep the concept, improve quality toward vanilla Cow_Skinned"
+    },
+    {
+      "historyId": "Tx9ssYkR06rCje0PKhDP",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608472479_28f57249_1792608472540_52c9f83e.png",
+      "generated": "2026-10-21",
+      "owner_verdict": "regenerate 2026-10-21: follow the other skinned image"
+    }
+  ]
+}

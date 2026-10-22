@@ -1,0 +1,75 @@
+{
+  "target": "hw_mistletoe.png",
+  "sourceCard": "CardData/Item/hw_mistletoe.json",
+  "subject": "a cut sprig of European mistletoe (Viscum album): yellow-green stems forking again and again in neat Ys, one pair of narrow blunt smooth-edged strap leaves at every stem tip, small round milky-white berries in twos and threes in the forks, one bare cut stem end; yellow-green and white only",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Frostleaf_Item (style) BehyUooUjiJPXdE1y0Z2",
+      "vanilla Nettle_Leaves (style) KFCUiSwyA0HLW4KfaxDa"
+    ]
+  },
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Frostleaf_Item",
+      "id": "BehyUooUjiJPXdE1y0Z2",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Frostleaf_Item_1791744966881_db19717a.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Nettle_Leaves",
+      "id": "KFCUiSwyA0HLW4KfaxDa",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nettle_Leaves_1791745096221_64f1fc34.png"
+    }
+  ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are vanilla Card Survival plant cards, style references only: match their flat posterized colour fills, thin dark ink outlines on every leaf and stem, and muted natural greens; do not copy their plants (their toothed nettle leaves are wrong for this plant).\nDraw: a cut sprig of European mistletoe (Viscum album), a dense rounded clump about as wide as it is tall. Its smooth yellow-green stems fork again and again in pairs, every fork a neat Y, all in the same yellow-green. At the end of every stem sits exactly one PAIR of leaves: narrow, blunt-tipped, smooth-edged, leathery, strap-shaped leaves, each about four times as long as it is wide, a dull yellow-olive green, slightly paler than the stems' shadows, no teeth, no visible veins. Small round translucent milky-white berries, each with a thin ink outline and a tiny dark dot, sit in twos and threes right in the forks where the stems divide. At the bottom, one short bare cut stem end. The colours are yellow-green and white only.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark ink outline around the whole subject, muted natural colours, no glossy highlights, no decorative detail, no cartoon, no comic shading. Single object only, comfortably inset from every edge with generous white margin (the clump fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: toothed or serrated leaves, round leaves, holly, red berries, ribbon, bow, Christmas decoration, olive branch, a flat spray of leaves along one stem, dark green leaves, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, neon colors, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "di7yKklnunQ13KHHjeY9",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608469301_acb38a64_1792608469778_09d6222d.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608469301_acb38a64_1792608469778_09d6222d.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "0da0305e8e46ad9ddb89003f785594c87acb5f8197e4a6e455a0fa8abc1c5979",
+    "post": "enclosed paper between the stems stayed opaque (border-connected keying only): keyed on the finished image with the keyer's own ramp (darkest channel 200 opaque, 250 transparent), 40 seed components of 20+ px, 25154 px changed (scratchpad key_enclosed_white.py)"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "does not look like mistletoe",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "cards": [
+    "CardData/Item/hw_mistletoe.json",
+    "CardData/Blueprint/hw_bp_bless_grove_mistletoe.json"
+  ],
+  "replaces": {
+    "stand_in": "Frostleaf_Item",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "previous": [
+    {
+      "historyId": "b9sePDRUqkTvSzlBubkz",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600800924_0e30aa51_1792600800970_d66fb0c9.png",
+      "generated": "2026-10-21",
+      "owner_verdict": "regenerate 2026-10-21: does not look like mistletoe"
+    }
+  ]
+}

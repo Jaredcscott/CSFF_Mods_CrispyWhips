@@ -1,6 +1,6 @@
 {
     "UniqueID": "hw_bugtrap",
-    "//BugTrap": "Counterplay for the insect plague (plan section 19), not a threat, so it has no [Threats] switch and works whether the plague switch is on or not. A placed CardType 2 card. PassiveStatEffects entry on vanilla BugPopulation (00c2afb9343f5c34988dcdb12a7792a8, StatWarpType 3) with ValueModifier HW_BUGTRAP_STRENGTH -1, the shape of vanilla Campfire.json (63e4efe772bf6f649b30c893a0257ef0), which lowers the same stat the same way. UsageDurability (the real DurabilityStat keys, Active true) starts at HW_BUGTRAP_LIFE_TICKS 96 and falls 1 per daytime point, so it empties in about a day; its OnZero turns the card into hw_bugtrap_spent, which has no effect. BugPopulation runs 0 to 5, so a few traps can pin it at 0; every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. The picture is the vanilla sprite Resin (PARTIAL: no art could be generated in the authoring session, the intended subject is a smear of amber resin on a stick with insects stuck to it).",
+    "//BugTrap": "Counterplay for the insect plague (plan section 19), not a threat, so it has no [Threats] switch and works whether the plague switch is on or not. A placed CardType 2 card. PassiveStatEffects entry on vanilla BugPopulation (00c2afb9343f5c34988dcdb12a7792a8, StatWarpType 3) with ValueModifier HW_BUGTRAP_STRENGTH -1, the shape of vanilla Campfire.json (63e4efe772bf6f649b30c893a0257ef0), which lowers the same stat the same way. AffectStatsOnlyWhenNotInBackground true (as Campfire and hw_totem_beast set it): the framework forces AlwaysUpdate on this card, so without the flag a trap left in another camp would keep lowering the player's BugPopulation and traps in several camps would stack; with it the trap acts only on the board the player stands on, while its stickiness still runs down when the player is away. UsageDurability (the real DurabilityStat keys, Active true) starts at HW_BUGTRAP_LIFE_TICKS 96 and falls 1 per daytime point, so it empties in about a day; its OnZero turns the card into hw_bugtrap_spent, which has no effect. BugPopulation runs 0 to 5, so a few traps can pin it at 0; every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. The picture is the vanilla sprite Resin (PARTIAL: no art could be generated in the authoring session, the intended subject is a smear of amber resin on a stick with insects stuck to it).",
     "CardType": 2,
     "CardName": {
         "ParentObjectID": "hw_bugtrap",
@@ -10,12 +10,13 @@
     "CardDescription": {
         "ParentObjectID": "hw_bugtrap",
         "LocalizationKey": "HarshWilds_BugTrap_CardDescription",
-        "DefaultText": "A stick smeared with sticky resin or tar and set down in camp. Biting insects stick to it, so there are fewer of them around, until it is used up after about a day."
+        "DefaultText": "A stick smeared with sticky resin or tar and set down in camp. Biting insects stick to it, so while you are in that camp there are fewer of them around. It is used up after about a day, whether you stay or not."
     },
     "ObjectWeight": 0.0,
     "TradingValue": 0.0,
     "CanBeRenamed": false,
     "AlwaysUpdate": true,
+    "AffectStatsOnlyWhenNotInBackground": true,
     "DoesNotPile": true,
     "CanBeTrashed": true,
     "NeedsRoomInLocationToSpawn": false,
@@ -26,7 +27,7 @@
     "FlavourTags": [],
     "SpiceTags": [],
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "Resin",
+    "CardImageWarpData": "hw_bugtrap",
     "CardImageWarpType": 3,
     "UsageDurability": {
         "Active": true,
@@ -70,6 +71,7 @@
             "IsInverse": false
         }
     ],
+    "PassiveEffects": [],
     "CardInteractions": [],
     "DismantleActions": [],
     "DroppedOnDestroy": [],

@@ -6,6 +6,20 @@
     "uploaded": "2026-10-10",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_chewing_stick_1791652876447_536d1ce7.png"
   },
+  "0b5a73b8e656781dee3c8f776de4292603e9f26554cbe6ea414e710a3ed1a0a0": {
+    "id": "oVtLko4ZrNMqFh93izPM",
+    "label": "hw_spirit_goat (framing sibling)",
+    "source": "HarshWilds/Resource/Picture/hw_spirit_goat.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_spirit_goat_1792600667986_1861716a.png"
+  },
+  "32a809476784c71aa73c990cc8e44ba217479d579a5ac9f558d02442cfe02853": {
+    "id": "Ju03hx9jJmk6b9i2cAuM",
+    "label": "vanilla Twigs (style)",
+    "source": "C:/Users/jared.000/AppData/Local/Temp/claude/c--Raptor-Studios/19bad695-bf59-4260-b41f-149be7fd3ed0/scratchpad/rework/vanilla/Twigs.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Twigs_1792608278756_dfff6815.png"
+  },
   "32aca689f89861780f88077695ed9d918b5e21261cbfc4fd22cf6ac7e323faec": {
     "id": "Hx0rWbKPrfVq2NkkKVuJ",
     "label": "hw_spirit_blood (framing)",
@@ -13,12 +27,26 @@
     "uploaded": "2026-10-12",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_spirit_blood_1791798408659_45a33da0.png"
   },
+  "35849e6ffaa633b9f8bbda77eed69cf55aaeb6ae4a1913cc0e875cd84facbddf": {
+    "id": "vOkZa8LOg1CaXQEgtc6B",
+    "label": "hw_charm_lynx (framing sibling)",
+    "source": "HarshWilds/Resource/Picture/hw_charm_lynx.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_charm_lynx_1792600669282_485e7e6c.png"
+  },
   "53e775953693341064285243266246c5743304f5734372016b628936e63403ce": {
     "id": "lJHzelJfKcWBqd1rKtF3",
     "label": "Bear_Wild (style)",
     "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/0d95d495-8ea3-4174-9679-e3a5f5e06b3a/scratchpad/vanilla_refs/Bear_Wild.png",
     "uploaded": "2026-10-10",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652871562_fdb75618.png"
+  },
+  "55bf92da56485d337ebbbbfc1e660fa473e06232e9c3a352e523e4331809acc6": {
+    "id": "IPJWfPMPdtpu3SLrdgoG",
+    "label": "hw_whitewisent_carcass approved (subject)",
+    "source": "C:/Raptor_Studios/CSFF_Mods/HarshWilds/Resource/Picture/hw_whitewisent_carcass.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_whitewisent_carcass_1792608280249_e0f564a4.png"
   },
   "5d05b32edc3190d0c1272d499c5d0568dfe18056a424bcc980dd8dd85c58a7ac": {
     "id": "86cLXBVGzZwEWAjHbxOG",
@@ -55,6 +83,27 @@
     "uploaded": "2026-10-10",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_1791652872679_c89a275b.png"
   },
+  "ab4664c6075b0ac970bd8ab20199e758db605a9237b8ab3bfc4fb08b68b5bfc2": {
+    "id": "kEtKLEhlZoKdYZ6Lfl97",
+    "label": "vanilla Amulet_Maiden (style)",
+    "source": "C:/Users/jared.000/AppData/Local/Temp/claude/c--Raptor-Studios/19bad695-bf59-4260-b41f-149be7fd3ed0/scratchpad/rework/vanilla/Amulet_Maiden.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_Maiden_1792608277635_28849a63.png"
+  },
+  "af71385d0c4d29d5018ac991b34c749237abd8cec0c1c507b8cc87148b240670": {
+    "id": "wHLm6nCL1KKTs3bsda37",
+    "label": "vanilla Moontouched (style)",
+    "source": "C:/Users/jared.000/AppData/Local/Temp/claude/c--Raptor-Studios/19bad695-bf59-4260-b41f-149be7fd3ed0/scratchpad/rework/vanilla/Moontouched.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Moontouched_1792608275147_db63b8bb.png"
+  },
+  "b087de03589228c5c104cd4f13c7c123eec90ad74ee57a4b5f7f61b0891b5ae2": {
+    "id": "Yp4ZXRSRBMnQ5GmzUub5",
+    "label": "vanilla Cow_Skinned (style)",
+    "source": "C:/Users/jared.000/AppData/Local/Temp/claude/c--Raptor-Studios/19bad695-bf59-4260-b41f-149be7fd3ed0/scratchpad/rework/vanilla/Cow_Skinned.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cow_Skinned_1792608277085_ddcd67e9.png"
+  },
   "b28b77d71173ff59337e4020dd42fb79a895e3609a9f5479d750f59d4497b105": {
     "id": "6pblZZqtdyzL6iZIX5lI",
     "label": "vanilla MoonMaiden (style)",
@@ -62,12 +111,26 @@
     "uploaded": "2026-10-12",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/MoonMaiden_1791798308948_6039f6bc.png"
   },
+  "b5bdfa893d41da7098cc262f3993edb52859b5440225ae4c498e865a4a9fa3c6": {
+    "id": "M6RySuApDJ0LD7XvvDE7",
+    "label": "hw_bugtrap approved (subject)",
+    "source": "C:/Raptor_Studios/CSFF_Mods/HarshWilds/Resource/Picture/hw_bugtrap.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_bugtrap_1792608279354_8a4b8ad2.png"
+  },
   "be6e278e596d49f51aae1683ce177cf4bf521ea3cb42db3805ca9351fa0486cd": {
     "id": "BpjescDkdqvMtI2Fbstm",
     "label": "hw_muskox_carcass (subject)",
     "source": "HarshWilds/Resource/Picture/hw_muskox_carcass.png",
     "uploaded": "2026-09-28",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/hw_muskox_carcass_1790625774959_06275433.png"
+  },
+  "d4af2b330bd34b0cd5b72875e850f545a57b9a313be2f5588a90b4a27f943c68": {
+    "id": "EWQQiWCt5XDiiNhT3D7x",
+    "label": "hw_wisent_carcass_skinned (sibling)",
+    "source": "HarshWilds/Resource/Picture/hw_wisent_carcass_skinned.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_wisent_carcass_skinned_1792601108357_ba358fad.png"
   },
   "ee14060417f5e9716bcc2352825b5559aeba6c4d712d913d1ae4295bddadcf26": {
     "id": "yoT3LMOLUuKW32rOWfQZ",
@@ -82,6 +145,13 @@
     "source": "HarshWilds/Resource/Picture/hw_wisent_carcass.png",
     "uploaded": "2026-09-28",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/hw_wisent_carcass_1790625775825_5988272c.png"
+  },
+  "eee93eba638a36f67487e4488b978569320d14b5ce557d3deeb118ab231aec89": {
+    "id": "R3hJcfkk3m1PLQ8fEgxu",
+    "label": "hw_event_wolverine (character)",
+    "source": "HarshWilds/Resource/Picture/hw_event_wolverine.png",
+    "uploaded": "2026-10-21",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_event_wolverine_1792600668654_01d6affc.png"
   },
   "f331fbb6f383a73352d0b7462f8586c5c4d5e72dcfe93e01e90a89a724a5661f": {
     "id": "kl0CRu62B3fsnlytQMdZ",

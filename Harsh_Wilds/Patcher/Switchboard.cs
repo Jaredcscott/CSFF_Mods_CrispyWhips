@@ -45,6 +45,9 @@ internal static class Switchboard
     private static ConfigEntry<string> RaidPressure;
     private static readonly HashSet<string> WarnedMissing = new(StringComparer.Ordinal);
 
+    // The switched-off and dial Info lines, latched once per process (CLAUDE.md "Mod Logging Norms").
+    private static readonly HashSet<string> InfoLogged = new(StringComparer.Ordinal);
+
     internal static void Bind(ConfigFile config)
     {
         Add(config, "Lynx", "hw_switch_lynx",
@@ -259,13 +262,21 @@ internal static class Switchboard
             return;
         }
 
-        if (level != 1)
+        if (level != 1 && InfoLogged.Add("dial:" + RaidPressureValues[level]))
             Plugin.Logger.LogInfo($"Switchboard: RaidPressure is {RaidPressureValues[level]} in the config.");
     }
 
     private static void InitializeStatsAndActions_Postfix(GameManager __instance)
     {
-        if (__instance == null || __instance.StatsDict == null) return;
+        if (__instance == null) return;
+        if (__instance.StatsDict == null)
+        {
+            // Not expected at the end of the method that builds it; a game update moving that build would
+            // otherwise silently bring back every threat the player switched off.
+            if (WarnedMissing.Add("<no-statsdict>"))
+                Plugin.Logger.LogWarning("Switchboard: GameManager.StatsDict is null after InitializeStatsAndActions, so the threat switches and the RaidPressure dial were not applied this run.");
+            return;
+        }
 
         // StatAccess resolves the live stat through GameManager.Instance and caches it per GameManager, so
         // it only ever sees THIS run's stats when the postfix's instance is the live singleton. A
@@ -293,7 +304,8 @@ internal static class Switchboard
                 continue;
             }
 
-            if (value == 0f)
+            // Once per process per threat: this postfix re-runs on every save load and menu round trip.
+            if (value == 0f && InfoLogged.Add("off:" + threat.Name))
                 Plugin.Logger.LogInfo($"Switchboard: {threat.Name} is switched off in the config; it stays out of this run.");
         }
 

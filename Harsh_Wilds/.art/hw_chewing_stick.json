@@ -1,46 +1,76 @@
 {
   "target": "hw_chewing_stick.png",
+  "sourceCard": null,
+  "subject": "one simple straight thin willow twig about fourteen times as long as it is thick, diagonal, smooth grey-brown bark, no branches or leaves, a small frayed tuft of pale fibres at the upper end, a plain cut lower end",
   "model": "nano-banana-2",
   "mode": "image2image",
   "params": {
     "imageCount": 1,
-    "resolution": "1K",
     "aspectRatio": "2:3",
-    "autoEnhancePrompt": false
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Twigs (style) Ju03hx9jJmk6b9i2cAuM",
+      "vanilla Wood (style) FK08d2Abk6yduwa1cHvr"
+    ]
   },
-  "historyId": "MCJxYAPAhcncgeEjMN68",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791833237098_21abd24c_1791833237157_22964f6f.png",
-  "credits": 20,
-  "generated": "2026-10-12",
-  "note": "Owner gallery round 3 (2026-10-12): regenerate = new content. Two vanilla exemplars as style references, flat-ink prompt. Not yet seen by the owner.",
-  "finishing": [
-    "process_card_art.py"
-  ],
-  "vanilla_score": 77,
-  "previous": {
-    "target": "hw_chewing_stick.png",
-    "sourceCard": "CardData/Blueprint/hw_bp_chewing_stick.json",
-    "model": "nano-banana-2",
-    "mode": "image2image (vanilla CSFF card art as style reference)",
-    "params": {
-      "imageCount": 1,
-      "aspectRatio": "2:3",
-      "resolution": "2K",
-      "autoEnhancePrompt": false
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Twigs",
+      "id": "Ju03hx9jJmk6b9i2cAuM",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Twigs_1792608278756_dfff6815.png"
     },
-    "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a style reference only: match its rendering exactly (flat posterized colour fills in a few hard-edged tonal steps like cel shading, no soft gradients, no watercolour bleed, no paper texture, thin dark ink outlines, small ink marks for wood grain) and its muted natural wood palette; do not copy its subject (not a bundle of twigs) and do not copy its grey drop shadow.\nReference image 2 is the SUBJECT and COMPOSITION: keep this same object and layout, redrawn in reference image 1's style. One single short willow twig lying diagonally from lower left to upper right, bark peeled off to pale tan wood, a few small knot bumps along it, the upper end cut flat, the lower end chewed and frayed into a soft splayed brush of pale wood fibres.\nOne object only, comfortably inset from every edge with generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, watercolour, soft airbrushed gradients, paper texture, cartoon, glossy, several sticks, bundle, leaves, bark left on, paintbrush with ferrule, neon colours, cropped, scenery behind the object, grey background, off-white background, drop shadow, checkerboard, transparency grid, text, watermark, signature, logo, border, frame.",
-    "refs": [
-      {
-        "label": "Twigs",
-        "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Twigs_1791652873867_3fc4f137.png"
-      },
-      {
-        "label": "hw_chewing_stick (current)",
-        "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_chewing_stick_1791652876447_536d1ce7.png"
-      }
+    {
+      "role": "style",
+      "label": "vanilla Wood",
+      "id": "FK08d2Abk6yduwa1cHvr",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wood_1791652739500_9b610d7b.png"
+    }
+  ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are style references only: match their flat posterized colour fills, thin dark ink outline and muted brown bark colours; do not copy their subject or composition (they are bundles, this is one stick).\nDraw: a Chewing Stick. One single simple straight thin willow twig, about fourteen times as long as it is thick, lying diagonally from lower left to upper right. Smooth grey-brown bark along its length, no side branches, no leaves, no knots. At its upper end the bark stops and the wood is chewed into a small frayed tuft of pale tan fibres, the tuft only about three times as long as the twig is thick. The lower end is a plain clean cut. Nothing else.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline around the whole subject, muted natural colours, no glossy highlights, no decorative detail, no cartoon, no comic shading. Single object only, comfortably inset from every edge with generous white margin (the twig fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: a thick log, a club, a broom, a paintbrush, a large brush head, green wood, leaves, bundle of sticks, several sticks, carving, rope, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, neon colors, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "ZRsMQe1F22MlkNaGmCJ1",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608463597_657fe560_1792608463626_83f4d765.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608463597_657fe560_1792608463626_83f4d765.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
     ],
-    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791653188217_1291179d_1791653188836_0caa37e5.png",
-    "generated": "2026-10-10",
-    "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art."
-  }
+    "sha256": "637e7c9cbd3feb38738dcedfb055d6385c0a081803b541713c6ccc953f7fa7ca"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "simple stick please / cheesy stick to vanilla style",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "previous": [
+    "target",
+    "sourceCard",
+    "model",
+    "mode",
+    "params",
+    "prompt",
+    "refs",
+    "resource_url",
+    "generated",
+    "note",
+    {
+      "historyId": "MCJxYAPAhcncgeEjMN68",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791833237098_21abd24c_1791833237157_22964f6f.png",
+      "generated": "2026-10-12",
+      "owner_verdict": "regenerate 2026-10-21: simple stick please / cheesy stick to vanilla style"
+    }
+  ]
 }

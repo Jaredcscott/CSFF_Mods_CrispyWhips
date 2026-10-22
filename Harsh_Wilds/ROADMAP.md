@@ -1,8 +1,98 @@
 # Roadmap: Harsh Wilds
-Version at time of writing: 0.7.0 (unpublished; the plan is `Documentation/Plans/HarshWilds/MASTER_PLAN.md`).
+Version at time of writing: 0.11.9
+Date: 2026-10-21
+Audit score: 10/10
 
-The forward-looking roadmap has not been generated yet (`/roadmap HarshWilds`); this file currently holds only the plan reconciliation record below.
+## Current State
 
+**Theme**: optional, switchable threats for a harder forest (beasts, raids, hazards, world events, afflictions, fair folk) plus the forest's old powers (spirits, rites, brews, charms, three realms), for players who want the base game harsher and stranger.
+
+**Content**: 46 items / 36 blueprints / 3 location + 11 realm cards / 8 liquids / 0 perks / 62 custom images (plus 57 self-triggered actions, 13 animal manifests, 8 encounters and 108 GameStats; placed structures ship as CT2 item cards).
+
+**Stability**: 10/10 - 0 critical, 0 design gaps, 0 open warnings; critical-analysis SOLID (2026-10-21). The five blueprint-lock CRITICALs raised 2026-10-11 are fixed (commit `956583ca4`). The prior cycle's six warnings are all resolved on disk: the Bug Trap background-effect flag (`16bf18ba3`), the Beast Totem dismantle (`16bf18ba3`), the Bug Trap art (`cec6690b9`) and code-quality W1-W5 (`16bf18ba3`), re-verified not-open by mod-report.md this pass.
+
+**Open work**: no open retrospectives. Runtime debt only: pending HarshWilds tracker rows (incl. T2.1811-T2.1814 verifying the 0.11.9 audit fixes) and a threat-tuning pass remain. The README still carries "not yet confirmed in a running game" caveats on many features by design.
+
+**Framework compliance**: Tier 2 - `ContentModPlugin`, `ActionRouter` (SmithingBurnHook, ForageBiteHook, ActionUser), `SpawnService`, `StatAccess.Set` (Switchboard); no DropCollectionGuardPatch, no unfiltered hot-path prefix (BlightSpreadGuard filters by reference), no `ModLoaderVerison`/`ModEditorVersion`.
+
+---
+
+## Phase 1: Foundation
+
+> Verification debt and hygiene. No code defect is open; these close the gap between shipped and confirmed.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| Record the pending in-game rows, incl. T2.1811-T2.1814 (verify the 0.11.9 fixes: lindwurm meat, camp-scoped Bug Trap, totem take-down, own-foraging bites) | Verification | P1 | Quick |
+| Clear the broader HarshWilds `pending` tracker backlog so the README "not yet confirmed" caveats can come out | Verification | P2 | Medium |
+
+Versions are synced (0.11.9 x3), Chinese parity is clean (1162/1162) and the build is clean (0 warnings). No hygiene item is open.
+
+---
+
+## Phase 2: Core Expansion
+
+### Threat balance pass
+**What**: tune the threats' chances, counts and durations (raids, events, fair folk, afflictions) from recorded harness and person runs.
+**Why**: README and ModInfo state they are first guesses; rewards were already tuned in 0.11.6.
+**Requires**: Phase 1 rows reported.
+**Complexity**: Complex
+
+---
+
+## Phase 3: Integration & Depth
+
+No new integration is proposed: the H&F/CMC incense, WDI heron, Forest Lore mud volcano + Ancient Cairn door, Far Territory selkie, ACT bait and Sirus23 owl/wolf/fox hooks are all shipped and guarded. The parked rows (manifest black bear, animal beacon) stay in the archived plan's Considered table.
+
+---
+
+## Phase 4: Polish
+
+> Art for the ritual/realm cards still on base-game stand-ins. The 0.11.9 pass already gave own art to ten borrowed-picture cards (Lindwurm Fang, Dragon Charm, Lynx Cloak, Bug Trap, Mistletoe, Lynx Spirit, White Wisent carcasses, Wolverine at the Kill), so those are done.
+
+| Item | What | Complexity |
+|------|------|------------|
+| Cleansing Smudge art | Replace the Dry Bog Myrtle stand-in (README line 177) | Quick |
+| Witchfire / brews / ritual-object art | "All pictures are base-game stand-ins for now" (README line 216) | Medium |
+| Ancestor Enchantment art | Shows the cairn picture for now (README line 196) | Quick |
+| Faerie / Moon / Underworld realm card art | Realm pictures mostly base-game stand-ins (README line 266) | Medium |
+
+---
+
+## Long-term Vision
+
+> Where this mod should be at v1.0.0.
+
+Harsh Wilds is feature complete against both archived plans; its 1.0 is the same content balanced against play and confirmed in a running game, after which it belongs in `Stable/`.
+
+**Potential major additions** (not yet justified - revisit after Phase 2):
+- none beyond the archived Considered rows
+
+Any of these worth building belongs in the mod's plan under `Documentation/Plans/HarshWilds/` (or its Considered table, with the reason, if it is not); never create a stub under `Documentation/Ideas/`.
+
+---
+
+## Maintenance Calendar
+
+| Trigger | Action |
+|---------|--------|
+| After any new content phase | Run `/audit-mod HarshWilds` and update this roadmap |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
+| After fixing a critical issue | Run `/critical-analysis HarshWilds` to verify the fix |
+| After Phase 2 complete | Run `/export-to-repo HarshWilds` and bump minor version |
+
+---
+
+## Skill Cheatsheet for This Mod
+
+    /audit-mod HarshWilds         - full health check, updates .audit/
+    /critical-analysis HarshWilds - adversarial review
+    /build-mod HarshWilds         - build Release DLL
+    /deploy-mods HarshWilds       - build + deploy to game
+    /update-mod-version HarshWilds <ver> - bump version in all 3 files
+    /export-to-repo HarshWilds    - push to public repo
+
+---
 ## Plan Reconciliation Log
 
 ### 2026-10-04 - MASTER_PLAN

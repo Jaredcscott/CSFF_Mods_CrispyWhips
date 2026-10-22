@@ -48,7 +48,20 @@ internal static class HwNotice
                 return null;
             }
         }
-        return _textsField.GetValue(null) is Dictionary<string, string> texts && texts.TryGetValue(key, out var text) ? text : null;
+        object value = _textsField.GetValue(null);
+        if (value == null)
+        {
+            WarnOnce("texts-null", "HwNotice: LocalizationManager.CurrentTexts is not loaded yet, so this notice line uses its English default.");
+            return null;
+        }
+        if (!(value is Dictionary<string, string> texts))
+        {
+            // A game update changing the field's type would otherwise drop every Chinese notice to English silently.
+            WarnOnce("texts-type", $"HwNotice: LocalizationManager.CurrentTexts is a {value.GetType().FullName}, not a Dictionary<string, string>, so notice lines use their English default.");
+            return null;
+        }
+        // A key absent from the CSVs is the intended English fallback, not a fault.
+        return texts.TryGetValue(key, out var text) ? text : null;
     }
 
     private static void WarnOnce(string cause, string message)

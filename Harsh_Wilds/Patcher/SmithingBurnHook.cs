@@ -22,7 +22,14 @@ namespace HarshWilds.Patcher;
 /// <para>Player only: the router's <see cref="ActionContext"/> carries no user, and the build also runs
 /// for a companion's duty (<c>AffectItemsDutyAction</c>, with <c>_ZeroDaytimeCost</c>). The player's
 /// own build is the one the construction popup started, so <c>BlueprintPopup.DoingBuildAction</c> read
-/// in the prefix (Before) is the discriminator; a build with it false never rolls.</para>
+/// in the prefix (Before) is the discriminator; a build with it false never rolls. The verdict is
+/// kept in this hook's own per-dispatch <see cref="DispatchFlag"/>, not in the shared
+/// <c>ActionContext.Tag</c>, which another mod's handler on the same build could overwrite.</para>
+///
+/// <para>The burn is logged and its notice shown only once the wound card is on the board:
+/// <c>SpawnService.Spawn</c> returns null whether or not it spawned, so a short coroutine counts the
+/// live wound cards before the spawn and waits up to <see cref="ConfirmFrames"/> frames for one more,
+/// and warns once if none appears.</para>
 ///
 /// <para>Forcing: the hidden stat <c>hw_burn_force</c> ships at 0 (inert). A harness sets it to a dice
 /// value above 0 (0.05 for "a low roll"): the roll then reads that value instead of a random one, so
@@ -63,8 +70,17 @@ internal static class SmithingBurnHook
         "32371e91a1b7e3e46a42c364c51e93a1", "9b07a8cff38af0645b9bbe21653f7c55", "28e308c54e0462c4eac1d2cec9dcecc3",
     };
 
+    /// <summary>HW_BURN_CONFIRM_FRAMES: how many frames the burn waits for the wound card to appear
+    /// (GiveCard places it through vanilla's AddCard coroutine, so not at once).</summary>
+    private const int ConfirmFrames = 120;
+
     private static readonly HashSet<string> Warned = new(StringComparer.Ordinal);
     private static bool _registered;
+
+    // Whether this dispatch's build is the player's own, set in Before and read in After. A private
+    // per-dispatch flag, never the shared ActionContext.Tag that every handler on the dispatch can
+    // overwrite (see DispatchFlag).
+    private static readonly DispatchFlag PlayerBuild = new();
 
     /// <summary>Installs this mod's ActionRouter handlers, once per process.</summary>
     internal static void RegisterOnce()
@@ -83,7 +99,7 @@ internal static class SmithingBurnHook
                 Timing = ActionTiming.AfterWrapped,
                 Before = ctx =>
                 {
-                    ctx.Tag = IsPlayerBuild();
+                    PlayerBuild.Set(ctx, IsPlayerBuild());
                     return false;
                 },
                 After = AfterBuild,
@@ -117,7 +133,7 @@ internal static class SmithingBurnHook
 
     private static void AfterBuild(ActionContext ctx)
     {
-        if (!(ctx.Tag is bool player) || !player) return;
+        if (!PlayerBuild.Get(ctx)) return;
 
         float on = Read(SwitchStat);
         if (float.IsNaN(on) || on < 0.5f) return;
@@ -133,9 +149,50 @@ internal static class SmithingBurnHook
 
         if (!(Dice(ForceStat) < Chance)) return;
 
+        // Spawn returns null on success too (GiveCard is void), so the burn is reported only once the
+        // wound card is really there: count the live wounds before, then watch for one more.
+        var gm = GameManager.Instance;
+        if (gm == null)
+        {
+            WarnOnce("gm-null", "SmithingBurnHook: GameManager.Instance is not available, so no burn is given.");
+            return;
+        }
+        int before = CountLive(gm, BurnWoundUid);
         SpawnService.Spawn(BurnWoundUid);
-        Plugin.Logger.LogInfo($"SmithingBurnHook: a bare-handed smith at Skill_Smithing {skill:0.#} was burned (blueprint {ctx.CardUid}).");
-        HwNotice.Show("HarshWilds_SmithingBurn_Notice", "The hot metal burns your bare hands.");
+        gm.StartCoroutine(ConfirmBurn(before, skill, ctx.CardUid));
+    }
+
+    // yield return null, never WaitForSeconds: timeScale is 0 while the game waits for the player.
+    private static IEnumerator ConfirmBurn(int before, float skill, string blueprintUid)
+    {
+        for (int frame = 0; frame < ConfirmFrames; frame++)
+        {
+            yield return null;
+            var gm = GameManager.Instance;
+            if (gm == null) break;
+            if (CountLive(gm, BurnWoundUid) > before)
+            {
+                Plugin.Logger.LogInfo($"SmithingBurnHook: a bare-handed smith at Skill_Smithing {skill:0.#} was burned (blueprint {blueprintUid}).");
+                HwNotice.Show("HarshWilds_SmithingBurn_Notice", "The hot metal burns your bare hands.");
+                yield break;
+            }
+        }
+        WarnOnce("wound-not-spawned", $"SmithingBurnHook: the burn rolled but no burn wound ({BurnWoundUid}) appeared within {ConfirmFrames} frames, so no burn is reported (the framework logged any spawn failure).");
+    }
+
+    /// <summary>Live (not destroyed) cards of this UniqueID in the game's card list.</summary>
+    private static int CountLive(GameManager gm, string uid)
+    {
+        var cards = gm.AllCards;
+        if (cards == null) return 0;
+        int n = 0;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            var card = cards[i];
+            if (card == null || card.Destroyed || card.CardModel == null) continue;
+            if (string.Equals(card.CardModel.UniqueID, uid, StringComparison.Ordinal)) n++;
+        }
+        return n;
     }
 
     /// <summary>A stat's current value by UID, NaN when it cannot be read.</summary>

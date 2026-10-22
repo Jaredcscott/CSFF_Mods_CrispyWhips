@@ -162,7 +162,7 @@ HarshWilds_Bandit_Approach,Confront,对峙
 HarshWilds_TuneRaids_StatName,Harsh Wilds: Raid Pressure,严酷荒野：袭击强度
 HarshWilds_TuneRaids_StatDescription,"Hidden 0/1/2 dial: 0 Low, 1 Normal, 2 High raid pressure from the Harsh Wilds config.",隐藏的 0/1/2 刻度：严酷荒野配置中的袭击强度，0 为低，1 为正常，2 为高。
 HarshWilds_BugTrap_CardName,Bug Trap,驱虫粘棒
-HarshWilds_BugTrap_CardDescription,"A stick smeared with sticky resin or tar and set down in camp. Biting insects stick to it, so there are fewer of them around, until it is used up after about a day.",涂满黏稠树脂或焦油的木棍，放在营地里。叮人的虫子会粘在上面，周围的虫子因此变少，大约一天后它就用尽了。
+HarshWilds_BugTrap_CardDescription,"A stick smeared with sticky resin or tar and set down in camp. Biting insects stick to it, so while you are in that camp there are fewer of them around. It is used up after about a day, whether you stay or not.",涂满黏稠树脂或焦油的木棍，放在营地里。叮人的虫子会粘在上面，所以你身处那片营地时，周围的虫子会变少。大约一天后它就会用尽，无论你是否留在那里。
 HarshWilds_BugTrap_UsageStatName,Stickiness,黏性
 HarshWilds_BugTrapSpent_CardName,Spent Bug Trap,用尽的驱虫粘棒
 HarshWilds_BugTrapSpent_CardDescription,A stick crusted over with dried resin and dead insects. It catches nothing more. Throw it away.,木棍上结满了干硬的树脂和死虫，再也粘不住什么了。扔掉吧。
@@ -308,6 +308,8 @@ HarshWilds_BpCoatWisent_CardDescription,"Sew a coat from a wisent's tanned leath
 HarshWilds_BpCoatWisent_UnlockConditionsDesc,Requires Leatherworking 15.,需要制革 15。
 HarshWilds_TotemBeast_CardName,Beast Totem,兽灵图腾
 HarshWilds_TotemBeast_CardDescription,"A post of carved wood hung with bones and twine, set up in camp to honour the beasts. While you are at the place where it stands, Beast Affinity slowly rises, as it does in a beast's den.",一根挂着骨头和细线的雕刻木柱，立在营地里以敬奉野兽。当你身处它所在之地时，野兽亲和度会缓慢上升，就像在兽穴中一样。
+HarshWilds_TotemBeast_DA_TakeDown_ActionName,Take Down,拆下
+HarshWilds_TotemBeast_DA_TakeDown_ActionDescription,"Pull the totem down. You keep a piece of its wood and two of its bones; the twine is spent.",把图腾拆下来。你能收回一块木材和两根骨头，细线已经用掉了。
 HarshWilds_BpTotemBeast_CardName,Beast Totem,兽灵图腾
 HarshWilds_BpTotemBeast_CardDescription,"Carve a post from wood, hang it with bones and twine and set it up in camp.",用木头刻一根柱子，挂上骨头和细线，立在营地里。
 HarshWilds_BpTotemBeast_UnlockConditionsDesc,Requires some Insight.,需要一定的灵视。

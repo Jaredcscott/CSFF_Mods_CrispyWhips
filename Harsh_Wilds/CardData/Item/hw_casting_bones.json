@@ -3,10 +3,12 @@
     "//CastingBones": "Feature 25's casting bones and feature 26's scrying (plan sections 25 and 26, pack Prompt 36; W0-23). A CT0 made from vanilla Bones (674b640f46671f1418af4559b259b442) by hw_bp_casting_bones; player-made, so no [Threats] switch. ONE rite, Cast the Bones, a DismantleAction that READS and never writes: it names one true thing about Harsh Wilds' two raids, whether the eagle (hw_tgr_eagle) or the black bear (hw_tgr_blackbear) can roll within one day (96 ticks). W0-23 found nothing set before a world event's roll, so the reading is the raid clocks, state the rolls wait on. Each of the 12 ProducedCards collections drops one omen card (hw_event_omen_raids, _eagle, _bear, _quiet) and carries CancelDrop (WhenOutOfRange 2) bands, so a collection survives only while every band holds. A raid is SOON when every trigger stat of its STA but Sheltered (the player's own choice of being outdoors, which the omen text names) reaches its trigger within a day: the switch at 1, the clock at or above its trigger less 96 (eagle 96 to 192, bear 192 to 288) and, for the bear, SeasonCounter_Autumn at or above 480 less 96 = 384. FAR is the complement, one collection per way to fail (a switch at 0, or a stat below its soon band; a 0.01 gap separates the bands because they are inclusive, and the clocks move in whole ticks). The classes are disjoint and cover every state, which matters: a collection with no card is weighted 0 and an all-zero report picks a RANDOM collection (.decomp/GameManager.cs SelectCardCollection), so a reading with a gap would lie. The collection is picked after the action's DaytimeCost has passed, so 'within a day' counts from the reading. The roll itself stays a roll (bait, dog, fire, rain and the Nothing weight still decide), so every omen says 'may', never 'will'. If either STA's triggers, a clock's range or rate, or a switch change, regenerate this file from them (the bands are derived, never typed); Development_Tools/Tests/HarshWilds-Rituals.Tests.ps1 ([rituals], row bones, rule scry) re-derives them and walks a grid of states. Every number but the bands is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play.",
     "CardType": 0,
     "CardName": {
+        "ParentObjectID": "hw_casting_bones",
         "LocalizationKey": "HarshWilds_CastingBones_CardName",
         "DefaultText": "Casting Bones"
     },
     "CardDescription": {
+        "ParentObjectID": "hw_casting_bones",
         "LocalizationKey": "HarshWilds_CastingBones_CardDescription",
         "DefaultText": "A handful of small bones, scraped clean and marked with charcoal, kept in a fold of hide. Cast on the ground, they show whether the eagle or the black bear is close to coming for your food."
     },
@@ -39,10 +41,12 @@
     "DismantleActions": [
         {
             "ActionName": {
+                "ParentObjectID": "hw_casting_bones",
                 "LocalizationKey": "HarshWilds_CastingBones_Cast_ActionName",
                 "DefaultText": "Cast the Bones"
             },
             "ActionDescription": {
+                "ParentObjectID": "hw_casting_bones",
                 "LocalizationKey": "HarshWilds_CastingBones_Cast_ActionDescription",
                 "DefaultText": "Throw the bones and read how they fall. They show whether the eagle or the black bear can come for your food within a day. It takes half an hour and wears the bones a little."
             },

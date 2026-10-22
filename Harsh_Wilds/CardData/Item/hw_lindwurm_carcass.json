@@ -9267,8 +9267,8 @@
               "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 75,
-                "y": 75
+                "x": 150,
+                "y": 150
               },
               "FinishUnlocking": false,
               "TransferRules": {
@@ -9345,8 +9345,8 @@
               "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 75,
-                "y": 75
+                "x": 150,
+                "y": 150
               },
               "FinishUnlocking": false,
               "TransferRules": {

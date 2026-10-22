@@ -1,0 +1,45 @@
+{
+  "target": "hw_lindwurm_fang.png",
+  "sourceCard": "CardData/Item/hw_lindwurm_fang.json",
+  "cards": [
+    "CardData/Item/hw_lindwurm_fang.json"
+  ],
+  "subject": "one single huge curved reptile fang lying on its side, about four times as long as it is thick at the root, a thick hollow root at the left end with a ragged dark brown broken edge, curving smoothly upward to a needle-sharp point at the right, yellowed old ivory with faint lengthwise grooves and a slightly glossy enamel tip",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Bones (style) yhcQYqkNMqEYyEgHppYH",
+      "vanilla Knife_Flint (style) srLsfbRhzXdoz1JBwH7G"
+    ]
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one single huge curved reptile fang lying on its side, about four times as long as it is thick at the root, a thick hollow root at the left end with a ragged dark brown broken edge, curving smoothly upward to a needle-sharp point at the right, yellowed old ivory with faint lengthwise grooves and a slightly glossy enamel tip, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. The reference images are STYLE references only (line weight, colour handling, framing of a vanilla card): do not copy their objects.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, a jaw, a skull, several teeth, a hook, a hole, a cord, string, a handle, a knife blade, carving, blood, gore, a claw, a horn with rings, an elephant tusk.",
+  "historyId": "sUkgmTu9N3wCi5gcfHL8",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600840575_8047cf75_1792600840618_96e30b51.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600840575_8047cf75_1792600840618_96e30b51.png",
+      "verdict": "one large curved yellowed-ivory fang, broken hollow root at the left, sharp point at the upper right, lengthwise grooves; no jaw, no cord. One sample (owner rule 2026-10-11); awaiting the owner's /review-art gallery look."
+    }
+  ],
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 83.4,
+    "sha256": "3cee71a2ea1a248e42ad79101e9ef874c130cd4d9b5eb553050143dfa864ec9b"
+  },
+  "replaces": {
+    "stand_in": "Hook_Bone",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "generated": "2026-10-21"
+}

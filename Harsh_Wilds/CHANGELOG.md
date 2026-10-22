@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.11.9 (2026-10-21)
+
+### Added
+
+- **Take Down the Beast Totem.** The totem gains a **Take Down** button (15 minutes): it comes down and gives back one Wood and two Bones; the twine is spent. Before, removing it returned nothing.
+
+### Changed
+
+- **A Bug Trap works only in the camp where you are.** It thins the biting insects while you are in the camp it stands in, as a campfire does. Before, a trap left in another camp kept working on you wherever you were, and traps in several camps added up. It still runs out after about a day whether you stay or not.
+
+- **A lindwurm gives 150 meat, as first intended.** Butchering one now gives about 150 Raw Meat at any Butchering skill, up from about 75, plus its fat, bones, Very Large Fresh Skin and Lindwurm Fang as before. The 0.11.6 notes promised 150, but the game paid 75 (its two meat drops split one amount by skill rather than adding up); the drops are now set so the total really is 150. A carcass already on the board butchers to the new amount.
+
+- **New pictures for ten cards that borrowed one.** Mistletoe, the Bug Trap and the Spent Bug Trap, the Lynx Spirit, the White Wisent carcass (whole, bled and skinned), the Lindwurm Fang, the Dragon Charm, the Lynx Cloak and the Wolverine at the Kill now have art of their own. Before, they showed base-game pictures (Frostleaf, Resin, the Earth spirit, the cow, a bone hook, an amulet) or another Harsh Wilds card's (the Lynx Coat, the wolverine raid). The Lynx Spirit's rites and events and the Mistletoe, Bug Trap and Dragon Charm recipes show the new pictures too.
+
+- **Redrawn pictures in the base game's plain style.** The Goat and Lynx Charms, the Chewing Stick, the Goat Spirit and the Beast Totem have new pictures drawn the way the base game draws its own cards, in place of the earlier glossy ones. The two charms are now plain carved bone pendants on a cord, matching the new Dragon Charm, and the Goat and Lynx Spirits are drawn like the base game's animal spirits: the animal in the forest, painted in its spirit colour. The Chewing Stick is now a plain twig.
+
+### Fixed
+
+- **Only your own foraging bites you.** A companion foraging a marked thicket for you could roll a foraging bite against you, with its notice, while you did nothing. Now only a thicket forage you do yourself rolls.
+- **A smithing burn is announced only once the burn is really there.** The burn notice and log line now wait for the burn wound to appear; if it never does, nothing is announced and one warning goes to the log.
+- Quieter, clearer log: the threat switch and raid pressure lines print once per game session instead of on every load, the heron's line for a game without Water-Driven Infrastructure no longer reads as an error (a real fault in the heron's check is now a warning), and two silent failure paths (the threat switches, the notice's Chinese text) now leave a warning.
+
 ## 0.11.8 (2026-10-17)
 
 ### Added

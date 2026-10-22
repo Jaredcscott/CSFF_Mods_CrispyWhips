@@ -1,0 +1,81 @@
+{
+  "target": "hw_spirit_lynx.png",
+  "sourceCard": "CardData/Item/hw_spirit_lynx.json",
+  "subject": "the Lynx Spirit drawn the way vanilla draws an animal spirit (Moontouched): a natural Eurasian lynx standing calmly in a green pine forest, its whole body painted in pale silver-lilac (not Moontouched's pale blue, so the two spirits read apart), dark ear tufts and tail tip; no mist, glow or swirls; pair with hw_spirit_goat",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Moontouched (vanilla animal-spirit treatment) (style) wHLm6nCL1KKTs3bsda37",
+      "vanilla Wolf_Wild (style) XHeakCyu6coG0B655QKV"
+    ]
+  },
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Moontouched (vanilla animal-spirit treatment)",
+      "id": "wHLm6nCL1KKTs3bsda37",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Moontouched_1792608275147_db63b8bb.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Wolf_Wild",
+      "id": "XHeakCyu6coG0B655QKV",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791798310150_1e61344f.png"
+    }
+  ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is how vanilla Card Survival draws an animal SPIRIT: an ordinary, natural-looking animal standing calmly in a green forest, with its whole body painted in one pale unnatural spirit colour (there pale ice blue) using flat colour fills and thin dark ink outlines. Match that treatment and composition exactly, but draw a different animal in a different spirit colour. Reference image 2 is a second style reference: match its flat posterized fills, thin ink outlines and muted forest greens; do not copy its wolf.\nDraw: the Lynx Spirit. A Eurasian lynx standing on all four legs on the mossy forest floor in a green pine forest, facing the viewer at a slight three-quarter angle, head level, mouth closed, calm. Tall pointed ears each topped with a black tuft, a ruff of fur along both cheeks, long legs with big round paws, a short stubby tail with a dark tip, a few faint spots. Its whole body is painted in pale silver-lilac tones (pale silver grey with a soft lilac tint, three or four flat tonal steps; ear tufts and tail tip a dark slate), the way reference image 1 paints its wolf pale blue. A natural solid animal, not made of mist. The lynx fills about the middle half of the frame, its body in the lower middle; dark trunks and green undergrowth behind it as in the references.\nStyle: plain vanilla Card Survival game art: a full-bleed painted forest scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted natural colours. No text, no watermark, no signature, no border, no frame.\nAvoid: mist, smoke, wisps, glow, sparkles, swirls, aura, magic particles, transparent ghost, glowing eyes, snarling, crouching to pounce, dramatic pose, dramatic lighting, rim light, ornate patterns, pale blue wolf colour, photo, photorealistic, 3D render, cartoon, comic book, anime, cute, glossy highlights, neon colours, lens flare, multiple animals, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground.",
+  "historyId": "BHWn1ptoURJdCVVHuY2n",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608508273_07b4c193_1792608508360_7733f54f.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608508273_07b4c193_1792608508360_7733f54f.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "668f3d1f5fced9a2eb1bc42199d363e352aee9fc8dcec6535103687f837a8285"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "cheesy stick to vanilla style",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "cards": [
+    "CardData/Item/hw_spirit_lynx.json",
+    "CardData/Liquid/hw_lq_spirit_lynx.json",
+    "CardData/Blueprint/hw_bp_spirit_lynx_calling.json",
+    "CardData/Blueprint/hw_bp_spirit_lynx_summoning.json",
+    "CardData/Event/hw_event_lynx_spirit_angry.json",
+    "CardData/Event/hw_event_lynx_spirit_granted.json",
+    "CardData/Event/hw_event_lynx_spirit_left.json",
+    "CardData/Event/hw_event_lynx_spirit_summoning.json",
+    "CardData/Event/hw_event_lynx_spirit_usedallpower.json"
+  ],
+  "replaces": {
+    "stand_in": "Spirit_Earth",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "previous": [
+    {
+      "historyId": "LOQsXFIGzewviIVI6cUV",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600807845_92a9f8ec_1792600808926_792c39c1.png",
+      "generated": "2026-10-21",
+      "owner_verdict": "regenerate 2026-10-21: cheesy stick to vanilla style"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "target": "hw_bugtrap.png",
+  "sourceCard": "CardData/Item/hw_bugtrap.json",
+  "cards": [
+    "CardData/Item/hw_bugtrap.json",
+    "CardData/Blueprint/hw_bp_bugtrap_resin.json",
+    "CardData/Blueprint/hw_bp_bugtrap_tar.json"
+  ],
+  "subject": "one straight peeled wooden stick, about eight times as long as it is thick, lying diagonally from lower left to upper right, its pale tan wood bare at the lower end, its upper half thickly coated in glossy sticky golden-amber resin with a few drips hanging from it, five or six tiny dark gnats stuck in the resin",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Wood (style) FK08d2Abk6yduwa1cHvr",
+      "vanilla Twigs (style) kl0CRu62B3fsnlytQMdZ"
+    ]
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one straight peeled wooden stick, about eight times as long as it is thick, lying diagonally from lower left to upper right, its pale tan wood bare at the lower end, its upper half thickly coated in glossy sticky golden-amber resin with a few drips hanging from it, five or six tiny dark gnats stuck in the resin, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. The reference images are STYLE references only (line weight, colour handling, framing of a vanilla card): do not copy their objects.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, a jar, a pot, a torch, flame, fire, a candle, a net, a cage, a box, string, cord, leaves on the stick, a branch with twigs, large insects, butterflies, bees, a ground mound.",
+  "historyId": "rIWZE5e2sw3iZDQy45jI",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600801773_d34c3a87_1792600801822_d7e2ed46.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600801773_d34c3a87_1792600801822_d7e2ed46.png",
+      "verdict": "one peeled stick, diagonal, bare pale lower half, glossy amber resin with drips on the upper half, five small gnats stuck in it. One sample (owner rule 2026-10-11); awaiting the owner's /review-art gallery look."
+    }
+  ],
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 90.5,
+    "sha256": "b5bdfa893d41da7098cc262f3993edb52859b5440225ae4c498e865a4a9fa3c6"
+  },
+  "replaces": {
+    "stand_in": "Resin",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "generated": "2026-10-21"
+}

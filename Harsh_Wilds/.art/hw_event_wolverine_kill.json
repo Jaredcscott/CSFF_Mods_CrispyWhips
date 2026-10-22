@@ -1,0 +1,73 @@
+{
+  "target": "hw_event_wolverine_kill.png",
+  "sourceCard": "CardData/Event/hw_event_wolverine_kill.json",
+  "subject": "a single wolverine standing calmly on all four legs among ferns in a dark green pine forest, facing the viewer at a slight three-quarter angle, mouth closed, dark brown with pale tan flank stripes; no carcass, no prey; full-bleed like vanilla Wolf_Wild",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Wolf_Wild (style) XHeakCyu6coG0B655QKV",
+      "vanilla Bear_Wild (style) s56iVlmySbUqnAXE0W15"
+    ]
+  },
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Wolf_Wild",
+      "id": "XHeakCyu6coG0B655QKV",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wolf_Wild_1791798310150_1e61344f.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Bear_Wild",
+      "id": "s56iVlmySbUqnAXE0W15",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652734929_38bf6561.png"
+    }
+  ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are vanilla Card Survival wild-animal portraits, used as STYLE and COMPOSITION references: a single animal standing calmly in a dark green forest, seen from the front at eye level, centred in the lower middle of the frame, drawn with flat posterized colour fills, thin dark ink outlines and muted natural greens. Match that treatment exactly; draw a different animal.\nDraw: a single wolverine standing on all four legs among ferns and moss on the forest floor, facing the viewer at a slight three-quarter angle, head level, mouth closed, a calm wary look. A stocky low dark brown body, a broad pale tan stripe running along each flank from shoulder to tail, a paler grey-brown band across the brow, small rounded ears, short thick legs with dark paws, a bushy dark tail. The animal fills about the middle half of the frame, its body in the lower middle. Behind it, dark pine trunks and green undergrowth as in the references. Only the wolverine, nothing else on the ground.\nStyle: plain vanilla Card Survival game art: a full-bleed painted forest scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted natural colours. No text, no watermark, no signature, no border, no frame.\nAvoid: a carcass, prey, meat, bones, blood, snarling, bared teeth, open mouth, arched back, aggressive pose, dramatic lighting, rim light, snow, photo, photorealistic, 3D render, cartoon, comic book, anime, cute, glossy highlights, neon colours, lens flare, multiple animals, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground.",
+  "historyId": "NHygFyeI2Aqu4d6T5qie",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608504511_d33f6def_1792608504565_fc67117f.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608504511_d33f6def_1792608504565_fc67117f.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "7b086b132ae0d325eb66b3d3a42e84336c20afa804d8cd143bcf74c5cede6513"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "remove the carcass just the wolverine",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "cards": [
+    "CardData/Event/hw_event_wolverine_kill.json"
+  ],
+  "replaces": {
+    "stand_in": "hw_event_wolverine",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "previous": [
+    {
+      "historyId": "Mk0zmOasgxjBour40Fwd",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600846721_7f84b9f3_1792600846756_ccc27707.png",
+      "generated": "2026-10-21",
+      "owner_verdict": "regenerate 2026-10-21: remove the carcass just the wolverine"
+    }
+  ]
+}

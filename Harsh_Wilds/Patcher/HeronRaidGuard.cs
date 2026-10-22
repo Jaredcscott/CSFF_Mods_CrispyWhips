@@ -14,8 +14,9 @@ namespace HarshWilds.Patcher;
 /// lower the fish stats of whichever of them carries those stats. The static gate
 /// (<c>Development_Tools/Tests/HarshWilds-Heron.Tests.ps1</c>) pins the JSON; this guard pins what the
 /// game actually loaded. If the resolved change is anything but the contract, the change is REMOVED
-/// from the action, so the button still clears its card and takes nothing, and one Info line names the
-/// cause once. Without Water-Driven Infrastructure the roll's two weight rows also match no card, so
+/// from the action, so the button still clears its card and takes nothing, and one Warning line names
+/// the cause once (one Info line instead when the list resolved no pond at all, which is the normal
+/// install without Water-Driven Infrastructure). Without Water-Driven Infrastructure the roll's two weight rows also match no card, so
 /// the heron never comes at all; the guard covers a card given by a cheat or another mod.</para>
 ///
 /// <para>It runs as a postfix on <c>GameManager.InitializeStatsAndActions</c>, after the framework has
@@ -75,10 +76,14 @@ internal static class HeronRaidGuard
             if (fault == null) continue;
 
             action.ExtraDurabilityModifications = Array.Empty<ExtraDurabilityChange>();
-            string note = fault.StartsWith("the target list resolved 0 ", StringComparison.Ordinal)
-                ? " (Water-Driven Infrastructure is not installed, which is a normal install)"
-                : string.Empty;
-            LogOnce(fault, $"HeronRaidGuard: '{EventUid}' button {i} does not match its contract ({fault}){note}; " +
+            if (fault.StartsWith("the target list resolved 0 ", StringComparison.Ordinal))
+            {
+                // No fishpond resolved: Water-Driven Infrastructure is not installed. A normal install, not a fault.
+                LogOnce(fault, $"HeronRaidGuard: Water-Driven Infrastructure is not installed, so the heron has no fishpond to raid; " +
+                               $"'{EventUid}' button {i} takes nothing this session.", warning: false);
+                continue;
+            }
+            LogOnce(fault, $"HeronRaidGuard: '{EventUid}' button {i} does not match its contract ({fault}); " +
                            "the heron's take is disabled for this session and the button takes nothing.");
         }
     }
@@ -124,8 +129,12 @@ internal static class HeronRaidGuard
 
     private static bool IsZero(UnityEngine.Vector2 v) => v.x == 0f && v.y == 0f;
 
-    private static void LogOnce(string cause, string message)
+    // A contract fault is a Warning, as in BanditTheftGuard, BlightSpreadGuard and IncenseRiteGuard; only
+    // the normal no-WDI install is Info.
+    private static void LogOnce(string cause, string message, bool warning = true)
     {
-        if (Logged.Add(cause)) Plugin.Logger.LogInfo(message);
+        if (!Logged.Add(cause)) return;
+        if (warning) Plugin.Logger.LogWarning(message);
+        else Plugin.Logger.LogInfo(message);
     }
 }

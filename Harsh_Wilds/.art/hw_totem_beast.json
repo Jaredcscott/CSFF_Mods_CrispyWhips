@@ -1,35 +1,66 @@
 {
   "target": "hw_totem_beast.png",
   "sourceCard": "CardData/Item/hw_totem_beast.json",
-  "subject": "Draw: one upright carved wooden post about four times as tall as it is wide, warm brown weathered wood, a simple carved wild beast face with small rounded ears at the top of the post, three small pale animal bones hanging on plain twine cords tied around the middle of the post, its foot set in a small mound of earth.",
+  "subject": "one upright weathered grey-brown wooden post about five times as tall as wide, only its top carved into a blocky beast head (rounded ears, hollow eyes, blunt snout, mouth closed), a twine cord round the middle with three small pale bones hanging, its foot in a small low mound of earth",
   "model": "nano-banana-2",
   "mode": "image2image",
   "params": {
     "imageCount": 1,
     "aspectRatio": "2:3",
     "resolution": "1K",
-    "autoEnhancePrompt": false
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla WoodCarving (style) jmguv7wvZiCwqTlGfJ5h",
+      "vanilla Wood (style) FK08d2Abk6yduwa1cHvr"
+    ]
   },
-  "prompt": "The attached reference image is a STYLE reference only: match its flat posterized colour fills in a few tonal steps, bold dark ink outline around the whole subject, small ink hatch marks, its weathered wood colours and fairly dark values; do not copy its subject or composition.\nDraw: one upright carved wooden post about four times as tall as it is wide, warm brown weathered wood, a simple carved wild beast face with small rounded ears at the top of the post, three small pale animal bones hanging on plain twine cords tied around the middle of the post, its foot set in a small mound of earth.\nSurvival card game structure art in exactly that style: flat cel-shaded colour bands, a continuous dark outer outline, no watercolour wash, no soft airbrushed gradients. Single subject only, centred and filling most of the frame height with a small even white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: watercolour, soft painterly gradients, glossy airbrushed digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the subject, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, wings, colourful paint, feathers, multiple posts, skull, totem pole with many faces.",
-  "historyId": "ixUUFLtRsh7bFIWfb8T1",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798619574_d7a1ddda_1791798620107_60de802c.png",
-  "credits": 20,
   "references": [
     {
       "role": "style",
-      "label": "WoodCarving",
+      "label": "vanilla WoodCarving",
+      "id": "jmguv7wvZiCwqTlGfJ5h",
       "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WoodCarving_1791745253091_d6eebc38.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Wood",
+      "id": "FK08d2Abk6yduwa1cHvr",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wood_1791652739500_9b610d7b.png"
     }
   ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 (a vanilla wood carving) is a style reference for the carving: match how simply it is cut, its flat posterized colour fills and thin dark ink outline. Reference image 2 (vanilla wood) is a style reference for the weathered wood colours. Do not copy either subject or composition.\nDraw: a Beast Totem. One upright round wooden post, about five times as tall as it is wide, dark weathered grey-brown wood with a few long cracks running down it. Only its top end is carved, into a crude blocky beast head cut in a few flat planes: two small rounded ears, two small hollow eye holes, a short blunt snout, mouth closed, no expression. Around the middle of the post a plain twine cord is tied, and three small pale bones hang from it on short cords. The foot of the post is pushed into a small low mound of brown earth, no wider than twice the post.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline around the whole subject, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, comfortably inset from every edge with generous white margin (the post fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: a detailed realistic bear head, cute face, teeth, snarl, painted colours, feathers, beads, skulls, ornate carvings all down the post, tribal patterns, swirls, a polished smooth post, a large hill, grass, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, neon colors, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "eKUqiH4wnYPIcS3MXBIO",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608468913_c3a9c365_1792608468983_0579bd4f.png",
+  "credits": 20,
   "candidates": [
     {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798619574_d7a1ddda_1791798620107_60de802c.png"
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608468913_c3a9c365_1792608468983_0579bd4f.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
     }
   ],
-  "picked": "A",
-  "predicted": "A",
-  "finish": "keyed (pad to 2:3, process_card_art --no-trim, key_enclosed, defringe, trim_card_art)",
-  "generated": "2026-10-12",
-  "note": "owner gallery rework 2026-10-12: looks AI generated must match game art"
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "64fb55b48a14be8fb947d64ae467fb9149c952e1565306fe060ef24b368107b2"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "cheesy stick to vanilla style",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "previous": [
+    {
+      "historyId": "ixUUFLtRsh7bFIWfb8T1",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791798619574_d7a1ddda_1791798620107_60de802c.png",
+      "generated": "2026-10-12",
+      "owner_verdict": "regenerate 2026-10-21: cheesy stick to vanilla style"
+    }
+  ]
 }

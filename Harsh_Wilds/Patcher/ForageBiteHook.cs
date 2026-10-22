@@ -19,6 +19,11 @@ namespace HarshWilds.Patcher;
 /// latch, so this class has no latch of its own. Forcing is the same as the burn's: the hidden stat
 /// <c>hw_bite_force</c> ships at 0 and, set above 0, replaces the dice value, so protection stats can be
 /// shown to lower the odds against one fixed roll.</para>
+///
+/// <para>Player only: only the player's own Forage rolls. A partner's Forage duty runs the same
+/// thicket action through the router, so the <c>Before</c> reads the action's real user from
+/// <see cref="ActionUser"/> into a private per-dispatch <see cref="DispatchFlag"/>, and a Forage that
+/// is not the player's never rolls.</para>
 /// </summary>
 internal static class ForageBiteHook
 {
@@ -58,6 +63,10 @@ internal static class ForageBiteHook
 
     private static readonly HashSet<string> Warned = new(StringComparer.Ordinal);
 
+    // Whether this dispatch's Forage is the player's own, set in Before and read in After. A private
+    // per-dispatch flag, never the shared ActionContext.Tag (see DispatchFlag).
+    private static readonly DispatchFlag PlayerForage = new();
+
     internal static void Register()
     {
         ActionRouter.Register(new ActionHandler
@@ -66,6 +75,14 @@ internal static class ForageBiteHook
             CardPredicate = ctx => ctx.CardUid != null && Thickets.Contains(ctx.CardUid),
             ActionNamePrefix = "Forage",
             Timing = ActionTiming.AfterWrapped,
+            // Player only, as SmithingBurnHook's build: a partner's Forage duty on a marked thicket reaches
+            // the router through the same PerformActionAsEnumerator (.decomp/AffectItemsDutyAction.cs:662)
+            // and must not bite the player. ActionUser reads the action's real user in the router's prefix.
+            Before = ctx =>
+            {
+                PlayerForage.Set(ctx, ActionUser.IsPlayer(ctx, "ForageBiteHook"));
+                return false;
+            },
             After = AfterForage,
         });
     }
@@ -84,6 +101,8 @@ internal static class ForageBiteHook
 
     private static void AfterForage(ActionContext ctx)
     {
+        if (!PlayerForage.Get(ctx)) return;
+
         float on = SmithingBurnHook.Read(SwitchStat);
         if (float.IsNaN(on) || on < 0.5f) return;
         if (GameQuery.IsWinter) return;

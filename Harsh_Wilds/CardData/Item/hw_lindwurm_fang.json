@@ -3,10 +3,12 @@
     "//LindwurmFang": "Niche N4 (MASTER_PLAN section 2): the lindwurm's trophy. The Butcher of CardData/Item/hw_lindwurm_carcass.json drops one, and CardData/Blueprint/hw_bp_charm_dragon.json needs it, so the rarest fight pays in a ritual object and not in more meat (the 150 meat of HW-B6 is untouched). A plain CardType 0 with no actions, no durability and no tags: it is only carried to the charm's blueprint. The picture is the vanilla sprite Hook_Bone (PARTIAL: no card art was generated in the authoring session, the OpenArt tool was not reachable; the intended subject is one long curved off-white fang with a yellowed root). Weight and trading value are TUNABLE PLACEHOLDERS.",
     "CardType": 0,
     "CardName": {
+        "ParentObjectID": "hw_lindwurm_fang",
         "LocalizationKey": "HarshWilds_LindwurmFang_CardName",
         "DefaultText": "Lindwurm Fang"
     },
     "CardDescription": {
+        "ParentObjectID": "hw_lindwurm_fang",
         "LocalizationKey": "HarshWilds_LindwurmFang_CardDescription",
         "DefaultText": "A curved fang as long as a hand, drawn from the jaw of a lindwurm. It is good for nothing but the old rites: a carver can make a charm of it for the Dragon Spirit."
     },
@@ -14,7 +16,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Hook_Bone",
+    "CardImageWarpData": "hw_lindwurm_fang",
     "CardImageWarpType": 3,
     "ObjectWeight": 50.0,
     "TradingValue": 150.0,

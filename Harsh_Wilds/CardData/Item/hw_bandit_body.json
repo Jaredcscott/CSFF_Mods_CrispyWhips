@@ -5,10 +5,12 @@
     "//Image": "CardImageWarpData is HarshWilds/Resource/Picture/hw_bandit_body.png (provenance HarshWilds/.art/hw_bandit_body.json): a fallen bandit's spear, pack and cloak on the forest floor.",
     "CardType": 0,
     "CardName": {
+        "ParentObjectID": "hw_bandit_body",
         "LocalizationKey": "HarshWilds_BanditBody_CardName",
         "DefaultText": "Fallen Bandit"
     },
     "CardDescription": {
+        "ParentObjectID": "hw_bandit_body",
         "LocalizationKey": "HarshWilds_BanditBody_CardDescription",
         "DefaultText": "The bandit who waylaid you lies still. Whatever he carried is yours for the taking."
     },
@@ -22,10 +24,12 @@
     "DismantleActions": [
         {
             "ActionName": {
+                "ParentObjectID": "hw_bandit_body",
                 "LocalizationKey": "HarshWilds_BanditBody_ActionName",
                 "DefaultText": "Search the body"
             },
             "ActionDescription": {
+                "ParentObjectID": "hw_bandit_body",
                 "LocalizationKey": "HarshWilds_BanditBody_ActionDescription",
                 "DefaultText": "Go through the bandit's pack and clothes, then leave him where he lies."
             },

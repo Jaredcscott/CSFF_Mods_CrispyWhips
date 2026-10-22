@@ -16,7 +16,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Resin",
+    "CardImageWarpData": "hw_bugtrap",
     "CardImageWarpType": 3,
     "UnlockConditionsDesc": {
         "LocalizationKey": "IGNOREKEY",

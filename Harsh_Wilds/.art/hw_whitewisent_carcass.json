@@ -1,0 +1,46 @@
+{
+  "target": "hw_whitewisent_carcass.png",
+  "sourceCard": "CardData/Item/hw_whitewisent_carcass.json",
+  "cards": [
+    "CardData/Item/hw_whitewisent_carcass.json",
+    "CardData/Item/hw_whitewisent_carcass_bled.json"
+  ],
+  "subject": "a dead albino white wisent slumped forward on its chest facing right, its head hanging low at the lower right with its eyes closed, the front legs folded under the chest, the hind legs stretched back to the lower left, a tall hump over the shoulders, a thick shaggy creamy ivory-white mane and short beard, creamy white hide shaded warm grey, pale pink nose, the same short upward-curving black horns, dark hooves, clean unbroken hide with no wounds, one whole animal and nothing else",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "hw_wisent_carcass (subject) 58WRH7RspUXyd0j13p5R"
+    ]
+  },
+  "prompt": "Use the attached reference image for one purpose. Reference image 1 shows a dead wisent slumped forward on its chest: draw this same animal, keeping its pose, camera angle, facing direction, head position, leg positions, horns, proportions and size in the frame identical, changed only as follows: it is a rare albino white wisent, its whole hide, shaggy mane and beard creamy ivory-white with soft warm grey shading in the folds and a dark ink outline all round.\nHand-painted watercolor-and-ink game item illustration of a dead albino white wisent slumped forward on its chest facing right, its head hanging low at the lower right with its eyes closed, the front legs folded under the chest, the hind legs stretched back to the lower left, a tall hump over the shoulders, a thick shaggy creamy ivory-white mane and short beard, creamy white hide shaded warm grey, pale pink nose, the same short upward-curving black horns, dark hooves, clean unbroken hide with no wounds, one whole animal and nothing else, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, brown fur, dark hide, spots, patches, a cow, a domestic bull, lying on its side, standing, legs in the air, a different pose, facing left, blood, wounds, snow, grass, ground patch under the body, second animal.",
+  "historyId": "DKDZwHsOJOuVG45HOpHF",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600808286_ba0f4fad_1792600808719_422206bd.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600808286_ba0f4fad_1792600808719_422206bd.png",
+      "verdict": "the wisent carcass pose kept (slumped on its chest facing right, head low at the lower right, hind legs back), creamy white hide and mane, black horns, pale pink nose. One sample (owner rule 2026-10-11); awaiting the owner's /review-art gallery look."
+    }
+  ],
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 78.9,
+    "sha256": "55bf92da56485d337ebbbbfc1e660fa473e06232e9c3a352e523e4331809acc6",
+    "post": "the keyer half-keyed the pale hump: every pixel inside the silhouette eroded by 2 px was composited back over white and set opaque, 64389 px (the /review-art 'missing white inside' repair)"
+  },
+  "replaces": {
+    "stand_in": "Cow",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "generated": "2026-10-21"
+}

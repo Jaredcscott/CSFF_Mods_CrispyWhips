@@ -1,0 +1,75 @@
+{
+  "target": "hw_charm_dragon.png",
+  "sourceCard": "CardData/Item/hw_charm_dragon.json",
+  "subject": "one gently curved off-white fang about three times as long as wide, hanging point down from two plain brown leather cords in a narrow V like vanilla Amulet, a crude incised serpent line scratched down its length (no raised sculpted dragon); same cords, bone colour and flat incised carving as the goat and lynx charms",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Amulet (style) HqyonBY97MGge0OPQF9d",
+      "vanilla Amulet_Maiden (style) kEtKLEhlZoKdYZ6Lfl97"
+    ]
+  },
+  "references": [
+    {
+      "role": "style",
+      "label": "vanilla Amulet",
+      "id": "HqyonBY97MGge0OPQF9d",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_1791744833077_263b1f4a.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Amulet_Maiden",
+      "id": "kEtKLEhlZoKdYZ6Lfl97",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Amulet_Maiden_1792608277635_28849a63.png"
+    }
+  ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are vanilla Card Survival neck charms, used as STYLE and LAYOUT references: a plain carved pendant hanging point down from two plain brown leather cords that rise in a narrow V toward the top of the frame. Match their layout, their flat posterized colour fills, thin dark ink outline and muted colours; do not copy their carvings.\nDraw: a Dragon Charm. One single off-white reptile fang, gently curved, about three times as long as it is wide at its thick top end, hanging point down, off-white bone with warm grey-beige shading, a small tied knot of cord at its thick top end. Scratched shallowly into its surface in a few simple dark incised lines is a plain serpent: one wavy line with a small head, running down the length of the fang. The carving is crude, flat and folk-like, like the eyes and nose cut into reference image 1, not a raised sculpted dragon.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, the fang in the lower half of the frame, the cords rising toward the top, comfortably inset from the side and bottom edges, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: a raised three-dimensional dragon sculpture, a dragon coiled around the fang, wings, realistic animal, cute face, beads, feathers, metal, gold, gems, ornate border, swirls, filigree, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "BRgAqRZPd0qjlx920L1p",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608420777_4df36e8a_1792608420821_48f6976d.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608420777_4df36e8a_1792608420821_48f6976d.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "1e8a5109a5712983b3ea4042af05e9522c5aa9e55c34b1dd61e44a0d49641a87",
+    "post": "the paper showing through the drilled cord hole stayed opaque: 52 px inside the measured hole box keyed fully transparent (scratchpad key_hole.py)"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "cheesy stick to vanilla style",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "cards": [
+    "CardData/Item/hw_charm_dragon.json",
+    "CardData/Blueprint/hw_bp_charm_dragon.json"
+  ],
+  "replaces": {
+    "stand_in": "Amulet",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "previous": [
+    {
+      "historyId": "kTKNILcUogc0S2saQOpu",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600843437_9206639a_1792600843868_af40fb9d.png",
+      "generated": "2026-10-21",
+      "owner_verdict": "regenerate 2026-10-21: cheesy stick to vanilla style"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "target": "hw_cloak_lynx.png",
+  "sourceCard": "CardData/Item/hw_cloak_lynx.json",
+  "cards": [
+    "CardData/Item/hw_cloak_lynx.json",
+    "CardData/Blueprint/hw_bp_cloak_lynx.json"
+  ],
+  "subject": "a short light shoulder cloak shown from the front as if hanging on an unseen peg, a plain rounded cape that falls only to about the waist, about as wide as it is tall, cut from soft pale tan leather with a few faint small dark spots, a narrow collar of pale grey-tan lynx fur with small dark spots around the neck, closed at the throat by one plain leather tie, no sleeves",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Shirt (style) kFEFn1TDSAf2jNbgf24Y",
+      "vanilla Mittens (style) EI19sj1wnbNSBW3iNHUr"
+    ]
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a short light shoulder cloak shown from the front as if hanging on an unseen peg, a plain rounded cape that falls only to about the waist, about as wide as it is tall, cut from soft pale tan leather with a few faint small dark spots, a narrow collar of pale grey-tan lynx fur with small dark spots around the neck, closed at the throat by one plain leather tie, no sleeves, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. The reference images are STYLE references only (line weight, colour handling, framing of a vanilla card): do not copy their objects.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground, sand or snow, sleeves, a long coat, a lapel coat, buttons, a hood, a brooch, metal clasp, a mannequin, a person, a hanger, full fur all over, a lynx head, paws, claws.",
+  "historyId": "Lxq9a1fxEasySeigutXG",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600846007_dd0401bf_1792600846116_397b446f.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792600846007_dd0401bf_1792600846116_397b446f.png",
+      "verdict": "a short sleeveless pale tan leather shoulder cloak with a spotted grey-tan lynx-fur collar and one leather tie at the throat; distinct from the long Lynx Coat. One sample (owner rule 2026-10-11); awaiting the owner's /review-art gallery look."
+    }
+  ],
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "transparent_pct": 59.6,
+    "sha256": "8684f98a75f05fad2f0395aed8480a60125202f13f1f872be99ddb8cbdb2869f"
+  },
+  "replaces": {
+    "stand_in": "hw_cloak_lynx.png, a byte copy of hw_coat_lynx.png",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "generated": "2026-10-21"
+}

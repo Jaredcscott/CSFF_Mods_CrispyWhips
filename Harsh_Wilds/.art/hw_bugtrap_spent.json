@@ -1,0 +1,73 @@
+{
+  "target": "hw_bugtrap_spent.png",
+  "sourceCard": "CardData/Item/hw_bugtrap_spent.json",
+  "subject": "the owner-approved Bug Trap stick (same length, angle, peeled pale tan lower half), used up: the resin coat on the upper half dried to a dull matte dark brown crust with a few fine cracks, only five or six tiny dead gnats, no drips, no shine",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "hw_bugtrap (owner-approved 2026-10-21) (subject) M6RySuApDJ0LD7XvvDE7",
+      "vanilla Wood (style) FK08d2Abk6yduwa1cHvr"
+    ]
+  },
+  "references": [
+    {
+      "role": "subject",
+      "label": "hw_bugtrap (owner-approved 2026-10-21)",
+      "id": "M6RySuApDJ0LD7XvvDE7",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_bugtrap_1792608279354_8a4b8ad2.png"
+    },
+    {
+      "role": "style",
+      "label": "vanilla Wood",
+      "id": "FK08d2Abk6yduwa1cHvr",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Wood_1791652739500_9b610d7b.png"
+    }
+  ],
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the SUBJECT: a bug trap, one straight peeled wooden stick lying diagonally from lower left to upper right with its upper half coated in resin. Draw this same stick, keeping its length, angle, thickness and pale tan peeled wood identical, changed only as follows: the trap is used up. The resin coat on the upper half has dried to a dull, matte, dark brown crust with a few fine cracks, no longer shiny, no drips. Only five or six tiny dead black gnats are stuck in the crust, small and spread out, the crust mostly plain. The lower half stays bare pale tan peeled wood.\nReference image 2 is a style reference only: match its flat posterized colour fills, thin dark ink outline and muted natural colours; do not copy its subject or composition.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline around the whole subject, muted natural colours, no glossy highlights, no decorative detail, no cartoon, no comic shading. Single object only, comfortably inset from every edge with generous white margin (the object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: many insects, swarm of bugs, large insects, flies with wings spread, wet shiny resin, dripping resin, orange or amber resin, honey, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, neon colors, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, ground plane, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "98VtO4K08n7laVN5NEXs",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608426121_f2688dfc_1792608426270_29fce0f0.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608426121_f2688dfc_1792608426270_29fce0f0.png",
+      "verdict": "one sample (owner rule 2026-10-11); rework of the owner's 2026-10-21 gallery mark; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "56e15852e18b747f099cb7b5c7eab08ab4be824592ef7c950bd9f74d0873efbd"
+  },
+  "rework": {
+    "owner_verdict": "regenerate",
+    "owner_note": "cheesy stick to vanilla style / Less bugs",
+    "date": "2026-10-21",
+    "rule": "redraw with vanilla style references (plus an owner-approved sibling as subject reference where listed); the rejected picture was never passed as a reference"
+  },
+  "generated": "2026-10-21",
+  "cards": [
+    "CardData/Item/hw_bugtrap_spent.json"
+  ],
+  "replaces": {
+    "stand_in": "Resin",
+    "reason": "HarshWilds .audit/summary.md m2 and CHANGELOG 0.11.8: stand-in or reused art"
+  },
+  "previous": [
+    {
+      "historyId": "eyayvltezLqJzcTiNkeR",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792601160295_36f461a3_1792601160546_705c7173.png",
+      "generated": "2026-10-21",
+      "owner_verdict": "regenerate 2026-10-21: cheesy stick to vanilla style / Less bugs"
+    }
+  ]
+}

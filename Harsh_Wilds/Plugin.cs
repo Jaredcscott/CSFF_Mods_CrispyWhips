@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.harsh_wilds";
     public const string PluginName = "Harsh Wilds";
-    public const string PluginVersion = "0.11.8";
+    public const string PluginVersion = "0.11.9";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
@@ -41,6 +41,9 @@ internal class Plugin : ContentModPlugin
         TryApply("HeronRaidGuard", () => HeronRaidGuard.ApplyPatch(harmony));
         // The smithing burn (plan section 20) and the foraging bites (section 21) hook the player's own actions through
         // the framework's ActionRouter, registered once per process here (never from a per-run event).
+        // The foraging bites roll only for the player's own Forage: ActionUser records each routed action's real user
+        // (player or NPC) ahead of the router's own prefix, for the hook's Before to read.
+        TryApply("ActionUser", () => ActionUser.ApplyPatch(harmony));
         TryApply("SmithingBurnHook", () => SmithingBurnHook.RegisterOnce());
         // The athame's incense rite actions name a sibling mod's lit incense card in a condition; those whose card did not
         // resolve (the mod is absent) are removed at load (plan section 26).
