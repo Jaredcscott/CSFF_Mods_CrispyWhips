@@ -19,6 +19,7 @@
     "CardImageWarpData": "FT_CinchonaBark",
     "CardImageWarpType": 3,
     "UnlockConditionsDesc": {
+        "ParentObjectID": "ft_bp_cinchona_decoction",
         "LocalizationKey": "IGNOREKEY",
         "DefaultText": ""
     },

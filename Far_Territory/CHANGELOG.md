@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.11] - 2026-10-21
+
+### Fixed
+
+- **Sago Pith's Drying bar shows the drying icon.** It used a different picture from every base-game drying stat; it now shows the same icon the base game's drying food does.
+- **The README no longer understates what has been checked.** Palm Frond burning as campfire fuel, the three cooked island dishes, the Cinchona Decoction, net and funnel-trap fishing and the owl being kept off the island were all still described as unconfirmed after scripted runs in the game had confirmed them. Each now says what was confirmed and when; the parts still unchecked (the real-night owl watch, how the net and funnel-trap yields feel) are still said to be unchecked.
+- **Behind the scenes:** the five blueprints name their own card on their name, description and unlock text, and the set Fish Trap and Funnel Trap state a weight of 0 like every other placed Far Territory card. Nothing changes in play.
+
 ## [0.1.10] - 2026-10-19
 
 ### Changed

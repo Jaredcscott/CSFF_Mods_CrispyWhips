@@ -1,15 +1,18 @@
 {
   "UniqueID": "ft_bp_rope_and_pitons",
   "CardName": {
+    "ParentObjectID": "ft_bp_rope_and_pitons",
     "LocalizationKey": "Far_Territory_BpRopeAndPitons_CardName",
     "DefaultText": "Rope and Pitons"
   },
   "CardDescription": {
+    "ParentObjectID": "ft_bp_rope_and_pitons",
     "LocalizationKey": "Far_Territory_BpRopeAndPitons_CardDescription",
     "DefaultText": "A rope and a set of iron spikes for climbing. Raises your Climbing Aid while carried in your hand, and opens the steep paths in the far mountains. Requires a rope, 2 metal nuggets and a hard hammering tool."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
+    "ParentObjectID": "ft_bp_rope_and_pitons",
     "LocalizationKey": "Far_Territory_BpRopeAndPitons_UnlockConditionsDesc",
     "DefaultText": "Unlocked after obtaining a Rope"
   },

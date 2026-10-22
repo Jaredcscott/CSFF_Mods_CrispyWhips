@@ -144,7 +144,14 @@ internal static class ClimateService
             WarnOnce("stat-missing-" + key, $"[ClimateService] GameStat {key} did not resolve, so its climate offset is not applied.");
             return;
         }
-        if (!gm.StatsDict.TryGetValue(model, out var live) || live == null) return;
+        if (!gm.StatsDict.TryGetValue(model, out var live) || live == null)
+        {
+            // StatsDict is non-empty here (Reconcile returns while it is empty), so a resolved model that is
+            // not a live key is the abnormal case - a GUID rename/removal across a game update. Warn once per
+            // key rather than every tick, and leave the transient early-run window (handled upstream) quiet.
+            WarnOnce("statdict-miss-" + key, $"[ClimateService] GameStat {model.name} ({key}) resolved but is not live in StatsDict, so its climate offset is not applied.");
+            return;
+        }
 
         if (!_applied.TryGetValue(key, out var rec)) _applied[key] = rec = new Applied();
         // A different (or destroyed) InGameStat means a new run: its GlobalModifiedValue started at zero.

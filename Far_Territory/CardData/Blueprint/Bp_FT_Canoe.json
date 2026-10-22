@@ -1,15 +1,18 @@
 {
   "UniqueID": "ft_bp_canoe",
   "CardName": {
+    "ParentObjectID": "ft_bp_canoe",
     "LocalizationKey": "Far_Territory_BpCanoe_CardName",
     "DefaultText": "Dugout Canoe"
   },
   "CardDescription": {
+    "ParentObjectID": "ft_bp_canoe",
     "LocalizationKey": "Far_Territory_BpCanoe_CardDescription",
     "DefaultText": "A dugout canoe that paddles you down a flowing river to Brackwater Mouth. Requires a tree log, 2 oak bark and a cutting tool."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
+    "ParentObjectID": "ft_bp_canoe",
     "LocalizationKey": "Far_Territory_BpCanoe_UnlockConditionsDesc",
     "DefaultText": "Unlocked after obtaining a Tree Log"
   },

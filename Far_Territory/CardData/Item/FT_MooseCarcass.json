@@ -139,6 +139,10 @@
               }
             },
             {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
               "DroppedCardWarpData": "39ec586d846bac14e96e7f8c2431945d",
               "DroppedCardWarpType": 3,
               "Quantity": {

@@ -240,7 +240,7 @@
       "DefaultText": "Drying"
     },
     "MaxValue": 24.0,
-    "OverrideIconWarpData": "Drying",
+    "OverrideIconWarpData": "Hammer",
     "OverrideIconWarpType": 3,
     "HasActionOnFull": true,
     "OnFull": {

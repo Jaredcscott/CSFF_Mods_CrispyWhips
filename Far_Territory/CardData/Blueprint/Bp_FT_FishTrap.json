@@ -2,14 +2,17 @@
   "UniqueID": "ft_bp_fish_trap",
   "CardType": 7,
   "CardName": {
+    "ParentObjectID": "ft_bp_fish_trap",
     "LocalizationKey": "Far_Territory_BpFishTrap_CardName",
     "DefaultText": "Fish Trap"
   },
   "CardDescription": {
+    "ParentObjectID": "ft_bp_fish_trap",
     "LocalizationKey": "Far_Territory_BpFishTrap_CardDescription",
     "DefaultText": "A funnel-mouthed cage of twigs and twine for the shallows of a calm shore. Requires 4 twigs and 3 twine."
   },
   "UnlockConditionsDesc": {
+    "ParentObjectID": "ft_bp_fish_trap",
     "LocalizationKey": "Far_Territory_BpFishTrap_UnlockConditionsDesc",
     "DefaultText": "Available from the start"
   },

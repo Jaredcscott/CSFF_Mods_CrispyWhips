@@ -1,15 +1,18 @@
 {
   "UniqueID": "ft_bp_outrigger",
   "CardName": {
+    "ParentObjectID": "ft_bp_outrigger",
     "LocalizationKey": "Far_Territory_BpOutrigger_CardName",
     "DefaultText": "Outrigger Canoe"
   },
   "CardDescription": {
+    "ParentObjectID": "ft_bp_outrigger",
     "LocalizationKey": "Far_Territory_BpOutrigger_CardDescription",
     "DefaultText": "A narrow canoe lashed to a slim float, strong enough to cross the open water back to the mainland. Build it on Homeward Sand at Landfall Strand from 6 Long Sticks and 2 Rope."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
+    "ParentObjectID": "ft_bp_outrigger",
     "LocalizationKey": "Far_Territory_BpOutrigger_UnlockConditionsDesc",
     "DefaultText": "Can be researched from the start"
   },

@@ -53,6 +53,10 @@
           "CollectionWeight": 1,
           "DroppedCards": [
             {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
               "DroppedCardWarpData": "0b0e10564f04caf4c99f8a4860411e9e",
               "DroppedCardWarpType": 3,
               "Quantity": {

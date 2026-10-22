@@ -11,6 +11,7 @@
   },
   "CardImageWarpData": "FT_FishTrapSet",
   "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
   "AlwaysUpdate": true,
   "CannotBeTrashed": true,
   "ToggleablePiling": true,

@@ -1,6 +1,6 @@
 # Far Territory
 
-**Version:** 0.1.10
+**Version:** 0.1.11
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.2 or later
 **Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned. Version 0.1.8 added swamp fever and its cure, fish gutting, cooked island food and sea salt, and 0.1.9 the Island Start perk; their numbers are first guesses.
@@ -155,7 +155,7 @@ The mod adjusts how warm you feel (the base game's Perceived Temperature) from t
 - Weather, season and day length are the forest's own: a forest blizzard still shows on the island, though no snow lies there. The forest itself is unaffected.
 - Fire Mountain can overheat you, more so in summer.
 
-**Other mods.** With Sirus23 Mod Collection installed, its wild sheep can turn up on island places. Its wild **Owl**, which flies to wherever you are at night, is kept off every Far Territory board, so it never turns up on a beach, in a cave or on the plains. Without that mod this does nothing, and an owl already on a Far Territory board in an older save stays until dawn. This has not been watched through a real night yet.
+**Other mods.** With Sirus23 Mod Collection installed, its wild sheep can turn up on island places. Its wild **Owl**, which flies to wherever you are at night, is kept off every Far Territory board, so it never turns up on a beach, in a cave or on the plains. Without that mod this does nothing, and an owl already on a Far Territory board in an older save stays until dawn. A scripted run in the game on 2026-10-18 confirmed that the owl is refused on island boards and still moves on the mainland; it has not been watched through a real night yet.
 
 ## Shore and sea cards
 
@@ -193,7 +193,7 @@ Every fishing tool works on every sea card except the fjords, which have no fish
 
 **Fish Trap** (Hunting, Fishing blueprint): 12 hours to research, 1.5 hours to build from 4 Twigs and 3 Twine. Set on the sea, it becomes a **Fish Trap (Set)** that springs every 24 to 30 hours. **Haul Out the Trap** (15 minutes) gives you the trap back with its catch, which keeps fresh inside. It holds four fish and never wears out. The **Funnel Trap (Set)** catches the same way, and its haul-out spills the catch onto the shore because the base game's trap holds only Perch.
 
-Net and funnel-trap fishing have not been confirmed in game yet.
+Net and funnel-trap fishing were confirmed in a scripted run in the game on 2026-10-11: no fishing tool was refused on the sea, each net cast landed none or two of a fish, and the Funnel Trap caught and its haul-out spilled the catch onto the shore. That run came before 0.1.7 made sea fishing about half as rich. Whether the net and funnel-trap yields feel right next to a line and the Fish Trap has not been judged in real play yet.
 
 ## Coconuts and palms
 
@@ -203,7 +203,7 @@ Net and funnel-trap fishing have not been confirmed in game yet.
 - **Green Coconut** (spoils in 20 days): drag a knife or axe onto it to **Husk the Coconut** (15 minutes) for a Husked Coconut and 2 Fibers.
 - **Husked Coconut**: drag a hammer, hard hammering stone or axe onto it to **Crack Open** (15 minutes) for 1 Coconut Water (Thirst +90), 2 Coconut Meat (Satiation +28) and a **Coconut Shell Bowl**.
 - **Coconut Shell Bowl**: a small water container. Like a clay bowl, what it holds slowly dries off; it does not catch rain (the base game's Rain Catcher does that).
-- **Palm Frond**: weak fuel. Whether a campfire accepts it has not been confirmed in game, and fuel is its only use.
+- **Palm Frond**: weak fuel, and fuel is its only use. Confirmed in a scripted run in the game on 2026-10-19, judged from its screenshots: a Palm Frond dropped into a lit campfire burns as fuel.
 
 ## Tropical food plants
 
@@ -248,7 +248,7 @@ Three dishes sit on the base game's cooking chain. Their numbers are copied from
 - **Rack drying** follows the base game's Drying Rack: it needs the rack's smoke upkeep, and fresh pith takes 24 rack ticks.
 - Dried Sago Pith and Sago Dough are ingredients and have no Eat button.
 - There is no Coconut Milk in Far Territory, so there is no coconut-milk stew. Coconut Meat in the stew needs CSFF Mod Framework 2.28.2 or later.
-- Not yet confirmed in game: all three dishes.
+- Confirmed in a scripted run in the game on 2026-10-20: a Yam on a lit campfire became a Baked Yam and, left there, burned into Charred Remains about two ticks after baking, as the base game's Roasted Cattail Root does; Sago Pith dried on the rack, soaked into Sago Dough and baked into Sago Flatbread; and Coconut Meat in a heated pot of water went into the stew.
 
 ## Medicine and spice plants
 
@@ -279,7 +279,7 @@ Eight wild plants stand where the original game places them. Each has a pick, cu
 
 Cinchona Bitters brings a fever down. It does not cure the base game's Swamp Fever infection.
 
-**Cinchona Decoction.** The way to wear Swamp Fever down. Research the Cinchona Decoction blueprint (Survival, Medical), boil clean water in a cooking pot, then make it with 2 Cinchona Bark: it takes an hour, and the pot is kept. The pot's water becomes 300 of decoction, three doses of 100. Each Drink lowers the base game's Swamp Fever by 1 (it cannot go below 0) and adds Nausea +6, which fades by itself. The decoction goes off in about two days. These numbers are first guesses, not yet balanced, and the in-game check is still open.
+**Cinchona Decoction.** The way to wear Swamp Fever down. Research the Cinchona Decoction blueprint (Survival, Medical), boil clean water in a cooking pot, then make it with 2 Cinchona Bark: it takes an hour, and the pot is kept. The pot's water becomes 300 of decoction, three doses of 100. Each Drink lowers the base game's Swamp Fever by 1 (it cannot go below 0) and adds Nausea +6, which fades by itself. The decoction goes off in about two days. These numbers are first guesses, not yet balanced. Confirmed in a scripted run in the game on 2026-10-18 (on the 0.1.10 fix): the blueprint was offered, the pot was kept, its water became exactly 300 of decoction, and each of the three Drinks lowered Swamp Fever by 1 and added Nausea +6.
 
 **Spices.** Ginger Root, Chillies, Lemongrass and Jasmine Flowers carry the base game's flavour tags (Pungent, Spicy, Herbal, Sour, Floral). Whether a base-game dish picks these up has not been checked in game.
 
@@ -454,6 +454,7 @@ BepInEx/
 
 See `CHANGELOG.md` for the full list.
 
+- **0.1.11:** Sago Pith's Drying bar shows the base game's drying icon; this README now says which features a scripted run in the game has confirmed.
 - **0.1.10:** the outrigger home from the island is now built, not given; art for the cooked island food; the crossings and the canoe paddle really cost stamina; boiling sea water no longer freezes the game; no winter storms outside winter; the Cinchona Decoction pot holds three doses, not nine.
 - **0.1.9:** the Island Start perk: begin as a castaway and choose your landing shore, or let the sea decide.
 - **0.1.8:** swamp fever from the mosquitoes on Rootwater Thicket and Reed Marsh, a boiled Cinchona Decoction that wears it down, gutting for the seven island fish, Baked Yam, Sago Flatbread and Coconut Meat in the stew, salt boiled from sea water, China Rose, Jasmine and Ginger on the base game's effects, and no more blank Stone Pile on the river-mouth shores.

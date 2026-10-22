@@ -106,14 +106,20 @@
     "Picture/FT_AloeLeaf.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "29c5a736fd9e60bf160ce24c5983ed10ee7a76b1",
-      "at": "2026-10-12T17:24:38+00:00",
+      "sha1": "1ab8587533753eb07ef2cea86de36e96cd12d95d",
+      "at": "2026-10-21T18:33:02+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "29c5a736fd9e60bf160ce24c5983ed10ee7a76b1",
           "at": "2026-10-12T08:28:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "29c5a736fd9e60bf160ce24c5983ed10ee7a76b1",
+          "at": "2026-10-12T17:24:38+00:00"
         }
       ]
     },
@@ -146,14 +152,20 @@
     "Picture/FT_Banana.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "3ef9e9d10f0bffcbf44348d74289e5fae7541d03",
-      "at": "2026-10-12T17:22:36+00:00",
+      "sha1": "15e51707d986a494fdd3c4fbeba94fd24ea68ea8",
+      "at": "2026-10-21T18:34:49+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "3ef9e9d10f0bffcbf44348d74289e5fae7541d03",
           "at": "2026-10-12T08:28:40+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3ef9e9d10f0bffcbf44348d74289e5fae7541d03",
+          "at": "2026-10-12T17:22:36+00:00"
         }
       ]
     },
@@ -206,14 +218,20 @@
     "Picture/FT_BatCarcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "bbd0045d3a87ca6c6a79c191f004ccc66d5acdfb",
-      "at": "2026-10-12T17:24:39+00:00",
+      "sha1": "86c70deae8abdff80ddd702899177a03fc4972e6",
+      "at": "2026-10-21T18:32:37+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "bbd0045d3a87ca6c6a79c191f004ccc66d5acdfb",
           "at": "2026-10-12T08:28:49+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bbd0045d3a87ca6c6a79c191f004ccc66d5acdfb",
+          "at": "2026-10-12T17:24:39+00:00"
         }
       ]
     },
@@ -280,14 +298,20 @@
     "Picture/FT_Bonefish.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "b03f3a63f25d1d9a0370181b8e751876047d7239",
-      "at": "2026-10-12T17:22:02+00:00",
+      "sha1": "7272da77e02ff892f0e1dff89631dacd91bbf8e0",
+      "at": "2026-10-21T18:35:26+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "b03f3a63f25d1d9a0370181b8e751876047d7239",
           "at": "2026-10-12T08:28:54+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b03f3a63f25d1d9a0370181b8e751876047d7239",
+          "at": "2026-10-12T17:22:02+00:00"
         }
       ]
     },
@@ -314,8 +338,8 @@
     "Picture/FT_Canoe.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "b28dc4aad09123f31228a1d5edebce092b7eaad7",
-      "at": "2026-10-12T17:22:52+00:00",
+      "sha1": "e7a68ac75d6e6b4d9fb46187949cc6648529c124",
+      "at": "2026-10-21T18:32:51+00:00",
       "history": [
         {
           "status": "alter",
@@ -340,20 +364,32 @@
           "notes": "",
           "sha1": "b28dc4aad09123f31228a1d5edebce092b7eaad7",
           "at": "2026-10-12T14:17:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "b28dc4aad09123f31228a1d5edebce092b7eaad7",
+          "at": "2026-10-12T17:22:52+00:00"
         }
       ]
     },
     "Picture/FT_Chilli.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "ae4c38025c72ca7f9ebf43ebf4d82abca6fd3356",
-      "at": "2026-10-12T17:22:32+00:00",
+      "sha1": "27125abfb83633a9f8f5e05325f8dea760c9592c",
+      "at": "2026-10-21T18:35:43+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "ae4c38025c72ca7f9ebf43ebf4d82abca6fd3356",
           "at": "2026-10-12T08:29:12+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "ae4c38025c72ca7f9ebf43ebf4d82abca6fd3356",
+          "at": "2026-10-12T17:22:32+00:00"
         }
       ]
     },
@@ -380,14 +416,20 @@
     "Picture/FT_ChinaRose.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "e5ff57e47b9e7dd807a236c6cf7876a0c0cadaf5",
-      "at": "2026-10-12T17:23:05+00:00",
+      "sha1": "c5904019fb8569b0819ef56089f4bcdaf77792a4",
+      "at": "2026-10-21T18:33:02+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "e5ff57e47b9e7dd807a236c6cf7876a0c0cadaf5",
           "at": "2026-10-12T08:29:14+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5ff57e47b9e7dd807a236c6cf7876a0c0cadaf5",
+          "at": "2026-10-12T17:23:05+00:00"
         }
       ]
     },
@@ -414,36 +456,48 @@
     "Picture/FT_ChinaRoseCutting.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "dd29235e32ccd86bf9255efac84b1affb3ce13b3",
-      "at": "2026-10-12T17:24:39+00:00",
+      "sha1": "cfecee883cc39505912bc038ba1d978d36a2f0ba",
+      "at": "2026-10-21T18:32:52+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "dd29235e32ccd86bf9255efac84b1affb3ce13b3",
           "at": "2026-10-12T08:29:15+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "dd29235e32ccd86bf9255efac84b1affb3ce13b3",
+          "at": "2026-10-12T17:24:39+00:00"
         }
       ]
     },
     "Picture/FT_CinchonaBark.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "2f140c5478193af92e9aa573aae081542fb73fb5",
-      "at": "2026-10-12T17:22:33+00:00",
+      "sha1": "9c2b26cb70697b4dcbdf2d05a5d63564d7bea634",
+      "at": "2026-10-21T18:34:14+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "2f140c5478193af92e9aa573aae081542fb73fb5",
           "at": "2026-10-12T08:29:16+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2f140c5478193af92e9aa573aae081542fb73fb5",
+          "at": "2026-10-12T17:22:33+00:00"
         }
       ]
     },
     "Picture/FT_CinchonaSeedling.png": {
       "status": "approved",
-      "notes": "Kept as is for consistency with approved variant FT_CinchonaTree (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
-      "sha1": "4e23331dea6a728acce84b62225c2063518ef0fe",
-      "at": "2026-10-12T17:35:54+00:00",
+      "notes": "",
+      "sha1": "daf4065063fd51c7b7f00663dbabf0a5b2f60dce",
+      "at": "2026-10-21T18:37:33+00:00",
       "history": [
         {
           "status": "approved",
@@ -456,6 +510,12 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "4e23331dea6a728acce84b62225c2063518ef0fe",
           "at": "2026-10-12T17:01:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Kept as is for consistency with approved variant FT_CinchonaTree (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+          "sha1": "4e23331dea6a728acce84b62225c2063518ef0fe",
+          "at": "2026-10-12T17:35:54+00:00"
         }
       ]
     },
@@ -552,78 +612,108 @@
     "Picture/FT_CobraCarcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "a28202f681346a02bea493fb099fe4c6f2c0350e",
-      "at": "2026-10-12T17:24:39+00:00",
+      "sha1": "0a4456a5534a99c1dd041c0bedf0c3fa482ba5a3",
+      "at": "2026-10-21T18:34:14+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "a28202f681346a02bea493fb099fe4c6f2c0350e",
           "at": "2026-10-12T08:29:20+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a28202f681346a02bea493fb099fe4c6f2c0350e",
+          "at": "2026-10-12T17:24:39+00:00"
         }
       ]
     },
     "Picture/FT_Coconut.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "f314316bff47dc27d726cd11adbe935390ecfb45",
-      "at": "2026-10-12T17:23:06+00:00",
+      "sha1": "a6bea49b268a35af664e8b470458c4f0229f4127",
+      "at": "2026-10-21T18:33:03+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "f314316bff47dc27d726cd11adbe935390ecfb45",
           "at": "2026-10-12T08:29:21+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f314316bff47dc27d726cd11adbe935390ecfb45",
+          "at": "2026-10-12T17:23:06+00:00"
         }
       ]
     },
     "Picture/FT_CoconutGreen.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "9f0ccb66fe599ea537634d45c66d268554e5fdcb",
-      "at": "2026-10-12T17:22:59+00:00",
+      "sha1": "19ac9d068465804e655cd700ddb4e08cfb4fe2f0",
+      "at": "2026-10-21T18:34:03+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "9f0ccb66fe599ea537634d45c66d268554e5fdcb",
           "at": "2026-10-12T08:29:23+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9f0ccb66fe599ea537634d45c66d268554e5fdcb",
+          "at": "2026-10-12T17:22:59+00:00"
         }
       ]
     },
     "Picture/FT_CoconutMeat.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "e98a2d32211278c3632cc2c812c8bf1d73e7dba4",
-      "at": "2026-10-12T17:22:22+00:00",
+      "sha1": "d79150c3cfa50e114a64b305d544e0f02783fdcf",
+      "at": "2026-10-21T18:35:16+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "e98a2d32211278c3632cc2c812c8bf1d73e7dba4",
           "at": "2026-10-12T08:29:24+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e98a2d32211278c3632cc2c812c8bf1d73e7dba4",
+          "at": "2026-10-12T17:22:22+00:00"
         }
       ]
     },
     "Picture/FT_CoconutShellBowl.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "e5bc675e478b07e432778f750872a219c81e95c6",
-      "at": "2026-10-12T17:22:53+00:00",
+      "sha1": "1c204958c985c33421b8dcb6946da381acc423f2",
+      "at": "2026-10-21T18:34:03+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "e5bc675e478b07e432778f750872a219c81e95c6",
           "at": "2026-10-12T08:29:24+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e5bc675e478b07e432778f750872a219c81e95c6",
+          "at": "2026-10-12T17:22:53+00:00"
         }
       ]
     },
     "Picture/FT_CoconutWater.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "01b36f7c3541e88fc57f61bea40b839a99c2bfe4",
-      "at": "2026-10-12T17:22:34+00:00",
+      "sha1": "f888a0bda78fb4b799a4ef3ec2c0e86c5a0b7fc3",
+      "at": "2026-10-21T18:34:36+00:00",
       "history": [
         {
           "status": "approved",
@@ -642,20 +732,32 @@
           "notes": "",
           "sha1": "01b36f7c3541e88fc57f61bea40b839a99c2bfe4",
           "at": "2026-10-12T10:39:11+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "01b36f7c3541e88fc57f61bea40b839a99c2bfe4",
+          "at": "2026-10-12T17:22:34+00:00"
         }
       ]
     },
     "Picture/FT_CoffeeBerries.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "81b447479430e3a2b7cfaee311726a04c9467453",
-      "at": "2026-10-12T17:22:20+00:00",
+      "sha1": "789c9b021677957657cd9301e0cd4a96cfa56070",
+      "at": "2026-10-21T18:35:16+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "81b447479430e3a2b7cfaee311726a04c9467453",
           "at": "2026-10-12T08:29:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "81b447479430e3a2b7cfaee311726a04c9467453",
+          "at": "2026-10-12T17:22:20+00:00"
         }
       ]
     },
@@ -731,29 +833,41 @@
     },
     "Picture/FT_Crab.png": {
       "status": "approved",
-      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
-      "sha1": "5845250943b7aee806a5e73b40454b3bbae27485",
-      "at": "2026-10-12T17:20:33+00:00",
+      "notes": "",
+      "sha1": "2b73d67260c3454c212183bb87d860fa67962e33",
+      "at": "2026-10-21T18:38:14+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "5845250943b7aee806a5e73b40454b3bbae27485",
           "at": "2026-10-12T17:03:06+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "5845250943b7aee806a5e73b40454b3bbae27485",
+          "at": "2026-10-12T17:20:33+00:00"
         }
       ]
     },
     "Picture/FT_Driftwood.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "4631a21549b18d130ef840f6de0325488a9f7c7f",
-      "at": "2026-10-12T17:22:03+00:00",
+      "sha1": "ae893f3688a16a71888f61368bc88dd9071e1ec9",
+      "at": "2026-10-21T18:38:29+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "4631a21549b18d130ef840f6de0325488a9f7c7f",
           "at": "2026-10-12T08:29:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4631a21549b18d130ef840f6de0325488a9f7c7f",
+          "at": "2026-10-12T17:22:03+00:00"
         }
       ]
     },
@@ -906,22 +1020,28 @@
     "Picture/FT_FishTrap.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "a5494a75d5b10e3d7151e262a17a0dcfffcf77c4",
-      "at": "2026-10-12T17:21:13+00:00",
+      "sha1": "e7bb9670341b274c6a4aa07964301636190c1097",
+      "at": "2026-10-21T18:36:15+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "a5494a75d5b10e3d7151e262a17a0dcfffcf77c4",
           "at": "2026-10-12T08:29:59+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a5494a75d5b10e3d7151e262a17a0dcfffcf77c4",
+          "at": "2026-10-12T17:21:13+00:00"
         }
       ]
     },
     "Picture/FT_FishTrapSet.png": {
       "status": "approved",
-      "notes": "needs to be fully in the water with no small fish\n",
-      "sha1": "20e7c7720339c0fd9d8a39987aec8f12bc4eeff9",
-      "at": "2026-10-12T17:21:20+00:00",
+      "notes": "",
+      "sha1": "2ffa524bc39531b61265795f919d9e7814d9ebe9",
+      "at": "2026-10-21T18:32:38+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -952,6 +1072,12 @@
           "notes": "needs to be fully in the water with no small fish\n",
           "sha1": "20e7c7720339c0fd9d8a39987aec8f12bc4eeff9",
           "at": "2026-10-12T14:18:39+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "needs to be fully in the water with no small fish\n",
+          "sha1": "20e7c7720339c0fd9d8a39987aec8f12bc4eeff9",
+          "at": "2026-10-12T17:21:20+00:00"
         }
       ]
     },
@@ -977,9 +1103,9 @@
     },
     "Picture/FT_Ginger.png": {
       "status": "approved",
-      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
-      "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
-      "at": "2026-10-12T17:34:45+00:00",
+      "notes": "",
+      "sha1": "1eab11a515a98149cb07cb33c0d685cb7308d2fd",
+      "at": "2026-10-21T18:39:37+00:00",
       "history": [
         {
           "status": "approved",
@@ -1004,6 +1130,12 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
           "at": "2026-10-12T16:55:03+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "e5a82dbab1d4e868a8940f0880a4b9147a1a3939",
+          "at": "2026-10-12T17:34:45+00:00"
         }
       ]
     },
@@ -1070,14 +1202,20 @@
     "Picture/FT_Goatfish.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "2e966346497feefb6b67f76c367ac8eba33fe7b6",
-      "at": "2026-10-12T17:21:04+00:00",
+      "sha1": "161e028be976af536248e61a465658696a6b679c",
+      "at": "2026-10-21T18:36:57+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "2e966346497feefb6b67f76c367ac8eba33fe7b6",
           "at": "2026-10-12T08:30:42+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2e966346497feefb6b67f76c367ac8eba33fe7b6",
+          "at": "2026-10-12T17:21:04+00:00"
         }
       ]
     },
@@ -1124,14 +1262,20 @@
     "Picture/FT_Grouper.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "5f564bc42ec7f34a99aa8a13648a07633c975969",
-      "at": "2026-10-12T17:24:40+00:00",
+      "sha1": "e15d6bdc1b6cbf1ec9866c8167e52e2425c44c6b",
+      "at": "2026-10-21T18:32:40+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "5f564bc42ec7f34a99aa8a13648a07633c975969",
           "at": "2026-10-12T08:30:45+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5f564bc42ec7f34a99aa8a13648a07633c975969",
+          "at": "2026-10-12T17:24:40+00:00"
         }
       ]
     },
@@ -1278,14 +1422,20 @@
     "Picture/FT_Herring.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "9d70c26c78e41ae2780daec9db01cb9a8784f408",
-      "at": "2026-10-12T17:20:58+00:00",
+      "sha1": "88314280d9f7e13bff6fbb7add2aaf4639188df0",
+      "at": "2026-10-21T18:37:27+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "9d70c26c78e41ae2780daec9db01cb9a8784f408",
           "at": "2026-10-12T08:30:55+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9d70c26c78e41ae2780daec9db01cb9a8784f408",
+          "at": "2026-10-12T17:20:58+00:00"
         }
       ]
     },
@@ -1372,42 +1522,60 @@
     "Picture/FT_JasmineCutting.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "2e82614b145e6a5c50e1f39b298543faeaa48bfd",
-      "at": "2026-10-12T17:23:07+00:00",
+      "sha1": "e5ac6004efe38af7f034c8c618ce5b0cb90b3c82",
+      "at": "2026-10-21T18:35:08+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "2e82614b145e6a5c50e1f39b298543faeaa48bfd",
           "at": "2026-10-12T08:34:26+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2e82614b145e6a5c50e1f39b298543faeaa48bfd",
+          "at": "2026-10-12T17:23:07+00:00"
         }
       ]
     },
     "Picture/FT_JasmineFlowers.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "1f0143abcd1e8a3b7fabc4b437505c0772cf07b0",
-      "at": "2026-10-12T17:21:23+00:00",
+      "sha1": "9cebf8c7f66866394570bf7100715092fd3339e5",
+      "at": "2026-10-21T18:35:43+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "1f0143abcd1e8a3b7fabc4b437505c0772cf07b0",
           "at": "2026-10-12T08:34:31+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1f0143abcd1e8a3b7fabc4b437505c0772cf07b0",
+          "at": "2026-10-12T17:21:23+00:00"
         }
       ]
     },
     "Picture/FT_Jujube.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "267fbdd2770d4688674bc63f7b506d9971f68926",
-      "at": "2026-10-12T17:23:07+00:00",
+      "sha1": "7b91f79f60f49b5a444d624db9686d8d20970477",
+      "at": "2026-10-21T18:35:01+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "267fbdd2770d4688674bc63f7b506d9971f68926",
           "at": "2026-10-12T08:34:30+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "267fbdd2770d4688674bc63f7b506d9971f68926",
+          "at": "2026-10-12T17:23:07+00:00"
         }
       ]
     },
@@ -1454,14 +1622,20 @@
     "Picture/FT_KavaRoot.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "a3996e572d534612ef6432c07b3bee6c11e5e039",
-      "at": "2026-10-12T17:24:40+00:00",
+      "sha1": "cb1ca323ba5cf900be00c9b587948c300684bb4d",
+      "at": "2026-10-21T18:34:50+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "a3996e572d534612ef6432c07b3bee6c11e5e039",
           "at": "2026-10-12T08:34:28+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a3996e572d534612ef6432c07b3bee6c11e5e039",
+          "at": "2026-10-12T17:24:40+00:00"
         }
       ]
     },
@@ -1528,14 +1702,20 @@
     "Picture/FT_Lemongrass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "51dd8f403dbd5e92ef21134fffb7573823ac5782",
-      "at": "2026-10-12T17:21:17+00:00",
+      "sha1": "31a7f5e27b4fdd3bba8bea933ecd8ea675382775",
+      "at": "2026-10-21T18:36:44+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "51dd8f403dbd5e92ef21134fffb7573823ac5782",
           "at": "2026-10-12T08:34:35+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "51dd8f403dbd5e92ef21134fffb7573823ac5782",
+          "at": "2026-10-12T17:21:17+00:00"
         }
       ]
     },
@@ -1611,6 +1791,12 @@
         }
       ]
     },
+    "Picture/ft_lq_cinchona_decoction.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2f911ddbb92aca3f39bd682cc2976a77fbb5d70c",
+      "at": "2026-10-21T18:21:52+00:00"
+    },
     "Picture/FT_Macaque.png": {
       "status": "approved",
       "notes": "",
@@ -1634,28 +1820,40 @@
     "Picture/FT_MacaqueCarcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "e1f1d1bab0a8ef03e4d3a10c2d06da5645c5b330",
-      "at": "2026-10-12T17:23:09+00:00",
+      "sha1": "7670cae0d6b70775a3819e8d9fb6d6eec65a743f",
+      "at": "2026-10-21T18:34:04+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "e1f1d1bab0a8ef03e4d3a10c2d06da5645c5b330",
           "at": "2026-10-12T08:34:39+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "e1f1d1bab0a8ef03e4d3a10c2d06da5645c5b330",
+          "at": "2026-10-12T17:23:09+00:00"
         }
       ]
     },
     "Picture/FT_Mango.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "2ba830c474febb4dd49088358f120b72f6f5508b",
-      "at": "2026-10-12T17:24:40+00:00",
+      "sha1": "9e1e9cd711fbe2f0a148f4d84eb494e5e1942b80",
+      "at": "2026-10-21T18:33:03+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "2ba830c474febb4dd49088358f120b72f6f5508b",
           "at": "2026-10-12T08:34:38+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2ba830c474febb4dd49088358f120b72f6f5508b",
+          "at": "2026-10-12T17:24:40+00:00"
         }
       ]
     },
@@ -1722,14 +1920,20 @@
     "Picture/FT_MonitorCarcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "4994a39edb05244d645675bec1cc6768528cdf3b",
-      "at": "2026-10-12T17:22:33+00:00",
+      "sha1": "054fe951e3ec763b24c3a7db28a2afbfe95c11c3",
+      "at": "2026-10-21T18:35:26+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "4994a39edb05244d645675bec1cc6768528cdf3b",
           "at": "2026-10-12T08:35:12+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "4994a39edb05244d645675bec1cc6768528cdf3b",
+          "at": "2026-10-12T17:22:33+00:00"
         }
       ]
     },
@@ -1816,42 +2020,60 @@
     "Picture/FT_MooseCarcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "98ead38d3b7c4e4fa60e05ebd628a66a1453e5ad",
-      "at": "2026-10-12T17:24:41+00:00",
+      "sha1": "727bbe9b7fd3f629dc339b3fb6f28e980d812e7c",
+      "at": "2026-10-21T18:34:37+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "98ead38d3b7c4e4fa60e05ebd628a66a1453e5ad",
           "at": "2026-10-12T08:35:19+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "98ead38d3b7c4e4fa60e05ebd628a66a1453e5ad",
+          "at": "2026-10-12T17:24:41+00:00"
         }
       ]
     },
     "Picture/FT_Mudskipper.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "c447b52afc6f26a597bda803c7308327993d1f90",
-      "at": "2026-10-12T17:23:10+00:00",
+      "sha1": "7bd6edac373773fc69b40733628e3e68f2500d23",
+      "at": "2026-10-21T18:35:09+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "c447b52afc6f26a597bda803c7308327993d1f90",
           "at": "2026-10-12T08:35:20+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c447b52afc6f26a597bda803c7308327993d1f90",
+          "at": "2026-10-12T17:23:10+00:00"
         }
       ]
     },
     "Picture/FT_NipaFruit.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "9e677e7baacff86a98b5e39188b53a562e843ff9",
-      "at": "2026-10-12T17:24:41+00:00",
+      "sha1": "3175deee2a33524c5ac6d740acab72338335c481",
+      "at": "2026-10-21T18:32:53+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "9e677e7baacff86a98b5e39188b53a562e843ff9",
           "at": "2026-10-12T08:35:22+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9e677e7baacff86a98b5e39188b53a562e843ff9",
+          "at": "2026-10-12T17:24:41+00:00"
         }
       ]
     },
@@ -1877,9 +2099,9 @@
     },
     "Picture/FT_Outrigger.png": {
       "status": "approved",
-      "notes": "Kept as is for consistency with approved variant FT_MooredOutrigger (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
-      "sha1": "7a86850cd9bdf62cfa26dd331d3407b016408ab6",
-      "at": "2026-10-12T17:35:54+00:00",
+      "notes": "",
+      "sha1": "9fb082681860e3f55b3e8e3773eaf0b5335c9910",
+      "at": "2026-10-21T18:38:09+00:00",
       "history": [
         {
           "status": "approved",
@@ -1892,6 +2114,12 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "7a86850cd9bdf62cfa26dd331d3407b016408ab6",
           "at": "2026-10-12T16:54:06+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Kept as is for consistency with approved variant FT_MooredOutrigger (owner rule 2026-10-12: drop a rework mark when any variant of the card is approved). Earlier mark is in history.",
+          "sha1": "7a86850cd9bdf62cfa26dd331d3407b016408ab6",
+          "at": "2026-10-12T17:35:54+00:00"
         }
       ]
     },
@@ -1958,14 +2186,20 @@
     "Picture/FT_PalmFrond.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "1a9a29a188a0a1cd2158c5ad629d33e5e4567cfe",
-      "at": "2026-10-12T17:20:19+00:00",
+      "sha1": "13580421d502d52a446aec6ac156e276e70aa0b5",
+      "at": "2026-10-21T18:38:40+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "1a9a29a188a0a1cd2158c5ad629d33e5e4567cfe",
           "at": "2026-10-12T08:35:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "1a9a29a188a0a1cd2158c5ad629d33e5e4567cfe",
+          "at": "2026-10-12T17:20:19+00:00"
         }
       ]
     },
@@ -1992,14 +2226,20 @@
     "Picture/FT_Parrotfish.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "f9a449103059ed9a7edf33bd53e2e5b3151f0f5d",
-      "at": "2026-10-12T17:24:41+00:00",
+      "sha1": "18eab4fb32b0161287def677d8f3336da2958d5a",
+      "at": "2026-10-21T18:33:04+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "f9a449103059ed9a7edf33bd53e2e5b3151f0f5d",
           "at": "2026-10-12T08:35:29+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f9a449103059ed9a7edf33bd53e2e5b3151f0f5d",
+          "at": "2026-10-12T17:24:41+00:00"
         }
       ]
     },
@@ -2397,9 +2637,9 @@
     },
     "Picture/FT_Prawn.png": {
       "status": "approved",
-      "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
-      "sha1": "b76f73b001002e68a13ee63571ed3b03a28f82eb",
-      "at": "2026-10-12T17:28:45+00:00",
+      "notes": "",
+      "sha1": "6c6f5c5c0dbba55cb86c8bb58f8af32b8265e136",
+      "at": "2026-10-21T18:38:14+00:00",
       "history": [
         {
           "status": "approved",
@@ -2412,6 +2652,12 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "b76f73b001002e68a13ee63571ed3b03a28f82eb",
           "at": "2026-10-12T17:01:36+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
+          "sha1": "b76f73b001002e68a13ee63571ed3b03a28f82eb",
+          "at": "2026-10-12T17:28:45+00:00"
         }
       ]
     },
@@ -2478,14 +2724,20 @@
     "Picture/FT_RockSaltSeam.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "af6d4abb390b35383aa70d025ebb37b2940ff58c",
-      "at": "2026-10-12T17:24:42+00:00",
+      "sha1": "3cb858241b977f1647041734e4be5ec1fdecfaad",
+      "at": "2026-10-21T18:35:09+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "af6d4abb390b35383aa70d025ebb37b2940ff58c",
           "at": "2026-10-12T08:36:10+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "af6d4abb390b35383aa70d025ebb37b2940ff58c",
+          "at": "2026-10-12T17:24:42+00:00"
         }
       ]
     },
@@ -2512,14 +2764,20 @@
     "Picture/FT_RopeAndPitons.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "dbf6faa97e1d8c67f2877d6e81f221cb7fda0aea",
-      "at": "2026-10-12T17:22:36+00:00",
+      "sha1": "e940850b0f1f092c6589be0deabd573ef5ae11d2",
+      "at": "2026-10-21T18:34:50+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "dbf6faa97e1d8c67f2877d6e81f221cb7fda0aea",
           "at": "2026-10-12T08:36:12+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "dbf6faa97e1d8c67f2877d6e81f221cb7fda0aea",
+          "at": "2026-10-12T17:22:36+00:00"
         }
       ]
     },
@@ -2542,6 +2800,18 @@
           "at": "2026-10-12T17:24:42+00:00"
         }
       ]
+    },
+    "Picture/FT_SagoDough.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6ef121909c1a928bff4e858c37c16aef7bebd748",
+      "at": "2026-10-21T18:35:44+00:00"
+    },
+    "Picture/FT_SagoFlatbread.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "3bc572b2d5aa87f9345549bb6c49ee7aec243a70",
+      "at": "2026-10-21T18:35:28+00:00"
     },
     "Picture/FT_SagoPalm.png": {
       "status": "approved",
@@ -2586,28 +2856,46 @@
     "Picture/FT_SagoPith.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "9b2c1091decac8dd423a518fec404cb0bb8b649d",
-      "at": "2026-10-12T17:21:42+00:00",
+      "sha1": "bce17141ffa36c212179a5a6f806c5551292acea",
+      "at": "2026-10-21T18:36:23+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "9b2c1091decac8dd423a518fec404cb0bb8b649d",
           "at": "2026-10-12T08:36:18+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9b2c1091decac8dd423a518fec404cb0bb8b649d",
+          "at": "2026-10-12T17:21:42+00:00"
         }
       ]
+    },
+    "Picture/FT_SagoPithDried.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "be2157571a265a3f00276c8fbeca42e92ec0db1d",
+      "at": "2026-10-21T18:38:41+00:00"
     },
     "Picture/FT_SagoShoot.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "f62ca533e7998d0f2b3caf8080a191403945c0a8",
-      "at": "2026-10-12T17:21:30+00:00",
+      "sha1": "bd6e694018c302c5475d082eaa997833cce692fd",
+      "at": "2026-10-21T18:36:15+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "f62ca533e7998d0f2b3caf8080a191403945c0a8",
           "at": "2026-10-12T08:36:19+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "f62ca533e7998d0f2b3caf8080a191403945c0a8",
+          "at": "2026-10-12T17:21:30+00:00"
         }
       ]
     },
@@ -2804,14 +3092,20 @@
     "Picture/FT_SeagullNest.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "8a5deb553f4529ce085570fb2962c4ca8b8f23b3",
-      "at": "2026-10-12T17:21:05+00:00",
+      "sha1": "2042a3ec8f9dab70073999f1d104076b2c885d82",
+      "at": "2026-10-21T18:37:13+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "8a5deb553f4529ce085570fb2962c4ca8b8f23b3",
           "at": "2026-10-12T08:36:30+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8a5deb553f4529ce085570fb2962c4ca8b8f23b3",
+          "at": "2026-10-12T17:21:05+00:00"
         }
       ]
     },
@@ -2838,14 +3132,20 @@
     "Picture/FT_SealCarcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "8c17f939982ec42d067f5f3d3d4af765d6680b3c",
-      "at": "2026-10-12T17:22:38+00:00",
+      "sha1": "63264179cc8f6ed44e8e7a8c633898a2ed509afa",
+      "at": "2026-10-21T18:34:31+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "8c17f939982ec42d067f5f3d3d4af765d6680b3c",
           "at": "2026-10-12T08:36:33+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "8c17f939982ec42d067f5f3d3d4af765d6680b3c",
+          "at": "2026-10-12T17:22:38+00:00"
         }
       ]
     },
@@ -2898,14 +3198,20 @@
     "Picture/FT_Seashells.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "3e2e50ad08f360e8c74f043a444b5ab41b9ddacc",
-      "at": "2026-10-12T17:22:30+00:00",
+      "sha1": "0645c6327e8e890fe08dffe1df10e03ba7ad30b8",
+      "at": "2026-10-21T18:36:24+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "3e2e50ad08f360e8c74f043a444b5ab41b9ddacc",
           "at": "2026-10-12T08:36:35+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3e2e50ad08f360e8c74f043a444b5ab41b9ddacc",
+          "at": "2026-10-12T17:22:30+00:00"
         }
       ]
     },
@@ -2929,11 +3235,17 @@
         }
       ]
     },
+    "Picture/FT_SeaWater.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "d565653699bff3fce836df09b7310a9dd344971d",
+      "at": "2026-10-21T18:21:53+00:00"
+    },
     "Picture/FT_Seaweed.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "d56139165df32bdc12e84d5fd1de179cf3c4b850",
-      "at": "2026-10-12T19:07:40+00:00",
+      "sha1": "b788f3cde005144bddfef749661ffa069deb14b9",
+      "at": "2026-10-21T18:34:38+00:00",
       "history": [
         {
           "status": "approved",
@@ -2958,6 +3270,12 @@
           "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
           "sha1": "f749b476ba5c79052f827626c597f5d8febd1d04",
           "at": "2026-10-12T17:01:07+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "d56139165df32bdc12e84d5fd1de179cf3c4b850",
+          "at": "2026-10-12T19:07:40+00:00"
         }
       ]
     },
@@ -3024,14 +3342,20 @@
     "Picture/FT_SnakeGrass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "3ede0c9006a7a5e43ec8fb789faee1f985b29f9c",
-      "at": "2026-10-12T17:23:15+00:00",
+      "sha1": "bf252b649919a2b53c89e705c540562f3be99e21",
+      "at": "2026-10-21T18:34:04+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "3ede0c9006a7a5e43ec8fb789faee1f985b29f9c",
           "at": "2026-10-12T08:36:50+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "3ede0c9006a7a5e43ec8fb789faee1f985b29f9c",
+          "at": "2026-10-12T17:23:15+00:00"
         }
       ]
     },
@@ -3078,28 +3402,40 @@
     "Picture/FT_SpiderLilyBulb.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "5156f0baa61c6ef4e410723b46bbff86205846b4",
-      "at": "2026-10-12T17:21:52+00:00",
+      "sha1": "b10ff8aa1d7c2fd5daeca1e9f8296dac4f38349b",
+      "at": "2026-10-21T18:34:51+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "5156f0baa61c6ef4e410723b46bbff86205846b4",
           "at": "2026-10-12T08:36:53+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "5156f0baa61c6ef4e410723b46bbff86205846b4",
+          "at": "2026-10-12T17:21:52+00:00"
         }
       ]
     },
     "Picture/FT_SpiderLilyLeaves.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "9bb1793a7b7edf7047f1df72f2d139856e70ec50",
-      "at": "2026-10-12T17:23:16+00:00",
+      "sha1": "27fc0aca03390bf2fdab76fa160017bcbb22d308",
+      "at": "2026-10-21T18:33:04+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "9bb1793a7b7edf7047f1df72f2d139856e70ec50",
           "at": "2026-10-12T08:36:54+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "9bb1793a7b7edf7047f1df72f2d139856e70ec50",
+          "at": "2026-10-12T17:23:16+00:00"
         }
       ]
     },
@@ -3166,14 +3502,20 @@
     "Picture/FT_Threadfin.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "a6e64ad4d89a3d7931bff5a8a2b1a33b4c3ffe8c",
-      "at": "2026-10-12T17:22:31+00:00",
+      "sha1": "1951a46fe120c6812c0afe8b84e17f0478fbe9e0",
+      "at": "2026-10-21T18:35:16+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "a6e64ad4d89a3d7931bff5a8a2b1a33b4c3ffe8c",
           "at": "2026-10-12T08:36:57+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "a6e64ad4d89a3d7931bff5a8a2b1a33b4c3ffe8c",
+          "at": "2026-10-12T17:22:31+00:00"
         }
       ]
     },
@@ -3206,14 +3548,20 @@
     "Picture/FT_TropicalAlmond.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "19bf26d72bc504f08d5d9e2199bbca7a4d87c419",
-      "at": "2026-10-12T17:23:16+00:00",
+      "sha1": "877ba24a21db44fbbe08e16d88ee31f5a9908c73",
+      "at": "2026-10-21T18:33:05+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "19bf26d72bc504f08d5d9e2199bbca7a4d87c419",
           "at": "2026-10-12T08:36:56+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "19bf26d72bc504f08d5d9e2199bbca7a4d87c419",
+          "at": "2026-10-12T17:23:16+00:00"
         }
       ]
     },
@@ -3280,14 +3628,20 @@
     "Picture/FT_WalrusCarcass.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "399ad9a13265eb893fe81b15c92f34253f52d1b9",
-      "at": "2026-10-12T17:24:42+00:00",
+      "sha1": "3afff45e8cdbad5753718ae3e130f7565ab83b1e",
+      "at": "2026-10-21T18:32:40+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "399ad9a13265eb893fe81b15c92f34253f52d1b9",
           "at": "2026-10-12T08:37:04+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "399ad9a13265eb893fe81b15c92f34253f52d1b9",
+          "at": "2026-10-12T17:24:42+00:00"
         }
       ]
     },
@@ -3314,14 +3668,20 @@
     "Picture/FT_WeevilLilyLeaves.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "bba5d9890926df401200c26da1a5c13e2f2baf4a",
-      "at": "2026-10-12T17:21:49+00:00",
+      "sha1": "abbe77be71f0a468245fdc34398962aec42ea862",
+      "at": "2026-10-21T18:36:16+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "bba5d9890926df401200c26da1a5c13e2f2baf4a",
           "at": "2026-10-12T08:37:10+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "bba5d9890926df401200c26da1a5c13e2f2baf4a",
+          "at": "2026-10-12T17:21:49+00:00"
         }
       ]
     },
@@ -3348,14 +3708,20 @@
     "Picture/FT_WeevilLilyRhizome.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "c3718029f0c0520346ceb6b7edb85d5c06c9a906",
-      "at": "2026-10-12T17:22:35+00:00",
+      "sha1": "1bc076729f7797fefc07853e2f3230b22e3c3698",
+      "at": "2026-10-21T18:35:59+00:00",
       "history": [
         {
           "status": "approved",
           "notes": "",
           "sha1": "c3718029f0c0520346ceb6b7edb85d5c06c9a906",
           "at": "2026-10-12T08:37:09+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c3718029f0c0520346ceb6b7edb85d5c06c9a906",
+          "at": "2026-10-12T17:22:35+00:00"
         }
       ]
     },
@@ -3488,8 +3854,8 @@
     "Picture/FT_Yam.png": {
       "status": "approved",
       "notes": "",
-      "sha1": "fa8c73cf11e81b7f6122ae2857d562f265fa794a",
-      "at": "2026-10-12T17:22:33+00:00",
+      "sha1": "a9ae98f7a74d0e8b456f724943f548b4f7eef8e3",
+      "at": "2026-10-21T18:36:52+00:00",
       "history": [
         {
           "status": "regenerate",
@@ -3502,8 +3868,20 @@
           "notes": "",
           "sha1": "fa8c73cf11e81b7f6122ae2857d562f265fa794a",
           "at": "2026-10-12T10:39:27+00:00"
+        },
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "fa8c73cf11e81b7f6122ae2857d562f265fa794a",
+          "at": "2026-10-12T17:22:33+00:00"
         }
       ]
+    },
+    "Picture/FT_YamBaked.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4fb0ff146c29a594b1b4116f9bf2039497772713",
+      "at": "2026-10-21T18:30:48+00:00"
     }
   }
 }
