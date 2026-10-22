@@ -1,185 +1,112 @@
 # Roadmap: Mod Update Manager
-Version at time of writing: 2.1.71 (source; the suite was repacked current at 2.1.70/2.1.71)
-Date: 2026-10-18 (Current State refreshed by `/consolidate-audit`; phase rows reconciled against source through the 2026-10-18 commit `5fc91db89`)
-Audit score: 10/10 at the `.audit/summary.md` consolidation of 2026-10-18 (critical-analysis + code-quality both 2026-10-18, source at `5fc91db89`)
+Version at time of writing: 2.1.71
+Date: 2026-10-20
+Audit score: 10/10 - SOLID (0 CRITICAL, 0 DESIGN GAP, 0 open WARNING)
 
 ## Current State
 
-**Theme**: A standalone BepInEx utility for players who run modpacks. It scans installed CSFF mods,
-checks them against Nexus Mods for updates, and ships a one-click "Install & Update" tab that
-extracts the 15-mod crispywhips suite straight out of ZIPs embedded in its own DLL (CSFF Mod
-Framework, Advanced Copper Tools, Herbs & Fungi, Water Driven Infrastructure, Community Mod Chest,
-Homestead Perks, Repeat Action, Quick Transfer, Skill Speed Boost, Forest Lore, Far Territory, Harsh
-Wilds, Partner Overhaul, Sirus23 Mod Collection, Utility Belt). It never downloads, deletes, or
-auto-updates anything from Nexus.
+**Theme**: A standalone BepInEx in-game utility (F3) that installs and updates the 15-mod crispywhips suite from ZIPs embedded in its own DLL (offline, no API key), and checks the player's other installed mods against Nexus Mods. Zero game content; zero runtime dependency on the framework.
 
-**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom card images. UTILITY mod:
-~52 tracked `.cs` files plus `Patcher/GameLoadPatch.cs`, 15 embedded suite ZIPs
-(`Resources/EmbeddedMods/`), 1 IMGUI dashboard (F3), 1 Harmony postfix
-(`GameLoad.LoadMainGameData`), 253 localization keys (EN + SimpCn, parity CLEAN by
-`Development_Tools/Check-LocalizationParity.ps1`; `MumText` reads them at runtime - round-2 feature 22).
+**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom card images (UTILITY mod - all card-content sections are N/A by design). Ships 253 EN + 253 CN localization keys (parity clean) and 15 embedded suite ZIPs.
 
-**Stability**: 10/10. The 2026-10-18 critical-analysis is SOLID (0 critical / 0 mechanical / 0 design /
-0 broken promises) and code-quality is 10/10 (1 advisory). The two historical installer defects every
-prior pass carried - Select All + Apply downgrading a newer install (A12), and the relaunch button
-running the wrong Steam app id (A11) - stay fixed in source and gated. Since the 2026-10-11
-consolidation the suite was repacked twice (2.1.70, 2.1.71), so the embed-lag and same-version
-content-drift findings (C1/C2) that pass carried are cleared; the embeds now carry the current suite
-(ACT 1.18.10, CMC 1.69.18, framework 2.28.7, FT 0.1.9, Forest Lore 0.1.6, Harsh Wilds 0.11.7, H&F
-1.14.11, Homestead Perks 1.3.6, Partner Overhaul 1.1.4, Quick Transfer 1.9.1, Repeat Action 2.2.2,
-Sirus23 1.22.7, Skill Speed Boost 1.11.1, Utility Belt 0.1.4, WDI 1.12.11).
+**Stability**: 10/10 - critical-analysis (2026-10-20, v2.1.71) is SOLID; code-quality (2026-10-18) is 10/10 with one advisory (G2). The two historical installer defects (wrong Steam app id A11; Select-All silent downgrade A12) stay fixed and gated. Release-pack staleness (C1/C2) and the dated README disk figure (H3) are resolved by the 2.1.70/2.1.71 repacks.
 
-**Open work**: no code is left. The round-2 plan (features 1-23, phases A-G) drained 2026-10-03 and is
-`Documentation/Design/Mod_Update_Manager_Round2_As_Built.md`; every feature is built and gated. There
-is no `Documentation/Plans/Mod_Update_Manager/` plan doc. The only remaining work is human verification:
-~30 pending tracker rows (T2.1250-T2.1265, T2.1268-T2.1272 and the older T2.222-T2.227, T2.263,
-T2.370-T2.373), each closable only at a running build. No retrospective names Mod_Update_Manager, `MUM`
-or `mod_update_manager` (`Documentation/Retrospectives/INDEX.md` has no row for it). The
-audit-remediation plan (N1-N7) closed 2026-09-08
-(`Documentation/Design/Mod_Update_Manager_Audit_Remediation_As_Built.md`) and the round-1 content plan
-on 2026-09-26 (`Documentation/Design/Mod_Update_Manager_Content_Update_As_Built.md`).
+**Open work**: None. No open or pending retrospective in `Documentation/Retrospectives/INDEX.md` names this mod, `MUM`, or `mod_update_manager`. ~30 MUM playthrough-tracker rows remain pending (runtime evidence only; no code blocked on them).
 
-**Framework compliance**: N/A by design, and this is a deliberate architectural stance, not a gap.
-MUM declares no `[BepInDependency]` on CSFFModFramework, ModCore, or ModLoader and uses zero Tier 2
-services (`ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin` - grep returns 0 hits;
-the `Dependency*` source files READ other mods' `[BepInDependency]` declarations for the Conflicts tab,
-they do not declare one). Its mod-local `SimpleJson`, `MiniZip`, and `ModScanner` are intentional
-zero-dependency implementations, NOT framework-service duplication to be "fixed". Do not migrate.
-
-**Known risk surface** (unscored):
-- `Resources/EmbeddedMods/*.zip` is gitignored, so embedded-payload drift is invisible to every git
-  diff and code-level audit. It is GATED: `Development_Tools/Tests/EmbeddedZipCurrency.Tests.ps1` fails
-  (in the strict mode the release path uses) when an embed lags its source; the 2.1.70/2.1.71 repacks
-  cleared the known-stale pins. `Development_Tools/Tests/MUM-EmbedContents.Tests.ps1` (plan feature 13)
-  adds the DLLs inside each embed and the built DLL's resources.
-- Hard-coded external identifiers (the Steam app id, the Nexus registry) pass every build and
-  preflight when wrong. Both are gated by `Development_Tools/Tests/MUM-ExternalIdentifiers.Tests.ps1`
-  and `Harness-LaunchNoArgs.Tests.ps1`, with self-demonstrations on the defects MUM actually shipped.
-  The studio rows of the Nexus registry are generated from `Development_Tools/Nexus/nexus-mods.json`
-  and each `ModInfo.json` by `Development_Tools/Update-KnownModRegistry.ps1` (round-2 feature 14), never
-  hand-edited.
-- In-game verification debt, all `pending` in the tracker's `items` map: T2.222-T2.224, T2.227, T2.263,
-  T2.370-T2.373, T2.1250-T2.1265 and T2.1268-T2.1272.
+**Framework compliance**: N/A - MUM declares no `[BepInDependency]` on the framework by design and ships no CardData, so Tier 2 services (ActionRouter/SpawnService/TickEvents) do not apply. Its only game touchpoint is a single stable `GameLoad.LoadMainGameData` postfix (startup check trigger). No deprecated/dangerous patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefix, no `Resources.FindObjectsOfTypeAll`, no `Object.Destroy` on cards, no `ModLoaderVerison`/`ModEditorVersion`. Hand-reads PE/CLI metadata rather than `Assembly.Load`.
 
 ---
 
 ## Phase 0: Stabilize
 
-> No open retrospective and 0 open source findings, so there is no code to stabilize. The release
-> blocker earlier passes carried (a suite repack waiting on the suite mods' own releases) has happened:
-> the suite is repacked current at 2.1.70/2.1.71.
-
-| Item | Type | Priority | Status |
-|------|------|----------|--------|
-| Ship the 2026-09-25 `[Unreleased]` fixes (downgrade, wrong relaunch id, registry gap, missing timeout, auto-persist) | Release | done | SHIPPED in 2.1.59, on Nexus since 2.1.61 (2026-09-26) |
-| Repack the suite current and bump MUM | Release | done | DONE - 2.1.70/2.1.71 repacks embed the current suite; `EmbeddedZipCurrency` pins expired |
-| Move T2.263 from `confirmedItems` to `items` in `.claude/playthrough-test-status.json` | Tracker fix | done | DONE 2026-09-25 |
-| Pester gate: FAIL when any embedded suite ZIP's version lags its source mod | Regression guard | done | SHIPPED 2026-09-08 (`03bb95706`, `EmbeddedZipCurrency.Tests.ps1`) |
-| Gate hard-coded external identifiers (Nexus registry vs `nexus-mods.json`, every `steam://run` literal vs the CSFF app id) | Regression guard | done | SHIPPED 2026-09-25 (`c36ffc60f`, `f75e4ea60`, `MUM-ExternalIdentifiers.Tests.ps1`) |
+> Skipped - audit score is 10/10 and no retrospective is open. Nothing to stabilize.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes hygiene. Everything the earlier roadmap listed here has shipped; the one remaining
-> choice is whether to drop the README build pin to a range.
+> Health maintenance only; no table-stakes gaps remain open.
 
-| Item | Type | Priority | Status |
-|------|------|----------|--------|
-| End the build-pin drift: the README reads `EA 0.69c` and still moves at the next game update; advertise a range (`EA 0.68 and later`) instead, since MUM's only game touchpoint is the stable `GameLoad.LoadMainGameData` postfix | Docs honesty (recurring) | P1 | OPEN - a Quick docs decision. The parsed per-mod chip is the richer alternative (Phase 3) |
-| Regenerate `.audit/feature-map.md` (`/feature-map Mod_Update_Manager`) | Audit hygiene | P1 | OPEN - Quick. It dates from v2.1.32 and names none of the dependency validator, install-incomplete badge, rate-limit re-check, framework-stale banner, persisted filter or the round-2 features |
-| Versions synced across ModInfo/Plugin.cs/README (all 2.1.71) | Version hygiene | done | read 2026-10-18 |
-| Build 0-warn, bin/Release sync clean, no `ModLoaderVerison`/`ModEditorVersion` | Build hygiene | done | preflight |
-| Localization: EN + `SimpCn.csv`, parity CLEAN (253/253); `MumText` reads them at runtime | Localization | done | 2026-10-18 |
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| Re-run `EmbeddedZipCurrency.Tests.ps1` at each release to confirm no suite mod has drifted ahead of its embed | Release hygiene | P1 | Quick |
+| Regenerate `feature-map.md` (stale since v2.1.32 - misses the dependency validator, install-incomplete badge, rate-limit re-check, framework-stale banner, persisted filter) | Regression anchor | P1 | Quick |
+| Keep versions synced across ModInfo/Plugin.cs/README (currently 2.1.71, matched) | Version hygiene | P1 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> Hardening the flagship installer. Every installer item below is shipped and gated.
+> Feature depth for the utility itself. All are polish/robustness, none blocks release. Each carries an open design decision (see `.audit/ideas.md`).
 
-### Apply never downgrades, never wipes what it cannot replace  [SHIPPED]
-**What**: Apply re-reads each installed version at apply time and skips a row whose embed is older,
-`[Unknown]`, or installed elsewhere, naming skipped rows in a done line under the restart banner; the
-rules live in `SuiteBatch.Plan` (`SuiteBatch.cs:165-183`), each pinned by `MUM-CompiledLogic.Tests.ps1`.
-**Status**: published; in-game checks T2.263, T2.1253.
+### Crash-safe destructive clean (mid-extract case)
+**What**: A `.bak` snapshot of an installed suite-mod folder, restored on a failed swap, to close the small remaining window where an I/O failure *after* the wipe (disk full, AV lock mid-write) leaves `[Install Incomplete]`.
+**Why**: The staging+rename design already makes this rare; this closes the last non-reversible window.
+**Requires**: none (builds on `SuiteInstaller.InstallSteps` two-rename swap).
+**Complexity**: Medium - decision needed: `.bak` restore vs leave as-is.
 
-### Crash-safe destructive clean  [SHIPPED]
-**What**: each mod is extracted into a staging folder, size-verified, and swapped in by rename; a failed
-swap is undone, and an interrupted run's leftovers are cleared first (2.1.71 clears `mum_work` leftovers
-at start, plan 2.7).
-**Status**: in-game checks T2.370, T2.1252, T2.1257, T2.1258. Residual (mid-extract I/O loss window) is
-ideas.md "From Audit Findings" row 1 - a decision, not a defect.
+### Runtime localization decision
+**What**: Either route the IMGUI strings through `LocalizationManager`/the dictionary so the 253 SimpCn rows are actually consumed, or declare MUM English-only, drop the CN rows and exempt it from the parity gate. Do not do half of the first.
+**Why**: Today no MUM `.cs` calls `GetText`, so the Chinese rows are inert while still gated for parity.
+**Requires**: none.
+**Complexity**: Medium.
 
-### Retire auto-persisted mapping rows left by earlier versions  [SHIPPED]
-**What**: on load, a mod's `ModUpdateManager_Mappings.json` rows are dropped when every one equals the
-current `KnownModRegistry` id; a genuine override is kept (`ModMappingManager.RetireRegistryDuplicates`).
-
-### Suite-install verification pass, dependency / SoftDependency graph validator  [SHIPPED]
-**Status**: shipped; verification debt T2.227 (dependencies), T2.263 (install completeness).
+### Conflict-detector precision (GUID-keyed pairs)
+**What**: Extend the functional-conflict tier from name-keyed (`ConflictDetector._knownConflicts`) to GUID-keyed, the way duplicate plugin IDs are already GUID-confirmed.
+**Why**: Removes the "name-based guess" caveat for the functional tier.
+**Requires**: none.
+**Complexity**: Medium.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Cross-mod tooling. MUM is the natural consumer of metadata the rest of the suite already produces.
-> Every item in this phase is shipped.
+> Cross-mod/tooling hooks that lean on the rest of the studio.
 
-### Stale-framework detector banner  [SHIPPED - debt T2.224]
-### Nexus request timeout  [SHIPPED - `REQUEST_TIMEOUT_SECONDS = 30` on every request]
-### Rate-limit handling: manual re-check + one automatic retry  [SHIPPED - debt T2.223, T2.372]
-### Per-mod "compatible game build" chip  [SHIPPED - `CompatibilityChip.cs`, "Tested: EA x.y"; debt T2.371, T2.1251]
-### Build-time `KnownModRegistry` generation  [SHIPPED - round-2 feature 14, `fd222e4d8`]
+### Generate `KnownModRegistry` at build time
+**What**: Build the registry from each sibling `ModInfo.json` + `nexus-mods.json` rather than hand-editing it (the drop-detection gate `c36ffc60f` already forces regeneration via `Update-KnownModRegistry.ps1`).
+**Why**: Removes the hand edit the gate forces; keeps ids authoritative from one source.
+**Requires**: coordination with `/export-to-repo` and `nexus-mods.json`.
+**Complexity**: Medium.
 
-> The per-mod chip (Phase 3) and the README build-pin range (Phase 1) remain the two live forward
-> options for compat labelling; both need their stated decision. The suite compatibility-matrix FILE
-> was ruled out 2026-10-01 (needs a release-time producer outside MUM); its cheap cousin, "installed
-> framework older than the pack", is round-2 feature 11 and shipped.
+### Honor `NexusModId` in each first-party `ModInfo.json`
+**What**: Have each first-party mod declare its own Nexus id (MUM's own `ModInfo.json` still lacks one) so mapping stops depending on the hardcoded registry.
+**Why**: Decentralizes id ownership to the mod that knows it.
+**Requires**: `/export-to-repo` coordination.
+**Complexity**: Medium.
+
+### Per-mod health/compat chips
+**What**: Bake each first-party `.audit/summary.md` Overall Score into a package-time JSON MUM can show as a "Health: N/10" chip; and/or a per-mod "compatible game build" chip parsed from a clean running-game-build source.
+**Why**: Surfaces studio audit state and compat inside the installer.
+**Requires**: a clean running-game-build source (`GameTechInfo` in `.decomp/`).
+**Complexity**: Complex.
 
 ---
 
 ## Phase 4: Polish
 
-> No card art exists or is wanted here (0 CardData). Polish for this mod means UI affordances and precision.
+> MUM ships no card art, so the usual art/animation phase is N/A. Text/robustness polish only.
 
-| Item | What | Status / Complexity |
-|------|------|---------------------|
-| Persist the search filter | `_searchFilter` saved into `ModPreferences` | SHIPPED (debt T2.222) |
-| Drop the `//`-comment header from the mappings file | `CreateDefaultMappings` writes bare JSON; `SimpleJson` still strips `//` so old files parse | SHIPPED (`35642c7ca`) |
-| Framework-first install order | `ApplySuiteUpdates` puts `CSFF_Mod_Framework` first when selected | SHIPPED (`650625393`). Optional: a "framework installed first" note in the restart banner - Quick |
-| MUM runtime-localization | `MumText` reads the CSV; 253 rows, parity CLEAN | SHIPPED (round-2 feature 22), debt T2.1272 |
-| Sortable mod list | `ModSorter` + the Sort button (name / status / endorsements / author; favorites on top; choice remembered) | SHIPPED (round-2 feature 18), debt T2.1268 |
-| Conflict-detector precision | Pairs re-keyed by `BepInPlugin` GUID; name guesses labelled as a heuristic tier | SHIPPED, debt T2.373. GUID-keying the functional tier too is ideas.md Deferred Specs row 3 |
-| Window opens once; a check never moves you off your tab | `UpdateWindowPolicy` + `OpenWindowOnUpdates` | SHIPPED (round-2 feature 1), debt T2.1250 |
-| MUM's own line on the Install & Update tab | Its version + a Nexus page button above the suite rows | SHIPPED (round-2 feature 23), debt T2.1256 |
-| Playthrough-test coverage | ~30 MUM rows, all `pending` in `items`. The only route from the MEDIUM feature groups to any VERIFIED grade | OPEN - human-gated |
+| Item | What | Complexity |
+|------|------|------------|
+| Build-pin drift | README reads `EA 0.69c`; advertise a range (`EA 0.68 and later`) since the only touchpoint is the stable `GameLoad.LoadMainGameData` postfix, or build the parsed compat chip | Quick |
+| G2 advisory (optional) | Promote the two `ModComparisonView` catch-path traces from LogDebug to LogInfo if version comparison ever needs field diagnosis | Quick |
+| 429 auto-backoff | Add a single bounded retry to the 429 branch (today it flags and warns, no retry) - needs a retry-count/delay-ceiling decision | Medium |
 
 ---
 
 ## Long-term Vision
 
-> Where this mod should be at v3.0.
+> Where MUM should be at v3.0.
 
-MUM's endpoint is the suite's front door: the one thing a player installs first, which then installs
-and keeps current everything else, and which can explain a broken load order without a log file. Both
-halves are now essentially finished: the Nexus-tracking half, and the installer half, which validates
-before it deletes, never moves a mod backwards, swaps in a verified staged copy, lets a failed row be
-retried, knows about dependencies, and keeps its working folders out of every loader's view. Self-update
-stays out: MUM can update all 15 suite mods but not itself, because it never downloads and its own DLL
-is locked while running; the Install & Update tab's line for MUM itself says so and links its Nexus page.
+MUM's natural endpoint is a self-maintaining suite hub: the registry, embeds and health chips all generated at package time from the studio's own sources, so a release is the only hand step. The biggest addition that is not yet justified is MUM self-update via `.pending` staging - high-risk because it touches its own running DLL - which becomes natural only once the crash-safe swap (Phase 2) and build-time generation (Phase 3) are both proven.
 
-**Former major additions, each now decided in the round-2 plan:**
-- **MUM self-update via `.pending` staging** - ruled out 2026-10-01 (Considered table).
-- **Read-only mod profiles** - round-2 feature 20; a profile that drives the installer stays deferred.
-- **Backup and rollback** - round-2 feature 12, opt-in "keep the previous version" and Roll back.
-- **In-game "What's New" popup** - replaced by NEW chips and a version history, round-2 feature 19.
-- **Health chip per first-party row** - ruled out (Considered table: `.audit/` is gitignored and goes
-  stale, so the chip would show players a self-assessed score).
+**Potential major additions** (not yet justified - revisit after Phase 3):
+- Non-intrusive in-gameplay update indicator (badge vs one-time toast, gated to a safe game state) - fits the "tell me when something changed without leaving the game" role.
+- Suite compatibility matrix of tested version combos - MUM flags untested installed combinations; fits the installer's "is this safe to run together" role.
+- In-game "What's New" popup on version bump - surfaces changelog without opening Nexus.
 
-Full inventory: `Documentation/Design/Mod_Update_Manager_Round2_As_Built.md` (the round-2 plan, as built
-2026-10-03; its Considered table holds what was ruled out). Standing guardrails still apply: every
-backup/rollback and file-deletion path is opt-in and audited before wiring, and MUM stays
-zero-runtime-dependency.
+Any of these worth building belongs in a plan under `Documentation/Plans/Mod_Update_Manager/` (which does not currently exist) or that plan's Considered table with its reason; never a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -187,36 +114,27 @@ zero-runtime-dependency.
 
 | Trigger | Action |
 |---------|--------|
-| Any suite mod changes | Repackage (`/package-mod-suite` / `Pack-Suite.ps1`) BEFORE deploying MUM, and deploy MUM LAST - framework, then content mods, then repackage, then MUM |
-| A repack while MUM's own version is unpublished | Keep the version and fold into its CHANGELOG section, one dated section for every unpublished change (`/package-mod-suite` Step 2) |
-| A suite mod's source moves ahead of its embed with no MUM release | Pin it in `$knownStaleEmbeds` keyed on the EMBEDDED version; the next repackage expires it |
-| Every repackage | State which suite-mod versions shipped in the commit message and CHANGELOG; the payload is gitignored and otherwise leaves no trace |
-| Any new suite mod, or any new `JsonDataLoader.DirToTypeName` folder type | Update the content-folder lists in BOTH `Pack-Suite.ps1` AND `Deploy-Mods.ps1`, plus `SuiteModRegistry.cs`, then run `Deploy-Mods.Tests.ps1` |
-| A studio mod gets a Nexus page | Add it to `Development_Tools/Nexus/nexus-mods.json`, then run `powershell -File Development_Tools/Update-KnownModRegistry.ps1` to regenerate the studio rows of `KnownModRegistry.cs` (never edit those rows by hand); `MUM-ExternalIdentifiers.Tests.ps1` fails in both directions |
-| Game version update | Re-check the README build line (`EA 0.69c`, or ship the range/chip); MUM has no typed game-symbol surface, so the stale `lib/Assembly-CSharp-nstrip.dll` is vestigial and a refresh is not a blocker |
-| After any Phase 2 item | Run `/audit-mod Mod_Update_Manager`, then `/consolidate-audit Mod_Update_Manager` |
-| Before publishing | Run `/critical-analysis Mod_Update_Manager` and confirm the embedded-ZIP currency gate is green in strict mode |
+| At each release | Run `EmbeddedZipCurrency.Tests.ps1` (strict mode) to confirm no embed lagged; deploy order framework → content mods → `/package-mod-suite` → MUM last |
+| After any feature phase | Run `/audit-mod Mod_Update_Manager` and update this roadmap; regenerate `/feature-map` |
+| Game version update | Run `/update-mod-version Mod_Update_Manager`, check CLAUDE.md EA notes, re-run `/diagnose-log` |
+| After fixing an issue | Run `/critical-analysis Mod_Update_Manager` to verify |
 
 ---
 
 ## Skill Cheatsheet for This Mod
 
 ```
-/audit-mod Mod_Update_Manager          - full health check, updates .audit/
-/critical-analysis Mod_Update_Manager  - adversarial review
-/code-quality Mod_Update_Manager       - C# reliability scan (the main sub-audit for a utility mod)
-/feature-map Mod_Update_Manager        - regenerate the feature-level regression anchor
-/build-mod Mod_Update_Manager          - build Release DLL
-/package-mod-suite [version]           - rebuild every suite mod, re-embed the ZIPs, bump MUM
-/deploy-mods Mod_Update_Manager        - build + deploy (ALWAYS last in a batch deploy)
+/audit-mod Mod_Update_Manager         - full health check, updates .audit/
+/critical-analysis Mod_Update_Manager - adversarial review
+/feature-map Mod_Update_Manager       - regenerate the regression anchor
+/code-quality Mod_Update_Manager      - C# hazard scan
+/build-mod Mod_Update_Manager         - build Release DLL
+/deploy-mods Mod_Update_Manager       - build + deploy to game
+/package-mod-suite [version]          - rebuild suite + re-embed into MUM + bump
 /update-mod-version Mod_Update_Manager <ver> - bump version in all 3 files
-/export-to-repo Mod_Update_Manager     - push to public repo
+/export-to-repo Mod_Update_Manager    - push to public repo
+/nexus-publish upload Mod_Update_Manager - publish release to Nexus
 ```
-
-*Not applicable to this mod (no CardData): `/repair-items`, `/repair-blueprints`,
-`/audit-items`, `/audit-blueprints`, `/audit-structures`, `/audit-perks`, `/audit-images`.*
-
----
 
 ## Plan Reconciliation Log
 

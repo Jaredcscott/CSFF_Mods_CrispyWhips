@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.72] - 2026-10-22
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.8, Herbs and Fungi 1.14.13, Advanced Copper Tools 1.18.11, Water Driven Infrastructure 1.12.13, Community Mod Chest 1.69.20, Homestead Perks 1.3.8, Repeat Action 2.2.3, Quick Transfer 1.9.2, Skill Speed Boost 1.11.2, and the pre-release Partner Overhaul 1.1.6, Harsh Wilds 0.11.9, Far Territory 0.1.11, Forest Lore 0.1.8, Utility Belt 0.1.7 and Sirus23 Mod Collection 1.22.9. A starting-location perk from a mod now starts you where it says, mod animals show a translated description in Chinese, Repeat Action no longer pours from a container you locked with Utility Belt and Quick Transfer leaves a locked card you click where it is, your Partner drinks from a Stream when Partners Drink From Lakes And Streams is on, Harsh Wilds lets you take down the Beast Totem, Forest Lore's deer at the Deer Lick can now be hunted, Sirus23's mouse raids no longer stop while the owl is on your board and a stocked Sheep Feeder keeps its feed when picked up, and Advanced Copper Tools, Herbs and Fungi, Community Mod Chest, Water Driven Infrastructure and Harsh Wilds get new or redrawn pictures.
+
 ## [2.1.71] - 2026-10-19
 
 ### Changed
